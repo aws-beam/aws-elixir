@@ -14,12 +14,12 @@ defmodule AWS.TrustedAdvisor do
   ## Example:
 
       recommendation_resource_exclusion() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "isExcluded" => [boolean()]
       }
 
   """
-  @type recommendation_resource_exclusion() :: %{String.t() => any()}
+  @type recommendation_resource_exclusion() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -30,7 +30,7 @@ defmodule AWS.TrustedAdvisor do
       }
 
   """
-  @type recommendation_pillar_specific_aggregates() :: %{String.t() => any()}
+  @type recommendation_pillar_specific_aggregates() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -38,11 +38,11 @@ defmodule AWS.TrustedAdvisor do
 
       list_organization_recommendation_accounts_response() :: %{
         "accountRecommendationLifecycleSummaries" => list(account_recommendation_lifecycle_summary()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_organization_recommendation_accounts_response() :: %{String.t() => any()}
+  @type list_organization_recommendation_accounts_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -50,11 +50,11 @@ defmodule AWS.TrustedAdvisor do
 
       list_checks_response() :: %{
         "checkSummaries" => list(check_summary()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_checks_response() :: %{String.t() => any()}
+  @type list_checks_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -70,14 +70,14 @@ defmodule AWS.TrustedAdvisor do
   ## Example:
 
       organization_recommendation_summary() :: %{
-        "arn" => String.t(),
-        "awsServices" => list(String.t()),
-        "checkArn" => [String.t()],
+        "arn" => String.t() | Atom.t(),
+        "awsServices" => list(String.t() | Atom.t()),
+        "checkArn" => [String.t() | Atom.t()],
         "createdAt" => [non_neg_integer()],
-        "id" => [String.t()],
+        "id" => [String.t() | Atom.t()],
         "lastUpdatedAt" => [non_neg_integer()],
         "lifecycleStage" => list(any()),
-        "name" => [String.t()],
+        "name" => [String.t() | Atom.t()],
         "pillarSpecificAggregates" => recommendation_pillar_specific_aggregates(),
         "pillars" => list(list(any())()),
         "resourcesAggregates" => recommendation_resources_aggregates(),
@@ -87,20 +87,20 @@ defmodule AWS.TrustedAdvisor do
       }
 
   """
-  @type organization_recommendation_summary() :: %{String.t() => any()}
+  @type organization_recommendation_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_recommendation_lifecycle_request() :: %{
-        optional("updateReason") => String.t(),
+        optional("updateReason") => String.t() | Atom.t(),
         optional("updateReasonCode") => list(any()),
         required("lifecycleStage") => list(any())
       }
 
   """
-  @type update_recommendation_lifecycle_request() :: %{String.t() => any()}
+  @type update_recommendation_lifecycle_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -111,7 +111,10 @@ defmodule AWS.TrustedAdvisor do
       }
 
   """
-  @type batch_update_recommendation_resource_exclusion_request() :: %{String.t() => any()}
+  @type batch_update_recommendation_resource_exclusion_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -124,57 +127,57 @@ defmodule AWS.TrustedAdvisor do
       }
 
   """
-  @type recommendation_resources_aggregates() :: %{String.t() => any()}
+  @type recommendation_resources_aggregates() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_recommendation_resources_response() :: %{
-        "nextToken" => [String.t()],
+        "nextToken" => [String.t() | Atom.t()],
         "recommendationResourceSummaries" => list(recommendation_resource_summary())
       }
 
   """
-  @type list_recommendation_resources_response() :: %{String.t() => any()}
+  @type list_recommendation_resources_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       recommendation() :: %{
-        "arn" => String.t(),
-        "awsServices" => list(String.t()),
-        "checkArn" => [String.t()],
+        "arn" => String.t() | Atom.t(),
+        "awsServices" => list(String.t() | Atom.t()),
+        "checkArn" => [String.t() | Atom.t()],
         "createdAt" => [non_neg_integer()],
-        "createdBy" => [String.t()],
-        "description" => [String.t()],
-        "id" => [String.t()],
+        "createdBy" => [String.t() | Atom.t()],
+        "description" => [String.t() | Atom.t()],
+        "id" => [String.t() | Atom.t()],
         "lastUpdatedAt" => [non_neg_integer()],
         "lifecycleStage" => list(any()),
-        "name" => [String.t()],
+        "name" => [String.t() | Atom.t()],
         "pillarSpecificAggregates" => recommendation_pillar_specific_aggregates(),
         "pillars" => list(list(any())()),
         "resolvedAt" => [non_neg_integer()],
@@ -182,48 +185,48 @@ defmodule AWS.TrustedAdvisor do
         "source" => list(any()),
         "status" => list(any()),
         "type" => list(any()),
-        "updateReason" => String.t(),
+        "updateReason" => String.t() | Atom.t(),
         "updateReasonCode" => list(any()),
-        "updatedOnBehalfOf" => [String.t()],
-        "updatedOnBehalfOfJobTitle" => [String.t()]
+        "updatedOnBehalfOf" => [String.t() | Atom.t()],
+        "updatedOnBehalfOfJobTitle" => [String.t() | Atom.t()]
       }
 
   """
-  @type recommendation() :: %{String.t() => any()}
+  @type recommendation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_checks_request() :: %{
-        optional("awsService") => String.t(),
+        optional("awsService") => String.t() | Atom.t(),
         optional("language") => list(any()),
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()],
+        optional("nextToken") => [String.t() | Atom.t()],
         optional("pillar") => list(any()),
         optional("source") => list(any())
       }
 
   """
-  @type list_checks_request() :: %{String.t() => any()}
+  @type list_checks_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       account_recommendation_lifecycle_summary() :: %{
-        "accountId" => String.t(),
-        "accountRecommendationArn" => String.t(),
+        "accountId" => String.t() | Atom.t(),
+        "accountRecommendationArn" => String.t() | Atom.t(),
         "lastUpdatedAt" => [non_neg_integer()],
         "lifecycleStage" => list(any()),
-        "updateReason" => String.t(),
+        "updateReason" => String.t() | Atom.t(),
         "updateReasonCode" => list(any()),
-        "updatedOnBehalfOf" => [String.t()],
-        "updatedOnBehalfOfJobTitle" => [String.t()]
+        "updatedOnBehalfOf" => [String.t() | Atom.t()],
+        "updatedOnBehalfOfJobTitle" => [String.t() | Atom.t()]
       }
 
   """
-  @type account_recommendation_lifecycle_summary() :: %{String.t() => any()}
+  @type account_recommendation_lifecycle_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -239,36 +242,36 @@ defmodule AWS.TrustedAdvisor do
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_organization_recommendations_response() :: %{
-        "nextToken" => [String.t()],
+        "nextToken" => [String.t() | Atom.t()],
         "organizationRecommendationSummaries" => list(organization_recommendation_summary())
       }
 
   """
-  @type list_organization_recommendations_response() :: %{String.t() => any()}
+  @type list_organization_recommendations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_organization_recommendation_accounts_request() :: %{
-        optional("affectedAccountId") => String.t(),
+        optional("affectedAccountId") => String.t() | Atom.t(),
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | Atom.t()]
       }
 
   """
-  @type list_organization_recommendation_accounts_request() :: %{String.t() => any()}
+  @type list_organization_recommendation_accounts_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -279,18 +282,21 @@ defmodule AWS.TrustedAdvisor do
       }
 
   """
-  @type batch_update_recommendation_resource_exclusion_response() :: %{String.t() => any()}
+  @type batch_update_recommendation_resource_exclusion_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -299,60 +305,63 @@ defmodule AWS.TrustedAdvisor do
       list_recommendation_resources_request() :: %{
         optional("exclusionStatus") => list(any()),
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()],
-        optional("regionCode") => [String.t()],
+        optional("nextToken") => [String.t() | Atom.t()],
+        optional("regionCode") => [String.t() | Atom.t()],
         optional("status") => list(any())
       }
 
   """
-  @type list_recommendation_resources_request() :: %{String.t() => any()}
+  @type list_recommendation_resources_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_organization_recommendation_resources_response() :: %{
-        "nextToken" => [String.t()],
+        "nextToken" => [String.t() | Atom.t()],
         "organizationRecommendationResourceSummaries" => list(organization_recommendation_resource_summary())
       }
 
   """
-  @type list_organization_recommendation_resources_response() :: %{String.t() => any()}
+  @type list_organization_recommendation_resources_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_organization_recommendation_lifecycle_request() :: %{
-        optional("updateReason") => String.t(),
+        optional("updateReason") => String.t() | Atom.t(),
         optional("updateReasonCode") => list(any()),
         required("lifecycleStage") => list(any())
       }
 
   """
-  @type update_organization_recommendation_lifecycle_request() :: %{String.t() => any()}
+  @type update_organization_recommendation_lifecycle_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -363,23 +372,23 @@ defmodule AWS.TrustedAdvisor do
       }
 
   """
-  @type get_organization_recommendation_response() :: %{String.t() => any()}
+  @type get_organization_recommendation_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_organization_recommendation_resources_request() :: %{
-        optional("affectedAccountId") => String.t(),
+        optional("affectedAccountId") => String.t() | Atom.t(),
         optional("exclusionStatus") => list(any()),
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()],
-        optional("regionCode") => [String.t()],
+        optional("nextToken") => [String.t() | Atom.t()],
+        optional("regionCode") => [String.t() | Atom.t()],
         optional("status") => list(any())
       }
 
   """
-  @type list_organization_recommendation_resources_request() :: %{String.t() => any()}
+  @type list_organization_recommendation_resources_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -387,11 +396,11 @@ defmodule AWS.TrustedAdvisor do
 
       list_organization_recommendations_request() :: %{
         optional("afterLastUpdatedAt") => [non_neg_integer()],
-        optional("awsService") => String.t(),
+        optional("awsService") => String.t() | Atom.t(),
         optional("beforeLastUpdatedAt") => [non_neg_integer()],
-        optional("checkIdentifier") => String.t(),
+        optional("checkIdentifier") => String.t() | Atom.t(),
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()],
+        optional("nextToken") => [String.t() | Atom.t()],
         optional("pillar") => list(any()),
         optional("source") => list(any()),
         optional("status") => list(any()),
@@ -399,39 +408,39 @@ defmodule AWS.TrustedAdvisor do
       }
 
   """
-  @type list_organization_recommendations_request() :: %{String.t() => any()}
+  @type list_organization_recommendations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       check_summary() :: %{
-        "arn" => String.t(),
-        "awsServices" => list(String.t()),
-        "description" => [String.t()],
-        "id" => [String.t()],
+        "arn" => String.t() | Atom.t(),
+        "awsServices" => list(String.t() | Atom.t()),
+        "description" => [String.t() | Atom.t()],
+        "id" => [String.t() | Atom.t()],
         "metadata" => map(),
-        "name" => [String.t()],
+        "name" => [String.t() | Atom.t()],
         "pillars" => list(list(any())()),
         "source" => list(any())
       }
 
   """
-  @type check_summary() :: %{String.t() => any()}
+  @type check_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       recommendation_summary() :: %{
-        "arn" => String.t(),
-        "awsServices" => list(String.t()),
-        "checkArn" => [String.t()],
+        "arn" => String.t() | Atom.t(),
+        "awsServices" => list(String.t() | Atom.t()),
+        "checkArn" => [String.t() | Atom.t()],
         "createdAt" => [non_neg_integer()],
-        "id" => [String.t()],
+        "id" => [String.t() | Atom.t()],
         "lastUpdatedAt" => [non_neg_integer()],
         "lifecycleStage" => list(any()),
-        "name" => [String.t()],
+        "name" => [String.t() | Atom.t()],
         "pillarSpecificAggregates" => recommendation_pillar_specific_aggregates(),
         "pillars" => list(list(any())()),
         "resourcesAggregates" => recommendation_resources_aggregates(),
@@ -441,52 +450,52 @@ defmodule AWS.TrustedAdvisor do
       }
 
   """
-  @type recommendation_summary() :: %{String.t() => any()}
+  @type recommendation_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_recommendation_resource_exclusion_error() :: %{
-        "arn" => String.t(),
-        "errorCode" => [String.t()],
-        "errorMessage" => [String.t()]
+        "arn" => String.t() | Atom.t(),
+        "errorCode" => [String.t() | Atom.t()],
+        "errorMessage" => [String.t() | Atom.t()]
       }
 
   """
-  @type update_recommendation_resource_exclusion_error() :: %{String.t() => any()}
+  @type update_recommendation_resource_exclusion_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       organization_recommendation_resource_summary() :: %{
-        "accountId" => String.t(),
-        "arn" => String.t(),
-        "awsResourceId" => [String.t()],
+        "accountId" => String.t() | Atom.t(),
+        "arn" => String.t() | Atom.t(),
+        "awsResourceId" => [String.t() | Atom.t()],
         "exclusionStatus" => list(any()),
-        "id" => [String.t()],
+        "id" => [String.t() | Atom.t()],
         "lastUpdatedAt" => [non_neg_integer()],
         "metadata" => map(),
-        "recommendationArn" => String.t(),
-        "regionCode" => String.t(),
+        "recommendationArn" => String.t() | Atom.t(),
+        "regionCode" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type organization_recommendation_resource_summary() :: %{String.t() => any()}
+  @type organization_recommendation_resource_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_recommendations_response() :: %{
-        "nextToken" => [String.t()],
+        "nextToken" => [String.t() | Atom.t()],
         "recommendationSummaries" => list(recommendation_summary())
       }
 
   """
-  @type list_recommendations_response() :: %{String.t() => any()}
+  @type list_recommendations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -498,7 +507,7 @@ defmodule AWS.TrustedAdvisor do
       }
 
   """
-  @type recommendation_cost_optimizing_aggregates() :: %{String.t() => any()}
+  @type recommendation_cost_optimizing_aggregates() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -509,23 +518,23 @@ defmodule AWS.TrustedAdvisor do
       }
 
   """
-  @type get_recommendation_response() :: %{String.t() => any()}
+  @type get_recommendation_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       organization_recommendation() :: %{
-        "arn" => String.t(),
-        "awsServices" => list(String.t()),
-        "checkArn" => [String.t()],
+        "arn" => String.t() | Atom.t(),
+        "awsServices" => list(String.t() | Atom.t()),
+        "checkArn" => [String.t() | Atom.t()],
         "createdAt" => [non_neg_integer()],
-        "createdBy" => [String.t()],
-        "description" => [String.t()],
-        "id" => [String.t()],
+        "createdBy" => [String.t() | Atom.t()],
+        "description" => [String.t() | Atom.t()],
+        "id" => [String.t() | Atom.t()],
         "lastUpdatedAt" => [non_neg_integer()],
         "lifecycleStage" => list(any()),
-        "name" => [String.t()],
+        "name" => [String.t() | Atom.t()],
         "pillarSpecificAggregates" => recommendation_pillar_specific_aggregates(),
         "pillars" => list(list(any())()),
         "resolvedAt" => [non_neg_integer()],
@@ -533,33 +542,33 @@ defmodule AWS.TrustedAdvisor do
         "source" => list(any()),
         "status" => list(any()),
         "type" => list(any()),
-        "updateReason" => String.t(),
+        "updateReason" => String.t() | Atom.t(),
         "updateReasonCode" => list(any()),
-        "updatedOnBehalfOf" => [String.t()],
-        "updatedOnBehalfOfJobTitle" => [String.t()]
+        "updatedOnBehalfOf" => [String.t() | Atom.t()],
+        "updatedOnBehalfOfJobTitle" => [String.t() | Atom.t()]
       }
 
   """
-  @type organization_recommendation() :: %{String.t() => any()}
+  @type organization_recommendation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       recommendation_resource_summary() :: %{
-        "arn" => String.t(),
-        "awsResourceId" => [String.t()],
+        "arn" => String.t() | Atom.t(),
+        "awsResourceId" => [String.t() | Atom.t()],
         "exclusionStatus" => list(any()),
-        "id" => [String.t()],
+        "id" => [String.t() | Atom.t()],
         "lastUpdatedAt" => [non_neg_integer()],
         "metadata" => map(),
-        "recommendationArn" => String.t(),
-        "regionCode" => String.t(),
+        "recommendationArn" => String.t() | Atom.t(),
+        "regionCode" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type recommendation_resource_summary() :: %{String.t() => any()}
+  @type recommendation_resource_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -567,11 +576,11 @@ defmodule AWS.TrustedAdvisor do
 
       list_recommendations_request() :: %{
         optional("afterLastUpdatedAt") => [non_neg_integer()],
-        optional("awsService") => String.t(),
+        optional("awsService") => String.t() | Atom.t(),
         optional("beforeLastUpdatedAt") => [non_neg_integer()],
-        optional("checkIdentifier") => String.t(),
+        optional("checkIdentifier") => String.t() | Atom.t(),
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()],
+        optional("nextToken") => [String.t() | Atom.t()],
         optional("pillar") => list(any()),
         optional("source") => list(any()),
         optional("status") => list(any()),
@@ -579,7 +588,7 @@ defmodule AWS.TrustedAdvisor do
       }
 
   """
-  @type list_recommendations_request() :: %{String.t() => any()}
+  @type list_recommendations_request() :: %{String.t() | Atom.t() => any()}
 
   @type batch_update_recommendation_resource_exclusion_errors() ::
           throttling_exception()
@@ -712,7 +721,7 @@ defmodule AWS.TrustedAdvisor do
   This API supports only prioritized
   recommendations.
   """
-  @spec get_organization_recommendation(map(), String.t(), list()) ::
+  @spec get_organization_recommendation(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_organization_recommendation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -736,7 +745,7 @@ defmodule AWS.TrustedAdvisor do
   @doc """
   Get a specific Recommendation
   """
-  @spec get_recommendation(map(), String.t(), list()) ::
+  @spec get_recommendation(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_recommendation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -756,12 +765,12 @@ defmodule AWS.TrustedAdvisor do
   """
   @spec list_checks(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_checks_response(), any()}
@@ -838,10 +847,10 @@ defmodule AWS.TrustedAdvisor do
   """
   @spec list_organization_recommendation_accounts(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_organization_recommendation_accounts_response(), any()}
@@ -896,13 +905,13 @@ defmodule AWS.TrustedAdvisor do
   """
   @spec list_organization_recommendation_resources(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_organization_recommendation_resources_response(), any()}
@@ -981,16 +990,16 @@ defmodule AWS.TrustedAdvisor do
   """
   @spec list_organization_recommendations(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_organization_recommendations_response(), any()}
@@ -1095,12 +1104,12 @@ defmodule AWS.TrustedAdvisor do
   """
   @spec list_recommendation_resources(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_recommendation_resources_response(), any()}
@@ -1166,16 +1175,16 @@ defmodule AWS.TrustedAdvisor do
   """
   @spec list_recommendations(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_recommendations_response(), any()}
@@ -1283,7 +1292,7 @@ defmodule AWS.TrustedAdvisor do
   """
   @spec update_organization_recommendation_lifecycle(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_organization_recommendation_lifecycle_request(),
           list()
         ) ::
@@ -1326,7 +1335,7 @@ defmodule AWS.TrustedAdvisor do
   """
   @spec update_recommendation_lifecycle(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_recommendation_lifecycle_request(),
           list()
         ) ::

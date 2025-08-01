@@ -35,42 +35,42 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type update_fleet_output() :: %{String.t() => any()}
+  @type update_fleet_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       project_source_version() :: %{
-        "sourceIdentifier" => String.t(),
-        "sourceVersion" => String.t()
+        "sourceIdentifier" => String.t() | Atom.t(),
+        "sourceVersion" => String.t() | Atom.t()
       }
       
   """
-  @type project_source_version() :: %{String.t() => any()}
+  @type project_source_version() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       phase_context() :: %{
-        "message" => String.t(),
-        "statusCode" => String.t()
+        "message" => String.t() | Atom.t(),
+        "statusCode" => String.t() | Atom.t()
       }
       
   """
-  @type phase_context() :: %{String.t() => any()}
+  @type phase_context() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_sandboxes_input() :: %{
-        required("ids") => list(String.t())
+        required("ids") => list(String.t() | Atom.t())
       }
       
   """
-  @type batch_get_sandboxes_input() :: %{String.t() => any()}
+  @type batch_get_sandboxes_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -96,13 +96,13 @@ defmodule AWS.CodeBuild do
       
       list_command_executions_for_sandbox_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortOrder") => list(any()),
-        required("sandboxId") => String.t()
+        required("sandboxId") => String.t() | Atom.t()
       }
       
   """
-  @type list_command_executions_for_sandbox_input() :: %{String.t() => any()}
+  @type list_command_executions_for_sandbox_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -110,22 +110,22 @@ defmodule AWS.CodeBuild do
       
       delete_report_group_input() :: %{
         optional("deleteReports") => boolean(),
-        required("arn") => String.t()
+        required("arn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_report_group_input() :: %{String.t() => any()}
+  @type delete_report_group_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_build_batches_input() :: %{
-        required("ids") => list(String.t())
+        required("ids") => list(String.t() | Atom.t())
       }
       
   """
-  @type batch_get_build_batches_input() :: %{String.t() => any()}
+  @type batch_get_build_batches_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -133,36 +133,36 @@ defmodule AWS.CodeBuild do
       
       list_report_groups_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortBy") => list(any()),
         optional("sortOrder") => list(any())
       }
       
   """
-  @type list_report_groups_input() :: %{String.t() => any()}
+  @type list_report_groups_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_builds_for_project_output() :: %{
-        "ids" => list(String.t()),
-        "nextToken" => String.t()
+        "ids" => list(String.t() | Atom.t()),
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_builds_for_project_output() :: %{String.t() => any()}
+  @type list_builds_for_project_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_build_batch_input() :: %{
-        required("id") => String.t()
+        required("id") => String.t() | Atom.t()
       }
       
   """
-  @type stop_build_batch_input() :: %{String.t() => any()}
+  @type stop_build_batch_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -171,47 +171,47 @@ defmodule AWS.CodeBuild do
       list_build_batches_for_project_input() :: %{
         optional("filter") => build_batch_filter(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("projectName") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("projectName") => String.t() | Atom.t(),
         optional("sortOrder") => list(any())
       }
       
   """
-  @type list_build_batches_for_project_input() :: %{String.t() => any()}
+  @type list_build_batches_for_project_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       command_execution() :: %{
-        "command" => String.t(),
+        "command" => String.t() | Atom.t(),
         "endTime" => non_neg_integer(),
-        "exitCode" => String.t(),
-        "id" => String.t(),
+        "exitCode" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "logs" => logs_location(),
-        "sandboxArn" => String.t(),
-        "sandboxId" => String.t(),
-        "standardErrContent" => String.t(),
-        "standardOutputContent" => String.t(),
+        "sandboxArn" => String.t() | Atom.t(),
+        "sandboxId" => String.t() | Atom.t(),
+        "standardErrContent" => String.t() | Atom.t(),
+        "standardOutputContent" => String.t() | Atom.t(),
         "startTime" => non_neg_integer(),
-        "status" => String.t(),
+        "status" => String.t() | Atom.t(),
         "submitTime" => non_neg_integer(),
         "type" => list(any())
       }
       
   """
-  @type command_execution() :: %{String.t() => any()}
+  @type command_execution() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_build_batch_input() :: %{
-        required("id") => String.t()
+        required("id") => String.t() | Atom.t()
       }
       
   """
-  @type delete_build_batch_input() :: %{String.t() => any()}
+  @type delete_build_batch_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -219,11 +219,11 @@ defmodule AWS.CodeBuild do
       
       batch_get_command_executions_output() :: %{
         "commandExecutions" => list(command_execution()),
-        "commandExecutionsNotFound" => list(String.t())
+        "commandExecutionsNotFound" => list(String.t() | Atom.t())
       }
       
   """
-  @type batch_get_command_executions_output() :: %{String.t() => any()}
+  @type batch_get_command_executions_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -243,7 +243,7 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type stop_sandbox_output() :: %{String.t() => any()}
+  @type stop_sandbox_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -254,30 +254,30 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type git_submodules_config() :: %{String.t() => any()}
+  @type git_submodules_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_build_batches_output() :: %{
-        "ids" => list(String.t()),
-        "nextToken" => String.t()
+        "ids" => list(String.t() | Atom.t()),
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_build_batches_output() :: %{String.t() => any()}
+  @type list_build_batches_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_sandbox_connection_input() :: %{
-        required("sandboxId") => String.t()
+        required("sandboxId") => String.t() | Atom.t()
       }
       
   """
-  @type start_sandbox_connection_input() :: %{String.t() => any()}
+  @type start_sandbox_connection_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -289,7 +289,7 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type proxy_configuration() :: %{String.t() => any()}
+  @type proxy_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -301,30 +301,30 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type logs_config() :: %{String.t() => any()}
+  @type logs_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_resource_policy_output() :: %{
-        "policy" => String.t()
+        "policy" => String.t() | Atom.t()
       }
       
   """
-  @type get_resource_policy_output() :: %{String.t() => any()}
+  @type get_resource_policy_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_fleets_output() :: %{
-        "fleets" => list(String.t()),
-        "nextToken" => String.t()
+        "fleets" => list(String.t() | Atom.t()),
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_fleets_output() :: %{String.t() => any()}
+  @type list_fleets_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -333,41 +333,41 @@ defmodule AWS.CodeBuild do
       build() :: %{
         "fileSystemLocations" => list(project_file_system_location()),
         "cache" => project_cache(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "phases" => list(build_phase()),
         "artifacts" => build_artifacts(),
-        "reportArns" => list(String.t()),
+        "reportArns" => list(String.t() | Atom.t()),
         "buildNumber" => float(),
-        "serviceRole" => String.t(),
+        "serviceRole" => String.t() | Atom.t(),
         "secondarySources" => list(project_source()),
         "buildStatus" => list(any()),
-        "sourceVersion" => String.t(),
+        "sourceVersion" => String.t() | Atom.t(),
         "secondaryArtifacts" => list(build_artifacts()),
         "queuedTimeoutInMinutes" => integer(),
         "buildComplete" => boolean(),
         "source" => project_source(),
-        "resolvedSourceVersion" => String.t(),
+        "resolvedSourceVersion" => String.t() | Atom.t(),
         "logs" => logs_location(),
         "exportedEnvironmentVariables" => list(exported_environment_variable()),
         "startTime" => non_neg_integer(),
         "secondarySourceVersions" => list(project_source_version()),
         "networkInterface" => network_interface(),
         "environment" => project_environment(),
-        "arn" => String.t(),
-        "projectName" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "projectName" => String.t() | Atom.t(),
         "endTime" => non_neg_integer(),
         "autoRetryConfig" => auto_retry_config(),
-        "initiator" => String.t(),
+        "initiator" => String.t() | Atom.t(),
         "vpcConfig" => vpc_config(),
-        "buildBatchArn" => String.t(),
+        "buildBatchArn" => String.t() | Atom.t(),
         "timeoutInMinutes" => integer(),
-        "encryptionKey" => String.t(),
-        "currentPhase" => String.t(),
+        "encryptionKey" => String.t() | Atom.t(),
+        "currentPhase" => String.t() | Atom.t(),
         "debugSession" => debug_session()
       }
       
   """
-  @type build() :: %{String.t() => any()}
+  @type build() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -380,8 +380,8 @@ defmodule AWS.CodeBuild do
         optional("buildBatchConfig") => project_build_batch_config(),
         optional("cache") => project_cache(),
         optional("concurrentBuildLimit") => integer(),
-        optional("description") => String.t(),
-        optional("encryptionKey") => String.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("encryptionKey") => String.t() | Atom.t(),
         optional("environment") => project_environment(),
         optional("fileSystemLocations") => list(project_file_system_location()),
         optional("logsConfig") => logs_config(),
@@ -389,17 +389,17 @@ defmodule AWS.CodeBuild do
         optional("secondaryArtifacts") => list(project_artifacts()),
         optional("secondarySourceVersions") => list(project_source_version()),
         optional("secondarySources") => list(project_source()),
-        optional("serviceRole") => String.t(),
+        optional("serviceRole") => String.t() | Atom.t(),
         optional("source") => project_source(),
-        optional("sourceVersion") => String.t(),
+        optional("sourceVersion") => String.t() | Atom.t(),
         optional("tags") => list(tag()),
         optional("timeoutInMinutes") => integer(),
         optional("vpcConfig") => vpc_config(),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
       
   """
-  @type update_project_input() :: %{String.t() => any()}
+  @type update_project_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -407,38 +407,38 @@ defmodule AWS.CodeBuild do
       
       build_group() :: %{
         "currentBuildSummary" => build_summary(),
-        "dependsOn" => list(String.t()),
-        "identifier" => String.t(),
+        "dependsOn" => list(String.t() | Atom.t()),
+        "identifier" => String.t() | Atom.t(),
         "ignoreFailure" => boolean(),
         "priorBuildSummaryList" => list(build_summary())
       }
       
   """
-  @type build_group() :: %{String.t() => any()}
+  @type build_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_builds_for_project_input() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortOrder") => list(any()),
-        required("projectName") => String.t()
+        required("projectName") => String.t() | Atom.t()
       }
       
   """
-  @type list_builds_for_project_input() :: %{String.t() => any()}
+  @type list_builds_for_project_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_builds_input() :: %{
-        required("ids") => list(String.t())
+        required("ids") => list(String.t() | Atom.t())
       }
       
   """
-  @type batch_get_builds_input() :: %{String.t() => any()}
+  @type batch_get_builds_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -449,22 +449,22 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type stop_build_batch_output() :: %{String.t() => any()}
+  @type stop_build_batch_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       project_file_system_location() :: %{
-        "identifier" => String.t(),
-        "location" => String.t(),
-        "mountOptions" => String.t(),
-        "mountPoint" => String.t(),
+        "identifier" => String.t() | Atom.t(),
+        "location" => String.t() | Atom.t(),
+        "mountOptions" => String.t() | Atom.t(),
+        "mountPoint" => String.t() | Atom.t(),
         "type" => list(any())
       }
       
   """
-  @type project_file_system_location() :: %{String.t() => any()}
+  @type project_file_system_location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -473,12 +473,12 @@ defmodule AWS.CodeBuild do
       list_reports_input() :: %{
         optional("filter") => report_filter(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortOrder") => list(any())
       }
       
   """
-  @type list_reports_input() :: %{String.t() => any()}
+  @type list_reports_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -494,12 +494,12 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       list_report_groups_output() :: %{
-        "nextToken" => String.t(),
-        "reportGroups" => list(String.t())
+        "nextToken" => String.t() | Atom.t(),
+        "reportGroups" => list(String.t() | Atom.t())
       }
       
   """
-  @type list_report_groups_output() :: %{String.t() => any()}
+  @type list_report_groups_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -507,63 +507,63 @@ defmodule AWS.CodeBuild do
       
       list_shared_projects_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortBy") => list(any()),
         optional("sortOrder") => list(any())
       }
       
   """
-  @type list_shared_projects_input() :: %{String.t() => any()}
+  @type list_shared_projects_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       environment_variable() :: %{
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "type" => list(any()),
-        "value" => String.t()
+        "value" => String.t() | Atom.t()
       }
       
   """
-  @type environment_variable() :: %{String.t() => any()}
+  @type environment_variable() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cloud_watch_logs_config() :: %{
-        "groupName" => String.t(),
+        "groupName" => String.t() | Atom.t(),
         "status" => list(any()),
-        "streamName" => String.t()
+        "streamName" => String.t() | Atom.t()
       }
       
   """
-  @type cloud_watch_logs_config() :: %{String.t() => any()}
+  @type cloud_watch_logs_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       docker_server_status() :: %{
-        "message" => String.t(),
-        "status" => String.t()
+        "message" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type docker_server_status() :: %{String.t() => any()}
+  @type docker_server_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       network_interface() :: %{
-        "networkInterfaceId" => String.t(),
-        "subnetId" => String.t()
+        "networkInterfaceId" => String.t() | Atom.t(),
+        "subnetId" => String.t() | Atom.t()
       }
       
   """
-  @type network_interface() :: %{String.t() => any()}
+  @type network_interface() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -574,19 +574,19 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type retry_build_output() :: %{String.t() => any()}
+  @type retry_build_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       report_with_raw_data() :: %{
-        "data" => String.t(),
-        "reportArn" => String.t()
+        "data" => String.t() | Atom.t(),
+        "reportArn" => String.t() | Atom.t()
       }
       
   """
-  @type report_with_raw_data() :: %{String.t() => any()}
+  @type report_with_raw_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -597,12 +597,12 @@ defmodule AWS.CodeBuild do
         "durationInSeconds" => float(),
         "endTime" => non_neg_integer(),
         "phaseStatus" => list(any()),
-        "phaseType" => String.t(),
+        "phaseType" => String.t() | Atom.t(),
         "startTime" => non_neg_integer()
       }
       
   """
-  @type sandbox_session_phase() :: %{String.t() => any()}
+  @type sandbox_session_phase() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -613,18 +613,18 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type create_report_group_output() :: %{String.t() => any()}
+  @type create_report_group_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_fleet_input() :: %{
-        required("arn") => String.t()
+        required("arn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_fleet_input() :: %{String.t() => any()}
+  @type delete_fleet_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -635,7 +635,7 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type update_webhook_output() :: %{String.t() => any()}
+  @type update_webhook_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -643,56 +643,56 @@ defmodule AWS.CodeBuild do
       
       get_report_group_trend_input() :: %{
         optional("numOfReports") => integer(),
-        required("reportGroupArn") => String.t(),
+        required("reportGroupArn") => String.t() | Atom.t(),
         required("trendField") => list(any())
       }
       
   """
-  @type get_report_group_trend_input() :: %{String.t() => any()}
+  @type get_report_group_trend_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       project_artifacts() :: %{
-        "artifactIdentifier" => String.t(),
+        "artifactIdentifier" => String.t() | Atom.t(),
         "bucketOwnerAccess" => list(any()),
         "encryptionDisabled" => boolean(),
-        "location" => String.t(),
-        "name" => String.t(),
+        "location" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "namespaceType" => list(any()),
         "overrideArtifactName" => boolean(),
         "packaging" => list(any()),
-        "path" => String.t(),
+        "path" => String.t() | Atom.t(),
         "type" => list(any())
       }
       
   """
-  @type project_artifacts() :: %{String.t() => any()}
+  @type project_artifacts() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       exported_environment_variable() :: %{
-        "name" => String.t(),
-        "value" => String.t()
+        "name" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
       
   """
-  @type exported_environment_variable() :: %{String.t() => any()}
+  @type exported_environment_variable() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_shared_projects_output() :: %{
-        "nextToken" => String.t(),
-        "projects" => list(String.t())
+        "nextToken" => String.t() | Atom.t(),
+        "projects" => list(String.t() | Atom.t())
       }
       
   """
-  @type list_shared_projects_output() :: %{String.t() => any()}
+  @type list_shared_projects_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -700,11 +700,11 @@ defmodule AWS.CodeBuild do
       
       batch_get_builds_output() :: %{
         "builds" => list(build()),
-        "buildsNotFound" => list(String.t())
+        "buildsNotFound" => list(String.t() | Atom.t())
       }
       
   """
-  @type batch_get_builds_output() :: %{String.t() => any()}
+  @type batch_get_builds_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -715,7 +715,7 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type create_project_output() :: %{String.t() => any()}
+  @type create_project_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -726,7 +726,7 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type stop_build_output() :: %{String.t() => any()}
+  @type stop_build_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -747,41 +747,41 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type environment_platform() :: %{String.t() => any()}
+  @type environment_platform() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_resource_policy_output() :: %{
-        "resourceArn" => String.t()
+        "resourceArn" => String.t() | Atom.t()
       }
       
   """
-  @type put_resource_policy_output() :: %{String.t() => any()}
+  @type put_resource_policy_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_builds_input() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortOrder") => list(any())
       }
       
   """
-  @type list_builds_input() :: %{String.t() => any()}
+  @type list_builds_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       account_suspended_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type account_suspended_exception() :: %{String.t() => any()}
+  @type account_suspended_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -793,7 +793,7 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type report_export_config() :: %{String.t() => any()}
+  @type report_export_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -803,25 +803,25 @@ defmodule AWS.CodeBuild do
         optional("maxLineCoveragePercentage") => float(),
         optional("maxResults") => integer(),
         optional("minLineCoveragePercentage") => float(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortBy") => list(any()),
         optional("sortOrder") => list(any()),
-        required("reportArn") => String.t()
+        required("reportArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_code_coverages_input() :: %{String.t() => any()}
+  @type describe_code_coverages_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_source_credentials_input() :: %{
-        required("arn") => String.t()
+        required("arn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_source_credentials_input() :: %{String.t() => any()}
+  @type delete_source_credentials_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -837,32 +837,32 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type code_coverage_report_summary() :: %{String.t() => any()}
+  @type code_coverage_report_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_resource_policy_input() :: %{
-        required("resourceArn") => String.t()
+        required("resourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_resource_policy_input() :: %{String.t() => any()}
+  @type delete_resource_policy_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       project_cache() :: %{
-        "cacheNamespace" => String.t(),
-        "location" => String.t(),
+        "cacheNamespace" => String.t() | Atom.t(),
+        "location" => String.t() | Atom.t(),
         "modes" => list(list(any())()),
         "type" => list(any())
       }
       
   """
-  @type project_cache() :: %{String.t() => any()}
+  @type project_cache() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -873,7 +873,7 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type start_command_execution_output() :: %{String.t() => any()}
+  @type start_command_execution_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -881,23 +881,23 @@ defmodule AWS.CodeBuild do
       
       list_command_executions_for_sandbox_output() :: %{
         "commandExecutions" => list(command_execution()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_command_executions_for_sandbox_output() :: %{String.t() => any()}
+  @type list_command_executions_for_sandbox_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       build_not_deleted() :: %{
-        "id" => String.t(),
-        "statusCode" => String.t()
+        "id" => String.t() | Atom.t(),
+        "statusCode" => String.t() | Atom.t()
       }
       
   """
-  @type build_not_deleted() :: %{String.t() => any()}
+  @type build_not_deleted() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -906,30 +906,30 @@ defmodule AWS.CodeBuild do
       test_case() :: %{
         "durationInNanoSeconds" => float(),
         "expired" => non_neg_integer(),
-        "message" => String.t(),
-        "name" => String.t(),
-        "prefix" => String.t(),
-        "reportArn" => String.t(),
-        "status" => String.t(),
-        "testRawDataPath" => String.t(),
-        "testSuiteName" => String.t()
+        "message" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "prefix" => String.t() | Atom.t(),
+        "reportArn" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t(),
+        "testRawDataPath" => String.t() | Atom.t(),
+        "testSuiteName" => String.t() | Atom.t()
       }
       
   """
-  @type test_case() :: %{String.t() => any()}
+  @type test_case() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_project_visibility_input() :: %{
-        optional("resourceAccessRole") => String.t(),
-        required("projectArn") => String.t(),
+        optional("resourceAccessRole") => String.t() | Atom.t(),
+        required("projectArn") => String.t() | Atom.t(),
         required("projectVisibility") => list(any())
       }
       
   """
-  @type update_project_visibility_input() :: %{String.t() => any()}
+  @type update_project_visibility_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -937,32 +937,32 @@ defmodule AWS.CodeBuild do
       
       fleet_status() :: %{
         "context" => list(any()),
-        "message" => String.t(),
+        "message" => String.t() | Atom.t(),
         "statusCode" => list(any())
       }
       
   """
-  @type fleet_status() :: %{String.t() => any()}
+  @type fleet_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_build_batch_output() :: %{
-        "buildsDeleted" => list(String.t()),
+        "buildsDeleted" => list(String.t() | Atom.t()),
         "buildsNotDeleted" => list(build_not_deleted()),
-        "statusCode" => String.t()
+        "statusCode" => String.t() | Atom.t()
       }
       
   """
-  @type delete_build_batch_output() :: %{String.t() => any()}
+  @type delete_build_batch_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       build_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "buildStatus" => list(any()),
         "primaryArtifact" => resolved_artifact(),
         "requestedOn" => non_neg_integer(),
@@ -970,7 +970,7 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type build_summary() :: %{String.t() => any()}
+  @type build_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -978,14 +978,14 @@ defmodule AWS.CodeBuild do
       
       import_source_credentials_input() :: %{
         optional("shouldOverwrite") => boolean(),
-        optional("username") => String.t(),
+        optional("username") => String.t() | Atom.t(),
         required("authType") => list(any()),
         required("serverType") => list(any()),
-        required("token") => String.t()
+        required("token") => String.t() | Atom.t()
       }
       
   """
-  @type import_source_credentials_input() :: %{String.t() => any()}
+  @type import_source_credentials_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -993,23 +993,23 @@ defmodule AWS.CodeBuild do
       
       batch_get_reports_output() :: %{
         "reports" => list(report()),
-        "reportsNotFound" => list(String.t())
+        "reportsNotFound" => list(String.t() | Atom.t())
       }
       
   """
-  @type batch_get_reports_output() :: %{String.t() => any()}
+  @type batch_get_reports_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_reports_output() :: %{
-        "nextToken" => String.t(),
-        "reports" => list(String.t())
+        "nextToken" => String.t() | Atom.t(),
+        "reports" => list(String.t() | Atom.t())
       }
       
   """
-  @type list_reports_output() :: %{String.t() => any()}
+  @type list_reports_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1020,7 +1020,7 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type create_webhook_output() :: %{String.t() => any()}
+  @type create_webhook_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1028,12 +1028,12 @@ defmodule AWS.CodeBuild do
       
       start_command_execution_input() :: %{
         optional("type") => list(any()),
-        required("command") => String.t(),
-        required("sandboxId") => String.t()
+        required("command") => String.t() | Atom.t(),
+        required("sandboxId") => String.t() | Atom.t()
       }
       
   """
-  @type start_command_execution_input() :: %{String.t() => any()}
+  @type start_command_execution_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1049,16 +1049,16 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       start_build_input() :: %{
-        optional("encryptionKeyOverride") => String.t(),
-        optional("idempotencyToken") => String.t(),
-        optional("certificateOverride") => String.t(),
+        optional("encryptionKeyOverride") => String.t() | Atom.t(),
+        optional("idempotencyToken") => String.t() | Atom.t(),
+        optional("certificateOverride") => String.t() | Atom.t(),
         optional("computeTypeOverride") => list(any()),
         optional("autoRetryLimitOverride") => integer(),
         optional("artifactsOverride") => project_artifacts(),
         optional("buildStatusConfigOverride") => build_status_config(),
         optional("gitSubmodulesConfigOverride") => git_submodules_config(),
         optional("debugSessionEnabled") => boolean(),
-        optional("buildspecOverride") => String.t(),
+        optional("buildspecOverride") => String.t() | Atom.t(),
         optional("environmentTypeOverride") => list(any()),
         optional("sourceAuthOverride") => source_auth(),
         optional("fleetOverride") => project_fleet(),
@@ -1071,21 +1071,21 @@ defmodule AWS.CodeBuild do
         optional("queuedTimeoutInMinutesOverride") => integer(),
         optional("secondarySourcesVersionOverride") => list(project_source_version()),
         optional("environmentVariablesOverride") => list(environment_variable()),
-        required("projectName") => String.t(),
+        required("projectName") => String.t() | Atom.t(),
         optional("secondarySourcesOverride") => list(project_source()),
-        optional("sourceVersion") => String.t(),
-        optional("sourceLocationOverride") => String.t(),
-        optional("serviceRoleOverride") => String.t(),
+        optional("sourceVersion") => String.t() | Atom.t(),
+        optional("sourceLocationOverride") => String.t() | Atom.t(),
+        optional("serviceRoleOverride") => String.t() | Atom.t(),
         optional("logsConfigOverride") => logs_config(),
         optional("secondaryArtifactsOverride") => list(project_artifacts()),
-        optional("imageOverride") => String.t(),
+        optional("imageOverride") => String.t() | Atom.t(),
         optional("imagePullCredentialsTypeOverride") => list(any()),
         optional("registryCredentialOverride") => registry_credential(),
         optional("insecureSslOverride") => boolean()
       }
       
   """
-  @type start_build_input() :: %{String.t() => any()}
+  @type start_build_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1094,24 +1094,24 @@ defmodule AWS.CodeBuild do
       list_reports_for_report_group_input() :: %{
         optional("filter") => report_filter(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortOrder") => list(any()),
-        required("reportGroupArn") => String.t()
+        required("reportGroupArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_reports_for_report_group_input() :: %{String.t() => any()}
+  @type list_reports_for_report_group_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_delete_builds_input() :: %{
-        required("ids") => list(String.t())
+        required("ids") => list(String.t() | Atom.t())
       }
       
   """
-  @type batch_delete_builds_input() :: %{String.t() => any()}
+  @type batch_delete_builds_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1122,18 +1122,18 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type list_curated_environment_images_output() :: %{String.t() => any()}
+  @type list_curated_environment_images_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1141,23 +1141,23 @@ defmodule AWS.CodeBuild do
       
       describe_code_coverages_output() :: %{
         "codeCoverages" => list(code_coverage()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_code_coverages_output() :: %{String.t() => any()}
+  @type describe_code_coverages_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_shared_report_groups_output() :: %{
-        "nextToken" => String.t(),
-        "reportGroups" => list(String.t())
+        "nextToken" => String.t() | Atom.t(),
+        "reportGroups" => list(String.t() | Atom.t())
       }
       
   """
-  @type list_shared_report_groups_output() :: %{String.t() => any()}
+  @type list_shared_report_groups_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1168,43 +1168,43 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type retry_build_batch_output() :: %{String.t() => any()}
+  @type retry_build_batch_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "key" => String.t(),
-        "value" => String.t()
+        "key" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       account_limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type account_limit_exceeded_exception() :: %{String.t() => any()}
+  @type account_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       retry_build_batch_input() :: %{
-        optional("id") => String.t(),
-        optional("idempotencyToken") => String.t(),
+        optional("id") => String.t() | Atom.t(),
+        optional("idempotencyToken") => String.t() | Atom.t(),
         optional("retryType") => list(any())
       }
       
   """
-  @type retry_build_batch_input() :: %{String.t() => any()}
+  @type retry_build_batch_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1212,18 +1212,18 @@ defmodule AWS.CodeBuild do
       
       debug_session() :: %{
         "sessionEnabled" => boolean(),
-        "sessionTarget" => String.t()
+        "sessionTarget" => String.t() | Atom.t()
       }
       
   """
-  @type debug_session() :: %{String.t() => any()}
+  @type debug_session() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       project() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "artifacts" => project_artifacts(),
         "autoRetryLimit" => integer(),
         "badge" => project_badge(),
@@ -1231,23 +1231,23 @@ defmodule AWS.CodeBuild do
         "cache" => project_cache(),
         "concurrentBuildLimit" => integer(),
         "created" => non_neg_integer(),
-        "description" => String.t(),
-        "encryptionKey" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "encryptionKey" => String.t() | Atom.t(),
         "environment" => project_environment(),
         "fileSystemLocations" => list(project_file_system_location()),
         "lastModified" => non_neg_integer(),
         "logsConfig" => logs_config(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "projectVisibility" => list(any()),
-        "publicProjectAlias" => String.t(),
+        "publicProjectAlias" => String.t() | Atom.t(),
         "queuedTimeoutInMinutes" => integer(),
-        "resourceAccessRole" => String.t(),
+        "resourceAccessRole" => String.t() | Atom.t(),
         "secondaryArtifacts" => list(project_artifacts()),
         "secondarySourceVersions" => list(project_source_version()),
         "secondarySources" => list(project_source()),
-        "serviceRole" => String.t(),
+        "serviceRole" => String.t() | Atom.t(),
         "source" => project_source(),
-        "sourceVersion" => String.t(),
+        "sourceVersion" => String.t() | Atom.t(),
         "tags" => list(tag()),
         "timeoutInMinutes" => integer(),
         "vpcConfig" => vpc_config(),
@@ -1255,19 +1255,19 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type project() :: %{String.t() => any()}
+  @type project() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_resource_policy_input() :: %{
-        required("policy") => String.t(),
-        required("resourceArn") => String.t()
+        required("policy") => String.t() | Atom.t(),
+        required("resourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type put_resource_policy_input() :: %{String.t() => any()}
+  @type put_resource_policy_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1275,23 +1275,23 @@ defmodule AWS.CodeBuild do
       
       batch_get_projects_output() :: %{
         "projects" => list(project()),
-        "projectsNotFound" => list(String.t())
+        "projectsNotFound" => list(String.t() | Atom.t())
       }
       
   """
-  @type batch_get_projects_output() :: %{String.t() => any()}
+  @type batch_get_projects_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_projects_output() :: %{
-        "nextToken" => String.t(),
-        "projects" => list(String.t())
+        "nextToken" => String.t() | Atom.t(),
+        "projects" => list(String.t() | Atom.t())
       }
       
   """
-  @type list_projects_output() :: %{String.t() => any()}
+  @type list_projects_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1302,7 +1302,7 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type start_sandbox_output() :: %{String.t() => any()}
+  @type start_sandbox_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1312,12 +1312,12 @@ defmodule AWS.CodeBuild do
         "batchReportMode" => list(any()),
         "combineArtifacts" => boolean(),
         "restrictions" => batch_restrictions(),
-        "serviceRole" => String.t(),
+        "serviceRole" => String.t() | Atom.t(),
         "timeoutInMins" => integer()
       }
       
   """
-  @type project_build_batch_config() :: %{String.t() => any()}
+  @type project_build_batch_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1325,11 +1325,11 @@ defmodule AWS.CodeBuild do
       
       batch_get_build_batches_output() :: %{
         "buildBatches" => list(build_batch()),
-        "buildBatchesNotFound" => list(String.t())
+        "buildBatchesNotFound" => list(String.t() | Atom.t())
       }
       
   """
-  @type batch_get_build_batches_output() :: %{String.t() => any()}
+  @type batch_get_build_batches_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1340,18 +1340,18 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type update_report_group_output() :: %{String.t() => any()}
+  @type update_report_group_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalidate_project_cache_input() :: %{
-        required("projectName") => String.t()
+        required("projectName") => String.t() | Atom.t()
       }
       
   """
-  @type invalidate_project_cache_input() :: %{String.t() => any()}
+  @type invalidate_project_cache_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1362,7 +1362,7 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type start_sandbox_connection_output() :: %{String.t() => any()}
+  @type start_sandbox_connection_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1374,32 +1374,32 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type target_tracking_scaling_configuration() :: %{String.t() => any()}
+  @type target_tracking_scaling_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_test_cases_output() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "testCases" => list(test_case())
       }
       
   """
-  @type describe_test_cases_output() :: %{String.t() => any()}
+  @type describe_test_cases_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       vpc_config() :: %{
-        "securityGroupIds" => list(String.t()),
-        "subnets" => list(String.t()),
-        "vpcId" => String.t()
+        "securityGroupIds" => list(String.t() | Atom.t()),
+        "subnets" => list(String.t() | Atom.t()),
+        "vpcId" => String.t() | Atom.t()
       }
       
   """
-  @type vpc_config() :: %{String.t() => any()}
+  @type vpc_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1408,12 +1408,12 @@ defmodule AWS.CodeBuild do
       auto_retry_config() :: %{
         "autoRetryLimit" => integer(),
         "autoRetryNumber" => integer(),
-        "nextAutoRetry" => String.t(),
-        "previousAutoRetry" => String.t()
+        "nextAutoRetry" => String.t() | Atom.t(),
+        "previousAutoRetry" => String.t() | Atom.t()
       }
       
   """
-  @type auto_retry_config() :: %{String.t() => any()}
+  @type auto_retry_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1422,23 +1422,23 @@ defmodule AWS.CodeBuild do
       s3_logs_config() :: %{
         "bucketOwnerAccess" => list(any()),
         "encryptionDisabled" => boolean(),
-        "location" => String.t(),
+        "location" => String.t() | Atom.t(),
         "status" => list(any())
       }
       
   """
-  @type s3_logs_config() :: %{String.t() => any()}
+  @type s3_logs_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_input_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_input_exception() :: %{String.t() => any()}
+  @type invalid_input_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1449,20 +1449,20 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type list_source_credentials_output() :: %{String.t() => any()}
+  @type list_source_credentials_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_project_visibility_output() :: %{
-        "projectArn" => String.t(),
+        "projectArn" => String.t() | Atom.t(),
         "projectVisibility" => list(any()),
-        "publicProjectAlias" => String.t()
+        "publicProjectAlias" => String.t() | Atom.t()
       }
       
   """
-  @type update_project_visibility_output() :: %{String.t() => any()}
+  @type update_project_visibility_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1473,46 +1473,46 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type start_build_output() :: %{String.t() => any()}
+  @type start_build_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       o_auth_provider_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type o_auth_provider_exception() :: %{String.t() => any()}
+  @type o_auth_provider_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       build_status_config() :: %{
-        "context" => String.t(),
-        "targetUrl" => String.t()
+        "context" => String.t() | Atom.t(),
+        "targetUrl" => String.t() | Atom.t()
       }
       
   """
-  @type build_status_config() :: %{String.t() => any()}
+  @type build_status_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_report_export_config() :: %{
-        "bucket" => String.t(),
-        "bucketOwner" => String.t(),
+        "bucket" => String.t() | Atom.t(),
+        "bucketOwner" => String.t() | Atom.t(),
         "encryptionDisabled" => boolean(),
-        "encryptionKey" => String.t(),
+        "encryptionKey" => String.t() | Atom.t(),
         "packaging" => list(any()),
-        "path" => String.t()
+        "path" => String.t() | Atom.t()
       }
       
   """
-  @type s3_report_export_config() :: %{String.t() => any()}
+  @type s3_report_export_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1523,7 +1523,7 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type start_build_batch_output() :: %{String.t() => any()}
+  @type start_build_batch_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1534,45 +1534,45 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type create_fleet_output() :: %{String.t() => any()}
+  @type create_fleet_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_webhook_input() :: %{
-        optional("branchFilter") => String.t(),
+        optional("branchFilter") => String.t() | Atom.t(),
         optional("buildType") => list(any()),
         optional("filterGroups") => list(list(webhook_filter())()),
         optional("manualCreation") => boolean(),
         optional("scopeConfiguration") => scope_configuration(),
-        required("projectName") => String.t()
+        required("projectName") => String.t() | Atom.t()
       }
       
   """
-  @type create_webhook_input() :: %{String.t() => any()}
+  @type create_webhook_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_sandbox_input() :: %{
-        required("id") => String.t()
+        required("id") => String.t() | Atom.t()
       }
       
   """
-  @type stop_sandbox_input() :: %{String.t() => any()}
+  @type stop_sandbox_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_report_input() :: %{
-        required("arn") => String.t()
+        required("arn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_report_input() :: %{String.t() => any()}
+  @type delete_report_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1580,11 +1580,11 @@ defmodule AWS.CodeBuild do
       
       batch_get_fleets_output() :: %{
         "fleets" => list(fleet()),
-        "fleetsNotFound" => list(String.t())
+        "fleetsNotFound" => list(String.t() | Atom.t())
       }
       
   """
-  @type batch_get_fleets_output() :: %{String.t() => any()}
+  @type batch_get_fleets_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1593,18 +1593,18 @@ defmodule AWS.CodeBuild do
       project_source() :: %{
         "auth" => source_auth(),
         "buildStatusConfig" => build_status_config(),
-        "buildspec" => String.t(),
+        "buildspec" => String.t() | Atom.t(),
         "gitCloneDepth" => integer(),
         "gitSubmodulesConfig" => git_submodules_config(),
         "insecureSsl" => boolean(),
-        "location" => String.t(),
+        "location" => String.t() | Atom.t(),
         "reportBuildStatus" => boolean(),
-        "sourceIdentifier" => String.t(),
+        "sourceIdentifier" => String.t() | Atom.t(),
         "type" => list(any())
       }
       
   """
-  @type project_source() :: %{String.t() => any()}
+  @type project_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1616,27 +1616,27 @@ defmodule AWS.CodeBuild do
         optional("buildBatchConfig") => project_build_batch_config(),
         optional("cache") => project_cache(),
         optional("concurrentBuildLimit") => integer(),
-        optional("description") => String.t(),
-        optional("encryptionKey") => String.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("encryptionKey") => String.t() | Atom.t(),
         optional("fileSystemLocations") => list(project_file_system_location()),
         optional("logsConfig") => logs_config(),
         optional("queuedTimeoutInMinutes") => integer(),
         optional("secondaryArtifacts") => list(project_artifacts()),
         optional("secondarySourceVersions") => list(project_source_version()),
         optional("secondarySources") => list(project_source()),
-        optional("sourceVersion") => String.t(),
+        optional("sourceVersion") => String.t() | Atom.t(),
         optional("tags") => list(tag()),
         optional("timeoutInMinutes") => integer(),
         optional("vpcConfig") => vpc_config(),
         required("artifacts") => project_artifacts(),
         required("environment") => project_environment(),
-        required("name") => String.t(),
-        required("serviceRole") => String.t(),
+        required("name") => String.t() | Atom.t(),
+        required("serviceRole") => String.t() | Atom.t(),
         required("source") => project_source()
       }
       
   """
-  @type create_project_input() :: %{String.t() => any()}
+  @type create_project_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1644,27 +1644,27 @@ defmodule AWS.CodeBuild do
       
       list_fleets_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortBy") => list(any()),
         optional("sortOrder") => list(any())
       }
       
   """
-  @type list_fleets_input() :: %{String.t() => any()}
+  @type list_fleets_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       source_credentials_info() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "authType" => list(any()),
-        "resource" => String.t(),
+        "resource" => String.t() | Atom.t(),
         "serverType" => list(any())
       }
       
   """
-  @type source_credentials_info() :: %{String.t() => any()}
+  @type source_credentials_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1675,18 +1675,18 @@ defmodule AWS.CodeBuild do
         optional("computeConfiguration") => compute_configuration(),
         optional("computeType") => list(any()),
         optional("environmentType") => list(any()),
-        optional("fleetServiceRole") => String.t(),
-        optional("imageId") => String.t(),
+        optional("fleetServiceRole") => String.t() | Atom.t(),
+        optional("imageId") => String.t() | Atom.t(),
         optional("overflowBehavior") => list(any()),
         optional("proxyConfiguration") => proxy_configuration(),
         optional("scalingConfiguration") => scaling_configuration_input(),
         optional("tags") => list(tag()),
         optional("vpcConfig") => vpc_config(),
-        required("arn") => String.t()
+        required("arn") => String.t() | Atom.t()
       }
       
   """
-  @type update_fleet_input() :: %{String.t() => any()}
+  @type update_fleet_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1694,8 +1694,8 @@ defmodule AWS.CodeBuild do
       
       create_fleet_input() :: %{
         optional("computeConfiguration") => compute_configuration(),
-        optional("fleetServiceRole") => String.t(),
-        optional("imageId") => String.t(),
+        optional("fleetServiceRole") => String.t() | Atom.t(),
+        optional("imageId") => String.t() | Atom.t(),
         optional("overflowBehavior") => list(any()),
         optional("proxyConfiguration") => proxy_configuration(),
         optional("scalingConfiguration") => scaling_configuration_input(),
@@ -1704,11 +1704,11 @@ defmodule AWS.CodeBuild do
         required("baseCapacity") => integer(),
         required("computeType") => list(any()),
         required("environmentType") => list(any()),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
       
   """
-  @type create_fleet_input() :: %{String.t() => any()}
+  @type create_fleet_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1716,12 +1716,12 @@ defmodule AWS.CodeBuild do
       
       webhook_filter() :: %{
         "excludeMatchedPattern" => boolean(),
-        "pattern" => String.t(),
+        "pattern" => String.t() | Atom.t(),
         "type" => list(any())
       }
       
   """
-  @type webhook_filter() :: %{String.t() => any()}
+  @type webhook_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1737,37 +1737,37 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type build_batch_phase() :: %{String.t() => any()}
+  @type build_batch_phase() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       sandbox() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "currentSession" => sandbox_session(),
-        "encryptionKey" => String.t(),
+        "encryptionKey" => String.t() | Atom.t(),
         "endTime" => non_neg_integer(),
         "environment" => project_environment(),
         "fileSystemLocations" => list(project_file_system_location()),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "logConfig" => logs_config(),
-        "projectName" => String.t(),
+        "projectName" => String.t() | Atom.t(),
         "queuedTimeoutInMinutes" => integer(),
         "requestTime" => non_neg_integer(),
         "secondarySourceVersions" => list(project_source_version()),
         "secondarySources" => list(project_source()),
-        "serviceRole" => String.t(),
+        "serviceRole" => String.t() | Atom.t(),
         "source" => project_source(),
-        "sourceVersion" => String.t(),
+        "sourceVersion" => String.t() | Atom.t(),
         "startTime" => non_neg_integer(),
-        "status" => String.t(),
+        "status" => String.t() | Atom.t(),
         "timeoutInMinutes" => integer(),
         "vpcConfig" => vpc_config()
       }
       
   """
-  @type sandbox() :: %{String.t() => any()}
+  @type sandbox() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1775,17 +1775,17 @@ defmodule AWS.CodeBuild do
       
       logs_location() :: %{
         "cloudWatchLogs" => cloud_watch_logs_config(),
-        "cloudWatchLogsArn" => String.t(),
-        "deepLink" => String.t(),
-        "groupName" => String.t(),
-        "s3DeepLink" => String.t(),
+        "cloudWatchLogsArn" => String.t() | Atom.t(),
+        "deepLink" => String.t() | Atom.t(),
+        "groupName" => String.t() | Atom.t(),
+        "s3DeepLink" => String.t() | Atom.t(),
         "s3Logs" => s3_logs_config(),
-        "s3LogsArn" => String.t(),
-        "streamName" => String.t()
+        "s3LogsArn" => String.t() | Atom.t(),
+        "streamName" => String.t() | Atom.t()
       }
       
   """
-  @type logs_location() :: %{String.t() => any()}
+  @type logs_location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1793,12 +1793,12 @@ defmodule AWS.CodeBuild do
       
       fleet_proxy_rule() :: %{
         "effect" => list(any()),
-        "entities" => list(String.t()),
+        "entities" => list(String.t() | Atom.t()),
         "type" => list(any())
       }
       
   """
-  @type fleet_proxy_rule() :: %{String.t() => any()}
+  @type fleet_proxy_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1814,25 +1814,25 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       scope_configuration() :: %{
-        "domain" => String.t(),
-        "name" => String.t(),
+        "domain" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "scope" => list(any())
       }
       
   """
-  @type scope_configuration() :: %{String.t() => any()}
+  @type scope_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_command_executions_input() :: %{
-        required("commandExecutionIds") => list(String.t()),
-        required("sandboxId") => String.t()
+        required("commandExecutionIds") => list(String.t() | Atom.t()),
+        required("sandboxId") => String.t() | Atom.t()
       }
       
   """
-  @type batch_get_command_executions_input() :: %{String.t() => any()}
+  @type batch_get_command_executions_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1843,35 +1843,35 @@ defmodule AWS.CodeBuild do
         "branchesCovered" => integer(),
         "branchesMissed" => integer(),
         "expired" => non_neg_integer(),
-        "filePath" => String.t(),
-        "id" => String.t(),
+        "filePath" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "lineCoveragePercentage" => float(),
         "linesCovered" => integer(),
         "linesMissed" => integer(),
-        "reportARN" => String.t()
+        "reportARN" => String.t() | Atom.t()
       }
       
   """
-  @type code_coverage() :: %{String.t() => any()}
+  @type code_coverage() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       registry_credential() :: %{
-        "credential" => String.t(),
+        "credential" => String.t() | Atom.t(),
         "credentialProvider" => list(any())
       }
       
   """
-  @type registry_credential() :: %{String.t() => any()}
+  @type registry_credential() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       build_batch() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "artifacts" => build_artifacts(),
         "buildBatchConfig" => project_build_batch_config(),
         "buildBatchNumber" => float(),
@@ -1880,57 +1880,57 @@ defmodule AWS.CodeBuild do
         "buildTimeoutInMinutes" => integer(),
         "cache" => project_cache(),
         "complete" => boolean(),
-        "currentPhase" => String.t(),
+        "currentPhase" => String.t() | Atom.t(),
         "debugSessionEnabled" => boolean(),
-        "encryptionKey" => String.t(),
+        "encryptionKey" => String.t() | Atom.t(),
         "endTime" => non_neg_integer(),
         "environment" => project_environment(),
         "fileSystemLocations" => list(project_file_system_location()),
-        "id" => String.t(),
-        "initiator" => String.t(),
+        "id" => String.t() | Atom.t(),
+        "initiator" => String.t() | Atom.t(),
         "logConfig" => logs_config(),
         "phases" => list(build_batch_phase()),
-        "projectName" => String.t(),
+        "projectName" => String.t() | Atom.t(),
         "queuedTimeoutInMinutes" => integer(),
-        "reportArns" => list(String.t()),
-        "resolvedSourceVersion" => String.t(),
+        "reportArns" => list(String.t() | Atom.t()),
+        "resolvedSourceVersion" => String.t() | Atom.t(),
         "secondaryArtifacts" => list(build_artifacts()),
         "secondarySourceVersions" => list(project_source_version()),
         "secondarySources" => list(project_source()),
-        "serviceRole" => String.t(),
+        "serviceRole" => String.t() | Atom.t(),
         "source" => project_source(),
-        "sourceVersion" => String.t(),
+        "sourceVersion" => String.t() | Atom.t(),
         "startTime" => non_neg_integer(),
         "vpcConfig" => vpc_config()
       }
       
   """
-  @type build_batch() :: %{String.t() => any()}
+  @type build_batch() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_sandboxes_for_project_output() :: %{
-        "ids" => list(String.t()),
-        "nextToken" => String.t()
+        "ids" => list(String.t() | Atom.t()),
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_sandboxes_for_project_output() :: %{String.t() => any()}
+  @type list_sandboxes_for_project_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resolved_artifact() :: %{
-        "identifier" => String.t(),
-        "location" => String.t(),
+        "identifier" => String.t() | Atom.t(),
+        "location" => String.t() | Atom.t(),
         "type" => list(any())
       }
       
   """
-  @type resolved_artifact() :: %{String.t() => any()}
+  @type resolved_artifact() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1938,13 +1938,13 @@ defmodule AWS.CodeBuild do
       
       list_shared_report_groups_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortBy") => list(any()),
         optional("sortOrder") => list(any())
       }
       
   """
-  @type list_shared_report_groups_input() :: %{String.t() => any()}
+  @type list_shared_report_groups_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1955,7 +1955,7 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type update_project_output() :: %{String.t() => any()}
+  @type update_project_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1964,37 +1964,37 @@ defmodule AWS.CodeBuild do
       create_report_group_input() :: %{
         optional("tags") => list(tag()),
         required("exportConfig") => report_export_config(),
-        required("name") => String.t(),
+        required("name") => String.t() | Atom.t(),
         required("type") => list(any())
       }
       
   """
-  @type create_report_group_input() :: %{String.t() => any()}
+  @type create_report_group_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       s_smsession() :: %{
-        "sessionId" => String.t(),
-        "streamUrl" => String.t(),
-        "tokenValue" => String.t()
+        "sessionId" => String.t() | Atom.t(),
+        "streamUrl" => String.t() | Atom.t(),
+        "tokenValue" => String.t() | Atom.t()
       }
       
   """
-  @type s_smsession() :: %{String.t() => any()}
+  @type s_smsession() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_sandboxes_output() :: %{
-        "ids" => list(String.t()),
-        "nextToken" => String.t()
+        "ids" => list(String.t() | Atom.t()),
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_sandboxes_output() :: %{String.t() => any()}
+  @type list_sandboxes_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2003,60 +2003,60 @@ defmodule AWS.CodeBuild do
       list_build_batches_input() :: %{
         optional("filter") => build_batch_filter(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortOrder") => list(any())
       }
       
   """
-  @type list_build_batches_input() :: %{String.t() => any()}
+  @type list_build_batches_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       test_case_filter() :: %{
-        "keyword" => String.t(),
-        "status" => String.t()
+        "keyword" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type test_case_filter() :: %{String.t() => any()}
+  @type test_case_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_resource_policy_input() :: %{
-        required("resourceArn") => String.t()
+        required("resourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type get_resource_policy_input() :: %{String.t() => any()}
+  @type get_resource_policy_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_sandbox_input() :: %{
-        optional("idempotencyToken") => String.t(),
-        optional("projectName") => String.t()
+        optional("idempotencyToken") => String.t() | Atom.t(),
+        optional("projectName") => String.t() | Atom.t()
       }
       
   """
-  @type start_sandbox_input() :: %{String.t() => any()}
+  @type start_sandbox_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_projects_input() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortBy") => list(any()),
         optional("sortOrder") => list(any())
       }
       
   """
-  @type list_projects_input() :: %{String.t() => any()}
+  @type list_projects_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2067,42 +2067,42 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type build_batch_filter() :: %{String.t() => any()}
+  @type build_batch_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_projects_input() :: %{
-        required("names") => list(String.t())
+        required("names") => list(String.t() | Atom.t())
       }
       
   """
-  @type batch_get_projects_input() :: %{String.t() => any()}
+  @type batch_get_projects_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_restrictions() :: %{
-        "computeTypesAllowed" => list(String.t()),
-        "fleetsAllowed" => list(String.t()),
+        "computeTypesAllowed" => list(String.t() | Atom.t()),
+        "fleetsAllowed" => list(String.t() | Atom.t()),
         "maximumBuildsAllowed" => integer()
       }
       
   """
-  @type batch_restrictions() :: %{String.t() => any()}
+  @type batch_restrictions() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_fleets_input() :: %{
-        required("names") => list(String.t())
+        required("names") => list(String.t() | Atom.t())
       }
       
   """
-  @type batch_get_fleets_input() :: %{String.t() => any()}
+  @type batch_get_fleets_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2113,7 +2113,7 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type report_filter() :: %{String.t() => any()}
+  @type report_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2121,13 +2121,13 @@ defmodule AWS.CodeBuild do
       
       list_sandboxes_for_project_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortOrder") => list(any()),
-        required("projectName") => String.t()
+        required("projectName") => String.t() | Atom.t()
       }
       
   """
-  @type list_sandboxes_for_project_input() :: %{String.t() => any()}
+  @type list_sandboxes_for_project_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2140,29 +2140,29 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type scaling_configuration_input() :: %{String.t() => any()}
+  @type scaling_configuration_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       project_fleet() :: %{
-        "fleetArn" => String.t()
+        "fleetArn" => String.t() | Atom.t()
       }
       
   """
-  @type project_fleet() :: %{String.t() => any()}
+  @type project_fleet() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_webhook_input() :: %{
-        required("projectName") => String.t()
+        required("projectName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_webhook_input() :: %{String.t() => any()}
+  @type delete_webhook_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2179,23 +2179,23 @@ defmodule AWS.CodeBuild do
       
       list_sandboxes_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortOrder") => list(any())
       }
       
   """
-  @type list_sandboxes_input() :: %{String.t() => any()}
+  @type list_sandboxes_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_project_input() :: %{
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
       
   """
-  @type delete_project_input() :: %{String.t() => any()}
+  @type delete_project_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2204,37 +2204,37 @@ defmodule AWS.CodeBuild do
       describe_test_cases_input() :: %{
         optional("filter") => test_case_filter(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("reportArn") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("reportArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_test_cases_input() :: %{String.t() => any()}
+  @type describe_test_cases_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       environment_image() :: %{
-        "description" => String.t(),
-        "name" => String.t(),
-        "versions" => list(String.t())
+        "description" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "versions" => list(String.t() | Atom.t())
       }
       
   """
-  @type environment_image() :: %{String.t() => any()}
+  @type environment_image() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_delete_builds_output() :: %{
-        "buildsDeleted" => list(String.t()),
+        "buildsDeleted" => list(String.t() | Atom.t()),
         "buildsNotDeleted" => list(build_not_deleted())
       }
       
   """
-  @type batch_delete_builds_output() :: %{String.t() => any()}
+  @type batch_delete_builds_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2243,11 +2243,11 @@ defmodule AWS.CodeBuild do
       update_report_group_input() :: %{
         optional("exportConfig") => report_export_config(),
         optional("tags") => list(tag()),
-        required("arn") => String.t()
+        required("arn") => String.t() | Atom.t()
       }
       
   """
-  @type update_report_group_input() :: %{String.t() => any()}
+  @type update_report_group_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2263,19 +2263,19 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type build_phase() :: %{String.t() => any()}
+  @type build_phase() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_build_batches_for_project_output() :: %{
-        "ids" => list(String.t()),
-        "nextToken" => String.t()
+        "ids" => list(String.t() | Atom.t()),
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_build_batches_for_project_output() :: %{String.t() => any()}
+  @type list_build_batches_for_project_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2291,12 +2291,12 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       retry_build_input() :: %{
-        optional("id") => String.t(),
-        optional("idempotencyToken") => String.t()
+        optional("id") => String.t() | Atom.t(),
+        optional("idempotencyToken") => String.t() | Atom.t()
       }
       
   """
-  @type retry_build_input() :: %{String.t() => any()}
+  @type retry_build_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2306,18 +2306,18 @@ defmodule AWS.CodeBuild do
         optional("artifactsOverride") => project_artifacts(),
         optional("buildBatchConfigOverride") => project_build_batch_config(),
         optional("buildTimeoutInMinutesOverride") => integer(),
-        optional("buildspecOverride") => String.t(),
+        optional("buildspecOverride") => String.t() | Atom.t(),
         optional("cacheOverride") => project_cache(),
-        optional("certificateOverride") => String.t(),
+        optional("certificateOverride") => String.t() | Atom.t(),
         optional("computeTypeOverride") => list(any()),
         optional("debugSessionEnabled") => boolean(),
-        optional("encryptionKeyOverride") => String.t(),
+        optional("encryptionKeyOverride") => String.t() | Atom.t(),
         optional("environmentTypeOverride") => list(any()),
         optional("environmentVariablesOverride") => list(environment_variable()),
         optional("gitCloneDepthOverride") => integer(),
         optional("gitSubmodulesConfigOverride") => git_submodules_config(),
-        optional("idempotencyToken") => String.t(),
-        optional("imageOverride") => String.t(),
+        optional("idempotencyToken") => String.t() | Atom.t(),
+        optional("imageOverride") => String.t() | Atom.t(),
         optional("imagePullCredentialsTypeOverride") => list(any()),
         optional("insecureSslOverride") => boolean(),
         optional("logsConfigOverride") => logs_config(),
@@ -2328,16 +2328,16 @@ defmodule AWS.CodeBuild do
         optional("secondaryArtifactsOverride") => list(project_artifacts()),
         optional("secondarySourcesOverride") => list(project_source()),
         optional("secondarySourcesVersionOverride") => list(project_source_version()),
-        optional("serviceRoleOverride") => String.t(),
+        optional("serviceRoleOverride") => String.t() | Atom.t(),
         optional("sourceAuthOverride") => source_auth(),
-        optional("sourceLocationOverride") => String.t(),
+        optional("sourceLocationOverride") => String.t() | Atom.t(),
         optional("sourceTypeOverride") => list(any()),
-        optional("sourceVersion") => String.t(),
-        required("projectName") => String.t()
+        optional("sourceVersion") => String.t() | Atom.t(),
+        required("projectName") => String.t() | Atom.t()
       }
       
   """
-  @type start_build_batch_input() :: %{String.t() => any()}
+  @type start_build_batch_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2349,7 +2349,7 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type environment_language() :: %{String.t() => any()}
+  @type environment_language() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2357,30 +2357,30 @@ defmodule AWS.CodeBuild do
       
       batch_get_sandboxes_output() :: %{
         "sandboxes" => list(sandbox()),
-        "sandboxesNotFound" => list(String.t())
+        "sandboxesNotFound" => list(String.t() | Atom.t())
       }
       
   """
-  @type batch_get_sandboxes_output() :: %{String.t() => any()}
+  @type batch_get_sandboxes_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       sandbox_session() :: %{
-        "currentPhase" => String.t(),
+        "currentPhase" => String.t() | Atom.t(),
         "endTime" => non_neg_integer(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "logs" => logs_location(),
         "networkInterface" => network_interface(),
         "phases" => list(sandbox_session_phase()),
-        "resolvedSourceVersion" => String.t(),
+        "resolvedSourceVersion" => String.t() | Atom.t(),
         "startTime" => non_neg_integer(),
-        "status" => String.t()
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type sandbox_session() :: %{String.t() => any()}
+  @type sandbox_session() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2394,21 +2394,21 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type scaling_configuration_output() :: %{String.t() => any()}
+  @type scaling_configuration_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       report() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "codeCoverageSummary" => code_coverage_report_summary(),
         "created" => non_neg_integer(),
-        "executionId" => String.t(),
+        "executionId" => String.t() | Atom.t(),
         "expired" => non_neg_integer(),
         "exportConfig" => report_export_config(),
-        "name" => String.t(),
-        "reportGroupArn" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "reportGroupArn" => String.t() | Atom.t(),
         "status" => list(any()),
         "testSummary" => test_report_summary(),
         "truncated" => boolean(),
@@ -2416,68 +2416,68 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type report() :: %{String.t() => any()}
+  @type report() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_already_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_already_exists_exception() :: %{String.t() => any()}
+  @type resource_already_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_reports_input() :: %{
-        required("reportArns") => list(String.t())
+        required("reportArns") => list(String.t() | Atom.t())
       }
       
   """
-  @type batch_get_reports_input() :: %{String.t() => any()}
+  @type batch_get_reports_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_build_input() :: %{
-        required("id") => String.t()
+        required("id") => String.t() | Atom.t()
       }
       
   """
-  @type stop_build_input() :: %{String.t() => any()}
+  @type stop_build_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       build_artifacts() :: %{
-        "artifactIdentifier" => String.t(),
+        "artifactIdentifier" => String.t() | Atom.t(),
         "bucketOwnerAccess" => list(any()),
         "encryptionDisabled" => boolean(),
-        "location" => String.t(),
-        "md5sum" => String.t(),
+        "location" => String.t() | Atom.t(),
+        "md5sum" => String.t() | Atom.t(),
         "overrideArtifactName" => boolean(),
-        "sha256sum" => String.t()
+        "sha256sum" => String.t() | Atom.t()
       }
       
   """
-  @type build_artifacts() :: %{String.t() => any()}
+  @type build_artifacts() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       import_source_credentials_output() :: %{
-        "arn" => String.t()
+        "arn" => String.t() | Atom.t()
       }
       
   """
-  @type import_source_credentials_output() :: %{String.t() => any()}
+  @type import_source_credentials_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2490,28 +2490,28 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type test_report_summary() :: %{String.t() => any()}
+  @type test_report_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       webhook() :: %{
-        "branchFilter" => String.t(),
+        "branchFilter" => String.t() | Atom.t(),
         "buildType" => list(any()),
         "filterGroups" => list(list(webhook_filter())()),
         "lastModifiedSecret" => non_neg_integer(),
         "manualCreation" => boolean(),
-        "payloadUrl" => String.t(),
+        "payloadUrl" => String.t() | Atom.t(),
         "scopeConfiguration" => scope_configuration(),
-        "secret" => String.t(),
+        "secret" => String.t() | Atom.t(),
         "status" => list(any()),
-        "statusMessage" => String.t(),
-        "url" => String.t()
+        "statusMessage" => String.t() | Atom.t(),
+        "url" => String.t() | Atom.t()
       }
       
   """
-  @type webhook() :: %{String.t() => any()}
+  @type webhook() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2519,43 +2519,43 @@ defmodule AWS.CodeBuild do
       
       batch_get_report_groups_output() :: %{
         "reportGroups" => list(report_group()),
-        "reportGroupsNotFound" => list(String.t())
+        "reportGroupsNotFound" => list(String.t() | Atom.t())
       }
       
   """
-  @type batch_get_report_groups_output() :: %{String.t() => any()}
+  @type batch_get_report_groups_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_webhook_input() :: %{
-        optional("branchFilter") => String.t(),
+        optional("branchFilter") => String.t() | Atom.t(),
         optional("buildType") => list(any()),
         optional("filterGroups") => list(list(webhook_filter())()),
         optional("rotateSecret") => boolean(),
-        required("projectName") => String.t()
+        required("projectName") => String.t() | Atom.t()
       }
       
   """
-  @type update_webhook_input() :: %{String.t() => any()}
+  @type update_webhook_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       fleet() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "baseCapacity" => integer(),
         "computeConfiguration" => compute_configuration(),
         "computeType" => list(any()),
         "created" => non_neg_integer(),
         "environmentType" => list(any()),
-        "fleetServiceRole" => String.t(),
-        "id" => String.t(),
-        "imageId" => String.t(),
+        "fleetServiceRole" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "imageId" => String.t() | Atom.t(),
         "lastModified" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "overflowBehavior" => list(any()),
         "proxyConfiguration" => proxy_configuration(),
         "scalingConfiguration" => scaling_configuration_output(),
@@ -2565,7 +2565,7 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type fleet() :: %{String.t() => any()}
+  @type fleet() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2573,11 +2573,11 @@ defmodule AWS.CodeBuild do
       
       project_badge() :: %{
         "badgeEnabled" => boolean(),
-        "badgeRequestUrl" => String.t()
+        "badgeRequestUrl" => String.t() | Atom.t()
       }
       
   """
-  @type project_badge() :: %{String.t() => any()}
+  @type project_badge() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2589,32 +2589,32 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type get_report_group_trend_output() :: %{String.t() => any()}
+  @type get_report_group_trend_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_reports_for_report_group_output() :: %{
-        "nextToken" => String.t(),
-        "reports" => list(String.t())
+        "nextToken" => String.t() | Atom.t(),
+        "reports" => list(String.t() | Atom.t())
       }
       
   """
-  @type list_reports_for_report_group_output() :: %{String.t() => any()}
+  @type list_reports_for_report_group_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       project_environment() :: %{
-        "certificate" => String.t(),
+        "certificate" => String.t() | Atom.t(),
         "computeConfiguration" => compute_configuration(),
         "computeType" => list(any()),
         "dockerServer" => docker_server(),
         "environmentVariables" => list(environment_variable()),
         "fleet" => project_fleet(),
-        "image" => String.t(),
+        "image" => String.t() | Atom.t(),
         "imagePullCredentialsType" => list(any()),
         "privilegedMode" => boolean(),
         "registryCredential" => registry_credential(),
@@ -2622,7 +2622,7 @@ defmodule AWS.CodeBuild do
       }
       
   """
-  @type project_environment() :: %{String.t() => any()}
+  @type project_environment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2630,35 +2630,35 @@ defmodule AWS.CodeBuild do
       
       docker_server() :: %{
         "computeType" => list(any()),
-        "securityGroupIds" => list(String.t()),
+        "securityGroupIds" => list(String.t() | Atom.t()),
         "status" => docker_server_status()
       }
       
   """
-  @type docker_server() :: %{String.t() => any()}
+  @type docker_server() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_builds_output() :: %{
-        "ids" => list(String.t()),
-        "nextToken" => String.t()
+        "ids" => list(String.t() | Atom.t()),
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_builds_output() :: %{String.t() => any()}
+  @type list_builds_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_report_groups_input() :: %{
-        required("reportGroupArns") => list(String.t())
+        required("reportGroupArns") => list(String.t() | Atom.t())
       }
       
   """
-  @type batch_get_report_groups_input() :: %{String.t() => any()}
+  @type batch_get_report_groups_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2666,68 +2666,68 @@ defmodule AWS.CodeBuild do
       
       compute_configuration() :: %{
         "disk" => float(),
-        "instanceType" => String.t(),
+        "instanceType" => String.t() | Atom.t(),
         "machineType" => list(any()),
         "memory" => float(),
         "vCpu" => float()
       }
       
   """
-  @type compute_configuration() :: %{String.t() => any()}
+  @type compute_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       report_group() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "created" => non_neg_integer(),
         "exportConfig" => report_export_config(),
         "lastModified" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "status" => list(any()),
         "tags" => list(tag()),
         "type" => list(any())
       }
       
   """
-  @type report_group() :: %{String.t() => any()}
+  @type report_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       source_auth() :: %{
-        "resource" => String.t(),
+        "resource" => String.t() | Atom.t(),
         "type" => list(any())
       }
       
   """
-  @type source_auth() :: %{String.t() => any()}
+  @type source_auth() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       report_group_trend_stats() :: %{
-        "average" => String.t(),
-        "max" => String.t(),
-        "min" => String.t()
+        "average" => String.t() | Atom.t(),
+        "max" => String.t() | Atom.t(),
+        "min" => String.t() | Atom.t()
       }
       
   """
-  @type report_group_trend_stats() :: %{String.t() => any()}
+  @type report_group_trend_stats() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_source_credentials_output() :: %{
-        "arn" => String.t()
+        "arn" => String.t() | Atom.t()
       }
       
   """
-  @type delete_source_credentials_output() :: %{String.t() => any()}
+  @type delete_source_credentials_output() :: %{String.t() | Atom.t() => any()}
 
   @type batch_delete_builds_errors() :: invalid_input_exception()
 

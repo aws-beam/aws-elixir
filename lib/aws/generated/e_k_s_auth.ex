@@ -15,22 +15,22 @@ defmodule AWS.EKSAuth do
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       assume_role_for_pod_identity_request() :: %{
-        required("token") => String.t()
+        required("token") => String.t() | Atom.t()
       }
 
   """
-  @type assume_role_for_pod_identity_request() :: %{String.t() => any()}
+  @type assume_role_for_pod_identity_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -38,152 +38,152 @@ defmodule AWS.EKSAuth do
 
       assume_role_for_pod_identity_response() :: %{
         "assumedRoleUser" => assumed_role_user(),
-        "audience" => [String.t()],
+        "audience" => [String.t() | Atom.t()],
         "credentials" => credentials(),
         "podIdentityAssociation" => pod_identity_association(),
         "subject" => subject()
       }
 
   """
-  @type assume_role_for_pod_identity_response() :: %{String.t() => any()}
+  @type assume_role_for_pod_identity_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       assumed_role_user() :: %{
-        "arn" => [String.t()],
-        "assumeRoleId" => [String.t()]
+        "arn" => [String.t() | Atom.t()],
+        "assumeRoleId" => [String.t() | Atom.t()]
       }
 
   """
-  @type assumed_role_user() :: %{String.t() => any()}
+  @type assumed_role_user() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       credentials() :: %{
-        "accessKeyId" => [String.t()],
+        "accessKeyId" => [String.t() | Atom.t()],
         "expiration" => [non_neg_integer()],
-        "secretAccessKey" => [String.t()],
-        "sessionToken" => [String.t()]
+        "secretAccessKey" => [String.t() | Atom.t()],
+        "sessionToken" => [String.t() | Atom.t()]
       }
 
   """
-  @type credentials() :: %{String.t() => any()}
+  @type credentials() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       expired_token_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type expired_token_exception() :: %{String.t() => any()}
+  @type expired_token_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_parameter_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type invalid_parameter_exception() :: %{String.t() => any()}
+  @type invalid_parameter_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_request_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type invalid_request_exception() :: %{String.t() => any()}
+  @type invalid_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_token_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type invalid_token_exception() :: %{String.t() => any()}
+  @type invalid_token_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       pod_identity_association() :: %{
-        "associationArn" => [String.t()],
-        "associationId" => [String.t()]
+        "associationArn" => [String.t() | Atom.t()],
+        "associationId" => [String.t() | Atom.t()]
       }
 
   """
-  @type pod_identity_association() :: %{String.t() => any()}
+  @type pod_identity_association() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_unavailable_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type service_unavailable_exception() :: %{String.t() => any()}
+  @type service_unavailable_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       subject() :: %{
-        "namespace" => [String.t()],
-        "serviceAccount" => [String.t()]
+        "namespace" => [String.t() | Atom.t()],
+        "serviceAccount" => [String.t() | Atom.t()]
       }
 
   """
-  @type subject() :: %{String.t() => any()}
+  @type subject() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @type assume_role_for_pod_identity_errors() ::
           throttling_exception()
@@ -224,7 +224,7 @@ defmodule AWS.EKSAuth do
   """
   @spec assume_role_for_pod_identity(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           assume_role_for_pod_identity_request(),
           list()
         ) ::

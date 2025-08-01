@@ -64,12 +64,12 @@ defmodule AWS.CloudWatchLogs do
   ## Example:
       
       invalid_sequence_token_exception() :: %{
-        "expectedSequenceToken" => String.t(),
-        "message" => String.t()
+        "expectedSequenceToken" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_sequence_token_exception() :: %{String.t() => any()}
+  @type invalid_sequence_token_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -77,35 +77,35 @@ defmodule AWS.CloudWatchLogs do
       
       list_anomalies_response() :: %{
         "anomalies" => list(anomaly()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_anomalies_response() :: %{String.t() => any()}
+  @type list_anomalies_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       add_key_entry() :: %{
-        "key" => String.t(),
+        "key" => String.t() | Atom.t(),
         "overwriteIfExists" => boolean(),
-        "value" => String.t()
+        "value" => String.t() | Atom.t()
       }
       
   """
-  @type add_key_entry() :: %{String.t() => any()}
+  @type add_key_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       trim_string() :: %{
-        "withKeys" => list(String.t())
+        "withKeys" => list(String.t() | Atom.t())
       }
       
   """
-  @type trim_string() :: %{String.t() => any()}
+  @type trim_string() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -113,30 +113,30 @@ defmodule AWS.CloudWatchLogs do
       
       describe_resource_policies_request() :: %{
         optional("limit") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type describe_resource_policies_request() :: %{String.t() => any()}
+  @type describe_resource_policies_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delivery() :: %{
-        "arn" => String.t(),
-        "deliveryDestinationArn" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "deliveryDestinationArn" => String.t() | Atom.t(),
         "deliveryDestinationType" => list(any()),
-        "deliverySourceName" => String.t(),
-        "fieldDelimiter" => String.t(),
-        "id" => String.t(),
-        "recordFields" => list(String.t()),
+        "deliverySourceName" => String.t() | Atom.t(),
+        "fieldDelimiter" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "recordFields" => list(String.t() | Atom.t()),
         "s3DeliveryConfiguration" => s3_delivery_configuration(),
         "tags" => map()
       }
       
   """
-  @type delivery() :: %{String.t() => any()}
+  @type delivery() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -147,7 +147,7 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type rejected_entity_info() :: %{String.t() => any()}
+  @type rejected_entity_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -163,41 +163,41 @@ defmodule AWS.CloudWatchLogs do
   ## Example:
       
       tag_resource_request() :: %{
-        required("resourceArn") => String.t(),
+        required("resourceArn") => String.t() | Atom.t(),
         required("tags") => map()
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_log_groups_request() :: %{
-        optional("accountIdentifiers") => list(String.t()),
+        optional("accountIdentifiers") => list(String.t() | Atom.t()),
         optional("includeLinkedAccounts") => boolean(),
         optional("limit") => integer(),
         optional("logGroupClass") => list(any()),
-        optional("logGroupIdentifiers") => list(String.t()),
-        optional("logGroupNamePattern") => String.t(),
-        optional("logGroupNamePrefix") => String.t(),
-        optional("nextToken") => String.t()
+        optional("logGroupIdentifiers") => list(String.t() | Atom.t()),
+        optional("logGroupNamePattern") => String.t() | Atom.t(),
+        optional("logGroupNamePrefix") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type describe_log_groups_request() :: %{String.t() => any()}
+  @type describe_log_groups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       parse_cloudfront() :: %{
-        "source" => String.t()
+        "source" => String.t() | Atom.t()
       }
       
   """
-  @type parse_cloudfront() :: %{String.t() => any()}
+  @type parse_cloudfront() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -208,70 +208,70 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type copy_value() :: %{String.t() => any()}
+  @type copy_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_query_definition_request() :: %{
-        required("queryDefinitionId") => String.t()
+        required("queryDefinitionId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_query_definition_request() :: %{String.t() => any()}
+  @type delete_query_definition_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_log_anomaly_detector_request() :: %{
-        required("anomalyDetectorArn") => String.t()
+        required("anomalyDetectorArn") => String.t() | Atom.t()
       }
       
   """
-  @type get_log_anomaly_detector_request() :: %{String.t() => any()}
+  @type get_log_anomaly_detector_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_delivery_destination_policy_request() :: %{
-        required("deliveryDestinationName") => String.t(),
-        required("deliveryDestinationPolicy") => String.t()
+        required("deliveryDestinationName") => String.t() | Atom.t(),
+        required("deliveryDestinationPolicy") => String.t() | Atom.t()
       }
       
   """
-  @type put_delivery_destination_policy_request() :: %{String.t() => any()}
+  @type put_delivery_destination_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       account_policy() :: %{
-        "accountId" => String.t(),
+        "accountId" => String.t() | Atom.t(),
         "lastUpdatedTime" => float(),
-        "policyDocument" => String.t(),
-        "policyName" => String.t(),
+        "policyDocument" => String.t() | Atom.t(),
+        "policyName" => String.t() | Atom.t(),
         "policyType" => list(any()),
         "scope" => list(any()),
-        "selectionCriteria" => String.t()
+        "selectionCriteria" => String.t() | Atom.t()
       }
       
   """
-  @type account_policy() :: %{String.t() => any()}
+  @type account_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       open_search_data_source() :: %{
-        "dataSourceName" => String.t(),
+        "dataSourceName" => String.t() | Atom.t(),
         "status" => open_search_resource_status()
       }
       
   """
-  @type open_search_data_source() :: %{String.t() => any()}
+  @type open_search_data_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -287,41 +287,41 @@ defmodule AWS.CloudWatchLogs do
   ## Example:
       
       create_export_task_request() :: %{
-        optional("destinationPrefix") => String.t(),
-        optional("logStreamNamePrefix") => String.t(),
-        optional("taskName") => String.t(),
-        required("destination") => String.t(),
+        optional("destinationPrefix") => String.t() | Atom.t(),
+        optional("logStreamNamePrefix") => String.t() | Atom.t(),
+        optional("taskName") => String.t() | Atom.t(),
+        required("destination") => String.t() | Atom.t(),
         required("from") => float(),
-        required("logGroupName") => String.t(),
+        required("logGroupName") => String.t() | Atom.t(),
         required("to") => float()
       }
       
   """
-  @type create_export_task_request() :: %{String.t() => any()}
+  @type create_export_task_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_log_group_request() :: %{
-        required("logGroupName") => String.t(),
+        required("logGroupName") => String.t() | Atom.t(),
         required("tags") => map()
       }
       
   """
-  @type tag_log_group_request() :: %{String.t() => any()}
+  @type tag_log_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_log_groups_for_query_response() :: %{
-        "logGroupIdentifiers" => list(String.t()),
-        "nextToken" => String.t()
+        "logGroupIdentifiers" => list(String.t() | Atom.t()),
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_log_groups_for_query_response() :: %{String.t() => any()}
+  @type list_log_groups_for_query_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -332,7 +332,7 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type type_converter() :: %{String.t() => any()}
+  @type type_converter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -340,13 +340,13 @@ defmodule AWS.CloudWatchLogs do
       
       describe_query_definitions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("queryDefinitionNamePrefix") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("queryDefinitionNamePrefix") => String.t() | Atom.t(),
         optional("queryLanguage") => list(any())
       }
       
   """
-  @type describe_query_definitions_request() :: %{String.t() => any()}
+  @type describe_query_definitions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -357,7 +357,7 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type list_tags_log_group_response() :: %{String.t() => any()}
+  @type list_tags_log_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -368,7 +368,7 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type put_destination_response() :: %{String.t() => any()}
+  @type put_destination_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -376,27 +376,27 @@ defmodule AWS.CloudWatchLogs do
       
       filter_log_events_response() :: %{
         "events" => list(filtered_log_event()),
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "searchedLogStreams" => list(searched_log_stream())
       }
       
   """
-  @type filter_log_events_response() :: %{String.t() => any()}
+  @type filter_log_events_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       open_search_resource_config() :: %{
-        "applicationArn" => String.t(),
-        "dashboardViewerPrincipals" => list(String.t()),
-        "dataSourceRoleArn" => String.t(),
-        "kmsKeyArn" => String.t(),
+        "applicationArn" => String.t() | Atom.t(),
+        "dashboardViewerPrincipals" => list(String.t() | Atom.t()),
+        "dataSourceRoleArn" => String.t() | Atom.t(),
+        "kmsKeyArn" => String.t() | Atom.t(),
         "retentionDays" => integer()
       }
       
   """
-  @type open_search_resource_config() :: %{String.t() => any()}
+  @type open_search_resource_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -404,20 +404,20 @@ defmodule AWS.CloudWatchLogs do
       
       put_destination_request() :: %{
         optional("tags") => map(),
-        required("destinationName") => String.t(),
-        required("roleArn") => String.t(),
-        required("targetArn") => String.t()
+        required("destinationName") => String.t() | Atom.t(),
+        required("roleArn") => String.t() | Atom.t(),
+        required("targetArn") => String.t() | Atom.t()
       }
       
   """
-  @type put_destination_request() :: %{String.t() => any()}
+  @type put_destination_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_query_results_response() :: %{
-        "encryptionKey" => String.t(),
+        "encryptionKey" => String.t() | Atom.t(),
         "queryLanguage" => list(any()),
         "results" => list(list(result_field())()),
         "statistics" => query_statistics(),
@@ -425,22 +425,22 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type get_query_results_response() :: %{String.t() => any()}
+  @type get_query_results_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_queries_request() :: %{
-        optional("logGroupName") => String.t(),
+        optional("logGroupName") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("queryLanguage") => list(any()),
         optional("status") => list(any())
       }
       
   """
-  @type describe_queries_request() :: %{String.t() => any()}
+  @type describe_queries_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -451,18 +451,18 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type put_account_policy_response() :: %{String.t() => any()}
+  @type put_account_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_transformer_request() :: %{
-        required("logGroupIdentifier") => String.t()
+        required("logGroupIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type get_transformer_request() :: %{String.t() => any()}
+  @type get_transformer_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -474,44 +474,44 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type entity() :: %{String.t() => any()}
+  @type entity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       substitute_string_entry() :: %{
-        "from" => String.t(),
-        "source" => String.t(),
-        "to" => String.t()
+        "from" => String.t() | Atom.t(),
+        "source" => String.t() | Atom.t(),
+        "to" => String.t() | Atom.t()
       }
       
   """
-  @type substitute_string_entry() :: %{String.t() => any()}
+  @type substitute_string_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       type_converter_entry() :: %{
-        "key" => String.t(),
+        "key" => String.t() | Atom.t(),
         "type" => list(any())
       }
       
   """
-  @type type_converter_entry() :: %{String.t() => any()}
+  @type type_converter_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       split_string_entry() :: %{
-        "delimiter" => String.t(),
-        "source" => String.t()
+        "delimiter" => String.t() | Atom.t(),
+        "source" => String.t() | Atom.t()
       }
       
   """
-  @type split_string_entry() :: %{String.t() => any()}
+  @type split_string_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -519,24 +519,24 @@ defmodule AWS.CloudWatchLogs do
       
       copy_value_entry() :: %{
         "overwriteIfExists" => boolean(),
-        "source" => String.t(),
-        "target" => String.t()
+        "source" => String.t() | Atom.t(),
+        "target" => String.t() | Atom.t()
       }
       
   """
-  @type copy_value_entry() :: %{String.t() => any()}
+  @type copy_value_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_queries_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "queries" => list(query_info())
       }
       
   """
-  @type describe_queries_response() :: %{String.t() => any()}
+  @type describe_queries_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -544,14 +544,14 @@ defmodule AWS.CloudWatchLogs do
       
       put_log_events_request() :: %{
         optional("entity") => entity(),
-        optional("sequenceToken") => String.t(),
+        optional("sequenceToken") => String.t() | Atom.t(),
         required("logEvents") => list(input_log_event()),
-        required("logGroupName") => String.t(),
-        required("logStreamName") => String.t()
+        required("logGroupName") => String.t() | Atom.t(),
+        required("logStreamName") => String.t() | Atom.t()
       }
       
   """
-  @type put_log_events_request() :: %{String.t() => any()}
+  @type put_log_events_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -559,26 +559,26 @@ defmodule AWS.CloudWatchLogs do
       
       put_account_policy_request() :: %{
         optional("scope") => list(any()),
-        optional("selectionCriteria") => String.t(),
-        required("policyDocument") => String.t(),
-        required("policyName") => String.t(),
+        optional("selectionCriteria") => String.t() | Atom.t(),
+        required("policyDocument") => String.t() | Atom.t(),
+        required("policyName") => String.t() | Atom.t(),
         required("policyType") => list(any())
       }
       
   """
-  @type put_account_policy_request() :: %{String.t() => any()}
+  @type put_account_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       data_already_accepted_exception() :: %{
-        "expectedSequenceToken" => String.t(),
-        "message" => String.t()
+        "expectedSequenceToken" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type data_already_accepted_exception() :: %{String.t() => any()}
+  @type data_already_accepted_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -590,30 +590,30 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type export_task_execution_info() :: %{String.t() => any()}
+  @type export_task_execution_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_data_protection_policy_request() :: %{
-        required("logGroupIdentifier") => String.t(),
-        required("policyDocument") => String.t()
+        required("logGroupIdentifier") => String.t() | Atom.t(),
+        required("policyDocument") => String.t() | Atom.t()
       }
       
   """
-  @type put_data_protection_policy_request() :: %{String.t() => any()}
+  @type put_data_protection_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_query_results_request() :: %{
-        required("queryId") => String.t()
+        required("queryId") => String.t() | Atom.t()
       }
       
   """
-  @type get_query_results_request() :: %{String.t() => any()}
+  @type get_query_results_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -624,18 +624,18 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type substitute_string() :: %{String.t() => any()}
+  @type substitute_string() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_delivery_request() :: %{
-        required("id") => String.t()
+        required("id") => String.t() | Atom.t()
       }
       
   """
-  @type get_delivery_request() :: %{String.t() => any()}
+  @type get_delivery_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -646,33 +646,33 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type live_tail_session_metadata() :: %{String.t() => any()}
+  @type live_tail_session_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_log_group_request() :: %{
-        optional("kmsKeyId") => String.t(),
+        optional("kmsKeyId") => String.t() | Atom.t(),
         optional("logGroupClass") => list(any()),
         optional("tags") => map(),
-        required("logGroupName") => String.t()
+        required("logGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type create_log_group_request() :: %{String.t() => any()}
+  @type create_log_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       open_search_encryption_policy() :: %{
-        "policyName" => String.t(),
+        "policyName" => String.t() | Atom.t(),
         "status" => open_search_resource_status()
       }
       
   """
-  @type open_search_encryption_policy() :: %{String.t() => any()}
+  @type open_search_encryption_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -682,11 +682,11 @@ defmodule AWS.CloudWatchLogs do
         optional("outputFormat") => list(any()),
         optional("tags") => map(),
         required("deliveryDestinationConfiguration") => delivery_destination_configuration(),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
       
   """
-  @type put_delivery_destination_request() :: %{String.t() => any()}
+  @type put_delivery_destination_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -697,7 +697,7 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type get_delivery_source_response() :: %{String.t() => any()}
+  @type get_delivery_source_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -706,16 +706,16 @@ defmodule AWS.CloudWatchLogs do
       subscription_filter() :: %{
         "applyOnTransformedLogs" => boolean(),
         "creationTime" => float(),
-        "destinationArn" => String.t(),
+        "destinationArn" => String.t() | Atom.t(),
         "distribution" => list(any()),
-        "filterName" => String.t(),
-        "filterPattern" => String.t(),
-        "logGroupName" => String.t(),
-        "roleArn" => String.t()
+        "filterName" => String.t() | Atom.t(),
+        "filterPattern" => String.t() | Atom.t(),
+        "logGroupName" => String.t() | Atom.t(),
+        "roleArn" => String.t() | Atom.t()
       }
       
   """
-  @type subscription_filter() :: %{String.t() => any()}
+  @type subscription_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -723,39 +723,39 @@ defmodule AWS.CloudWatchLogs do
       
       describe_export_tasks_response() :: %{
         "exportTasks" => list(export_task()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_export_tasks_response() :: %{String.t() => any()}
+  @type describe_export_tasks_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       live_tail_session_start() :: %{
-        "logEventFilterPattern" => String.t(),
-        "logGroupIdentifiers" => list(String.t()),
-        "logStreamNamePrefixes" => list(String.t()),
-        "logStreamNames" => list(String.t()),
-        "requestId" => String.t(),
-        "sessionId" => String.t()
+        "logEventFilterPattern" => String.t() | Atom.t(),
+        "logGroupIdentifiers" => list(String.t() | Atom.t()),
+        "logStreamNamePrefixes" => list(String.t() | Atom.t()),
+        "logStreamNames" => list(String.t() | Atom.t()),
+        "requestId" => String.t() | Atom.t(),
+        "sessionId" => String.t() | Atom.t()
       }
       
   """
-  @type live_tail_session_start() :: %{String.t() => any()}
+  @type live_tail_session_start() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_log_stream_request() :: %{
-        required("logGroupName") => String.t(),
-        required("logStreamName") => String.t()
+        required("logGroupName") => String.t() | Atom.t(),
+        required("logStreamName") => String.t() | Atom.t()
       }
       
   """
-  @type create_log_stream_request() :: %{String.t() => any()}
+  @type create_log_stream_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -766,18 +766,18 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type get_log_record_response() :: %{String.t() => any()}
+  @type get_log_record_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_operation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_operation_exception() :: %{String.t() => any()}
+  @type invalid_operation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -785,24 +785,24 @@ defmodule AWS.CloudWatchLogs do
       
       list_log_groups_response() :: %{
         "logGroups" => list(log_group_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_log_groups_response() :: %{String.t() => any()}
+  @type list_log_groups_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_integration_request() :: %{
-        required("integrationName") => String.t(),
+        required("integrationName") => String.t() | Atom.t(),
         required("integrationType") => list(any()),
         required("resourceConfig") => list()
       }
       
   """
-  @type put_integration_request() :: %{String.t() => any()}
+  @type put_integration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -813,7 +813,7 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type create_delivery_response() :: %{String.t() => any()}
+  @type create_delivery_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -821,11 +821,11 @@ defmodule AWS.CloudWatchLogs do
       
       describe_account_policies_response() :: %{
         "accountPolicies" => list(account_policy()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_account_policies_response() :: %{String.t() => any()}
+  @type describe_account_policies_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -841,39 +841,39 @@ defmodule AWS.CloudWatchLogs do
   ## Example:
       
       update_anomaly_request() :: %{
-        optional("anomalyId") => String.t(),
+        optional("anomalyId") => String.t() | Atom.t(),
         optional("baseline") => boolean(),
-        optional("patternId") => String.t(),
+        optional("patternId") => String.t() | Atom.t(),
         optional("suppressionPeriod") => suppression_period(),
         optional("suppressionType") => list(any()),
-        required("anomalyDetectorArn") => String.t()
+        required("anomalyDetectorArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_anomaly_request() :: %{String.t() => any()}
+  @type update_anomaly_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       parse_w_a_f() :: %{
-        "source" => String.t()
+        "source" => String.t() | Atom.t()
       }
       
   """
-  @type parse_w_a_f() :: %{String.t() => any()}
+  @type parse_w_a_f() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_retention_policy_request() :: %{
-        required("logGroupName") => String.t(),
+        required("logGroupName") => String.t() | Atom.t(),
         required("retentionInDays") => integer()
       }
       
   """
-  @type put_retention_policy_request() :: %{String.t() => any()}
+  @type put_retention_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -881,17 +881,17 @@ defmodule AWS.CloudWatchLogs do
       
       start_query_request() :: %{
         optional("limit") => integer(),
-        optional("logGroupIdentifiers") => list(String.t()),
-        optional("logGroupName") => String.t(),
-        optional("logGroupNames") => list(String.t()),
+        optional("logGroupIdentifiers") => list(String.t() | Atom.t()),
+        optional("logGroupName") => String.t() | Atom.t(),
+        optional("logGroupNames") => list(String.t() | Atom.t()),
         optional("queryLanguage") => list(any()),
         required("endTime") => float(),
-        required("queryString") => String.t(),
+        required("queryString") => String.t() | Atom.t(),
         required("startTime") => float()
       }
       
   """
-  @type start_query_request() :: %{String.t() => any()}
+  @type start_query_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -899,22 +899,22 @@ defmodule AWS.CloudWatchLogs do
       
       describe_deliveries_request() :: %{
         optional("limit") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type describe_deliveries_request() :: %{String.t() => any()}
+  @type describe_deliveries_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       session_timeout_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type session_timeout_exception() :: %{String.t() => any()}
+  @type session_timeout_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -925,7 +925,7 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type get_log_group_fields_response() :: %{String.t() => any()}
+  @type get_log_group_fields_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -934,40 +934,40 @@ defmodule AWS.CloudWatchLogs do
       update_log_anomaly_detector_request() :: %{
         optional("anomalyVisibilityTime") => float(),
         optional("evaluationFrequency") => list(any()),
-        optional("filterPattern") => String.t(),
-        required("anomalyDetectorArn") => String.t(),
+        optional("filterPattern") => String.t() | Atom.t(),
+        required("anomalyDetectorArn") => String.t() | Atom.t(),
         required("enabled") => boolean()
       }
       
   """
-  @type update_log_anomaly_detector_request() :: %{String.t() => any()}
+  @type update_log_anomaly_detector_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_metric_filters_request() :: %{
-        optional("filterNamePrefix") => String.t(),
+        optional("filterNamePrefix") => String.t() | Atom.t(),
         optional("limit") => integer(),
-        optional("logGroupName") => String.t(),
-        optional("metricName") => String.t(),
-        optional("metricNamespace") => String.t(),
-        optional("nextToken") => String.t()
+        optional("logGroupName") => String.t() | Atom.t(),
+        optional("metricName") => String.t() | Atom.t(),
+        optional("metricNamespace") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type describe_metric_filters_request() :: %{String.t() => any()}
+  @type describe_metric_filters_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       session_streaming_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type session_streaming_exception() :: %{String.t() => any()}
+  @type session_streaming_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -975,40 +975,40 @@ defmodule AWS.CloudWatchLogs do
       
       put_data_protection_policy_response() :: %{
         "lastUpdatedTime" => float(),
-        "logGroupIdentifier" => String.t(),
-        "policyDocument" => String.t()
+        "logGroupIdentifier" => String.t() | Atom.t(),
+        "policyDocument" => String.t() | Atom.t()
       }
       
   """
-  @type put_data_protection_policy_response() :: %{String.t() => any()}
+  @type put_data_protection_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       integration_summary() :: %{
-        "integrationName" => String.t(),
+        "integrationName" => String.t() | Atom.t(),
         "integrationStatus" => list(any()),
         "integrationType" => list(any())
       }
       
   """
-  @type integration_summary() :: %{String.t() => any()}
+  @type integration_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       field_index() :: %{
-        "fieldIndexName" => String.t(),
+        "fieldIndexName" => String.t() | Atom.t(),
         "firstEventTime" => float(),
         "lastEventTime" => float(),
         "lastScanTime" => float(),
-        "logGroupIdentifier" => String.t()
+        "logGroupIdentifier" => String.t() | Atom.t()
       }
       
   """
-  @type field_index() :: %{String.t() => any()}
+  @type field_index() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1041,19 +1041,19 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type processor() :: %{String.t() => any()}
+  @type processor() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("resourceArn") => String.t(),
-        required("tagKeys") => list(String.t())
+        required("resourceArn") => String.t() | Atom.t(),
+        required("tagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1064,39 +1064,39 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type put_index_policy_response() :: %{String.t() => any()}
+  @type put_index_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       configuration_template() :: %{
-        "allowedActionForAllowVendedLogsDeliveryForResource" => String.t(),
-        "allowedFieldDelimiters" => list(String.t()),
+        "allowedActionForAllowVendedLogsDeliveryForResource" => String.t() | Atom.t(),
+        "allowedFieldDelimiters" => list(String.t() | Atom.t()),
         "allowedFields" => list(record_field()),
         "allowedOutputFormats" => list(list(any())()),
-        "allowedSuffixPathFields" => list(String.t()),
+        "allowedSuffixPathFields" => list(String.t() | Atom.t()),
         "defaultDeliveryConfigValues" => configuration_template_delivery_config_values(),
         "deliveryDestinationType" => list(any()),
-        "logType" => String.t(),
-        "resourceType" => String.t(),
-        "service" => String.t()
+        "logType" => String.t() | Atom.t(),
+        "resourceType" => String.t() | Atom.t(),
+        "service" => String.t() | Atom.t()
       }
       
   """
-  @type configuration_template() :: %{String.t() => any()}
+  @type configuration_template() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_integration_response() :: %{
-        "integrationName" => String.t(),
+        "integrationName" => String.t() | Atom.t(),
         "integrationStatus" => list(any())
       }
       
   """
-  @type put_integration_response() :: %{String.t() => any()}
+  @type put_integration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1104,11 +1104,11 @@ defmodule AWS.CloudWatchLogs do
       
       describe_destinations_response() :: %{
         "destinations" => list(destination()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_destinations_response() :: %{String.t() => any()}
+  @type describe_destinations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1120,7 +1120,7 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type live_tail_session_update() :: %{String.t() => any()}
+  @type live_tail_session_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1129,25 +1129,25 @@ defmodule AWS.CloudWatchLogs do
       get_transformer_response() :: %{
         "creationTime" => float(),
         "lastModifiedTime" => float(),
-        "logGroupIdentifier" => String.t(),
+        "logGroupIdentifier" => String.t() | Atom.t(),
         "transformerConfig" => list(processor())
       }
       
   """
-  @type get_transformer_response() :: %{String.t() => any()}
+  @type get_transformer_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       transformed_log_record() :: %{
-        "eventMessage" => String.t(),
+        "eventMessage" => String.t() | Atom.t(),
         "eventNumber" => float(),
-        "transformedEventMessage" => String.t()
+        "transformedEventMessage" => String.t() | Atom.t()
       }
       
   """
-  @type transformed_log_record() :: %{String.t() => any()}
+  @type transformed_log_record() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1159,59 +1159,59 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type query_compile_error_location() :: %{String.t() => any()}
+  @type query_compile_error_location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_log_groups_request() :: %{
-        optional("accountIdentifiers") => list(String.t()),
+        optional("accountIdentifiers") => list(String.t() | Atom.t()),
         optional("includeLinkedAccounts") => boolean(),
         optional("limit") => integer(),
         optional("logGroupClass") => list(any()),
-        optional("logGroupNamePattern") => String.t(),
-        optional("nextToken") => String.t()
+        optional("logGroupNamePattern") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_log_groups_request() :: %{String.t() => any()}
+  @type list_log_groups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       operation_aborted_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type operation_aborted_exception() :: %{String.t() => any()}
+  @type operation_aborted_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_integrations_request() :: %{
-        optional("integrationNamePrefix") => String.t(),
+        optional("integrationNamePrefix") => String.t() | Atom.t(),
         optional("integrationStatus") => list(any()),
         optional("integrationType") => list(any())
       }
       
   """
-  @type list_integrations_request() :: %{String.t() => any()}
+  @type list_integrations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_query_definitions_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "queryDefinitions" => list(query_definition())
       }
       
   """
-  @type describe_query_definitions_response() :: %{String.t() => any()}
+  @type describe_query_definitions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1222,21 +1222,21 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type get_delivery_response() :: %{String.t() => any()}
+  @type get_delivery_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_subscription_filters_request() :: %{
-        optional("filterNamePrefix") => String.t(),
+        optional("filterNamePrefix") => String.t() | Atom.t(),
         optional("limit") => integer(),
-        optional("nextToken") => String.t(),
-        required("logGroupName") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("logGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_subscription_filters_request() :: %{String.t() => any()}
+  @type describe_subscription_filters_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1244,12 +1244,12 @@ defmodule AWS.CloudWatchLogs do
       
       put_destination_policy_request() :: %{
         optional("forceUpdate") => boolean(),
-        required("accessPolicy") => String.t(),
-        required("destinationName") => String.t()
+        required("accessPolicy") => String.t() | Atom.t(),
+        required("destinationName") => String.t() | Atom.t()
       }
       
   """
-  @type put_destination_policy_request() :: %{String.t() => any()}
+  @type put_destination_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1257,59 +1257,59 @@ defmodule AWS.CloudWatchLogs do
       
       get_integration_response() :: %{
         "integrationDetails" => list(),
-        "integrationName" => String.t(),
+        "integrationName" => String.t() | Atom.t(),
         "integrationStatus" => list(any()),
         "integrationType" => list(any())
       }
       
   """
-  @type get_integration_response() :: %{String.t() => any()}
+  @type get_integration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       lower_case_string() :: %{
-        "withKeys" => list(String.t())
+        "withKeys" => list(String.t() | Atom.t())
       }
       
   """
-  @type lower_case_string() :: %{String.t() => any()}
+  @type lower_case_string() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       input_log_event() :: %{
-        "message" => String.t(),
+        "message" => String.t() | Atom.t(),
         "timestamp" => float()
       }
       
   """
-  @type input_log_event() :: %{String.t() => any()}
+  @type input_log_event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_retention_policy_request() :: %{
-        required("logGroupName") => String.t()
+        required("logGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_retention_policy_request() :: %{String.t() => any()}
+  @type delete_retention_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       malformed_query_exception() :: %{
-        "message" => String.t(),
+        "message" => String.t() | Atom.t(),
         "queryCompileError" => query_compile_error()
       }
       
   """
-  @type malformed_query_exception() :: %{String.t() => any()}
+  @type malformed_query_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1317,14 +1317,14 @@ defmodule AWS.CloudWatchLogs do
       
       live_tail_session_log_event() :: %{
         "ingestionTime" => float(),
-        "logGroupIdentifier" => String.t(),
-        "logStreamName" => String.t(),
-        "message" => String.t(),
+        "logGroupIdentifier" => String.t() | Atom.t(),
+        "logStreamName" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t(),
         "timestamp" => float()
       }
       
   """
-  @type live_tail_session_log_event() :: %{String.t() => any()}
+  @type live_tail_session_log_event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1332,44 +1332,44 @@ defmodule AWS.CloudWatchLogs do
       
       s3_delivery_configuration() :: %{
         "enableHiveCompatiblePath" => boolean(),
-        "suffixPath" => String.t()
+        "suffixPath" => String.t() | Atom.t()
       }
       
   """
-  @type s3_delivery_configuration() :: %{String.t() => any()}
+  @type s3_delivery_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_delivery_destination_request() :: %{
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
       
   """
-  @type get_delivery_destination_request() :: %{String.t() => any()}
+  @type get_delivery_destination_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1377,69 +1377,69 @@ defmodule AWS.CloudWatchLogs do
       
       delete_integration_request() :: %{
         optional("force") => boolean(),
-        required("integrationName") => String.t()
+        required("integrationName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_integration_request() :: %{String.t() => any()}
+  @type delete_integration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_index_policies_request() :: %{
-        optional("nextToken") => String.t(),
-        required("logGroupIdentifiers") => list(String.t())
+        optional("nextToken") => String.t() | Atom.t(),
+        required("logGroupIdentifiers") => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_index_policies_request() :: %{String.t() => any()}
+  @type describe_index_policies_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_field_indexes_request() :: %{
-        optional("nextToken") => String.t(),
-        required("logGroupIdentifiers") => list(String.t())
+        optional("nextToken") => String.t() | Atom.t(),
+        required("logGroupIdentifiers") => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_field_indexes_request() :: %{String.t() => any()}
+  @type describe_field_indexes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_log_anomaly_detector_request() :: %{
-        required("anomalyDetectorArn") => String.t()
+        required("anomalyDetectorArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_log_anomaly_detector_request() :: %{String.t() => any()}
+  @type delete_log_anomaly_detector_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_kms_key_request() :: %{
-        optional("logGroupName") => String.t(),
-        optional("resourceIdentifier") => String.t()
+        optional("logGroupName") => String.t() | Atom.t(),
+        optional("resourceIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type disassociate_kms_key_request() :: %{String.t() => any()}
+  @type disassociate_kms_key_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_transformer_request() :: %{
-        required("logGroupIdentifier") => String.t()
+        required("logGroupIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type delete_transformer_request() :: %{String.t() => any()}
+  @type delete_transformer_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1447,26 +1447,26 @@ defmodule AWS.CloudWatchLogs do
       
       describe_export_tasks_request() :: %{
         optional("limit") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("statusCode") => list(any()),
-        optional("taskId") => String.t()
+        optional("taskId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_export_tasks_request() :: %{String.t() => any()}
+  @type describe_export_tasks_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       open_search_collection() :: %{
-        "collectionArn" => String.t(),
-        "collectionEndpoint" => String.t(),
+        "collectionArn" => String.t() | Atom.t(),
+        "collectionEndpoint" => String.t() | Atom.t(),
         "status" => open_search_resource_status()
       }
       
   """
-  @type open_search_collection() :: %{String.t() => any()}
+  @type open_search_collection() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1476,16 +1476,16 @@ defmodule AWS.CloudWatchLogs do
         "anomalyDetectorStatus" => list(any()),
         "anomalyVisibilityTime" => float(),
         "creationTimeStamp" => float(),
-        "detectorName" => String.t(),
+        "detectorName" => String.t() | Atom.t(),
         "evaluationFrequency" => list(any()),
-        "filterPattern" => String.t(),
-        "kmsKeyId" => String.t(),
+        "filterPattern" => String.t() | Atom.t(),
+        "kmsKeyId" => String.t() | Atom.t(),
         "lastModifiedTimeStamp" => float(),
-        "logGroupArnList" => list(String.t())
+        "logGroupArnList" => list(String.t() | Atom.t())
       }
       
   """
-  @type get_log_anomaly_detector_response() :: %{String.t() => any()}
+  @type get_log_anomaly_detector_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1496,7 +1496,7 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type delete_query_definition_response() :: %{String.t() => any()}
+  @type delete_query_definition_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1504,11 +1504,11 @@ defmodule AWS.CloudWatchLogs do
       
       describe_log_streams_response() :: %{
         "logStreams" => list(log_stream()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_log_streams_response() :: %{String.t() => any()}
+  @type describe_log_streams_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1519,7 +1519,7 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type put_delivery_destination_policy_response() :: %{String.t() => any()}
+  @type put_delivery_destination_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1527,22 +1527,22 @@ defmodule AWS.CloudWatchLogs do
       
       export_task_status() :: %{
         "code" => list(any()),
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type export_task_status() :: %{String.t() => any()}
+  @type export_task_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delivery_destination_configuration() :: %{
-        "destinationResourceArn" => String.t()
+        "destinationResourceArn" => String.t() | Atom.t()
       }
       
   """
-  @type delivery_destination_configuration() :: %{String.t() => any()}
+  @type delivery_destination_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1554,18 +1554,18 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type suppression_period() :: %{String.t() => any()}
+  @type suppression_period() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       service_quota_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1574,36 +1574,36 @@ defmodule AWS.CloudWatchLogs do
       pattern_token() :: %{
         "dynamicTokenPosition" => integer(),
         "enumerations" => map(),
-        "inferredTokenName" => String.t(),
+        "inferredTokenName" => String.t() | Atom.t(),
         "isDynamic" => boolean(),
-        "tokenString" => String.t()
+        "tokenString" => String.t() | Atom.t()
       }
       
   """
-  @type pattern_token() :: %{String.t() => any()}
+  @type pattern_token() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_log_stream_request() :: %{
-        required("logGroupName") => String.t(),
-        required("logStreamName") => String.t()
+        required("logGroupName") => String.t() | Atom.t(),
+        required("logStreamName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_log_stream_request() :: %{String.t() => any()}
+  @type delete_log_stream_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_index_policy_request() :: %{
-        required("logGroupIdentifier") => String.t()
+        required("logGroupIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type delete_index_policy_request() :: %{String.t() => any()}
+  @type delete_index_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1614,30 +1614,30 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type test_transformer_response() :: %{String.t() => any()}
+  @type test_transformer_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       open_search_data_access_policy() :: %{
-        "policyName" => String.t(),
+        "policyName" => String.t() | Atom.t(),
         "status" => open_search_resource_status()
       }
       
   """
-  @type open_search_data_access_policy() :: %{String.t() => any()}
+  @type open_search_data_access_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_export_task_response() :: %{
-        "taskId" => String.t()
+        "taskId" => String.t() | Atom.t()
       }
       
   """
-  @type create_export_task_response() :: %{String.t() => any()}
+  @type create_export_task_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1645,51 +1645,51 @@ defmodule AWS.CloudWatchLogs do
       
       describe_delivery_destinations_response() :: %{
         "deliveryDestinations" => list(delivery_destination()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_delivery_destinations_response() :: %{String.t() => any()}
+  @type describe_delivery_destinations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       csv() :: %{
-        "columns" => list(String.t()),
-        "delimiter" => String.t(),
-        "quoteCharacter" => String.t(),
-        "source" => String.t()
+        "columns" => list(String.t() | Atom.t()),
+        "delimiter" => String.t() | Atom.t(),
+        "quoteCharacter" => String.t() | Atom.t(),
+        "source" => String.t() | Atom.t()
       }
       
   """
-  @type csv() :: %{String.t() => any()}
+  @type csv() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       rename_key_entry() :: %{
-        "key" => String.t(),
+        "key" => String.t() | Atom.t(),
         "overwriteIfExists" => boolean(),
-        "renameTo" => String.t()
+        "renameTo" => String.t() | Atom.t()
       }
       
   """
-  @type rename_key_entry() :: %{String.t() => any()}
+  @type rename_key_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_kms_key_request() :: %{
-        optional("logGroupName") => String.t(),
-        optional("resourceIdentifier") => String.t(),
-        required("kmsKeyId") => String.t()
+        optional("logGroupName") => String.t() | Atom.t(),
+        optional("resourceIdentifier") => String.t() | Atom.t(),
+        required("kmsKeyId") => String.t() | Atom.t()
       }
       
   """
-  @type associate_kms_key_request() :: %{String.t() => any()}
+  @type associate_kms_key_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1697,46 +1697,46 @@ defmodule AWS.CloudWatchLogs do
       
       get_log_record_request() :: %{
         optional("unmask") => boolean(),
-        required("logRecordPointer") => String.t()
+        required("logRecordPointer") => String.t() | Atom.t()
       }
       
   """
-  @type get_log_record_request() :: %{String.t() => any()}
+  @type get_log_record_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_delivery_destination_policy_request() :: %{
-        required("deliveryDestinationName") => String.t()
+        required("deliveryDestinationName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_delivery_destination_policy_request() :: %{String.t() => any()}
+  @type delete_delivery_destination_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       metric_filter_match_record() :: %{
-        "eventMessage" => String.t(),
+        "eventMessage" => String.t() | Atom.t(),
         "eventNumber" => float(),
         "extractedValues" => map()
       }
       
   """
-  @type metric_filter_match_record() :: %{String.t() => any()}
+  @type metric_filter_match_record() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_query_request() :: %{
-        required("queryId") => String.t()
+        required("queryId") => String.t() | Atom.t()
       }
       
   """
-  @type stop_query_request() :: %{String.t() => any()}
+  @type stop_query_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1744,11 +1744,11 @@ defmodule AWS.CloudWatchLogs do
       
       open_search_workspace() :: %{
         "status" => open_search_resource_status(),
-        "workspaceId" => String.t()
+        "workspaceId" => String.t() | Atom.t()
       }
       
   """
-  @type open_search_workspace() :: %{String.t() => any()}
+  @type open_search_workspace() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1759,18 +1759,18 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type stop_query_response() :: %{String.t() => any()}
+  @type stop_query_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_log_anomaly_detector_response() :: %{
-        "anomalyDetectorArn" => String.t()
+        "anomalyDetectorArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_log_anomaly_detector_response() :: %{String.t() => any()}
+  @type create_log_anomaly_detector_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1778,13 +1778,13 @@ defmodule AWS.CloudWatchLogs do
       
       put_delivery_source_request() :: %{
         optional("tags") => map(),
-        required("logType") => String.t(),
-        required("name") => String.t(),
-        required("resourceArn") => String.t()
+        required("logType") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t(),
+        required("resourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type put_delivery_source_request() :: %{String.t() => any()}
+  @type put_delivery_source_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1792,65 +1792,65 @@ defmodule AWS.CloudWatchLogs do
       
       describe_field_indexes_response() :: %{
         "fieldIndexes" => list(field_index()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_field_indexes_response() :: %{String.t() => any()}
+  @type describe_field_indexes_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       log_group_field() :: %{
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "percent" => integer()
       }
       
   """
-  @type log_group_field() :: %{String.t() => any()}
+  @type log_group_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       open_search_network_policy() :: %{
-        "policyName" => String.t(),
+        "policyName" => String.t() | Atom.t(),
         "status" => open_search_resource_status()
       }
       
   """
-  @type open_search_network_policy() :: %{String.t() => any()}
+  @type open_search_network_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_transformer_request() :: %{
-        required("logGroupIdentifier") => String.t(),
+        required("logGroupIdentifier") => String.t() | Atom.t(),
         required("transformerConfig") => list(processor())
       }
       
   """
-  @type put_transformer_request() :: %{String.t() => any()}
+  @type put_transformer_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       log_stream() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "creationTime" => float(),
         "firstEventTimestamp" => float(),
         "lastEventTimestamp" => float(),
         "lastIngestionTime" => float(),
-        "logStreamName" => String.t(),
+        "logStreamName" => String.t() | Atom.t(),
         "storedBytes" => float(),
-        "uploadSequenceToken" => String.t()
+        "uploadSequenceToken" => String.t() | Atom.t()
       }
       
   """
-  @type log_stream() :: %{String.t() => any()}
+  @type log_stream() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1861,7 +1861,7 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1869,25 +1869,25 @@ defmodule AWS.CloudWatchLogs do
       
       put_metric_filter_request() :: %{
         optional("applyOnTransformedLogs") => boolean(),
-        required("filterName") => String.t(),
-        required("filterPattern") => String.t(),
-        required("logGroupName") => String.t(),
+        required("filterName") => String.t() | Atom.t(),
+        required("filterPattern") => String.t() | Atom.t(),
+        required("logGroupName") => String.t() | Atom.t(),
         required("metricTransformations") => list(metric_transformation())
       }
       
   """
-  @type put_metric_filter_request() :: %{String.t() => any()}
+  @type put_metric_filter_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_integration_request() :: %{
-        required("integrationName") => String.t()
+        required("integrationName") => String.t() | Atom.t()
       }
       
   """
-  @type get_integration_request() :: %{String.t() => any()}
+  @type get_integration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1895,11 +1895,11 @@ defmodule AWS.CloudWatchLogs do
       
       describe_index_policies_response() :: %{
         "indexPolicies" => list(index_policy()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_index_policies_response() :: %{String.t() => any()}
+  @type describe_index_policies_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1907,20 +1907,20 @@ defmodule AWS.CloudWatchLogs do
       
       filter_log_events_request() :: %{
         optional("endTime") => float(),
-        optional("filterPattern") => String.t(),
+        optional("filterPattern") => String.t() | Atom.t(),
         optional("interleaved") => boolean(),
         optional("limit") => integer(),
-        optional("logGroupIdentifier") => String.t(),
-        optional("logGroupName") => String.t(),
-        optional("logStreamNamePrefix") => String.t(),
-        optional("logStreamNames") => list(String.t()),
-        optional("nextToken") => String.t(),
+        optional("logGroupIdentifier") => String.t() | Atom.t(),
+        optional("logGroupName") => String.t() | Atom.t(),
+        optional("logStreamNamePrefix") => String.t() | Atom.t(),
+        optional("logStreamNames") => list(String.t() | Atom.t()),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("startTime") => float(),
         optional("unmask") => boolean()
       }
       
   """
-  @type filter_log_events_request() :: %{String.t() => any()}
+  @type filter_log_events_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1928,87 +1928,87 @@ defmodule AWS.CloudWatchLogs do
       
       describe_deliveries_response() :: %{
         "deliveries" => list(delivery()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_deliveries_response() :: %{String.t() => any()}
+  @type describe_deliveries_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       grok() :: %{
-        "match" => String.t(),
-        "source" => String.t()
+        "match" => String.t() | Atom.t(),
+        "source" => String.t() | Atom.t()
       }
       
   """
-  @type grok() :: %{String.t() => any()}
+  @type grok() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       log_group_summary() :: %{
-        "logGroupArn" => String.t(),
+        "logGroupArn" => String.t() | Atom.t(),
         "logGroupClass" => list(any()),
-        "logGroupName" => String.t()
+        "logGroupName" => String.t() | Atom.t()
       }
       
   """
-  @type log_group_summary() :: %{String.t() => any()}
+  @type log_group_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       service_unavailable_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type service_unavailable_exception() :: %{String.t() => any()}
+  @type service_unavailable_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_destination_request() :: %{
-        required("destinationName") => String.t()
+        required("destinationName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_destination_request() :: %{String.t() => any()}
+  @type delete_destination_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       parse_key_value() :: %{
-        "destination" => String.t(),
-        "fieldDelimiter" => String.t(),
-        "keyPrefix" => String.t(),
-        "keyValueDelimiter" => String.t(),
-        "nonMatchValue" => String.t(),
+        "destination" => String.t() | Atom.t(),
+        "fieldDelimiter" => String.t() | Atom.t(),
+        "keyPrefix" => String.t() | Atom.t(),
+        "keyValueDelimiter" => String.t() | Atom.t(),
+        "nonMatchValue" => String.t() | Atom.t(),
         "overwriteIfExists" => boolean(),
-        "source" => String.t()
+        "source" => String.t() | Atom.t()
       }
       
   """
-  @type parse_key_value() :: %{String.t() => any()}
+  @type parse_key_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_account_policy_request() :: %{
-        required("policyName") => String.t(),
+        required("policyName") => String.t() | Atom.t(),
         required("policyType") => list(any())
       }
       
   """
-  @type delete_account_policy_request() :: %{String.t() => any()}
+  @type delete_account_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2016,34 +2016,34 @@ defmodule AWS.CloudWatchLogs do
       
       describe_log_groups_response() :: %{
         "logGroups" => list(log_group()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_log_groups_response() :: %{String.t() => any()}
+  @type describe_log_groups_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       upper_case_string() :: %{
-        "withKeys" => list(String.t())
+        "withKeys" => list(String.t() | Atom.t())
       }
       
   """
-  @type upper_case_string() :: %{String.t() => any()}
+  @type upper_case_string() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_log_group_request() :: %{
-        required("logGroupName") => String.t(),
-        required("tags") => list(String.t())
+        required("logGroupName") => String.t() | Atom.t(),
+        required("tags") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_log_group_request() :: %{String.t() => any()}
+  @type untag_log_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2052,15 +2052,15 @@ defmodule AWS.CloudWatchLogs do
       put_subscription_filter_request() :: %{
         optional("applyOnTransformedLogs") => boolean(),
         optional("distribution") => list(any()),
-        optional("roleArn") => String.t(),
-        required("destinationArn") => String.t(),
-        required("filterName") => String.t(),
-        required("filterPattern") => String.t(),
-        required("logGroupName") => String.t()
+        optional("roleArn") => String.t() | Atom.t(),
+        required("destinationArn") => String.t() | Atom.t(),
+        required("filterName") => String.t() | Atom.t(),
+        required("filterPattern") => String.t() | Atom.t(),
+        required("logGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type put_subscription_filter_request() :: %{String.t() => any()}
+  @type put_subscription_filter_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2068,11 +2068,11 @@ defmodule AWS.CloudWatchLogs do
       
       describe_delivery_sources_response() :: %{
         "deliverySources" => list(delivery_source()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_delivery_sources_response() :: %{String.t() => any()}
+  @type describe_delivery_sources_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2083,7 +2083,7 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type start_live_tail_response() :: %{String.t() => any()}
+  @type start_live_tail_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2091,40 +2091,40 @@ defmodule AWS.CloudWatchLogs do
       
       list_log_groups_for_query_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("queryId") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("queryId") => String.t() | Atom.t()
       }
       
   """
-  @type list_log_groups_for_query_request() :: %{String.t() => any()}
+  @type list_log_groups_for_query_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       open_search_lifecycle_policy() :: %{
-        "policyName" => String.t(),
+        "policyName" => String.t() | Atom.t(),
         "status" => open_search_resource_status()
       }
       
   """
-  @type open_search_lifecycle_policy() :: %{String.t() => any()}
+  @type open_search_lifecycle_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delivery_destination() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "deliveryDestinationConfiguration" => delivery_destination_configuration(),
         "deliveryDestinationType" => list(any()),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "outputFormat" => list(any()),
         "tags" => map()
       }
       
   """
-  @type delivery_destination() :: %{String.t() => any()}
+  @type delivery_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2133,14 +2133,14 @@ defmodule AWS.CloudWatchLogs do
       list_to_map() :: %{
         "flatten" => boolean(),
         "flattenedElement" => list(any()),
-        "key" => String.t(),
-        "source" => String.t(),
-        "target" => String.t(),
-        "valueKey" => String.t()
+        "key" => String.t() | Atom.t(),
+        "source" => String.t() | Atom.t(),
+        "target" => String.t() | Atom.t(),
+        "valueKey" => String.t() | Atom.t()
       }
       
   """
-  @type list_to_map() :: %{String.t() => any()}
+  @type list_to_map() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2148,11 +2148,11 @@ defmodule AWS.CloudWatchLogs do
       
       query_compile_error() :: %{
         "location" => query_compile_error_location(),
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type query_compile_error() :: %{String.t() => any()}
+  @type query_compile_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2163,7 +2163,7 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type get_delivery_destination_response() :: %{String.t() => any()}
+  @type get_delivery_destination_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2171,16 +2171,16 @@ defmodule AWS.CloudWatchLogs do
       
       create_log_anomaly_detector_request() :: %{
         optional("anomalyVisibilityTime") => float(),
-        optional("detectorName") => String.t(),
+        optional("detectorName") => String.t() | Atom.t(),
         optional("evaluationFrequency") => list(any()),
-        optional("filterPattern") => String.t(),
-        optional("kmsKeyId") => String.t(),
+        optional("filterPattern") => String.t() | Atom.t(),
+        optional("kmsKeyId") => String.t() | Atom.t(),
         optional("tags") => map(),
-        required("logGroupArnList") => list(String.t())
+        required("logGroupArnList") => list(String.t() | Atom.t())
       }
       
   """
-  @type create_log_anomaly_detector_request() :: %{String.t() => any()}
+  @type create_log_anomaly_detector_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2191,69 +2191,69 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type get_delivery_destination_policy_response() :: %{String.t() => any()}
+  @type get_delivery_destination_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_delivery_configuration_request() :: %{
-        optional("fieldDelimiter") => String.t(),
-        optional("recordFields") => list(String.t()),
+        optional("fieldDelimiter") => String.t() | Atom.t(),
+        optional("recordFields") => list(String.t() | Atom.t()),
         optional("s3DeliveryConfiguration") => s3_delivery_configuration(),
-        required("id") => String.t()
+        required("id") => String.t() | Atom.t()
       }
       
   """
-  @type update_delivery_configuration_request() :: %{String.t() => any()}
+  @type update_delivery_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_log_group_fields_request() :: %{
-        optional("logGroupIdentifier") => String.t(),
-        optional("logGroupName") => String.t(),
+        optional("logGroupIdentifier") => String.t() | Atom.t(),
+        optional("logGroupName") => String.t() | Atom.t(),
         optional("time") => float()
       }
       
   """
-  @type get_log_group_fields_request() :: %{String.t() => any()}
+  @type get_log_group_fields_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_query_definition_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("logGroupNames") => list(String.t()),
-        optional("queryDefinitionId") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("logGroupNames") => list(String.t() | Atom.t()),
+        optional("queryDefinitionId") => String.t() | Atom.t(),
         optional("queryLanguage") => list(any()),
-        required("name") => String.t(),
-        required("queryString") => String.t()
+        required("name") => String.t() | Atom.t(),
+        required("queryString") => String.t() | Atom.t()
       }
       
   """
-  @type put_query_definition_request() :: %{String.t() => any()}
+  @type put_query_definition_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       export_task() :: %{
-        "destination" => String.t(),
-        "destinationPrefix" => String.t(),
+        "destination" => String.t() | Atom.t(),
+        "destinationPrefix" => String.t() | Atom.t(),
         "executionInfo" => export_task_execution_info(),
         "from" => float(),
-        "logGroupName" => String.t(),
+        "logGroupName" => String.t() | Atom.t(),
         "status" => export_task_status(),
-        "taskId" => String.t(),
-        "taskName" => String.t(),
+        "taskId" => String.t() | Atom.t(),
+        "taskName" => String.t() | Atom.t(),
         "to" => float()
       }
       
   """
-  @type export_task() :: %{String.t() => any()}
+  @type export_task() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2262,25 +2262,25 @@ defmodule AWS.CloudWatchLogs do
       metric_transformation() :: %{
         "defaultValue" => float(),
         "dimensions" => map(),
-        "metricName" => String.t(),
-        "metricNamespace" => String.t(),
-        "metricValue" => String.t(),
+        "metricName" => String.t() | Atom.t(),
+        "metricNamespace" => String.t() | Atom.t(),
+        "metricValue" => String.t() | Atom.t(),
         "unit" => list(any())
       }
       
   """
-  @type metric_transformation() :: %{String.t() => any()}
+  @type metric_transformation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_log_group_request() :: %{
-        required("logGroupName") => String.t()
+        required("logGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_log_group_request() :: %{String.t() => any()}
+  @type list_tags_log_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2288,12 +2288,12 @@ defmodule AWS.CloudWatchLogs do
       
       resource_policy() :: %{
         "lastUpdatedTime" => float(),
-        "policyDocument" => String.t(),
-        "policyName" => String.t()
+        "policyDocument" => String.t() | Atom.t(),
+        "policyName" => String.t() | Atom.t()
       }
       
   """
-  @type resource_policy() :: %{String.t() => any()}
+  @type resource_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2301,20 +2301,20 @@ defmodule AWS.CloudWatchLogs do
       
       anomaly() :: %{
         "active" => boolean(),
-        "anomalyDetectorArn" => String.t(),
-        "anomalyId" => String.t(),
-        "description" => String.t(),
+        "anomalyDetectorArn" => String.t() | Atom.t(),
+        "anomalyId" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
         "firstSeen" => float(),
         "histogram" => map(),
         "isPatternLevelSuppression" => boolean(),
         "lastSeen" => float(),
-        "logGroupArnList" => list(String.t()),
+        "logGroupArnList" => list(String.t() | Atom.t()),
         "logSamples" => list(log_event()),
-        "patternId" => String.t(),
-        "patternRegex" => String.t(),
-        "patternString" => String.t(),
+        "patternId" => String.t() | Atom.t(),
+        "patternRegex" => String.t() | Atom.t(),
+        "patternString" => String.t() | Atom.t(),
         "patternTokens" => list(pattern_token()),
-        "priority" => String.t(),
+        "priority" => String.t() | Atom.t(),
         "state" => list(any()),
         "suppressed" => boolean(),
         "suppressedDate" => float(),
@@ -2322,21 +2322,21 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type anomaly() :: %{String.t() => any()}
+  @type anomaly() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_anomalies_request() :: %{
-        optional("anomalyDetectorArn") => String.t(),
+        optional("anomalyDetectorArn") => String.t() | Atom.t(),
         optional("limit") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("suppressionState") => list(any())
       }
       
   """
-  @type list_anomalies_request() :: %{String.t() => any()}
+  @type list_anomalies_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2347,7 +2347,7 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type put_delivery_destination_response() :: %{String.t() => any()}
+  @type put_delivery_destination_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2355,11 +2355,11 @@ defmodule AWS.CloudWatchLogs do
       
       describe_delivery_sources_request() :: %{
         optional("limit") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type describe_delivery_sources_request() :: %{String.t() => any()}
+  @type describe_delivery_sources_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2370,114 +2370,114 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type rename_keys() :: %{String.t() => any()}
+  @type rename_keys() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_query_response() :: %{
-        "queryId" => String.t()
+        "queryId" => String.t() | Atom.t()
       }
       
   """
-  @type start_query_response() :: %{String.t() => any()}
+  @type start_query_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_live_tail_request() :: %{
-        optional("logEventFilterPattern") => String.t(),
-        optional("logStreamNamePrefixes") => list(String.t()),
-        optional("logStreamNames") => list(String.t()),
-        required("logGroupIdentifiers") => list(String.t())
+        optional("logEventFilterPattern") => String.t() | Atom.t(),
+        optional("logStreamNamePrefixes") => list(String.t() | Atom.t()),
+        optional("logStreamNames") => list(String.t() | Atom.t()),
+        required("logGroupIdentifiers") => list(String.t() | Atom.t())
       }
       
   """
-  @type start_live_tail_request() :: %{String.t() => any()}
+  @type start_live_tail_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       filtered_log_event() :: %{
-        "eventId" => String.t(),
+        "eventId" => String.t() | Atom.t(),
         "ingestionTime" => float(),
-        "logStreamName" => String.t(),
-        "message" => String.t(),
+        "logStreamName" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t(),
         "timestamp" => float()
       }
       
   """
-  @type filtered_log_event() :: %{String.t() => any()}
+  @type filtered_log_event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_data_protection_policy_request() :: %{
-        required("logGroupIdentifier") => String.t()
+        required("logGroupIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type delete_data_protection_policy_request() :: %{String.t() => any()}
+  @type delete_data_protection_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       policy() :: %{
-        "deliveryDestinationPolicy" => String.t()
+        "deliveryDestinationPolicy" => String.t() | Atom.t()
       }
       
   """
-  @type policy() :: %{String.t() => any()}
+  @type policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_resource_policy_request() :: %{
-        optional("policyDocument") => String.t(),
-        optional("policyName") => String.t()
+        optional("policyDocument") => String.t() | Atom.t(),
+        optional("policyName") => String.t() | Atom.t()
       }
       
   """
-  @type put_resource_policy_request() :: %{String.t() => any()}
+  @type put_resource_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_delivery_source_request() :: %{
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
       
   """
-  @type delete_delivery_source_request() :: %{String.t() => any()}
+  @type delete_delivery_source_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameter_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_parameter_exception() :: %{String.t() => any()}
+  @type invalid_parameter_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2495,7 +2495,7 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type open_search_integration_details() :: %{String.t() => any()}
+  @type open_search_integration_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2503,12 +2503,12 @@ defmodule AWS.CloudWatchLogs do
       
       move_key_entry() :: %{
         "overwriteIfExists" => boolean(),
-        "source" => String.t(),
-        "target" => String.t()
+        "source" => String.t() | Atom.t(),
+        "target" => String.t() | Atom.t()
       }
       
   """
-  @type move_key_entry() :: %{String.t() => any()}
+  @type move_key_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2517,17 +2517,17 @@ defmodule AWS.CloudWatchLogs do
       get_log_events_request() :: %{
         optional("endTime") => float(),
         optional("limit") => integer(),
-        optional("logGroupIdentifier") => String.t(),
-        optional("logGroupName") => String.t(),
-        optional("nextToken") => String.t(),
+        optional("logGroupIdentifier") => String.t() | Atom.t(),
+        optional("logGroupName") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("startFromHead") => boolean(),
         optional("startTime") => float(),
         optional("unmask") => boolean(),
-        required("logStreamName") => String.t()
+        required("logStreamName") => String.t() | Atom.t()
       }
       
   """
-  @type get_log_events_request() :: %{String.t() => any()}
+  @type get_log_events_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2536,11 +2536,11 @@ defmodule AWS.CloudWatchLogs do
       parse_to_o_c_s_f() :: %{
         "eventSource" => list(any()),
         "ocsfVersion" => list(any()),
-        "source" => String.t()
+        "source" => String.t() | Atom.t()
       }
       
   """
-  @type parse_to_o_c_s_f() :: %{String.t() => any()}
+  @type parse_to_o_c_s_f() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2551,7 +2551,7 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type add_keys() :: %{String.t() => any()}
+  @type add_keys() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2564,18 +2564,18 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type rejected_log_events_info() :: %{String.t() => any()}
+  @type rejected_log_events_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_data_protection_policy_request() :: %{
-        required("logGroupIdentifier") => String.t()
+        required("logGroupIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type get_data_protection_policy_request() :: %{String.t() => any()}
+  @type get_data_protection_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2583,12 +2583,12 @@ defmodule AWS.CloudWatchLogs do
       
       get_log_events_response() :: %{
         "events" => list(output_log_event()),
-        "nextBackwardToken" => String.t(),
-        "nextForwardToken" => String.t()
+        "nextBackwardToken" => String.t() | Atom.t(),
+        "nextForwardToken" => String.t() | Atom.t()
       }
       
   """
-  @type get_log_events_response() :: %{String.t() => any()}
+  @type get_log_events_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2596,38 +2596,38 @@ defmodule AWS.CloudWatchLogs do
       
       output_log_event() :: %{
         "ingestionTime" => float(),
-        "message" => String.t(),
+        "message" => String.t() | Atom.t(),
         "timestamp" => float()
       }
       
   """
-  @type output_log_event() :: %{String.t() => any()}
+  @type output_log_event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       searched_log_stream() :: %{
-        "logStreamName" => String.t(),
+        "logStreamName" => String.t() | Atom.t(),
         "searchedCompletely" => boolean()
       }
       
   """
-  @type searched_log_stream() :: %{String.t() => any()}
+  @type searched_log_stream() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_account_policies_request() :: %{
-        optional("accountIdentifiers") => list(String.t()),
-        optional("nextToken") => String.t(),
-        optional("policyName") => String.t(),
+        optional("accountIdentifiers") => list(String.t() | Atom.t()),
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("policyName") => String.t() | Atom.t(),
         required("policyType") => list(any())
       }
       
   """
-  @type describe_account_policies_request() :: %{String.t() => any()}
+  @type describe_account_policies_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2636,65 +2636,65 @@ defmodule AWS.CloudWatchLogs do
       metric_filter() :: %{
         "applyOnTransformedLogs" => boolean(),
         "creationTime" => float(),
-        "filterName" => String.t(),
-        "filterPattern" => String.t(),
-        "logGroupName" => String.t(),
+        "filterName" => String.t() | Atom.t(),
+        "filterPattern" => String.t() | Atom.t(),
+        "logGroupName" => String.t() | Atom.t(),
         "metricTransformations" => list(metric_transformation())
       }
       
   """
-  @type metric_filter() :: %{String.t() => any()}
+  @type metric_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("resourceArn") => String.t()
+        required("resourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       destination() :: %{
-        "accessPolicy" => String.t(),
-        "arn" => String.t(),
+        "accessPolicy" => String.t() | Atom.t(),
+        "arn" => String.t() | Atom.t(),
         "creationTime" => float(),
-        "destinationName" => String.t(),
-        "roleArn" => String.t(),
-        "targetArn" => String.t()
+        "destinationName" => String.t() | Atom.t(),
+        "roleArn" => String.t() | Atom.t(),
+        "targetArn" => String.t() | Atom.t()
       }
       
   """
-  @type destination() :: %{String.t() => any()}
+  @type destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_log_events_response() :: %{
-        "nextSequenceToken" => String.t(),
+        "nextSequenceToken" => String.t() | Atom.t(),
         "rejectedEntityInfo" => rejected_entity_info(),
         "rejectedLogEventsInfo" => rejected_log_events_info()
       }
       
   """
-  @type put_log_events_response() :: %{String.t() => any()}
+  @type put_log_events_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2705,63 +2705,63 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type put_delivery_source_response() :: %{String.t() => any()}
+  @type put_delivery_source_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_delivery_request() :: %{
-        required("id") => String.t()
+        required("id") => String.t() | Atom.t()
       }
       
   """
-  @type delete_delivery_request() :: %{String.t() => any()}
+  @type delete_delivery_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       log_group() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "creationTime" => float(),
         "dataProtectionStatus" => list(any()),
         "inheritedProperties" => list(list(any())()),
-        "kmsKeyId" => String.t(),
-        "logGroupArn" => String.t(),
+        "kmsKeyId" => String.t() | Atom.t(),
+        "logGroupArn" => String.t() | Atom.t(),
         "logGroupClass" => list(any()),
-        "logGroupName" => String.t(),
+        "logGroupName" => String.t() | Atom.t(),
         "metricFilterCount" => integer(),
         "retentionInDays" => integer(),
         "storedBytes" => float()
       }
       
   """
-  @type log_group() :: %{String.t() => any()}
+  @type log_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_log_anomaly_detectors_request() :: %{
-        optional("filterLogGroupArn") => String.t(),
+        optional("filterLogGroupArn") => String.t() | Atom.t(),
         optional("limit") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_log_anomaly_detectors_request() :: %{String.t() => any()}
+  @type list_log_anomaly_detectors_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2770,27 +2770,27 @@ defmodule AWS.CloudWatchLogs do
       describe_log_streams_request() :: %{
         optional("descending") => boolean(),
         optional("limit") => integer(),
-        optional("logGroupIdentifier") => String.t(),
-        optional("logGroupName") => String.t(),
-        optional("logStreamNamePrefix") => String.t(),
-        optional("nextToken") => String.t(),
+        optional("logGroupIdentifier") => String.t() | Atom.t(),
+        optional("logGroupName") => String.t() | Atom.t(),
+        optional("logStreamNamePrefix") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("orderBy") => list(any())
       }
       
   """
-  @type describe_log_streams_request() :: %{String.t() => any()}
+  @type describe_log_streams_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       result_field() :: %{
-        "field" => String.t(),
-        "value" => String.t()
+        "field" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
       
   """
-  @type result_field() :: %{String.t() => any()}
+  @type result_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2801,82 +2801,82 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type put_resource_policy_response() :: %{String.t() => any()}
+  @type put_resource_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_delivery_source_request() :: %{
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
       
   """
-  @type get_delivery_source_request() :: %{String.t() => any()}
+  @type get_delivery_source_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       date_time_converter() :: %{
-        "locale" => String.t(),
-        "matchPatterns" => list(String.t()),
-        "source" => String.t(),
-        "sourceTimezone" => String.t(),
-        "target" => String.t(),
-        "targetFormat" => String.t(),
-        "targetTimezone" => String.t()
+        "locale" => String.t() | Atom.t(),
+        "matchPatterns" => list(String.t() | Atom.t()),
+        "source" => String.t() | Atom.t(),
+        "sourceTimezone" => String.t() | Atom.t(),
+        "target" => String.t() | Atom.t(),
+        "targetFormat" => String.t() | Atom.t(),
+        "targetTimezone" => String.t() | Atom.t()
       }
       
   """
-  @type date_time_converter() :: %{String.t() => any()}
+  @type date_time_converter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_metric_filter_request() :: %{
-        required("filterName") => String.t(),
-        required("logGroupName") => String.t()
+        required("filterName") => String.t() | Atom.t(),
+        required("logGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_metric_filter_request() :: %{String.t() => any()}
+  @type delete_metric_filter_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_resource_policies_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "resourcePolicies" => list(resource_policy())
       }
       
   """
-  @type describe_resource_policies_response() :: %{String.t() => any()}
+  @type describe_resource_policies_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_subscription_filters_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "subscriptionFilters" => list(subscription_filter())
       }
       
   """
-  @type describe_subscription_filters_response() :: %{String.t() => any()}
+  @type describe_subscription_filters_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2892,7 +2892,7 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type query_statistics() :: %{String.t() => any()}
+  @type query_statistics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2900,12 +2900,12 @@ defmodule AWS.CloudWatchLogs do
       
       get_data_protection_policy_response() :: %{
         "lastUpdatedTime" => float(),
-        "logGroupIdentifier" => String.t(),
-        "policyDocument" => String.t()
+        "logGroupIdentifier" => String.t() | Atom.t(),
+        "policyDocument" => String.t() | Atom.t()
       }
       
   """
-  @type get_data_protection_policy_response() :: %{String.t() => any()}
+  @type get_data_protection_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2913,70 +2913,70 @@ defmodule AWS.CloudWatchLogs do
       
       open_search_resource_status() :: %{
         "status" => list(any()),
-        "statusMessage" => String.t()
+        "statusMessage" => String.t() | Atom.t()
       }
       
   """
-  @type open_search_resource_status() :: %{String.t() => any()}
+  @type open_search_resource_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delivery_source() :: %{
-        "arn" => String.t(),
-        "logType" => String.t(),
-        "name" => String.t(),
-        "resourceArns" => list(String.t()),
-        "service" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "logType" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "resourceArns" => list(String.t() | Atom.t()),
+        "service" => String.t() | Atom.t(),
         "tags" => map()
       }
       
   """
-  @type delivery_source() :: %{String.t() => any()}
+  @type delivery_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_resource_policy_request() :: %{
-        optional("policyName") => String.t()
+        optional("policyName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_resource_policy_request() :: %{String.t() => any()}
+  @type delete_resource_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       anomaly_detector() :: %{
-        "anomalyDetectorArn" => String.t(),
+        "anomalyDetectorArn" => String.t() | Atom.t(),
         "anomalyDetectorStatus" => list(any()),
         "anomalyVisibilityTime" => float(),
         "creationTimeStamp" => float(),
-        "detectorName" => String.t(),
+        "detectorName" => String.t() | Atom.t(),
         "evaluationFrequency" => list(any()),
-        "filterPattern" => String.t(),
-        "kmsKeyId" => String.t(),
+        "filterPattern" => String.t() | Atom.t(),
+        "kmsKeyId" => String.t() | Atom.t(),
         "lastModifiedTimeStamp" => float(),
-        "logGroupArnList" => list(String.t())
+        "logGroupArnList" => list(String.t() | Atom.t())
       }
       
   """
-  @type anomaly_detector() :: %{String.t() => any()}
+  @type anomaly_detector() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       test_transformer_request() :: %{
-        required("logEventMessages") => list(String.t()),
+        required("logEventMessages") => list(String.t() | Atom.t()),
         required("transformerConfig") => list(processor())
       }
       
   """
-  @type test_transformer_request() :: %{String.t() => any()}
+  @type test_transformer_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2984,55 +2984,55 @@ defmodule AWS.CloudWatchLogs do
       
       list_log_anomaly_detectors_response() :: %{
         "anomalyDetectors" => list(anomaly_detector()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_log_anomaly_detectors_response() :: %{String.t() => any()}
+  @type list_log_anomaly_detectors_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       parse_route53() :: %{
-        "source" => String.t()
+        "source" => String.t() | Atom.t()
       }
       
   """
-  @type parse_route53() :: %{String.t() => any()}
+  @type parse_route53() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_delivery_destination_request() :: %{
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
       
   """
-  @type delete_delivery_destination_request() :: %{String.t() => any()}
+  @type delete_delivery_destination_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_export_task_request() :: %{
-        required("taskId") => String.t()
+        required("taskId") => String.t() | Atom.t()
       }
       
   """
-  @type cancel_export_task_request() :: %{String.t() => any()}
+  @type cancel_export_task_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_already_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_already_exists_exception() :: %{String.t() => any()}
+  @type resource_already_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3040,36 +3040,36 @@ defmodule AWS.CloudWatchLogs do
       
       describe_configuration_templates_response() :: %{
         "configurationTemplates" => list(configuration_template()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_configuration_templates_response() :: %{String.t() => any()}
+  @type describe_configuration_templates_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_subscription_filter_request() :: %{
-        required("filterName") => String.t(),
-        required("logGroupName") => String.t()
+        required("filterName") => String.t() | Atom.t(),
+        required("logGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_subscription_filter_request() :: %{String.t() => any()}
+  @type delete_subscription_filter_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_destinations_request() :: %{
-        optional("DestinationNamePrefix") => String.t(),
+        optional("DestinationNamePrefix") => String.t() | Atom.t(),
         optional("limit") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type describe_destinations_request() :: %{String.t() => any()}
+  @type describe_destinations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3080,7 +3080,7 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type test_metric_filter_response() :: %{String.t() => any()}
+  @type test_metric_filter_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3091,33 +3091,33 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type move_keys() :: %{String.t() => any()}
+  @type move_keys() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       parse_json() :: %{
-        "destination" => String.t(),
-        "source" => String.t()
+        "destination" => String.t() | Atom.t(),
+        "source" => String.t() | Atom.t()
       }
       
   """
-  @type parse_json() :: %{String.t() => any()}
+  @type parse_json() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       open_search_application() :: %{
-        "applicationArn" => String.t(),
-        "applicationEndpoint" => String.t(),
-        "applicationId" => String.t(),
+        "applicationArn" => String.t() | Atom.t(),
+        "applicationEndpoint" => String.t() | Atom.t(),
+        "applicationId" => String.t() | Atom.t(),
         "status" => open_search_resource_status()
       }
       
   """
-  @type open_search_application() :: %{String.t() => any()}
+  @type open_search_application() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3125,37 +3125,37 @@ defmodule AWS.CloudWatchLogs do
       
       query_definition() :: %{
         "lastModified" => float(),
-        "logGroupNames" => list(String.t()),
-        "name" => String.t(),
-        "queryDefinitionId" => String.t(),
+        "logGroupNames" => list(String.t() | Atom.t()),
+        "name" => String.t() | Atom.t(),
+        "queryDefinitionId" => String.t() | Atom.t(),
         "queryLanguage" => list(any()),
-        "queryString" => String.t()
+        "queryString" => String.t() | Atom.t()
       }
       
   """
-  @type query_definition() :: %{String.t() => any()}
+  @type query_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_keys() :: %{
-        "withKeys" => list(String.t())
+        "withKeys" => list(String.t() | Atom.t())
       }
       
   """
-  @type delete_keys() :: %{String.t() => any()}
+  @type delete_keys() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_delivery_destination_policy_request() :: %{
-        required("deliveryDestinationName") => String.t()
+        required("deliveryDestinationName") => String.t() | Atom.t()
       }
       
   """
-  @type get_delivery_destination_policy_request() :: %{String.t() => any()}
+  @type get_delivery_destination_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3163,27 +3163,27 @@ defmodule AWS.CloudWatchLogs do
       
       describe_delivery_destinations_request() :: %{
         optional("limit") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type describe_delivery_destinations_request() :: %{String.t() => any()}
+  @type describe_delivery_destinations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_delivery_request() :: %{
-        optional("fieldDelimiter") => String.t(),
-        optional("recordFields") => list(String.t()),
+        optional("fieldDelimiter") => String.t() | Atom.t(),
+        optional("recordFields") => list(String.t() | Atom.t()),
         optional("s3DeliveryConfiguration") => s3_delivery_configuration(),
         optional("tags") => map(),
-        required("deliveryDestinationArn") => String.t(),
-        required("deliverySourceName") => String.t()
+        required("deliveryDestinationArn") => String.t() | Atom.t(),
+        required("deliverySourceName") => String.t() | Atom.t()
       }
       
   """
-  @type create_delivery_request() :: %{String.t() => any()}
+  @type create_delivery_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3191,45 +3191,45 @@ defmodule AWS.CloudWatchLogs do
       
       record_field() :: %{
         "mandatory" => boolean(),
-        "name" => String.t()
+        "name" => String.t() | Atom.t()
       }
       
   """
-  @type record_field() :: %{String.t() => any()}
+  @type record_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_log_group_request() :: %{
-        required("logGroupName") => String.t()
+        required("logGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_log_group_request() :: %{String.t() => any()}
+  @type delete_log_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       test_metric_filter_request() :: %{
-        required("filterPattern") => String.t(),
-        required("logEventMessages") => list(String.t())
+        required("filterPattern") => String.t() | Atom.t(),
+        required("logEventMessages") => list(String.t() | Atom.t())
       }
       
   """
-  @type test_metric_filter_request() :: %{String.t() => any()}
+  @type test_metric_filter_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       parse_postgres() :: %{
-        "source" => String.t()
+        "source" => String.t() | Atom.t()
       }
       
   """
-  @type parse_postgres() :: %{String.t() => any()}
+  @type parse_postgres() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3237,51 +3237,51 @@ defmodule AWS.CloudWatchLogs do
       
       query_info() :: %{
         "createTime" => float(),
-        "logGroupName" => String.t(),
-        "queryId" => String.t(),
+        "logGroupName" => String.t() | Atom.t(),
+        "queryId" => String.t() | Atom.t(),
         "queryLanguage" => list(any()),
-        "queryString" => String.t(),
+        "queryString" => String.t() | Atom.t(),
         "status" => list(any())
       }
       
   """
-  @type query_info() :: %{String.t() => any()}
+  @type query_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       configuration_template_delivery_config_values() :: %{
-        "fieldDelimiter" => String.t(),
-        "recordFields" => list(String.t()),
+        "fieldDelimiter" => String.t() | Atom.t(),
+        "recordFields" => list(String.t() | Atom.t()),
         "s3DeliveryConfiguration" => s3_delivery_configuration()
       }
       
   """
-  @type configuration_template_delivery_config_values() :: %{String.t() => any()}
+  @type configuration_template_delivery_config_values() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       parse_vpc() :: %{
-        "source" => String.t()
+        "source" => String.t() | Atom.t()
       }
       
   """
-  @type parse_vpc() :: %{String.t() => any()}
+  @type parse_vpc() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_index_policy_request() :: %{
-        required("logGroupIdentifier") => String.t(),
-        required("policyDocument") => String.t()
+        required("logGroupIdentifier") => String.t() | Atom.t(),
+        required("policyDocument") => String.t() | Atom.t()
       }
       
   """
-  @type put_index_policy_request() :: %{String.t() => any()}
+  @type put_index_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3292,30 +3292,30 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type split_string() :: %{String.t() => any()}
+  @type split_string() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       unrecognized_client_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type unrecognized_client_exception() :: %{String.t() => any()}
+  @type unrecognized_client_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_tags_exception() :: %{
-        "message" => String.t(),
-        "resourceName" => String.t()
+        "message" => String.t() | Atom.t(),
+        "resourceName" => String.t() | Atom.t()
       }
       
   """
-  @type too_many_tags_exception() :: %{String.t() => any()}
+  @type too_many_tags_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3324,14 +3324,14 @@ defmodule AWS.CloudWatchLogs do
       describe_configuration_templates_request() :: %{
         optional("deliveryDestinationTypes") => list(list(any())()),
         optional("limit") => integer(),
-        optional("logTypes") => list(String.t()),
-        optional("nextToken") => String.t(),
-        optional("resourceTypes") => list(String.t()),
-        optional("service") => String.t()
+        optional("logTypes") => list(String.t() | Atom.t()),
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("resourceTypes") => list(String.t() | Atom.t()),
+        optional("service") => String.t() | Atom.t()
       }
       
   """
-  @type describe_configuration_templates_request() :: %{String.t() => any()}
+  @type describe_configuration_templates_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3339,11 +3339,11 @@ defmodule AWS.CloudWatchLogs do
       
       describe_metric_filters_response() :: %{
         "metricFilters" => list(metric_filter()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_metric_filters_response() :: %{String.t() => any()}
+  @type describe_metric_filters_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3351,26 +3351,26 @@ defmodule AWS.CloudWatchLogs do
       
       index_policy() :: %{
         "lastUpdateTime" => float(),
-        "logGroupIdentifier" => String.t(),
-        "policyDocument" => String.t(),
-        "policyName" => String.t(),
+        "logGroupIdentifier" => String.t() | Atom.t(),
+        "policyDocument" => String.t() | Atom.t(),
+        "policyName" => String.t() | Atom.t(),
         "source" => list(any())
       }
       
   """
-  @type index_policy() :: %{String.t() => any()}
+  @type index_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       log_event() :: %{
-        "message" => String.t(),
+        "message" => String.t() | Atom.t(),
         "timestamp" => float()
       }
       
   """
-  @type log_event() :: %{String.t() => any()}
+  @type log_event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3381,18 +3381,18 @@ defmodule AWS.CloudWatchLogs do
       }
       
   """
-  @type list_integrations_response() :: %{String.t() => any()}
+  @type list_integrations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_query_definition_response() :: %{
-        "queryDefinitionId" => String.t()
+        "queryDefinitionId" => String.t() | Atom.t()
       }
       
   """
-  @type put_query_definition_response() :: %{String.t() => any()}
+  @type put_query_definition_response() :: %{String.t() | Atom.t() => any()}
 
   @type associate_kms_key_errors() ::
           invalid_parameter_exception()

@@ -25,12 +25,12 @@ defmodule AWS.MarketplaceCatalog do
   ## Example:
 
       resale_authorization_product_name_filter() :: %{
-        "ValueList" => list(String.t()),
-        "WildCardValue" => String.t()
+        "ValueList" => list(String.t() | Atom.t()),
+        "WildCardValue" => String.t() | Atom.t()
       }
 
   """
-  @type resale_authorization_product_name_filter() :: %{String.t() => any()}
+  @type resale_authorization_product_name_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -41,39 +41,39 @@ defmodule AWS.MarketplaceCatalog do
         optional("EntityTypeSort") => list(),
         optional("FilterList") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("OwnershipType") => list(any()),
         optional("Sort") => sort(),
-        required("Catalog") => String.t(),
-        required("EntityType") => String.t()
+        required("Catalog") => String.t() | Atom.t(),
+        required("EntityType") => String.t() | Atom.t()
       }
 
   """
-  @type list_entities_request() :: %{String.t() => any()}
+  @type list_entities_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_change_set_request() :: %{
-        required("Catalog") => String.t(),
-        required("ChangeSetId") => String.t()
+        required("Catalog") => String.t() | Atom.t(),
+        required("ChangeSetId") => String.t() | Atom.t()
       }
 
   """
-  @type describe_change_set_request() :: %{String.t() => any()}
+  @type describe_change_set_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
+        required("ResourceArn") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -89,40 +89,40 @@ defmodule AWS.MarketplaceCatalog do
   ## Example:
 
       cancel_change_set_response() :: %{
-        "ChangeSetArn" => String.t(),
-        "ChangeSetId" => String.t()
+        "ChangeSetArn" => String.t() | Atom.t(),
+        "ChangeSetId" => String.t() | Atom.t()
       }
 
   """
-  @type cancel_change_set_response() :: %{String.t() => any()}
+  @type cancel_change_set_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       change() :: %{
-        "ChangeName" => String.t(),
-        "ChangeType" => String.t(),
-        "Details" => String.t(),
+        "ChangeName" => String.t() | Atom.t(),
+        "ChangeType" => String.t() | Atom.t(),
+        "Details" => String.t() | Atom.t(),
         "DetailsDocument" => any(),
         "Entity" => entity(),
         "EntityTags" => list(tag())
       }
 
   """
-  @type change() :: %{String.t() => any()}
+  @type change() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resale_authorization_created_date_filter_date_range() :: %{
-        "AfterValue" => String.t(),
-        "BeforeValue" => String.t()
+        "AfterValue" => String.t() | Atom.t(),
+        "BeforeValue" => String.t() | Atom.t()
       }
 
   """
-  @type resale_authorization_created_date_filter_date_range() :: %{String.t() => any()}
+  @type resale_authorization_created_date_filter_date_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -131,13 +131,13 @@ defmodule AWS.MarketplaceCatalog do
       list_change_sets_request() :: %{
         optional("FilterList") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("Sort") => sort(),
-        required("Catalog") => String.t()
+        required("Catalog") => String.t() | Atom.t()
       }
 
   """
-  @type list_change_sets_request() :: %{String.t() => any()}
+  @type list_change_sets_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -151,7 +151,7 @@ defmodule AWS.MarketplaceCatalog do
       }
 
   """
-  @type data_product_filters() :: %{String.t() => any()}
+  @type data_product_filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -159,14 +159,14 @@ defmodule AWS.MarketplaceCatalog do
 
       entity_detail() :: %{
         "DetailsDocument" => any(),
-        "EntityArn" => String.t(),
-        "EntityIdentifier" => String.t(),
-        "EntityType" => String.t(),
-        "LastModifiedDate" => String.t()
+        "EntityArn" => String.t() | Atom.t(),
+        "EntityIdentifier" => String.t() | Atom.t(),
+        "EntityType" => String.t() | Atom.t(),
+        "LastModifiedDate" => String.t() | Atom.t()
       }
 
   """
-  @type entity_detail() :: %{String.t() => any()}
+  @type entity_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -182,12 +182,12 @@ defmodule AWS.MarketplaceCatalog do
   ## Example:
 
       entity() :: %{
-        "Identifier" => String.t(),
-        "Type" => String.t()
+        "Identifier" => String.t() | Atom.t(),
+        "Type" => String.t() | Atom.t()
       }
 
   """
-  @type entity() :: %{String.t() => any()}
+  @type entity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -199,53 +199,53 @@ defmodule AWS.MarketplaceCatalog do
       }
 
   """
-  @type ami_product_sort() :: %{String.t() => any()}
+  @type ami_product_sort() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       machine_learning_product_entity_id_filter() :: %{
-        "ValueList" => list(String.t())
+        "ValueList" => list(String.t() | Atom.t())
       }
 
   """
-  @type machine_learning_product_entity_id_filter() :: %{String.t() => any()}
+  @type machine_learning_product_entity_id_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_in_use_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_in_use_exception() :: %{String.t() => any()}
+  @type resource_in_use_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resale_authorization_manufacturer_account_id_filter() :: %{
-        "ValueList" => list(String.t()),
-        "WildCardValue" => String.t()
+        "ValueList" => list(String.t() | Atom.t()),
+        "WildCardValue" => String.t() | Atom.t()
       }
 
   """
-  @type resale_authorization_manufacturer_account_id_filter() :: %{String.t() => any()}
+  @type resale_authorization_manufacturer_account_id_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       ami_product_title_filter() :: %{
-        "ValueList" => list(String.t()),
-        "WildCardValue" => String.t()
+        "ValueList" => list(String.t() | Atom.t()),
+        "WildCardValue" => String.t() | Atom.t()
       }
 
   """
-  @type ami_product_title_filter() :: %{String.t() => any()}
+  @type ami_product_title_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -256,75 +256,75 @@ defmodule AWS.MarketplaceCatalog do
       }
 
   """
-  @type offer_targeting_filter() :: %{String.t() => any()}
+  @type offer_targeting_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resale_authorization_summary() :: %{
-        "AvailabilityEndDate" => String.t(),
-        "CreatedDate" => String.t(),
-        "ManufacturerAccountId" => String.t(),
-        "ManufacturerLegalName" => String.t(),
-        "Name" => String.t(),
-        "OfferExtendedStatus" => String.t(),
-        "ProductId" => String.t(),
-        "ProductName" => String.t(),
-        "ResellerAccountID" => String.t(),
-        "ResellerLegalName" => String.t(),
+        "AvailabilityEndDate" => String.t() | Atom.t(),
+        "CreatedDate" => String.t() | Atom.t(),
+        "ManufacturerAccountId" => String.t() | Atom.t(),
+        "ManufacturerLegalName" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "OfferExtendedStatus" => String.t() | Atom.t(),
+        "ProductId" => String.t() | Atom.t(),
+        "ProductName" => String.t() | Atom.t(),
+        "ResellerAccountID" => String.t() | Atom.t(),
+        "ResellerLegalName" => String.t() | Atom.t(),
         "Status" => list(any())
       }
 
   """
-  @type resale_authorization_summary() :: %{String.t() => any()}
+  @type resale_authorization_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       saa_s_product_entity_id_filter() :: %{
-        "ValueList" => list(String.t())
+        "ValueList" => list(String.t() | Atom.t())
       }
 
   """
-  @type saa_s_product_entity_id_filter() :: %{String.t() => any()}
+  @type saa_s_product_entity_id_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       data_product_summary() :: %{
-        "ProductTitle" => String.t(),
+        "ProductTitle" => String.t() | Atom.t(),
         "Visibility" => list(any())
       }
 
   """
-  @type data_product_summary() :: %{String.t() => any()}
+  @type data_product_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resale_authorization_manufacturer_legal_name_filter() :: %{
-        "ValueList" => list(String.t()),
-        "WildCardValue" => String.t()
+        "ValueList" => list(String.t() | Atom.t()),
+        "WildCardValue" => String.t() | Atom.t()
       }
 
   """
-  @type resale_authorization_manufacturer_legal_name_filter() :: %{String.t() => any()}
+  @type resale_authorization_manufacturer_legal_name_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       saa_s_product_title_filter() :: %{
-        "ValueList" => list(String.t()),
-        "WildCardValue" => String.t()
+        "ValueList" => list(String.t() | Atom.t()),
+        "WildCardValue" => String.t() | Atom.t()
       }
 
   """
-  @type saa_s_product_title_filter() :: %{String.t() => any()}
+  @type saa_s_product_title_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -332,11 +332,11 @@ defmodule AWS.MarketplaceCatalog do
 
       resale_authorization_created_date_filter() :: %{
         "DateRange" => resale_authorization_created_date_filter_date_range(),
-        "ValueList" => list(String.t())
+        "ValueList" => list(String.t() | Atom.t())
       }
 
   """
-  @type resale_authorization_created_date_filter() :: %{String.t() => any()}
+  @type resale_authorization_created_date_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -346,20 +346,20 @@ defmodule AWS.MarketplaceCatalog do
         "AmiProductSummary" => ami_product_summary(),
         "ContainerProductSummary" => container_product_summary(),
         "DataProductSummary" => data_product_summary(),
-        "EntityArn" => String.t(),
-        "EntityId" => String.t(),
-        "EntityType" => String.t(),
-        "LastModifiedDate" => String.t(),
+        "EntityArn" => String.t() | Atom.t(),
+        "EntityId" => String.t() | Atom.t(),
+        "EntityType" => String.t() | Atom.t(),
+        "LastModifiedDate" => String.t() | Atom.t(),
         "MachineLearningProductSummary" => machine_learning_product_summary(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "OfferSummary" => offer_summary(),
         "ResaleAuthorizationSummary" => resale_authorization_summary(),
         "SaaSProductSummary" => saa_s_product_summary(),
-        "Visibility" => String.t()
+        "Visibility" => String.t() | Atom.t()
       }
 
   """
-  @type entity_summary() :: %{String.t() => any()}
+  @type entity_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -367,11 +367,11 @@ defmodule AWS.MarketplaceCatalog do
 
       resale_authorization_availability_end_date_filter() :: %{
         "DateRange" => resale_authorization_availability_end_date_filter_date_range(),
-        "ValueList" => list(String.t())
+        "ValueList" => list(String.t() | Atom.t())
       }
 
   """
-  @type resale_authorization_availability_end_date_filter() :: %{String.t() => any()}
+  @type resale_authorization_availability_end_date_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -379,77 +379,77 @@ defmodule AWS.MarketplaceCatalog do
 
       describe_change_set_response() :: %{
         "ChangeSet" => list(change_summary()),
-        "ChangeSetArn" => String.t(),
-        "ChangeSetId" => String.t(),
-        "ChangeSetName" => String.t(),
-        "EndTime" => String.t(),
+        "ChangeSetArn" => String.t() | Atom.t(),
+        "ChangeSetId" => String.t() | Atom.t(),
+        "ChangeSetName" => String.t() | Atom.t(),
+        "EndTime" => String.t() | Atom.t(),
         "FailureCode" => list(any()),
-        "FailureDescription" => String.t(),
+        "FailureDescription" => String.t() | Atom.t(),
         "Intent" => list(any()),
-        "StartTime" => String.t(),
+        "StartTime" => String.t() | Atom.t(),
         "Status" => list(any())
       }
 
   """
-  @type describe_change_set_response() :: %{String.t() => any()}
+  @type describe_change_set_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       offer_availability_end_date_filter_date_range() :: %{
-        "AfterValue" => String.t(),
-        "BeforeValue" => String.t()
+        "AfterValue" => String.t() | Atom.t(),
+        "BeforeValue" => String.t() | Atom.t()
       }
 
   """
-  @type offer_availability_end_date_filter_date_range() :: %{String.t() => any()}
+  @type offer_availability_end_date_filter_date_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       ami_product_summary() :: %{
-        "ProductTitle" => String.t(),
+        "ProductTitle" => String.t() | Atom.t(),
         "Visibility" => list(any())
       }
 
   """
-  @type ami_product_summary() :: %{String.t() => any()}
+  @type ami_product_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_resource_policy_response() :: %{
-        "Policy" => String.t()
+        "Policy" => String.t() | Atom.t()
       }
 
   """
-  @type get_resource_policy_response() :: %{String.t() => any()}
+  @type get_resource_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       data_product_last_modified_date_filter_date_range() :: %{
-        "AfterValue" => String.t(),
-        "BeforeValue" => String.t()
+        "AfterValue" => String.t() | Atom.t(),
+        "BeforeValue" => String.t() | Atom.t()
       }
 
   """
-  @type data_product_last_modified_date_filter_date_range() :: %{String.t() => any()}
+  @type data_product_last_modified_date_filter_date_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       container_product_entity_id_filter() :: %{
-        "ValueList" => list(String.t())
+        "ValueList" => list(String.t() | Atom.t())
       }
 
   """
-  @type container_product_entity_id_filter() :: %{String.t() => any()}
+  @type container_product_entity_id_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -461,58 +461,58 @@ defmodule AWS.MarketplaceCatalog do
       }
 
   """
-  @type container_product_sort() :: %{String.t() => any()}
+  @type container_product_sort() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_service_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_service_exception() :: %{String.t() => any()}
+  @type internal_service_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_entity_response() :: %{
-        "Details" => String.t(),
+        "Details" => String.t() | Atom.t(),
         "DetailsDocument" => any(),
-        "EntityArn" => String.t(),
-        "EntityIdentifier" => String.t(),
-        "EntityType" => String.t(),
-        "LastModifiedDate" => String.t()
+        "EntityArn" => String.t() | Atom.t(),
+        "EntityIdentifier" => String.t() | Atom.t(),
+        "EntityType" => String.t() | Atom.t(),
+        "LastModifiedDate" => String.t() | Atom.t()
       }
 
   """
-  @type describe_entity_response() :: %{String.t() => any()}
+  @type describe_entity_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceArn") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resale_authorization_product_id_filter() :: %{
-        "ValueList" => list(String.t()),
-        "WildCardValue" => String.t()
+        "ValueList" => list(String.t() | Atom.t()),
+        "WildCardValue" => String.t() | Atom.t()
       }
 
   """
-  @type resale_authorization_product_id_filter() :: %{String.t() => any()}
+  @type resale_authorization_product_id_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -535,7 +535,7 @@ defmodule AWS.MarketplaceCatalog do
       }
 
   """
-  @type resale_authorization_filters() :: %{String.t() => any()}
+  @type resale_authorization_filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -547,7 +547,7 @@ defmodule AWS.MarketplaceCatalog do
       }
 
   """
-  @type machine_learning_product_sort() :: %{String.t() => any()}
+  @type machine_learning_product_sort() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -558,18 +558,18 @@ defmodule AWS.MarketplaceCatalog do
       }
 
   """
-  @type data_product_visibility_filter() :: %{String.t() => any()}
+  @type data_product_visibility_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resale_authorization_offer_extended_status_filter() :: %{
-        "ValueList" => list(String.t())
+        "ValueList" => list(String.t() | Atom.t())
       }
 
   """
-  @type resale_authorization_offer_extended_status_filter() :: %{String.t() => any()}
+  @type resale_authorization_offer_extended_status_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -580,31 +580,34 @@ defmodule AWS.MarketplaceCatalog do
       }
 
   """
-  @type container_product_visibility_filter() :: %{String.t() => any()}
+  @type container_product_visibility_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resale_authorization_last_modified_date_filter_date_range() :: %{
-        "AfterValue" => String.t(),
-        "BeforeValue" => String.t()
+        "AfterValue" => String.t() | Atom.t(),
+        "BeforeValue" => String.t() | Atom.t()
       }
 
   """
-  @type resale_authorization_last_modified_date_filter_date_range() :: %{String.t() => any()}
+  @type resale_authorization_last_modified_date_filter_date_range() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       resale_authorization_reseller_legal_name_filter() :: %{
-        "ValueList" => list(String.t()),
-        "WildCardValue" => String.t()
+        "ValueList" => list(String.t() | Atom.t()),
+        "WildCardValue" => String.t() | Atom.t()
       }
 
   """
-  @type resale_authorization_reseller_legal_name_filter() :: %{String.t() => any()}
+  @type resale_authorization_reseller_legal_name_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -618,7 +621,7 @@ defmodule AWS.MarketplaceCatalog do
       }
 
   """
-  @type container_product_filters() :: %{String.t() => any()}
+  @type container_product_filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -629,30 +632,30 @@ defmodule AWS.MarketplaceCatalog do
       }
 
   """
-  @type batch_describe_entities_request() :: %{String.t() => any()}
+  @type batch_describe_entities_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       saa_s_product_last_modified_date_filter_date_range() :: %{
-        "AfterValue" => String.t(),
-        "BeforeValue" => String.t()
+        "AfterValue" => String.t() | Atom.t(),
+        "BeforeValue" => String.t() | Atom.t()
       }
 
   """
-  @type saa_s_product_last_modified_date_filter_date_range() :: %{String.t() => any()}
+  @type saa_s_product_last_modified_date_filter_date_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -663,7 +666,7 @@ defmodule AWS.MarketplaceCatalog do
       }
 
   """
-  @type saa_s_product_visibility_filter() :: %{String.t() => any()}
+  @type saa_s_product_visibility_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -674,19 +677,19 @@ defmodule AWS.MarketplaceCatalog do
       }
 
   """
-  @type offer_last_modified_date_filter() :: %{String.t() => any()}
+  @type offer_last_modified_date_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       machine_learning_product_title_filter() :: %{
-        "ValueList" => list(String.t()),
-        "WildCardValue" => String.t()
+        "ValueList" => list(String.t() | Atom.t()),
+        "WildCardValue" => String.t() | Atom.t()
       }
 
   """
-  @type machine_learning_product_title_filter() :: %{String.t() => any()}
+  @type machine_learning_product_title_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -697,19 +700,19 @@ defmodule AWS.MarketplaceCatalog do
       }
 
   """
-  @type container_product_last_modified_date_filter() :: %{String.t() => any()}
+  @type container_product_last_modified_date_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -720,19 +723,22 @@ defmodule AWS.MarketplaceCatalog do
       }
 
   """
-  @type ami_product_visibility_filter() :: %{String.t() => any()}
+  @type ami_product_visibility_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       machine_learning_product_last_modified_date_filter_date_range() :: %{
-        "AfterValue" => String.t(),
-        "BeforeValue" => String.t()
+        "AfterValue" => String.t() | Atom.t(),
+        "BeforeValue" => String.t() | Atom.t()
       }
 
   """
-  @type machine_learning_product_last_modified_date_filter_date_range() :: %{String.t() => any()}
+  @type machine_learning_product_last_modified_date_filter_date_range() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -743,143 +749,143 @@ defmodule AWS.MarketplaceCatalog do
       }
 
   """
-  @type offer_release_date_filter() :: %{String.t() => any()}
+  @type offer_release_date_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_change_set_request() :: %{
-        optional("ChangeSetName") => String.t(),
+        optional("ChangeSetName") => String.t() | Atom.t(),
         optional("ChangeSetTags") => list(tag()),
-        optional("ClientRequestToken") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
         optional("Intent") => list(any()),
-        required("Catalog") => String.t(),
+        required("Catalog") => String.t() | Atom.t(),
         required("ChangeSet") => list(change())
       }
 
   """
-  @type start_change_set_request() :: %{String.t() => any()}
+  @type start_change_set_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       ami_product_entity_id_filter() :: %{
-        "ValueList" => list(String.t())
+        "ValueList" => list(String.t() | Atom.t())
       }
 
   """
-  @type ami_product_entity_id_filter() :: %{String.t() => any()}
+  @type ami_product_entity_id_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       container_product_summary() :: %{
-        "ProductTitle" => String.t(),
+        "ProductTitle" => String.t() | Atom.t(),
         "Visibility" => list(any())
       }
 
   """
-  @type container_product_summary() :: %{String.t() => any()}
+  @type container_product_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       offer_resale_authorization_id_filter() :: %{
-        "ValueList" => list(String.t())
+        "ValueList" => list(String.t() | Atom.t())
       }
 
   """
-  @type offer_resale_authorization_id_filter() :: %{String.t() => any()}
+  @type offer_resale_authorization_id_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resale_authorization_entity_id_filter() :: %{
-        "ValueList" => list(String.t())
+        "ValueList" => list(String.t() | Atom.t())
       }
 
   """
-  @type resale_authorization_entity_id_filter() :: %{String.t() => any()}
+  @type resale_authorization_entity_id_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       offer_product_id_filter() :: %{
-        "ValueList" => list(String.t())
+        "ValueList" => list(String.t() | Atom.t())
       }
 
   """
-  @type offer_product_id_filter() :: %{String.t() => any()}
+  @type offer_product_id_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       change_set_summary_list_item() :: %{
-        "ChangeSetArn" => String.t(),
-        "ChangeSetId" => String.t(),
-        "ChangeSetName" => String.t(),
-        "EndTime" => String.t(),
-        "EntityIdList" => list(String.t()),
+        "ChangeSetArn" => String.t() | Atom.t(),
+        "ChangeSetId" => String.t() | Atom.t(),
+        "ChangeSetName" => String.t() | Atom.t(),
+        "EndTime" => String.t() | Atom.t(),
+        "EntityIdList" => list(String.t() | Atom.t()),
         "FailureCode" => list(any()),
-        "StartTime" => String.t(),
+        "StartTime" => String.t() | Atom.t(),
         "Status" => list(any())
       }
 
   """
-  @type change_set_summary_list_item() :: %{String.t() => any()}
+  @type change_set_summary_list_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_for_resource_response() :: %{
-        "ResourceArn" => String.t(),
+        "ResourceArn" => String.t() | Atom.t(),
         "Tags" => list(tag())
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_supported_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_supported_exception() :: %{String.t() => any()}
+  @type resource_not_supported_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resale_authorization_name_filter() :: %{
-        "ValueList" => list(String.t()),
-        "WildCardValue" => String.t()
+        "ValueList" => list(String.t() | Atom.t()),
+        "WildCardValue" => String.t() | Atom.t()
       }
 
   """
-  @type resale_authorization_name_filter() :: %{String.t() => any()}
+  @type resale_authorization_name_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -891,7 +897,7 @@ defmodule AWS.MarketplaceCatalog do
       }
 
   """
-  @type data_product_sort() :: %{String.t() => any()}
+  @type data_product_sort() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -905,96 +911,96 @@ defmodule AWS.MarketplaceCatalog do
       }
 
   """
-  @type saa_s_product_filters() :: %{String.t() => any()}
+  @type saa_s_product_filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_resource_policy_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
 
   """
-  @type get_resource_policy_request() :: %{String.t() => any()}
+  @type get_resource_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       offer_summary() :: %{
-        "AvailabilityEndDate" => String.t(),
-        "BuyerAccounts" => list(String.t()),
-        "Name" => String.t(),
-        "ProductId" => String.t(),
-        "ReleaseDate" => String.t(),
-        "ResaleAuthorizationId" => String.t(),
+        "AvailabilityEndDate" => String.t() | Atom.t(),
+        "BuyerAccounts" => list(String.t() | Atom.t()),
+        "Name" => String.t() | Atom.t(),
+        "ProductId" => String.t() | Atom.t(),
+        "ReleaseDate" => String.t() | Atom.t(),
+        "ResaleAuthorizationId" => String.t() | Atom.t(),
         "State" => list(any()),
         "Targeting" => list(list(any())())
       }
 
   """
-  @type offer_summary() :: %{String.t() => any()}
+  @type offer_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       filter() :: %{
-        "Name" => String.t(),
-        "ValueList" => list(String.t())
+        "Name" => String.t() | Atom.t(),
+        "ValueList" => list(String.t() | Atom.t())
       }
 
   """
-  @type filter() :: %{String.t() => any()}
+  @type filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       saa_s_product_summary() :: %{
-        "ProductTitle" => String.t(),
+        "ProductTitle" => String.t() | Atom.t(),
         "Visibility" => list(any())
       }
 
   """
-  @type saa_s_product_summary() :: %{String.t() => any()}
+  @type saa_s_product_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       sort() :: %{
-        "SortBy" => String.t(),
+        "SortBy" => String.t() | Atom.t(),
         "SortOrder" => list(any())
       }
 
   """
-  @type sort() :: %{String.t() => any()}
+  @type sort() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       ami_product_last_modified_date_filter_date_range() :: %{
-        "AfterValue" => String.t(),
-        "BeforeValue" => String.t()
+        "AfterValue" => String.t() | Atom.t(),
+        "BeforeValue" => String.t() | Atom.t()
       }
 
   """
-  @type ami_product_last_modified_date_filter_date_range() :: %{String.t() => any()}
+  @type ami_product_last_modified_date_filter_date_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       data_product_title_filter() :: %{
-        "ValueList" => list(String.t()),
-        "WildCardValue" => String.t()
+        "ValueList" => list(String.t() | Atom.t()),
+        "WildCardValue" => String.t() | Atom.t()
       }
 
   """
-  @type data_product_title_filter() :: %{String.t() => any()}
+  @type data_product_title_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1005,82 +1011,82 @@ defmodule AWS.MarketplaceCatalog do
       }
 
   """
-  @type resale_authorization_status_filter() :: %{String.t() => any()}
+  @type resale_authorization_status_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_entity_request() :: %{
-        required("Catalog") => String.t(),
-        required("EntityId") => String.t()
+        required("Catalog") => String.t() | Atom.t(),
+        required("EntityId") => String.t() | Atom.t()
       }
 
   """
-  @type describe_entity_request() :: %{String.t() => any()}
+  @type describe_entity_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_resource_policy_request() :: %{
-        required("Policy") => String.t(),
-        required("ResourceArn") => String.t()
+        required("Policy") => String.t() | Atom.t(),
+        required("ResourceArn") => String.t() | Atom.t()
       }
 
   """
-  @type put_resource_policy_request() :: %{String.t() => any()}
+  @type put_resource_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       error_detail() :: %{
-        "ErrorCode" => String.t(),
-        "ErrorMessage" => String.t()
+        "ErrorCode" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | Atom.t()
       }
 
   """
-  @type error_detail() :: %{String.t() => any()}
+  @type error_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       change_summary() :: %{
-        "ChangeName" => String.t(),
-        "ChangeType" => String.t(),
-        "Details" => String.t(),
+        "ChangeName" => String.t() | Atom.t(),
+        "ChangeType" => String.t() | Atom.t(),
+        "Details" => String.t() | Atom.t(),
         "DetailsDocument" => any(),
         "Entity" => entity(),
         "ErrorDetailList" => list(error_detail())
       }
 
   """
-  @type change_summary() :: %{String.t() => any()}
+  @type change_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_change_set_response() :: %{
-        "ChangeSetArn" => String.t(),
-        "ChangeSetId" => String.t()
+        "ChangeSetArn" => String.t() | Atom.t(),
+        "ChangeSetId" => String.t() | Atom.t()
       }
 
   """
-  @type start_change_set_response() :: %{String.t() => any()}
+  @type start_change_set_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1091,7 +1097,7 @@ defmodule AWS.MarketplaceCatalog do
       }
 
   """
-  @type saa_s_product_last_modified_date_filter() :: %{String.t() => any()}
+  @type saa_s_product_last_modified_date_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1107,24 +1113,24 @@ defmodule AWS.MarketplaceCatalog do
   ## Example:
 
       offer_name_filter() :: %{
-        "ValueList" => list(String.t()),
-        "WildCardValue" => String.t()
+        "ValueList" => list(String.t() | Atom.t()),
+        "WildCardValue" => String.t() | Atom.t()
       }
 
   """
-  @type offer_name_filter() :: %{String.t() => any()}
+  @type offer_name_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       machine_learning_product_summary() :: %{
-        "ProductTitle" => String.t(),
+        "ProductTitle" => String.t() | Atom.t(),
         "Visibility" => list(any())
       }
 
   """
-  @type machine_learning_product_summary() :: %{String.t() => any()}
+  @type machine_learning_product_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1136,7 +1142,7 @@ defmodule AWS.MarketplaceCatalog do
       }
 
   """
-  @type offer_sort() :: %{String.t() => any()}
+  @type offer_sort() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1148,29 +1154,29 @@ defmodule AWS.MarketplaceCatalog do
       }
 
   """
-  @type saa_s_product_sort() :: %{String.t() => any()}
+  @type saa_s_product_sort() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
 
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1181,40 +1187,40 @@ defmodule AWS.MarketplaceCatalog do
       }
 
   """
-  @type offer_state_filter() :: %{String.t() => any()}
+  @type offer_state_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       offer_entity_id_filter() :: %{
-        "ValueList" => list(String.t())
+        "ValueList" => list(String.t() | Atom.t())
       }
 
   """
-  @type offer_entity_id_filter() :: %{String.t() => any()}
+  @type offer_entity_id_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       offer_buyer_accounts_filter() :: %{
-        "WildCardValue" => String.t()
+        "WildCardValue" => String.t() | Atom.t()
       }
 
   """
-  @type offer_buyer_accounts_filter() :: %{String.t() => any()}
+  @type offer_buyer_accounts_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1230,58 +1236,58 @@ defmodule AWS.MarketplaceCatalog do
   ## Example:
 
       data_product_entity_id_filter() :: %{
-        "ValueList" => list(String.t())
+        "ValueList" => list(String.t() | Atom.t())
       }
 
   """
-  @type data_product_entity_id_filter() :: %{String.t() => any()}
+  @type data_product_entity_id_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       offer_last_modified_date_filter_date_range() :: %{
-        "AfterValue" => String.t(),
-        "BeforeValue" => String.t()
+        "AfterValue" => String.t() | Atom.t(),
+        "BeforeValue" => String.t() | Atom.t()
       }
 
   """
-  @type offer_last_modified_date_filter_date_range() :: %{String.t() => any()}
+  @type offer_last_modified_date_filter_date_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       entity_request() :: %{
-        "Catalog" => String.t(),
-        "EntityId" => String.t()
+        "Catalog" => String.t() | Atom.t(),
+        "EntityId" => String.t() | Atom.t()
       }
 
   """
-  @type entity_request() :: %{String.t() => any()}
+  @type entity_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       container_product_title_filter() :: %{
-        "ValueList" => list(String.t()),
-        "WildCardValue" => String.t()
+        "ValueList" => list(String.t() | Atom.t()),
+        "WildCardValue" => String.t() | Atom.t()
       }
 
   """
-  @type container_product_title_filter() :: %{String.t() => any()}
+  @type container_product_title_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_resource_policy_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
 
   """
-  @type delete_resource_policy_request() :: %{String.t() => any()}
+  @type delete_resource_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1295,19 +1301,22 @@ defmodule AWS.MarketplaceCatalog do
       }
 
   """
-  @type ami_product_filters() :: %{String.t() => any()}
+  @type ami_product_filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resale_authorization_availability_end_date_filter_date_range() :: %{
-        "AfterValue" => String.t(),
-        "BeforeValue" => String.t()
+        "AfterValue" => String.t() | Atom.t(),
+        "BeforeValue" => String.t() | Atom.t()
       }
 
   """
-  @type resale_authorization_availability_end_date_filter_date_range() :: %{String.t() => any()}
+  @type resale_authorization_availability_end_date_filter_date_range() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1319,19 +1328,19 @@ defmodule AWS.MarketplaceCatalog do
       }
 
   """
-  @type batch_describe_entities_response() :: %{String.t() => any()}
+  @type batch_describe_entities_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_describe_error_detail() :: %{
-        "ErrorCode" => String.t(),
-        "ErrorMessage" => String.t()
+        "ErrorCode" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | Atom.t()
       }
 
   """
-  @type batch_describe_error_detail() :: %{String.t() => any()}
+  @type batch_describe_error_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1342,7 +1351,7 @@ defmodule AWS.MarketplaceCatalog do
       }
 
   """
-  @type machine_learning_product_visibility_filter() :: %{String.t() => any()}
+  @type machine_learning_product_visibility_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1350,11 +1359,11 @@ defmodule AWS.MarketplaceCatalog do
 
       list_entities_response() :: %{
         "EntitySummaryList" => list(entity_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_entities_response() :: %{String.t() => any()}
+  @type list_entities_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1365,31 +1374,31 @@ defmodule AWS.MarketplaceCatalog do
       }
 
   """
-  @type resale_authorization_last_modified_date_filter() :: %{String.t() => any()}
+  @type resale_authorization_last_modified_date_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resale_authorization_reseller_account_id_filter() :: %{
-        "ValueList" => list(String.t()),
-        "WildCardValue" => String.t()
+        "ValueList" => list(String.t() | Atom.t()),
+        "WildCardValue" => String.t() | Atom.t()
       }
 
   """
-  @type resale_authorization_reseller_account_id_filter() :: %{String.t() => any()}
+  @type resale_authorization_reseller_account_id_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_change_set_request() :: %{
-        required("Catalog") => String.t(),
-        required("ChangeSetId") => String.t()
+        required("Catalog") => String.t() | Atom.t(),
+        required("ChangeSetId") => String.t() | Atom.t()
       }
 
   """
-  @type cancel_change_set_request() :: %{String.t() => any()}
+  @type cancel_change_set_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1401,19 +1410,22 @@ defmodule AWS.MarketplaceCatalog do
       }
 
   """
-  @type resale_authorization_sort() :: %{String.t() => any()}
+  @type resale_authorization_sort() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       container_product_last_modified_date_filter_date_range() :: %{
-        "AfterValue" => String.t(),
-        "BeforeValue" => String.t()
+        "AfterValue" => String.t() | Atom.t(),
+        "BeforeValue" => String.t() | Atom.t()
       }
 
   """
-  @type container_product_last_modified_date_filter_date_range() :: %{String.t() => any()}
+  @type container_product_last_modified_date_filter_date_range() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1433,7 +1445,7 @@ defmodule AWS.MarketplaceCatalog do
       }
 
   """
-  @type offer_filters() :: %{String.t() => any()}
+  @type offer_filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1444,7 +1456,7 @@ defmodule AWS.MarketplaceCatalog do
       }
 
   """
-  @type ami_product_last_modified_date_filter() :: %{String.t() => any()}
+  @type ami_product_last_modified_date_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1452,11 +1464,11 @@ defmodule AWS.MarketplaceCatalog do
 
       list_change_sets_response() :: %{
         "ChangeSetSummaryList" => list(change_set_summary_list_item()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_change_sets_response() :: %{String.t() => any()}
+  @type list_change_sets_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1467,7 +1479,7 @@ defmodule AWS.MarketplaceCatalog do
       }
 
   """
-  @type machine_learning_product_last_modified_date_filter() :: %{String.t() => any()}
+  @type machine_learning_product_last_modified_date_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1478,19 +1490,19 @@ defmodule AWS.MarketplaceCatalog do
       }
 
   """
-  @type data_product_last_modified_date_filter() :: %{String.t() => any()}
+  @type data_product_last_modified_date_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       offer_release_date_filter_date_range() :: %{
-        "AfterValue" => String.t(),
-        "BeforeValue" => String.t()
+        "AfterValue" => String.t() | Atom.t(),
+        "BeforeValue" => String.t() | Atom.t()
       }
 
   """
-  @type offer_release_date_filter_date_range() :: %{String.t() => any()}
+  @type offer_release_date_filter_date_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1501,7 +1513,7 @@ defmodule AWS.MarketplaceCatalog do
       }
 
   """
-  @type offer_availability_end_date_filter() :: %{String.t() => any()}
+  @type offer_availability_end_date_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1515,7 +1527,7 @@ defmodule AWS.MarketplaceCatalog do
       }
 
   """
-  @type machine_learning_product_filters() :: %{String.t() => any()}
+  @type machine_learning_product_filters() :: %{String.t() | Atom.t() => any()}
 
   @type batch_describe_entities_errors() ::
           throttling_exception()
@@ -1736,7 +1748,7 @@ defmodule AWS.MarketplaceCatalog do
   @doc """
   Provides information about a given change set.
   """
-  @spec describe_change_set(map(), String.t(), String.t(), list()) ::
+  @spec describe_change_set(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, describe_change_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1768,7 +1780,7 @@ defmodule AWS.MarketplaceCatalog do
   @doc """
   Returns the metadata and content of the entity.
   """
-  @spec describe_entity(map(), String.t(), String.t(), list()) ::
+  @spec describe_entity(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, describe_entity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1801,7 +1813,7 @@ defmodule AWS.MarketplaceCatalog do
   Gets a resource-based policy of an entity that is identified by its resource
   ARN.
   """
-  @spec get_resource_policy(map(), String.t(), list()) ::
+  @spec get_resource_policy(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

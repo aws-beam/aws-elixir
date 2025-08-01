@@ -26,65 +26,65 @@ defmodule AWS.DataSync do
       
       update_location_azure_blob_request() :: %{
         optional("AccessTier") => list(any()),
-        optional("AgentArns") => list(String.t()),
+        optional("AgentArns") => list(String.t() | Atom.t()),
         optional("AuthenticationType") => list(any()),
         optional("BlobType") => list(any()),
         optional("CmkSecretConfig") => cmk_secret_config(),
         optional("CustomSecretConfig") => custom_secret_config(),
         optional("SasConfiguration") => azure_blob_sas_configuration(),
-        optional("Subdirectory") => String.t(),
-        required("LocationArn") => String.t()
+        optional("Subdirectory") => String.t() | Atom.t(),
+        required("LocationArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_location_azure_blob_request() :: %{String.t() => any()}
+  @type update_location_azure_blob_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_task_execution_response() :: %{
-        "TaskExecutionArn" => String.t()
+        "TaskExecutionArn" => String.t() | Atom.t()
       }
       
   """
-  @type start_task_execution_response() :: %{String.t() => any()}
+  @type start_task_execution_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       private_link_config() :: %{
-        "PrivateLinkEndpoint" => String.t(),
-        "SecurityGroupArns" => list(String.t()),
-        "SubnetArns" => list(String.t()),
-        "VpcEndpointId" => String.t()
+        "PrivateLinkEndpoint" => String.t() | Atom.t(),
+        "SecurityGroupArns" => list(String.t() | Atom.t()),
+        "SubnetArns" => list(String.t() | Atom.t()),
+        "VpcEndpointId" => String.t() | Atom.t()
       }
       
   """
-  @type private_link_config() :: %{String.t() => any()}
+  @type private_link_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_location_object_storage_request() :: %{
-        optional("AccessKey") => String.t(),
-        optional("AgentArns") => list(String.t()),
+        optional("AccessKey") => String.t() | Atom.t(),
+        optional("AgentArns") => list(String.t() | Atom.t()),
         optional("CmkSecretConfig") => cmk_secret_config(),
         optional("CustomSecretConfig") => custom_secret_config(),
-        optional("SecretKey") => String.t(),
+        optional("SecretKey") => String.t() | Atom.t(),
         optional("ServerCertificate") => binary(),
         optional("ServerPort") => integer(),
         optional("ServerProtocol") => list(any()),
-        optional("Subdirectory") => String.t(),
+        optional("Subdirectory") => String.t() | Atom.t(),
         optional("Tags") => list(tag_list_entry()),
-        required("BucketName") => String.t(),
-        required("ServerHostname") => String.t()
+        required("BucketName") => String.t() | Atom.t(),
+        required("ServerHostname") => String.t() | Atom.t()
       }
       
   """
-  @type create_location_object_storage_request() :: %{String.t() => any()}
+  @type create_location_object_storage_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -98,7 +98,7 @@ defmodule AWS.DataSync do
       }
       
   """
-  @type task_execution_files_failed_detail() :: %{String.t() => any()}
+  @type task_execution_files_failed_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -109,7 +109,7 @@ defmodule AWS.DataSync do
       }
       
   """
-  @type fsx_protocol_nfs() :: %{String.t() => any()}
+  @type fsx_protocol_nfs() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -117,57 +117,57 @@ defmodule AWS.DataSync do
       
       task_schedule_details() :: %{
         "DisabledBy" => list(any()),
-        "DisabledReason" => String.t(),
+        "DisabledReason" => String.t() | Atom.t(),
         "StatusUpdateTime" => non_neg_integer()
       }
       
   """
-  @type task_schedule_details() :: %{String.t() => any()}
+  @type task_schedule_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
+        required("ResourceArn") => String.t() | Atom.t(),
         required("Tags") => list(tag_list_entry())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_location_fsx_open_zfs_request() :: %{
-        required("LocationArn") => String.t()
+        required("LocationArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_location_fsx_open_zfs_request() :: %{String.t() => any()}
+  @type describe_location_fsx_open_zfs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_task_request() :: %{
-        required("TaskArn") => String.t()
+        required("TaskArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_task_request() :: %{String.t() => any()}
+  @type describe_task_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_task_execution_request() :: %{
-        required("TaskExecutionArn") => String.t()
+        required("TaskExecutionArn") => String.t() | Atom.t()
       }
       
   """
-  @type cancel_task_execution_request() :: %{String.t() => any()}
+  @type cancel_task_execution_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -175,23 +175,23 @@ defmodule AWS.DataSync do
       
       update_location_fsx_ontap_request() :: %{
         optional("Protocol") => fsx_update_protocol(),
-        optional("Subdirectory") => String.t(),
-        required("LocationArn") => String.t()
+        optional("Subdirectory") => String.t() | Atom.t(),
+        required("LocationArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_location_fsx_ontap_request() :: %{String.t() => any()}
+  @type update_location_fsx_ontap_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_location_fsx_lustre_response() :: %{
-        "LocationArn" => String.t()
+        "LocationArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_location_fsx_lustre_response() :: %{String.t() => any()}
+  @type create_location_fsx_lustre_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -199,11 +199,11 @@ defmodule AWS.DataSync do
       
       list_agents_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_agents_request() :: %{String.t() => any()}
+  @type list_agents_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -214,7 +214,7 @@ defmodule AWS.DataSync do
       }
       
   """
-  @type nfs_mount_options() :: %{String.t() => any()}
+  @type nfs_mount_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -226,7 +226,7 @@ defmodule AWS.DataSync do
       }
       
   """
-  @type fsx_update_protocol() :: %{String.t() => any()}
+  @type fsx_update_protocol() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -234,11 +234,11 @@ defmodule AWS.DataSync do
       
       update_task_execution_request() :: %{
         required("Options") => options(),
-        required("TaskExecutionArn") => String.t()
+        required("TaskExecutionArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_task_execution_request() :: %{String.t() => any()}
+  @type update_task_execution_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -255,38 +255,38 @@ defmodule AWS.DataSync do
       
       describe_location_fsx_windows_response() :: %{
         "CreationTime" => non_neg_integer(),
-        "Domain" => String.t(),
-        "LocationArn" => String.t(),
-        "LocationUri" => String.t(),
-        "SecurityGroupArns" => list(String.t()),
-        "User" => String.t()
+        "Domain" => String.t() | Atom.t(),
+        "LocationArn" => String.t() | Atom.t(),
+        "LocationUri" => String.t() | Atom.t(),
+        "SecurityGroupArns" => list(String.t() | Atom.t()),
+        "User" => String.t() | Atom.t()
       }
       
   """
-  @type describe_location_fsx_windows_response() :: %{String.t() => any()}
+  @type describe_location_fsx_windows_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_location_nfs_request() :: %{
-        required("LocationArn") => String.t()
+        required("LocationArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_location_nfs_request() :: %{String.t() => any()}
+  @type describe_location_nfs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cmk_secret_config() :: %{
-        "KmsKeyArn" => String.t(),
-        "SecretArn" => String.t()
+        "KmsKeyArn" => String.t() | Atom.t(),
+        "SecretArn" => String.t() | Atom.t()
       }
       
   """
-  @type cmk_secret_config() :: %{String.t() => any()}
+  @type cmk_secret_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -294,11 +294,11 @@ defmodule AWS.DataSync do
       
       list_agents_response() :: %{
         "Agents" => list(agent_list_entry()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_agents_response() :: %{String.t() => any()}
+  @type list_agents_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -306,27 +306,27 @@ defmodule AWS.DataSync do
       
       filter_rule() :: %{
         "FilterType" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type filter_rule() :: %{String.t() => any()}
+  @type filter_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_agent_request() :: %{
-        optional("AgentName") => String.t(),
-        optional("SecurityGroupArns") => list(String.t()),
-        optional("SubnetArns") => list(String.t()),
+        optional("AgentName") => String.t() | Atom.t(),
+        optional("SecurityGroupArns") => list(String.t() | Atom.t()),
+        optional("SubnetArns") => list(String.t() | Atom.t()),
         optional("Tags") => list(tag_list_entry()),
-        optional("VpcEndpointId") => String.t(),
-        required("ActivationKey") => String.t()
+        optional("VpcEndpointId") => String.t() | Atom.t(),
+        required("ActivationKey") => String.t() | Atom.t()
       }
       
   """
-  @type create_agent_request() :: %{String.t() => any()}
+  @type create_agent_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -337,7 +337,7 @@ defmodule AWS.DataSync do
       }
       
   """
-  @type report_destination() :: %{String.t() => any()}
+  @type report_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -347,46 +347,46 @@ defmodule AWS.DataSync do
         optional("MountOptions") => nfs_mount_options(),
         optional("Tags") => list(tag_list_entry()),
         required("OnPremConfig") => on_prem_config(),
-        required("ServerHostname") => String.t(),
-        required("Subdirectory") => String.t()
+        required("ServerHostname") => String.t() | Atom.t(),
+        required("Subdirectory") => String.t() | Atom.t()
       }
       
   """
-  @type create_location_nfs_request() :: %{String.t() => any()}
+  @type create_location_nfs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_location_fsx_ontap_request() :: %{
-        required("LocationArn") => String.t()
+        required("LocationArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_location_fsx_ontap_request() :: %{String.t() => any()}
+  @type describe_location_fsx_ontap_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_location_hdfs_request() :: %{
-        optional("AgentArns") => list(String.t()),
+        optional("AgentArns") => list(String.t() | Atom.t()),
         optional("AuthenticationType") => list(any()),
         optional("BlockSize") => integer(),
         optional("KerberosKeytab") => binary(),
         optional("KerberosKrb5Conf") => binary(),
-        optional("KerberosPrincipal") => String.t(),
-        optional("KmsKeyProviderUri") => String.t(),
+        optional("KerberosPrincipal") => String.t() | Atom.t(),
+        optional("KmsKeyProviderUri") => String.t() | Atom.t(),
         optional("NameNodes") => list(hdfs_name_node()),
         optional("QopConfiguration") => qop_configuration(),
         optional("ReplicationFactor") => integer(),
-        optional("SimpleUser") => String.t(),
-        optional("Subdirectory") => String.t(),
-        required("LocationArn") => String.t()
+        optional("SimpleUser") => String.t() | Atom.t(),
+        optional("Subdirectory") => String.t() | Atom.t(),
+        required("LocationArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_location_hdfs_request() :: %{String.t() => any()}
+  @type update_location_hdfs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -395,72 +395,72 @@ defmodule AWS.DataSync do
       location_filter() :: %{
         "Name" => list(any()),
         "Operator" => list(any()),
-        "Values" => list(String.t())
+        "Values" => list(String.t() | Atom.t())
       }
       
   """
-  @type location_filter() :: %{String.t() => any()}
+  @type location_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_task_request() :: %{
-        optional("CloudWatchLogGroupArn") => String.t(),
+        optional("CloudWatchLogGroupArn") => String.t() | Atom.t(),
         optional("Excludes") => list(filter_rule()),
         optional("Includes") => list(filter_rule()),
         optional("ManifestConfig") => manifest_config(),
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("Options") => options(),
         optional("Schedule") => task_schedule(),
         optional("Tags") => list(tag_list_entry()),
         optional("TaskMode") => list(any()),
         optional("TaskReportConfig") => task_report_config(),
-        required("DestinationLocationArn") => String.t(),
-        required("SourceLocationArn") => String.t()
+        required("DestinationLocationArn") => String.t() | Atom.t(),
+        required("SourceLocationArn") => String.t() | Atom.t()
       }
       
   """
-  @type create_task_request() :: %{String.t() => any()}
+  @type create_task_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       task_schedule() :: %{
-        "ScheduleExpression" => String.t(),
+        "ScheduleExpression" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type task_schedule() :: %{String.t() => any()}
+  @type task_schedule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       report_result() :: %{
-        "ErrorCode" => String.t(),
-        "ErrorDetail" => String.t(),
+        "ErrorCode" => String.t() | Atom.t(),
+        "ErrorDetail" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type report_result() :: %{String.t() => any()}
+  @type report_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       task_list_entry() :: %{
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "TaskArn" => String.t(),
+        "TaskArn" => String.t() | Atom.t(),
         "TaskMode" => list(any())
       }
       
   """
-  @type task_list_entry() :: %{String.t() => any()}
+  @type task_list_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -476,22 +476,22 @@ defmodule AWS.DataSync do
   ## Example:
       
       delete_location_request() :: %{
-        required("LocationArn") => String.t()
+        required("LocationArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_location_request() :: %{String.t() => any()}
+  @type delete_location_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_location_object_storage_request() :: %{
-        required("LocationArn") => String.t()
+        required("LocationArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_location_object_storage_request() :: %{String.t() => any()}
+  @type describe_location_object_storage_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -508,21 +508,21 @@ defmodule AWS.DataSync do
       
       describe_location_fsx_lustre_response() :: %{
         "CreationTime" => non_neg_integer(),
-        "LocationArn" => String.t(),
-        "LocationUri" => String.t(),
-        "SecurityGroupArns" => list(String.t())
+        "LocationArn" => String.t() | Atom.t(),
+        "LocationUri" => String.t() | Atom.t(),
+        "SecurityGroupArns" => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_location_fsx_lustre_response() :: %{String.t() => any()}
+  @type describe_location_fsx_lustre_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       task_execution_result_detail() :: %{
-        "ErrorCode" => String.t(),
-        "ErrorDetail" => String.t(),
+        "ErrorCode" => String.t() | Atom.t(),
+        "ErrorDetail" => String.t() | Atom.t(),
         "PrepareDuration" => float(),
         "PrepareStatus" => list(any()),
         "TotalDuration" => float(),
@@ -533,47 +533,47 @@ defmodule AWS.DataSync do
       }
       
   """
-  @type task_execution_result_detail() :: %{String.t() => any()}
+  @type task_execution_result_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("Keys") => list(String.t()),
-        required("ResourceArn") => String.t()
+        required("Keys") => list(String.t() | Atom.t()),
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_location_efs_response() :: %{
-        "AccessPointArn" => String.t(),
+        "AccessPointArn" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
         "Ec2Config" => ec2_config(),
-        "FileSystemAccessRoleArn" => String.t(),
+        "FileSystemAccessRoleArn" => String.t() | Atom.t(),
         "InTransitEncryption" => list(any()),
-        "LocationArn" => String.t(),
-        "LocationUri" => String.t()
+        "LocationArn" => String.t() | Atom.t(),
+        "LocationUri" => String.t() | Atom.t()
       }
       
   """
-  @type describe_location_efs_response() :: %{String.t() => any()}
+  @type describe_location_efs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       managed_secret_config() :: %{
-        "SecretArn" => String.t()
+        "SecretArn" => String.t() | Atom.t()
       }
       
   """
-  @type managed_secret_config() :: %{String.t() => any()}
+  @type managed_secret_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -585,7 +585,7 @@ defmodule AWS.DataSync do
       }
       
   """
-  @type qop_configuration() :: %{String.t() => any()}
+  @type qop_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -606,7 +606,7 @@ defmodule AWS.DataSync do
       }
       
   """
-  @type fsx_protocol() :: %{String.t() => any()}
+  @type fsx_protocol() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -620,21 +620,21 @@ defmodule AWS.DataSync do
       }
       
   """
-  @type report_overrides() :: %{String.t() => any()}
+  @type report_overrides() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       agent_list_entry() :: %{
-        "AgentArn" => String.t(),
-        "Name" => String.t(),
+        "AgentArn" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "Platform" => platform(),
         "Status" => list(any())
       }
       
   """
-  @type agent_list_entry() :: %{String.t() => any()}
+  @type agent_list_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -642,37 +642,37 @@ defmodule AWS.DataSync do
       
       create_location_azure_blob_request() :: %{
         optional("AccessTier") => list(any()),
-        optional("AgentArns") => list(String.t()),
+        optional("AgentArns") => list(String.t() | Atom.t()),
         optional("BlobType") => list(any()),
         optional("CmkSecretConfig") => cmk_secret_config(),
         optional("CustomSecretConfig") => custom_secret_config(),
         optional("SasConfiguration") => azure_blob_sas_configuration(),
-        optional("Subdirectory") => String.t(),
+        optional("Subdirectory") => String.t() | Atom.t(),
         optional("Tags") => list(tag_list_entry()),
         required("AuthenticationType") => list(any()),
-        required("ContainerUrl") => String.t()
+        required("ContainerUrl") => String.t() | Atom.t()
       }
       
   """
-  @type create_location_azure_blob_request() :: %{String.t() => any()}
+  @type create_location_azure_blob_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_agent_response() :: %{
-        "AgentArn" => String.t(),
+        "AgentArn" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
         "EndpointType" => list(any()),
         "LastConnectionTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Platform" => platform(),
         "PrivateLinkConfig" => private_link_config(),
         "Status" => list(any())
       }
       
   """
-  @type describe_agent_response() :: %{String.t() => any()}
+  @type describe_agent_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -697,7 +697,7 @@ defmodule AWS.DataSync do
       }
       
   """
-  @type options() :: %{String.t() => any()}
+  @type options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -712,7 +712,7 @@ defmodule AWS.DataSync do
       }
       
   """
-  @type task_report_config() :: %{String.t() => any()}
+  @type task_report_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -728,70 +728,70 @@ defmodule AWS.DataSync do
   ## Example:
       
       s3_manifest_config() :: %{
-        "BucketAccessRoleArn" => String.t(),
-        "ManifestObjectPath" => String.t(),
-        "ManifestObjectVersionId" => String.t(),
-        "S3BucketArn" => String.t()
+        "BucketAccessRoleArn" => String.t() | Atom.t(),
+        "ManifestObjectPath" => String.t() | Atom.t(),
+        "ManifestObjectVersionId" => String.t() | Atom.t(),
+        "S3BucketArn" => String.t() | Atom.t()
       }
       
   """
-  @type s3_manifest_config() :: %{String.t() => any()}
+  @type s3_manifest_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_location_smb_request() :: %{
-        optional("AgentArns") => list(String.t()),
+        optional("AgentArns") => list(String.t() | Atom.t()),
         optional("AuthenticationType") => list(any()),
-        optional("DnsIpAddresses") => list(String.t()),
-        optional("Domain") => String.t(),
+        optional("DnsIpAddresses") => list(String.t() | Atom.t()),
+        optional("Domain") => String.t() | Atom.t(),
         optional("KerberosKeytab") => binary(),
         optional("KerberosKrb5Conf") => binary(),
-        optional("KerberosPrincipal") => String.t(),
+        optional("KerberosPrincipal") => String.t() | Atom.t(),
         optional("MountOptions") => smb_mount_options(),
-        optional("Password") => String.t(),
-        optional("ServerHostname") => String.t(),
-        optional("Subdirectory") => String.t(),
-        optional("User") => String.t(),
-        required("LocationArn") => String.t()
+        optional("Password") => String.t() | Atom.t(),
+        optional("ServerHostname") => String.t() | Atom.t(),
+        optional("Subdirectory") => String.t() | Atom.t(),
+        optional("User") => String.t() | Atom.t(),
+        required("LocationArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_location_smb_request() :: %{String.t() => any()}
+  @type update_location_smb_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_agent_response() :: %{
-        "AgentArn" => String.t()
+        "AgentArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_agent_response() :: %{String.t() => any()}
+  @type create_agent_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_location_azure_blob_response() :: %{
-        "LocationArn" => String.t()
+        "LocationArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_location_azure_blob_response() :: %{String.t() => any()}
+  @type create_location_azure_blob_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_location_nfs_response() :: %{
-        "LocationArn" => String.t()
+        "LocationArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_location_nfs_response() :: %{String.t() => any()}
+  @type create_location_nfs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -799,28 +799,28 @@ defmodule AWS.DataSync do
       
       describe_location_fsx_ontap_response() :: %{
         "CreationTime" => non_neg_integer(),
-        "FsxFilesystemArn" => String.t(),
-        "LocationArn" => String.t(),
-        "LocationUri" => String.t(),
+        "FsxFilesystemArn" => String.t() | Atom.t(),
+        "LocationArn" => String.t() | Atom.t(),
+        "LocationUri" => String.t() | Atom.t(),
         "Protocol" => fsx_protocol(),
-        "SecurityGroupArns" => list(String.t()),
-        "StorageVirtualMachineArn" => String.t()
+        "SecurityGroupArns" => list(String.t() | Atom.t()),
+        "StorageVirtualMachineArn" => String.t() | Atom.t()
       }
       
   """
-  @type describe_location_fsx_ontap_response() :: %{String.t() => any()}
+  @type describe_location_fsx_ontap_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_list_entry() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag_list_entry() :: %{String.t() => any()}
+  @type tag_list_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -854,14 +854,14 @@ defmodule AWS.DataSync do
   ## Example:
       
       fsx_update_protocol_smb() :: %{
-        "Domain" => String.t(),
+        "Domain" => String.t() | Atom.t(),
         "MountOptions" => smb_mount_options(),
-        "Password" => String.t(),
-        "User" => String.t()
+        "Password" => String.t() | Atom.t(),
+        "User" => String.t() | Atom.t()
       }
       
   """
-  @type fsx_update_protocol_smb() :: %{String.t() => any()}
+  @type fsx_update_protocol_smb() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -872,76 +872,76 @@ defmodule AWS.DataSync do
       }
       
   """
-  @type report_override() :: %{String.t() => any()}
+  @type report_override() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_request_exception() :: %{
-        "datasyncErrorCode" => String.t(),
-        "errorCode" => String.t(),
-        "message" => String.t()
+        "datasyncErrorCode" => String.t() | Atom.t(),
+        "errorCode" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_request_exception() :: %{String.t() => any()}
+  @type invalid_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_task_executions_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "TaskExecutions" => list(task_execution_list_entry())
       }
       
   """
-  @type list_task_executions_response() :: %{String.t() => any()}
+  @type list_task_executions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       on_prem_config() :: %{
-        "AgentArns" => list(String.t())
+        "AgentArns" => list(String.t() | Atom.t())
       }
       
   """
-  @type on_prem_config() :: %{String.t() => any()}
+  @type on_prem_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       platform() :: %{
-        "Version" => String.t()
+        "Version" => String.t() | Atom.t()
       }
       
   """
-  @type platform() :: %{String.t() => any()}
+  @type platform() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_location_fsx_open_zfs_response() :: %{
-        "LocationArn" => String.t()
+        "LocationArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_location_fsx_open_zfs_response() :: %{String.t() => any()}
+  @type create_location_fsx_open_zfs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_config() :: %{
-        "BucketAccessRoleArn" => String.t()
+        "BucketAccessRoleArn" => String.t() | Atom.t()
       }
       
   """
-  @type s3_config() :: %{String.t() => any()}
+  @type s3_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -949,101 +949,101 @@ defmodule AWS.DataSync do
       
       list_task_executions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("TaskArn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("TaskArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_task_executions_request() :: %{String.t() => any()}
+  @type list_task_executions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_location_fsx_ontap_request() :: %{
-        optional("Subdirectory") => String.t(),
+        optional("Subdirectory") => String.t() | Atom.t(),
         optional("Tags") => list(tag_list_entry()),
         required("Protocol") => fsx_protocol(),
-        required("SecurityGroupArns") => list(String.t()),
-        required("StorageVirtualMachineArn") => String.t()
+        required("SecurityGroupArns") => list(String.t() | Atom.t()),
+        required("StorageVirtualMachineArn") => String.t() | Atom.t()
       }
       
   """
-  @type create_location_fsx_ontap_request() :: %{String.t() => any()}
+  @type create_location_fsx_ontap_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_location_hdfs_response() :: %{
-        "LocationArn" => String.t()
+        "LocationArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_location_hdfs_response() :: %{String.t() => any()}
+  @type create_location_hdfs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_task_response() :: %{
-        "CloudWatchLogGroupArn" => String.t(),
+        "CloudWatchLogGroupArn" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
-        "CurrentTaskExecutionArn" => String.t(),
-        "DestinationLocationArn" => String.t(),
-        "DestinationNetworkInterfaceArns" => list(String.t()),
-        "ErrorCode" => String.t(),
-        "ErrorDetail" => String.t(),
+        "CurrentTaskExecutionArn" => String.t() | Atom.t(),
+        "DestinationLocationArn" => String.t() | Atom.t(),
+        "DestinationNetworkInterfaceArns" => list(String.t() | Atom.t()),
+        "ErrorCode" => String.t() | Atom.t(),
+        "ErrorDetail" => String.t() | Atom.t(),
         "Excludes" => list(filter_rule()),
         "Includes" => list(filter_rule()),
         "ManifestConfig" => manifest_config(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Options" => options(),
         "Schedule" => task_schedule(),
         "ScheduleDetails" => task_schedule_details(),
-        "SourceLocationArn" => String.t(),
-        "SourceNetworkInterfaceArns" => list(String.t()),
+        "SourceLocationArn" => String.t() | Atom.t(),
+        "SourceNetworkInterfaceArns" => list(String.t() | Atom.t()),
         "Status" => list(any()),
-        "TaskArn" => String.t(),
+        "TaskArn" => String.t() | Atom.t(),
         "TaskMode" => list(any()),
         "TaskReportConfig" => task_report_config()
       }
       
   """
-  @type describe_task_response() :: %{String.t() => any()}
+  @type describe_task_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_location_smb_response() :: %{
-        "LocationArn" => String.t()
+        "LocationArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_location_smb_response() :: %{String.t() => any()}
+  @type create_location_smb_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_location_fsx_lustre_request() :: %{
-        required("LocationArn") => String.t()
+        required("LocationArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_location_fsx_lustre_request() :: %{String.t() => any()}
+  @type describe_location_fsx_lustre_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_location_s3_response() :: %{
-        "LocationArn" => String.t()
+        "LocationArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_location_s3_response() :: %{String.t() => any()}
+  @type create_location_s3_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1051,12 +1051,12 @@ defmodule AWS.DataSync do
       
       task_execution_list_entry() :: %{
         "Status" => list(any()),
-        "TaskExecutionArn" => String.t(),
+        "TaskExecutionArn" => String.t() | Atom.t(),
         "TaskMode" => list(any())
       }
       
   """
-  @type task_execution_list_entry() :: %{String.t() => any()}
+  @type task_execution_list_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1082,26 +1082,26 @@ defmodule AWS.DataSync do
       
       describe_location_nfs_response() :: %{
         "CreationTime" => non_neg_integer(),
-        "LocationArn" => String.t(),
-        "LocationUri" => String.t(),
+        "LocationArn" => String.t() | Atom.t(),
+        "LocationUri" => String.t() | Atom.t(),
         "MountOptions" => nfs_mount_options(),
         "OnPremConfig" => on_prem_config()
       }
       
   """
-  @type describe_location_nfs_response() :: %{String.t() => any()}
+  @type describe_location_nfs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Tags" => list(tag_list_entry())
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1109,14 +1109,14 @@ defmodule AWS.DataSync do
       
       describe_location_fsx_open_zfs_response() :: %{
         "CreationTime" => non_neg_integer(),
-        "LocationArn" => String.t(),
-        "LocationUri" => String.t(),
+        "LocationArn" => String.t() | Atom.t(),
+        "LocationUri" => String.t() | Atom.t(),
         "Protocol" => fsx_protocol(),
-        "SecurityGroupArns" => list(String.t())
+        "SecurityGroupArns" => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_location_fsx_open_zfs_response() :: %{String.t() => any()}
+  @type describe_location_fsx_open_zfs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1125,44 +1125,44 @@ defmodule AWS.DataSync do
       list_locations_request() :: %{
         optional("Filters") => list(location_filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_locations_request() :: %{String.t() => any()}
+  @type list_locations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_location_s3_request() :: %{
-        optional("AgentArns") => list(String.t()),
+        optional("AgentArns") => list(String.t() | Atom.t()),
         optional("S3StorageClass") => list(any()),
-        optional("Subdirectory") => String.t(),
+        optional("Subdirectory") => String.t() | Atom.t(),
         optional("Tags") => list(tag_list_entry()),
-        required("S3BucketArn") => String.t(),
+        required("S3BucketArn") => String.t() | Atom.t(),
         required("S3Config") => s3_config()
       }
       
   """
-  @type create_location_s3_request() :: %{String.t() => any()}
+  @type create_location_s3_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_location_efs_request() :: %{
-        optional("AccessPointArn") => String.t(),
-        optional("FileSystemAccessRoleArn") => String.t(),
+        optional("AccessPointArn") => String.t() | Atom.t(),
+        optional("FileSystemAccessRoleArn") => String.t() | Atom.t(),
         optional("InTransitEncryption") => list(any()),
-        optional("Subdirectory") => String.t(),
+        optional("Subdirectory") => String.t() | Atom.t(),
         optional("Tags") => list(tag_list_entry()),
         required("Ec2Config") => ec2_config(),
-        required("EfsFilesystemArn") => String.t()
+        required("EfsFilesystemArn") => String.t() | Atom.t()
       }
       
   """
-  @type create_location_efs_request() :: %{String.t() => any()}
+  @type create_location_efs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1178,19 +1178,19 @@ defmodule AWS.DataSync do
   ## Example:
       
       update_task_request() :: %{
-        optional("CloudWatchLogGroupArn") => String.t(),
+        optional("CloudWatchLogGroupArn") => String.t() | Atom.t(),
         optional("Excludes") => list(filter_rule()),
         optional("Includes") => list(filter_rule()),
         optional("ManifestConfig") => manifest_config(),
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("Options") => options(),
         optional("Schedule") => task_schedule(),
         optional("TaskReportConfig") => task_report_config(),
-        required("TaskArn") => String.t()
+        required("TaskArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_task_request() :: %{String.t() => any()}
+  @type update_task_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1210,7 +1210,7 @@ defmodule AWS.DataSync do
       }
       
   """
-  @type source_manifest_config() :: %{String.t() => any()}
+  @type source_manifest_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1222,33 +1222,33 @@ defmodule AWS.DataSync do
       }
       
   """
-  @type task_execution_files_listed_detail() :: %{String.t() => any()}
+  @type task_execution_files_listed_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_location_smb_request() :: %{
-        required("LocationArn") => String.t()
+        required("LocationArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_location_smb_request() :: %{String.t() => any()}
+  @type describe_location_smb_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_location_fsx_open_zfs_request() :: %{
-        optional("Subdirectory") => String.t(),
+        optional("Subdirectory") => String.t() | Atom.t(),
         optional("Tags") => list(tag_list_entry()),
-        required("FsxFilesystemArn") => String.t(),
+        required("FsxFilesystemArn") => String.t() | Atom.t(),
         required("Protocol") => fsx_protocol(),
-        required("SecurityGroupArns") => list(String.t())
+        required("SecurityGroupArns") => list(String.t() | Atom.t())
       }
       
   """
-  @type create_location_fsx_open_zfs_request() :: %{String.t() => any()}
+  @type create_location_fsx_open_zfs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1278,13 +1278,13 @@ defmodule AWS.DataSync do
         "Result" => task_execution_result_detail(),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
-        "TaskExecutionArn" => String.t(),
+        "TaskExecutionArn" => String.t() | Atom.t(),
         "TaskMode" => list(any()),
         "TaskReportConfig" => task_report_config()
       }
       
   """
-  @type describe_task_execution_response() :: %{String.t() => any()}
+  @type describe_task_execution_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1300,28 +1300,28 @@ defmodule AWS.DataSync do
   ## Example:
       
       create_location_fsx_windows_response() :: %{
-        "LocationArn" => String.t()
+        "LocationArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_location_fsx_windows_response() :: %{String.t() => any()}
+  @type create_location_fsx_windows_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_location_fsx_windows_request() :: %{
-        optional("Domain") => String.t(),
-        optional("Subdirectory") => String.t(),
+        optional("Domain") => String.t() | Atom.t(),
+        optional("Subdirectory") => String.t() | Atom.t(),
         optional("Tags") => list(tag_list_entry()),
-        required("FsxFilesystemArn") => String.t(),
-        required("Password") => String.t(),
-        required("SecurityGroupArns") => list(String.t()),
-        required("User") => String.t()
+        required("FsxFilesystemArn") => String.t() | Atom.t(),
+        required("Password") => String.t() | Atom.t(),
+        required("SecurityGroupArns") => list(String.t() | Atom.t()),
+        required("User") => String.t() | Atom.t()
       }
       
   """
-  @type create_location_fsx_windows_request() :: %{String.t() => any()}
+  @type create_location_fsx_windows_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1338,22 +1338,22 @@ defmodule AWS.DataSync do
       
       create_location_smb_request() :: %{
         optional("AuthenticationType") => list(any()),
-        optional("DnsIpAddresses") => list(String.t()),
-        optional("Domain") => String.t(),
+        optional("DnsIpAddresses") => list(String.t() | Atom.t()),
+        optional("Domain") => String.t() | Atom.t(),
         optional("KerberosKeytab") => binary(),
         optional("KerberosKrb5Conf") => binary(),
-        optional("KerberosPrincipal") => String.t(),
+        optional("KerberosPrincipal") => String.t() | Atom.t(),
         optional("MountOptions") => smb_mount_options(),
-        optional("Password") => String.t(),
+        optional("Password") => String.t() | Atom.t(),
         optional("Tags") => list(tag_list_entry()),
-        optional("User") => String.t(),
-        required("AgentArns") => list(String.t()),
-        required("ServerHostname") => String.t(),
-        required("Subdirectory") => String.t()
+        optional("User") => String.t() | Atom.t(),
+        required("AgentArns") => list(String.t() | Atom.t()),
+        required("ServerHostname") => String.t() | Atom.t(),
+        required("Subdirectory") => String.t() | Atom.t()
       }
       
   """
-  @type create_location_smb_request() :: %{String.t() => any()}
+  @type create_location_smb_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1369,108 +1369,108 @@ defmodule AWS.DataSync do
   ## Example:
       
       describe_agent_request() :: %{
-        required("AgentArn") => String.t()
+        required("AgentArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_agent_request() :: %{String.t() => any()}
+  @type describe_agent_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_location_fsx_lustre_request() :: %{
-        optional("Subdirectory") => String.t(),
-        required("LocationArn") => String.t()
+        optional("Subdirectory") => String.t() | Atom.t(),
+        required("LocationArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_location_fsx_lustre_request() :: %{String.t() => any()}
+  @type update_location_fsx_lustre_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       report_destination_s3() :: %{
-        "BucketAccessRoleArn" => String.t(),
-        "S3BucketArn" => String.t(),
-        "Subdirectory" => String.t()
+        "BucketAccessRoleArn" => String.t() | Atom.t(),
+        "S3BucketArn" => String.t() | Atom.t(),
+        "Subdirectory" => String.t() | Atom.t()
       }
       
   """
-  @type report_destination_s3() :: %{String.t() => any()}
+  @type report_destination_s3() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_location_efs_request() :: %{
-        optional("AccessPointArn") => String.t(),
-        optional("FileSystemAccessRoleArn") => String.t(),
+        optional("AccessPointArn") => String.t() | Atom.t(),
+        optional("FileSystemAccessRoleArn") => String.t() | Atom.t(),
         optional("InTransitEncryption") => list(any()),
-        optional("Subdirectory") => String.t(),
-        required("LocationArn") => String.t()
+        optional("Subdirectory") => String.t() | Atom.t(),
+        required("LocationArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_location_efs_request() :: %{String.t() => any()}
+  @type update_location_efs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_location_azure_blob_request() :: %{
-        required("LocationArn") => String.t()
+        required("LocationArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_location_azure_blob_request() :: %{String.t() => any()}
+  @type describe_location_azure_blob_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       azure_blob_sas_configuration() :: %{
-        "Token" => String.t()
+        "Token" => String.t() | Atom.t()
       }
       
   """
-  @type azure_blob_sas_configuration() :: %{String.t() => any()}
+  @type azure_blob_sas_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       location_list_entry() :: %{
-        "LocationArn" => String.t(),
-        "LocationUri" => String.t()
+        "LocationArn" => String.t() | Atom.t(),
+        "LocationUri" => String.t() | Atom.t()
       }
       
   """
-  @type location_list_entry() :: %{String.t() => any()}
+  @type location_list_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_exception() :: %{
-        "errorCode" => String.t(),
-        "message" => String.t()
+        "errorCode" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type internal_exception() :: %{String.t() => any()}
+  @type internal_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_location_s3_request() :: %{
-        required("LocationArn") => String.t()
+        required("LocationArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_location_s3_request() :: %{String.t() => any()}
+  @type describe_location_s3_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1489,20 +1489,20 @@ defmodule AWS.DataSync do
         optional("BlockSize") => integer(),
         optional("KerberosKeytab") => binary(),
         optional("KerberosKrb5Conf") => binary(),
-        optional("KerberosPrincipal") => String.t(),
-        optional("KmsKeyProviderUri") => String.t(),
+        optional("KerberosPrincipal") => String.t() | Atom.t(),
+        optional("KmsKeyProviderUri") => String.t() | Atom.t(),
         optional("QopConfiguration") => qop_configuration(),
         optional("ReplicationFactor") => integer(),
-        optional("SimpleUser") => String.t(),
-        optional("Subdirectory") => String.t(),
+        optional("SimpleUser") => String.t() | Atom.t(),
+        optional("Subdirectory") => String.t() | Atom.t(),
         optional("Tags") => list(tag_list_entry()),
-        required("AgentArns") => list(String.t()),
+        required("AgentArns") => list(String.t() | Atom.t()),
         required("AuthenticationType") => list(any()),
         required("NameNodes") => list(hdfs_name_node())
       }
       
   """
-  @type create_location_hdfs_request() :: %{String.t() => any()}
+  @type create_location_hdfs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1518,34 +1518,34 @@ defmodule AWS.DataSync do
   ## Example:
       
       update_agent_request() :: %{
-        optional("Name") => String.t(),
-        required("AgentArn") => String.t()
+        optional("Name") => String.t() | Atom.t(),
+        required("AgentArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_agent_request() :: %{String.t() => any()}
+  @type update_agent_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_agent_request() :: %{
-        required("AgentArn") => String.t()
+        required("AgentArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_agent_request() :: %{String.t() => any()}
+  @type delete_agent_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_task_request() :: %{
-        required("TaskArn") => String.t()
+        required("TaskArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_task_request() :: %{String.t() => any()}
+  @type delete_task_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1554,27 +1554,27 @@ defmodule AWS.DataSync do
       update_location_nfs_request() :: %{
         optional("MountOptions") => nfs_mount_options(),
         optional("OnPremConfig") => on_prem_config(),
-        optional("ServerHostname") => String.t(),
-        optional("Subdirectory") => String.t(),
-        required("LocationArn") => String.t()
+        optional("ServerHostname") => String.t() | Atom.t(),
+        optional("Subdirectory") => String.t() | Atom.t(),
+        required("LocationArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_location_nfs_request() :: %{String.t() => any()}
+  @type update_location_nfs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_location_fsx_lustre_request() :: %{
-        optional("Subdirectory") => String.t(),
+        optional("Subdirectory") => String.t() | Atom.t(),
         optional("Tags") => list(tag_list_entry()),
-        required("FsxFilesystemArn") => String.t(),
-        required("SecurityGroupArns") => list(String.t())
+        required("FsxFilesystemArn") => String.t() | Atom.t(),
+        required("SecurityGroupArns") => list(String.t() | Atom.t())
       }
       
   """
-  @type create_location_fsx_lustre_request() :: %{String.t() => any()}
+  @type create_location_fsx_lustre_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1582,12 +1582,12 @@ defmodule AWS.DataSync do
       
       list_tags_for_resource_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ResourceArn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1603,11 +1603,11 @@ defmodule AWS.DataSync do
   ## Example:
       
       create_task_response() :: %{
-        "TaskArn" => String.t()
+        "TaskArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_task_response() :: %{String.t() => any()}
+  @type create_task_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1616,48 +1616,48 @@ defmodule AWS.DataSync do
       update_location_s3_request() :: %{
         optional("S3Config") => s3_config(),
         optional("S3StorageClass") => list(any()),
-        optional("Subdirectory") => String.t(),
-        required("LocationArn") => String.t()
+        optional("Subdirectory") => String.t() | Atom.t(),
+        required("LocationArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_location_s3_request() :: %{String.t() => any()}
+  @type update_location_s3_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_location_fsx_windows_request() :: %{
-        optional("Domain") => String.t(),
-        optional("Password") => String.t(),
-        optional("Subdirectory") => String.t(),
-        optional("User") => String.t(),
-        required("LocationArn") => String.t()
+        optional("Domain") => String.t() | Atom.t(),
+        optional("Password") => String.t() | Atom.t(),
+        optional("Subdirectory") => String.t() | Atom.t(),
+        optional("User") => String.t() | Atom.t(),
+        required("LocationArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_location_fsx_windows_request() :: %{String.t() => any()}
+  @type update_location_fsx_windows_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_location_object_storage_request() :: %{
-        optional("AccessKey") => String.t(),
-        optional("AgentArns") => list(String.t()),
+        optional("AccessKey") => String.t() | Atom.t(),
+        optional("AgentArns") => list(String.t() | Atom.t()),
         optional("CmkSecretConfig") => cmk_secret_config(),
         optional("CustomSecretConfig") => custom_secret_config(),
-        optional("SecretKey") => String.t(),
+        optional("SecretKey") => String.t() | Atom.t(),
         optional("ServerCertificate") => binary(),
-        optional("ServerHostname") => String.t(),
+        optional("ServerHostname") => String.t() | Atom.t(),
         optional("ServerPort") => integer(),
         optional("ServerProtocol") => list(any()),
-        optional("Subdirectory") => String.t(),
-        required("LocationArn") => String.t()
+        optional("Subdirectory") => String.t() | Atom.t(),
+        required("LocationArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_location_object_storage_request() :: %{String.t() => any()}
+  @type update_location_object_storage_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1666,48 +1666,48 @@ defmodule AWS.DataSync do
       list_tasks_request() :: %{
         optional("Filters") => list(task_filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_tasks_request() :: %{String.t() => any()}
+  @type list_tasks_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       fsx_protocol_smb() :: %{
-        "Domain" => String.t(),
+        "Domain" => String.t() | Atom.t(),
         "MountOptions" => smb_mount_options(),
-        "Password" => String.t(),
-        "User" => String.t()
+        "Password" => String.t() | Atom.t(),
+        "User" => String.t() | Atom.t()
       }
       
   """
-  @type fsx_protocol_smb() :: %{String.t() => any()}
+  @type fsx_protocol_smb() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_task_execution_request() :: %{
-        required("TaskExecutionArn") => String.t()
+        required("TaskExecutionArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_task_execution_request() :: %{String.t() => any()}
+  @type describe_task_execution_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       hdfs_name_node() :: %{
-        "Hostname" => String.t(),
+        "Hostname" => String.t() | Atom.t(),
         "Port" => integer()
       }
       
   """
-  @type hdfs_name_node() :: %{String.t() => any()}
+  @type hdfs_name_node() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1718,7 +1718,7 @@ defmodule AWS.DataSync do
       }
       
   """
-  @type smb_mount_options() :: %{String.t() => any()}
+  @type smb_mount_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1726,45 +1726,45 @@ defmodule AWS.DataSync do
       
       list_locations_response() :: %{
         "Locations" => list(location_list_entry()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_locations_response() :: %{String.t() => any()}
+  @type list_locations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_location_hdfs_request() :: %{
-        required("LocationArn") => String.t()
+        required("LocationArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_location_hdfs_request() :: %{String.t() => any()}
+  @type describe_location_hdfs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_location_efs_request() :: %{
-        required("LocationArn") => String.t()
+        required("LocationArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_location_efs_request() :: %{String.t() => any()}
+  @type describe_location_efs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tasks_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Tasks" => list(task_list_entry())
       }
       
   """
-  @type list_tasks_response() :: %{String.t() => any()}
+  @type list_tasks_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1781,30 +1781,30 @@ defmodule AWS.DataSync do
       
       describe_location_azure_blob_response() :: %{
         "AccessTier" => list(any()),
-        "AgentArns" => list(String.t()),
+        "AgentArns" => list(String.t() | Atom.t()),
         "AuthenticationType" => list(any()),
         "BlobType" => list(any()),
         "CmkSecretConfig" => cmk_secret_config(),
         "CreationTime" => non_neg_integer(),
         "CustomSecretConfig" => custom_secret_config(),
-        "LocationArn" => String.t(),
-        "LocationUri" => String.t(),
+        "LocationArn" => String.t() | Atom.t(),
+        "LocationUri" => String.t() | Atom.t(),
         "ManagedSecretConfig" => managed_secret_config()
       }
       
   """
-  @type describe_location_azure_blob_response() :: %{String.t() => any()}
+  @type describe_location_azure_blob_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_location_efs_response() :: %{
-        "LocationArn" => String.t()
+        "LocationArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_location_efs_response() :: %{String.t() => any()}
+  @type create_location_efs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1813,11 +1813,11 @@ defmodule AWS.DataSync do
       task_filter() :: %{
         "Name" => list(any()),
         "Operator" => list(any()),
-        "Values" => list(String.t())
+        "Values" => list(String.t() | Atom.t())
       }
       
   """
-  @type task_filter() :: %{String.t() => any()}
+  @type task_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1825,81 +1825,81 @@ defmodule AWS.DataSync do
       
       update_location_fsx_open_zfs_request() :: %{
         optional("Protocol") => fsx_protocol(),
-        optional("Subdirectory") => String.t(),
-        required("LocationArn") => String.t()
+        optional("Subdirectory") => String.t() | Atom.t(),
+        required("LocationArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_location_fsx_open_zfs_request() :: %{String.t() => any()}
+  @type update_location_fsx_open_zfs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       ec2_config() :: %{
-        "SecurityGroupArns" => list(String.t()),
-        "SubnetArn" => String.t()
+        "SecurityGroupArns" => list(String.t() | Atom.t()),
+        "SubnetArn" => String.t() | Atom.t()
       }
       
   """
-  @type ec2_config() :: %{String.t() => any()}
+  @type ec2_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_location_hdfs_response() :: %{
-        "AgentArns" => list(String.t()),
+        "AgentArns" => list(String.t() | Atom.t()),
         "AuthenticationType" => list(any()),
         "BlockSize" => integer(),
         "CreationTime" => non_neg_integer(),
-        "KerberosPrincipal" => String.t(),
-        "KmsKeyProviderUri" => String.t(),
-        "LocationArn" => String.t(),
-        "LocationUri" => String.t(),
+        "KerberosPrincipal" => String.t() | Atom.t(),
+        "KmsKeyProviderUri" => String.t() | Atom.t(),
+        "LocationArn" => String.t() | Atom.t(),
+        "LocationUri" => String.t() | Atom.t(),
         "NameNodes" => list(hdfs_name_node()),
         "QopConfiguration" => qop_configuration(),
         "ReplicationFactor" => integer(),
-        "SimpleUser" => String.t()
+        "SimpleUser" => String.t() | Atom.t()
       }
       
   """
-  @type describe_location_hdfs_response() :: %{String.t() => any()}
+  @type describe_location_hdfs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_location_fsx_windows_request() :: %{
-        required("LocationArn") => String.t()
+        required("LocationArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_location_fsx_windows_request() :: %{String.t() => any()}
+  @type describe_location_fsx_windows_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_location_object_storage_response() :: %{
-        "LocationArn" => String.t()
+        "LocationArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_location_object_storage_response() :: %{String.t() => any()}
+  @type create_location_object_storage_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_location_object_storage_response() :: %{
-        "AccessKey" => String.t(),
-        "AgentArns" => list(String.t()),
+        "AccessKey" => String.t() | Atom.t(),
+        "AgentArns" => list(String.t() | Atom.t()),
         "CmkSecretConfig" => cmk_secret_config(),
         "CreationTime" => non_neg_integer(),
         "CustomSecretConfig" => custom_secret_config(),
-        "LocationArn" => String.t(),
-        "LocationUri" => String.t(),
+        "LocationArn" => String.t() | Atom.t(),
+        "LocationUri" => String.t() | Atom.t(),
         "ManagedSecretConfig" => managed_secret_config(),
         "ServerCertificate" => binary(),
         "ServerPort" => integer(),
@@ -1907,27 +1907,27 @@ defmodule AWS.DataSync do
       }
       
   """
-  @type describe_location_object_storage_response() :: %{String.t() => any()}
+  @type describe_location_object_storage_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_location_smb_response() :: %{
-        "AgentArns" => list(String.t()),
+        "AgentArns" => list(String.t() | Atom.t()),
         "AuthenticationType" => list(any()),
         "CreationTime" => non_neg_integer(),
-        "DnsIpAddresses" => list(String.t()),
-        "Domain" => String.t(),
-        "KerberosPrincipal" => String.t(),
-        "LocationArn" => String.t(),
-        "LocationUri" => String.t(),
+        "DnsIpAddresses" => list(String.t() | Atom.t()),
+        "Domain" => String.t() | Atom.t(),
+        "KerberosPrincipal" => String.t() | Atom.t(),
+        "LocationArn" => String.t() | Atom.t(),
+        "LocationUri" => String.t() | Atom.t(),
         "MountOptions" => smb_mount_options(),
-        "User" => String.t()
+        "User" => String.t() | Atom.t()
       }
       
   """
-  @type describe_location_smb_response() :: %{String.t() => any()}
+  @type describe_location_smb_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1940,7 +1940,7 @@ defmodule AWS.DataSync do
       }
       
   """
-  @type manifest_config() :: %{String.t() => any()}
+  @type manifest_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1956,28 +1956,28 @@ defmodule AWS.DataSync do
   ## Example:
       
       custom_secret_config() :: %{
-        "SecretAccessRoleArn" => String.t(),
-        "SecretArn" => String.t()
+        "SecretAccessRoleArn" => String.t() | Atom.t(),
+        "SecretArn" => String.t() | Atom.t()
       }
       
   """
-  @type custom_secret_config() :: %{String.t() => any()}
+  @type custom_secret_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_location_s3_response() :: %{
-        "AgentArns" => list(String.t()),
+        "AgentArns" => list(String.t() | Atom.t()),
         "CreationTime" => non_neg_integer(),
-        "LocationArn" => String.t(),
-        "LocationUri" => String.t(),
+        "LocationArn" => String.t() | Atom.t(),
+        "LocationUri" => String.t() | Atom.t(),
         "S3Config" => s3_config(),
         "S3StorageClass" => list(any())
       }
       
   """
-  @type describe_location_s3_response() :: %{String.t() => any()}
+  @type describe_location_s3_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1990,22 +1990,22 @@ defmodule AWS.DataSync do
         optional("OverrideOptions") => options(),
         optional("Tags") => list(tag_list_entry()),
         optional("TaskReportConfig") => task_report_config(),
-        required("TaskArn") => String.t()
+        required("TaskArn") => String.t() | Atom.t()
       }
       
   """
-  @type start_task_execution_request() :: %{String.t() => any()}
+  @type start_task_execution_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_location_fsx_ontap_response() :: %{
-        "LocationArn" => String.t()
+        "LocationArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_location_fsx_ontap_response() :: %{String.t() => any()}
+  @type create_location_fsx_ontap_response() :: %{String.t() | Atom.t() => any()}
 
   @type cancel_task_execution_errors() :: internal_exception() | invalid_request_exception()
 

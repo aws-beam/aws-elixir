@@ -72,17 +72,17 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       is_authorized_with_token_input() :: %{
-        optional("accessToken") => String.t(),
+        optional("accessToken") => String.t() | Atom.t(),
         optional("action") => action_identifier(),
         optional("context") => list(),
         optional("entities") => list(),
-        optional("identityToken") => String.t(),
+        optional("identityToken") => String.t() | Atom.t(),
         optional("resource") => entity_identifier(),
-        required("policyStoreId") => String.t()
+        required("policyStoreId") => String.t() | Atom.t()
       }
       
   """
-  @type is_authorized_with_token_input() :: %{String.t() => any()}
+  @type is_authorized_with_token_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -94,11 +94,11 @@ defmodule AWS.VerifiedPermissions do
         optional("entities") => list(),
         optional("principal") => entity_identifier(),
         optional("resource") => entity_identifier(),
-        required("policyStoreId") => String.t()
+        required("policyStoreId") => String.t() | Atom.t()
       }
       
   """
-  @type is_authorized_input() :: %{String.t() => any()}
+  @type is_authorized_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -107,12 +107,12 @@ defmodule AWS.VerifiedPermissions do
       create_policy_template_output() :: %{
         "createdDate" => non_neg_integer(),
         "lastUpdatedDate" => non_neg_integer(),
-        "policyStoreId" => String.t(),
-        "policyTemplateId" => String.t()
+        "policyStoreId" => String.t() | Atom.t(),
+        "policyTemplateId" => String.t() | Atom.t()
       }
       
   """
-  @type create_policy_template_output() :: %{String.t() => any()}
+  @type create_policy_template_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -125,21 +125,21 @@ defmodule AWS.VerifiedPermissions do
       }
       
   """
-  @type batch_is_authorized_with_token_input_item() :: %{String.t() => any()}
+  @type batch_is_authorized_with_token_input_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_identity_source_input() :: %{
-        optional("principalEntityType") => String.t(),
-        required("identitySourceId") => String.t(),
-        required("policyStoreId") => String.t(),
+        optional("principalEntityType") => String.t() | Atom.t(),
+        required("identitySourceId") => String.t() | Atom.t(),
+        required("policyStoreId") => String.t() | Atom.t(),
         required("updateConfiguration") => list()
       }
       
   """
-  @type update_identity_source_input() :: %{String.t() => any()}
+  @type update_identity_source_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -152,65 +152,65 @@ defmodule AWS.VerifiedPermissions do
       }
       
   """
-  @type is_authorized_output() :: %{String.t() => any()}
+  @type is_authorized_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_policy_template_input() :: %{
-        required("policyStoreId") => String.t(),
-        required("policyTemplateId") => String.t()
+        required("policyStoreId") => String.t() | Atom.t(),
+        required("policyTemplateId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_policy_template_input() :: %{String.t() => any()}
+  @type delete_policy_template_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       open_id_connect_identity_token_configuration() :: %{
-        "clientIds" => list(String.t()),
-        "principalIdClaim" => String.t()
+        "clientIds" => list(String.t() | Atom.t()),
+        "principalIdClaim" => String.t() | Atom.t()
       }
       
   """
-  @type open_id_connect_identity_token_configuration() :: %{String.t() => any()}
+  @type open_id_connect_identity_token_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_policy_templates_output() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "policyTemplates" => list(policy_template_item())
       }
       
   """
-  @type list_policy_templates_output() :: %{String.t() => any()}
+  @type list_policy_templates_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       determining_policy_item() :: %{
-        "policyId" => String.t()
+        "policyId" => String.t() | Atom.t()
       }
       
   """
-  @type determining_policy_item() :: %{String.t() => any()}
+  @type determining_policy_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_policy_store_input() :: %{
-        required("policyStoreId") => String.t()
+        required("policyStoreId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_policy_store_input() :: %{String.t() => any()}
+  @type delete_policy_store_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -218,76 +218,76 @@ defmodule AWS.VerifiedPermissions do
       
       list_policy_templates_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("policyStoreId") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("policyStoreId") => String.t() | Atom.t()
       }
       
   """
-  @type list_policy_templates_input() :: %{String.t() => any()}
+  @type list_policy_templates_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       template_linked_policy_definition() :: %{
-        "policyTemplateId" => String.t(),
+        "policyTemplateId" => String.t() | Atom.t(),
         "principal" => entity_identifier(),
         "resource" => entity_identifier()
       }
       
   """
-  @type template_linked_policy_definition() :: %{String.t() => any()}
+  @type template_linked_policy_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       open_id_connect_access_token_configuration() :: %{
-        "audiences" => list(String.t()),
-        "principalIdClaim" => String.t()
+        "audiences" => list(String.t() | Atom.t()),
+        "principalIdClaim" => String.t() | Atom.t()
       }
       
   """
-  @type open_id_connect_access_token_configuration() :: %{String.t() => any()}
+  @type open_id_connect_access_token_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       open_id_connect_access_token_configuration_detail() :: %{
-        "audiences" => list(String.t()),
-        "principalIdClaim" => String.t()
+        "audiences" => list(String.t() | Atom.t()),
+        "principalIdClaim" => String.t() | Atom.t()
       }
       
   """
-  @type open_id_connect_access_token_configuration_detail() :: %{String.t() => any()}
+  @type open_id_connect_access_token_configuration_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_policy_store_input() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("deletionProtection") => list(any()),
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("tags") => map(),
         required("validationSettings") => validation_settings()
       }
       
   """
-  @type create_policy_store_input() :: %{String.t() => any()}
+  @type create_policy_store_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_policy_input() :: %{
-        required("policyId") => String.t(),
-        required("policyStoreId") => String.t()
+        required("policyId") => String.t() | Atom.t(),
+        required("policyStoreId") => String.t() | Atom.t()
       }
       
   """
-  @type get_policy_input() :: %{String.t() => any()}
+  @type get_policy_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -295,25 +295,25 @@ defmodule AWS.VerifiedPermissions do
       
       update_identity_source_output() :: %{
         "createdDate" => non_neg_integer(),
-        "identitySourceId" => String.t(),
+        "identitySourceId" => String.t() | Atom.t(),
         "lastUpdatedDate" => non_neg_integer(),
-        "policyStoreId" => String.t()
+        "policyStoreId" => String.t() | Atom.t()
       }
       
   """
-  @type update_identity_source_output() :: %{String.t() => any()}
+  @type update_identity_source_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_identity_source_input() :: %{
-        required("identitySourceId") => String.t(),
-        required("policyStoreId") => String.t()
+        required("identitySourceId") => String.t() | Atom.t(),
+        required("policyStoreId") => String.t() | Atom.t()
       }
       
   """
-  @type get_identity_source_input() :: %{String.t() => any()}
+  @type get_identity_source_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -321,28 +321,28 @@ defmodule AWS.VerifiedPermissions do
       
       policy_template_item() :: %{
         "createdDate" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "lastUpdatedDate" => non_neg_integer(),
-        "policyStoreId" => String.t(),
-        "policyTemplateId" => String.t()
+        "policyStoreId" => String.t() | Atom.t(),
+        "policyTemplateId" => String.t() | Atom.t()
       }
       
   """
-  @type policy_template_item() :: %{String.t() => any()}
+  @type policy_template_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_policy_store_output() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdDate" => non_neg_integer(),
         "lastUpdatedDate" => non_neg_integer(),
-        "policyStoreId" => String.t()
+        "policyStoreId" => String.t() | Atom.t()
       }
       
   """
-  @type update_policy_store_output() :: %{String.t() => any()}
+  @type update_policy_store_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -353,7 +353,7 @@ defmodule AWS.VerifiedPermissions do
       }
       
   """
-  @type batch_get_policy_input() :: %{String.t() => any()}
+  @type batch_get_policy_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -367,7 +367,7 @@ defmodule AWS.VerifiedPermissions do
       }
       
   """
-  @type batch_is_authorized_with_token_output_item() :: %{String.t() => any()}
+  @type batch_is_authorized_with_token_output_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -379,62 +379,62 @@ defmodule AWS.VerifiedPermissions do
         "definition" => list(),
         "effect" => list(any()),
         "lastUpdatedDate" => non_neg_integer(),
-        "policyId" => String.t(),
-        "policyStoreId" => String.t(),
+        "policyId" => String.t() | Atom.t(),
+        "policyStoreId" => String.t() | Atom.t(),
         "policyType" => list(any()),
         "principal" => entity_identifier(),
         "resource" => entity_identifier()
       }
       
   """
-  @type policy_item() :: %{String.t() => any()}
+  @type policy_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cognito_group_configuration_detail() :: %{
-        "groupEntityType" => String.t()
+        "groupEntityType" => String.t() | Atom.t()
       }
       
   """
-  @type cognito_group_configuration_detail() :: %{String.t() => any()}
+  @type cognito_group_configuration_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       static_policy_definition_item() :: %{
-        "description" => String.t()
+        "description" => String.t() | Atom.t()
       }
       
   """
-  @type static_policy_definition_item() :: %{String.t() => any()}
+  @type static_policy_definition_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       open_id_connect_configuration_detail() :: %{
-        "entityIdPrefix" => String.t(),
+        "entityIdPrefix" => String.t() | Atom.t(),
         "groupConfiguration" => open_id_connect_group_configuration_detail(),
-        "issuer" => String.t(),
+        "issuer" => String.t() | Atom.t(),
         "tokenSelection" => list()
       }
       
   """
-  @type open_id_connect_configuration_detail() :: %{String.t() => any()}
+  @type open_id_connect_configuration_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_state_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
       
   """
-  @type invalid_state_exception() :: %{String.t() => any()}
+  @type invalid_state_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -445,21 +445,21 @@ defmodule AWS.VerifiedPermissions do
       }
       
   """
-  @type list_tags_for_resource_output() :: %{String.t() => any()}
+  @type list_tags_for_resource_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_policy_store_output() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdDate" => non_neg_integer(),
         "lastUpdatedDate" => non_neg_integer(),
-        "policyStoreId" => String.t()
+        "policyStoreId" => String.t() | Atom.t()
       }
       
   """
-  @type create_policy_store_output() :: %{String.t() => any()}
+  @type create_policy_store_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -467,13 +467,13 @@ defmodule AWS.VerifiedPermissions do
       
       batch_get_policy_error_item() :: %{
         "code" => list(any()),
-        "message" => [String.t()],
-        "policyId" => [String.t()],
-        "policyStoreId" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "policyId" => [String.t() | Atom.t()],
+        "policyStoreId" => [String.t() | Atom.t()]
       }
       
   """
-  @type batch_get_policy_error_item() :: %{String.t() => any()}
+  @type batch_get_policy_error_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -484,7 +484,7 @@ defmodule AWS.VerifiedPermissions do
       }
       
   """
-  @type batch_is_authorized_output() :: %{String.t() => any()}
+  @type batch_is_authorized_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -498,7 +498,7 @@ defmodule AWS.VerifiedPermissions do
       }
       
   """
-  @type batch_is_authorized_input_item() :: %{String.t() => any()}
+  @type batch_is_authorized_input_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -506,36 +506,36 @@ defmodule AWS.VerifiedPermissions do
       
       update_policy_input() :: %{
         required("definition") => list(),
-        required("policyId") => String.t(),
-        required("policyStoreId") => String.t()
+        required("policyId") => String.t() | Atom.t(),
+        required("policyStoreId") => String.t() | Atom.t()
       }
       
   """
-  @type update_policy_input() :: %{String.t() => any()}
+  @type update_policy_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       action_identifier() :: %{
-        "actionId" => String.t(),
-        "actionType" => String.t()
+        "actionId" => String.t() | Atom.t(),
+        "actionType" => String.t() | Atom.t()
       }
       
   """
-  @type action_identifier() :: %{String.t() => any()}
+  @type action_identifier() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_policies_output() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "policies" => list(policy_item())
       }
       
   """
-  @type list_policies_output() :: %{String.t() => any()}
+  @type list_policies_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -544,46 +544,46 @@ defmodule AWS.VerifiedPermissions do
       put_schema_output() :: %{
         "createdDate" => non_neg_integer(),
         "lastUpdatedDate" => non_neg_integer(),
-        "namespaces" => list(String.t()),
-        "policyStoreId" => String.t()
+        "namespaces" => list(String.t() | Atom.t()),
+        "policyStoreId" => String.t() | Atom.t()
       }
       
   """
-  @type put_schema_output() :: %{String.t() => any()}
+  @type put_schema_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_open_id_connect_group_configuration() :: %{
-        "groupClaim" => String.t(),
-        "groupEntityType" => String.t()
+        "groupClaim" => String.t() | Atom.t(),
+        "groupEntityType" => String.t() | Atom.t()
       }
       
   """
-  @type update_open_id_connect_group_configuration() :: %{String.t() => any()}
+  @type update_open_id_connect_group_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       evaluation_error_item() :: %{
-        "errorDescription" => [String.t()]
+        "errorDescription" => [String.t() | Atom.t()]
       }
       
   """
-  @type evaluation_error_item() :: %{String.t() => any()}
+  @type evaluation_error_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_cognito_group_configuration() :: %{
-        "groupEntityType" => String.t()
+        "groupEntityType" => String.t() | Atom.t()
       }
       
   """
-  @type update_cognito_group_configuration() :: %{String.t() => any()}
+  @type update_cognito_group_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -591,13 +591,13 @@ defmodule AWS.VerifiedPermissions do
       
       update_policy_store_input() :: %{
         optional("deletionProtection") => list(any()),
-        optional("description") => String.t(),
-        required("policyStoreId") => String.t(),
+        optional("description") => String.t() | Atom.t(),
+        required("policyStoreId") => String.t() | Atom.t(),
         required("validationSettings") => validation_settings()
       }
       
   """
-  @type update_policy_store_input() :: %{String.t() => any()}
+  @type update_policy_store_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -605,79 +605,79 @@ defmodule AWS.VerifiedPermissions do
       
       list_policy_stores_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_policy_stores_input() :: %{String.t() => any()}
+  @type list_policy_stores_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "message" => [String.t()],
+        "message" => [String.t() | Atom.t()],
         "resources" => list(resource_conflict())
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => [String.t()],
-        "resourceId" => [String.t()],
+        "message" => [String.t() | Atom.t()],
+        "resourceId" => [String.t() | Atom.t()],
         "resourceType" => list(any())
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cognito_user_pool_configuration_item() :: %{
-        "clientIds" => list(String.t()),
+        "clientIds" => list(String.t() | Atom.t()),
         "groupConfiguration" => cognito_group_configuration_item(),
-        "issuer" => String.t(),
-        "userPoolArn" => String.t()
+        "issuer" => String.t() | Atom.t(),
+        "userPoolArn" => String.t() | Atom.t()
       }
       
   """
-  @type cognito_user_pool_configuration_item() :: %{String.t() => any()}
+  @type cognito_user_pool_configuration_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_is_authorized_with_token_input() :: %{
-        optional("accessToken") => String.t(),
+        optional("accessToken") => String.t() | Atom.t(),
         optional("entities") => list(),
-        optional("identityToken") => String.t(),
-        required("policyStoreId") => String.t(),
+        optional("identityToken") => String.t() | Atom.t(),
+        required("policyStoreId") => String.t() | Atom.t(),
         required("requests") => list(batch_is_authorized_with_token_input_item())
       }
       
   """
-  @type batch_is_authorized_with_token_input() :: %{String.t() => any()}
+  @type batch_is_authorized_with_token_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       open_id_connect_configuration() :: %{
-        "entityIdPrefix" => String.t(),
+        "entityIdPrefix" => String.t() | Atom.t(),
         "groupConfiguration" => open_id_connect_group_configuration(),
-        "issuer" => String.t(),
+        "issuer" => String.t() | Atom.t(),
         "tokenSelection" => list()
       }
       
   """
-  @type open_id_connect_configuration() :: %{String.t() => any()}
+  @type open_id_connect_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -686,12 +686,12 @@ defmodule AWS.VerifiedPermissions do
       update_policy_template_output() :: %{
         "createdDate" => non_neg_integer(),
         "lastUpdatedDate" => non_neg_integer(),
-        "policyStoreId" => String.t(),
-        "policyTemplateId" => String.t()
+        "policyStoreId" => String.t() | Atom.t(),
+        "policyTemplateId" => String.t() | Atom.t()
       }
       
   """
-  @type update_policy_template_output() :: %{String.t() => any()}
+  @type update_policy_template_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -699,81 +699,81 @@ defmodule AWS.VerifiedPermissions do
       
       list_identity_sources_output() :: %{
         "identitySources" => list(identity_source_item()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_identity_sources_output() :: %{String.t() => any()}
+  @type list_identity_sources_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       policy_store_item() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdDate" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "lastUpdatedDate" => non_neg_integer(),
-        "policyStoreId" => String.t()
+        "policyStoreId" => String.t() | Atom.t()
       }
       
   """
-  @type policy_store_item() :: %{String.t() => any()}
+  @type policy_store_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       identity_source_details() :: %{
-        "clientIds" => list(String.t()),
-        "discoveryUrl" => String.t(),
+        "clientIds" => list(String.t() | Atom.t()),
+        "discoveryUrl" => String.t() | Atom.t(),
         "openIdIssuer" => list(any()),
-        "userPoolArn" => String.t()
+        "userPoolArn" => String.t() | Atom.t()
       }
       
   """
-  @type identity_source_details() :: %{String.t() => any()}
+  @type identity_source_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t()],
-        "quotaCode" => [String.t()],
-        "resourceId" => [String.t()],
+        "message" => [String.t() | Atom.t()],
+        "quotaCode" => [String.t() | Atom.t()],
+        "resourceId" => [String.t() | Atom.t()],
         "resourceType" => list(any()),
-        "serviceCode" => [String.t()]
+        "serviceCode" => [String.t() | Atom.t()]
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_open_id_connect_configuration() :: %{
-        "entityIdPrefix" => String.t(),
+        "entityIdPrefix" => String.t() | Atom.t(),
         "groupConfiguration" => update_open_id_connect_group_configuration(),
-        "issuer" => String.t(),
+        "issuer" => String.t() | Atom.t(),
         "tokenSelection" => list()
       }
       
   """
-  @type update_open_id_connect_configuration() :: %{String.t() => any()}
+  @type update_open_id_connect_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_policy_input() :: %{
-        required("policyId") => String.t(),
-        required("policyStoreId") => String.t()
+        required("policyId") => String.t() | Atom.t(),
+        required("policyStoreId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_policy_input() :: %{String.t() => any()}
+  @type delete_policy_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -782,24 +782,24 @@ defmodule AWS.VerifiedPermissions do
       get_schema_output() :: %{
         "createdDate" => non_neg_integer(),
         "lastUpdatedDate" => non_neg_integer(),
-        "namespaces" => list(String.t()),
-        "policyStoreId" => String.t(),
-        "schema" => String.t()
+        "namespaces" => list(String.t() | Atom.t()),
+        "policyStoreId" => String.t() | Atom.t(),
+        "schema" => String.t() | Atom.t()
       }
       
   """
-  @type get_schema_output() :: %{String.t() => any()}
+  @type get_schema_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cognito_group_configuration() :: %{
-        "groupEntityType" => String.t()
+        "groupEntityType" => String.t() | Atom.t()
       }
       
   """
-  @type cognito_group_configuration() :: %{String.t() => any()}
+  @type cognito_group_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -824,26 +824,26 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       cognito_user_pool_configuration_detail() :: %{
-        "clientIds" => list(String.t()),
+        "clientIds" => list(String.t() | Atom.t()),
         "groupConfiguration" => cognito_group_configuration_detail(),
-        "issuer" => String.t(),
-        "userPoolArn" => String.t()
+        "issuer" => String.t() | Atom.t(),
+        "userPoolArn" => String.t() | Atom.t()
       }
       
   """
-  @type cognito_user_pool_configuration_detail() :: %{String.t() => any()}
+  @type cognito_user_pool_configuration_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       static_policy_definition() :: %{
-        "description" => String.t(),
-        "statement" => String.t()
+        "description" => String.t() | Atom.t(),
+        "statement" => String.t() | Atom.t()
       }
       
   """
-  @type static_policy_definition() :: %{String.t() => any()}
+  @type static_policy_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -851,11 +851,11 @@ defmodule AWS.VerifiedPermissions do
       
       get_policy_store_input() :: %{
         optional("tags") => [boolean()],
-        required("policyStoreId") => String.t()
+        required("policyStoreId") => String.t() | Atom.t()
       }
       
   """
-  @type get_policy_store_input() :: %{String.t() => any()}
+  @type get_policy_store_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -863,51 +863,51 @@ defmodule AWS.VerifiedPermissions do
       
       put_schema_input() :: %{
         required("definition") => list(),
-        required("policyStoreId") => String.t()
+        required("policyStoreId") => String.t() | Atom.t()
       }
       
   """
-  @type put_schema_input() :: %{String.t() => any()}
+  @type put_schema_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       open_id_connect_configuration_item() :: %{
-        "entityIdPrefix" => String.t(),
+        "entityIdPrefix" => String.t() | Atom.t(),
         "groupConfiguration" => open_id_connect_group_configuration_item(),
-        "issuer" => String.t(),
+        "issuer" => String.t() | Atom.t(),
         "tokenSelection" => list()
       }
       
   """
-  @type open_id_connect_configuration_item() :: %{String.t() => any()}
+  @type open_id_connect_configuration_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception_field() :: %{
-        "message" => [String.t()],
-        "path" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "path" => [String.t() | Atom.t()]
       }
       
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       identity_source_item_details() :: %{
-        "clientIds" => list(String.t()),
-        "discoveryUrl" => String.t(),
+        "clientIds" => list(String.t() | Atom.t()),
+        "discoveryUrl" => String.t() | Atom.t(),
         "openIdIssuer" => list(any()),
-        "userPoolArn" => String.t()
+        "userPoolArn" => String.t() | Atom.t()
       }
       
   """
-  @type identity_source_item_details() :: %{String.t() => any()}
+  @type identity_source_item_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -927,68 +927,68 @@ defmodule AWS.VerifiedPermissions do
       }
       
   """
-  @type validation_settings() :: %{String.t() => any()}
+  @type validation_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_identity_source_input() :: %{
-        required("identitySourceId") => String.t(),
-        required("policyStoreId") => String.t()
+        required("identitySourceId") => String.t() | Atom.t(),
+        required("policyStoreId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_identity_source_input() :: %{String.t() => any()}
+  @type delete_identity_source_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_input() :: %{
-        required("resourceArn") => String.t(),
+        required("resourceArn") => String.t() | Atom.t(),
         required("tags") => map()
       }
       
   """
-  @type tag_resource_input() :: %{String.t() => any()}
+  @type tag_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_open_id_connect_identity_token_configuration() :: %{
-        "clientIds" => list(String.t()),
-        "principalIdClaim" => String.t()
+        "clientIds" => list(String.t() | Atom.t()),
+        "principalIdClaim" => String.t() | Atom.t()
       }
       
   """
-  @type update_open_id_connect_identity_token_configuration() :: %{String.t() => any()}
+  @type update_open_id_connect_identity_token_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       open_id_connect_group_configuration_item() :: %{
-        "groupClaim" => String.t(),
-        "groupEntityType" => String.t()
+        "groupClaim" => String.t() | Atom.t(),
+        "groupEntityType" => String.t() | Atom.t()
       }
       
   """
-  @type open_id_connect_group_configuration_item() :: %{String.t() => any()}
+  @type open_id_connect_group_configuration_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cognito_user_pool_configuration() :: %{
-        "clientIds" => list(String.t()),
+        "clientIds" => list(String.t() | Atom.t()),
         "groupConfiguration" => cognito_group_configuration(),
-        "userPoolArn" => String.t()
+        "userPoolArn" => String.t() | Atom.t()
       }
       
   """
-  @type cognito_user_pool_configuration() :: %{String.t() => any()}
+  @type cognito_user_pool_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -997,12 +997,12 @@ defmodule AWS.VerifiedPermissions do
       list_policies_input() :: %{
         optional("filter") => policy_filter(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("policyStoreId") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("policyStoreId") => String.t() | Atom.t()
       }
       
   """
-  @type list_policies_input() :: %{String.t() => any()}
+  @type list_policies_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1018,38 +1018,38 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       policy_filter() :: %{
-        "policyTemplateId" => String.t(),
+        "policyTemplateId" => String.t() | Atom.t(),
         "policyType" => list(any()),
         "principal" => list(),
         "resource" => list()
       }
       
   """
-  @type policy_filter() :: %{String.t() => any()}
+  @type policy_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_policy_input() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         required("definition") => list(),
-        required("policyStoreId") => String.t()
+        required("policyStoreId") => String.t() | Atom.t()
       }
       
   """
-  @type create_policy_input() :: %{String.t() => any()}
+  @type create_policy_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1057,52 +1057,52 @@ defmodule AWS.VerifiedPermissions do
       
       batch_is_authorized_input() :: %{
         optional("entities") => list(),
-        required("policyStoreId") => String.t(),
+        required("policyStoreId") => String.t() | Atom.t(),
         required("requests") => list(batch_is_authorized_input_item())
       }
       
   """
-  @type batch_is_authorized_input() :: %{String.t() => any()}
+  @type batch_is_authorized_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       template_linked_policy_definition_detail() :: %{
-        "policyTemplateId" => String.t(),
+        "policyTemplateId" => String.t() | Atom.t(),
         "principal" => entity_identifier(),
         "resource" => entity_identifier()
       }
       
   """
-  @type template_linked_policy_definition_detail() :: %{String.t() => any()}
+  @type template_linked_policy_definition_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_cognito_user_pool_configuration() :: %{
-        "clientIds" => list(String.t()),
+        "clientIds" => list(String.t() | Atom.t()),
         "groupConfiguration" => update_cognito_group_configuration(),
-        "userPoolArn" => String.t()
+        "userPoolArn" => String.t() | Atom.t()
       }
       
   """
-  @type update_cognito_user_pool_configuration() :: %{String.t() => any()}
+  @type update_cognito_user_pool_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_policy_template_input() :: %{
-        optional("description") => String.t(),
-        required("policyStoreId") => String.t(),
-        required("policyTemplateId") => String.t(),
-        required("statement") => String.t()
+        optional("description") => String.t() | Atom.t(),
+        required("policyStoreId") => String.t() | Atom.t(),
+        required("policyTemplateId") => String.t() | Atom.t(),
+        required("statement") => String.t() | Atom.t()
       }
       
   """
-  @type update_policy_template_input() :: %{String.t() => any()}
+  @type update_policy_template_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1116,87 +1116,87 @@ defmodule AWS.VerifiedPermissions do
       }
       
   """
-  @type is_authorized_with_token_output() :: %{String.t() => any()}
+  @type is_authorized_with_token_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_policy_template_input() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
-        required("policyStoreId") => String.t(),
-        required("statement") => String.t()
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
+        required("policyStoreId") => String.t() | Atom.t(),
+        required("statement") => String.t() | Atom.t()
       }
       
   """
-  @type create_policy_template_input() :: %{String.t() => any()}
+  @type create_policy_template_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cognito_group_configuration_item() :: %{
-        "groupEntityType" => String.t()
+        "groupEntityType" => String.t() | Atom.t()
       }
       
   """
-  @type cognito_group_configuration_item() :: %{String.t() => any()}
+  @type cognito_group_configuration_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_input() :: %{
-        required("resourceArn") => String.t(),
-        required("tagKeys") => list(String.t())
+        required("resourceArn") => String.t() | Atom.t(),
+        required("tagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_input() :: %{String.t() => any()}
+  @type untag_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_policy_store_output() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "cedarVersion" => list(any()),
         "createdDate" => non_neg_integer(),
         "deletionProtection" => list(any()),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "lastUpdatedDate" => non_neg_integer(),
-        "policyStoreId" => String.t(),
+        "policyStoreId" => String.t() | Atom.t(),
         "tags" => map(),
         "validationSettings" => validation_settings()
       }
       
   """
-  @type get_policy_store_output() :: %{String.t() => any()}
+  @type get_policy_store_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       template_linked_policy_definition_item() :: %{
-        "policyTemplateId" => String.t(),
+        "policyTemplateId" => String.t() | Atom.t(),
         "principal" => entity_identifier(),
         "resource" => entity_identifier()
       }
       
   """
-  @type template_linked_policy_definition_item() :: %{String.t() => any()}
+  @type template_linked_policy_definition_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1204,60 +1204,60 @@ defmodule AWS.VerifiedPermissions do
       
       create_identity_source_output() :: %{
         "createdDate" => non_neg_integer(),
-        "identitySourceId" => String.t(),
+        "identitySourceId" => String.t() | Atom.t(),
         "lastUpdatedDate" => non_neg_integer(),
-        "policyStoreId" => String.t()
+        "policyStoreId" => String.t() | Atom.t()
       }
       
   """
-  @type create_identity_source_output() :: %{String.t() => any()}
+  @type create_identity_source_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_static_policy_definition() :: %{
-        "description" => String.t(),
-        "statement" => String.t()
+        "description" => String.t() | Atom.t(),
+        "statement" => String.t() | Atom.t()
       }
       
   """
-  @type update_static_policy_definition() :: %{String.t() => any()}
+  @type update_static_policy_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_schema_input() :: %{
-        required("policyStoreId") => String.t()
+        required("policyStoreId") => String.t() | Atom.t()
       }
       
   """
-  @type get_schema_input() :: %{String.t() => any()}
+  @type get_schema_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_conflict() :: %{
-        "resourceId" => [String.t()],
+        "resourceId" => [String.t() | Atom.t()],
         "resourceType" => list(any())
       }
       
   """
-  @type resource_conflict() :: %{String.t() => any()}
+  @type resource_conflict() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       open_id_connect_access_token_configuration_item() :: %{
-        "audiences" => list(String.t()),
-        "principalIdClaim" => String.t()
+        "audiences" => list(String.t() | Atom.t()),
+        "principalIdClaim" => String.t() | Atom.t()
       }
       
   """
-  @type open_id_connect_access_token_configuration_item() :: %{String.t() => any()}
+  @type open_id_connect_access_token_configuration_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1265,22 +1265,22 @@ defmodule AWS.VerifiedPermissions do
       
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_input() :: %{
-        required("resourceArn") => String.t()
+        required("resourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_input() :: %{String.t() => any()}
+  @type list_tags_for_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1288,15 +1288,15 @@ defmodule AWS.VerifiedPermissions do
       
       get_policy_template_output() :: %{
         "createdDate" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "lastUpdatedDate" => non_neg_integer(),
-        "policyStoreId" => String.t(),
-        "policyTemplateId" => String.t(),
-        "statement" => String.t()
+        "policyStoreId" => String.t() | Atom.t(),
+        "policyTemplateId" => String.t() | Atom.t(),
+        "statement" => String.t() | Atom.t()
       }
       
   """
-  @type get_policy_template_output() :: %{String.t() => any()}
+  @type get_policy_template_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1308,7 +1308,7 @@ defmodule AWS.VerifiedPermissions do
       }
       
   """
-  @type batch_get_policy_output() :: %{String.t() => any()}
+  @type batch_get_policy_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1319,15 +1319,15 @@ defmodule AWS.VerifiedPermissions do
         "createdDate" => non_neg_integer(),
         "effect" => list(any()),
         "lastUpdatedDate" => non_neg_integer(),
-        "policyId" => String.t(),
-        "policyStoreId" => String.t(),
+        "policyId" => String.t() | Atom.t(),
+        "policyStoreId" => String.t() | Atom.t(),
         "policyType" => list(any()),
         "principal" => entity_identifier(),
         "resource" => entity_identifier()
       }
       
   """
-  @type create_policy_output() :: %{String.t() => any()}
+  @type create_policy_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1343,75 +1343,75 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       create_identity_source_input() :: %{
-        optional("clientToken") => String.t(),
-        optional("principalEntityType") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("principalEntityType") => String.t() | Atom.t(),
         required("configuration") => list(),
-        required("policyStoreId") => String.t()
+        required("policyStoreId") => String.t() | Atom.t()
       }
       
   """
-  @type create_identity_source_input() :: %{String.t() => any()}
+  @type create_identity_source_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       entity_identifier() :: %{
-        "entityId" => String.t(),
-        "entityType" => String.t()
+        "entityId" => String.t() | Atom.t(),
+        "entityType" => String.t() | Atom.t()
       }
       
   """
-  @type entity_identifier() :: %{String.t() => any()}
+  @type entity_identifier() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_policy_template_input() :: %{
-        required("policyStoreId") => String.t(),
-        required("policyTemplateId") => String.t()
+        required("policyStoreId") => String.t() | Atom.t(),
+        required("policyTemplateId") => String.t() | Atom.t()
       }
       
   """
-  @type get_policy_template_input() :: %{String.t() => any()}
+  @type get_policy_template_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_open_id_connect_access_token_configuration() :: %{
-        "audiences" => list(String.t()),
-        "principalIdClaim" => String.t()
+        "audiences" => list(String.t() | Atom.t()),
+        "principalIdClaim" => String.t() | Atom.t()
       }
       
   """
-  @type update_open_id_connect_access_token_configuration() :: %{String.t() => any()}
+  @type update_open_id_connect_access_token_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "message" => [String.t()],
-        "quotaCode" => [String.t()],
-        "serviceCode" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "quotaCode" => [String.t() | Atom.t()],
+        "serviceCode" => [String.t() | Atom.t()]
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       open_id_connect_group_configuration_detail() :: %{
-        "groupClaim" => String.t(),
-        "groupEntityType" => String.t()
+        "groupClaim" => String.t() | Atom.t(),
+        "groupEntityType" => String.t() | Atom.t()
       }
       
   """
-  @type open_id_connect_group_configuration_detail() :: %{String.t() => any()}
+  @type open_id_connect_group_configuration_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1421,37 +1421,37 @@ defmodule AWS.VerifiedPermissions do
         "configuration" => list(),
         "createdDate" => non_neg_integer(),
         "details" => identity_source_item_details(),
-        "identitySourceId" => String.t(),
+        "identitySourceId" => String.t() | Atom.t(),
         "lastUpdatedDate" => non_neg_integer(),
-        "policyStoreId" => String.t(),
-        "principalEntityType" => String.t()
+        "policyStoreId" => String.t() | Atom.t(),
+        "principalEntityType" => String.t() | Atom.t()
       }
       
   """
-  @type identity_source_item() :: %{String.t() => any()}
+  @type identity_source_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       open_id_connect_group_configuration() :: %{
-        "groupClaim" => String.t(),
-        "groupEntityType" => String.t()
+        "groupClaim" => String.t() | Atom.t(),
+        "groupEntityType" => String.t() | Atom.t()
       }
       
   """
-  @type open_id_connect_group_configuration() :: %{String.t() => any()}
+  @type open_id_connect_group_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       identity_source_filter() :: %{
-        "principalEntityType" => String.t()
+        "principalEntityType" => String.t() | Atom.t()
       }
       
   """
-  @type identity_source_filter() :: %{String.t() => any()}
+  @type identity_source_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1463,7 +1463,7 @@ defmodule AWS.VerifiedPermissions do
       }
       
   """
-  @type batch_is_authorized_with_token_output() :: %{String.t() => any()}
+  @type batch_is_authorized_with_token_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1472,12 +1472,12 @@ defmodule AWS.VerifiedPermissions do
       list_identity_sources_input() :: %{
         optional("filters") => list(identity_source_filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("policyStoreId") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("policyStoreId") => String.t() | Atom.t()
       }
       
   """
-  @type list_identity_sources_input() :: %{String.t() => any()}
+  @type list_identity_sources_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1491,7 +1491,7 @@ defmodule AWS.VerifiedPermissions do
       }
       
   """
-  @type batch_is_authorized_output_item() :: %{String.t() => any()}
+  @type batch_is_authorized_output_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1502,39 +1502,39 @@ defmodule AWS.VerifiedPermissions do
         "createdDate" => non_neg_integer(),
         "effect" => list(any()),
         "lastUpdatedDate" => non_neg_integer(),
-        "policyId" => String.t(),
-        "policyStoreId" => String.t(),
+        "policyId" => String.t() | Atom.t(),
+        "policyStoreId" => String.t() | Atom.t(),
         "policyType" => list(any()),
         "principal" => entity_identifier(),
         "resource" => entity_identifier()
       }
       
   """
-  @type update_policy_output() :: %{String.t() => any()}
+  @type update_policy_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_policy_input_item() :: %{
-        "policyId" => String.t(),
-        "policyStoreId" => String.t()
+        "policyId" => String.t() | Atom.t(),
+        "policyStoreId" => String.t() | Atom.t()
       }
       
   """
-  @type batch_get_policy_input_item() :: %{String.t() => any()}
+  @type batch_get_policy_input_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       static_policy_definition_detail() :: %{
-        "description" => String.t(),
-        "statement" => String.t()
+        "description" => String.t() | Atom.t(),
+        "statement" => String.t() | Atom.t()
       }
       
   """
-  @type static_policy_definition_detail() :: %{String.t() => any()}
+  @type static_policy_definition_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1556,7 +1556,7 @@ defmodule AWS.VerifiedPermissions do
       }
       
   """
-  @type entity_item() :: %{String.t() => any()}
+  @type entity_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1566,49 +1566,49 @@ defmodule AWS.VerifiedPermissions do
         "createdDate" => non_neg_integer(),
         "definition" => list(),
         "lastUpdatedDate" => non_neg_integer(),
-        "policyId" => String.t(),
-        "policyStoreId" => String.t(),
+        "policyId" => String.t() | Atom.t(),
+        "policyStoreId" => String.t() | Atom.t(),
         "policyType" => list(any())
       }
       
   """
-  @type batch_get_policy_output_item() :: %{String.t() => any()}
+  @type batch_get_policy_output_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_tags_exception() :: %{
-        "message" => [String.t()],
-        "resourceName" => String.t()
+        "message" => [String.t() | Atom.t()],
+        "resourceName" => String.t() | Atom.t()
       }
       
   """
-  @type too_many_tags_exception() :: %{String.t() => any()}
+  @type too_many_tags_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_policy_stores_output() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "policyStores" => list(policy_store_item())
       }
       
   """
-  @type list_policy_stores_output() :: %{String.t() => any()}
+  @type list_policy_stores_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       open_id_connect_identity_token_configuration_item() :: %{
-        "clientIds" => list(String.t()),
-        "principalIdClaim" => String.t()
+        "clientIds" => list(String.t() | Atom.t()),
+        "principalIdClaim" => String.t() | Atom.t()
       }
       
   """
-  @type open_id_connect_identity_token_configuration_item() :: %{String.t() => any()}
+  @type open_id_connect_identity_token_configuration_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1618,26 +1618,26 @@ defmodule AWS.VerifiedPermissions do
         "configuration" => list(),
         "createdDate" => non_neg_integer(),
         "details" => identity_source_details(),
-        "identitySourceId" => String.t(),
+        "identitySourceId" => String.t() | Atom.t(),
         "lastUpdatedDate" => non_neg_integer(),
-        "policyStoreId" => String.t(),
-        "principalEntityType" => String.t()
+        "policyStoreId" => String.t() | Atom.t(),
+        "principalEntityType" => String.t() | Atom.t()
       }
       
   """
-  @type get_identity_source_output() :: %{String.t() => any()}
+  @type get_identity_source_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       open_id_connect_identity_token_configuration_detail() :: %{
-        "clientIds" => list(String.t()),
-        "principalIdClaim" => String.t()
+        "clientIds" => list(String.t() | Atom.t()),
+        "principalIdClaim" => String.t() | Atom.t()
       }
       
   """
-  @type open_id_connect_identity_token_configuration_detail() :: %{String.t() => any()}
+  @type open_id_connect_identity_token_configuration_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1649,15 +1649,15 @@ defmodule AWS.VerifiedPermissions do
         "definition" => list(),
         "effect" => list(any()),
         "lastUpdatedDate" => non_neg_integer(),
-        "policyId" => String.t(),
-        "policyStoreId" => String.t(),
+        "policyId" => String.t() | Atom.t(),
+        "policyStoreId" => String.t() | Atom.t(),
         "policyType" => list(any()),
         "principal" => entity_identifier(),
         "resource" => entity_identifier()
       }
       
   """
-  @type get_policy_output() :: %{String.t() => any()}
+  @type get_policy_output() :: %{String.t() | Atom.t() => any()}
 
   @type batch_is_authorized_errors() :: resource_not_found_exception()
 

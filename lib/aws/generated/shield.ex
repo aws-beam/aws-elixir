@@ -22,15 +22,15 @@ defmodule AWS.Shield do
   ## Example:
       
       update_protection_group_request() :: %{
-        optional("Members") => list(String.t()),
+        optional("Members") => list(String.t() | Atom.t()),
         optional("ResourceType") => list(any()),
         required("Aggregation") => list(any()),
         required("Pattern") => list(any()),
-        required("ProtectionGroupId") => String.t()
+        required("ProtectionGroupId") => String.t() | Atom.t()
       }
       
   """
-  @type update_protection_group_request() :: %{String.t() => any()}
+  @type update_protection_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -46,24 +46,24 @@ defmodule AWS.Shield do
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
+        required("ResourceARN") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_resources_in_protection_group_response() :: %{
-        "NextToken" => String.t(),
-        "ResourceArns" => list(String.t())
+        "NextToken" => String.t() | Atom.t(),
+        "ResourceArns" => list(String.t() | Atom.t())
       }
       
   """
-  @type list_resources_in_protection_group_response() :: %{String.t() => any()}
+  @type list_resources_in_protection_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -97,11 +97,11 @@ defmodule AWS.Shield do
   ## Example:
       
       attack_vector_description() :: %{
-        "VectorType" => String.t()
+        "VectorType" => String.t() | Atom.t()
       }
       
   """
-  @type attack_vector_description() :: %{String.t() => any()}
+  @type attack_vector_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -112,7 +112,7 @@ defmodule AWS.Shield do
       }
       
   """
-  @type update_emergency_contact_settings_request() :: %{String.t() => any()}
+  @type update_emergency_contact_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -123,7 +123,7 @@ defmodule AWS.Shield do
       }
       
   """
-  @type describe_protection_group_response() :: %{String.t() => any()}
+  @type describe_protection_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -139,11 +139,11 @@ defmodule AWS.Shield do
   ## Example:
       
       describe_protection_group_request() :: %{
-        required("ProtectionGroupId") => String.t()
+        required("ProtectionGroupId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_protection_group_request() :: %{String.t() => any()}
+  @type describe_protection_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -159,13 +159,13 @@ defmodule AWS.Shield do
   ## Example:
       
       inclusion_protection_filters() :: %{
-        "ProtectionNames" => list(String.t()),
-        "ResourceArns" => list(String.t()),
+        "ProtectionNames" => list(String.t() | Atom.t()),
+        "ResourceArns" => list(String.t() | Atom.t()),
         "ResourceTypes" => list(list(any())())
       }
       
   """
-  @type inclusion_protection_filters() :: %{String.t() => any()}
+  @type inclusion_protection_filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -176,30 +176,30 @@ defmodule AWS.Shield do
       }
       
   """
-  @type protection_group_arbitrary_pattern_limits() :: %{String.t() => any()}
+  @type protection_group_arbitrary_pattern_limits() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_health_check_request() :: %{
-        required("HealthCheckArn") => String.t(),
-        required("ProtectionId") => String.t()
+        required("HealthCheckArn") => String.t() | Atom.t(),
+        required("ProtectionId") => String.t() | Atom.t()
       }
       
   """
-  @type disassociate_health_check_request() :: %{String.t() => any()}
+  @type disassociate_health_check_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_drt_log_bucket_request() :: %{
-        required("LogBucket") => String.t()
+        required("LogBucket") => String.t() | Atom.t()
       }
       
   """
-  @type disassociate_drt_log_bucket_request() :: %{String.t() => any()}
+  @type disassociate_drt_log_bucket_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -208,13 +208,13 @@ defmodule AWS.Shield do
       list_attacks_request() :: %{
         optional("EndTime") => time_range(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ResourceArns") => list(String.t()),
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("ResourceArns") => list(String.t() | Atom.t()),
         optional("StartTime") => time_range()
       }
       
   """
-  @type list_attacks_request() :: %{String.t() => any()}
+  @type list_attacks_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -225,7 +225,7 @@ defmodule AWS.Shield do
       }
       
   """
-  @type describe_emergency_contact_settings_response() :: %{String.t() => any()}
+  @type describe_emergency_contact_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -237,7 +237,7 @@ defmodule AWS.Shield do
       }
       
   """
-  @type response_action() :: %{String.t() => any()}
+  @type response_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -262,11 +262,11 @@ defmodule AWS.Shield do
   ## Example:
       
       invalid_operation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_operation_exception() :: %{String.t() => any()}
+  @type invalid_operation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -277,31 +277,31 @@ defmodule AWS.Shield do
       }
       
   """
-  @type protection_limits() :: %{String.t() => any()}
+  @type protection_limits() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_protections_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Protections" => list(protection())
       }
       
   """
-  @type list_protections_response() :: %{String.t() => any()}
+  @type list_protections_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       contributor() :: %{
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Value" => float()
       }
       
   """
-  @type contributor() :: %{String.t() => any()}
+  @type contributor() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -309,15 +309,15 @@ defmodule AWS.Shield do
       
       protection_group() :: %{
         "Aggregation" => list(any()),
-        "Members" => list(String.t()),
+        "Members" => list(String.t() | Atom.t()),
         "Pattern" => list(any()),
-        "ProtectionGroupArn" => String.t(),
-        "ProtectionGroupId" => String.t(),
+        "ProtectionGroupArn" => String.t() | Atom.t(),
+        "ProtectionGroupId" => String.t() | Atom.t(),
         "ResourceType" => list(any())
       }
       
   """
-  @type protection_group() :: %{String.t() => any()}
+  @type protection_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -325,23 +325,23 @@ defmodule AWS.Shield do
       
       limit() :: %{
         "Max" => float(),
-        "Type" => String.t()
+        "Type" => String.t() | Atom.t()
       }
       
   """
-  @type limit() :: %{String.t() => any()}
+  @type limit() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceARN") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -352,30 +352,30 @@ defmodule AWS.Shield do
       }
       
   """
-  @type get_subscription_state_response() :: %{String.t() => any()}
+  @type get_subscription_state_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       locked_subscription_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type locked_subscription_exception() :: %{String.t() => any()}
+  @type locked_subscription_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_protection_groups_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "ProtectionGroups" => list(protection_group())
       }
       
   """
-  @type list_protection_groups_response() :: %{String.t() => any()}
+  @type list_protection_groups_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -386,7 +386,7 @@ defmodule AWS.Shield do
       }
       
   """
-  @type protection_group_pattern_type_limits() :: %{String.t() => any()}
+  @type protection_group_pattern_type_limits() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -403,40 +403,40 @@ defmodule AWS.Shield do
       
       attack_detail() :: %{
         "AttackCounters" => list(summarized_counter()),
-        "AttackId" => String.t(),
+        "AttackId" => String.t() | Atom.t(),
         "AttackProperties" => list(attack_property()),
         "EndTime" => non_neg_integer(),
         "Mitigations" => list(mitigation()),
-        "ResourceArn" => String.t(),
+        "ResourceArn" => String.t() | Atom.t(),
         "StartTime" => non_neg_integer(),
         "SubResources" => list(sub_resource_summary())
       }
       
   """
-  @type attack_detail() :: %{String.t() => any()}
+  @type attack_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_protection_response() :: %{
-        "ProtectionId" => String.t()
+        "ProtectionId" => String.t() | Atom.t()
       }
       
   """
-  @type create_protection_response() :: %{String.t() => any()}
+  @type create_protection_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => String.t(),
-        "resourceType" => String.t()
+        "message" => String.t() | Atom.t(),
+        "resourceType" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -461,12 +461,12 @@ defmodule AWS.Shield do
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -493,11 +493,11 @@ defmodule AWS.Shield do
       list_protection_groups_request() :: %{
         optional("InclusionFilters") => inclusion_protection_group_filters(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_protection_groups_request() :: %{String.t() => any()}
+  @type list_protection_groups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -505,15 +505,15 @@ defmodule AWS.Shield do
       
       protection() :: %{
         "ApplicationLayerAutomaticResponseConfiguration" => application_layer_automatic_response_configuration(),
-        "HealthCheckIds" => list(String.t()),
-        "Id" => String.t(),
-        "Name" => String.t(),
-        "ProtectionArn" => String.t(),
-        "ResourceArn" => String.t()
+        "HealthCheckIds" => list(String.t() | Atom.t()),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "ProtectionArn" => String.t() | Atom.t(),
+        "ResourceArn" => String.t() | Atom.t()
       }
       
   """
-  @type protection() :: %{String.t() => any()}
+  @type protection() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -521,11 +521,11 @@ defmodule AWS.Shield do
       
       list_attacks_response() :: %{
         "AttackSummaries" => list(attack_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_attacks_response() :: %{String.t() => any()}
+  @type list_attacks_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -536,7 +536,7 @@ defmodule AWS.Shield do
       }
       
   """
-  @type describe_subscription_response() :: %{String.t() => any()}
+  @type describe_subscription_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -549,7 +549,7 @@ defmodule AWS.Shield do
       }
       
   """
-  @type attack_volume() :: %{String.t() => any()}
+  @type attack_volume() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -561,7 +561,7 @@ defmodule AWS.Shield do
       }
       
   """
-  @type describe_attack_statistics_response() :: %{String.t() => any()}
+  @type describe_attack_statistics_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -577,16 +577,16 @@ defmodule AWS.Shield do
   ## Example:
       
       create_protection_group_request() :: %{
-        optional("Members") => list(String.t()),
+        optional("Members") => list(String.t() | Atom.t()),
         optional("ResourceType") => list(any()),
         optional("Tags") => list(tag()),
         required("Aggregation") => list(any()),
         required("Pattern") => list(any()),
-        required("ProtectionGroupId") => String.t()
+        required("ProtectionGroupId") => String.t() | Atom.t()
       }
       
   """
-  @type create_protection_group_request() :: %{String.t() => any()}
+  @type create_protection_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -613,24 +613,24 @@ defmodule AWS.Shield do
       inclusion_protection_group_filters() :: %{
         "Aggregations" => list(list(any())()),
         "Patterns" => list(list(any())()),
-        "ProtectionGroupIds" => list(String.t()),
+        "ProtectionGroupIds" => list(String.t() | Atom.t()),
         "ResourceTypes" => list(list(any())())
       }
       
   """
-  @type inclusion_protection_group_filters() :: %{String.t() => any()}
+  @type inclusion_protection_group_filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_protection_request() :: %{
-        optional("ProtectionId") => String.t(),
-        optional("ResourceArn") => String.t()
+        optional("ProtectionId") => String.t() | Atom.t(),
+        optional("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_protection_request() :: %{String.t() => any()}
+  @type describe_protection_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -641,7 +641,7 @@ defmodule AWS.Shield do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -666,11 +666,11 @@ defmodule AWS.Shield do
   ## Example:
       
       associate_drt_log_bucket_request() :: %{
-        required("LogBucket") => String.t()
+        required("LogBucket") => String.t() | Atom.t()
       }
       
   """
-  @type associate_drt_log_bucket_request() :: %{String.t() => any()}
+  @type associate_drt_log_bucket_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -686,23 +686,23 @@ defmodule AWS.Shield do
   ## Example:
       
       validation_exception_field() :: %{
-        "message" => String.t(),
-        "name" => String.t()
+        "message" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
       
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       optimistic_lock_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type optimistic_lock_exception() :: %{String.t() => any()}
+  @type optimistic_lock_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -718,11 +718,14 @@ defmodule AWS.Shield do
   ## Example:
       
       disable_application_layer_automatic_response_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type disable_application_layer_automatic_response_request() :: %{String.t() => any()}
+  @type disable_application_layer_automatic_response_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -733,7 +736,7 @@ defmodule AWS.Shield do
       }
       
   """
-  @type associate_proactive_engagement_details_request() :: %{String.t() => any()}
+  @type associate_proactive_engagement_details_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -751,12 +754,12 @@ defmodule AWS.Shield do
       sub_resource_summary() :: %{
         "AttackVectors" => list(summarized_attack_vector()),
         "Counters" => list(summarized_counter()),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "Type" => list(any())
       }
       
   """
-  @type sub_resource_summary() :: %{String.t() => any()}
+  @type sub_resource_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -772,11 +775,11 @@ defmodule AWS.Shield do
   ## Example:
       
       invalid_resource_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_resource_exception() :: %{String.t() => any()}
+  @type invalid_resource_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -801,15 +804,15 @@ defmodule AWS.Shield do
   ## Example:
       
       attack_summary() :: %{
-        "AttackId" => String.t(),
+        "AttackId" => String.t() | Atom.t(),
         "AttackVectors" => list(attack_vector_description()),
         "EndTime" => non_neg_integer(),
-        "ResourceArn" => String.t(),
+        "ResourceArn" => String.t() | Atom.t(),
         "StartTime" => non_neg_integer()
       }
       
   """
-  @type attack_summary() :: %{String.t() => any()}
+  @type attack_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -830,18 +833,18 @@ defmodule AWS.Shield do
       }
       
   """
-  @type time_range() :: %{String.t() => any()}
+  @type time_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_protection_request() :: %{
-        required("ProtectionId") => String.t()
+        required("ProtectionId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_protection_request() :: %{String.t() => any()}
+  @type delete_protection_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -849,33 +852,33 @@ defmodule AWS.Shield do
       
       summarized_attack_vector() :: %{
         "VectorCounters" => list(summarized_counter()),
-        "VectorType" => String.t()
+        "VectorType" => String.t() | Atom.t()
       }
       
   """
-  @type summarized_attack_vector() :: %{String.t() => any()}
+  @type summarized_attack_vector() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_attack_request() :: %{
-        required("AttackId") => String.t()
+        required("AttackId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_attack_request() :: %{String.t() => any()}
+  @type describe_attack_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -883,12 +886,12 @@ defmodule AWS.Shield do
       
       invalid_parameter_exception() :: %{
         "fields" => list(validation_exception_field()),
-        "message" => String.t(),
+        "message" => String.t() | Atom.t(),
         "reason" => list(any())
       }
       
   """
-  @type invalid_parameter_exception() :: %{String.t() => any()}
+  @type invalid_parameter_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -921,7 +924,7 @@ defmodule AWS.Shield do
       }
       
   """
-  @type attack_property() :: %{String.t() => any()}
+  @type attack_property() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -937,11 +940,11 @@ defmodule AWS.Shield do
   ## Example:
       
       delete_protection_group_request() :: %{
-        required("ProtectionGroupId") => String.t()
+        required("ProtectionGroupId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_protection_group_request() :: %{String.t() => any()}
+  @type delete_protection_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -953,7 +956,7 @@ defmodule AWS.Shield do
       }
       
   """
-  @type attack_statistics_data_item() :: %{String.t() => any()}
+  @type attack_statistics_data_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -969,11 +972,11 @@ defmodule AWS.Shield do
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t()
+        required("ResourceARN") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -985,7 +988,7 @@ defmodule AWS.Shield do
       }
       
   """
-  @type protection_group_limits() :: %{String.t() => any()}
+  @type protection_group_limits() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -996,7 +999,7 @@ defmodule AWS.Shield do
       }
       
   """
-  @type update_subscription_request() :: %{String.t() => any()}
+  @type update_subscription_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1008,13 +1011,13 @@ defmodule AWS.Shield do
         "Limits" => list(limit()),
         "ProactiveEngagementStatus" => list(any()),
         "StartTime" => non_neg_integer(),
-        "SubscriptionArn" => String.t(),
+        "SubscriptionArn" => String.t() | Atom.t(),
         "SubscriptionLimits" => subscription_limits(),
         "TimeCommitmentInSeconds" => float()
       }
       
   """
-  @type subscription() :: %{String.t() => any()}
+  @type subscription() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1034,7 +1037,7 @@ defmodule AWS.Shield do
       }
       
   """
-  @type attack_volume_statistics() :: %{String.t() => any()}
+  @type attack_volume_statistics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1046,7 +1049,7 @@ defmodule AWS.Shield do
       }
       
   """
-  @type subscription_limits() :: %{String.t() => any()}
+  @type subscription_limits() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1062,13 +1065,13 @@ defmodule AWS.Shield do
   ## Example:
       
       emergency_contact() :: %{
-        "ContactNotes" => String.t(),
-        "EmailAddress" => String.t(),
-        "PhoneNumber" => String.t()
+        "ContactNotes" => String.t() | Atom.t(),
+        "EmailAddress" => String.t() | Atom.t(),
+        "PhoneNumber" => String.t() | Atom.t()
       }
       
   """
-  @type emergency_contact() :: %{String.t() => any()}
+  @type emergency_contact() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1079,30 +1082,30 @@ defmodule AWS.Shield do
       }
       
   """
-  @type describe_attack_response() :: %{String.t() => any()}
+  @type describe_attack_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_for_dependency_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type access_denied_for_dependency_exception() :: %{String.t() => any()}
+  @type access_denied_for_dependency_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_drt_access_response() :: %{
-        "LogBucketList" => list(String.t()),
-        "RoleArn" => String.t()
+        "LogBucketList" => list(String.t() | Atom.t()),
+        "RoleArn" => String.t() | Atom.t()
       }
       
   """
-  @type describe_drt_access_response() :: %{String.t() => any()}
+  @type describe_drt_access_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1110,23 +1113,23 @@ defmodule AWS.Shield do
       
       list_resources_in_protection_group_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ProtectionGroupId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ProtectionGroupId") => String.t() | Atom.t()
       }
       
   """
-  @type list_resources_in_protection_group_request() :: %{String.t() => any()}
+  @type list_resources_in_protection_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       no_associated_role_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type no_associated_role_exception() :: %{String.t() => any()}
+  @type no_associated_role_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1136,13 +1139,13 @@ defmodule AWS.Shield do
         "Average" => float(),
         "Max" => float(),
         "N" => integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Sum" => float(),
-        "Unit" => String.t()
+        "Unit" => String.t() | Atom.t()
       }
       
   """
-  @type summarized_counter() :: %{String.t() => any()}
+  @type summarized_counter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1158,12 +1161,12 @@ defmodule AWS.Shield do
   ## Example:
       
       resource_already_exists_exception() :: %{
-        "message" => String.t(),
-        "resourceType" => String.t()
+        "message" => String.t() | Atom.t(),
+        "resourceType" => String.t() | Atom.t()
       }
       
   """
-  @type resource_already_exists_exception() :: %{String.t() => any()}
+  @type resource_already_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1171,12 +1174,12 @@ defmodule AWS.Shield do
       
       limits_exceeded_exception() :: %{
         "Limit" => float(),
-        "Type" => String.t(),
-        "message" => String.t()
+        "Type" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type limits_exceeded_exception() :: %{String.t() => any()}
+  @type limits_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1187,30 +1190,30 @@ defmodule AWS.Shield do
       }
       
   """
-  @type describe_protection_response() :: %{String.t() => any()}
+  @type describe_protection_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_health_check_request() :: %{
-        required("HealthCheckArn") => String.t(),
-        required("ProtectionId") => String.t()
+        required("HealthCheckArn") => String.t() | Atom.t(),
+        required("ProtectionId") => String.t() | Atom.t()
       }
       
   """
-  @type associate_health_check_request() :: %{String.t() => any()}
+  @type associate_health_check_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_drt_role_request() :: %{
-        required("RoleArn") => String.t()
+        required("RoleArn") => String.t() | Atom.t()
       }
       
   """
-  @type associate_drt_role_request() :: %{String.t() => any()}
+  @type associate_drt_role_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1218,11 +1221,11 @@ defmodule AWS.Shield do
       
       enable_application_layer_automatic_response_request() :: %{
         required("Action") => response_action(),
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type enable_application_layer_automatic_response_request() :: %{String.t() => any()}
+  @type enable_application_layer_automatic_response_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1239,11 +1242,11 @@ defmodule AWS.Shield do
       
       update_application_layer_automatic_response_request() :: %{
         required("Action") => response_action(),
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_application_layer_automatic_response_request() :: %{String.t() => any()}
+  @type update_application_layer_automatic_response_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1255,29 +1258,29 @@ defmodule AWS.Shield do
       }
       
   """
-  @type application_layer_automatic_response_configuration() :: %{String.t() => any()}
+  @type application_layer_automatic_response_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       mitigation() :: %{
-        "MitigationName" => String.t()
+        "MitigationName" => String.t() | Atom.t()
       }
       
   """
-  @type mitigation() :: %{String.t() => any()}
+  @type mitigation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_error_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type internal_error_exception() :: %{String.t() => any()}
+  @type internal_error_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1285,23 +1288,23 @@ defmodule AWS.Shield do
       
       create_protection_request() :: %{
         optional("Tags") => list(tag()),
-        required("Name") => String.t(),
-        required("ResourceArn") => String.t()
+        required("Name") => String.t() | Atom.t(),
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type create_protection_request() :: %{String.t() => any()}
+  @type create_protection_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_pagination_token_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_pagination_token_exception() :: %{String.t() => any()}
+  @type invalid_pagination_token_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1319,11 +1322,11 @@ defmodule AWS.Shield do
       list_protections_request() :: %{
         optional("InclusionFilters") => inclusion_protection_filters(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_protections_request() :: %{String.t() => any()}
+  @type list_protections_request() :: %{String.t() | Atom.t() => any()}
 
   @type associate_drt_log_bucket_errors() ::
           internal_error_exception()

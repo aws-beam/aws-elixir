@@ -15,25 +15,25 @@ defmodule AWS.Finspacedata do
 
       permission_group_params() :: %{
         "datasetPermissions" => list(resource_permission()),
-        "permissionGroupId" => String.t()
+        "permissionGroupId" => String.t() | Atom.t()
       }
 
   """
-  @type permission_group_params() :: %{String.t() => any()}
+  @type permission_group_params() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_permission_group_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
         required("applicationPermissions") => list(list(any())()),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_permission_group_request() :: %{String.t() => any()}
+  @type create_permission_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -49,34 +49,34 @@ defmodule AWS.Finspacedata do
   ## Example:
 
       list_users_by_permission_group_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "users" => list(user_by_permission_group())
       }
 
   """
-  @type list_users_by_permission_group_response() :: %{String.t() => any()}
+  @type list_users_by_permission_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_permission_group_request() :: %{
-        optional("clientToken") => String.t()
+        optional("clientToken") => String.t() | Atom.t()
       }
 
   """
-  @type delete_permission_group_request() :: %{String.t() => any()}
+  @type delete_permission_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_dataset_response() :: %{
-        "datasetId" => String.t()
+        "datasetId" => String.t() | Atom.t()
       }
 
   """
-  @type delete_dataset_response() :: %{String.t() => any()}
+  @type delete_dataset_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -88,29 +88,29 @@ defmodule AWS.Finspacedata do
       }
 
   """
-  @type get_programmatic_access_credentials_response() :: %{String.t() => any()}
+  @type get_programmatic_access_credentials_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_dataset_response() :: %{
-        "datasetId" => String.t()
+        "datasetId" => String.t() | Atom.t()
       }
 
   """
-  @type update_dataset_response() :: %{String.t() => any()}
+  @type update_dataset_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_user_response() :: %{
-        "userId" => String.t()
+        "userId" => String.t() | Atom.t()
       }
 
   """
-  @type update_user_response() :: %{String.t() => any()}
+  @type update_user_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -118,36 +118,36 @@ defmodule AWS.Finspacedata do
 
       schema_definition() :: %{
         "columns" => list(column_definition()),
-        "primaryKeyColumns" => list(String.t())
+        "primaryKeyColumns" => list(String.t() | Atom.t())
       }
 
   """
-  @type schema_definition() :: %{String.t() => any()}
+  @type schema_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_data_view_response() :: %{
-        "dataViewId" => String.t(),
-        "datasetId" => String.t()
+        "dataViewId" => String.t() | Atom.t(),
+        "datasetId" => String.t() | Atom.t()
       }
 
   """
-  @type create_data_view_response() :: %{String.t() => any()}
+  @type create_data_view_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       credentials() :: %{
-        "accessKeyId" => String.t(),
-        "secretAccessKey" => String.t(),
-        "sessionToken" => String.t()
+        "accessKeyId" => String.t() | Atom.t(),
+        "secretAccessKey" => String.t() | Atom.t(),
+        "sessionToken" => String.t() | Atom.t()
       }
 
   """
-  @type credentials() :: %{String.t() => any()}
+  @type credentials() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -155,22 +155,22 @@ defmodule AWS.Finspacedata do
 
       get_user_response() :: %{
         "apiAccess" => list(any()),
-        "apiAccessPrincipalArn" => String.t(),
+        "apiAccessPrincipalArn" => String.t() | Atom.t(),
         "createTime" => float(),
-        "emailAddress" => String.t(),
-        "firstName" => String.t(),
+        "emailAddress" => String.t() | Atom.t(),
+        "firstName" => String.t() | Atom.t(),
         "lastDisabledTime" => float(),
         "lastEnabledTime" => float(),
         "lastLoginTime" => float(),
         "lastModifiedTime" => float(),
-        "lastName" => String.t(),
+        "lastName" => String.t() | Atom.t(),
         "status" => list(any()),
         "type" => list(any()),
-        "userId" => String.t()
+        "userId" => String.t() | Atom.t()
       }
 
   """
-  @type get_user_response() :: %{String.t() => any()}
+  @type get_user_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -181,19 +181,19 @@ defmodule AWS.Finspacedata do
       }
 
   """
-  @type disassociate_user_from_permission_group_response() :: %{String.t() => any()}
+  @type disassociate_user_from_permission_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_permission_groups_by_user_request() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("maxResults") => integer()
       }
 
   """
-  @type list_permission_groups_by_user_request() :: %{String.t() => any()}
+  @type list_permission_groups_by_user_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -201,11 +201,11 @@ defmodule AWS.Finspacedata do
 
       list_datasets_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_datasets_request() :: %{String.t() => any()}
+  @type list_datasets_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -216,7 +216,7 @@ defmodule AWS.Finspacedata do
       }
 
   """
-  @type associate_user_to_permission_group_response() :: %{String.t() => any()}
+  @type associate_user_to_permission_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -234,26 +234,26 @@ defmodule AWS.Finspacedata do
       create_data_view_request() :: %{
         optional("asOfTimestamp") => float(),
         optional("autoUpdate") => boolean(),
-        optional("clientToken") => String.t(),
-        optional("partitionColumns") => list(String.t()),
-        optional("sortColumns") => list(String.t()),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("partitionColumns") => list(String.t() | Atom.t()),
+        optional("sortColumns") => list(String.t() | Atom.t()),
         required("destinationTypeParams") => data_view_destination_type_params()
       }
 
   """
-  @type create_data_view_request() :: %{String.t() => any()}
+  @type create_data_view_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_users_by_permission_group_request() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("maxResults") => integer()
       }
 
   """
-  @type list_users_by_permission_group_request() :: %{String.t() => any()}
+  @type list_users_by_permission_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -265,7 +265,7 @@ defmodule AWS.Finspacedata do
       }
 
   """
-  @type get_external_data_view_access_details_response() :: %{String.t() => any()}
+  @type get_external_data_view_access_details_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -281,46 +281,46 @@ defmodule AWS.Finspacedata do
   ## Example:
 
       create_permission_group_response() :: %{
-        "permissionGroupId" => String.t()
+        "permissionGroupId" => String.t() | Atom.t()
       }
 
   """
-  @type create_permission_group_response() :: %{String.t() => any()}
+  @type create_permission_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_permission_group_response() :: %{
-        "permissionGroupId" => String.t()
+        "permissionGroupId" => String.t() | Atom.t()
       }
 
   """
-  @type delete_permission_group_response() :: %{String.t() => any()}
+  @type delete_permission_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_permission_groups_by_user_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "permissionGroups" => list(permission_group_by_user())
       }
 
   """
-  @type list_permission_groups_by_user_response() :: %{String.t() => any()}
+  @type list_permission_groups_by_user_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       dataset() :: %{
-        "alias" => String.t(),
+        "alias" => String.t() | Atom.t(),
         "createTime" => float(),
-        "datasetArn" => String.t(),
-        "datasetDescription" => String.t(),
-        "datasetId" => String.t(),
-        "datasetTitle" => String.t(),
+        "datasetArn" => String.t() | Atom.t(),
+        "datasetDescription" => String.t() | Atom.t(),
+        "datasetId" => String.t() | Atom.t(),
+        "datasetTitle" => String.t() | Atom.t(),
         "kind" => list(any()),
         "lastModifiedTime" => float(),
         "ownerInfo" => dataset_owner_info(),
@@ -328,18 +328,18 @@ defmodule AWS.Finspacedata do
       }
 
   """
-  @type dataset() :: %{String.t() => any()}
+  @type dataset() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_dataset_response() :: %{
-        "datasetId" => String.t()
+        "datasetId" => String.t() | Atom.t()
       }
 
   """
-  @type create_dataset_response() :: %{String.t() => any()}
+  @type create_dataset_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -355,36 +355,36 @@ defmodule AWS.Finspacedata do
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t(),
-        "reason" => String.t()
+        "message" => String.t() | Atom.t(),
+        "reason" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t(),
-        "reason" => String.t()
+        "message" => String.t() | Atom.t(),
+        "reason" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_changeset_response() :: %{
-        "changesetId" => String.t(),
-        "datasetId" => String.t()
+        "changesetId" => String.t() | Atom.t(),
+        "datasetId" => String.t() | Atom.t()
       }
 
   """
-  @type create_changeset_response() :: %{String.t() => any()}
+  @type create_changeset_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -400,26 +400,26 @@ defmodule AWS.Finspacedata do
   ## Example:
 
       dataset_owner_info() :: %{
-        "email" => String.t(),
-        "name" => String.t(),
-        "phoneNumber" => String.t()
+        "email" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "phoneNumber" => String.t() | Atom.t()
       }
 
   """
-  @type dataset_owner_info() :: %{String.t() => any()}
+  @type dataset_owner_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_working_location_response() :: %{
-        "s3Bucket" => String.t(),
-        "s3Path" => String.t(),
-        "s3Uri" => String.t()
+        "s3Bucket" => String.t() | Atom.t(),
+        "s3Path" => String.t() | Atom.t(),
+        "s3Uri" => String.t() | Atom.t()
       }
 
   """
-  @type get_working_location_response() :: %{String.t() => any()}
+  @type get_working_location_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -429,42 +429,42 @@ defmodule AWS.Finspacedata do
         "asOfTimestamp" => float(),
         "autoUpdate" => boolean(),
         "createTime" => float(),
-        "dataViewArn" => String.t(),
-        "dataViewId" => String.t(),
-        "datasetId" => String.t(),
+        "dataViewArn" => String.t() | Atom.t(),
+        "dataViewId" => String.t() | Atom.t(),
+        "datasetId" => String.t() | Atom.t(),
         "destinationTypeParams" => data_view_destination_type_params(),
         "errorInfo" => data_view_error_info(),
         "lastModifiedTime" => float(),
-        "partitionColumns" => list(String.t()),
-        "sortColumns" => list(String.t()),
+        "partitionColumns" => list(String.t() | Atom.t()),
+        "sortColumns" => list(String.t() | Atom.t()),
         "status" => list(any())
       }
 
   """
-  @type get_data_view_response() :: %{String.t() => any()}
+  @type get_data_view_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_user_from_permission_group_request() :: %{
-        optional("clientToken") => String.t()
+        optional("clientToken") => String.t() | Atom.t()
       }
 
   """
-  @type disassociate_user_from_permission_group_request() :: %{String.t() => any()}
+  @type disassociate_user_from_permission_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       reset_user_password_response() :: %{
-        "temporaryPassword" => String.t(),
-        "userId" => String.t()
+        "temporaryPassword" => String.t() | Atom.t(),
+        "userId" => String.t() | Atom.t()
       }
 
   """
-  @type reset_user_password_response() :: %{String.t() => any()}
+  @type reset_user_password_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -472,24 +472,24 @@ defmodule AWS.Finspacedata do
 
       permission_group_by_user() :: %{
         "membershipStatus" => list(any()),
-        "name" => String.t(),
-        "permissionGroupId" => String.t()
+        "name" => String.t() | Atom.t(),
+        "permissionGroupId" => String.t() | Atom.t()
       }
 
   """
-  @type permission_group_by_user() :: %{String.t() => any()}
+  @type permission_group_by_user() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_users_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "users" => list(user())
       }
 
   """
-  @type list_users_response() :: %{String.t() => any()}
+  @type list_users_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -500,20 +500,20 @@ defmodule AWS.Finspacedata do
       }
 
   """
-  @type get_permission_group_response() :: %{String.t() => any()}
+  @type get_permission_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       data_view_destination_type_params() :: %{
-        "destinationType" => String.t(),
+        "destinationType" => String.t() | Atom.t(),
         "s3DestinationExportFileFormat" => list(any()),
         "s3DestinationExportFileFormatOptions" => map()
       }
 
   """
-  @type data_view_destination_type_params() :: %{String.t() => any()}
+  @type data_view_destination_type_params() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -521,27 +521,27 @@ defmodule AWS.Finspacedata do
 
       update_permission_group_request() :: %{
         optional("applicationPermissions") => list(list(any())()),
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
-        optional("name") => String.t()
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("name") => String.t() | Atom.t()
       }
 
   """
-  @type update_permission_group_request() :: %{String.t() => any()}
+  @type update_permission_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_changeset_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         required("changeType") => list(any()),
         required("formatParams") => map(),
         required("sourceParams") => map()
       }
 
   """
-  @type create_changeset_request() :: %{String.t() => any()}
+  @type create_changeset_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -552,48 +552,48 @@ defmodule AWS.Finspacedata do
       }
 
   """
-  @type schema_union() :: %{String.t() => any()}
+  @type schema_union() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_changeset_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         required("formatParams") => map(),
         required("sourceParams") => map()
       }
 
   """
-  @type update_changeset_request() :: %{String.t() => any()}
+  @type update_changeset_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_location() :: %{
-        "bucket" => String.t(),
-        "key" => String.t()
+        "bucket" => String.t() | Atom.t(),
+        "key" => String.t() | Atom.t()
       }
 
   """
-  @type s3_location() :: %{String.t() => any()}
+  @type s3_location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_dataset_request() :: %{
-        optional("alias") => String.t(),
-        optional("clientToken") => String.t(),
-        optional("datasetDescription") => String.t(),
+        optional("alias") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("datasetDescription") => String.t() | Atom.t(),
         optional("schemaDefinition") => schema_union(),
-        required("datasetTitle") => String.t(),
+        required("datasetTitle") => String.t() | Atom.t(),
         required("kind") => list(any())
       }
 
   """
-  @type update_dataset_request() :: %{String.t() => any()}
+  @type update_dataset_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -601,11 +601,11 @@ defmodule AWS.Finspacedata do
 
       list_changesets_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_changesets_request() :: %{String.t() => any()}
+  @type list_changesets_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -615,53 +615,53 @@ defmodule AWS.Finspacedata do
         "activeFromTimestamp" => float(),
         "activeUntilTimestamp" => float(),
         "changeType" => list(any()),
-        "changesetArn" => String.t(),
-        "changesetId" => String.t(),
+        "changesetArn" => String.t() | Atom.t(),
+        "changesetId" => String.t() | Atom.t(),
         "createTime" => float(),
-        "datasetId" => String.t(),
+        "datasetId" => String.t() | Atom.t(),
         "errorInfo" => changeset_error_info(),
         "formatParams" => map(),
         "sourceParams" => map(),
         "status" => list(any()),
-        "updatedByChangesetId" => String.t(),
-        "updatesChangesetId" => String.t()
+        "updatedByChangesetId" => String.t() | Atom.t(),
+        "updatesChangesetId" => String.t() | Atom.t()
       }
 
   """
-  @type changeset_summary() :: %{String.t() => any()}
+  @type changeset_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       reset_user_password_request() :: %{
-        optional("clientToken") => String.t()
+        optional("clientToken") => String.t() | Atom.t()
       }
 
   """
-  @type reset_user_password_request() :: %{String.t() => any()}
+  @type reset_user_password_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disable_user_response() :: %{
-        "userId" => String.t()
+        "userId" => String.t() | Atom.t()
       }
 
   """
-  @type disable_user_response() :: %{String.t() => any()}
+  @type disable_user_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -669,11 +669,11 @@ defmodule AWS.Finspacedata do
 
       changeset_error_info() :: %{
         "errorCategory" => list(any()),
-        "errorMessage" => String.t()
+        "errorMessage" => String.t() | Atom.t()
       }
 
   """
-  @type changeset_error_info() :: %{String.t() => any()}
+  @type changeset_error_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -683,55 +683,55 @@ defmodule AWS.Finspacedata do
         "activeFromTimestamp" => float(),
         "activeUntilTimestamp" => float(),
         "changeType" => list(any()),
-        "changesetArn" => String.t(),
-        "changesetId" => String.t(),
+        "changesetArn" => String.t() | Atom.t(),
+        "changesetId" => String.t() | Atom.t(),
         "createTime" => float(),
-        "datasetId" => String.t(),
+        "datasetId" => String.t() | Atom.t(),
         "errorInfo" => changeset_error_info(),
         "formatParams" => map(),
         "sourceParams" => map(),
         "status" => list(any()),
-        "updatedByChangesetId" => String.t(),
-        "updatesChangesetId" => String.t()
+        "updatedByChangesetId" => String.t() | Atom.t(),
+        "updatesChangesetId" => String.t() | Atom.t()
       }
 
   """
-  @type get_changeset_response() :: %{String.t() => any()}
+  @type get_changeset_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_permission_groups_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "permissionGroups" => list(permission_group())
       }
 
   """
-  @type list_permission_groups_response() :: %{String.t() => any()}
+  @type list_permission_groups_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_changeset_response() :: %{
-        "changesetId" => String.t(),
-        "datasetId" => String.t()
+        "changesetId" => String.t() | Atom.t(),
+        "datasetId" => String.t() | Atom.t()
       }
 
   """
-  @type update_changeset_response() :: %{String.t() => any()}
+  @type update_changeset_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -739,25 +739,25 @@ defmodule AWS.Finspacedata do
 
       data_view_error_info() :: %{
         "errorCategory" => list(any()),
-        "errorMessage" => String.t()
+        "errorMessage" => String.t() | Atom.t()
       }
 
   """
-  @type data_view_error_info() :: %{String.t() => any()}
+  @type data_view_error_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_credentials() :: %{
-        "accessKeyId" => String.t(),
+        "accessKeyId" => String.t() | Atom.t(),
         "expiration" => float(),
-        "secretAccessKey" => String.t(),
-        "sessionToken" => String.t()
+        "secretAccessKey" => String.t() | Atom.t(),
+        "sessionToken" => String.t() | Atom.t()
       }
 
   """
-  @type aws_credentials() :: %{String.t() => any()}
+  @type aws_credentials() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -774,27 +774,27 @@ defmodule AWS.Finspacedata do
 
       update_user_request() :: %{
         optional("apiAccess") => list(any()),
-        optional("apiAccessPrincipalArn") => String.t(),
-        optional("clientToken") => String.t(),
-        optional("firstName") => String.t(),
-        optional("lastName") => String.t(),
+        optional("apiAccessPrincipalArn") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("firstName") => String.t() | Atom.t(),
+        optional("lastName") => String.t() | Atom.t(),
         optional("type") => list(any())
       }
 
   """
-  @type update_user_request() :: %{String.t() => any()}
+  @type update_user_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_dataset_response() :: %{
-        "alias" => String.t(),
+        "alias" => String.t() | Atom.t(),
         "createTime" => float(),
-        "datasetArn" => String.t(),
-        "datasetDescription" => String.t(),
-        "datasetId" => String.t(),
-        "datasetTitle" => String.t(),
+        "datasetArn" => String.t() | Atom.t(),
+        "datasetDescription" => String.t() | Atom.t(),
+        "datasetId" => String.t() | Atom.t(),
+        "datasetTitle" => String.t() | Atom.t(),
         "kind" => list(any()),
         "lastModifiedTime" => float(),
         "schemaDefinition" => schema_union(),
@@ -802,70 +802,70 @@ defmodule AWS.Finspacedata do
       }
 
   """
-  @type get_dataset_response() :: %{String.t() => any()}
+  @type get_dataset_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => String.t(),
-        "reason" => String.t()
+        "message" => String.t() | Atom.t(),
+        "reason" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_dataset_request() :: %{
-        optional("alias") => String.t(),
-        optional("clientToken") => String.t(),
-        optional("datasetDescription") => String.t(),
+        optional("alias") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("datasetDescription") => String.t() | Atom.t(),
         optional("ownerInfo") => dataset_owner_info(),
         optional("schemaDefinition") => schema_union(),
-        required("datasetTitle") => String.t(),
+        required("datasetTitle") => String.t() | Atom.t(),
         required("kind") => list(any()),
         required("permissionGroupParams") => permission_group_params()
       }
 
   """
-  @type create_dataset_request() :: %{String.t() => any()}
+  @type create_dataset_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       enable_user_request() :: %{
-        optional("clientToken") => String.t()
+        optional("clientToken") => String.t() | Atom.t()
       }
 
   """
-  @type enable_user_request() :: %{String.t() => any()}
+  @type enable_user_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_permission_group_response() :: %{
-        "permissionGroupId" => String.t()
+        "permissionGroupId" => String.t() | Atom.t()
       }
 
   """
-  @type update_permission_group_response() :: %{String.t() => any()}
+  @type update_permission_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_user_to_permission_group_request() :: %{
-        optional("clientToken") => String.t()
+        optional("clientToken") => String.t() | Atom.t()
       }
 
   """
-  @type associate_user_to_permission_group_request() :: %{String.t() => any()}
+  @type associate_user_to_permission_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -882,22 +882,22 @@ defmodule AWS.Finspacedata do
 
       user() :: %{
         "apiAccess" => list(any()),
-        "apiAccessPrincipalArn" => String.t(),
+        "apiAccessPrincipalArn" => String.t() | Atom.t(),
         "createTime" => float(),
-        "emailAddress" => String.t(),
-        "firstName" => String.t(),
+        "emailAddress" => String.t() | Atom.t(),
+        "firstName" => String.t() | Atom.t(),
         "lastDisabledTime" => float(),
         "lastEnabledTime" => float(),
         "lastLoginTime" => float(),
         "lastModifiedTime" => float(),
-        "lastName" => String.t(),
+        "lastName" => String.t() | Atom.t(),
         "status" => list(any()),
         "type" => list(any()),
-        "userId" => String.t()
+        "userId" => String.t() | Atom.t()
       }
 
   """
-  @type user() :: %{String.t() => any()}
+  @type user() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -905,23 +905,23 @@ defmodule AWS.Finspacedata do
 
       list_data_views_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_data_views_request() :: %{String.t() => any()}
+  @type list_data_views_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_users_request() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("maxResults") => integer()
       }
 
   """
-  @type list_users_request() :: %{String.t() => any()}
+  @type list_users_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -929,29 +929,29 @@ defmodule AWS.Finspacedata do
 
       user_by_permission_group() :: %{
         "apiAccess" => list(any()),
-        "apiAccessPrincipalArn" => String.t(),
-        "emailAddress" => String.t(),
-        "firstName" => String.t(),
-        "lastName" => String.t(),
+        "apiAccessPrincipalArn" => String.t() | Atom.t(),
+        "emailAddress" => String.t() | Atom.t(),
+        "firstName" => String.t() | Atom.t(),
+        "lastName" => String.t() | Atom.t(),
         "membershipStatus" => list(any()),
         "status" => list(any()),
         "type" => list(any()),
-        "userId" => String.t()
+        "userId" => String.t() | Atom.t()
       }
 
   """
-  @type user_by_permission_group() :: %{String.t() => any()}
+  @type user_by_permission_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -962,29 +962,29 @@ defmodule AWS.Finspacedata do
       }
 
   """
-  @type get_working_location_request() :: %{String.t() => any()}
+  @type get_working_location_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_permission() :: %{
-        "permission" => String.t()
+        "permission" => String.t() | Atom.t()
       }
 
   """
-  @type resource_permission() :: %{String.t() => any()}
+  @type resource_permission() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_dataset_request() :: %{
-        optional("clientToken") => String.t()
+        optional("clientToken") => String.t() | Atom.t()
       }
 
   """
-  @type delete_dataset_request() :: %{String.t() => any()}
+  @type delete_dataset_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -992,11 +992,11 @@ defmodule AWS.Finspacedata do
 
       list_datasets_response() :: %{
         "datasets" => list(dataset()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_datasets_response() :: %{String.t() => any()}
+  @type list_datasets_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1005,15 +1005,15 @@ defmodule AWS.Finspacedata do
       permission_group() :: %{
         "applicationPermissions" => list(list(any())()),
         "createTime" => float(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "lastModifiedTime" => float(),
         "membershipStatus" => list(any()),
-        "name" => String.t(),
-        "permissionGroupId" => String.t()
+        "name" => String.t() | Atom.t(),
+        "permissionGroupId" => String.t() | Atom.t()
       }
 
   """
-  @type permission_group() :: %{String.t() => any()}
+  @type permission_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1021,23 +1021,23 @@ defmodule AWS.Finspacedata do
 
       get_programmatic_access_credentials_request() :: %{
         optional("durationInMinutes") => float(),
-        required("environmentId") => String.t()
+        required("environmentId") => String.t() | Atom.t()
       }
 
   """
-  @type get_programmatic_access_credentials_request() :: %{String.t() => any()}
+  @type get_programmatic_access_credentials_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_permission_groups_request() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("maxResults") => integer()
       }
 
   """
-  @type list_permission_groups_request() :: %{String.t() => any()}
+  @type list_permission_groups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1045,11 +1045,11 @@ defmodule AWS.Finspacedata do
 
       list_changesets_response() :: %{
         "changesets" => list(changeset_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_changesets_response() :: %{String.t() => any()}
+  @type list_changesets_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1059,65 +1059,65 @@ defmodule AWS.Finspacedata do
         "asOfTimestamp" => float(),
         "autoUpdate" => boolean(),
         "createTime" => float(),
-        "dataViewArn" => String.t(),
-        "dataViewId" => String.t(),
-        "datasetId" => String.t(),
+        "dataViewArn" => String.t() | Atom.t(),
+        "dataViewId" => String.t() | Atom.t(),
+        "datasetId" => String.t() | Atom.t(),
         "destinationTypeProperties" => data_view_destination_type_params(),
         "errorInfo" => data_view_error_info(),
         "lastModifiedTime" => float(),
-        "partitionColumns" => list(String.t()),
-        "sortColumns" => list(String.t()),
+        "partitionColumns" => list(String.t() | Atom.t()),
+        "sortColumns" => list(String.t() | Atom.t()),
         "status" => list(any())
       }
 
   """
-  @type data_view_summary() :: %{String.t() => any()}
+  @type data_view_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disable_user_request() :: %{
-        optional("clientToken") => String.t()
+        optional("clientToken") => String.t() | Atom.t()
       }
 
   """
-  @type disable_user_request() :: %{String.t() => any()}
+  @type disable_user_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_user_response() :: %{
-        "userId" => String.t()
+        "userId" => String.t() | Atom.t()
       }
 
   """
-  @type create_user_response() :: %{String.t() => any()}
+  @type create_user_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       enable_user_response() :: %{
-        "userId" => String.t()
+        "userId" => String.t() | Atom.t()
       }
 
   """
-  @type enable_user_response() :: %{String.t() => any()}
+  @type enable_user_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       column_definition() :: %{
-        "columnDescription" => String.t(),
-        "columnName" => String.t(),
+        "columnDescription" => String.t() | Atom.t(),
+        "columnName" => String.t() | Atom.t(),
         "dataType" => list(any())
       }
 
   """
-  @type column_definition() :: %{String.t() => any()}
+  @type column_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1125,11 +1125,11 @@ defmodule AWS.Finspacedata do
 
       list_data_views_response() :: %{
         "dataViews" => list(data_view_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_data_views_response() :: %{String.t() => any()}
+  @type list_data_views_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1137,16 +1137,16 @@ defmodule AWS.Finspacedata do
 
       create_user_request() :: %{
         optional("apiAccess") => list(any()),
-        optional("apiAccessPrincipalArn") => String.t(),
-        optional("clientToken") => String.t(),
-        optional("firstName") => String.t(),
-        optional("lastName") => String.t(),
-        required("emailAddress") => String.t(),
+        optional("apiAccessPrincipalArn") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("firstName") => String.t() | Atom.t(),
+        optional("lastName") => String.t() | Atom.t(),
+        required("emailAddress") => String.t() | Atom.t(),
         required("type") => list(any())
       }
 
   """
-  @type create_user_request() :: %{String.t() => any()}
+  @type create_user_request() :: %{String.t() | Atom.t() => any()}
 
   @type associate_user_to_permission_group_errors() ::
           throttling_exception()
@@ -1407,8 +1407,8 @@ defmodule AWS.Finspacedata do
   """
   @spec associate_user_to_permission_group(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           associate_user_to_permission_group_request(),
           list()
         ) ::
@@ -1448,7 +1448,7 @@ defmodule AWS.Finspacedata do
   @doc """
   Creates a new Changeset in a FinSpace Dataset.
   """
-  @spec create_changeset(map(), String.t(), create_changeset_request(), list()) ::
+  @spec create_changeset(map(), String.t() | Atom.t(), create_changeset_request(), list()) ::
           {:ok, create_changeset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1477,7 +1477,7 @@ defmodule AWS.Finspacedata do
   @doc """
   Creates a Dataview for a Dataset.
   """
-  @spec create_data_view(map(), String.t(), create_data_view_request(), list()) ::
+  @spec create_data_view(map(), String.t() | Atom.t(), create_data_view_request(), list()) ::
           {:ok, create_data_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1594,7 +1594,7 @@ defmodule AWS.Finspacedata do
   @doc """
   Deletes a FinSpace Dataset.
   """
-  @spec delete_dataset(map(), String.t(), delete_dataset_request(), list()) ::
+  @spec delete_dataset(map(), String.t() | Atom.t(), delete_dataset_request(), list()) ::
           {:ok, delete_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1630,7 +1630,12 @@ defmodule AWS.Finspacedata do
 
   This action is irreversible.
   """
-  @spec delete_permission_group(map(), String.t(), delete_permission_group_request(), list()) ::
+  @spec delete_permission_group(
+          map(),
+          String.t() | Atom.t(),
+          delete_permission_group_request(),
+          list()
+        ) ::
           {:ok, delete_permission_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1664,7 +1669,7 @@ defmodule AWS.Finspacedata do
   @doc """
   Denies access to the FinSpace web application and API for the specified user.
   """
-  @spec disable_user(map(), String.t(), disable_user_request(), list()) ::
+  @spec disable_user(map(), String.t() | Atom.t(), disable_user_request(), list()) ::
           {:ok, disable_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1695,8 +1700,8 @@ defmodule AWS.Finspacedata do
   """
   @spec disassociate_user_from_permission_group(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           disassociate_user_from_permission_group_request(),
           list()
         ) ::
@@ -1741,7 +1746,7 @@ defmodule AWS.Finspacedata do
   @doc """
   Allows the specified user to access the FinSpace web application and API.
   """
-  @spec enable_user(map(), String.t(), enable_user_request(), list()) ::
+  @spec enable_user(map(), String.t() | Atom.t(), enable_user_request(), list()) ::
           {:ok, enable_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1770,7 +1775,7 @@ defmodule AWS.Finspacedata do
   @doc """
   Get information about a Changeset.
   """
-  @spec get_changeset(map(), String.t(), String.t(), list()) ::
+  @spec get_changeset(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_changeset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1790,7 +1795,7 @@ defmodule AWS.Finspacedata do
   @doc """
   Gets information about a Dataview.
   """
-  @spec get_data_view(map(), String.t(), String.t(), list()) ::
+  @spec get_data_view(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_data_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1810,7 +1815,7 @@ defmodule AWS.Finspacedata do
   @doc """
   Returns information about a Dataset.
   """
-  @spec get_dataset(map(), String.t(), list()) ::
+  @spec get_dataset(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1839,8 +1844,8 @@ defmodule AWS.Finspacedata do
   """
   @spec get_external_data_view_access_details(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           get_external_data_view_access_details_request(),
           list()
         ) ::
@@ -1880,7 +1885,7 @@ defmodule AWS.Finspacedata do
   @doc """
   Retrieves the details of a specific permission group.
   """
-  @spec get_permission_group(map(), String.t(), list()) ::
+  @spec get_permission_group(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_permission_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1901,7 +1906,12 @@ defmodule AWS.Finspacedata do
   For more information, see [Step 2. Access credentials programmatically using IAM access key id and secret access
   key](https://docs.aws.amazon.com/finspace/latest/data-api/fs-using-the-finspace-api.html#accessing-credentials).
   """
-  @spec get_programmatic_access_credentials(map(), String.t() | nil, String.t(), list()) ::
+  @spec get_programmatic_access_credentials(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_programmatic_access_credentials_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1938,7 +1948,7 @@ defmodule AWS.Finspacedata do
   @doc """
   Retrieves details for a specific user.
   """
-  @spec get_user(map(), String.t(), list()) ::
+  @spec get_user(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1987,7 +1997,13 @@ defmodule AWS.Finspacedata do
   @doc """
   Lists the FinSpace Changesets for a Dataset.
   """
-  @spec list_changesets(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_changesets(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_changesets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2025,7 +2041,13 @@ defmodule AWS.Finspacedata do
   @doc """
   Lists all available Dataviews for a Dataset.
   """
-  @spec list_data_views(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_data_views(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_data_views_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2063,7 +2085,7 @@ defmodule AWS.Finspacedata do
   @doc """
   Lists all of the active Datasets that a user has access to.
   """
-  @spec list_datasets(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_datasets(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2095,7 +2117,7 @@ defmodule AWS.Finspacedata do
   @doc """
   Lists all available permission groups in FinSpace.
   """
-  @spec list_permission_groups(map(), String.t(), String.t() | nil, list()) ::
+  @spec list_permission_groups(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
           {:ok, list_permission_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2127,7 +2149,13 @@ defmodule AWS.Finspacedata do
   @doc """
   Lists all the permission groups that are associated with a specific user.
   """
-  @spec list_permission_groups_by_user(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec list_permission_groups_by_user(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_permission_groups_by_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2165,7 +2193,7 @@ defmodule AWS.Finspacedata do
   @doc """
   Lists all available users in FinSpace.
   """
-  @spec list_users(map(), String.t(), String.t() | nil, list()) ::
+  @spec list_users(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2197,7 +2225,13 @@ defmodule AWS.Finspacedata do
   @doc """
   Lists details of all the users in a specific permission group.
   """
-  @spec list_users_by_permission_group(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec list_users_by_permission_group(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_users_by_permission_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2238,7 +2272,7 @@ defmodule AWS.Finspacedata do
   Only a superuser can reset password for other users. Resetting the password
   immediately invalidates the previous password associated with the user.
   """
-  @spec reset_user_password(map(), String.t(), reset_user_password_request(), list()) ::
+  @spec reset_user_password(map(), String.t() | Atom.t(), reset_user_password_request(), list()) ::
           {:ok, reset_user_password_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2267,7 +2301,13 @@ defmodule AWS.Finspacedata do
   @doc """
   Updates a FinSpace Changeset.
   """
-  @spec update_changeset(map(), String.t(), String.t(), update_changeset_request(), list()) ::
+  @spec update_changeset(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_changeset_request(),
+          list()
+        ) ::
           {:ok, update_changeset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2298,7 +2338,7 @@ defmodule AWS.Finspacedata do
   @doc """
   Updates a FinSpace Dataset.
   """
-  @spec update_dataset(map(), String.t(), update_dataset_request(), list()) ::
+  @spec update_dataset(map(), String.t() | Atom.t(), update_dataset_request(), list()) ::
           {:ok, update_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2329,7 +2369,12 @@ defmodule AWS.Finspacedata do
 
   You cannot modify a `permissionGroupID`.
   """
-  @spec update_permission_group(map(), String.t(), update_permission_group_request(), list()) ::
+  @spec update_permission_group(
+          map(),
+          String.t() | Atom.t(),
+          update_permission_group_request(),
+          list()
+        ) ::
           {:ok, update_permission_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2360,7 +2405,7 @@ defmodule AWS.Finspacedata do
 
   You cannot update the `userId` for a user.
   """
-  @spec update_user(map(), String.t(), update_user_request(), list()) ::
+  @spec update_user(map(), String.t() | Atom.t(), update_user_request(), list()) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

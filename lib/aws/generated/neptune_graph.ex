@@ -19,11 +19,11 @@ defmodule AWS.NeptuneGraph do
 
       list_graph_snapshots_output() :: %{
         "graphSnapshots" => list(graph_snapshot_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_graph_snapshots_output() :: %{String.t() => any()}
+  @type list_graph_snapshots_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -35,7 +35,7 @@ defmodule AWS.NeptuneGraph do
         optional("failOnError") => [boolean()],
         optional("format") => list(any()),
         optional("importOptions") => list(),
-        optional("kmsKeyIdentifier") => String.t(),
+        optional("kmsKeyIdentifier") => String.t() | Atom.t(),
         optional("maxProvisionedMemory") => integer(),
         optional("minProvisionedMemory") => integer(),
         optional("parquetType") => list(any()),
@@ -43,13 +43,13 @@ defmodule AWS.NeptuneGraph do
         optional("replicaCount") => integer(),
         optional("tags") => map(),
         optional("vectorSearchConfiguration") => vector_search_configuration(),
-        required("graphName") => String.t(),
-        required("roleArn") => String.t(),
-        required("source") => [String.t()]
+        required("graphName") => String.t() | Atom.t(),
+        required("roleArn") => String.t() | Atom.t(),
+        required("source") => [String.t() | Atom.t()]
       }
 
   """
-  @type create_graph_using_import_task_input() :: %{String.t() => any()}
+  @type create_graph_using_import_task_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -66,12 +66,12 @@ defmodule AWS.NeptuneGraph do
 
       export_filter_property_attributes() :: %{
         "multiValueHandling" => list(any()),
-        "outputType" => String.t(),
-        "sourcePropertyName" => String.t()
+        "outputType" => String.t() | Atom.t(),
+        "sourcePropertyName" => String.t() | Atom.t()
       }
 
   """
-  @type export_filter_property_attributes() :: %{String.t() => any()}
+  @type export_filter_property_attributes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -79,13 +79,13 @@ defmodule AWS.NeptuneGraph do
 
       create_private_graph_endpoint_output() :: %{
         "status" => list(any()),
-        "subnetIds" => list(String.t()),
-        "vpcEndpointId" => String.t(),
-        "vpcId" => String.t()
+        "subnetIds" => list(String.t() | Atom.t()),
+        "vpcEndpointId" => String.t() | Atom.t(),
+        "vpcId" => String.t() | Atom.t()
       }
 
   """
-  @type create_private_graph_endpoint_output() :: %{String.t() => any()}
+  @type create_private_graph_endpoint_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -101,17 +101,17 @@ defmodule AWS.NeptuneGraph do
   ## Example:
 
       delete_graph_snapshot_output() :: %{
-        "arn" => [String.t()],
-        "id" => String.t(),
-        "kmsKeyIdentifier" => String.t(),
-        "name" => String.t(),
+        "arn" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t(),
+        "kmsKeyIdentifier" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "snapshotCreateTime" => [non_neg_integer()],
-        "sourceGraphId" => String.t(),
+        "sourceGraphId" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type delete_graph_snapshot_output() :: %{String.t() => any()}
+  @type delete_graph_snapshot_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -126,7 +126,7 @@ defmodule AWS.NeptuneGraph do
       }
 
   """
-  @type export_task_details() :: %{String.t() => any()}
+  @type export_task_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -134,42 +134,42 @@ defmodule AWS.NeptuneGraph do
 
       create_graph_using_import_task_output() :: %{
         "format" => list(any()),
-        "graphId" => String.t(),
+        "graphId" => String.t() | Atom.t(),
         "importOptions" => list(),
         "parquetType" => list(any()),
-        "roleArn" => String.t(),
-        "source" => [String.t()],
+        "roleArn" => String.t() | Atom.t(),
+        "source" => [String.t() | Atom.t()],
         "status" => list(any()),
-        "taskId" => String.t()
+        "taskId" => String.t() | Atom.t()
       }
 
   """
-  @type create_graph_using_import_task_output() :: %{String.t() => any()}
+  @type create_graph_using_import_task_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_graph_output() :: %{
-        "arn" => [String.t()],
-        "buildNumber" => [String.t()],
+        "arn" => [String.t() | Atom.t()],
+        "buildNumber" => [String.t() | Atom.t()],
         "createTime" => [non_neg_integer()],
         "deletionProtection" => [boolean()],
-        "endpoint" => [String.t()],
-        "id" => String.t(),
-        "kmsKeyIdentifier" => String.t(),
-        "name" => String.t(),
+        "endpoint" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t(),
+        "kmsKeyIdentifier" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "provisionedMemory" => integer(),
         "publicConnectivity" => [boolean()],
         "replicaCount" => integer(),
-        "sourceSnapshotId" => String.t(),
+        "sourceSnapshotId" => String.t() | Atom.t(),
         "status" => list(any()),
-        "statusReason" => [String.t()],
+        "statusReason" => [String.t() | Atom.t()],
         "vectorSearchConfiguration" => vector_search_configuration()
       }
 
   """
-  @type update_graph_output() :: %{String.t() => any()}
+  @type update_graph_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -179,15 +179,15 @@ defmodule AWS.NeptuneGraph do
         optional("exportFilter") => export_filter(),
         optional("parquetType") => list(any()),
         optional("tags") => map(),
-        required("destination") => [String.t()],
+        required("destination") => [String.t() | Atom.t()],
         required("format") => list(any()),
-        required("graphIdentifier") => String.t(),
-        required("kmsKeyIdentifier") => String.t(),
-        required("roleArn") => String.t()
+        required("graphIdentifier") => String.t() | Atom.t(),
+        required("kmsKeyIdentifier") => String.t() | Atom.t(),
+        required("roleArn") => String.t() | Atom.t()
       }
 
   """
-  @type start_export_task_input() :: %{String.t() => any()}
+  @type start_export_task_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -199,12 +199,12 @@ defmodule AWS.NeptuneGraph do
         optional("format") => list(any()),
         optional("importOptions") => list(),
         optional("parquetType") => list(any()),
-        required("roleArn") => String.t(),
-        required("source") => [String.t()]
+        required("roleArn") => String.t() | Atom.t(),
+        required("source") => [String.t() | Atom.t()]
       }
 
   """
-  @type start_import_task_input() :: %{String.t() => any()}
+  @type start_import_task_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -213,19 +213,19 @@ defmodule AWS.NeptuneGraph do
       get_import_task_output() :: %{
         "attemptNumber" => [integer()],
         "format" => list(any()),
-        "graphId" => String.t(),
+        "graphId" => String.t() | Atom.t(),
         "importOptions" => list(),
         "importTaskDetails" => import_task_details(),
         "parquetType" => list(any()),
-        "roleArn" => String.t(),
-        "source" => [String.t()],
+        "roleArn" => String.t() | Atom.t(),
+        "source" => [String.t() | Atom.t()],
         "status" => list(any()),
-        "statusReason" => [String.t()],
-        "taskId" => String.t()
+        "statusReason" => [String.t() | Atom.t()],
+        "taskId" => String.t() | Atom.t()
       }
 
   """
-  @type get_import_task_output() :: %{String.t() => any()}
+  @type get_import_task_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -233,13 +233,13 @@ defmodule AWS.NeptuneGraph do
 
       delete_private_graph_endpoint_output() :: %{
         "status" => list(any()),
-        "subnetIds" => list(String.t()),
-        "vpcEndpointId" => String.t(),
-        "vpcId" => String.t()
+        "subnetIds" => list(String.t() | Atom.t()),
+        "vpcEndpointId" => String.t() | Atom.t(),
+        "vpcId" => String.t() | Atom.t()
       }
 
   """
-  @type delete_private_graph_endpoint_output() :: %{String.t() => any()}
+  @type delete_private_graph_endpoint_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -250,7 +250,7 @@ defmodule AWS.NeptuneGraph do
       }
 
   """
-  @type export_filter_element() :: %{String.t() => any()}
+  @type export_filter_element() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -262,7 +262,7 @@ defmodule AWS.NeptuneGraph do
       }
 
   """
-  @type export_filter() :: %{String.t() => any()}
+  @type export_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -270,40 +270,40 @@ defmodule AWS.NeptuneGraph do
 
       cancel_import_task_output() :: %{
         "format" => list(any()),
-        "graphId" => String.t(),
+        "graphId" => String.t() | Atom.t(),
         "parquetType" => list(any()),
-        "roleArn" => String.t(),
-        "source" => [String.t()],
+        "roleArn" => String.t() | Atom.t(),
+        "source" => [String.t() | Atom.t()],
         "status" => list(any()),
-        "taskId" => String.t()
+        "taskId" => String.t() | Atom.t()
       }
 
   """
-  @type cancel_import_task_output() :: %{String.t() => any()}
+  @type cancel_import_task_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       unprocessable_exception() :: %{
-        "message" => [String.t()],
+        "message" => [String.t() | Atom.t()],
         "reason" => list(any())
       }
 
   """
-  @type unprocessable_exception() :: %{String.t() => any()}
+  @type unprocessable_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_export_tasks_output() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "tasks" => list(export_task_summary())
       }
 
   """
-  @type list_export_tasks_output() :: %{String.t() => any()}
+  @type list_export_tasks_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -311,28 +311,28 @@ defmodule AWS.NeptuneGraph do
 
       list_graphs_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_graphs_input() :: %{String.t() => any()}
+  @type list_graphs_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       graph_snapshot_summary() :: %{
-        "arn" => [String.t()],
-        "id" => String.t(),
-        "kmsKeyIdentifier" => String.t(),
-        "name" => String.t(),
+        "arn" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t(),
+        "kmsKeyIdentifier" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "snapshotCreateTime" => [non_neg_integer()],
-        "sourceGraphId" => String.t(),
+        "sourceGraphId" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type graph_snapshot_summary() :: %{String.t() => any()}
+  @type graph_snapshot_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -340,14 +340,14 @@ defmodule AWS.NeptuneGraph do
 
       get_query_output() :: %{
         "elapsed" => [integer()],
-        "id" => [String.t()],
-        "queryString" => [String.t()],
+        "id" => [String.t() | Atom.t()],
+        "queryString" => [String.t() | Atom.t()],
         "state" => list(any()),
         "waited" => [integer()]
       }
 
   """
-  @type get_query_output() :: %{String.t() => any()}
+  @type get_query_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -358,7 +358,7 @@ defmodule AWS.NeptuneGraph do
       }
 
   """
-  @type list_tags_for_resource_output() :: %{String.t() => any()}
+  @type list_tags_for_resource_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -369,26 +369,26 @@ defmodule AWS.NeptuneGraph do
       }
 
   """
-  @type list_queries_output() :: %{String.t() => any()}
+  @type list_queries_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_export_task_output() :: %{
-        "destination" => [String.t()],
+        "destination" => [String.t() | Atom.t()],
         "format" => list(any()),
-        "graphId" => String.t(),
-        "kmsKeyIdentifier" => String.t(),
+        "graphId" => String.t() | Atom.t(),
+        "kmsKeyIdentifier" => String.t() | Atom.t(),
         "parquetType" => list(any()),
-        "roleArn" => String.t(),
+        "roleArn" => String.t() | Atom.t(),
         "status" => list(any()),
-        "statusReason" => [String.t()],
-        "taskId" => String.t()
+        "statusReason" => [String.t() | Atom.t()],
+        "taskId" => String.t() | Atom.t()
       }
 
   """
-  @type cancel_export_task_output() :: %{String.t() => any()}
+  @type cancel_export_task_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -399,7 +399,7 @@ defmodule AWS.NeptuneGraph do
       }
 
   """
-  @type vector_search_configuration() :: %{String.t() => any()}
+  @type vector_search_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -411,30 +411,30 @@ defmodule AWS.NeptuneGraph do
         optional("publicConnectivity") => [boolean()],
         optional("replicaCount") => integer(),
         optional("tags") => map(),
-        required("graphName") => String.t()
+        required("graphName") => String.t() | Atom.t()
       }
 
   """
-  @type restore_graph_from_snapshot_input() :: %{String.t() => any()}
+  @type restore_graph_from_snapshot_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       export_task_summary() :: %{
-        "destination" => [String.t()],
+        "destination" => [String.t() | Atom.t()],
         "format" => list(any()),
-        "graphId" => String.t(),
-        "kmsKeyIdentifier" => String.t(),
+        "graphId" => String.t() | Atom.t(),
+        "kmsKeyIdentifier" => String.t() | Atom.t(),
         "parquetType" => list(any()),
-        "roleArn" => String.t(),
+        "roleArn" => String.t() | Atom.t(),
         "status" => list(any()),
-        "statusReason" => [String.t()],
-        "taskId" => String.t()
+        "statusReason" => [String.t() | Atom.t()],
+        "taskId" => String.t() | Atom.t()
       }
 
   """
-  @type export_task_summary() :: %{String.t() => any()}
+  @type export_task_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -442,41 +442,41 @@ defmodule AWS.NeptuneGraph do
 
       edge_structure() :: %{
         "count" => [float()],
-        "edgeProperties" => list([String.t()]())
+        "edgeProperties" => list([String.t() | Atom.t()]())
       }
 
   """
-  @type edge_structure() :: %{String.t() => any()}
+  @type edge_structure() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_graph_snapshot_output() :: %{
-        "arn" => [String.t()],
-        "id" => String.t(),
-        "kmsKeyIdentifier" => String.t(),
-        "name" => String.t(),
+        "arn" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t(),
+        "kmsKeyIdentifier" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "snapshotCreateTime" => [non_neg_integer()],
-        "sourceGraphId" => String.t(),
+        "sourceGraphId" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type create_graph_snapshot_output() :: %{String.t() => any()}
+  @type create_graph_snapshot_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_private_graph_endpoint_input() :: %{
-        optional("subnetIds") => list(String.t()),
-        optional("vpcId") => String.t(),
-        optional("vpcSecurityGroupIds") => list(String.t())
+        optional("subnetIds") => list(String.t() | Atom.t()),
+        optional("vpcId") => String.t() | Atom.t(),
+        optional("vpcSecurityGroupIds") => list(String.t() | Atom.t())
       }
 
   """
-  @type create_private_graph_endpoint_input() :: %{String.t() => any()}
+  @type create_private_graph_endpoint_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -487,7 +487,7 @@ defmodule AWS.NeptuneGraph do
       }
 
   """
-  @type delete_graph_input() :: %{String.t() => any()}
+  @type delete_graph_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -495,11 +495,11 @@ defmodule AWS.NeptuneGraph do
 
       list_graphs_output() :: %{
         "graphs" => list(graph_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_graphs_output() :: %{String.t() => any()}
+  @type list_graphs_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -507,54 +507,54 @@ defmodule AWS.NeptuneGraph do
 
       create_graph_input() :: %{
         optional("deletionProtection") => [boolean()],
-        optional("kmsKeyIdentifier") => String.t(),
+        optional("kmsKeyIdentifier") => String.t() | Atom.t(),
         optional("publicConnectivity") => [boolean()],
         optional("replicaCount") => integer(),
         optional("tags") => map(),
         optional("vectorSearchConfiguration") => vector_search_configuration(),
-        required("graphName") => String.t(),
+        required("graphName") => String.t() | Atom.t(),
         required("provisionedMemory") => integer()
       }
 
   """
-  @type create_graph_input() :: %{String.t() => any()}
+  @type create_graph_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_graph_output() :: %{
-        "arn" => [String.t()],
-        "buildNumber" => [String.t()],
+        "arn" => [String.t() | Atom.t()],
+        "buildNumber" => [String.t() | Atom.t()],
         "createTime" => [non_neg_integer()],
         "deletionProtection" => [boolean()],
-        "endpoint" => [String.t()],
-        "id" => String.t(),
-        "kmsKeyIdentifier" => String.t(),
-        "name" => String.t(),
+        "endpoint" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t(),
+        "kmsKeyIdentifier" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "provisionedMemory" => integer(),
         "publicConnectivity" => [boolean()],
         "replicaCount" => integer(),
-        "sourceSnapshotId" => String.t(),
+        "sourceSnapshotId" => String.t() | Atom.t(),
         "status" => list(any()),
-        "statusReason" => [String.t()],
+        "statusReason" => [String.t() | Atom.t()],
         "vectorSearchConfiguration" => vector_search_configuration()
       }
 
   """
-  @type delete_graph_output() :: %{String.t() => any()}
+  @type delete_graph_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t()],
+        "message" => [String.t() | Atom.t()],
         "reason" => list(any())
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -562,23 +562,23 @@ defmodule AWS.NeptuneGraph do
 
       list_queries_input() :: %{
         optional("state") => list(any()),
-        required("graphIdentifier") => String.t(),
+        required("graphIdentifier") => String.t() | Atom.t(),
         required("maxResults") => [integer()]
       }
 
   """
-  @type list_queries_input() :: %{String.t() => any()}
+  @type list_queries_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -594,15 +594,15 @@ defmodule AWS.NeptuneGraph do
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t()],
-        "quotaCode" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()],
-        "serviceCode" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "quotaCode" => [String.t() | Atom.t()],
+        "resourceId" => [String.t() | Atom.t()],
+        "resourceType" => [String.t() | Atom.t()],
+        "serviceCode" => [String.t() | Atom.t()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -618,55 +618,55 @@ defmodule AWS.NeptuneGraph do
   ## Example:
 
       restore_graph_from_snapshot_output() :: %{
-        "arn" => [String.t()],
-        "buildNumber" => [String.t()],
+        "arn" => [String.t() | Atom.t()],
+        "buildNumber" => [String.t() | Atom.t()],
         "createTime" => [non_neg_integer()],
         "deletionProtection" => [boolean()],
-        "endpoint" => [String.t()],
-        "id" => String.t(),
-        "kmsKeyIdentifier" => String.t(),
-        "name" => String.t(),
+        "endpoint" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t(),
+        "kmsKeyIdentifier" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "provisionedMemory" => integer(),
         "publicConnectivity" => [boolean()],
         "replicaCount" => integer(),
-        "sourceSnapshotId" => String.t(),
+        "sourceSnapshotId" => String.t() | Atom.t(),
         "status" => list(any()),
-        "statusReason" => [String.t()],
+        "statusReason" => [String.t() | Atom.t()],
         "vectorSearchConfiguration" => vector_search_configuration()
       }
 
   """
-  @type restore_graph_from_snapshot_output() :: %{String.t() => any()}
+  @type restore_graph_from_snapshot_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_export_task_output() :: %{
-        "destination" => [String.t()],
+        "destination" => [String.t() | Atom.t()],
         "exportFilter" => export_filter(),
         "format" => list(any()),
-        "graphId" => String.t(),
-        "kmsKeyIdentifier" => String.t(),
+        "graphId" => String.t() | Atom.t(),
+        "kmsKeyIdentifier" => String.t() | Atom.t(),
         "parquetType" => list(any()),
-        "roleArn" => String.t(),
+        "roleArn" => String.t() | Atom.t(),
         "status" => list(any()),
-        "statusReason" => [String.t()],
-        "taskId" => String.t()
+        "statusReason" => [String.t() | Atom.t()],
+        "taskId" => String.t() | Atom.t()
       }
 
   """
-  @type start_export_task_output() :: %{String.t() => any()}
+  @type start_export_task_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       graph_data_summary() :: %{
-        "edgeLabels" => list([String.t()]()),
+        "edgeLabels" => list([String.t() | Atom.t()]()),
         "edgeProperties" => list(map()),
         "edgeStructures" => list(edge_structure()),
-        "nodeLabels" => list([String.t()]()),
+        "nodeLabels" => list([String.t() | Atom.t()]()),
         "nodeProperties" => list(map()),
         "nodeStructures" => list(node_structure()),
         "numEdgeLabels" => [float()],
@@ -680,45 +680,45 @@ defmodule AWS.NeptuneGraph do
       }
 
   """
-  @type graph_data_summary() :: %{String.t() => any()}
+  @type graph_data_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_graph_output() :: %{
-        "arn" => [String.t()],
-        "buildNumber" => [String.t()],
+        "arn" => [String.t() | Atom.t()],
+        "buildNumber" => [String.t() | Atom.t()],
         "createTime" => [non_neg_integer()],
         "deletionProtection" => [boolean()],
-        "endpoint" => [String.t()],
-        "id" => String.t(),
-        "kmsKeyIdentifier" => String.t(),
-        "name" => String.t(),
+        "endpoint" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t(),
+        "kmsKeyIdentifier" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "provisionedMemory" => integer(),
         "publicConnectivity" => [boolean()],
         "replicaCount" => integer(),
-        "sourceSnapshotId" => String.t(),
+        "sourceSnapshotId" => String.t() | Atom.t(),
         "status" => list(any()),
-        "statusReason" => [String.t()],
+        "statusReason" => [String.t() | Atom.t()],
         "vectorSearchConfiguration" => vector_search_configuration()
       }
 
   """
-  @type create_graph_output() :: %{String.t() => any()}
+  @type create_graph_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_export_tasks_input() :: %{
-        optional("graphIdentifier") => String.t(),
+        optional("graphIdentifier") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_export_tasks_input() :: %{String.t() => any()}
+  @type list_export_tasks_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -729,7 +729,7 @@ defmodule AWS.NeptuneGraph do
       }
 
   """
-  @type tag_resource_input() :: %{String.t() => any()}
+  @type tag_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -737,29 +737,29 @@ defmodule AWS.NeptuneGraph do
 
       import_task_summary() :: %{
         "format" => list(any()),
-        "graphId" => String.t(),
+        "graphId" => String.t() | Atom.t(),
         "parquetType" => list(any()),
-        "roleArn" => String.t(),
-        "source" => [String.t()],
+        "roleArn" => String.t() | Atom.t(),
+        "source" => [String.t() | Atom.t()],
         "status" => list(any()),
-        "taskId" => String.t()
+        "taskId" => String.t() | Atom.t()
       }
 
   """
-  @type import_task_summary() :: %{String.t() => any()}
+  @type import_task_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_graph_snapshots_input() :: %{
-        optional("graphIdentifier") => String.t(),
+        optional("graphIdentifier") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_graph_snapshots_input() :: %{String.t() => any()}
+  @type list_graph_snapshots_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -775,12 +775,12 @@ defmodule AWS.NeptuneGraph do
   ## Example:
 
       graph_summary() :: %{
-        "arn" => [String.t()],
+        "arn" => [String.t() | Atom.t()],
         "deletionProtection" => [boolean()],
-        "endpoint" => [String.t()],
-        "id" => String.t(),
-        "kmsKeyIdentifier" => [String.t()],
-        "name" => String.t(),
+        "endpoint" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t(),
+        "kmsKeyIdentifier" => [String.t() | Atom.t()],
+        "name" => String.t() | Atom.t(),
         "provisionedMemory" => integer(),
         "publicConnectivity" => [boolean()],
         "replicaCount" => integer(),
@@ -788,18 +788,18 @@ defmodule AWS.NeptuneGraph do
       }
 
   """
-  @type graph_summary() :: %{String.t() => any()}
+  @type graph_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -807,13 +807,13 @@ defmodule AWS.NeptuneGraph do
 
       get_private_graph_endpoint_output() :: %{
         "status" => list(any()),
-        "subnetIds" => list(String.t()),
-        "vpcEndpointId" => String.t(),
-        "vpcId" => String.t()
+        "subnetIds" => list(String.t() | Atom.t()),
+        "vpcEndpointId" => String.t() | Atom.t(),
+        "vpcId" => String.t() | Atom.t()
       }
 
   """
-  @type get_private_graph_endpoint_output() :: %{String.t() => any()}
+  @type get_private_graph_endpoint_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -821,25 +821,25 @@ defmodule AWS.NeptuneGraph do
 
       query_summary() :: %{
         "elapsed" => [integer()],
-        "id" => [String.t()],
-        "queryString" => [String.t()],
+        "id" => [String.t() | Atom.t()],
+        "queryString" => [String.t() | Atom.t()],
         "state" => list(any()),
         "waited" => [integer()]
       }
 
   """
-  @type query_summary() :: %{String.t() => any()}
+  @type query_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_query_input() :: %{
-        required("graphIdentifier") => String.t()
+        required("graphIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type cancel_query_input() :: %{String.t() => any()}
+  @type cancel_query_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -852,7 +852,7 @@ defmodule AWS.NeptuneGraph do
       }
 
   """
-  @type update_graph_input() :: %{String.t() => any()}
+  @type update_graph_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -861,12 +861,12 @@ defmodule AWS.NeptuneGraph do
       neptune_import_options() :: %{
         "preserveDefaultVertexLabels" => [boolean()],
         "preserveEdgeIds" => [boolean()],
-        "s3ExportKmsKeyId" => [String.t()],
-        "s3ExportPath" => [String.t()]
+        "s3ExportKmsKeyId" => [String.t() | Atom.t()],
+        "s3ExportPath" => [String.t() | Atom.t()]
       }
 
   """
-  @type neptune_import_options() :: %{String.t() => any()}
+  @type neptune_import_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -875,52 +875,52 @@ defmodule AWS.NeptuneGraph do
       import_task_details() :: %{
         "dictionaryEntryCount" => [float()],
         "errorCount" => [integer()],
-        "errorDetails" => [String.t()],
+        "errorDetails" => [String.t() | Atom.t()],
         "progressPercentage" => [integer()],
         "startTime" => [non_neg_integer()],
         "statementCount" => [float()],
-        "status" => [String.t()],
+        "status" => [String.t() | Atom.t()],
         "timeElapsedSeconds" => [float()]
       }
 
   """
-  @type import_task_details() :: %{String.t() => any()}
+  @type import_task_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_query_input() :: %{
-        required("graphIdentifier") => String.t()
+        required("graphIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type get_query_input() :: %{String.t() => any()}
+  @type get_query_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_graph_output() :: %{
-        "arn" => [String.t()],
-        "buildNumber" => [String.t()],
+        "arn" => [String.t() | Atom.t()],
+        "buildNumber" => [String.t() | Atom.t()],
         "createTime" => [non_neg_integer()],
         "deletionProtection" => [boolean()],
-        "endpoint" => [String.t()],
-        "id" => String.t(),
-        "kmsKeyIdentifier" => String.t(),
-        "name" => String.t(),
+        "endpoint" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t(),
+        "kmsKeyIdentifier" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "provisionedMemory" => integer(),
         "publicConnectivity" => [boolean()],
         "replicaCount" => integer(),
-        "sourceSnapshotId" => String.t(),
+        "sourceSnapshotId" => String.t() | Atom.t(),
         "status" => list(any()),
-        "statusReason" => [String.t()],
+        "statusReason" => [String.t() | Atom.t()],
         "vectorSearchConfiguration" => vector_search_configuration()
       }
 
   """
-  @type get_graph_output() :: %{String.t() => any()}
+  @type get_graph_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -936,11 +936,11 @@ defmodule AWS.NeptuneGraph do
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -956,11 +956,11 @@ defmodule AWS.NeptuneGraph do
   ## Example:
 
       untag_resource_input() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_input() :: %{String.t() => any()}
+  @type untag_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -968,11 +968,11 @@ defmodule AWS.NeptuneGraph do
 
       get_graph_summary_input() :: %{
         optional("mode") => list(any()),
-        required("graphIdentifier") => String.t()
+        required("graphIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type get_graph_summary_input() :: %{String.t() => any()}
+  @type get_graph_summary_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -983,7 +983,7 @@ defmodule AWS.NeptuneGraph do
       }
 
   """
-  @type reset_graph_input() :: %{String.t() => any()}
+  @type reset_graph_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -994,7 +994,7 @@ defmodule AWS.NeptuneGraph do
       }
 
   """
-  @type execute_query_output() :: %{String.t() => any()}
+  @type execute_query_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1011,17 +1011,17 @@ defmodule AWS.NeptuneGraph do
 
       start_import_task_output() :: %{
         "format" => list(any()),
-        "graphId" => String.t(),
+        "graphId" => String.t() | Atom.t(),
         "importOptions" => list(),
         "parquetType" => list(any()),
-        "roleArn" => String.t(),
-        "source" => [String.t()],
+        "roleArn" => String.t() | Atom.t(),
+        "source" => [String.t() | Atom.t()],
         "status" => list(any()),
-        "taskId" => String.t()
+        "taskId" => String.t() | Atom.t()
       }
 
   """
-  @type start_import_task_output() :: %{String.t() => any()}
+  @type start_import_task_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1029,12 +1029,12 @@ defmodule AWS.NeptuneGraph do
 
       create_graph_snapshot_input() :: %{
         optional("tags") => map(),
-        required("graphIdentifier") => String.t(),
-        required("snapshotName") => String.t()
+        required("graphIdentifier") => String.t() | Atom.t(),
+        required("snapshotName") => String.t() | Atom.t()
       }
 
   """
-  @type create_graph_snapshot_input() :: %{String.t() => any()}
+  @type create_graph_snapshot_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1042,12 +1042,12 @@ defmodule AWS.NeptuneGraph do
 
       node_structure() :: %{
         "count" => [float()],
-        "distinctOutgoingEdgeLabels" => list([String.t()]()),
-        "nodeProperties" => list([String.t()]())
+        "distinctOutgoingEdgeLabels" => list([String.t() | Atom.t()]()),
+        "nodeProperties" => list([String.t() | Atom.t()]())
       }
 
   """
-  @type node_structure() :: %{String.t() => any()}
+  @type node_structure() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1063,12 +1063,12 @@ defmodule AWS.NeptuneGraph do
   ## Example:
 
       validation_exception() :: %{
-        "message" => [String.t()],
+        "message" => [String.t() | Atom.t()],
         "reason" => list(any())
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1093,12 +1093,12 @@ defmodule AWS.NeptuneGraph do
   ## Example:
 
       list_import_tasks_output() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "tasks" => list(import_task_summary())
       }
 
   """
-  @type list_import_tasks_output() :: %{String.t() => any()}
+  @type list_import_tasks_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1107,22 +1107,22 @@ defmodule AWS.NeptuneGraph do
       get_graph_summary_output() :: %{
         "graphSummary" => graph_data_summary(),
         "lastStatisticsComputationTime" => [non_neg_integer()],
-        "version" => [String.t()]
+        "version" => [String.t() | Atom.t()]
       }
 
   """
-  @type get_graph_summary_output() :: %{String.t() => any()}
+  @type get_graph_summary_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1130,23 +1130,23 @@ defmodule AWS.NeptuneGraph do
 
       list_private_graph_endpoints_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_private_graph_endpoints_input() :: %{String.t() => any()}
+  @type list_private_graph_endpoints_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_private_graph_endpoints_output() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "privateGraphEndpoints" => list(private_graph_endpoint_summary())
       }
 
   """
-  @type list_private_graph_endpoints_output() :: %{String.t() => any()}
+  @type list_private_graph_endpoints_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1157,13 +1157,13 @@ defmodule AWS.NeptuneGraph do
         optional("parameters") => map(),
         optional("planCache") => list(any()),
         optional("queryTimeoutMilliseconds") => [integer()],
-        required("graphIdentifier") => String.t(),
+        required("graphIdentifier") => String.t() | Atom.t(),
         required("language") => list(any()),
-        required("queryString") => [String.t()]
+        required("queryString") => [String.t() | Atom.t()]
       }
 
   """
-  @type execute_query_input() :: %{String.t() => any()}
+  @type execute_query_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1180,76 +1180,76 @@ defmodule AWS.NeptuneGraph do
 
       private_graph_endpoint_summary() :: %{
         "status" => list(any()),
-        "subnetIds" => list(String.t()),
-        "vpcEndpointId" => String.t(),
-        "vpcId" => String.t()
+        "subnetIds" => list(String.t() | Atom.t()),
+        "vpcEndpointId" => String.t() | Atom.t(),
+        "vpcId" => String.t() | Atom.t()
       }
 
   """
-  @type private_graph_endpoint_summary() :: %{String.t() => any()}
+  @type private_graph_endpoint_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_graph_snapshot_output() :: %{
-        "arn" => [String.t()],
-        "id" => String.t(),
-        "kmsKeyIdentifier" => String.t(),
-        "name" => String.t(),
+        "arn" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t(),
+        "kmsKeyIdentifier" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "snapshotCreateTime" => [non_neg_integer()],
-        "sourceGraphId" => String.t(),
+        "sourceGraphId" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type get_graph_snapshot_output() :: %{String.t() => any()}
+  @type get_graph_snapshot_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       reset_graph_output() :: %{
-        "arn" => [String.t()],
-        "buildNumber" => [String.t()],
+        "arn" => [String.t() | Atom.t()],
+        "buildNumber" => [String.t() | Atom.t()],
         "createTime" => [non_neg_integer()],
         "deletionProtection" => [boolean()],
-        "endpoint" => [String.t()],
-        "id" => String.t(),
-        "kmsKeyIdentifier" => String.t(),
-        "name" => String.t(),
+        "endpoint" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t(),
+        "kmsKeyIdentifier" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "provisionedMemory" => integer(),
         "publicConnectivity" => [boolean()],
         "replicaCount" => integer(),
-        "sourceSnapshotId" => String.t(),
+        "sourceSnapshotId" => String.t() | Atom.t(),
         "status" => list(any()),
-        "statusReason" => [String.t()],
+        "statusReason" => [String.t() | Atom.t()],
         "vectorSearchConfiguration" => vector_search_configuration()
       }
 
   """
-  @type reset_graph_output() :: %{String.t() => any()}
+  @type reset_graph_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_export_task_output() :: %{
-        "destination" => [String.t()],
+        "destination" => [String.t() | Atom.t()],
         "exportFilter" => export_filter(),
         "exportTaskDetails" => export_task_details(),
         "format" => list(any()),
-        "graphId" => String.t(),
-        "kmsKeyIdentifier" => String.t(),
+        "graphId" => String.t() | Atom.t(),
+        "kmsKeyIdentifier" => String.t() | Atom.t(),
         "parquetType" => list(any()),
-        "roleArn" => String.t(),
+        "roleArn" => String.t() | Atom.t(),
         "status" => list(any()),
-        "statusReason" => [String.t()],
-        "taskId" => String.t()
+        "statusReason" => [String.t() | Atom.t()],
+        "taskId" => String.t() | Atom.t()
       }
 
   """
-  @type get_export_task_output() :: %{String.t() => any()}
+  @type get_export_task_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1257,11 +1257,11 @@ defmodule AWS.NeptuneGraph do
 
       list_import_tasks_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_import_tasks_input() :: %{String.t() => any()}
+  @type list_import_tasks_input() :: %{String.t() | Atom.t() => any()}
 
   @type cancel_export_task_errors() ::
           throttling_exception()
@@ -1493,7 +1493,7 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Cancel the specified export task.
   """
-  @spec cancel_export_task(map(), String.t(), cancel_export_task_input(), list()) ::
+  @spec cancel_export_task(map(), String.t() | Atom.t(), cancel_export_task_input(), list()) ::
           {:ok, cancel_export_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1522,7 +1522,7 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Deletes the specified import task.
   """
-  @spec cancel_import_task(map(), String.t(), cancel_import_task_input(), list()) ::
+  @spec cancel_import_task(map(), String.t() | Atom.t(), cancel_import_task_input(), list()) ::
           {:ok, cancel_import_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1551,7 +1551,7 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Cancels a specified query.
   """
-  @spec cancel_query(map(), String.t(), cancel_query_input(), list()) ::
+  @spec cancel_query(map(), String.t() | Atom.t(), cancel_query_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1687,7 +1687,7 @@ defmodule AWS.NeptuneGraph do
   """
   @spec create_private_graph_endpoint(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           create_private_graph_endpoint_input(),
           list()
         ) ::
@@ -1721,7 +1721,7 @@ defmodule AWS.NeptuneGraph do
 
   Graphs cannot be deleted if delete-protection is enabled.
   """
-  @spec delete_graph(map(), String.t(), delete_graph_input(), list()) ::
+  @spec delete_graph(map(), String.t() | Atom.t(), delete_graph_input(), list()) ::
           {:ok, delete_graph_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1755,7 +1755,7 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Deletes the specifed graph snapshot.
   """
-  @spec delete_graph_snapshot(map(), String.t(), delete_graph_snapshot_input(), list()) ::
+  @spec delete_graph_snapshot(map(), String.t() | Atom.t(), delete_graph_snapshot_input(), list()) ::
           {:ok, delete_graph_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1786,8 +1786,8 @@ defmodule AWS.NeptuneGraph do
   """
   @spec delete_private_graph_endpoint(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_private_graph_endpoint_input(),
           list()
         ) ::
@@ -1876,7 +1876,7 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Retrieves a specified export task.
   """
-  @spec get_export_task(map(), String.t(), list()) ::
+  @spec get_export_task(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_export_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1894,7 +1894,7 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Gets information about a specified graph.
   """
-  @spec get_graph(map(), String.t(), list()) ::
+  @spec get_graph(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_graph_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1912,7 +1912,7 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Retrieves a specified graph snapshot.
   """
-  @spec get_graph_snapshot(map(), String.t(), list()) ::
+  @spec get_graph_snapshot(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_graph_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1930,7 +1930,7 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Gets a graph summary for a property graph.
   """
-  @spec get_graph_summary(map(), String.t() | nil, String.t(), list()) ::
+  @spec get_graph_summary(map(), String.t() | Atom.t() | nil, String.t() | Atom.t(), list()) ::
           {:ok, get_graph_summary_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1963,7 +1963,7 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Retrieves a specified import task.
   """
-  @spec get_import_task(map(), String.t(), list()) ::
+  @spec get_import_task(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_import_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1981,7 +1981,7 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Retrieves information about a specified private endpoint.
   """
-  @spec get_private_graph_endpoint(map(), String.t(), String.t(), list()) ::
+  @spec get_private_graph_endpoint(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_private_graph_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2005,7 +2005,7 @@ defmodule AWS.NeptuneGraph do
   role making the request must have the
   `neptune-graph:GetQueryStatus` IAM action attached.
   """
-  @spec get_query(map(), String.t(), String.t(), list()) ::
+  @spec get_query(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2031,7 +2031,13 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Retrieves a list of export tasks.
   """
-  @spec list_export_tasks(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_export_tasks(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_export_tasks_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2076,7 +2082,13 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Lists available snapshots of a specified Neptune Analytics graph.
   """
-  @spec list_graph_snapshots(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_graph_snapshots(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_graph_snapshots_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2121,7 +2133,7 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Lists available Neptune Analytics graphs.
   """
-  @spec list_graphs(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_graphs(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_graphs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2153,7 +2165,7 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Lists import tasks.
   """
-  @spec list_import_tasks(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_import_tasks(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_import_tasks_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2187,9 +2199,9 @@ defmodule AWS.NeptuneGraph do
   """
   @spec list_private_graph_endpoints(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_private_graph_endpoints_output(), any()}
@@ -2229,7 +2241,13 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Lists active openCypher queries.
   """
-  @spec list_queries(map(), String.t(), String.t() | nil, String.t(), list()) ::
+  @spec list_queries(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, list_queries_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2269,7 +2287,7 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Lists tags associated with a specified resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2287,7 +2305,7 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Empties the data from a specified Neptune Analytics graph.
   """
-  @spec reset_graph(map(), String.t(), reset_graph_input(), list()) ::
+  @spec reset_graph(map(), String.t() | Atom.t(), reset_graph_input(), list()) ::
           {:ok, reset_graph_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2318,7 +2336,7 @@ defmodule AWS.NeptuneGraph do
   """
   @spec restore_graph_from_snapshot(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           restore_graph_from_snapshot_input(),
           list()
         ) ::
@@ -2384,7 +2402,7 @@ defmodule AWS.NeptuneGraph do
 
   The graph needs to be empty and in the AVAILABLE state.
   """
-  @spec start_import_task(map(), String.t(), start_import_task_input(), list()) ::
+  @spec start_import_task(map(), String.t() | Atom.t(), start_import_task_input(), list()) ::
           {:ok, start_import_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2413,7 +2431,7 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Adds tags to the specified resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2442,7 +2460,7 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Removes the specified tags from the specified resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2476,7 +2494,7 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Updates the configuration of a specified Neptune Analytics graph
   """
-  @spec update_graph(map(), String.t(), update_graph_input(), list()) ::
+  @spec update_graph(map(), String.t() | Atom.t(), update_graph_input(), list()) ::
           {:ok, update_graph_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

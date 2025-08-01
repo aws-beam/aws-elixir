@@ -27,15 +27,15 @@ defmodule AWS.Transfer do
       
       described_certificate() :: %{
         "ActiveDate" => non_neg_integer(),
-        "Arn" => String.t(),
-        "Certificate" => String.t(),
-        "CertificateChain" => String.t(),
-        "CertificateId" => String.t(),
-        "Description" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Certificate" => String.t() | Atom.t(),
+        "CertificateChain" => String.t() | Atom.t(),
+        "CertificateId" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
         "InactiveDate" => non_neg_integer(),
         "NotAfterDate" => non_neg_integer(),
         "NotBeforeDate" => non_neg_integer(),
-        "Serial" => String.t(),
+        "Serial" => String.t() | Atom.t(),
         "Status" => list(any()),
         "Tags" => list(tag()),
         "Type" => list(any()),
@@ -43,44 +43,44 @@ defmodule AWS.Transfer do
       }
       
   """
-  @type described_certificate() :: %{String.t() => any()}
+  @type described_certificate() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       workflow_detail() :: %{
-        "ExecutionRole" => String.t(),
-        "WorkflowId" => String.t()
+        "ExecutionRole" => String.t() | Atom.t(),
+        "WorkflowId" => String.t() | Atom.t()
       }
       
   """
-  @type workflow_detail() :: %{String.t() => any()}
+  @type workflow_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_security_policy_request() :: %{
-        required("SecurityPolicyName") => String.t()
+        required("SecurityPolicyName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_security_policy_request() :: %{String.t() => any()}
+  @type describe_security_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_workflow_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("OnExceptionSteps") => list(workflow_step()),
         optional("Tags") => list(tag()),
         required("Steps") => list(workflow_step())
       }
       
   """
-  @type create_workflow_request() :: %{String.t() => any()}
+  @type create_workflow_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -88,30 +88,30 @@ defmodule AWS.Transfer do
       
       update_certificate_request() :: %{
         optional("ActiveDate") => non_neg_integer(),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("InactiveDate") => non_neg_integer(),
-        required("CertificateId") => String.t()
+        required("CertificateId") => String.t() | Atom.t()
       }
       
   """
-  @type update_certificate_request() :: %{String.t() => any()}
+  @type update_certificate_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       described_access() :: %{
-        "ExternalId" => String.t(),
-        "HomeDirectory" => String.t(),
+        "ExternalId" => String.t() | Atom.t(),
+        "HomeDirectory" => String.t() | Atom.t(),
         "HomeDirectoryMappings" => list(home_directory_map_entry()),
         "HomeDirectoryType" => list(any()),
-        "Policy" => String.t(),
+        "Policy" => String.t() | Atom.t(),
         "PosixProfile" => posix_profile(),
-        "Role" => String.t()
+        "Role" => String.t() | Atom.t()
       }
       
   """
-  @type described_access() :: %{String.t() => any()}
+  @type described_access() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -119,113 +119,113 @@ defmodule AWS.Transfer do
       
       describe_access_response() :: %{
         "Access" => described_access(),
-        "ServerId" => String.t()
+        "ServerId" => String.t() | Atom.t()
       }
       
   """
-  @type describe_access_response() :: %{String.t() => any()}
+  @type describe_access_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("Arn") => String.t(),
+        required("Arn") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_agreement_request() :: %{
-        required("AgreementId") => String.t(),
-        required("ServerId") => String.t()
+        required("AgreementId") => String.t() | Atom.t(),
+        required("ServerId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_agreement_request() :: %{String.t() => any()}
+  @type describe_agreement_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_server_response() :: %{
-        "ServerId" => String.t()
+        "ServerId" => String.t() | Atom.t()
       }
       
   """
-  @type update_server_response() :: %{String.t() => any()}
+  @type update_server_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_profile_request() :: %{
-        required("ProfileId") => String.t()
+        required("ProfileId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_profile_request() :: %{String.t() => any()}
+  @type describe_profile_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_access_request() :: %{
-        required("ExternalId") => String.t(),
-        required("ServerId") => String.t()
+        required("ExternalId") => String.t() | Atom.t(),
+        required("ServerId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_access_request() :: %{String.t() => any()}
+  @type describe_access_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       described_web_app_customization() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "FaviconFile" => binary(),
         "LogoFile" => binary(),
-        "Title" => String.t(),
-        "WebAppId" => String.t()
+        "Title" => String.t() | Atom.t(),
+        "WebAppId" => String.t() | Atom.t()
       }
       
   """
-  @type described_web_app_customization() :: %{String.t() => any()}
+  @type described_web_app_customization() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_server_request() :: %{
-        required("ServerId") => String.t()
+        required("ServerId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_server_request() :: %{String.t() => any()}
+  @type describe_server_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       listed_server() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "Domain" => list(any()),
         "EndpointType" => list(any()),
         "IdentityProviderType" => list(any()),
-        "LoggingRole" => String.t(),
-        "ServerId" => String.t(),
+        "LoggingRole" => String.t() | Atom.t(),
+        "ServerId" => String.t() | Atom.t(),
         "State" => list(any()),
         "UserCount" => integer()
       }
       
   """
-  @type listed_server() :: %{String.t() => any()}
+  @type listed_server() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -233,37 +233,37 @@ defmodule AWS.Transfer do
       
       list_connectors_response() :: %{
         "Connectors" => list(listed_connector()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_connectors_response() :: %{String.t() => any()}
+  @type list_connectors_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_server_request() :: %{
-        optional("Certificate") => String.t(),
+        optional("Certificate") => String.t() | Atom.t(),
         optional("EndpointDetails") => endpoint_details(),
         optional("EndpointType") => list(any()),
-        optional("HostKey") => String.t(),
+        optional("HostKey") => String.t() | Atom.t(),
         optional("IdentityProviderDetails") => identity_provider_details(),
         optional("IpAddressType") => list(any()),
-        optional("LoggingRole") => String.t(),
-        optional("PostAuthenticationLoginBanner") => String.t(),
-        optional("PreAuthenticationLoginBanner") => String.t(),
+        optional("LoggingRole") => String.t() | Atom.t(),
+        optional("PostAuthenticationLoginBanner") => String.t() | Atom.t(),
+        optional("PreAuthenticationLoginBanner") => String.t() | Atom.t(),
         optional("ProtocolDetails") => protocol_details(),
         optional("Protocols") => list(list(any())()),
         optional("S3StorageOptions") => s3_storage_options(),
-        optional("SecurityPolicyName") => String.t(),
-        optional("StructuredLogDestinations") => list(String.t()),
+        optional("SecurityPolicyName") => String.t() | Atom.t(),
+        optional("StructuredLogDestinations") => list(String.t() | Atom.t()),
         optional("WorkflowDetails") => workflow_details(),
-        required("ServerId") => String.t()
+        required("ServerId") => String.t() | Atom.t()
       }
       
   """
-  @type update_server_request() :: %{String.t() => any()}
+  @type update_server_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -271,49 +271,49 @@ defmodule AWS.Transfer do
       
       test_identity_provider_request() :: %{
         optional("ServerProtocol") => list(any()),
-        optional("SourceIp") => String.t(),
-        optional("UserPassword") => String.t(),
-        required("ServerId") => String.t(),
-        required("UserName") => String.t()
+        optional("SourceIp") => String.t() | Atom.t(),
+        optional("UserPassword") => String.t() | Atom.t(),
+        required("ServerId") => String.t() | Atom.t(),
+        required("UserName") => String.t() | Atom.t()
       }
       
   """
-  @type test_identity_provider_request() :: %{String.t() => any()}
+  @type test_identity_provider_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_execution_request() :: %{
-        required("ExecutionId") => String.t(),
-        required("WorkflowId") => String.t()
+        required("ExecutionId") => String.t() | Atom.t(),
+        required("WorkflowId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_execution_request() :: %{String.t() => any()}
+  @type describe_execution_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_user_response() :: %{
-        "ServerId" => String.t(),
-        "UserName" => String.t()
+        "ServerId" => String.t() | Atom.t(),
+        "UserName" => String.t() | Atom.t()
       }
       
   """
-  @type update_user_response() :: %{String.t() => any()}
+  @type update_user_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_profile_request() :: %{
-        required("ProfileId") => String.t()
+        required("ProfileId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_profile_request() :: %{String.t() => any()}
+  @type delete_profile_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -325,7 +325,7 @@ defmodule AWS.Transfer do
       }
       
   """
-  @type workflow_details() :: %{String.t() => any()}
+  @type workflow_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -336,21 +336,21 @@ defmodule AWS.Transfer do
       }
       
   """
-  @type describe_workflow_response() :: %{String.t() => any()}
+  @type describe_workflow_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       listed_profile() :: %{
-        "Arn" => String.t(),
-        "As2Id" => String.t(),
-        "ProfileId" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "As2Id" => String.t() | Atom.t(),
+        "ProfileId" => String.t() | Atom.t(),
         "ProfileType" => list(any())
       }
       
   """
-  @type listed_profile() :: %{String.t() => any()}
+  @type listed_profile() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -359,74 +359,74 @@ defmodule AWS.Transfer do
       update_web_app_customization_request() :: %{
         optional("FaviconFile") => binary(),
         optional("LogoFile") => binary(),
-        optional("Title") => String.t(),
-        required("WebAppId") => String.t()
+        optional("Title") => String.t() | Atom.t(),
+        required("WebAppId") => String.t() | Atom.t()
       }
       
   """
-  @type update_web_app_customization_request() :: %{String.t() => any()}
+  @type update_web_app_customization_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       custom_directories_type() :: %{
-        "FailedFilesDirectory" => String.t(),
-        "MdnFilesDirectory" => String.t(),
-        "PayloadFilesDirectory" => String.t(),
-        "StatusFilesDirectory" => String.t(),
-        "TemporaryFilesDirectory" => String.t()
+        "FailedFilesDirectory" => String.t() | Atom.t(),
+        "MdnFilesDirectory" => String.t() | Atom.t(),
+        "PayloadFilesDirectory" => String.t() | Atom.t(),
+        "StatusFilesDirectory" => String.t() | Atom.t(),
+        "TemporaryFilesDirectory" => String.t() | Atom.t()
       }
       
   """
-  @type custom_directories_type() :: %{String.t() => any()}
+  @type custom_directories_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       identity_provider_details() :: %{
-        "DirectoryId" => String.t(),
-        "Function" => String.t(),
-        "InvocationRole" => String.t(),
+        "DirectoryId" => String.t() | Atom.t(),
+        "Function" => String.t() | Atom.t(),
+        "InvocationRole" => String.t() | Atom.t(),
         "SftpAuthenticationMethods" => list(any()),
-        "Url" => String.t()
+        "Url" => String.t() | Atom.t()
       }
       
   """
-  @type identity_provider_details() :: %{String.t() => any()}
+  @type identity_provider_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_workflow_request() :: %{
-        required("WorkflowId") => String.t()
+        required("WorkflowId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_workflow_request() :: %{String.t() => any()}
+  @type delete_workflow_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_agreement_request() :: %{
-        optional("BaseDirectory") => String.t(),
+        optional("BaseDirectory") => String.t() | Atom.t(),
         optional("CustomDirectories") => custom_directories_type(),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("EnforceMessageSigning") => list(any()),
         optional("PreserveFilename") => list(any()),
         optional("Status") => list(any()),
         optional("Tags") => list(tag()),
-        required("AccessRole") => String.t(),
-        required("LocalProfileId") => String.t(),
-        required("PartnerProfileId") => String.t(),
-        required("ServerId") => String.t()
+        required("AccessRole") => String.t() | Atom.t(),
+        required("LocalProfileId") => String.t() | Atom.t(),
+        required("PartnerProfileId") => String.t() | Atom.t(),
+        required("ServerId") => String.t() | Atom.t()
       }
       
   """
-  @type create_agreement_request() :: %{String.t() => any()}
+  @type create_agreement_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -434,12 +434,12 @@ defmodule AWS.Transfer do
       
       list_profiles_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("ProfileType") => list(any())
       }
       
   """
-  @type list_profiles_request() :: %{String.t() => any()}
+  @type list_profiles_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -450,7 +450,7 @@ defmodule AWS.Transfer do
       }
       
   """
-  @type describe_connector_response() :: %{String.t() => any()}
+  @type describe_connector_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -466,78 +466,78 @@ defmodule AWS.Transfer do
   ## Example:
       
       delete_step_details() :: %{
-        "Name" => String.t(),
-        "SourceFileLocation" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "SourceFileLocation" => String.t() | Atom.t()
       }
       
   """
-  @type delete_step_details() :: %{String.t() => any()}
+  @type delete_step_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoint_details() :: %{
-        "AddressAllocationIds" => list(String.t()),
-        "SecurityGroupIds" => list(String.t()),
-        "SubnetIds" => list(String.t()),
-        "VpcEndpointId" => String.t(),
-        "VpcId" => String.t()
+        "AddressAllocationIds" => list(String.t() | Atom.t()),
+        "SecurityGroupIds" => list(String.t() | Atom.t()),
+        "SubnetIds" => list(String.t() | Atom.t()),
+        "VpcEndpointId" => String.t() | Atom.t(),
+        "VpcId" => String.t() | Atom.t()
       }
       
   """
-  @type endpoint_details() :: %{String.t() => any()}
+  @type endpoint_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_connector_request() :: %{
-        optional("AccessRole") => String.t(),
+        optional("AccessRole") => String.t() | Atom.t(),
         optional("As2Config") => as2_connector_config(),
-        optional("LoggingRole") => String.t(),
-        optional("SecurityPolicyName") => String.t(),
+        optional("LoggingRole") => String.t() | Atom.t(),
+        optional("SecurityPolicyName") => String.t() | Atom.t(),
         optional("SftpConfig") => sftp_connector_config(),
-        optional("Url") => String.t(),
-        required("ConnectorId") => String.t()
+        optional("Url") => String.t() | Atom.t(),
+        required("ConnectorId") => String.t() | Atom.t()
       }
       
   """
-  @type update_connector_request() :: %{String.t() => any()}
+  @type update_connector_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_remote_delete_response() :: %{
-        "DeleteId" => String.t()
+        "DeleteId" => String.t() | Atom.t()
       }
       
   """
-  @type start_remote_delete_response() :: %{String.t() => any()}
+  @type start_remote_delete_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_web_app_customization_request() :: %{
-        required("WebAppId") => String.t()
+        required("WebAppId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_web_app_customization_request() :: %{String.t() => any()}
+  @type describe_web_app_customization_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_access_response() :: %{
-        "ExternalId" => String.t(),
-        "ServerId" => String.t()
+        "ExternalId" => String.t() | Atom.t(),
+        "ServerId" => String.t() | Atom.t()
       }
       
   """
-  @type create_access_response() :: %{String.t() => any()}
+  @type create_access_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -548,7 +548,7 @@ defmodule AWS.Transfer do
       }
       
   """
-  @type describe_agreement_response() :: %{String.t() => any()}
+  @type describe_agreement_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -556,34 +556,34 @@ defmodule AWS.Transfer do
       
       list_servers_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_servers_request() :: %{String.t() => any()}
+  @type list_servers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       execution_error() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "Type" => list(any())
       }
       
   """
-  @type execution_error() :: %{String.t() => any()}
+  @type execution_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_agreement_response() :: %{
-        "AgreementId" => String.t()
+        "AgreementId" => String.t() | Atom.t()
       }
       
   """
-  @type update_agreement_response() :: %{String.t() => any()}
+  @type update_agreement_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -594,45 +594,45 @@ defmodule AWS.Transfer do
       }
       
   """
-  @type service_metadata() :: %{String.t() => any()}
+  @type service_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       user_details() :: %{
-        "ServerId" => String.t(),
-        "SessionId" => String.t(),
-        "UserName" => String.t()
+        "ServerId" => String.t() | Atom.t(),
+        "SessionId" => String.t() | Atom.t(),
+        "UserName" => String.t() | Atom.t()
       }
       
   """
-  @type user_details() :: %{String.t() => any()}
+  @type user_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       connector_file_transfer_result() :: %{
-        "FailureCode" => String.t(),
-        "FailureMessage" => String.t(),
-        "FilePath" => String.t(),
+        "FailureCode" => String.t() | Atom.t(),
+        "FailureMessage" => String.t() | Atom.t(),
+        "FilePath" => String.t() | Atom.t(),
         "StatusCode" => list(any())
       }
       
   """
-  @type connector_file_transfer_result() :: %{String.t() => any()}
+  @type connector_file_transfer_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_web_app_response() :: %{
-        "WebAppId" => String.t()
+        "WebAppId" => String.t() | Atom.t()
       }
       
   """
-  @type create_web_app_response() :: %{String.t() => any()}
+  @type create_web_app_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -640,11 +640,11 @@ defmodule AWS.Transfer do
       
       describe_execution_response() :: %{
         "Execution" => described_execution(),
-        "WorkflowId" => String.t()
+        "WorkflowId" => String.t() | Atom.t()
       }
       
   """
-  @type describe_execution_response() :: %{String.t() => any()}
+  @type describe_execution_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -657,29 +657,29 @@ defmodule AWS.Transfer do
       }
       
   """
-  @type posix_profile() :: %{String.t() => any()}
+  @type posix_profile() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       import_certificate_response() :: %{
-        "CertificateId" => String.t()
+        "CertificateId" => String.t() | Atom.t()
       }
       
   """
-  @type import_certificate_response() :: %{String.t() => any()}
+  @type import_certificate_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_server_request() :: %{
-        required("ServerId") => String.t()
+        required("ServerId") => String.t() | Atom.t()
       }
       
   """
-  @type start_server_request() :: %{String.t() => any()}
+  @type start_server_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -687,11 +687,11 @@ defmodule AWS.Transfer do
       
       list_connectors_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_connectors_request() :: %{String.t() => any()}
+  @type list_connectors_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -702,30 +702,30 @@ defmodule AWS.Transfer do
       }
       
   """
-  @type describe_server_response() :: %{String.t() => any()}
+  @type describe_server_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       sftp_connector_connection_details() :: %{
-        "HostKey" => String.t()
+        "HostKey" => String.t() | Atom.t()
       }
       
   """
-  @type sftp_connector_connection_details() :: %{String.t() => any()}
+  @type sftp_connector_connection_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("Arn") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("Arn") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -733,105 +733,105 @@ defmodule AWS.Transfer do
       
       list_certificates_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_certificates_request() :: %{String.t() => any()}
+  @type list_certificates_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_agreement_request() :: %{
-        required("AgreementId") => String.t(),
-        required("ServerId") => String.t()
+        required("AgreementId") => String.t() | Atom.t(),
+        required("ServerId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_agreement_request() :: %{String.t() => any()}
+  @type delete_agreement_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_workflow_request() :: %{
-        required("WorkflowId") => String.t()
+        required("WorkflowId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_workflow_request() :: %{String.t() => any()}
+  @type describe_workflow_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_access_request() :: %{
-        optional("HomeDirectory") => String.t(),
+        optional("HomeDirectory") => String.t() | Atom.t(),
         optional("HomeDirectoryMappings") => list(home_directory_map_entry()),
         optional("HomeDirectoryType") => list(any()),
-        optional("Policy") => String.t(),
+        optional("Policy") => String.t() | Atom.t(),
         optional("PosixProfile") => posix_profile(),
-        optional("Role") => String.t(),
-        required("ExternalId") => String.t(),
-        required("ServerId") => String.t()
+        optional("Role") => String.t() | Atom.t(),
+        required("ExternalId") => String.t() | Atom.t(),
+        required("ServerId") => String.t() | Atom.t()
       }
       
   """
-  @type update_access_request() :: %{String.t() => any()}
+  @type update_access_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_server_request() :: %{
-        optional("Certificate") => String.t(),
+        optional("Certificate") => String.t() | Atom.t(),
         optional("Domain") => list(any()),
         optional("EndpointDetails") => endpoint_details(),
         optional("EndpointType") => list(any()),
-        optional("HostKey") => String.t(),
+        optional("HostKey") => String.t() | Atom.t(),
         optional("IdentityProviderDetails") => identity_provider_details(),
         optional("IdentityProviderType") => list(any()),
         optional("IpAddressType") => list(any()),
-        optional("LoggingRole") => String.t(),
-        optional("PostAuthenticationLoginBanner") => String.t(),
-        optional("PreAuthenticationLoginBanner") => String.t(),
+        optional("LoggingRole") => String.t() | Atom.t(),
+        optional("PostAuthenticationLoginBanner") => String.t() | Atom.t(),
+        optional("PreAuthenticationLoginBanner") => String.t() | Atom.t(),
         optional("ProtocolDetails") => protocol_details(),
         optional("Protocols") => list(list(any())()),
         optional("S3StorageOptions") => s3_storage_options(),
-        optional("SecurityPolicyName") => String.t(),
-        optional("StructuredLogDestinations") => list(String.t()),
+        optional("SecurityPolicyName") => String.t() | Atom.t(),
+        optional("StructuredLogDestinations") => list(String.t() | Atom.t()),
         optional("Tags") => list(tag()),
         optional("WorkflowDetails") => workflow_details()
       }
       
   """
-  @type create_server_request() :: %{String.t() => any()}
+  @type create_server_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       logging_configuration() :: %{
-        "LogGroupName" => String.t(),
-        "LoggingRole" => String.t()
+        "LogGroupName" => String.t() | Atom.t(),
+        "LoggingRole" => String.t() | Atom.t()
       }
       
   """
-  @type logging_configuration() :: %{String.t() => any()}
+  @type logging_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       import_ssh_public_key_response() :: %{
-        "ServerId" => String.t(),
-        "SshPublicKeyId" => String.t(),
-        "UserName" => String.t()
+        "ServerId" => String.t() | Atom.t(),
+        "SshPublicKeyId" => String.t() | Atom.t(),
+        "UserName" => String.t() | Atom.t()
       }
       
   """
-  @type import_ssh_public_key_response() :: %{String.t() => any()}
+  @type import_ssh_public_key_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -842,7 +842,7 @@ defmodule AWS.Transfer do
       }
       
   """
-  @type describe_web_app_customization_response() :: %{String.t() => any()}
+  @type describe_web_app_customization_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -851,24 +851,24 @@ defmodule AWS.Transfer do
       described_security_policy() :: %{
         "Fips" => boolean(),
         "Protocols" => list(list(any())()),
-        "SecurityPolicyName" => String.t(),
-        "SshCiphers" => list(String.t()),
-        "SshHostKeyAlgorithms" => list(String.t()),
-        "SshKexs" => list(String.t()),
-        "SshMacs" => list(String.t()),
-        "TlsCiphers" => list(String.t()),
+        "SecurityPolicyName" => String.t() | Atom.t(),
+        "SshCiphers" => list(String.t() | Atom.t()),
+        "SshHostKeyAlgorithms" => list(String.t() | Atom.t()),
+        "SshKexs" => list(String.t() | Atom.t()),
+        "SshMacs" => list(String.t() | Atom.t()),
+        "TlsCiphers" => list(String.t() | Atom.t()),
         "Type" => list(any())
       }
       
   """
-  @type described_security_policy() :: %{String.t() => any()}
+  @type described_security_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_web_app_request() :: %{
-        optional("AccessEndpoint") => String.t(),
+        optional("AccessEndpoint") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
         optional("WebAppEndpointPolicy") => list(any()),
         optional("WebAppUnits") => list(),
@@ -876,74 +876,74 @@ defmodule AWS.Transfer do
       }
       
   """
-  @type create_web_app_request() :: %{String.t() => any()}
+  @type create_web_app_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       listed_user() :: %{
-        "Arn" => String.t(),
-        "HomeDirectory" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "HomeDirectory" => String.t() | Atom.t(),
         "HomeDirectoryType" => list(any()),
-        "Role" => String.t(),
+        "Role" => String.t() | Atom.t(),
         "SshPublicKeyCount" => integer(),
-        "UserName" => String.t()
+        "UserName" => String.t() | Atom.t()
       }
       
   """
-  @type listed_user() :: %{String.t() => any()}
+  @type listed_user() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_host_key_response() :: %{
-        "HostKeyId" => String.t(),
-        "ServerId" => String.t()
+        "HostKeyId" => String.t() | Atom.t(),
+        "ServerId" => String.t() | Atom.t()
       }
       
   """
-  @type update_host_key_response() :: %{String.t() => any()}
+  @type update_host_key_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cfn_user_properties() :: %{
-        "SshPublicKeys" => list(String.t())
+        "SshPublicKeys" => list(String.t() | Atom.t())
       }
       
   """
-  @type cfn_user_properties() :: %{String.t() => any()}
+  @type cfn_user_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       custom_step_details() :: %{
-        "Name" => String.t(),
-        "SourceFileLocation" => String.t(),
-        "Target" => String.t(),
+        "Name" => String.t() | Atom.t(),
+        "SourceFileLocation" => String.t() | Atom.t(),
+        "Target" => String.t() | Atom.t(),
         "TimeoutSeconds" => integer()
       }
       
   """
-  @type custom_step_details() :: %{String.t() => any()}
+  @type custom_step_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_profile_request() :: %{
-        optional("CertificateIds") => list(String.t()),
+        optional("CertificateIds") => list(String.t() | Atom.t()),
         optional("Tags") => list(tag()),
-        required("As2Id") => String.t(),
+        required("As2Id") => String.t() | Atom.t(),
         required("ProfileType") => list(any())
       }
       
   """
-  @type create_profile_request() :: %{String.t() => any()}
+  @type create_profile_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -951,33 +951,33 @@ defmodule AWS.Transfer do
       
       list_file_transfer_results_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ConnectorId") => String.t(),
-        required("TransferId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ConnectorId") => String.t() | Atom.t(),
+        required("TransferId") => String.t() | Atom.t()
       }
       
   """
-  @type list_file_transfer_results_request() :: %{String.t() => any()}
+  @type list_file_transfer_results_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       described_user() :: %{
-        "Arn" => String.t(),
-        "HomeDirectory" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "HomeDirectory" => String.t() | Atom.t(),
         "HomeDirectoryMappings" => list(home_directory_map_entry()),
         "HomeDirectoryType" => list(any()),
-        "Policy" => String.t(),
+        "Policy" => String.t() | Atom.t(),
         "PosixProfile" => posix_profile(),
-        "Role" => String.t(),
+        "Role" => String.t() | Atom.t(),
         "SshPublicKeys" => list(ssh_public_key()),
         "Tags" => list(tag()),
-        "UserName" => String.t()
+        "UserName" => String.t() | Atom.t()
       }
       
   """
-  @type described_user() :: %{String.t() => any()}
+  @type described_user() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -985,99 +985,99 @@ defmodule AWS.Transfer do
       
       list_accesses_response() :: %{
         "Accesses" => list(listed_access()),
-        "NextToken" => String.t(),
-        "ServerId" => String.t()
+        "NextToken" => String.t() | Atom.t(),
+        "ServerId" => String.t() | Atom.t()
       }
       
   """
-  @type list_accesses_response() :: %{String.t() => any()}
+  @type list_accesses_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       as2_connector_config() :: %{
-        "BasicAuthSecretId" => String.t(),
+        "BasicAuthSecretId" => String.t() | Atom.t(),
         "Compression" => list(any()),
         "EncryptionAlgorithm" => list(any()),
-        "LocalProfileId" => String.t(),
+        "LocalProfileId" => String.t() | Atom.t(),
         "MdnResponse" => list(any()),
         "MdnSigningAlgorithm" => list(any()),
-        "MessageSubject" => String.t(),
-        "PartnerProfileId" => String.t(),
+        "MessageSubject" => String.t() | Atom.t(),
+        "PartnerProfileId" => String.t() | Atom.t(),
         "PreserveContentType" => list(any()),
         "SigningAlgorithm" => list(any())
       }
       
   """
-  @type as2_connector_config() :: %{String.t() => any()}
+  @type as2_connector_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       described_host_key() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "DateImported" => non_neg_integer(),
-        "Description" => String.t(),
-        "HostKeyFingerprint" => String.t(),
-        "HostKeyId" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "HostKeyFingerprint" => String.t() | Atom.t(),
+        "HostKeyId" => String.t() | Atom.t(),
         "Tags" => list(tag()),
-        "Type" => String.t()
+        "Type" => String.t() | Atom.t()
       }
       
   """
-  @type described_host_key() :: %{String.t() => any()}
+  @type described_host_key() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t(),
-        "Resource" => String.t(),
-        "ResourceType" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "Resource" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       listed_access() :: %{
-        "ExternalId" => String.t(),
-        "HomeDirectory" => String.t(),
+        "ExternalId" => String.t() | Atom.t(),
+        "HomeDirectory" => String.t() | Atom.t(),
         "HomeDirectoryType" => list(any()),
-        "Role" => String.t()
+        "Role" => String.t() | Atom.t()
       }
       
   """
-  @type listed_access() :: %{String.t() => any()}
+  @type listed_access() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_profile_request() :: %{
-        optional("CertificateIds") => list(String.t()),
-        required("ProfileId") => String.t()
+        optional("CertificateIds") => list(String.t() | Atom.t()),
+        required("ProfileId") => String.t() | Atom.t()
       }
       
   """
-  @type update_profile_request() :: %{String.t() => any()}
+  @type update_profile_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1085,178 +1085,178 @@ defmodule AWS.Transfer do
       
       list_executions_response() :: %{
         "Executions" => list(listed_execution()),
-        "NextToken" => String.t(),
-        "WorkflowId" => String.t()
+        "NextToken" => String.t() | Atom.t(),
+        "WorkflowId" => String.t() | Atom.t()
       }
       
   """
-  @type list_executions_response() :: %{String.t() => any()}
+  @type list_executions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       import_host_key_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("HostKeyBody") => String.t(),
-        required("ServerId") => String.t()
+        required("HostKeyBody") => String.t() | Atom.t(),
+        required("ServerId") => String.t() | Atom.t()
       }
       
   """
-  @type import_host_key_request() :: %{String.t() => any()}
+  @type import_host_key_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_host_key_request() :: %{
-        required("HostKeyId") => String.t(),
-        required("ServerId") => String.t()
+        required("HostKeyId") => String.t() | Atom.t(),
+        required("ServerId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_host_key_request() :: %{String.t() => any()}
+  @type describe_host_key_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_server_response() :: %{
-        "ServerId" => String.t()
+        "ServerId" => String.t() | Atom.t()
       }
       
   """
-  @type create_server_response() :: %{String.t() => any()}
+  @type create_server_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_input_file_location() :: %{
-        "Bucket" => String.t(),
-        "Key" => String.t()
+        "Bucket" => String.t() | Atom.t(),
+        "Key" => String.t() | Atom.t()
       }
       
   """
-  @type s3_input_file_location() :: %{String.t() => any()}
+  @type s3_input_file_location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_request_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_request_exception() :: %{String.t() => any()}
+  @type invalid_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_remote_delete_request() :: %{
-        required("ConnectorId") => String.t(),
-        required("DeletePath") => String.t()
+        required("ConnectorId") => String.t() | Atom.t(),
+        required("DeletePath") => String.t() | Atom.t()
       }
       
   """
-  @type start_remote_delete_request() :: %{String.t() => any()}
+  @type start_remote_delete_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_file_transfer_response() :: %{
-        "TransferId" => String.t()
+        "TransferId" => String.t() | Atom.t()
       }
       
   """
-  @type start_file_transfer_response() :: %{String.t() => any()}
+  @type start_file_transfer_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_next_token_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_next_token_exception() :: %{String.t() => any()}
+  @type invalid_next_token_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_certificate_request() :: %{
-        required("CertificateId") => String.t()
+        required("CertificateId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_certificate_request() :: %{String.t() => any()}
+  @type describe_certificate_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_profile_response() :: %{
-        "ProfileId" => String.t()
+        "ProfileId" => String.t() | Atom.t()
       }
       
   """
-  @type create_profile_response() :: %{String.t() => any()}
+  @type create_profile_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       listed_connector() :: %{
-        "Arn" => String.t(),
-        "ConnectorId" => String.t(),
-        "Url" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "ConnectorId" => String.t() | Atom.t(),
+        "Url" => String.t() | Atom.t()
       }
       
   """
-  @type listed_connector() :: %{String.t() => any()}
+  @type listed_connector() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_users_response() :: %{
-        "NextToken" => String.t(),
-        "ServerId" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
+        "ServerId" => String.t() | Atom.t(),
         "Users" => list(listed_user())
       }
       
   """
-  @type list_users_response() :: %{String.t() => any()}
+  @type list_users_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_access_request() :: %{
-        required("ExternalId") => String.t(),
-        required("ServerId") => String.t()
+        required("ExternalId") => String.t() | Atom.t(),
+        required("ServerId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_access_request() :: %{String.t() => any()}
+  @type delete_access_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1264,11 +1264,11 @@ defmodule AWS.Transfer do
       
       list_workflows_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_workflows_request() :: %{String.t() => any()}
+  @type list_workflows_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1279,33 +1279,33 @@ defmodule AWS.Transfer do
       }
       
   """
-  @type describe_web_app_response() :: %{String.t() => any()}
+  @type describe_web_app_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_access_request() :: %{
-        optional("HomeDirectory") => String.t(),
+        optional("HomeDirectory") => String.t() | Atom.t(),
         optional("HomeDirectoryMappings") => list(home_directory_map_entry()),
         optional("HomeDirectoryType") => list(any()),
-        optional("Policy") => String.t(),
+        optional("Policy") => String.t() | Atom.t(),
         optional("PosixProfile") => posix_profile(),
-        required("ExternalId") => String.t(),
-        required("Role") => String.t(),
-        required("ServerId") => String.t()
+        required("ExternalId") => String.t() | Atom.t(),
+        required("Role") => String.t() | Atom.t(),
+        required("ServerId") => String.t() | Atom.t()
       }
       
   """
-  @type create_access_request() :: %{String.t() => any()}
+  @type create_access_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       described_execution() :: %{
-        "ExecutionId" => String.t(),
-        "ExecutionRole" => String.t(),
+        "ExecutionId" => String.t() | Atom.t(),
+        "ExecutionRole" => String.t() | Atom.t(),
         "InitialFileLocation" => file_location(),
         "LoggingConfiguration" => logging_configuration(),
         "PosixProfile" => posix_profile(),
@@ -1315,31 +1315,31 @@ defmodule AWS.Transfer do
       }
       
   """
-  @type described_execution() :: %{String.t() => any()}
+  @type described_execution() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_connector_response() :: %{
-        "ConnectorId" => String.t()
+        "ConnectorId" => String.t() | Atom.t()
       }
       
   """
-  @type create_connector_response() :: %{String.t() => any()}
+  @type create_connector_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "Arn" => String.t(),
-        "NextToken" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Tags" => list(tag())
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1350,7 +1350,7 @@ defmodule AWS.Transfer do
       }
       
   """
-  @type describe_security_policy_response() :: %{String.t() => any()}
+  @type describe_security_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1366,32 +1366,32 @@ defmodule AWS.Transfer do
       }
       
   """
-  @type workflow_step() :: %{String.t() => any()}
+  @type workflow_step() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       listed_web_app() :: %{
-        "AccessEndpoint" => String.t(),
-        "Arn" => String.t(),
-        "WebAppEndpoint" => String.t(),
-        "WebAppId" => String.t()
+        "AccessEndpoint" => String.t() | Atom.t(),
+        "Arn" => String.t() | Atom.t(),
+        "WebAppEndpoint" => String.t() | Atom.t(),
+        "WebAppId" => String.t() | Atom.t()
       }
       
   """
-  @type listed_web_app() :: %{String.t() => any()}
+  @type listed_web_app() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       service_unavailable_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type service_unavailable_exception() :: %{String.t() => any()}
+  @type service_unavailable_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1399,125 +1399,125 @@ defmodule AWS.Transfer do
       
       list_file_transfer_results_response() :: %{
         "FileTransferResults" => list(connector_file_transfer_result()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_file_transfer_results_response() :: %{String.t() => any()}
+  @type list_file_transfer_results_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_step_details() :: %{
-        "Name" => String.t(),
-        "SourceFileLocation" => String.t(),
+        "Name" => String.t() | Atom.t(),
+        "SourceFileLocation" => String.t() | Atom.t(),
         "Tags" => list(s3_tag())
       }
       
   """
-  @type tag_step_details() :: %{String.t() => any()}
+  @type tag_step_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_web_app_request() :: %{
-        required("WebAppId") => String.t()
+        required("WebAppId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_web_app_request() :: %{String.t() => any()}
+  @type describe_web_app_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_agreement_response() :: %{
-        "AgreementId" => String.t()
+        "AgreementId" => String.t() | Atom.t()
       }
       
   """
-  @type create_agreement_response() :: %{String.t() => any()}
+  @type create_agreement_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_web_app_customization_request() :: %{
-        required("WebAppId") => String.t()
+        required("WebAppId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_web_app_customization_request() :: %{String.t() => any()}
+  @type delete_web_app_customization_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       described_identity_center_config() :: %{
-        "ApplicationArn" => String.t(),
-        "InstanceArn" => String.t(),
-        "Role" => String.t()
+        "ApplicationArn" => String.t() | Atom.t(),
+        "InstanceArn" => String.t() | Atom.t(),
+        "Role" => String.t() | Atom.t()
       }
       
   """
-  @type described_identity_center_config() :: %{String.t() => any()}
+  @type described_identity_center_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_web_app_identity_center_config() :: %{
-        "Role" => String.t()
+        "Role" => String.t() | Atom.t()
       }
       
   """
-  @type update_web_app_identity_center_config() :: %{String.t() => any()}
+  @type update_web_app_identity_center_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_connector_request() :: %{
-        required("ConnectorId") => String.t()
+        required("ConnectorId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_connector_request() :: %{String.t() => any()}
+  @type describe_connector_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       described_server() :: %{
-        "Arn" => String.t(),
-        "As2ServiceManagedEgressIpAddresses" => list(String.t()),
-        "Certificate" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "As2ServiceManagedEgressIpAddresses" => list(String.t() | Atom.t()),
+        "Certificate" => String.t() | Atom.t(),
         "Domain" => list(any()),
         "EndpointDetails" => endpoint_details(),
         "EndpointType" => list(any()),
-        "HostKeyFingerprint" => String.t(),
+        "HostKeyFingerprint" => String.t() | Atom.t(),
         "IdentityProviderDetails" => identity_provider_details(),
         "IdentityProviderType" => list(any()),
         "IpAddressType" => list(any()),
-        "LoggingRole" => String.t(),
-        "PostAuthenticationLoginBanner" => String.t(),
-        "PreAuthenticationLoginBanner" => String.t(),
+        "LoggingRole" => String.t() | Atom.t(),
+        "PostAuthenticationLoginBanner" => String.t() | Atom.t(),
+        "PreAuthenticationLoginBanner" => String.t() | Atom.t(),
         "ProtocolDetails" => protocol_details(),
         "Protocols" => list(list(any())()),
         "S3StorageOptions" => s3_storage_options(),
-        "SecurityPolicyName" => String.t(),
-        "ServerId" => String.t(),
+        "SecurityPolicyName" => String.t() | Atom.t(),
+        "ServerId" => String.t() | Atom.t(),
         "State" => list(any()),
-        "StructuredLogDestinations" => list(String.t()),
+        "StructuredLogDestinations" => list(String.t() | Atom.t()),
         "Tags" => list(tag()),
         "UserCount" => integer(),
         "WorkflowDetails" => workflow_details()
       }
       
   """
-  @type described_server() :: %{String.t() => any()}
+  @type described_server() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1525,88 +1525,88 @@ defmodule AWS.Transfer do
       
       list_agreements_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ServerId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ServerId") => String.t() | Atom.t()
       }
       
   """
-  @type list_agreements_request() :: %{String.t() => any()}
+  @type list_agreements_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_user_request() :: %{
-        required("ServerId") => String.t(),
-        required("UserName") => String.t()
+        required("ServerId") => String.t() | Atom.t(),
+        required("UserName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_user_request() :: %{String.t() => any()}
+  @type delete_user_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       described_profile() :: %{
-        "Arn" => String.t(),
-        "As2Id" => String.t(),
-        "CertificateIds" => list(String.t()),
-        "ProfileId" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "As2Id" => String.t() | Atom.t(),
+        "CertificateIds" => list(String.t() | Atom.t()),
+        "ProfileId" => String.t() | Atom.t(),
         "ProfileType" => list(any()),
         "Tags" => list(tag())
       }
       
   """
-  @type described_profile() :: %{String.t() => any()}
+  @type described_profile() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_server_request() :: %{
-        required("ServerId") => String.t()
+        required("ServerId") => String.t() | Atom.t()
       }
       
   """
-  @type stop_server_request() :: %{String.t() => any()}
+  @type stop_server_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_host_key_request() :: %{
-        required("HostKeyId") => String.t(),
-        required("ServerId") => String.t()
+        required("HostKeyId") => String.t() | Atom.t(),
+        required("ServerId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_host_key_request() :: %{String.t() => any()}
+  @type delete_host_key_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       test_identity_provider_response() :: %{
-        "Message" => String.t(),
-        "Response" => String.t(),
+        "Message" => String.t() | Atom.t(),
+        "Response" => String.t() | Atom.t(),
         "StatusCode" => integer(),
-        "Url" => String.t()
+        "Url" => String.t() | Atom.t()
       }
       
   """
-  @type test_identity_provider_response() :: %{String.t() => any()}
+  @type test_identity_provider_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_web_app_request() :: %{
-        required("WebAppId") => String.t()
+        required("WebAppId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_web_app_request() :: %{String.t() => any()}
+  @type delete_web_app_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1618,73 +1618,73 @@ defmodule AWS.Transfer do
       }
       
   """
-  @type file_location() :: %{String.t() => any()}
+  @type file_location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       listed_execution() :: %{
-        "ExecutionId" => String.t(),
+        "ExecutionId" => String.t() | Atom.t(),
         "InitialFileLocation" => file_location(),
         "ServiceMetadata" => service_metadata(),
         "Status" => list(any())
       }
       
   """
-  @type listed_execution() :: %{String.t() => any()}
+  @type listed_execution() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       send_workflow_step_state_request() :: %{
-        required("ExecutionId") => String.t(),
+        required("ExecutionId") => String.t() | Atom.t(),
         required("Status") => list(any()),
-        required("Token") => String.t(),
-        required("WorkflowId") => String.t()
+        required("Token") => String.t() | Atom.t(),
+        required("WorkflowId") => String.t() | Atom.t()
       }
       
   """
-  @type send_workflow_step_state_request() :: %{String.t() => any()}
+  @type send_workflow_step_state_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       import_host_key_response() :: %{
-        "HostKeyId" => String.t(),
-        "ServerId" => String.t()
+        "HostKeyId" => String.t() | Atom.t(),
+        "ServerId" => String.t() | Atom.t()
       }
       
   """
-  @type import_host_key_response() :: %{String.t() => any()}
+  @type import_host_key_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       test_connection_response() :: %{
-        "ConnectorId" => String.t(),
+        "ConnectorId" => String.t() | Atom.t(),
         "SftpConnectionDetails" => sftp_connector_connection_details(),
-        "Status" => String.t(),
-        "StatusMessage" => String.t()
+        "Status" => String.t() | Atom.t(),
+        "StatusMessage" => String.t() | Atom.t()
       }
       
   """
-  @type test_connection_response() :: %{String.t() => any()}
+  @type test_connection_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_user_response() :: %{
-        "ServerId" => String.t(),
+        "ServerId" => String.t() | Atom.t(),
         "User" => described_user()
       }
       
   """
-  @type describe_user_response() :: %{String.t() => any()}
+  @type describe_user_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1696,34 +1696,34 @@ defmodule AWS.Transfer do
       }
       
   """
-  @type input_file_location() :: %{String.t() => any()}
+  @type input_file_location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_web_app_request() :: %{
-        optional("AccessEndpoint") => String.t(),
+        optional("AccessEndpoint") => String.t() | Atom.t(),
         optional("IdentityProviderDetails") => list(),
         optional("WebAppUnits") => list(),
-        required("WebAppId") => String.t()
+        required("WebAppId") => String.t() | Atom.t()
       }
       
   """
-  @type update_web_app_request() :: %{String.t() => any()}
+  @type update_web_app_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       import_ssh_public_key_request() :: %{
-        required("ServerId") => String.t(),
-        required("SshPublicKeyBody") => String.t(),
-        required("UserName") => String.t()
+        required("ServerId") => String.t() | Atom.t(),
+        required("SshPublicKeyBody") => String.t() | Atom.t(),
+        required("UserName") => String.t() | Atom.t()
       }
       
   """
-  @type import_ssh_public_key_request() :: %{String.t() => any()}
+  @type import_ssh_public_key_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1731,55 +1731,55 @@ defmodule AWS.Transfer do
       
       decrypt_step_details() :: %{
         "DestinationFileLocation" => input_file_location(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "OverwriteExisting" => list(any()),
-        "SourceFileLocation" => String.t(),
+        "SourceFileLocation" => String.t() | Atom.t(),
         "Type" => list(any())
       }
       
   """
-  @type decrypt_step_details() :: %{String.t() => any()}
+  @type decrypt_step_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       identity_center_config() :: %{
-        "InstanceArn" => String.t(),
-        "Role" => String.t()
+        "InstanceArn" => String.t() | Atom.t(),
+        "Role" => String.t() | Atom.t()
       }
       
   """
-  @type identity_center_config() :: %{String.t() => any()}
+  @type identity_center_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_exists_exception() :: %{
-        "Message" => String.t(),
-        "Resource" => String.t(),
-        "ResourceType" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "Resource" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t()
       }
       
   """
-  @type resource_exists_exception() :: %{String.t() => any()}
+  @type resource_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       listed_host_key() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "DateImported" => non_neg_integer(),
-        "Description" => String.t(),
-        "Fingerprint" => String.t(),
-        "HostKeyId" => String.t(),
-        "Type" => String.t()
+        "Description" => String.t() | Atom.t(),
+        "Fingerprint" => String.t() | Atom.t(),
+        "HostKeyId" => String.t() | Atom.t(),
+        "Type" => String.t() | Atom.t()
       }
       
   """
-  @type listed_host_key() :: %{String.t() => any()}
+  @type listed_host_key() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1787,12 +1787,12 @@ defmodule AWS.Transfer do
       
       execution_step_result() :: %{
         "Error" => execution_error(),
-        "Outputs" => String.t(),
+        "Outputs" => String.t() | Atom.t(),
         "StepType" => list(any())
       }
       
   """
-  @type execution_step_result() :: %{String.t() => any()}
+  @type execution_step_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1800,28 +1800,28 @@ defmodule AWS.Transfer do
       
       import_certificate_request() :: %{
         optional("ActiveDate") => non_neg_integer(),
-        optional("CertificateChain") => String.t(),
-        optional("Description") => String.t(),
+        optional("CertificateChain") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("InactiveDate") => non_neg_integer(),
-        optional("PrivateKey") => String.t(),
+        optional("PrivateKey") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("Certificate") => String.t(),
+        required("Certificate") => String.t() | Atom.t(),
         required("Usage") => list(any())
       }
       
   """
-  @type import_certificate_request() :: %{String.t() => any()}
+  @type import_certificate_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_workflow_response() :: %{
-        "WorkflowId" => String.t()
+        "WorkflowId" => String.t() | Atom.t()
       }
       
   """
-  @type create_workflow_response() :: %{String.t() => any()}
+  @type create_workflow_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1829,11 +1829,11 @@ defmodule AWS.Transfer do
       
       list_security_policies_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_security_policies_request() :: %{String.t() => any()}
+  @type list_security_policies_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1841,33 +1841,33 @@ defmodule AWS.Transfer do
       
       ssh_public_key() :: %{
         "DateImported" => non_neg_integer(),
-        "SshPublicKeyBody" => String.t(),
-        "SshPublicKeyId" => String.t()
+        "SshPublicKeyBody" => String.t() | Atom.t(),
+        "SshPublicKeyId" => String.t() | Atom.t()
       }
       
   """
-  @type ssh_public_key() :: %{String.t() => any()}
+  @type ssh_public_key() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_agreement_request() :: %{
-        optional("AccessRole") => String.t(),
-        optional("BaseDirectory") => String.t(),
+        optional("AccessRole") => String.t() | Atom.t(),
+        optional("BaseDirectory") => String.t() | Atom.t(),
         optional("CustomDirectories") => custom_directories_type(),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("EnforceMessageSigning") => list(any()),
-        optional("LocalProfileId") => String.t(),
-        optional("PartnerProfileId") => String.t(),
+        optional("LocalProfileId") => String.t() | Atom.t(),
+        optional("PartnerProfileId") => String.t() | Atom.t(),
         optional("PreserveFilename") => list(any()),
         optional("Status") => list(any()),
-        required("AgreementId") => String.t(),
-        required("ServerId") => String.t()
+        required("AgreementId") => String.t() | Atom.t(),
+        required("ServerId") => String.t() | Atom.t()
       }
       
   """
-  @type update_agreement_request() :: %{String.t() => any()}
+  @type update_agreement_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1875,33 +1875,33 @@ defmodule AWS.Transfer do
       
       list_web_apps_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_web_apps_request() :: %{String.t() => any()}
+  @type list_web_apps_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_certificate_request() :: %{
-        required("CertificateId") => String.t()
+        required("CertificateId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_certificate_request() :: %{String.t() => any()}
+  @type delete_certificate_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1909,28 +1909,28 @@ defmodule AWS.Transfer do
       
       create_connector_request() :: %{
         optional("As2Config") => as2_connector_config(),
-        optional("LoggingRole") => String.t(),
-        optional("SecurityPolicyName") => String.t(),
+        optional("LoggingRole") => String.t() | Atom.t(),
+        optional("SecurityPolicyName") => String.t() | Atom.t(),
         optional("SftpConfig") => sftp_connector_config(),
         optional("Tags") => list(tag()),
-        required("AccessRole") => String.t(),
-        required("Url") => String.t()
+        required("AccessRole") => String.t() | Atom.t(),
+        required("Url") => String.t() | Atom.t()
       }
       
   """
-  @type create_connector_request() :: %{String.t() => any()}
+  @type create_connector_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_security_policies_response() :: %{
-        "NextToken" => String.t(),
-        "SecurityPolicyNames" => list(String.t())
+        "NextToken" => String.t() | Atom.t(),
+        "SecurityPolicyNames" => list(String.t() | Atom.t())
       }
       
   """
-  @type list_security_policies_response() :: %{String.t() => any()}
+  @type list_security_policies_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1941,49 +1941,49 @@ defmodule AWS.Transfer do
       }
       
   """
-  @type describe_certificate_response() :: %{String.t() => any()}
+  @type describe_certificate_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       listed_agreement() :: %{
-        "AgreementId" => String.t(),
-        "Arn" => String.t(),
-        "Description" => String.t(),
-        "LocalProfileId" => String.t(),
-        "PartnerProfileId" => String.t(),
-        "ServerId" => String.t(),
+        "AgreementId" => String.t() | Atom.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "LocalProfileId" => String.t() | Atom.t(),
+        "PartnerProfileId" => String.t() | Atom.t(),
+        "ServerId" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type listed_agreement() :: %{String.t() => any()}
+  @type listed_agreement() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_remote_move_request() :: %{
-        required("ConnectorId") => String.t(),
-        required("SourcePath") => String.t(),
-        required("TargetPath") => String.t()
+        required("ConnectorId") => String.t() | Atom.t(),
+        required("SourcePath") => String.t() | Atom.t(),
+        required("TargetPath") => String.t() | Atom.t()
       }
       
   """
-  @type start_remote_move_request() :: %{String.t() => any()}
+  @type start_remote_move_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       efs_file_location() :: %{
-        "FileSystemId" => String.t(),
-        "Path" => String.t()
+        "FileSystemId" => String.t() | Atom.t(),
+        "Path" => String.t() | Atom.t()
       }
       
   """
-  @type efs_file_location() :: %{String.t() => any()}
+  @type efs_file_location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1994,30 +1994,30 @@ defmodule AWS.Transfer do
       }
       
   """
-  @type s3_storage_options() :: %{String.t() => any()}
+  @type s3_storage_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_service_error() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type internal_service_error() :: %{String.t() => any()}
+  @type internal_service_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_user_request() :: %{
-        required("ServerId") => String.t(),
-        required("UserName") => String.t()
+        required("ServerId") => String.t() | Atom.t(),
+        required("UserName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_user_request() :: %{String.t() => any()}
+  @type describe_user_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2025,78 +2025,78 @@ defmodule AWS.Transfer do
       
       list_accesses_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ServerId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ServerId") => String.t() | Atom.t()
       }
       
   """
-  @type list_accesses_request() :: %{String.t() => any()}
+  @type list_accesses_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_access_response() :: %{
-        "ExternalId" => String.t(),
-        "ServerId" => String.t()
+        "ExternalId" => String.t() | Atom.t(),
+        "ServerId" => String.t() | Atom.t()
       }
       
   """
-  @type update_access_response() :: %{String.t() => any()}
+  @type update_access_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_profile_response() :: %{
-        "ProfileId" => String.t()
+        "ProfileId" => String.t() | Atom.t()
       }
       
   """
-  @type update_profile_response() :: %{String.t() => any()}
+  @type update_profile_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_user_request() :: %{
-        optional("HomeDirectory") => String.t(),
+        optional("HomeDirectory") => String.t() | Atom.t(),
         optional("HomeDirectoryMappings") => list(home_directory_map_entry()),
         optional("HomeDirectoryType") => list(any()),
-        optional("Policy") => String.t(),
+        optional("Policy") => String.t() | Atom.t(),
         optional("PosixProfile") => posix_profile(),
-        optional("Role") => String.t(),
-        required("ServerId") => String.t(),
-        required("UserName") => String.t()
+        optional("Role") => String.t() | Atom.t(),
+        required("ServerId") => String.t() | Atom.t(),
+        required("UserName") => String.t() | Atom.t()
       }
       
   """
-  @type update_user_request() :: %{String.t() => any()}
+  @type update_user_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_profiles_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Profiles" => list(listed_profile())
       }
       
   """
-  @type list_profiles_response() :: %{String.t() => any()}
+  @type list_profiles_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       listed_workflow() :: %{
-        "Arn" => String.t(),
-        "Description" => String.t(),
-        "WorkflowId" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "WorkflowId" => String.t() | Atom.t()
       }
       
   """
-  @type listed_workflow() :: %{String.t() => any()}
+  @type listed_workflow() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2104,12 +2104,12 @@ defmodule AWS.Transfer do
       
       list_tags_for_resource_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("Arn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("Arn") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2117,88 +2117,88 @@ defmodule AWS.Transfer do
       
       list_host_keys_response() :: %{
         "HostKeys" => list(listed_host_key()),
-        "NextToken" => String.t(),
-        "ServerId" => String.t()
+        "NextToken" => String.t() | Atom.t(),
+        "ServerId" => String.t() | Atom.t()
       }
       
   """
-  @type list_host_keys_response() :: %{String.t() => any()}
+  @type list_host_keys_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_web_apps_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "WebApps" => list(listed_web_app())
       }
       
   """
-  @type list_web_apps_response() :: %{String.t() => any()}
+  @type list_web_apps_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_connector_response() :: %{
-        "ConnectorId" => String.t()
+        "ConnectorId" => String.t() | Atom.t()
       }
       
   """
-  @type update_connector_response() :: %{String.t() => any()}
+  @type update_connector_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_file_location() :: %{
-        "Bucket" => String.t(),
-        "Etag" => String.t(),
-        "Key" => String.t(),
-        "VersionId" => String.t()
+        "Bucket" => String.t() | Atom.t(),
+        "Etag" => String.t() | Atom.t(),
+        "Key" => String.t() | Atom.t(),
+        "VersionId" => String.t() | Atom.t()
       }
       
   """
-  @type s3_file_location() :: %{String.t() => any()}
+  @type s3_file_location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "RetryAfterSeconds" => String.t()
+        "RetryAfterSeconds" => String.t() | Atom.t()
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       described_workflow() :: %{
-        "Arn" => String.t(),
-        "Description" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
         "OnExceptionSteps" => list(workflow_step()),
         "Steps" => list(workflow_step()),
         "Tags" => list(tag()),
-        "WorkflowId" => String.t()
+        "WorkflowId" => String.t() | Atom.t()
       }
       
   """
-  @type described_workflow() :: %{String.t() => any()}
+  @type described_workflow() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_servers_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Servers" => list(listed_server())
       }
       
   """
-  @type list_servers_response() :: %{String.t() => any()}
+  @type list_servers_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2206,12 +2206,12 @@ defmodule AWS.Transfer do
       
       list_host_keys_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ServerId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ServerId") => String.t() | Atom.t()
       }
       
   """
-  @type list_host_keys_request() :: %{String.t() => any()}
+  @type list_host_keys_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2219,12 +2219,12 @@ defmodule AWS.Transfer do
       
       list_users_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ServerId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ServerId") => String.t() | Atom.t()
       }
       
   """
-  @type list_users_request() :: %{String.t() => any()}
+  @type list_users_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2232,13 +2232,13 @@ defmodule AWS.Transfer do
       
       start_directory_listing_request() :: %{
         optional("MaxItems") => integer(),
-        required("ConnectorId") => String.t(),
-        required("OutputDirectoryPath") => String.t(),
-        required("RemoteDirectoryPath") => String.t()
+        required("ConnectorId") => String.t() | Atom.t(),
+        required("OutputDirectoryPath") => String.t() | Atom.t(),
+        required("RemoteDirectoryPath") => String.t() | Atom.t()
       }
       
   """
-  @type start_directory_listing_request() :: %{String.t() => any()}
+  @type start_directory_listing_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2246,9 +2246,9 @@ defmodule AWS.Transfer do
       
       listed_certificate() :: %{
         "ActiveDate" => non_neg_integer(),
-        "Arn" => String.t(),
-        "CertificateId" => String.t(),
-        "Description" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "CertificateId" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
         "InactiveDate" => non_neg_integer(),
         "Status" => list(any()),
         "Type" => list(any()),
@@ -2256,78 +2256,78 @@ defmodule AWS.Transfer do
       }
       
   """
-  @type listed_certificate() :: %{String.t() => any()}
+  @type listed_certificate() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_remote_move_response() :: %{
-        "MoveId" => String.t()
+        "MoveId" => String.t() | Atom.t()
       }
       
   """
-  @type start_remote_move_response() :: %{String.t() => any()}
+  @type start_remote_move_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_connector_request() :: %{
-        required("ConnectorId") => String.t()
+        required("ConnectorId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_connector_request() :: %{String.t() => any()}
+  @type delete_connector_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       home_directory_map_entry() :: %{
-        "Entry" => String.t(),
-        "Target" => String.t(),
+        "Entry" => String.t() | Atom.t(),
+        "Target" => String.t() | Atom.t(),
         "Type" => list(any())
       }
       
   """
-  @type home_directory_map_entry() :: %{String.t() => any()}
+  @type home_directory_map_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_host_key_request() :: %{
-        required("Description") => String.t(),
-        required("HostKeyId") => String.t(),
-        required("ServerId") => String.t()
+        required("Description") => String.t() | Atom.t(),
+        required("HostKeyId") => String.t() | Atom.t(),
+        required("ServerId") => String.t() | Atom.t()
       }
       
   """
-  @type update_host_key_request() :: %{String.t() => any()}
+  @type update_host_key_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       described_agreement() :: %{
-        "AccessRole" => String.t(),
-        "AgreementId" => String.t(),
-        "Arn" => String.t(),
-        "BaseDirectory" => String.t(),
+        "AccessRole" => String.t() | Atom.t(),
+        "AgreementId" => String.t() | Atom.t(),
+        "Arn" => String.t() | Atom.t(),
+        "BaseDirectory" => String.t() | Atom.t(),
         "CustomDirectories" => custom_directories_type(),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "EnforceMessageSigning" => list(any()),
-        "LocalProfileId" => String.t(),
-        "PartnerProfileId" => String.t(),
+        "LocalProfileId" => String.t() | Atom.t(),
+        "PartnerProfileId" => String.t() | Atom.t(),
         "PreserveFilename" => list(any()),
-        "ServerId" => String.t(),
+        "ServerId" => String.t() | Atom.t(),
         "Status" => list(any()),
         "Tags" => list(tag())
       }
       
   """
-  @type described_agreement() :: %{String.t() => any()}
+  @type described_agreement() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2335,11 +2335,11 @@ defmodule AWS.Transfer do
       
       list_agreements_response() :: %{
         "Agreements" => list(listed_agreement()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_agreements_response() :: %{String.t() => any()}
+  @type list_agreements_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2347,12 +2347,12 @@ defmodule AWS.Transfer do
       
       sftp_connector_config() :: %{
         "MaxConcurrentConnections" => integer(),
-        "TrustedHostKeys" => list(String.t()),
-        "UserSecretId" => String.t()
+        "TrustedHostKeys" => list(String.t() | Atom.t()),
+        "UserSecretId" => String.t() | Atom.t()
       }
       
   """
-  @type sftp_connector_config() :: %{String.t() => any()}
+  @type sftp_connector_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2363,97 +2363,97 @@ defmodule AWS.Transfer do
       }
       
   """
-  @type describe_host_key_response() :: %{String.t() => any()}
+  @type describe_host_key_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       described_web_app() :: %{
-        "AccessEndpoint" => String.t(),
-        "Arn" => String.t(),
+        "AccessEndpoint" => String.t() | Atom.t(),
+        "Arn" => String.t() | Atom.t(),
         "DescribedIdentityProviderDetails" => list(),
         "Tags" => list(tag()),
-        "WebAppEndpoint" => String.t(),
+        "WebAppEndpoint" => String.t() | Atom.t(),
         "WebAppEndpointPolicy" => list(any()),
-        "WebAppId" => String.t(),
+        "WebAppId" => String.t() | Atom.t(),
         "WebAppUnits" => list()
       }
       
   """
-  @type described_web_app() :: %{String.t() => any()}
+  @type described_web_app() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type s3_tag() :: %{String.t() => any()}
+  @type s3_tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_workflows_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Workflows" => list(listed_workflow())
       }
       
   """
-  @type list_workflows_response() :: %{String.t() => any()}
+  @type list_workflows_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_ssh_public_key_request() :: %{
-        required("ServerId") => String.t(),
-        required("SshPublicKeyId") => String.t(),
-        required("UserName") => String.t()
+        required("ServerId") => String.t() | Atom.t(),
+        required("SshPublicKeyId") => String.t() | Atom.t(),
+        required("UserName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_ssh_public_key_request() :: %{String.t() => any()}
+  @type delete_ssh_public_key_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_directory_listing_response() :: %{
-        "ListingId" => String.t(),
-        "OutputFileName" => String.t()
+        "ListingId" => String.t() | Atom.t(),
+        "OutputFileName" => String.t() | Atom.t()
       }
       
   """
-  @type start_directory_listing_response() :: %{String.t() => any()}
+  @type start_directory_listing_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_user_response() :: %{
-        "ServerId" => String.t(),
-        "UserName" => String.t()
+        "ServerId" => String.t() | Atom.t(),
+        "UserName" => String.t() | Atom.t()
       }
       
   """
-  @type create_user_response() :: %{String.t() => any()}
+  @type create_user_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_certificate_response() :: %{
-        "CertificateId" => String.t()
+        "CertificateId" => String.t() | Atom.t()
       }
       
   """
-  @type update_certificate_response() :: %{String.t() => any()}
+  @type update_certificate_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2461,28 +2461,28 @@ defmodule AWS.Transfer do
       
       copy_step_details() :: %{
         "DestinationFileLocation" => input_file_location(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "OverwriteExisting" => list(any()),
-        "SourceFileLocation" => String.t()
+        "SourceFileLocation" => String.t() | Atom.t()
       }
       
   """
-  @type copy_step_details() :: %{String.t() => any()}
+  @type copy_step_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_file_transfer_request() :: %{
-        optional("LocalDirectoryPath") => String.t(),
-        optional("RemoteDirectoryPath") => String.t(),
-        optional("RetrieveFilePaths") => list(String.t()),
-        optional("SendFilePaths") => list(String.t()),
-        required("ConnectorId") => String.t()
+        optional("LocalDirectoryPath") => String.t() | Atom.t(),
+        optional("RemoteDirectoryPath") => String.t() | Atom.t(),
+        optional("RetrieveFilePaths") => list(String.t() | Atom.t()),
+        optional("SendFilePaths") => list(String.t() | Atom.t()),
+        required("ConnectorId") => String.t() | Atom.t()
       }
       
   """
-  @type start_file_transfer_request() :: %{String.t() => any()}
+  @type start_file_transfer_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2493,18 +2493,18 @@ defmodule AWS.Transfer do
       }
       
   """
-  @type describe_profile_response() :: %{String.t() => any()}
+  @type describe_profile_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_web_app_response() :: %{
-        "WebAppId" => String.t()
+        "WebAppId" => String.t() | Atom.t()
       }
       
   """
-  @type update_web_app_response() :: %{String.t() => any()}
+  @type update_web_app_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2516,27 +2516,27 @@ defmodule AWS.Transfer do
       }
       
   """
-  @type execution_results() :: %{String.t() => any()}
+  @type execution_results() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       described_connector() :: %{
-        "AccessRole" => String.t(),
-        "Arn" => String.t(),
+        "AccessRole" => String.t() | Atom.t(),
+        "Arn" => String.t() | Atom.t(),
         "As2Config" => as2_connector_config(),
-        "ConnectorId" => String.t(),
-        "LoggingRole" => String.t(),
-        "SecurityPolicyName" => String.t(),
-        "ServiceManagedEgressIpAddresses" => list(String.t()),
+        "ConnectorId" => String.t() | Atom.t(),
+        "LoggingRole" => String.t() | Atom.t(),
+        "SecurityPolicyName" => String.t() | Atom.t(),
+        "ServiceManagedEgressIpAddresses" => list(String.t() | Atom.t()),
         "SftpConfig" => sftp_connector_config(),
         "Tags" => list(tag()),
-        "Url" => String.t()
+        "Url" => String.t() | Atom.t()
       }
       
   """
-  @type described_connector() :: %{String.t() => any()}
+  @type described_connector() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2544,11 +2544,11 @@ defmodule AWS.Transfer do
       
       list_certificates_response() :: %{
         "Certificates" => list(listed_certificate()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_certificates_response() :: %{String.t() => any()}
+  @type list_certificates_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2556,34 +2556,34 @@ defmodule AWS.Transfer do
       
       list_executions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("WorkflowId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("WorkflowId") => String.t() | Atom.t()
       }
       
   """
-  @type list_executions_request() :: %{String.t() => any()}
+  @type list_executions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       test_connection_request() :: %{
-        required("ConnectorId") => String.t()
+        required("ConnectorId") => String.t() | Atom.t()
       }
       
   """
-  @type test_connection_request() :: %{String.t() => any()}
+  @type test_connection_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_server_request() :: %{
-        required("ServerId") => String.t()
+        required("ServerId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_server_request() :: %{String.t() => any()}
+  @type delete_server_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2591,44 +2591,44 @@ defmodule AWS.Transfer do
       
       protocol_details() :: %{
         "As2Transports" => list(list(any())()),
-        "PassiveIp" => String.t(),
+        "PassiveIp" => String.t() | Atom.t(),
         "SetStatOption" => list(any()),
         "TlsSessionResumptionMode" => list(any())
       }
       
   """
-  @type protocol_details() :: %{String.t() => any()}
+  @type protocol_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_user_request() :: %{
-        optional("HomeDirectory") => String.t(),
+        optional("HomeDirectory") => String.t() | Atom.t(),
         optional("HomeDirectoryMappings") => list(home_directory_map_entry()),
         optional("HomeDirectoryType") => list(any()),
-        optional("Policy") => String.t(),
+        optional("Policy") => String.t() | Atom.t(),
         optional("PosixProfile") => posix_profile(),
-        optional("SshPublicKeyBody") => String.t(),
+        optional("SshPublicKeyBody") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("Role") => String.t(),
-        required("ServerId") => String.t(),
-        required("UserName") => String.t()
+        required("Role") => String.t() | Atom.t(),
+        required("ServerId") => String.t() | Atom.t(),
+        required("UserName") => String.t() | Atom.t()
       }
       
   """
-  @type create_user_request() :: %{String.t() => any()}
+  @type create_user_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_web_app_customization_response() :: %{
-        "WebAppId" => String.t()
+        "WebAppId" => String.t() | Atom.t()
       }
       
   """
-  @type update_web_app_customization_response() :: %{String.t() => any()}
+  @type update_web_app_customization_response() :: %{String.t() | Atom.t() => any()}
 
   @type create_access_errors() ::
           internal_service_error()

@@ -26,11 +26,11 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       put_channel_policy_request() :: %{
-        required("Policy") => String.t()
+        required("Policy") => String.t() | Atom.t()
       }
 
   """
-  @type put_channel_policy_request() :: %{String.t() => any()}
+  @type put_channel_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -46,12 +46,12 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       live_pre_roll_configuration() :: %{
-        "AdDecisionServerUrl" => String.t(),
+        "AdDecisionServerUrl" => String.t() | Atom.t(),
         "MaxDurationSeconds" => integer()
       }
 
   """
-  @type live_pre_roll_configuration() :: %{String.t() => any()}
+  @type live_pre_roll_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -69,13 +69,13 @@ defmodule AWS.MediaTailor do
       response_output_item() :: %{
         "DashPlaylistSettings" => dash_playlist_settings(),
         "HlsPlaylistSettings" => hls_playlist_settings(),
-        "ManifestName" => String.t(),
-        "PlaybackUrl" => String.t(),
-        "SourceGroup" => String.t()
+        "ManifestName" => String.t() | Atom.t(),
+        "PlaybackUrl" => String.t() | Atom.t(),
+        "SourceGroup" => String.t() | Atom.t()
       }
 
   """
-  @type response_output_item() :: %{String.t() => any()}
+  @type response_output_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -91,17 +91,17 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       vod_source() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
         "HttpPackageConfigurations" => list(http_package_configuration()),
         "LastModifiedTime" => non_neg_integer(),
-        "SourceLocationName" => String.t(),
+        "SourceLocationName" => String.t() | Atom.t(),
         "Tags" => map(),
-        "VodSourceName" => String.t()
+        "VodSourceName" => String.t() | Atom.t()
       }
 
   """
-  @type vod_source() :: %{String.t() => any()}
+  @type vod_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -112,7 +112,7 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -131,29 +131,29 @@ defmodule AWS.MediaTailor do
         optional("AdsInteractionLog") => ads_interaction_log(),
         optional("EnabledLoggingStrategies") => list(list(any())()),
         optional("ManifestServiceInteractionLog") => manifest_service_interaction_log(),
-        optional("PlaybackConfigurationName") => String.t(),
+        optional("PlaybackConfigurationName") => String.t() | Atom.t(),
         required("PercentEnabled") => integer()
       }
 
   """
-  @type configure_logs_for_playback_configuration_response() :: %{String.t() => any()}
+  @type configure_logs_for_playback_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_vod_source_response() :: %{
-        optional("Arn") => String.t(),
+        optional("Arn") => String.t() | Atom.t(),
         optional("CreationTime") => non_neg_integer(),
         optional("HttpPackageConfigurations") => list(http_package_configuration()),
         optional("LastModifiedTime") => non_neg_integer(),
-        optional("SourceLocationName") => String.t(),
+        optional("SourceLocationName") => String.t() | Atom.t(),
         optional("Tags") => map(),
-        optional("VodSourceName") => String.t()
+        optional("VodSourceName") => String.t() | Atom.t()
       }
 
   """
-  @type update_vod_source_response() :: %{String.t() => any()}
+  @type update_vod_source_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -170,51 +170,51 @@ defmodule AWS.MediaTailor do
 
       describe_vod_source_response() :: %{
         optional("AdBreakOpportunities") => list(ad_break_opportunity()),
-        optional("Arn") => String.t(),
+        optional("Arn") => String.t() | Atom.t(),
         optional("CreationTime") => non_neg_integer(),
         optional("HttpPackageConfigurations") => list(http_package_configuration()),
         optional("LastModifiedTime") => non_neg_integer(),
-        optional("SourceLocationName") => String.t(),
+        optional("SourceLocationName") => String.t() | Atom.t(),
         optional("Tags") => map(),
-        optional("VodSourceName") => String.t()
+        optional("VodSourceName") => String.t() | Atom.t()
       }
 
   """
-  @type describe_vod_source_response() :: %{String.t() => any()}
+  @type describe_vod_source_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_channel_response() :: %{
-        optional("Arn") => String.t(),
-        optional("Audiences") => list([String.t()]()),
-        optional("ChannelName") => String.t(),
+        optional("Arn") => String.t() | Atom.t(),
+        optional("Audiences") => list([String.t() | Atom.t()]()),
+        optional("ChannelName") => String.t() | Atom.t(),
         optional("ChannelState") => list(any()),
         optional("CreationTime") => non_neg_integer(),
         optional("FillerSlate") => slate_source(),
         optional("LastModifiedTime") => non_neg_integer(),
         optional("Outputs") => list(response_output_item()),
-        optional("PlaybackMode") => String.t(),
+        optional("PlaybackMode") => String.t() | Atom.t(),
         optional("Tags") => map(),
-        optional("Tier") => String.t(),
+        optional("Tier") => String.t() | Atom.t(),
         optional("TimeShiftConfiguration") => time_shift_configuration()
       }
 
   """
-  @type create_channel_response() :: %{String.t() => any()}
+  @type create_channel_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       configure_logs_for_channel_request() :: %{
-        required("ChannelName") => String.t(),
+        required("ChannelName") => String.t() | Atom.t(),
         required("LogTypes") => list(list(any())())
       }
 
   """
-  @type configure_logs_for_channel_request() :: %{String.t() => any()}
+  @type configure_logs_for_channel_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -249,7 +249,7 @@ defmodule AWS.MediaTailor do
 
       playback_configuration() :: %{
         "AdConditioningConfiguration" => ad_conditioning_configuration(),
-        "AdDecisionServerUrl" => String.t(),
+        "AdDecisionServerUrl" => String.t() | Atom.t(),
         "AvailSuppression" => avail_suppression(),
         "Bumper" => bumper(),
         "CdnConfiguration" => cdn_configuration(),
@@ -260,33 +260,33 @@ defmodule AWS.MediaTailor do
         "LivePreRollConfiguration" => live_pre_roll_configuration(),
         "LogConfiguration" => log_configuration(),
         "ManifestProcessingRules" => manifest_processing_rules(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "PersonalizationThresholdSeconds" => integer(),
-        "PlaybackConfigurationArn" => String.t(),
-        "PlaybackEndpointPrefix" => String.t(),
-        "SessionInitializationEndpointPrefix" => String.t(),
-        "SlateAdUrl" => String.t(),
+        "PlaybackConfigurationArn" => String.t() | Atom.t(),
+        "PlaybackEndpointPrefix" => String.t() | Atom.t(),
+        "SessionInitializationEndpointPrefix" => String.t() | Atom.t(),
+        "SlateAdUrl" => String.t() | Atom.t(),
         "Tags" => map(),
-        "TranscodeProfileName" => String.t(),
-        "VideoContentSourceUrl" => String.t()
+        "TranscodeProfileName" => String.t() | Atom.t(),
+        "VideoContentSourceUrl" => String.t() | Atom.t()
       }
 
   """
-  @type playback_configuration() :: %{String.t() => any()}
+  @type playback_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_channel_schedule_request() :: %{
-        optional("Audience") => String.t(),
-        optional("DurationMinutes") => String.t(),
+        optional("Audience") => String.t() | Atom.t(),
+        optional("DurationMinutes") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type get_channel_schedule_request() :: %{String.t() => any()}
+  @type get_channel_schedule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -294,12 +294,12 @@ defmodule AWS.MediaTailor do
 
       list_alerts_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ResourceArn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ResourceArn") => String.t() | Atom.t()
       }
 
   """
-  @type list_alerts_request() :: %{String.t() => any()}
+  @type list_alerts_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -307,11 +307,11 @@ defmodule AWS.MediaTailor do
 
       list_prefetch_schedules_response() :: %{
         optional("Items") => list(prefetch_schedule()),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_prefetch_schedules_response() :: %{String.t() => any()}
+  @type list_prefetch_schedules_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -324,7 +324,7 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type prefetch_consumption() :: %{String.t() => any()}
+  @type prefetch_consumption() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -344,7 +344,7 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type ad_conditioning_configuration() :: %{String.t() => any()}
+  @type ad_conditioning_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -352,11 +352,11 @@ defmodule AWS.MediaTailor do
 
       list_vod_sources_response() :: %{
         optional("Items") => list(vod_source()),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_vod_sources_response() :: %{String.t() => any()}
+  @type list_vod_sources_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -367,11 +367,11 @@ defmodule AWS.MediaTailor do
         "EnabledLoggingStrategies" => list(list(any())()),
         "ManifestServiceInteractionLog" => manifest_service_interaction_log(),
         "PercentEnabled" => integer(),
-        "PlaybackConfigurationName" => String.t()
+        "PlaybackConfigurationName" => String.t() | Atom.t()
       }
 
   """
-  @type configure_logs_for_playback_configuration_request() :: %{String.t() => any()}
+  @type configure_logs_for_playback_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -382,7 +382,7 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type traffic_shaping_retrieval_window() :: %{String.t() => any()}
+  @type traffic_shaping_retrieval_window() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -390,29 +390,29 @@ defmodule AWS.MediaTailor do
 
       update_source_location_response() :: %{
         optional("AccessConfiguration") => access_configuration(),
-        optional("Arn") => String.t(),
+        optional("Arn") => String.t() | Atom.t(),
         optional("CreationTime") => non_neg_integer(),
         optional("DefaultSegmentDeliveryConfiguration") => default_segment_delivery_configuration(),
         optional("HttpConfiguration") => http_configuration(),
         optional("LastModifiedTime") => non_neg_integer(),
         optional("SegmentDeliveryConfigurations") => list(segment_delivery_configuration()),
-        optional("SourceLocationName") => String.t(),
+        optional("SourceLocationName") => String.t() | Atom.t(),
         optional("Tags") => map()
       }
 
   """
-  @type update_source_location_response() :: %{String.t() => any()}
+  @type update_source_location_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       default_segment_delivery_configuration() :: %{
-        "BaseUrl" => String.t()
+        "BaseUrl" => String.t() | Atom.t()
       }
 
   """
-  @type default_segment_delivery_configuration() :: %{String.t() => any()}
+  @type default_segment_delivery_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -426,7 +426,7 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type recurring_retrieval() :: %{String.t() => any()}
+  @type recurring_retrieval() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -434,22 +434,22 @@ defmodule AWS.MediaTailor do
 
       get_channel_schedule_response() :: %{
         optional("Items") => list(schedule_entry()),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type get_channel_schedule_response() :: %{String.t() => any()}
+  @type get_channel_schedule_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t())
+        required("TagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -460,7 +460,7 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type ad_break_opportunity() :: %{String.t() => any()}
+  @type ad_break_opportunity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -480,7 +480,7 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type manifest_processing_rules() :: %{String.t() => any()}
+  @type manifest_processing_rules() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -494,7 +494,7 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type dash_playlist_settings() :: %{String.t() => any()}
+  @type dash_playlist_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -511,11 +511,11 @@ defmodule AWS.MediaTailor do
 
       audience_media() :: %{
         "AlternateMedia" => list(alternate_media()),
-        "Audience" => String.t()
+        "Audience" => String.t() | Atom.t()
       }
 
   """
-  @type audience_media() :: %{String.t() => any()}
+  @type audience_media() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -523,18 +523,18 @@ defmodule AWS.MediaTailor do
 
       describe_source_location_response() :: %{
         optional("AccessConfiguration") => access_configuration(),
-        optional("Arn") => String.t(),
+        optional("Arn") => String.t() | Atom.t(),
         optional("CreationTime") => non_neg_integer(),
         optional("DefaultSegmentDeliveryConfiguration") => default_segment_delivery_configuration(),
         optional("HttpConfiguration") => http_configuration(),
         optional("LastModifiedTime") => non_neg_integer(),
         optional("SegmentDeliveryConfigurations") => list(segment_delivery_configuration()),
-        optional("SourceLocationName") => String.t(),
+        optional("SourceLocationName") => String.t() | Atom.t(),
         optional("Tags") => map()
       }
 
   """
-  @type describe_source_location_response() :: %{String.t() => any()}
+  @type describe_source_location_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -542,29 +542,29 @@ defmodule AWS.MediaTailor do
 
       list_playback_configurations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_playback_configurations_request() :: %{String.t() => any()}
+  @type list_playback_configurations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_prefetch_schedule_response() :: %{
-        optional("Arn") => String.t(),
+        optional("Arn") => String.t() | Atom.t(),
         optional("Consumption") => prefetch_consumption(),
-        optional("Name") => String.t(),
-        optional("PlaybackConfigurationName") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
+        optional("PlaybackConfigurationName") => String.t() | Atom.t(),
         optional("RecurringPrefetchConfiguration") => recurring_prefetch_configuration(),
         optional("Retrieval") => prefetch_retrieval(),
         optional("ScheduleType") => list(any()),
-        optional("StreamId") => String.t()
+        optional("StreamId") => String.t() | Atom.t()
       }
 
   """
-  @type get_prefetch_schedule_response() :: %{String.t() => any()}
+  @type get_prefetch_schedule_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -576,7 +576,7 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type clip_range() :: %{String.t() => any()}
+  @type clip_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -584,21 +584,21 @@ defmodule AWS.MediaTailor do
 
       create_program_response() :: %{
         optional("AdBreaks") => list(ad_break()),
-        optional("Arn") => String.t(),
+        optional("Arn") => String.t() | Atom.t(),
         optional("AudienceMedia") => list(audience_media()),
-        optional("ChannelName") => String.t(),
+        optional("ChannelName") => String.t() | Atom.t(),
         optional("ClipRange") => clip_range(),
         optional("CreationTime") => non_neg_integer(),
         optional("DurationMillis") => float(),
-        optional("LiveSourceName") => String.t(),
-        optional("ProgramName") => String.t(),
+        optional("LiveSourceName") => String.t() | Atom.t(),
+        optional("ProgramName") => String.t() | Atom.t(),
         optional("ScheduledStartTime") => non_neg_integer(),
-        optional("SourceLocationName") => String.t(),
-        optional("VodSourceName") => String.t()
+        optional("SourceLocationName") => String.t() | Atom.t(),
+        optional("VodSourceName") => String.t() | Atom.t()
       }
 
   """
-  @type create_program_response() :: %{String.t() => any()}
+  @type create_program_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -606,11 +606,11 @@ defmodule AWS.MediaTailor do
 
       list_live_sources_response() :: %{
         optional("Items") => list(live_source()),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_live_sources_response() :: %{String.t() => any()}
+  @type list_live_sources_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -618,18 +618,18 @@ defmodule AWS.MediaTailor do
 
       create_source_location_response() :: %{
         optional("AccessConfiguration") => access_configuration(),
-        optional("Arn") => String.t(),
+        optional("Arn") => String.t() | Atom.t(),
         optional("CreationTime") => non_neg_integer(),
         optional("DefaultSegmentDeliveryConfiguration") => default_segment_delivery_configuration(),
         optional("HttpConfiguration") => http_configuration(),
         optional("LastModifiedTime") => non_neg_integer(),
         optional("SegmentDeliveryConfigurations") => list(segment_delivery_configuration()),
-        optional("SourceLocationName") => String.t(),
+        optional("SourceLocationName") => String.t() | Atom.t(),
         optional("Tags") => map()
       }
 
   """
-  @type create_source_location_response() :: %{String.t() => any()}
+  @type create_source_location_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -640,20 +640,20 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type update_live_source_request() :: %{String.t() => any()}
+  @type update_live_source_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       secrets_manager_access_token_configuration() :: %{
-        "HeaderName" => String.t(),
-        "SecretArn" => String.t(),
-        "SecretStringKey" => String.t()
+        "HeaderName" => String.t() | Atom.t(),
+        "SecretArn" => String.t() | Atom.t(),
+        "SecretStringKey" => String.t() | Atom.t()
       }
 
   """
-  @type secrets_manager_access_token_configuration() :: %{String.t() => any()}
+  @type secrets_manager_access_token_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -687,23 +687,23 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       http_configuration() :: %{
-        "BaseUrl" => String.t()
+        "BaseUrl" => String.t() | Atom.t()
       }
 
   """
-  @type http_configuration() :: %{String.t() => any()}
+  @type http_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cdn_configuration() :: %{
-        "AdSegmentUrlPrefix" => String.t(),
-        "ContentSegmentUrlPrefix" => String.t()
+        "AdSegmentUrlPrefix" => String.t() | Atom.t(),
+        "ContentSegmentUrlPrefix" => String.t() | Atom.t()
       }
 
   """
-  @type cdn_configuration() :: %{String.t() => any()}
+  @type cdn_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -712,11 +712,11 @@ defmodule AWS.MediaTailor do
       avail_suppression() :: %{
         "FillPolicy" => list(any()),
         "Mode" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type avail_suppression() :: %{String.t() => any()}
+  @type avail_suppression() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -728,20 +728,20 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type update_program_schedule_configuration() :: %{String.t() => any()}
+  @type update_program_schedule_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       http_package_configuration() :: %{
-        "Path" => String.t(),
-        "SourceGroup" => String.t(),
+        "Path" => String.t() | Atom.t(),
+        "SourceGroup" => String.t() | Atom.t(),
         "Type" => list(any())
       }
 
   """
-  @type http_package_configuration() :: %{String.t() => any()}
+  @type http_package_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -753,25 +753,25 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type create_live_source_request() :: %{String.t() => any()}
+  @type create_live_source_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_prefetch_schedule_response() :: %{
-        optional("Arn") => String.t(),
+        optional("Arn") => String.t() | Atom.t(),
         optional("Consumption") => prefetch_consumption(),
-        optional("Name") => String.t(),
-        optional("PlaybackConfigurationName") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
+        optional("PlaybackConfigurationName") => String.t() | Atom.t(),
         optional("RecurringPrefetchConfiguration") => recurring_prefetch_configuration(),
         optional("Retrieval") => prefetch_retrieval(),
         optional("ScheduleType") => list(any()),
-        optional("StreamId") => String.t()
+        optional("StreamId") => String.t() | Atom.t()
       }
 
   """
-  @type create_prefetch_schedule_response() :: %{String.t() => any()}
+  @type create_prefetch_schedule_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -787,23 +787,23 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       describe_channel_response() :: %{
-        optional("Arn") => String.t(),
-        optional("Audiences") => list([String.t()]()),
-        optional("ChannelName") => String.t(),
+        optional("Arn") => String.t() | Atom.t(),
+        optional("Audiences") => list([String.t() | Atom.t()]()),
+        optional("ChannelName") => String.t() | Atom.t(),
         optional("ChannelState") => list(any()),
         optional("CreationTime") => non_neg_integer(),
         optional("FillerSlate") => slate_source(),
         optional("LastModifiedTime") => non_neg_integer(),
         optional("Outputs") => list(response_output_item()),
-        optional("PlaybackMode") => String.t(),
+        optional("PlaybackMode") => String.t() | Atom.t(),
         optional("Tags") => map(),
-        optional("Tier") => String.t(),
+        optional("Tier") => String.t() | Atom.t(),
         optional("TimeShiftConfiguration") => time_shift_configuration(),
         required("LogConfiguration") => log_configuration_for_channel()
       }
 
   """
-  @type describe_channel_response() :: %{String.t() => any()}
+  @type describe_channel_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -814,7 +814,7 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type log_configuration_for_channel() :: %{String.t() => any()}
+  @type log_configuration_for_channel() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -833,31 +833,31 @@ defmodule AWS.MediaTailor do
         "AdBreaks" => list(ad_break()),
         "ClipRange" => clip_range(),
         "DurationMillis" => float(),
-        "LiveSourceName" => String.t(),
+        "LiveSourceName" => String.t() | Atom.t(),
         "ScheduledStartTimeMillis" => float(),
-        "SourceLocationName" => String.t(),
-        "VodSourceName" => String.t()
+        "SourceLocationName" => String.t() | Atom.t(),
+        "VodSourceName" => String.t() | Atom.t()
       }
 
   """
-  @type alternate_media() :: %{String.t() => any()}
+  @type alternate_media() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       live_source() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
         "HttpPackageConfigurations" => list(http_package_configuration()),
         "LastModifiedTime" => non_neg_integer(),
-        "LiveSourceName" => String.t(),
-        "SourceLocationName" => String.t(),
+        "LiveSourceName" => String.t() | Atom.t(),
+        "SourceLocationName" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type live_source() :: %{String.t() => any()}
+  @type live_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -866,26 +866,26 @@ defmodule AWS.MediaTailor do
       schedule_entry() :: %{
         "ApproximateDurationSeconds" => float(),
         "ApproximateStartTime" => non_neg_integer(),
-        "Arn" => String.t(),
-        "Audiences" => list([String.t()]()),
-        "ChannelName" => String.t(),
-        "LiveSourceName" => String.t(),
-        "ProgramName" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Audiences" => list([String.t() | Atom.t()]()),
+        "ChannelName" => String.t() | Atom.t(),
+        "LiveSourceName" => String.t() | Atom.t(),
+        "ProgramName" => String.t() | Atom.t(),
         "ScheduleAdBreaks" => list(schedule_ad_break()),
         "ScheduleEntryType" => list(any()),
-        "SourceLocationName" => String.t(),
-        "VodSourceName" => String.t()
+        "SourceLocationName" => String.t() | Atom.t(),
+        "VodSourceName" => String.t() | Atom.t()
       }
 
   """
-  @type schedule_entry() :: %{String.t() => any()}
+  @type schedule_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_channel_request() :: %{
-        optional("Audiences") => list([String.t()]()),
+        optional("Audiences") => list([String.t() | Atom.t()]()),
         optional("FillerSlate") => slate_source(),
         optional("Tags") => map(),
         optional("Tier") => list(any()),
@@ -895,7 +895,7 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type create_channel_request() :: %{String.t() => any()}
+  @type create_channel_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -915,18 +915,18 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_channel_policy_response() :: %{
-        optional("Policy") => String.t()
+        optional("Policy") => String.t() | Atom.t()
       }
 
   """
-  @type get_channel_policy_response() :: %{String.t() => any()}
+  @type get_channel_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -941,19 +941,19 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type prefetch_retrieval() :: %{String.t() => any()}
+  @type prefetch_retrieval() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       configure_logs_for_channel_response() :: %{
-        optional("ChannelName") => String.t(),
+        optional("ChannelName") => String.t() | Atom.t(),
         optional("LogTypes") => list(list(any())())
       }
 
   """
-  @type configure_logs_for_channel_response() :: %{String.t() => any()}
+  @type configure_logs_for_channel_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -961,11 +961,11 @@ defmodule AWS.MediaTailor do
 
       list_channels_response() :: %{
         optional("Items") => list(channel()),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_channels_response() :: %{String.t() => any()}
+  @type list_channels_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -976,11 +976,11 @@ defmodule AWS.MediaTailor do
         optional("RecurringPrefetchConfiguration") => recurring_prefetch_configuration(),
         optional("Retrieval") => prefetch_retrieval(),
         optional("ScheduleType") => list(any()),
-        optional("StreamId") => String.t()
+        optional("StreamId") => String.t() | Atom.t()
       }
 
   """
-  @type create_prefetch_schedule_request() :: %{String.t() => any()}
+  @type create_prefetch_schedule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -992,7 +992,7 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type ads_interaction_log() :: %{String.t() => any()}
+  @type ads_interaction_log() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1012,34 +1012,34 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type manifest_service_interaction_log() :: %{String.t() => any()}
+  @type manifest_service_interaction_log() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_channel_request() :: %{
-        optional("Audiences") => list([String.t()]()),
+        optional("Audiences") => list([String.t() | Atom.t()]()),
         optional("FillerSlate") => slate_source(),
         optional("TimeShiftConfiguration") => time_shift_configuration(),
         required("Outputs") => list(request_output_item())
       }
 
   """
-  @type update_channel_request() :: %{String.t() => any()}
+  @type update_channel_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       dash_configuration() :: %{
-        "ManifestEndpointPrefix" => String.t(),
-        "MpdLocation" => String.t(),
+        "ManifestEndpointPrefix" => String.t() | Atom.t(),
+        "MpdLocation" => String.t() | Atom.t(),
         "OriginManifestType" => list(any())
       }
 
   """
-  @type dash_configuration() :: %{String.t() => any()}
+  @type dash_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1062,7 +1062,7 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type update_source_location_request() :: %{String.t() => any()}
+  @type update_source_location_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1070,11 +1070,11 @@ defmodule AWS.MediaTailor do
 
       list_source_locations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_source_locations_request() :: %{String.t() => any()}
+  @type list_source_locations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1085,7 +1085,7 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type time_shift_configuration() :: %{String.t() => any()}
+  @type time_shift_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1093,21 +1093,21 @@ defmodule AWS.MediaTailor do
 
       describe_program_response() :: %{
         optional("AdBreaks") => list(ad_break()),
-        optional("Arn") => String.t(),
+        optional("Arn") => String.t() | Atom.t(),
         optional("AudienceMedia") => list(audience_media()),
-        optional("ChannelName") => String.t(),
+        optional("ChannelName") => String.t() | Atom.t(),
         optional("ClipRange") => clip_range(),
         optional("CreationTime") => non_neg_integer(),
         optional("DurationMillis") => [float()],
-        optional("LiveSourceName") => String.t(),
-        optional("ProgramName") => String.t(),
+        optional("LiveSourceName") => String.t() | Atom.t(),
+        optional("ProgramName") => String.t() | Atom.t(),
         optional("ScheduledStartTime") => non_neg_integer(),
-        optional("SourceLocationName") => String.t(),
-        optional("VodSourceName") => String.t()
+        optional("SourceLocationName") => String.t() | Atom.t(),
+        optional("VodSourceName") => String.t() | Atom.t()
       }
 
   """
-  @type describe_program_response() :: %{String.t() => any()}
+  @type describe_program_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1123,19 +1123,19 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type ad_break() :: %{String.t() => any()}
+  @type ad_break() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       slate_source() :: %{
-        "SourceLocationName" => String.t(),
-        "VodSourceName" => String.t()
+        "SourceLocationName" => String.t() | Atom.t(),
+        "VodSourceName" => String.t() | Atom.t()
       }
 
   """
-  @type slate_source() :: %{String.t() => any()}
+  @type slate_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1146,7 +1146,7 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type ad_marker_passthrough() :: %{String.t() => any()}
+  @type ad_marker_passthrough() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1154,11 +1154,11 @@ defmodule AWS.MediaTailor do
 
       list_vod_sources_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_vod_sources_request() :: %{String.t() => any()}
+  @type list_vod_sources_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1167,14 +1167,14 @@ defmodule AWS.MediaTailor do
       create_program_request() :: %{
         optional("AdBreaks") => list(ad_break()),
         optional("AudienceMedia") => list(audience_media()),
-        optional("LiveSourceName") => String.t(),
-        optional("VodSourceName") => String.t(),
+        optional("LiveSourceName") => String.t() | Atom.t(),
+        optional("VodSourceName") => String.t() | Atom.t(),
         required("ScheduleConfiguration") => schedule_configuration(),
-        required("SourceLocationName") => String.t()
+        required("SourceLocationName") => String.t() | Atom.t()
       }
 
   """
-  @type create_program_request() :: %{String.t() => any()}
+  @type create_program_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1193,7 +1193,7 @@ defmodule AWS.MediaTailor do
         "SegmentNum" => [integer()],
         "SegmentationEventId" => [integer()],
         "SegmentationTypeId" => [integer()],
-        "SegmentationUpid" => [String.t()],
+        "SegmentationUpid" => [String.t() | Atom.t()],
         "SegmentationUpidType" => [integer()],
         "SegmentsExpected" => [integer()],
         "SubSegmentNum" => [integer()],
@@ -1201,7 +1201,7 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type segmentation_descriptor() :: %{String.t() => any()}
+  @type segmentation_descriptor() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1210,13 +1210,13 @@ defmodule AWS.MediaTailor do
       transition() :: %{
         "DurationMillis" => float(),
         "RelativePosition" => list(any()),
-        "RelativeProgram" => String.t(),
+        "RelativeProgram" => String.t() | Atom.t(),
         "ScheduledStartTimeMillis" => float(),
-        "Type" => String.t()
+        "Type" => String.t() | Atom.t()
       }
 
   """
-  @type transition() :: %{String.t() => any()}
+  @type transition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1229,7 +1229,7 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type update_program_request() :: %{String.t() => any()}
+  @type update_program_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1237,7 +1237,7 @@ defmodule AWS.MediaTailor do
 
       get_playback_configuration_response() :: %{
         optional("AdConditioningConfiguration") => ad_conditioning_configuration(),
-        optional("AdDecisionServerUrl") => String.t(),
+        optional("AdDecisionServerUrl") => String.t() | Atom.t(),
         optional("AvailSuppression") => avail_suppression(),
         optional("Bumper") => bumper(),
         optional("CdnConfiguration") => cdn_configuration(),
@@ -1248,19 +1248,19 @@ defmodule AWS.MediaTailor do
         optional("LivePreRollConfiguration") => live_pre_roll_configuration(),
         optional("LogConfiguration") => log_configuration(),
         optional("ManifestProcessingRules") => manifest_processing_rules(),
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("PersonalizationThresholdSeconds") => integer(),
-        optional("PlaybackConfigurationArn") => String.t(),
-        optional("PlaybackEndpointPrefix") => String.t(),
-        optional("SessionInitializationEndpointPrefix") => String.t(),
-        optional("SlateAdUrl") => String.t(),
+        optional("PlaybackConfigurationArn") => String.t() | Atom.t(),
+        optional("PlaybackEndpointPrefix") => String.t() | Atom.t(),
+        optional("SessionInitializationEndpointPrefix") => String.t() | Atom.t(),
+        optional("SlateAdUrl") => String.t() | Atom.t(),
         optional("Tags") => map(),
-        optional("TranscodeProfileName") => String.t(),
-        optional("VideoContentSourceUrl") => String.t()
+        optional("TranscodeProfileName") => String.t() | Atom.t(),
+        optional("VideoContentSourceUrl") => String.t() | Atom.t()
       }
 
   """
-  @type get_playback_configuration_response() :: %{String.t() => any()}
+  @type get_playback_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1286,18 +1286,18 @@ defmodule AWS.MediaTailor do
 
       source_location() :: %{
         "AccessConfiguration" => access_configuration(),
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
         "DefaultSegmentDeliveryConfiguration" => default_segment_delivery_configuration(),
         "HttpConfiguration" => http_configuration(),
         "LastModifiedTime" => non_neg_integer(),
         "SegmentDeliveryConfigurations" => list(segment_delivery_configuration()),
-        "SourceLocationName" => String.t(),
+        "SourceLocationName" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type source_location() :: %{String.t() => any()}
+  @type source_location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1308,19 +1308,19 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type time_signal_message() :: %{String.t() => any()}
+  @type time_signal_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       key_value_pair() :: %{
-        "Key" => [String.t()],
-        "Value" => [String.t()]
+        "Key" => [String.t() | Atom.t()],
+        "Value" => [String.t() | Atom.t()]
       }
 
   """
-  @type key_value_pair() :: %{String.t() => any()}
+  @type key_value_pair() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1336,34 +1336,34 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       update_live_source_response() :: %{
-        optional("Arn") => String.t(),
+        optional("Arn") => String.t() | Atom.t(),
         optional("CreationTime") => non_neg_integer(),
         optional("HttpPackageConfigurations") => list(http_package_configuration()),
         optional("LastModifiedTime") => non_neg_integer(),
-        optional("LiveSourceName") => String.t(),
-        optional("SourceLocationName") => String.t(),
+        optional("LiveSourceName") => String.t() | Atom.t(),
+        optional("SourceLocationName") => String.t() | Atom.t(),
         optional("Tags") => map()
       }
 
   """
-  @type update_live_source_response() :: %{String.t() => any()}
+  @type update_live_source_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_live_source_response() :: %{
-        optional("Arn") => String.t(),
+        optional("Arn") => String.t() | Atom.t(),
         optional("CreationTime") => non_neg_integer(),
         optional("HttpPackageConfigurations") => list(http_package_configuration()),
         optional("LastModifiedTime") => non_neg_integer(),
-        optional("LiveSourceName") => String.t(),
-        optional("SourceLocationName") => String.t(),
+        optional("LiveSourceName") => String.t() | Atom.t(),
+        optional("SourceLocationName") => String.t() | Atom.t(),
         optional("Tags") => map()
       }
 
   """
-  @type create_live_source_response() :: %{String.t() => any()}
+  @type create_live_source_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1372,12 +1372,12 @@ defmodule AWS.MediaTailor do
       request_output_item() :: %{
         "DashPlaylistSettings" => dash_playlist_settings(),
         "HlsPlaylistSettings" => hls_playlist_settings(),
-        "ManifestName" => String.t(),
-        "SourceGroup" => String.t()
+        "ManifestName" => String.t() | Atom.t(),
+        "SourceGroup" => String.t() | Atom.t()
       }
 
   """
-  @type request_output_item() :: %{String.t() => any()}
+  @type request_output_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1389,23 +1389,23 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type schedule_configuration() :: %{String.t() => any()}
+  @type schedule_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       alert() :: %{
-        "AlertCode" => String.t(),
-        "AlertMessage" => String.t(),
+        "AlertCode" => String.t() | Atom.t(),
+        "AlertMessage" => String.t() | Atom.t(),
         "Category" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
-        "RelatedResourceArns" => list(String.t()),
-        "ResourceArn" => String.t()
+        "RelatedResourceArns" => list(String.t() | Atom.t()),
+        "ResourceArn" => String.t() | Atom.t()
       }
 
   """
-  @type alert() :: %{String.t() => any()}
+  @type alert() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1430,22 +1430,22 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       channel() :: %{
-        "Arn" => String.t(),
-        "Audiences" => list([String.t()]()),
-        "ChannelName" => String.t(),
-        "ChannelState" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Audiences" => list([String.t() | Atom.t()]()),
+        "ChannelName" => String.t() | Atom.t(),
+        "ChannelState" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
         "FillerSlate" => slate_source(),
         "LastModifiedTime" => non_neg_integer(),
         "LogConfiguration" => log_configuration_for_channel(),
         "Outputs" => list(response_output_item()),
-        "PlaybackMode" => String.t(),
+        "PlaybackMode" => String.t() | Atom.t(),
         "Tags" => map(),
-        "Tier" => String.t()
+        "Tier" => String.t() | Atom.t()
       }
 
   """
-  @type channel() :: %{String.t() => any()}
+  @type channel() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1456,7 +1456,7 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type update_vod_source_request() :: %{String.t() => any()}
+  @type update_vod_source_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1473,7 +1473,7 @@ defmodule AWS.MediaTailor do
 
       put_playback_configuration_request() :: %{
         optional("AdConditioningConfiguration") => ad_conditioning_configuration(),
-        optional("AdDecisionServerUrl") => String.t(),
+        optional("AdDecisionServerUrl") => String.t() | Atom.t(),
         optional("AvailSuppression") => avail_suppression(),
         optional("Bumper") => bumper(),
         optional("CdnConfiguration") => cdn_configuration(),
@@ -1483,15 +1483,15 @@ defmodule AWS.MediaTailor do
         optional("LivePreRollConfiguration") => live_pre_roll_configuration(),
         optional("ManifestProcessingRules") => manifest_processing_rules(),
         optional("PersonalizationThresholdSeconds") => integer(),
-        optional("SlateAdUrl") => String.t(),
+        optional("SlateAdUrl") => String.t() | Atom.t(),
         optional("Tags") => map(),
-        optional("TranscodeProfileName") => String.t(),
-        optional("VideoContentSourceUrl") => String.t(),
-        required("Name") => String.t()
+        optional("TranscodeProfileName") => String.t() | Atom.t(),
+        optional("VideoContentSourceUrl") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t()
       }
 
   """
-  @type put_playback_configuration_request() :: %{String.t() => any()}
+  @type put_playback_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1499,21 +1499,21 @@ defmodule AWS.MediaTailor do
 
       update_program_response() :: %{
         optional("AdBreaks") => list(ad_break()),
-        optional("Arn") => String.t(),
+        optional("Arn") => String.t() | Atom.t(),
         optional("AudienceMedia") => list(audience_media()),
-        optional("ChannelName") => String.t(),
+        optional("ChannelName") => String.t() | Atom.t(),
         optional("ClipRange") => clip_range(),
         optional("CreationTime") => non_neg_integer(),
         optional("DurationMillis") => float(),
-        optional("LiveSourceName") => String.t(),
-        optional("ProgramName") => String.t(),
+        optional("LiveSourceName") => String.t() | Atom.t(),
+        optional("ProgramName") => String.t() | Atom.t(),
         optional("ScheduledStartTime") => non_neg_integer(),
-        optional("SourceLocationName") => String.t(),
-        optional("VodSourceName") => String.t()
+        optional("SourceLocationName") => String.t() | Atom.t(),
+        optional("VodSourceName") => String.t() | Atom.t()
       }
 
   """
-  @type update_program_response() :: %{String.t() => any()}
+  @type update_program_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1527,7 +1527,7 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type recurring_prefetch_configuration() :: %{String.t() => any()}
+  @type recurring_prefetch_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1535,11 +1535,11 @@ defmodule AWS.MediaTailor do
 
       list_alerts_response() :: %{
         optional("Items") => list(alert()),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_alerts_response() :: %{String.t() => any()}
+  @type list_alerts_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1548,40 +1548,40 @@ defmodule AWS.MediaTailor do
       schedule_ad_break() :: %{
         "ApproximateDurationSeconds" => float(),
         "ApproximateStartTime" => non_neg_integer(),
-        "SourceLocationName" => String.t(),
-        "VodSourceName" => String.t()
+        "SourceLocationName" => String.t() | Atom.t(),
+        "VodSourceName" => String.t() | Atom.t()
       }
 
   """
-  @type schedule_ad_break() :: %{String.t() => any()}
+  @type schedule_ad_break() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       hls_configuration() :: %{
-        "ManifestEndpointPrefix" => String.t()
+        "ManifestEndpointPrefix" => String.t() | Atom.t()
       }
 
   """
-  @type hls_configuration() :: %{String.t() => any()}
+  @type hls_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_vod_source_response() :: %{
-        optional("Arn") => String.t(),
+        optional("Arn") => String.t() | Atom.t(),
         optional("CreationTime") => non_neg_integer(),
         optional("HttpPackageConfigurations") => list(http_package_configuration()),
         optional("LastModifiedTime") => non_neg_integer(),
-        optional("SourceLocationName") => String.t(),
+        optional("SourceLocationName") => String.t() | Atom.t(),
         optional("Tags") => map(),
-        optional("VodSourceName") => String.t()
+        optional("VodSourceName") => String.t() | Atom.t()
       }
 
   """
-  @type create_vod_source_response() :: %{String.t() => any()}
+  @type create_vod_source_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1589,36 +1589,36 @@ defmodule AWS.MediaTailor do
 
       list_prefetch_schedules_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("ScheduleType") => list(any()),
-        optional("StreamId") => String.t()
+        optional("StreamId") => String.t() | Atom.t()
       }
 
   """
-  @type list_prefetch_schedules_request() :: %{String.t() => any()}
+  @type list_prefetch_schedules_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       avail_matching_criteria() :: %{
-        "DynamicVariable" => String.t(),
+        "DynamicVariable" => String.t() | Atom.t(),
         "Operator" => list(any())
       }
 
   """
-  @type avail_matching_criteria() :: %{String.t() => any()}
+  @type avail_matching_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bad_request_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type bad_request_exception() :: %{String.t() => any()}
+  @type bad_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1630,7 +1630,7 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type recurring_consumption() :: %{String.t() => any()}
+  @type recurring_consumption() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1642,29 +1642,29 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type create_vod_source_request() :: %{String.t() => any()}
+  @type create_vod_source_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_channel_response() :: %{
-        optional("Arn") => String.t(),
-        optional("Audiences") => list([String.t()]()),
-        optional("ChannelName") => String.t(),
+        optional("Arn") => String.t() | Atom.t(),
+        optional("Audiences") => list([String.t() | Atom.t()]()),
+        optional("ChannelName") => String.t() | Atom.t(),
         optional("ChannelState") => list(any()),
         optional("CreationTime") => non_neg_integer(),
         optional("FillerSlate") => slate_source(),
         optional("LastModifiedTime") => non_neg_integer(),
         optional("Outputs") => list(response_output_item()),
-        optional("PlaybackMode") => String.t(),
+        optional("PlaybackMode") => String.t() | Atom.t(),
         optional("Tags") => map(),
-        optional("Tier") => String.t(),
+        optional("Tier") => String.t() | Atom.t(),
         optional("TimeShiftConfiguration") => time_shift_configuration()
       }
 
   """
-  @type update_channel_response() :: %{String.t() => any()}
+  @type update_channel_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1672,7 +1672,7 @@ defmodule AWS.MediaTailor do
 
       put_playback_configuration_response() :: %{
         optional("AdConditioningConfiguration") => ad_conditioning_configuration(),
-        optional("AdDecisionServerUrl") => String.t(),
+        optional("AdDecisionServerUrl") => String.t() | Atom.t(),
         optional("AvailSuppression") => avail_suppression(),
         optional("Bumper") => bumper(),
         optional("CdnConfiguration") => cdn_configuration(),
@@ -1683,19 +1683,19 @@ defmodule AWS.MediaTailor do
         optional("LivePreRollConfiguration") => live_pre_roll_configuration(),
         optional("LogConfiguration") => log_configuration(),
         optional("ManifestProcessingRules") => manifest_processing_rules(),
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("PersonalizationThresholdSeconds") => integer(),
-        optional("PlaybackConfigurationArn") => String.t(),
-        optional("PlaybackEndpointPrefix") => String.t(),
-        optional("SessionInitializationEndpointPrefix") => String.t(),
-        optional("SlateAdUrl") => String.t(),
+        optional("PlaybackConfigurationArn") => String.t() | Atom.t(),
+        optional("PlaybackEndpointPrefix") => String.t() | Atom.t(),
+        optional("SessionInitializationEndpointPrefix") => String.t() | Atom.t(),
+        optional("SlateAdUrl") => String.t() | Atom.t(),
         optional("Tags") => map(),
-        optional("TranscodeProfileName") => String.t(),
-        optional("VideoContentSourceUrl") => String.t()
+        optional("TranscodeProfileName") => String.t() | Atom.t(),
+        optional("VideoContentSourceUrl") => String.t() | Atom.t()
       }
 
   """
-  @type put_playback_configuration_response() :: %{String.t() => any()}
+  @type put_playback_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1711,29 +1711,29 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       describe_live_source_response() :: %{
-        optional("Arn") => String.t(),
+        optional("Arn") => String.t() | Atom.t(),
         optional("CreationTime") => non_neg_integer(),
         optional("HttpPackageConfigurations") => list(http_package_configuration()),
         optional("LastModifiedTime") => non_neg_integer(),
-        optional("LiveSourceName") => String.t(),
-        optional("SourceLocationName") => String.t(),
+        optional("LiveSourceName") => String.t() | Atom.t(),
+        optional("SourceLocationName") => String.t() | Atom.t(),
         optional("Tags") => map()
       }
 
   """
-  @type describe_live_source_response() :: %{String.t() => any()}
+  @type describe_live_source_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       segment_delivery_configuration() :: %{
-        "BaseUrl" => String.t(),
-        "Name" => String.t()
+        "BaseUrl" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type segment_delivery_configuration() :: %{String.t() => any()}
+  @type segment_delivery_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1745,7 +1745,7 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type access_configuration() :: %{String.t() => any()}
+  @type access_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1760,7 +1760,7 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type create_source_location_request() :: %{String.t() => any()}
+  @type create_source_location_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1774,7 +1774,7 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type log_configuration() :: %{String.t() => any()}
+  @type log_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1791,11 +1791,11 @@ defmodule AWS.MediaTailor do
 
       list_live_sources_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_live_sources_request() :: %{String.t() => any()}
+  @type list_live_sources_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1807,7 +1807,7 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type update_program_transition() :: %{String.t() => any()}
+  @type update_program_transition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1815,11 +1815,11 @@ defmodule AWS.MediaTailor do
 
       list_channels_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_channels_request() :: %{String.t() => any()}
+  @type list_channels_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1827,35 +1827,35 @@ defmodule AWS.MediaTailor do
 
       list_source_locations_response() :: %{
         optional("Items") => list(source_location()),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_source_locations_response() :: %{String.t() => any()}
+  @type list_source_locations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bumper() :: %{
-        "EndUrl" => String.t(),
-        "StartUrl" => String.t()
+        "EndUrl" => String.t() | Atom.t(),
+        "StartUrl" => String.t() | Atom.t()
       }
 
   """
-  @type bumper() :: %{String.t() => any()}
+  @type bumper() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       dash_configuration_for_put() :: %{
-        "MpdLocation" => String.t(),
+        "MpdLocation" => String.t() | Atom.t(),
         "OriginManifestType" => list(any())
       }
 
   """
-  @type dash_configuration_for_put() :: %{String.t() => any()}
+  @type dash_configuration_for_put() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1871,18 +1871,18 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       prefetch_schedule() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "Consumption" => prefetch_consumption(),
-        "Name" => String.t(),
-        "PlaybackConfigurationName" => String.t(),
+        "Name" => String.t() | Atom.t(),
+        "PlaybackConfigurationName" => String.t() | Atom.t(),
         "RecurringPrefetchConfiguration" => recurring_prefetch_configuration(),
         "Retrieval" => prefetch_retrieval(),
         "ScheduleType" => list(any()),
-        "StreamId" => String.t()
+        "StreamId" => String.t() | Atom.t()
       }
 
   """
-  @type prefetch_schedule() :: %{String.t() => any()}
+  @type prefetch_schedule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1890,11 +1890,11 @@ defmodule AWS.MediaTailor do
 
       list_playback_configurations_response() :: %{
         optional("Items") => list(playback_configuration()),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_playback_configurations_response() :: %{String.t() => any()}
+  @type list_playback_configurations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1906,7 +1906,7 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type hls_playlist_settings() :: %{String.t() => any()}
+  @type hls_playlist_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1929,7 +1929,7 @@ defmodule AWS.MediaTailor do
       }
 
   """
-  @type splice_insert_message() :: %{String.t() => any()}
+  @type splice_insert_message() :: %{String.t() | Atom.t() => any()}
 
   @type list_tags_for_resource_errors() :: bad_request_exception()
 
@@ -2020,7 +2020,7 @@ defmodule AWS.MediaTailor do
   For information about MediaTailor channels, see [Working with channels](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html)
   in the *MediaTailor User Guide*.
   """
-  @spec create_channel(map(), String.t(), create_channel_request(), list()) ::
+  @spec create_channel(map(), String.t() | Atom.t(), create_channel_request(), list()) ::
           {:ok, create_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2048,7 +2048,13 @@ defmodule AWS.MediaTailor do
   @doc """
   The live source configuration.
   """
-  @spec create_live_source(map(), String.t(), String.t(), create_live_source_request(), list()) ::
+  @spec create_live_source(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          create_live_source_request(),
+          list()
+        ) ::
           {:ok, create_live_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2091,8 +2097,8 @@ defmodule AWS.MediaTailor do
   """
   @spec create_prefetch_schedule(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           create_prefetch_schedule_request(),
           list()
         ) ::
@@ -2134,7 +2140,13 @@ defmodule AWS.MediaTailor do
   For information about programs, see [Working with programs](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-programs.html)
   in the *MediaTailor User Guide*.
   """
-  @spec create_program(map(), String.t(), String.t(), create_program_request(), list()) ::
+  @spec create_program(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          create_program_request(),
+          list()
+        ) ::
           {:ok, create_program_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2168,7 +2180,12 @@ defmodule AWS.MediaTailor do
   locations, see [Working with source locations](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html)
   in the *MediaTailor User Guide*.
   """
-  @spec create_source_location(map(), String.t(), create_source_location_request(), list()) ::
+  @spec create_source_location(
+          map(),
+          String.t() | Atom.t(),
+          create_source_location_request(),
+          list()
+        ) ::
           {:ok, create_source_location_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2196,7 +2213,13 @@ defmodule AWS.MediaTailor do
   @doc """
   The VOD source configuration parameters.
   """
-  @spec create_vod_source(map(), String.t(), String.t(), create_vod_source_request(), list()) ::
+  @spec create_vod_source(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          create_vod_source_request(),
+          list()
+        ) ::
           {:ok, create_vod_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2235,7 +2258,7 @@ defmodule AWS.MediaTailor do
   For information about MediaTailor channels, see [Working with channels](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html)
   in the *MediaTailor User Guide*.
   """
-  @spec delete_channel(map(), String.t(), delete_channel_request(), list()) ::
+  @spec delete_channel(map(), String.t() | Atom.t(), delete_channel_request(), list()) ::
           {:ok, delete_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2263,7 +2286,12 @@ defmodule AWS.MediaTailor do
   @doc """
   The channel policy to delete.
   """
-  @spec delete_channel_policy(map(), String.t(), delete_channel_policy_request(), list()) ::
+  @spec delete_channel_policy(
+          map(),
+          String.t() | Atom.t(),
+          delete_channel_policy_request(),
+          list()
+        ) ::
           {:ok, delete_channel_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2291,7 +2319,13 @@ defmodule AWS.MediaTailor do
   @doc """
   The live source to delete.
   """
-  @spec delete_live_source(map(), String.t(), String.t(), delete_live_source_request(), list()) ::
+  @spec delete_live_source(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_live_source_request(),
+          list()
+        ) ::
           {:ok, delete_live_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2332,7 +2366,7 @@ defmodule AWS.MediaTailor do
   """
   @spec delete_playback_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_playback_configuration_request(),
           list()
         ) ::
@@ -2370,8 +2404,8 @@ defmodule AWS.MediaTailor do
   """
   @spec delete_prefetch_schedule(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_prefetch_schedule_request(),
           list()
         ) ::
@@ -2413,7 +2447,13 @@ defmodule AWS.MediaTailor do
   For information about programs, see [Working with programs](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-programs.html)
   in the *MediaTailor User Guide*.
   """
-  @spec delete_program(map(), String.t(), String.t(), delete_program_request(), list()) ::
+  @spec delete_program(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_program_request(),
+          list()
+        ) ::
           {:ok, delete_program_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2447,7 +2487,12 @@ defmodule AWS.MediaTailor do
   locations, see [Working with source locations](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html)
   in the *MediaTailor User Guide*.
   """
-  @spec delete_source_location(map(), String.t(), delete_source_location_request(), list()) ::
+  @spec delete_source_location(
+          map(),
+          String.t() | Atom.t(),
+          delete_source_location_request(),
+          list()
+        ) ::
           {:ok, delete_source_location_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2475,7 +2520,13 @@ defmodule AWS.MediaTailor do
   @doc """
   The video on demand (VOD) source to delete.
   """
-  @spec delete_vod_source(map(), String.t(), String.t(), delete_vod_source_request(), list()) ::
+  @spec delete_vod_source(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_vod_source_request(),
+          list()
+        ) ::
           {:ok, delete_vod_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2514,7 +2565,7 @@ defmodule AWS.MediaTailor do
   For information about MediaTailor channels, see [Working with channels](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html)
   in the *MediaTailor User Guide*.
   """
-  @spec describe_channel(map(), String.t(), list()) ::
+  @spec describe_channel(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2531,7 +2582,7 @@ defmodule AWS.MediaTailor do
   @doc """
   The live source to describe.
   """
-  @spec describe_live_source(map(), String.t(), String.t(), list()) ::
+  @spec describe_live_source(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, describe_live_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2558,7 +2609,7 @@ defmodule AWS.MediaTailor do
   For information about programs, see [Working with programs](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-programs.html)
   in the *MediaTailor User Guide*.
   """
-  @spec describe_program(map(), String.t(), String.t(), list()) ::
+  @spec describe_program(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, describe_program_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2581,7 +2632,7 @@ defmodule AWS.MediaTailor do
   locations, see [Working with source locations](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html)
   in the *MediaTailor User Guide*.
   """
-  @spec describe_source_location(map(), String.t(), list()) ::
+  @spec describe_source_location(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_source_location_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2599,7 +2650,7 @@ defmodule AWS.MediaTailor do
   Provides details about a specific video on demand (VOD) source in a specific
   source location.
   """
-  @spec describe_vod_source(map(), String.t(), String.t(), list()) ::
+  @spec describe_vod_source(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, describe_vod_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2625,7 +2676,7 @@ defmodule AWS.MediaTailor do
 
   IAM policies are used to control access to your channel.
   """
-  @spec get_channel_policy(map(), String.t(), list()) ::
+  @spec get_channel_policy(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_channel_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2644,11 +2695,11 @@ defmodule AWS.MediaTailor do
   """
   @spec get_channel_schedule(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, get_channel_schedule_response(), any()}
@@ -2706,7 +2757,7 @@ defmodule AWS.MediaTailor do
   For information about MediaTailor configurations, see [Working with configurations in AWS Elemental
   MediaTailor](https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html).
   """
-  @spec get_playback_configuration(map(), String.t(), list()) ::
+  @spec get_playback_configuration(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_playback_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2728,7 +2779,7 @@ defmodule AWS.MediaTailor do
   [Using ad prefetching](https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html)
   in the *MediaTailor User Guide*.
   """
-  @spec get_prefetch_schedule(map(), String.t(), String.t(), list()) ::
+  @spec get_prefetch_schedule(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_prefetch_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2748,7 +2799,13 @@ defmodule AWS.MediaTailor do
   Lists the alerts that are associated with a MediaTailor channel assembly
   resource.
   """
-  @spec list_alerts(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
+  @spec list_alerts(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, list_alerts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2793,7 +2850,7 @@ defmodule AWS.MediaTailor do
   Retrieves information about the channels that are associated with the current
   AWS account.
   """
-  @spec list_channels(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_channels(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2826,7 +2883,13 @@ defmodule AWS.MediaTailor do
 
   A source represents a piece of content.
   """
-  @spec list_live_sources(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_live_sources(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_live_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2866,7 +2929,12 @@ defmodule AWS.MediaTailor do
   For information about MediaTailor configurations, see [Working with Configurations in AWS Elemental
   MediaTailor](https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html).
   """
-  @spec list_playback_configurations(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_playback_configurations(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_playback_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2902,7 +2970,12 @@ defmodule AWS.MediaTailor do
   @doc """
   Lists the prefetch schedules for a playback configuration.
   """
-  @spec list_prefetch_schedules(map(), String.t(), list_prefetch_schedules_request(), list()) ::
+  @spec list_prefetch_schedules(
+          map(),
+          String.t() | Atom.t(),
+          list_prefetch_schedules_request(),
+          list()
+        ) ::
           {:ok, list_prefetch_schedules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2937,7 +3010,12 @@ defmodule AWS.MediaTailor do
 
   A source location defines the host server URL, and contains a list of sources.
   """
-  @spec list_source_locations(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_source_locations(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_source_locations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2977,7 +3055,7 @@ defmodule AWS.MediaTailor do
   with organization, access control, and cost tracking. For more information, see
   [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2997,7 +3075,13 @@ defmodule AWS.MediaTailor do
 
   A source represents a piece of content.
   """
-  @spec list_vod_sources(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_vod_sources(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_vod_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3036,7 +3120,7 @@ defmodule AWS.MediaTailor do
 
   IAM policies are used to control access to your channel.
   """
-  @spec put_channel_policy(map(), String.t(), put_channel_policy_request(), list()) ::
+  @spec put_channel_policy(map(), String.t() | Atom.t(), put_channel_policy_request(), list()) ::
           {:ok, put_channel_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3098,7 +3182,7 @@ defmodule AWS.MediaTailor do
   For information about MediaTailor channels, see [Working with channels](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html)
   in the *MediaTailor User Guide*.
   """
-  @spec start_channel(map(), String.t(), start_channel_request(), list()) ::
+  @spec start_channel(map(), String.t() | Atom.t(), start_channel_request(), list()) ::
           {:ok, start_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3129,7 +3213,7 @@ defmodule AWS.MediaTailor do
   For information about MediaTailor channels, see [Working with channels](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html)
   in the *MediaTailor User Guide*.
   """
-  @spec stop_channel(map(), String.t(), stop_channel_request(), list()) ::
+  @spec stop_channel(map(), String.t() | Atom.t(), stop_channel_request(), list()) ::
           {:ok, stop_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3161,7 +3245,7 @@ defmodule AWS.MediaTailor do
   with organization, access control, and cost tracking. For more information, see
   [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3190,7 +3274,7 @@ defmodule AWS.MediaTailor do
   @doc """
   The resource to untag.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3227,7 +3311,7 @@ defmodule AWS.MediaTailor do
   For information about MediaTailor channels, see [Working with channels](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html)
   in the *MediaTailor User Guide*.
   """
-  @spec update_channel(map(), String.t(), update_channel_request(), list()) ::
+  @spec update_channel(map(), String.t() | Atom.t(), update_channel_request(), list()) ::
           {:ok, update_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3255,7 +3339,13 @@ defmodule AWS.MediaTailor do
   @doc """
   Updates a live source's configuration.
   """
-  @spec update_live_source(map(), String.t(), String.t(), update_live_source_request(), list()) ::
+  @spec update_live_source(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_live_source_request(),
+          list()
+        ) ::
           {:ok, update_live_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3291,7 +3381,13 @@ defmodule AWS.MediaTailor do
   @doc """
   Updates a program within a channel.
   """
-  @spec update_program(map(), String.t(), String.t(), update_program_request(), list()) ::
+  @spec update_program(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_program_request(),
+          list()
+        ) ::
           {:ok, update_program_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3325,7 +3421,12 @@ defmodule AWS.MediaTailor do
   locations, see [Working with source locations](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html)
   in the *MediaTailor User Guide*.
   """
-  @spec update_source_location(map(), String.t(), update_source_location_request(), list()) ::
+  @spec update_source_location(
+          map(),
+          String.t() | Atom.t(),
+          update_source_location_request(),
+          list()
+        ) ::
           {:ok, update_source_location_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3353,7 +3454,13 @@ defmodule AWS.MediaTailor do
   @doc """
   Updates a VOD source's configuration.
   """
-  @spec update_vod_source(map(), String.t(), String.t(), update_vod_source_request(), list()) ::
+  @spec update_vod_source(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_vod_source_request(),
+          list()
+        ) ::
           {:ok, update_vod_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

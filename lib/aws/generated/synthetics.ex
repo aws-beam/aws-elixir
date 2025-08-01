@@ -37,14 +37,14 @@ defmodule AWS.Synthetics do
   ## Example:
 
       get_canary_runs_request() :: %{
-        optional("DryRunId") => String.t(),
+        optional("DryRunId") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("RunType") => list(any())
       }
 
   """
-  @type get_canary_runs_request() :: %{String.t() => any()}
+  @type get_canary_runs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -55,18 +55,18 @@ defmodule AWS.Synthetics do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_failure_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_failure_exception() :: %{String.t() => any()}
+  @type internal_failure_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -92,11 +92,11 @@ defmodule AWS.Synthetics do
 
       describe_canaries_response() :: %{
         "Canaries" => list(canary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type describe_canaries_response() :: %{String.t() => any()}
+  @type describe_canaries_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -104,23 +104,23 @@ defmodule AWS.Synthetics do
 
       describe_canaries_request() :: %{
         optional("MaxResults") => integer(),
-        optional("Names") => list(String.t()),
-        optional("NextToken") => String.t()
+        optional("Names") => list(String.t() | Atom.t()),
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type describe_canaries_request() :: %{String.t() => any()}
+  @type describe_canaries_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       canary_dry_run_config_output() :: %{
-        "DryRunId" => String.t()
+        "DryRunId" => String.t() | Atom.t()
       }
 
   """
-  @type canary_dry_run_config_output() :: %{String.t() => any()}
+  @type canary_dry_run_config_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -144,28 +144,28 @@ defmodule AWS.Synthetics do
         optional("SuccessRetentionPeriodInDays") => integer(),
         optional("Tags") => map(),
         optional("VpcConfig") => vpc_config_input(),
-        required("ArtifactS3Location") => String.t(),
+        required("ArtifactS3Location") => String.t() | Atom.t(),
         required("Code") => canary_code_input(),
-        required("ExecutionRoleArn") => String.t(),
-        required("Name") => String.t(),
-        required("RuntimeVersion") => String.t(),
+        required("ExecutionRoleArn") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t(),
+        required("RuntimeVersion") => String.t() | Atom.t(),
         required("Schedule") => canary_schedule_input()
       }
 
   """
-  @type create_canary_request() :: %{String.t() => any()}
+  @type create_canary_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       visual_reference_output() :: %{
-        "BaseCanaryRunId" => String.t(),
+        "BaseCanaryRunId" => String.t() | Atom.t(),
         "BaseScreenshots" => list(base_screenshot())
       }
 
   """
-  @type visual_reference_output() :: %{String.t() => any()}
+  @type visual_reference_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -173,20 +173,20 @@ defmodule AWS.Synthetics do
 
       start_canary_dry_run_request() :: %{
         optional("ArtifactConfig") => artifact_config_input(),
-        optional("ArtifactS3Location") => String.t(),
+        optional("ArtifactS3Location") => String.t() | Atom.t(),
         optional("Code") => canary_code_input(),
-        optional("ExecutionRoleArn") => String.t(),
+        optional("ExecutionRoleArn") => String.t() | Atom.t(),
         optional("FailureRetentionPeriodInDays") => integer(),
         optional("ProvisionedResourceCleanup") => list(any()),
         optional("RunConfig") => canary_run_config_input(),
-        optional("RuntimeVersion") => String.t(),
+        optional("RuntimeVersion") => String.t() | Atom.t(),
         optional("SuccessRetentionPeriodInDays") => integer(),
         optional("VisualReference") => visual_reference_input(),
         optional("VpcConfig") => vpc_config_input()
       }
 
   """
-  @type start_canary_dry_run_request() :: %{String.t() => any()}
+  @type start_canary_dry_run_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -194,24 +194,24 @@ defmodule AWS.Synthetics do
 
       canary_status() :: %{
         "State" => list(any()),
-        "StateReason" => String.t(),
+        "StateReason" => String.t() | Atom.t(),
         "StateReasonCode" => list(any())
       }
 
   """
-  @type canary_status() :: %{String.t() => any()}
+  @type canary_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_runtime_versions_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "RuntimeVersions" => list(runtime_version())
       }
 
   """
-  @type describe_runtime_versions_response() :: %{String.t() => any()}
+  @type describe_runtime_versions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -225,7 +225,7 @@ defmodule AWS.Synthetics do
       }
 
   """
-  @type canary_run_config_output() :: %{String.t() => any()}
+  @type canary_run_config_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -233,22 +233,22 @@ defmodule AWS.Synthetics do
 
       describe_canaries_last_run_response() :: %{
         "CanariesLastRun" => list(canary_last_run()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type describe_canaries_last_run_response() :: %{String.t() => any()}
+  @type describe_canaries_last_run_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t())
+        required("TagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -264,23 +264,23 @@ defmodule AWS.Synthetics do
   ## Example:
 
       too_many_requests_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_requests_exception() :: %{String.t() => any()}
+  @type too_many_requests_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_group_resources_response() :: %{
-        "NextToken" => String.t(),
-        "Resources" => list(String.t())
+        "NextToken" => String.t() | Atom.t(),
+        "Resources" => list(String.t() | Atom.t())
       }
 
   """
-  @type list_group_resources_response() :: %{String.t() => any()}
+  @type list_group_resources_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -288,11 +288,11 @@ defmodule AWS.Synthetics do
 
       s3_encryption_config() :: %{
         "EncryptionMode" => list(any()),
-        "KmsKeyArn" => String.t()
+        "KmsKeyArn" => String.t() | Atom.t()
       }
 
   """
-  @type s3_encryption_config() :: %{String.t() => any()}
+  @type s3_encryption_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -308,18 +308,18 @@ defmodule AWS.Synthetics do
   ## Example:
 
       canary_run() :: %{
-        "ArtifactS3Location" => String.t(),
+        "ArtifactS3Location" => String.t() | Atom.t(),
         "DryRunConfig" => canary_dry_run_config_output(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "RetryAttempt" => integer(),
-        "ScheduledRunId" => String.t(),
+        "ScheduledRunId" => String.t() | Atom.t(),
         "Status" => canary_run_status(),
         "Timeline" => canary_run_timeline()
       }
 
   """
-  @type canary_run() :: %{String.t() => any()}
+  @type canary_run() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -327,12 +327,12 @@ defmodule AWS.Synthetics do
 
       canary_schedule_input() :: %{
         "DurationInSeconds" => float(),
-        "Expression" => String.t(),
+        "Expression" => String.t() | Atom.t(),
         "RetryConfig" => retry_config_input()
       }
 
   """
-  @type canary_schedule_input() :: %{String.t() => any()}
+  @type canary_schedule_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -352,7 +352,7 @@ defmodule AWS.Synthetics do
       }
 
   """
-  @type get_canary_response() :: %{String.t() => any()}
+  @type get_canary_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -367,18 +367,18 @@ defmodule AWS.Synthetics do
       }
 
   """
-  @type canary_run_config_input() :: %{String.t() => any()}
+  @type canary_run_config_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -386,14 +386,14 @@ defmodule AWS.Synthetics do
 
       update_canary_request() :: %{
         optional("ArtifactConfig") => artifact_config_input(),
-        optional("ArtifactS3Location") => String.t(),
+        optional("ArtifactS3Location") => String.t() | Atom.t(),
         optional("Code") => canary_code_input(),
-        optional("DryRunId") => String.t(),
-        optional("ExecutionRoleArn") => String.t(),
+        optional("DryRunId") => String.t() | Atom.t(),
+        optional("ExecutionRoleArn") => String.t() | Atom.t(),
         optional("FailureRetentionPeriodInDays") => integer(),
         optional("ProvisionedResourceCleanup") => list(any()),
         optional("RunConfig") => canary_run_config_input(),
-        optional("RuntimeVersion") => String.t(),
+        optional("RuntimeVersion") => String.t() | Atom.t(),
         optional("Schedule") => canary_schedule_input(),
         optional("SuccessRetentionPeriodInDays") => integer(),
         optional("VisualReference") => visual_reference_input(),
@@ -401,18 +401,18 @@ defmodule AWS.Synthetics do
       }
 
   """
-  @type update_canary_request() :: %{String.t() => any()}
+  @type update_canary_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -425,7 +425,7 @@ defmodule AWS.Synthetics do
       }
 
   """
-  @type canary_run_timeline() :: %{String.t() => any()}
+  @type canary_run_timeline() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -441,11 +441,11 @@ defmodule AWS.Synthetics do
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -453,25 +453,25 @@ defmodule AWS.Synthetics do
 
       canary_run_status() :: %{
         "State" => list(any()),
-        "StateReason" => String.t(),
+        "StateReason" => String.t() | Atom.t(),
         "StateReasonCode" => list(any()),
         "TestResult" => list(any())
       }
 
   """
-  @type canary_run_status() :: %{String.t() => any()}
+  @type canary_run_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       canary_last_run() :: %{
-        "CanaryName" => String.t(),
+        "CanaryName" => String.t() | Atom.t(),
         "LastRun" => canary_run()
       }
 
   """
-  @type canary_last_run() :: %{String.t() => any()}
+  @type canary_last_run() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -482,30 +482,30 @@ defmodule AWS.Synthetics do
       }
 
   """
-  @type artifact_config_output() :: %{String.t() => any()}
+  @type artifact_config_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       base_screenshot() :: %{
-        "IgnoreCoordinates" => list(String.t()),
-        "ScreenshotName" => String.t()
+        "IgnoreCoordinates" => list(String.t() | Atom.t()),
+        "ScreenshotName" => String.t() | Atom.t()
       }
 
   """
-  @type base_screenshot() :: %{String.t() => any()}
+  @type base_screenshot() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type not_found_exception() :: %{String.t() => any()}
+  @type not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -513,13 +513,13 @@ defmodule AWS.Synthetics do
 
       vpc_config_output() :: %{
         "Ipv6AllowedForDualStack" => boolean(),
-        "SecurityGroupIds" => list(String.t()),
-        "SubnetIds" => list(String.t()),
-        "VpcId" => String.t()
+        "SecurityGroupIds" => list(String.t() | Atom.t()),
+        "SubnetIds" => list(String.t() | Atom.t()),
+        "VpcId" => String.t() | Atom.t()
       }
 
   """
-  @type vpc_config_output() :: %{String.t() => any()}
+  @type vpc_config_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -530,7 +530,7 @@ defmodule AWS.Synthetics do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -538,11 +538,11 @@ defmodule AWS.Synthetics do
 
       create_group_request() :: %{
         optional("Tags") => map(),
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
 
   """
-  @type create_group_request() :: %{String.t() => any()}
+  @type create_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -565,18 +565,18 @@ defmodule AWS.Synthetics do
       }
 
   """
-  @type canary_timeline() :: %{String.t() => any()}
+  @type canary_timeline() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_resource_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
 
   """
-  @type associate_resource_request() :: %{String.t() => any()}
+  @type associate_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -584,23 +584,23 @@ defmodule AWS.Synthetics do
 
       get_canary_runs_response() :: %{
         "CanaryRuns" => list(canary_run()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type get_canary_runs_response() :: %{String.t() => any()}
+  @type get_canary_runs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       canary_code_output() :: %{
-        "Handler" => String.t(),
-        "SourceLocationArn" => String.t()
+        "Handler" => String.t() | Atom.t(),
+        "SourceLocationArn" => String.t() | Atom.t()
       }
 
   """
-  @type canary_code_output() :: %{String.t() => any()}
+  @type canary_code_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -608,23 +608,23 @@ defmodule AWS.Synthetics do
 
       describe_canaries_last_run_request() :: %{
         optional("MaxResults") => integer(),
-        optional("Names") => list(String.t()),
-        optional("NextToken") => String.t()
+        optional("Names") => list(String.t() | Atom.t()),
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type describe_canaries_last_run_request() :: %{String.t() => any()}
+  @type describe_canaries_last_run_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_resource_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
 
   """
-  @type disassociate_resource_request() :: %{String.t() => any()}
+  @type disassociate_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -632,57 +632,57 @@ defmodule AWS.Synthetics do
 
       describe_runtime_versions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type describe_runtime_versions_request() :: %{String.t() => any()}
+  @type describe_runtime_versions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       dry_run_config_output() :: %{
-        "DryRunId" => String.t(),
-        "LastDryRunExecutionStatus" => String.t()
+        "DryRunId" => String.t() | Atom.t(),
+        "LastDryRunExecutionStatus" => String.t() | Atom.t()
       }
 
   """
-  @type dry_run_config_output() :: %{String.t() => any()}
+  @type dry_run_config_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       visual_reference_input() :: %{
-        "BaseCanaryRunId" => String.t(),
+        "BaseCanaryRunId" => String.t() | Atom.t(),
         "BaseScreenshots" => list(base_screenshot())
       }
 
   """
-  @type visual_reference_input() :: %{String.t() => any()}
+  @type visual_reference_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       request_entity_too_large_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type request_entity_too_large_exception() :: %{String.t() => any()}
+  @type request_entity_too_large_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -707,11 +707,11 @@ defmodule AWS.Synthetics do
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -728,13 +728,13 @@ defmodule AWS.Synthetics do
 
       runtime_version() :: %{
         "DeprecationDate" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "ReleaseDate" => non_neg_integer(),
-        "VersionName" => String.t()
+        "VersionName" => String.t() | Atom.t()
       }
 
   """
-  @type runtime_version() :: %{String.t() => any()}
+  @type runtime_version() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -742,17 +742,17 @@ defmodule AWS.Synthetics do
 
       canary() :: %{
         "ArtifactConfig" => artifact_config_output(),
-        "ArtifactS3Location" => String.t(),
+        "ArtifactS3Location" => String.t() | Atom.t(),
         "Code" => canary_code_output(),
         "DryRunConfig" => dry_run_config_output(),
-        "EngineArn" => String.t(),
-        "ExecutionRoleArn" => String.t(),
+        "EngineArn" => String.t() | Atom.t(),
+        "ExecutionRoleArn" => String.t() | Atom.t(),
         "FailureRetentionPeriodInDays" => integer(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "ProvisionedResourceCleanup" => list(any()),
         "RunConfig" => canary_run_config_output(),
-        "RuntimeVersion" => String.t(),
+        "RuntimeVersion" => String.t() | Atom.t(),
         "Schedule" => canary_schedule_output(),
         "Status" => canary_status(),
         "SuccessRetentionPeriodInDays" => integer(),
@@ -763,7 +763,7 @@ defmodule AWS.Synthetics do
       }
 
   """
-  @type canary() :: %{String.t() => any()}
+  @type canary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -771,12 +771,12 @@ defmodule AWS.Synthetics do
 
       vpc_config_input() :: %{
         "Ipv6AllowedForDualStack" => boolean(),
-        "SecurityGroupIds" => list(String.t()),
-        "SubnetIds" => list(String.t())
+        "SecurityGroupIds" => list(String.t() | Atom.t()),
+        "SubnetIds" => list(String.t() | Atom.t())
       }
 
   """
-  @type vpc_config_input() :: %{String.t() => any()}
+  @type vpc_config_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -787,7 +787,7 @@ defmodule AWS.Synthetics do
       }
 
   """
-  @type delete_canary_request() :: %{String.t() => any()}
+  @type delete_canary_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -798,7 +798,7 @@ defmodule AWS.Synthetics do
       }
 
   """
-  @type start_canary_dry_run_response() :: %{String.t() => any()}
+  @type start_canary_dry_run_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -806,22 +806,22 @@ defmodule AWS.Synthetics do
 
       list_associated_groups_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_associated_groups_request() :: %{String.t() => any()}
+  @type list_associated_groups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -838,27 +838,27 @@ defmodule AWS.Synthetics do
 
       list_group_resources_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_group_resources_request() :: %{String.t() => any()}
+  @type list_group_resources_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       group() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreatedTime" => non_neg_integer(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type group() :: %{String.t() => any()}
+  @type group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -869,7 +869,7 @@ defmodule AWS.Synthetics do
       }
 
   """
-  @type get_group_response() :: %{String.t() => any()}
+  @type get_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -885,35 +885,35 @@ defmodule AWS.Synthetics do
   ## Example:
 
       get_canary_request() :: %{
-        optional("DryRunId") => String.t()
+        optional("DryRunId") => String.t() | Atom.t()
       }
 
   """
-  @type get_canary_request() :: %{String.t() => any()}
+  @type get_canary_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bad_request_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type bad_request_exception() :: %{String.t() => any()}
+  @type bad_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       group_summary() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type group_summary() :: %{String.t() => any()}
+  @type group_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -921,11 +921,11 @@ defmodule AWS.Synthetics do
 
       list_associated_groups_response() :: %{
         "Groups" => list(group_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_associated_groups_response() :: %{String.t() => any()}
+  @type list_associated_groups_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -933,11 +933,11 @@ defmodule AWS.Synthetics do
 
       list_groups_response() :: %{
         "Groups" => list(group_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_groups_response() :: %{String.t() => any()}
+  @type list_groups_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -954,12 +954,12 @@ defmodule AWS.Synthetics do
 
       canary_schedule_output() :: %{
         "DurationInSeconds" => float(),
-        "Expression" => String.t(),
+        "Expression" => String.t() | Atom.t(),
         "RetryConfig" => retry_config_output()
       }
 
   """
-  @type canary_schedule_output() :: %{String.t() => any()}
+  @type canary_schedule_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -967,11 +967,11 @@ defmodule AWS.Synthetics do
 
       list_groups_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_groups_request() :: %{String.t() => any()}
+  @type list_groups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -982,7 +982,7 @@ defmodule AWS.Synthetics do
       }
 
   """
-  @type retry_config_input() :: %{String.t() => any()}
+  @type retry_config_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -993,22 +993,22 @@ defmodule AWS.Synthetics do
       }
 
   """
-  @type create_canary_response() :: %{String.t() => any()}
+  @type create_canary_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       canary_code_input() :: %{
-        "Handler" => String.t(),
-        "S3Bucket" => String.t(),
-        "S3Key" => String.t(),
-        "S3Version" => String.t(),
+        "Handler" => String.t() | Atom.t(),
+        "S3Bucket" => String.t() | Atom.t(),
+        "S3Key" => String.t() | Atom.t(),
+        "S3Version" => String.t() | Atom.t(),
         "ZipFile" => binary()
       }
 
   """
-  @type canary_code_input() :: %{String.t() => any()}
+  @type canary_code_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1019,7 +1019,7 @@ defmodule AWS.Synthetics do
       }
 
   """
-  @type artifact_config_input() :: %{String.t() => any()}
+  @type artifact_config_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1030,7 +1030,7 @@ defmodule AWS.Synthetics do
       }
 
   """
-  @type create_group_response() :: %{String.t() => any()}
+  @type create_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1041,7 +1041,7 @@ defmodule AWS.Synthetics do
       }
 
   """
-  @type retry_config_output() :: %{String.t() => any()}
+  @type retry_config_output() :: %{String.t() | Atom.t() => any()}
 
   @type associate_resource_errors() ::
           validation_exception()
@@ -1182,7 +1182,7 @@ defmodule AWS.Synthetics do
 
   You must run this operation in the Region where the canary exists.
   """
-  @spec associate_resource(map(), String.t(), associate_resource_request(), list()) ::
+  @spec associate_resource(map(), String.t() | Atom.t(), associate_resource_request(), list()) ::
           {:ok, associate_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1363,7 +1363,7 @@ defmodule AWS.Synthetics do
   resources
   after you delete the canary.
   """
-  @spec delete_canary(map(), String.t(), delete_canary_request(), list()) ::
+  @spec delete_canary(map(), String.t() | Atom.t(), delete_canary_request(), list()) ::
           {:ok, delete_canary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1406,7 +1406,7 @@ defmodule AWS.Synthetics do
   must be made from its home Region. You can find the home Region of a group
   within its ARN.
   """
-  @spec delete_group(map(), String.t(), delete_group_request(), list()) ::
+  @spec delete_group(map(), String.t() | Atom.t(), delete_group_request(), list()) ::
           {:ok, delete_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1562,7 +1562,12 @@ defmodule AWS.Synthetics do
 
   You must run this operation in the Region where the canary exists.
   """
-  @spec disassociate_resource(map(), String.t(), disassociate_resource_request(), list()) ::
+  @spec disassociate_resource(
+          map(),
+          String.t() | Atom.t(),
+          disassociate_resource_request(),
+          list()
+        ) ::
           {:ok, disassociate_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1596,7 +1601,7 @@ defmodule AWS.Synthetics do
   and their names, use
   [DescribeCanaries](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html).
   """
-  @spec get_canary(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_canary(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
           {:ok, get_canary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1621,7 +1626,7 @@ defmodule AWS.Synthetics do
   @doc """
   Retrieves a list of runs for a specified canary.
   """
-  @spec get_canary_runs(map(), String.t(), get_canary_runs_request(), list()) ::
+  @spec get_canary_runs(map(), String.t() | Atom.t(), get_canary_runs_request(), list()) ::
           {:ok, get_canary_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1653,7 +1658,7 @@ defmodule AWS.Synthetics do
   Groups are a global resource, so you can use this operation from
   any Region.
   """
-  @spec get_group(map(), String.t(), list()) ::
+  @spec get_group(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1674,7 +1679,12 @@ defmodule AWS.Synthetics do
   The canary
   that you specify must be in the current Region.
   """
-  @spec list_associated_groups(map(), String.t(), list_associated_groups_request(), list()) ::
+  @spec list_associated_groups(
+          map(),
+          String.t() | Atom.t(),
+          list_associated_groups_request(),
+          list()
+        ) ::
           {:ok, list_associated_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1704,7 +1714,7 @@ defmodule AWS.Synthetics do
   This operation returns a list of the ARNs of the canaries that are associated
   with the specified group.
   """
-  @spec list_group_resources(map(), String.t(), list_group_resources_request(), list()) ::
+  @spec list_group_resources(map(), String.t() | Atom.t(), list_group_resources_request(), list()) ::
           {:ok, list_group_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1766,7 +1776,7 @@ defmodule AWS.Synthetics do
   @doc """
   Displays the tags associated with a canary or group.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1789,7 +1799,7 @@ defmodule AWS.Synthetics do
   use
   [GetCanary](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanary.html).
   """
-  @spec start_canary(map(), String.t(), start_canary_request(), list()) ::
+  @spec start_canary(map(), String.t() | Atom.t(), start_canary_request(), list()) ::
           {:ok, start_canary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1818,7 +1828,7 @@ defmodule AWS.Synthetics do
   @doc """
   Use this operation to start a dry run for a canary that has already been created
   """
-  @spec start_canary_dry_run(map(), String.t(), start_canary_dry_run_request(), list()) ::
+  @spec start_canary_dry_run(map(), String.t() | Atom.t(), start_canary_dry_run_request(), list()) ::
           {:ok, start_canary_dry_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1855,7 +1865,7 @@ defmodule AWS.Synthetics do
   You can use `StartCanary` to start it running again
   with the canary’s current schedule at any point in the future.
   """
-  @spec stop_canary(map(), String.t(), stop_canary_request(), list()) ::
+  @spec stop_canary(map(), String.t() | Atom.t(), stop_canary_request(), list()) ::
           {:ok, stop_canary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1903,7 +1913,7 @@ defmodule AWS.Synthetics do
 
   You can associate as many as 50 tags with a canary or group.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1932,7 +1942,7 @@ defmodule AWS.Synthetics do
   @doc """
   Removes one or more tags from the specified resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1975,7 +1985,7 @@ defmodule AWS.Synthetics do
   you can provide is the `Schedule`. Adding any other field will thrown an
   exception.
   """
-  @spec update_canary(map(), String.t(), update_canary_request(), list()) ::
+  @spec update_canary(map(), String.t() | Atom.t(), update_canary_request(), list()) ::
           {:ok, update_canary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

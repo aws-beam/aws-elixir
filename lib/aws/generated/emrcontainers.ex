@@ -44,7 +44,7 @@ defmodule AWS.EMRcontainers do
       }
 
   """
-  @type encryption_configuration() :: %{String.t() => any()}
+  @type encryption_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -55,43 +55,43 @@ defmodule AWS.EMRcontainers do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_job_template_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "id" => String.t(),
-        "name" => String.t()
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type create_job_template_response() :: %{String.t() => any()}
+  @type create_job_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_monitoring_configuration() :: %{
-        "logUri" => String.t()
+        "logUri" => String.t() | Atom.t()
       }
 
   """
-  @type s3_monitoring_configuration() :: %{String.t() => any()}
+  @type s3_monitoring_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_job_template_response() :: %{
-        "id" => String.t()
+        "id" => String.t() | Atom.t()
       }
 
   """
-  @type delete_job_template_response() :: %{String.t() => any()}
+  @type delete_job_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -101,39 +101,39 @@ defmodule AWS.EMRcontainers do
         optional("createdAfter") => non_neg_integer(),
         optional("createdBefore") => non_neg_integer(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_security_configurations_request() :: %{String.t() => any()}
+  @type list_security_configurations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       job_run() :: %{
-        "arn" => String.t(),
-        "clientToken" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "clientToken" => String.t() | Atom.t(),
         "configurationOverrides" => configuration_overrides(),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "executionRoleArn" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "executionRoleArn" => String.t() | Atom.t(),
         "failureReason" => list(any()),
         "finishedAt" => non_neg_integer(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "jobDriver" => job_driver(),
-        "name" => String.t(),
-        "releaseLabel" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "releaseLabel" => String.t() | Atom.t(),
         "retryPolicyConfiguration" => retry_policy_configuration(),
         "retryPolicyExecution" => retry_policy_execution(),
         "state" => list(any()),
-        "stateDetails" => String.t(),
+        "stateDetails" => String.t() | Atom.t(),
         "tags" => map(),
-        "virtualClusterId" => String.t()
+        "virtualClusterId" => String.t() | Atom.t()
       }
 
   """
-  @type job_run() :: %{String.t() => any()}
+  @type job_run() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -153,19 +153,19 @@ defmodule AWS.EMRcontainers do
       }
 
   """
-  @type describe_job_run_response() :: %{String.t() => any()}
+  @type describe_job_run_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cloud_watch_monitoring_configuration() :: %{
-        "logGroupName" => String.t(),
-        "logStreamNamePrefix" => String.t()
+        "logGroupName" => String.t() | Atom.t(),
+        "logStreamNamePrefix" => String.t() | Atom.t()
       }
 
   """
-  @type cloud_watch_monitoring_configuration() :: %{String.t() => any()}
+  @type cloud_watch_monitoring_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -175,13 +175,13 @@ defmodule AWS.EMRcontainers do
         optional("createdAfter") => non_neg_integer(),
         optional("createdBefore") => non_neg_integer(),
         optional("maxResults") => integer(),
-        optional("name") => String.t(),
-        optional("nextToken") => String.t(),
+        optional("name") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("states") => list(list(any())())
       }
 
   """
-  @type list_job_runs_request() :: %{String.t() => any()}
+  @type list_job_runs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -189,57 +189,57 @@ defmodule AWS.EMRcontainers do
 
       create_security_configuration_request() :: %{
         optional("tags") => map(),
-        required("clientToken") => String.t(),
-        required("name") => String.t(),
+        required("clientToken") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t(),
         required("securityConfigurationData") => security_configuration_data()
       }
 
   """
-  @type create_security_configuration_request() :: %{String.t() => any()}
+  @type create_security_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       job_template() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "decryptionError" => String.t(),
-        "id" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "decryptionError" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "jobTemplateData" => job_template_data(),
-        "kmsKeyArn" => String.t(),
-        "name" => String.t(),
+        "kmsKeyArn" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "tags" => map()
       }
 
   """
-  @type job_template() :: %{String.t() => any()}
+  @type job_template() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       configuration() :: %{
-        "classification" => String.t(),
+        "classification" => String.t() | Atom.t(),
         "configurations" => list(configuration()),
         "properties" => map()
       }
 
   """
-  @type configuration() :: %{String.t() => any()}
+  @type configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       parametric_cloud_watch_monitoring_configuration() :: %{
-        "logGroupName" => String.t(),
-        "logStreamNamePrefix" => String.t()
+        "logGroupName" => String.t() | Atom.t(),
+        "logStreamNamePrefix" => String.t() | Atom.t()
       }
 
   """
-  @type parametric_cloud_watch_monitoring_configuration() :: %{String.t() => any()}
+  @type parametric_cloud_watch_monitoring_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -250,7 +250,7 @@ defmodule AWS.EMRcontainers do
       }
 
   """
-  @type describe_managed_endpoint_response() :: %{String.t() => any()}
+  @type describe_managed_endpoint_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -265,62 +265,62 @@ defmodule AWS.EMRcontainers do
       }
 
   """
-  @type monitoring_configuration() :: %{String.t() => any()}
+  @type monitoring_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_managed_endpoint_response() :: %{
-        "arn" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
-        "virtualClusterId" => String.t()
+        "arn" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "virtualClusterId" => String.t() | Atom.t()
       }
 
   """
-  @type create_managed_endpoint_response() :: %{String.t() => any()}
+  @type create_managed_endpoint_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       secure_namespace_info() :: %{
-        "clusterId" => String.t(),
-        "namespace" => String.t()
+        "clusterId" => String.t() | Atom.t(),
+        "namespace" => String.t() | Atom.t()
       }
 
   """
-  @type secure_namespace_info() :: %{String.t() => any()}
+  @type secure_namespace_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       virtual_cluster() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "containerProvider" => container_provider(),
         "createdAt" => non_neg_integer(),
-        "id" => String.t(),
-        "name" => String.t(),
-        "securityConfigurationId" => String.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "securityConfigurationId" => String.t() | Atom.t(),
         "state" => list(any()),
         "tags" => map()
       }
 
   """
-  @type virtual_cluster() :: %{String.t() => any()}
+  @type virtual_cluster() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -336,22 +336,22 @@ defmodule AWS.EMRcontainers do
   ## Example:
 
       parametric_s3_monitoring_configuration() :: %{
-        "logUri" => String.t()
+        "logUri" => String.t() | Atom.t()
       }
 
   """
-  @type parametric_s3_monitoring_configuration() :: %{String.t() => any()}
+  @type parametric_s3_monitoring_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       eks_info() :: %{
-        "namespace" => String.t()
+        "namespace" => String.t() | Atom.t()
       }
 
   """
-  @type eks_info() :: %{String.t() => any()}
+  @type eks_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -376,37 +376,37 @@ defmodule AWS.EMRcontainers do
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_job_run_response() :: %{
-        "arn" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
-        "virtualClusterId" => String.t()
+        "arn" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "virtualClusterId" => String.t() | Atom.t()
       }
 
   """
-  @type start_job_run_response() :: %{String.t() => any()}
+  @type start_job_run_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_job_run_response() :: %{
-        "id" => String.t(),
-        "virtualClusterId" => String.t()
+        "id" => String.t() | Atom.t(),
+        "virtualClusterId" => String.t() | Atom.t()
       }
 
   """
-  @type cancel_job_run_response() :: %{String.t() => any()}
+  @type cancel_job_run_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -415,23 +415,23 @@ defmodule AWS.EMRcontainers do
       get_managed_endpoint_session_credentials_response() :: %{
         "credentials" => list(),
         "expiresAt" => non_neg_integer(),
-        "id" => String.t()
+        "id" => String.t() | Atom.t()
       }
 
   """
-  @type get_managed_endpoint_session_credentials_response() :: %{String.t() => any()}
+  @type get_managed_endpoint_session_credentials_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       template_parameter_configuration() :: %{
-        "defaultValue" => String.t(),
+        "defaultValue" => String.t() | Atom.t(),
         "type" => list(any())
       }
 
   """
-  @type template_parameter_configuration() :: %{String.t() => any()}
+  @type template_parameter_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -448,29 +448,29 @@ defmodule AWS.EMRcontainers do
 
       managed_logs() :: %{
         "allowAWSToRetainLogs" => list(any()),
-        "encryptionKeyArn" => String.t()
+        "encryptionKeyArn" => String.t() | Atom.t()
       }
 
   """
-  @type managed_logs() :: %{String.t() => any()}
+  @type managed_logs() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_managed_endpoint_request() :: %{
-        optional("certificateArn") => String.t(),
+        optional("certificateArn") => String.t() | Atom.t(),
         optional("configurationOverrides") => configuration_overrides(),
         optional("tags") => map(),
-        required("clientToken") => String.t(),
-        required("executionRoleArn") => String.t(),
-        required("name") => String.t(),
-        required("releaseLabel") => String.t(),
-        required("type") => String.t()
+        required("clientToken") => String.t() | Atom.t(),
+        required("executionRoleArn") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t(),
+        required("releaseLabel") => String.t() | Atom.t(),
+        required("type") => String.t() | Atom.t()
       }
 
   """
-  @type create_managed_endpoint_request() :: %{String.t() => any()}
+  @type create_managed_endpoint_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -478,23 +478,23 @@ defmodule AWS.EMRcontainers do
 
       list_job_runs_response() :: %{
         "jobRuns" => list(job_run()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_job_runs_response() :: %{String.t() => any()}
+  @type list_job_runs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_managed_endpoint_response() :: %{
-        "id" => String.t(),
-        "virtualClusterId" => String.t()
+        "id" => String.t() | Atom.t(),
+        "virtualClusterId" => String.t() | Atom.t()
       }
 
   """
-  @type delete_managed_endpoint_response() :: %{String.t() => any()}
+  @type delete_managed_endpoint_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -505,7 +505,7 @@ defmodule AWS.EMRcontainers do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -516,7 +516,7 @@ defmodule AWS.EMRcontainers do
       }
 
   """
-  @type describe_job_template_response() :: %{String.t() => any()}
+  @type describe_job_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -524,76 +524,76 @@ defmodule AWS.EMRcontainers do
 
       container_log_rotation_configuration() :: %{
         "maxFilesToKeep" => integer(),
-        "rotationSize" => String.t()
+        "rotationSize" => String.t() | Atom.t()
       }
 
   """
-  @type container_log_rotation_configuration() :: %{String.t() => any()}
+  @type container_log_rotation_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_security_configuration_response() :: %{
-        "arn" => String.t(),
-        "id" => String.t(),
-        "name" => String.t()
+        "arn" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type create_security_configuration_response() :: %{String.t() => any()}
+  @type create_security_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       container_provider() :: %{
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "info" => list(),
         "type" => list(any())
       }
 
   """
-  @type container_provider() :: %{String.t() => any()}
+  @type container_provider() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       e_k_s_request_throttled_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type e_k_s_request_throttled_exception() :: %{String.t() => any()}
+  @type e_k_s_request_throttled_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       endpoint() :: %{
-        "arn" => String.t(),
-        "certificateArn" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "certificateArn" => String.t() | Atom.t(),
         "certificateAuthority" => certificate(),
         "configurationOverrides" => configuration_overrides(),
         "createdAt" => non_neg_integer(),
-        "executionRoleArn" => String.t(),
+        "executionRoleArn" => String.t() | Atom.t(),
         "failureReason" => list(any()),
-        "id" => String.t(),
-        "name" => String.t(),
-        "releaseLabel" => String.t(),
-        "securityGroup" => String.t(),
-        "serverUrl" => String.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "releaseLabel" => String.t() | Atom.t(),
+        "securityGroup" => String.t() | Atom.t(),
+        "serverUrl" => String.t() | Atom.t(),
         "state" => list(any()),
-        "stateDetails" => String.t(),
-        "subnetIds" => list(String.t()),
+        "stateDetails" => String.t() | Atom.t(),
+        "subnetIds" => list(String.t() | Atom.t()),
         "tags" => map(),
-        "type" => String.t(),
-        "virtualClusterId" => String.t()
+        "type" => String.t() | Atom.t(),
+        "virtualClusterId" => String.t() | Atom.t()
       }
 
   """
-  @type endpoint() :: %{String.t() => any()}
+  @type endpoint() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -605,43 +605,43 @@ defmodule AWS.EMRcontainers do
       }
 
   """
-  @type parametric_configuration_overrides() :: %{String.t() => any()}
+  @type parametric_configuration_overrides() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_virtual_cluster_response() :: %{
-        "arn" => String.t(),
-        "id" => String.t(),
-        "name" => String.t()
+        "arn" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type create_virtual_cluster_response() :: %{String.t() => any()}
+  @type create_virtual_cluster_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       certificate() :: %{
-        "certificateArn" => String.t(),
-        "certificateData" => String.t()
+        "certificateArn" => String.t() | Atom.t(),
+        "certificateData" => String.t() | Atom.t()
       }
 
   """
-  @type certificate() :: %{String.t() => any()}
+  @type certificate() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -649,34 +649,34 @@ defmodule AWS.EMRcontainers do
 
       start_job_run_request() :: %{
         optional("configurationOverrides") => configuration_overrides(),
-        optional("executionRoleArn") => String.t(),
+        optional("executionRoleArn") => String.t() | Atom.t(),
         optional("jobDriver") => job_driver(),
-        optional("jobTemplateId") => String.t(),
+        optional("jobTemplateId") => String.t() | Atom.t(),
         optional("jobTemplateParameters") => map(),
-        optional("name") => String.t(),
-        optional("releaseLabel") => String.t(),
+        optional("name") => String.t() | Atom.t(),
+        optional("releaseLabel") => String.t() | Atom.t(),
         optional("retryPolicyConfiguration") => retry_policy_configuration(),
         optional("tags") => map(),
-        required("clientToken") => String.t()
+        required("clientToken") => String.t() | Atom.t()
       }
 
   """
-  @type start_job_run_request() :: %{String.t() => any()}
+  @type start_job_run_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_virtual_cluster_request() :: %{
-        optional("securityConfigurationId") => String.t(),
+        optional("securityConfigurationId") => String.t() | Atom.t(),
         optional("tags") => map(),
-        required("clientToken") => String.t(),
+        required("clientToken") => String.t() | Atom.t(),
         required("containerProvider") => container_provider(),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_virtual_cluster_request() :: %{String.t() => any()}
+  @type create_virtual_cluster_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -686,11 +686,11 @@ defmodule AWS.EMRcontainers do
         optional("createdAfter") => non_neg_integer(),
         optional("createdBefore") => non_neg_integer(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_job_templates_request() :: %{String.t() => any()}
+  @type list_job_templates_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -698,12 +698,12 @@ defmodule AWS.EMRcontainers do
 
       parametric_monitoring_configuration() :: %{
         "cloudWatchMonitoringConfiguration" => parametric_cloud_watch_monitoring_configuration(),
-        "persistentAppUI" => String.t(),
+        "persistentAppUI" => String.t() | Atom.t(),
         "s3MonitoringConfiguration" => parametric_s3_monitoring_configuration()
       }
 
   """
-  @type parametric_monitoring_configuration() :: %{String.t() => any()}
+  @type parametric_monitoring_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -714,7 +714,7 @@ defmodule AWS.EMRcontainers do
       }
 
   """
-  @type retry_policy_execution() :: %{String.t() => any()}
+  @type retry_policy_execution() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -725,7 +725,7 @@ defmodule AWS.EMRcontainers do
       }
 
   """
-  @type in_transit_encryption_configuration() :: %{String.t() => any()}
+  @type in_transit_encryption_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -733,27 +733,27 @@ defmodule AWS.EMRcontainers do
 
       t_l_s_certificate_configuration() :: %{
         "certificateProviderType" => list(any()),
-        "privateCertificateSecretArn" => String.t(),
-        "publicCertificateSecretArn" => String.t()
+        "privateCertificateSecretArn" => String.t() | Atom.t(),
+        "publicCertificateSecretArn" => String.t() | Atom.t()
       }
 
   """
-  @type t_l_s_certificate_configuration() :: %{String.t() => any()}
+  @type t_l_s_certificate_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_job_template_request() :: %{
-        optional("kmsKeyArn") => String.t(),
+        optional("kmsKeyArn") => String.t() | Atom.t(),
         optional("tags") => map(),
-        required("clientToken") => String.t(),
+        required("clientToken") => String.t() | Atom.t(),
         required("jobTemplateData") => job_template_data(),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_job_template_request() :: %{String.t() => any()}
+  @type create_job_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -778,17 +778,17 @@ defmodule AWS.EMRcontainers do
   ## Example:
 
       security_configuration() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "securityConfigurationData" => security_configuration_data(),
         "tags" => map()
       }
 
   """
-  @type security_configuration() :: %{String.t() => any()}
+  @type security_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -799,7 +799,7 @@ defmodule AWS.EMRcontainers do
       }
 
   """
-  @type describe_security_configuration_response() :: %{String.t() => any()}
+  @type describe_security_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -807,15 +807,15 @@ defmodule AWS.EMRcontainers do
 
       job_template_data() :: %{
         "configurationOverrides" => parametric_configuration_overrides(),
-        "executionRoleArn" => String.t(),
+        "executionRoleArn" => String.t() | Atom.t(),
         "jobDriver" => job_driver(),
         "jobTags" => map(),
         "parameterConfiguration" => map(),
-        "releaseLabel" => String.t()
+        "releaseLabel" => String.t() | Atom.t()
       }
 
   """
-  @type job_template_data() :: %{String.t() => any()}
+  @type job_template_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -823,22 +823,22 @@ defmodule AWS.EMRcontainers do
 
       list_managed_endpoints_response() :: %{
         "endpoints" => list(endpoint()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_managed_endpoints_response() :: %{String.t() => any()}
+  @type list_managed_endpoints_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       request_throttled_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type request_throttled_exception() :: %{String.t() => any()}
+  @type request_throttled_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -857,13 +857,13 @@ defmodule AWS.EMRcontainers do
         optional("createdAfter") => non_neg_integer(),
         optional("createdBefore") => non_neg_integer(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("states") => list(list(any())()),
-        optional("types") => list(String.t())
+        optional("types") => list(String.t() | Atom.t())
       }
 
   """
-  @type list_managed_endpoints_request() :: %{String.t() => any()}
+  @type list_managed_endpoints_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -874,29 +874,29 @@ defmodule AWS.EMRcontainers do
       }
 
   """
-  @type security_configuration_data() :: %{String.t() => any()}
+  @type security_configuration_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_virtual_cluster_response() :: %{
-        "id" => String.t()
+        "id" => String.t() | Atom.t()
       }
 
   """
-  @type delete_virtual_cluster_response() :: %{String.t() => any()}
+  @type delete_virtual_cluster_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -917,46 +917,46 @@ defmodule AWS.EMRcontainers do
       }
 
   """
-  @type configuration_overrides() :: %{String.t() => any()}
+  @type configuration_overrides() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_managed_endpoint_session_credentials_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("durationInSeconds") => integer(),
-        optional("logContext") => String.t(),
-        required("credentialType") => String.t(),
-        required("executionRoleArn") => String.t()
+        optional("logContext") => String.t() | Atom.t(),
+        required("credentialType") => String.t() | Atom.t(),
+        required("executionRoleArn") => String.t() | Atom.t()
       }
 
   """
-  @type get_managed_endpoint_session_credentials_request() :: %{String.t() => any()}
+  @type get_managed_endpoint_session_credentials_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       spark_sql_job_driver() :: %{
-        "entryPoint" => String.t(),
-        "sparkSqlParameters" => String.t()
+        "entryPoint" => String.t() | Atom.t(),
+        "sparkSqlParameters" => String.t() | Atom.t()
       }
 
   """
-  @type spark_sql_job_driver() :: %{String.t() => any()}
+  @type spark_sql_job_driver() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_security_configurations_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "securityConfigurations" => list(security_configuration())
       }
 
   """
-  @type list_security_configurations_response() :: %{String.t() => any()}
+  @type list_security_configurations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -967,7 +967,7 @@ defmodule AWS.EMRcontainers do
       }
 
   """
-  @type describe_virtual_cluster_response() :: %{String.t() => any()}
+  @type describe_virtual_cluster_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -979,7 +979,7 @@ defmodule AWS.EMRcontainers do
       }
 
   """
-  @type job_driver() :: %{String.t() => any()}
+  @type job_driver() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1004,12 +1004,12 @@ defmodule AWS.EMRcontainers do
   ## Example:
 
       list_job_templates_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "templates" => list(job_template())
       }
 
   """
-  @type list_job_templates_response() :: %{String.t() => any()}
+  @type list_job_templates_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1020,7 +1020,7 @@ defmodule AWS.EMRcontainers do
       }
 
   """
-  @type retry_policy_configuration() :: %{String.t() => any()}
+  @type retry_policy_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1032,19 +1032,19 @@ defmodule AWS.EMRcontainers do
       }
 
   """
-  @type authorization_configuration() :: %{String.t() => any()}
+  @type authorization_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_virtual_clusters_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "virtualClusters" => list(virtual_cluster())
       }
 
   """
-  @type list_virtual_clusters_response() :: %{String.t() => any()}
+  @type list_virtual_clusters_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1060,44 +1060,44 @@ defmodule AWS.EMRcontainers do
   ## Example:
 
       lake_formation_configuration() :: %{
-        "authorizedSessionTagValue" => String.t(),
-        "queryEngineRoleArn" => String.t(),
+        "authorizedSessionTagValue" => String.t() | Atom.t(),
+        "queryEngineRoleArn" => String.t() | Atom.t(),
         "secureNamespaceInfo" => secure_namespace_info()
       }
 
   """
-  @type lake_formation_configuration() :: %{String.t() => any()}
+  @type lake_formation_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       spark_submit_job_driver() :: %{
-        "entryPoint" => String.t(),
-        "entryPointArguments" => list(String.t()),
-        "sparkSubmitParameters" => String.t()
+        "entryPoint" => String.t() | Atom.t(),
+        "entryPointArguments" => list(String.t() | Atom.t()),
+        "sparkSubmitParameters" => String.t() | Atom.t()
       }
 
   """
-  @type spark_submit_job_driver() :: %{String.t() => any()}
+  @type spark_submit_job_driver() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_virtual_clusters_request() :: %{
-        optional("containerProviderId") => String.t(),
+        optional("containerProviderId") => String.t() | Atom.t(),
         optional("containerProviderType") => list(any()),
         optional("createdAfter") => non_neg_integer(),
         optional("createdBefore") => non_neg_integer(),
         optional("eksAccessEntryIntegrated") => boolean(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("states") => list(list(any())())
       }
 
   """
-  @type list_virtual_clusters_request() :: %{String.t() => any()}
+  @type list_virtual_clusters_request() :: %{String.t() | Atom.t() => any()}
 
   @type cancel_job_run_errors() :: validation_exception() | internal_server_exception()
 
@@ -1188,7 +1188,13 @@ defmodule AWS.EMRcontainers do
   A job run is a unit of work, such as a Spark jar, PySpark script, or
   SparkSQL query, that you submit to Amazon EMR on EKS.
   """
-  @spec cancel_job_run(map(), String.t(), String.t(), cancel_job_run_request(), list()) ::
+  @spec cancel_job_run(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          cancel_job_run_request(),
+          list()
+        ) ::
           {:ok, cancel_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1259,7 +1265,12 @@ defmodule AWS.EMRcontainers do
   EKS so that Amazon EMR Studio can
   communicate with your virtual cluster.
   """
-  @spec create_managed_endpoint(map(), String.t(), create_managed_endpoint_request(), list()) ::
+  @spec create_managed_endpoint(
+          map(),
+          String.t() | Atom.t(),
+          create_managed_endpoint_request(),
+          list()
+        ) ::
           {:ok, create_managed_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1368,7 +1379,7 @@ defmodule AWS.EMRcontainers do
   StartJobRun
   API request.
   """
-  @spec delete_job_template(map(), String.t(), delete_job_template_request(), list()) ::
+  @spec delete_job_template(map(), String.t() | Atom.t(), delete_job_template_request(), list()) ::
           {:ok, delete_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1403,8 +1414,8 @@ defmodule AWS.EMRcontainers do
   """
   @spec delete_managed_endpoint(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_managed_endpoint_request(),
           list()
         ) ::
@@ -1446,7 +1457,12 @@ defmodule AWS.EMRcontainers do
   you model
   Kubernetes namespaces to meet your requirements.
   """
-  @spec delete_virtual_cluster(map(), String.t(), delete_virtual_cluster_request(), list()) ::
+  @spec delete_virtual_cluster(
+          map(),
+          String.t() | Atom.t(),
+          delete_virtual_cluster_request(),
+          list()
+        ) ::
           {:ok, delete_virtual_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1479,7 +1495,7 @@ defmodule AWS.EMRcontainers do
   Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on
   EKS.
   """
-  @spec describe_job_run(map(), String.t(), String.t(), list()) ::
+  @spec describe_job_run(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, describe_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1506,7 +1522,7 @@ defmodule AWS.EMRcontainers do
   enforcing
   certain values in StartJobRun API request.
   """
-  @spec describe_job_template(map(), String.t(), list()) ::
+  @spec describe_job_template(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1528,7 +1544,7 @@ defmodule AWS.EMRcontainers do
   that connects Amazon EMR Studio to Amazon EMR on EKS so that Amazon EMR Studio
   can communicate with your virtual cluster.
   """
-  @spec describe_managed_endpoint(map(), String.t(), String.t(), list()) ::
+  @spec describe_managed_endpoint(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, describe_managed_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1557,7 +1573,7 @@ defmodule AWS.EMRcontainers do
   time you
   create a virtual cluster.
   """
-  @spec describe_security_configuration(map(), String.t(), list()) ::
+  @spec describe_security_configuration(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_security_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1585,7 +1601,7 @@ defmodule AWS.EMRcontainers do
   virtual clusters the same way you model Kubernetes namespaces to meet your
   requirements.
   """
-  @spec describe_virtual_cluster(map(), String.t(), list()) ::
+  @spec describe_virtual_cluster(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_virtual_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1605,8 +1621,8 @@ defmodule AWS.EMRcontainers do
   """
   @spec get_managed_endpoint_session_credentials(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           get_managed_endpoint_session_credentials_request(),
           list()
         ) ::
@@ -1652,13 +1668,13 @@ defmodule AWS.EMRcontainers do
   """
   @spec list_job_runs(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_job_runs_response(), any()}
@@ -1739,10 +1755,10 @@ defmodule AWS.EMRcontainers do
   """
   @spec list_job_templates(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_job_templates_response(), any()}
@@ -1803,13 +1819,13 @@ defmodule AWS.EMRcontainers do
   """
   @spec list_managed_endpoints(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_managed_endpoints_response(), any()}
@@ -1891,10 +1907,10 @@ defmodule AWS.EMRcontainers do
   """
   @spec list_security_configurations(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_security_configurations_response(), any()}
@@ -1949,7 +1965,7 @@ defmodule AWS.EMRcontainers do
   @doc """
   Lists the tags assigned to the resources.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1978,14 +1994,14 @@ defmodule AWS.EMRcontainers do
   """
   @spec list_virtual_clusters(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_virtual_clusters_response(), any()}
@@ -2075,7 +2091,7 @@ defmodule AWS.EMRcontainers do
   A job run is a unit of work, such as a Spark jar, PySpark script, or
   SparkSQL query, that you submit to Amazon EMR on EKS.
   """
-  @spec start_job_run(map(), String.t(), start_job_run_request(), list()) ::
+  @spec start_job_run(map(), String.t() | Atom.t(), start_job_run_request(), list()) ::
           {:ok, start_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2120,7 +2136,7 @@ defmodule AWS.EMRcontainers do
   the tags that
   you add.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2149,7 +2165,7 @@ defmodule AWS.EMRcontainers do
   @doc """
   Removes tags from resources.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

@@ -20,7 +20,7 @@ defmodule AWS.XRay do
       }
 
   """
-  @type put_encryption_config_result() :: %{String.t() => any()}
+  @type put_encryption_config_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -29,13 +29,13 @@ defmodule AWS.XRay do
       get_service_graph_result() :: %{
         "ContainsOldGroupVersions" => boolean(),
         "EndTime" => non_neg_integer(),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Services" => list(service()),
         "StartTime" => non_neg_integer()
       }
 
   """
-  @type get_service_graph_result() :: %{String.t() => any()}
+  @type get_service_graph_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -46,7 +46,7 @@ defmodule AWS.XRay do
       }
 
   """
-  @type insight_impact_graph_edge() :: %{String.t() => any()}
+  @type insight_impact_graph_edge() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -61,7 +61,7 @@ defmodule AWS.XRay do
       }
 
   """
-  @type edge_statistics() :: %{String.t() => any()}
+  @type edge_statistics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -71,60 +71,60 @@ defmodule AWS.XRay do
         "Categories" => list(list(any())()),
         "ClientRequestImpactStatistics" => request_impact_statistics(),
         "EndTime" => non_neg_integer(),
-        "GroupARN" => String.t(),
-        "GroupName" => String.t(),
-        "InsightId" => String.t(),
+        "GroupARN" => String.t() | Atom.t(),
+        "GroupName" => String.t() | Atom.t(),
+        "InsightId" => String.t() | Atom.t(),
         "LastUpdateTime" => non_neg_integer(),
         "RootCauseServiceId" => service_id(),
         "RootCauseServiceRequestImpactStatistics" => request_impact_statistics(),
         "StartTime" => non_neg_integer(),
         "State" => list(any()),
-        "Summary" => String.t(),
+        "Summary" => String.t() | Atom.t(),
         "TopAnomalousServices" => list(anomalous_service())
       }
 
   """
-  @type insight_summary() :: %{String.t() => any()}
+  @type insight_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       graph_link() :: %{
-        "DestinationTraceIds" => list(String.t()),
-        "ReferenceType" => String.t(),
-        "SourceTraceId" => String.t()
+        "DestinationTraceIds" => list(String.t() | Atom.t()),
+        "ReferenceType" => String.t() | Atom.t(),
+        "SourceTraceId" => String.t() | Atom.t()
       }
 
   """
-  @type graph_link() :: %{String.t() => any()}
+  @type graph_link() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       response_time_root_cause_service() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | Atom.t(),
         "EntityPath" => list(response_time_root_cause_entity()),
         "Inferred" => boolean(),
-        "Name" => String.t(),
-        "Names" => list(String.t()),
-        "Type" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Names" => list(String.t() | Atom.t()),
+        "Type" => String.t() | Atom.t()
       }
 
   """
-  @type response_time_root_cause_service() :: %{String.t() => any()}
+  @type response_time_root_cause_service() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_trace_retrieval_result() :: %{
-        "RetrievalToken" => String.t()
+        "RetrievalToken" => String.t() | Atom.t()
       }
 
   """
-  @type start_trace_retrieval_result() :: %{String.t() => any()}
+  @type start_trace_retrieval_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -136,44 +136,44 @@ defmodule AWS.XRay do
       }
 
   """
-  @type insights_configuration() :: %{String.t() => any()}
+  @type insights_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
+        required("ResourceARN") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       encryption_config() :: %{
-        "KeyId" => String.t(),
+        "KeyId" => String.t() | Atom.t(),
         "Status" => list(any()),
         "Type" => list(any())
       }
 
   """
-  @type encryption_config() :: %{String.t() => any()}
+  @type encryption_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_encryption_config_request() :: %{
-        optional("KeyId") => String.t(),
+        optional("KeyId") => String.t() | Atom.t(),
         required("Type") => list(any())
       }
 
   """
-  @type put_encryption_config_request() :: %{String.t() => any()}
+  @type put_encryption_config_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -184,29 +184,29 @@ defmodule AWS.XRay do
       }
 
   """
-  @type create_group_result() :: %{String.t() => any()}
+  @type create_group_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       instance_id_detail() :: %{
-        "Id" => String.t()
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type instance_id_detail() :: %{String.t() => any()}
+  @type instance_id_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_indexing_rules_request() :: %{
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type get_indexing_rules_request() :: %{String.t() => any()}
+  @type get_indexing_rules_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -217,43 +217,43 @@ defmodule AWS.XRay do
       }
 
   """
-  @type get_group_result() :: %{String.t() => any()}
+  @type get_group_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_trace_segments_request() :: %{
-        required("TraceSegmentDocuments") => list(String.t())
+        required("TraceSegmentDocuments") => list(String.t() | Atom.t())
       }
 
   """
-  @type put_trace_segments_request() :: %{String.t() => any()}
+  @type put_trace_segments_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_groups_request() :: %{
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type get_groups_request() :: %{String.t() => any()}
+  @type get_groups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_retrieved_traces_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "RetrievalStatus" => list(any()),
         "TraceFormat" => list(any()),
         "Traces" => list(retrieved_trace())
       }
 
   """
-  @type list_retrieved_traces_result() :: %{String.t() => any()}
+  @type list_retrieved_traces_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -262,31 +262,31 @@ defmodule AWS.XRay do
       sampling_rule_update() :: %{
         "Attributes" => map(),
         "FixedRate" => float(),
-        "HTTPMethod" => String.t(),
-        "Host" => String.t(),
+        "HTTPMethod" => String.t() | Atom.t(),
+        "Host" => String.t() | Atom.t(),
         "Priority" => integer(),
         "ReservoirSize" => integer(),
-        "ResourceARN" => String.t(),
-        "RuleARN" => String.t(),
-        "RuleName" => String.t(),
-        "ServiceName" => String.t(),
-        "ServiceType" => String.t(),
-        "URLPath" => String.t()
+        "ResourceARN" => String.t() | Atom.t(),
+        "RuleARN" => String.t() | Atom.t(),
+        "RuleName" => String.t() | Atom.t(),
+        "ServiceName" => String.t() | Atom.t(),
+        "ServiceType" => String.t() | Atom.t(),
+        "URLPath" => String.t() | Atom.t()
       }
 
   """
-  @type sampling_rule_update() :: %{String.t() => any()}
+  @type sampling_rule_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_insight_request() :: %{
-        required("InsightId") => String.t()
+        required("InsightId") => String.t() | Atom.t()
       }
 
   """
-  @type get_insight_request() :: %{String.t() => any()}
+  @type get_insight_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -306,15 +306,15 @@ defmodule AWS.XRay do
       }
 
   """
-  @type anomalous_service() :: %{String.t() => any()}
+  @type anomalous_service() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_trace_summaries_request() :: %{
-        optional("FilterExpression") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("FilterExpression") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("Sampling") => boolean(),
         optional("SamplingStrategy") => sampling_strategy(),
         optional("TimeRangeType") => list(any()),
@@ -323,7 +323,7 @@ defmodule AWS.XRay do
       }
 
   """
-  @type get_trace_summaries_request() :: %{String.t() => any()}
+  @type get_trace_summaries_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -335,36 +335,36 @@ defmodule AWS.XRay do
       }
 
   """
-  @type probabilistic_rule_value() :: %{String.t() => any()}
+  @type probabilistic_rule_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       insight_impact_graph_service() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | Atom.t(),
         "Edges" => list(insight_impact_graph_edge()),
-        "Name" => String.t(),
-        "Names" => list(String.t()),
+        "Name" => String.t() | Atom.t(),
+        "Names" => list(String.t() | Atom.t()),
         "ReferenceId" => integer(),
-        "Type" => String.t()
+        "Type" => String.t() | Atom.t()
       }
 
   """
-  @type insight_impact_graph_service() :: %{String.t() => any()}
+  @type insight_impact_graph_service() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_retrieved_traces_request() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("TraceFormat") => list(any()),
-        required("RetrievalToken") => String.t()
+        required("RetrievalToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_retrieved_traces_request() :: %{String.t() => any()}
+  @type list_retrieved_traces_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -372,13 +372,13 @@ defmodule AWS.XRay do
 
       get_trace_summaries_result() :: %{
         "ApproximateTime" => non_neg_integer(),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "TraceSummaries" => list(trace_summary()),
         "TracesProcessedCount" => float()
       }
 
   """
-  @type get_trace_summaries_result() :: %{String.t() => any()}
+  @type get_trace_summaries_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -389,7 +389,7 @@ defmodule AWS.XRay do
       }
 
   """
-  @type create_sampling_rule_result() :: %{String.t() => any()}
+  @type create_sampling_rule_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -400,44 +400,44 @@ defmodule AWS.XRay do
       }
 
   """
-  @type put_resource_policy_result() :: %{String.t() => any()}
+  @type put_resource_policy_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       availability_zone_detail() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type availability_zone_detail() :: %{String.t() => any()}
+  @type availability_zone_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_sampling_rule_request() :: %{
-        optional("RuleARN") => String.t(),
-        optional("RuleName") => String.t()
+        optional("RuleARN") => String.t() | Atom.t(),
+        optional("RuleName") => String.t() | Atom.t()
       }
 
   """
-  @type delete_sampling_rule_request() :: %{String.t() => any()}
+  @type delete_sampling_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_telemetry_records_request() :: %{
-        optional("EC2InstanceId") => String.t(),
-        optional("Hostname") => String.t(),
-        optional("ResourceARN") => String.t(),
+        optional("EC2InstanceId") => String.t() | Atom.t(),
+        optional("Hostname") => String.t() | Atom.t(),
+        optional("ResourceARN") => String.t() | Atom.t(),
         required("TelemetryRecords") => list(telemetry_record())
       }
 
   """
-  @type put_telemetry_records_request() :: %{String.t() => any()}
+  @type put_telemetry_records_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -446,13 +446,13 @@ defmodule AWS.XRay do
       sampling_statistic_summary() :: %{
         "BorrowCount" => integer(),
         "RequestCount" => integer(),
-        "RuleName" => String.t(),
+        "RuleName" => String.t() | Atom.t(),
         "SampledCount" => integer(),
         "Timestamp" => non_neg_integer()
       }
 
   """
-  @type sampling_statistic_summary() :: %{String.t() => any()}
+  @type sampling_statistic_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -464,64 +464,64 @@ defmodule AWS.XRay do
       }
 
   """
-  @type error_root_cause() :: %{String.t() => any()}
+  @type error_root_cause() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_trace_graph_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Services" => list(service())
       }
 
   """
-  @type get_trace_graph_result() :: %{String.t() => any()}
+  @type get_trace_graph_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_sampling_rules_request() :: %{
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type get_sampling_rules_request() :: %{String.t() => any()}
+  @type get_sampling_rules_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | Atom.t(),
         "DurationHistogram" => list(histogram_entry()),
         "Edges" => list(edge()),
         "EndTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "Names" => list(String.t()),
+        "Name" => String.t() | Atom.t(),
+        "Names" => list(String.t() | Atom.t()),
         "ReferenceId" => integer(),
         "ResponseTimeHistogram" => list(histogram_entry()),
         "Root" => boolean(),
         "StartTime" => non_neg_integer(),
-        "State" => String.t(),
+        "State" => String.t() | Atom.t(),
         "SummaryStatistics" => service_statistics(),
-        "Type" => String.t()
+        "Type" => String.t() | Atom.t()
       }
 
   """
-  @type service() :: %{String.t() => any()}
+  @type service() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       policy_size_limit_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type policy_size_limit_exceeded_exception() :: %{String.t() => any()}
+  @type policy_size_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -532,7 +532,7 @@ defmodule AWS.XRay do
       }
 
   """
-  @type probabilistic_rule_value_update() :: %{String.t() => any()}
+  @type probabilistic_rule_value_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -543,23 +543,23 @@ defmodule AWS.XRay do
         "Interval" => integer(),
         "ReservoirQuota" => integer(),
         "ReservoirQuotaTTL" => non_neg_integer(),
-        "RuleName" => String.t()
+        "RuleName" => String.t() | Atom.t()
       }
 
   """
-  @type sampling_target_document() :: %{String.t() => any()}
+  @type sampling_target_document() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceARN") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -567,25 +567,25 @@ defmodule AWS.XRay do
 
       retrieved_trace() :: %{
         "Duration" => float(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "Spans" => list(span())
       }
 
   """
-  @type retrieved_trace() :: %{String.t() => any()}
+  @type retrieved_trace() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_get_traces_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Traces" => list(trace()),
-        "UnprocessedTraceIds" => list(String.t())
+        "UnprocessedTraceIds" => list(String.t() | Atom.t())
       }
 
   """
-  @type batch_get_traces_result() :: %{String.t() => any()}
+  @type batch_get_traces_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -593,38 +593,38 @@ defmodule AWS.XRay do
 
       indexing_rule() :: %{
         "ModifiedAt" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Rule" => list()
       }
 
   """
-  @type indexing_rule() :: %{String.t() => any()}
+  @type indexing_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_group_request() :: %{
-        optional("FilterExpression") => String.t(),
-        optional("GroupARN") => String.t(),
-        optional("GroupName") => String.t(),
+        optional("FilterExpression") => String.t() | Atom.t(),
+        optional("GroupARN") => String.t() | Atom.t(),
+        optional("GroupName") => String.t() | Atom.t(),
         optional("InsightsConfiguration") => insights_configuration()
       }
 
   """
-  @type update_group_request() :: %{String.t() => any()}
+  @type update_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       segment() :: %{
-        "Document" => String.t(),
-        "Id" => String.t()
+        "Document" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type segment() :: %{String.t() => any()}
+  @type segment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -636,7 +636,7 @@ defmodule AWS.XRay do
       }
 
   """
-  @type update_trace_segment_destination_result() :: %{String.t() => any()}
+  @type update_trace_segment_destination_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -644,12 +644,12 @@ defmodule AWS.XRay do
 
       get_insight_events_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("InsightId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("InsightId") => String.t() | Atom.t()
       }
 
   """
-  @type get_insight_events_request() :: %{String.t() => any()}
+  @type get_insight_events_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -661,19 +661,19 @@ defmodule AWS.XRay do
       }
 
   """
-  @type retrieved_service() :: %{String.t() => any()}
+  @type retrieved_service() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_get_traces_request() :: %{
-        optional("NextToken") => String.t(),
-        required("TraceIds") => list(String.t())
+        optional("NextToken") => String.t() | Atom.t(),
+        required("TraceIds") => list(String.t() | Atom.t())
       }
 
   """
-  @type batch_get_traces_request() :: %{String.t() => any()}
+  @type batch_get_traces_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -686,7 +686,7 @@ defmodule AWS.XRay do
       }
 
   """
-  @type error_statistics() :: %{String.t() => any()}
+  @type error_statistics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -698,7 +698,7 @@ defmodule AWS.XRay do
       }
 
   """
-  @type value_with_service_ids() :: %{String.t() => any()}
+  @type value_with_service_ids() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -707,58 +707,58 @@ defmodule AWS.XRay do
       start_trace_retrieval_request() :: %{
         required("EndTime") => non_neg_integer(),
         required("StartTime") => non_neg_integer(),
-        required("TraceIds") => list(String.t())
+        required("TraceIds") => list(String.t() | Atom.t())
       }
 
   """
-  @type start_trace_retrieval_request() :: %{String.t() => any()}
+  @type start_trace_retrieval_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       span() :: %{
-        "Document" => String.t(),
-        "Id" => String.t()
+        "Document" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type span() :: %{String.t() => any()}
+  @type span() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       unprocessed_statistics() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t(),
-        "RuleName" => String.t()
+        "ErrorCode" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
+        "RuleName" => String.t() | Atom.t()
       }
 
   """
-  @type unprocessed_statistics() :: %{String.t() => any()}
+  @type unprocessed_statistics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_policy_revision_id_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_policy_revision_id_exception() :: %{String.t() => any()}
+  @type invalid_policy_revision_id_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       throttled_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type throttled_exception() :: %{String.t() => any()}
+  @type throttled_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -769,7 +769,7 @@ defmodule AWS.XRay do
       }
 
   """
-  @type update_sampling_rule_result() :: %{String.t() => any()}
+  @type update_sampling_rule_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -780,19 +780,19 @@ defmodule AWS.XRay do
       }
 
   """
-  @type update_sampling_rule_request() :: %{String.t() => any()}
+  @type update_sampling_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t(),
-        "ResourceName" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "ResourceName" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -811,12 +811,12 @@ defmodule AWS.XRay do
         "ClientRequestImpactStatistics" => request_impact_statistics(),
         "EventTime" => non_neg_integer(),
         "RootCauseServiceRequestImpactStatistics" => request_impact_statistics(),
-        "Summary" => String.t(),
+        "Summary" => String.t() | Atom.t(),
         "TopAnomalousServices" => list(anomalous_service())
       }
 
   """
-  @type insight_event() :: %{String.t() => any()}
+  @type insight_event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -828,7 +828,7 @@ defmodule AWS.XRay do
       }
 
   """
-  @type response_time_root_cause() :: %{String.t() => any()}
+  @type response_time_root_cause() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -837,72 +837,72 @@ defmodule AWS.XRay do
       sampling_rule() :: %{
         "Attributes" => map(),
         "FixedRate" => float(),
-        "HTTPMethod" => String.t(),
-        "Host" => String.t(),
+        "HTTPMethod" => String.t() | Atom.t(),
+        "Host" => String.t() | Atom.t(),
         "Priority" => integer(),
         "ReservoirSize" => integer(),
-        "ResourceARN" => String.t(),
-        "RuleARN" => String.t(),
-        "RuleName" => String.t(),
-        "ServiceName" => String.t(),
-        "ServiceType" => String.t(),
-        "URLPath" => String.t(),
+        "ResourceARN" => String.t() | Atom.t(),
+        "RuleARN" => String.t() | Atom.t(),
+        "RuleName" => String.t() | Atom.t(),
+        "ServiceName" => String.t() | Atom.t(),
+        "ServiceType" => String.t() | Atom.t(),
+        "URLPath" => String.t() | Atom.t(),
         "Version" => integer()
       }
 
   """
-  @type sampling_rule() :: %{String.t() => any()}
+  @type sampling_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       unprocessed_trace_segment() :: %{
-        "ErrorCode" => String.t(),
-        "Id" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type unprocessed_trace_segment() :: %{String.t() => any()}
+  @type unprocessed_trace_segment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_service_graph_request() :: %{
-        optional("GroupARN") => String.t(),
-        optional("GroupName") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("GroupARN") => String.t() | Atom.t(),
+        optional("GroupName") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         required("EndTime") => non_neg_integer(),
         required("StartTime") => non_neg_integer()
       }
 
   """
-  @type get_service_graph_request() :: %{String.t() => any()}
+  @type get_service_graph_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_request_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_request_exception() :: %{String.t() => any()}
+  @type invalid_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -910,11 +910,11 @@ defmodule AWS.XRay do
 
       get_insight_events_result() :: %{
         "InsightEvents" => list(insight_event()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type get_insight_events_result() :: %{String.t() => any()}
+  @type get_insight_events_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -925,7 +925,7 @@ defmodule AWS.XRay do
       }
 
   """
-  @type get_sampling_targets_request() :: %{String.t() => any()}
+  @type get_sampling_targets_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -937,24 +937,24 @@ defmodule AWS.XRay do
       }
 
   """
-  @type sampling_strategy() :: %{String.t() => any()}
+  @type sampling_strategy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_insight_summaries_request() :: %{
-        optional("GroupARN") => String.t(),
-        optional("GroupName") => String.t(),
+        optional("GroupARN") => String.t() | Atom.t(),
+        optional("GroupName") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("States") => list(list(any())()),
         required("EndTime") => non_neg_integer(),
         required("StartTime") => non_neg_integer()
       }
 
   """
-  @type get_insight_summaries_request() :: %{String.t() => any()}
+  @type get_insight_summaries_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -969,7 +969,7 @@ defmodule AWS.XRay do
       }
 
   """
-  @type time_series_service_statistics() :: %{String.t() => any()}
+  @type time_series_service_statistics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -982,7 +982,7 @@ defmodule AWS.XRay do
       }
 
   """
-  @type get_sampling_targets_result() :: %{String.t() => any()}
+  @type get_sampling_targets_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -998,39 +998,39 @@ defmodule AWS.XRay do
   ## Example:
 
       fault_root_cause_service() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | Atom.t(),
         "EntityPath" => list(fault_root_cause_entity()),
         "Inferred" => boolean(),
-        "Name" => String.t(),
-        "Names" => list(String.t()),
-        "Type" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Names" => list(String.t() | Atom.t()),
+        "Type" => String.t() | Atom.t()
       }
 
   """
-  @type fault_root_cause_service() :: %{String.t() => any()}
+  @type fault_root_cause_service() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_resource_policies_request() :: %{
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_resource_policies_request() :: %{String.t() => any()}
+  @type list_resource_policies_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_for_resource_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Tags" => list(tag())
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1042,51 +1042,51 @@ defmodule AWS.XRay do
       }
 
   """
-  @type fault_statistics() :: %{String.t() => any()}
+  @type fault_statistics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_group_request() :: %{
-        optional("FilterExpression") => String.t(),
+        optional("FilterExpression") => String.t() | Atom.t(),
         optional("InsightsConfiguration") => insights_configuration(),
         optional("Tags") => list(tag()),
-        required("GroupName") => String.t()
+        required("GroupName") => String.t() | Atom.t()
       }
 
   """
-  @type create_group_request() :: %{String.t() => any()}
+  @type create_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_time_series_service_statistics_request() :: %{
-        optional("EntitySelectorExpression") => String.t(),
+        optional("EntitySelectorExpression") => String.t() | Atom.t(),
         optional("ForecastStatistics") => boolean(),
-        optional("GroupARN") => String.t(),
-        optional("GroupName") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("GroupARN") => String.t() | Atom.t(),
+        optional("GroupName") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("Period") => integer(),
         required("EndTime") => non_neg_integer(),
         required("StartTime") => non_neg_integer()
       }
 
   """
-  @type get_time_series_service_statistics_request() :: %{String.t() => any()}
+  @type get_time_series_service_statistics_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_sampling_statistic_summaries_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "SamplingStatisticSummaries" => list(sampling_statistic_summary())
       }
 
   """
-  @type get_sampling_statistic_summaries_result() :: %{String.t() => any()}
+  @type get_sampling_statistic_summaries_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1094,39 +1094,39 @@ defmodule AWS.XRay do
 
       get_groups_result() :: %{
         "Groups" => list(group_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type get_groups_result() :: %{String.t() => any()}
+  @type get_groups_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_trace_graph_request() :: %{
-        optional("NextToken") => String.t(),
-        required("TraceIds") => list(String.t())
+        optional("NextToken") => String.t() | Atom.t(),
+        required("TraceIds") => list(String.t() | Atom.t())
       }
 
   """
-  @type get_trace_graph_request() :: %{String.t() => any()}
+  @type get_trace_graph_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       error_root_cause_service() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | Atom.t(),
         "EntityPath" => list(error_root_cause_entity()),
         "Inferred" => boolean(),
-        "Name" => String.t(),
-        "Names" => list(String.t()),
-        "Type" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Names" => list(String.t() | Atom.t()),
+        "Type" => String.t() | Atom.t()
       }
 
   """
-  @type error_root_cause_service() :: %{String.t() => any()}
+  @type error_root_cause_service() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1134,13 +1134,13 @@ defmodule AWS.XRay do
 
       trace() :: %{
         "Duration" => float(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "LimitExceeded" => boolean(),
         "Segments" => list(segment())
       }
 
   """
-  @type trace() :: %{String.t() => any()}
+  @type trace() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1157,13 +1157,13 @@ defmodule AWS.XRay do
 
       resource_policy() :: %{
         "LastUpdatedTime" => non_neg_integer(),
-        "PolicyDocument" => String.t(),
-        "PolicyName" => String.t(),
-        "PolicyRevisionId" => String.t()
+        "PolicyDocument" => String.t() | Atom.t(),
+        "PolicyName" => String.t() | Atom.t(),
+        "PolicyRevisionId" => String.t() | Atom.t()
       }
 
   """
-  @type resource_policy() :: %{String.t() => any()}
+  @type resource_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1171,12 +1171,12 @@ defmodule AWS.XRay do
 
       fault_root_cause_entity() :: %{
         "Exceptions" => list(root_cause_exception()),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Remote" => boolean()
       }
 
   """
-  @type fault_root_cause_entity() :: %{String.t() => any()}
+  @type fault_root_cause_entity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1184,12 +1184,12 @@ defmodule AWS.XRay do
 
       error_root_cause_entity() :: %{
         "Exceptions" => list(root_cause_exception()),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Remote" => boolean()
       }
 
   """
-  @type error_root_cause_entity() :: %{String.t() => any()}
+  @type error_root_cause_entity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1200,19 +1200,19 @@ defmodule AWS.XRay do
       }
 
   """
-  @type update_trace_segment_destination_request() :: %{String.t() => any()}
+  @type update_trace_segment_destination_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_retrieved_traces_graph_request() :: %{
-        optional("NextToken") => String.t(),
-        required("RetrievalToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("RetrievalToken") => String.t() | Atom.t()
       }
 
   """
-  @type get_retrieved_traces_graph_request() :: %{String.t() => any()}
+  @type get_retrieved_traces_graph_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1223,7 +1223,7 @@ defmodule AWS.XRay do
       }
 
   """
-  @type delete_sampling_rule_result() :: %{String.t() => any()}
+  @type delete_sampling_rule_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1235,7 +1235,7 @@ defmodule AWS.XRay do
       }
 
   """
-  @type create_sampling_rule_request() :: %{String.t() => any()}
+  @type create_sampling_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1243,37 +1243,37 @@ defmodule AWS.XRay do
 
       put_resource_policy_request() :: %{
         optional("BypassPolicyLockoutCheck") => boolean(),
-        optional("PolicyRevisionId") => String.t(),
-        required("PolicyDocument") => String.t(),
-        required("PolicyName") => String.t()
+        optional("PolicyRevisionId") => String.t() | Atom.t(),
+        required("PolicyDocument") => String.t() | Atom.t(),
+        required("PolicyName") => String.t() | Atom.t()
       }
 
   """
-  @type put_resource_policy_request() :: %{String.t() => any()}
+  @type put_resource_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       lockout_prevention_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type lockout_prevention_exception() :: %{String.t() => any()}
+  @type lockout_prevention_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       alias() :: %{
-        "Name" => String.t(),
-        "Names" => list(String.t()),
-        "Type" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Names" => list(String.t() | Atom.t()),
+        "Type" => String.t() | Atom.t()
       }
 
   """
-  @type alias() :: %{String.t() => any()}
+  @type alias() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1293,7 +1293,7 @@ defmodule AWS.XRay do
       }
 
   """
-  @type put_trace_segments_result() :: %{String.t() => any()}
+  @type put_trace_segments_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1305,7 +1305,7 @@ defmodule AWS.XRay do
       }
 
   """
-  @type forecast_statistics() :: %{String.t() => any()}
+  @type forecast_statistics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1327,29 +1327,29 @@ defmodule AWS.XRay do
       }
 
   """
-  @type sampling_rule_record() :: %{String.t() => any()}
+  @type sampling_rule_record() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       rule_limit_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type rule_limit_exceeded_exception() :: %{String.t() => any()}
+  @type rule_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_sampling_statistic_summaries_request() :: %{
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type get_sampling_statistic_summaries_request() :: %{String.t() => any()}
+  @type get_sampling_statistic_summaries_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1365,7 +1365,7 @@ defmodule AWS.XRay do
       }
 
   """
-  @type backend_connection_errors() :: %{String.t() => any()}
+  @type backend_connection_errors() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1381,7 +1381,7 @@ defmodule AWS.XRay do
       }
 
   """
-  @type telemetry_record() :: %{String.t() => any()}
+  @type telemetry_record() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1389,23 +1389,23 @@ defmodule AWS.XRay do
 
       get_indexing_rules_result() :: %{
         "IndexingRules" => list(indexing_rule()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type get_indexing_rules_result() :: %{String.t() => any()}
+  @type get_indexing_rules_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_for_resource_request() :: %{
-        optional("NextToken") => String.t(),
-        required("ResourceARN") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ResourceARN") => String.t() | Atom.t()
       }
 
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1421,14 +1421,14 @@ defmodule AWS.XRay do
   ## Example:
 
       service_id() :: %{
-        "AccountId" => String.t(),
-        "Name" => String.t(),
-        "Names" => list(String.t()),
-        "Type" => String.t()
+        "AccountId" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "Names" => list(String.t() | Atom.t()),
+        "Type" => String.t() | Atom.t()
       }
 
   """
-  @type service_id() :: %{String.t() => any()}
+  @type service_id() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1445,7 +1445,7 @@ defmodule AWS.XRay do
         "HasFault" => boolean(),
         "HasThrottle" => boolean(),
         "Http" => http(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "InstanceIds" => list(instance_id_detail()),
         "IsPartial" => boolean(),
         "MatchedEventTime" => non_neg_integer(),
@@ -1459,7 +1459,7 @@ defmodule AWS.XRay do
       }
 
   """
-  @type trace_summary() :: %{String.t() => any()}
+  @type trace_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1470,21 +1470,21 @@ defmodule AWS.XRay do
       }
 
   """
-  @type update_group_result() :: %{String.t() => any()}
+  @type update_group_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       group() :: %{
-        "FilterExpression" => String.t(),
-        "GroupARN" => String.t(),
-        "GroupName" => String.t(),
+        "FilterExpression" => String.t() | Atom.t(),
+        "GroupARN" => String.t() | Atom.t(),
+        "GroupName" => String.t() | Atom.t(),
         "InsightsConfiguration" => insights_configuration()
       }
 
   """
-  @type group() :: %{String.t() => any()}
+  @type group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1497,7 +1497,7 @@ defmodule AWS.XRay do
       }
 
   """
-  @type request_impact_statistics() :: %{String.t() => any()}
+  @type request_impact_statistics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1509,30 +1509,30 @@ defmodule AWS.XRay do
       }
 
   """
-  @type fault_root_cause() :: %{String.t() => any()}
+  @type fault_root_cause() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       malformed_policy_document_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type malformed_policy_document_exception() :: %{String.t() => any()}
+  @type malformed_policy_document_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_group_request() :: %{
-        optional("GroupARN") => String.t(),
-        optional("GroupName") => String.t()
+        optional("GroupARN") => String.t() | Atom.t(),
+        optional("GroupName") => String.t() | Atom.t()
       }
 
   """
-  @type delete_group_request() :: %{String.t() => any()}
+  @type delete_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1547,19 +1547,19 @@ defmodule AWS.XRay do
       }
 
   """
-  @type service_statistics() :: %{String.t() => any()}
+  @type service_statistics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_sampling_rules_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "SamplingRuleRecords" => list(sampling_rule_record())
       }
 
   """
-  @type get_sampling_rules_result() :: %{String.t() => any()}
+  @type get_sampling_rules_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1567,11 +1567,11 @@ defmodule AWS.XRay do
 
       trace_user() :: %{
         "ServiceIds" => list(service_id()),
-        "UserName" => String.t()
+        "UserName" => String.t() | Atom.t()
       }
 
   """
-  @type trace_user() :: %{String.t() => any()}
+  @type trace_user() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1579,52 +1579,52 @@ defmodule AWS.XRay do
 
       response_time_root_cause_entity() :: %{
         "Coverage" => float(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Remote" => boolean()
       }
 
   """
-  @type response_time_root_cause_entity() :: %{String.t() => any()}
+  @type response_time_root_cause_entity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_resource_policy_request() :: %{
-        optional("PolicyRevisionId") => String.t(),
-        required("PolicyName") => String.t()
+        optional("PolicyRevisionId") => String.t() | Atom.t(),
+        required("PolicyName") => String.t() | Atom.t()
       }
 
   """
-  @type delete_resource_policy_request() :: %{String.t() => any()}
+  @type delete_resource_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       group_summary() :: %{
-        "FilterExpression" => String.t(),
-        "GroupARN" => String.t(),
-        "GroupName" => String.t(),
+        "FilterExpression" => String.t() | Atom.t(),
+        "GroupARN" => String.t() | Atom.t(),
+        "GroupName" => String.t() | Atom.t(),
         "InsightsConfiguration" => insights_configuration()
       }
 
   """
-  @type group_summary() :: %{String.t() => any()}
+  @type group_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_insight_impact_graph_request() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         required("EndTime") => non_neg_integer(),
-        required("InsightId") => String.t(),
+        required("InsightId") => String.t() | Atom.t(),
         required("StartTime") => non_neg_integer()
       }
 
   """
-  @type get_insight_impact_graph_request() :: %{String.t() => any()}
+  @type get_insight_impact_graph_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1636,30 +1636,30 @@ defmodule AWS.XRay do
       }
 
   """
-  @type get_trace_segment_destination_result() :: %{String.t() => any()}
+  @type get_trace_segment_destination_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_arn_detail() :: %{
-        "ARN" => String.t()
+        "ARN" => String.t() | Atom.t()
       }
 
   """
-  @type resource_arn_detail() :: %{String.t() => any()}
+  @type resource_arn_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       root_cause_exception() :: %{
-        "Message" => String.t(),
-        "Name" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type root_cause_exception() :: %{String.t() => any()}
+  @type root_cause_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1669,19 +1669,19 @@ defmodule AWS.XRay do
         "Categories" => list(list(any())()),
         "ClientRequestImpactStatistics" => request_impact_statistics(),
         "EndTime" => non_neg_integer(),
-        "GroupARN" => String.t(),
-        "GroupName" => String.t(),
-        "InsightId" => String.t(),
+        "GroupARN" => String.t() | Atom.t(),
+        "GroupName" => String.t() | Atom.t(),
+        "InsightId" => String.t() | Atom.t(),
         "RootCauseServiceId" => service_id(),
         "RootCauseServiceRequestImpactStatistics" => request_impact_statistics(),
         "StartTime" => non_neg_integer(),
         "State" => list(any()),
-        "Summary" => String.t(),
+        "Summary" => String.t() | Atom.t(),
         "TopAnomalousServices" => list(anomalous_service())
       }
 
   """
-  @type insight() :: %{String.t() => any()}
+  @type insight() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1698,7 +1698,7 @@ defmodule AWS.XRay do
 
       edge() :: %{
         "Aliases" => list(alias()),
-        "EdgeType" => String.t(),
+        "EdgeType" => String.t() | Atom.t(),
         "EndTime" => non_neg_integer(),
         "ReceivedEventAgeHistogram" => list(histogram_entry()),
         "ReferenceId" => integer(),
@@ -1708,43 +1708,43 @@ defmodule AWS.XRay do
       }
 
   """
-  @type edge() :: %{String.t() => any()}
+  @type edge() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_group_request() :: %{
-        optional("GroupARN") => String.t(),
-        optional("GroupName") => String.t()
+        optional("GroupARN") => String.t() | Atom.t(),
+        optional("GroupName") => String.t() | Atom.t()
       }
 
   """
-  @type get_group_request() :: %{String.t() => any()}
+  @type get_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_trace_retrieval_request() :: %{
-        required("RetrievalToken") => String.t()
+        required("RetrievalToken") => String.t() | Atom.t()
       }
 
   """
-  @type cancel_trace_retrieval_request() :: %{String.t() => any()}
+  @type cancel_trace_retrieval_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_retrieved_traces_graph_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "RetrievalStatus" => list(any()),
         "Services" => list(retrieved_service())
       }
 
   """
-  @type get_retrieved_traces_graph_result() :: %{String.t() => any()}
+  @type get_retrieved_traces_graph_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1756,7 +1756,7 @@ defmodule AWS.XRay do
       }
 
   """
-  @type histogram_entry() :: %{String.t() => any()}
+  @type histogram_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1764,12 +1764,12 @@ defmodule AWS.XRay do
 
       get_time_series_service_statistics_result() :: %{
         "ContainsOldGroupVersions" => boolean(),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "TimeSeriesServiceStatistics" => list(time_series_service_statistics())
       }
 
   """
-  @type get_time_series_service_statistics_result() :: %{String.t() => any()}
+  @type get_time_series_service_statistics_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1777,11 +1777,11 @@ defmodule AWS.XRay do
 
       get_insight_summaries_result() :: %{
         "InsightSummaries" => list(insight_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type get_insight_summaries_result() :: %{String.t() => any()}
+  @type get_insight_summaries_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1792,7 +1792,7 @@ defmodule AWS.XRay do
       }
 
   """
-  @type get_encryption_config_result() :: %{String.t() => any()}
+  @type get_encryption_config_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1800,27 +1800,27 @@ defmodule AWS.XRay do
 
       sampling_statistics_document() :: %{
         "BorrowCount" => integer(),
-        "ClientID" => String.t(),
+        "ClientID" => String.t() | Atom.t(),
         "RequestCount" => integer(),
-        "RuleName" => String.t(),
+        "RuleName" => String.t() | Atom.t(),
         "SampledCount" => integer(),
         "Timestamp" => non_neg_integer()
       }
 
   """
-  @type sampling_statistics_document() :: %{String.t() => any()}
+  @type sampling_statistics_document() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_tags_exception() :: %{
-        "Message" => String.t(),
-        "ResourceName" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "ResourceName" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_tags_exception() :: %{String.t() => any()}
+  @type too_many_tags_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1828,8 +1828,8 @@ defmodule AWS.XRay do
 
       get_insight_impact_graph_result() :: %{
         "EndTime" => non_neg_integer(),
-        "InsightId" => String.t(),
-        "NextToken" => String.t(),
+        "InsightId" => String.t() | Atom.t(),
+        "NextToken" => String.t() | Atom.t(),
         "ServiceGraphEndTime" => non_neg_integer(),
         "ServiceGraphStartTime" => non_neg_integer(),
         "Services" => list(insight_impact_graph_service()),
@@ -1837,7 +1837,7 @@ defmodule AWS.XRay do
       }
 
   """
-  @type get_insight_impact_graph_result() :: %{String.t() => any()}
+  @type get_insight_impact_graph_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1848,7 +1848,7 @@ defmodule AWS.XRay do
       }
 
   """
-  @type update_indexing_rule_result() :: %{String.t() => any()}
+  @type update_indexing_rule_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1859,57 +1859,57 @@ defmodule AWS.XRay do
       }
 
   """
-  @type get_insight_result() :: %{String.t() => any()}
+  @type get_insight_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       http() :: %{
-        "ClientIp" => String.t(),
-        "HttpMethod" => String.t(),
+        "ClientIp" => String.t() | Atom.t(),
+        "HttpMethod" => String.t() | Atom.t(),
         "HttpStatus" => integer(),
-        "HttpURL" => String.t(),
-        "UserAgent" => String.t()
+        "HttpURL" => String.t() | Atom.t(),
+        "UserAgent" => String.t() | Atom.t()
       }
 
   """
-  @type http() :: %{String.t() => any()}
+  @type http() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       policy_count_limit_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type policy_count_limit_exceeded_exception() :: %{String.t() => any()}
+  @type policy_count_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_indexing_rule_request() :: %{
-        required("Name") => String.t(),
+        required("Name") => String.t() | Atom.t(),
         required("Rule") => list()
       }
 
   """
-  @type update_indexing_rule_request() :: %{String.t() => any()}
+  @type update_indexing_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_resource_policies_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "ResourcePolicies" => list(resource_policy())
       }
 
   """
-  @type list_resource_policies_result() :: %{String.t() => any()}
+  @type list_resource_policies_result() :: %{String.t() | Atom.t() => any()}
 
   @type batch_get_traces_errors() :: invalid_request_exception() | throttled_exception()
 

@@ -28,7 +28,7 @@ defmodule AWS.BCMPricingCalculator do
       }
       
   """
-  @type usage_amount() :: %{String.t() => any()}
+  @type usage_amount() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -36,12 +36,12 @@ defmodule AWS.BCMPricingCalculator do
       
       batch_update_workload_estimate_usage_error() :: %{
         "errorCode" => list(any()),
-        "errorMessage" => [String.t()],
-        "id" => String.t()
+        "errorMessage" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t()
       }
       
   """
-  @type batch_update_workload_estimate_usage_error() :: %{String.t() => any()}
+  @type batch_update_workload_estimate_usage_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -49,34 +49,34 @@ defmodule AWS.BCMPricingCalculator do
       
       add_reserved_instance_action() :: %{
         "instanceCount" => integer(),
-        "reservedInstancesOfferingId" => String.t()
+        "reservedInstancesOfferingId" => String.t() | Atom.t()
       }
       
   """
-  @type add_reserved_instance_action() :: %{String.t() => any()}
+  @type add_reserved_instance_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_workload_estimate_request() :: %{
-        required("identifier") => String.t()
+        required("identifier") => String.t() | Atom.t()
       }
       
   """
-  @type get_workload_estimate_request() :: %{String.t() => any()}
+  @type get_workload_estimate_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("arn") => String.t(),
+        required("arn") => String.t() | Atom.t(),
         required("tags") => map()
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -88,7 +88,10 @@ defmodule AWS.BCMPricingCalculator do
       }
       
   """
-  @type batch_update_bill_scenario_commitment_modification_response() :: %{String.t() => any()}
+  @type batch_update_bill_scenario_commitment_modification_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -97,11 +100,11 @@ defmodule AWS.BCMPricingCalculator do
       list_bill_estimates_filter() :: %{
         "matchOption" => list(any()),
         "name" => list(any()),
-        "values" => list([String.t()]())
+        "values" => list([String.t() | Atom.t()]())
       }
       
   """
-  @type list_bill_estimates_filter() :: %{String.t() => any()}
+  @type list_bill_estimates_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -109,11 +112,11 @@ defmodule AWS.BCMPricingCalculator do
       
       list_workload_estimate_usage_response() :: %{
         "items" => list(workload_estimate_usage_item()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_workload_estimate_usage_response() :: %{String.t() => any()}
+  @type list_workload_estimate_usage_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -124,11 +127,11 @@ defmodule AWS.BCMPricingCalculator do
         optional("expiresAtFilter") => filter_timestamp(),
         optional("filters") => list(list_bill_scenarios_filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_bill_scenarios_request() :: %{String.t() => any()}
+  @type list_bill_scenarios_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -137,12 +140,15 @@ defmodule AWS.BCMPricingCalculator do
       list_bill_estimate_input_usage_modifications_request() :: %{
         optional("filters") => list(list_usage_filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("billEstimateId") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("billEstimateId") => String.t() | Atom.t()
       }
       
   """
-  @type list_bill_estimate_input_usage_modifications_request() :: %{String.t() => any()}
+  @type list_bill_estimate_input_usage_modifications_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -154,7 +160,7 @@ defmodule AWS.BCMPricingCalculator do
       }
       
   """
-  @type filter_timestamp() :: %{String.t() => any()}
+  @type filter_timestamp() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -165,14 +171,14 @@ defmodule AWS.BCMPricingCalculator do
         "costSummary" => bill_estimate_cost_summary(),
         "createdAt" => [non_neg_integer()],
         "expiresAt" => [non_neg_integer()],
-        "failureMessage" => [String.t()],
-        "id" => String.t(),
-        "name" => String.t(),
+        "failureMessage" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "status" => list(any())
       }
       
   """
-  @type create_bill_estimate_response() :: %{String.t() => any()}
+  @type create_bill_estimate_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -184,7 +190,10 @@ defmodule AWS.BCMPricingCalculator do
       }
       
   """
-  @type batch_update_bill_scenario_usage_modification_response() :: %{String.t() => any()}
+  @type batch_update_bill_scenario_usage_modification_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -196,18 +205,18 @@ defmodule AWS.BCMPricingCalculator do
       }
       
   """
-  @type cost_difference() :: %{String.t() => any()}
+  @type cost_difference() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_bill_estimate_request() :: %{
-        required("identifier") => String.t()
+        required("identifier") => String.t() | Atom.t()
       }
       
   """
-  @type get_bill_estimate_request() :: %{String.t() => any()}
+  @type get_bill_estimate_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -236,14 +245,14 @@ defmodule AWS.BCMPricingCalculator do
         "costSummary" => bill_estimate_cost_summary(),
         "createdAt" => [non_neg_integer()],
         "expiresAt" => [non_neg_integer()],
-        "failureMessage" => [String.t()],
-        "id" => String.t(),
-        "name" => String.t(),
+        "failureMessage" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "status" => list(any())
       }
       
   """
-  @type update_bill_estimate_response() :: %{String.t() => any()}
+  @type update_bill_estimate_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -260,12 +269,12 @@ defmodule AWS.BCMPricingCalculator do
       
       update_bill_estimate_request() :: %{
         optional("expiresAt") => [non_neg_integer()],
-        optional("name") => String.t(),
-        required("identifier") => String.t()
+        optional("name") => String.t() | Atom.t(),
+        required("identifier") => String.t() | Atom.t()
       }
       
   """
-  @type update_bill_estimate_request() :: %{String.t() => any()}
+  @type update_bill_estimate_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -273,13 +282,13 @@ defmodule AWS.BCMPricingCalculator do
       
       bill_scenario_commitment_modification_item() :: %{
         "commitmentAction" => list(),
-        "group" => String.t(),
-        "id" => String.t(),
-        "usageAccountId" => String.t()
+        "group" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "usageAccountId" => String.t() | Atom.t()
       }
       
   """
-  @type bill_scenario_commitment_modification_item() :: %{String.t() => any()}
+  @type bill_scenario_commitment_modification_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -288,12 +297,12 @@ defmodule AWS.BCMPricingCalculator do
       list_bill_estimate_line_items_request() :: %{
         optional("filters") => list(list_bill_estimate_line_items_filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("billEstimateId") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("billEstimateId") => String.t() | Atom.t()
       }
       
   """
-  @type list_bill_estimate_line_items_request() :: %{String.t() => any()}
+  @type list_bill_estimate_line_items_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -301,25 +310,25 @@ defmodule AWS.BCMPricingCalculator do
       
       batch_create_bill_scenario_usage_modification_error() :: %{
         "errorCode" => list(any()),
-        "errorMessage" => [String.t()],
-        "key" => String.t()
+        "errorMessage" => [String.t() | Atom.t()],
+        "key" => String.t() | Atom.t()
       }
       
   """
-  @type batch_create_bill_scenario_usage_modification_error() :: %{String.t() => any()}
+  @type batch_create_bill_scenario_usage_modification_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_create_workload_estimate_usage_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         required("usage") => list(batch_create_workload_estimate_usage_entry()),
-        required("workloadEstimateId") => String.t()
+        required("workloadEstimateId") => String.t() | Atom.t()
       }
       
   """
-  @type batch_create_workload_estimate_usage_request() :: %{String.t() => any()}
+  @type batch_create_workload_estimate_usage_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -329,13 +338,13 @@ defmodule AWS.BCMPricingCalculator do
         "billInterval" => bill_interval(),
         "createdAt" => [non_neg_integer()],
         "expiresAt" => [non_neg_integer()],
-        "id" => String.t(),
-        "name" => String.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "status" => list(any())
       }
       
   """
-  @type bill_estimate_summary() :: %{String.t() => any()}
+  @type bill_estimate_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -347,20 +356,20 @@ defmodule AWS.BCMPricingCalculator do
       }
       
   """
-  @type batch_create_workload_estimate_usage_response() :: %{String.t() => any()}
+  @type batch_create_workload_estimate_usage_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       expression_filter() :: %{
-        "key" => [String.t()],
-        "matchOptions" => list([String.t()]()),
-        "values" => list([String.t()]())
+        "key" => [String.t() | Atom.t()],
+        "matchOptions" => list([String.t() | Atom.t()]()),
+        "values" => list([String.t() | Atom.t()]())
       }
       
   """
-  @type expression_filter() :: %{String.t() => any()}
+  @type expression_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -368,11 +377,11 @@ defmodule AWS.BCMPricingCalculator do
       
       list_workload_estimates_response() :: %{
         "items" => list(workload_estimate_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_workload_estimates_response() :: %{String.t() => any()}
+  @type list_workload_estimates_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -380,12 +389,12 @@ defmodule AWS.BCMPricingCalculator do
       
       batch_create_workload_estimate_usage_error() :: %{
         "errorCode" => list(any()),
-        "errorMessage" => [String.t()],
-        "key" => String.t()
+        "errorMessage" => [String.t() | Atom.t()],
+        "key" => String.t() | Atom.t()
       }
       
   """
-  @type batch_create_workload_estimate_usage_error() :: %{String.t() => any()}
+  @type batch_create_workload_estimate_usage_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -396,11 +405,11 @@ defmodule AWS.BCMPricingCalculator do
         optional("expiresAtFilter") => filter_timestamp(),
         optional("filters") => list(list_bill_estimates_filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_bill_estimates_request() :: %{String.t() => any()}
+  @type list_bill_estimates_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -411,14 +420,14 @@ defmodule AWS.BCMPricingCalculator do
         "costSummary" => bill_estimate_cost_summary(),
         "createdAt" => [non_neg_integer()],
         "expiresAt" => [non_neg_integer()],
-        "failureMessage" => [String.t()],
-        "id" => String.t(),
-        "name" => String.t(),
+        "failureMessage" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "status" => list(any())
       }
       
   """
-  @type get_bill_estimate_response() :: %{String.t() => any()}
+  @type get_bill_estimate_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -426,11 +435,14 @@ defmodule AWS.BCMPricingCalculator do
       
       list_bill_scenario_commitment_modifications_response() :: %{
         "items" => list(bill_scenario_commitment_modification_item()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_bill_scenario_commitment_modifications_response() :: %{String.t() => any()}
+  @type list_bill_scenario_commitment_modifications_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -440,9 +452,9 @@ defmodule AWS.BCMPricingCalculator do
         "costCurrency" => list(any()),
         "createdAt" => [non_neg_integer()],
         "expiresAt" => [non_neg_integer()],
-        "failureMessage" => [String.t()],
-        "id" => String.t(),
-        "name" => String.t(),
+        "failureMessage" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "rateTimestamp" => [non_neg_integer()],
         "rateType" => list(any()),
         "status" => list(any()),
@@ -450,7 +462,7 @@ defmodule AWS.BCMPricingCalculator do
       }
       
   """
-  @type update_workload_estimate_response() :: %{String.t() => any()}
+  @type update_workload_estimate_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -462,7 +474,7 @@ defmodule AWS.BCMPricingCalculator do
       }
       
   """
-  @type bill_estimate_cost_summary() :: %{String.t() => any()}
+  @type bill_estimate_cost_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -470,37 +482,40 @@ defmodule AWS.BCMPricingCalculator do
       
       batch_update_bill_scenario_commitment_modification_error() :: %{
         "errorCode" => list(any()),
-        "errorMessage" => [String.t()],
-        "id" => String.t()
+        "errorMessage" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t()
       }
       
   """
-  @type batch_update_bill_scenario_commitment_modification_error() :: %{String.t() => any()}
+  @type batch_update_bill_scenario_commitment_modification_error() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       bill_estimate_line_item_summary() :: %{
-        "availabilityZone" => String.t(),
+        "availabilityZone" => String.t() | Atom.t(),
         "estimatedCost" => cost_amount(),
         "estimatedUsageQuantity" => usage_quantity_result(),
         "historicalCost" => cost_amount(),
         "historicalUsageQuantity" => usage_quantity_result(),
-        "id" => String.t(),
-        "lineItemId" => [String.t()],
-        "lineItemType" => [String.t()],
-        "location" => [String.t()],
-        "operation" => String.t(),
-        "payerAccountId" => String.t(),
-        "savingsPlanArns" => list([String.t()]()),
-        "serviceCode" => String.t(),
-        "usageAccountId" => String.t(),
-        "usageType" => String.t()
+        "id" => String.t() | Atom.t(),
+        "lineItemId" => [String.t() | Atom.t()],
+        "lineItemType" => [String.t() | Atom.t()],
+        "location" => [String.t() | Atom.t()],
+        "operation" => String.t() | Atom.t(),
+        "payerAccountId" => String.t() | Atom.t(),
+        "savingsPlanArns" => list([String.t() | Atom.t()]()),
+        "serviceCode" => String.t() | Atom.t(),
+        "usageAccountId" => String.t() | Atom.t(),
+        "usageType" => String.t() | Atom.t()
       }
       
   """
-  @type bill_estimate_line_item_summary() :: %{String.t() => any()}
+  @type bill_estimate_line_item_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -508,11 +523,11 @@ defmodule AWS.BCMPricingCalculator do
       
       list_bill_scenarios_response() :: %{
         "items" => list(bill_scenario_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_bill_scenarios_response() :: %{String.t() => any()}
+  @type list_bill_scenarios_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -520,44 +535,44 @@ defmodule AWS.BCMPricingCalculator do
       
       batch_update_workload_estimate_usage_entry() :: %{
         "amount" => [float()],
-        "group" => String.t(),
-        "id" => String.t()
+        "group" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t()
       }
       
   """
-  @type batch_update_workload_estimate_usage_entry() :: %{String.t() => any()}
+  @type batch_update_workload_estimate_usage_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("arn") => String.t(),
-        required("tagKeys") => list(String.t())
+        required("arn") => String.t() | Atom.t(),
+        required("tagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       bill_estimate_input_usage_modification_summary() :: %{
-        "availabilityZone" => String.t(),
-        "group" => String.t(),
+        "availabilityZone" => String.t() | Atom.t(),
+        "group" => String.t() | Atom.t(),
         "historicalUsage" => historical_usage_entity(),
-        "id" => String.t(),
-        "location" => [String.t()],
-        "operation" => String.t(),
+        "id" => String.t() | Atom.t(),
+        "location" => [String.t() | Atom.t()],
+        "operation" => String.t() | Atom.t(),
         "quantities" => list(usage_quantity()),
-        "serviceCode" => String.t(),
-        "usageAccountId" => String.t(),
-        "usageType" => String.t()
+        "serviceCode" => String.t() | Atom.t(),
+        "usageAccountId" => String.t() | Atom.t(),
+        "usageType" => String.t() | Atom.t()
       }
       
   """
-  @type bill_estimate_input_usage_modification_summary() :: %{String.t() => any()}
+  @type bill_estimate_input_usage_modification_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -566,31 +581,31 @@ defmodule AWS.BCMPricingCalculator do
       list_bill_estimate_line_items_filter() :: %{
         "matchOption" => list(any()),
         "name" => list(any()),
-        "values" => list([String.t()]())
+        "values" => list([String.t() | Atom.t()]())
       }
       
   """
-  @type list_bill_estimate_line_items_filter() :: %{String.t() => any()}
+  @type list_bill_estimate_line_items_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       bill_scenario_usage_modification_item() :: %{
-        "availabilityZone" => String.t(),
-        "group" => String.t(),
+        "availabilityZone" => String.t() | Atom.t(),
+        "group" => String.t() | Atom.t(),
         "historicalUsage" => historical_usage_entity(),
-        "id" => String.t(),
-        "location" => [String.t()],
-        "operation" => String.t(),
+        "id" => String.t() | Atom.t(),
+        "location" => [String.t() | Atom.t()],
+        "operation" => String.t() | Atom.t(),
         "quantities" => list(usage_quantity()),
-        "serviceCode" => String.t(),
-        "usageAccountId" => String.t(),
-        "usageType" => String.t()
+        "serviceCode" => String.t() | Atom.t(),
+        "usageAccountId" => String.t() | Atom.t(),
+        "usageType" => String.t() | Atom.t()
       }
       
   """
-  @type bill_scenario_usage_modification_item() :: %{String.t() => any()}
+  @type bill_scenario_usage_modification_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -600,9 +615,9 @@ defmodule AWS.BCMPricingCalculator do
         "costCurrency" => list(any()),
         "createdAt" => [non_neg_integer()],
         "expiresAt" => [non_neg_integer()],
-        "failureMessage" => [String.t()],
-        "id" => String.t(),
-        "name" => String.t(),
+        "failureMessage" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "rateTimestamp" => [non_neg_integer()],
         "rateType" => list(any()),
         "status" => list(any()),
@@ -610,7 +625,7 @@ defmodule AWS.BCMPricingCalculator do
       }
       
   """
-  @type get_workload_estimate_response() :: %{String.t() => any()}
+  @type get_workload_estimate_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -618,13 +633,13 @@ defmodule AWS.BCMPricingCalculator do
       
       bill_estimate_input_commitment_modification_summary() :: %{
         "commitmentAction" => list(),
-        "group" => String.t(),
-        "id" => String.t(),
-        "usageAccountId" => String.t()
+        "group" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "usageAccountId" => String.t() | Atom.t()
       }
       
   """
-  @type bill_estimate_input_commitment_modification_summary() :: %{String.t() => any()}
+  @type bill_estimate_input_commitment_modification_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -636,7 +651,7 @@ defmodule AWS.BCMPricingCalculator do
       }
       
   """
-  @type batch_update_workload_estimate_usage_response() :: %{String.t() => any()}
+  @type batch_update_workload_estimate_usage_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -644,42 +659,45 @@ defmodule AWS.BCMPricingCalculator do
       
       batch_create_bill_scenario_commitment_modification_error() :: %{
         "errorCode" => list(any()),
-        "errorMessage" => [String.t()],
-        "key" => String.t()
+        "errorMessage" => [String.t() | Atom.t()],
+        "key" => String.t() | Atom.t()
       }
       
   """
-  @type batch_create_bill_scenario_commitment_modification_error() :: %{String.t() => any()}
+  @type batch_create_bill_scenario_commitment_modification_error() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       negate_savings_plan_action() :: %{
-        "savingsPlanId" => String.t()
+        "savingsPlanId" => String.t() | Atom.t()
       }
       
   """
-  @type negate_savings_plan_action() :: %{String.t() => any()}
+  @type negate_savings_plan_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       bill_estimate_commitment_summary() :: %{
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "monthlyPayment" => cost_amount(),
-        "offeringId" => String.t(),
-        "paymentOption" => [String.t()],
+        "offeringId" => String.t() | Atom.t(),
+        "paymentOption" => [String.t() | Atom.t()],
         "purchaseAgreementType" => list(any()),
-        "region" => [String.t()],
-        "termLength" => [String.t()],
+        "region" => [String.t() | Atom.t()],
+        "termLength" => [String.t() | Atom.t()],
         "upfrontPayment" => cost_amount(),
-        "usageAccountId" => String.t()
+        "usageAccountId" => String.t() | Atom.t()
       }
       
   """
-  @type bill_estimate_commitment_summary() :: %{String.t() => any()}
+  @type bill_estimate_commitment_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -692,7 +710,7 @@ defmodule AWS.BCMPricingCalculator do
       }
       
   """
-  @type get_preferences_response() :: %{String.t() => any()}
+  @type get_preferences_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -700,14 +718,17 @@ defmodule AWS.BCMPricingCalculator do
       
       batch_create_bill_scenario_commitment_modification_item() :: %{
         "commitmentAction" => list(),
-        "group" => String.t(),
-        "id" => String.t(),
-        "key" => String.t(),
-        "usageAccountId" => String.t()
+        "group" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "key" => String.t() | Atom.t(),
+        "usageAccountId" => String.t() | Atom.t()
       }
       
   """
-  @type batch_create_bill_scenario_commitment_modification_item() :: %{String.t() => any()}
+  @type batch_create_bill_scenario_commitment_modification_item() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -715,11 +736,11 @@ defmodule AWS.BCMPricingCalculator do
       
       list_bill_estimate_line_items_response() :: %{
         "items" => list(bill_estimate_line_item_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_bill_estimate_line_items_response() :: %{String.t() => any()}
+  @type list_bill_estimate_line_items_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -728,15 +749,15 @@ defmodule AWS.BCMPricingCalculator do
       historical_usage_entity() :: %{
         "billInterval" => bill_interval(),
         "filterExpression" => expression(),
-        "location" => [String.t()],
-        "operation" => String.t(),
-        "serviceCode" => String.t(),
-        "usageAccountId" => String.t(),
-        "usageType" => String.t()
+        "location" => [String.t() | Atom.t()],
+        "operation" => String.t() | Atom.t(),
+        "serviceCode" => String.t() | Atom.t(),
+        "usageAccountId" => String.t() | Atom.t(),
+        "usageType" => String.t() | Atom.t()
       }
       
   """
-  @type historical_usage_entity() :: %{String.t() => any()}
+  @type historical_usage_entity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -745,38 +766,38 @@ defmodule AWS.BCMPricingCalculator do
       list_workload_estimate_usage_request() :: %{
         optional("filters") => list(list_usage_filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("workloadEstimateId") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("workloadEstimateId") => String.t() | Atom.t()
       }
       
   """
-  @type list_workload_estimate_usage_request() :: %{String.t() => any()}
+  @type list_workload_estimate_usage_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "message" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "resourceId" => [String.t() | Atom.t()],
+        "resourceType" => [String.t() | Atom.t()]
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "resourceId" => [String.t() | Atom.t()],
+        "resourceType" => [String.t() | Atom.t()]
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -784,11 +805,11 @@ defmodule AWS.BCMPricingCalculator do
       
       usage_quantity_result() :: %{
         "amount" => [float()],
-        "unit" => [String.t()]
+        "unit" => [String.t() | Atom.t()]
       }
       
   """
-  @type usage_quantity_result() :: %{String.t() => any()}
+  @type usage_quantity_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -798,14 +819,14 @@ defmodule AWS.BCMPricingCalculator do
         "billInterval" => bill_interval(),
         "createdAt" => [non_neg_integer()],
         "expiresAt" => [non_neg_integer()],
-        "failureMessage" => [String.t()],
-        "id" => String.t(),
-        "name" => String.t(),
+        "failureMessage" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "status" => list(any())
       }
       
   """
-  @type get_bill_scenario_response() :: %{String.t() => any()}
+  @type get_bill_scenario_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -815,14 +836,14 @@ defmodule AWS.BCMPricingCalculator do
         "billInterval" => bill_interval(),
         "createdAt" => [non_neg_integer()],
         "expiresAt" => [non_neg_integer()],
-        "failureMessage" => [String.t()],
-        "id" => String.t(),
-        "name" => String.t(),
+        "failureMessage" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "status" => list(any())
       }
       
   """
-  @type update_bill_scenario_response() :: %{String.t() => any()}
+  @type update_bill_scenario_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -830,12 +851,12 @@ defmodule AWS.BCMPricingCalculator do
       
       list_bill_estimate_commitments_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("billEstimateId") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("billEstimateId") => String.t() | Atom.t()
       }
       
   """
-  @type list_bill_estimate_commitments_request() :: %{String.t() => any()}
+  @type list_bill_estimate_commitments_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -844,20 +865,20 @@ defmodule AWS.BCMPricingCalculator do
       workload_estimate_usage_item() :: %{
         "cost" => [float()],
         "currency" => list(any()),
-        "group" => String.t(),
+        "group" => String.t() | Atom.t(),
         "historicalUsage" => historical_usage_entity(),
-        "id" => String.t(),
-        "location" => [String.t()],
-        "operation" => String.t(),
+        "id" => String.t() | Atom.t(),
+        "location" => [String.t() | Atom.t()],
+        "operation" => String.t() | Atom.t(),
         "quantity" => workload_estimate_usage_quantity(),
-        "serviceCode" => String.t(),
+        "serviceCode" => String.t() | Atom.t(),
         "status" => list(any()),
-        "usageAccountId" => String.t(),
-        "usageType" => String.t()
+        "usageAccountId" => String.t() | Atom.t(),
+        "usageType" => String.t() | Atom.t()
       }
       
   """
-  @type workload_estimate_usage_item() :: %{String.t() => any()}
+  @type workload_estimate_usage_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -865,27 +886,30 @@ defmodule AWS.BCMPricingCalculator do
       
       list_bill_estimate_input_commitment_modifications_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("billEstimateId") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("billEstimateId") => String.t() | Atom.t()
       }
       
   """
-  @type list_bill_estimate_input_commitment_modifications_request() :: %{String.t() => any()}
+  @type list_bill_estimate_input_commitment_modifications_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t()],
-        "quotaCode" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()],
-        "serviceCode" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "quotaCode" => [String.t() | Atom.t()],
+        "resourceId" => [String.t() | Atom.t()],
+        "resourceType" => [String.t() | Atom.t()],
+        "serviceCode" => [String.t() | Atom.t()]
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -893,11 +917,11 @@ defmodule AWS.BCMPricingCalculator do
       
       add_savings_plan_action() :: %{
         "commitment" => float(),
-        "savingsPlanOfferingId" => String.t()
+        "savingsPlanOfferingId" => String.t() | Atom.t()
       }
       
   """
-  @type add_savings_plan_action() :: %{String.t() => any()}
+  @type add_savings_plan_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -910,7 +934,7 @@ defmodule AWS.BCMPricingCalculator do
       }
       
   """
-  @type update_preferences_request() :: %{String.t() => any()}
+  @type update_preferences_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -918,32 +942,35 @@ defmodule AWS.BCMPricingCalculator do
       
       list_bill_estimate_input_usage_modifications_response() :: %{
         "items" => list(bill_estimate_input_usage_modification_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_bill_estimate_input_usage_modifications_response() :: %{String.t() => any()}
+  @type list_bill_estimate_input_usage_modifications_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       batch_create_bill_scenario_usage_modification_item() :: %{
-        "availabilityZone" => String.t(),
-        "group" => String.t(),
+        "availabilityZone" => String.t() | Atom.t(),
+        "group" => String.t() | Atom.t(),
         "historicalUsage" => historical_usage_entity(),
-        "id" => String.t(),
-        "key" => String.t(),
-        "location" => [String.t()],
-        "operation" => String.t(),
+        "id" => String.t() | Atom.t(),
+        "key" => String.t() | Atom.t(),
+        "location" => [String.t() | Atom.t()],
+        "operation" => String.t() | Atom.t(),
         "quantities" => list(usage_quantity()),
-        "serviceCode" => String.t(),
-        "usageAccountId" => String.t(),
-        "usageType" => String.t()
+        "serviceCode" => String.t() | Atom.t(),
+        "usageAccountId" => String.t() | Atom.t(),
+        "usageType" => String.t() | Atom.t()
       }
       
   """
-  @type batch_create_bill_scenario_usage_modification_item() :: %{String.t() => any()}
+  @type batch_create_bill_scenario_usage_modification_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -956,7 +983,7 @@ defmodule AWS.BCMPricingCalculator do
       }
       
   """
-  @type update_preferences_response() :: %{String.t() => any()}
+  @type update_preferences_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -974,11 +1001,11 @@ defmodule AWS.BCMPricingCalculator do
       list_bill_scenarios_filter() :: %{
         "matchOption" => list(any()),
         "name" => list(any()),
-        "values" => list([String.t()]())
+        "values" => list([String.t() | Atom.t()]())
       }
       
   """
-  @type list_bill_scenarios_filter() :: %{String.t() => any()}
+  @type list_bill_scenarios_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -989,7 +1016,7 @@ defmodule AWS.BCMPricingCalculator do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1000,7 +1027,10 @@ defmodule AWS.BCMPricingCalculator do
       }
       
   """
-  @type batch_delete_bill_scenario_usage_modification_response() :: %{String.t() => any()}
+  @type batch_delete_bill_scenario_usage_modification_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1012,7 +1042,7 @@ defmodule AWS.BCMPricingCalculator do
       }
       
   """
-  @type bill_interval() :: %{String.t() => any()}
+  @type bill_interval() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1020,18 +1050,18 @@ defmodule AWS.BCMPricingCalculator do
       
       batch_create_bill_scenario_usage_modification_entry() :: %{
         "amounts" => list(usage_amount()),
-        "availabilityZone" => String.t(),
-        "group" => String.t(),
+        "availabilityZone" => String.t() | Atom.t(),
+        "group" => String.t() | Atom.t(),
         "historicalUsage" => historical_usage_entity(),
-        "key" => String.t(),
-        "operation" => String.t(),
-        "serviceCode" => String.t(),
-        "usageAccountId" => String.t(),
-        "usageType" => String.t()
+        "key" => String.t() | Atom.t(),
+        "operation" => String.t() | Atom.t(),
+        "serviceCode" => String.t() | Atom.t(),
+        "usageAccountId" => String.t() | Atom.t(),
+        "usageType" => String.t() | Atom.t()
       }
       
   """
-  @type batch_create_bill_scenario_usage_modification_entry() :: %{String.t() => any()}
+  @type batch_create_bill_scenario_usage_modification_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1039,12 +1069,12 @@ defmodule AWS.BCMPricingCalculator do
       
       batch_delete_workload_estimate_usage_error() :: %{
         "errorCode" => list(any()),
-        "errorMessage" => [String.t()],
-        "id" => String.t()
+        "errorMessage" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t()
       }
       
   """
-  @type batch_delete_workload_estimate_usage_error() :: %{String.t() => any()}
+  @type batch_delete_workload_estimate_usage_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1052,24 +1082,24 @@ defmodule AWS.BCMPricingCalculator do
       
       batch_update_bill_scenario_usage_modification_entry() :: %{
         "amounts" => list(usage_amount()),
-        "group" => String.t(),
-        "id" => String.t()
+        "group" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t()
       }
       
   """
-  @type batch_update_bill_scenario_usage_modification_entry() :: %{String.t() => any()}
+  @type batch_update_bill_scenario_usage_modification_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception_field() :: %{
-        "message" => [String.t()],
-        "name" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "name" => [String.t() | Atom.t()]
       }
       
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1080,46 +1110,52 @@ defmodule AWS.BCMPricingCalculator do
         optional("expiresAtFilter") => filter_timestamp(),
         optional("filters") => list(list_workload_estimates_filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_workload_estimates_request() :: %{String.t() => any()}
+  @type list_workload_estimates_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_delete_bill_scenario_usage_modification_request() :: %{
-        required("billScenarioId") => String.t(),
-        required("ids") => list(String.t())
+        required("billScenarioId") => String.t() | Atom.t(),
+        required("ids") => list(String.t() | Atom.t())
       }
       
   """
-  @type batch_delete_bill_scenario_usage_modification_request() :: %{String.t() => any()}
+  @type batch_delete_bill_scenario_usage_modification_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       delete_workload_estimate_request() :: %{
-        required("identifier") => String.t()
+        required("identifier") => String.t() | Atom.t()
       }
       
   """
-  @type delete_workload_estimate_request() :: %{String.t() => any()}
+  @type delete_workload_estimate_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_update_bill_scenario_commitment_modification_request() :: %{
-        required("billScenarioId") => String.t(),
+        required("billScenarioId") => String.t() | Atom.t(),
         required("commitmentModifications") => list(batch_update_bill_scenario_commitment_modification_entry())
       }
       
   """
-  @type batch_update_bill_scenario_commitment_modification_request() :: %{String.t() => any()}
+  @type batch_update_bill_scenario_commitment_modification_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1129,14 +1165,14 @@ defmodule AWS.BCMPricingCalculator do
         "billInterval" => bill_interval(),
         "createdAt" => [non_neg_integer()],
         "expiresAt" => [non_neg_integer()],
-        "failureMessage" => [String.t()],
-        "id" => String.t(),
-        "name" => String.t(),
+        "failureMessage" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "status" => list(any())
       }
       
   """
-  @type bill_scenario_summary() :: %{String.t() => any()}
+  @type bill_scenario_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1144,12 +1180,12 @@ defmodule AWS.BCMPricingCalculator do
       
       update_bill_scenario_request() :: %{
         optional("expiresAt") => [non_neg_integer()],
-        optional("name") => String.t(),
-        required("identifier") => String.t()
+        optional("name") => String.t() | Atom.t(),
+        required("identifier") => String.t() | Atom.t()
       }
       
   """
-  @type update_bill_scenario_request() :: %{String.t() => any()}
+  @type update_bill_scenario_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1157,12 +1193,12 @@ defmodule AWS.BCMPricingCalculator do
       
       list_bill_scenario_commitment_modifications_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("billScenarioId") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("billScenarioId") => String.t() | Atom.t()
       }
       
   """
-  @type list_bill_scenario_commitment_modifications_request() :: %{String.t() => any()}
+  @type list_bill_scenario_commitment_modifications_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1170,23 +1206,23 @@ defmodule AWS.BCMPricingCalculator do
       
       batch_update_workload_estimate_usage_request() :: %{
         required("usage") => list(batch_update_workload_estimate_usage_entry()),
-        required("workloadEstimateId") => String.t()
+        required("workloadEstimateId") => String.t() | Atom.t()
       }
       
   """
-  @type batch_update_workload_estimate_usage_request() :: %{String.t() => any()}
+  @type batch_update_workload_estimate_usage_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "message" => [String.t()],
+        "message" => [String.t() | Atom.t()],
         "retryAfterSeconds" => [integer()]
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1194,12 +1230,15 @@ defmodule AWS.BCMPricingCalculator do
       
       batch_delete_bill_scenario_commitment_modification_error() :: %{
         "errorCode" => list(any()),
-        "errorMessage" => [String.t()],
-        "id" => String.t()
+        "errorMessage" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t()
       }
       
   """
-  @type batch_delete_bill_scenario_commitment_modification_error() :: %{String.t() => any()}
+  @type batch_delete_bill_scenario_commitment_modification_error() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1208,11 +1247,11 @@ defmodule AWS.BCMPricingCalculator do
       list_workload_estimates_filter() :: %{
         "matchOption" => list(any()),
         "name" => list(any()),
-        "values" => list([String.t()]())
+        "values" => list([String.t() | Atom.t()]())
       }
       
   """
-  @type list_workload_estimates_filter() :: %{String.t() => any()}
+  @type list_workload_estimates_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1220,11 +1259,11 @@ defmodule AWS.BCMPricingCalculator do
       
       list_bill_scenario_usage_modifications_response() :: %{
         "items" => list(bill_scenario_usage_modification_item()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_bill_scenario_usage_modifications_response() :: %{String.t() => any()}
+  @type list_bill_scenario_usage_modifications_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1232,45 +1271,48 @@ defmodule AWS.BCMPricingCalculator do
       
       list_bill_estimates_response() :: %{
         "items" => list(bill_estimate_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_bill_estimates_response() :: %{String.t() => any()}
+  @type list_bill_estimates_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_update_bill_scenario_usage_modification_request() :: %{
-        required("billScenarioId") => String.t(),
+        required("billScenarioId") => String.t() | Atom.t(),
         required("usageModifications") => list(batch_update_bill_scenario_usage_modification_entry())
       }
       
   """
-  @type batch_update_bill_scenario_usage_modification_request() :: %{String.t() => any()}
+  @type batch_update_bill_scenario_usage_modification_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       delete_bill_estimate_request() :: %{
-        required("identifier") => String.t()
+        required("identifier") => String.t() | Atom.t()
       }
       
   """
-  @type delete_bill_estimate_request() :: %{String.t() => any()}
+  @type delete_bill_estimate_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       data_unavailable_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
       
   """
-  @type data_unavailable_exception() :: %{String.t() => any()}
+  @type data_unavailable_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1279,12 +1321,12 @@ defmodule AWS.BCMPricingCalculator do
       list_bill_scenario_usage_modifications_request() :: %{
         optional("filters") => list(list_usage_filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("billScenarioId") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("billScenarioId") => String.t() | Atom.t()
       }
       
   """
-  @type list_bill_scenario_usage_modifications_request() :: %{String.t() => any()}
+  @type list_bill_scenario_usage_modifications_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1292,47 +1334,50 @@ defmodule AWS.BCMPricingCalculator do
       
       list_bill_estimate_input_commitment_modifications_response() :: %{
         "items" => list(bill_estimate_input_commitment_modification_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_bill_estimate_input_commitment_modifications_response() :: %{String.t() => any()}
+  @type list_bill_estimate_input_commitment_modifications_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       negate_reserved_instance_action() :: %{
-        "reservedInstancesId" => String.t()
+        "reservedInstancesId" => String.t() | Atom.t()
       }
       
   """
-  @type negate_reserved_instance_action() :: %{String.t() => any()}
+  @type negate_reserved_instance_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_workload_estimate_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("rateType") => list(any()),
         optional("tags") => map(),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
       
   """
-  @type create_workload_estimate_request() :: %{String.t() => any()}
+  @type create_workload_estimate_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1344,20 +1389,26 @@ defmodule AWS.BCMPricingCalculator do
       }
       
   """
-  @type batch_create_bill_scenario_usage_modification_response() :: %{String.t() => any()}
+  @type batch_create_bill_scenario_usage_modification_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       batch_create_bill_scenario_usage_modification_request() :: %{
-        optional("clientToken") => String.t(),
-        required("billScenarioId") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        required("billScenarioId") => String.t() | Atom.t(),
         required("usageModifications") => list(batch_create_bill_scenario_usage_modification_entry())
       }
       
   """
-  @type batch_create_bill_scenario_usage_modification_request() :: %{String.t() => any()}
+  @type batch_create_bill_scenario_usage_modification_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1374,29 +1425,29 @@ defmodule AWS.BCMPricingCalculator do
       
       batch_create_workload_estimate_usage_entry() :: %{
         "amount" => [float()],
-        "group" => String.t(),
+        "group" => String.t() | Atom.t(),
         "historicalUsage" => historical_usage_entity(),
-        "key" => String.t(),
-        "operation" => String.t(),
-        "serviceCode" => String.t(),
-        "usageAccountId" => String.t(),
-        "usageType" => String.t()
+        "key" => String.t() | Atom.t(),
+        "operation" => String.t() | Atom.t(),
+        "serviceCode" => String.t() | Atom.t(),
+        "usageAccountId" => String.t() | Atom.t(),
+        "usageType" => String.t() | Atom.t()
       }
       
   """
-  @type batch_create_workload_estimate_usage_entry() :: %{String.t() => any()}
+  @type batch_create_workload_estimate_usage_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_delete_workload_estimate_usage_request() :: %{
-        required("ids") => list(String.t()),
-        required("workloadEstimateId") => String.t()
+        required("ids") => list(String.t() | Atom.t()),
+        required("workloadEstimateId") => String.t() | Atom.t()
       }
       
   """
-  @type batch_delete_workload_estimate_usage_request() :: %{String.t() => any()}
+  @type batch_delete_workload_estimate_usage_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1404,23 +1455,23 @@ defmodule AWS.BCMPricingCalculator do
       
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
-        "message" => [String.t()],
+        "message" => [String.t() | Atom.t()],
         "reason" => list(any())
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("arn") => String.t()
+        required("arn") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1429,35 +1480,35 @@ defmodule AWS.BCMPricingCalculator do
       batch_create_workload_estimate_usage_item() :: %{
         "cost" => [float()],
         "currency" => list(any()),
-        "group" => String.t(),
+        "group" => String.t() | Atom.t(),
         "historicalUsage" => historical_usage_entity(),
-        "id" => String.t(),
-        "key" => String.t(),
-        "location" => [String.t()],
-        "operation" => String.t(),
+        "id" => String.t() | Atom.t(),
+        "key" => String.t() | Atom.t(),
+        "location" => [String.t() | Atom.t()],
+        "operation" => String.t() | Atom.t(),
         "quantity" => workload_estimate_usage_quantity(),
-        "serviceCode" => String.t(),
+        "serviceCode" => String.t() | Atom.t(),
         "status" => list(any()),
-        "usageAccountId" => String.t(),
-        "usageType" => String.t()
+        "usageAccountId" => String.t() | Atom.t(),
+        "usageType" => String.t() | Atom.t()
       }
       
   """
-  @type batch_create_workload_estimate_usage_item() :: %{String.t() => any()}
+  @type batch_create_workload_estimate_usage_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "message" => [String.t()],
-        "quotaCode" => [String.t()],
+        "message" => [String.t() | Atom.t()],
+        "quotaCode" => [String.t() | Atom.t()],
         "retryAfterSeconds" => [integer()],
-        "serviceCode" => [String.t()]
+        "serviceCode" => [String.t() | Atom.t()]
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1469,7 +1520,7 @@ defmodule AWS.BCMPricingCalculator do
       }
       
   """
-  @type cost_amount() :: %{String.t() => any()}
+  @type cost_amount() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1485,7 +1536,7 @@ defmodule AWS.BCMPricingCalculator do
       }
       
   """
-  @type expression() :: %{String.t() => any()}
+  @type expression() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1496,46 +1547,52 @@ defmodule AWS.BCMPricingCalculator do
       }
       
   """
-  @type batch_delete_workload_estimate_usage_response() :: %{String.t() => any()}
+  @type batch_delete_workload_estimate_usage_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_create_bill_scenario_commitment_modification_request() :: %{
-        optional("clientToken") => String.t(),
-        required("billScenarioId") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        required("billScenarioId") => String.t() | Atom.t(),
         required("commitmentModifications") => list(batch_create_bill_scenario_commitment_modification_entry())
       }
       
   """
-  @type batch_create_bill_scenario_commitment_modification_request() :: %{String.t() => any()}
+  @type batch_create_bill_scenario_commitment_modification_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       create_bill_estimate_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("tags") => map(),
-        required("billScenarioId") => String.t(),
-        required("name") => String.t()
+        required("billScenarioId") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t()
       }
       
   """
-  @type create_bill_estimate_request() :: %{String.t() => any()}
+  @type create_bill_estimate_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_update_bill_scenario_commitment_modification_entry() :: %{
-        "group" => String.t(),
-        "id" => String.t()
+        "group" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t()
       }
       
   """
-  @type batch_update_bill_scenario_commitment_modification_entry() :: %{String.t() => any()}
+  @type batch_update_bill_scenario_commitment_modification_entry() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1544,11 +1601,11 @@ defmodule AWS.BCMPricingCalculator do
       usage_quantity() :: %{
         "amount" => [float()],
         "startHour" => [non_neg_integer()],
-        "unit" => [String.t()]
+        "unit" => [String.t() | Atom.t()]
       }
       
   """
-  @type usage_quantity() :: %{String.t() => any()}
+  @type usage_quantity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1556,23 +1613,23 @@ defmodule AWS.BCMPricingCalculator do
       
       batch_update_bill_scenario_usage_modification_error() :: %{
         "errorCode" => list(any()),
-        "errorMessage" => [String.t()],
-        "id" => String.t()
+        "errorMessage" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t()
       }
       
   """
-  @type batch_update_bill_scenario_usage_modification_error() :: %{String.t() => any()}
+  @type batch_update_bill_scenario_usage_modification_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_bill_scenario_request() :: %{
-        required("identifier") => String.t()
+        required("identifier") => String.t() | Atom.t()
       }
       
   """
-  @type get_bill_scenario_request() :: %{String.t() => any()}
+  @type get_bill_scenario_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1589,12 +1646,12 @@ defmodule AWS.BCMPricingCalculator do
       
       batch_delete_bill_scenario_usage_modification_error() :: %{
         "errorCode" => list(any()),
-        "errorMessage" => [String.t()],
-        "id" => String.t()
+        "errorMessage" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t()
       }
       
   """
-  @type batch_delete_bill_scenario_usage_modification_error() :: %{String.t() => any()}
+  @type batch_delete_bill_scenario_usage_modification_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1606,20 +1663,23 @@ defmodule AWS.BCMPricingCalculator do
       }
       
   """
-  @type batch_create_bill_scenario_commitment_modification_response() :: %{String.t() => any()}
+  @type batch_create_bill_scenario_commitment_modification_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       create_bill_scenario_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("tags") => map(),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
       
   """
-  @type create_bill_scenario_request() :: %{String.t() => any()}
+  @type create_bill_scenario_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1629,9 +1689,9 @@ defmodule AWS.BCMPricingCalculator do
         "costCurrency" => list(any()),
         "createdAt" => [non_neg_integer()],
         "expiresAt" => [non_neg_integer()],
-        "failureMessage" => [String.t()],
-        "id" => String.t(),
-        "name" => String.t(),
+        "failureMessage" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "rateTimestamp" => [non_neg_integer()],
         "rateType" => list(any()),
         "status" => list(any()),
@@ -1639,7 +1699,7 @@ defmodule AWS.BCMPricingCalculator do
       }
       
   """
-  @type workload_estimate_summary() :: %{String.t() => any()}
+  @type workload_estimate_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1647,25 +1707,31 @@ defmodule AWS.BCMPricingCalculator do
       
       batch_create_bill_scenario_commitment_modification_entry() :: %{
         "commitmentAction" => list(),
-        "group" => String.t(),
-        "key" => String.t(),
-        "usageAccountId" => String.t()
+        "group" => String.t() | Atom.t(),
+        "key" => String.t() | Atom.t(),
+        "usageAccountId" => String.t() | Atom.t()
       }
       
   """
-  @type batch_create_bill_scenario_commitment_modification_entry() :: %{String.t() => any()}
+  @type batch_create_bill_scenario_commitment_modification_entry() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       batch_delete_bill_scenario_commitment_modification_request() :: %{
-        required("billScenarioId") => String.t(),
-        required("ids") => list(String.t())
+        required("billScenarioId") => String.t() | Atom.t(),
+        required("ids") => list(String.t() | Atom.t())
       }
       
   """
-  @type batch_delete_bill_scenario_commitment_modification_request() :: %{String.t() => any()}
+  @type batch_delete_bill_scenario_commitment_modification_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1675,9 +1741,9 @@ defmodule AWS.BCMPricingCalculator do
         "costCurrency" => list(any()),
         "createdAt" => [non_neg_integer()],
         "expiresAt" => [non_neg_integer()],
-        "failureMessage" => [String.t()],
-        "id" => String.t(),
-        "name" => String.t(),
+        "failureMessage" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "rateTimestamp" => [non_neg_integer()],
         "rateType" => list(any()),
         "status" => list(any()),
@@ -1685,7 +1751,7 @@ defmodule AWS.BCMPricingCalculator do
       }
       
   """
-  @type create_workload_estimate_response() :: %{String.t() => any()}
+  @type create_workload_estimate_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1694,11 +1760,11 @@ defmodule AWS.BCMPricingCalculator do
       list_usage_filter() :: %{
         "matchOption" => list(any()),
         "name" => list(any()),
-        "values" => list([String.t()]())
+        "values" => list([String.t() | Atom.t()]())
       }
       
   """
-  @type list_usage_filter() :: %{String.t() => any()}
+  @type list_usage_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1706,23 +1772,23 @@ defmodule AWS.BCMPricingCalculator do
       
       update_workload_estimate_request() :: %{
         optional("expiresAt") => [non_neg_integer()],
-        optional("name") => String.t(),
-        required("identifier") => String.t()
+        optional("name") => String.t() | Atom.t(),
+        required("identifier") => String.t() | Atom.t()
       }
       
   """
-  @type update_workload_estimate_request() :: %{String.t() => any()}
+  @type update_workload_estimate_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_bill_scenario_request() :: %{
-        required("identifier") => String.t()
+        required("identifier") => String.t() | Atom.t()
       }
       
   """
-  @type delete_bill_scenario_request() :: %{String.t() => any()}
+  @type delete_bill_scenario_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1730,11 +1796,11 @@ defmodule AWS.BCMPricingCalculator do
       
       workload_estimate_usage_quantity() :: %{
         "amount" => [float()],
-        "unit" => [String.t()]
+        "unit" => [String.t() | Atom.t()]
       }
       
   """
-  @type workload_estimate_usage_quantity() :: %{String.t() => any()}
+  @type workload_estimate_usage_quantity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1744,14 +1810,14 @@ defmodule AWS.BCMPricingCalculator do
         "billInterval" => bill_interval(),
         "createdAt" => [non_neg_integer()],
         "expiresAt" => [non_neg_integer()],
-        "failureMessage" => [String.t()],
-        "id" => String.t(),
-        "name" => String.t(),
+        "failureMessage" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "status" => list(any())
       }
       
   """
-  @type create_bill_scenario_response() :: %{String.t() => any()}
+  @type create_bill_scenario_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1762,7 +1828,10 @@ defmodule AWS.BCMPricingCalculator do
       }
       
   """
-  @type batch_delete_bill_scenario_commitment_modification_response() :: %{String.t() => any()}
+  @type batch_delete_bill_scenario_commitment_modification_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1770,11 +1839,11 @@ defmodule AWS.BCMPricingCalculator do
       
       list_bill_estimate_commitments_response() :: %{
         "items" => list(bill_estimate_commitment_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_bill_estimate_commitments_response() :: %{String.t() => any()}
+  @type list_bill_estimate_commitments_response() :: %{String.t() | Atom.t() => any()}
 
   @type batch_create_bill_scenario_commitment_modification_errors() ::
           data_unavailable_exception() | resource_not_found_exception() | conflict_exception()

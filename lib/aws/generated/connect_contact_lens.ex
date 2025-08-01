@@ -36,23 +36,23 @@ defmodule AWS.ConnectContactLens do
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       categories() :: %{
-        "MatchedCategories" => list(String.t()),
+        "MatchedCategories" => list(String.t() | Atom.t()),
         "MatchedDetails" => map()
       }
 
   """
-  @type categories() :: %{String.t() => any()}
+  @type categories() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -63,7 +63,7 @@ defmodule AWS.ConnectContactLens do
       }
 
   """
-  @type category_details() :: %{String.t() => any()}
+  @type category_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -75,29 +75,29 @@ defmodule AWS.ConnectContactLens do
       }
 
   """
-  @type character_offsets() :: %{String.t() => any()}
+  @type character_offsets() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_service_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_service_exception() :: %{String.t() => any()}
+  @type internal_service_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_request_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_request_exception() :: %{String.t() => any()}
+  @type invalid_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -108,7 +108,7 @@ defmodule AWS.ConnectContactLens do
       }
 
   """
-  @type issue_detected() :: %{String.t() => any()}
+  @type issue_detected() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -116,25 +116,25 @@ defmodule AWS.ConnectContactLens do
 
       list_realtime_contact_analysis_segments_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ContactId") => String.t(),
-        required("InstanceId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ContactId") => String.t() | Atom.t(),
+        required("InstanceId") => String.t() | Atom.t()
       }
 
   """
-  @type list_realtime_contact_analysis_segments_request() :: %{String.t() => any()}
+  @type list_realtime_contact_analysis_segments_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_realtime_contact_analysis_segments_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Segments" => list(realtime_contact_analysis_segment())
       }
 
   """
-  @type list_realtime_contact_analysis_segments_response() :: %{String.t() => any()}
+  @type list_realtime_contact_analysis_segments_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -146,20 +146,20 @@ defmodule AWS.ConnectContactLens do
       }
 
   """
-  @type point_of_interest() :: %{String.t() => any()}
+  @type point_of_interest() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       post_contact_summary() :: %{
-        "Content" => String.t(),
+        "Content" => String.t() | Atom.t(),
         "FailureCode" => list(any()),
         "Status" => list(any())
       }
 
   """
-  @type post_contact_summary() :: %{String.t() => any()}
+  @type post_contact_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -172,29 +172,29 @@ defmodule AWS.ConnectContactLens do
       }
 
   """
-  @type realtime_contact_analysis_segment() :: %{String.t() => any()}
+  @type realtime_contact_analysis_segment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -202,17 +202,17 @@ defmodule AWS.ConnectContactLens do
 
       transcript() :: %{
         "BeginOffsetMillis" => integer(),
-        "Content" => String.t(),
+        "Content" => String.t() | Atom.t(),
         "EndOffsetMillis" => integer(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "IssuesDetected" => list(issue_detected()),
-        "ParticipantId" => String.t(),
-        "ParticipantRole" => String.t(),
+        "ParticipantId" => String.t() | Atom.t(),
+        "ParticipantRole" => String.t() | Atom.t(),
         "Sentiment" => list(any())
       }
 
   """
-  @type transcript() :: %{String.t() => any()}
+  @type transcript() :: %{String.t() | Atom.t() => any()}
 
   @type list_realtime_contact_analysis_segments_errors() ::
           throttling_exception()

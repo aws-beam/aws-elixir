@@ -14,7 +14,7 @@ defmodule AWS.KafkaConnect do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -22,37 +22,37 @@ defmodule AWS.KafkaConnect do
 
       custom_plugin_summary() :: %{
         "creationTime" => non_neg_integer(),
-        "customPluginArn" => String.t(),
-        "customPluginState" => String.t(),
-        "description" => String.t(),
+        "customPluginArn" => String.t() | Atom.t(),
+        "customPluginState" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
         "latestRevision" => custom_plugin_revision_summary(),
-        "name" => String.t()
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type custom_plugin_summary() :: %{String.t() => any()}
+  @type custom_plugin_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       kafka_cluster_client_authentication() :: %{
-        "authenticationType" => String.t()
+        "authenticationType" => String.t() | Atom.t()
       }
 
   """
-  @type kafka_cluster_client_authentication() :: %{String.t() => any()}
+  @type kafka_cluster_client_authentication() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       kafka_cluster_client_authentication_description() :: %{
-        "authenticationType" => String.t()
+        "authenticationType" => String.t() | Atom.t()
       }
 
   """
-  @type kafka_cluster_client_authentication_description() :: %{String.t() => any()}
+  @type kafka_cluster_client_authentication_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -63,18 +63,18 @@ defmodule AWS.KafkaConnect do
       }
 
   """
-  @type scale_in_policy() :: %{String.t() => any()}
+  @type scale_in_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       unauthorized_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type unauthorized_exception() :: %{String.t() => any()}
+  @type unauthorized_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -82,15 +82,15 @@ defmodule AWS.KafkaConnect do
 
       describe_worker_configuration_response() :: %{
         optional("creationTime") => non_neg_integer(),
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("latestRevision") => worker_configuration_revision_description(),
-        optional("name") => String.t(),
-        optional("workerConfigurationArn") => String.t(),
-        optional("workerConfigurationState") => String.t()
+        optional("name") => String.t() | Atom.t(),
+        optional("workerConfigurationArn") => String.t() | Atom.t(),
+        optional("workerConfigurationState") => String.t() | Atom.t()
       }
 
   """
-  @type describe_worker_configuration_response() :: %{String.t() => any()}
+  @type describe_worker_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -98,11 +98,11 @@ defmodule AWS.KafkaConnect do
 
       list_connectors_response() :: %{
         optional("connectors") => list(connector_summary()),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_connectors_response() :: %{String.t() => any()}
+  @type list_connectors_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -113,7 +113,7 @@ defmodule AWS.KafkaConnect do
       }
 
   """
-  @type plugin() :: %{String.t() => any()}
+  @type plugin() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -125,7 +125,7 @@ defmodule AWS.KafkaConnect do
       }
 
   """
-  @type capacity_description() :: %{String.t() => any()}
+  @type capacity_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -133,16 +133,16 @@ defmodule AWS.KafkaConnect do
 
       describe_custom_plugin_response() :: %{
         optional("creationTime") => non_neg_integer(),
-        optional("customPluginArn") => String.t(),
-        optional("customPluginState") => String.t(),
-        optional("description") => String.t(),
+        optional("customPluginArn") => String.t() | Atom.t(),
+        optional("customPluginState") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("latestRevision") => custom_plugin_revision_summary(),
-        optional("name") => String.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("stateDescription") => state_description()
       }
 
   """
-  @type describe_custom_plugin_response() :: %{String.t() => any()}
+  @type describe_custom_plugin_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -159,23 +159,23 @@ defmodule AWS.KafkaConnect do
 
       worker_configuration_description() :: %{
         "revision" => float(),
-        "workerConfigurationArn" => String.t()
+        "workerConfigurationArn" => String.t() | Atom.t()
       }
 
   """
-  @type worker_configuration_description() :: %{String.t() => any()}
+  @type worker_configuration_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       vpc() :: %{
-        "securityGroups" => list(String.t()),
-        "subnets" => list(String.t())
+        "securityGroups" => list(String.t() | Atom.t()),
+        "subnets" => list(String.t() | Atom.t())
       }
 
   """
-  @type vpc() :: %{String.t() => any()}
+  @type vpc() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -183,37 +183,37 @@ defmodule AWS.KafkaConnect do
 
       describe_connector_response() :: %{
         optional("capacity") => capacity_description(),
-        optional("connectorArn") => String.t(),
+        optional("connectorArn") => String.t() | Atom.t(),
         optional("connectorConfiguration") => map(),
-        optional("connectorDescription") => String.t(),
-        optional("connectorName") => String.t(),
-        optional("connectorState") => String.t(),
+        optional("connectorDescription") => String.t() | Atom.t(),
+        optional("connectorName") => String.t() | Atom.t(),
+        optional("connectorState") => String.t() | Atom.t(),
         optional("creationTime") => non_neg_integer(),
-        optional("currentVersion") => String.t(),
+        optional("currentVersion") => String.t() | Atom.t(),
         optional("kafkaCluster") => kafka_cluster_description(),
         optional("kafkaClusterClientAuthentication") => kafka_cluster_client_authentication_description(),
         optional("kafkaClusterEncryptionInTransit") => kafka_cluster_encryption_in_transit_description(),
-        optional("kafkaConnectVersion") => String.t(),
+        optional("kafkaConnectVersion") => String.t() | Atom.t(),
         optional("logDelivery") => log_delivery_description(),
         optional("plugins") => list(plugin_description()),
-        optional("serviceExecutionRoleArn") => String.t(),
+        optional("serviceExecutionRoleArn") => String.t() | Atom.t(),
         optional("stateDescription") => state_description(),
         optional("workerConfiguration") => worker_configuration_description()
       }
 
   """
-  @type describe_connector_response() :: %{String.t() => any()}
+  @type describe_connector_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       forbidden_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type forbidden_exception() :: %{String.t() => any()}
+  @type forbidden_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -222,11 +222,11 @@ defmodule AWS.KafkaConnect do
       update_connector_request() :: %{
         optional("capacity") => capacity_update(),
         optional("connectorConfiguration") => map(),
-        required("currentVersion") => String.t()
+        required("currentVersion") => String.t() | Atom.t()
       }
 
   """
-  @type update_connector_request() :: %{String.t() => any()}
+  @type update_connector_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -234,11 +234,11 @@ defmodule AWS.KafkaConnect do
 
       worker_configuration() :: %{
         "revision" => float(),
-        "workerConfigurationArn" => String.t()
+        "workerConfigurationArn" => String.t() | Atom.t()
       }
 
   """
-  @type worker_configuration() :: %{String.t() => any()}
+  @type worker_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -246,15 +246,15 @@ defmodule AWS.KafkaConnect do
 
       worker_configuration_summary() :: %{
         "creationTime" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "latestRevision" => worker_configuration_revision_summary(),
-        "name" => String.t(),
-        "workerConfigurationArn" => String.t(),
-        "workerConfigurationState" => String.t()
+        "name" => String.t() | Atom.t(),
+        "workerConfigurationArn" => String.t() | Atom.t(),
+        "workerConfigurationState" => String.t() | Atom.t()
       }
 
   """
-  @type worker_configuration_summary() :: %{String.t() => any()}
+  @type worker_configuration_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -265,7 +265,7 @@ defmodule AWS.KafkaConnect do
       }
 
   """
-  @type scale_in_policy_description() :: %{String.t() => any()}
+  @type scale_in_policy_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -276,54 +276,54 @@ defmodule AWS.KafkaConnect do
       }
 
   """
-  @type worker_setting() :: %{String.t() => any()}
+  @type worker_setting() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_custom_plugin_response() :: %{
-        optional("customPluginArn") => String.t(),
-        optional("customPluginState") => String.t()
+        optional("customPluginArn") => String.t() | Atom.t(),
+        optional("customPluginState") => String.t() | Atom.t()
       }
 
   """
-  @type delete_custom_plugin_response() :: %{String.t() => any()}
+  @type delete_custom_plugin_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_connectors_request() :: %{
-        optional("connectorNamePrefix") => String.t(),
+        optional("connectorNamePrefix") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_connectors_request() :: %{String.t() => any()}
+  @type list_connectors_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_requests_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_requests_exception() :: %{String.t() => any()}
+  @type too_many_requests_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -335,7 +335,7 @@ defmodule AWS.KafkaConnect do
       }
 
   """
-  @type capacity() :: %{String.t() => any()}
+  @type capacity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -350,7 +350,7 @@ defmodule AWS.KafkaConnect do
       }
 
   """
-  @type auto_scaling_update() :: %{String.t() => any()}
+  @type auto_scaling_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -361,19 +361,19 @@ defmodule AWS.KafkaConnect do
       }
 
   """
-  @type kafka_cluster() :: %{String.t() => any()}
+  @type kafka_cluster() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       connector_operation_step() :: %{
-        "stepState" => String.t(),
-        "stepType" => String.t()
+        "stepState" => String.t() | Atom.t(),
+        "stepType" => String.t() | Atom.t()
       }
 
   """
-  @type connector_operation_step() :: %{String.t() => any()}
+  @type connector_operation_step() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -381,45 +381,45 @@ defmodule AWS.KafkaConnect do
 
       list_connector_operations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_connector_operations_request() :: %{String.t() => any()}
+  @type list_connector_operations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_worker_configurations_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("workerConfigurations") => list(worker_configuration_summary())
       }
 
   """
-  @type list_worker_configurations_response() :: %{String.t() => any()}
+  @type list_worker_configurations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       kafka_cluster_encryption_in_transit_description() :: %{
-        "encryptionType" => String.t()
+        "encryptionType" => String.t() | Atom.t()
       }
 
   """
-  @type kafka_cluster_encryption_in_transit_description() :: %{String.t() => any()}
+  @type kafka_cluster_encryption_in_transit_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -431,18 +431,18 @@ defmodule AWS.KafkaConnect do
       }
 
   """
-  @type provisioned_capacity_description() :: %{String.t() => any()}
+  @type provisioned_capacity_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       kafka_cluster_encryption_in_transit() :: %{
-        "encryptionType" => String.t()
+        "encryptionType" => String.t() | Atom.t()
       }
 
   """
-  @type kafka_cluster_encryption_in_transit() :: %{String.t() => any()}
+  @type kafka_cluster_encryption_in_transit() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -453,19 +453,19 @@ defmodule AWS.KafkaConnect do
       }
 
   """
-  @type scale_out_policy_description() :: %{String.t() => any()}
+  @type scale_out_policy_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       vpc_description() :: %{
-        "securityGroups" => list(String.t()),
-        "subnets" => list(String.t())
+        "securityGroups" => list(String.t() | Atom.t()),
+        "subnets" => list(String.t() | Atom.t())
       }
 
   """
-  @type vpc_description() :: %{String.t() => any()}
+  @type vpc_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -473,11 +473,11 @@ defmodule AWS.KafkaConnect do
 
       list_custom_plugins_response() :: %{
         optional("customPlugins") => list(custom_plugin_summary()),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_custom_plugins_response() :: %{String.t() => any()}
+  @type list_custom_plugins_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -492,7 +492,7 @@ defmodule AWS.KafkaConnect do
       }
 
   """
-  @type auto_scaling_description() :: %{String.t() => any()}
+  @type auto_scaling_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -500,34 +500,34 @@ defmodule AWS.KafkaConnect do
 
       cloud_watch_logs_log_delivery_description() :: %{
         "enabled" => boolean(),
-        "logGroup" => String.t()
+        "logGroup" => String.t() | Atom.t()
       }
 
   """
-  @type cloud_watch_logs_log_delivery_description() :: %{String.t() => any()}
+  @type cloud_watch_logs_log_delivery_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       apache_kafka_cluster() :: %{
-        "bootstrapServers" => String.t(),
+        "bootstrapServers" => String.t() | Atom.t(),
         "vpc" => vpc()
       }
 
   """
-  @type apache_kafka_cluster() :: %{String.t() => any()}
+  @type apache_kafka_cluster() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type not_found_exception() :: %{String.t() => any()}
+  @type not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -538,19 +538,19 @@ defmodule AWS.KafkaConnect do
       }
 
   """
-  @type scale_out_policy_update() :: %{String.t() => any()}
+  @type scale_out_policy_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       firehose_log_delivery_description() :: %{
-        "deliveryStream" => String.t(),
+        "deliveryStream" => String.t() | Atom.t(),
         "enabled" => boolean()
       }
 
   """
-  @type firehose_log_delivery_description() :: %{String.t() => any()}
+  @type firehose_log_delivery_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -562,32 +562,32 @@ defmodule AWS.KafkaConnect do
       }
 
   """
-  @type provisioned_capacity() :: %{String.t() => any()}
+  @type provisioned_capacity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       state_description() :: %{
-        "code" => String.t(),
-        "message" => String.t()
+        "code" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type state_description() :: %{String.t() => any()}
+  @type state_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_connector_response() :: %{
-        optional("connectorArn") => String.t(),
-        optional("connectorName") => String.t(),
-        optional("connectorState") => String.t()
+        optional("connectorArn") => String.t() | Atom.t(),
+        optional("connectorName") => String.t() | Atom.t(),
+        optional("connectorState") => String.t() | Atom.t()
       }
 
   """
-  @type create_connector_response() :: %{String.t() => any()}
+  @type create_connector_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -598,7 +598,7 @@ defmodule AWS.KafkaConnect do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -610,18 +610,18 @@ defmodule AWS.KafkaConnect do
       }
 
   """
-  @type capacity_update() :: %{String.t() => any()}
+  @type capacity_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_unavailable_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type service_unavailable_exception() :: %{String.t() => any()}
+  @type service_unavailable_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -629,26 +629,26 @@ defmodule AWS.KafkaConnect do
 
       worker_configuration_revision_description() :: %{
         "creationTime" => non_neg_integer(),
-        "description" => String.t(),
-        "propertiesFileContent" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "propertiesFileContent" => String.t() | Atom.t(),
         "revision" => float()
       }
 
   """
-  @type worker_configuration_revision_description() :: %{String.t() => any()}
+  @type worker_configuration_revision_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_location() :: %{
-        "bucketArn" => String.t(),
-        "fileKey" => String.t(),
-        "objectVersion" => String.t()
+        "bucketArn" => String.t() | Atom.t(),
+        "fileKey" => String.t() | Atom.t(),
+        "objectVersion" => String.t() | Atom.t()
       }
 
   """
-  @type s3_location() :: %{String.t() => any()}
+  @type s3_location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -659,7 +659,7 @@ defmodule AWS.KafkaConnect do
       }
 
   """
-  @type log_delivery_description() :: %{String.t() => any()}
+  @type log_delivery_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -675,12 +675,12 @@ defmodule AWS.KafkaConnect do
   ## Example:
 
       custom_plugin_description() :: %{
-        "customPluginArn" => String.t(),
+        "customPluginArn" => String.t() | Atom.t(),
         "revision" => float()
       }
 
   """
-  @type custom_plugin_description() :: %{String.t() => any()}
+  @type custom_plugin_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -695,7 +695,7 @@ defmodule AWS.KafkaConnect do
       }
 
   """
-  @type auto_scaling() :: %{String.t() => any()}
+  @type auto_scaling() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -716,22 +716,22 @@ defmodule AWS.KafkaConnect do
       }
 
   """
-  @type provisioned_capacity_update() :: %{String.t() => any()}
+  @type provisioned_capacity_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       connector_operation_summary() :: %{
-        "connectorOperationArn" => String.t(),
-        "connectorOperationState" => String.t(),
-        "connectorOperationType" => String.t(),
+        "connectorOperationArn" => String.t() | Atom.t(),
+        "connectorOperationState" => String.t() | Atom.t(),
+        "connectorOperationType" => String.t() | Atom.t(),
         "creationTime" => non_neg_integer(),
         "endTime" => non_neg_integer()
       }
 
   """
-  @type connector_operation_summary() :: %{String.t() => any()}
+  @type connector_operation_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -742,17 +742,17 @@ defmodule AWS.KafkaConnect do
       }
 
   """
-  @type scale_in_policy_update() :: %{String.t() => any()}
+  @type scale_in_policy_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_connector_operation_response() :: %{
-        "connectorArn" => String.t(),
-        "connectorOperationArn" => String.t(),
-        "connectorOperationState" => String.t(),
-        "connectorOperationType" => String.t(),
+        "connectorArn" => String.t() | Atom.t(),
+        "connectorOperationArn" => String.t() | Atom.t(),
+        "connectorOperationState" => String.t() | Atom.t(),
+        "connectorOperationType" => String.t() | Atom.t(),
         "creationTime" => non_neg_integer(),
         "endTime" => non_neg_integer(),
         "errorInfo" => state_description(),
@@ -764,20 +764,20 @@ defmodule AWS.KafkaConnect do
       }
 
   """
-  @type describe_connector_operation_response() :: %{String.t() => any()}
+  @type describe_connector_operation_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_log_delivery() :: %{
-        "bucket" => String.t(),
+        "bucket" => String.t() | Atom.t(),
         "enabled" => boolean(),
-        "prefix" => String.t()
+        "prefix" => String.t() | Atom.t()
       }
 
   """
-  @type s3_log_delivery() :: %{String.t() => any()}
+  @type s3_log_delivery() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -785,47 +785,47 @@ defmodule AWS.KafkaConnect do
 
       worker_configuration_revision_summary() :: %{
         "creationTime" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "revision" => float()
       }
 
   """
-  @type worker_configuration_revision_summary() :: %{String.t() => any()}
+  @type worker_configuration_revision_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_connector_request() :: %{
-        optional("connectorDescription") => String.t(),
+        optional("connectorDescription") => String.t() | Atom.t(),
         optional("logDelivery") => log_delivery(),
         optional("tags") => map(),
         optional("workerConfiguration") => worker_configuration(),
         required("capacity") => capacity(),
         required("connectorConfiguration") => map(),
-        required("connectorName") => String.t(),
+        required("connectorName") => String.t() | Atom.t(),
         required("kafkaCluster") => kafka_cluster(),
         required("kafkaClusterClientAuthentication") => kafka_cluster_client_authentication(),
         required("kafkaClusterEncryptionInTransit") => kafka_cluster_encryption_in_transit(),
-        required("kafkaConnectVersion") => String.t(),
+        required("kafkaConnectVersion") => String.t() | Atom.t(),
         required("plugins") => list(plugin()),
-        required("serviceExecutionRoleArn") => String.t()
+        required("serviceExecutionRoleArn") => String.t() | Atom.t()
       }
 
   """
-  @type create_connector_request() :: %{String.t() => any()}
+  @type create_connector_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_worker_configuration_response() :: %{
-        optional("workerConfigurationArn") => String.t(),
-        optional("workerConfigurationState") => String.t()
+        optional("workerConfigurationArn") => String.t() | Atom.t(),
+        optional("workerConfigurationState") => String.t() | Atom.t()
       }
 
   """
-  @type delete_worker_configuration_response() :: %{String.t() => any()}
+  @type delete_worker_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -838,7 +838,7 @@ defmodule AWS.KafkaConnect do
       }
 
   """
-  @type worker_log_delivery() :: %{String.t() => any()}
+  @type worker_log_delivery() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -849,7 +849,7 @@ defmodule AWS.KafkaConnect do
       }
 
   """
-  @type plugin_description() :: %{String.t() => any()}
+  @type plugin_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -865,12 +865,12 @@ defmodule AWS.KafkaConnect do
   ## Example:
 
       delete_connector_response() :: %{
-        optional("connectorArn") => String.t(),
-        optional("connectorState") => String.t()
+        optional("connectorArn") => String.t() | Atom.t(),
+        optional("connectorState") => String.t() | Atom.t()
       }
 
   """
-  @type delete_connector_response() :: %{String.t() => any()}
+  @type delete_connector_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -878,24 +878,24 @@ defmodule AWS.KafkaConnect do
 
       connector_summary() :: %{
         "capacity" => capacity_description(),
-        "connectorArn" => String.t(),
-        "connectorDescription" => String.t(),
-        "connectorName" => String.t(),
-        "connectorState" => String.t(),
+        "connectorArn" => String.t() | Atom.t(),
+        "connectorDescription" => String.t() | Atom.t(),
+        "connectorName" => String.t() | Atom.t(),
+        "connectorState" => String.t() | Atom.t(),
         "creationTime" => non_neg_integer(),
-        "currentVersion" => String.t(),
+        "currentVersion" => String.t() | Atom.t(),
         "kafkaCluster" => kafka_cluster_description(),
         "kafkaClusterClientAuthentication" => kafka_cluster_client_authentication_description(),
         "kafkaClusterEncryptionInTransit" => kafka_cluster_encryption_in_transit_description(),
-        "kafkaConnectVersion" => String.t(),
+        "kafkaConnectVersion" => String.t() | Atom.t(),
         "logDelivery" => log_delivery_description(),
         "plugins" => list(plugin_description()),
-        "serviceExecutionRoleArn" => String.t(),
+        "serviceExecutionRoleArn" => String.t() | Atom.t(),
         "workerConfiguration" => worker_configuration_description()
       }
 
   """
-  @type connector_summary() :: %{String.t() => any()}
+  @type connector_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -903,11 +903,11 @@ defmodule AWS.KafkaConnect do
 
       cloud_watch_logs_log_delivery() :: %{
         "enabled" => boolean(),
-        "logGroup" => String.t()
+        "logGroup" => String.t() | Atom.t()
       }
 
   """
-  @type cloud_watch_logs_log_delivery() :: %{String.t() => any()}
+  @type cloud_watch_logs_log_delivery() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -929,18 +929,18 @@ defmodule AWS.KafkaConnect do
       }
 
   """
-  @type worker_log_delivery_description() :: %{String.t() => any()}
+  @type worker_log_delivery_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_error_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_server_error_exception() :: %{String.t() => any()}
+  @type internal_server_error_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -951,20 +951,20 @@ defmodule AWS.KafkaConnect do
       }
 
   """
-  @type log_delivery() :: %{String.t() => any()}
+  @type log_delivery() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_connector_response() :: %{
-        optional("connectorArn") => String.t(),
-        optional("connectorOperationArn") => String.t(),
-        optional("connectorState") => String.t()
+        optional("connectorArn") => String.t() | Atom.t(),
+        optional("connectorOperationArn") => String.t() | Atom.t(),
+        optional("connectorState") => String.t() | Atom.t()
       }
 
   """
-  @type update_connector_response() :: %{String.t() => any()}
+  @type update_connector_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -980,14 +980,14 @@ defmodule AWS.KafkaConnect do
   ## Example:
 
       create_worker_configuration_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("tags") => map(),
-        required("name") => String.t(),
-        required("propertiesFileContent") => String.t()
+        required("name") => String.t() | Atom.t(),
+        required("propertiesFileContent") => String.t() | Atom.t()
       }
 
   """
-  @type create_worker_configuration_request() :: %{String.t() => any()}
+  @type create_worker_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -998,21 +998,21 @@ defmodule AWS.KafkaConnect do
       }
 
   """
-  @type kafka_cluster_description() :: %{String.t() => any()}
+  @type kafka_cluster_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_custom_plugin_response() :: %{
-        optional("customPluginArn") => String.t(),
-        optional("customPluginState") => String.t(),
-        optional("name") => String.t(),
+        optional("customPluginArn") => String.t() | Atom.t(),
+        optional("customPluginState") => String.t() | Atom.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("revision") => float()
       }
 
   """
-  @type create_custom_plugin_response() :: %{String.t() => any()}
+  @type create_custom_plugin_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1023,53 +1023,53 @@ defmodule AWS.KafkaConnect do
       }
 
   """
-  @type custom_plugin_location_description() :: %{String.t() => any()}
+  @type custom_plugin_location_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       custom_plugin() :: %{
-        "customPluginArn" => String.t(),
+        "customPluginArn" => String.t() | Atom.t(),
         "revision" => float()
       }
 
   """
-  @type custom_plugin() :: %{String.t() => any()}
+  @type custom_plugin() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bad_request_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type bad_request_exception() :: %{String.t() => any()}
+  @type bad_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_connector_request() :: %{
-        optional("currentVersion") => String.t()
+        optional("currentVersion") => String.t() | Atom.t()
       }
 
   """
-  @type delete_connector_request() :: %{String.t() => any()}
+  @type delete_connector_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       firehose_log_delivery() :: %{
-        "deliveryStream" => String.t(),
+        "deliveryStream" => String.t() | Atom.t(),
         "enabled" => boolean()
       }
 
   """
-  @type firehose_log_delivery() :: %{String.t() => any()}
+  @type firehose_log_delivery() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1078,13 +1078,13 @@ defmodule AWS.KafkaConnect do
       create_worker_configuration_response() :: %{
         optional("creationTime") => non_neg_integer(),
         optional("latestRevision") => worker_configuration_revision_summary(),
-        optional("name") => String.t(),
-        optional("workerConfigurationArn") => String.t(),
-        optional("workerConfigurationState") => String.t()
+        optional("name") => String.t() | Atom.t(),
+        optional("workerConfigurationArn") => String.t() | Atom.t(),
+        optional("workerConfigurationState") => String.t() | Atom.t()
       }
 
   """
-  @type create_worker_configuration_response() :: %{String.t() => any()}
+  @type create_worker_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1100,13 +1100,13 @@ defmodule AWS.KafkaConnect do
   ## Example:
 
       s3_log_delivery_description() :: %{
-        "bucket" => String.t(),
+        "bucket" => String.t() | Atom.t(),
         "enabled" => boolean(),
-        "prefix" => String.t()
+        "prefix" => String.t() | Atom.t()
       }
 
   """
-  @type s3_log_delivery_description() :: %{String.t() => any()}
+  @type s3_log_delivery_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1114,37 +1114,37 @@ defmodule AWS.KafkaConnect do
 
       list_custom_plugins_request() :: %{
         optional("maxResults") => integer(),
-        optional("namePrefix") => String.t(),
-        optional("nextToken") => String.t()
+        optional("namePrefix") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_custom_plugins_request() :: %{String.t() => any()}
+  @type list_custom_plugins_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       apache_kafka_cluster_description() :: %{
-        "bootstrapServers" => String.t(),
+        "bootstrapServers" => String.t() | Atom.t(),
         "vpc" => vpc_description()
       }
 
   """
-  @type apache_kafka_cluster_description() :: %{String.t() => any()}
+  @type apache_kafka_cluster_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_location_description() :: %{
-        "bucketArn" => String.t(),
-        "fileKey" => String.t(),
-        "objectVersion" => String.t()
+        "bucketArn" => String.t() | Atom.t(),
+        "fileKey" => String.t() | Atom.t(),
+        "objectVersion" => String.t() | Atom.t()
       }
 
   """
-  @type s3_location_description() :: %{String.t() => any()}
+  @type s3_location_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1152,12 +1152,12 @@ defmodule AWS.KafkaConnect do
 
       list_worker_configurations_request() :: %{
         optional("maxResults") => integer(),
-        optional("namePrefix") => String.t(),
-        optional("nextToken") => String.t()
+        optional("namePrefix") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_worker_configurations_request() :: %{String.t() => any()}
+  @type list_worker_configurations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1168,7 +1168,7 @@ defmodule AWS.KafkaConnect do
       }
 
   """
-  @type custom_plugin_location() :: %{String.t() => any()}
+  @type custom_plugin_location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1176,11 +1176,11 @@ defmodule AWS.KafkaConnect do
 
       list_connector_operations_response() :: %{
         "connectorOperations" => list(connector_operation_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_connector_operations_response() :: %{String.t() => any()}
+  @type list_connector_operations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1191,34 +1191,34 @@ defmodule AWS.KafkaConnect do
       }
 
   """
-  @type scale_out_policy() :: %{String.t() => any()}
+  @type scale_out_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       custom_plugin_file_description() :: %{
-        "fileMd5" => String.t(),
+        "fileMd5" => String.t() | Atom.t(),
         "fileSize" => float()
       }
 
   """
-  @type custom_plugin_file_description() :: %{String.t() => any()}
+  @type custom_plugin_file_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_custom_plugin_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("tags") => map(),
-        required("contentType") => String.t(),
+        required("contentType") => String.t() | Atom.t(),
         required("location") => custom_plugin_location(),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_custom_plugin_request() :: %{String.t() => any()}
+  @type create_custom_plugin_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1243,16 +1243,16 @@ defmodule AWS.KafkaConnect do
   ## Example:
 
       custom_plugin_revision_summary() :: %{
-        "contentType" => String.t(),
+        "contentType" => String.t() | Atom.t(),
         "creationTime" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "fileDescription" => custom_plugin_file_description(),
         "location" => custom_plugin_location_description(),
         "revision" => float()
       }
 
   """
-  @type custom_plugin_revision_summary() :: %{String.t() => any()}
+  @type custom_plugin_revision_summary() :: %{String.t() | Atom.t() => any()}
 
   @type create_connector_errors() ::
           bad_request_exception()
@@ -1526,7 +1526,7 @@ defmodule AWS.KafkaConnect do
   @doc """
   Deletes the specified connector.
   """
-  @spec delete_connector(map(), String.t(), delete_connector_request(), list()) ::
+  @spec delete_connector(map(), String.t() | Atom.t(), delete_connector_request(), list()) ::
           {:ok, delete_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1560,7 +1560,7 @@ defmodule AWS.KafkaConnect do
   @doc """
   Deletes a custom plugin.
   """
-  @spec delete_custom_plugin(map(), String.t(), delete_custom_plugin_request(), list()) ::
+  @spec delete_custom_plugin(map(), String.t() | Atom.t(), delete_custom_plugin_request(), list()) ::
           {:ok, delete_custom_plugin_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1591,7 +1591,7 @@ defmodule AWS.KafkaConnect do
   """
   @spec delete_worker_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_worker_configuration_request(),
           list()
         ) ::
@@ -1628,7 +1628,7 @@ defmodule AWS.KafkaConnect do
   @doc """
   Returns summary information about the connector.
   """
-  @spec describe_connector(map(), String.t(), list()) ::
+  @spec describe_connector(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1646,7 +1646,7 @@ defmodule AWS.KafkaConnect do
   @doc """
   Returns information about the specified connector's operations.
   """
-  @spec describe_connector_operation(map(), String.t(), list()) ::
+  @spec describe_connector_operation(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_connector_operation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1664,7 +1664,7 @@ defmodule AWS.KafkaConnect do
   @doc """
   A summary description of the custom plugin.
   """
-  @spec describe_custom_plugin(map(), String.t(), list()) ::
+  @spec describe_custom_plugin(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_custom_plugin_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1682,7 +1682,7 @@ defmodule AWS.KafkaConnect do
   @doc """
   Returns information about a worker configuration.
   """
-  @spec describe_worker_configuration(map(), String.t(), list()) ::
+  @spec describe_worker_configuration(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_worker_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1700,7 +1700,13 @@ defmodule AWS.KafkaConnect do
   @doc """
   Lists information about a connector's operation(s).
   """
-  @spec list_connector_operations(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_connector_operations(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_connector_operations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1743,7 +1749,13 @@ defmodule AWS.KafkaConnect do
   includes a
   description of each of the listed connectors.
   """
-  @spec list_connectors(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_connectors(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1788,7 +1800,13 @@ defmodule AWS.KafkaConnect do
   @doc """
   Returns a list of all of the custom plugins in this account and Region.
   """
-  @spec list_custom_plugins(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_custom_plugins(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_custom_plugins_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1833,7 +1851,7 @@ defmodule AWS.KafkaConnect do
   @doc """
   Lists all the tags attached to the specified resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1853,9 +1871,9 @@ defmodule AWS.KafkaConnect do
   """
   @spec list_worker_configurations(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_worker_configurations_response(), any()}
@@ -1902,7 +1920,7 @@ defmodule AWS.KafkaConnect do
   @doc """
   Attaches tags to the specified resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1931,7 +1949,7 @@ defmodule AWS.KafkaConnect do
   @doc """
   Removes tags from the specified resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1965,7 +1983,7 @@ defmodule AWS.KafkaConnect do
   @doc """
   Updates the specified connector.
   """
-  @spec update_connector(map(), String.t(), update_connector_request(), list()) ::
+  @spec update_connector(map(), String.t() | Atom.t(), update_connector_request(), list()) ::
           {:ok, update_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

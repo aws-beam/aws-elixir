@@ -27,39 +27,39 @@ defmodule AWS.RedshiftData do
       }
       
   """
-  @type cancel_statement_response() :: %{String.t() => any()}
+  @type cancel_statement_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       table_member() :: %{
-        "name" => String.t(),
-        "schema" => String.t(),
-        "type" => String.t()
+        "name" => String.t() | Atom.t(),
+        "schema" => String.t() | Atom.t(),
+        "type" => String.t() | Atom.t()
       }
       
   """
-  @type table_member() :: %{String.t() => any()}
+  @type table_member() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_execute_statement_output() :: %{
-        "ClusterIdentifier" => String.t(),
+        "ClusterIdentifier" => String.t() | Atom.t(),
         "CreatedAt" => [non_neg_integer()],
-        "Database" => String.t(),
-        "DbGroups" => list(String.t()),
-        "DbUser" => String.t(),
-        "Id" => String.t(),
-        "SecretArn" => String.t(),
-        "SessionId" => String.t(),
-        "WorkgroupName" => String.t()
+        "Database" => String.t() | Atom.t(),
+        "DbGroups" => list(String.t() | Atom.t()),
+        "DbUser" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "SecretArn" => String.t() | Atom.t(),
+        "SessionId" => String.t() | Atom.t(),
+        "WorkgroupName" => String.t() | Atom.t()
       }
       
   """
-  @type batch_execute_statement_output() :: %{String.t() => any()}
+  @type batch_execute_statement_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -67,86 +67,86 @@ defmodule AWS.RedshiftData do
       
       statement_data() :: %{
         "CreatedAt" => [non_neg_integer()],
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "IsBatchStatement" => [boolean()],
         "QueryParameters" => list(sql_parameter()),
-        "QueryString" => String.t(),
-        "QueryStrings" => list(String.t()),
-        "ResultFormat" => String.t(),
-        "SecretArn" => String.t(),
-        "SessionId" => String.t(),
-        "StatementName" => String.t(),
-        "Status" => String.t(),
+        "QueryString" => String.t() | Atom.t(),
+        "QueryStrings" => list(String.t() | Atom.t()),
+        "ResultFormat" => String.t() | Atom.t(),
+        "SecretArn" => String.t() | Atom.t(),
+        "SessionId" => String.t() | Atom.t(),
+        "StatementName" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t(),
         "UpdatedAt" => [non_neg_integer()]
       }
       
   """
-  @type statement_data() :: %{String.t() => any()}
+  @type statement_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       column_metadata() :: %{
-        "columnDefault" => String.t(),
+        "columnDefault" => String.t() | Atom.t(),
         "isCaseSensitive" => boolean(),
         "isCurrency" => boolean(),
         "isSigned" => boolean(),
-        "label" => String.t(),
+        "label" => String.t() | Atom.t(),
         "length" => integer(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "nullable" => integer(),
         "precision" => integer(),
         "scale" => integer(),
-        "schemaName" => String.t(),
-        "tableName" => String.t(),
-        "typeName" => String.t()
+        "schemaName" => String.t() | Atom.t(),
+        "tableName" => String.t() | Atom.t(),
+        "typeName" => String.t() | Atom.t()
       }
       
   """
-  @type column_metadata() :: %{String.t() => any()}
+  @type column_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       sql_parameter() :: %{
-        "name" => String.t(),
-        "value" => String.t()
+        "name" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
       
   """
-  @type sql_parameter() :: %{String.t() => any()}
+  @type sql_parameter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_statement_request() :: %{
-        required("Id") => String.t()
+        required("Id") => String.t() | Atom.t()
       }
       
   """
-  @type cancel_statement_request() :: %{String.t() => any()}
+  @type cancel_statement_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       execute_statement_output() :: %{
-        "ClusterIdentifier" => String.t(),
+        "ClusterIdentifier" => String.t() | Atom.t(),
         "CreatedAt" => [non_neg_integer()],
-        "Database" => String.t(),
-        "DbGroups" => list(String.t()),
-        "DbUser" => String.t(),
-        "Id" => String.t(),
-        "SecretArn" => String.t(),
-        "SessionId" => String.t(),
-        "WorkgroupName" => String.t()
+        "Database" => String.t() | Atom.t(),
+        "DbGroups" => list(String.t() | Atom.t()),
+        "DbUser" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "SecretArn" => String.t() | Atom.t(),
+        "SessionId" => String.t() | Atom.t(),
+        "WorkgroupName" => String.t() | Atom.t()
       }
       
   """
-  @type execute_statement_output() :: %{String.t() => any()}
+  @type execute_statement_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -154,87 +154,87 @@ defmodule AWS.RedshiftData do
       
       describe_table_response() :: %{
         "ColumnList" => list(column_metadata()),
-        "NextToken" => String.t(),
-        "TableName" => String.t()
+        "NextToken" => String.t() | Atom.t(),
+        "TableName" => String.t() | Atom.t()
       }
       
   """
-  @type describe_table_response() :: %{String.t() => any()}
+  @type describe_table_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       active_statements_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type active_statements_exceeded_exception() :: %{String.t() => any()}
+  @type active_statements_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       execute_statement_input() :: %{
-        optional("ClientToken") => String.t(),
-        optional("ClusterIdentifier") => String.t(),
-        optional("Database") => String.t(),
-        optional("DbUser") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ClusterIdentifier") => String.t() | Atom.t(),
+        optional("Database") => String.t() | Atom.t(),
+        optional("DbUser") => String.t() | Atom.t(),
         optional("Parameters") => list(sql_parameter()),
-        optional("ResultFormat") => String.t(),
-        optional("SecretArn") => String.t(),
-        optional("SessionId") => String.t(),
+        optional("ResultFormat") => String.t() | Atom.t(),
+        optional("SecretArn") => String.t() | Atom.t(),
+        optional("SessionId") => String.t() | Atom.t(),
         optional("SessionKeepAliveSeconds") => integer(),
-        optional("StatementName") => String.t(),
+        optional("StatementName") => String.t() | Atom.t(),
         optional("WithEvent") => [boolean()],
-        optional("WorkgroupName") => String.t(),
-        required("Sql") => String.t()
+        optional("WorkgroupName") => String.t() | Atom.t(),
+        required("Sql") => String.t() | Atom.t()
       }
       
   """
-  @type execute_statement_input() :: %{String.t() => any()}
+  @type execute_statement_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_schemas_request() :: %{
-        optional("ClusterIdentifier") => String.t(),
-        optional("ConnectedDatabase") => String.t(),
-        optional("DbUser") => String.t(),
+        optional("ClusterIdentifier") => String.t() | Atom.t(),
+        optional("ConnectedDatabase") => String.t() | Atom.t(),
+        optional("DbUser") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("SchemaPattern") => String.t(),
-        optional("SecretArn") => String.t(),
-        optional("WorkgroupName") => String.t(),
-        required("Database") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("SchemaPattern") => String.t() | Atom.t(),
+        optional("SecretArn") => String.t() | Atom.t(),
+        optional("WorkgroupName") => String.t() | Atom.t(),
+        required("Database") => String.t() | Atom.t()
       }
       
   """
-  @type list_schemas_request() :: %{String.t() => any()}
+  @type list_schemas_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_execute_statement_input() :: %{
-        optional("ClientToken") => String.t(),
-        optional("ClusterIdentifier") => String.t(),
-        optional("Database") => String.t(),
-        optional("DbUser") => String.t(),
-        optional("ResultFormat") => String.t(),
-        optional("SecretArn") => String.t(),
-        optional("SessionId") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ClusterIdentifier") => String.t() | Atom.t(),
+        optional("Database") => String.t() | Atom.t(),
+        optional("DbUser") => String.t() | Atom.t(),
+        optional("ResultFormat") => String.t() | Atom.t(),
+        optional("SecretArn") => String.t() | Atom.t(),
+        optional("SessionId") => String.t() | Atom.t(),
         optional("SessionKeepAliveSeconds") => integer(),
-        optional("StatementName") => String.t(),
+        optional("StatementName") => String.t() | Atom.t(),
         optional("WithEvent") => [boolean()],
-        optional("WorkgroupName") => String.t(),
-        required("Sqls") => list(String.t())
+        optional("WorkgroupName") => String.t() | Atom.t(),
+        required("Sqls") => list(String.t() | Atom.t())
       }
       
   """
-  @type batch_execute_statement_input() :: %{String.t() => any()}
+  @type batch_execute_statement_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -243,83 +243,83 @@ defmodule AWS.RedshiftData do
       sub_statement_data() :: %{
         "CreatedAt" => [non_neg_integer()],
         "Duration" => float(),
-        "Error" => String.t(),
+        "Error" => String.t() | Atom.t(),
         "HasResultSet" => [boolean()],
-        "Id" => String.t(),
-        "QueryString" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "QueryString" => String.t() | Atom.t(),
         "RedshiftQueryId" => float(),
         "ResultRows" => float(),
         "ResultSize" => float(),
-        "Status" => String.t(),
+        "Status" => String.t() | Atom.t(),
         "UpdatedAt" => [non_neg_integer()]
       }
       
   """
-  @type sub_statement_data() :: %{String.t() => any()}
+  @type sub_statement_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_statement_request() :: %{
-        required("Id") => String.t()
+        required("Id") => String.t() | Atom.t()
       }
       
   """
-  @type describe_statement_request() :: %{String.t() => any()}
+  @type describe_statement_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_statements_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Statements" => list(statement_data())
       }
       
   """
-  @type list_statements_response() :: %{String.t() => any()}
+  @type list_statements_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_databases_request() :: %{
-        optional("ClusterIdentifier") => String.t(),
-        optional("DbUser") => String.t(),
+        optional("ClusterIdentifier") => String.t() | Atom.t(),
+        optional("DbUser") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("SecretArn") => String.t(),
-        optional("WorkgroupName") => String.t(),
-        required("Database") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("SecretArn") => String.t() | Atom.t(),
+        optional("WorkgroupName") => String.t() | Atom.t(),
+        required("Database") => String.t() | Atom.t()
       }
       
   """
-  @type list_databases_request() :: %{String.t() => any()}
+  @type list_databases_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t(),
-        "ResourceId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tables_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Tables" => list(table_member())
       }
       
   """
-  @type list_tables_response() :: %{String.t() => any()}
+  @type list_tables_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -327,209 +327,209 @@ defmodule AWS.RedshiftData do
       
       get_statement_result_response() :: %{
         "ColumnMetadata" => list(column_metadata()),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Records" => list(list(list())()),
         "TotalNumRows" => float()
       }
       
   """
-  @type get_statement_result_response() :: %{String.t() => any()}
+  @type get_statement_result_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_execute_statement_exception() :: %{
-        "Message" => String.t(),
-        "StatementId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "StatementId" => String.t() | Atom.t()
       }
       
   """
-  @type batch_execute_statement_exception() :: %{String.t() => any()}
+  @type batch_execute_statement_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_table_request() :: %{
-        optional("ClusterIdentifier") => String.t(),
-        optional("ConnectedDatabase") => String.t(),
-        optional("DbUser") => String.t(),
+        optional("ClusterIdentifier") => String.t() | Atom.t(),
+        optional("ConnectedDatabase") => String.t() | Atom.t(),
+        optional("DbUser") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("Schema") => String.t(),
-        optional("SecretArn") => String.t(),
-        optional("Table") => String.t(),
-        optional("WorkgroupName") => String.t(),
-        required("Database") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("Schema") => String.t() | Atom.t(),
+        optional("SecretArn") => String.t() | Atom.t(),
+        optional("Table") => String.t() | Atom.t(),
+        optional("WorkgroupName") => String.t() | Atom.t(),
+        required("Database") => String.t() | Atom.t()
       }
       
   """
-  @type describe_table_request() :: %{String.t() => any()}
+  @type describe_table_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       execute_statement_exception() :: %{
-        "Message" => String.t(),
-        "StatementId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "StatementId" => String.t() | Atom.t()
       }
       
   """
-  @type execute_statement_exception() :: %{String.t() => any()}
+  @type execute_statement_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_statements_request() :: %{
-        optional("ClusterIdentifier") => String.t(),
-        optional("Database") => String.t(),
+        optional("ClusterIdentifier") => String.t() | Atom.t(),
+        optional("Database") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("RoleLevel") => [boolean()],
-        optional("StatementName") => String.t(),
-        optional("Status") => String.t(),
-        optional("WorkgroupName") => String.t()
+        optional("StatementName") => String.t() | Atom.t(),
+        optional("Status") => String.t() | Atom.t(),
+        optional("WorkgroupName") => String.t() | Atom.t()
       }
       
   """
-  @type list_statements_request() :: %{String.t() => any()}
+  @type list_statements_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       query_timeout_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type query_timeout_exception() :: %{String.t() => any()}
+  @type query_timeout_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       active_sessions_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type active_sessions_exceeded_exception() :: %{String.t() => any()}
+  @type active_sessions_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_statement_result_request() :: %{
-        optional("NextToken") => String.t(),
-        required("Id") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("Id") => String.t() | Atom.t()
       }
       
   """
-  @type get_statement_result_request() :: %{String.t() => any()}
+  @type get_statement_result_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_statement_result_v2_request() :: %{
-        optional("NextToken") => String.t(),
-        required("Id") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("Id") => String.t() | Atom.t()
       }
       
   """
-  @type get_statement_result_v2_request() :: %{String.t() => any()}
+  @type get_statement_result_v2_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_statement_response() :: %{
-        "ClusterIdentifier" => String.t(),
+        "ClusterIdentifier" => String.t() | Atom.t(),
         "CreatedAt" => [non_neg_integer()],
-        "Database" => String.t(),
-        "DbUser" => String.t(),
+        "Database" => String.t() | Atom.t(),
+        "DbUser" => String.t() | Atom.t(),
         "Duration" => float(),
-        "Error" => String.t(),
+        "Error" => String.t() | Atom.t(),
         "HasResultSet" => [boolean()],
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "QueryParameters" => list(sql_parameter()),
-        "QueryString" => String.t(),
+        "QueryString" => String.t() | Atom.t(),
         "RedshiftPid" => float(),
         "RedshiftQueryId" => float(),
-        "ResultFormat" => String.t(),
+        "ResultFormat" => String.t() | Atom.t(),
         "ResultRows" => float(),
         "ResultSize" => float(),
-        "SecretArn" => String.t(),
-        "SessionId" => String.t(),
-        "Status" => String.t(),
+        "SecretArn" => String.t() | Atom.t(),
+        "SessionId" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t(),
         "SubStatements" => list(sub_statement_data()),
         "UpdatedAt" => [non_neg_integer()],
-        "WorkgroupName" => String.t()
+        "WorkgroupName" => String.t() | Atom.t()
       }
       
   """
-  @type describe_statement_response() :: %{String.t() => any()}
+  @type describe_statement_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_schemas_response() :: %{
-        "NextToken" => String.t(),
-        "Schemas" => list(String.t())
+        "NextToken" => String.t() | Atom.t(),
+        "Schemas" => list(String.t() | Atom.t())
       }
       
   """
-  @type list_schemas_response() :: %{String.t() => any()}
+  @type list_schemas_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_databases_response() :: %{
-        "Databases" => list(String.t()),
-        "NextToken" => String.t()
+        "Databases" => list(String.t() | Atom.t()),
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_databases_response() :: %{String.t() => any()}
+  @type list_databases_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       database_connection_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type database_connection_exception() :: %{String.t() => any()}
+  @type database_connection_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -537,34 +537,34 @@ defmodule AWS.RedshiftData do
       
       get_statement_result_v2_response() :: %{
         "ColumnMetadata" => list(column_metadata()),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Records" => list(list()),
-        "ResultFormat" => String.t(),
+        "ResultFormat" => String.t() | Atom.t(),
         "TotalNumRows" => float()
       }
       
   """
-  @type get_statement_result_v2_response() :: %{String.t() => any()}
+  @type get_statement_result_v2_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tables_request() :: %{
-        optional("ClusterIdentifier") => String.t(),
-        optional("ConnectedDatabase") => String.t(),
-        optional("DbUser") => String.t(),
+        optional("ClusterIdentifier") => String.t() | Atom.t(),
+        optional("ConnectedDatabase") => String.t() | Atom.t(),
+        optional("DbUser") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("SchemaPattern") => String.t(),
-        optional("SecretArn") => String.t(),
-        optional("TablePattern") => String.t(),
-        optional("WorkgroupName") => String.t(),
-        required("Database") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("SchemaPattern") => String.t() | Atom.t(),
+        optional("SecretArn") => String.t() | Atom.t(),
+        optional("TablePattern") => String.t() | Atom.t(),
+        optional("WorkgroupName") => String.t() | Atom.t(),
+        required("Database") => String.t() | Atom.t()
       }
       
   """
-  @type list_tables_request() :: %{String.t() => any()}
+  @type list_tables_request() :: %{String.t() | Atom.t() => any()}
 
   @type batch_execute_statement_errors() ::
           active_sessions_exceeded_exception()

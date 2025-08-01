@@ -18,26 +18,26 @@ defmodule AWS.MediaPackageVod do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_packaging_configuration_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CmafPackage" => cmaf_package(),
-        "CreatedAt" => String.t(),
+        "CreatedAt" => String.t() | Atom.t(),
         "DashPackage" => dash_package(),
         "HlsPackage" => hls_package(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "MssPackage" => mss_package(),
-        "PackagingGroupId" => String.t(),
+        "PackagingGroupId" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type describe_packaging_configuration_response() :: %{String.t() => any()}
+  @type describe_packaging_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -49,12 +49,12 @@ defmodule AWS.MediaPackageVod do
         optional("HlsPackage") => hls_package(),
         optional("MssPackage") => mss_package(),
         optional("Tags") => map(),
-        required("Id") => String.t(),
-        required("PackagingGroupId") => String.t()
+        required("Id") => String.t() | Atom.t(),
+        required("PackagingGroupId") => String.t() | Atom.t()
       }
 
   """
-  @type create_packaging_configuration_request() :: %{String.t() => any()}
+  @type create_packaging_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -62,12 +62,12 @@ defmodule AWS.MediaPackageVod do
 
       list_packaging_configurations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("PackagingGroupId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("PackagingGroupId") => String.t() | Atom.t()
       }
 
   """
-  @type list_packaging_configurations_request() :: %{String.t() => any()}
+  @type list_packaging_configurations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -75,41 +75,41 @@ defmodule AWS.MediaPackageVod do
 
       list_packaging_groups_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_packaging_groups_request() :: %{String.t() => any()}
+  @type list_packaging_groups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       forbidden_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type forbidden_exception() :: %{String.t() => any()}
+  @type forbidden_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_asset_response() :: %{
-        "Arn" => String.t(),
-        "CreatedAt" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "CreatedAt" => String.t() | Atom.t(),
         "EgressEndpoints" => list(egress_endpoint()),
-        "Id" => String.t(),
-        "PackagingGroupId" => String.t(),
-        "ResourceId" => String.t(),
-        "SourceArn" => String.t(),
-        "SourceRoleArn" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "PackagingGroupId" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | Atom.t(),
+        "SourceArn" => String.t() | Atom.t(),
+        "SourceRoleArn" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type describe_asset_response() :: %{String.t() => any()}
+  @type describe_asset_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -126,55 +126,55 @@ defmodule AWS.MediaPackageVod do
 
       packaging_group() :: %{
         "ApproximateAssetCount" => integer(),
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "Authorization" => authorization(),
-        "CreatedAt" => String.t(),
-        "DomainName" => String.t(),
+        "CreatedAt" => String.t() | Atom.t(),
+        "DomainName" => String.t() | Atom.t(),
         "EgressAccessLogs" => egress_access_logs(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type packaging_group() :: %{String.t() => any()}
+  @type packaging_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_asset_request() :: %{
-        optional("ResourceId") => String.t(),
+        optional("ResourceId") => String.t() | Atom.t(),
         optional("Tags") => map(),
-        required("Id") => String.t(),
-        required("PackagingGroupId") => String.t(),
-        required("SourceArn") => String.t(),
-        required("SourceRoleArn") => String.t()
+        required("Id") => String.t() | Atom.t(),
+        required("PackagingGroupId") => String.t() | Atom.t(),
+        required("SourceArn") => String.t() | Atom.t(),
+        required("SourceRoleArn") => String.t() | Atom.t()
       }
 
   """
-  @type create_asset_request() :: %{String.t() => any()}
+  @type create_asset_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t())
+        required("TagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_requests_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_requests_exception() :: %{String.t() => any()}
+  @type too_many_requests_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -183,14 +183,14 @@ defmodule AWS.MediaPackageVod do
       hls_manifest() :: %{
         "AdMarkers" => list(any()),
         "IncludeIframeOnlyStream" => boolean(),
-        "ManifestName" => String.t(),
+        "ManifestName" => String.t() | Atom.t(),
         "ProgramDateTimeIntervalSeconds" => integer(),
         "RepeatExtXKey" => boolean(),
         "StreamSelection" => stream_selection()
       }
 
   """
-  @type hls_manifest() :: %{String.t() => any()}
+  @type hls_manifest() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -206,25 +206,25 @@ defmodule AWS.MediaPackageVod do
   ## Example:
 
       authorization() :: %{
-        "CdnIdentifierSecret" => String.t(),
-        "SecretsRoleArn" => String.t()
+        "CdnIdentifierSecret" => String.t() | Atom.t(),
+        "SecretsRoleArn" => String.t() | Atom.t()
       }
 
   """
-  @type authorization() :: %{String.t() => any()}
+  @type authorization() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       hls_encryption() :: %{
-        "ConstantInitializationVector" => String.t(),
+        "ConstantInitializationVector" => String.t() | Atom.t(),
         "EncryptionMethod" => list(any()),
         "SpekeKeyProvider" => speke_key_provider()
       }
 
   """
-  @type hls_encryption() :: %{String.t() => any()}
+  @type hls_encryption() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -238,7 +238,7 @@ defmodule AWS.MediaPackageVod do
       }
 
   """
-  @type cmaf_package() :: %{String.t() => any()}
+  @type cmaf_package() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -258,7 +258,7 @@ defmodule AWS.MediaPackageVod do
       }
 
   """
-  @type update_packaging_group_request() :: %{String.t() => any()}
+  @type update_packaging_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -266,17 +266,17 @@ defmodule AWS.MediaPackageVod do
 
       update_packaging_group_response() :: %{
         "ApproximateAssetCount" => integer(),
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "Authorization" => authorization(),
-        "CreatedAt" => String.t(),
-        "DomainName" => String.t(),
+        "CreatedAt" => String.t() | Atom.t(),
+        "DomainName" => String.t() | Atom.t(),
         "EgressAccessLogs" => egress_access_logs(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type update_packaging_group_response() :: %{String.t() => any()}
+  @type update_packaging_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -286,22 +286,22 @@ defmodule AWS.MediaPackageVod do
         optional("Authorization") => authorization(),
         optional("EgressAccessLogs") => egress_access_logs(),
         optional("Tags") => map(),
-        required("Id") => String.t()
+        required("Id") => String.t() | Atom.t()
       }
 
   """
-  @type create_packaging_group_request() :: %{String.t() => any()}
+  @type create_packaging_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type not_found_exception() :: %{String.t() => any()}
+  @type not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -309,13 +309,13 @@ defmodule AWS.MediaPackageVod do
 
       speke_key_provider() :: %{
         "EncryptionContractConfiguration" => encryption_contract_configuration(),
-        "RoleArn" => String.t(),
-        "SystemIds" => list(String.t()),
-        "Url" => String.t()
+        "RoleArn" => String.t() | Atom.t(),
+        "SystemIds" => list(String.t() | Atom.t()),
+        "Url" => String.t() | Atom.t()
       }
 
   """
-  @type speke_key_provider() :: %{String.t() => any()}
+  @type speke_key_provider() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -335,7 +335,7 @@ defmodule AWS.MediaPackageVod do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -350,18 +350,18 @@ defmodule AWS.MediaPackageVod do
       }
 
   """
-  @type hls_package() :: %{String.t() => any()}
+  @type hls_package() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_unavailable_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type service_unavailable_exception() :: %{String.t() => any()}
+  @type service_unavailable_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -378,55 +378,55 @@ defmodule AWS.MediaPackageVod do
       }
 
   """
-  @type dash_package() :: %{String.t() => any()}
+  @type dash_package() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       packaging_configuration() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CmafPackage" => cmaf_package(),
-        "CreatedAt" => String.t(),
+        "CreatedAt" => String.t() | Atom.t(),
         "DashPackage" => dash_package(),
         "HlsPackage" => hls_package(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "MssPackage" => mss_package(),
-        "PackagingGroupId" => String.t(),
+        "PackagingGroupId" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type packaging_configuration() :: %{String.t() => any()}
+  @type packaging_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_packaging_configurations_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "PackagingConfigurations" => list(packaging_configuration())
       }
 
   """
-  @type list_packaging_configurations_response() :: %{String.t() => any()}
+  @type list_packaging_configurations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_packaging_group_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "Authorization" => authorization(),
-        "CreatedAt" => String.t(),
-        "DomainName" => String.t(),
+        "CreatedAt" => String.t() | Atom.t(),
+        "DomainName" => String.t() | Atom.t(),
         "EgressAccessLogs" => egress_access_logs(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type create_packaging_group_response() :: %{String.t() => any()}
+  @type create_packaging_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -439,7 +439,7 @@ defmodule AWS.MediaPackageVod do
       }
 
   """
-  @type stream_selection() :: %{String.t() => any()}
+  @type stream_selection() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -447,7 +447,7 @@ defmodule AWS.MediaPackageVod do
 
       dash_manifest() :: %{
         "ManifestLayout" => list(any()),
-        "ManifestName" => String.t(),
+        "ManifestName" => String.t() | Atom.t(),
         "MinBufferTimeSeconds" => integer(),
         "Profile" => list(any()),
         "ScteMarkersSource" => list(any()),
@@ -455,20 +455,20 @@ defmodule AWS.MediaPackageVod do
       }
 
   """
-  @type dash_manifest() :: %{String.t() => any()}
+  @type dash_manifest() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       egress_endpoint() :: %{
-        "PackagingConfigurationId" => String.t(),
-        "Status" => String.t(),
-        "Url" => String.t()
+        "PackagingConfigurationId" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t(),
+        "Url" => String.t() | Atom.t()
       }
 
   """
-  @type egress_endpoint() :: %{String.t() => any()}
+  @type egress_endpoint() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -480,18 +480,18 @@ defmodule AWS.MediaPackageVod do
       }
 
   """
-  @type encryption_contract_configuration() :: %{String.t() => any()}
+  @type encryption_contract_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       egress_access_logs() :: %{
-        "LogGroupName" => String.t()
+        "LogGroupName" => String.t() | Atom.t()
       }
 
   """
-  @type egress_access_logs() :: %{String.t() => any()}
+  @type egress_access_logs() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -502,7 +502,7 @@ defmodule AWS.MediaPackageVod do
       }
 
   """
-  @type dash_encryption() :: %{String.t() => any()}
+  @type dash_encryption() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -518,79 +518,79 @@ defmodule AWS.MediaPackageVod do
   ## Example:
 
       create_packaging_configuration_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CmafPackage" => cmaf_package(),
-        "CreatedAt" => String.t(),
+        "CreatedAt" => String.t() | Atom.t(),
         "DashPackage" => dash_package(),
         "HlsPackage" => hls_package(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "MssPackage" => mss_package(),
-        "PackagingGroupId" => String.t(),
+        "PackagingGroupId" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type create_packaging_configuration_response() :: %{String.t() => any()}
+  @type create_packaging_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_shallow() :: %{
-        "Arn" => String.t(),
-        "CreatedAt" => String.t(),
-        "Id" => String.t(),
-        "PackagingGroupId" => String.t(),
-        "ResourceId" => String.t(),
-        "SourceArn" => String.t(),
-        "SourceRoleArn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "CreatedAt" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "PackagingGroupId" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | Atom.t(),
+        "SourceArn" => String.t() | Atom.t(),
+        "SourceRoleArn" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type asset_shallow() :: %{String.t() => any()}
+  @type asset_shallow() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       unprocessable_entity_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type unprocessable_entity_exception() :: %{String.t() => any()}
+  @type unprocessable_entity_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_asset_response() :: %{
-        "Arn" => String.t(),
-        "CreatedAt" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "CreatedAt" => String.t() | Atom.t(),
         "EgressEndpoints" => list(egress_endpoint()),
-        "Id" => String.t(),
-        "PackagingGroupId" => String.t(),
-        "ResourceId" => String.t(),
-        "SourceArn" => String.t(),
-        "SourceRoleArn" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "PackagingGroupId" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | Atom.t(),
+        "SourceArn" => String.t() | Atom.t(),
+        "SourceRoleArn" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type create_asset_response() :: %{String.t() => any()}
+  @type create_asset_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cmaf_encryption() :: %{
-        "ConstantInitializationVector" => String.t(),
+        "ConstantInitializationVector" => String.t() | Atom.t(),
         "SpekeKeyProvider" => speke_key_provider()
       }
 
   """
-  @type cmaf_encryption() :: %{String.t() => any()}
+  @type cmaf_encryption() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -606,11 +606,11 @@ defmodule AWS.MediaPackageVod do
   ## Example:
 
       internal_server_error_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_server_error_exception() :: %{String.t() => any()}
+  @type internal_server_error_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -627,41 +627,41 @@ defmodule AWS.MediaPackageVod do
 
       list_assets_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("PackagingGroupId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("PackagingGroupId") => String.t() | Atom.t()
       }
 
   """
-  @type list_assets_request() :: %{String.t() => any()}
+  @type list_assets_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       mss_manifest() :: %{
-        "ManifestName" => String.t(),
+        "ManifestName" => String.t() | Atom.t(),
         "StreamSelection" => stream_selection()
       }
 
   """
-  @type mss_manifest() :: %{String.t() => any()}
+  @type mss_manifest() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       configure_logs_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "Authorization" => authorization(),
-        "CreatedAt" => String.t(),
-        "DomainName" => String.t(),
+        "CreatedAt" => String.t() | Atom.t(),
+        "DomainName" => String.t() | Atom.t(),
         "EgressAccessLogs" => egress_access_logs(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type configure_logs_response() :: %{String.t() => any()}
+  @type configure_logs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -672,7 +672,7 @@ defmodule AWS.MediaPackageVod do
       }
 
   """
-  @type configure_logs_request() :: %{String.t() => any()}
+  @type configure_logs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -683,7 +683,7 @@ defmodule AWS.MediaPackageVod do
       }
 
   """
-  @type mss_encryption() :: %{String.t() => any()}
+  @type mss_encryption() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -691,11 +691,11 @@ defmodule AWS.MediaPackageVod do
 
       list_assets_response() :: %{
         "Assets" => list(asset_shallow()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_assets_response() :: %{String.t() => any()}
+  @type list_assets_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -711,12 +711,12 @@ defmodule AWS.MediaPackageVod do
   ## Example:
 
       list_packaging_groups_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "PackagingGroups" => list(packaging_group())
       }
 
   """
-  @type list_packaging_groups_response() :: %{String.t() => any()}
+  @type list_packaging_groups_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -742,17 +742,17 @@ defmodule AWS.MediaPackageVod do
 
       describe_packaging_group_response() :: %{
         "ApproximateAssetCount" => integer(),
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "Authorization" => authorization(),
-        "CreatedAt" => String.t(),
-        "DomainName" => String.t(),
+        "CreatedAt" => String.t() | Atom.t(),
+        "DomainName" => String.t() | Atom.t(),
         "EgressAccessLogs" => egress_access_logs(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type describe_packaging_group_response() :: %{String.t() => any()}
+  @type describe_packaging_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -765,7 +765,7 @@ defmodule AWS.MediaPackageVod do
       }
 
   """
-  @type mss_package() :: %{String.t() => any()}
+  @type mss_package() :: %{String.t() | Atom.t() => any()}
 
   @type configure_logs_errors() ::
           internal_server_error_exception()
@@ -898,7 +898,7 @@ defmodule AWS.MediaPackageVod do
   @doc """
   Changes the packaging group's properities to configure log subscription
   """
-  @spec configure_logs(map(), String.t(), configure_logs_request(), list()) ::
+  @spec configure_logs(map(), String.t() | Atom.t(), configure_logs_request(), list()) ::
           {:ok, configure_logs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1014,7 +1014,7 @@ defmodule AWS.MediaPackageVod do
   @doc """
   Deletes an existing MediaPackage VOD Asset resource.
   """
-  @spec delete_asset(map(), String.t(), delete_asset_request(), list()) ::
+  @spec delete_asset(map(), String.t() | Atom.t(), delete_asset_request(), list()) ::
           {:ok, delete_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1045,7 +1045,7 @@ defmodule AWS.MediaPackageVod do
   """
   @spec delete_packaging_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_packaging_configuration_request(),
           list()
         ) ::
@@ -1077,7 +1077,12 @@ defmodule AWS.MediaPackageVod do
   @doc """
   Deletes a MediaPackage VOD PackagingGroup resource.
   """
-  @spec delete_packaging_group(map(), String.t(), delete_packaging_group_request(), list()) ::
+  @spec delete_packaging_group(
+          map(),
+          String.t() | Atom.t(),
+          delete_packaging_group_request(),
+          list()
+        ) ::
           {:ok, delete_packaging_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1106,7 +1111,7 @@ defmodule AWS.MediaPackageVod do
   @doc """
   Returns a description of a MediaPackage VOD Asset resource.
   """
-  @spec describe_asset(map(), String.t(), list()) ::
+  @spec describe_asset(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1124,7 +1129,7 @@ defmodule AWS.MediaPackageVod do
   @doc """
   Returns a description of a MediaPackage VOD PackagingConfiguration resource.
   """
-  @spec describe_packaging_configuration(map(), String.t(), list()) ::
+  @spec describe_packaging_configuration(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_packaging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1142,7 +1147,7 @@ defmodule AWS.MediaPackageVod do
   @doc """
   Returns a description of a MediaPackage VOD PackagingGroup resource.
   """
-  @spec describe_packaging_group(map(), String.t(), list()) ::
+  @spec describe_packaging_group(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_packaging_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1160,7 +1165,13 @@ defmodule AWS.MediaPackageVod do
   @doc """
   Returns a collection of MediaPackage VOD Asset resources.
   """
-  @spec list_assets(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_assets(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_assets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1207,9 +1218,9 @@ defmodule AWS.MediaPackageVod do
   """
   @spec list_packaging_configurations(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_packaging_configurations_response(), any()}
@@ -1256,7 +1267,12 @@ defmodule AWS.MediaPackageVod do
   @doc """
   Returns a collection of MediaPackage VOD PackagingGroup resources.
   """
-  @spec list_packaging_groups(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_packaging_groups(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_packaging_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1293,7 +1309,7 @@ defmodule AWS.MediaPackageVod do
   @doc """
   Returns a list of the tags assigned to the specified resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1312,7 +1328,7 @@ defmodule AWS.MediaPackageVod do
 
   You can specify one or more tags to add.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1342,7 +1358,7 @@ defmodule AWS.MediaPackageVod do
 
   You can specify one or more tags to remove.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1377,7 +1393,12 @@ defmodule AWS.MediaPackageVod do
 
   You can't change the id attribute or any other system-generated attributes.
   """
-  @spec update_packaging_group(map(), String.t(), update_packaging_group_request(), list()) ::
+  @spec update_packaging_group(
+          map(),
+          String.t() | Atom.t(),
+          update_packaging_group_request(),
+          list()
+        ) ::
           {:ok, update_packaging_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

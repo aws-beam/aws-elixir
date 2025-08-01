@@ -19,105 +19,105 @@ defmodule AWS.ACM do
   ## Example:
       
       update_certificate_options_request() :: %{
-        required("CertificateArn") => String.t(),
+        required("CertificateArn") => String.t() | Atom.t(),
         required("Options") => certificate_options()
       }
       
   """
-  @type update_certificate_options_request() :: %{String.t() => any()}
+  @type update_certificate_options_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       domain_validation_option() :: %{
-        "DomainName" => String.t(),
-        "ValidationDomain" => String.t()
+        "DomainName" => String.t() | Atom.t(),
+        "ValidationDomain" => String.t() | Atom.t()
       }
       
   """
-  @type domain_validation_option() :: %{String.t() => any()}
+  @type domain_validation_option() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       request_in_progress_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type request_in_progress_exception() :: %{String.t() => any()}
+  @type request_in_progress_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       revoke_certificate_request() :: %{
-        required("CertificateArn") => String.t(),
+        required("CertificateArn") => String.t() | Atom.t(),
         required("RevocationReason") => list(any())
       }
       
   """
-  @type revoke_certificate_request() :: %{String.t() => any()}
+  @type revoke_certificate_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_in_use_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_in_use_exception() :: %{String.t() => any()}
+  @type resource_in_use_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       export_certificate_response() :: %{
-        "Certificate" => String.t(),
-        "CertificateChain" => String.t(),
-        "PrivateKey" => String.t()
+        "Certificate" => String.t() | Atom.t(),
+        "CertificateChain" => String.t() | Atom.t(),
+        "PrivateKey" => String.t() | Atom.t()
       }
       
   """
-  @type export_certificate_response() :: %{String.t() => any()}
+  @type export_certificate_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       import_certificate_response() :: %{
-        "CertificateArn" => String.t()
+        "CertificateArn" => String.t() | Atom.t()
       }
       
   """
-  @type import_certificate_response() :: %{String.t() => any()}
+  @type import_certificate_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       export_certificate_request() :: %{
-        required("CertificateArn") => String.t(),
+        required("CertificateArn") => String.t() | Atom.t(),
         required("Passphrase") => binary()
       }
       
   """
-  @type export_certificate_request() :: %{String.t() => any()}
+  @type export_certificate_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_policy_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type tag_policy_exception() :: %{String.t() => any()}
+  @type tag_policy_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -131,30 +131,30 @@ defmodule AWS.ACM do
       }
       
   """
-  @type renewal_summary() :: %{String.t() => any()}
+  @type renewal_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       http_redirect() :: %{
-        "RedirectFrom" => String.t(),
-        "RedirectTo" => String.t()
+        "RedirectFrom" => String.t() | Atom.t(),
+        "RedirectTo" => String.t() | Atom.t()
       }
       
   """
-  @type http_redirect() :: %{String.t() => any()}
+  @type http_redirect() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_state_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_state_exception() :: %{String.t() => any()}
+  @type invalid_state_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -164,76 +164,76 @@ defmodule AWS.ACM do
         optional("CertificateStatuses") => list(list(any())()),
         optional("Includes") => filters(),
         optional("MaxItems") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type list_certificates_request() :: %{String.t() => any()}
+  @type list_certificates_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       request_certificate_request() :: %{
-        optional("CertificateAuthorityArn") => String.t(),
+        optional("CertificateAuthorityArn") => String.t() | Atom.t(),
         optional("DomainValidationOptions") => list(domain_validation_option()),
-        optional("IdempotencyToken") => String.t(),
+        optional("IdempotencyToken") => String.t() | Atom.t(),
         optional("KeyAlgorithm") => list(any()),
         optional("ManagedBy") => list(any()),
         optional("Options") => certificate_options(),
-        optional("SubjectAlternativeNames") => list(String.t()),
+        optional("SubjectAlternativeNames") => list(String.t() | Atom.t()),
         optional("Tags") => list(tag()),
         optional("ValidationMethod") => list(any()),
-        required("DomainName") => String.t()
+        required("DomainName") => String.t() | Atom.t()
       }
       
   """
-  @type request_certificate_request() :: %{String.t() => any()}
+  @type request_certificate_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_tags_from_certificate_request() :: %{
-        required("CertificateArn") => String.t(),
+        required("CertificateArn") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
       
   """
-  @type remove_tags_from_certificate_request() :: %{String.t() => any()}
+  @type remove_tags_from_certificate_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_arn_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_arn_exception() :: %{String.t() => any()}
+  @type invalid_arn_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_args_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_args_exception() :: %{String.t() => any()}
+  @type invalid_args_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       certificate_summary() :: %{
-        "CertificateArn" => String.t(),
+        "CertificateArn" => String.t() | Atom.t(),
         "CreatedAt" => non_neg_integer(),
-        "DomainName" => String.t(),
+        "DomainName" => String.t() | Atom.t(),
         "ExportOption" => list(any()),
         "Exported" => boolean(),
         "ExtendedKeyUsages" => list(list(any())()),
@@ -249,23 +249,23 @@ defmodule AWS.ACM do
         "RenewalEligibility" => list(any()),
         "RevokedAt" => non_neg_integer(),
         "Status" => list(any()),
-        "SubjectAlternativeNameSummaries" => list(String.t()),
+        "SubjectAlternativeNameSummaries" => list(String.t() | Atom.t()),
         "Type" => list(any())
       }
       
   """
-  @type certificate_summary() :: %{String.t() => any()}
+  @type certificate_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       renew_certificate_request() :: %{
-        required("CertificateArn") => String.t()
+        required("CertificateArn") => String.t() | Atom.t()
       }
       
   """
-  @type renew_certificate_request() :: %{String.t() => any()}
+  @type renew_certificate_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -277,40 +277,40 @@ defmodule AWS.ACM do
       }
       
   """
-  @type certificate_options() :: %{String.t() => any()}
+  @type certificate_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_certificate_request() :: %{
-        required("CertificateArn") => String.t()
+        required("CertificateArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_certificate_request() :: %{String.t() => any()}
+  @type list_tags_for_certificate_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -321,19 +321,19 @@ defmodule AWS.ACM do
       }
       
   """
-  @type expiry_events_configuration() :: %{String.t() => any()}
+  @type expiry_events_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -341,44 +341,44 @@ defmodule AWS.ACM do
       
       put_account_configuration_request() :: %{
         optional("ExpiryEvents") => expiry_events_configuration(),
-        required("IdempotencyToken") => String.t()
+        required("IdempotencyToken") => String.t() | Atom.t()
       }
       
   """
-  @type put_account_configuration_request() :: %{String.t() => any()}
+  @type put_account_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_certificate_request() :: %{
-        required("CertificateArn") => String.t()
+        required("CertificateArn") => String.t() | Atom.t()
       }
       
   """
-  @type get_certificate_request() :: %{String.t() => any()}
+  @type get_certificate_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_certificate_request() :: %{
-        required("CertificateArn") => String.t()
+        required("CertificateArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_certificate_request() :: %{String.t() => any()}
+  @type describe_certificate_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       request_certificate_response() :: %{
-        "CertificateArn" => String.t()
+        "CertificateArn" => String.t() | Atom.t()
       }
       
   """
-  @type request_certificate_response() :: %{String.t() => any()}
+  @type request_certificate_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -389,20 +389,20 @@ defmodule AWS.ACM do
       }
       
   """
-  @type get_account_configuration_response() :: %{String.t() => any()}
+  @type get_account_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resend_validation_email_request() :: %{
-        required("CertificateArn") => String.t(),
-        required("Domain") => String.t(),
-        required("ValidationDomain") => String.t()
+        required("CertificateArn") => String.t() | Atom.t(),
+        required("Domain") => String.t() | Atom.t(),
+        required("ValidationDomain") => String.t() | Atom.t()
       }
       
   """
-  @type resend_validation_email_request() :: %{String.t() => any()}
+  @type resend_validation_email_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -413,37 +413,37 @@ defmodule AWS.ACM do
       }
       
   """
-  @type list_tags_for_certificate_response() :: %{String.t() => any()}
+  @type list_tags_for_certificate_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_domain_validation_options_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_domain_validation_options_exception() :: %{String.t() => any()}
+  @type invalid_domain_validation_options_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       add_tags_to_certificate_request() :: %{
-        required("CertificateArn") => String.t(),
+        required("CertificateArn") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
       
   """
-  @type add_tags_to_certificate_request() :: %{String.t() => any()}
+  @type add_tags_to_certificate_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       import_certificate_request() :: %{
-        optional("CertificateArn") => String.t(),
+        optional("CertificateArn") => String.t() | Atom.t(),
         optional("CertificateChain") => binary(),
         optional("Tags") => list(tag()),
         required("Certificate") => binary(),
@@ -451,40 +451,40 @@ defmodule AWS.ACM do
       }
       
   """
-  @type import_certificate_request() :: %{String.t() => any()}
+  @type import_certificate_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameter_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_parameter_exception() :: %{String.t() => any()}
+  @type invalid_parameter_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_certificate_request() :: %{
-        required("CertificateArn") => String.t()
+        required("CertificateArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_certificate_request() :: %{String.t() => any()}
+  @type delete_certificate_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -495,29 +495,29 @@ defmodule AWS.ACM do
       }
       
   """
-  @type describe_certificate_response() :: %{String.t() => any()}
+  @type describe_certificate_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -532,18 +532,18 @@ defmodule AWS.ACM do
       }
       
   """
-  @type filters() :: %{String.t() => any()}
+  @type filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -551,75 +551,75 @@ defmodule AWS.ACM do
       
       extended_key_usage() :: %{
         "Name" => list(any()),
-        "OID" => String.t()
+        "OID" => String.t() | Atom.t()
       }
       
   """
-  @type extended_key_usage() :: %{String.t() => any()}
+  @type extended_key_usage() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       domain_validation() :: %{
-        "DomainName" => String.t(),
+        "DomainName" => String.t() | Atom.t(),
         "HttpRedirect" => http_redirect(),
         "ResourceRecord" => resource_record(),
-        "ValidationDomain" => String.t(),
-        "ValidationEmails" => list(String.t()),
+        "ValidationDomain" => String.t() | Atom.t(),
+        "ValidationEmails" => list(String.t() | Atom.t()),
         "ValidationMethod" => list(any()),
         "ValidationStatus" => list(any())
       }
       
   """
-  @type domain_validation() :: %{String.t() => any()}
+  @type domain_validation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_record() :: %{
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Type" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type resource_record() :: %{String.t() => any()}
+  @type resource_record() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       revoke_certificate_response() :: %{
-        "CertificateArn" => String.t()
+        "CertificateArn" => String.t() | Atom.t()
       }
       
   """
-  @type revoke_certificate_response() :: %{String.t() => any()}
+  @type revoke_certificate_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_tag_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_tag_exception() :: %{String.t() => any()}
+  @type invalid_tag_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_certificate_response() :: %{
-        "Certificate" => String.t(),
-        "CertificateChain" => String.t()
+        "Certificate" => String.t() | Atom.t(),
+        "CertificateChain" => String.t() | Atom.t()
       }
       
   """
-  @type get_certificate_response() :: %{String.t() => any()}
+  @type get_certificate_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -630,18 +630,18 @@ defmodule AWS.ACM do
       }
       
   """
-  @type key_usage() :: %{String.t() => any()}
+  @type key_usage() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_tags_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type too_many_tags_exception() :: %{String.t() => any()}
+  @type too_many_tags_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -649,28 +649,28 @@ defmodule AWS.ACM do
       
       list_certificates_response() :: %{
         "CertificateSummaryList" => list(certificate_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_certificates_response() :: %{String.t() => any()}
+  @type list_certificates_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       certificate_detail() :: %{
-        "CertificateArn" => String.t(),
-        "CertificateAuthorityArn" => String.t(),
+        "CertificateArn" => String.t() | Atom.t(),
+        "CertificateAuthorityArn" => String.t() | Atom.t(),
         "CreatedAt" => non_neg_integer(),
-        "DomainName" => String.t(),
+        "DomainName" => String.t() | Atom.t(),
         "DomainValidationOptions" => list(domain_validation()),
         "ExtendedKeyUsages" => list(extended_key_usage()),
         "FailureReason" => list(any()),
         "ImportedAt" => non_neg_integer(),
-        "InUseBy" => list(String.t()),
+        "InUseBy" => list(String.t() | Atom.t()),
         "IssuedAt" => non_neg_integer(),
-        "Issuer" => String.t(),
+        "Issuer" => String.t() | Atom.t(),
         "KeyAlgorithm" => list(any()),
         "KeyUsages" => list(key_usage()),
         "ManagedBy" => list(any()),
@@ -681,16 +681,16 @@ defmodule AWS.ACM do
         "RenewalSummary" => renewal_summary(),
         "RevocationReason" => list(any()),
         "RevokedAt" => non_neg_integer(),
-        "Serial" => String.t(),
-        "SignatureAlgorithm" => String.t(),
+        "Serial" => String.t() | Atom.t(),
+        "SignatureAlgorithm" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "Subject" => String.t(),
-        "SubjectAlternativeNames" => list(String.t()),
+        "Subject" => String.t() | Atom.t(),
+        "SubjectAlternativeNames" => list(String.t() | Atom.t()),
         "Type" => list(any())
       }
       
   """
-  @type certificate_detail() :: %{String.t() => any()}
+  @type certificate_detail() :: %{String.t() | Atom.t() => any()}
 
   @type add_tags_to_certificate_errors() ::
           too_many_tags_exception()

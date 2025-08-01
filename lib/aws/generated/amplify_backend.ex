@@ -15,27 +15,27 @@ defmodule AWS.AmplifyBackend do
 
       update_backend_auth_request() :: %{
         required("ResourceConfig") => update_backend_auth_resource_config(),
-        required("ResourceName") => String.t()
+        required("ResourceName") => String.t() | Atom.t()
       }
 
   """
-  @type update_backend_auth_request() :: %{String.t() => any()}
+  @type update_backend_auth_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       import_backend_auth_response() :: %{
-        "AppId" => String.t(),
-        "BackendEnvironmentName" => String.t(),
-        "Error" => String.t(),
-        "JobId" => String.t(),
-        "Operation" => String.t(),
-        "Status" => String.t()
+        "AppId" => String.t() | Atom.t(),
+        "BackendEnvironmentName" => String.t() | Atom.t(),
+        "Error" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
+        "Operation" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type import_backend_auth_response() :: %{String.t() => any()}
+  @type import_backend_auth_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -48,21 +48,21 @@ defmodule AWS.AmplifyBackend do
       }
 
   """
-  @type create_backend_auth_forgot_password_config() :: %{String.t() => any()}
+  @type create_backend_auth_forgot_password_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_backend_storage_resource_config() :: %{
-        "BucketName" => String.t(),
+        "BucketName" => String.t() | Atom.t(),
         "Imported" => boolean(),
         "Permissions" => backend_storage_permissions(),
         "ServiceName" => list(any())
       }
 
   """
-  @type get_backend_storage_resource_config() :: %{String.t() => any()}
+  @type get_backend_storage_resource_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -78,39 +78,39 @@ defmodule AWS.AmplifyBackend do
   ## Example:
 
       delete_backend_storage_request() :: %{
-        required("ResourceName") => String.t(),
+        required("ResourceName") => String.t() | Atom.t(),
         required("ServiceName") => list(any())
       }
 
   """
-  @type delete_backend_storage_request() :: %{String.t() => any()}
+  @type delete_backend_storage_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_backend_api_models_request() :: %{
-        required("ResourceName") => String.t()
+        required("ResourceName") => String.t() | Atom.t()
       }
 
   """
-  @type get_backend_api_models_request() :: %{String.t() => any()}
+  @type get_backend_api_models_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       generate_backend_api_models_response() :: %{
-        "AppId" => String.t(),
-        "BackendEnvironmentName" => String.t(),
-        "Error" => String.t(),
-        "JobId" => String.t(),
-        "Operation" => String.t(),
-        "Status" => String.t()
+        "AppId" => String.t() | Atom.t(),
+        "BackendEnvironmentName" => String.t() | Atom.t(),
+        "Error" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
+        "Operation" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type generate_backend_api_models_response() :: %{String.t() => any()}
+  @type generate_backend_api_models_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -118,29 +118,29 @@ defmodule AWS.AmplifyBackend do
 
       backend_api_resource_config() :: %{
         "AdditionalAuthTypes" => list(backend_api_auth_type()),
-        "ApiName" => String.t(),
+        "ApiName" => String.t() | Atom.t(),
         "ConflictResolution" => backend_api_conflict_resolution(),
         "DefaultAuthType" => backend_api_auth_type(),
-        "Service" => String.t(),
-        "TransformSchema" => String.t()
+        "Service" => String.t() | Atom.t(),
+        "TransformSchema" => String.t() | Atom.t()
       }
 
   """
-  @type backend_api_resource_config() :: %{String.t() => any()}
+  @type backend_api_resource_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_backend_storage_response() :: %{
-        "AppId" => String.t(),
-        "BackendEnvironmentName" => String.t(),
-        "JobId" => String.t(),
-        "Status" => String.t()
+        "AppId" => String.t() | Atom.t(),
+        "BackendEnvironmentName" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type create_backend_storage_response() :: %{String.t() => any()}
+  @type create_backend_storage_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -151,7 +151,7 @@ defmodule AWS.AmplifyBackend do
       }
 
   """
-  @type delete_token_response() :: %{String.t() => any()}
+  @type delete_token_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -163,23 +163,23 @@ defmodule AWS.AmplifyBackend do
       }
 
   """
-  @type backend_api_auth_type() :: %{String.t() => any()}
+  @type backend_api_auth_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_backend_auth_response() :: %{
-        "AppId" => String.t(),
-        "BackendEnvironmentName" => String.t(),
-        "Error" => String.t(),
-        "JobId" => String.t(),
-        "Operation" => String.t(),
-        "Status" => String.t()
+        "AppId" => String.t() | Atom.t(),
+        "BackendEnvironmentName" => String.t() | Atom.t(),
+        "Error" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
+        "Operation" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type create_backend_auth_response() :: %{String.t() => any()}
+  @type create_backend_auth_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -195,29 +195,29 @@ defmodule AWS.AmplifyBackend do
   ## Example:
 
       backend_job_resp_obj() :: %{
-        "AppId" => String.t(),
-        "BackendEnvironmentName" => String.t(),
-        "CreateTime" => String.t(),
-        "Error" => String.t(),
-        "JobId" => String.t(),
-        "Operation" => String.t(),
-        "Status" => String.t(),
-        "UpdateTime" => String.t()
+        "AppId" => String.t() | Atom.t(),
+        "BackendEnvironmentName" => String.t() | Atom.t(),
+        "CreateTime" => String.t() | Atom.t(),
+        "Error" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
+        "Operation" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t(),
+        "UpdateTime" => String.t() | Atom.t()
       }
 
   """
-  @type backend_job_resp_obj() :: %{String.t() => any()}
+  @type backend_job_resp_obj() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       clone_backend_request() :: %{
-        required("TargetEnvironmentName") => String.t()
+        required("TargetEnvironmentName") => String.t() | Atom.t()
       }
 
   """
-  @type clone_backend_request() :: %{String.t() => any()}
+  @type clone_backend_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -230,22 +230,22 @@ defmodule AWS.AmplifyBackend do
       }
 
   """
-  @type create_backend_auth_verification_message_config() :: %{String.t() => any()}
+  @type create_backend_auth_verification_message_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_backend_jobs_request() :: %{
-        optional("JobId") => String.t(),
+        optional("JobId") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("Operation") => String.t(),
-        optional("Status") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("Operation") => String.t() | Atom.t(),
+        optional("Status") => String.t() | Atom.t()
       }
 
   """
-  @type list_backend_jobs_request() :: %{String.t() => any()}
+  @type list_backend_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -259,7 +259,7 @@ defmodule AWS.AmplifyBackend do
       }
 
   """
-  @type social_provider_settings() :: %{String.t() => any()}
+  @type social_provider_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -271,37 +271,37 @@ defmodule AWS.AmplifyBackend do
       }
 
   """
-  @type update_backend_auth_mfa_config() :: %{String.t() => any()}
+  @type update_backend_auth_mfa_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_backend_auth_o_auth_config() :: %{
-        "DomainPrefix" => String.t(),
+        "DomainPrefix" => String.t() | Atom.t(),
         "OAuthGrantType" => list(any()),
         "OAuthScopes" => list(list(any())()),
-        "RedirectSignInURIs" => list(String.t()),
-        "RedirectSignOutURIs" => list(String.t()),
+        "RedirectSignInURIs" => list(String.t() | Atom.t()),
+        "RedirectSignOutURIs" => list(String.t() | Atom.t()),
         "SocialProviderSettings" => social_provider_settings()
       }
 
   """
-  @type update_backend_auth_o_auth_config() :: %{String.t() => any()}
+  @type update_backend_auth_o_auth_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       import_backend_storage_response() :: %{
-        "AppId" => String.t(),
-        "BackendEnvironmentName" => String.t(),
-        "JobId" => String.t(),
-        "Status" => String.t()
+        "AppId" => String.t() | Atom.t(),
+        "BackendEnvironmentName" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type import_backend_storage_response() :: %{String.t() => any()}
+  @type import_backend_storage_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -313,19 +313,19 @@ defmodule AWS.AmplifyBackend do
       }
 
   """
-  @type create_backend_auth_password_policy_config() :: %{String.t() => any()}
+  @type create_backend_auth_password_policy_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_requests_exception() :: %{
-        "LimitType" => String.t(),
-        "Message" => String.t()
+        "LimitType" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_requests_exception() :: %{String.t() => any()}
+  @type too_many_requests_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -339,44 +339,44 @@ defmodule AWS.AmplifyBackend do
       }
 
   """
-  @type update_backend_auth_resource_config() :: %{String.t() => any()}
+  @type update_backend_auth_resource_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_token_response() :: %{
-        "AppId" => String.t(),
-        "ChallengeCode" => String.t(),
-        "SessionId" => String.t(),
-        "Ttl" => String.t()
+        "AppId" => String.t() | Atom.t(),
+        "ChallengeCode" => String.t() | Atom.t(),
+        "SessionId" => String.t() | Atom.t(),
+        "Ttl" => String.t() | Atom.t()
       }
 
   """
-  @type get_token_response() :: %{String.t() => any()}
+  @type get_token_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_bucket_info() :: %{
-        "CreationDate" => String.t(),
-        "Name" => String.t()
+        "CreationDate" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type s3_bucket_info() :: %{String.t() => any()}
+  @type s3_bucket_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       remove_backend_config_response() :: %{
-        "Error" => String.t()
+        "Error" => String.t() | Atom.t()
       }
 
   """
-  @type remove_backend_config_response() :: %{String.t() => any()}
+  @type remove_backend_config_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -384,23 +384,23 @@ defmodule AWS.AmplifyBackend do
 
       list_s3_buckets_response() :: %{
         "Buckets" => list(s3_bucket_info()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_s3_buckets_response() :: %{String.t() => any()}
+  @type list_s3_buckets_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       email_settings() :: %{
-        "EmailMessage" => String.t(),
-        "EmailSubject" => String.t()
+        "EmailMessage" => String.t() | Atom.t(),
+        "EmailSubject" => String.t() | Atom.t()
       }
 
   """
-  @type email_settings() :: %{String.t() => any()}
+  @type email_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -415,7 +415,7 @@ defmodule AWS.AmplifyBackend do
       }
 
   """
-  @type update_backend_auth_user_pool_config() :: %{String.t() => any()}
+  @type update_backend_auth_user_pool_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -427,36 +427,36 @@ defmodule AWS.AmplifyBackend do
       }
 
   """
-  @type update_backend_auth_password_policy_config() :: %{String.t() => any()}
+  @type update_backend_auth_password_policy_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_backend_request() :: %{
-        optional("BackendEnvironmentName") => String.t()
+        optional("BackendEnvironmentName") => String.t() | Atom.t()
       }
 
   """
-  @type get_backend_request() :: %{String.t() => any()}
+  @type get_backend_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       backend_api_app_sync_auth_settings() :: %{
-        "CognitoUserPoolId" => String.t(),
-        "Description" => String.t(),
+        "CognitoUserPoolId" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
         "ExpirationTime" => float(),
-        "OpenIDAuthTTL" => String.t(),
-        "OpenIDClientId" => String.t(),
-        "OpenIDIatTTL" => String.t(),
-        "OpenIDIssueURL" => String.t(),
-        "OpenIDProviderName" => String.t()
+        "OpenIDAuthTTL" => String.t() | Atom.t(),
+        "OpenIDClientId" => String.t() | Atom.t(),
+        "OpenIDIatTTL" => String.t() | Atom.t(),
+        "OpenIDIssueURL" => String.t() | Atom.t(),
+        "OpenIDProviderName" => String.t() | Atom.t()
       }
 
   """
-  @type backend_api_app_sync_auth_settings() :: %{String.t() => any()}
+  @type backend_api_app_sync_auth_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -464,11 +464,11 @@ defmodule AWS.AmplifyBackend do
 
       update_backend_api_request() :: %{
         optional("ResourceConfig") => backend_api_resource_config(),
-        required("ResourceName") => String.t()
+        required("ResourceName") => String.t() | Atom.t()
       }
 
   """
-  @type update_backend_api_request() :: %{String.t() => any()}
+  @type update_backend_api_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -476,27 +476,27 @@ defmodule AWS.AmplifyBackend do
 
       list_backend_jobs_response() :: %{
         "Jobs" => list(backend_job_resp_obj()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_backend_jobs_response() :: %{String.t() => any()}
+  @type list_backend_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_backend_auth_response() :: %{
-        "AppId" => String.t(),
-        "BackendEnvironmentName" => String.t(),
-        "Error" => String.t(),
-        "JobId" => String.t(),
-        "Operation" => String.t(),
-        "Status" => String.t()
+        "AppId" => String.t() | Atom.t(),
+        "BackendEnvironmentName" => String.t() | Atom.t(),
+        "Error" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
+        "Operation" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type update_backend_auth_response() :: %{String.t() => any()}
+  @type update_backend_auth_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -504,11 +504,11 @@ defmodule AWS.AmplifyBackend do
 
       get_backend_api_request() :: %{
         optional("ResourceConfig") => backend_api_resource_config(),
-        required("ResourceName") => String.t()
+        required("ResourceName") => String.t() | Atom.t()
       }
 
   """
-  @type get_backend_api_request() :: %{String.t() => any()}
+  @type get_backend_api_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -519,35 +519,35 @@ defmodule AWS.AmplifyBackend do
       }
 
   """
-  @type update_backend_config_request() :: %{String.t() => any()}
+  @type update_backend_config_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_backend_auth_response() :: %{
-        "AppId" => String.t(),
-        "BackendEnvironmentName" => String.t(),
-        "Error" => String.t(),
-        "JobId" => String.t(),
-        "Operation" => String.t(),
-        "Status" => String.t()
+        "AppId" => String.t() | Atom.t(),
+        "BackendEnvironmentName" => String.t() | Atom.t(),
+        "Error" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
+        "Operation" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type delete_backend_auth_response() :: %{String.t() => any()}
+  @type delete_backend_auth_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       not_found_exception() :: %{
-        "Message" => String.t(),
-        "ResourceType" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t()
       }
 
   """
-  @type not_found_exception() :: %{String.t() => any()}
+  @type not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -558,7 +558,7 @@ defmodule AWS.AmplifyBackend do
       }
 
   """
-  @type backend_api_conflict_resolution() :: %{String.t() => any()}
+  @type backend_api_conflict_resolution() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -571,12 +571,12 @@ defmodule AWS.AmplifyBackend do
         "PasswordPolicy" => create_backend_auth_password_policy_config(),
         "RequiredSignUpAttributes" => list(list(any())()),
         "SignInMethod" => list(any()),
-        "UserPoolName" => String.t(),
+        "UserPoolName" => String.t() | Atom.t(),
         "VerificationMessage" => create_backend_auth_verification_message_config()
       }
 
   """
-  @type create_backend_auth_user_pool_config() :: %{String.t() => any()}
+  @type create_backend_auth_user_pool_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -584,11 +584,11 @@ defmodule AWS.AmplifyBackend do
 
       settings() :: %{
         "MfaTypes" => list(list(any())()),
-        "SmsMessage" => String.t()
+        "SmsMessage" => String.t() | Atom.t()
       }
 
   """
-  @type settings() :: %{String.t() => any()}
+  @type settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -604,35 +604,35 @@ defmodule AWS.AmplifyBackend do
   ## Example:
 
       generate_backend_api_models_request() :: %{
-        required("ResourceName") => String.t()
+        required("ResourceName") => String.t() | Atom.t()
       }
 
   """
-  @type generate_backend_api_models_request() :: %{String.t() => any()}
+  @type generate_backend_api_models_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_backend_auth_request() :: %{
-        required("ResourceName") => String.t()
+        required("ResourceName") => String.t() | Atom.t()
       }
 
   """
-  @type get_backend_auth_request() :: %{String.t() => any()}
+  @type get_backend_auth_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_backend_storage_resource_config() :: %{
-        "BucketName" => String.t(),
+        "BucketName" => String.t() | Atom.t(),
         "Permissions" => backend_storage_permissions(),
         "ServiceName" => list(any())
       }
 
   """
-  @type create_backend_storage_resource_config() :: %{String.t() => any()}
+  @type create_backend_storage_resource_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -640,25 +640,25 @@ defmodule AWS.AmplifyBackend do
 
       delete_backend_api_request() :: %{
         optional("ResourceConfig") => backend_api_resource_config(),
-        required("ResourceName") => String.t()
+        required("ResourceName") => String.t() | Atom.t()
       }
 
   """
-  @type delete_backend_api_request() :: %{String.t() => any()}
+  @type delete_backend_api_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       backend_auth_apple_provider_config() :: %{
-        "ClientId" => String.t(),
-        "KeyId" => String.t(),
-        "PrivateKey" => String.t(),
-        "TeamId" => String.t()
+        "ClientId" => String.t() | Atom.t(),
+        "KeyId" => String.t() | Atom.t(),
+        "PrivateKey" => String.t() | Atom.t(),
+        "TeamId" => String.t() | Atom.t()
       }
 
   """
-  @type backend_auth_apple_provider_config() :: %{String.t() => any()}
+  @type backend_auth_apple_provider_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -669,52 +669,52 @@ defmodule AWS.AmplifyBackend do
       }
 
   """
-  @type remove_all_backends_request() :: %{String.t() => any()}
+  @type remove_all_backends_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_backend_api_models_response() :: %{
-        "ModelIntrospectionSchema" => String.t(),
-        "Models" => String.t(),
+        "ModelIntrospectionSchema" => String.t() | Atom.t(),
+        "Models" => String.t() | Atom.t(),
         "Status" => list(any())
       }
 
   """
-  @type get_backend_api_models_response() :: %{String.t() => any()}
+  @type get_backend_api_models_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_backend_response() :: %{
-        "AppId" => String.t(),
-        "BackendEnvironmentName" => String.t(),
-        "Error" => String.t(),
-        "JobId" => String.t(),
-        "Operation" => String.t(),
-        "Status" => String.t()
+        "AppId" => String.t() | Atom.t(),
+        "BackendEnvironmentName" => String.t() | Atom.t(),
+        "Error" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
+        "Operation" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type delete_backend_response() :: %{String.t() => any()}
+  @type delete_backend_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_backend_response() :: %{
-        "AppId" => String.t(),
-        "BackendEnvironmentName" => String.t(),
-        "Error" => String.t(),
-        "JobId" => String.t(),
-        "Operation" => String.t(),
-        "Status" => String.t()
+        "AppId" => String.t() | Atom.t(),
+        "BackendEnvironmentName" => String.t() | Atom.t(),
+        "Error" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
+        "Operation" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type create_backend_response() :: %{String.t() => any()}
+  @type create_backend_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -730,76 +730,76 @@ defmodule AWS.AmplifyBackend do
   ## Example:
 
       create_backend_config_request() :: %{
-        optional("BackendManagerAppId") => String.t()
+        optional("BackendManagerAppId") => String.t() | Atom.t()
       }
 
   """
-  @type create_backend_config_request() :: %{String.t() => any()}
+  @type create_backend_config_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_s3_buckets_request() :: %{
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_s3_buckets_request() :: %{String.t() => any()}
+  @type list_s3_buckets_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_backend_storage_request() :: %{
-        required("ResourceName") => String.t()
+        required("ResourceName") => String.t() | Atom.t()
       }
 
   """
-  @type get_backend_storage_request() :: %{String.t() => any()}
+  @type get_backend_storage_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       remove_all_backends_response() :: %{
-        "AppId" => String.t(),
-        "Error" => String.t(),
-        "JobId" => String.t(),
-        "Operation" => String.t(),
-        "Status" => String.t()
+        "AppId" => String.t() | Atom.t(),
+        "Error" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
+        "Operation" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type remove_all_backends_response() :: %{String.t() => any()}
+  @type remove_all_backends_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_backend_api_response() :: %{
-        "AppId" => String.t(),
-        "BackendEnvironmentName" => String.t(),
-        "Error" => String.t(),
-        "JobId" => String.t(),
-        "Operation" => String.t(),
-        "Status" => String.t()
+        "AppId" => String.t() | Atom.t(),
+        "BackendEnvironmentName" => String.t() | Atom.t(),
+        "Error" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
+        "Operation" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type create_backend_api_response() :: %{String.t() => any()}
+  @type create_backend_api_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       import_backend_storage_request() :: %{
-        optional("BucketName") => String.t(),
+        optional("BucketName") => String.t() | Atom.t(),
         required("ServiceName") => list(any())
       }
 
   """
-  @type import_backend_storage_request() :: %{String.t() => any()}
+  @type import_backend_storage_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -815,14 +815,14 @@ defmodule AWS.AmplifyBackend do
   ## Example:
 
       login_auth_config_req_obj() :: %{
-        "AwsCognitoIdentityPoolId" => String.t(),
-        "AwsCognitoRegion" => String.t(),
-        "AwsUserPoolsId" => String.t(),
-        "AwsUserPoolsWebClientId" => String.t()
+        "AwsCognitoIdentityPoolId" => String.t() | Atom.t(),
+        "AwsCognitoRegion" => String.t() | Atom.t(),
+        "AwsUserPoolsId" => String.t() | Atom.t(),
+        "AwsUserPoolsWebClientId" => String.t() | Atom.t()
       }
 
   """
-  @type login_auth_config_req_obj() :: %{String.t() => any()}
+  @type login_auth_config_req_obj() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -830,74 +830,74 @@ defmodule AWS.AmplifyBackend do
 
       create_backend_request() :: %{
         optional("ResourceConfig") => resource_config(),
-        optional("ResourceName") => String.t(),
-        required("AppId") => String.t(),
-        required("AppName") => String.t(),
-        required("BackendEnvironmentName") => String.t()
+        optional("ResourceName") => String.t() | Atom.t(),
+        required("AppId") => String.t() | Atom.t(),
+        required("AppName") => String.t() | Atom.t(),
+        required("BackendEnvironmentName") => String.t() | Atom.t()
       }
 
   """
-  @type create_backend_request() :: %{String.t() => any()}
+  @type create_backend_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_backend_storage_response() :: %{
-        "AppId" => String.t(),
-        "BackendEnvironmentName" => String.t(),
+        "AppId" => String.t() | Atom.t(),
+        "BackendEnvironmentName" => String.t() | Atom.t(),
         "ResourceConfig" => get_backend_storage_resource_config(),
-        "ResourceName" => String.t()
+        "ResourceName" => String.t() | Atom.t()
       }
 
   """
-  @type get_backend_storage_response() :: %{String.t() => any()}
+  @type get_backend_storage_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_backend_storage_response() :: %{
-        "AppId" => String.t(),
-        "BackendEnvironmentName" => String.t(),
-        "JobId" => String.t(),
-        "Status" => String.t()
+        "AppId" => String.t() | Atom.t(),
+        "BackendEnvironmentName" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type update_backend_storage_response() :: %{String.t() => any()}
+  @type update_backend_storage_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_backend_config_response() :: %{
-        "AppId" => String.t(),
-        "BackendManagerAppId" => String.t(),
-        "Error" => String.t(),
+        "AppId" => String.t() | Atom.t(),
+        "BackendManagerAppId" => String.t() | Atom.t(),
+        "Error" => String.t() | Atom.t(),
         "LoginAuthConfig" => login_auth_config_req_obj()
       }
 
   """
-  @type update_backend_config_response() :: %{String.t() => any()}
+  @type update_backend_config_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_backend_job_response() :: %{
-        "AppId" => String.t(),
-        "BackendEnvironmentName" => String.t(),
-        "CreateTime" => String.t(),
-        "Error" => String.t(),
-        "JobId" => String.t(),
-        "Operation" => String.t(),
-        "Status" => String.t(),
-        "UpdateTime" => String.t()
+        "AppId" => String.t() | Atom.t(),
+        "BackendEnvironmentName" => String.t() | Atom.t(),
+        "CreateTime" => String.t() | Atom.t(),
+        "Error" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
+        "Operation" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t(),
+        "UpdateTime" => String.t() | Atom.t()
       }
 
   """
-  @type get_backend_job_response() :: %{String.t() => any()}
+  @type get_backend_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -911,89 +911,89 @@ defmodule AWS.AmplifyBackend do
       }
 
   """
-  @type create_backend_auth_resource_config() :: %{String.t() => any()}
+  @type create_backend_auth_resource_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_backend_auth_request() :: %{
-        required("BackendEnvironmentName") => String.t(),
+        required("BackendEnvironmentName") => String.t() | Atom.t(),
         required("ResourceConfig") => create_backend_auth_resource_config(),
-        required("ResourceName") => String.t()
+        required("ResourceName") => String.t() | Atom.t()
       }
 
   """
-  @type create_backend_auth_request() :: %{String.t() => any()}
+  @type create_backend_auth_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_backend_storage_request() :: %{
-        required("BackendEnvironmentName") => String.t(),
+        required("BackendEnvironmentName") => String.t() | Atom.t(),
         required("ResourceConfig") => create_backend_storage_resource_config(),
-        required("ResourceName") => String.t()
+        required("ResourceName") => String.t() | Atom.t()
       }
 
   """
-  @type create_backend_storage_request() :: %{String.t() => any()}
+  @type create_backend_storage_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       backend_auth_social_provider_config() :: %{
-        "ClientId" => String.t(),
-        "ClientSecret" => String.t()
+        "ClientId" => String.t() | Atom.t(),
+        "ClientSecret" => String.t() | Atom.t()
       }
 
   """
-  @type backend_auth_social_provider_config() :: %{String.t() => any()}
+  @type backend_auth_social_provider_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_backend_response() :: %{
-        "AmplifyFeatureFlags" => String.t(),
-        "AmplifyMetaConfig" => String.t(),
-        "AppId" => String.t(),
-        "AppName" => String.t(),
-        "BackendEnvironmentList" => list(String.t()),
-        "BackendEnvironmentName" => String.t(),
-        "Error" => String.t()
+        "AmplifyFeatureFlags" => String.t() | Atom.t(),
+        "AmplifyMetaConfig" => String.t() | Atom.t(),
+        "AppId" => String.t() | Atom.t(),
+        "AppName" => String.t() | Atom.t(),
+        "BackendEnvironmentList" => list(String.t() | Atom.t()),
+        "BackendEnvironmentName" => String.t() | Atom.t(),
+        "Error" => String.t() | Atom.t()
       }
 
   """
-  @type get_backend_response() :: %{String.t() => any()}
+  @type get_backend_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       sms_settings() :: %{
-        "SmsMessage" => String.t()
+        "SmsMessage" => String.t() | Atom.t()
       }
 
   """
-  @type sms_settings() :: %{String.t() => any()}
+  @type sms_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_backend_api_response() :: %{
-        "AppId" => String.t(),
-        "BackendEnvironmentName" => String.t(),
-        "Error" => String.t(),
-        "JobId" => String.t(),
-        "Operation" => String.t(),
-        "Status" => String.t()
+        "AppId" => String.t() | Atom.t(),
+        "BackendEnvironmentName" => String.t() | Atom.t(),
+        "Error" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
+        "Operation" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type update_backend_api_response() :: %{String.t() => any()}
+  @type update_backend_api_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1005,112 +1005,112 @@ defmodule AWS.AmplifyBackend do
       }
 
   """
-  @type backend_storage_permissions() :: %{String.t() => any()}
+  @type backend_storage_permissions() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       gateway_timeout_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type gateway_timeout_exception() :: %{String.t() => any()}
+  @type gateway_timeout_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_backend_config_response() :: %{
-        "AppId" => String.t(),
-        "BackendEnvironmentName" => String.t(),
-        "JobId" => String.t(),
-        "Status" => String.t()
+        "AppId" => String.t() | Atom.t(),
+        "BackendEnvironmentName" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type create_backend_config_response() :: %{String.t() => any()}
+  @type create_backend_config_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_backend_auth_identity_pool_config() :: %{
-        "IdentityPoolName" => String.t(),
+        "IdentityPoolName" => String.t() | Atom.t(),
         "UnauthenticatedLogin" => boolean()
       }
 
   """
-  @type create_backend_auth_identity_pool_config() :: %{String.t() => any()}
+  @type create_backend_auth_identity_pool_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_backend_job_request() :: %{
-        optional("Operation") => String.t(),
-        optional("Status") => String.t()
+        optional("Operation") => String.t() | Atom.t(),
+        optional("Status") => String.t() | Atom.t()
       }
 
   """
-  @type update_backend_job_request() :: %{String.t() => any()}
+  @type update_backend_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_backend_auth_o_auth_config() :: %{
-        "DomainPrefix" => String.t(),
+        "DomainPrefix" => String.t() | Atom.t(),
         "OAuthGrantType" => list(any()),
         "OAuthScopes" => list(list(any())()),
-        "RedirectSignInURIs" => list(String.t()),
-        "RedirectSignOutURIs" => list(String.t()),
+        "RedirectSignInURIs" => list(String.t() | Atom.t()),
+        "RedirectSignOutURIs" => list(String.t() | Atom.t()),
         "SocialProviderSettings" => social_provider_settings()
       }
 
   """
-  @type create_backend_auth_o_auth_config() :: %{String.t() => any()}
+  @type create_backend_auth_o_auth_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bad_request_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type bad_request_exception() :: %{String.t() => any()}
+  @type bad_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_backend_auth_response() :: %{
-        "AppId" => String.t(),
-        "BackendEnvironmentName" => String.t(),
-        "Error" => String.t(),
+        "AppId" => String.t() | Atom.t(),
+        "BackendEnvironmentName" => String.t() | Atom.t(),
+        "Error" => String.t() | Atom.t(),
         "ResourceConfig" => create_backend_auth_resource_config(),
-        "ResourceName" => String.t()
+        "ResourceName" => String.t() | Atom.t()
       }
 
   """
-  @type get_backend_auth_response() :: %{String.t() => any()}
+  @type get_backend_auth_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_token_response() :: %{
-        "AppId" => String.t(),
-        "ChallengeCode" => String.t(),
-        "SessionId" => String.t(),
-        "Ttl" => String.t()
+        "AppId" => String.t() | Atom.t(),
+        "ChallengeCode" => String.t() | Atom.t(),
+        "SessionId" => String.t() | Atom.t(),
+        "Ttl" => String.t() | Atom.t()
       }
 
   """
-  @type create_token_response() :: %{String.t() => any()}
+  @type create_token_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1126,43 +1126,43 @@ defmodule AWS.AmplifyBackend do
   ## Example:
 
       get_backend_api_response() :: %{
-        "AppId" => String.t(),
-        "BackendEnvironmentName" => String.t(),
-        "Error" => String.t(),
+        "AppId" => String.t() | Atom.t(),
+        "BackendEnvironmentName" => String.t() | Atom.t(),
+        "Error" => String.t() | Atom.t(),
         "ResourceConfig" => backend_api_resource_config(),
-        "ResourceName" => String.t()
+        "ResourceName" => String.t() | Atom.t()
       }
 
   """
-  @type get_backend_api_response() :: %{String.t() => any()}
+  @type get_backend_api_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_backend_storage_response() :: %{
-        "AppId" => String.t(),
-        "BackendEnvironmentName" => String.t(),
-        "JobId" => String.t(),
-        "Status" => String.t()
+        "AppId" => String.t() | Atom.t(),
+        "BackendEnvironmentName" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type delete_backend_storage_response() :: %{String.t() => any()}
+  @type delete_backend_storage_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       import_backend_auth_request() :: %{
-        optional("IdentityPoolId") => String.t(),
-        required("NativeClientId") => String.t(),
-        required("UserPoolId") => String.t(),
-        required("WebClientId") => String.t()
+        optional("IdentityPoolId") => String.t() | Atom.t(),
+        required("NativeClientId") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t(),
+        required("WebClientId") => String.t() | Atom.t()
       }
 
   """
-  @type import_backend_auth_request() :: %{String.t() => any()}
+  @type import_backend_auth_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1175,18 +1175,18 @@ defmodule AWS.AmplifyBackend do
       }
 
   """
-  @type update_backend_auth_forgot_password_config() :: %{String.t() => any()}
+  @type update_backend_auth_forgot_password_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_backend_auth_request() :: %{
-        required("ResourceName") => String.t()
+        required("ResourceName") => String.t() | Atom.t()
       }
 
   """
-  @type delete_backend_auth_request() :: %{String.t() => any()}
+  @type delete_backend_auth_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1198,7 +1198,7 @@ defmodule AWS.AmplifyBackend do
       }
 
   """
-  @type update_backend_storage_resource_config() :: %{String.t() => any()}
+  @type update_backend_storage_resource_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1210,23 +1210,23 @@ defmodule AWS.AmplifyBackend do
       }
 
   """
-  @type create_backend_auth_mfa_config() :: %{String.t() => any()}
+  @type create_backend_auth_mfa_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_backend_api_response() :: %{
-        "AppId" => String.t(),
-        "BackendEnvironmentName" => String.t(),
-        "Error" => String.t(),
-        "JobId" => String.t(),
-        "Operation" => String.t(),
-        "Status" => String.t()
+        "AppId" => String.t() | Atom.t(),
+        "BackendEnvironmentName" => String.t() | Atom.t(),
+        "Error" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
+        "Operation" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type delete_backend_api_response() :: %{String.t() => any()}
+  @type delete_backend_api_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1237,7 +1237,7 @@ defmodule AWS.AmplifyBackend do
       }
 
   """
-  @type update_backend_auth_identity_pool_config() :: %{String.t() => any()}
+  @type update_backend_auth_identity_pool_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1250,7 +1250,7 @@ defmodule AWS.AmplifyBackend do
       }
 
   """
-  @type update_backend_auth_verification_message_config() :: %{String.t() => any()}
+  @type update_backend_auth_verification_message_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1267,58 +1267,58 @@ defmodule AWS.AmplifyBackend do
 
       update_backend_storage_request() :: %{
         required("ResourceConfig") => update_backend_storage_resource_config(),
-        required("ResourceName") => String.t()
+        required("ResourceName") => String.t() | Atom.t()
       }
 
   """
-  @type update_backend_storage_request() :: %{String.t() => any()}
+  @type update_backend_storage_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_backend_api_request() :: %{
-        required("BackendEnvironmentName") => String.t(),
+        required("BackendEnvironmentName") => String.t() | Atom.t(),
         required("ResourceConfig") => backend_api_resource_config(),
-        required("ResourceName") => String.t()
+        required("ResourceName") => String.t() | Atom.t()
       }
 
   """
-  @type create_backend_api_request() :: %{String.t() => any()}
+  @type create_backend_api_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_backend_job_response() :: %{
-        "AppId" => String.t(),
-        "BackendEnvironmentName" => String.t(),
-        "CreateTime" => String.t(),
-        "Error" => String.t(),
-        "JobId" => String.t(),
-        "Operation" => String.t(),
-        "Status" => String.t(),
-        "UpdateTime" => String.t()
+        "AppId" => String.t() | Atom.t(),
+        "BackendEnvironmentName" => String.t() | Atom.t(),
+        "CreateTime" => String.t() | Atom.t(),
+        "Error" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
+        "Operation" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t(),
+        "UpdateTime" => String.t() | Atom.t()
       }
 
   """
-  @type update_backend_job_response() :: %{String.t() => any()}
+  @type update_backend_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       clone_backend_response() :: %{
-        "AppId" => String.t(),
-        "BackendEnvironmentName" => String.t(),
-        "Error" => String.t(),
-        "JobId" => String.t(),
-        "Operation" => String.t(),
-        "Status" => String.t()
+        "AppId" => String.t() | Atom.t(),
+        "BackendEnvironmentName" => String.t() | Atom.t(),
+        "Error" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
+        "Operation" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type clone_backend_response() :: %{String.t() => any()}
+  @type clone_backend_response() :: %{String.t() | Atom.t() => any()}
 
   @type clone_backend_errors() ::
           bad_request_exception()
@@ -1525,7 +1525,13 @@ defmodule AWS.AmplifyBackend do
   @doc """
   This operation clones an existing backend.
   """
-  @spec clone_backend(map(), String.t(), String.t(), clone_backend_request(), list()) ::
+  @spec clone_backend(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          clone_backend_request(),
+          list()
+        ) ::
           {:ok, clone_backend_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1587,7 +1593,7 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Creates a new backend API resource.
   """
-  @spec create_backend_api(map(), String.t(), create_backend_api_request(), list()) ::
+  @spec create_backend_api(map(), String.t() | Atom.t(), create_backend_api_request(), list()) ::
           {:ok, create_backend_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1616,7 +1622,7 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Creates a new backend authentication resource.
   """
-  @spec create_backend_auth(map(), String.t(), create_backend_auth_request(), list()) ::
+  @spec create_backend_auth(map(), String.t() | Atom.t(), create_backend_auth_request(), list()) ::
           {:ok, create_backend_auth_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1645,7 +1651,12 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Creates a config object for a backend.
   """
-  @spec create_backend_config(map(), String.t(), create_backend_config_request(), list()) ::
+  @spec create_backend_config(
+          map(),
+          String.t() | Atom.t(),
+          create_backend_config_request(),
+          list()
+        ) ::
           {:ok, create_backend_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1674,7 +1685,12 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Creates a backend storage resource.
   """
-  @spec create_backend_storage(map(), String.t(), create_backend_storage_request(), list()) ::
+  @spec create_backend_storage(
+          map(),
+          String.t() | Atom.t(),
+          create_backend_storage_request(),
+          list()
+        ) ::
           {:ok, create_backend_storage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1704,7 +1720,7 @@ defmodule AWS.AmplifyBackend do
   Generates a one-time challenge code to authenticate a user into your Amplify
   Admin UI.
   """
-  @spec create_token(map(), String.t(), create_token_request(), list()) ::
+  @spec create_token(map(), String.t() | Atom.t(), create_token_request(), list()) ::
           {:ok, create_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1733,7 +1749,13 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Removes an existing environment from your Amplify project.
   """
-  @spec delete_backend(map(), String.t(), String.t(), delete_backend_request(), list()) ::
+  @spec delete_backend(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_backend_request(),
+          list()
+        ) ::
           {:ok, delete_backend_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1764,7 +1786,13 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Deletes an existing backend API resource.
   """
-  @spec delete_backend_api(map(), String.t(), String.t(), delete_backend_api_request(), list()) ::
+  @spec delete_backend_api(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_backend_api_request(),
+          list()
+        ) ::
           {:ok, delete_backend_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1801,7 +1829,13 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Deletes an existing backend authentication resource.
   """
-  @spec delete_backend_auth(map(), String.t(), String.t(), delete_backend_auth_request(), list()) ::
+  @spec delete_backend_auth(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_backend_auth_request(),
+          list()
+        ) ::
           {:ok, delete_backend_auth_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1840,8 +1874,8 @@ defmodule AWS.AmplifyBackend do
   """
   @spec delete_backend_storage(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_backend_storage_request(),
           list()
         ) ::
@@ -1881,7 +1915,13 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Deletes the challenge token based on the given appId and sessionId.
   """
-  @spec delete_token(map(), String.t(), String.t(), delete_token_request(), list()) ::
+  @spec delete_token(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_token_request(),
+          list()
+        ) ::
           {:ok, delete_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1914,8 +1954,8 @@ defmodule AWS.AmplifyBackend do
   """
   @spec generate_backend_api_models(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           generate_backend_api_models_request(),
           list()
         ) ::
@@ -1955,7 +1995,7 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Provides project-level details for your Amplify UI project.
   """
-  @spec get_backend(map(), String.t(), get_backend_request(), list()) ::
+  @spec get_backend(map(), String.t() | Atom.t(), get_backend_request(), list()) ::
           {:ok, get_backend_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1984,7 +2024,13 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Gets the details for a backend API.
   """
-  @spec get_backend_api(map(), String.t(), String.t(), get_backend_api_request(), list()) ::
+  @spec get_backend_api(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          get_backend_api_request(),
+          list()
+        ) ::
           {:ok, get_backend_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2017,8 +2063,8 @@ defmodule AWS.AmplifyBackend do
   """
   @spec get_backend_api_models(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           get_backend_api_models_request(),
           list()
         ) ::
@@ -2058,7 +2104,13 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Gets a backend auth details.
   """
-  @spec get_backend_auth(map(), String.t(), String.t(), get_backend_auth_request(), list()) ::
+  @spec get_backend_auth(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          get_backend_auth_request(),
+          list()
+        ) ::
           {:ok, get_backend_auth_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2089,7 +2141,13 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Returns information about a specific job.
   """
-  @spec get_backend_job(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_backend_job(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_backend_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2109,7 +2167,13 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Gets details for a backend storage resource.
   """
-  @spec get_backend_storage(map(), String.t(), String.t(), get_backend_storage_request(), list()) ::
+  @spec get_backend_storage(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          get_backend_storage_request(),
+          list()
+        ) ::
           {:ok, get_backend_storage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2146,7 +2210,7 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Gets the challenge token based on the given appId and sessionId.
   """
-  @spec get_token(map(), String.t(), String.t(), list()) ::
+  @spec get_token(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2166,7 +2230,13 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Imports an existing backend authentication resource.
   """
-  @spec import_backend_auth(map(), String.t(), String.t(), import_backend_auth_request(), list()) ::
+  @spec import_backend_auth(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          import_backend_auth_request(),
+          list()
+        ) ::
           {:ok, import_backend_auth_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2205,8 +2275,8 @@ defmodule AWS.AmplifyBackend do
   """
   @spec import_backend_storage(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           import_backend_storage_request(),
           list()
         ) ::
@@ -2246,7 +2316,13 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Lists the jobs for the backend of an Amplify app.
   """
-  @spec list_backend_jobs(map(), String.t(), String.t(), list_backend_jobs_request(), list()) ::
+  @spec list_backend_jobs(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list_backend_jobs_request(),
+          list()
+        ) ::
           {:ok, list_backend_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2312,7 +2388,7 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Removes all backend environments from your Amplify project.
   """
-  @spec remove_all_backends(map(), String.t(), remove_all_backends_request(), list()) ::
+  @spec remove_all_backends(map(), String.t() | Atom.t(), remove_all_backends_request(), list()) ::
           {:ok, remove_all_backends_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2341,7 +2417,12 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Removes the AWS resources required to access the Amplify Admin UI.
   """
-  @spec remove_backend_config(map(), String.t(), remove_backend_config_request(), list()) ::
+  @spec remove_backend_config(
+          map(),
+          String.t() | Atom.t(),
+          remove_backend_config_request(),
+          list()
+        ) ::
           {:ok, remove_backend_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2370,7 +2451,13 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Updates an existing backend API resource.
   """
-  @spec update_backend_api(map(), String.t(), String.t(), update_backend_api_request(), list()) ::
+  @spec update_backend_api(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_backend_api_request(),
+          list()
+        ) ::
           {:ok, update_backend_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2407,7 +2494,13 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Updates an existing backend authentication resource.
   """
-  @spec update_backend_auth(map(), String.t(), String.t(), update_backend_auth_request(), list()) ::
+  @spec update_backend_auth(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_backend_auth_request(),
+          list()
+        ) ::
           {:ok, update_backend_auth_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2444,7 +2537,12 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Updates the AWS resources required to access the Amplify Admin UI.
   """
-  @spec update_backend_config(map(), String.t(), update_backend_config_request(), list()) ::
+  @spec update_backend_config(
+          map(),
+          String.t() | Atom.t(),
+          update_backend_config_request(),
+          list()
+        ) ::
           {:ok, update_backend_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2475,9 +2573,9 @@ defmodule AWS.AmplifyBackend do
   """
   @spec update_backend_job(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_backend_job_request(),
           list()
         ) ::
@@ -2520,8 +2618,8 @@ defmodule AWS.AmplifyBackend do
   """
   @spec update_backend_storage(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_backend_storage_request(),
           list()
         ) ::

@@ -37,30 +37,30 @@ defmodule AWS.ECR do
       }
       
   """
-  @type image_scan_findings_summary() :: %{String.t() => any()}
+  @type image_scan_findings_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_repository_policy_request() :: %{
-        optional("registryId") => String.t(),
-        required("repositoryName") => String.t()
+        optional("registryId") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type get_repository_policy_request() :: %{String.t() => any()}
+  @type get_repository_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       upload_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type upload_not_found_exception() :: %{String.t() => any()}
+  @type upload_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -71,21 +71,21 @@ defmodule AWS.ECR do
       }
       
   """
-  @type create_repository_response() :: %{String.t() => any()}
+  @type create_repository_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       image_replication_status() :: %{
-        "failureCode" => String.t(),
-        "region" => String.t(),
-        "registryId" => String.t(),
+        "failureCode" => String.t() | Atom.t(),
+        "region" => String.t() | Atom.t(),
+        "registryId" => String.t() | Atom.t(),
         "status" => list(any())
       }
       
   """
-  @type image_replication_status() :: %{String.t() => any()}
+  @type image_replication_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -97,7 +97,7 @@ defmodule AWS.ECR do
       }
       
   """
-  @type put_registry_scanning_configuration_request() :: %{String.t() => any()}
+  @type put_registry_scanning_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -105,17 +105,17 @@ defmodule AWS.ECR do
       
       create_pull_through_cache_rule_response() :: %{
         "createdAt" => non_neg_integer(),
-        "credentialArn" => String.t(),
-        "customRoleArn" => String.t(),
-        "ecrRepositoryPrefix" => String.t(),
-        "registryId" => String.t(),
+        "credentialArn" => String.t() | Atom.t(),
+        "customRoleArn" => String.t() | Atom.t(),
+        "ecrRepositoryPrefix" => String.t() | Atom.t(),
+        "registryId" => String.t() | Atom.t(),
         "upstreamRegistry" => list(any()),
-        "upstreamRegistryUrl" => String.t(),
-        "upstreamRepositoryPrefix" => String.t()
+        "upstreamRegistryUrl" => String.t() | Atom.t(),
+        "upstreamRepositoryPrefix" => String.t() | Atom.t()
       }
       
   """
-  @type create_pull_through_cache_rule_response() :: %{String.t() => any()}
+  @type create_pull_through_cache_rule_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -123,45 +123,45 @@ defmodule AWS.ECR do
       
       encryption_configuration() :: %{
         "encryptionType" => list(any()),
-        "kmsKey" => String.t()
+        "kmsKey" => String.t() | Atom.t()
       }
       
   """
-  @type encryption_configuration() :: %{String.t() => any()}
+  @type encryption_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       template_already_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type template_already_exists_exception() :: %{String.t() => any()}
+  @type template_already_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       image_digest_does_not_match_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type image_digest_does_not_match_exception() :: %{String.t() => any()}
+  @type image_digest_does_not_match_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("resourceArn") => String.t(),
+        required("resourceArn") => String.t() | Atom.t(),
         required("tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -169,58 +169,58 @@ defmodule AWS.ECR do
       
       put_image_tag_mutability_response() :: %{
         "imageTagMutability" => list(any()),
-        "registryId" => String.t(),
-        "repositoryName" => String.t()
+        "registryId" => String.t() | Atom.t(),
+        "repositoryName" => String.t() | Atom.t()
       }
       
   """
-  @type put_image_tag_mutability_response() :: %{String.t() => any()}
+  @type put_image_tag_mutability_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_registry_policy_response() :: %{
-        "policyText" => String.t(),
-        "registryId" => String.t()
+        "policyText" => String.t() | Atom.t(),
+        "registryId" => String.t() | Atom.t()
       }
       
   """
-  @type put_registry_policy_response() :: %{String.t() => any()}
+  @type put_registry_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       lifecycle_policy_preview_in_progress_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type lifecycle_policy_preview_in_progress_exception() :: %{String.t() => any()}
+  @type lifecycle_policy_preview_in_progress_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       image_already_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type image_already_exists_exception() :: %{String.t() => any()}
+  @type image_already_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_download_url_for_layer_response() :: %{
-        "downloadUrl" => String.t(),
-        "layerDigest" => String.t()
+        "downloadUrl" => String.t() | Atom.t(),
+        "layerDigest" => String.t() | Atom.t()
       }
       
   """
-  @type get_download_url_for_layer_response() :: %{String.t() => any()}
+  @type get_download_url_for_layer_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -231,7 +231,7 @@ defmodule AWS.ECR do
       }
       
   """
-  @type remediation() :: %{String.t() => any()}
+  @type remediation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -242,30 +242,30 @@ defmodule AWS.ECR do
       }
       
   """
-  @type image_scanning_configuration() :: %{String.t() => any()}
+  @type image_scanning_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_repository_creation_template_response() :: %{
-        "registryId" => String.t(),
+        "registryId" => String.t() | Atom.t(),
         "repositoryCreationTemplate" => repository_creation_template()
       }
       
   """
-  @type update_repository_creation_template_response() :: %{String.t() => any()}
+  @type update_repository_creation_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_account_setting_request() :: %{
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
       
   """
-  @type get_account_setting_request() :: %{String.t() => any()}
+  @type get_account_setting_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -273,12 +273,12 @@ defmodule AWS.ECR do
       
       layer_failure() :: %{
         "failureCode" => list(any()),
-        "failureReason" => String.t(),
-        "layerDigest" => String.t()
+        "failureReason" => String.t() | Atom.t(),
+        "layerDigest" => String.t() | Atom.t()
       }
       
   """
-  @type layer_failure() :: %{String.t() => any()}
+  @type layer_failure() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -294,30 +294,30 @@ defmodule AWS.ECR do
   ## Example:
       
       image_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type image_not_found_exception() :: %{String.t() => any()}
+  @type image_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_repository_creation_template_request() :: %{
-        optional("customRoleArn") => String.t(),
-        optional("description") => String.t(),
+        optional("customRoleArn") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("encryptionConfiguration") => encryption_configuration_for_repository_creation_template(),
         optional("imageTagMutability") => list(any()),
-        optional("lifecyclePolicy") => String.t(),
-        optional("repositoryPolicy") => String.t(),
+        optional("lifecyclePolicy") => String.t() | Atom.t(),
+        optional("repositoryPolicy") => String.t() | Atom.t(),
         optional("resourceTags") => list(tag()),
         required("appliedFor") => list(list(any())()),
-        required("prefix") => String.t()
+        required("prefix") => String.t() | Atom.t()
       }
       
   """
-  @type create_repository_creation_template_request() :: %{String.t() => any()}
+  @type create_repository_creation_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -327,73 +327,73 @@ defmodule AWS.ECR do
         optional("filter") => describe_images_filter(),
         optional("imageIds") => list(image_identifier()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("registryId") => String.t(),
-        required("repositoryName") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("registryId") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_images_request() :: %{String.t() => any()}
+  @type describe_images_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_account_setting_response() :: %{
-        "name" => String.t(),
-        "value" => String.t()
+        "name" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
       
   """
-  @type put_account_setting_response() :: %{String.t() => any()}
+  @type put_account_setting_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       scan_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type scan_not_found_exception() :: %{String.t() => any()}
+  @type scan_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       image_scan_status() :: %{
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "status" => list(any())
       }
       
   """
-  @type image_scan_status() :: %{String.t() => any()}
+  @type image_scan_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       set_repository_policy_response() :: %{
-        "policyText" => String.t(),
-        "registryId" => String.t(),
-        "repositoryName" => String.t()
+        "policyText" => String.t() | Atom.t(),
+        "registryId" => String.t() | Atom.t(),
+        "repositoryName" => String.t() | Atom.t()
       }
       
   """
-  @type set_repository_policy_response() :: %{String.t() => any()}
+  @type set_repository_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       initiate_layer_upload_request() :: %{
-        optional("registryId") => String.t(),
-        required("repositoryName") => String.t()
+        optional("registryId") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type initiate_layer_upload_request() :: %{String.t() => any()}
+  @type initiate_layer_upload_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -404,21 +404,21 @@ defmodule AWS.ECR do
       }
       
   """
-  @type put_registry_scanning_configuration_response() :: %{String.t() => any()}
+  @type put_registry_scanning_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_pull_through_cache_rule_request() :: %{
-        optional("credentialArn") => String.t(),
-        optional("customRoleArn") => String.t(),
-        optional("registryId") => String.t(),
-        required("ecrRepositoryPrefix") => String.t()
+        optional("credentialArn") => String.t() | Atom.t(),
+        optional("customRoleArn") => String.t() | Atom.t(),
+        optional("registryId") => String.t() | Atom.t(),
+        required("ecrRepositoryPrefix") => String.t() | Atom.t()
       }
       
   """
-  @type update_pull_through_cache_rule_request() :: %{String.t() => any()}
+  @type update_pull_through_cache_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -430,18 +430,18 @@ defmodule AWS.ECR do
       }
       
   """
-  @type batch_check_layer_availability_response() :: %{String.t() => any()}
+  @type batch_check_layer_availability_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       layers_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type layers_not_found_exception() :: %{String.t() => any()}
+  @type layers_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -449,23 +449,26 @@ defmodule AWS.ECR do
       
       encryption_configuration_for_repository_creation_template() :: %{
         "encryptionType" => list(any()),
-        "kmsKey" => String.t()
+        "kmsKey" => String.t() | Atom.t()
       }
       
   """
-  @type encryption_configuration_for_repository_creation_template() :: %{String.t() => any()}
+  @type encryption_configuration_for_repository_creation_template() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       delete_repository_policy_request() :: %{
-        optional("registryId") => String.t(),
-        required("repositoryName") => String.t()
+        optional("registryId") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_repository_policy_request() :: %{String.t() => any()}
+  @type delete_repository_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -480,42 +483,42 @@ defmodule AWS.ECR do
       }
       
   """
-  @type image_scan_findings() :: %{String.t() => any()}
+  @type image_scan_findings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_image_scan_request() :: %{
-        optional("registryId") => String.t(),
+        optional("registryId") => String.t() | Atom.t(),
         required("imageId") => image_identifier(),
-        required("repositoryName") => String.t()
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type start_image_scan_request() :: %{String.t() => any()}
+  @type start_image_scan_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       repository_not_empty_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type repository_not_empty_exception() :: %{String.t() => any()}
+  @type repository_not_empty_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_repository_creation_template_request() :: %{
-        required("prefix") => String.t()
+        required("prefix") => String.t() | Atom.t()
       }
       
   """
-  @type delete_repository_creation_template_request() :: %{String.t() => any()}
+  @type delete_repository_creation_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -531,23 +534,23 @@ defmodule AWS.ECR do
   ## Example:
       
       repository_filter() :: %{
-        "filter" => String.t(),
+        "filter" => String.t() | Atom.t(),
         "filterType" => list(any())
       }
       
   """
-  @type repository_filter() :: %{String.t() => any()}
+  @type repository_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       registry_policy_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type registry_policy_not_found_exception() :: %{String.t() => any()}
+  @type registry_policy_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -555,92 +558,92 @@ defmodule AWS.ECR do
       
       put_image_scanning_configuration_response() :: %{
         "imageScanningConfiguration" => image_scanning_configuration(),
-        "registryId" => String.t(),
-        "repositoryName" => String.t()
+        "registryId" => String.t() | Atom.t(),
+        "repositoryName" => String.t() | Atom.t()
       }
       
   """
-  @type put_image_scanning_configuration_response() :: %{String.t() => any()}
+  @type put_image_scanning_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       unsupported_image_type_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type unsupported_image_type_exception() :: %{String.t() => any()}
+  @type unsupported_image_type_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_tag_parameter_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_tag_parameter_exception() :: %{String.t() => any()}
+  @type invalid_tag_parameter_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       repository_already_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type repository_already_exists_exception() :: %{String.t() => any()}
+  @type repository_already_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("resourceArn") => String.t(),
-        required("tagKeys") => list(String.t())
+        required("resourceArn") => String.t() | Atom.t(),
+        required("tagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       repository_policy_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type repository_policy_not_found_exception() :: %{String.t() => any()}
+  @type repository_policy_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_repository_policy_response() :: %{
-        "policyText" => String.t(),
-        "registryId" => String.t(),
-        "repositoryName" => String.t()
+        "policyText" => String.t() | Atom.t(),
+        "registryId" => String.t() | Atom.t(),
+        "repositoryName" => String.t() | Atom.t()
       }
       
   """
-  @type get_repository_policy_response() :: %{String.t() => any()}
+  @type get_repository_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       layer_already_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type layer_already_exists_exception() :: %{String.t() => any()}
+  @type layer_already_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -652,7 +655,7 @@ defmodule AWS.ECR do
       }
       
   """
-  @type registry_scanning_configuration() :: %{String.t() => any()}
+  @type registry_scanning_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -660,11 +663,11 @@ defmodule AWS.ECR do
       
       describe_images_response() :: %{
         "imageDetails" => list(image_detail()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_images_response() :: %{String.t() => any()}
+  @type describe_images_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -672,65 +675,65 @@ defmodule AWS.ECR do
       
       describe_repositories_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("registryId") => String.t(),
-        optional("repositoryNames") => list(String.t())
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("registryId") => String.t() | Atom.t(),
+        optional("repositoryNames") => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_repositories_request() :: %{String.t() => any()}
+  @type describe_repositories_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_image_request() :: %{
-        optional("imageDigest") => String.t(),
-        optional("imageManifestMediaType") => String.t(),
-        optional("imageTag") => String.t(),
-        optional("registryId") => String.t(),
-        required("imageManifest") => String.t(),
-        required("repositoryName") => String.t()
+        optional("imageDigest") => String.t() | Atom.t(),
+        optional("imageManifestMediaType") => String.t() | Atom.t(),
+        optional("imageTag") => String.t() | Atom.t(),
+        optional("registryId") => String.t() | Atom.t(),
+        required("imageManifest") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type put_image_request() :: %{String.t() => any()}
+  @type put_image_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       lifecycle_policy_preview_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type lifecycle_policy_preview_not_found_exception() :: %{String.t() => any()}
+  @type lifecycle_policy_preview_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       complete_layer_upload_request() :: %{
-        optional("registryId") => String.t(),
-        required("layerDigests") => list(String.t()),
-        required("repositoryName") => String.t(),
-        required("uploadId") => String.t()
+        optional("registryId") => String.t() | Atom.t(),
+        required("layerDigests") => list(String.t() | Atom.t()),
+        required("repositoryName") => String.t() | Atom.t(),
+        required("uploadId") => String.t() | Atom.t()
       }
       
   """
-  @type complete_layer_upload_request() :: %{String.t() => any()}
+  @type complete_layer_upload_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       unable_to_get_upstream_image_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type unable_to_get_upstream_image_exception() :: %{String.t() => any()}
+  @type unable_to_get_upstream_image_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -738,13 +741,13 @@ defmodule AWS.ECR do
       
       set_repository_policy_request() :: %{
         optional("force") => boolean(),
-        optional("registryId") => String.t(),
-        required("policyText") => String.t(),
-        required("repositoryName") => String.t()
+        optional("registryId") => String.t() | Atom.t(),
+        required("policyText") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type set_repository_policy_request() :: %{String.t() => any()}
+  @type set_repository_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -760,13 +763,13 @@ defmodule AWS.ECR do
   ## Example:
       
       put_image_scanning_configuration_request() :: %{
-        optional("registryId") => String.t(),
+        optional("registryId") => String.t() | Atom.t(),
         required("imageScanningConfiguration") => image_scanning_configuration(),
-        required("repositoryName") => String.t()
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type put_image_scanning_configuration_request() :: %{String.t() => any()}
+  @type put_image_scanning_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -777,74 +780,74 @@ defmodule AWS.ECR do
       }
       
   """
-  @type lifecycle_policy_preview_filter() :: %{String.t() => any()}
+  @type lifecycle_policy_preview_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_account_setting_request() :: %{
-        required("name") => String.t(),
-        required("value") => String.t()
+        required("name") => String.t() | Atom.t(),
+        required("value") => String.t() | Atom.t()
       }
       
   """
-  @type put_account_setting_request() :: %{String.t() => any()}
+  @type put_account_setting_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       enhanced_image_scan_finding() :: %{
-        "awsAccountId" => String.t(),
-        "description" => String.t(),
-        "exploitAvailable" => String.t(),
-        "findingArn" => String.t(),
+        "awsAccountId" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "exploitAvailable" => String.t() | Atom.t(),
+        "findingArn" => String.t() | Atom.t(),
         "firstObservedAt" => non_neg_integer(),
-        "fixAvailable" => String.t(),
+        "fixAvailable" => String.t() | Atom.t(),
         "lastObservedAt" => non_neg_integer(),
         "packageVulnerabilityDetails" => package_vulnerability_details(),
         "remediation" => remediation(),
         "resources" => list(resource()),
         "score" => float(),
         "scoreDetails" => score_details(),
-        "severity" => String.t(),
-        "status" => String.t(),
-        "title" => String.t(),
-        "type" => String.t(),
+        "severity" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t(),
+        "title" => String.t() | Atom.t(),
+        "type" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer()
       }
       
   """
-  @type enhanced_image_scan_finding() :: %{String.t() => any()}
+  @type enhanced_image_scan_finding() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_lifecycle_policy_preview_response() :: %{
-        "lifecyclePolicyText" => String.t(),
-        "nextToken" => String.t(),
+        "lifecyclePolicyText" => String.t() | Atom.t(),
+        "nextToken" => String.t() | Atom.t(),
         "previewResults" => list(lifecycle_policy_preview_result()),
-        "registryId" => String.t(),
-        "repositoryName" => String.t(),
+        "registryId" => String.t() | Atom.t(),
+        "repositoryName" => String.t() | Atom.t(),
         "status" => list(any()),
         "summary" => lifecycle_policy_preview_summary()
       }
       
   """
-  @type get_lifecycle_policy_preview_response() :: %{String.t() => any()}
+  @type get_lifecycle_policy_preview_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       template_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type template_not_found_exception() :: %{String.t() => any()}
+  @type template_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -855,7 +858,7 @@ defmodule AWS.ECR do
       }
       
   """
-  @type lifecycle_policy_rule_action() :: %{String.t() => any()}
+  @type lifecycle_policy_rule_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -863,53 +866,53 @@ defmodule AWS.ECR do
       
       delete_lifecycle_policy_response() :: %{
         "lastEvaluatedAt" => non_neg_integer(),
-        "lifecyclePolicyText" => String.t(),
-        "registryId" => String.t(),
-        "repositoryName" => String.t()
+        "lifecyclePolicyText" => String.t() | Atom.t(),
+        "registryId" => String.t() | Atom.t(),
+        "repositoryName" => String.t() | Atom.t()
       }
       
   """
-  @type delete_lifecycle_policy_response() :: %{String.t() => any()}
+  @type delete_lifecycle_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_delete_image_request() :: %{
-        optional("registryId") => String.t(),
+        optional("registryId") => String.t() | Atom.t(),
         required("imageIds") => list(image_identifier()),
-        required("repositoryName") => String.t()
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type batch_delete_image_request() :: %{String.t() => any()}
+  @type batch_delete_image_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_lifecycle_policy_request() :: %{
-        optional("registryId") => String.t(),
-        required("lifecyclePolicyText") => String.t(),
-        required("repositoryName") => String.t()
+        optional("registryId") => String.t() | Atom.t(),
+        required("lifecyclePolicyText") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type put_lifecycle_policy_request() :: %{String.t() => any()}
+  @type put_lifecycle_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       complete_layer_upload_response() :: %{
-        "layerDigest" => String.t(),
-        "registryId" => String.t(),
-        "repositoryName" => String.t(),
-        "uploadId" => String.t()
+        "layerDigest" => String.t() | Atom.t(),
+        "registryId" => String.t() | Atom.t(),
+        "repositoryName" => String.t() | Atom.t(),
+        "uploadId" => String.t() | Atom.t()
       }
       
   """
-  @type complete_layer_upload_response() :: %{String.t() => any()}
+  @type complete_layer_upload_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -918,19 +921,19 @@ defmodule AWS.ECR do
       repository_creation_template() :: %{
         "appliedFor" => list(list(any())()),
         "createdAt" => non_neg_integer(),
-        "customRoleArn" => String.t(),
-        "description" => String.t(),
+        "customRoleArn" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
         "encryptionConfiguration" => encryption_configuration_for_repository_creation_template(),
         "imageTagMutability" => list(any()),
-        "lifecyclePolicy" => String.t(),
-        "prefix" => String.t(),
-        "repositoryPolicy" => String.t(),
+        "lifecyclePolicy" => String.t() | Atom.t(),
+        "prefix" => String.t() | Atom.t(),
+        "repositoryPolicy" => String.t() | Atom.t(),
         "resourceTags" => list(tag()),
         "updatedAt" => non_neg_integer()
       }
       
   """
-  @type repository_creation_template() :: %{String.t() => any()}
+  @type repository_creation_template() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -941,7 +944,7 @@ defmodule AWS.ECR do
       }
       
   """
-  @type replication_configuration() :: %{String.t() => any()}
+  @type replication_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -949,23 +952,23 @@ defmodule AWS.ECR do
       
       image_failure() :: %{
         "failureCode" => list(any()),
-        "failureReason" => String.t(),
+        "failureReason" => String.t() | Atom.t(),
         "imageId" => image_identifier()
       }
       
   """
-  @type image_failure() :: %{String.t() => any()}
+  @type image_failure() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       lifecycle_policy_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type lifecycle_policy_not_found_exception() :: %{String.t() => any()}
+  @type lifecycle_policy_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -973,42 +976,42 @@ defmodule AWS.ECR do
       
       invalid_layer_part_exception() :: %{
         "lastValidByteReceived" => float(),
-        "message" => String.t(),
-        "registryId" => String.t(),
-        "repositoryName" => String.t(),
-        "uploadId" => String.t()
+        "message" => String.t() | Atom.t(),
+        "registryId" => String.t() | Atom.t(),
+        "repositoryName" => String.t() | Atom.t(),
+        "uploadId" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_layer_part_exception() :: %{String.t() => any()}
+  @type invalid_layer_part_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_pull_through_cache_rule_request() :: %{
-        optional("credentialArn") => String.t(),
-        optional("customRoleArn") => String.t(),
-        optional("registryId") => String.t(),
+        optional("credentialArn") => String.t() | Atom.t(),
+        optional("customRoleArn") => String.t() | Atom.t(),
+        optional("registryId") => String.t() | Atom.t(),
         optional("upstreamRegistry") => list(any()),
-        optional("upstreamRepositoryPrefix") => String.t(),
-        required("ecrRepositoryPrefix") => String.t(),
-        required("upstreamRegistryUrl") => String.t()
+        optional("upstreamRepositoryPrefix") => String.t() | Atom.t(),
+        required("ecrRepositoryPrefix") => String.t() | Atom.t(),
+        required("upstreamRegistryUrl") => String.t() | Atom.t()
       }
       
   """
-  @type create_pull_through_cache_rule_request() :: %{String.t() => any()}
+  @type create_pull_through_cache_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       image_tag_already_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type image_tag_already_exists_exception() :: %{String.t() => any()}
+  @type image_tag_already_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1019,54 +1022,54 @@ defmodule AWS.ECR do
       }
       
   """
-  @type put_image_response() :: %{String.t() => any()}
+  @type put_image_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       pull_through_cache_rule_already_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type pull_through_cache_rule_already_exists_exception() :: %{String.t() => any()}
+  @type pull_through_cache_rule_already_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       replication_destination() :: %{
-        "region" => String.t(),
-        "registryId" => String.t()
+        "region" => String.t() | Atom.t(),
+        "registryId" => String.t() | Atom.t()
       }
       
   """
-  @type replication_destination() :: %{String.t() => any()}
+  @type replication_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       validate_pull_through_cache_rule_request() :: %{
-        optional("registryId") => String.t(),
-        required("ecrRepositoryPrefix") => String.t()
+        optional("registryId") => String.t() | Atom.t(),
+        required("ecrRepositoryPrefix") => String.t() | Atom.t()
       }
       
   """
-  @type validate_pull_through_cache_rule_request() :: %{String.t() => any()}
+  @type validate_pull_through_cache_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1076,13 +1079,13 @@ defmodule AWS.ECR do
         optional("filter") => lifecycle_policy_preview_filter(),
         optional("imageIds") => list(image_identifier()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("registryId") => String.t(),
-        required("repositoryName") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("registryId") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type get_lifecycle_policy_preview_request() :: %{String.t() => any()}
+  @type get_lifecycle_policy_preview_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1093,14 +1096,14 @@ defmodule AWS.ECR do
         "encryptionConfiguration" => encryption_configuration(),
         "imageScanningConfiguration" => image_scanning_configuration(),
         "imageTagMutability" => list(any()),
-        "registryId" => String.t(),
-        "repositoryArn" => String.t(),
-        "repositoryName" => String.t(),
-        "repositoryUri" => String.t()
+        "registryId" => String.t() | Atom.t(),
+        "repositoryArn" => String.t() | Atom.t(),
+        "repositoryName" => String.t() | Atom.t(),
+        "repositoryUri" => String.t() | Atom.t()
       }
       
   """
-  @type repository() :: %{String.t() => any()}
+  @type repository() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1109,25 +1112,25 @@ defmodule AWS.ECR do
       list_images_request() :: %{
         optional("filter") => list_images_filter(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("registryId") => String.t(),
-        required("repositoryName") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("registryId") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type list_images_request() :: %{String.t() => any()}
+  @type list_images_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       recommendation() :: %{
-        "text" => String.t(),
-        "url" => String.t()
+        "text" => String.t() | Atom.t(),
+        "url" => String.t() | Atom.t()
       }
       
   """
-  @type recommendation() :: %{String.t() => any()}
+  @type recommendation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1135,12 +1138,12 @@ defmodule AWS.ECR do
       
       delete_repository_request() :: %{
         optional("force") => boolean(),
-        optional("registryId") => String.t(),
-        required("repositoryName") => String.t()
+        optional("registryId") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_repository_request() :: %{String.t() => any()}
+  @type delete_repository_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1148,13 +1151,13 @@ defmodule AWS.ECR do
       
       layer() :: %{
         "layerAvailability" => list(any()),
-        "layerDigest" => String.t(),
+        "layerDigest" => String.t() | Atom.t(),
         "layerSize" => float(),
-        "mediaType" => String.t()
+        "mediaType" => String.t() | Atom.t()
       }
       
   """
-  @type layer() :: %{String.t() => any()}
+  @type layer() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1165,7 +1168,7 @@ defmodule AWS.ECR do
       }
       
   """
-  @type list_images_filter() :: %{String.t() => any()}
+  @type list_images_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1174,54 +1177,54 @@ defmodule AWS.ECR do
       cvss_score_details() :: %{
         "adjustments" => list(cvss_score_adjustment()),
         "score" => float(),
-        "scoreSource" => String.t(),
-        "scoringVector" => String.t(),
-        "version" => String.t()
+        "scoreSource" => String.t() | Atom.t(),
+        "scoringVector" => String.t() | Atom.t(),
+        "version" => String.t() | Atom.t()
       }
       
   """
-  @type cvss_score_details() :: %{String.t() => any()}
+  @type cvss_score_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       layer_part_too_small_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type layer_part_too_small_exception() :: %{String.t() => any()}
+  @type layer_part_too_small_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       referenced_images_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type referenced_images_not_found_exception() :: %{String.t() => any()}
+  @type referenced_images_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       vulnerable_package() :: %{
-        "arch" => String.t(),
+        "arch" => String.t() | Atom.t(),
         "epoch" => integer(),
-        "filePath" => String.t(),
-        "fixedInVersion" => String.t(),
-        "name" => String.t(),
-        "packageManager" => String.t(),
-        "release" => String.t(),
-        "sourceLayerHash" => String.t(),
-        "version" => String.t()
+        "filePath" => String.t() | Atom.t(),
+        "fixedInVersion" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "packageManager" => String.t() | Atom.t(),
+        "release" => String.t() | Atom.t(),
+        "sourceLayerHash" => String.t() | Atom.t(),
+        "version" => String.t() | Atom.t()
       }
       
   """
-  @type vulnerable_package() :: %{String.t() => any()}
+  @type vulnerable_package() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1232,48 +1235,48 @@ defmodule AWS.ECR do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cvss_score_adjustment() :: %{
-        "metric" => String.t(),
-        "reason" => String.t()
+        "metric" => String.t() | Atom.t(),
+        "reason" => String.t() | Atom.t()
       }
       
   """
-  @type cvss_score_adjustment() :: %{String.t() => any()}
+  @type cvss_score_adjustment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       unable_to_get_upstream_layer_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type unable_to_get_upstream_layer_exception() :: %{String.t() => any()}
+  @type unable_to_get_upstream_layer_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       validate_pull_through_cache_rule_response() :: %{
-        "credentialArn" => String.t(),
-        "customRoleArn" => String.t(),
-        "ecrRepositoryPrefix" => String.t(),
-        "failure" => String.t(),
+        "credentialArn" => String.t() | Atom.t(),
+        "customRoleArn" => String.t() | Atom.t(),
+        "ecrRepositoryPrefix" => String.t() | Atom.t(),
+        "failure" => String.t() | Atom.t(),
         "isValid" => boolean(),
-        "registryId" => String.t(),
-        "upstreamRegistryUrl" => String.t(),
-        "upstreamRepositoryPrefix" => String.t()
+        "registryId" => String.t() | Atom.t(),
+        "upstreamRegistryUrl" => String.t() | Atom.t(),
+        "upstreamRepositoryPrefix" => String.t() | Atom.t()
       }
       
   """
-  @type validate_pull_through_cache_rule_response() :: %{String.t() => any()}
+  @type validate_pull_through_cache_rule_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1285,7 +1288,10 @@ defmodule AWS.ECR do
       }
       
   """
-  @type batch_get_repository_scanning_configuration_response() :: %{String.t() => any()}
+  @type batch_get_repository_scanning_configuration_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1297,7 +1303,7 @@ defmodule AWS.ECR do
       }
       
   """
-  @type registry_scanning_rule() :: %{String.t() => any()}
+  @type registry_scanning_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1308,18 +1314,18 @@ defmodule AWS.ECR do
       }
       
   """
-  @type get_authorization_token_response() :: %{String.t() => any()}
+  @type get_authorization_token_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_authorization_token_request() :: %{
-        optional("registryIds") => list(String.t())
+        optional("registryIds") => list(String.t() | Atom.t())
       }
       
   """
-  @type get_authorization_token_request() :: %{String.t() => any()}
+  @type get_authorization_token_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1330,7 +1336,7 @@ defmodule AWS.ECR do
       }
       
   """
-  @type score_details() :: %{String.t() => any()}
+  @type score_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1339,35 +1345,35 @@ defmodule AWS.ECR do
       start_image_scan_response() :: %{
         "imageId" => image_identifier(),
         "imageScanStatus" => image_scan_status(),
-        "registryId" => String.t(),
-        "repositoryName" => String.t()
+        "registryId" => String.t() | Atom.t(),
+        "repositoryName" => String.t() | Atom.t()
       }
       
   """
-  @type start_image_scan_response() :: %{String.t() => any()}
+  @type start_image_scan_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_registry_response() :: %{
-        "registryId" => String.t(),
+        "registryId" => String.t() | Atom.t(),
         "replicationConfiguration" => replication_configuration()
       }
       
   """
-  @type describe_registry_response() :: %{String.t() => any()}
+  @type describe_registry_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       layer_inaccessible_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type layer_inaccessible_exception() :: %{String.t() => any()}
+  @type layer_inaccessible_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1375,72 +1381,72 @@ defmodule AWS.ECR do
       
       list_images_response() :: %{
         "imageIds" => list(image_identifier()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_images_response() :: %{String.t() => any()}
+  @type list_images_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_registry_policy_response() :: %{
-        "policyText" => String.t(),
-        "registryId" => String.t()
+        "policyText" => String.t() | Atom.t(),
+        "registryId" => String.t() | Atom.t()
       }
       
   """
-  @type delete_registry_policy_response() :: %{String.t() => any()}
+  @type delete_registry_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_registry_scanning_configuration_response() :: %{
-        "registryId" => String.t(),
+        "registryId" => String.t() | Atom.t(),
         "scanningConfiguration" => registry_scanning_configuration()
       }
       
   """
-  @type get_registry_scanning_configuration_response() :: %{String.t() => any()}
+  @type get_registry_scanning_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       unable_to_decrypt_secret_value_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type unable_to_decrypt_secret_value_exception() :: %{String.t() => any()}
+  @type unable_to_decrypt_secret_value_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_image_request() :: %{
-        optional("acceptedMediaTypes") => list(String.t()),
-        optional("registryId") => String.t(),
+        optional("acceptedMediaTypes") => list(String.t() | Atom.t()),
+        optional("registryId") => String.t() | Atom.t(),
         required("imageIds") => list(image_identifier()),
-        required("repositoryName") => String.t()
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type batch_get_image_request() :: %{String.t() => any()}
+  @type batch_get_image_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_account_setting_response() :: %{
-        "name" => String.t(),
-        "value" => String.t()
+        "name" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
       
   """
-  @type get_account_setting_response() :: %{String.t() => any()}
+  @type get_account_setting_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1448,13 +1454,13 @@ defmodule AWS.ECR do
       
       upload_layer_part_response() :: %{
         "lastByteReceived" => float(),
-        "registryId" => String.t(),
-        "repositoryName" => String.t(),
-        "uploadId" => String.t()
+        "registryId" => String.t() | Atom.t(),
+        "repositoryName" => String.t() | Atom.t(),
+        "uploadId" => String.t() | Atom.t()
       }
       
   """
-  @type upload_layer_part_response() :: %{String.t() => any()}
+  @type upload_layer_part_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1464,25 +1470,25 @@ defmodule AWS.ECR do
         optional("encryptionConfiguration") => encryption_configuration(),
         optional("imageScanningConfiguration") => image_scanning_configuration(),
         optional("imageTagMutability") => list(any()),
-        optional("registryId") => String.t(),
+        optional("registryId") => String.t() | Atom.t(),
         optional("tags") => list(tag()),
-        required("repositoryName") => String.t()
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type create_repository_request() :: %{String.t() => any()}
+  @type create_repository_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_lifecycle_policy_request() :: %{
-        optional("registryId") => String.t(),
-        required("repositoryName") => String.t()
+        optional("registryId") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_lifecycle_policy_request() :: %{String.t() => any()}
+  @type delete_lifecycle_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1490,25 +1496,25 @@ defmodule AWS.ECR do
       
       image_scan_finding() :: %{
         "attributes" => list(attribute()),
-        "description" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "severity" => list(any()),
-        "uri" => String.t()
+        "uri" => String.t() | Atom.t()
       }
       
   """
-  @type image_scan_finding() :: %{String.t() => any()}
+  @type image_scan_finding() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       pull_through_cache_rule_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type pull_through_cache_rule_not_found_exception() :: %{String.t() => any()}
+  @type pull_through_cache_rule_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1518,13 +1524,13 @@ defmodule AWS.ECR do
         "imageId" => image_identifier(),
         "imageScanFindings" => image_scan_findings(),
         "imageScanStatus" => image_scan_status(),
-        "nextToken" => String.t(),
-        "registryId" => String.t(),
-        "repositoryName" => String.t()
+        "nextToken" => String.t() | Atom.t(),
+        "registryId" => String.t() | Atom.t(),
+        "repositoryName" => String.t() | Atom.t()
       }
       
   """
-  @type describe_image_scan_findings_response() :: %{String.t() => any()}
+  @type describe_image_scan_findings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1535,19 +1541,19 @@ defmodule AWS.ECR do
       }
       
   """
-  @type put_replication_configuration_response() :: %{String.t() => any()}
+  @type put_replication_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_repository_creation_template_response() :: %{
-        "registryId" => String.t(),
+        "registryId" => String.t() | Atom.t(),
         "repositoryCreationTemplate" => repository_creation_template()
       }
       
   """
-  @type create_repository_creation_template_response() :: %{String.t() => any()}
+  @type create_repository_creation_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1555,14 +1561,14 @@ defmodule AWS.ECR do
       
       describe_image_scan_findings_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("registryId") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("registryId") => String.t() | Atom.t(),
         required("imageId") => image_identifier(),
-        required("repositoryName") => String.t()
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_image_scan_findings_request() :: %{String.t() => any()}
+  @type describe_image_scan_findings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1570,79 +1576,79 @@ defmodule AWS.ECR do
       
       image() :: %{
         "imageId" => image_identifier(),
-        "imageManifest" => String.t(),
-        "imageManifestMediaType" => String.t(),
-        "registryId" => String.t(),
-        "repositoryName" => String.t()
+        "imageManifest" => String.t() | Atom.t(),
+        "imageManifestMediaType" => String.t() | Atom.t(),
+        "registryId" => String.t() | Atom.t(),
+        "repositoryName" => String.t() | Atom.t()
       }
       
   """
-  @type image() :: %{String.t() => any()}
+  @type image() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_image_tag_mutability_request() :: %{
-        optional("registryId") => String.t(),
+        optional("registryId") => String.t() | Atom.t(),
         required("imageTagMutability") => list(any()),
-        required("repositoryName") => String.t()
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type put_image_tag_mutability_request() :: %{String.t() => any()}
+  @type put_image_tag_mutability_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_repository_policy_response() :: %{
-        "policyText" => String.t(),
-        "registryId" => String.t(),
-        "repositoryName" => String.t()
+        "policyText" => String.t() | Atom.t(),
+        "registryId" => String.t() | Atom.t(),
+        "repositoryName" => String.t() | Atom.t()
       }
       
   """
-  @type delete_repository_policy_response() :: %{String.t() => any()}
+  @type delete_repository_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_repository_creation_templates_response() :: %{
-        "nextToken" => String.t(),
-        "registryId" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
+        "registryId" => String.t() | Atom.t(),
         "repositoryCreationTemplates" => list(repository_creation_template())
       }
       
   """
-  @type describe_repository_creation_templates_response() :: %{String.t() => any()}
+  @type describe_repository_creation_templates_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_pull_through_cache_rules_request() :: %{
-        optional("ecrRepositoryPrefixes") => list(String.t()),
+        optional("ecrRepositoryPrefixes") => list(String.t() | Atom.t()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("registryId") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("registryId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_pull_through_cache_rules_request() :: %{String.t() => any()}
+  @type describe_pull_through_cache_rules_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_repository_creation_template_response() :: %{
-        "registryId" => String.t(),
+        "registryId" => String.t() | Atom.t(),
         "repositoryCreationTemplate" => repository_creation_template()
       }
       
   """
-  @type delete_repository_creation_template_response() :: %{String.t() => any()}
+  @type delete_repository_creation_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1650,19 +1656,19 @@ defmodule AWS.ECR do
       
       package_vulnerability_details() :: %{
         "cvss" => list(cvss_score()),
-        "referenceUrls" => list(String.t()),
-        "relatedVulnerabilities" => list(String.t()),
-        "source" => String.t(),
-        "sourceUrl" => String.t(),
+        "referenceUrls" => list(String.t() | Atom.t()),
+        "relatedVulnerabilities" => list(String.t() | Atom.t()),
+        "source" => String.t() | Atom.t(),
+        "sourceUrl" => String.t() | Atom.t(),
         "vendorCreatedAt" => non_neg_integer(),
-        "vendorSeverity" => String.t(),
+        "vendorSeverity" => String.t() | Atom.t(),
         "vendorUpdatedAt" => non_neg_integer(),
-        "vulnerabilityId" => String.t(),
+        "vulnerabilityId" => String.t() | Atom.t(),
         "vulnerablePackages" => list(vulnerable_package())
       }
       
   """
-  @type package_vulnerability_details() :: %{String.t() => any()}
+  @type package_vulnerability_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1670,13 +1676,13 @@ defmodule AWS.ECR do
       
       cvss_score() :: %{
         "baseScore" => float(),
-        "scoringVector" => String.t(),
-        "source" => String.t(),
-        "version" => String.t()
+        "scoringVector" => String.t() | Atom.t(),
+        "source" => String.t() | Atom.t(),
+        "version" => String.t() | Atom.t()
       }
       
   """
-  @type cvss_score() :: %{String.t() => any()}
+  @type cvss_score() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1688,29 +1694,29 @@ defmodule AWS.ECR do
       }
       
   """
-  @type batch_delete_image_response() :: %{String.t() => any()}
+  @type batch_delete_image_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       secret_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type secret_not_found_exception() :: %{String.t() => any()}
+  @type secret_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameter_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_parameter_exception() :: %{String.t() => any()}
+  @type invalid_parameter_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1726,11 +1732,11 @@ defmodule AWS.ECR do
   ## Example:
       
       invalid_layer_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_layer_exception() :: %{String.t() => any()}
+  @type invalid_layer_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1747,16 +1753,16 @@ defmodule AWS.ECR do
       
       delete_pull_through_cache_rule_response() :: %{
         "createdAt" => non_neg_integer(),
-        "credentialArn" => String.t(),
-        "customRoleArn" => String.t(),
-        "ecrRepositoryPrefix" => String.t(),
-        "registryId" => String.t(),
-        "upstreamRegistryUrl" => String.t(),
-        "upstreamRepositoryPrefix" => String.t()
+        "credentialArn" => String.t() | Atom.t(),
+        "customRoleArn" => String.t() | Atom.t(),
+        "ecrRepositoryPrefix" => String.t() | Atom.t(),
+        "registryId" => String.t() | Atom.t(),
+        "upstreamRegistryUrl" => String.t() | Atom.t(),
+        "upstreamRepositoryPrefix" => String.t() | Atom.t()
       }
       
   """
-  @type delete_pull_through_cache_rule_response() :: %{String.t() => any()}
+  @type delete_pull_through_cache_rule_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1768,19 +1774,19 @@ defmodule AWS.ECR do
       }
       
   """
-  @type replication_rule() :: %{String.t() => any()}
+  @type replication_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_exception() :: %{
-        "kmsError" => String.t(),
-        "message" => String.t()
+        "kmsError" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type kms_exception() :: %{String.t() => any()}
+  @type kms_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1788,64 +1794,64 @@ defmodule AWS.ECR do
       
       repository_scanning_configuration() :: %{
         "appliedScanFilters" => list(scanning_repository_filter()),
-        "repositoryArn" => String.t(),
-        "repositoryName" => String.t(),
+        "repositoryArn" => String.t() | Atom.t(),
+        "repositoryName" => String.t() | Atom.t(),
         "scanFrequency" => list(any()),
         "scanOnPush" => boolean()
       }
       
   """
-  @type repository_scanning_configuration() :: %{String.t() => any()}
+  @type repository_scanning_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_lifecycle_policy_request() :: %{
-        optional("registryId") => String.t(),
-        required("repositoryName") => String.t()
+        optional("registryId") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type get_lifecycle_policy_request() :: %{String.t() => any()}
+  @type get_lifecycle_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("resourceArn") => String.t()
+        required("resourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_pull_through_cache_rule_response() :: %{
-        "credentialArn" => String.t(),
-        "customRoleArn" => String.t(),
-        "ecrRepositoryPrefix" => String.t(),
-        "registryId" => String.t(),
+        "credentialArn" => String.t() | Atom.t(),
+        "customRoleArn" => String.t() | Atom.t(),
+        "ecrRepositoryPrefix" => String.t() | Atom.t(),
+        "registryId" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer(),
-        "upstreamRepositoryPrefix" => String.t()
+        "upstreamRepositoryPrefix" => String.t() | Atom.t()
       }
       
   """
-  @type update_pull_through_cache_rule_response() :: %{String.t() => any()}
+  @type update_pull_through_cache_rule_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1856,20 +1862,20 @@ defmodule AWS.ECR do
       }
       
   """
-  @type put_replication_configuration_request() :: %{String.t() => any()}
+  @type put_replication_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_check_layer_availability_request() :: %{
-        optional("registryId") => String.t(),
-        required("layerDigests") => list(String.t()),
-        required("repositoryName") => String.t()
+        optional("registryId") => String.t() | Atom.t(),
+        required("layerDigests") => list(String.t() | Atom.t()),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type batch_check_layer_availability_request() :: %{String.t() => any()}
+  @type batch_check_layer_availability_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1885,23 +1891,23 @@ defmodule AWS.ECR do
   ## Example:
       
       server_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type server_exception() :: %{String.t() => any()}
+  @type server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       image_identifier() :: %{
-        "imageDigest" => String.t(),
-        "imageTag" => String.t()
+        "imageDigest" => String.t() | Atom.t(),
+        "imageTag" => String.t() | Atom.t()
       }
       
   """
-  @type image_identifier() :: %{String.t() => any()}
+  @type image_identifier() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1912,56 +1918,56 @@ defmodule AWS.ECR do
       }
       
   """
-  @type lifecycle_policy_preview_summary() :: %{String.t() => any()}
+  @type lifecycle_policy_preview_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       repository_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type repository_not_found_exception() :: %{String.t() => any()}
+  @type repository_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       attribute() :: %{
-        "key" => String.t(),
-        "value" => String.t()
+        "key" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
       
   """
-  @type attribute() :: %{String.t() => any()}
+  @type attribute() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_lifecycle_policy_response() :: %{
-        "lifecyclePolicyText" => String.t(),
-        "registryId" => String.t(),
-        "repositoryName" => String.t()
+        "lifecyclePolicyText" => String.t() | Atom.t(),
+        "registryId" => String.t() | Atom.t(),
+        "repositoryName" => String.t() | Atom.t()
       }
       
   """
-  @type put_lifecycle_policy_response() :: %{String.t() => any()}
+  @type put_lifecycle_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_image_replication_status_request() :: %{
-        optional("registryId") => String.t(),
+        optional("registryId") => String.t() | Atom.t(),
         required("imageId") => image_identifier(),
-        required("repositoryName") => String.t()
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_image_replication_status_request() :: %{String.t() => any()}
+  @type describe_image_replication_status_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1972,54 +1978,54 @@ defmodule AWS.ECR do
       }
       
   """
-  @type delete_repository_response() :: %{String.t() => any()}
+  @type delete_repository_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_repositories_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "repositories" => list(repository())
       }
       
   """
-  @type describe_repositories_response() :: %{String.t() => any()}
+  @type describe_repositories_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_registry_policy_response() :: %{
-        "policyText" => String.t(),
-        "registryId" => String.t()
+        "policyText" => String.t() | Atom.t(),
+        "registryId" => String.t() | Atom.t()
       }
       
   """
-  @type get_registry_policy_response() :: %{String.t() => any()}
+  @type get_registry_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_pull_through_cache_rules_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "pullThroughCacheRules" => list(pull_through_cache_rule())
       }
       
   """
-  @type describe_pull_through_cache_rules_response() :: %{String.t() => any()}
+  @type describe_pull_through_cache_rules_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2027,29 +2033,29 @@ defmodule AWS.ECR do
       
       pull_through_cache_rule() :: %{
         "createdAt" => non_neg_integer(),
-        "credentialArn" => String.t(),
-        "customRoleArn" => String.t(),
-        "ecrRepositoryPrefix" => String.t(),
-        "registryId" => String.t(),
+        "credentialArn" => String.t() | Atom.t(),
+        "customRoleArn" => String.t() | Atom.t(),
+        "ecrRepositoryPrefix" => String.t() | Atom.t(),
+        "registryId" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer(),
         "upstreamRegistry" => list(any()),
-        "upstreamRegistryUrl" => String.t(),
-        "upstreamRepositoryPrefix" => String.t()
+        "upstreamRegistryUrl" => String.t() | Atom.t(),
+        "upstreamRepositoryPrefix" => String.t() | Atom.t()
       }
       
   """
-  @type pull_through_cache_rule() :: %{String.t() => any()}
+  @type pull_through_cache_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_repository_scanning_configuration_request() :: %{
-        required("repositoryNames") => list(String.t())
+        required("repositoryNames") => list(String.t() | Atom.t())
       }
       
   """
-  @type batch_get_repository_scanning_configuration_request() :: %{String.t() => any()}
+  @type batch_get_repository_scanning_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2060,7 +2066,7 @@ defmodule AWS.ECR do
       }
       
   """
-  @type resource_details() :: %{String.t() => any()}
+  @type resource_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2068,24 +2074,24 @@ defmodule AWS.ECR do
       
       repository_scanning_configuration_failure() :: %{
         "failureCode" => list(any()),
-        "failureReason" => String.t(),
-        "repositoryName" => String.t()
+        "failureReason" => String.t() | Atom.t(),
+        "repositoryName" => String.t() | Atom.t()
       }
       
   """
-  @type repository_scanning_configuration_failure() :: %{String.t() => any()}
+  @type repository_scanning_configuration_failure() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_pull_through_cache_rule_request() :: %{
-        optional("registryId") => String.t(),
-        required("ecrRepositoryPrefix") => String.t()
+        optional("registryId") => String.t() | Atom.t(),
+        required("ecrRepositoryPrefix") => String.t() | Atom.t()
       }
       
   """
-  @type delete_pull_through_cache_rule_request() :: %{String.t() => any()}
+  @type delete_pull_through_cache_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2094,59 +2100,59 @@ defmodule AWS.ECR do
       lifecycle_policy_preview_result() :: %{
         "action" => lifecycle_policy_rule_action(),
         "appliedRulePriority" => integer(),
-        "imageDigest" => String.t(),
+        "imageDigest" => String.t() | Atom.t(),
         "imagePushedAt" => non_neg_integer(),
-        "imageTags" => list(String.t())
+        "imageTags" => list(String.t() | Atom.t())
       }
       
   """
-  @type lifecycle_policy_preview_result() :: %{String.t() => any()}
+  @type lifecycle_policy_preview_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_lifecycle_policy_preview_request() :: %{
-        optional("lifecyclePolicyText") => String.t(),
-        optional("registryId") => String.t(),
-        required("repositoryName") => String.t()
+        optional("lifecyclePolicyText") => String.t() | Atom.t(),
+        optional("registryId") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type start_lifecycle_policy_preview_request() :: %{String.t() => any()}
+  @type start_lifecycle_policy_preview_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       aws_ecr_container_image_details() :: %{
-        "architecture" => String.t(),
-        "author" => String.t(),
-        "imageHash" => String.t(),
-        "imageTags" => list(String.t()),
+        "architecture" => String.t() | Atom.t(),
+        "author" => String.t() | Atom.t(),
+        "imageHash" => String.t() | Atom.t(),
+        "imageTags" => list(String.t() | Atom.t()),
         "inUseCount" => float(),
         "lastInUseAt" => non_neg_integer(),
-        "platform" => String.t(),
+        "platform" => String.t() | Atom.t(),
         "pushedAt" => non_neg_integer(),
-        "registry" => String.t(),
-        "repositoryName" => String.t()
+        "registry" => String.t() | Atom.t(),
+        "repositoryName" => String.t() | Atom.t()
       }
       
   """
-  @type aws_ecr_container_image_details() :: %{String.t() => any()}
+  @type aws_ecr_container_image_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       authorization_data() :: %{
-        "authorizationToken" => String.t(),
+        "authorizationToken" => String.t() | Atom.t(),
         "expiresAt" => non_neg_integer(),
-        "proxyEndpoint" => String.t()
+        "proxyEndpoint" => String.t() | Atom.t()
       }
       
   """
-  @type authorization_data() :: %{String.t() => any()}
+  @type authorization_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2154,44 +2160,44 @@ defmodule AWS.ECR do
       
       describe_repository_creation_templates_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("prefixes") => list(String.t())
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("prefixes") => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_repository_creation_templates_request() :: %{String.t() => any()}
+  @type describe_repository_creation_templates_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       image_detail() :: %{
-        "artifactMediaType" => String.t(),
-        "imageDigest" => String.t(),
-        "imageManifestMediaType" => String.t(),
+        "artifactMediaType" => String.t() | Atom.t(),
+        "imageDigest" => String.t() | Atom.t(),
+        "imageManifestMediaType" => String.t() | Atom.t(),
         "imagePushedAt" => non_neg_integer(),
         "imageScanFindingsSummary" => image_scan_findings_summary(),
         "imageScanStatus" => image_scan_status(),
         "imageSizeInBytes" => float(),
-        "imageTags" => list(String.t()),
+        "imageTags" => list(String.t() | Atom.t()),
         "lastRecordedPullTime" => non_neg_integer(),
-        "registryId" => String.t(),
-        "repositoryName" => String.t()
+        "registryId" => String.t() | Atom.t(),
+        "repositoryName" => String.t() | Atom.t()
       }
       
   """
-  @type image_detail() :: %{String.t() => any()}
+  @type image_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       empty_upload_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type empty_upload_exception() :: %{String.t() => any()}
+  @type empty_upload_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2202,7 +2208,7 @@ defmodule AWS.ECR do
       }
       
   """
-  @type describe_images_filter() :: %{String.t() => any()}
+  @type describe_images_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2210,11 +2216,11 @@ defmodule AWS.ECR do
       
       initiate_layer_upload_response() :: %{
         "partSize" => float(),
-        "uploadId" => String.t()
+        "uploadId" => String.t() | Atom.t()
       }
       
   """
-  @type initiate_layer_upload_response() :: %{String.t() => any()}
+  @type initiate_layer_upload_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2226,7 +2232,7 @@ defmodule AWS.ECR do
       }
       
   """
-  @type batch_get_image_response() :: %{String.t() => any()}
+  @type batch_get_image_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2234,42 +2240,42 @@ defmodule AWS.ECR do
       
       update_repository_creation_template_request() :: %{
         optional("appliedFor") => list(list(any())()),
-        optional("customRoleArn") => String.t(),
-        optional("description") => String.t(),
+        optional("customRoleArn") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("encryptionConfiguration") => encryption_configuration_for_repository_creation_template(),
         optional("imageTagMutability") => list(any()),
-        optional("lifecyclePolicy") => String.t(),
-        optional("repositoryPolicy") => String.t(),
+        optional("lifecyclePolicy") => String.t() | Atom.t(),
+        optional("repositoryPolicy") => String.t() | Atom.t(),
         optional("resourceTags") => list(tag()),
-        required("prefix") => String.t()
+        required("prefix") => String.t() | Atom.t()
       }
       
   """
-  @type update_repository_creation_template_request() :: %{String.t() => any()}
+  @type update_repository_creation_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_download_url_for_layer_request() :: %{
-        optional("registryId") => String.t(),
-        required("layerDigest") => String.t(),
-        required("repositoryName") => String.t()
+        optional("registryId") => String.t() | Atom.t(),
+        required("layerDigest") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type get_download_url_for_layer_request() :: %{String.t() => any()}
+  @type get_download_url_for_layer_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_registry_policy_request() :: %{
-        required("policyText") => String.t()
+        required("policyText") => String.t() | Atom.t()
       }
       
   """
-  @type put_registry_policy_request() :: %{String.t() => any()}
+  @type put_registry_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2278,22 +2284,22 @@ defmodule AWS.ECR do
       describe_image_replication_status_response() :: %{
         "imageId" => image_identifier(),
         "replicationStatuses" => list(image_replication_status()),
-        "repositoryName" => String.t()
+        "repositoryName" => String.t() | Atom.t()
       }
       
   """
-  @type describe_image_replication_status_response() :: %{String.t() => any()}
+  @type describe_image_replication_status_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_tags_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type too_many_tags_exception() :: %{String.t() => any()}
+  @type too_many_tags_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2301,66 +2307,66 @@ defmodule AWS.ECR do
       
       get_lifecycle_policy_response() :: %{
         "lastEvaluatedAt" => non_neg_integer(),
-        "lifecyclePolicyText" => String.t(),
-        "registryId" => String.t(),
-        "repositoryName" => String.t()
+        "lifecyclePolicyText" => String.t() | Atom.t(),
+        "registryId" => String.t() | Atom.t(),
+        "repositoryName" => String.t() | Atom.t()
       }
       
   """
-  @type get_lifecycle_policy_response() :: %{String.t() => any()}
+  @type get_lifecycle_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_lifecycle_policy_preview_response() :: %{
-        "lifecyclePolicyText" => String.t(),
-        "registryId" => String.t(),
-        "repositoryName" => String.t(),
+        "lifecyclePolicyText" => String.t() | Atom.t(),
+        "registryId" => String.t() | Atom.t(),
+        "repositoryName" => String.t() | Atom.t(),
         "status" => list(any())
       }
       
   """
-  @type start_lifecycle_policy_preview_response() :: %{String.t() => any()}
+  @type start_lifecycle_policy_preview_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       scanning_repository_filter() :: %{
-        "filter" => String.t(),
+        "filter" => String.t() | Atom.t(),
         "filterType" => list(any())
       }
       
   """
-  @type scanning_repository_filter() :: %{String.t() => any()}
+  @type scanning_repository_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       unable_to_access_secret_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type unable_to_access_secret_exception() :: %{String.t() => any()}
+  @type unable_to_access_secret_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       upload_layer_part_request() :: %{
-        optional("registryId") => String.t(),
+        optional("registryId") => String.t() | Atom.t(),
         required("layerPartBlob") => binary(),
         required("partFirstByte") => float(),
         required("partLastByte") => float(),
-        required("repositoryName") => String.t(),
-        required("uploadId") => String.t()
+        required("repositoryName") => String.t() | Atom.t(),
+        required("uploadId") => String.t() | Atom.t()
       }
       
   """
-  @type upload_layer_part_request() :: %{String.t() => any()}
+  @type upload_layer_part_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2368,24 +2374,24 @@ defmodule AWS.ECR do
       
       resource() :: %{
         "details" => resource_details(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "tags" => map(),
-        "type" => String.t()
+        "type" => String.t() | Atom.t()
       }
       
   """
-  @type resource() :: %{String.t() => any()}
+  @type resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       unsupported_upstream_registry_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type unsupported_upstream_registry_exception() :: %{String.t() => any()}
+  @type unsupported_upstream_registry_exception() :: %{String.t() | Atom.t() => any()}
 
   @type batch_check_layer_availability_errors() ::
           repository_not_found_exception() | server_exception() | invalid_parameter_exception()

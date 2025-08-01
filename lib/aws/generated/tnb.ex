@@ -25,7 +25,7 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type update_sol_network_package_output() :: %{String.t() => any()}
+  @type update_sol_network_package_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -37,7 +37,7 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type get_sol_vnf_info() :: %{String.t() => any()}
+  @type get_sol_vnf_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -62,8 +62,8 @@ defmodule AWS.Tnb do
   ## Example:
 
       create_sol_network_package_output() :: %{
-        "arn" => String.t(),
-        "id" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "nsdOnboardingState" => list(any()),
         "nsdOperationalState" => list(any()),
         "nsdUsageState" => list(any()),
@@ -71,28 +71,28 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type create_sol_network_package_output() :: %{String.t() => any()}
+  @type create_sol_network_package_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_sol_function_package_output() :: %{
-        "arn" => String.t(),
-        "id" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "metadata" => get_sol_function_package_metadata(),
         "onboardingState" => list(any()),
         "operationalState" => list(any()),
         "tags" => map(),
         "usageState" => list(any()),
-        "vnfProductName" => [String.t()],
-        "vnfProvider" => [String.t()],
-        "vnfdId" => [String.t()],
-        "vnfdVersion" => [String.t()]
+        "vnfProductName" => [String.t() | Atom.t()],
+        "vnfProvider" => [String.t() | Atom.t()],
+        "vnfdId" => [String.t() | Atom.t()],
+        "vnfdVersion" => [String.t() | Atom.t()]
       }
 
   """
-  @type get_sol_function_package_output() :: %{String.t() => any()}
+  @type get_sol_function_package_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -104,7 +104,7 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type list_sol_function_instance_metadata() :: %{String.t() => any()}
+  @type list_sol_function_instance_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -112,11 +112,11 @@ defmodule AWS.Tnb do
 
       list_sol_function_instances_input() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_sol_function_instances_input() :: %{String.t() => any()}
+  @type list_sol_function_instances_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -124,12 +124,12 @@ defmodule AWS.Tnb do
 
       list_sol_network_operations_input() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t(),
-        optional("nsInstanceId") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("nsInstanceId") => String.t() | Atom.t()
       }
 
   """
-  @type list_sol_network_operations_input() :: %{String.t() => any()}
+  @type list_sol_network_operations_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -140,7 +140,7 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type validate_sol_network_package_content_metadata() :: %{String.t() => any()}
+  @type validate_sol_network_package_content_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -148,11 +148,11 @@ defmodule AWS.Tnb do
 
       list_sol_network_packages_output() :: %{
         "networkPackages" => list(list_sol_network_package_info()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_sol_network_packages_output() :: %{String.t() => any()}
+  @type list_sol_network_packages_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -164,7 +164,7 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type get_sol_function_instance_metadata() :: %{String.t() => any()}
+  @type get_sol_function_instance_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -175,7 +175,7 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type create_sol_network_package_input() :: %{String.t() => any()}
+  @type create_sol_network_package_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -186,7 +186,7 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type put_sol_function_package_content_metadata() :: %{String.t() => any()}
+  @type put_sol_function_package_content_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -206,78 +206,78 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type get_sol_function_package_descriptor_input() :: %{String.t() => any()}
+  @type get_sol_function_package_descriptor_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_sol_function_instance_output() :: %{
-        "arn" => String.t(),
-        "id" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "instantiatedVnfInfo" => get_sol_vnf_info(),
         "instantiationState" => list(any()),
         "metadata" => get_sol_function_instance_metadata(),
-        "nsInstanceId" => String.t(),
+        "nsInstanceId" => String.t() | Atom.t(),
         "tags" => map(),
-        "vnfPkgId" => String.t(),
-        "vnfProductName" => [String.t()],
-        "vnfProvider" => [String.t()],
-        "vnfdId" => String.t(),
-        "vnfdVersion" => [String.t()]
+        "vnfPkgId" => String.t() | Atom.t(),
+        "vnfProductName" => [String.t() | Atom.t()],
+        "vnfProvider" => [String.t() | Atom.t()],
+        "vnfdId" => String.t() | Atom.t(),
+        "vnfdVersion" => [String.t() | Atom.t()]
       }
 
   """
-  @type get_sol_function_instance_output() :: %{String.t() => any()}
+  @type get_sol_function_instance_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_sol_network_package_output() :: %{
-        "arn" => String.t(),
-        "id" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "metadata" => get_sol_network_package_metadata(),
-        "nsdId" => String.t(),
-        "nsdName" => [String.t()],
+        "nsdId" => String.t() | Atom.t(),
+        "nsdName" => [String.t() | Atom.t()],
         "nsdOnboardingState" => list(any()),
         "nsdOperationalState" => list(any()),
         "nsdUsageState" => list(any()),
-        "nsdVersion" => [String.t()],
+        "nsdVersion" => [String.t() | Atom.t()],
         "tags" => map(),
-        "vnfPkgIds" => list(String.t())
+        "vnfPkgIds" => list(String.t() | Atom.t())
       }
 
   """
-  @type get_sol_network_package_output() :: %{String.t() => any()}
+  @type get_sol_network_package_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       error_info() :: %{
-        "cause" => String.t(),
-        "details" => String.t()
+        "cause" => String.t() | Atom.t(),
+        "details" => String.t() | Atom.t()
       }
 
   """
-  @type error_info() :: %{String.t() => any()}
+  @type error_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_sol_function_package_content_output() :: %{
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "metadata" => put_sol_function_package_content_metadata(),
-        "vnfProductName" => [String.t()],
-        "vnfProvider" => [String.t()],
-        "vnfdId" => String.t(),
-        "vnfdVersion" => [String.t()]
+        "vnfProductName" => [String.t() | Atom.t()],
+        "vnfProvider" => [String.t() | Atom.t()],
+        "vnfdId" => String.t() | Atom.t(),
+        "vnfdVersion" => [String.t() | Atom.t()]
       }
 
   """
-  @type put_sol_function_package_content_output() :: %{String.t() => any()}
+  @type put_sol_function_package_content_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -288,7 +288,7 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type list_tags_for_resource_output() :: %{String.t() => any()}
+  @type list_tags_for_resource_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -305,11 +305,11 @@ defmodule AWS.Tnb do
 
       list_sol_network_packages_input() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_sol_network_packages_input() :: %{String.t() => any()}
+  @type list_sol_network_packages_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -321,7 +321,7 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type validate_sol_network_package_content_input() :: %{String.t() => any()}
+  @type validate_sol_network_package_content_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -333,25 +333,25 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type put_sol_network_package_content_input() :: %{String.t() => any()}
+  @type put_sol_network_package_content_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_sol_network_operations_info() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "error" => problem_details(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "lcmOperationType" => list(any()),
         "metadata" => list_sol_network_operations_metadata(),
-        "nsInstanceId" => String.t(),
+        "nsInstanceId" => String.t() | Atom.t(),
         "operationState" => list(any()),
         "updateType" => list(any())
       }
 
   """
-  @type list_sol_network_operations_info() :: %{String.t() => any()}
+  @type list_sol_network_operations_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -362,18 +362,18 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type terminate_sol_network_instance_input() :: %{String.t() => any()}
+  @type terminate_sol_network_instance_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -384,7 +384,7 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type get_sol_instantiated_vnf_info() :: %{String.t() => any()}
+  @type get_sol_instantiated_vnf_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -395,7 +395,7 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type get_sol_vnfc_resource_info() :: %{String.t() => any()}
+  @type get_sol_vnfc_resource_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -407,7 +407,7 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type list_sol_network_package_metadata() :: %{String.t() => any()}
+  @type list_sol_network_package_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -415,28 +415,28 @@ defmodule AWS.Tnb do
 
       update_ns_metadata() :: %{
         "additionalParamsForNs" => [any()],
-        "nsdInfoId" => String.t()
+        "nsdInfoId" => String.t() | Atom.t()
       }
 
   """
-  @type update_ns_metadata() :: %{String.t() => any()}
+  @type update_ns_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_sol_network_package_content_output() :: %{
-        "arn" => String.t(),
-        "id" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "metadata" => put_sol_network_package_content_metadata(),
-        "nsdId" => String.t(),
-        "nsdName" => [String.t()],
-        "nsdVersion" => [String.t()],
-        "vnfPkgIds" => list(String.t())
+        "nsdId" => String.t() | Atom.t(),
+        "nsdName" => [String.t() | Atom.t()],
+        "nsdVersion" => [String.t() | Atom.t()],
+        "vnfPkgIds" => list(String.t() | Atom.t())
       }
 
   """
-  @type put_sol_network_package_content_output() :: %{String.t() => any()}
+  @type put_sol_network_package_content_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -444,11 +444,11 @@ defmodule AWS.Tnb do
 
       list_sol_network_instances_input() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_sol_network_instances_input() :: %{String.t() => any()}
+  @type list_sol_network_instances_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -459,18 +459,18 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type put_sol_network_package_content_metadata() :: %{String.t() => any()}
+  @type put_sol_network_package_content_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -479,12 +479,12 @@ defmodule AWS.Tnb do
       list_sol_network_operations_metadata() :: %{
         "createdAt" => [non_neg_integer()],
         "lastModified" => [non_neg_integer()],
-        "nsdInfoId" => String.t(),
-        "vnfInstanceId" => String.t()
+        "nsdInfoId" => String.t() | Atom.t(),
+        "vnfInstanceId" => String.t() | Atom.t()
       }
 
   """
-  @type list_sol_network_operations_metadata() :: %{String.t() => any()}
+  @type list_sol_network_operations_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -496,58 +496,58 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type get_sol_network_package_content_output() :: %{String.t() => any()}
+  @type get_sol_network_package_content_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_sol_network_instance_output() :: %{
-        "nsLcmOpOccId" => String.t(),
+        "nsLcmOpOccId" => String.t() | Atom.t(),
         "tags" => map()
       }
 
   """
-  @type update_sol_network_instance_output() :: %{String.t() => any()}
+  @type update_sol_network_instance_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       problem_details() :: %{
-        "detail" => [String.t()],
-        "title" => [String.t()]
+        "detail" => [String.t() | Atom.t()],
+        "title" => [String.t() | Atom.t()]
       }
 
   """
-  @type problem_details() :: %{String.t() => any()}
+  @type problem_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_sol_network_instance_output() :: %{
-        "arn" => String.t(),
-        "id" => String.t(),
-        "nsInstanceName" => [String.t()],
-        "nsdInfoId" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "nsInstanceName" => [String.t() | Atom.t()],
+        "nsdInfoId" => String.t() | Atom.t(),
         "tags" => map()
       }
 
   """
-  @type create_sol_network_instance_output() :: %{String.t() => any()}
+  @type create_sol_network_instance_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       terminate_sol_network_instance_output() :: %{
-        "nsLcmOpOccId" => String.t(),
+        "nsLcmOpOccId" => String.t() | Atom.t(),
         "tags" => map()
       }
 
   """
-  @type terminate_sol_network_instance_output() :: %{String.t() => any()}
+  @type terminate_sol_network_instance_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -559,7 +559,7 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type put_sol_function_package_content_input() :: %{String.t() => any()}
+  @type put_sol_function_package_content_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -572,7 +572,7 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type instantiate_sol_network_instance_input() :: %{String.t() => any()}
+  @type instantiate_sol_network_instance_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -580,19 +580,19 @@ defmodule AWS.Tnb do
 
       list_sol_function_packages_output() :: %{
         "functionPackages" => list(list_sol_function_package_info()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_sol_function_packages_output() :: %{String.t() => any()}
+  @type list_sol_function_packages_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_sol_function_package_output() :: %{
-        "arn" => String.t(),
-        "id" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "onboardingState" => list(any()),
         "operationalState" => list(any()),
         "tags" => map(),
@@ -600,7 +600,7 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type create_sol_function_package_output() :: %{String.t() => any()}
+  @type create_sol_function_package_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -620,7 +620,7 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type tag_resource_input() :: %{String.t() => any()}
+  @type tag_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -628,11 +628,11 @@ defmodule AWS.Tnb do
 
       update_sol_network_modify() :: %{
         "vnfConfigurableProperties" => [any()],
-        "vnfInstanceId" => String.t()
+        "vnfInstanceId" => String.t() | Atom.t()
       }
 
   """
-  @type update_sol_network_modify() :: %{String.t() => any()}
+  @type update_sol_network_modify() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -640,11 +640,11 @@ defmodule AWS.Tnb do
 
       update_sol_network_service_data() :: %{
         "additionalParamsForNs" => [any()],
-        "nsdInfoId" => String.t()
+        "nsdInfoId" => String.t() | Atom.t()
       }
 
   """
-  @type update_sol_network_service_data() :: %{String.t() => any()}
+  @type update_sol_network_service_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -656,27 +656,27 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type list_sol_network_instance_metadata() :: %{String.t() => any()}
+  @type list_sol_network_instance_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_sol_network_instance_output() :: %{
-        "arn" => String.t(),
-        "id" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "lcmOpInfo" => lcm_operation_info(),
         "metadata" => get_sol_network_instance_metadata(),
-        "nsInstanceDescription" => [String.t()],
-        "nsInstanceName" => [String.t()],
+        "nsInstanceDescription" => [String.t() | Atom.t()],
+        "nsInstanceName" => [String.t() | Atom.t()],
         "nsState" => list(any()),
-        "nsdId" => String.t(),
-        "nsdInfoId" => String.t(),
+        "nsdId" => String.t() | Atom.t(),
+        "nsdInfoId" => String.t() | Atom.t(),
         "tags" => map()
       }
 
   """
-  @type get_sol_network_instance_output() :: %{String.t() => any()}
+  @type get_sol_network_instance_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -693,22 +693,22 @@ defmodule AWS.Tnb do
 
       modify_vnf_info_metadata() :: %{
         "vnfConfigurableProperties" => [any()],
-        "vnfInstanceId" => String.t()
+        "vnfInstanceId" => String.t() | Atom.t()
       }
 
   """
-  @type modify_vnf_info_metadata() :: %{String.t() => any()}
+  @type modify_vnf_info_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -720,7 +720,7 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type get_sol_function_package_descriptor_output() :: %{String.t() => any()}
+  @type get_sol_function_package_descriptor_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -732,7 +732,7 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type get_sol_network_instance_metadata() :: %{String.t() => any()}
+  @type get_sol_network_instance_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -745,7 +745,7 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type get_sol_network_package_metadata() :: %{String.t() => any()}
+  @type get_sol_network_package_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -765,7 +765,7 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type update_sol_network_package_input() :: %{String.t() => any()}
+  @type update_sol_network_package_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -776,7 +776,7 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type create_sol_function_package_input() :: %{String.t() => any()}
+  @type create_sol_function_package_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -787,18 +787,18 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type update_sol_function_package_output() :: %{String.t() => any()}
+  @type update_sol_function_package_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -808,24 +808,24 @@ defmodule AWS.Tnb do
         "taskContext" => map(),
         "taskEndTime" => [non_neg_integer()],
         "taskErrorDetails" => error_info(),
-        "taskName" => [String.t()],
+        "taskName" => [String.t() | Atom.t()],
         "taskStartTime" => [non_neg_integer()],
         "taskStatus" => list(any())
       }
 
   """
-  @type get_sol_network_operation_task_details() :: %{String.t() => any()}
+  @type get_sol_network_operation_task_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_input() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_input() :: %{String.t() => any()}
+  @type untag_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -836,7 +836,7 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type get_sol_network_package_content_input() :: %{String.t() => any()}
+  @type get_sol_network_package_content_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -861,11 +861,11 @@ defmodule AWS.Tnb do
   ## Example:
 
       validation_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -881,17 +881,17 @@ defmodule AWS.Tnb do
   ## Example:
 
       validate_sol_network_package_content_output() :: %{
-        "arn" => String.t(),
-        "id" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "metadata" => validate_sol_network_package_content_metadata(),
-        "nsdId" => String.t(),
-        "nsdName" => [String.t()],
-        "nsdVersion" => [String.t()],
-        "vnfPkgIds" => list(String.t())
+        "nsdId" => String.t() | Atom.t(),
+        "nsdName" => [String.t() | Atom.t()],
+        "nsdVersion" => [String.t() | Atom.t()],
+        "vnfPkgIds" => list(String.t() | Atom.t())
       }
 
   """
-  @type validate_sol_network_package_content_output() :: %{String.t() => any()}
+  @type validate_sol_network_package_content_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -911,7 +911,7 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type get_sol_function_package_content_input() :: %{String.t() => any()}
+  @type get_sol_function_package_content_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -924,7 +924,7 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type get_sol_function_package_metadata() :: %{String.t() => any()}
+  @type get_sol_function_package_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -938,42 +938,42 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type update_sol_network_instance_input() :: %{String.t() => any()}
+  @type update_sol_network_instance_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       instantiate_sol_network_instance_output() :: %{
-        "nsLcmOpOccId" => String.t(),
+        "nsLcmOpOccId" => String.t() | Atom.t(),
         "tags" => map()
       }
 
   """
-  @type instantiate_sol_network_instance_output() :: %{String.t() => any()}
+  @type instantiate_sol_network_instance_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tosca_override() :: %{
-        "defaultValue" => [String.t()],
-        "name" => [String.t()]
+        "defaultValue" => [String.t() | Atom.t()],
+        "name" => [String.t() | Atom.t()]
       }
 
   """
-  @type tosca_override() :: %{String.t() => any()}
+  @type tosca_override() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -988,7 +988,7 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type get_sol_network_operation_metadata() :: %{String.t() => any()}
+  @type get_sol_network_operation_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -996,11 +996,11 @@ defmodule AWS.Tnb do
 
       list_sol_network_operations_output() :: %{
         "networkOperations" => list(list_sol_network_operations_info()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_sol_network_operations_output() :: %{String.t() => any()}
+  @type list_sol_network_operations_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1012,7 +1012,7 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type list_sol_function_package_metadata() :: %{String.t() => any()}
+  @type list_sol_function_package_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1028,13 +1028,13 @@ defmodule AWS.Tnb do
   ## Example:
 
       get_sol_vnfc_resource_info_metadata() :: %{
-        "cluster" => [String.t()],
-        "helmChart" => [String.t()],
-        "nodeGroup" => [String.t()]
+        "cluster" => [String.t() | Atom.t()],
+        "helmChart" => [String.t() | Atom.t()],
+        "nodeGroup" => [String.t() | Atom.t()]
       }
 
   """
-  @type get_sol_vnfc_resource_info_metadata() :: %{String.t() => any()}
+  @type get_sol_vnfc_resource_info_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1051,11 +1051,11 @@ defmodule AWS.Tnb do
 
       instantiate_metadata() :: %{
         "additionalParamsForNs" => [any()],
-        "nsdInfoId" => String.t()
+        "nsdInfoId" => String.t() | Atom.t()
       }
 
   """
-  @type instantiate_metadata() :: %{String.t() => any()}
+  @type instantiate_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1063,63 +1063,63 @@ defmodule AWS.Tnb do
 
       list_sol_network_instances_output() :: %{
         "networkInstances" => list(list_sol_network_instance_info()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_sol_network_instances_output() :: %{String.t() => any()}
+  @type list_sol_network_instances_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_sol_network_instance_input() :: %{
-        optional("nsDescription") => [String.t()],
+        optional("nsDescription") => [String.t() | Atom.t()],
         optional("tags") => map(),
-        required("nsName") => [String.t()],
-        required("nsdInfoId") => String.t()
+        required("nsName") => [String.t() | Atom.t()],
+        required("nsdInfoId") => String.t() | Atom.t()
       }
 
   """
-  @type create_sol_network_instance_input() :: %{String.t() => any()}
+  @type create_sol_network_instance_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_sol_network_instance_info() :: %{
-        "arn" => String.t(),
-        "id" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "metadata" => list_sol_network_instance_metadata(),
-        "nsInstanceDescription" => [String.t()],
-        "nsInstanceName" => [String.t()],
+        "nsInstanceDescription" => [String.t() | Atom.t()],
+        "nsInstanceName" => [String.t() | Atom.t()],
         "nsState" => list(any()),
-        "nsdId" => String.t(),
-        "nsdInfoId" => String.t()
+        "nsdId" => String.t() | Atom.t(),
+        "nsdInfoId" => String.t() | Atom.t()
       }
 
   """
-  @type list_sol_network_instance_info() :: %{String.t() => any()}
+  @type list_sol_network_instance_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_sol_function_package_info() :: %{
-        "arn" => String.t(),
-        "id" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "metadata" => list_sol_function_package_metadata(),
         "onboardingState" => list(any()),
         "operationalState" => list(any()),
         "usageState" => list(any()),
-        "vnfProductName" => [String.t()],
-        "vnfProvider" => [String.t()],
-        "vnfdId" => [String.t()],
-        "vnfdVersion" => [String.t()]
+        "vnfProductName" => [String.t() | Atom.t()],
+        "vnfProvider" => [String.t() | Atom.t()],
+        "vnfdId" => [String.t() | Atom.t()],
+        "vnfdVersion" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_sol_function_package_info() :: %{String.t() => any()}
+  @type list_sol_function_package_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1130,7 +1130,7 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type function_artifact_meta() :: %{String.t() => any()}
+  @type function_artifact_meta() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1142,23 +1142,23 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type validate_sol_function_package_content_input() :: %{String.t() => any()}
+  @type validate_sol_function_package_content_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validate_sol_function_package_content_output() :: %{
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "metadata" => validate_sol_function_package_content_metadata(),
-        "vnfProductName" => [String.t()],
-        "vnfProvider" => [String.t()],
-        "vnfdId" => String.t(),
-        "vnfdVersion" => [String.t()]
+        "vnfProductName" => [String.t() | Atom.t()],
+        "vnfProvider" => [String.t() | Atom.t()],
+        "vnfdId" => String.t() | Atom.t(),
+        "vnfdVersion" => [String.t() | Atom.t()]
       }
 
   """
-  @type validate_sol_function_package_content_output() :: %{String.t() => any()}
+  @type validate_sol_function_package_content_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1170,7 +1170,7 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type get_sol_network_package_descriptor_output() :: %{String.t() => any()}
+  @type get_sol_network_package_descriptor_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1181,7 +1181,7 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type validate_sol_function_package_content_metadata() :: %{String.t() => any()}
+  @type validate_sol_function_package_content_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1193,19 +1193,19 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type get_sol_function_package_content_output() :: %{String.t() => any()}
+  @type get_sol_function_package_content_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_sol_network_operation_output() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "error" => problem_details(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "lcmOperationType" => list(any()),
         "metadata" => get_sol_network_operation_metadata(),
-        "nsInstanceId" => String.t(),
+        "nsInstanceId" => String.t() | Atom.t(),
         "operationState" => list(any()),
         "tags" => map(),
         "tasks" => list(get_sol_network_operation_task_details()),
@@ -1213,36 +1213,36 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type get_sol_network_operation_output() :: %{String.t() => any()}
+  @type get_sol_network_operation_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_sol_function_instance_info() :: %{
-        "arn" => String.t(),
-        "id" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "instantiatedVnfInfo" => get_sol_instantiated_vnf_info(),
         "instantiationState" => list(any()),
         "metadata" => list_sol_function_instance_metadata(),
-        "nsInstanceId" => String.t(),
-        "vnfPkgId" => String.t(),
-        "vnfPkgName" => [String.t()]
+        "nsInstanceId" => String.t() | Atom.t(),
+        "vnfPkgId" => String.t() | Atom.t(),
+        "vnfPkgName" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_sol_function_instance_info() :: %{String.t() => any()}
+  @type list_sol_function_instance_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       lcm_operation_info() :: %{
-        "nsLcmOpOccId" => String.t()
+        "nsLcmOpOccId" => String.t() | Atom.t()
       }
 
   """
-  @type lcm_operation_info() :: %{String.t() => any()}
+  @type lcm_operation_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1253,7 +1253,7 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type update_sol_function_package_input() :: %{String.t() => any()}
+  @type update_sol_function_package_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1261,33 +1261,33 @@ defmodule AWS.Tnb do
 
       list_sol_function_instances_output() :: %{
         "functionInstances" => list(list_sol_function_instance_info()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_sol_function_instances_output() :: %{String.t() => any()}
+  @type list_sol_function_instances_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_sol_network_package_info() :: %{
-        "arn" => String.t(),
-        "id" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "metadata" => list_sol_network_package_metadata(),
-        "nsdDesigner" => [String.t()],
-        "nsdId" => [String.t()],
-        "nsdInvariantId" => [String.t()],
-        "nsdName" => [String.t()],
+        "nsdDesigner" => [String.t() | Atom.t()],
+        "nsdId" => [String.t() | Atom.t()],
+        "nsdInvariantId" => [String.t() | Atom.t()],
+        "nsdName" => [String.t() | Atom.t()],
         "nsdOnboardingState" => list(any()),
         "nsdOperationalState" => list(any()),
         "nsdUsageState" => list(any()),
-        "nsdVersion" => [String.t()],
-        "vnfPkgIds" => list(String.t())
+        "nsdVersion" => [String.t() | Atom.t()],
+        "vnfPkgIds" => list(String.t() | Atom.t())
       }
 
   """
-  @type list_sol_network_package_info() :: %{String.t() => any()}
+  @type list_sol_network_package_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1295,11 +1295,11 @@ defmodule AWS.Tnb do
 
       list_sol_function_packages_input() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_sol_function_packages_input() :: %{String.t() => any()}
+  @type list_sol_function_packages_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1310,7 +1310,7 @@ defmodule AWS.Tnb do
       }
 
   """
-  @type network_artifact_meta() :: %{String.t() => any()}
+  @type network_artifact_meta() :: %{String.t() | Atom.t() => any()}
 
   @type cancel_sol_network_operation_errors() ::
           throttling_exception()
@@ -1566,7 +1566,7 @@ defmodule AWS.Tnb do
   """
   @spec cancel_sol_network_operation(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           cancel_sol_network_operation_input(),
           list()
         ) ::
@@ -1744,7 +1744,7 @@ defmodule AWS.Tnb do
   """
   @spec delete_sol_function_package(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_sol_function_package_input(),
           list()
         ) ::
@@ -1787,7 +1787,7 @@ defmodule AWS.Tnb do
   """
   @spec delete_sol_network_instance(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_sol_network_instance_input(),
           list()
         ) ::
@@ -1828,7 +1828,12 @@ defmodule AWS.Tnb do
   network package, see
   [UpdateSolNetworkPackage](https://docs.aws.amazon.com/tnb/latest/APIReference/API_UpdateSolNetworkPackage.html).
   """
-  @spec delete_sol_network_package(map(), String.t(), delete_sol_network_package_input(), list()) ::
+  @spec delete_sol_network_package(
+          map(),
+          String.t() | Atom.t(),
+          delete_sol_network_package_input(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1861,7 +1866,7 @@ defmodule AWS.Tnb do
 
   A network function instance is a function in a function package .
   """
-  @spec get_sol_function_instance(map(), String.t(), list()) ::
+  @spec get_sol_function_instance(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_sol_function_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1886,7 +1891,7 @@ defmodule AWS.Tnb do
   function package descriptor that uses the TOSCA standard to describe how the
   network functions should run on your network..
   """
-  @spec get_sol_function_package(map(), String.t(), list()) ::
+  @spec get_sol_function_package(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_sol_function_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1909,7 +1914,12 @@ defmodule AWS.Tnb do
   function package descriptor that uses the TOSCA standard to describe how the
   network functions should run on your network.
   """
-  @spec get_sol_function_package_content(map(), String.t(), String.t(), list()) ::
+  @spec get_sol_function_package_content(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_sol_function_package_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1951,7 +1961,12 @@ defmodule AWS.Tnb do
   function package descriptor that uses the TOSCA standard to describe how the
   network functions should run on your network.
   """
-  @spec get_sol_function_package_descriptor(map(), String.t(), String.t(), list()) ::
+  @spec get_sol_function_package_descriptor(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_sol_function_package_descriptor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1988,7 +2003,7 @@ defmodule AWS.Tnb do
   can be deployed and on which life-cycle operations (like terminate, update, and
   delete) can be performed.
   """
-  @spec get_sol_network_instance(map(), String.t(), list()) ::
+  @spec get_sol_network_instance(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_sol_network_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2011,7 +2026,7 @@ defmodule AWS.Tnb do
   A network operation is any operation that is done to your network, such as
   network instance instantiation or termination.
   """
-  @spec get_sol_network_operation(map(), String.t(), list()) ::
+  @spec get_sol_network_operation(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_sol_network_operation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2033,7 +2048,7 @@ defmodule AWS.Tnb do
   the function packages you want to deploy and the Amazon Web Services
   infrastructure you want to deploy them on.
   """
-  @spec get_sol_network_package(map(), String.t(), list()) ::
+  @spec get_sol_network_package(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_sol_network_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2055,7 +2070,12 @@ defmodule AWS.Tnb do
   the function packages you want to deploy and the Amazon Web Services
   infrastructure you want to deploy them on.
   """
-  @spec get_sol_network_package_content(map(), String.t(), String.t(), list()) ::
+  @spec get_sol_network_package_content(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_sol_network_package_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2092,7 +2112,7 @@ defmodule AWS.Tnb do
   TOSCA standard to describe the network functions you want to deploy and the
   Amazon Web Services infrastructure you want to deploy the network functions on.
   """
-  @spec get_sol_network_package_descriptor(map(), String.t(), list()) ::
+  @spec get_sol_network_package_descriptor(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_sol_network_package_descriptor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2128,7 +2148,7 @@ defmodule AWS.Tnb do
   """
   @spec instantiate_sol_network_instance(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           instantiate_sol_network_instance_input(),
           list()
         ) ::
@@ -2167,7 +2187,12 @@ defmodule AWS.Tnb do
 
   A network function instance is a function in a function package .
   """
-  @spec list_sol_function_instances(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_sol_function_instances(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_sol_function_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2209,7 +2234,12 @@ defmodule AWS.Tnb do
   function package descriptor that uses the TOSCA standard to describe how the
   network functions should run on your network.
   """
-  @spec list_sol_function_packages(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_sol_function_packages(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_sol_function_packages_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2250,7 +2280,12 @@ defmodule AWS.Tnb do
   can be deployed and on which life-cycle operations (like terminate, update, and
   delete) can be performed.
   """
-  @spec list_sol_network_instances(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_sol_network_instances(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_sol_network_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2294,9 +2329,9 @@ defmodule AWS.Tnb do
   """
   @spec list_sol_network_operations(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_sol_network_operations_output(), any()}
@@ -2347,7 +2382,12 @@ defmodule AWS.Tnb do
   the function packages you want to deploy and the Amazon Web Services
   infrastructure you want to deploy them on.
   """
-  @spec list_sol_network_packages(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_sol_network_packages(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_sol_network_packages_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2384,7 +2424,7 @@ defmodule AWS.Tnb do
   @doc """
   Lists tags for AWS TNB resources.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2409,7 +2449,7 @@ defmodule AWS.Tnb do
   """
   @spec put_sol_function_package_content(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_sol_function_package_content_input(),
           list()
         ) ::
@@ -2453,7 +2493,7 @@ defmodule AWS.Tnb do
   """
   @spec put_sol_network_package_content(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_sol_network_package_content_input(),
           list()
         ) ::
@@ -2495,7 +2535,7 @@ defmodule AWS.Tnb do
   consists of a key and an optional value. You can use tags to search and filter
   your resources or track your Amazon Web Services costs.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2532,7 +2572,7 @@ defmodule AWS.Tnb do
   """
   @spec terminate_sol_network_instance(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           terminate_sol_network_instance_input(),
           list()
         ) ::
@@ -2568,7 +2608,7 @@ defmodule AWS.Tnb do
   consists of a key and an optional value. You can use tags to search and filter
   your resources or track your Amazon Web Services costs.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2609,7 +2649,7 @@ defmodule AWS.Tnb do
   """
   @spec update_sol_function_package(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_sol_function_package_input(),
           list()
         ) ::
@@ -2650,7 +2690,7 @@ defmodule AWS.Tnb do
   """
   @spec update_sol_network_instance(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_sol_network_instance_input(),
           list()
         ) ::
@@ -2690,7 +2730,12 @@ defmodule AWS.Tnb do
   TOSCA standard to describe the network functions you want to deploy and the
   Amazon Web Services infrastructure you want to deploy the network functions on.
   """
-  @spec update_sol_network_package(map(), String.t(), update_sol_network_package_input(), list()) ::
+  @spec update_sol_network_package(
+          map(),
+          String.t() | Atom.t(),
+          update_sol_network_package_input(),
+          list()
+        ) ::
           {:ok, update_sol_network_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2730,7 +2775,7 @@ defmodule AWS.Tnb do
   """
   @spec validate_sol_function_package_content(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           validate_sol_function_package_content_input(),
           list()
         ) ::
@@ -2779,7 +2824,7 @@ defmodule AWS.Tnb do
   """
   @spec validate_sol_network_package_content(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           validate_sol_network_package_content_input(),
           list()
         ) ::

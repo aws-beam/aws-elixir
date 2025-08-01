@@ -34,50 +34,50 @@ defmodule AWS.DocDBElastic do
   ## Example:
 
       apply_pending_maintenance_action_input() :: %{
-        optional("applyOn") => String.t(),
-        required("applyAction") => String.t(),
-        required("optInType") => String.t(),
-        required("resourceArn") => String.t()
+        optional("applyOn") => String.t() | Atom.t(),
+        required("applyAction") => String.t() | Atom.t(),
+        required("optInType") => String.t() | Atom.t(),
+        required("resourceArn") => String.t() | Atom.t()
       }
 
   """
-  @type apply_pending_maintenance_action_input() :: %{String.t() => any()}
+  @type apply_pending_maintenance_action_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cluster_snapshot_in_list() :: %{
-        "clusterArn" => [String.t()],
-        "snapshotArn" => [String.t()],
-        "snapshotCreationTime" => [String.t()],
-        "snapshotName" => [String.t()],
-        "status" => String.t()
+        "clusterArn" => [String.t() | Atom.t()],
+        "snapshotArn" => [String.t() | Atom.t()],
+        "snapshotCreationTime" => [String.t() | Atom.t()],
+        "snapshotName" => [String.t() | Atom.t()],
+        "status" => String.t() | Atom.t()
       }
 
   """
-  @type cluster_snapshot_in_list() :: %{String.t() => any()}
+  @type cluster_snapshot_in_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_cluster_input() :: %{
-        optional("adminUserPassword") => String.t(),
-        optional("authType") => String.t(),
+        optional("adminUserPassword") => String.t() | Atom.t(),
+        optional("authType") => String.t() | Atom.t(),
         optional("backupRetentionPeriod") => [integer()],
-        optional("clientToken") => [String.t()],
-        optional("preferredBackupWindow") => [String.t()],
-        optional("preferredMaintenanceWindow") => [String.t()],
+        optional("clientToken") => [String.t() | Atom.t()],
+        optional("preferredBackupWindow") => [String.t() | Atom.t()],
+        optional("preferredMaintenanceWindow") => [String.t() | Atom.t()],
         optional("shardCapacity") => [integer()],
         optional("shardCount") => [integer()],
         optional("shardInstanceCount") => [integer()],
-        optional("subnetIds") => list([String.t()]()),
-        optional("vpcSecurityGroupIds") => list([String.t()]())
+        optional("subnetIds") => list([String.t() | Atom.t()]()),
+        optional("vpcSecurityGroupIds") => list([String.t() | Atom.t()]())
       }
 
   """
-  @type update_cluster_input() :: %{String.t() => any()}
+  @type update_cluster_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -88,7 +88,7 @@ defmodule AWS.DocDBElastic do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -99,7 +99,7 @@ defmodule AWS.DocDBElastic do
       }
 
   """
-  @type create_cluster_snapshot_output() :: %{String.t() => any()}
+  @type create_cluster_snapshot_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -119,7 +119,7 @@ defmodule AWS.DocDBElastic do
       }
 
   """
-  @type restore_cluster_from_snapshot_output() :: %{String.t() => any()}
+  @type restore_cluster_from_snapshot_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -130,7 +130,7 @@ defmodule AWS.DocDBElastic do
       }
 
   """
-  @type start_cluster_output() :: %{String.t() => any()}
+  @type start_cluster_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -138,24 +138,24 @@ defmodule AWS.DocDBElastic do
 
       create_cluster_input() :: %{
         optional("backupRetentionPeriod") => [integer()],
-        optional("clientToken") => [String.t()],
-        optional("kmsKeyId") => [String.t()],
-        optional("preferredBackupWindow") => [String.t()],
-        optional("preferredMaintenanceWindow") => [String.t()],
+        optional("clientToken") => [String.t() | Atom.t()],
+        optional("kmsKeyId") => [String.t() | Atom.t()],
+        optional("preferredBackupWindow") => [String.t() | Atom.t()],
+        optional("preferredMaintenanceWindow") => [String.t() | Atom.t()],
         optional("shardInstanceCount") => [integer()],
-        optional("subnetIds") => list([String.t()]()),
+        optional("subnetIds") => list([String.t() | Atom.t()]()),
         optional("tags") => map(),
-        optional("vpcSecurityGroupIds") => list([String.t()]()),
-        required("adminUserName") => [String.t()],
-        required("adminUserPassword") => String.t(),
-        required("authType") => String.t(),
-        required("clusterName") => [String.t()],
+        optional("vpcSecurityGroupIds") => list([String.t() | Atom.t()]()),
+        required("adminUserName") => [String.t() | Atom.t()],
+        required("adminUserPassword") => String.t() | Atom.t(),
+        required("authType") => String.t() | Atom.t(),
+        required("clusterName") => [String.t() | Atom.t()],
         required("shardCapacity") => [integer()],
         required("shardCount") => [integer()]
       }
 
   """
-  @type create_cluster_input() :: %{String.t() => any()}
+  @type create_cluster_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -163,13 +163,13 @@ defmodule AWS.DocDBElastic do
 
       copy_cluster_snapshot_input() :: %{
         optional("copyTags") => [boolean()],
-        optional("kmsKeyId") => [String.t()],
+        optional("kmsKeyId") => [String.t() | Atom.t()],
         optional("tags") => map(),
-        required("targetSnapshotName") => [String.t()]
+        required("targetSnapshotName") => [String.t() | Atom.t()]
       }
 
   """
-  @type copy_cluster_snapshot_input() :: %{String.t() => any()}
+  @type copy_cluster_snapshot_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -185,25 +185,25 @@ defmodule AWS.DocDBElastic do
   ## Example:
 
       list_cluster_snapshots_input() :: %{
-        optional("clusterArn") => [String.t()],
+        optional("clusterArn") => [String.t() | Atom.t()],
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t(),
-        optional("snapshotType") => [String.t()]
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("snapshotType") => [String.t() | Atom.t()]
       }
 
   """
-  @type list_cluster_snapshots_input() :: %{String.t() => any()}
+  @type list_cluster_snapshots_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -220,49 +220,49 @@ defmodule AWS.DocDBElastic do
 
       list_clusters_output() :: %{
         optional("clusters") => list(cluster_in_list()),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_clusters_output() :: %{String.t() => any()}
+  @type list_clusters_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_pending_maintenance_actions_output() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "resourcePendingMaintenanceActions" => list(resource_pending_maintenance_action())
       }
 
   """
-  @type list_pending_maintenance_actions_output() :: %{String.t() => any()}
+  @type list_pending_maintenance_actions_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "resourceId" => [String.t() | Atom.t()],
+        "resourceType" => [String.t() | Atom.t()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "resourceId" => [String.t() | Atom.t()],
+        "resourceType" => [String.t() | Atom.t()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -273,7 +273,7 @@ defmodule AWS.DocDBElastic do
       }
 
   """
-  @type stop_cluster_output() :: %{String.t() => any()}
+  @type stop_cluster_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -284,45 +284,45 @@ defmodule AWS.DocDBElastic do
       }
 
   """
-  @type delete_cluster_output() :: %{String.t() => any()}
+  @type delete_cluster_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cluster() :: %{
-        "adminUserName" => [String.t()],
-        "authType" => String.t(),
+        "adminUserName" => [String.t() | Atom.t()],
+        "authType" => String.t() | Atom.t(),
         "backupRetentionPeriod" => [integer()],
-        "clusterArn" => [String.t()],
-        "clusterEndpoint" => [String.t()],
-        "clusterName" => [String.t()],
-        "createTime" => [String.t()],
-        "kmsKeyId" => [String.t()],
-        "preferredBackupWindow" => [String.t()],
-        "preferredMaintenanceWindow" => [String.t()],
+        "clusterArn" => [String.t() | Atom.t()],
+        "clusterEndpoint" => [String.t() | Atom.t()],
+        "clusterName" => [String.t() | Atom.t()],
+        "createTime" => [String.t() | Atom.t()],
+        "kmsKeyId" => [String.t() | Atom.t()],
+        "preferredBackupWindow" => [String.t() | Atom.t()],
+        "preferredMaintenanceWindow" => [String.t() | Atom.t()],
         "shardCapacity" => [integer()],
         "shardCount" => [integer()],
         "shardInstanceCount" => [integer()],
         "shards" => list(shard()),
-        "status" => String.t(),
-        "subnetIds" => list([String.t()]()),
-        "vpcSecurityGroupIds" => list([String.t()]())
+        "status" => String.t() | Atom.t(),
+        "subnetIds" => list([String.t() | Atom.t()]()),
+        "vpcSecurityGroupIds" => list([String.t() | Atom.t()]())
       }
 
   """
-  @type cluster() :: %{String.t() => any()}
+  @type cluster() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -333,7 +333,7 @@ defmodule AWS.DocDBElastic do
       }
 
   """
-  @type get_cluster_output() :: %{String.t() => any()}
+  @type get_cluster_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -341,11 +341,11 @@ defmodule AWS.DocDBElastic do
 
       list_clusters_input() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_clusters_input() :: %{String.t() => any()}
+  @type list_clusters_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -356,19 +356,19 @@ defmodule AWS.DocDBElastic do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "message" => [String.t()],
-        "name" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "name" => [String.t() | Atom.t()]
       }
 
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -379,28 +379,28 @@ defmodule AWS.DocDBElastic do
       }
 
   """
-  @type update_cluster_output() :: %{String.t() => any()}
+  @type update_cluster_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cluster_snapshot() :: %{
-        "adminUserName" => [String.t()],
-        "clusterArn" => [String.t()],
-        "clusterCreationTime" => [String.t()],
-        "kmsKeyId" => [String.t()],
-        "snapshotArn" => [String.t()],
-        "snapshotCreationTime" => [String.t()],
-        "snapshotName" => [String.t()],
-        "snapshotType" => String.t(),
-        "status" => String.t(),
-        "subnetIds" => list([String.t()]()),
-        "vpcSecurityGroupIds" => list([String.t()]())
+        "adminUserName" => [String.t() | Atom.t()],
+        "clusterArn" => [String.t() | Atom.t()],
+        "clusterCreationTime" => [String.t() | Atom.t()],
+        "kmsKeyId" => [String.t() | Atom.t()],
+        "snapshotArn" => [String.t() | Atom.t()],
+        "snapshotCreationTime" => [String.t() | Atom.t()],
+        "snapshotName" => [String.t() | Atom.t()],
+        "snapshotType" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t(),
+        "subnetIds" => list([String.t() | Atom.t()]()),
+        "vpcSecurityGroupIds" => list([String.t() | Atom.t()]())
       }
 
   """
-  @type cluster_snapshot() :: %{String.t() => any()}
+  @type cluster_snapshot() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -416,23 +416,23 @@ defmodule AWS.DocDBElastic do
   ## Example:
 
       list_cluster_snapshots_output() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("snapshots") => list(cluster_snapshot_in_list())
       }
 
   """
-  @type list_cluster_snapshots_output() :: %{String.t() => any()}
+  @type list_cluster_snapshots_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -443,31 +443,31 @@ defmodule AWS.DocDBElastic do
       }
 
   """
-  @type create_cluster_output() :: %{String.t() => any()}
+  @type create_cluster_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       shard() :: %{
-        "createTime" => [String.t()],
-        "shardId" => [String.t()],
-        "status" => String.t()
+        "createTime" => [String.t() | Atom.t()],
+        "shardId" => [String.t() | Atom.t()],
+        "status" => String.t() | Atom.t()
       }
 
   """
-  @type shard() :: %{String.t() => any()}
+  @type shard() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -487,7 +487,7 @@ defmodule AWS.DocDBElastic do
       }
 
   """
-  @type delete_cluster_snapshot_output() :: %{String.t() => any()}
+  @type delete_cluster_snapshot_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -504,12 +504,12 @@ defmodule AWS.DocDBElastic do
 
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
-        "message" => [String.t()],
-        "reason" => String.t()
+        "message" => [String.t() | Atom.t()],
+        "reason" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -525,12 +525,12 @@ defmodule AWS.DocDBElastic do
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t()],
+        "message" => [String.t() | Atom.t()],
         "retryAfterSeconds" => [integer()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -538,11 +538,11 @@ defmodule AWS.DocDBElastic do
 
       resource_pending_maintenance_action() :: %{
         "pendingMaintenanceActionDetails" => list(pending_maintenance_action_details()),
-        "resourceArn" => [String.t()]
+        "resourceArn" => [String.t() | Atom.t()]
       }
 
   """
-  @type resource_pending_maintenance_action() :: %{String.t() => any()}
+  @type resource_pending_maintenance_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -553,7 +553,7 @@ defmodule AWS.DocDBElastic do
       }
 
   """
-  @type apply_pending_maintenance_action_output() :: %{String.t() => any()}
+  @type apply_pending_maintenance_action_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -561,29 +561,29 @@ defmodule AWS.DocDBElastic do
 
       create_cluster_snapshot_input() :: %{
         optional("tags") => map(),
-        required("clusterArn") => [String.t()],
-        required("snapshotName") => [String.t()]
+        required("clusterArn") => [String.t() | Atom.t()],
+        required("snapshotName") => [String.t() | Atom.t()]
       }
 
   """
-  @type create_cluster_snapshot_input() :: %{String.t() => any()}
+  @type create_cluster_snapshot_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       restore_cluster_from_snapshot_input() :: %{
-        optional("kmsKeyId") => [String.t()],
+        optional("kmsKeyId") => [String.t() | Atom.t()],
         optional("shardCapacity") => [integer()],
         optional("shardInstanceCount") => [integer()],
-        optional("subnetIds") => list([String.t()]()),
+        optional("subnetIds") => list([String.t() | Atom.t()]()),
         optional("tags") => map(),
-        optional("vpcSecurityGroupIds") => list([String.t()]()),
-        required("clusterName") => [String.t()]
+        optional("vpcSecurityGroupIds") => list([String.t() | Atom.t()]()),
+        required("clusterName") => [String.t() | Atom.t()]
       }
 
   """
-  @type restore_cluster_from_snapshot_input() :: %{String.t() => any()}
+  @type restore_cluster_from_snapshot_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -603,20 +603,20 @@ defmodule AWS.DocDBElastic do
       }
 
   """
-  @type get_pending_maintenance_action_output() :: %{String.t() => any()}
+  @type get_pending_maintenance_action_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cluster_in_list() :: %{
-        "clusterArn" => [String.t()],
-        "clusterName" => [String.t()],
-        "status" => String.t()
+        "clusterArn" => [String.t() | Atom.t()],
+        "clusterName" => [String.t() | Atom.t()],
+        "status" => String.t() | Atom.t()
       }
 
   """
-  @type cluster_in_list() :: %{String.t() => any()}
+  @type cluster_in_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -645,7 +645,7 @@ defmodule AWS.DocDBElastic do
       }
 
   """
-  @type get_cluster_snapshot_output() :: %{String.t() => any()}
+  @type get_cluster_snapshot_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -656,7 +656,7 @@ defmodule AWS.DocDBElastic do
       }
 
   """
-  @type copy_cluster_snapshot_output() :: %{String.t() => any()}
+  @type copy_cluster_snapshot_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -664,27 +664,27 @@ defmodule AWS.DocDBElastic do
 
       list_pending_maintenance_actions_input() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_pending_maintenance_actions_input() :: %{String.t() => any()}
+  @type list_pending_maintenance_actions_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       pending_maintenance_action_details() :: %{
-        "action" => [String.t()],
-        "autoAppliedAfterDate" => [String.t()],
-        "currentApplyDate" => [String.t()],
-        "description" => [String.t()],
-        "forcedApplyDate" => [String.t()],
-        "optInStatus" => [String.t()]
+        "action" => [String.t() | Atom.t()],
+        "autoAppliedAfterDate" => [String.t() | Atom.t()],
+        "currentApplyDate" => [String.t() | Atom.t()],
+        "description" => [String.t() | Atom.t()],
+        "forcedApplyDate" => [String.t() | Atom.t()],
+        "optInStatus" => [String.t() | Atom.t()]
       }
 
   """
-  @type pending_maintenance_action_details() :: %{String.t() => any()}
+  @type pending_maintenance_action_details() :: %{String.t() | Atom.t() => any()}
 
   @type apply_pending_maintenance_action_errors() ::
           throttling_exception()
@@ -873,7 +873,7 @@ defmodule AWS.DocDBElastic do
   @doc """
   Copies a snapshot of an elastic cluster.
   """
-  @spec copy_cluster_snapshot(map(), String.t(), copy_cluster_snapshot_input(), list()) ::
+  @spec copy_cluster_snapshot(map(), String.t() | Atom.t(), copy_cluster_snapshot_input(), list()) ::
           {:ok, copy_cluster_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -961,7 +961,7 @@ defmodule AWS.DocDBElastic do
   @doc """
   Delete an elastic cluster.
   """
-  @spec delete_cluster(map(), String.t(), delete_cluster_input(), list()) ::
+  @spec delete_cluster(map(), String.t() | Atom.t(), delete_cluster_input(), list()) ::
           {:ok, delete_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -990,7 +990,12 @@ defmodule AWS.DocDBElastic do
   @doc """
   Delete an elastic cluster snapshot.
   """
-  @spec delete_cluster_snapshot(map(), String.t(), delete_cluster_snapshot_input(), list()) ::
+  @spec delete_cluster_snapshot(
+          map(),
+          String.t() | Atom.t(),
+          delete_cluster_snapshot_input(),
+          list()
+        ) ::
           {:ok, delete_cluster_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1019,7 +1024,7 @@ defmodule AWS.DocDBElastic do
   @doc """
   Returns information about a specific elastic cluster.
   """
-  @spec get_cluster(map(), String.t(), list()) ::
+  @spec get_cluster(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1037,7 +1042,7 @@ defmodule AWS.DocDBElastic do
   @doc """
   Returns information about a specific elastic cluster snapshot
   """
-  @spec get_cluster_snapshot(map(), String.t(), list()) ::
+  @spec get_cluster_snapshot(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_cluster_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1055,7 +1060,7 @@ defmodule AWS.DocDBElastic do
   @doc """
   Retrieves all maintenance actions that are pending.
   """
-  @spec get_pending_maintenance_action(map(), String.t(), list()) ::
+  @spec get_pending_maintenance_action(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_pending_maintenance_action_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1075,10 +1080,10 @@ defmodule AWS.DocDBElastic do
   """
   @spec list_cluster_snapshots(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_cluster_snapshots_output(), any()}
@@ -1133,7 +1138,7 @@ defmodule AWS.DocDBElastic do
   @doc """
   Returns information about provisioned Amazon DocumentDB elastic clusters.
   """
-  @spec list_clusters(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_clusters(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_clusters_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1165,7 +1170,12 @@ defmodule AWS.DocDBElastic do
   @doc """
   Retrieves a list of all maintenance actions that are pending.
   """
-  @spec list_pending_maintenance_actions(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_pending_maintenance_actions(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_pending_maintenance_actions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1202,7 +1212,7 @@ defmodule AWS.DocDBElastic do
   @doc """
   Lists all tags on a elastic cluster resource
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1222,7 +1232,7 @@ defmodule AWS.DocDBElastic do
   """
   @spec restore_cluster_from_snapshot(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           restore_cluster_from_snapshot_input(),
           list()
         ) ::
@@ -1254,7 +1264,7 @@ defmodule AWS.DocDBElastic do
   @doc """
   Restarts the stopped elastic cluster that is specified by `clusterARN`.
   """
-  @spec start_cluster(map(), String.t(), start_cluster_input(), list()) ::
+  @spec start_cluster(map(), String.t() | Atom.t(), start_cluster_input(), list()) ::
           {:ok, start_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1285,7 +1295,7 @@ defmodule AWS.DocDBElastic do
 
   The elastic cluster must be in the *available* state.
   """
-  @spec stop_cluster(map(), String.t(), stop_cluster_input(), list()) ::
+  @spec stop_cluster(map(), String.t() | Atom.t(), stop_cluster_input(), list()) ::
           {:ok, stop_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1314,7 +1324,7 @@ defmodule AWS.DocDBElastic do
   @doc """
   Adds metadata tags to an elastic cluster resource
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1343,7 +1353,7 @@ defmodule AWS.DocDBElastic do
   @doc """
   Removes metadata tags from an elastic cluster resource
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1380,7 +1390,7 @@ defmodule AWS.DocDBElastic do
   This includes updating admin-username/password,
   upgrading the API version, and setting up a backup window and maintenance window
   """
-  @spec update_cluster(map(), String.t(), update_cluster_input(), list()) ::
+  @spec update_cluster(map(), String.t() | Atom.t(), update_cluster_input(), list()) ::
           {:ok, update_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

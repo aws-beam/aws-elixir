@@ -18,38 +18,38 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       list_workflow_executions_response() :: %{
-        "imageBuildVersionArn" => String.t(),
-        "message" => String.t(),
-        "nextToken" => String.t(),
-        "requestId" => String.t(),
+        "imageBuildVersionArn" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t(),
+        "nextToken" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t(),
         "workflowExecutions" => list(workflow_execution_metadata())
       }
 
   """
-  @type list_workflow_executions_response() :: %{String.t() => any()}
+  @type list_workflow_executions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_lifecycle_execution_response() :: %{
-        "lifecycleExecutionId" => String.t()
+        "lifecycleExecutionId" => String.t() | Atom.t()
       }
 
   """
-  @type cancel_lifecycle_execution_response() :: %{String.t() => any()}
+  @type cancel_lifecycle_execution_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_workflow_build_versions_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "workflowSummaryList" => list(workflow_summary())
       }
 
   """
-  @type list_workflow_build_versions_response() :: %{String.t() => any()}
+  @type list_workflow_build_versions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -58,42 +58,42 @@ defmodule AWS.Imagebuilder do
       list_distribution_configurations_request() :: %{
         optional("filters") => list(filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_distribution_configurations_request() :: %{String.t() => any()}
+  @type list_distribution_configurations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_workflow_request() :: %{
-        optional("changeDescription") => String.t(),
-        optional("data") => String.t(),
-        optional("description") => String.t(),
-        optional("kmsKeyId") => String.t(),
+        optional("changeDescription") => String.t() | Atom.t(),
+        optional("data") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("kmsKeyId") => String.t() | Atom.t(),
         optional("tags") => map(),
-        optional("uri") => String.t(),
-        required("clientToken") => String.t(),
-        required("name") => String.t(),
-        required("semanticVersion") => String.t(),
+        optional("uri") => String.t() | Atom.t(),
+        required("clientToken") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t(),
+        required("semanticVersion") => String.t() | Atom.t(),
         required("type") => list(any())
       }
 
   """
-  @type create_workflow_request() :: %{String.t() => any()}
+  @type create_workflow_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_image_policy_request() :: %{
-        required("imageArn") => String.t()
+        required("imageArn") => String.t() | Atom.t()
       }
 
   """
-  @type get_image_policy_request() :: %{String.t() => any()}
+  @type get_image_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -101,16 +101,16 @@ defmodule AWS.Imagebuilder do
 
       start_resource_state_update_request() :: %{
         optional("exclusionRules") => resource_state_update_exclusion_rules(),
-        optional("executionRole") => String.t(),
+        optional("executionRole") => String.t() | Atom.t(),
         optional("includeResources") => resource_state_update_include_resources(),
         optional("updateAt") => non_neg_integer(),
-        required("clientToken") => String.t(),
-        required("resourceArn") => String.t(),
+        required("clientToken") => String.t() | Atom.t(),
+        required("resourceArn") => String.t() | Atom.t(),
         required("state") => resource_state()
       }
 
   """
-  @type start_resource_state_update_request() :: %{String.t() => any()}
+  @type start_resource_state_update_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -119,24 +119,24 @@ defmodule AWS.Imagebuilder do
       list_image_pipeline_images_request() :: %{
         optional("filters") => list(filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("imagePipelineArn") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("imagePipelineArn") => String.t() | Atom.t()
       }
 
   """
-  @type list_image_pipeline_images_request() :: %{String.t() => any()}
+  @type list_image_pipeline_images_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_container_recipe_policy_response() :: %{
-        "containerRecipeArn" => String.t(),
-        "requestId" => String.t()
+        "containerRecipeArn" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type put_container_recipe_policy_response() :: %{String.t() => any()}
+  @type put_container_recipe_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -148,25 +148,25 @@ defmodule AWS.Imagebuilder do
       }
 
   """
-  @type lifecycle_policy_detail_exclusion_rules() :: %{String.t() => any()}
+  @type lifecycle_policy_detail_exclusion_rules() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       import_vm_image_request() :: %{
-        optional("description") => String.t(),
-        optional("osVersion") => String.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("osVersion") => String.t() | Atom.t(),
         optional("tags") => map(),
-        required("clientToken") => String.t(),
-        required("name") => String.t(),
+        required("clientToken") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t(),
         required("platform") => list(any()),
-        required("semanticVersion") => String.t(),
-        required("vmImportTaskId") => String.t()
+        required("semanticVersion") => String.t() | Atom.t(),
+        required("vmImportTaskId") => String.t() | Atom.t()
       }
 
   """
-  @type import_vm_image_request() :: %{String.t() => any()}
+  @type import_vm_image_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -177,33 +177,33 @@ defmodule AWS.Imagebuilder do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       component_parameter_detail() :: %{
-        "defaultValue" => list(String.t()),
-        "description" => String.t(),
-        "name" => String.t(),
-        "type" => String.t()
+        "defaultValue" => list(String.t() | Atom.t()),
+        "description" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "type" => String.t() | Atom.t()
       }
 
   """
-  @type component_parameter_detail() :: %{String.t() => any()}
+  @type component_parameter_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       image_scan_state() :: %{
-        "reason" => String.t(),
+        "reason" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type image_scan_state() :: %{String.t() => any()}
+  @type image_scan_state() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -216,24 +216,24 @@ defmodule AWS.Imagebuilder do
       }
 
   """
-  @type lifecycle_policy_detail_action_include_resources() :: %{String.t() => any()}
+  @type lifecycle_policy_detail_action_include_resources() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_workflow_step_executions_response() :: %{
-        "imageBuildVersionArn" => String.t(),
-        "message" => String.t(),
-        "nextToken" => String.t(),
-        "requestId" => String.t(),
+        "imageBuildVersionArn" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t(),
+        "nextToken" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t(),
         "steps" => list(workflow_step_metadata()),
-        "workflowBuildVersionArn" => String.t(),
-        "workflowExecutionId" => String.t()
+        "workflowBuildVersionArn" => String.t() | Atom.t(),
+        "workflowExecutionId" => String.t() | Atom.t()
       }
 
   """
-  @type list_workflow_step_executions_response() :: %{String.t() => any()}
+  @type list_workflow_step_executions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -241,57 +241,57 @@ defmodule AWS.Imagebuilder do
 
       list_image_packages_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("imageBuildVersionArn") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("imageBuildVersionArn") => String.t() | Atom.t()
       }
 
   """
-  @type list_image_packages_request() :: %{String.t() => any()}
+  @type list_image_packages_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       container() :: %{
-        "imageUris" => list(String.t()),
-        "region" => String.t()
+        "imageUris" => list(String.t() | Atom.t()),
+        "region" => String.t() | Atom.t()
       }
 
   """
-  @type container() :: %{String.t() => any()}
+  @type container() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_distribution_configuration_response() :: %{
-        "clientToken" => String.t(),
-        "distributionConfigurationArn" => String.t(),
-        "requestId" => String.t()
+        "clientToken" => String.t() | Atom.t(),
+        "distributionConfigurationArn" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type update_distribution_configuration_response() :: %{String.t() => any()}
+  @type update_distribution_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       infrastructure_configuration_summary() :: %{
-        "arn" => String.t(),
-        "dateCreated" => String.t(),
-        "dateUpdated" => String.t(),
-        "description" => String.t(),
-        "instanceProfileName" => String.t(),
-        "instanceTypes" => list(String.t()),
-        "name" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "dateCreated" => String.t() | Atom.t(),
+        "dateUpdated" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "instanceProfileName" => String.t() | Atom.t(),
+        "instanceTypes" => list(String.t() | Atom.t()),
+        "name" => String.t() | Atom.t(),
         "placement" => placement(),
         "resourceTags" => map(),
         "tags" => map()
       }
 
   """
-  @type infrastructure_configuration_summary() :: %{String.t() => any()}
+  @type infrastructure_configuration_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -300,29 +300,29 @@ defmodule AWS.Imagebuilder do
       list_image_recipes_request() :: %{
         optional("filters") => list(filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("owner") => list(any())
       }
 
   """
-  @type list_image_recipes_request() :: %{String.t() => any()}
+  @type list_image_recipes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       workflow_version() :: %{
-        "arn" => String.t(),
-        "dateCreated" => String.t(),
-        "description" => String.t(),
-        "name" => String.t(),
-        "owner" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "dateCreated" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "owner" => String.t() | Atom.t(),
         "type" => list(any()),
-        "version" => String.t()
+        "version" => String.t() | Atom.t()
       }
 
   """
-  @type workflow_version() :: %{String.t() => any()}
+  @type workflow_version() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -330,67 +330,67 @@ defmodule AWS.Imagebuilder do
 
       list_image_pipelines_response() :: %{
         "imagePipelineList" => list(image_pipeline()),
-        "nextToken" => String.t(),
-        "requestId" => String.t()
+        "nextToken" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type list_image_pipelines_response() :: %{String.t() => any()}
+  @type list_image_pipelines_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_image_response() :: %{
-        "clientToken" => String.t(),
-        "imageBuildVersionArn" => String.t(),
-        "requestId" => String.t()
+        "clientToken" => String.t() | Atom.t(),
+        "imageBuildVersionArn" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type create_image_response() :: %{String.t() => any()}
+  @type create_image_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_container_recipe_policy_request() :: %{
-        required("containerRecipeArn") => String.t(),
-        required("policy") => String.t()
+        required("containerRecipeArn") => String.t() | Atom.t(),
+        required("policy") => String.t() | Atom.t()
       }
 
   """
-  @type put_container_recipe_policy_request() :: %{String.t() => any()}
+  @type put_container_recipe_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_waiting_workflow_steps_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "steps" => list(workflow_step_execution())
       }
 
   """
-  @type list_waiting_workflow_steps_response() :: %{String.t() => any()}
+  @type list_waiting_workflow_steps_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_lifecycle_policy_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("status") => list(any()),
-        required("clientToken") => String.t(),
-        required("executionRole") => String.t(),
-        required("lifecyclePolicyArn") => String.t(),
+        required("clientToken") => String.t() | Atom.t(),
+        required("executionRole") => String.t() | Atom.t(),
+        required("lifecyclePolicyArn") => String.t() | Atom.t(),
         required("policyDetails") => list(lifecycle_policy_detail()),
         required("resourceSelection") => lifecycle_policy_resource_selection(),
         required("resourceType") => list(any())
       }
 
   """
-  @type update_lifecycle_policy_request() :: %{String.t() => any()}
+  @type update_lifecycle_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -401,7 +401,7 @@ defmodule AWS.Imagebuilder do
       }
 
   """
-  @type remediation() :: %{String.t() => any()}
+  @type remediation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -413,59 +413,59 @@ defmodule AWS.Imagebuilder do
       }
 
   """
-  @type image_scanning_configuration() :: %{String.t() => any()}
+  @type image_scanning_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_image_pipeline_execution_response() :: %{
-        "clientToken" => String.t(),
-        "imageBuildVersionArn" => String.t(),
-        "requestId" => String.t()
+        "clientToken" => String.t() | Atom.t(),
+        "imageBuildVersionArn" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type start_image_pipeline_execution_response() :: %{String.t() => any()}
+  @type start_image_pipeline_execution_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_image_recipe_policy_response() :: %{
-        "imageRecipeArn" => String.t(),
-        "requestId" => String.t()
+        "imageRecipeArn" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type put_image_recipe_policy_response() :: %{String.t() => any()}
+  @type put_image_recipe_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_workflow_step_execution_response() :: %{
-        "action" => String.t(),
-        "description" => String.t(),
-        "endTime" => String.t(),
-        "imageBuildVersionArn" => String.t(),
-        "inputs" => String.t(),
-        "message" => String.t(),
-        "name" => String.t(),
-        "onFailure" => String.t(),
-        "outputs" => String.t(),
-        "requestId" => String.t(),
+        "action" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "endTime" => String.t() | Atom.t(),
+        "imageBuildVersionArn" => String.t() | Atom.t(),
+        "inputs" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "onFailure" => String.t() | Atom.t(),
+        "outputs" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t(),
         "rollbackStatus" => list(any()),
-        "startTime" => String.t(),
+        "startTime" => String.t() | Atom.t(),
         "status" => list(any()),
-        "stepExecutionId" => String.t(),
+        "stepExecutionId" => String.t() | Atom.t(),
         "timeoutSeconds" => integer(),
-        "workflowBuildVersionArn" => String.t(),
-        "workflowExecutionId" => String.t()
+        "workflowBuildVersionArn" => String.t() | Atom.t(),
+        "workflowExecutionId" => String.t() | Atom.t()
       }
 
   """
-  @type get_workflow_step_execution_response() :: %{String.t() => any()}
+  @type get_workflow_step_execution_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -481,36 +481,36 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       invalid_version_number_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_version_number_exception() :: %{String.t() => any()}
+  @type invalid_version_number_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_lifecycle_execution_resources_response() :: %{
-        "lifecycleExecutionId" => String.t(),
+        "lifecycleExecutionId" => String.t() | Atom.t(),
         "lifecycleExecutionState" => lifecycle_execution_state(),
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "resources" => list(lifecycle_execution_resource())
       }
 
   """
-  @type list_lifecycle_execution_resources_response() :: %{String.t() => any()}
+  @type list_lifecycle_execution_resources_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_workflow_request() :: %{
-        required("workflowBuildVersionArn") => String.t()
+        required("workflowBuildVersionArn") => String.t() | Atom.t()
       }
 
   """
-  @type delete_workflow_request() :: %{String.t() => any()}
+  @type delete_workflow_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -518,32 +518,32 @@ defmodule AWS.Imagebuilder do
 
       list_image_scan_finding_aggregations_request() :: %{
         optional("filter") => filter(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_image_scan_finding_aggregations_request() :: %{String.t() => any()}
+  @type list_image_scan_finding_aggregations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       image_pipeline() :: %{
-        "arn" => String.t(),
-        "containerRecipeArn" => String.t(),
-        "dateCreated" => String.t(),
-        "dateLastRun" => String.t(),
-        "dateNextRun" => String.t(),
-        "dateUpdated" => String.t(),
-        "description" => String.t(),
-        "distributionConfigurationArn" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "containerRecipeArn" => String.t() | Atom.t(),
+        "dateCreated" => String.t() | Atom.t(),
+        "dateLastRun" => String.t() | Atom.t(),
+        "dateNextRun" => String.t() | Atom.t(),
+        "dateUpdated" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "distributionConfigurationArn" => String.t() | Atom.t(),
         "enhancedImageMetadataEnabled" => boolean(),
-        "executionRole" => String.t(),
-        "imageRecipeArn" => String.t(),
+        "executionRole" => String.t() | Atom.t(),
+        "imageRecipeArn" => String.t() | Atom.t(),
         "imageScanningConfiguration" => image_scanning_configuration(),
         "imageTestsConfiguration" => image_tests_configuration(),
-        "infrastructureConfigurationArn" => String.t(),
-        "name" => String.t(),
+        "infrastructureConfigurationArn" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "platform" => list(any()),
         "schedule" => schedule(),
         "status" => list(any()),
@@ -552,68 +552,68 @@ defmodule AWS.Imagebuilder do
       }
 
   """
-  @type image_pipeline() :: %{String.t() => any()}
+  @type image_pipeline() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_in_use_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_in_use_exception() :: %{String.t() => any()}
+  @type resource_in_use_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       workflow_parameter_detail() :: %{
-        "defaultValue" => list(String.t()),
-        "description" => String.t(),
-        "name" => String.t(),
-        "type" => String.t()
+        "defaultValue" => list(String.t() | Atom.t()),
+        "description" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "type" => String.t() | Atom.t()
       }
 
   """
-  @type workflow_parameter_detail() :: %{String.t() => any()}
+  @type workflow_parameter_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       forbidden_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type forbidden_exception() :: %{String.t() => any()}
+  @type forbidden_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       instance_block_device_mapping() :: %{
-        "deviceName" => String.t(),
+        "deviceName" => String.t() | Atom.t(),
         "ebs" => ebs_instance_block_device_specification(),
-        "noDevice" => String.t(),
-        "virtualName" => String.t()
+        "noDevice" => String.t() | Atom.t(),
+        "virtualName" => String.t() | Atom.t()
       }
 
   """
-  @type instance_block_device_mapping() :: %{String.t() => any()}
+  @type instance_block_device_mapping() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_lifecycle_policy_response() :: %{
-        "lifecyclePolicyArn" => String.t()
+        "lifecyclePolicyArn" => String.t() | Atom.t()
       }
 
   """
-  @type update_lifecycle_policy_response() :: %{String.t() => any()}
+  @type update_lifecycle_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -623,15 +623,15 @@ defmodule AWS.Imagebuilder do
         "deleteOnTermination" => boolean(),
         "encrypted" => boolean(),
         "iops" => integer(),
-        "kmsKeyId" => String.t(),
-        "snapshotId" => String.t(),
+        "kmsKeyId" => String.t() | Atom.t(),
+        "snapshotId" => String.t() | Atom.t(),
         "throughput" => integer(),
         "volumeSize" => integer(),
         "volumeType" => list(any())
       }
 
   """
-  @type ebs_instance_block_device_specification() :: %{String.t() => any()}
+  @type ebs_instance_block_device_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -639,22 +639,22 @@ defmodule AWS.Imagebuilder do
 
       get_container_recipe_response() :: %{
         "containerRecipe" => container_recipe(),
-        "requestId" => String.t()
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type get_container_recipe_response() :: %{String.t() => any()}
+  @type get_container_recipe_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_lifecycle_execution_request() :: %{
-        required("lifecycleExecutionId") => String.t()
+        required("lifecycleExecutionId") => String.t() | Atom.t()
       }
 
   """
-  @type get_lifecycle_execution_request() :: %{String.t() => any()}
+  @type get_lifecycle_execution_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -662,27 +662,27 @@ defmodule AWS.Imagebuilder do
 
       vulnerability_id_aggregation() :: %{
         "severityCounts" => severity_counts(),
-        "vulnerabilityId" => String.t()
+        "vulnerabilityId" => String.t() | Atom.t()
       }
 
   """
-  @type vulnerability_id_aggregation() :: %{String.t() => any()}
+  @type vulnerability_id_aggregation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       ami() :: %{
-        "accountId" => String.t(),
-        "description" => String.t(),
-        "image" => String.t(),
-        "name" => String.t(),
-        "region" => String.t(),
+        "accountId" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "image" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "region" => String.t() | Atom.t(),
         "state" => image_state()
       }
 
   """
-  @type ami() :: %{String.t() => any()}
+  @type ami() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -693,7 +693,7 @@ defmodule AWS.Imagebuilder do
       }
 
   """
-  @type resource_state() :: %{String.t() => any()}
+  @type resource_state() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -701,23 +701,23 @@ defmodule AWS.Imagebuilder do
 
       get_image_response() :: %{
         "image" => image(),
-        "requestId" => String.t()
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type get_image_response() :: %{String.t() => any()}
+  @type get_image_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_image_recipe_policy_response() :: %{
-        "policy" => String.t(),
-        "requestId" => String.t()
+        "policy" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type get_image_recipe_policy_response() :: %{String.t() => any()}
+  @type get_image_recipe_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -726,11 +726,11 @@ defmodule AWS.Imagebuilder do
       list_lifecycle_policies_request() :: %{
         optional("filters") => list(filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_lifecycle_policies_request() :: %{String.t() => any()}
+  @type list_lifecycle_policies_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -738,87 +738,87 @@ defmodule AWS.Imagebuilder do
 
       lifecycle_execution_resource_action() :: %{
         "name" => list(any()),
-        "reason" => String.t()
+        "reason" => String.t() | Atom.t()
       }
 
   """
-  @type lifecycle_execution_resource_action() :: %{String.t() => any()}
+  @type lifecycle_execution_resource_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_image_pipeline_response() :: %{
-        "clientToken" => String.t(),
-        "imagePipelineArn" => String.t(),
-        "requestId" => String.t()
+        "clientToken" => String.t() | Atom.t(),
+        "imagePipelineArn" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type create_image_pipeline_response() :: %{String.t() => any()}
+  @type create_image_pipeline_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_infrastructure_configuration_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("instanceMetadataOptions") => instance_metadata_options(),
-        optional("instanceTypes") => list(String.t()),
-        optional("keyPair") => String.t(),
+        optional("instanceTypes") => list(String.t() | Atom.t()),
+        optional("keyPair") => String.t() | Atom.t(),
         optional("logging") => logging(),
         optional("placement") => placement(),
         optional("resourceTags") => map(),
-        optional("securityGroupIds") => list(String.t()),
-        optional("snsTopicArn") => String.t(),
-        optional("subnetId") => String.t(),
+        optional("securityGroupIds") => list(String.t() | Atom.t()),
+        optional("snsTopicArn") => String.t() | Atom.t(),
+        optional("subnetId") => String.t() | Atom.t(),
         optional("tags") => map(),
         optional("terminateInstanceOnFailure") => boolean(),
-        required("clientToken") => String.t(),
-        required("instanceProfileName") => String.t(),
-        required("name") => String.t()
+        required("clientToken") => String.t() | Atom.t(),
+        required("instanceProfileName") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_infrastructure_configuration_request() :: %{String.t() => any()}
+  @type create_infrastructure_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_component_request() :: %{
-        required("componentBuildVersionArn") => String.t()
+        required("componentBuildVersionArn") => String.t() | Atom.t()
       }
 
   """
-  @type delete_component_request() :: %{String.t() => any()}
+  @type delete_component_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       send_workflow_step_action_request() :: %{
-        optional("reason") => String.t(),
+        optional("reason") => String.t() | Atom.t(),
         required("action") => list(any()),
-        required("clientToken") => String.t(),
-        required("imageBuildVersionArn") => String.t(),
-        required("stepExecutionId") => String.t()
+        required("clientToken") => String.t() | Atom.t(),
+        required("imageBuildVersionArn") => String.t() | Atom.t(),
+        required("stepExecutionId") => String.t() | Atom.t()
       }
 
   """
-  @type send_workflow_step_action_request() :: %{String.t() => any()}
+  @type send_workflow_step_action_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       ecr_configuration() :: %{
-        "containerTags" => list(String.t()),
-        "repositoryName" => String.t()
+        "containerTags" => list(String.t() | Atom.t()),
+        "repositoryName" => String.t() | Atom.t()
       }
 
   """
-  @type ecr_configuration() :: %{String.t() => any()}
+  @type ecr_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -829,7 +829,7 @@ defmodule AWS.Imagebuilder do
       }
 
   """
-  @type get_lifecycle_execution_response() :: %{String.t() => any()}
+  @type get_lifecycle_execution_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -837,23 +837,23 @@ defmodule AWS.Imagebuilder do
 
       get_component_response() :: %{
         "component" => component(),
-        "requestId" => String.t()
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type get_component_response() :: %{String.t() => any()}
+  @type get_component_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       image_scan_findings_filter() :: %{
-        "name" => String.t(),
-        "values" => list(String.t())
+        "name" => String.t() | Atom.t(),
+        "values" => list(String.t() | Atom.t())
       }
 
   """
-  @type image_scan_findings_filter() :: %{String.t() => any()}
+  @type image_scan_findings_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -862,29 +862,29 @@ defmodule AWS.Imagebuilder do
       create_image_recipe_request() :: %{
         optional("additionalInstanceConfiguration") => additional_instance_configuration(),
         optional("blockDeviceMappings") => list(instance_block_device_mapping()),
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("tags") => map(),
-        optional("workingDirectory") => String.t(),
-        required("clientToken") => String.t(),
+        optional("workingDirectory") => String.t() | Atom.t(),
+        required("clientToken") => String.t() | Atom.t(),
         required("components") => list(component_configuration()),
-        required("name") => String.t(),
-        required("parentImage") => String.t(),
-        required("semanticVersion") => String.t()
+        required("name") => String.t() | Atom.t(),
+        required("parentImage") => String.t() | Atom.t(),
+        required("semanticVersion") => String.t() | Atom.t()
       }
 
   """
-  @type create_image_recipe_request() :: %{String.t() => any()}
+  @type create_image_recipe_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_container_recipe_policy_request() :: %{
-        required("containerRecipeArn") => String.t()
+        required("containerRecipeArn") => String.t() | Atom.t()
       }
 
   """
-  @type get_container_recipe_policy_request() :: %{String.t() => any()}
+  @type get_container_recipe_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -892,12 +892,12 @@ defmodule AWS.Imagebuilder do
 
       list_container_recipes_response() :: %{
         "containerRecipeSummaryList" => list(container_recipe_summary()),
-        "nextToken" => String.t(),
-        "requestId" => String.t()
+        "nextToken" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type list_container_recipes_response() :: %{String.t() => any()}
+  @type list_container_recipes_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -905,34 +905,34 @@ defmodule AWS.Imagebuilder do
 
       get_infrastructure_configuration_response() :: %{
         "infrastructureConfiguration" => infrastructure_configuration(),
-        "requestId" => String.t()
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type get_infrastructure_configuration_response() :: %{String.t() => any()}
+  @type get_infrastructure_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_image_creation_request() :: %{
-        required("clientToken") => String.t(),
-        required("imageBuildVersionArn") => String.t()
+        required("clientToken") => String.t() | Atom.t(),
+        required("imageBuildVersionArn") => String.t() | Atom.t()
       }
 
   """
-  @type cancel_image_creation_request() :: %{String.t() => any()}
+  @type cancel_image_creation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -940,153 +940,153 @@ defmodule AWS.Imagebuilder do
 
       list_component_build_versions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("componentVersionArn") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("componentVersionArn") => String.t() | Atom.t()
       }
 
   """
-  @type list_component_build_versions_request() :: %{String.t() => any()}
+  @type list_component_build_versions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       import_component_request() :: %{
-        optional("changeDescription") => String.t(),
-        optional("data") => String.t(),
-        optional("description") => String.t(),
-        optional("kmsKeyId") => String.t(),
+        optional("changeDescription") => String.t() | Atom.t(),
+        optional("data") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("kmsKeyId") => String.t() | Atom.t(),
         optional("tags") => map(),
-        optional("uri") => String.t(),
-        required("clientToken") => String.t(),
+        optional("uri") => String.t() | Atom.t(),
+        required("clientToken") => String.t() | Atom.t(),
         required("format") => list(any()),
-        required("name") => String.t(),
+        required("name") => String.t() | Atom.t(),
         required("platform") => list(any()),
-        required("semanticVersion") => String.t(),
+        required("semanticVersion") => String.t() | Atom.t(),
         required("type") => list(any())
       }
 
   """
-  @type import_component_request() :: %{String.t() => any()}
+  @type import_component_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       call_rate_limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type call_rate_limit_exceeded_exception() :: %{String.t() => any()}
+  @type call_rate_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       component_summary() :: %{
-        "arn" => String.t(),
-        "changeDescription" => String.t(),
-        "dateCreated" => String.t(),
-        "description" => String.t(),
-        "name" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "changeDescription" => String.t() | Atom.t(),
+        "dateCreated" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "obfuscate" => boolean(),
-        "owner" => String.t(),
+        "owner" => String.t() | Atom.t(),
         "platform" => list(any()),
-        "publisher" => String.t(),
+        "publisher" => String.t() | Atom.t(),
         "state" => component_state(),
-        "supportedOsVersions" => list(String.t()),
+        "supportedOsVersions" => list(String.t() | Atom.t()),
         "tags" => map(),
         "type" => list(any()),
-        "version" => String.t()
+        "version" => String.t() | Atom.t()
       }
 
   """
-  @type component_summary() :: %{String.t() => any()}
+  @type component_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       target_container_repository() :: %{
-        "repositoryName" => String.t(),
+        "repositoryName" => String.t() | Atom.t(),
         "service" => list(any())
       }
 
   """
-  @type target_container_repository() :: %{String.t() => any()}
+  @type target_container_repository() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_distribution_configuration_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("tags") => map(),
-        required("clientToken") => String.t(),
+        required("clientToken") => String.t() | Atom.t(),
         required("distributions") => list(distribution()),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_distribution_configuration_request() :: %{String.t() => any()}
+  @type create_distribution_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_container_recipe_response() :: %{
-        "containerRecipeArn" => String.t(),
-        "requestId" => String.t()
+        "containerRecipeArn" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type delete_container_recipe_response() :: %{String.t() => any()}
+  @type delete_container_recipe_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       workflow_execution_metadata() :: %{
-        "endTime" => String.t(),
-        "message" => String.t(),
-        "parallelGroup" => String.t(),
-        "startTime" => String.t(),
+        "endTime" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t(),
+        "parallelGroup" => String.t() | Atom.t(),
+        "startTime" => String.t() | Atom.t(),
         "status" => list(any()),
         "totalStepCount" => integer(),
         "totalStepsFailed" => integer(),
         "totalStepsSkipped" => integer(),
         "totalStepsSucceeded" => integer(),
         "type" => list(any()),
-        "workflowBuildVersionArn" => String.t(),
-        "workflowExecutionId" => String.t()
+        "workflowBuildVersionArn" => String.t() | Atom.t(),
+        "workflowExecutionId" => String.t() | Atom.t()
       }
 
   """
-  @type workflow_execution_metadata() :: %{String.t() => any()}
+  @type workflow_execution_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       component_state() :: %{
-        "reason" => String.t(),
+        "reason" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type component_state() :: %{String.t() => any()}
+  @type component_state() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_workflow_request() :: %{
-        required("workflowBuildVersionArn") => String.t()
+        required("workflowBuildVersionArn") => String.t() | Atom.t()
       }
 
   """
-  @type get_workflow_request() :: %{String.t() => any()}
+  @type get_workflow_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1100,29 +1100,29 @@ defmodule AWS.Imagebuilder do
       }
 
   """
-  @type severity_counts() :: %{String.t() => any()}
+  @type severity_counts() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_parameter_combination_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_parameter_combination_exception() :: %{String.t() => any()}
+  @type invalid_parameter_combination_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_container_recipe_request() :: %{
-        required("containerRecipeArn") => String.t()
+        required("containerRecipeArn") => String.t() | Atom.t()
       }
 
   """
-  @type delete_container_recipe_request() :: %{String.t() => any()}
+  @type delete_container_recipe_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1136,101 +1136,101 @@ defmodule AWS.Imagebuilder do
       }
 
   """
-  @type image_scan_finding_aggregation() :: %{String.t() => any()}
+  @type image_scan_finding_aggregation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       image_version() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "buildType" => list(any()),
-        "dateCreated" => String.t(),
+        "dateCreated" => String.t() | Atom.t(),
         "imageSource" => list(any()),
-        "name" => String.t(),
-        "osVersion" => String.t(),
-        "owner" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "osVersion" => String.t() | Atom.t(),
+        "owner" => String.t() | Atom.t(),
         "platform" => list(any()),
         "type" => list(any()),
-        "version" => String.t()
+        "version" => String.t() | Atom.t()
       }
 
   """
-  @type image_version() :: %{String.t() => any()}
+  @type image_version() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_workflow_step_execution_request() :: %{
-        required("stepExecutionId") => String.t()
+        required("stepExecutionId") => String.t() | Atom.t()
       }
 
   """
-  @type get_workflow_step_execution_request() :: %{String.t() => any()}
+  @type get_workflow_step_execution_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_resource_state_update_response() :: %{
-        "lifecycleExecutionId" => String.t(),
-        "resourceArn" => String.t()
+        "lifecycleExecutionId" => String.t() | Atom.t(),
+        "resourceArn" => String.t() | Atom.t()
       }
 
   """
-  @type start_resource_state_update_response() :: %{String.t() => any()}
+  @type start_resource_state_update_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_image_pipeline_request() :: %{
-        required("imagePipelineArn") => String.t()
+        required("imagePipelineArn") => String.t() | Atom.t()
       }
 
   """
-  @type delete_image_pipeline_request() :: %{String.t() => any()}
+  @type delete_image_pipeline_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       workflow_parameter() :: %{
-        "name" => String.t(),
-        "value" => list(String.t())
+        "name" => String.t() | Atom.t(),
+        "value" => list(String.t() | Atom.t())
       }
 
   """
-  @type workflow_parameter() :: %{String.t() => any()}
+  @type workflow_parameter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_image_request() :: %{
-        required("imageBuildVersionArn") => String.t()
+        required("imageBuildVersionArn") => String.t() | Atom.t()
       }
 
   """
-  @type get_image_request() :: %{String.t() => any()}
+  @type get_image_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       workflow_step_execution() :: %{
-        "action" => String.t(),
-        "imageBuildVersionArn" => String.t(),
-        "name" => String.t(),
-        "startTime" => String.t(),
-        "stepExecutionId" => String.t(),
-        "workflowBuildVersionArn" => String.t(),
-        "workflowExecutionId" => String.t()
+        "action" => String.t() | Atom.t(),
+        "imageBuildVersionArn" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "startTime" => String.t() | Atom.t(),
+        "stepExecutionId" => String.t() | Atom.t(),
+        "workflowBuildVersionArn" => String.t() | Atom.t(),
+        "workflowExecutionId" => String.t() | Atom.t()
       }
 
   """
-  @type workflow_step_execution() :: %{String.t() => any()}
+  @type workflow_step_execution() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1238,100 +1238,100 @@ defmodule AWS.Imagebuilder do
 
       list_distribution_configurations_response() :: %{
         "distributionConfigurationSummaryList" => list(distribution_configuration_summary()),
-        "nextToken" => String.t(),
-        "requestId" => String.t()
+        "nextToken" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type list_distribution_configurations_response() :: %{String.t() => any()}
+  @type list_distribution_configurations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_image_policy_response() :: %{
-        "policy" => String.t(),
-        "requestId" => String.t()
+        "policy" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type get_image_policy_response() :: %{String.t() => any()}
+  @type get_image_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_component_response() :: %{
-        "clientToken" => String.t(),
-        "componentBuildVersionArn" => String.t(),
-        "requestId" => String.t()
+        "clientToken" => String.t() | Atom.t(),
+        "componentBuildVersionArn" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type create_component_response() :: %{String.t() => any()}
+  @type create_component_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_workflow_response() :: %{
-        "workflowBuildVersionArn" => String.t()
+        "workflowBuildVersionArn" => String.t() | Atom.t()
       }
 
   """
-  @type delete_workflow_response() :: %{String.t() => any()}
+  @type delete_workflow_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_lifecycle_policy_response() :: %{
-        "lifecyclePolicyArn" => String.t()
+        "lifecyclePolicyArn" => String.t() | Atom.t()
       }
 
   """
-  @type delete_lifecycle_policy_response() :: %{String.t() => any()}
+  @type delete_lifecycle_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       lifecycle_execution_resource() :: %{
-        "accountId" => String.t(),
+        "accountId" => String.t() | Atom.t(),
         "action" => lifecycle_execution_resource_action(),
         "endTime" => non_neg_integer(),
-        "imageUris" => list(String.t()),
-        "region" => String.t(),
-        "resourceId" => String.t(),
+        "imageUris" => list(String.t() | Atom.t()),
+        "region" => String.t() | Atom.t(),
+        "resourceId" => String.t() | Atom.t(),
         "snapshots" => list(lifecycle_execution_snapshot_resource()),
         "startTime" => non_neg_integer(),
         "state" => lifecycle_execution_resource_state()
       }
 
   """
-  @type lifecycle_execution_resource() :: %{String.t() => any()}
+  @type lifecycle_execution_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_distribution_configuration_request() :: %{
-        required("distributionConfigurationArn") => String.t()
+        required("distributionConfigurationArn") => String.t() | Atom.t()
       }
 
   """
-  @type delete_distribution_configuration_request() :: %{String.t() => any()}
+  @type delete_distribution_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_image_recipe_request() :: %{
-        required("imageRecipeArn") => String.t()
+        required("imageRecipeArn") => String.t() | Atom.t()
       }
 
   """
-  @type get_image_recipe_request() :: %{String.t() => any()}
+  @type get_image_recipe_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1342,20 +1342,20 @@ defmodule AWS.Imagebuilder do
       }
 
   """
-  @type systems_manager_agent() :: %{String.t() => any()}
+  @type systems_manager_agent() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_image_recipe_response() :: %{
-        "clientToken" => String.t(),
-        "imageRecipeArn" => String.t(),
-        "requestId" => String.t()
+        "clientToken" => String.t() | Atom.t(),
+        "imageRecipeArn" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type create_image_recipe_response() :: %{String.t() => any()}
+  @type create_image_recipe_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1368,18 +1368,18 @@ defmodule AWS.Imagebuilder do
       }
 
   """
-  @type lifecycle_policy_detail() :: %{String.t() => any()}
+  @type lifecycle_policy_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_image_recipe_request() :: %{
-        required("imageRecipeArn") => String.t()
+        required("imageRecipeArn") => String.t() | Atom.t()
       }
 
   """
-  @type delete_image_recipe_request() :: %{String.t() => any()}
+  @type delete_image_recipe_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1387,59 +1387,59 @@ defmodule AWS.Imagebuilder do
 
       s3_export_configuration() :: %{
         "diskImageFormat" => list(any()),
-        "roleName" => String.t(),
-        "s3Bucket" => String.t(),
-        "s3Prefix" => String.t()
+        "roleName" => String.t() | Atom.t(),
+        "s3Bucket" => String.t() | Atom.t(),
+        "s3Prefix" => String.t() | Atom.t()
       }
 
   """
-  @type s3_export_configuration() :: %{String.t() => any()}
+  @type s3_export_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       client_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type client_exception() :: %{String.t() => any()}
+  @type client_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_infrastructure_configuration_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("instanceMetadataOptions") => instance_metadata_options(),
-        optional("instanceTypes") => list(String.t()),
-        optional("keyPair") => String.t(),
+        optional("instanceTypes") => list(String.t() | Atom.t()),
+        optional("keyPair") => String.t() | Atom.t(),
         optional("logging") => logging(),
         optional("placement") => placement(),
         optional("resourceTags") => map(),
-        optional("securityGroupIds") => list(String.t()),
-        optional("snsTopicArn") => String.t(),
-        optional("subnetId") => String.t(),
+        optional("securityGroupIds") => list(String.t() | Atom.t()),
+        optional("snsTopicArn") => String.t() | Atom.t(),
+        optional("subnetId") => String.t() | Atom.t(),
         optional("terminateInstanceOnFailure") => boolean(),
-        required("clientToken") => String.t(),
-        required("infrastructureConfigurationArn") => String.t(),
-        required("instanceProfileName") => String.t()
+        required("clientToken") => String.t() | Atom.t(),
+        required("infrastructureConfigurationArn") => String.t() | Atom.t(),
+        required("instanceProfileName") => String.t() | Atom.t()
       }
 
   """
-  @type update_infrastructure_configuration_request() :: %{String.t() => any()}
+  @type update_infrastructure_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1449,12 +1449,12 @@ defmodule AWS.Imagebuilder do
         optional("byName") => boolean(),
         optional("filters") => list(filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("owner") => list(any())
       }
 
   """
-  @type list_components_request() :: %{String.t() => any()}
+  @type list_components_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1462,126 +1462,126 @@ defmodule AWS.Imagebuilder do
 
       list_workflow_executions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("imageBuildVersionArn") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("imageBuildVersionArn") => String.t() | Atom.t()
       }
 
   """
-  @type list_workflow_executions_request() :: %{String.t() => any()}
+  @type list_workflow_executions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       lifecycle_policy_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "dateCreated" => non_neg_integer(),
         "dateLastRun" => non_neg_integer(),
         "dateUpdated" => non_neg_integer(),
-        "description" => String.t(),
-        "executionRole" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "executionRole" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "resourceType" => list(any()),
         "status" => list(any()),
         "tags" => map()
       }
 
   """
-  @type lifecycle_policy_summary() :: %{String.t() => any()}
+  @type lifecycle_policy_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_logs() :: %{
-        "s3BucketName" => String.t(),
-        "s3KeyPrefix" => String.t()
+        "s3BucketName" => String.t() | Atom.t(),
+        "s3KeyPrefix" => String.t() | Atom.t()
       }
 
   """
-  @type s3_logs() :: %{String.t() => any()}
+  @type s3_logs() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_container_recipe_request() :: %{
-        optional("description") => String.t(),
-        optional("dockerfileTemplateData") => String.t(),
-        optional("dockerfileTemplateUri") => String.t(),
-        optional("imageOsVersionOverride") => String.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("dockerfileTemplateData") => String.t() | Atom.t(),
+        optional("dockerfileTemplateUri") => String.t() | Atom.t(),
+        optional("imageOsVersionOverride") => String.t() | Atom.t(),
         optional("instanceConfiguration") => instance_configuration(),
-        optional("kmsKeyId") => String.t(),
+        optional("kmsKeyId") => String.t() | Atom.t(),
         optional("platformOverride") => list(any()),
         optional("tags") => map(),
-        optional("workingDirectory") => String.t(),
-        required("clientToken") => String.t(),
+        optional("workingDirectory") => String.t() | Atom.t(),
+        required("clientToken") => String.t() | Atom.t(),
         required("components") => list(component_configuration()),
         required("containerType") => list(any()),
-        required("name") => String.t(),
-        required("parentImage") => String.t(),
-        required("semanticVersion") => String.t(),
+        required("name") => String.t() | Atom.t(),
+        required("parentImage") => String.t() | Atom.t(),
+        required("semanticVersion") => String.t() | Atom.t(),
         required("targetRepository") => target_container_repository()
       }
 
   """
-  @type create_container_recipe_request() :: %{String.t() => any()}
+  @type create_container_recipe_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_component_policy_request() :: %{
-        required("componentArn") => String.t(),
-        required("policy") => String.t()
+        required("componentArn") => String.t() | Atom.t(),
+        required("policy") => String.t() | Atom.t()
       }
 
   """
-  @type put_component_policy_request() :: %{String.t() => any()}
+  @type put_component_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_request_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_request_exception() :: %{String.t() => any()}
+  @type invalid_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       import_disk_image_response() :: %{
-        "clientToken" => String.t(),
-        "imageBuildVersionArn" => String.t()
+        "clientToken" => String.t() | Atom.t(),
+        "imageBuildVersionArn" => String.t() | Atom.t()
       }
 
   """
-  @type import_disk_image_response() :: %{String.t() => any()}
+  @type import_disk_image_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_image_request() :: %{
-        optional("containerRecipeArn") => String.t(),
-        optional("distributionConfigurationArn") => String.t(),
+        optional("containerRecipeArn") => String.t() | Atom.t(),
+        optional("distributionConfigurationArn") => String.t() | Atom.t(),
         optional("enhancedImageMetadataEnabled") => boolean(),
-        optional("executionRole") => String.t(),
-        optional("imageRecipeArn") => String.t(),
+        optional("executionRole") => String.t() | Atom.t(),
+        optional("imageRecipeArn") => String.t() | Atom.t(),
         optional("imageScanningConfiguration") => image_scanning_configuration(),
         optional("imageTestsConfiguration") => image_tests_configuration(),
         optional("tags") => map(),
         optional("workflows") => list(workflow_configuration()),
-        required("clientToken") => String.t(),
-        required("infrastructureConfigurationArn") => String.t()
+        required("clientToken") => String.t() | Atom.t(),
+        required("infrastructureConfigurationArn") => String.t() | Atom.t()
       }
 
   """
-  @type create_image_request() :: %{String.t() => any()}
+  @type create_image_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1589,22 +1589,22 @@ defmodule AWS.Imagebuilder do
 
       get_image_pipeline_response() :: %{
         "imagePipeline" => image_pipeline(),
-        "requestId" => String.t()
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type get_image_pipeline_response() :: %{String.t() => any()}
+  @type get_image_pipeline_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1612,11 +1612,11 @@ defmodule AWS.Imagebuilder do
 
       list_lifecycle_policies_response() :: %{
         "lifecyclePolicySummaryList" => list(lifecycle_policy_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_lifecycle_policies_response() :: %{String.t() => any()}
+  @type list_lifecycle_policies_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1627,41 +1627,41 @@ defmodule AWS.Imagebuilder do
         optional("filters") => list(filter()),
         optional("includeDeprecated") => boolean(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("owner") => list(any())
       }
 
   """
-  @type list_images_request() :: %{String.t() => any()}
+  @type list_images_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       component() :: %{
-        "arn" => String.t(),
-        "changeDescription" => String.t(),
-        "data" => String.t(),
-        "dateCreated" => String.t(),
-        "description" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "changeDescription" => String.t() | Atom.t(),
+        "data" => String.t() | Atom.t(),
+        "dateCreated" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
         "encrypted" => boolean(),
-        "kmsKeyId" => String.t(),
-        "name" => String.t(),
+        "kmsKeyId" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "obfuscate" => boolean(),
-        "owner" => String.t(),
+        "owner" => String.t() | Atom.t(),
         "parameters" => list(component_parameter_detail()),
         "platform" => list(any()),
         "productCodes" => list(product_code_list_item()),
-        "publisher" => String.t(),
+        "publisher" => String.t() | Atom.t(),
         "state" => component_state(),
-        "supportedOsVersions" => list(String.t()),
+        "supportedOsVersions" => list(String.t() | Atom.t()),
         "tags" => map(),
         "type" => list(any()),
-        "version" => String.t()
+        "version" => String.t() | Atom.t()
       }
 
   """
-  @type component() :: %{String.t() => any()}
+  @type component() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1674,66 +1674,66 @@ defmodule AWS.Imagebuilder do
       }
 
   """
-  @type resource_state_update_include_resources() :: %{String.t() => any()}
+  @type resource_state_update_include_resources() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       send_workflow_step_action_response() :: %{
-        "clientToken" => String.t(),
-        "imageBuildVersionArn" => String.t(),
-        "stepExecutionId" => String.t()
+        "clientToken" => String.t() | Atom.t(),
+        "imageBuildVersionArn" => String.t() | Atom.t(),
+        "stepExecutionId" => String.t() | Atom.t()
       }
 
   """
-  @type send_workflow_step_action_response() :: %{String.t() => any()}
+  @type send_workflow_step_action_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       idempotent_parameter_mismatch_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type idempotent_parameter_mismatch_exception() :: %{String.t() => any()}
+  @type idempotent_parameter_mismatch_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_parameter_value_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_parameter_value_exception() :: %{String.t() => any()}
+  @type invalid_parameter_value_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_image_recipe_policy_request() :: %{
-        required("imageRecipeArn") => String.t(),
-        required("policy") => String.t()
+        required("imageRecipeArn") => String.t() | Atom.t(),
+        required("policy") => String.t() | Atom.t()
       }
 
   """
-  @type put_image_recipe_policy_request() :: %{String.t() => any()}
+  @type put_image_recipe_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_component_policy_response() :: %{
-        "policy" => String.t(),
-        "requestId" => String.t()
+        "policy" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type get_component_policy_response() :: %{String.t() => any()}
+  @type get_component_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1743,89 +1743,89 @@ defmodule AWS.Imagebuilder do
         optional("byName") => boolean(),
         optional("filters") => list(filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("owner") => list(any())
       }
 
   """
-  @type list_workflows_request() :: %{String.t() => any()}
+  @type list_workflows_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_container_recipe_request() :: %{
-        required("containerRecipeArn") => String.t()
+        required("containerRecipeArn") => String.t() | Atom.t()
       }
 
   """
-  @type get_container_recipe_request() :: %{String.t() => any()}
+  @type get_container_recipe_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       distribution_configuration() :: %{
-        "arn" => String.t(),
-        "dateCreated" => String.t(),
-        "dateUpdated" => String.t(),
-        "description" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "dateCreated" => String.t() | Atom.t(),
+        "dateUpdated" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
         "distributions" => list(distribution()),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "tags" => map(),
         "timeoutMinutes" => integer()
       }
 
   """
-  @type distribution_configuration() :: %{String.t() => any()}
+  @type distribution_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       lifecycle_execution_resource_state() :: %{
-        "reason" => String.t(),
+        "reason" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type lifecycle_execution_resource_state() :: %{String.t() => any()}
+  @type lifecycle_execution_resource_state() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_marketplace_resource_response() :: %{
-        "data" => String.t(),
-        "resourceArn" => String.t(),
-        "url" => String.t()
+        "data" => String.t() | Atom.t(),
+        "resourceArn" => String.t() | Atom.t(),
+        "url" => String.t() | Atom.t()
       }
 
   """
-  @type get_marketplace_resource_response() :: %{String.t() => any()}
+  @type get_marketplace_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       workflow() :: %{
-        "arn" => String.t(),
-        "changeDescription" => String.t(),
-        "data" => String.t(),
-        "dateCreated" => String.t(),
-        "description" => String.t(),
-        "kmsKeyId" => String.t(),
-        "name" => String.t(),
-        "owner" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "changeDescription" => String.t() | Atom.t(),
+        "data" => String.t() | Atom.t(),
+        "dateCreated" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "kmsKeyId" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "owner" => String.t() | Atom.t(),
         "parameters" => list(workflow_parameter_detail()),
         "state" => workflow_state(),
         "tags" => map(),
         "type" => list(any()),
-        "version" => String.t()
+        "version" => String.t() | Atom.t()
       }
 
   """
-  @type workflow() :: %{String.t() => any()}
+  @type workflow() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1833,15 +1833,15 @@ defmodule AWS.Imagebuilder do
 
       cvss_score_details() :: %{
         "adjustments" => list(cvss_score_adjustment()),
-        "cvssSource" => String.t(),
+        "cvssSource" => String.t() | Atom.t(),
         "score" => float(),
-        "scoreSource" => String.t(),
-        "scoringVector" => String.t(),
-        "version" => String.t()
+        "scoreSource" => String.t() | Atom.t(),
+        "scoringVector" => String.t() | Atom.t(),
+        "version" => String.t() | Atom.t()
       }
 
   """
-  @type cvss_score_details() :: %{String.t() => any()}
+  @type cvss_score_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1850,11 +1850,11 @@ defmodule AWS.Imagebuilder do
       list_image_pipelines_request() :: %{
         optional("filters") => list(filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_image_pipelines_request() :: %{String.t() => any()}
+  @type list_image_pipelines_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1865,14 +1865,14 @@ defmodule AWS.Imagebuilder do
         "containerDistributionConfiguration" => container_distribution_configuration(),
         "fastLaunchConfigurations" => list(fast_launch_configuration()),
         "launchTemplateConfigurations" => list(launch_template_configuration()),
-        "licenseConfigurationArns" => list(String.t()),
-        "region" => String.t(),
+        "licenseConfigurationArns" => list(String.t() | Atom.t()),
+        "region" => String.t() | Atom.t(),
         "s3ExportConfiguration" => s3_export_configuration(),
         "ssmParameterConfigurations" => list(ssm_parameter_configuration())
       }
 
   """
-  @type distribution() :: %{String.t() => any()}
+  @type distribution() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1880,47 +1880,47 @@ defmodule AWS.Imagebuilder do
 
       list_image_scan_findings_response() :: %{
         "findings" => list(image_scan_finding()),
-        "nextToken" => String.t(),
-        "requestId" => String.t()
+        "nextToken" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type list_image_scan_findings_response() :: %{String.t() => any()}
+  @type list_image_scan_findings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_image_recipe_response() :: %{
-        "imageRecipeArn" => String.t(),
-        "requestId" => String.t()
+        "imageRecipeArn" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type delete_image_recipe_response() :: %{String.t() => any()}
+  @type delete_image_recipe_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       remediation_recommendation() :: %{
-        "text" => String.t(),
-        "url" => String.t()
+        "text" => String.t() | Atom.t(),
+        "url" => String.t() | Atom.t()
       }
 
   """
-  @type remediation_recommendation() :: %{String.t() => any()}
+  @type remediation_recommendation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type service_exception() :: %{String.t() => any()}
+  @type service_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1931,62 +1931,62 @@ defmodule AWS.Imagebuilder do
       }
 
   """
-  @type inspector_score_details() :: %{String.t() => any()}
+  @type inspector_score_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_component_request() :: %{
-        optional("changeDescription") => String.t(),
-        optional("data") => String.t(),
-        optional("description") => String.t(),
-        optional("kmsKeyId") => String.t(),
-        optional("supportedOsVersions") => list(String.t()),
+        optional("changeDescription") => String.t() | Atom.t(),
+        optional("data") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("kmsKeyId") => String.t() | Atom.t(),
+        optional("supportedOsVersions") => list(String.t() | Atom.t()),
         optional("tags") => map(),
-        optional("uri") => String.t(),
-        required("clientToken") => String.t(),
-        required("name") => String.t(),
+        optional("uri") => String.t() | Atom.t(),
+        required("clientToken") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t(),
         required("platform") => list(any()),
-        required("semanticVersion") => String.t()
+        required("semanticVersion") => String.t() | Atom.t()
       }
 
   """
-  @type create_component_request() :: %{String.t() => any()}
+  @type create_component_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       vulnerable_package() :: %{
-        "arch" => String.t(),
+        "arch" => String.t() | Atom.t(),
         "epoch" => integer(),
-        "filePath" => String.t(),
-        "fixedInVersion" => String.t(),
-        "name" => String.t(),
-        "packageManager" => String.t(),
-        "release" => String.t(),
-        "remediation" => String.t(),
-        "sourceLayerHash" => String.t(),
-        "version" => String.t()
+        "filePath" => String.t() | Atom.t(),
+        "fixedInVersion" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "packageManager" => String.t() | Atom.t(),
+        "release" => String.t() | Atom.t(),
+        "remediation" => String.t() | Atom.t(),
+        "sourceLayerHash" => String.t() | Atom.t(),
+        "version" => String.t() | Atom.t()
       }
 
   """
-  @type vulnerable_package() :: %{String.t() => any()}
+  @type vulnerable_package() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_distribution_configuration_request() :: %{
-        optional("description") => String.t(),
-        required("clientToken") => String.t(),
-        required("distributionConfigurationArn") => String.t(),
+        optional("description") => String.t() | Atom.t(),
+        required("clientToken") => String.t() | Atom.t(),
+        required("distributionConfigurationArn") => String.t() | Atom.t(),
         required("distributions") => list(distribution())
       }
 
   """
-  @type update_distribution_configuration_request() :: %{String.t() => any()}
+  @type update_distribution_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1997,7 +1997,7 @@ defmodule AWS.Imagebuilder do
       }
 
   """
-  @type resource_state_update_exclusion_rules() :: %{String.t() => any()}
+  @type resource_state_update_exclusion_rules() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2008,31 +2008,31 @@ defmodule AWS.Imagebuilder do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cvss_score_adjustment() :: %{
-        "metric" => String.t(),
-        "reason" => String.t()
+        "metric" => String.t() | Atom.t(),
+        "reason" => String.t() | Atom.t()
       }
 
   """
-  @type cvss_score_adjustment() :: %{String.t() => any()}
+  @type cvss_score_adjustment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       lifecycle_execution_snapshot_resource() :: %{
-        "snapshotId" => String.t(),
+        "snapshotId" => String.t() | Atom.t(),
         "state" => lifecycle_execution_resource_state()
       }
 
   """
-  @type lifecycle_execution_snapshot_resource() :: %{String.t() => any()}
+  @type lifecycle_execution_snapshot_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2040,41 +2040,41 @@ defmodule AWS.Imagebuilder do
 
       list_infrastructure_configurations_response() :: %{
         "infrastructureConfigurationSummaryList" => list(infrastructure_configuration_summary()),
-        "nextToken" => String.t(),
-        "requestId" => String.t()
+        "nextToken" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type list_infrastructure_configurations_response() :: %{String.t() => any()}
+  @type list_infrastructure_configurations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       container_recipe_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "containerType" => list(any()),
-        "dateCreated" => String.t(),
-        "name" => String.t(),
-        "owner" => String.t(),
-        "parentImage" => String.t(),
+        "dateCreated" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "owner" => String.t() | Atom.t(),
+        "parentImage" => String.t() | Atom.t(),
         "platform" => list(any()),
         "tags" => map()
       }
 
   """
-  @type container_recipe_summary() :: %{String.t() => any()}
+  @type container_recipe_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_workflow_execution_request() :: %{
-        required("workflowExecutionId") => String.t()
+        required("workflowExecutionId") => String.t() | Atom.t()
       }
 
   """
-  @type get_workflow_execution_request() :: %{String.t() => any()}
+  @type get_workflow_execution_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2082,117 +2082,117 @@ defmodule AWS.Imagebuilder do
 
       list_lifecycle_executions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("resourceArn") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("resourceArn") => String.t() | Atom.t()
       }
 
   """
-  @type list_lifecycle_executions_request() :: %{String.t() => any()}
+  @type list_lifecycle_executions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_unavailable_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type service_unavailable_exception() :: %{String.t() => any()}
+  @type service_unavailable_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       component_version() :: %{
-        "arn" => String.t(),
-        "dateCreated" => String.t(),
-        "description" => String.t(),
-        "name" => String.t(),
-        "owner" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "dateCreated" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "owner" => String.t() | Atom.t(),
         "platform" => list(any()),
         "productCodes" => list(product_code_list_item()),
         "status" => list(any()),
-        "supportedOsVersions" => list(String.t()),
+        "supportedOsVersions" => list(String.t() | Atom.t()),
         "type" => list(any()),
-        "version" => String.t()
+        "version" => String.t() | Atom.t()
       }
 
   """
-  @type component_version() :: %{String.t() => any()}
+  @type component_version() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_lifecycle_policy_response() :: %{
-        "clientToken" => String.t(),
-        "lifecyclePolicyArn" => String.t()
+        "clientToken" => String.t() | Atom.t(),
+        "lifecyclePolicyArn" => String.t() | Atom.t()
       }
 
   """
-  @type create_lifecycle_policy_response() :: %{String.t() => any()}
+  @type create_lifecycle_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_image_policy_request() :: %{
-        required("imageArn") => String.t(),
-        required("policy") => String.t()
+        required("imageArn") => String.t() | Atom.t(),
+        required("policy") => String.t() | Atom.t()
       }
 
   """
-  @type put_image_policy_request() :: %{String.t() => any()}
+  @type put_image_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_distribution_configuration_request() :: %{
-        required("distributionConfigurationArn") => String.t()
+        required("distributionConfigurationArn") => String.t() | Atom.t()
       }
 
   """
-  @type get_distribution_configuration_request() :: %{String.t() => any()}
+  @type get_distribution_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       import_component_response() :: %{
-        "clientToken" => String.t(),
-        "componentBuildVersionArn" => String.t(),
-        "requestId" => String.t()
+        "clientToken" => String.t() | Atom.t(),
+        "componentBuildVersionArn" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type import_component_response() :: %{String.t() => any()}
+  @type import_component_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_image_pipeline_request() :: %{
-        optional("containerRecipeArn") => String.t(),
-        optional("description") => String.t(),
-        optional("distributionConfigurationArn") => String.t(),
+        optional("containerRecipeArn") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("distributionConfigurationArn") => String.t() | Atom.t(),
         optional("enhancedImageMetadataEnabled") => boolean(),
-        optional("executionRole") => String.t(),
-        optional("imageRecipeArn") => String.t(),
+        optional("executionRole") => String.t() | Atom.t(),
+        optional("imageRecipeArn") => String.t() | Atom.t(),
         optional("imageScanningConfiguration") => image_scanning_configuration(),
         optional("imageTestsConfiguration") => image_tests_configuration(),
         optional("schedule") => schedule(),
         optional("status") => list(any()),
         optional("tags") => map(),
         optional("workflows") => list(workflow_configuration()),
-        required("clientToken") => String.t(),
-        required("infrastructureConfigurationArn") => String.t(),
-        required("name") => String.t()
+        required("clientToken") => String.t() | Atom.t(),
+        required("infrastructureConfigurationArn") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_image_pipeline_request() :: %{String.t() => any()}
+  @type create_image_pipeline_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2206,58 +2206,58 @@ defmodule AWS.Imagebuilder do
       }
 
   """
-  @type lifecycle_policy_detail_filter() :: %{String.t() => any()}
+  @type lifecycle_policy_detail_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       filter() :: %{
-        "name" => String.t(),
-        "values" => list(String.t())
+        "name" => String.t() | Atom.t(),
+        "values" => list(String.t() | Atom.t())
       }
 
   """
-  @type filter() :: %{String.t() => any()}
+  @type filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       placement() :: %{
-        "availabilityZone" => String.t(),
-        "hostId" => String.t(),
-        "hostResourceGroupArn" => String.t(),
+        "availabilityZone" => String.t() | Atom.t(),
+        "hostId" => String.t() | Atom.t(),
+        "hostResourceGroupArn" => String.t() | Atom.t(),
         "tenancy" => list(any())
       }
 
   """
-  @type placement() :: %{String.t() => any()}
+  @type placement() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_distribution_configuration_response() :: %{
-        "clientToken" => String.t(),
-        "distributionConfigurationArn" => String.t(),
-        "requestId" => String.t()
+        "clientToken" => String.t() | Atom.t(),
+        "distributionConfigurationArn" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type create_distribution_configuration_response() :: %{String.t() => any()}
+  @type create_distribution_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_distribution_configuration_response() :: %{
-        "distributionConfigurationArn" => String.t(),
-        "requestId" => String.t()
+        "distributionConfigurationArn" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type delete_distribution_configuration_response() :: %{String.t() => any()}
+  @type delete_distribution_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2265,12 +2265,12 @@ defmodule AWS.Imagebuilder do
 
       list_images_response() :: %{
         "imageVersionList" => list(image_version()),
-        "nextToken" => String.t(),
-        "requestId" => String.t()
+        "nextToken" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type list_images_response() :: %{String.t() => any()}
+  @type list_images_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2278,11 +2278,11 @@ defmodule AWS.Imagebuilder do
 
       list_lifecycle_executions_response() :: %{
         "lifecycleExecutions" => list(lifecycle_execution()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_lifecycle_executions_response() :: %{String.t() => any()}
+  @type list_lifecycle_executions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2290,12 +2290,12 @@ defmodule AWS.Imagebuilder do
 
       list_component_build_versions_response() :: %{
         "componentSummaryList" => list(component_summary()),
-        "nextToken" => String.t(),
-        "requestId" => String.t()
+        "nextToken" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type list_component_build_versions_response() :: %{String.t() => any()}
+  @type list_component_build_versions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2303,32 +2303,32 @@ defmodule AWS.Imagebuilder do
 
       list_image_packages_response() :: %{
         "imagePackageList" => list(image_package()),
-        "nextToken" => String.t(),
-        "requestId" => String.t()
+        "nextToken" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type list_image_packages_response() :: %{String.t() => any()}
+  @type list_image_packages_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       workflow_summary() :: %{
-        "arn" => String.t(),
-        "changeDescription" => String.t(),
-        "dateCreated" => String.t(),
-        "description" => String.t(),
-        "name" => String.t(),
-        "owner" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "changeDescription" => String.t() | Atom.t(),
+        "dateCreated" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "owner" => String.t() | Atom.t(),
         "state" => workflow_state(),
         "tags" => map(),
         "type" => list(any()),
-        "version" => String.t()
+        "version" => String.t() | Atom.t()
       }
 
   """
-  @type workflow_summary() :: %{String.t() => any()}
+  @type workflow_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2340,7 +2340,7 @@ defmodule AWS.Imagebuilder do
       }
 
   """
-  @type image_tests_configuration() :: %{String.t() => any()}
+  @type image_tests_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2349,12 +2349,12 @@ defmodule AWS.Imagebuilder do
       list_container_recipes_request() :: %{
         optional("filters") => list(filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("owner") => list(any())
       }
 
   """
-  @type list_container_recipes_request() :: %{String.t() => any()}
+  @type list_container_recipes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2363,24 +2363,24 @@ defmodule AWS.Imagebuilder do
       list_image_build_versions_request() :: %{
         optional("filters") => list(filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("imageVersionArn") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("imageVersionArn") => String.t() | Atom.t()
       }
 
   """
-  @type list_image_build_versions_request() :: %{String.t() => any()}
+  @type list_image_build_versions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_component_response() :: %{
-        "componentBuildVersionArn" => String.t(),
-        "requestId" => String.t()
+        "componentBuildVersionArn" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type delete_component_response() :: %{String.t() => any()}
+  @type delete_component_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2388,33 +2388,33 @@ defmodule AWS.Imagebuilder do
 
       additional_instance_configuration() :: %{
         "systemsManagerAgent" => systems_manager_agent(),
-        "userDataOverride" => String.t()
+        "userDataOverride" => String.t() | Atom.t()
       }
 
   """
-  @type additional_instance_configuration() :: %{String.t() => any()}
+  @type additional_instance_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_infrastructure_configuration_request() :: %{
-        required("infrastructureConfigurationArn") => String.t()
+        required("infrastructureConfigurationArn") => String.t() | Atom.t()
       }
 
   """
-  @type get_infrastructure_configuration_request() :: %{String.t() => any()}
+  @type get_infrastructure_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_image_request() :: %{
-        required("imageBuildVersionArn") => String.t()
+        required("imageBuildVersionArn") => String.t() | Atom.t()
       }
 
   """
-  @type delete_image_request() :: %{String.t() => any()}
+  @type delete_image_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2425,7 +2425,7 @@ defmodule AWS.Imagebuilder do
       }
 
   """
-  @type lifecycle_execution_resources_impacted_summary() :: %{String.t() => any()}
+  @type lifecycle_execution_resources_impacted_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2433,23 +2433,23 @@ defmodule AWS.Imagebuilder do
 
       image_recipe() :: %{
         "additionalInstanceConfiguration" => additional_instance_configuration(),
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "blockDeviceMappings" => list(instance_block_device_mapping()),
         "components" => list(component_configuration()),
-        "dateCreated" => String.t(),
-        "description" => String.t(),
-        "name" => String.t(),
-        "owner" => String.t(),
-        "parentImage" => String.t(),
+        "dateCreated" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "owner" => String.t() | Atom.t(),
+        "parentImage" => String.t() | Atom.t(),
         "platform" => list(any()),
         "tags" => map(),
         "type" => list(any()),
-        "version" => String.t(),
-        "workingDirectory" => String.t()
+        "version" => String.t() | Atom.t(),
+        "workingDirectory" => String.t() | Atom.t()
       }
 
   """
-  @type image_recipe() :: %{String.t() => any()}
+  @type image_recipe() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2460,20 +2460,20 @@ defmodule AWS.Imagebuilder do
       }
 
   """
-  @type fast_launch_snapshot_configuration() :: %{String.t() => any()}
+  @type fast_launch_snapshot_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       lifecycle_policy() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "dateCreated" => non_neg_integer(),
         "dateLastRun" => non_neg_integer(),
         "dateUpdated" => non_neg_integer(),
-        "description" => String.t(),
-        "executionRole" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "executionRole" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "policyDetails" => list(lifecycle_policy_detail()),
         "resourceSelection" => lifecycle_policy_resource_selection(),
         "resourceType" => list(any()),
@@ -2482,43 +2482,43 @@ defmodule AWS.Imagebuilder do
       }
 
   """
-  @type lifecycle_policy() :: %{String.t() => any()}
+  @type lifecycle_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_component_policy_response() :: %{
-        "componentArn" => String.t(),
-        "requestId" => String.t()
+        "componentArn" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type put_component_policy_response() :: %{String.t() => any()}
+  @type put_component_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_workflow_execution_response() :: %{
-        "endTime" => String.t(),
-        "imageBuildVersionArn" => String.t(),
-        "message" => String.t(),
-        "parallelGroup" => String.t(),
-        "requestId" => String.t(),
-        "startTime" => String.t(),
+        "endTime" => String.t() | Atom.t(),
+        "imageBuildVersionArn" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t(),
+        "parallelGroup" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t(),
+        "startTime" => String.t() | Atom.t(),
         "status" => list(any()),
         "totalStepCount" => integer(),
         "totalStepsFailed" => integer(),
         "totalStepsSkipped" => integer(),
         "totalStepsSucceeded" => integer(),
         "type" => list(any()),
-        "workflowBuildVersionArn" => String.t(),
-        "workflowExecutionId" => String.t()
+        "workflowBuildVersionArn" => String.t() | Atom.t(),
+        "workflowExecutionId" => String.t() | Atom.t()
       }
 
   """
-  @type get_workflow_execution_response() :: %{String.t() => any()}
+  @type get_workflow_execution_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2526,12 +2526,12 @@ defmodule AWS.Imagebuilder do
 
       schedule() :: %{
         "pipelineExecutionStartCondition" => list(any()),
-        "scheduleExpression" => String.t(),
-        "timezone" => String.t()
+        "scheduleExpression" => String.t() | Atom.t(),
+        "timezone" => String.t() | Atom.t()
       }
 
   """
-  @type schedule() :: %{String.t() => any()}
+  @type schedule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2540,11 +2540,11 @@ defmodule AWS.Imagebuilder do
       list_image_scan_findings_request() :: %{
         optional("filters") => list(image_scan_findings_filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_image_scan_findings_request() :: %{String.t() => any()}
+  @type list_image_scan_findings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2556,55 +2556,55 @@ defmodule AWS.Imagebuilder do
       }
 
   """
-  @type lifecycle_policy_resource_selection() :: %{String.t() => any()}
+  @type lifecycle_policy_resource_selection() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_lifecycle_policy_request() :: %{
-        required("lifecyclePolicyArn") => String.t()
+        required("lifecyclePolicyArn") => String.t() | Atom.t()
       }
 
   """
-  @type delete_lifecycle_policy_request() :: %{String.t() => any()}
+  @type delete_lifecycle_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       image_scan_finding() :: %{
-        "awsAccountId" => String.t(),
-        "description" => String.t(),
+        "awsAccountId" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
         "firstObservedAt" => non_neg_integer(),
-        "fixAvailable" => String.t(),
-        "imageBuildVersionArn" => String.t(),
-        "imagePipelineArn" => String.t(),
+        "fixAvailable" => String.t() | Atom.t(),
+        "imageBuildVersionArn" => String.t() | Atom.t(),
+        "imagePipelineArn" => String.t() | Atom.t(),
         "inspectorScore" => float(),
         "inspectorScoreDetails" => inspector_score_details(),
         "packageVulnerabilityDetails" => package_vulnerability_details(),
         "remediation" => remediation(),
-        "severity" => String.t(),
-        "title" => String.t(),
-        "type" => String.t(),
+        "severity" => String.t() | Atom.t(),
+        "title" => String.t() | Atom.t(),
+        "type" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type image_scan_finding() :: %{String.t() => any()}
+  @type image_scan_finding() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_marketplace_resource_request() :: %{
-        optional("resourceLocation") => String.t(),
-        required("resourceArn") => String.t(),
+        optional("resourceLocation") => String.t() | Atom.t(),
+        required("resourceArn") => String.t() | Atom.t(),
         required("resourceType") => list(any())
       }
 
   """
-  @type get_marketplace_resource_request() :: %{String.t() => any()}
+  @type get_marketplace_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2612,35 +2612,35 @@ defmodule AWS.Imagebuilder do
 
       list_workflow_step_executions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("workflowExecutionId") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("workflowExecutionId") => String.t() | Atom.t()
       }
 
   """
-  @type list_workflow_step_executions_request() :: %{String.t() => any()}
+  @type list_workflow_step_executions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_image_recipe_policy_request() :: %{
-        required("imageRecipeArn") => String.t()
+        required("imageRecipeArn") => String.t() | Atom.t()
       }
 
   """
-  @type get_image_recipe_policy_request() :: %{String.t() => any()}
+  @type get_image_recipe_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       account_aggregation() :: %{
-        "accountId" => String.t(),
+        "accountId" => String.t() | Atom.t(),
         "severityCounts" => severity_counts()
       }
 
   """
-  @type account_aggregation() :: %{String.t() => any()}
+  @type account_aggregation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2652,115 +2652,115 @@ defmodule AWS.Imagebuilder do
       }
 
   """
-  @type output_resources() :: %{String.t() => any()}
+  @type output_resources() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_image_creation_response() :: %{
-        "clientToken" => String.t(),
-        "imageBuildVersionArn" => String.t(),
-        "requestId" => String.t()
+        "clientToken" => String.t() | Atom.t(),
+        "imageBuildVersionArn" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type cancel_image_creation_response() :: %{String.t() => any()}
+  @type cancel_image_creation_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       image() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "buildType" => list(any()),
         "containerRecipe" => container_recipe(),
-        "dateCreated" => String.t(),
+        "dateCreated" => String.t() | Atom.t(),
         "deprecationTime" => non_neg_integer(),
         "distributionConfiguration" => distribution_configuration(),
         "enhancedImageMetadataEnabled" => boolean(),
-        "executionRole" => String.t(),
+        "executionRole" => String.t() | Atom.t(),
         "imageRecipe" => image_recipe(),
         "imageScanningConfiguration" => image_scanning_configuration(),
         "imageSource" => list(any()),
         "imageTestsConfiguration" => image_tests_configuration(),
         "infrastructureConfiguration" => infrastructure_configuration(),
-        "lifecycleExecutionId" => String.t(),
-        "name" => String.t(),
-        "osVersion" => String.t(),
+        "lifecycleExecutionId" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "osVersion" => String.t() | Atom.t(),
         "outputResources" => output_resources(),
         "platform" => list(any()),
         "scanState" => image_scan_state(),
-        "sourcePipelineArn" => String.t(),
-        "sourcePipelineName" => String.t(),
+        "sourcePipelineArn" => String.t() | Atom.t(),
+        "sourcePipelineName" => String.t() | Atom.t(),
         "state" => image_state(),
         "tags" => map(),
         "type" => list(any()),
-        "version" => String.t(),
+        "version" => String.t() | Atom.t(),
         "workflows" => list(workflow_configuration())
       }
 
   """
-  @type image() :: %{String.t() => any()}
+  @type image() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_image_pipeline_response() :: %{
-        "imagePipelineArn" => String.t(),
-        "requestId" => String.t()
+        "imagePipelineArn" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type delete_image_pipeline_response() :: %{String.t() => any()}
+  @type delete_image_pipeline_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_image_pipeline_request() :: %{
-        required("imagePipelineArn") => String.t()
+        required("imagePipelineArn") => String.t() | Atom.t()
       }
 
   """
-  @type get_image_pipeline_request() :: %{String.t() => any()}
+  @type get_image_pipeline_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       product_code_list_item() :: %{
-        "productCodeId" => String.t(),
+        "productCodeId" => String.t() | Atom.t(),
         "productCodeType" => list(any())
       }
 
   """
-  @type product_code_list_item() :: %{String.t() => any()}
+  @type product_code_list_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_workflow_response() :: %{
-        "clientToken" => String.t(),
-        "workflowBuildVersionArn" => String.t()
+        "clientToken" => String.t() | Atom.t(),
+        "workflowBuildVersionArn" => String.t() | Atom.t()
       }
 
   """
-  @type create_workflow_response() :: %{String.t() => any()}
+  @type create_workflow_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_image_policy_response() :: %{
-        "imageArn" => String.t(),
-        "requestId" => String.t()
+        "imageArn" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type put_image_policy_response() :: %{String.t() => any()}
+  @type put_image_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2768,19 +2768,19 @@ defmodule AWS.Imagebuilder do
 
       package_vulnerability_details() :: %{
         "cvss" => list(cvss_score()),
-        "referenceUrls" => list(String.t()),
-        "relatedVulnerabilities" => list(String.t()),
-        "source" => String.t(),
-        "sourceUrl" => String.t(),
+        "referenceUrls" => list(String.t() | Atom.t()),
+        "relatedVulnerabilities" => list(String.t() | Atom.t()),
+        "source" => String.t() | Atom.t(),
+        "sourceUrl" => String.t() | Atom.t(),
         "vendorCreatedAt" => non_neg_integer(),
-        "vendorSeverity" => String.t(),
+        "vendorSeverity" => String.t() | Atom.t(),
         "vendorUpdatedAt" => non_neg_integer(),
-        "vulnerabilityId" => String.t(),
+        "vulnerabilityId" => String.t() | Atom.t(),
         "vulnerablePackages" => list(vulnerable_package())
       }
 
   """
-  @type package_vulnerability_details() :: %{String.t() => any()}
+  @type package_vulnerability_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2788,13 +2788,13 @@ defmodule AWS.Imagebuilder do
 
       cvss_score() :: %{
         "baseScore" => float(),
-        "scoringVector" => String.t(),
-        "source" => String.t(),
-        "version" => String.t()
+        "scoringVector" => String.t() | Atom.t(),
+        "source" => String.t() | Atom.t(),
+        "version" => String.t() | Atom.t()
       }
 
   """
-  @type cvss_score() :: %{String.t() => any()}
+  @type cvss_score() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2802,48 +2802,48 @@ defmodule AWS.Imagebuilder do
 
       instance_metadata_options() :: %{
         "httpPutResponseHopLimit" => integer(),
-        "httpTokens" => String.t()
+        "httpTokens" => String.t() | Atom.t()
       }
 
   """
-  @type instance_metadata_options() :: %{String.t() => any()}
+  @type instance_metadata_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_infrastructure_configuration_response() :: %{
-        "clientToken" => String.t(),
-        "infrastructureConfigurationArn" => String.t(),
-        "requestId" => String.t()
+        "clientToken" => String.t() | Atom.t(),
+        "infrastructureConfigurationArn" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type update_infrastructure_configuration_response() :: %{String.t() => any()}
+  @type update_infrastructure_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_parameter_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_parameter_exception() :: %{String.t() => any()}
+  @type invalid_parameter_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       fast_launch_launch_template_specification() :: %{
-        "launchTemplateId" => String.t(),
-        "launchTemplateName" => String.t(),
-        "launchTemplateVersion" => String.t()
+        "launchTemplateId" => String.t() | Atom.t(),
+        "launchTemplateName" => String.t() | Atom.t(),
+        "launchTemplateVersion" => String.t() | Atom.t()
       }
 
   """
-  @type fast_launch_launch_template_specification() :: %{String.t() => any()}
+  @type fast_launch_launch_template_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2851,63 +2851,63 @@ defmodule AWS.Imagebuilder do
 
       list_workflow_build_versions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("workflowVersionArn") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("workflowVersionArn") => String.t() | Atom.t()
       }
 
   """
-  @type list_workflow_build_versions_request() :: %{String.t() => any()}
+  @type list_workflow_build_versions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       import_vm_image_response() :: %{
-        "clientToken" => String.t(),
-        "imageArn" => String.t(),
-        "requestId" => String.t()
+        "clientToken" => String.t() | Atom.t(),
+        "imageArn" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type import_vm_image_response() :: %{String.t() => any()}
+  @type import_vm_image_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_infrastructure_configuration_request() :: %{
-        required("infrastructureConfigurationArn") => String.t()
+        required("infrastructureConfigurationArn") => String.t() | Atom.t()
       }
 
   """
-  @type delete_infrastructure_configuration_request() :: %{String.t() => any()}
+  @type delete_infrastructure_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       ssm_parameter_configuration() :: %{
-        "amiAccountId" => String.t(),
+        "amiAccountId" => String.t() | Atom.t(),
         "dataType" => list(any()),
-        "parameterName" => String.t()
+        "parameterName" => String.t() | Atom.t()
       }
 
   """
-  @type ssm_parameter_configuration() :: %{String.t() => any()}
+  @type ssm_parameter_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_image_scan_finding_aggregations_response() :: %{
-        "aggregationType" => String.t(),
-        "nextToken" => String.t(),
-        "requestId" => String.t(),
+        "aggregationType" => String.t() | Atom.t(),
+        "nextToken" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t(),
         "responses" => list(image_scan_finding_aggregation())
       }
 
   """
-  @type list_image_scan_finding_aggregations_response() :: %{String.t() => any()}
+  @type list_image_scan_finding_aggregations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2923,24 +2923,24 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       image_recipe_summary() :: %{
-        "arn" => String.t(),
-        "dateCreated" => String.t(),
-        "name" => String.t(),
-        "owner" => String.t(),
-        "parentImage" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "dateCreated" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "owner" => String.t() | Atom.t(),
+        "parentImage" => String.t() | Atom.t(),
         "platform" => list(any()),
         "tags" => map()
       }
 
   """
-  @type image_recipe_summary() :: %{String.t() => any()}
+  @type image_recipe_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       fast_launch_configuration() :: %{
-        "accountId" => String.t(),
+        "accountId" => String.t() | Atom.t(),
         "enabled" => boolean(),
         "launchTemplate" => fast_launch_launch_template_specification(),
         "maxParallelLaunches" => integer(),
@@ -2948,7 +2948,7 @@ defmodule AWS.Imagebuilder do
       }
 
   """
-  @type fast_launch_configuration() :: %{String.t() => any()}
+  @type fast_launch_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2956,27 +2956,27 @@ defmodule AWS.Imagebuilder do
 
       ami_distribution_configuration() :: %{
         "amiTags" => map(),
-        "description" => String.t(),
-        "kmsKeyId" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "kmsKeyId" => String.t() | Atom.t(),
         "launchPermission" => launch_permission_configuration(),
-        "name" => String.t(),
-        "targetAccountIds" => list(String.t())
+        "name" => String.t() | Atom.t(),
+        "targetAccountIds" => list(String.t() | Atom.t())
       }
 
   """
-  @type ami_distribution_configuration() :: %{String.t() => any()}
+  @type ami_distribution_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       component_configuration() :: %{
-        "componentArn" => String.t(),
+        "componentArn" => String.t() | Atom.t(),
         "parameters" => list(component_parameter())
       }
 
   """
-  @type component_configuration() :: %{String.t() => any()}
+  @type component_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2984,60 +2984,60 @@ defmodule AWS.Imagebuilder do
 
       instance_configuration() :: %{
         "blockDeviceMappings" => list(instance_block_device_mapping()),
-        "image" => String.t()
+        "image" => String.t() | Atom.t()
       }
 
   """
-  @type instance_configuration() :: %{String.t() => any()}
+  @type instance_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_infrastructure_configuration_response() :: %{
-        "clientToken" => String.t(),
-        "infrastructureConfigurationArn" => String.t(),
-        "requestId" => String.t()
+        "clientToken" => String.t() | Atom.t(),
+        "infrastructureConfigurationArn" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type create_infrastructure_configuration_response() :: %{String.t() => any()}
+  @type create_infrastructure_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       container_distribution_configuration() :: %{
-        "containerTags" => list(String.t()),
-        "description" => String.t(),
+        "containerTags" => list(String.t() | Atom.t()),
+        "description" => String.t() | Atom.t(),
         "targetRepository" => target_container_repository()
       }
 
   """
-  @type container_distribution_configuration() :: %{String.t() => any()}
+  @type container_distribution_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_lifecycle_policy_request() :: %{
-        required("lifecyclePolicyArn") => String.t()
+        required("lifecyclePolicyArn") => String.t() | Atom.t()
       }
 
   """
-  @type get_lifecycle_policy_request() :: %{String.t() => any()}
+  @type get_lifecycle_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       image_aggregation() :: %{
-        "imageBuildVersionArn" => String.t(),
+        "imageBuildVersionArn" => String.t() | Atom.t(),
         "severityCounts" => severity_counts()
       }
 
   """
-  @type image_aggregation() :: %{String.t() => any()}
+  @type image_aggregation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3053,118 +3053,118 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       get_container_recipe_policy_response() :: %{
-        "policy" => String.t(),
-        "requestId" => String.t()
+        "policy" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type get_container_recipe_policy_response() :: %{String.t() => any()}
+  @type get_container_recipe_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_container_recipe_response() :: %{
-        "clientToken" => String.t(),
-        "containerRecipeArn" => String.t(),
-        "requestId" => String.t()
+        "clientToken" => String.t() | Atom.t(),
+        "containerRecipeArn" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type create_container_recipe_response() :: %{String.t() => any()}
+  @type create_container_recipe_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       container_recipe() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "components" => list(component_configuration()),
         "containerType" => list(any()),
-        "dateCreated" => String.t(),
-        "description" => String.t(),
-        "dockerfileTemplateData" => String.t(),
+        "dateCreated" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "dockerfileTemplateData" => String.t() | Atom.t(),
         "encrypted" => boolean(),
         "instanceConfiguration" => instance_configuration(),
-        "kmsKeyId" => String.t(),
-        "name" => String.t(),
-        "owner" => String.t(),
-        "parentImage" => String.t(),
+        "kmsKeyId" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "owner" => String.t() | Atom.t(),
+        "parentImage" => String.t() | Atom.t(),
         "platform" => list(any()),
         "tags" => map(),
         "targetRepository" => target_container_repository(),
-        "version" => String.t(),
-        "workingDirectory" => String.t()
+        "version" => String.t() | Atom.t(),
+        "workingDirectory" => String.t() | Atom.t()
       }
 
   """
-  @type container_recipe() :: %{String.t() => any()}
+  @type container_recipe() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_lifecycle_policy_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("status") => list(any()),
         optional("tags") => map(),
-        required("clientToken") => String.t(),
-        required("executionRole") => String.t(),
-        required("name") => String.t(),
+        required("clientToken") => String.t() | Atom.t(),
+        required("executionRole") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t(),
         required("policyDetails") => list(lifecycle_policy_detail()),
         required("resourceSelection") => lifecycle_policy_resource_selection(),
         required("resourceType") => list(any())
       }
 
   """
-  @type create_lifecycle_policy_request() :: %{String.t() => any()}
+  @type create_lifecycle_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_dependency_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_dependency_exception() :: %{String.t() => any()}
+  @type resource_dependency_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       lifecycle_execution_state() :: %{
-        "reason" => String.t(),
+        "reason" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type lifecycle_execution_state() :: %{String.t() => any()}
+  @type lifecycle_execution_state() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       image_package() :: %{
-        "packageName" => String.t(),
-        "packageVersion" => String.t()
+        "packageName" => String.t() | Atom.t(),
+        "packageVersion" => String.t() | Atom.t()
       }
 
   """
-  @type image_package() :: %{String.t() => any()}
+  @type image_package() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_image_response() :: %{
-        "imageBuildVersionArn" => String.t(),
-        "requestId" => String.t()
+        "imageBuildVersionArn" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type delete_image_response() :: %{String.t() => any()}
+  @type delete_image_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3172,15 +3172,15 @@ defmodule AWS.Imagebuilder do
 
       lifecycle_execution() :: %{
         "endTime" => non_neg_integer(),
-        "lifecycleExecutionId" => String.t(),
-        "lifecyclePolicyArn" => String.t(),
+        "lifecycleExecutionId" => String.t() | Atom.t(),
+        "lifecyclePolicyArn" => String.t() | Atom.t(),
         "resourcesImpactedSummary" => lifecycle_execution_resources_impacted_summary(),
         "startTime" => non_neg_integer(),
         "state" => lifecycle_execution_state()
       }
 
   """
-  @type lifecycle_execution() :: %{String.t() => any()}
+  @type lifecycle_execution() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3188,45 +3188,45 @@ defmodule AWS.Imagebuilder do
 
       list_components_response() :: %{
         "componentVersionList" => list(component_version()),
-        "nextToken" => String.t(),
-        "requestId" => String.t()
+        "nextToken" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type list_components_response() :: %{String.t() => any()}
+  @type list_components_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       lifecycle_policy_resource_selection_recipe() :: %{
-        "name" => String.t(),
-        "semanticVersion" => String.t()
+        "name" => String.t() | Atom.t(),
+        "semanticVersion" => String.t() | Atom.t()
       }
 
   """
-  @type lifecycle_policy_resource_selection_recipe() :: %{String.t() => any()}
+  @type lifecycle_policy_resource_selection_recipe() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       workflow_step_metadata() :: %{
-        "action" => String.t(),
-        "description" => String.t(),
-        "endTime" => String.t(),
-        "inputs" => String.t(),
-        "message" => String.t(),
-        "name" => String.t(),
-        "outputs" => String.t(),
+        "action" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "endTime" => String.t() | Atom.t(),
+        "inputs" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "outputs" => String.t() | Atom.t(),
         "rollbackStatus" => list(any()),
-        "startTime" => String.t(),
+        "startTime" => String.t() | Atom.t(),
         "status" => list(any()),
-        "stepExecutionId" => String.t()
+        "stepExecutionId" => String.t() | Atom.t()
       }
 
   """
-  @type workflow_step_metadata() :: %{String.t() => any()}
+  @type workflow_step_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3234,36 +3234,36 @@ defmodule AWS.Imagebuilder do
 
       list_image_build_versions_response() :: %{
         "imageSummaryList" => list(image_summary()),
-        "nextToken" => String.t(),
-        "requestId" => String.t()
+        "nextToken" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type list_image_build_versions_response() :: %{String.t() => any()}
+  @type list_image_build_versions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_image_pipeline_request() :: %{
-        optional("containerRecipeArn") => String.t(),
-        optional("description") => String.t(),
-        optional("distributionConfigurationArn") => String.t(),
+        optional("containerRecipeArn") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("distributionConfigurationArn") => String.t() | Atom.t(),
         optional("enhancedImageMetadataEnabled") => boolean(),
-        optional("executionRole") => String.t(),
-        optional("imageRecipeArn") => String.t(),
+        optional("executionRole") => String.t() | Atom.t(),
+        optional("imageRecipeArn") => String.t() | Atom.t(),
         optional("imageScanningConfiguration") => image_scanning_configuration(),
         optional("imageTestsConfiguration") => image_tests_configuration(),
         optional("schedule") => schedule(),
         optional("status") => list(any()),
         optional("workflows") => list(workflow_configuration()),
-        required("clientToken") => String.t(),
-        required("imagePipelineArn") => String.t(),
-        required("infrastructureConfigurationArn") => String.t()
+        required("clientToken") => String.t() | Atom.t(),
+        required("imagePipelineArn") => String.t() | Atom.t(),
+        required("infrastructureConfigurationArn") => String.t() | Atom.t()
       }
 
   """
-  @type update_image_pipeline_request() :: %{String.t() => any()}
+  @type update_image_pipeline_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3271,37 +3271,37 @@ defmodule AWS.Imagebuilder do
 
       list_lifecycle_execution_resources_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("parentResourceId") => String.t(),
-        required("lifecycleExecutionId") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("parentResourceId") => String.t() | Atom.t(),
+        required("lifecycleExecutionId") => String.t() | Atom.t()
       }
 
   """
-  @type list_lifecycle_execution_resources_request() :: %{String.t() => any()}
+  @type list_lifecycle_execution_resources_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       image_state() :: %{
-        "reason" => String.t(),
+        "reason" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type image_state() :: %{String.t() => any()}
+  @type image_state() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_lifecycle_execution_request() :: %{
-        required("clientToken") => String.t(),
-        required("lifecycleExecutionId") => String.t()
+        required("clientToken") => String.t() | Atom.t(),
+        required("lifecycleExecutionId") => String.t() | Atom.t()
       }
 
   """
-  @type cancel_lifecycle_execution_request() :: %{String.t() => any()}
+  @type cancel_lifecycle_execution_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3309,45 +3309,45 @@ defmodule AWS.Imagebuilder do
 
       workflow_configuration() :: %{
         "onFailure" => list(any()),
-        "parallelGroup" => String.t(),
+        "parallelGroup" => String.t() | Atom.t(),
         "parameters" => list(workflow_parameter()),
-        "workflowArn" => String.t()
+        "workflowArn" => String.t() | Atom.t()
       }
 
   """
-  @type workflow_configuration() :: %{String.t() => any()}
+  @type workflow_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       import_disk_image_request() :: %{
-        optional("description") => String.t(),
-        optional("executionRole") => String.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("executionRole") => String.t() | Atom.t(),
         optional("tags") => map(),
-        required("clientToken") => String.t(),
-        required("infrastructureConfigurationArn") => String.t(),
-        required("name") => String.t(),
-        required("osVersion") => String.t(),
-        required("platform") => String.t(),
-        required("semanticVersion") => String.t(),
-        required("uri") => String.t()
+        required("clientToken") => String.t() | Atom.t(),
+        required("infrastructureConfigurationArn") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t(),
+        required("osVersion") => String.t() | Atom.t(),
+        required("platform") => String.t() | Atom.t(),
+        required("semanticVersion") => String.t() | Atom.t(),
+        required("uri") => String.t() | Atom.t()
       }
 
   """
-  @type import_disk_image_request() :: %{String.t() => any()}
+  @type import_disk_image_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       workflow_state() :: %{
-        "reason" => String.t(),
+        "reason" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type workflow_state() :: %{String.t() => any()}
+  @type workflow_state() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3356,36 +3356,36 @@ defmodule AWS.Imagebuilder do
       list_infrastructure_configurations_request() :: %{
         optional("filters") => list(filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_infrastructure_configurations_request() :: %{String.t() => any()}
+  @type list_infrastructure_configurations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       image_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "buildType" => list(any()),
-        "dateCreated" => String.t(),
+        "dateCreated" => String.t() | Atom.t(),
         "deprecationTime" => non_neg_integer(),
         "imageSource" => list(any()),
-        "lifecycleExecutionId" => String.t(),
-        "name" => String.t(),
-        "osVersion" => String.t(),
+        "lifecycleExecutionId" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "osVersion" => String.t() | Atom.t(),
         "outputResources" => output_resources(),
-        "owner" => String.t(),
+        "owner" => String.t() | Atom.t(),
         "platform" => list(any()),
         "state" => image_state(),
         "tags" => map(),
         "type" => list(any()),
-        "version" => String.t()
+        "version" => String.t() | Atom.t()
       }
 
   """
-  @type image_summary() :: %{String.t() => any()}
+  @type image_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3397,7 +3397,7 @@ defmodule AWS.Imagebuilder do
       }
 
   """
-  @type lifecycle_policy_detail_action() :: %{String.t() => any()}
+  @type lifecycle_policy_detail_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3405,23 +3405,23 @@ defmodule AWS.Imagebuilder do
 
       list_image_recipes_response() :: %{
         "imageRecipeSummaryList" => list(image_recipe_summary()),
-        "nextToken" => String.t(),
-        "requestId" => String.t()
+        "nextToken" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type list_image_recipes_response() :: %{String.t() => any()}
+  @type list_image_recipes_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_already_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_already_exists_exception() :: %{String.t() => any()}
+  @type resource_already_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3429,11 +3429,11 @@ defmodule AWS.Imagebuilder do
 
       list_waiting_workflow_steps_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_waiting_workflow_steps_request() :: %{String.t() => any()}
+  @type list_waiting_workflow_steps_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3442,88 +3442,88 @@ defmodule AWS.Imagebuilder do
       lifecycle_policy_detail_exclusion_rules_amis() :: %{
         "isPublic" => boolean(),
         "lastLaunched" => lifecycle_policy_detail_exclusion_rules_amis_last_launched(),
-        "regions" => list(String.t()),
-        "sharedAccounts" => list(String.t()),
+        "regions" => list(String.t() | Atom.t()),
+        "sharedAccounts" => list(String.t() | Atom.t()),
         "tagMap" => map()
       }
 
   """
-  @type lifecycle_policy_detail_exclusion_rules_amis() :: %{String.t() => any()}
+  @type lifecycle_policy_detail_exclusion_rules_amis() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       launch_template_configuration() :: %{
-        "accountId" => String.t(),
-        "launchTemplateId" => String.t(),
+        "accountId" => String.t() | Atom.t(),
+        "launchTemplateId" => String.t() | Atom.t(),
         "setDefaultVersion" => boolean()
       }
 
   """
-  @type launch_template_configuration() :: %{String.t() => any()}
+  @type launch_template_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       infrastructure_configuration() :: %{
-        "arn" => String.t(),
-        "dateCreated" => String.t(),
-        "dateUpdated" => String.t(),
-        "description" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "dateCreated" => String.t() | Atom.t(),
+        "dateUpdated" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
         "instanceMetadataOptions" => instance_metadata_options(),
-        "instanceProfileName" => String.t(),
-        "instanceTypes" => list(String.t()),
-        "keyPair" => String.t(),
+        "instanceProfileName" => String.t() | Atom.t(),
+        "instanceTypes" => list(String.t() | Atom.t()),
+        "keyPair" => String.t() | Atom.t(),
         "logging" => logging(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "placement" => placement(),
         "resourceTags" => map(),
-        "securityGroupIds" => list(String.t()),
-        "snsTopicArn" => String.t(),
-        "subnetId" => String.t(),
+        "securityGroupIds" => list(String.t() | Atom.t()),
+        "snsTopicArn" => String.t() | Atom.t(),
+        "subnetId" => String.t() | Atom.t(),
         "tags" => map(),
         "terminateInstanceOnFailure" => boolean()
       }
 
   """
-  @type infrastructure_configuration() :: %{String.t() => any()}
+  @type infrastructure_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_component_policy_request() :: %{
-        required("componentArn") => String.t()
+        required("componentArn") => String.t() | Atom.t()
       }
 
   """
-  @type get_component_policy_request() :: %{String.t() => any()}
+  @type get_component_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_workflows_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "workflowVersionList" => list(workflow_version())
       }
 
   """
-  @type list_workflows_response() :: %{String.t() => any()}
+  @type list_workflows_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_image_pipeline_execution_request() :: %{
-        required("clientToken") => String.t(),
-        required("imagePipelineArn") => String.t()
+        required("clientToken") => String.t() | Atom.t(),
+        required("imagePipelineArn") => String.t() | Atom.t()
       }
 
   """
-  @type start_image_pipeline_execution_request() :: %{String.t() => any()}
+  @type start_image_pipeline_execution_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3535,43 +3535,46 @@ defmodule AWS.Imagebuilder do
       }
 
   """
-  @type lifecycle_policy_detail_exclusion_rules_amis_last_launched() :: %{String.t() => any()}
+  @type lifecycle_policy_detail_exclusion_rules_amis_last_launched() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       image_pipeline_aggregation() :: %{
-        "imagePipelineArn" => String.t(),
+        "imagePipelineArn" => String.t() | Atom.t(),
         "severityCounts" => severity_counts()
       }
 
   """
-  @type image_pipeline_aggregation() :: %{String.t() => any()}
+  @type image_pipeline_aggregation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_infrastructure_configuration_response() :: %{
-        "infrastructureConfigurationArn" => String.t(),
-        "requestId" => String.t()
+        "infrastructureConfigurationArn" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type delete_infrastructure_configuration_response() :: %{String.t() => any()}
+  @type delete_infrastructure_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       component_parameter() :: %{
-        "name" => String.t(),
-        "value" => list(String.t())
+        "name" => String.t() | Atom.t(),
+        "value" => list(String.t() | Atom.t())
       }
 
   """
-  @type component_parameter() :: %{String.t() => any()}
+  @type component_parameter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3579,11 +3582,11 @@ defmodule AWS.Imagebuilder do
 
       get_image_recipe_response() :: %{
         "imageRecipe" => image_recipe(),
-        "requestId" => String.t()
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type get_image_recipe_response() :: %{String.t() => any()}
+  @type get_image_recipe_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3591,42 +3594,42 @@ defmodule AWS.Imagebuilder do
 
       get_distribution_configuration_response() :: %{
         "distributionConfiguration" => distribution_configuration(),
-        "requestId" => String.t()
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type get_distribution_configuration_response() :: %{String.t() => any()}
+  @type get_distribution_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       distribution_configuration_summary() :: %{
-        "arn" => String.t(),
-        "dateCreated" => String.t(),
-        "dateUpdated" => String.t(),
-        "description" => String.t(),
-        "name" => String.t(),
-        "regions" => list(String.t()),
+        "arn" => String.t() | Atom.t(),
+        "dateCreated" => String.t() | Atom.t(),
+        "dateUpdated" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "regions" => list(String.t() | Atom.t()),
         "tags" => map()
       }
 
   """
-  @type distribution_configuration_summary() :: %{String.t() => any()}
+  @type distribution_configuration_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       launch_permission_configuration() :: %{
-        "organizationArns" => list(String.t()),
-        "organizationalUnitArns" => list(String.t()),
-        "userGroups" => list(String.t()),
-        "userIds" => list(String.t())
+        "organizationArns" => list(String.t() | Atom.t()),
+        "organizationalUnitArns" => list(String.t() | Atom.t()),
+        "userGroups" => list(String.t() | Atom.t()),
+        "userIds" => list(String.t() | Atom.t())
       }
 
   """
-  @type launch_permission_configuration() :: %{String.t() => any()}
+  @type launch_permission_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3637,7 +3640,7 @@ defmodule AWS.Imagebuilder do
       }
 
   """
-  @type logging() :: %{String.t() => any()}
+  @type logging() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3645,23 +3648,23 @@ defmodule AWS.Imagebuilder do
 
       list_image_pipeline_images_response() :: %{
         "imageSummaryList" => list(image_summary()),
-        "nextToken" => String.t(),
-        "requestId" => String.t()
+        "nextToken" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type list_image_pipeline_images_response() :: %{String.t() => any()}
+  @type list_image_pipeline_images_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_component_request() :: %{
-        required("componentBuildVersionArn") => String.t()
+        required("componentBuildVersionArn") => String.t() | Atom.t()
       }
 
   """
-  @type get_component_request() :: %{String.t() => any()}
+  @type get_component_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3672,31 +3675,31 @@ defmodule AWS.Imagebuilder do
       }
 
   """
-  @type get_lifecycle_policy_response() :: %{String.t() => any()}
+  @type get_lifecycle_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_pagination_token_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_pagination_token_exception() :: %{String.t() => any()}
+  @type invalid_pagination_token_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_image_pipeline_response() :: %{
-        "clientToken" => String.t(),
-        "imagePipelineArn" => String.t(),
-        "requestId" => String.t()
+        "clientToken" => String.t() | Atom.t(),
+        "imagePipelineArn" => String.t() | Atom.t(),
+        "requestId" => String.t() | Atom.t()
       }
 
   """
-  @type update_image_pipeline_response() :: %{String.t() => any()}
+  @type update_image_pipeline_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3707,7 +3710,7 @@ defmodule AWS.Imagebuilder do
       }
 
   """
-  @type get_workflow_response() :: %{String.t() => any()}
+  @type get_workflow_response() :: %{String.t() | Atom.t() => any()}
 
   @type cancel_image_creation_errors() ::
           service_unavailable_exception()
@@ -5113,7 +5116,7 @@ defmodule AWS.Imagebuilder do
   @doc """
   Gets a component object.
   """
-  @spec get_component(map(), String.t(), list()) ::
+  @spec get_component(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5138,7 +5141,7 @@ defmodule AWS.Imagebuilder do
   @doc """
   Gets a component policy.
   """
-  @spec get_component_policy(map(), String.t(), list()) ::
+  @spec get_component_policy(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_component_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5163,7 +5166,7 @@ defmodule AWS.Imagebuilder do
   @doc """
   Retrieves a container recipe.
   """
-  @spec get_container_recipe(map(), String.t(), list()) ::
+  @spec get_container_recipe(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_container_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5188,7 +5191,7 @@ defmodule AWS.Imagebuilder do
   @doc """
   Retrieves the policy for a container recipe.
   """
-  @spec get_container_recipe_policy(map(), String.t(), list()) ::
+  @spec get_container_recipe_policy(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_container_recipe_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5213,7 +5216,7 @@ defmodule AWS.Imagebuilder do
   @doc """
   Gets a distribution configuration.
   """
-  @spec get_distribution_configuration(map(), String.t(), list()) ::
+  @spec get_distribution_configuration(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_distribution_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5242,7 +5245,7 @@ defmodule AWS.Imagebuilder do
   @doc """
   Gets an image.
   """
-  @spec get_image(map(), String.t(), list()) ::
+  @spec get_image(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5267,7 +5270,7 @@ defmodule AWS.Imagebuilder do
   @doc """
   Gets an image pipeline.
   """
-  @spec get_image_pipeline(map(), String.t(), list()) ::
+  @spec get_image_pipeline(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_image_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5292,7 +5295,7 @@ defmodule AWS.Imagebuilder do
   @doc """
   Gets an image policy.
   """
-  @spec get_image_policy(map(), String.t(), list()) ::
+  @spec get_image_policy(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_image_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5317,7 +5320,7 @@ defmodule AWS.Imagebuilder do
   @doc """
   Gets an image recipe.
   """
-  @spec get_image_recipe(map(), String.t(), list()) ::
+  @spec get_image_recipe(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_image_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5342,7 +5345,7 @@ defmodule AWS.Imagebuilder do
   @doc """
   Gets an image recipe policy.
   """
-  @spec get_image_recipe_policy(map(), String.t(), list()) ::
+  @spec get_image_recipe_policy(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_image_recipe_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5367,7 +5370,7 @@ defmodule AWS.Imagebuilder do
   @doc """
   Gets an infrastructure configuration.
   """
-  @spec get_infrastructure_configuration(map(), String.t(), list()) ::
+  @spec get_infrastructure_configuration(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_infrastructure_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5397,7 +5400,7 @@ defmodule AWS.Imagebuilder do
   Get the runtime information that was logged for a specific runtime instance of
   the lifecycle policy.
   """
-  @spec get_lifecycle_execution(map(), String.t(), list()) ::
+  @spec get_lifecycle_execution(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_lifecycle_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5422,7 +5425,7 @@ defmodule AWS.Imagebuilder do
   @doc """
   Get details for the specified image lifecycle policy.
   """
-  @spec get_lifecycle_policy(map(), String.t(), list()) ::
+  @spec get_lifecycle_policy(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5481,7 +5484,7 @@ defmodule AWS.Imagebuilder do
   @doc """
   Get a workflow resource object.
   """
-  @spec get_workflow(map(), String.t(), list()) ::
+  @spec get_workflow(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5507,7 +5510,7 @@ defmodule AWS.Imagebuilder do
   Get the runtime information that was logged for a specific runtime instance
   of the workflow.
   """
-  @spec get_workflow_execution(map(), String.t(), list()) ::
+  @spec get_workflow_execution(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_workflow_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5533,7 +5536,7 @@ defmodule AWS.Imagebuilder do
   Get the runtime information that was logged for a specific runtime instance of
   the workflow step.
   """
-  @spec get_workflow_step_execution(map(), String.t(), list()) ::
+  @spec get_workflow_step_execution(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_workflow_step_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6194,7 +6197,7 @@ defmodule AWS.Imagebuilder do
   @doc """
   Returns the list of tags for the specified resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6600,7 +6603,7 @@ defmodule AWS.Imagebuilder do
   @doc """
   Adds a tag to a resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6629,7 +6632,7 @@ defmodule AWS.Imagebuilder do
   @doc """
   Removes a tag from a resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

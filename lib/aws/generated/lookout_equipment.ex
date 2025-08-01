@@ -16,65 +16,65 @@ defmodule AWS.LookoutEquipment do
   ## Example:
       
       delete_retraining_scheduler_request() :: %{
-        required("ModelName") => String.t()
+        required("ModelName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_retraining_scheduler_request() :: %{String.t() => any()}
+  @type delete_retraining_scheduler_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_inference_schedulers_request() :: %{
-        optional("InferenceSchedulerNameBeginsWith") => String.t(),
+        optional("InferenceSchedulerNameBeginsWith") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("ModelName") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("ModelName") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("Status") => list(any())
       }
       
   """
-  @type list_inference_schedulers_request() :: %{String.t() => any()}
+  @type list_inference_schedulers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_active_model_version_request() :: %{
-        required("ModelName") => String.t(),
+        required("ModelName") => String.t() | Atom.t(),
         required("ModelVersion") => float()
       }
       
   """
-  @type update_active_model_version_request() :: %{String.t() => any()}
+  @type update_active_model_version_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       inference_input_name_configuration() :: %{
-        "ComponentTimestampDelimiter" => String.t(),
-        "TimestampFormat" => String.t()
+        "ComponentTimestampDelimiter" => String.t() | Atom.t(),
+        "TimestampFormat" => String.t() | Atom.t()
       }
       
   """
-  @type inference_input_name_configuration() :: %{String.t() => any()}
+  @type inference_input_name_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_models_request() :: %{
-        optional("DatasetNameBeginsWith") => String.t(),
+        optional("DatasetNameBeginsWith") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("ModelNameBeginsWith") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("ModelNameBeginsWith") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("Status") => list(any())
       }
       
   """
-  @type list_models_request() :: %{String.t() => any()}
+  @type list_models_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -82,23 +82,23 @@ defmodule AWS.LookoutEquipment do
       
       list_models_response() :: %{
         "ModelSummaries" => list(model_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_models_response() :: %{String.t() => any()}
+  @type list_models_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
+        required("ResourceArn") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -106,23 +106,23 @@ defmodule AWS.LookoutEquipment do
       
       list_labels_response() :: %{
         "LabelSummaries" => list(label_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_labels_response() :: %{String.t() => any()}
+  @type list_labels_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_label_group_response() :: %{
-        "LabelGroupArn" => String.t(),
-        "LabelGroupName" => String.t()
+        "LabelGroupArn" => String.t() | Atom.t(),
+        "LabelGroupName" => String.t() | Atom.t()
       }
       
   """
-  @type create_label_group_response() :: %{String.t() => any()}
+  @type create_label_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -134,7 +134,7 @@ defmodule AWS.LookoutEquipment do
       }
       
   """
-  @type count_percent() :: %{String.t() => any()}
+  @type count_percent() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -150,12 +150,12 @@ defmodule AWS.LookoutEquipment do
   ## Example:
       
       inference_output_configuration() :: %{
-        "KmsKeyId" => String.t(),
+        "KmsKeyId" => String.t() | Atom.t(),
         "S3OutputConfiguration" => inference_s3_output_configuration()
       }
       
   """
-  @type inference_output_configuration() :: %{String.t() => any()}
+  @type inference_output_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -167,7 +167,7 @@ defmodule AWS.LookoutEquipment do
       }
       
   """
-  @type monotonic_values() :: %{String.t() => any()}
+  @type monotonic_values() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -178,25 +178,25 @@ defmodule AWS.LookoutEquipment do
       }
       
   """
-  @type ingestion_input_configuration() :: %{String.t() => any()}
+  @type ingestion_input_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_label_request() :: %{
-        optional("Equipment") => String.t(),
-        optional("FaultCode") => String.t(),
-        optional("Notes") => String.t(),
-        required("ClientToken") => String.t(),
+        optional("Equipment") => String.t() | Atom.t(),
+        optional("FaultCode") => String.t() | Atom.t(),
+        optional("Notes") => String.t() | Atom.t(),
+        required("ClientToken") => String.t() | Atom.t(),
         required("EndTime") => non_neg_integer(),
-        required("LabelGroupName") => String.t(),
+        required("LabelGroupName") => String.t() | Atom.t(),
         required("Rating") => list(any()),
         required("StartTime") => non_neg_integer()
       }
       
   """
-  @type create_label_request() :: %{String.t() => any()}
+  @type create_label_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -204,16 +204,16 @@ defmodule AWS.LookoutEquipment do
       
       model_summary() :: %{
         "ActiveModelVersion" => float(),
-        "ActiveModelVersionArn" => String.t(),
+        "ActiveModelVersionArn" => String.t() | Atom.t(),
         "CreatedAt" => non_neg_integer(),
-        "DatasetArn" => String.t(),
-        "DatasetName" => String.t(),
+        "DatasetArn" => String.t() | Atom.t(),
+        "DatasetName" => String.t() | Atom.t(),
         "LatestScheduledRetrainingModelVersion" => float(),
         "LatestScheduledRetrainingStartTime" => non_neg_integer(),
         "LatestScheduledRetrainingStatus" => list(any()),
-        "ModelArn" => String.t(),
+        "ModelArn" => String.t() | Atom.t(),
         "ModelDiagnosticsOutputConfiguration" => model_diagnostics_output_configuration(),
-        "ModelName" => String.t(),
+        "ModelName" => String.t() | Atom.t(),
         "ModelQuality" => list(any()),
         "NextScheduledRetrainingStartDate" => non_neg_integer(),
         "RetrainingSchedulerStatus" => list(any()),
@@ -221,23 +221,23 @@ defmodule AWS.LookoutEquipment do
       }
       
   """
-  @type model_summary() :: %{String.t() => any()}
+  @type model_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       retraining_scheduler_summary() :: %{
-        "LookbackWindow" => String.t(),
-        "ModelArn" => String.t(),
-        "ModelName" => String.t(),
-        "RetrainingFrequency" => String.t(),
+        "LookbackWindow" => String.t() | Atom.t(),
+        "ModelArn" => String.t() | Atom.t(),
+        "ModelName" => String.t() | Atom.t(),
+        "RetrainingFrequency" => String.t() | Atom.t(),
         "RetrainingStartDate" => non_neg_integer(),
         "Status" => list(any())
       }
       
   """
-  @type retraining_scheduler_summary() :: %{String.t() => any()}
+  @type retraining_scheduler_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -248,7 +248,7 @@ defmodule AWS.LookoutEquipment do
       }
       
   """
-  @type duplicate_timestamps() :: %{String.t() => any()}
+  @type duplicate_timestamps() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -259,7 +259,7 @@ defmodule AWS.LookoutEquipment do
       }
       
   """
-  @type multiple_operating_modes() :: %{String.t() => any()}
+  @type multiple_operating_modes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -267,11 +267,11 @@ defmodule AWS.LookoutEquipment do
       
       list_inference_executions_response() :: %{
         "InferenceExecutionSummaries" => list(inference_execution_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_inference_executions_response() :: %{String.t() => any()}
+  @type list_inference_executions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -279,43 +279,43 @@ defmodule AWS.LookoutEquipment do
       
       create_inference_scheduler_request() :: %{
         optional("DataDelayOffsetInMinutes") => float(),
-        optional("ServerSideKmsKeyId") => String.t(),
+        optional("ServerSideKmsKeyId") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("ClientToken") => String.t(),
+        required("ClientToken") => String.t() | Atom.t(),
         required("DataInputConfiguration") => inference_input_configuration(),
         required("DataOutputConfiguration") => inference_output_configuration(),
         required("DataUploadFrequency") => list(any()),
-        required("InferenceSchedulerName") => String.t(),
-        required("ModelName") => String.t(),
-        required("RoleArn") => String.t()
+        required("InferenceSchedulerName") => String.t() | Atom.t(),
+        required("ModelName") => String.t() | Atom.t(),
+        required("RoleArn") => String.t() | Atom.t()
       }
       
   """
-  @type create_inference_scheduler_request() :: %{String.t() => any()}
+  @type create_inference_scheduler_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       dataset_schema() :: %{
-        "InlineDataSchema" => String.t()
+        "InlineDataSchema" => String.t() | Atom.t()
       }
       
   """
-  @type dataset_schema() :: %{String.t() => any()}
+  @type dataset_schema() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_datasets_request() :: %{
-        optional("DatasetNameBeginsWith") => String.t(),
+        optional("DatasetNameBeginsWith") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_datasets_request() :: %{String.t() => any()}
+  @type list_datasets_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -328,31 +328,31 @@ defmodule AWS.LookoutEquipment do
         optional("EvaluationDataStartTime") => non_neg_integer(),
         optional("LabelsInputConfiguration") => labels_input_configuration(),
         optional("ModelDiagnosticsOutputConfiguration") => model_diagnostics_output_configuration(),
-        optional("OffCondition") => String.t(),
-        optional("RoleArn") => String.t(),
-        optional("ServerSideKmsKeyId") => String.t(),
+        optional("OffCondition") => String.t() | Atom.t(),
+        optional("RoleArn") => String.t() | Atom.t(),
+        optional("ServerSideKmsKeyId") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
         optional("TrainingDataEndTime") => non_neg_integer(),
         optional("TrainingDataStartTime") => non_neg_integer(),
-        required("ClientToken") => String.t(),
-        required("DatasetName") => String.t(),
-        required("ModelName") => String.t()
+        required("ClientToken") => String.t() | Atom.t(),
+        required("DatasetName") => String.t() | Atom.t(),
+        required("ModelName") => String.t() | Atom.t()
       }
       
   """
-  @type create_model_request() :: %{String.t() => any()}
+  @type create_model_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_object() :: %{
-        "Bucket" => String.t(),
-        "Key" => String.t()
+        "Bucket" => String.t() | Atom.t(),
+        "Key" => String.t() | Atom.t()
       }
       
   """
-  @type s3_object() :: %{String.t() => any()}
+  @type s3_object() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -361,12 +361,12 @@ defmodule AWS.LookoutEquipment do
       update_model_request() :: %{
         optional("LabelsInputConfiguration") => labels_input_configuration(),
         optional("ModelDiagnosticsOutputConfiguration") => model_diagnostics_output_configuration(),
-        optional("RoleArn") => String.t(),
-        required("ModelName") => String.t()
+        optional("RoleArn") => String.t() | Atom.t(),
+        required("ModelName") => String.t() | Atom.t()
       }
       
   """
-  @type update_model_request() :: %{String.t() => any()}
+  @type update_model_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -378,19 +378,19 @@ defmodule AWS.LookoutEquipment do
         "DataInputConfiguration" => inference_input_configuration(),
         "DataOutputConfiguration" => inference_output_configuration(),
         "DataUploadFrequency" => list(any()),
-        "InferenceSchedulerArn" => String.t(),
-        "InferenceSchedulerName" => String.t(),
+        "InferenceSchedulerArn" => String.t() | Atom.t(),
+        "InferenceSchedulerName" => String.t() | Atom.t(),
         "LatestInferenceResult" => list(any()),
-        "ModelArn" => String.t(),
-        "ModelName" => String.t(),
-        "RoleArn" => String.t(),
-        "ServerSideKmsKeyId" => String.t(),
+        "ModelArn" => String.t() | Atom.t(),
+        "ModelName" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | Atom.t(),
+        "ServerSideKmsKeyId" => String.t() | Atom.t(),
         "Status" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
       
   """
-  @type describe_inference_scheduler_response() :: %{String.t() => any()}
+  @type describe_inference_scheduler_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -401,18 +401,18 @@ defmodule AWS.LookoutEquipment do
       }
       
   """
-  @type unsupported_timestamps() :: %{String.t() => any()}
+  @type unsupported_timestamps() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_model_request() :: %{
-        required("ModelName") => String.t()
+        required("ModelName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_model_request() :: %{String.t() => any()}
+  @type describe_model_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -420,34 +420,34 @@ defmodule AWS.LookoutEquipment do
       
       list_model_versions_response() :: %{
         "ModelVersionSummaries" => list(model_version_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_model_versions_response() :: %{String.t() => any()}
+  @type list_model_versions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceArn") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_label_response() :: %{
-        "LabelId" => String.t()
+        "LabelId" => String.t() | Atom.t()
       }
       
   """
-  @type create_label_response() :: %{String.t() => any()}
+  @type create_label_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -458,64 +458,64 @@ defmodule AWS.LookoutEquipment do
         "DataEndTime" => non_neg_integer(),
         "DataQualitySummary" => data_quality_summary(),
         "DataStartTime" => non_neg_integer(),
-        "DatasetArn" => String.t(),
-        "FailedReason" => String.t(),
+        "DatasetArn" => String.t() | Atom.t(),
+        "FailedReason" => String.t() | Atom.t(),
         "IngestedDataSize" => float(),
         "IngestedFilesSummary" => ingested_files_summary(),
         "IngestionInputConfiguration" => ingestion_input_configuration(),
-        "JobId" => String.t(),
-        "RoleArn" => String.t(),
-        "SourceDatasetArn" => String.t(),
+        "JobId" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | Atom.t(),
+        "SourceDatasetArn" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "StatusDetail" => String.t()
+        "StatusDetail" => String.t() | Atom.t()
       }
       
   """
-  @type describe_data_ingestion_job_response() :: %{String.t() => any()}
+  @type describe_data_ingestion_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       ingestion_s3_input_configuration() :: %{
-        "Bucket" => String.t(),
-        "KeyPattern" => String.t(),
-        "Prefix" => String.t()
+        "Bucket" => String.t() | Atom.t(),
+        "KeyPattern" => String.t() | Atom.t(),
+        "Prefix" => String.t() | Atom.t()
       }
       
   """
-  @type ingestion_s3_input_configuration() :: %{String.t() => any()}
+  @type ingestion_s3_input_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_inference_scheduler_response() :: %{
-        "InferenceSchedulerArn" => String.t(),
-        "InferenceSchedulerName" => String.t(),
-        "ModelArn" => String.t(),
-        "ModelName" => String.t(),
+        "InferenceSchedulerArn" => String.t() | Atom.t(),
+        "InferenceSchedulerName" => String.t() | Atom.t(),
+        "ModelArn" => String.t() | Atom.t(),
+        "ModelName" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type stop_inference_scheduler_response() :: %{String.t() => any()}
+  @type stop_inference_scheduler_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       inference_event_summary() :: %{
-        "Diagnostics" => String.t(),
+        "Diagnostics" => String.t() | Atom.t(),
         "EventDurationInSeconds" => float(),
         "EventEndTime" => non_neg_integer(),
         "EventStartTime" => non_neg_integer(),
-        "InferenceSchedulerArn" => String.t(),
-        "InferenceSchedulerName" => String.t()
+        "InferenceSchedulerArn" => String.t() | Atom.t(),
+        "InferenceSchedulerName" => String.t() | Atom.t()
       }
       
   """
-  @type inference_event_summary() :: %{String.t() => any()}
+  @type inference_event_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -523,51 +523,51 @@ defmodule AWS.LookoutEquipment do
       
       describe_model_response() :: %{
         "Status" => list(any()),
-        "SourceModelVersionArn" => String.t(),
+        "SourceModelVersionArn" => String.t() | Atom.t(),
         "EvaluationDataStartTime" => non_neg_integer(),
         "PreviousActiveModelVersion" => float(),
         "ModelQuality" => list(any()),
-        "PreviousActiveModelVersionArn" => String.t(),
+        "PreviousActiveModelVersionArn" => String.t() | Atom.t(),
         "ModelVersionActivatedAt" => non_neg_integer(),
         "TrainingDataStartTime" => non_neg_integer(),
         "ModelDiagnosticsOutputConfiguration" => model_diagnostics_output_configuration(),
         "ActiveModelVersion" => float(),
-        "ModelArn" => String.t(),
+        "ModelArn" => String.t() | Atom.t(),
         "EvaluationDataEndTime" => non_neg_integer(),
         "CreatedAt" => non_neg_integer(),
-        "LatestScheduledRetrainingFailedReason" => String.t(),
+        "LatestScheduledRetrainingFailedReason" => String.t() | Atom.t(),
         "TrainingExecutionEndTime" => non_neg_integer(),
         "PreviousModelVersionActivatedAt" => non_neg_integer(),
-        "PriorModelMetrics" => String.t(),
-        "DatasetArn" => String.t(),
-        "Schema" => String.t(),
+        "PriorModelMetrics" => String.t() | Atom.t(),
+        "DatasetArn" => String.t() | Atom.t(),
+        "Schema" => String.t() | Atom.t(),
         "TrainingExecutionStartTime" => non_neg_integer(),
         "ImportJobEndTime" => non_neg_integer(),
         "LastUpdatedTime" => non_neg_integer(),
         "LatestScheduledRetrainingStartTime" => non_neg_integer(),
-        "DatasetName" => String.t(),
+        "DatasetName" => String.t() | Atom.t(),
         "DataPreProcessingConfiguration" => data_pre_processing_configuration(),
         "AccumulatedInferenceDataStartTime" => non_neg_integer(),
         "LatestScheduledRetrainingModelVersion" => float(),
-        "ActiveModelVersionArn" => String.t(),
+        "ActiveModelVersionArn" => String.t() | Atom.t(),
         "LatestScheduledRetrainingAvailableDataInDays" => integer(),
         "ImportJobStartTime" => non_neg_integer(),
-        "ModelMetrics" => String.t(),
+        "ModelMetrics" => String.t() | Atom.t(),
         "RetrainingSchedulerStatus" => list(any()),
-        "FailedReason" => String.t(),
+        "FailedReason" => String.t() | Atom.t(),
         "LabelsInputConfiguration" => labels_input_configuration(),
         "LatestScheduledRetrainingStatus" => list(any()),
         "NextScheduledRetrainingStartDate" => non_neg_integer(),
-        "RoleArn" => String.t(),
-        "OffCondition" => String.t(),
+        "RoleArn" => String.t() | Atom.t(),
+        "OffCondition" => String.t() | Atom.t(),
         "TrainingDataEndTime" => non_neg_integer(),
         "AccumulatedInferenceDataEndTime" => non_neg_integer(),
-        "ServerSideKmsKeyId" => String.t(),
-        "ModelName" => String.t()
+        "ServerSideKmsKeyId" => String.t() | Atom.t(),
+        "ModelName" => String.t() | Atom.t()
       }
       
   """
-  @type describe_model_response() :: %{String.t() => any()}
+  @type describe_model_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -577,97 +577,97 @@ defmodule AWS.LookoutEquipment do
         optional("DataEndTimeBefore") => non_neg_integer(),
         optional("DataStartTimeAfter") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("Status") => list(any()),
-        required("InferenceSchedulerName") => String.t()
+        required("InferenceSchedulerName") => String.t() | Atom.t()
       }
       
   """
-  @type list_inference_executions_request() :: %{String.t() => any()}
+  @type list_inference_executions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       labels_input_configuration() :: %{
-        "LabelGroupName" => String.t(),
+        "LabelGroupName" => String.t() | Atom.t(),
         "S3InputConfiguration" => labels_s3_input_configuration()
       }
       
   """
-  @type labels_input_configuration() :: %{String.t() => any()}
+  @type labels_input_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_label_request() :: %{
-        required("LabelGroupName") => String.t(),
-        required("LabelId") => String.t()
+        required("LabelGroupName") => String.t() | Atom.t(),
+        required("LabelId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_label_request() :: %{String.t() => any()}
+  @type describe_label_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_dataset_response() :: %{
-        "DatasetArn" => String.t(),
-        "DatasetName" => String.t(),
+        "DatasetArn" => String.t() | Atom.t(),
+        "DatasetName" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type create_dataset_response() :: %{String.t() => any()}
+  @type create_dataset_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_retraining_scheduler_request() :: %{
-        required("ModelName") => String.t()
+        required("ModelName") => String.t() | Atom.t()
       }
       
   """
-  @type stop_retraining_scheduler_request() :: %{String.t() => any()}
+  @type stop_retraining_scheduler_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_label_group_request() :: %{
-        optional("FaultCodes") => list(String.t()),
+        optional("FaultCodes") => list(String.t() | Atom.t()),
         optional("Tags") => list(tag()),
-        required("ClientToken") => String.t(),
-        required("LabelGroupName") => String.t()
+        required("ClientToken") => String.t() | Atom.t(),
+        required("LabelGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type create_label_group_request() :: %{String.t() => any()}
+  @type create_label_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -678,7 +678,7 @@ defmodule AWS.LookoutEquipment do
       }
       
   """
-  @type sensors_with_short_date_range() :: %{String.t() => any()}
+  @type sensors_with_short_date_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -686,72 +686,72 @@ defmodule AWS.LookoutEquipment do
       
       dataset_summary() :: %{
         "CreatedAt" => non_neg_integer(),
-        "DatasetArn" => String.t(),
-        "DatasetName" => String.t(),
+        "DatasetArn" => String.t() | Atom.t(),
+        "DatasetName" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type dataset_summary() :: %{String.t() => any()}
+  @type dataset_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_retraining_scheduler_response() :: %{
-        "ModelArn" => String.t(),
-        "ModelName" => String.t(),
+        "ModelArn" => String.t() | Atom.t(),
+        "ModelName" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type start_retraining_scheduler_response() :: %{String.t() => any()}
+  @type start_retraining_scheduler_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_label_request() :: %{
-        required("LabelGroupName") => String.t(),
-        required("LabelId") => String.t()
+        required("LabelGroupName") => String.t() | Atom.t(),
+        required("LabelId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_label_request() :: %{String.t() => any()}
+  @type delete_label_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_retraining_scheduler_request() :: %{
-        required("ModelName") => String.t()
+        required("ModelName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_retraining_scheduler_request() :: %{String.t() => any()}
+  @type describe_retraining_scheduler_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -759,22 +759,22 @@ defmodule AWS.LookoutEquipment do
       
       list_label_groups_response() :: %{
         "LabelGroupSummaries" => list(label_group_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_label_groups_response() :: %{String.t() => any()}
+  @type list_label_groups_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_inference_scheduler_request() :: %{
-        required("InferenceSchedulerName") => String.t()
+        required("InferenceSchedulerName") => String.t() | Atom.t()
       }
       
   """
-  @type stop_inference_scheduler_request() :: %{String.t() => any()}
+  @type stop_inference_scheduler_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -783,30 +783,30 @@ defmodule AWS.LookoutEquipment do
       inference_scheduler_summary() :: %{
         "DataDelayOffsetInMinutes" => float(),
         "DataUploadFrequency" => list(any()),
-        "InferenceSchedulerArn" => String.t(),
-        "InferenceSchedulerName" => String.t(),
+        "InferenceSchedulerArn" => String.t() | Atom.t(),
+        "InferenceSchedulerName" => String.t() | Atom.t(),
         "LatestInferenceResult" => list(any()),
-        "ModelArn" => String.t(),
-        "ModelName" => String.t(),
+        "ModelArn" => String.t() | Atom.t(),
+        "ModelName" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type inference_scheduler_summary() :: %{String.t() => any()}
+  @type inference_scheduler_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_data_ingestion_jobs_request() :: %{
-        optional("DatasetName") => String.t(),
+        optional("DatasetName") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("Status") => list(any())
       }
       
   """
-  @type list_data_ingestion_jobs_request() :: %{String.t() => any()}
+  @type list_data_ingestion_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -814,42 +814,42 @@ defmodule AWS.LookoutEquipment do
       
       list_retraining_schedulers_request() :: %{
         optional("MaxResults") => integer(),
-        optional("ModelNameBeginsWith") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("ModelNameBeginsWith") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("Status") => list(any())
       }
       
   """
-  @type list_retraining_schedulers_request() :: %{String.t() => any()}
+  @type list_retraining_schedulers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_labels_request() :: %{
-        optional("Equipment") => String.t(),
-        optional("FaultCode") => String.t(),
+        optional("Equipment") => String.t() | Atom.t(),
+        optional("FaultCode") => String.t() | Atom.t(),
         optional("IntervalEndTime") => non_neg_integer(),
         optional("IntervalStartTime") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("LabelGroupName") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("LabelGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type list_labels_request() :: %{String.t() => any()}
+  @type list_labels_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_data_ingestion_job_response() :: %{
-        "JobId" => String.t(),
+        "JobId" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type start_data_ingestion_job_response() :: %{String.t() => any()}
+  @type start_data_ingestion_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -857,22 +857,22 @@ defmodule AWS.LookoutEquipment do
       
       list_inference_events_response() :: %{
         "InferenceEventSummaries" => list(inference_event_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_inference_events_response() :: %{String.t() => any()}
+  @type list_inference_events_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_label_group_request() :: %{
-        required("LabelGroupName") => String.t()
+        required("LabelGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_label_group_request() :: %{String.t() => any()}
+  @type describe_label_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -883,7 +883,7 @@ defmodule AWS.LookoutEquipment do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -892,62 +892,62 @@ defmodule AWS.LookoutEquipment do
       create_retraining_scheduler_request() :: %{
         optional("PromoteMode") => list(any()),
         optional("RetrainingStartDate") => non_neg_integer(),
-        required("ClientToken") => String.t(),
-        required("LookbackWindow") => String.t(),
-        required("ModelName") => String.t(),
-        required("RetrainingFrequency") => String.t()
+        required("ClientToken") => String.t() | Atom.t(),
+        required("LookbackWindow") => String.t() | Atom.t(),
+        required("ModelName") => String.t() | Atom.t(),
+        required("RetrainingFrequency") => String.t() | Atom.t()
       }
       
   """
-  @type create_retraining_scheduler_request() :: %{String.t() => any()}
+  @type create_retraining_scheduler_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       model_diagnostics_output_configuration() :: %{
-        "KmsKeyId" => String.t(),
+        "KmsKeyId" => String.t() | Atom.t(),
         "S3OutputConfiguration" => model_diagnostics_s3_output_configuration()
       }
       
   """
-  @type model_diagnostics_output_configuration() :: %{String.t() => any()}
+  @type model_diagnostics_output_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       model_diagnostics_s3_output_configuration() :: %{
-        "Bucket" => String.t(),
-        "Prefix" => String.t()
+        "Bucket" => String.t() | Atom.t(),
+        "Prefix" => String.t() | Atom.t()
       }
       
   """
-  @type model_diagnostics_s3_output_configuration() :: %{String.t() => any()}
+  @type model_diagnostics_s3_output_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       inference_s3_input_configuration() :: %{
-        "Bucket" => String.t(),
-        "Prefix" => String.t()
+        "Bucket" => String.t() | Atom.t(),
+        "Prefix" => String.t() | Atom.t()
       }
       
   """
-  @type inference_s3_input_configuration() :: %{String.t() => any()}
+  @type inference_s3_input_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_model_response() :: %{
-        "ModelArn" => String.t(),
+        "ModelArn" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type create_model_response() :: %{String.t() => any()}
+  @type create_model_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -955,15 +955,15 @@ defmodule AWS.LookoutEquipment do
       
       update_active_model_version_response() :: %{
         "CurrentActiveVersion" => float(),
-        "CurrentActiveVersionArn" => String.t(),
-        "ModelArn" => String.t(),
-        "ModelName" => String.t(),
+        "CurrentActiveVersionArn" => String.t() | Atom.t(),
+        "ModelArn" => String.t() | Atom.t(),
+        "ModelName" => String.t() | Atom.t(),
         "PreviousActiveVersion" => float(),
-        "PreviousActiveVersionArn" => String.t()
+        "PreviousActiveVersionArn" => String.t() | Atom.t()
       }
       
   """
-  @type update_active_model_version_response() :: %{String.t() => any()}
+  @type update_active_model_version_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -972,32 +972,32 @@ defmodule AWS.LookoutEquipment do
       describe_label_response() :: %{
         "CreatedAt" => non_neg_integer(),
         "EndTime" => non_neg_integer(),
-        "Equipment" => String.t(),
-        "FaultCode" => String.t(),
-        "LabelGroupArn" => String.t(),
-        "LabelGroupName" => String.t(),
-        "LabelId" => String.t(),
-        "Notes" => String.t(),
+        "Equipment" => String.t() | Atom.t(),
+        "FaultCode" => String.t() | Atom.t(),
+        "LabelGroupArn" => String.t() | Atom.t(),
+        "LabelGroupName" => String.t() | Atom.t(),
+        "LabelId" => String.t() | Atom.t(),
+        "Notes" => String.t() | Atom.t(),
         "Rating" => list(any()),
         "StartTime" => non_neg_integer()
       }
       
   """
-  @type describe_label_response() :: %{String.t() => any()}
+  @type describe_label_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_data_ingestion_job_request() :: %{
-        required("ClientToken") => String.t(),
-        required("DatasetName") => String.t(),
+        required("ClientToken") => String.t() | Atom.t(),
+        required("DatasetName") => String.t() | Atom.t(),
         required("IngestionInputConfiguration") => ingestion_input_configuration(),
-        required("RoleArn") => String.t()
+        required("RoleArn") => String.t() | Atom.t()
       }
       
   """
-  @type start_data_ingestion_job_request() :: %{String.t() => any()}
+  @type start_data_ingestion_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1005,33 +1005,33 @@ defmodule AWS.LookoutEquipment do
       
       list_data_ingestion_jobs_response() :: %{
         "DataIngestionJobSummaries" => list(data_ingestion_job_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_data_ingestion_jobs_response() :: %{String.t() => any()}
+  @type list_data_ingestion_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_label_group_request() :: %{
-        required("LabelGroupName") => String.t()
+        required("LabelGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_label_group_request() :: %{String.t() => any()}
+  @type delete_label_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1040,84 +1040,84 @@ defmodule AWS.LookoutEquipment do
       import_model_version_request() :: %{
         optional("InferenceDataImportStrategy") => list(any()),
         optional("LabelsInputConfiguration") => labels_input_configuration(),
-        optional("ModelName") => String.t(),
-        optional("RoleArn") => String.t(),
-        optional("ServerSideKmsKeyId") => String.t(),
+        optional("ModelName") => String.t() | Atom.t(),
+        optional("RoleArn") => String.t() | Atom.t(),
+        optional("ServerSideKmsKeyId") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("ClientToken") => String.t(),
-        required("DatasetName") => String.t(),
-        required("SourceModelVersionArn") => String.t()
+        required("ClientToken") => String.t() | Atom.t(),
+        required("DatasetName") => String.t() | Atom.t(),
+        required("SourceModelVersionArn") => String.t() | Atom.t()
       }
       
   """
-  @type import_model_version_request() :: %{String.t() => any()}
+  @type import_model_version_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_retraining_schedulers_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "RetrainingSchedulerSummaries" => list(retraining_scheduler_summary())
       }
       
   """
-  @type list_retraining_schedulers_response() :: %{String.t() => any()}
+  @type list_retraining_schedulers_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_inference_scheduler_response() :: %{
-        "InferenceSchedulerArn" => String.t(),
-        "InferenceSchedulerName" => String.t(),
-        "ModelArn" => String.t(),
-        "ModelName" => String.t(),
+        "InferenceSchedulerArn" => String.t() | Atom.t(),
+        "InferenceSchedulerName" => String.t() | Atom.t(),
+        "ModelArn" => String.t() | Atom.t(),
+        "ModelName" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type start_inference_scheduler_response() :: %{String.t() => any()}
+  @type start_inference_scheduler_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       import_model_version_response() :: %{
-        "ModelArn" => String.t(),
-        "ModelName" => String.t(),
+        "ModelArn" => String.t() | Atom.t(),
+        "ModelName" => String.t() | Atom.t(),
         "ModelVersion" => float(),
-        "ModelVersionArn" => String.t(),
+        "ModelVersionArn" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type import_model_version_response() :: %{String.t() => any()}
+  @type import_model_version_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_model_request() :: %{
-        required("ModelName") => String.t()
+        required("ModelName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_model_request() :: %{String.t() => any()}
+  @type delete_model_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_sensor_statistics_request() :: %{
-        optional("IngestionJobId") => String.t(),
+        optional("IngestionJobId") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("DatasetName") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("DatasetName") => String.t() | Atom.t()
       }
       
   """
-  @type list_sensor_statistics_request() :: %{String.t() => any()}
+  @type list_sensor_statistics_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1125,23 +1125,23 @@ defmodule AWS.LookoutEquipment do
       
       inference_input_configuration() :: %{
         "InferenceInputNameConfiguration" => inference_input_name_configuration(),
-        "InputTimeZoneOffset" => String.t(),
+        "InputTimeZoneOffset" => String.t() | Atom.t(),
         "S3InputConfiguration" => inference_s3_input_configuration()
       }
       
   """
-  @type inference_input_configuration() :: %{String.t() => any()}
+  @type inference_input_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_data_ingestion_job_request() :: %{
-        required("JobId") => String.t()
+        required("JobId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_data_ingestion_job_request() :: %{String.t() => any()}
+  @type describe_data_ingestion_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1152,7 +1152,7 @@ defmodule AWS.LookoutEquipment do
       }
       
   """
-  @type missing_complete_sensor_data() :: %{String.t() => any()}
+  @type missing_complete_sensor_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1160,7 +1160,7 @@ defmodule AWS.LookoutEquipment do
       
       sensor_statistics_summary() :: %{
         "CategoricalValues" => categorical_values(),
-        "ComponentName" => String.t(),
+        "ComponentName" => String.t() | Atom.t(),
         "DataEndTime" => non_neg_integer(),
         "DataExists" => boolean(),
         "DataStartTime" => non_neg_integer(),
@@ -1171,47 +1171,47 @@ defmodule AWS.LookoutEquipment do
         "MissingValues" => count_percent(),
         "MonotonicValues" => monotonic_values(),
         "MultipleOperatingModes" => multiple_operating_modes(),
-        "SensorName" => String.t()
+        "SensorName" => String.t() | Atom.t()
       }
       
   """
-  @type sensor_statistics_summary() :: %{String.t() => any()}
+  @type sensor_statistics_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_resource_policy_request() :: %{
-        optional("PolicyRevisionId") => String.t(),
-        required("ClientToken") => String.t(),
-        required("ResourceArn") => String.t(),
-        required("ResourcePolicy") => String.t()
+        optional("PolicyRevisionId") => String.t() | Atom.t(),
+        required("ClientToken") => String.t() | Atom.t(),
+        required("ResourceArn") => String.t() | Atom.t(),
+        required("ResourcePolicy") => String.t() | Atom.t()
       }
       
   """
-  @type put_resource_policy_request() :: %{String.t() => any()}
+  @type put_resource_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_inference_scheduler_request() :: %{
-        required("InferenceSchedulerName") => String.t()
+        required("InferenceSchedulerName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_inference_scheduler_request() :: %{String.t() => any()}
+  @type describe_inference_scheduler_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1224,7 +1224,7 @@ defmodule AWS.LookoutEquipment do
       }
       
   """
-  @type ingested_files_summary() :: %{String.t() => any()}
+  @type ingested_files_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1240,15 +1240,15 @@ defmodule AWS.LookoutEquipment do
   ## Example:
       
       data_ingestion_job_summary() :: %{
-        "DatasetArn" => String.t(),
-        "DatasetName" => String.t(),
+        "DatasetArn" => String.t() | Atom.t(),
+        "DatasetName" => String.t() | Atom.t(),
         "IngestionInputConfiguration" => ingestion_input_configuration(),
-        "JobId" => String.t(),
+        "JobId" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type data_ingestion_job_summary() :: %{String.t() => any()}
+  @type data_ingestion_job_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1256,14 +1256,14 @@ defmodule AWS.LookoutEquipment do
       
       list_inference_events_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("InferenceSchedulerName") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
+        required("InferenceSchedulerName") => String.t() | Atom.t(),
         required("IntervalEndTime") => non_neg_integer(),
         required("IntervalStartTime") => non_neg_integer()
       }
       
   """
-  @type list_inference_events_request() :: %{String.t() => any()}
+  @type list_inference_events_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1271,14 +1271,14 @@ defmodule AWS.LookoutEquipment do
       
       describe_label_group_response() :: %{
         "CreatedAt" => non_neg_integer(),
-        "FaultCodes" => list(String.t()),
-        "LabelGroupArn" => String.t(),
-        "LabelGroupName" => String.t(),
+        "FaultCodes" => list(String.t() | Atom.t()),
+        "LabelGroupArn" => String.t() | Atom.t(),
+        "LabelGroupName" => String.t() | Atom.t(),
         "UpdatedAt" => non_neg_integer()
       }
       
   """
-  @type describe_label_group_response() :: %{String.t() => any()}
+  @type describe_label_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1293,7 +1293,7 @@ defmodule AWS.LookoutEquipment do
       }
       
   """
-  @type data_quality_summary() :: %{String.t() => any()}
+  @type data_quality_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1301,17 +1301,17 @@ defmodule AWS.LookoutEquipment do
       
       model_version_summary() :: %{
         "CreatedAt" => non_neg_integer(),
-        "ModelArn" => String.t(),
-        "ModelName" => String.t(),
+        "ModelArn" => String.t() | Atom.t(),
+        "ModelName" => String.t() | Atom.t(),
         "ModelQuality" => list(any()),
         "ModelVersion" => float(),
-        "ModelVersionArn" => String.t(),
+        "ModelVersionArn" => String.t() | Atom.t(),
         "SourceType" => list(any()),
         "Status" => list(any())
       }
       
   """
-  @type model_version_summary() :: %{String.t() => any()}
+  @type model_version_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1320,43 +1320,43 @@ defmodule AWS.LookoutEquipment do
       describe_model_version_response() :: %{
         "Status" => list(any()),
         "SourceType" => list(any()),
-        "SourceModelVersionArn" => String.t(),
+        "SourceModelVersionArn" => String.t() | Atom.t(),
         "EvaluationDataStartTime" => non_neg_integer(),
         "ModelQuality" => list(any()),
         "TrainingDataStartTime" => non_neg_integer(),
         "ModelDiagnosticsOutputConfiguration" => model_diagnostics_output_configuration(),
-        "ModelArn" => String.t(),
+        "ModelArn" => String.t() | Atom.t(),
         "EvaluationDataEndTime" => non_neg_integer(),
         "CreatedAt" => non_neg_integer(),
         "TrainingExecutionEndTime" => non_neg_integer(),
-        "PriorModelMetrics" => String.t(),
-        "DatasetArn" => String.t(),
-        "Schema" => String.t(),
+        "PriorModelMetrics" => String.t() | Atom.t(),
+        "DatasetArn" => String.t() | Atom.t(),
+        "Schema" => String.t() | Atom.t(),
         "TrainingExecutionStartTime" => non_neg_integer(),
         "RetrainingAvailableDataInDays" => integer(),
         "ModelDiagnosticsResultsObject" => s3_object(),
         "ImportJobEndTime" => non_neg_integer(),
         "LastUpdatedTime" => non_neg_integer(),
-        "DatasetName" => String.t(),
+        "DatasetName" => String.t() | Atom.t(),
         "ModelVersion" => float(),
         "DataPreProcessingConfiguration" => data_pre_processing_configuration(),
-        "AutoPromotionResultReason" => String.t(),
+        "AutoPromotionResultReason" => String.t() | Atom.t(),
         "ImportedDataSizeInBytes" => float(),
         "ImportJobStartTime" => non_neg_integer(),
-        "ModelMetrics" => String.t(),
+        "ModelMetrics" => String.t() | Atom.t(),
         "AutoPromotionResult" => list(any()),
-        "FailedReason" => String.t(),
+        "FailedReason" => String.t() | Atom.t(),
         "LabelsInputConfiguration" => labels_input_configuration(),
-        "ModelVersionArn" => String.t(),
-        "RoleArn" => String.t(),
-        "OffCondition" => String.t(),
+        "ModelVersionArn" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | Atom.t(),
+        "OffCondition" => String.t() | Atom.t(),
         "TrainingDataEndTime" => non_neg_integer(),
-        "ServerSideKmsKeyId" => String.t(),
-        "ModelName" => String.t()
+        "ServerSideKmsKeyId" => String.t() | Atom.t(),
+        "ModelName" => String.t() | Atom.t()
       }
       
   """
-  @type describe_model_version_response() :: %{String.t() => any()}
+  @type describe_model_version_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1368,7 +1368,7 @@ defmodule AWS.LookoutEquipment do
       }
       
   """
-  @type invalid_sensor_data() :: %{String.t() => any()}
+  @type invalid_sensor_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1379,80 +1379,80 @@ defmodule AWS.LookoutEquipment do
         "DataEndTime" => non_neg_integer(),
         "DataQualitySummary" => data_quality_summary(),
         "DataStartTime" => non_neg_integer(),
-        "DatasetArn" => String.t(),
-        "DatasetName" => String.t(),
+        "DatasetArn" => String.t() | Atom.t(),
+        "DatasetName" => String.t() | Atom.t(),
         "IngestedFilesSummary" => ingested_files_summary(),
         "IngestionInputConfiguration" => ingestion_input_configuration(),
         "LastUpdatedAt" => non_neg_integer(),
-        "RoleArn" => String.t(),
-        "Schema" => String.t(),
-        "ServerSideKmsKeyId" => String.t(),
-        "SourceDatasetArn" => String.t(),
+        "RoleArn" => String.t() | Atom.t(),
+        "Schema" => String.t() | Atom.t(),
+        "ServerSideKmsKeyId" => String.t() | Atom.t(),
+        "SourceDatasetArn" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type describe_dataset_response() :: %{String.t() => any()}
+  @type describe_dataset_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_sensor_statistics_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "SensorStatisticsSummaries" => list(sensor_statistics_summary())
       }
       
   """
-  @type list_sensor_statistics_response() :: %{String.t() => any()}
+  @type list_sensor_statistics_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_label_groups_request() :: %{
-        optional("LabelGroupNameBeginsWith") => String.t(),
+        optional("LabelGroupNameBeginsWith") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_label_groups_request() :: %{String.t() => any()}
+  @type list_label_groups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_retraining_scheduler_response() :: %{
-        "ModelArn" => String.t(),
-        "ModelName" => String.t(),
+        "ModelArn" => String.t() | Atom.t(),
+        "ModelName" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type create_retraining_scheduler_response() :: %{String.t() => any()}
+  @type create_retraining_scheduler_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1460,48 +1460,48 @@ defmodule AWS.LookoutEquipment do
       
       create_dataset_request() :: %{
         optional("DatasetSchema") => dataset_schema(),
-        optional("ServerSideKmsKeyId") => String.t(),
+        optional("ServerSideKmsKeyId") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("ClientToken") => String.t(),
-        required("DatasetName") => String.t()
+        required("ClientToken") => String.t() | Atom.t(),
+        required("DatasetName") => String.t() | Atom.t()
       }
       
   """
-  @type create_dataset_request() :: %{String.t() => any()}
+  @type create_dataset_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_inference_scheduler_request() :: %{
-        required("InferenceSchedulerName") => String.t()
+        required("InferenceSchedulerName") => String.t() | Atom.t()
       }
       
   """
-  @type start_inference_scheduler_request() :: %{String.t() => any()}
+  @type start_inference_scheduler_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_model_version_request() :: %{
-        required("ModelName") => String.t(),
+        required("ModelName") => String.t() | Atom.t(),
         required("ModelVersion") => float()
       }
       
   """
-  @type describe_model_version_request() :: %{String.t() => any()}
+  @type describe_model_version_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1512,7 +1512,7 @@ defmodule AWS.LookoutEquipment do
       }
       
   """
-  @type data_pre_processing_configuration() :: %{String.t() => any()}
+  @type data_pre_processing_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1521,12 +1521,12 @@ defmodule AWS.LookoutEquipment do
       describe_resource_policy_response() :: %{
         "CreationTime" => non_neg_integer(),
         "LastModifiedTime" => non_neg_integer(),
-        "PolicyRevisionId" => String.t(),
-        "ResourcePolicy" => String.t()
+        "PolicyRevisionId" => String.t() | Atom.t(),
+        "ResourcePolicy" => String.t() | Atom.t()
       }
       
   """
-  @type describe_resource_policy_response() :: %{String.t() => any()}
+  @type describe_resource_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1534,13 +1534,13 @@ defmodule AWS.LookoutEquipment do
       
       label_group_summary() :: %{
         "CreatedAt" => non_neg_integer(),
-        "LabelGroupArn" => String.t(),
-        "LabelGroupName" => String.t(),
+        "LabelGroupArn" => String.t() | Atom.t(),
+        "LabelGroupName" => String.t() | Atom.t(),
         "UpdatedAt" => non_neg_integer()
       }
       
   """
-  @type label_group_summary() :: %{String.t() => any()}
+  @type label_group_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1553,7 +1553,7 @@ defmodule AWS.LookoutEquipment do
       }
       
   """
-  @type large_timestamp_gaps() :: %{String.t() => any()}
+  @type large_timestamp_gaps() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1565,7 +1565,7 @@ defmodule AWS.LookoutEquipment do
       }
       
   """
-  @type insufficient_sensor_data() :: %{String.t() => any()}
+  @type insufficient_sensor_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1573,42 +1573,42 @@ defmodule AWS.LookoutEquipment do
       
       describe_retraining_scheduler_response() :: %{
         "CreatedAt" => non_neg_integer(),
-        "LookbackWindow" => String.t(),
-        "ModelArn" => String.t(),
-        "ModelName" => String.t(),
+        "LookbackWindow" => String.t() | Atom.t(),
+        "ModelArn" => String.t() | Atom.t(),
+        "ModelName" => String.t() | Atom.t(),
         "PromoteMode" => list(any()),
-        "RetrainingFrequency" => String.t(),
+        "RetrainingFrequency" => String.t() | Atom.t(),
         "RetrainingStartDate" => non_neg_integer(),
         "Status" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
       
   """
-  @type describe_retraining_scheduler_response() :: %{String.t() => any()}
+  @type describe_retraining_scheduler_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_label_group_request() :: %{
-        optional("FaultCodes") => list(String.t()),
-        required("LabelGroupName") => String.t()
+        optional("FaultCodes") => list(String.t() | Atom.t()),
+        required("LabelGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type update_label_group_request() :: %{String.t() => any()}
+  @type update_label_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_resource_policy_response() :: %{
-        "PolicyRevisionId" => String.t(),
-        "ResourceArn" => String.t()
+        "PolicyRevisionId" => String.t() | Atom.t(),
+        "ResourceArn" => String.t() | Atom.t()
       }
       
   """
-  @type put_resource_policy_response() :: %{String.t() => any()}
+  @type put_resource_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1620,56 +1620,56 @@ defmodule AWS.LookoutEquipment do
       }
       
   """
-  @type categorical_values() :: %{String.t() => any()}
+  @type categorical_values() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       inference_s3_output_configuration() :: %{
-        "Bucket" => String.t(),
-        "Prefix" => String.t()
+        "Bucket" => String.t() | Atom.t(),
+        "Prefix" => String.t() | Atom.t()
       }
       
   """
-  @type inference_s3_output_configuration() :: %{String.t() => any()}
+  @type inference_s3_output_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       import_dataset_request() :: %{
-        optional("DatasetName") => String.t(),
-        optional("ServerSideKmsKeyId") => String.t(),
+        optional("DatasetName") => String.t() | Atom.t(),
+        optional("ServerSideKmsKeyId") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("ClientToken") => String.t(),
-        required("SourceDatasetArn") => String.t()
+        required("ClientToken") => String.t() | Atom.t(),
+        required("SourceDatasetArn") => String.t() | Atom.t()
       }
       
   """
-  @type import_dataset_request() :: %{String.t() => any()}
+  @type import_dataset_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_resource_policy_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_resource_policy_request() :: %{String.t() => any()}
+  @type delete_resource_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_inference_scheduler_request() :: %{
-        required("InferenceSchedulerName") => String.t()
+        required("InferenceSchedulerName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_inference_scheduler_request() :: %{String.t() => any()}
+  @type delete_inference_scheduler_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1680,34 +1680,34 @@ defmodule AWS.LookoutEquipment do
         optional("DataInputConfiguration") => inference_input_configuration(),
         optional("DataOutputConfiguration") => inference_output_configuration(),
         optional("DataUploadFrequency") => list(any()),
-        optional("RoleArn") => String.t(),
-        required("InferenceSchedulerName") => String.t()
+        optional("RoleArn") => String.t() | Atom.t(),
+        required("InferenceSchedulerName") => String.t() | Atom.t()
       }
       
   """
-  @type update_inference_scheduler_request() :: %{String.t() => any()}
+  @type update_inference_scheduler_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_dataset_request() :: %{
-        required("DatasetName") => String.t()
+        required("DatasetName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_dataset_request() :: %{String.t() => any()}
+  @type describe_dataset_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_dataset_request() :: %{
-        required("DatasetName") => String.t()
+        required("DatasetName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_dataset_request() :: %{String.t() => any()}
+  @type delete_dataset_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1715,11 +1715,11 @@ defmodule AWS.LookoutEquipment do
       
       list_datasets_response() :: %{
         "DatasetSummaries" => list(dataset_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_datasets_response() :: %{String.t() => any()}
+  @type list_datasets_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1731,55 +1731,55 @@ defmodule AWS.LookoutEquipment do
         "DataInputConfiguration" => inference_input_configuration(),
         "DataOutputConfiguration" => inference_output_configuration(),
         "DataStartTime" => non_neg_integer(),
-        "FailedReason" => String.t(),
-        "InferenceSchedulerArn" => String.t(),
-        "InferenceSchedulerName" => String.t(),
-        "ModelArn" => String.t(),
-        "ModelName" => String.t(),
+        "FailedReason" => String.t() | Atom.t(),
+        "InferenceSchedulerArn" => String.t() | Atom.t(),
+        "InferenceSchedulerName" => String.t() | Atom.t(),
+        "ModelArn" => String.t() | Atom.t(),
+        "ModelName" => String.t() | Atom.t(),
         "ModelVersion" => float(),
-        "ModelVersionArn" => String.t(),
+        "ModelVersionArn" => String.t() | Atom.t(),
         "ScheduledStartTime" => non_neg_integer(),
         "Status" => list(any())
       }
       
   """
-  @type inference_execution_summary() :: %{String.t() => any()}
+  @type inference_execution_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       labels_s3_input_configuration() :: %{
-        "Bucket" => String.t(),
-        "Prefix" => String.t()
+        "Bucket" => String.t() | Atom.t(),
+        "Prefix" => String.t() | Atom.t()
       }
       
   """
-  @type labels_s3_input_configuration() :: %{String.t() => any()}
+  @type labels_s3_input_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_retraining_scheduler_request() :: %{
-        required("ModelName") => String.t()
+        required("ModelName") => String.t() | Atom.t()
       }
       
   """
-  @type start_retraining_scheduler_request() :: %{String.t() => any()}
+  @type start_retraining_scheduler_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_retraining_scheduler_response() :: %{
-        "ModelArn" => String.t(),
-        "ModelName" => String.t(),
+        "ModelArn" => String.t() | Atom.t(),
+        "ModelName" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type stop_retraining_scheduler_response() :: %{String.t() => any()}
+  @type stop_retraining_scheduler_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1787,39 +1787,39 @@ defmodule AWS.LookoutEquipment do
       
       list_inference_schedulers_response() :: %{
         "InferenceSchedulerSummaries" => list(inference_scheduler_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_inference_schedulers_response() :: %{String.t() => any()}
+  @type list_inference_schedulers_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       import_dataset_response() :: %{
-        "DatasetArn" => String.t(),
-        "DatasetName" => String.t(),
-        "JobId" => String.t(),
+        "DatasetArn" => String.t() | Atom.t(),
+        "DatasetName" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type import_dataset_response() :: %{String.t() => any()}
+  @type import_dataset_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_inference_scheduler_response() :: %{
-        "InferenceSchedulerArn" => String.t(),
-        "InferenceSchedulerName" => String.t(),
+        "InferenceSchedulerArn" => String.t() | Atom.t(),
+        "InferenceSchedulerName" => String.t() | Atom.t(),
         "ModelQuality" => list(any()),
         "Status" => list(any())
       }
       
   """
-  @type create_inference_scheduler_response() :: %{String.t() => any()}
+  @type create_inference_scheduler_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1828,32 +1828,32 @@ defmodule AWS.LookoutEquipment do
       label_summary() :: %{
         "CreatedAt" => non_neg_integer(),
         "EndTime" => non_neg_integer(),
-        "Equipment" => String.t(),
-        "FaultCode" => String.t(),
-        "LabelGroupArn" => String.t(),
-        "LabelGroupName" => String.t(),
-        "LabelId" => String.t(),
+        "Equipment" => String.t() | Atom.t(),
+        "FaultCode" => String.t() | Atom.t(),
+        "LabelGroupArn" => String.t() | Atom.t(),
+        "LabelGroupName" => String.t() | Atom.t(),
+        "LabelId" => String.t() | Atom.t(),
         "Rating" => list(any()),
         "StartTime" => non_neg_integer()
       }
       
   """
-  @type label_summary() :: %{String.t() => any()}
+  @type label_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_retraining_scheduler_request() :: %{
-        optional("LookbackWindow") => String.t(),
+        optional("LookbackWindow") => String.t() | Atom.t(),
         optional("PromoteMode") => list(any()),
-        optional("RetrainingFrequency") => String.t(),
+        optional("RetrainingFrequency") => String.t() | Atom.t(),
         optional("RetrainingStartDate") => non_neg_integer(),
-        required("ModelName") => String.t()
+        required("ModelName") => String.t() | Atom.t()
       }
       
   """
-  @type update_retraining_scheduler_request() :: %{String.t() => any()}
+  @type update_retraining_scheduler_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1865,18 +1865,18 @@ defmodule AWS.LookoutEquipment do
       }
       
   """
-  @type missing_sensor_data() :: %{String.t() => any()}
+  @type missing_sensor_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_resource_policy_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_resource_policy_request() :: %{String.t() => any()}
+  @type describe_resource_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1888,14 +1888,14 @@ defmodule AWS.LookoutEquipment do
         optional("MaxModelVersion") => float(),
         optional("MaxResults") => integer(),
         optional("MinModelVersion") => float(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("SourceType") => list(any()),
         optional("Status") => list(any()),
-        required("ModelName") => String.t()
+        required("ModelName") => String.t() | Atom.t()
       }
       
   """
-  @type list_model_versions_request() :: %{String.t() => any()}
+  @type list_model_versions_request() :: %{String.t() | Atom.t() => any()}
 
   @type create_dataset_errors() ::
           throttling_exception()

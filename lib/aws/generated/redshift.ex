@@ -49,22 +49,22 @@ defmodule AWS.Redshift do
   ## Example:
       
       endpoint_authorization_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type endpoint_authorization_not_found_fault() :: %{String.t() => any()}
+  @type endpoint_authorization_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       integration_source_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type integration_source_not_found_fault() :: %{String.t() => any()}
+  @type integration_source_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -74,15 +74,15 @@ defmodule AWS.Redshift do
         optional("Active") => boolean(),
         optional("EndTime") => non_neg_integer(),
         optional("Filters") => list(scheduled_action_filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("ScheduledActionName") => String.t(),
+        optional("ScheduledActionName") => String.t() | Atom.t(),
         optional("StartTime") => non_neg_integer(),
         optional("TargetActionType") => list(any())
       }
       
   """
-  @type describe_scheduled_actions_message() :: %{String.t() => any()}
+  @type describe_scheduled_actions_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -93,7 +93,7 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type delete_cluster_result() :: %{String.t() => any()}
+  @type delete_cluster_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -101,129 +101,129 @@ defmodule AWS.Redshift do
       
       event_subscriptions_message() :: %{
         "EventSubscriptionsList" => list(event_subscription()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type event_subscriptions_message() :: %{String.t() => any()}
+  @type event_subscriptions_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_cluster_subnet_group_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_cluster_subnet_group_state_fault() :: %{String.t() => any()}
+  @type invalid_cluster_subnet_group_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_fault() :: %{String.t() => any()}
+  @type resource_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       table_restore_status() :: %{
-        "ClusterIdentifier" => String.t(),
-        "Message" => String.t(),
-        "NewTableName" => String.t(),
+        "ClusterIdentifier" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
+        "NewTableName" => String.t() | Atom.t(),
         "ProgressInMegaBytes" => float(),
         "RequestTime" => non_neg_integer(),
-        "SnapshotIdentifier" => String.t(),
-        "SourceDatabaseName" => String.t(),
-        "SourceSchemaName" => String.t(),
-        "SourceTableName" => String.t(),
+        "SnapshotIdentifier" => String.t() | Atom.t(),
+        "SourceDatabaseName" => String.t() | Atom.t(),
+        "SourceSchemaName" => String.t() | Atom.t(),
+        "SourceTableName" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "TableRestoreRequestId" => String.t(),
-        "TargetDatabaseName" => String.t(),
-        "TargetSchemaName" => String.t(),
+        "TableRestoreRequestId" => String.t() | Atom.t(),
+        "TargetDatabaseName" => String.t() | Atom.t(),
+        "TargetSchemaName" => String.t() | Atom.t(),
         "TotalDataInMegaBytes" => float()
       }
       
   """
-  @type table_restore_status() :: %{String.t() => any()}
+  @type table_restore_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_data_shares_for_producer_message() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("ProducerArn") => String.t(),
+        optional("ProducerArn") => String.t() | Atom.t(),
         optional("Status") => list(any())
       }
       
   """
-  @type describe_data_shares_for_producer_message() :: %{String.t() => any()}
+  @type describe_data_shares_for_producer_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       integration_target_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type integration_target_not_found_fault() :: %{String.t() => any()}
+  @type integration_target_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       recommended_action() :: %{
-        "Command" => String.t(),
-        "Database" => String.t(),
-        "Text" => String.t(),
+        "Command" => String.t() | Atom.t(),
+        "Database" => String.t() | Atom.t(),
+        "Text" => String.t() | Atom.t(),
         "Type" => list(any())
       }
       
   """
-  @type recommended_action() :: %{String.t() => any()}
+  @type recommended_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_on_latest_revision_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cluster_on_latest_revision_fault() :: %{String.t() => any()}
+  @type cluster_on_latest_revision_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       schedule_definition_type_unsupported_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type schedule_definition_type_unsupported_fault() :: %{String.t() => any()}
+  @type schedule_definition_type_unsupported_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_snapshot_copy_grant_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_snapshot_copy_grant_state_fault() :: %{String.t() => any()}
+  @type invalid_snapshot_copy_grant_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -231,46 +231,46 @@ defmodule AWS.Redshift do
       
       endpoint_access_list() :: %{
         optional("EndpointAccessList") => list(endpoint_access()),
-        optional("Marker") => String.t()
+        optional("Marker") => String.t() | Atom.t()
       }
       
   """
-  @type endpoint_access_list() :: %{String.t() => any()}
+  @type endpoint_access_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       subnet_already_in_use() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type subnet_already_in_use() :: %{String.t() => any()}
+  @type subnet_already_in_use() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_cluster_db_revision_message() :: %{
-        required("ClusterIdentifier") => String.t(),
-        required("RevisionTarget") => String.t()
+        required("ClusterIdentifier") => String.t() | Atom.t(),
+        required("RevisionTarget") => String.t() | Atom.t()
       }
       
   """
-  @type modify_cluster_db_revision_message() :: %{String.t() => any()}
+  @type modify_cluster_db_revision_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_associated_to_schedule() :: %{
-        "ClusterIdentifier" => String.t(),
+        "ClusterIdentifier" => String.t() | Atom.t(),
         "ScheduleAssociationState" => list(any())
       }
       
   """
-  @type cluster_associated_to_schedule() :: %{String.t() => any()}
+  @type cluster_associated_to_schedule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -283,19 +283,19 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type reserved_node_configuration_option() :: %{String.t() => any()}
+  @type reserved_node_configuration_option() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_recommendations_result() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "Recommendations" => list(recommendation())
       }
       
   """
-  @type list_recommendations_result() :: %{String.t() => any()}
+  @type list_recommendations_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -303,27 +303,27 @@ defmodule AWS.Redshift do
       
       event_categories_map() :: %{
         "Events" => list(event_info_map()),
-        "SourceType" => String.t()
+        "SourceType" => String.t() | Atom.t()
       }
       
   """
-  @type event_categories_map() :: %{String.t() => any()}
+  @type event_categories_map() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_snapshot_schedules_message() :: %{
-        optional("ClusterIdentifier") => String.t(),
-        optional("Marker") => String.t(),
+        optional("ClusterIdentifier") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("ScheduleIdentifier") => String.t(),
-        optional("TagKeys") => list(String.t()),
-        optional("TagValues") => list(String.t())
+        optional("ScheduleIdentifier") => String.t() | Atom.t(),
+        optional("TagKeys") => list(String.t() | Atom.t()),
+        optional("TagValues") => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_snapshot_schedules_message() :: %{String.t() => any()}
+  @type describe_snapshot_schedules_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -331,34 +331,34 @@ defmodule AWS.Redshift do
       
       authorize_data_share_message() :: %{
         optional("AllowWrites") => boolean(),
-        required("ConsumerIdentifier") => String.t(),
-        required("DataShareArn") => String.t()
+        required("ConsumerIdentifier") => String.t() | Atom.t(),
+        required("DataShareArn") => String.t() | Atom.t()
       }
       
   """
-  @type authorize_data_share_message() :: %{String.t() => any()}
+  @type authorize_data_share_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_resize_message() :: %{
-        required("ClusterIdentifier") => String.t()
+        required("ClusterIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type describe_resize_message() :: %{String.t() => any()}
+  @type describe_resize_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       snapshot_schedule_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type snapshot_schedule_already_exists_fault() :: %{String.t() => any()}
+  @type snapshot_schedule_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -369,22 +369,22 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type disable_snapshot_copy_result() :: %{String.t() => any()}
+  @type disable_snapshot_copy_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_cluster_parameter_groups_message() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("ParameterGroupName") => String.t(),
-        optional("TagKeys") => list(String.t()),
-        optional("TagValues") => list(String.t())
+        optional("ParameterGroupName") => String.t() | Atom.t(),
+        optional("TagKeys") => list(String.t() | Atom.t()),
+        optional("TagValues") => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_cluster_parameter_groups_message() :: %{String.t() => any()}
+  @type describe_cluster_parameter_groups_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -395,7 +395,7 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type modify_cluster_snapshot_result() :: %{String.t() => any()}
+  @type modify_cluster_snapshot_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -404,46 +404,46 @@ defmodule AWS.Redshift do
       create_cluster_snapshot_message() :: %{
         optional("ManualSnapshotRetentionPeriod") => integer(),
         optional("Tags") => list(tag()),
-        required("ClusterIdentifier") => String.t(),
-        required("SnapshotIdentifier") => String.t()
+        required("ClusterIdentifier") => String.t() | Atom.t(),
+        required("SnapshotIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type create_cluster_snapshot_message() :: %{String.t() => any()}
+  @type create_cluster_snapshot_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       subscription_severity_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type subscription_severity_not_found_fault() :: %{String.t() => any()}
+  @type subscription_severity_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_reserved_node_exchange_offerings_output_message() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "ReservedNodeOfferings" => list(reserved_node_offering())
       }
       
   """
-  @type get_reserved_node_exchange_offerings_output_message() :: %{String.t() => any()}
+  @type get_reserved_node_exchange_offerings_output_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_snapshot_copy_grant_message() :: %{
-        required("SnapshotCopyGrantName") => String.t()
+        required("SnapshotCopyGrantName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_snapshot_copy_grant_message() :: %{String.t() => any()}
+  @type delete_snapshot_copy_grant_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -454,7 +454,7 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type modify_cluster_maintenance_result() :: %{String.t() => any()}
+  @type modify_cluster_maintenance_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -463,122 +463,122 @@ defmodule AWS.Redshift do
       inbound_integration() :: %{
         "CreateTime" => non_neg_integer(),
         "Errors" => list(integration_error()),
-        "IntegrationArn" => String.t(),
-        "SourceArn" => String.t(),
+        "IntegrationArn" => String.t() | Atom.t(),
+        "SourceArn" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "TargetArn" => String.t()
+        "TargetArn" => String.t() | Atom.t()
       }
       
   """
-  @type inbound_integration() :: %{String.t() => any()}
+  @type inbound_integration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       integration_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type integration_already_exists_fault() :: %{String.t() => any()}
+  @type integration_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       availability_zone() :: %{
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "SupportedPlatforms" => list(supported_platform())
       }
       
   """
-  @type availability_zone() :: %{String.t() => any()}
+  @type availability_zone() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_policy_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_policy_fault() :: %{String.t() => any()}
+  @type invalid_policy_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       usage_limit_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type usage_limit_not_found_fault() :: %{String.t() => any()}
+  @type usage_limit_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_security_group_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cluster_security_group_quota_exceeded_fault() :: %{String.t() => any()}
+  @type cluster_security_group_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_subnet_group_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cluster_subnet_group_not_found_fault() :: %{String.t() => any()}
+  @type cluster_subnet_group_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_cluster_parameter_group_message() :: %{
-        required("ParameterGroupName") => String.t()
+        required("ParameterGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_cluster_parameter_group_message() :: %{String.t() => any()}
+  @type delete_cluster_parameter_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_cluster_security_groups_message() :: %{
-        optional("ClusterSecurityGroupName") => String.t(),
-        optional("Marker") => String.t(),
+        optional("ClusterSecurityGroupName") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("TagKeys") => list(String.t()),
-        optional("TagValues") => list(String.t())
+        optional("TagKeys") => list(String.t() | Atom.t()),
+        optional("TagValues") => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_cluster_security_groups_message() :: %{String.t() => any()}
+  @type describe_cluster_security_groups_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_snapshot_copy_grants_message() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("SnapshotCopyGrantName") => String.t(),
-        optional("TagKeys") => list(String.t()),
-        optional("TagValues") => list(String.t())
+        optional("SnapshotCopyGrantName") => String.t() | Atom.t(),
+        optional("TagKeys") => list(String.t() | Atom.t()),
+        optional("TagValues") => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_snapshot_copy_grants_message() :: %{String.t() => any()}
+  @type describe_snapshot_copy_grants_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -587,62 +587,62 @@ defmodule AWS.Redshift do
       create_snapshot_schedule_message() :: %{
         optional("DryRun") => boolean(),
         optional("NextInvocations") => integer(),
-        optional("ScheduleDefinitions") => list(String.t()),
-        optional("ScheduleDescription") => String.t(),
-        optional("ScheduleIdentifier") => String.t(),
+        optional("ScheduleDefinitions") => list(String.t() | Atom.t()),
+        optional("ScheduleDescription") => String.t() | Atom.t(),
+        optional("ScheduleIdentifier") => String.t() | Atom.t(),
         optional("Tags") => list(tag())
       }
       
   """
-  @type create_snapshot_schedule_message() :: %{String.t() => any()}
+  @type create_snapshot_schedule_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_authentication_profile_result() :: %{
-        "AuthenticationProfileContent" => String.t(),
-        "AuthenticationProfileName" => String.t()
+        "AuthenticationProfileContent" => String.t() | Atom.t(),
+        "AuthenticationProfileName" => String.t() | Atom.t()
       }
       
   """
-  @type create_authentication_profile_result() :: %{String.t() => any()}
+  @type create_authentication_profile_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_authentication_profile_result() :: %{
-        "AuthenticationProfileContent" => String.t(),
-        "AuthenticationProfileName" => String.t()
+        "AuthenticationProfileContent" => String.t() | Atom.t(),
+        "AuthenticationProfileName" => String.t() | Atom.t()
       }
       
   """
-  @type modify_authentication_profile_result() :: %{String.t() => any()}
+  @type modify_authentication_profile_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       attribute_value_target() :: %{
-        "AttributeValue" => String.t()
+        "AttributeValue" => String.t() | Atom.t()
       }
       
   """
-  @type attribute_value_target() :: %{String.t() => any()}
+  @type attribute_value_target() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_cluster_db_revisions_message() :: %{
-        optional("ClusterIdentifier") => String.t(),
-        optional("Marker") => String.t(),
+        optional("ClusterIdentifier") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_cluster_db_revisions_message() :: %{String.t() => any()}
+  @type describe_cluster_db_revisions_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -651,31 +651,31 @@ defmodule AWS.Redshift do
       integration() :: %{
         optional("AdditionalEncryptionContext") => map(),
         optional("CreateTime") => non_neg_integer(),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("Errors") => list(integration_error()),
-        optional("IntegrationArn") => String.t(),
-        optional("IntegrationName") => String.t(),
-        optional("KMSKeyId") => String.t(),
-        optional("SourceArn") => String.t(),
+        optional("IntegrationArn") => String.t() | Atom.t(),
+        optional("IntegrationName") => String.t() | Atom.t(),
+        optional("KMSKeyId") => String.t() | Atom.t(),
+        optional("SourceArn") => String.t() | Atom.t(),
         optional("Status") => list(any()),
         optional("Tags") => list(tag()),
-        optional("TargetArn") => String.t()
+        optional("TargetArn") => String.t() | Atom.t()
       }
       
   """
-  @type integration() :: %{String.t() => any()}
+  @type integration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_tags_message() :: %{
-        required("ResourceName") => String.t(),
+        required("ResourceName") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
       
   """
-  @type create_tags_message() :: %{String.t() => any()}
+  @type create_tags_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -683,11 +683,11 @@ defmodule AWS.Redshift do
       
       describe_integrations_filter() :: %{
         "Name" => list(any()),
-        "Values" => list(String.t())
+        "Values" => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_integrations_filter() :: %{String.t() => any()}
+  @type describe_integrations_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -695,55 +695,55 @@ defmodule AWS.Redshift do
       
       modify_event_subscription_message() :: %{
         optional("Enabled") => boolean(),
-        optional("EventCategories") => list(String.t()),
-        optional("Severity") => String.t(),
-        optional("SnsTopicArn") => String.t(),
-        optional("SourceIds") => list(String.t()),
-        optional("SourceType") => String.t(),
-        required("SubscriptionName") => String.t()
+        optional("EventCategories") => list(String.t() | Atom.t()),
+        optional("Severity") => String.t() | Atom.t(),
+        optional("SnsTopicArn") => String.t() | Atom.t(),
+        optional("SourceIds") => list(String.t() | Atom.t()),
+        optional("SourceType") => String.t() | Atom.t(),
+        required("SubscriptionName") => String.t() | Atom.t()
       }
       
   """
-  @type modify_event_subscription_message() :: %{String.t() => any()}
+  @type modify_event_subscription_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_default_cluster_parameters_message() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        required("ParameterGroupFamily") => String.t()
+        required("ParameterGroupFamily") => String.t() | Atom.t()
       }
       
   """
-  @type describe_default_cluster_parameters_message() :: %{String.t() => any()}
+  @type describe_default_cluster_parameters_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       hsm_configuration() :: %{
-        "Description" => String.t(),
-        "HsmConfigurationIdentifier" => String.t(),
-        "HsmIpAddress" => String.t(),
-        "HsmPartitionName" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "HsmConfigurationIdentifier" => String.t() | Atom.t(),
+        "HsmIpAddress" => String.t() | Atom.t(),
+        "HsmPartitionName" => String.t() | Atom.t(),
         "Tags" => list(tag())
       }
       
   """
-  @type hsm_configuration() :: %{String.t() => any()}
+  @type hsm_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       pause_cluster_message() :: %{
-        "ClusterIdentifier" => String.t()
+        "ClusterIdentifier" => String.t() | Atom.t()
       }
       
   """
-  @type pause_cluster_message() :: %{String.t() => any()}
+  @type pause_cluster_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -751,33 +751,33 @@ defmodule AWS.Redshift do
       
       scheduled_action_filter() :: %{
         "Name" => list(any()),
-        "Values" => list(String.t())
+        "Values" => list(String.t() | Atom.t())
       }
       
   """
-  @type scheduled_action_filter() :: %{String.t() => any()}
+  @type scheduled_action_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_s3_bucket_name_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_s3_bucket_name_fault() :: %{String.t() => any()}
+  @type invalid_s3_bucket_name_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_subnet_group_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cluster_subnet_group_quota_exceeded_fault() :: %{String.t() => any()}
+  @type cluster_subnet_group_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -785,15 +785,15 @@ defmodule AWS.Redshift do
       
       modify_redshift_idc_application_message() :: %{
         optional("AuthorizedTokenIssuerList") => list(authorized_token_issuer()),
-        optional("IamRoleArn") => String.t(),
-        optional("IdcDisplayName") => String.t(),
-        optional("IdentityNamespace") => String.t(),
+        optional("IamRoleArn") => String.t() | Atom.t(),
+        optional("IdcDisplayName") => String.t() | Atom.t(),
+        optional("IdentityNamespace") => String.t() | Atom.t(),
         optional("ServiceIntegrations") => list(list()),
-        required("RedshiftIdcApplicationArn") => String.t()
+        required("RedshiftIdcApplicationArn") => String.t() | Atom.t()
       }
       
   """
-  @type modify_redshift_idc_application_message() :: %{String.t() => any()}
+  @type modify_redshift_idc_application_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -804,7 +804,7 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type purchase_reserved_node_offering_result() :: %{String.t() => any()}
+  @type purchase_reserved_node_offering_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -815,68 +815,68 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type put_resource_policy_result() :: %{String.t() => any()}
+  @type put_resource_policy_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reject_data_share_message() :: %{
-        required("DataShareArn") => String.t()
+        required("DataShareArn") => String.t() | Atom.t()
       }
       
   """
-  @type reject_data_share_message() :: %{String.t() => any()}
+  @type reject_data_share_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       snapshot_copy_grant_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type snapshot_copy_grant_not_found_fault() :: %{String.t() => any()}
+  @type snapshot_copy_grant_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reserved_node_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type reserved_node_already_exists_fault() :: %{String.t() => any()}
+  @type reserved_node_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_usage_limit_message() :: %{
-        required("UsageLimitId") => String.t()
+        required("UsageLimitId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_usage_limit_message() :: %{String.t() => any()}
+  @type delete_usage_limit_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_subnet_group() :: %{
-        "ClusterSubnetGroupName" => String.t(),
-        "Description" => String.t(),
-        "SubnetGroupStatus" => String.t(),
+        "ClusterSubnetGroupName" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "SubnetGroupStatus" => String.t() | Atom.t(),
         "Subnets" => list(subnet()),
-        "SupportedClusterIpAddressTypes" => list(String.t()),
+        "SupportedClusterIpAddressTypes" => list(String.t() | Atom.t()),
         "Tags" => list(tag()),
-        "VpcId" => String.t()
+        "VpcId" => String.t() | Atom.t()
       }
       
   """
-  @type cluster_subnet_group() :: %{String.t() => any()}
+  @type cluster_subnet_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -887,67 +887,67 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type create_snapshot_copy_grant_result() :: %{String.t() => any()}
+  @type create_snapshot_copy_grant_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       event_subscription() :: %{
-        "CustSubscriptionId" => String.t(),
-        "CustomerAwsId" => String.t(),
+        "CustSubscriptionId" => String.t() | Atom.t(),
+        "CustomerAwsId" => String.t() | Atom.t(),
         "Enabled" => boolean(),
-        "EventCategoriesList" => list(String.t()),
-        "Severity" => String.t(),
-        "SnsTopicArn" => String.t(),
-        "SourceIdsList" => list(String.t()),
-        "SourceType" => String.t(),
-        "Status" => String.t(),
+        "EventCategoriesList" => list(String.t() | Atom.t()),
+        "Severity" => String.t() | Atom.t(),
+        "SnsTopicArn" => String.t() | Atom.t(),
+        "SourceIdsList" => list(String.t() | Atom.t()),
+        "SourceType" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t(),
         "SubscriptionCreationTime" => non_neg_integer(),
         "Tags" => list(tag())
       }
       
   """
-  @type event_subscription() :: %{String.t() => any()}
+  @type event_subscription() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       ec2_security_group() :: %{
-        "EC2SecurityGroupName" => String.t(),
-        "EC2SecurityGroupOwnerId" => String.t(),
-        "Status" => String.t(),
+        "EC2SecurityGroupName" => String.t() | Atom.t(),
+        "EC2SecurityGroupOwnerId" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t(),
         "Tags" => list(tag())
       }
       
   """
-  @type ec2_security_group() :: %{String.t() => any()}
+  @type ec2_security_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       authorize_snapshot_access_message() :: %{
-        optional("SnapshotArn") => String.t(),
-        optional("SnapshotClusterIdentifier") => String.t(),
-        optional("SnapshotIdentifier") => String.t(),
-        required("AccountWithRestoreAccess") => String.t()
+        optional("SnapshotArn") => String.t() | Atom.t(),
+        optional("SnapshotClusterIdentifier") => String.t() | Atom.t(),
+        optional("SnapshotIdentifier") => String.t() | Atom.t(),
+        required("AccountWithRestoreAccess") => String.t() | Atom.t()
       }
       
   """
-  @type authorize_snapshot_access_message() :: %{String.t() => any()}
+  @type authorize_snapshot_access_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resize_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resize_not_found_fault() :: %{String.t() => any()}
+  @type resize_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -955,33 +955,33 @@ defmodule AWS.Redshift do
       
       recurring_charge() :: %{
         "RecurringChargeAmount" => float(),
-        "RecurringChargeFrequency" => String.t()
+        "RecurringChargeFrequency" => String.t() | Atom.t()
       }
       
   """
-  @type recurring_charge() :: %{String.t() => any()}
+  @type recurring_charge() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type limit_exceeded_fault() :: %{String.t() => any()}
+  @type limit_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_restore_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_restore_fault() :: %{String.t() => any()}
+  @type invalid_restore_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -990,79 +990,79 @@ defmodule AWS.Redshift do
       modify_scheduled_action_message() :: %{
         optional("Enable") => boolean(),
         optional("EndTime") => non_neg_integer(),
-        optional("IamRole") => String.t(),
-        optional("Schedule") => String.t(),
-        optional("ScheduledActionDescription") => String.t(),
+        optional("IamRole") => String.t() | Atom.t(),
+        optional("Schedule") => String.t() | Atom.t(),
+        optional("ScheduledActionDescription") => String.t() | Atom.t(),
         optional("StartTime") => non_neg_integer(),
         optional("TargetAction") => scheduled_action_type(),
-        required("ScheduledActionName") => String.t()
+        required("ScheduledActionName") => String.t() | Atom.t()
       }
       
   """
-  @type modify_scheduled_action_message() :: %{String.t() => any()}
+  @type modify_scheduled_action_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_endpoint_access_message() :: %{
-        optional("VpcSecurityGroupIds") => list(String.t()),
-        required("EndpointName") => String.t()
+        optional("VpcSecurityGroupIds") => list(String.t() | Atom.t()),
+        required("EndpointName") => String.t() | Atom.t()
       }
       
   """
-  @type modify_endpoint_access_message() :: %{String.t() => any()}
+  @type modify_endpoint_access_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_modify_cluster_snapshots_limit_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type batch_modify_cluster_snapshots_limit_exceeded_fault() :: %{String.t() => any()}
+  @type batch_modify_cluster_snapshots_limit_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       authorize_cluster_security_group_ingress_message() :: %{
-        optional("CIDRIP") => String.t(),
-        optional("EC2SecurityGroupName") => String.t(),
-        optional("EC2SecurityGroupOwnerId") => String.t(),
-        required("ClusterSecurityGroupName") => String.t()
+        optional("CIDRIP") => String.t() | Atom.t(),
+        optional("EC2SecurityGroupName") => String.t() | Atom.t(),
+        optional("EC2SecurityGroupOwnerId") => String.t() | Atom.t(),
+        required("ClusterSecurityGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type authorize_cluster_security_group_ingress_message() :: %{String.t() => any()}
+  @type authorize_cluster_security_group_ingress_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cluster_not_found_fault() :: %{String.t() => any()}
+  @type cluster_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       network_interface() :: %{
-        "AvailabilityZone" => String.t(),
-        "Ipv6Address" => String.t(),
-        "NetworkInterfaceId" => String.t(),
-        "PrivateIpAddress" => String.t(),
-        "SubnetId" => String.t()
+        "AvailabilityZone" => String.t() | Atom.t(),
+        "Ipv6Address" => String.t() | Atom.t(),
+        "NetworkInterfaceId" => String.t() | Atom.t(),
+        "PrivateIpAddress" => String.t() | Atom.t(),
+        "SubnetId" => String.t() | Atom.t()
       }
       
   """
-  @type network_interface() :: %{String.t() => any()}
+  @type network_interface() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1070,36 +1070,36 @@ defmodule AWS.Redshift do
       
       modify_snapshot_copy_retention_period_message() :: %{
         optional("Manual") => boolean(),
-        required("ClusterIdentifier") => String.t(),
+        required("ClusterIdentifier") => String.t() | Atom.t(),
         required("RetentionPeriod") => integer()
       }
       
   """
-  @type modify_snapshot_copy_retention_period_message() :: %{String.t() => any()}
+  @type modify_snapshot_copy_retention_period_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       integration_error() :: %{
-        "ErrorCode" => String.t(),
-        "ErrorMessage" => String.t()
+        "ErrorCode" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | Atom.t()
       }
       
   """
-  @type integration_error() :: %{String.t() => any()}
+  @type integration_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_tags_message() :: %{
-        required("ResourceName") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceName") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type delete_tags_message() :: %{String.t() => any()}
+  @type delete_tags_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1107,34 +1107,34 @@ defmodule AWS.Redshift do
       
       subnet() :: %{
         "SubnetAvailabilityZone" => availability_zone(),
-        "SubnetIdentifier" => String.t(),
-        "SubnetStatus" => String.t()
+        "SubnetIdentifier" => String.t() | Atom.t(),
+        "SubnetStatus" => String.t() | Atom.t()
       }
       
   """
-  @type subnet() :: %{String.t() => any()}
+  @type subnet() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       redshift_idc_application_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type redshift_idc_application_already_exists_fault() :: %{String.t() => any()}
+  @type redshift_idc_application_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_subnet() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_subnet() :: %{String.t() => any()}
+  @type invalid_subnet() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1145,7 +1145,7 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type failover_primary_compute_result() :: %{String.t() => any()}
+  @type failover_primary_compute_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1156,45 +1156,45 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type modify_cluster_iam_roles_result() :: %{String.t() => any()}
+  @type modify_cluster_iam_roles_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_cluster_iam_roles_message() :: %{
-        optional("AddIamRoles") => list(String.t()),
-        optional("DefaultIamRoleArn") => String.t(),
-        optional("RemoveIamRoles") => list(String.t()),
-        required("ClusterIdentifier") => String.t()
+        optional("AddIamRoles") => list(String.t() | Atom.t()),
+        optional("DefaultIamRoleArn") => String.t() | Atom.t(),
+        optional("RemoveIamRoles") => list(String.t() | Atom.t()),
+        required("ClusterIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type modify_cluster_iam_roles_message() :: %{String.t() => any()}
+  @type modify_cluster_iam_roles_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_reserved_nodes_message() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("ReservedNodeId") => String.t()
+        optional("ReservedNodeId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_reserved_nodes_message() :: %{String.t() => any()}
+  @type describe_reserved_nodes_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_data_share_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_data_share_fault() :: %{String.t() => any()}
+  @type invalid_data_share_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1203,48 +1203,48 @@ defmodule AWS.Redshift do
       node_configuration_option() :: %{
         "EstimatedDiskUtilizationPercent" => float(),
         "Mode" => list(any()),
-        "NodeType" => String.t(),
+        "NodeType" => String.t() | Atom.t(),
         "NumberOfNodes" => integer()
       }
       
   """
-  @type node_configuration_option() :: %{String.t() => any()}
+  @type node_configuration_option() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_inbound_integrations_message() :: %{
-        optional("IntegrationArn") => String.t(),
-        optional("Marker") => String.t(),
+        optional("IntegrationArn") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("TargetArn") => String.t()
+        optional("TargetArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_inbound_integrations_message() :: %{String.t() => any()}
+  @type describe_inbound_integrations_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       snapshot_copy_already_disabled_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type snapshot_copy_already_disabled_fault() :: %{String.t() => any()}
+  @type snapshot_copy_already_disabled_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       dependent_service_request_throttling_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type dependent_service_request_throttling_fault() :: %{String.t() => any()}
+  @type dependent_service_request_throttling_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1253,11 +1253,11 @@ defmodule AWS.Redshift do
       modify_cluster_snapshot_message() :: %{
         optional("Force") => boolean(),
         optional("ManualSnapshotRetentionPeriod") => integer(),
-        required("SnapshotIdentifier") => String.t()
+        required("SnapshotIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type modify_cluster_snapshot_message() :: %{String.t() => any()}
+  @type modify_cluster_snapshot_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1265,47 +1265,47 @@ defmodule AWS.Redshift do
       
       create_cluster_parameter_group_message() :: %{
         optional("Tags") => list(tag()),
-        required("Description") => String.t(),
-        required("ParameterGroupFamily") => String.t(),
-        required("ParameterGroupName") => String.t()
+        required("Description") => String.t() | Atom.t(),
+        required("ParameterGroupFamily") => String.t() | Atom.t(),
+        required("ParameterGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type create_cluster_parameter_group_message() :: %{String.t() => any()}
+  @type create_cluster_parameter_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       unsupported_operation_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type unsupported_operation_fault() :: %{String.t() => any()}
+  @type unsupported_operation_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_parameter_group_name_message() :: %{
-        "ParameterGroupName" => String.t(),
-        "ParameterGroupStatus" => String.t()
+        "ParameterGroupName" => String.t() | Atom.t(),
+        "ParameterGroupStatus" => String.t() | Atom.t()
       }
       
   """
-  @type cluster_parameter_group_name_message() :: %{String.t() => any()}
+  @type cluster_parameter_group_name_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_resource_policy_message() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type get_resource_policy_message() :: %{String.t() => any()}
+  @type get_resource_policy_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1313,67 +1313,67 @@ defmodule AWS.Redshift do
       
       describe_data_shares_for_consumer_result() :: %{
         "DataShares" => list(data_share()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type describe_data_shares_for_consumer_result() :: %{String.t() => any()}
+  @type describe_data_shares_for_consumer_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       authentication_profile() :: %{
-        "AuthenticationProfileContent" => String.t(),
-        "AuthenticationProfileName" => String.t()
+        "AuthenticationProfileContent" => String.t() | Atom.t(),
+        "AuthenticationProfileName" => String.t() | Atom.t()
       }
       
   """
-  @type authentication_profile() :: %{String.t() => any()}
+  @type authentication_profile() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cluster_quota_exceeded_fault() :: %{String.t() => any()}
+  @type cluster_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       subscription_already_exist_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type subscription_already_exist_fault() :: %{String.t() => any()}
+  @type subscription_already_exist_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_snapshot_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cluster_snapshot_quota_exceeded_fault() :: %{String.t() => any()}
+  @type cluster_snapshot_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       hsm_configuration_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type hsm_configuration_not_found_fault() :: %{String.t() => any()}
+  @type hsm_configuration_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1381,11 +1381,11 @@ defmodule AWS.Redshift do
       
       describe_data_shares_result() :: %{
         "DataShares" => list(data_share()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type describe_data_shares_result() :: %{String.t() => any()}
+  @type describe_data_shares_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1396,7 +1396,7 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type pause_cluster_result() :: %{String.t() => any()}
+  @type pause_cluster_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1404,29 +1404,29 @@ defmodule AWS.Redshift do
       
       endpoint_authorization() :: %{
         "AllowedAllVPCs" => boolean(),
-        "AllowedVPCs" => list(String.t()),
+        "AllowedVPCs" => list(String.t() | Atom.t()),
         "AuthorizeTime" => non_neg_integer(),
-        "ClusterIdentifier" => String.t(),
-        "ClusterStatus" => String.t(),
+        "ClusterIdentifier" => String.t() | Atom.t(),
+        "ClusterStatus" => String.t() | Atom.t(),
         "EndpointCount" => integer(),
-        "Grantee" => String.t(),
-        "Grantor" => String.t(),
+        "Grantee" => String.t() | Atom.t(),
+        "Grantor" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type endpoint_authorization() :: %{String.t() => any()}
+  @type endpoint_authorization() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_cluster_track_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_cluster_track_fault() :: %{String.t() => any()}
+  @type invalid_cluster_track_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1437,29 +1437,29 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type create_cluster_parameter_group_result() :: %{String.t() => any()}
+  @type create_cluster_parameter_group_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reboot_cluster_message() :: %{
-        required("ClusterIdentifier") => String.t()
+        required("ClusterIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type reboot_cluster_message() :: %{String.t() => any()}
+  @type reboot_cluster_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       hsm_client_certificate_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type hsm_client_certificate_quota_exceeded_fault() :: %{String.t() => any()}
+  @type hsm_client_certificate_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1470,60 +1470,60 @@ defmodule AWS.Redshift do
         "DataTransferredInMegaBytes" => float(),
         "ElapsedTimeInSeconds" => float(),
         "EstimatedTimeToCompletionInSeconds" => float(),
-        "Status" => String.t(),
+        "Status" => String.t() | Atom.t(),
         "TotalDataInMegaBytes" => float()
       }
       
   """
-  @type data_transfer_progress() :: %{String.t() => any()}
+  @type data_transfer_progress() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       subscription_event_id_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type subscription_event_id_not_found_fault() :: %{String.t() => any()}
+  @type subscription_event_id_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       partner_integration_input_message() :: %{
-        required("AccountId") => String.t(),
-        required("ClusterIdentifier") => String.t(),
-        required("DatabaseName") => String.t(),
-        required("PartnerName") => String.t()
+        required("AccountId") => String.t() | Atom.t(),
+        required("ClusterIdentifier") => String.t() | Atom.t(),
+        required("DatabaseName") => String.t() | Atom.t(),
+        required("PartnerName") => String.t() | Atom.t()
       }
       
   """
-  @type partner_integration_input_message() :: %{String.t() => any()}
+  @type partner_integration_input_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_cluster_parameter_group_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_cluster_parameter_group_state_fault() :: %{String.t() => any()}
+  @type invalid_cluster_parameter_group_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       certificate_association() :: %{
-        "ClusterIdentifier" => String.t(),
-        "CustomDomainName" => String.t()
+        "ClusterIdentifier" => String.t() | Atom.t(),
+        "CustomDomainName" => String.t() | Atom.t()
       }
       
   """
-  @type certificate_association() :: %{String.t() => any()}
+  @type certificate_association() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1531,237 +1531,237 @@ defmodule AWS.Redshift do
       
       create_cluster_security_group_message() :: %{
         optional("Tags") => list(tag()),
-        required("ClusterSecurityGroupName") => String.t(),
-        required("Description") => String.t()
+        required("ClusterSecurityGroupName") => String.t() | Atom.t(),
+        required("Description") => String.t() | Atom.t()
       }
       
   """
-  @type create_cluster_security_group_message() :: %{String.t() => any()}
+  @type create_cluster_security_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       snapshot_copy_grant_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type snapshot_copy_grant_already_exists_fault() :: %{String.t() => any()}
+  @type snapshot_copy_grant_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_hsm_configurations_message() :: %{
-        optional("HsmConfigurationIdentifier") => String.t(),
-        optional("Marker") => String.t(),
+        optional("HsmConfigurationIdentifier") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("TagKeys") => list(String.t()),
-        optional("TagValues") => list(String.t())
+        optional("TagKeys") => list(String.t() | Atom.t()),
+        optional("TagValues") => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_hsm_configurations_message() :: %{String.t() => any()}
+  @type describe_hsm_configurations_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_namespace_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_namespace_fault() :: %{String.t() => any()}
+  @type invalid_namespace_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_custom_domain_association_message() :: %{
-        required("ClusterIdentifier") => String.t(),
-        required("CustomDomainName") => String.t()
+        required("ClusterIdentifier") => String.t() | Atom.t(),
+        required("CustomDomainName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_custom_domain_association_message() :: %{String.t() => any()}
+  @type delete_custom_domain_association_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       accept_reserved_node_exchange_input_message() :: %{
-        required("ReservedNodeId") => String.t(),
-        required("TargetReservedNodeOfferingId") => String.t()
+        required("ReservedNodeId") => String.t() | Atom.t(),
+        required("TargetReservedNodeOfferingId") => String.t() | Atom.t()
       }
       
   """
-  @type accept_reserved_node_exchange_input_message() :: %{String.t() => any()}
+  @type accept_reserved_node_exchange_input_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_version() :: %{
-        "ClusterParameterGroupFamily" => String.t(),
-        "ClusterVersion" => String.t(),
-        "Description" => String.t()
+        "ClusterParameterGroupFamily" => String.t() | Atom.t(),
+        "ClusterVersion" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t()
       }
       
   """
-  @type cluster_version() :: %{String.t() => any()}
+  @type cluster_version() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_reserved_node_exchange_offerings_input_message() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        required("ReservedNodeId") => String.t()
+        required("ReservedNodeId") => String.t() | Atom.t()
       }
       
   """
-  @type get_reserved_node_exchange_offerings_input_message() :: %{String.t() => any()}
+  @type get_reserved_node_exchange_offerings_input_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       scheduled_action_type_unsupported_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type scheduled_action_type_unsupported_fault() :: %{String.t() => any()}
+  @type scheduled_action_type_unsupported_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disable_snapshot_copy_message() :: %{
-        required("ClusterIdentifier") => String.t()
+        required("ClusterIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type disable_snapshot_copy_message() :: %{String.t() => any()}
+  @type disable_snapshot_copy_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoints_per_authorization_limit_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type endpoints_per_authorization_limit_exceeded_fault() :: %{String.t() => any()}
+  @type endpoints_per_authorization_limit_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reserved_nodes_message() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "ReservedNodes" => list(reserved_node())
       }
       
   """
-  @type reserved_nodes_message() :: %{String.t() => any()}
+  @type reserved_nodes_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_credentials() :: %{
-        "DbPassword" => String.t(),
-        "DbUser" => String.t(),
+        "DbPassword" => String.t() | Atom.t(),
+        "DbUser" => String.t() | Atom.t(),
         "Expiration" => non_neg_integer()
       }
       
   """
-  @type cluster_credentials() :: %{String.t() => any()}
+  @type cluster_credentials() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_cluster_snapshot_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_cluster_snapshot_state_fault() :: %{String.t() => any()}
+  @type invalid_cluster_snapshot_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_cluster_subnet_groups_message() :: %{
-        optional("ClusterSubnetGroupName") => String.t(),
-        optional("Marker") => String.t(),
+        optional("ClusterSubnetGroupName") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("TagKeys") => list(String.t()),
-        optional("TagValues") => list(String.t())
+        optional("TagKeys") => list(String.t() | Atom.t()),
+        optional("TagValues") => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_cluster_subnet_groups_message() :: %{String.t() => any()}
+  @type describe_cluster_subnet_groups_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reserved_node_offering() :: %{
-        "CurrencyCode" => String.t(),
+        "CurrencyCode" => String.t() | Atom.t(),
         "Duration" => integer(),
         "FixedPrice" => float(),
-        "NodeType" => String.t(),
-        "OfferingType" => String.t(),
+        "NodeType" => String.t() | Atom.t(),
+        "OfferingType" => String.t() | Atom.t(),
         "RecurringCharges" => list(recurring_charge()),
-        "ReservedNodeOfferingId" => String.t(),
+        "ReservedNodeOfferingId" => String.t() | Atom.t(),
         "ReservedNodeOfferingType" => list(any()),
         "UsagePrice" => float()
       }
       
   """
-  @type reserved_node_offering() :: %{String.t() => any()}
+  @type reserved_node_offering() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reserved_node_already_migrated_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type reserved_node_already_migrated_fault() :: %{String.t() => any()}
+  @type reserved_node_already_migrated_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_snapshot_schedule_message() :: %{
-        required("ScheduleDefinitions") => list(String.t()),
-        required("ScheduleIdentifier") => String.t()
+        required("ScheduleDefinitions") => list(String.t() | Atom.t()),
+        required("ScheduleIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type modify_snapshot_schedule_message() :: %{String.t() => any()}
+  @type modify_snapshot_schedule_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       serverless_identifier() :: %{
-        "NamespaceIdentifier" => String.t(),
-        "WorkgroupIdentifier" => String.t()
+        "NamespaceIdentifier" => String.t() | Atom.t(),
+        "WorkgroupIdentifier" => String.t() | Atom.t()
       }
       
   """
-  @type serverless_identifier() :: %{String.t() => any()}
+  @type serverless_identifier() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1772,42 +1772,42 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type deregister_namespace_output_message() :: %{String.t() => any()}
+  @type deregister_namespace_output_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       authorize_endpoint_access_message() :: %{
-        optional("ClusterIdentifier") => String.t(),
-        optional("VpcIds") => list(String.t()),
-        required("Account") => String.t()
+        optional("ClusterIdentifier") => String.t() | Atom.t(),
+        optional("VpcIds") => list(String.t() | Atom.t()),
+        required("Account") => String.t() | Atom.t()
       }
       
   """
-  @type authorize_endpoint_access_message() :: %{String.t() => any()}
+  @type authorize_endpoint_access_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_account_attributes_message() :: %{
-        optional("AttributeNames") => list(String.t())
+        optional("AttributeNames") => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_account_attributes_message() :: %{String.t() => any()}
+  @type describe_account_attributes_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       authentication_profile_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type authentication_profile_already_exists_fault() :: %{String.t() => any()}
+  @type authentication_profile_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1815,62 +1815,62 @@ defmodule AWS.Redshift do
       
       restore_table_from_cluster_snapshot_message() :: %{
         optional("EnableCaseSensitiveIdentifier") => boolean(),
-        optional("SourceSchemaName") => String.t(),
-        optional("TargetDatabaseName") => String.t(),
-        optional("TargetSchemaName") => String.t(),
-        required("ClusterIdentifier") => String.t(),
-        required("NewTableName") => String.t(),
-        required("SnapshotIdentifier") => String.t(),
-        required("SourceDatabaseName") => String.t(),
-        required("SourceTableName") => String.t()
+        optional("SourceSchemaName") => String.t() | Atom.t(),
+        optional("TargetDatabaseName") => String.t() | Atom.t(),
+        optional("TargetSchemaName") => String.t() | Atom.t(),
+        required("ClusterIdentifier") => String.t() | Atom.t(),
+        required("NewTableName") => String.t() | Atom.t(),
+        required("SnapshotIdentifier") => String.t() | Atom.t(),
+        required("SourceDatabaseName") => String.t() | Atom.t(),
+        required("SourceTableName") => String.t() | Atom.t()
       }
       
   """
-  @type restore_table_from_cluster_snapshot_message() :: %{String.t() => any()}
+  @type restore_table_from_cluster_snapshot_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_authentication_profile_request_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_authentication_profile_request_fault() :: %{String.t() => any()}
+  @type invalid_authentication_profile_request_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       unauthorized_operation() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type unauthorized_operation() :: %{String.t() => any()}
+  @type unauthorized_operation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_scheduled_action_message() :: %{
-        required("ScheduledActionName") => String.t()
+        required("ScheduledActionName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_scheduled_action_message() :: %{String.t() => any()}
+  @type delete_scheduled_action_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_vpc_network_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_vpc_network_state_fault() :: %{String.t() => any()}
+  @type invalid_vpc_network_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1881,65 +1881,65 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type create_redshift_idc_application_result() :: %{String.t() => any()}
+  @type create_redshift_idc_application_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_table_restore_status_message() :: %{
-        optional("ClusterIdentifier") => String.t(),
-        optional("Marker") => String.t(),
+        optional("ClusterIdentifier") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("TableRestoreRequestId") => String.t()
+        optional("TableRestoreRequestId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_table_restore_status_message() :: %{String.t() => any()}
+  @type describe_table_restore_status_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_security_group_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cluster_security_group_already_exists_fault() :: %{String.t() => any()}
+  @type cluster_security_group_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       snapshot_schedule_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type snapshot_schedule_quota_exceeded_fault() :: %{String.t() => any()}
+  @type snapshot_schedule_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_elastic_ip_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_elastic_ip_fault() :: %{String.t() => any()}
+  @type invalid_elastic_ip_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_tag_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_tag_fault() :: %{String.t() => any()}
+  @type invalid_tag_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1947,17 +1947,17 @@ defmodule AWS.Redshift do
       
       create_event_subscription_message() :: %{
         optional("Enabled") => boolean(),
-        optional("EventCategories") => list(String.t()),
-        optional("Severity") => String.t(),
-        optional("SourceIds") => list(String.t()),
-        optional("SourceType") => String.t(),
+        optional("EventCategories") => list(String.t() | Atom.t()),
+        optional("Severity") => String.t() | Atom.t(),
+        optional("SourceIds") => list(String.t() | Atom.t()),
+        optional("SourceType") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("SnsTopicArn") => String.t(),
-        required("SubscriptionName") => String.t()
+        required("SnsTopicArn") => String.t() | Atom.t(),
+        required("SubscriptionName") => String.t() | Atom.t()
       }
       
   """
-  @type create_event_subscription_message() :: %{String.t() => any()}
+  @type create_event_subscription_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1970,34 +1970,34 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type scheduled_action_type() :: %{String.t() => any()}
+  @type scheduled_action_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_snapshot_copy_grant_message() :: %{
-        optional("KmsKeyId") => String.t(),
+        optional("KmsKeyId") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("SnapshotCopyGrantName") => String.t()
+        required("SnapshotCopyGrantName") => String.t() | Atom.t()
       }
       
   """
-  @type create_snapshot_copy_grant_message() :: %{String.t() => any()}
+  @type create_snapshot_copy_grant_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_cluster_credentials_with_iam_message() :: %{
-        optional("ClusterIdentifier") => String.t(),
-        optional("CustomDomainName") => String.t(),
-        optional("DbName") => String.t(),
+        optional("ClusterIdentifier") => String.t() | Atom.t(),
+        optional("CustomDomainName") => String.t() | Atom.t(),
+        optional("DbName") => String.t() | Atom.t(),
         optional("DurationSeconds") => integer()
       }
       
   """
-  @type get_cluster_credentials_with_iam_message() :: %{String.t() => any()}
+  @type get_cluster_credentials_with_iam_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2005,33 +2005,33 @@ defmodule AWS.Redshift do
       
       endpoint_authorization_list() :: %{
         optional("EndpointAuthorizationList") => list(endpoint_authorization()),
-        optional("Marker") => String.t()
+        optional("Marker") => String.t() | Atom.t()
       }
       
   """
-  @type endpoint_authorization_list() :: %{String.t() => any()}
+  @type endpoint_authorization_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       bucket_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type bucket_not_found_fault() :: %{String.t() => any()}
+  @type bucket_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       integration_conflict_operation_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type integration_conflict_operation_fault() :: %{String.t() => any()}
+  @type integration_conflict_operation_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2042,34 +2042,34 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type modify_cluster_result() :: %{String.t() => any()}
+  @type modify_cluster_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       orderable_cluster_options_message() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "OrderableClusterOptions" => list(orderable_cluster_option())
       }
       
   """
-  @type orderable_cluster_options_message() :: %{String.t() => any()}
+  @type orderable_cluster_options_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_event_subscriptions_message() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("SubscriptionName") => String.t(),
-        optional("TagKeys") => list(String.t()),
-        optional("TagValues") => list(String.t())
+        optional("SubscriptionName") => String.t() | Atom.t(),
+        optional("TagKeys") => list(String.t() | Atom.t()),
+        optional("TagValues") => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_event_subscriptions_message() :: %{String.t() => any()}
+  @type describe_event_subscriptions_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2077,94 +2077,97 @@ defmodule AWS.Redshift do
       
       cluster_parameter_group_status() :: %{
         "ClusterParameterStatusList" => list(cluster_parameter_status()),
-        "ParameterApplyStatus" => String.t(),
-        "ParameterGroupName" => String.t()
+        "ParameterApplyStatus" => String.t() | Atom.t(),
+        "ParameterGroupName" => String.t() | Atom.t()
       }
       
   """
-  @type cluster_parameter_group_status() :: %{String.t() => any()}
+  @type cluster_parameter_group_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       in_progress_table_restore_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type in_progress_table_restore_quota_exceeded_fault() :: %{String.t() => any()}
+  @type in_progress_table_restore_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_hsm_configuration_message() :: %{
-        required("HsmConfigurationIdentifier") => String.t()
+        required("HsmConfigurationIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type delete_hsm_configuration_message() :: %{String.t() => any()}
+  @type delete_hsm_configuration_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       register_namespace_input_message() :: %{
-        required("ConsumerIdentifiers") => list(String.t()),
+        required("ConsumerIdentifiers") => list(String.t() | Atom.t()),
         required("NamespaceIdentifier") => list()
       }
       
   """
-  @type register_namespace_input_message() :: %{String.t() => any()}
+  @type register_namespace_input_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_integration_message() :: %{
-        required("IntegrationArn") => String.t()
+        required("IntegrationArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_integration_message() :: %{String.t() => any()}
+  @type delete_integration_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_recommendations_message() :: %{
-        optional("ClusterIdentifier") => String.t(),
-        optional("Marker") => String.t(),
+        optional("ClusterIdentifier") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("NamespaceArn") => String.t()
+        optional("NamespaceArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_recommendations_message() :: %{String.t() => any()}
+  @type list_recommendations_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoint_authorizations_per_cluster_limit_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type endpoint_authorizations_per_cluster_limit_exceeded_fault() :: %{String.t() => any()}
+  @type endpoint_authorizations_per_cluster_limit_exceeded_fault() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       snapshot_copy_grant_message() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "SnapshotCopyGrants" => list(snapshot_copy_grant())
       }
       
   """
-  @type snapshot_copy_grant_message() :: %{String.t() => any()}
+  @type snapshot_copy_grant_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2172,91 +2175,91 @@ defmodule AWS.Redshift do
       
       pending_modified_values() :: %{
         "AutomatedSnapshotRetentionPeriod" => integer(),
-        "ClusterIdentifier" => String.t(),
-        "ClusterType" => String.t(),
-        "ClusterVersion" => String.t(),
-        "EncryptionType" => String.t(),
+        "ClusterIdentifier" => String.t() | Atom.t(),
+        "ClusterType" => String.t() | Atom.t(),
+        "ClusterVersion" => String.t() | Atom.t(),
+        "EncryptionType" => String.t() | Atom.t(),
         "EnhancedVpcRouting" => boolean(),
-        "MaintenanceTrackName" => String.t(),
-        "MasterUserPassword" => String.t(),
-        "NodeType" => String.t(),
+        "MaintenanceTrackName" => String.t() | Atom.t(),
+        "MasterUserPassword" => String.t() | Atom.t(),
+        "NodeType" => String.t() | Atom.t(),
         "NumberOfNodes" => integer(),
         "PubliclyAccessible" => boolean()
       }
       
   """
-  @type pending_modified_values() :: %{String.t() => any()}
+  @type pending_modified_values() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_resize_message() :: %{
-        required("ClusterIdentifier") => String.t()
+        required("ClusterIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type cancel_resize_message() :: %{String.t() => any()}
+  @type cancel_resize_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_tags_message() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("ResourceName") => String.t(),
-        optional("ResourceType") => String.t(),
-        optional("TagKeys") => list(String.t()),
-        optional("TagValues") => list(String.t())
+        optional("ResourceName") => String.t() | Atom.t(),
+        optional("ResourceType") => String.t() | Atom.t(),
+        optional("TagKeys") => list(String.t() | Atom.t()),
+        optional("TagValues") => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_tags_message() :: %{String.t() => any()}
+  @type describe_tags_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_parameter_group_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cluster_parameter_group_not_found_fault() :: %{String.t() => any()}
+  @type cluster_parameter_group_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       authorization_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type authorization_not_found_fault() :: %{String.t() => any()}
+  @type authorization_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       integration_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type integration_quota_exceeded_fault() :: %{String.t() => any()}
+  @type integration_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       snapshot_copy_already_enabled_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type snapshot_copy_already_enabled_fault() :: %{String.t() => any()}
+  @type snapshot_copy_already_enabled_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2264,24 +2267,24 @@ defmodule AWS.Redshift do
       
       copy_cluster_snapshot_message() :: %{
         optional("ManualSnapshotRetentionPeriod") => integer(),
-        optional("SourceSnapshotClusterIdentifier") => String.t(),
-        required("SourceSnapshotIdentifier") => String.t(),
-        required("TargetSnapshotIdentifier") => String.t()
+        optional("SourceSnapshotClusterIdentifier") => String.t() | Atom.t(),
+        required("SourceSnapshotIdentifier") => String.t() | Atom.t(),
+        required("TargetSnapshotIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type copy_cluster_snapshot_message() :: %{String.t() => any()}
+  @type copy_cluster_snapshot_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       dependent_service_access_denied_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type dependent_service_access_denied_fault() :: %{String.t() => any()}
+  @type dependent_service_access_denied_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2289,38 +2292,38 @@ defmodule AWS.Redshift do
       
       orderable_cluster_option() :: %{
         "AvailabilityZones" => list(availability_zone()),
-        "ClusterType" => String.t(),
-        "ClusterVersion" => String.t(),
-        "NodeType" => String.t()
+        "ClusterType" => String.t() | Atom.t(),
+        "ClusterVersion" => String.t() | Atom.t(),
+        "NodeType" => String.t() | Atom.t()
       }
       
   """
-  @type orderable_cluster_option() :: %{String.t() => any()}
+  @type orderable_cluster_option() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_hsm_configuration_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_hsm_configuration_state_fault() :: %{String.t() => any()}
+  @type invalid_hsm_configuration_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       event_info_map() :: %{
-        "EventCategories" => list(String.t()),
-        "EventDescription" => String.t(),
-        "EventId" => String.t(),
-        "Severity" => String.t()
+        "EventCategories" => list(String.t() | Atom.t()),
+        "EventDescription" => String.t() | Atom.t(),
+        "EventId" => String.t() | Atom.t(),
+        "Severity" => String.t() | Atom.t()
       }
       
   """
-  @type event_info_map() :: %{String.t() => any()}
+  @type event_info_map() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2328,11 +2331,11 @@ defmodule AWS.Redshift do
       
       batch_modify_cluster_snapshots_output_message() :: %{
         "Errors" => list(snapshot_error_message()),
-        "Resources" => list(String.t())
+        "Resources" => list(String.t() | Atom.t())
       }
       
   """
-  @type batch_modify_cluster_snapshots_output_message() :: %{String.t() => any()}
+  @type batch_modify_cluster_snapshots_output_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2340,11 +2343,11 @@ defmodule AWS.Redshift do
       
       cluster_db_revisions_message() :: %{
         "ClusterDbRevisions" => list(cluster_db_revision()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type cluster_db_revisions_message() :: %{String.t() => any()}
+  @type cluster_db_revisions_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2353,39 +2356,39 @@ defmodule AWS.Redshift do
       associate_data_share_consumer_message() :: %{
         optional("AllowWrites") => boolean(),
         optional("AssociateEntireAccount") => boolean(),
-        optional("ConsumerArn") => String.t(),
-        optional("ConsumerRegion") => String.t(),
-        required("DataShareArn") => String.t()
+        optional("ConsumerArn") => String.t() | Atom.t(),
+        optional("ConsumerRegion") => String.t() | Atom.t(),
+        required("DataShareArn") => String.t() | Atom.t()
       }
       
   """
-  @type associate_data_share_consumer_message() :: %{String.t() => any()}
+  @type associate_data_share_consumer_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_node() :: %{
-        "NodeRole" => String.t(),
-        "PrivateIPAddress" => String.t(),
-        "PublicIPAddress" => String.t()
+        "NodeRole" => String.t() | Atom.t(),
+        "PrivateIPAddress" => String.t() | Atom.t(),
+        "PublicIPAddress" => String.t() | Atom.t()
       }
       
   """
-  @type cluster_node() :: %{String.t() => any()}
+  @type cluster_node() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_cluster_subnet_group_message() :: %{
-        optional("Description") => String.t(),
-        required("ClusterSubnetGroupName") => String.t(),
-        required("SubnetIds") => list(String.t())
+        optional("Description") => String.t() | Atom.t(),
+        required("ClusterSubnetGroupName") => String.t() | Atom.t(),
+        required("SubnetIds") => list(String.t() | Atom.t())
       }
       
   """
-  @type modify_cluster_subnet_group_message() :: %{String.t() => any()}
+  @type modify_cluster_subnet_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2396,29 +2399,29 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type create_cluster_subnet_group_result() :: %{String.t() => any()}
+  @type create_cluster_subnet_group_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_usage_limit_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_usage_limit_fault() :: %{String.t() => any()}
+  @type invalid_usage_limit_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_redshift_idc_application_message() :: %{
-        required("RedshiftIdcApplicationArn") => String.t()
+        required("RedshiftIdcApplicationArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_redshift_idc_application_message() :: %{String.t() => any()}
+  @type delete_redshift_idc_application_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2426,24 +2429,24 @@ defmodule AWS.Redshift do
       
       deferred_maintenance_window() :: %{
         "DeferMaintenanceEndTime" => non_neg_integer(),
-        "DeferMaintenanceIdentifier" => String.t(),
+        "DeferMaintenanceIdentifier" => String.t() | Atom.t(),
         "DeferMaintenanceStartTime" => non_neg_integer()
       }
       
   """
-  @type deferred_maintenance_window() :: %{String.t() => any()}
+  @type deferred_maintenance_window() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2451,46 +2454,46 @@ defmodule AWS.Redshift do
       
       purchase_reserved_node_offering_message() :: %{
         optional("NodeCount") => integer(),
-        required("ReservedNodeOfferingId") => String.t()
+        required("ReservedNodeOfferingId") => String.t() | Atom.t()
       }
       
   """
-  @type purchase_reserved_node_offering_message() :: %{String.t() => any()}
+  @type purchase_reserved_node_offering_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_parameter_groups_message() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "ParameterGroups" => list(cluster_parameter_group())
       }
       
   """
-  @type cluster_parameter_groups_message() :: %{String.t() => any()}
+  @type cluster_parameter_groups_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       authorization_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type authorization_already_exists_fault() :: %{String.t() => any()}
+  @type authorization_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_cluster_parameter_group_message() :: %{
-        required("ParameterGroupName") => String.t(),
+        required("ParameterGroupName") => String.t() | Atom.t(),
         required("Parameters") => list(parameter())
       }
       
   """
-  @type modify_cluster_parameter_group_message() :: %{String.t() => any()}
+  @type modify_cluster_parameter_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2501,68 +2504,68 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type create_cluster_result() :: %{String.t() => any()}
+  @type create_cluster_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster() :: %{
-        "DBName" => String.t(),
+        "DBName" => String.t() | Atom.t(),
         "AutomatedSnapshotRetentionPeriod" => integer(),
-        "DefaultIamRoleArn" => String.t(),
+        "DefaultIamRoleArn" => String.t() | Atom.t(),
         "VpcSecurityGroups" => list(vpc_security_group_membership()),
         "Tags" => list(tag()),
         "Encrypted" => boolean(),
-        "PendingActions" => list(String.t()),
-        "CustomDomainName" => String.t(),
-        "MultiAZ" => String.t(),
-        "IpAddressType" => String.t(),
+        "PendingActions" => list(String.t() | Atom.t()),
+        "CustomDomainName" => String.t() | Atom.t(),
+        "MultiAZ" => String.t() | Atom.t(),
+        "IpAddressType" => String.t() | Atom.t(),
         "EnhancedVpcRouting" => boolean(),
-        "PreferredMaintenanceWindow" => String.t(),
-        "ClusterAvailabilityStatus" => String.t(),
-        "ClusterRevisionNumber" => String.t(),
-        "ClusterNamespaceArn" => String.t(),
+        "PreferredMaintenanceWindow" => String.t() | Atom.t(),
+        "ClusterAvailabilityStatus" => String.t() | Atom.t(),
+        "ClusterRevisionNumber" => String.t() | Atom.t(),
+        "ClusterNamespaceArn" => String.t() | Atom.t(),
         "RestoreStatus" => restore_status(),
         "PendingModifiedValues" => pending_modified_values(),
-        "KmsKeyId" => String.t(),
-        "VpcId" => String.t(),
+        "KmsKeyId" => String.t() | Atom.t(),
+        "VpcId" => String.t() | Atom.t(),
         "ClusterSecurityGroups" => list(cluster_security_group_membership()),
-        "AvailabilityZone" => String.t(),
+        "AvailabilityZone" => String.t() | Atom.t(),
         "ManualSnapshotRetentionPeriod" => integer(),
         "CustomDomainCertificateExpiryDate" => non_neg_integer(),
         "SnapshotScheduleState" => list(any()),
-        "ExpectedNextSnapshotScheduleTimeStatus" => String.t(),
-        "CustomDomainCertificateArn" => String.t(),
+        "ExpectedNextSnapshotScheduleTimeStatus" => String.t() | Atom.t(),
+        "CustomDomainCertificateArn" => String.t() | Atom.t(),
         "ResizeInfo" => resize_info(),
         "ClusterCreateTime" => non_neg_integer(),
         "AquaConfiguration" => aqua_configuration(),
         "TotalStorageCapacityInMegaBytes" => float(),
         "AllowVersionUpgrade" => boolean(),
         "ClusterSnapshotCopyStatus" => cluster_snapshot_copy_status(),
-        "NodeType" => String.t(),
+        "NodeType" => String.t() | Atom.t(),
         "HsmStatus" => hsm_status(),
-        "MaintenanceTrackName" => String.t(),
-        "ClusterSubnetGroupName" => String.t(),
+        "MaintenanceTrackName" => String.t() | Atom.t(),
+        "ClusterSubnetGroupName" => String.t() | Atom.t(),
         "ClusterNodes" => list(cluster_node()),
-        "ClusterStatus" => String.t(),
-        "MasterUsername" => String.t(),
+        "ClusterStatus" => String.t() | Atom.t(),
+        "MasterUsername" => String.t() | Atom.t(),
         "MultiAZSecondary" => secondary_cluster_info(),
-        "ClusterVersion" => String.t(),
-        "ClusterIdentifier" => String.t(),
-        "ClusterPublicKey" => String.t(),
+        "ClusterVersion" => String.t() | Atom.t(),
+        "ClusterIdentifier" => String.t() | Atom.t(),
+        "ClusterPublicKey" => String.t() | Atom.t(),
         "NumberOfNodes" => integer(),
         "DataTransferProgress" => data_transfer_progress(),
-        "MasterPasswordSecretArn" => String.t(),
+        "MasterPasswordSecretArn" => String.t() | Atom.t(),
         "IamRoles" => list(cluster_iam_role()),
         "NextMaintenanceWindowStartTime" => non_neg_integer(),
         "PubliclyAccessible" => boolean(),
-        "MasterPasswordSecretKmsKeyId" => String.t(),
-        "ElasticResizeNumberOfNodeOptions" => String.t(),
-        "ModifyStatus" => String.t(),
+        "MasterPasswordSecretKmsKeyId" => String.t() | Atom.t(),
+        "ElasticResizeNumberOfNodeOptions" => String.t() | Atom.t(),
+        "ModifyStatus" => String.t() | Atom.t(),
         "Endpoint" => endpoint(),
-        "AvailabilityZoneRelocationStatus" => String.t(),
-        "SnapshotScheduleIdentifier" => String.t(),
+        "AvailabilityZoneRelocationStatus" => String.t() | Atom.t(),
+        "SnapshotScheduleIdentifier" => String.t() | Atom.t(),
         "ElasticIpStatus" => elastic_ip_status(),
         "DeferredMaintenanceWindows" => list(deferred_maintenance_window()),
         "ClusterParameterGroups" => list(cluster_parameter_group_status()),
@@ -2571,7 +2574,7 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type cluster() :: %{String.t() => any()}
+  @type cluster() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2580,23 +2583,23 @@ defmodule AWS.Redshift do
       reset_cluster_parameter_group_message() :: %{
         optional("Parameters") => list(parameter()),
         optional("ResetAllParameters") => boolean(),
-        required("ParameterGroupName") => String.t()
+        required("ParameterGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type reset_cluster_parameter_group_message() :: %{String.t() => any()}
+  @type reset_cluster_parameter_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_resource_policy_message() :: %{
-        required("Policy") => String.t(),
-        required("ResourceArn") => String.t()
+        required("Policy") => String.t() | Atom.t(),
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type put_resource_policy_message() :: %{String.t() => any()}
+  @type put_resource_policy_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2604,22 +2607,22 @@ defmodule AWS.Redshift do
       
       inbound_integrations_message() :: %{
         "InboundIntegrations" => list(inbound_integration()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type inbound_integrations_message() :: %{String.t() => any()}
+  @type inbound_integrations_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoints_per_cluster_limit_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type endpoints_per_cluster_limit_exceeded_fault() :: %{String.t() => any()}
+  @type endpoints_per_cluster_limit_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2630,41 +2633,41 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type accept_reserved_node_exchange_output_message() :: %{String.t() => any()}
+  @type accept_reserved_node_exchange_output_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       recommendation() :: %{
-        "ClusterIdentifier" => String.t(),
+        "ClusterIdentifier" => String.t() | Atom.t(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
-        "Id" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "ImpactRanking" => list(any()),
-        "NamespaceArn" => String.t(),
-        "Observation" => String.t(),
-        "RecommendationText" => String.t(),
-        "RecommendationType" => String.t(),
+        "NamespaceArn" => String.t() | Atom.t(),
+        "Observation" => String.t() | Atom.t(),
+        "RecommendationText" => String.t() | Atom.t(),
+        "RecommendationType" => String.t() | Atom.t(),
         "RecommendedActions" => list(recommended_action()),
         "ReferenceLinks" => list(reference_link()),
-        "Title" => String.t()
+        "Title" => String.t() | Atom.t()
       }
       
   """
-  @type recommendation() :: %{String.t() => any()}
+  @type recommendation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_authentication_profile_message() :: %{
-        required("AuthenticationProfileContent") => String.t(),
-        required("AuthenticationProfileName") => String.t()
+        required("AuthenticationProfileContent") => String.t() | Atom.t(),
+        required("AuthenticationProfileName") => String.t() | Atom.t()
       }
       
   """
-  @type create_authentication_profile_message() :: %{String.t() => any()}
+  @type create_authentication_profile_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2676,54 +2679,54 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type snapshot_sorting_entity() :: %{String.t() => any()}
+  @type snapshot_sorting_entity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_authentication_profile_message() :: %{
-        required("AuthenticationProfileName") => String.t()
+        required("AuthenticationProfileName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_authentication_profile_message() :: %{String.t() => any()}
+  @type delete_authentication_profile_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resume_cluster_message() :: %{
-        "ClusterIdentifier" => String.t()
+        "ClusterIdentifier" => String.t() | Atom.t()
       }
       
   """
-  @type resume_cluster_message() :: %{String.t() => any()}
+  @type resume_cluster_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_security_group_membership() :: %{
-        "ClusterSecurityGroupName" => String.t(),
-        "Status" => String.t()
+        "ClusterSecurityGroupName" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type cluster_security_group_membership() :: %{String.t() => any()}
+  @type cluster_security_group_membership() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       ip_range() :: %{
-        "CIDRIP" => String.t(),
-        "Status" => String.t(),
+        "CIDRIP" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t(),
         "Tags" => list(tag())
       }
       
   """
-  @type ip_range() :: %{String.t() => any()}
+  @type ip_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2731,18 +2734,18 @@ defmodule AWS.Redshift do
       
       scheduled_action() :: %{
         "EndTime" => non_neg_integer(),
-        "IamRole" => String.t(),
+        "IamRole" => String.t() | Atom.t(),
         "NextInvocations" => list(non_neg_integer()),
-        "Schedule" => String.t(),
-        "ScheduledActionDescription" => String.t(),
-        "ScheduledActionName" => String.t(),
+        "Schedule" => String.t() | Atom.t(),
+        "ScheduledActionDescription" => String.t() | Atom.t(),
+        "ScheduledActionName" => String.t() | Atom.t(),
         "StartTime" => non_neg_integer(),
         "State" => list(any()),
         "TargetAction" => scheduled_action_type()
       }
       
   """
-  @type scheduled_action() :: %{String.t() => any()}
+  @type scheduled_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2753,44 +2756,44 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type describe_authentication_profiles_result() :: %{String.t() => any()}
+  @type describe_authentication_profiles_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_endpoint_authorization_message() :: %{
-        optional("Account") => String.t(),
-        optional("ClusterIdentifier") => String.t(),
+        optional("Account") => String.t() | Atom.t(),
+        optional("ClusterIdentifier") => String.t() | Atom.t(),
         optional("Grantee") => boolean(),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_endpoint_authorization_message() :: %{String.t() => any()}
+  @type describe_endpoint_authorization_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       source_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type source_not_found_fault() :: %{String.t() => any()}
+  @type source_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       insufficient_s3_bucket_policy_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type insufficient_s3_bucket_policy_fault() :: %{String.t() => any()}
+  @type insufficient_s3_bucket_policy_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2801,7 +2804,7 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type get_resource_policy_result() :: %{String.t() => any()}
+  @type get_resource_policy_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2810,52 +2813,52 @@ defmodule AWS.Redshift do
       node_configuration_options_filter() :: %{
         "Name" => list(any()),
         "Operator" => list(any()),
-        "Values" => list(String.t())
+        "Values" => list(String.t() | Atom.t())
       }
       
   """
-  @type node_configuration_options_filter() :: %{String.t() => any()}
+  @type node_configuration_options_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       redshift_idc_application_not_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type redshift_idc_application_not_exists_fault() :: %{String.t() => any()}
+  @type redshift_idc_application_not_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_hsm_client_certificate_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_hsm_client_certificate_state_fault() :: %{String.t() => any()}
+  @type invalid_hsm_client_certificate_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       parameter() :: %{
-        "AllowedValues" => String.t(),
+        "AllowedValues" => String.t() | Atom.t(),
         "ApplyType" => list(any()),
-        "DataType" => String.t(),
-        "Description" => String.t(),
+        "DataType" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
         "IsModifiable" => boolean(),
-        "MinimumEngineVersion" => String.t(),
-        "ParameterName" => String.t(),
-        "ParameterValue" => String.t(),
-        "Source" => String.t()
+        "MinimumEngineVersion" => String.t() | Atom.t(),
+        "ParameterName" => String.t() | Atom.t(),
+        "ParameterValue" => String.t() | Atom.t(),
+        "Source" => String.t() | Atom.t()
       }
       
   """
-  @type parameter() :: %{String.t() => any()}
+  @type parameter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2863,19 +2866,19 @@ defmodule AWS.Redshift do
       
       redshift_idc_application() :: %{
         "AuthorizedTokenIssuerList" => list(authorized_token_issuer()),
-        "IamRoleArn" => String.t(),
-        "IdcDisplayName" => String.t(),
-        "IdcInstanceArn" => String.t(),
-        "IdcManagedApplicationArn" => String.t(),
-        "IdcOnboardStatus" => String.t(),
-        "IdentityNamespace" => String.t(),
-        "RedshiftIdcApplicationArn" => String.t(),
-        "RedshiftIdcApplicationName" => String.t(),
+        "IamRoleArn" => String.t() | Atom.t(),
+        "IdcDisplayName" => String.t() | Atom.t(),
+        "IdcInstanceArn" => String.t() | Atom.t(),
+        "IdcManagedApplicationArn" => String.t() | Atom.t(),
+        "IdcOnboardStatus" => String.t() | Atom.t(),
+        "IdentityNamespace" => String.t() | Atom.t(),
+        "RedshiftIdcApplicationArn" => String.t() | Atom.t(),
+        "RedshiftIdcApplicationName" => String.t() | Atom.t(),
         "ServiceIntegrations" => list(list())
       }
       
   """
-  @type redshift_idc_application() :: %{String.t() => any()}
+  @type redshift_idc_application() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2883,52 +2886,52 @@ defmodule AWS.Redshift do
       
       association() :: %{
         "CertificateAssociations" => list(certificate_association()),
-        "CustomDomainCertificateArn" => String.t(),
+        "CustomDomainCertificateArn" => String.t() | Atom.t(),
         "CustomDomainCertificateExpiryDate" => non_neg_integer()
       }
       
   """
-  @type association() :: %{String.t() => any()}
+  @type association() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_extended_credentials() :: %{
-        optional("DbPassword") => String.t(),
-        optional("DbUser") => String.t(),
+        optional("DbPassword") => String.t() | Atom.t(),
+        optional("DbUser") => String.t() | Atom.t(),
         optional("Expiration") => non_neg_integer(),
         optional("NextRefreshTime") => non_neg_integer()
       }
       
   """
-  @type cluster_extended_credentials() :: %{String.t() => any()}
+  @type cluster_extended_credentials() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_custom_domain_association_result() :: %{
-        "ClusterIdentifier" => String.t(),
-        "CustomDomainCertExpiryTime" => String.t(),
-        "CustomDomainCertificateArn" => String.t(),
-        "CustomDomainName" => String.t()
+        "ClusterIdentifier" => String.t() | Atom.t(),
+        "CustomDomainCertExpiryTime" => String.t() | Atom.t(),
+        "CustomDomainCertificateArn" => String.t() | Atom.t(),
+        "CustomDomainName" => String.t() | Atom.t()
       }
       
   """
-  @type modify_custom_domain_association_result() :: %{String.t() => any()}
+  @type modify_custom_domain_association_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       scheduled_actions_message() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "ScheduledActions" => list(scheduled_action())
       }
       
   """
-  @type scheduled_actions_message() :: %{String.t() => any()}
+  @type scheduled_actions_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2939,7 +2942,7 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type read_write_access() :: %{String.t() => any()}
+  @type read_write_access() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2948,35 +2951,35 @@ defmodule AWS.Redshift do
       modify_usage_limit_message() :: %{
         optional("Amount") => float(),
         optional("BreachAction") => list(any()),
-        required("UsageLimitId") => String.t()
+        required("UsageLimitId") => String.t() | Atom.t()
       }
       
   """
-  @type modify_usage_limit_message() :: %{String.t() => any()}
+  @type modify_usage_limit_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_reserved_node_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_reserved_node_state_fault() :: %{String.t() => any()}
+  @type invalid_reserved_node_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       hsm_client_certificate() :: %{
-        "HsmClientCertificateIdentifier" => String.t(),
-        "HsmClientCertificatePublicKey" => String.t(),
+        "HsmClientCertificateIdentifier" => String.t() | Atom.t(),
+        "HsmClientCertificatePublicKey" => String.t() | Atom.t(),
         "Tags" => list(tag())
       }
       
   """
-  @type hsm_client_certificate() :: %{String.t() => any()}
+  @type hsm_client_certificate() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2987,76 +2990,76 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type batch_delete_cluster_snapshots_request() :: %{String.t() => any()}
+  @type batch_delete_cluster_snapshots_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       authentication_profile_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type authentication_profile_not_found_fault() :: %{String.t() => any()}
+  @type authentication_profile_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_snapshot_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cluster_snapshot_already_exists_fault() :: %{String.t() => any()}
+  @type cluster_snapshot_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reserved_node() :: %{
-        "CurrencyCode" => String.t(),
+        "CurrencyCode" => String.t() | Atom.t(),
         "Duration" => integer(),
         "FixedPrice" => float(),
         "NodeCount" => integer(),
-        "NodeType" => String.t(),
-        "OfferingType" => String.t(),
+        "NodeType" => String.t() | Atom.t(),
+        "OfferingType" => String.t() | Atom.t(),
         "RecurringCharges" => list(recurring_charge()),
-        "ReservedNodeId" => String.t(),
-        "ReservedNodeOfferingId" => String.t(),
+        "ReservedNodeId" => String.t() | Atom.t(),
+        "ReservedNodeOfferingId" => String.t() | Atom.t(),
         "ReservedNodeOfferingType" => list(any()),
         "StartTime" => non_neg_integer(),
-        "State" => String.t(),
+        "State" => String.t() | Atom.t(),
         "UsagePrice" => float()
       }
       
   """
-  @type reserved_node() :: %{String.t() => any()}
+  @type reserved_node() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       incompatible_orderable_options() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type incompatible_orderable_options() :: %{String.t() => any()}
+  @type incompatible_orderable_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       snapshot_copy_grant() :: %{
-        "KmsKeyId" => String.t(),
-        "SnapshotCopyGrantName" => String.t(),
+        "KmsKeyId" => String.t() | Atom.t(),
+        "SnapshotCopyGrantName" => String.t() | Atom.t(),
         "Tags" => list(tag())
       }
       
   """
-  @type snapshot_copy_grant() :: %{String.t() => any()}
+  @type snapshot_copy_grant() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3064,38 +3067,38 @@ defmodule AWS.Redshift do
       
       resize_cluster_message() :: %{
         "Classic" => boolean(),
-        "ClusterIdentifier" => String.t(),
-        "ClusterType" => String.t(),
-        "NodeType" => String.t(),
+        "ClusterIdentifier" => String.t() | Atom.t(),
+        "ClusterType" => String.t() | Atom.t(),
+        "NodeType" => String.t() | Atom.t(),
         "NumberOfNodes" => integer(),
-        "ReservedNodeId" => String.t(),
-        "TargetReservedNodeOfferingId" => String.t()
+        "ReservedNodeId" => String.t() | Atom.t(),
+        "TargetReservedNodeOfferingId" => String.t() | Atom.t()
       }
       
   """
-  @type resize_cluster_message() :: %{String.t() => any()}
+  @type resize_cluster_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       hsm_client_certificate_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type hsm_client_certificate_not_found_fault() :: %{String.t() => any()}
+  @type hsm_client_certificate_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       hsm_configuration_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type hsm_configuration_quota_exceeded_fault() :: %{String.t() => any()}
+  @type hsm_configuration_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3103,64 +3106,64 @@ defmodule AWS.Redshift do
       
       data_share() :: %{
         optional("AllowPubliclyAccessibleConsumers") => boolean(),
-        optional("DataShareArn") => String.t(),
+        optional("DataShareArn") => String.t() | Atom.t(),
         optional("DataShareAssociations") => list(data_share_association()),
         optional("DataShareType") => list(any()),
-        optional("ManagedBy") => String.t(),
-        optional("ProducerArn") => String.t()
+        optional("ManagedBy") => String.t() | Atom.t(),
+        optional("ProducerArn") => String.t() | Atom.t()
       }
       
   """
-  @type data_share() :: %{String.t() => any()}
+  @type data_share() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       revoke_endpoint_access_message() :: %{
-        optional("Account") => String.t(),
-        optional("ClusterIdentifier") => String.t(),
+        optional("Account") => String.t() | Atom.t(),
+        optional("ClusterIdentifier") => String.t() | Atom.t(),
         optional("Force") => boolean(),
-        optional("VpcIds") => list(String.t())
+        optional("VpcIds") => list(String.t() | Atom.t())
       }
       
   """
-  @type revoke_endpoint_access_message() :: %{String.t() => any()}
+  @type revoke_endpoint_access_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       hsm_configuration_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type hsm_configuration_already_exists_fault() :: %{String.t() => any()}
+  @type hsm_configuration_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_parameter_status() :: %{
-        "ParameterApplyErrorDescription" => String.t(),
-        "ParameterApplyStatus" => String.t(),
-        "ParameterName" => String.t()
+        "ParameterApplyErrorDescription" => String.t() | Atom.t(),
+        "ParameterApplyStatus" => String.t() | Atom.t(),
+        "ParameterName" => String.t() | Atom.t()
       }
       
   """
-  @type cluster_parameter_status() :: %{String.t() => any()}
+  @type cluster_parameter_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       number_of_nodes_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type number_of_nodes_quota_exceeded_fault() :: %{String.t() => any()}
+  @type number_of_nodes_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3168,34 +3171,34 @@ defmodule AWS.Redshift do
       
       vpc_endpoint() :: %{
         "NetworkInterfaces" => list(network_interface()),
-        "VpcEndpointId" => String.t(),
-        "VpcId" => String.t()
+        "VpcEndpointId" => String.t() | Atom.t(),
+        "VpcId" => String.t() | Atom.t()
       }
       
   """
-  @type vpc_endpoint() :: %{String.t() => any()}
+  @type vpc_endpoint() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_parameter_group_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cluster_parameter_group_quota_exceeded_fault() :: %{String.t() => any()}
+  @type cluster_parameter_group_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_s3_key_prefix_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_s3_key_prefix_fault() :: %{String.t() => any()}
+  @type invalid_s3_key_prefix_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3206,66 +3209,66 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type create_hsm_client_certificate_result() :: %{String.t() => any()}
+  @type create_hsm_client_certificate_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       deregister_namespace_input_message() :: %{
-        required("ConsumerIdentifiers") => list(String.t()),
+        required("ConsumerIdentifiers") => list(String.t() | Atom.t()),
         required("NamespaceIdentifier") => list()
       }
       
   """
-  @type deregister_namespace_input_message() :: %{String.t() => any()}
+  @type deregister_namespace_input_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reserved_node_offerings_message() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "ReservedNodeOfferings" => list(reserved_node_offering())
       }
       
   """
-  @type reserved_node_offerings_message() :: %{String.t() => any()}
+  @type reserved_node_offerings_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       subscription_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type subscription_not_found_fault() :: %{String.t() => any()}
+  @type subscription_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       redshift_idc_application_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type redshift_idc_application_quota_exceeded_fault() :: %{String.t() => any()}
+  @type redshift_idc_application_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_data_shares_message() :: %{
-        optional("DataShareArn") => String.t(),
-        optional("Marker") => String.t(),
+        optional("DataShareArn") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_data_shares_message() :: %{String.t() => any()}
+  @type describe_data_shares_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3276,59 +3279,62 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type resize_cluster_result() :: %{String.t() => any()}
+  @type resize_cluster_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       table_limit_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type table_limit_exceeded_fault() :: %{String.t() => any()}
+  @type table_limit_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_cluster_parameters_message() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("Source") => String.t(),
-        required("ParameterGroupName") => String.t()
+        optional("Source") => String.t() | Atom.t(),
+        required("ParameterGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_cluster_parameters_message() :: %{String.t() => any()}
+  @type describe_cluster_parameters_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_reserved_node_exchange_configuration_options_input_message() :: %{
-        optional("ClusterIdentifier") => String.t(),
-        optional("Marker") => String.t(),
+        optional("ClusterIdentifier") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("SnapshotIdentifier") => String.t(),
+        optional("SnapshotIdentifier") => String.t() | Atom.t(),
         required("ActionType") => list(any())
       }
       
   """
-  @type get_reserved_node_exchange_configuration_options_input_message() :: %{String.t() => any()}
+  @type get_reserved_node_exchange_configuration_options_input_message() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       elastic_ip_status() :: %{
-        "ElasticIp" => String.t(),
-        "Status" => String.t()
+        "ElasticIp" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type elastic_ip_status() :: %{String.t() => any()}
+  @type elastic_ip_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3339,73 +3345,73 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type reboot_cluster_result() :: %{String.t() => any()}
+  @type reboot_cluster_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_redshift_idc_applications_message() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("RedshiftIdcApplicationArn") => String.t()
+        optional("RedshiftIdcApplicationArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_redshift_idc_applications_message() :: %{String.t() => any()}
+  @type describe_redshift_idc_applications_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       usage_limit_list() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("UsageLimits") => list(usage_limit())
       }
       
   """
-  @type usage_limit_list() :: %{String.t() => any()}
+  @type usage_limit_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_hsm_client_certificate_message() :: %{
-        required("HsmClientCertificateIdentifier") => String.t()
+        required("HsmClientCertificateIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type delete_hsm_client_certificate_message() :: %{String.t() => any()}
+  @type delete_hsm_client_certificate_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_parameter_group_details() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "Parameters" => list(parameter())
       }
       
   """
-  @type cluster_parameter_group_details() :: %{String.t() => any()}
+  @type cluster_parameter_group_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       logging_status() :: %{
-        "BucketName" => String.t(),
-        "LastFailureMessage" => String.t(),
+        "BucketName" => String.t() | Atom.t(),
+        "LastFailureMessage" => String.t() | Atom.t(),
         "LastFailureTime" => non_neg_integer(),
         "LastSuccessfulDeliveryTime" => non_neg_integer(),
         "LogDestinationType" => list(any()),
-        "LogExports" => list(String.t()),
+        "LogExports" => list(String.t() | Atom.t()),
         "LoggingEnabled" => boolean(),
-        "S3KeyPrefix" => String.t()
+        "S3KeyPrefix" => String.t() | Atom.t()
       }
       
   """
-  @type logging_status() :: %{String.t() => any()}
+  @type logging_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3416,18 +3422,18 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type account_attribute_list() :: %{String.t() => any()}
+  @type account_attribute_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_cluster_subnet_group_message() :: %{
-        required("ClusterSubnetGroupName") => String.t()
+        required("ClusterSubnetGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_cluster_subnet_group_message() :: %{String.t() => any()}
+  @type delete_cluster_subnet_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3435,92 +3441,92 @@ defmodule AWS.Redshift do
       
       cluster_versions_message() :: %{
         "ClusterVersions" => list(cluster_version()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type cluster_versions_message() :: %{String.t() => any()}
+  @type cluster_versions_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       integration_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type integration_not_found_fault() :: %{String.t() => any()}
+  @type integration_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_cluster_snapshot_schedule_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_cluster_snapshot_schedule_state_fault() :: %{String.t() => any()}
+  @type invalid_cluster_snapshot_schedule_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_subnet_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cluster_subnet_quota_exceeded_fault() :: %{String.t() => any()}
+  @type cluster_subnet_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       snapshot_copy_disabled_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type snapshot_copy_disabled_fault() :: %{String.t() => any()}
+  @type snapshot_copy_disabled_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       custom_cname_association_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type custom_cname_association_fault() :: %{String.t() => any()}
+  @type custom_cname_association_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoint() :: %{
-        "Address" => String.t(),
+        "Address" => String.t() | Atom.t(),
         "Port" => integer(),
         "VpcEndpoints" => list(vpc_endpoint())
       }
       
   """
-  @type endpoint() :: %{String.t() => any()}
+  @type endpoint() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_integration_message() :: %{
-        optional("Description") => String.t(),
-        optional("IntegrationName") => String.t(),
-        required("IntegrationArn") => String.t()
+        optional("Description") => String.t() | Atom.t(),
+        optional("IntegrationName") => String.t() | Atom.t(),
+        required("IntegrationArn") => String.t() | Atom.t()
       }
       
   """
-  @type modify_integration_message() :: %{String.t() => any()}
+  @type modify_integration_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3528,71 +3534,71 @@ defmodule AWS.Redshift do
       
       events_message() :: %{
         "Events" => list(event()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type events_message() :: %{String.t() => any()}
+  @type events_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tagged_resource_list_message() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "TaggedResources" => list(tagged_resource())
       }
       
   """
-  @type tagged_resource_list_message() :: %{String.t() => any()}
+  @type tagged_resource_list_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_subnet_group_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cluster_subnet_group_already_exists_fault() :: %{String.t() => any()}
+  @type cluster_subnet_group_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       snapshot_error_message() :: %{
-        "FailureCode" => String.t(),
-        "FailureReason" => String.t(),
-        "SnapshotClusterIdentifier" => String.t(),
-        "SnapshotIdentifier" => String.t()
+        "FailureCode" => String.t() | Atom.t(),
+        "FailureReason" => String.t() | Atom.t(),
+        "SnapshotClusterIdentifier" => String.t() | Atom.t(),
+        "SnapshotIdentifier" => String.t() | Atom.t()
       }
       
   """
-  @type snapshot_error_message() :: %{String.t() => any()}
+  @type snapshot_error_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_iam_role() :: %{
-        "ApplyStatus" => String.t(),
-        "IamRoleArn" => String.t()
+        "ApplyStatus" => String.t() | Atom.t(),
+        "IamRoleArn" => String.t() | Atom.t()
       }
       
   """
-  @type cluster_iam_role() :: %{String.t() => any()}
+  @type cluster_iam_role() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_event_subscription_message() :: %{
-        required("SubscriptionName") => String.t()
+        required("SubscriptionName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_event_subscription_message() :: %{String.t() => any()}
+  @type delete_event_subscription_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3603,18 +3609,18 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type create_cluster_security_group_result() :: %{String.t() => any()}
+  @type create_cluster_security_group_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       scheduled_action_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type scheduled_action_quota_exceeded_fault() :: %{String.t() => any()}
+  @type scheduled_action_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3623,38 +3629,38 @@ defmodule AWS.Redshift do
       enable_snapshot_copy_message() :: %{
         optional("ManualSnapshotRetentionPeriod") => integer(),
         optional("RetentionPeriod") => integer(),
-        optional("SnapshotCopyGrantName") => String.t(),
-        required("ClusterIdentifier") => String.t(),
-        required("DestinationRegion") => String.t()
+        optional("SnapshotCopyGrantName") => String.t() | Atom.t(),
+        required("ClusterIdentifier") => String.t() | Atom.t(),
+        required("DestinationRegion") => String.t() | Atom.t()
       }
       
   """
-  @type enable_snapshot_copy_message() :: %{String.t() => any()}
+  @type enable_snapshot_copy_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_policy() :: %{
-        "Policy" => String.t(),
-        "ResourceArn" => String.t()
+        "Policy" => String.t() | Atom.t(),
+        "ResourceArn" => String.t() | Atom.t()
       }
       
   """
-  @type resource_policy() :: %{String.t() => any()}
+  @type resource_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_cluster_tracks_message() :: %{
-        optional("MaintenanceTrackName") => String.t(),
-        optional("Marker") => String.t(),
+        optional("MaintenanceTrackName") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_cluster_tracks_message() :: %{String.t() => any()}
+  @type describe_cluster_tracks_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3662,55 +3668,55 @@ defmodule AWS.Redshift do
       
       resize_info() :: %{
         "AllowCancelResize" => boolean(),
-        "ResizeType" => String.t()
+        "ResizeType" => String.t() | Atom.t()
       }
       
   """
-  @type resize_info() :: %{String.t() => any()}
+  @type resize_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reserved_node_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type reserved_node_not_found_fault() :: %{String.t() => any()}
+  @type reserved_node_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       snapshot_copy_grant_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type snapshot_copy_grant_quota_exceeded_fault() :: %{String.t() => any()}
+  @type snapshot_copy_grant_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       custom_domain_association_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type custom_domain_association_not_found_fault() :: %{String.t() => any()}
+  @type custom_domain_association_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       subscription_category_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type subscription_category_not_found_fault() :: %{String.t() => any()}
+  @type subscription_category_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3718,27 +3724,27 @@ defmodule AWS.Redshift do
       
       create_redshift_idc_application_message() :: %{
         optional("AuthorizedTokenIssuerList") => list(authorized_token_issuer()),
-        optional("IdentityNamespace") => String.t(),
+        optional("IdentityNamespace") => String.t() | Atom.t(),
         optional("ServiceIntegrations") => list(list()),
-        required("IamRoleArn") => String.t(),
-        required("IdcDisplayName") => String.t(),
-        required("IdcInstanceArn") => String.t(),
-        required("RedshiftIdcApplicationName") => String.t()
+        required("IamRoleArn") => String.t() | Atom.t(),
+        required("IdcDisplayName") => String.t() | Atom.t(),
+        required("IdcInstanceArn") => String.t() | Atom.t(),
+        required("RedshiftIdcApplicationName") => String.t() | Atom.t()
       }
       
   """
-  @type create_redshift_idc_application_message() :: %{String.t() => any()}
+  @type create_redshift_idc_application_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       s_n_s_invalid_topic_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type s_n_s_invalid_topic_fault() :: %{String.t() => any()}
+  @type s_n_s_invalid_topic_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3746,45 +3752,45 @@ defmodule AWS.Redshift do
       
       create_integration_message() :: %{
         optional("AdditionalEncryptionContext") => map(),
-        optional("Description") => String.t(),
-        optional("KMSKeyId") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("KMSKeyId") => String.t() | Atom.t(),
         optional("TagList") => list(tag()),
-        required("IntegrationName") => String.t(),
-        required("SourceArn") => String.t(),
-        required("TargetArn") => String.t()
+        required("IntegrationName") => String.t() | Atom.t(),
+        required("SourceArn") => String.t() | Atom.t(),
+        required("TargetArn") => String.t() | Atom.t()
       }
       
   """
-  @type create_integration_message() :: %{String.t() => any()}
+  @type create_integration_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_partner_status_input_message() :: %{
-        optional("StatusMessage") => String.t(),
-        required("AccountId") => String.t(),
-        required("ClusterIdentifier") => String.t(),
-        required("DatabaseName") => String.t(),
-        required("PartnerName") => String.t(),
+        optional("StatusMessage") => String.t() | Atom.t(),
+        required("AccountId") => String.t() | Atom.t(),
+        required("ClusterIdentifier") => String.t() | Atom.t(),
+        required("DatabaseName") => String.t() | Atom.t(),
+        required("PartnerName") => String.t() | Atom.t(),
         required("Status") => list(any())
       }
       
   """
-  @type update_partner_status_input_message() :: %{String.t() => any()}
+  @type update_partner_status_input_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_reserved_node_offerings_message() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("ReservedNodeOfferingId") => String.t()
+        optional("ReservedNodeOfferingId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_reserved_node_offerings_message() :: %{String.t() => any()}
+  @type describe_reserved_node_offerings_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3792,16 +3798,16 @@ defmodule AWS.Redshift do
       
       event() :: %{
         "Date" => non_neg_integer(),
-        "EventCategories" => list(String.t()),
-        "EventId" => String.t(),
-        "Message" => String.t(),
-        "Severity" => String.t(),
-        "SourceIdentifier" => String.t(),
+        "EventCategories" => list(String.t() | Atom.t()),
+        "EventId" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
+        "Severity" => String.t() | Atom.t(),
+        "SourceIdentifier" => String.t() | Atom.t(),
         "SourceType" => list(any())
       }
       
   """
-  @type event() :: %{String.t() => any()}
+  @type event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3812,7 +3818,7 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type create_event_subscription_result() :: %{String.t() => any()}
+  @type create_event_subscription_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3820,11 +3826,11 @@ defmodule AWS.Redshift do
       
       clusters_message() :: %{
         "Clusters" => list(cluster()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type clusters_message() :: %{String.t() => any()}
+  @type clusters_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3835,19 +3841,19 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type enable_snapshot_copy_result() :: %{String.t() => any()}
+  @type enable_snapshot_copy_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       deauthorize_data_share_message() :: %{
-        required("ConsumerIdentifier") => String.t(),
-        required("DataShareArn") => String.t()
+        required("ConsumerIdentifier") => String.t() | Atom.t(),
+        required("DataShareArn") => String.t() | Atom.t()
       }
       
   """
-  @type deauthorize_data_share_message() :: %{String.t() => any()}
+  @type deauthorize_data_share_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3855,8 +3861,8 @@ defmodule AWS.Redshift do
       
       data_share_association() :: %{
         "ConsumerAcceptedWrites" => boolean(),
-        "ConsumerIdentifier" => String.t(),
-        "ConsumerRegion" => String.t(),
+        "ConsumerIdentifier" => String.t() | Atom.t(),
+        "ConsumerRegion" => String.t() | Atom.t(),
         "CreatedDate" => non_neg_integer(),
         "ProducerAllowedWrites" => boolean(),
         "Status" => list(any()),
@@ -3864,7 +3870,7 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type data_share_association() :: %{String.t() => any()}
+  @type data_share_association() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3875,54 +3881,54 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type revoke_snapshot_access_result() :: %{String.t() => any()}
+  @type revoke_snapshot_access_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       snapshot() :: %{
-        "Status" => String.t(),
+        "Status" => String.t() | Atom.t(),
         "TotalBackupSizeInMegaBytes" => float(),
-        "DBName" => String.t(),
+        "DBName" => String.t() | Atom.t(),
         "BackupProgressInMegaBytes" => float(),
         "ManualSnapshotRemainingDays" => integer(),
         "Tags" => list(tag()),
         "Encrypted" => boolean(),
-        "OwnerAccount" => String.t(),
+        "OwnerAccount" => String.t() | Atom.t(),
         "EnhancedVpcRouting" => boolean(),
         "SnapshotRetentionStartTime" => non_neg_integer(),
         "EncryptedWithHSM" => boolean(),
         "EstimatedSecondsToCompletion" => float(),
-        "SourceRegion" => String.t(),
-        "KmsKeyId" => String.t(),
-        "VpcId" => String.t(),
-        "AvailabilityZone" => String.t(),
+        "SourceRegion" => String.t() | Atom.t(),
+        "KmsKeyId" => String.t() | Atom.t(),
+        "VpcId" => String.t() | Atom.t(),
+        "AvailabilityZone" => String.t() | Atom.t(),
         "ManualSnapshotRetentionPeriod" => integer(),
-        "EngineFullVersion" => String.t(),
+        "EngineFullVersion" => String.t() | Atom.t(),
         "AccountsWithRestoreAccess" => list(account_with_restore_access()),
         "ClusterCreateTime" => non_neg_integer(),
         "Port" => integer(),
-        "NodeType" => String.t(),
-        "SnapshotArn" => String.t(),
-        "MaintenanceTrackName" => String.t(),
+        "NodeType" => String.t() | Atom.t(),
+        "SnapshotArn" => String.t() | Atom.t(),
+        "MaintenanceTrackName" => String.t() | Atom.t(),
         "ElapsedTimeInSeconds" => float(),
-        "MasterUsername" => String.t(),
+        "MasterUsername" => String.t() | Atom.t(),
         "SnapshotCreateTime" => non_neg_integer(),
-        "ClusterVersion" => String.t(),
-        "ClusterIdentifier" => String.t(),
+        "ClusterVersion" => String.t() | Atom.t(),
+        "ClusterIdentifier" => String.t() | Atom.t(),
         "NumberOfNodes" => integer(),
-        "MasterPasswordSecretArn" => String.t(),
+        "MasterPasswordSecretArn" => String.t() | Atom.t(),
         "CurrentBackupRateInMegaBytesPerSecond" => float(),
-        "SnapshotType" => String.t(),
+        "SnapshotType" => String.t() | Atom.t(),
         "ActualIncrementalBackupSizeInMegaBytes" => float(),
-        "MasterPasswordSecretKmsKeyId" => String.t(),
-        "SnapshotIdentifier" => String.t(),
-        "RestorableNodeTypes" => list(String.t())
+        "MasterPasswordSecretKmsKeyId" => String.t() | Atom.t(),
+        "SnapshotIdentifier" => String.t() | Atom.t(),
+        "RestorableNodeTypes" => list(String.t() | Atom.t())
       }
       
   """
-  @type snapshot() :: %{String.t() => any()}
+  @type snapshot() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3934,59 +3940,59 @@ defmodule AWS.Redshift do
         "EstimatedTimeToCompletionInSeconds" => float(),
         "ProgressInMegaBytes" => float(),
         "SnapshotSizeInMegaBytes" => float(),
-        "Status" => String.t()
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type restore_status() :: %{String.t() => any()}
+  @type restore_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       unauthorized_partner_integration_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type unauthorized_partner_integration_fault() :: %{String.t() => any()}
+  @type unauthorized_partner_integration_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_orderable_cluster_options_message() :: %{
-        optional("ClusterVersion") => String.t(),
-        optional("Marker") => String.t(),
+        optional("ClusterVersion") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("NodeType") => String.t()
+        optional("NodeType") => String.t() | Atom.t()
       }
       
   """
-  @type describe_orderable_cluster_options_message() :: %{String.t() => any()}
+  @type describe_orderable_cluster_options_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       snapshot_message() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "Snapshots" => list(snapshot())
       }
       
   """
-  @type snapshot_message() :: %{String.t() => any()}
+  @type snapshot_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       scheduled_action_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type scheduled_action_already_exists_fault() :: %{String.t() => any()}
+  @type scheduled_action_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3997,18 +4003,18 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type modify_cluster_subnet_group_result() :: %{String.t() => any()}
+  @type modify_cluster_subnet_group_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       s_n_s_topic_arn_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type s_n_s_topic_arn_not_found_fault() :: %{String.t() => any()}
+  @type s_n_s_topic_arn_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4019,29 +4025,29 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type resume_cluster_result() :: %{String.t() => any()}
+  @type resume_cluster_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_parameter_group_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cluster_parameter_group_already_exists_fault() :: %{String.t() => any()}
+  @type cluster_parameter_group_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_subscription_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_subscription_state_fault() :: %{String.t() => any()}
+  @type invalid_subscription_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4052,18 +4058,18 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type create_hsm_configuration_result() :: %{String.t() => any()}
+  @type create_hsm_configuration_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_logging_status_message() :: %{
-        required("ClusterIdentifier") => String.t()
+        required("ClusterIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type describe_logging_status_message() :: %{String.t() => any()}
+  @type describe_logging_status_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4071,11 +4077,11 @@ defmodule AWS.Redshift do
       
       hsm_client_certificate_message() :: %{
         "HsmClientCertificates" => list(hsm_client_certificate()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type hsm_client_certificate_message() :: %{String.t() => any()}
+  @type hsm_client_certificate_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4087,69 +4093,69 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type customer_storage_message() :: %{String.t() => any()}
+  @type customer_storage_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       ipv6_cidr_block_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type ipv6_cidr_block_not_found_fault() :: %{String.t() => any()}
+  @type ipv6_cidr_block_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_db_revision() :: %{
-        "ClusterIdentifier" => String.t(),
-        "CurrentDatabaseRevision" => String.t(),
+        "ClusterIdentifier" => String.t() | Atom.t(),
+        "CurrentDatabaseRevision" => String.t() | Atom.t(),
         "DatabaseRevisionReleaseDate" => non_neg_integer(),
         "RevisionTargets" => list(revision_target())
       }
       
   """
-  @type cluster_db_revision() :: %{String.t() => any()}
+  @type cluster_db_revision() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disable_logging_message() :: %{
-        required("ClusterIdentifier") => String.t()
+        required("ClusterIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type disable_logging_message() :: %{String.t() => any()}
+  @type disable_logging_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_custom_domain_associations_message() :: %{
-        optional("CustomDomainCertificateArn") => String.t(),
-        optional("CustomDomainName") => String.t(),
-        optional("Marker") => String.t(),
+        optional("CustomDomainCertificateArn") => String.t() | Atom.t(),
+        optional("CustomDomainName") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_custom_domain_associations_message() :: %{String.t() => any()}
+  @type describe_custom_domain_associations_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reference_link() :: %{
-        "Link" => String.t(),
-        "Text" => String.t()
+        "Link" => String.t() | Atom.t(),
+        "Text" => String.t() | Atom.t()
       }
       
   """
-  @type reference_link() :: %{String.t() => any()}
+  @type reference_link() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4160,7 +4166,7 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type modify_cluster_db_revision_result() :: %{String.t() => any()}
+  @type modify_cluster_db_revision_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4169,40 +4175,40 @@ defmodule AWS.Redshift do
       batch_modify_cluster_snapshots_message() :: %{
         optional("Force") => boolean(),
         optional("ManualSnapshotRetentionPeriod") => integer(),
-        required("SnapshotIdentifierList") => list(String.t())
+        required("SnapshotIdentifierList") => list(String.t() | Atom.t())
       }
       
   """
-  @type batch_modify_cluster_snapshots_message() :: %{String.t() => any()}
+  @type batch_modify_cluster_snapshots_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_custom_domain_association_message() :: %{
-        required("ClusterIdentifier") => String.t(),
-        required("CustomDomainCertificateArn") => String.t(),
-        required("CustomDomainName") => String.t()
+        required("ClusterIdentifier") => String.t() | Atom.t(),
+        required("CustomDomainCertificateArn") => String.t() | Atom.t(),
+        required("CustomDomainName") => String.t() | Atom.t()
       }
       
   """
-  @type modify_custom_domain_association_message() :: %{String.t() => any()}
+  @type modify_custom_domain_association_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_endpoint_access_message() :: %{
-        optional("ClusterIdentifier") => String.t(),
-        optional("EndpointName") => String.t(),
-        optional("Marker") => String.t(),
+        optional("ClusterIdentifier") => String.t() | Atom.t(),
+        optional("EndpointName") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("ResourceOwner") => String.t(),
-        optional("VpcId") => String.t()
+        optional("ResourceOwner") => String.t() | Atom.t(),
+        optional("VpcId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_endpoint_access_message() :: %{String.t() => any()}
+  @type describe_endpoint_access_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4213,32 +4219,32 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type event_categories_message() :: %{String.t() => any()}
+  @type event_categories_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       supported_operation() :: %{
-        "OperationName" => String.t()
+        "OperationName" => String.t() | Atom.t()
       }
       
   """
-  @type supported_operation() :: %{String.t() => any()}
+  @type supported_operation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       revoke_cluster_security_group_ingress_message() :: %{
-        optional("CIDRIP") => String.t(),
-        optional("EC2SecurityGroupName") => String.t(),
-        optional("EC2SecurityGroupOwnerId") => String.t(),
-        required("ClusterSecurityGroupName") => String.t()
+        optional("CIDRIP") => String.t() | Atom.t(),
+        optional("EC2SecurityGroupName") => String.t() | Atom.t(),
+        optional("EC2SecurityGroupOwnerId") => String.t() | Atom.t(),
+        required("ClusterSecurityGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type revoke_cluster_security_group_ingress_message() :: %{String.t() => any()}
+  @type revoke_cluster_security_group_ingress_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4249,7 +4255,7 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type restore_from_cluster_snapshot_result() :: %{String.t() => any()}
+  @type restore_from_cluster_snapshot_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4260,31 +4266,31 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type describe_default_cluster_parameters_result() :: %{String.t() => any()}
+  @type describe_default_cluster_parameters_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tagged_resource() :: %{
-        "ResourceName" => String.t(),
-        "ResourceType" => String.t(),
+        "ResourceName" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t(),
         "Tag" => tag()
       }
       
   """
-  @type tagged_resource() :: %{String.t() => any()}
+  @type tagged_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       failover_primary_compute_input_message() :: %{
-        required("ClusterIdentifier") => String.t()
+        required("ClusterIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type failover_primary_compute_input_message() :: %{String.t() => any()}
+  @type failover_primary_compute_input_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4293,38 +4299,38 @@ defmodule AWS.Redshift do
       describe_events_message() :: %{
         optional("Duration") => integer(),
         optional("EndTime") => non_neg_integer(),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("SourceIdentifier") => String.t(),
+        optional("SourceIdentifier") => String.t() | Atom.t(),
         optional("SourceType") => list(any()),
         optional("StartTime") => non_neg_integer()
       }
       
   """
-  @type describe_events_message() :: %{String.t() => any()}
+  @type describe_events_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       account_with_restore_access() :: %{
-        "AccountAlias" => String.t(),
-        "AccountId" => String.t()
+        "AccountAlias" => String.t() | Atom.t(),
+        "AccountId" => String.t() | Atom.t()
       }
       
   """
-  @type account_with_restore_access() :: %{String.t() => any()}
+  @type account_with_restore_access() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_cluster_security_group_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_cluster_security_group_state_fault() :: %{String.t() => any()}
+  @type invalid_cluster_security_group_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4332,33 +4338,33 @@ defmodule AWS.Redshift do
       
       describe_cluster_snapshots_message() :: %{
         optional("ClusterExists") => boolean(),
-        optional("ClusterIdentifier") => String.t(),
+        optional("ClusterIdentifier") => String.t() | Atom.t(),
         optional("EndTime") => non_neg_integer(),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("OwnerAccount") => String.t(),
-        optional("SnapshotArn") => String.t(),
-        optional("SnapshotIdentifier") => String.t(),
-        optional("SnapshotType") => String.t(),
+        optional("OwnerAccount") => String.t() | Atom.t(),
+        optional("SnapshotArn") => String.t() | Atom.t(),
+        optional("SnapshotIdentifier") => String.t() | Atom.t(),
+        optional("SnapshotType") => String.t() | Atom.t(),
         optional("SortingEntities") => list(snapshot_sorting_entity()),
         optional("StartTime") => non_neg_integer(),
-        optional("TagKeys") => list(String.t()),
-        optional("TagValues") => list(String.t())
+        optional("TagKeys") => list(String.t() | Atom.t()),
+        optional("TagValues") => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_cluster_snapshots_message() :: %{String.t() => any()}
+  @type describe_cluster_snapshots_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoint_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type endpoint_not_found_fault() :: %{String.t() => any()}
+  @type endpoint_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4366,85 +4372,85 @@ defmodule AWS.Redshift do
       
       cluster_subnet_group_message() :: %{
         "ClusterSubnetGroups" => list(cluster_subnet_group()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type cluster_subnet_group_message() :: %{String.t() => any()}
+  @type cluster_subnet_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_cluster_message() :: %{
-        optional("IamRoles") => list(String.t()),
-        required("NodeType") => String.t(),
+        optional("IamRoles") => list(String.t() | Atom.t()),
+        required("NodeType") => String.t() | Atom.t(),
         optional("EnhancedVpcRouting") => boolean(),
-        optional("MasterPasswordSecretKmsKeyId") => String.t(),
-        optional("MasterUserPassword") => String.t(),
-        optional("HsmClientCertificateIdentifier") => String.t(),
-        optional("ClusterVersion") => String.t(),
+        optional("MasterPasswordSecretKmsKeyId") => String.t() | Atom.t(),
+        optional("MasterUserPassword") => String.t() | Atom.t(),
+        optional("HsmClientCertificateIdentifier") => String.t() | Atom.t(),
+        optional("ClusterVersion") => String.t() | Atom.t(),
         optional("Encrypted") => boolean(),
-        optional("MaintenanceTrackName") => String.t(),
-        optional("RedshiftIdcApplicationArn") => String.t(),
-        optional("SnapshotScheduleIdentifier") => String.t(),
-        optional("HsmConfigurationIdentifier") => String.t(),
-        optional("LoadSampleData") => String.t(),
-        optional("IpAddressType") => String.t(),
+        optional("MaintenanceTrackName") => String.t() | Atom.t(),
+        optional("RedshiftIdcApplicationArn") => String.t() | Atom.t(),
+        optional("SnapshotScheduleIdentifier") => String.t() | Atom.t(),
+        optional("HsmConfigurationIdentifier") => String.t() | Atom.t(),
+        optional("LoadSampleData") => String.t() | Atom.t(),
+        optional("IpAddressType") => String.t() | Atom.t(),
         optional("NumberOfNodes") => integer(),
         optional("AvailabilityZoneRelocation") => boolean(),
-        optional("AvailabilityZone") => String.t(),
+        optional("AvailabilityZone") => String.t() | Atom.t(),
         optional("ManageMasterPassword") => boolean(),
-        optional("ClusterSubnetGroupName") => String.t(),
-        optional("ClusterType") => String.t(),
-        optional("AdditionalInfo") => String.t(),
+        optional("ClusterSubnetGroupName") => String.t() | Atom.t(),
+        optional("ClusterType") => String.t() | Atom.t(),
+        optional("AdditionalInfo") => String.t() | Atom.t(),
         optional("AquaConfigurationStatus") => list(any()),
         optional("AllowVersionUpgrade") => boolean(),
-        optional("ClusterSecurityGroups") => list(String.t()),
+        optional("ClusterSecurityGroups") => list(String.t() | Atom.t()),
         optional("PubliclyAccessible") => boolean(),
         optional("ManualSnapshotRetentionPeriod") => integer(),
-        optional("DefaultIamRoleArn") => String.t(),
-        required("ClusterIdentifier") => String.t(),
-        required("MasterUsername") => String.t(),
+        optional("DefaultIamRoleArn") => String.t() | Atom.t(),
+        required("ClusterIdentifier") => String.t() | Atom.t(),
+        required("MasterUsername") => String.t() | Atom.t(),
         optional("Port") => integer(),
-        optional("ElasticIp") => String.t(),
+        optional("ElasticIp") => String.t() | Atom.t(),
         optional("MultiAZ") => boolean(),
-        optional("VpcSecurityGroupIds") => list(String.t()),
+        optional("VpcSecurityGroupIds") => list(String.t() | Atom.t()),
         optional("AutomatedSnapshotRetentionPeriod") => integer(),
-        optional("KmsKeyId") => String.t(),
-        optional("DBName") => String.t(),
-        optional("PreferredMaintenanceWindow") => String.t(),
-        optional("ClusterParameterGroupName") => String.t(),
+        optional("KmsKeyId") => String.t() | Atom.t(),
+        optional("DBName") => String.t() | Atom.t(),
+        optional("PreferredMaintenanceWindow") => String.t() | Atom.t(),
+        optional("ClusterParameterGroupName") => String.t() | Atom.t(),
         optional("Tags") => list(tag())
       }
       
   """
-  @type create_cluster_message() :: %{String.t() => any()}
+  @type create_cluster_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_authentication_profile_result() :: %{
-        "AuthenticationProfileName" => String.t()
+        "AuthenticationProfileName" => String.t() | Atom.t()
       }
       
   """
-  @type delete_authentication_profile_result() :: %{String.t() => any()}
+  @type delete_authentication_profile_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_snapshot_copy_status() :: %{
-        "DestinationRegion" => String.t(),
+        "DestinationRegion" => String.t() | Atom.t(),
         "ManualSnapshotRetentionPeriod" => integer(),
         "RetentionPeriod" => float(),
-        "SnapshotCopyGrantName" => String.t()
+        "SnapshotCopyGrantName" => String.t() | Atom.t()
       }
       
   """
-  @type cluster_snapshot_copy_status() :: %{String.t() => any()}
+  @type cluster_snapshot_copy_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4453,64 +4459,64 @@ defmodule AWS.Redshift do
       usage_limit() :: %{
         "Amount" => float(),
         "BreachAction" => list(any()),
-        "ClusterIdentifier" => String.t(),
+        "ClusterIdentifier" => String.t() | Atom.t(),
         "FeatureType" => list(any()),
         "LimitType" => list(any()),
         "Period" => list(any()),
         "Tags" => list(tag()),
-        "UsageLimitId" => String.t()
+        "UsageLimitId" => String.t() | Atom.t()
       }
       
   """
-  @type usage_limit() :: %{String.t() => any()}
+  @type usage_limit() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       snapshot_schedule_update_in_progress_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type snapshot_schedule_update_in_progress_fault() :: %{String.t() => any()}
+  @type snapshot_schedule_update_in_progress_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       scheduled_action_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type scheduled_action_not_found_fault() :: %{String.t() => any()}
+  @type scheduled_action_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_cluster_subnet_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_cluster_subnet_state_fault() :: %{String.t() => any()}
+  @type invalid_cluster_subnet_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       enable_logging_message() :: %{
-        optional("BucketName") => String.t(),
+        optional("BucketName") => String.t() | Atom.t(),
         optional("LogDestinationType") => list(any()),
-        optional("LogExports") => list(String.t()),
-        optional("S3KeyPrefix") => String.t(),
-        required("ClusterIdentifier") => String.t()
+        optional("LogExports") => list(String.t() | Atom.t()),
+        optional("S3KeyPrefix") => String.t() | Atom.t(),
+        required("ClusterIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type enable_logging_message() :: %{String.t() => any()}
+  @type enable_logging_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4518,30 +4524,30 @@ defmodule AWS.Redshift do
       
       reserved_node_exchange_status() :: %{
         "RequestTime" => non_neg_integer(),
-        "ReservedNodeExchangeRequestId" => String.t(),
+        "ReservedNodeExchangeRequestId" => String.t() | Atom.t(),
         "SourceReservedNodeCount" => integer(),
-        "SourceReservedNodeId" => String.t(),
-        "SourceReservedNodeType" => String.t(),
+        "SourceReservedNodeId" => String.t() | Atom.t(),
+        "SourceReservedNodeType" => String.t() | Atom.t(),
         "Status" => list(any()),
         "TargetReservedNodeCount" => integer(),
-        "TargetReservedNodeOfferingId" => String.t(),
-        "TargetReservedNodeType" => String.t()
+        "TargetReservedNodeOfferingId" => String.t() | Atom.t(),
+        "TargetReservedNodeType" => String.t() | Atom.t()
       }
       
   """
-  @type reserved_node_exchange_status() :: %{String.t() => any()}
+  @type reserved_node_exchange_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_redshift_idc_applications_result() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "RedshiftIdcApplications" => list(redshift_idc_application())
       }
       
   """
-  @type describe_redshift_idc_applications_result() :: %{String.t() => any()}
+  @type describe_redshift_idc_applications_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4552,94 +4558,94 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type modify_event_subscription_result() :: %{String.t() => any()}
+  @type modify_event_subscription_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_delete_request_size_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type batch_delete_request_size_exceeded_fault() :: %{String.t() => any()}
+  @type batch_delete_request_size_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_endpoint_access_message() :: %{
-        optional("ClusterIdentifier") => String.t(),
-        optional("ResourceOwner") => String.t(),
-        optional("VpcSecurityGroupIds") => list(String.t()),
-        required("EndpointName") => String.t(),
-        required("SubnetGroupName") => String.t()
+        optional("ClusterIdentifier") => String.t() | Atom.t(),
+        optional("ResourceOwner") => String.t() | Atom.t(),
+        optional("VpcSecurityGroupIds") => list(String.t() | Atom.t()),
+        required("EndpointName") => String.t() | Atom.t(),
+        required("SubnetGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type create_endpoint_access_message() :: %{String.t() => any()}
+  @type create_endpoint_access_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_data_shares_for_consumer_message() :: %{
-        optional("ConsumerArn") => String.t(),
-        optional("Marker") => String.t(),
+        optional("ConsumerArn") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
         optional("Status") => list(any())
       }
       
   """
-  @type describe_data_shares_for_consumer_message() :: %{String.t() => any()}
+  @type describe_data_shares_for_consumer_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_endpoint_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_endpoint_state_fault() :: %{String.t() => any()}
+  @type invalid_endpoint_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_snapshot_schedules_output_message() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "SnapshotSchedules" => list(snapshot_schedule())
       }
       
   """
-  @type describe_snapshot_schedules_output_message() :: %{String.t() => any()}
+  @type describe_snapshot_schedules_output_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reserved_node_exchange_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type reserved_node_exchange_not_found_fault() :: %{String.t() => any()}
+  @type reserved_node_exchange_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_target() :: %{
-        "DatabaseVersion" => String.t(),
-        "MaintenanceTrackName" => String.t(),
+        "DatabaseVersion" => String.t() | Atom.t(),
+        "MaintenanceTrackName" => String.t() | Atom.t(),
         "SupportedOperations" => list(supported_operation())
       }
       
   """
-  @type update_target() :: %{String.t() => any()}
+  @type update_target() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4650,13 +4656,13 @@ defmodule AWS.Redshift do
         optional("Period") => list(any()),
         optional("Tags") => list(tag()),
         required("Amount") => float(),
-        required("ClusterIdentifier") => String.t(),
+        required("ClusterIdentifier") => String.t() | Atom.t(),
         required("FeatureType") => list(any()),
         required("LimitType") => list(any())
       }
       
   """
-  @type create_usage_limit_message() :: %{String.t() => any()}
+  @type create_usage_limit_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4667,56 +4673,56 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type rotate_encryption_key_result() :: %{String.t() => any()}
+  @type rotate_encryption_key_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_authentication_profile_message() :: %{
-        required("AuthenticationProfileContent") => String.t(),
-        required("AuthenticationProfileName") => String.t()
+        required("AuthenticationProfileContent") => String.t() | Atom.t(),
+        required("AuthenticationProfileName") => String.t() | Atom.t()
       }
       
   """
-  @type modify_authentication_profile_message() :: %{String.t() => any()}
+  @type modify_authentication_profile_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_clusters_message() :: %{
-        optional("ClusterIdentifier") => String.t(),
-        optional("Marker") => String.t(),
+        optional("ClusterIdentifier") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("TagKeys") => list(String.t()),
-        optional("TagValues") => list(String.t())
+        optional("TagKeys") => list(String.t() | Atom.t()),
+        optional("TagValues") => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_clusters_message() :: %{String.t() => any()}
+  @type describe_clusters_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       provisioned_identifier() :: %{
-        "ClusterIdentifier" => String.t()
+        "ClusterIdentifier" => String.t() | Atom.t()
       }
       
   """
-  @type provisioned_identifier() :: %{String.t() => any()}
+  @type provisioned_identifier() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       snapshot_schedule_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type snapshot_schedule_not_found_fault() :: %{String.t() => any()}
+  @type snapshot_schedule_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4727,22 +4733,22 @@ defmodule AWS.Redshift do
         "DataTransferProgressPercent" => float(),
         "ElapsedTimeInSeconds" => float(),
         "EstimatedTimeToCompletionInSeconds" => float(),
-        "ImportTablesCompleted" => list(String.t()),
-        "ImportTablesInProgress" => list(String.t()),
-        "ImportTablesNotStarted" => list(String.t()),
-        "Message" => String.t(),
+        "ImportTablesCompleted" => list(String.t() | Atom.t()),
+        "ImportTablesInProgress" => list(String.t() | Atom.t()),
+        "ImportTablesNotStarted" => list(String.t() | Atom.t()),
+        "Message" => String.t() | Atom.t(),
         "ProgressInMegaBytes" => float(),
-        "ResizeType" => String.t(),
-        "Status" => String.t(),
-        "TargetClusterType" => String.t(),
-        "TargetEncryptionType" => String.t(),
-        "TargetNodeType" => String.t(),
+        "ResizeType" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t(),
+        "TargetClusterType" => String.t() | Atom.t(),
+        "TargetEncryptionType" => String.t() | Atom.t(),
+        "TargetNodeType" => String.t() | Atom.t(),
         "TargetNumberOfNodes" => integer(),
         "TotalResizeDataInMegaBytes" => float()
       }
       
   """
-  @type resize_progress_message() :: %{String.t() => any()}
+  @type resize_progress_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4750,92 +4756,95 @@ defmodule AWS.Redshift do
       
       create_hsm_client_certificate_message() :: %{
         optional("Tags") => list(tag()),
-        required("HsmClientCertificateIdentifier") => String.t()
+        required("HsmClientCertificateIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type create_hsm_client_certificate_message() :: %{String.t() => any()}
+  @type create_hsm_client_certificate_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_resource_policy_message() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_resource_policy_message() :: %{String.t() => any()}
+  @type delete_resource_policy_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       account_attribute() :: %{
-        "AttributeName" => String.t(),
+        "AttributeName" => String.t() | Atom.t(),
         "AttributeValues" => list(attribute_value_target())
       }
       
   """
-  @type account_attribute() :: %{String.t() => any()}
+  @type account_attribute() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       access_to_snapshot_denied_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type access_to_snapshot_denied_fault() :: %{String.t() => any()}
+  @type access_to_snapshot_denied_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_reserved_node_exchange_status_input_message() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("ReservedNodeExchangeRequestId") => String.t(),
-        optional("ReservedNodeId") => String.t()
+        optional("ReservedNodeExchangeRequestId") => String.t() | Atom.t(),
+        optional("ReservedNodeId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_reserved_node_exchange_status_input_message() :: %{String.t() => any()}
+  @type describe_reserved_node_exchange_status_input_message() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       supported_platform() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
       
   """
-  @type supported_platform() :: %{String.t() => any()}
+  @type supported_platform() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_cluster_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_cluster_state_fault() :: %{String.t() => any()}
+  @type invalid_cluster_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       unknown_snapshot_copy_region_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type unknown_snapshot_copy_region_fault() :: %{String.t() => any()}
+  @type unknown_snapshot_copy_region_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4843,15 +4852,15 @@ defmodule AWS.Redshift do
       
       partner_integration_info() :: %{
         "CreatedAt" => non_neg_integer(),
-        "DatabaseName" => String.t(),
-        "PartnerName" => String.t(),
+        "DatabaseName" => String.t() | Atom.t(),
+        "PartnerName" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "StatusMessage" => String.t(),
+        "StatusMessage" => String.t() | Atom.t(),
         "UpdatedAt" => non_neg_integer()
       }
       
   """
-  @type partner_integration_info() :: %{String.t() => any()}
+  @type partner_integration_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4859,33 +4868,33 @@ defmodule AWS.Redshift do
       
       integrations_message() :: %{
         "Integrations" => list(integration()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type integrations_message() :: %{String.t() => any()}
+  @type integrations_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       copy_to_region_disabled_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type copy_to_region_disabled_fault() :: %{String.t() => any()}
+  @type copy_to_region_disabled_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_security_group_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cluster_security_group_not_found_fault() :: %{String.t() => any()}
+  @type cluster_security_group_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4893,38 +4902,38 @@ defmodule AWS.Redshift do
       
       create_hsm_configuration_message() :: %{
         optional("Tags") => list(tag()),
-        required("Description") => String.t(),
-        required("HsmConfigurationIdentifier") => String.t(),
-        required("HsmIpAddress") => String.t(),
-        required("HsmPartitionName") => String.t(),
-        required("HsmPartitionPassword") => String.t(),
-        required("HsmServerPublicCertificate") => String.t()
+        required("Description") => String.t() | Atom.t(),
+        required("HsmConfigurationIdentifier") => String.t() | Atom.t(),
+        required("HsmIpAddress") => String.t() | Atom.t(),
+        required("HsmPartitionName") => String.t() | Atom.t(),
+        required("HsmPartitionPassword") => String.t() | Atom.t(),
+        required("HsmServerPublicCertificate") => String.t() | Atom.t()
       }
       
   """
-  @type create_hsm_configuration_message() :: %{String.t() => any()}
+  @type create_hsm_configuration_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_snapshot_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cluster_snapshot_not_found_fault() :: %{String.t() => any()}
+  @type cluster_snapshot_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       rotate_encryption_key_message() :: %{
-        required("ClusterIdentifier") => String.t()
+        required("ClusterIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type rotate_encryption_key_message() :: %{String.t() => any()}
+  @type rotate_encryption_key_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4932,42 +4941,42 @@ defmodule AWS.Redshift do
       
       get_cluster_credentials_message() :: %{
         optional("AutoCreate") => boolean(),
-        optional("ClusterIdentifier") => String.t(),
-        optional("CustomDomainName") => String.t(),
-        optional("DbGroups") => list(String.t()),
-        optional("DbName") => String.t(),
+        optional("ClusterIdentifier") => String.t() | Atom.t(),
+        optional("CustomDomainName") => String.t() | Atom.t(),
+        optional("DbGroups") => list(String.t() | Atom.t()),
+        optional("DbName") => String.t() | Atom.t(),
         optional("DurationSeconds") => integer(),
-        required("DbUser") => String.t()
+        required("DbUser") => String.t() | Atom.t()
       }
       
   """
-  @type get_cluster_credentials_message() :: %{String.t() => any()}
+  @type get_cluster_credentials_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_hsm_client_certificates_message() :: %{
-        optional("HsmClientCertificateIdentifier") => String.t(),
-        optional("Marker") => String.t(),
+        optional("HsmClientCertificateIdentifier") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("TagKeys") => list(String.t()),
-        optional("TagValues") => list(String.t())
+        optional("TagKeys") => list(String.t() | Atom.t()),
+        optional("TagValues") => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_hsm_client_certificates_message() :: %{String.t() => any()}
+  @type describe_hsm_client_certificates_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_cluster_security_group_message() :: %{
-        required("ClusterSecurityGroupName") => String.t()
+        required("ClusterSecurityGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_cluster_security_group_message() :: %{String.t() => any()}
+  @type delete_cluster_security_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4975,35 +4984,35 @@ defmodule AWS.Redshift do
       
       describe_integrations_message() :: %{
         optional("Filters") => list(describe_integrations_filter()),
-        optional("IntegrationArn") => String.t(),
-        optional("Marker") => String.t(),
+        optional("IntegrationArn") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_integrations_message() :: %{String.t() => any()}
+  @type describe_integrations_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       unsupported_option_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type unsupported_option_fault() :: %{String.t() => any()}
+  @type unsupported_option_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       usage_limit_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type usage_limit_already_exists_fault() :: %{String.t() => any()}
+  @type usage_limit_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5011,78 +5020,78 @@ defmodule AWS.Redshift do
       
       cluster_security_group_message() :: %{
         "ClusterSecurityGroups" => list(cluster_security_group()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type cluster_security_group_message() :: %{String.t() => any()}
+  @type cluster_security_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       access_to_cluster_denied_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type access_to_cluster_denied_fault() :: %{String.t() => any()}
+  @type access_to_cluster_denied_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       partner_integration_output_message() :: %{
-        optional("DatabaseName") => String.t(),
-        optional("PartnerName") => String.t()
+        optional("DatabaseName") => String.t() | Atom.t(),
+        optional("PartnerName") => String.t() | Atom.t()
       }
       
   """
-  @type partner_integration_output_message() :: %{String.t() => any()}
+  @type partner_integration_output_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       number_of_nodes_per_cluster_limit_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type number_of_nodes_per_cluster_limit_exceeded_fault() :: %{String.t() => any()}
+  @type number_of_nodes_per_cluster_limit_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoint_authorization_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type endpoint_authorization_already_exists_fault() :: %{String.t() => any()}
+  @type endpoint_authorization_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_scheduled_action_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_scheduled_action_fault() :: %{String.t() => any()}
+  @type invalid_scheduled_action_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reserved_node_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type reserved_node_quota_exceeded_fault() :: %{String.t() => any()}
+  @type reserved_node_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5090,56 +5099,56 @@ defmodule AWS.Redshift do
       
       describe_data_shares_for_producer_result() :: %{
         "DataShares" => list(data_share()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type describe_data_shares_for_producer_result() :: %{String.t() => any()}
+  @type describe_data_shares_for_producer_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoint_access() :: %{
-        "Address" => String.t(),
-        "ClusterIdentifier" => String.t(),
+        "Address" => String.t() | Atom.t(),
+        "ClusterIdentifier" => String.t() | Atom.t(),
         "EndpointCreateTime" => non_neg_integer(),
-        "EndpointName" => String.t(),
-        "EndpointStatus" => String.t(),
+        "EndpointName" => String.t() | Atom.t(),
+        "EndpointStatus" => String.t() | Atom.t(),
         "Port" => integer(),
-        "ResourceOwner" => String.t(),
-        "SubnetGroupName" => String.t(),
+        "ResourceOwner" => String.t() | Atom.t(),
+        "SubnetGroupName" => String.t() | Atom.t(),
         "VpcEndpoint" => vpc_endpoint(),
         "VpcSecurityGroups" => list(vpc_security_group_membership())
       }
       
   """
-  @type endpoint_access() :: %{String.t() => any()}
+  @type endpoint_access() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_policy_update_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type conflict_policy_update_fault() :: %{String.t() => any()}
+  @type conflict_policy_update_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_cluster_message() :: %{
-        optional("FinalClusterSnapshotIdentifier") => String.t(),
+        optional("FinalClusterSnapshotIdentifier") => String.t() | Atom.t(),
         optional("FinalClusterSnapshotRetentionPeriod") => integer(),
         optional("SkipFinalClusterSnapshot") => boolean(),
-        required("ClusterIdentifier") => String.t()
+        required("ClusterIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type delete_cluster_message() :: %{String.t() => any()}
+  @type delete_cluster_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5150,7 +5159,7 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type restore_table_from_cluster_snapshot_result() :: %{String.t() => any()}
+  @type restore_table_from_cluster_snapshot_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5158,33 +5167,33 @@ defmodule AWS.Redshift do
       
       custom_domain_associations_message() :: %{
         "Associations" => list(association()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type custom_domain_associations_message() :: %{String.t() => any()}
+  @type custom_domain_associations_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoint_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type endpoint_already_exists_fault() :: %{String.t() => any()}
+  @type endpoint_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       authentication_profile_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type authentication_profile_quota_exceeded_fault() :: %{String.t() => any()}
+  @type authentication_profile_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5193,85 +5202,85 @@ defmodule AWS.Redshift do
       modify_cluster_message() :: %{
         optional("AllowVersionUpgrade") => boolean(),
         optional("AutomatedSnapshotRetentionPeriod") => integer(),
-        optional("AvailabilityZone") => String.t(),
+        optional("AvailabilityZone") => String.t() | Atom.t(),
         optional("AvailabilityZoneRelocation") => boolean(),
-        optional("ClusterParameterGroupName") => String.t(),
-        optional("ClusterSecurityGroups") => list(String.t()),
-        optional("ClusterType") => String.t(),
-        optional("ClusterVersion") => String.t(),
-        optional("ElasticIp") => String.t(),
+        optional("ClusterParameterGroupName") => String.t() | Atom.t(),
+        optional("ClusterSecurityGroups") => list(String.t() | Atom.t()),
+        optional("ClusterType") => String.t() | Atom.t(),
+        optional("ClusterVersion") => String.t() | Atom.t(),
+        optional("ElasticIp") => String.t() | Atom.t(),
         optional("Encrypted") => boolean(),
         optional("EnhancedVpcRouting") => boolean(),
-        optional("HsmClientCertificateIdentifier") => String.t(),
-        optional("HsmConfigurationIdentifier") => String.t(),
-        optional("IpAddressType") => String.t(),
-        optional("KmsKeyId") => String.t(),
-        optional("MaintenanceTrackName") => String.t(),
+        optional("HsmClientCertificateIdentifier") => String.t() | Atom.t(),
+        optional("HsmConfigurationIdentifier") => String.t() | Atom.t(),
+        optional("IpAddressType") => String.t() | Atom.t(),
+        optional("KmsKeyId") => String.t() | Atom.t(),
+        optional("MaintenanceTrackName") => String.t() | Atom.t(),
         optional("ManageMasterPassword") => boolean(),
         optional("ManualSnapshotRetentionPeriod") => integer(),
-        optional("MasterPasswordSecretKmsKeyId") => String.t(),
-        optional("MasterUserPassword") => String.t(),
+        optional("MasterPasswordSecretKmsKeyId") => String.t() | Atom.t(),
+        optional("MasterUserPassword") => String.t() | Atom.t(),
         optional("MultiAZ") => boolean(),
-        optional("NewClusterIdentifier") => String.t(),
-        optional("NodeType") => String.t(),
+        optional("NewClusterIdentifier") => String.t() | Atom.t(),
+        optional("NodeType") => String.t() | Atom.t(),
         optional("NumberOfNodes") => integer(),
         optional("Port") => integer(),
-        optional("PreferredMaintenanceWindow") => String.t(),
+        optional("PreferredMaintenanceWindow") => String.t() | Atom.t(),
         optional("PubliclyAccessible") => boolean(),
-        optional("VpcSecurityGroupIds") => list(String.t()),
-        required("ClusterIdentifier") => String.t()
+        optional("VpcSecurityGroupIds") => list(String.t() | Atom.t()),
+        required("ClusterIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type modify_cluster_message() :: %{String.t() => any()}
+  @type modify_cluster_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       authorization_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type authorization_quota_exceeded_fault() :: %{String.t() => any()}
+  @type authorization_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reserved_node_offering_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type reserved_node_offering_not_found_fault() :: %{String.t() => any()}
+  @type reserved_node_offering_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       event_subscription_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type event_subscription_quota_exceeded_fault() :: %{String.t() => any()}
+  @type event_subscription_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_security_group() :: %{
-        "ClusterSecurityGroupName" => String.t(),
-        "Description" => String.t(),
+        "ClusterSecurityGroupName" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
         "EC2SecurityGroups" => list(ec2_security_group()),
         "IPRanges" => list(ip_range()),
         "Tags" => list(tag())
       }
       
   """
-  @type cluster_security_group() :: %{String.t() => any()}
+  @type cluster_security_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5279,23 +5288,23 @@ defmodule AWS.Redshift do
       
       modify_cluster_snapshot_schedule_message() :: %{
         optional("DisassociateSchedule") => boolean(),
-        optional("ScheduleIdentifier") => String.t(),
-        required("ClusterIdentifier") => String.t()
+        optional("ScheduleIdentifier") => String.t() | Atom.t(),
+        required("ClusterIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type modify_cluster_snapshot_schedule_message() :: %{String.t() => any()}
+  @type modify_cluster_snapshot_schedule_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_event_categories_message() :: %{
-        optional("SourceType") => String.t()
+        optional("SourceType") => String.t() | Atom.t()
       }
       
   """
-  @type describe_event_categories_message() :: %{String.t() => any()}
+  @type describe_event_categories_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5306,29 +5315,29 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type modify_redshift_idc_application_result() :: %{String.t() => any()}
+  @type modify_redshift_idc_application_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       insufficient_cluster_capacity_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type insufficient_cluster_capacity_fault() :: %{String.t() => any()}
+  @type insufficient_cluster_capacity_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_schedule_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_schedule_fault() :: %{String.t() => any()}
+  @type invalid_schedule_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5339,7 +5348,7 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type lake_formation_query() :: %{String.t() => any()}
+  @type lake_formation_query() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5350,79 +5359,79 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type delete_cluster_snapshot_result() :: %{String.t() => any()}
+  @type delete_cluster_snapshot_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_table_restore_argument_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_table_restore_argument_fault() :: %{String.t() => any()}
+  @type invalid_table_restore_argument_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       integration_conflict_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type integration_conflict_state_fault() :: %{String.t() => any()}
+  @type integration_conflict_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cluster_already_exists_fault() :: %{String.t() => any()}
+  @type cluster_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       table_restore_status_message() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "TableRestoreStatusDetails" => list(table_restore_status())
       }
       
   """
-  @type table_restore_status_message() :: %{String.t() => any()}
+  @type table_restore_status_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       revision_target() :: %{
-        "DatabaseRevision" => String.t(),
+        "DatabaseRevision" => String.t() | Atom.t(),
         "DatabaseRevisionReleaseDate" => non_neg_integer(),
-        "Description" => String.t()
+        "Description" => String.t() | Atom.t()
       }
       
   """
-  @type revision_target() :: %{String.t() => any()}
+  @type revision_target() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_partners_input_message() :: %{
-        optional("DatabaseName") => String.t(),
-        optional("PartnerName") => String.t(),
-        required("AccountId") => String.t(),
-        required("ClusterIdentifier") => String.t()
+        optional("DatabaseName") => String.t() | Atom.t(),
+        optional("PartnerName") => String.t() | Atom.t(),
+        required("AccountId") => String.t() | Atom.t(),
+        required("ClusterIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type describe_partners_input_message() :: %{String.t() => any()}
+  @type describe_partners_input_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5430,11 +5439,11 @@ defmodule AWS.Redshift do
       
       batch_delete_cluster_snapshots_result() :: %{
         "Errors" => list(snapshot_error_message()),
-        "Resources" => list(String.t())
+        "Resources" => list(String.t() | Atom.t())
       }
       
   """
-  @type batch_delete_cluster_snapshots_result() :: %{String.t() => any()}
+  @type batch_delete_cluster_snapshots_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5445,89 +5454,89 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type describe_partners_output_message() :: %{String.t() => any()}
+  @type describe_partners_output_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       restore_from_cluster_snapshot_message() :: %{
-        optional("OwnerAccount") => String.t(),
-        optional("IamRoles") => list(String.t()),
-        optional("SnapshotArn") => String.t(),
+        optional("OwnerAccount") => String.t() | Atom.t(),
+        optional("IamRoles") => list(String.t() | Atom.t()),
+        optional("SnapshotArn") => String.t() | Atom.t(),
         optional("EnhancedVpcRouting") => boolean(),
-        optional("MasterPasswordSecretKmsKeyId") => String.t(),
-        optional("HsmClientCertificateIdentifier") => String.t(),
+        optional("MasterPasswordSecretKmsKeyId") => String.t() | Atom.t(),
+        optional("HsmClientCertificateIdentifier") => String.t() | Atom.t(),
         optional("Encrypted") => boolean(),
-        optional("MaintenanceTrackName") => String.t(),
-        optional("SnapshotScheduleIdentifier") => String.t(),
-        optional("HsmConfigurationIdentifier") => String.t(),
-        optional("IpAddressType") => String.t(),
+        optional("MaintenanceTrackName") => String.t() | Atom.t(),
+        optional("SnapshotScheduleIdentifier") => String.t() | Atom.t(),
+        optional("HsmConfigurationIdentifier") => String.t() | Atom.t(),
+        optional("IpAddressType") => String.t() | Atom.t(),
         optional("NumberOfNodes") => integer(),
         optional("AvailabilityZoneRelocation") => boolean(),
-        optional("AvailabilityZone") => String.t(),
+        optional("AvailabilityZone") => String.t() | Atom.t(),
         optional("ManageMasterPassword") => boolean(),
-        optional("ClusterSubnetGroupName") => String.t(),
-        optional("AdditionalInfo") => String.t(),
+        optional("ClusterSubnetGroupName") => String.t() | Atom.t(),
+        optional("AdditionalInfo") => String.t() | Atom.t(),
         optional("AquaConfigurationStatus") => list(any()),
         optional("AllowVersionUpgrade") => boolean(),
-        optional("ClusterSecurityGroups") => list(String.t()),
+        optional("ClusterSecurityGroups") => list(String.t() | Atom.t()),
         optional("PubliclyAccessible") => boolean(),
-        optional("NodeType") => String.t(),
+        optional("NodeType") => String.t() | Atom.t(),
         optional("ManualSnapshotRetentionPeriod") => integer(),
-        optional("DefaultIamRoleArn") => String.t(),
-        required("ClusterIdentifier") => String.t(),
+        optional("DefaultIamRoleArn") => String.t() | Atom.t(),
+        required("ClusterIdentifier") => String.t() | Atom.t(),
         optional("Port") => integer(),
-        optional("TargetReservedNodeOfferingId") => String.t(),
-        optional("SnapshotIdentifier") => String.t(),
-        optional("SnapshotClusterIdentifier") => String.t(),
-        optional("ElasticIp") => String.t(),
+        optional("TargetReservedNodeOfferingId") => String.t() | Atom.t(),
+        optional("SnapshotIdentifier") => String.t() | Atom.t(),
+        optional("SnapshotClusterIdentifier") => String.t() | Atom.t(),
+        optional("ElasticIp") => String.t() | Atom.t(),
         optional("MultiAZ") => boolean(),
-        optional("ReservedNodeId") => String.t(),
-        optional("VpcSecurityGroupIds") => list(String.t()),
+        optional("ReservedNodeId") => String.t() | Atom.t(),
+        optional("VpcSecurityGroupIds") => list(String.t() | Atom.t()),
         optional("AutomatedSnapshotRetentionPeriod") => integer(),
-        optional("KmsKeyId") => String.t(),
-        optional("PreferredMaintenanceWindow") => String.t(),
-        optional("ClusterParameterGroupName") => String.t()
+        optional("KmsKeyId") => String.t() | Atom.t(),
+        optional("PreferredMaintenanceWindow") => String.t() | Atom.t(),
+        optional("ClusterParameterGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type restore_from_cluster_snapshot_message() :: %{String.t() => any()}
+  @type restore_from_cluster_snapshot_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       s_n_s_no_authorization_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type s_n_s_no_authorization_fault() :: %{String.t() => any()}
+  @type s_n_s_no_authorization_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_authorization_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_authorization_state_fault() :: %{String.t() => any()}
+  @type invalid_authorization_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       default_cluster_parameters() :: %{
-        "Marker" => String.t(),
-        "ParameterGroupFamily" => String.t(),
+        "Marker" => String.t() | Atom.t(),
+        "ParameterGroupFamily" => String.t() | Atom.t(),
         "Parameters" => list(parameter())
       }
       
   """
-  @type default_cluster_parameters() :: %{String.t() => any()}
+  @type default_cluster_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5535,11 +5544,11 @@ defmodule AWS.Redshift do
       
       hsm_configuration_message() :: %{
         "HsmConfigurations" => list(hsm_configuration()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type hsm_configuration_message() :: %{String.t() => any()}
+  @type hsm_configuration_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5550,43 +5559,43 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type revoke_cluster_security_group_ingress_result() :: %{String.t() => any()}
+  @type revoke_cluster_security_group_ingress_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_parameter_group() :: %{
-        "Description" => String.t(),
-        "ParameterGroupFamily" => String.t(),
-        "ParameterGroupName" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "ParameterGroupFamily" => String.t() | Atom.t(),
+        "ParameterGroupName" => String.t() | Atom.t(),
         "Tags" => list(tag())
       }
       
   """
-  @type cluster_parameter_group() :: %{String.t() => any()}
+  @type cluster_parameter_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       table_restore_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type table_restore_not_found_fault() :: %{String.t() => any()}
+  @type table_restore_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_snapshot_schedule_message() :: %{
-        required("ScheduleIdentifier") => String.t()
+        required("ScheduleIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type delete_snapshot_schedule_message() :: %{String.t() => any()}
+  @type delete_snapshot_schedule_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5597,33 +5606,33 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type modify_aqua_output_message() :: %{String.t() => any()}
+  @type modify_aqua_output_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       vpc_security_group_membership() :: %{
-        "Status" => String.t(),
-        "VpcSecurityGroupId" => String.t()
+        "Status" => String.t() | Atom.t(),
+        "VpcSecurityGroupId" => String.t() | Atom.t()
       }
       
   """
-  @type vpc_security_group_membership() :: %{String.t() => any()}
+  @type vpc_security_group_membership() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_cluster_versions_message() :: %{
-        optional("ClusterParameterGroupFamily") => String.t(),
-        optional("ClusterVersion") => String.t(),
-        optional("Marker") => String.t(),
+        optional("ClusterParameterGroupFamily") => String.t() | Atom.t(),
+        optional("ClusterVersion") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_cluster_versions_message() :: %{String.t() => any()}
+  @type describe_cluster_versions_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5635,39 +5644,39 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type aqua_configuration() :: %{String.t() => any()}
+  @type aqua_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_node_configuration_options_message() :: %{
-        optional("ClusterIdentifier") => String.t(),
+        optional("ClusterIdentifier") => String.t() | Atom.t(),
         optional("Filters") => list(node_configuration_options_filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("OwnerAccount") => String.t(),
-        optional("SnapshotArn") => String.t(),
-        optional("SnapshotIdentifier") => String.t(),
+        optional("OwnerAccount") => String.t() | Atom.t(),
+        optional("SnapshotArn") => String.t() | Atom.t(),
+        optional("SnapshotIdentifier") => String.t() | Atom.t(),
         required("ActionType") => list(any())
       }
       
   """
-  @type describe_node_configuration_options_message() :: %{String.t() => any()}
+  @type describe_node_configuration_options_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_custom_domain_association_result() :: %{
-        "ClusterIdentifier" => String.t(),
-        "CustomDomainCertExpiryTime" => String.t(),
-        "CustomDomainCertificateArn" => String.t(),
-        "CustomDomainName" => String.t()
+        "ClusterIdentifier" => String.t() | Atom.t(),
+        "CustomDomainCertExpiryTime" => String.t() | Atom.t(),
+        "CustomDomainCertificateArn" => String.t() | Atom.t(),
+        "CustomDomainName" => String.t() | Atom.t()
       }
       
   """
-  @type create_custom_domain_association_result() :: %{String.t() => any()}
+  @type create_custom_domain_association_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5675,11 +5684,11 @@ defmodule AWS.Redshift do
       
       modify_aqua_input_message() :: %{
         optional("AquaConfigurationStatus") => list(any()),
-        required("ClusterIdentifier") => String.t()
+        required("ClusterIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type modify_aqua_input_message() :: %{String.t() => any()}
+  @type modify_aqua_input_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5690,44 +5699,44 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type authorize_snapshot_access_result() :: %{String.t() => any()}
+  @type authorize_snapshot_access_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_retention_period_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_retention_period_fault() :: %{String.t() => any()}
+  @type invalid_retention_period_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       node_configuration_options_message() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "NodeConfigurationOptionList" => list(node_configuration_option())
       }
       
   """
-  @type node_configuration_options_message() :: %{String.t() => any()}
+  @type node_configuration_options_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_data_share_consumer_message() :: %{
-        optional("ConsumerArn") => String.t(),
-        optional("ConsumerRegion") => String.t(),
+        optional("ConsumerArn") => String.t() | Atom.t(),
+        optional("ConsumerRegion") => String.t() | Atom.t(),
         optional("DisassociateEntireAccount") => boolean(),
-        required("DataShareArn") => String.t()
+        required("DataShareArn") => String.t() | Atom.t()
       }
       
   """
-  @type disassociate_data_share_consumer_message() :: %{String.t() => any()}
+  @type disassociate_data_share_consumer_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5738,33 +5747,33 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type register_namespace_output_message() :: %{String.t() => any()}
+  @type register_namespace_output_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       authorized_token_issuer() :: %{
-        "AuthorizedAudiencesList" => list(String.t()),
-        "TrustedTokenIssuerArn" => String.t()
+        "AuthorizedAudiencesList" => list(String.t() | Atom.t()),
+        "TrustedTokenIssuerArn" => String.t() | Atom.t()
       }
       
   """
-  @type authorized_token_issuer() :: %{String.t() => any()}
+  @type authorized_token_issuer() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       revoke_snapshot_access_message() :: %{
-        optional("SnapshotArn") => String.t(),
-        optional("SnapshotClusterIdentifier") => String.t(),
-        optional("SnapshotIdentifier") => String.t(),
-        required("AccountWithRestoreAccess") => String.t()
+        optional("SnapshotArn") => String.t() | Atom.t(),
+        optional("SnapshotClusterIdentifier") => String.t() | Atom.t(),
+        optional("SnapshotIdentifier") => String.t() | Atom.t(),
+        required("AccountWithRestoreAccess") => String.t() | Atom.t()
       }
       
   """
-  @type revoke_snapshot_access_message() :: %{String.t() => any()}
+  @type revoke_snapshot_access_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5775,58 +5784,58 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type copy_cluster_snapshot_result() :: %{String.t() => any()}
+  @type copy_cluster_snapshot_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_limit_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type tag_limit_exceeded_fault() :: %{String.t() => any()}
+  @type tag_limit_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       secondary_cluster_info() :: %{
-        "AvailabilityZone" => String.t(),
+        "AvailabilityZone" => String.t() | Atom.t(),
         "ClusterNodes" => list(cluster_node())
       }
       
   """
-  @type secondary_cluster_info() :: %{String.t() => any()}
+  @type secondary_cluster_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       partner_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type partner_not_found_fault() :: %{String.t() => any()}
+  @type partner_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_usage_limits_message() :: %{
-        optional("ClusterIdentifier") => String.t(),
+        optional("ClusterIdentifier") => String.t() | Atom.t(),
         optional("FeatureType") => list(any()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("TagKeys") => list(String.t()),
-        optional("TagValues") => list(String.t()),
-        optional("UsageLimitId") => String.t()
+        optional("TagKeys") => list(String.t() | Atom.t()),
+        optional("TagValues") => list(String.t() | Atom.t()),
+        optional("UsageLimitId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_usage_limits_message() :: %{String.t() => any()}
+  @type describe_usage_limits_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5834,13 +5843,13 @@ defmodule AWS.Redshift do
       
       create_cluster_subnet_group_message() :: %{
         optional("Tags") => list(tag()),
-        required("ClusterSubnetGroupName") => String.t(),
-        required("Description") => String.t(),
-        required("SubnetIds") => list(String.t())
+        required("ClusterSubnetGroupName") => String.t() | Atom.t(),
+        required("Description") => String.t() | Atom.t(),
+        required("SubnetIds") => list(String.t() | Atom.t())
       }
       
   """
-  @type create_cluster_subnet_group_message() :: %{String.t() => any()}
+  @type create_cluster_subnet_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5851,7 +5860,7 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type create_cluster_snapshot_result() :: %{String.t() => any()}
+  @type create_cluster_snapshot_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5861,74 +5870,75 @@ defmodule AWS.Redshift do
         optional("DeferMaintenance") => boolean(),
         optional("DeferMaintenanceDuration") => integer(),
         optional("DeferMaintenanceEndTime") => non_neg_integer(),
-        optional("DeferMaintenanceIdentifier") => String.t(),
+        optional("DeferMaintenanceIdentifier") => String.t() | Atom.t(),
         optional("DeferMaintenanceStartTime") => non_neg_integer(),
-        required("ClusterIdentifier") => String.t()
+        required("ClusterIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type modify_cluster_maintenance_message() :: %{String.t() => any()}
+  @type modify_cluster_maintenance_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_custom_domain_association_message() :: %{
-        required("ClusterIdentifier") => String.t(),
-        required("CustomDomainCertificateArn") => String.t(),
-        required("CustomDomainName") => String.t()
+        required("ClusterIdentifier") => String.t() | Atom.t(),
+        required("CustomDomainCertificateArn") => String.t() | Atom.t(),
+        required("CustomDomainName") => String.t() | Atom.t()
       }
       
   """
-  @type create_custom_domain_association_message() :: %{String.t() => any()}
+  @type create_custom_domain_association_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       hsm_client_certificate_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type hsm_client_certificate_already_exists_fault() :: %{String.t() => any()}
+  @type hsm_client_certificate_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       maintenance_track() :: %{
-        "DatabaseVersion" => String.t(),
-        "MaintenanceTrackName" => String.t(),
+        "DatabaseVersion" => String.t() | Atom.t(),
+        "MaintenanceTrackName" => String.t() | Atom.t(),
         "UpdateTargets" => list(update_target())
       }
       
   """
-  @type maintenance_track() :: %{String.t() => any()}
+  @type maintenance_track() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       dependent_service_unavailable_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type dependent_service_unavailable_fault() :: %{String.t() => any()}
+  @type dependent_service_unavailable_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_reserved_node_exchange_configuration_options_output_message() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "ReservedNodeConfigurationOptionList" => list(reserved_node_configuration_option())
       }
       
   """
   @type get_reserved_node_exchange_configuration_options_output_message() :: %{
-          String.t() => any()
+          String.t()
+          | Atom.t() => any()
         }
 
   @typedoc """
@@ -5938,28 +5948,31 @@ defmodule AWS.Redshift do
       create_scheduled_action_message() :: %{
         optional("Enable") => boolean(),
         optional("EndTime") => non_neg_integer(),
-        optional("ScheduledActionDescription") => String.t(),
+        optional("ScheduledActionDescription") => String.t() | Atom.t(),
         optional("StartTime") => non_neg_integer(),
-        required("IamRole") => String.t(),
-        required("Schedule") => String.t(),
-        required("ScheduledActionName") => String.t(),
+        required("IamRole") => String.t() | Atom.t(),
+        required("Schedule") => String.t() | Atom.t(),
+        required("ScheduledActionName") => String.t() | Atom.t(),
         required("TargetAction") => scheduled_action_type()
       }
       
   """
-  @type create_scheduled_action_message() :: %{String.t() => any()}
+  @type create_scheduled_action_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_reserved_node_exchange_status_output_message() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "ReservedNodeExchangeStatusDetails" => list(reserved_node_exchange_status())
       }
       
   """
-  @type describe_reserved_node_exchange_status_output_message() :: %{String.t() => any()}
+  @type describe_reserved_node_exchange_status_output_message() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -5969,14 +5982,14 @@ defmodule AWS.Redshift do
         "AssociatedClusterCount" => integer(),
         "AssociatedClusters" => list(cluster_associated_to_schedule()),
         "NextInvocations" => list(non_neg_integer()),
-        "ScheduleDefinitions" => list(String.t()),
-        "ScheduleDescription" => String.t(),
-        "ScheduleIdentifier" => String.t(),
+        "ScheduleDefinitions" => list(String.t() | Atom.t()),
+        "ScheduleDescription" => String.t() | Atom.t(),
+        "ScheduleIdentifier" => String.t() | Atom.t(),
         "Tags" => list(tag())
       }
       
   """
-  @type snapshot_schedule() :: %{String.t() => any()}
+  @type snapshot_schedule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5984,22 +5997,22 @@ defmodule AWS.Redshift do
       
       track_list_message() :: %{
         "MaintenanceTracks" => list(maintenance_track()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type track_list_message() :: %{String.t() => any()}
+  @type track_list_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_authentication_profiles_message() :: %{
-        optional("AuthenticationProfileName") => String.t()
+        optional("AuthenticationProfileName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_authentication_profiles_message() :: %{String.t() => any()}
+  @type describe_authentication_profiles_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6010,7 +6023,7 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type modify_snapshot_copy_retention_period_result() :: %{String.t() => any()}
+  @type modify_snapshot_copy_retention_period_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6021,43 +6034,43 @@ defmodule AWS.Redshift do
       }
       
   """
-  @type authorize_cluster_security_group_ingress_result() :: %{String.t() => any()}
+  @type authorize_cluster_security_group_ingress_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       hsm_status() :: %{
-        "HsmClientCertificateIdentifier" => String.t(),
-        "HsmConfigurationIdentifier" => String.t(),
-        "Status" => String.t()
+        "HsmClientCertificateIdentifier" => String.t() | Atom.t(),
+        "HsmConfigurationIdentifier" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type hsm_status() :: %{String.t() => any()}
+  @type hsm_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_cluster_snapshot_message() :: %{
-        "SnapshotClusterIdentifier" => String.t(),
-        "SnapshotIdentifier" => String.t()
+        "SnapshotClusterIdentifier" => String.t() | Atom.t(),
+        "SnapshotIdentifier" => String.t() | Atom.t()
       }
       
   """
-  @type delete_cluster_snapshot_message() :: %{String.t() => any()}
+  @type delete_cluster_snapshot_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_endpoint_access_message() :: %{
-        required("EndpointName") => String.t()
+        required("EndpointName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_endpoint_access_message() :: %{String.t() => any()}
+  @type delete_endpoint_access_message() :: %{String.t() | Atom.t() => any()}
 
   @type accept_reserved_node_exchange_errors() ::
           dependent_service_unavailable_fault()

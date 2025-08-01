@@ -44,53 +44,53 @@ defmodule AWS.Odb do
   ## Example:
       
       create_odb_network_output() :: %{
-        "displayName" => [String.t()],
-        "odbNetworkId" => [String.t()],
+        "displayName" => [String.t() | Atom.t()],
+        "odbNetworkId" => [String.t() | Atom.t()],
         "status" => list(any()),
-        "statusReason" => [String.t()]
+        "statusReason" => [String.t() | Atom.t()]
       }
       
   """
-  @type create_odb_network_output() :: %{String.t() => any()}
+  @type create_odb_network_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("resourceArn") => String.t(),
+        required("resourceArn") => String.t() | Atom.t(),
         required("tags") => map()
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_oci_onboarding_status_output() :: %{
-        "existingTenancyActivationLink" => [String.t()],
-        "newTenancyActivationLink" => [String.t()],
+        "existingTenancyActivationLink" => [String.t() | Atom.t()],
+        "newTenancyActivationLink" => [String.t() | Atom.t()],
         "status" => list(any())
       }
       
   """
-  @type get_oci_onboarding_status_output() :: %{String.t() => any()}
+  @type get_oci_onboarding_status_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_db_system_shapes_input() :: %{
-        optional("availabilityZone") => [String.t()],
-        optional("availabilityZoneId") => [String.t()],
+        optional("availabilityZone") => [String.t() | Atom.t()],
+        optional("availabilityZoneId") => [String.t() | Atom.t()],
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | Atom.t()]
       }
       
   """
-  @type list_db_system_shapes_input() :: %{String.t() => any()}
+  @type list_db_system_shapes_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -101,7 +101,7 @@ defmodule AWS.Odb do
       }
       
   """
-  @type get_cloud_exadata_infrastructure_output() :: %{String.t() => any()}
+  @type get_cloud_exadata_infrastructure_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -109,23 +109,23 @@ defmodule AWS.Odb do
       
       list_db_servers_output() :: %{
         "dbServers" => list(db_server_summary()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | Atom.t()]
       }
       
   """
-  @type list_db_servers_output() :: %{String.t() => any()}
+  @type list_db_servers_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       oci_dns_forwarding_config() :: %{
-        "domainName" => [String.t()],
-        "ociDnsListenerIp" => [String.t()]
+        "domainName" => [String.t() | Atom.t()],
+        "ociDnsListenerIp" => [String.t() | Atom.t()]
       }
       
   """
-  @type oci_dns_forwarding_config() :: %{String.t() => any()}
+  @type oci_dns_forwarding_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -154,7 +154,7 @@ defmodule AWS.Odb do
       }
       
   """
-  @type get_cloud_autonomous_vm_cluster_output() :: %{String.t() => any()}
+  @type get_cloud_autonomous_vm_cluster_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -162,48 +162,48 @@ defmodule AWS.Odb do
       
       list_system_versions_input() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()],
-        required("giVersion") => [String.t()],
-        required("shape") => [String.t()]
+        optional("nextToken") => [String.t() | Atom.t()],
+        required("giVersion") => [String.t() | Atom.t()],
+        required("shape") => [String.t() | Atom.t()]
       }
       
   """
-  @type list_system_versions_input() :: %{String.t() => any()}
+  @type list_system_versions_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cloud_autonomous_vm_cluster_resource_details() :: %{
-        "cloudAutonomousVmClusterId" => String.t(),
+        "cloudAutonomousVmClusterId" => String.t() | Atom.t(),
         "unallocatedAdbStorageInTBs" => [float()]
       }
       
   """
-  @type cloud_autonomous_vm_cluster_resource_details() :: %{String.t() => any()}
+  @type cloud_autonomous_vm_cluster_resource_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       service_network_endpoint() :: %{
-        "vpcEndpointId" => [String.t()],
+        "vpcEndpointId" => [String.t() | Atom.t()],
         "vpcEndpointType" => list(any())
       }
       
   """
-  @type service_network_endpoint() :: %{String.t() => any()}
+  @type service_network_endpoint() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       gi_version_summary() :: %{
-        "version" => [String.t()]
+        "version" => [String.t() | Atom.t()]
       }
       
   """
-  @type gi_version_summary() :: %{String.t() => any()}
+  @type gi_version_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -211,11 +211,11 @@ defmodule AWS.Odb do
       
       list_db_nodes_output() :: %{
         "dbNodes" => list(db_node_summary()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | Atom.t()]
       }
       
   """
-  @type list_db_nodes_output() :: %{String.t() => any()}
+  @type list_db_nodes_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -232,49 +232,49 @@ defmodule AWS.Odb do
       
       cloud_vm_cluster() :: %{
         "iormConfigCache" => exadata_iorm_config(),
-        "shape" => [String.t()],
-        "displayName" => [String.t()],
+        "shape" => [String.t() | Atom.t()],
+        "displayName" => [String.t() | Atom.t()],
         "isSparseDiskgroupEnabled" => [boolean()],
-        "statusReason" => [String.t()],
-        "hostname" => [String.t()],
+        "statusReason" => [String.t() | Atom.t()],
+        "hostname" => [String.t() | Atom.t()],
         "memorySizeInGBs" => [integer()],
         "dbNodeStorageSizeInGBs" => [integer()],
         "licenseModel" => list(any()),
-        "lastUpdateHistoryEntryId" => [String.t()],
-        "domain" => [String.t()],
-        "vipIds" => list([String.t()]()),
+        "lastUpdateHistoryEntryId" => [String.t() | Atom.t()],
+        "domain" => [String.t() | Atom.t()],
+        "vipIds" => list([String.t() | Atom.t()]()),
         "cpuCoreCount" => [integer()],
         "dataStorageSizeInTBs" => [float()],
         "isLocalBackupEnabled" => [boolean()],
-        "giVersion" => [String.t()],
-        "systemVersion" => [String.t()],
+        "giVersion" => [String.t() | Atom.t()],
+        "systemVersion" => [String.t() | Atom.t()],
         "diskRedundancy" => list(any()),
-        "ocid" => [String.t()],
-        "scanDnsName" => [String.t()],
-        "dbServers" => list([String.t()]()),
+        "ocid" => [String.t() | Atom.t()],
+        "scanDnsName" => [String.t() | Atom.t()],
+        "dbServers" => list([String.t() | Atom.t()]()),
         "createdAt" => [non_neg_integer()],
-        "clusterName" => [String.t()],
+        "clusterName" => [String.t() | Atom.t()],
         "listenerPort" => [integer()],
-        "cloudExadataInfrastructureId" => [String.t()],
-        "cloudVmClusterArn" => [String.t()],
+        "cloudExadataInfrastructureId" => [String.t() | Atom.t()],
+        "cloudVmClusterArn" => [String.t() | Atom.t()],
         "percentProgress" => [float()],
         "storageSizeInGBs" => [integer()],
-        "sshPublicKeys" => list(String.t()),
-        "timeZone" => [String.t()],
-        "scanDnsRecordId" => [String.t()],
-        "scanIpIds" => list([String.t()]()),
+        "sshPublicKeys" => list(String.t() | Atom.t()),
+        "timeZone" => [String.t() | Atom.t()],
+        "scanDnsRecordId" => [String.t() | Atom.t()],
+        "scanIpIds" => list([String.t() | Atom.t()]()),
         "status" => list(any()),
-        "ociUrl" => [String.t()],
-        "ociResourceAnchorName" => [String.t()],
+        "ociUrl" => [String.t() | Atom.t()],
+        "ociResourceAnchorName" => [String.t() | Atom.t()],
         "nodeCount" => [integer()],
         "computeModel" => list(any()),
-        "odbNetworkId" => String.t(),
+        "odbNetworkId" => String.t() | Atom.t(),
         "dataCollectionOptions" => data_collection_options(),
-        "cloudVmClusterId" => String.t()
+        "cloudVmClusterId" => String.t() | Atom.t()
       }
       
   """
-  @type cloud_vm_cluster() :: %{String.t() => any()}
+  @type cloud_vm_cluster() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -294,212 +294,212 @@ defmodule AWS.Odb do
       }
       
   """
-  @type get_odb_network_output() :: %{String.t() => any()}
+  @type get_odb_network_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_odb_network_input() :: %{
-        optional("availabilityZone") => [String.t()],
-        optional("availabilityZoneId") => [String.t()],
-        optional("backupSubnetCidr") => [String.t()],
-        optional("clientToken") => String.t(),
-        optional("customDomainName") => [String.t()],
-        optional("defaultDnsPrefix") => [String.t()],
+        optional("availabilityZone") => [String.t() | Atom.t()],
+        optional("availabilityZoneId") => [String.t() | Atom.t()],
+        optional("backupSubnetCidr") => [String.t() | Atom.t()],
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("customDomainName") => [String.t() | Atom.t()],
+        optional("defaultDnsPrefix") => [String.t() | Atom.t()],
         optional("s3Access") => list(any()),
-        optional("s3PolicyDocument") => String.t(),
+        optional("s3PolicyDocument") => String.t() | Atom.t(),
         optional("tags") => map(),
         optional("zeroEtlAccess") => list(any()),
-        required("clientSubnetCidr") => [String.t()],
-        required("displayName") => String.t()
+        required("clientSubnetCidr") => [String.t() | Atom.t()],
+        required("displayName") => String.t() | Atom.t()
       }
       
   """
-  @type create_odb_network_input() :: %{String.t() => any()}
+  @type create_odb_network_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_db_node_output() :: %{
-        "dbNodeId" => [String.t()],
+        "dbNodeId" => [String.t() | Atom.t()],
         "status" => list(any()),
-        "statusReason" => [String.t()]
+        "statusReason" => [String.t() | Atom.t()]
       }
       
   """
-  @type start_db_node_output() :: %{String.t() => any()}
+  @type start_db_node_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_node_summary() :: %{
-        "additionalDetails" => [String.t()],
-        "backupIpId" => [String.t()],
-        "backupVnic2Id" => [String.t()],
-        "backupVnicId" => [String.t()],
+        "additionalDetails" => [String.t() | Atom.t()],
+        "backupIpId" => [String.t() | Atom.t()],
+        "backupVnic2Id" => [String.t() | Atom.t()],
+        "backupVnicId" => [String.t() | Atom.t()],
         "cpuCoreCount" => [integer()],
         "createdAt" => [non_neg_integer()],
-        "dbNodeArn" => String.t(),
-        "dbNodeId" => String.t(),
+        "dbNodeArn" => String.t() | Atom.t(),
+        "dbNodeId" => String.t() | Atom.t(),
         "dbNodeStorageSizeInGBs" => [integer()],
-        "dbServerId" => String.t(),
-        "dbSystemId" => [String.t()],
-        "faultDomain" => [String.t()],
-        "hostIpId" => [String.t()],
-        "hostname" => [String.t()],
+        "dbServerId" => String.t() | Atom.t(),
+        "dbSystemId" => [String.t() | Atom.t()],
+        "faultDomain" => [String.t() | Atom.t()],
+        "hostIpId" => [String.t() | Atom.t()],
+        "hostname" => [String.t() | Atom.t()],
         "maintenanceType" => list(any()),
         "memorySizeInGBs" => [integer()],
-        "ociResourceAnchorName" => [String.t()],
-        "ocid" => [String.t()],
+        "ociResourceAnchorName" => [String.t() | Atom.t()],
+        "ocid" => [String.t() | Atom.t()],
         "softwareStorageSizeInGB" => [integer()],
         "status" => list(any()),
-        "statusReason" => [String.t()],
-        "timeMaintenanceWindowEnd" => [String.t()],
-        "timeMaintenanceWindowStart" => [String.t()],
+        "statusReason" => [String.t() | Atom.t()],
+        "timeMaintenanceWindowEnd" => [String.t() | Atom.t()],
+        "timeMaintenanceWindowStart" => [String.t() | Atom.t()],
         "totalCpuCoreCount" => [integer()],
-        "vnic2Id" => [String.t()],
-        "vnicId" => [String.t()]
+        "vnic2Id" => [String.t() | Atom.t()],
+        "vnicId" => [String.t() | Atom.t()]
       }
       
   """
-  @type db_node_summary() :: %{String.t() => any()}
+  @type db_node_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cloud_autonomous_vm_cluster_summary() :: %{
-        "shape" => [String.t()],
+        "shape" => [String.t() | Atom.t()],
         "autonomousDataStoragePercentage" => [float()],
         "reclaimableCpus" => [float()],
-        "displayName" => String.t(),
-        "statusReason" => [String.t()],
-        "hostname" => [String.t()],
+        "displayName" => String.t() | Atom.t(),
+        "statusReason" => [String.t() | Atom.t()],
+        "hostname" => [String.t() | Atom.t()],
         "memorySizeInGBs" => [integer()],
         "dbNodeStorageSizeInGBs" => [integer()],
         "licenseModel" => list(any()),
         "maxAcdsLowestScaledValue" => [integer()],
-        "domain" => [String.t()],
+        "domain" => [String.t() | Atom.t()],
         "availableContainerDatabases" => [integer()],
         "scanListenerPortNonTls" => [integer()],
         "memoryPerOracleComputeUnitInGBs" => [integer()],
         "maintenanceWindow" => maintenance_window(),
         "totalContainerDatabases" => [integer()],
         "cpuCoreCount" => [integer()],
-        "description" => [String.t()],
+        "description" => [String.t() | Atom.t()],
         "isMtlsEnabledVmCluster" => [boolean()],
         "dataStorageSizeInGBs" => [float()],
         "dataStorageSizeInTBs" => [float()],
         "provisionedCpus" => [float()],
-        "cloudAutonomousVmClusterArn" => [String.t()],
-        "ocid" => [String.t()],
-        "dbServers" => list([String.t()]()),
+        "cloudAutonomousVmClusterArn" => [String.t() | Atom.t()],
+        "ocid" => [String.t() | Atom.t()],
+        "dbServers" => list([String.t() | Atom.t()]()),
         "createdAt" => [non_neg_integer()],
         "availableCpus" => [float()],
         "autonomousDataStorageSizeInTBs" => [float()],
         "timeOrdsCertificateExpires" => [non_neg_integer()],
-        "cloudExadataInfrastructureId" => String.t(),
+        "cloudExadataInfrastructureId" => String.t() | Atom.t(),
         "scanListenerPortTls" => [integer()],
         "percentProgress" => [float()],
         "reservedCpus" => [float()],
         "availableAutonomousDataStorageSizeInTBs" => [float()],
-        "timeZone" => [String.t()],
+        "timeZone" => [String.t() | Atom.t()],
         "nonProvisionableAutonomousContainerDatabases" => [integer()],
         "timeDatabaseSslCertificateExpires" => [non_neg_integer()],
         "provisionedAutonomousContainerDatabases" => [integer()],
         "status" => list(any()),
-        "ociUrl" => [String.t()],
-        "ociResourceAnchorName" => [String.t()],
+        "ociUrl" => [String.t() | Atom.t()],
+        "ociResourceAnchorName" => [String.t() | Atom.t()],
         "nodeCount" => [integer()],
         "exadataStorageInTBsLowestScaledValue" => [float()],
         "computeModel" => list(any()),
-        "cloudAutonomousVmClusterId" => String.t(),
+        "cloudAutonomousVmClusterId" => String.t() | Atom.t(),
         "cpuCoreCountPerNode" => [integer()],
         "provisionableAutonomousContainerDatabases" => [integer()],
-        "odbNetworkId" => String.t(),
+        "odbNetworkId" => String.t() | Atom.t(),
         "cpuPercentage" => [float()]
       }
       
   """
-  @type cloud_autonomous_vm_cluster_summary() :: %{String.t() => any()}
+  @type cloud_autonomous_vm_cluster_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_cloud_autonomous_vm_cluster_input() :: %{
-        optional("clientToken") => String.t(),
-        optional("dbServers") => list([String.t()]()),
-        optional("description") => [String.t()],
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("dbServers") => list([String.t() | Atom.t()]()),
+        optional("description") => [String.t() | Atom.t()],
         optional("isMtlsEnabledVmCluster") => [boolean()],
         optional("licenseModel") => list(any()),
         optional("maintenanceWindow") => maintenance_window(),
         optional("scanListenerPortNonTls") => [integer()],
         optional("scanListenerPortTls") => [integer()],
         optional("tags") => map(),
-        optional("timeZone") => [String.t()],
+        optional("timeZone") => [String.t() | Atom.t()],
         required("autonomousDataStorageSizeInTBs") => [float()],
-        required("cloudExadataInfrastructureId") => String.t(),
+        required("cloudExadataInfrastructureId") => String.t() | Atom.t(),
         required("cpuCoreCountPerNode") => [integer()],
-        required("displayName") => String.t(),
+        required("displayName") => String.t() | Atom.t(),
         required("memoryPerOracleComputeUnitInGBs") => [integer()],
-        required("odbNetworkId") => String.t(),
+        required("odbNetworkId") => String.t() | Atom.t(),
         required("totalContainerDatabases") => [integer()]
       }
       
   """
-  @type create_cloud_autonomous_vm_cluster_input() :: %{String.t() => any()}
+  @type create_cloud_autonomous_vm_cluster_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reboot_db_node_output() :: %{
-        "dbNodeId" => [String.t()],
+        "dbNodeId" => [String.t() | Atom.t()],
         "status" => list(any()),
-        "statusReason" => [String.t()]
+        "statusReason" => [String.t() | Atom.t()]
       }
       
   """
-  @type reboot_db_node_output() :: %{String.t() => any()}
+  @type reboot_db_node_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_system_versions_output() :: %{
-        "nextToken" => [String.t()],
+        "nextToken" => [String.t() | Atom.t()],
         "systemVersions" => list(system_version_summary())
       }
       
   """
-  @type list_system_versions_output() :: %{String.t() => any()}
+  @type list_system_versions_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       zero_etl_access() :: %{
-        "cidr" => [String.t()],
+        "cidr" => [String.t() | Atom.t()],
         "status" => list(any())
       }
       
   """
-  @type zero_etl_access() :: %{String.t() => any()}
+  @type zero_etl_access() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -507,57 +507,57 @@ defmodule AWS.Odb do
       
       list_gi_versions_input() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()],
-        optional("shape") => [String.t()]
+        optional("nextToken") => [String.t() | Atom.t()],
+        optional("shape") => [String.t() | Atom.t()]
       }
       
   """
-  @type list_gi_versions_input() :: %{String.t() => any()}
+  @type list_gi_versions_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_cloud_vm_cluster_input() :: %{
-        optional("clientToken") => String.t(),
-        optional("clusterName") => [String.t()],
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("clusterName") => [String.t() | Atom.t()],
         optional("dataCollectionOptions") => data_collection_options(),
         optional("dataStorageSizeInTBs") => [float()],
         optional("dbNodeStorageSizeInGBs") => [integer()],
-        optional("dbServers") => list([String.t()]()),
+        optional("dbServers") => list([String.t() | Atom.t()]()),
         optional("isLocalBackupEnabled") => [boolean()],
         optional("isSparseDiskgroupEnabled") => [boolean()],
         optional("licenseModel") => list(any()),
         optional("memorySizeInGBs") => [integer()],
         optional("scanListenerPortTcp") => [integer()],
-        optional("systemVersion") => [String.t()],
+        optional("systemVersion") => [String.t() | Atom.t()],
         optional("tags") => map(),
-        optional("timeZone") => [String.t()],
-        required("cloudExadataInfrastructureId") => String.t(),
+        optional("timeZone") => [String.t() | Atom.t()],
+        required("cloudExadataInfrastructureId") => String.t() | Atom.t(),
         required("cpuCoreCount") => [integer()],
-        required("displayName") => String.t(),
-        required("giVersion") => [String.t()],
-        required("hostname") => [String.t()],
-        required("odbNetworkId") => String.t(),
-        required("sshPublicKeys") => list([String.t()]())
+        required("displayName") => String.t() | Atom.t(),
+        required("giVersion") => [String.t() | Atom.t()],
+        required("hostname") => [String.t() | Atom.t()],
+        required("odbNetworkId") => String.t() | Atom.t(),
+        required("sshPublicKeys") => list([String.t() | Atom.t()]())
       }
       
   """
-  @type create_cloud_vm_cluster_input() :: %{String.t() => any()}
+  @type create_cloud_vm_cluster_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_odb_peering_connection_output() :: %{
-        "displayName" => [String.t()],
-        "odbPeeringConnectionId" => [String.t()],
+        "displayName" => [String.t() | Atom.t()],
+        "odbPeeringConnectionId" => [String.t() | Atom.t()],
         "status" => list(any()),
-        "statusReason" => [String.t()]
+        "statusReason" => [String.t() | Atom.t()]
       }
       
   """
-  @type create_odb_peering_connection_output() :: %{String.t() => any()}
+  @type create_odb_peering_connection_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -565,25 +565,25 @@ defmodule AWS.Odb do
       
       list_db_nodes_input() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | Atom.t()]
       }
       
   """
-  @type list_db_nodes_input() :: %{String.t() => any()}
+  @type list_db_nodes_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_access() :: %{
-        "domainName" => [String.t()],
-        "ipv4Addresses" => list([String.t()]()),
-        "s3PolicyDocument" => [String.t()],
+        "domainName" => [String.t() | Atom.t()],
+        "ipv4Addresses" => list([String.t() | Atom.t()]()),
+        "s3PolicyDocument" => [String.t() | Atom.t()],
         "status" => list(any())
       }
       
   """
-  @type s3_access() :: %{String.t() => any()}
+  @type s3_access() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -591,19 +591,19 @@ defmodule AWS.Odb do
       
       odb_peering_connection() :: %{
         "createdAt" => [non_neg_integer()],
-        "displayName" => [String.t()],
-        "odbNetworkArn" => [String.t()],
-        "odbPeeringConnectionArn" => [String.t()],
-        "odbPeeringConnectionId" => String.t(),
-        "odbPeeringConnectionType" => [String.t()],
-        "peerNetworkArn" => [String.t()],
+        "displayName" => [String.t() | Atom.t()],
+        "odbNetworkArn" => [String.t() | Atom.t()],
+        "odbPeeringConnectionArn" => [String.t() | Atom.t()],
+        "odbPeeringConnectionId" => String.t() | Atom.t(),
+        "odbPeeringConnectionType" => [String.t() | Atom.t()],
+        "peerNetworkArn" => [String.t() | Atom.t()],
         "percentProgress" => [float()],
         "status" => list(any()),
-        "statusReason" => [String.t()]
+        "statusReason" => [String.t() | Atom.t()]
       }
       
   """
-  @type odb_peering_connection() :: %{String.t() => any()}
+  @type odb_peering_connection() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -611,11 +611,11 @@ defmodule AWS.Odb do
       
       list_autonomous_virtual_machines_input() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | Atom.t()]
       }
       
   """
-  @type list_autonomous_virtual_machines_input() :: %{String.t() => any()}
+  @type list_autonomous_virtual_machines_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -623,11 +623,11 @@ defmodule AWS.Odb do
       
       list_odb_networks_input() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | Atom.t()]
       }
       
   """
-  @type list_odb_networks_input() :: %{String.t() => any()}
+  @type list_odb_networks_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -636,49 +636,52 @@ defmodule AWS.Odb do
       db_server_patching_details() :: %{
         "estimatedPatchDuration" => [integer()],
         "patchingStatus" => list(any()),
-        "timePatchingEnded" => [String.t()],
-        "timePatchingStarted" => [String.t()]
+        "timePatchingEnded" => [String.t() | Atom.t()],
+        "timePatchingStarted" => [String.t() | Atom.t()]
       }
       
   """
-  @type db_server_patching_details() :: %{String.t() => any()}
+  @type db_server_patching_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_cloud_exadata_infrastructure_unallocated_resources_input() :: %{
-        optional("dbServers") => list([String.t()]())
+        optional("dbServers") => list([String.t() | Atom.t()]())
       }
       
   """
-  @type get_cloud_exadata_infrastructure_unallocated_resources_input() :: %{String.t() => any()}
+  @type get_cloud_exadata_infrastructure_unallocated_resources_input() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       list_odb_networks_output() :: %{
-        "nextToken" => [String.t()],
+        "nextToken" => [String.t() | Atom.t()],
         "odbNetworks" => list(odb_network_summary())
       }
       
   """
-  @type list_odb_networks_output() :: %{String.t() => any()}
+  @type list_odb_networks_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_cloud_autonomous_vm_cluster_output() :: %{
-        "cloudAutonomousVmClusterId" => [String.t()],
-        "displayName" => [String.t()],
+        "cloudAutonomousVmClusterId" => [String.t() | Atom.t()],
+        "displayName" => [String.t() | Atom.t()],
         "status" => list(any()),
-        "statusReason" => [String.t()]
+        "statusReason" => [String.t() | Atom.t()]
       }
       
   """
-  @type create_cloud_autonomous_vm_cluster_output() :: %{String.t() => any()}
+  @type create_cloud_autonomous_vm_cluster_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -695,26 +698,26 @@ defmodule AWS.Odb do
       
       exadata_iorm_config() :: %{
         "dbPlans" => list(db_iorm_config()),
-        "lifecycleDetails" => [String.t()],
+        "lifecycleDetails" => [String.t() | Atom.t()],
         "lifecycleState" => list(any()),
         "objective" => list(any())
       }
       
   """
-  @type exadata_iorm_config() :: %{String.t() => any()}
+  @type exadata_iorm_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_cloud_autonomous_vm_clusters_input() :: %{
-        optional("cloudExadataInfrastructureId") => String.t(),
+        optional("cloudExadataInfrastructureId") => String.t() | Atom.t(),
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | Atom.t()]
       }
       
   """
-  @type list_cloud_autonomous_vm_clusters_input() :: %{String.t() => any()}
+  @type list_cloud_autonomous_vm_clusters_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -730,26 +733,26 @@ defmodule AWS.Odb do
   ## Example:
       
       conflict_exception() :: %{
-        "message" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "resourceId" => [String.t() | Atom.t()],
+        "resourceType" => [String.t() | Atom.t()]
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "resourceId" => [String.t() | Atom.t()],
+        "resourceType" => [String.t() | Atom.t()]
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -765,48 +768,48 @@ defmodule AWS.Odb do
   ## Example:
       
       cloud_exadata_infrastructure_summary() :: %{
-        "shape" => [String.t()],
+        "shape" => [String.t() | Atom.t()],
         "availableStorageSizeInGBs" => [integer()],
         "activatedStorageCount" => [integer()],
-        "displayName" => [String.t()],
-        "statusReason" => [String.t()],
+        "displayName" => [String.t() | Atom.t()],
+        "statusReason" => [String.t() | Atom.t()],
         "memorySizeInGBs" => [integer()],
         "maxDbNodeStorageSizeInGBs" => [integer()],
         "dbNodeStorageSizeInGBs" => [integer()],
-        "cloudExadataInfrastructureArn" => [String.t()],
+        "cloudExadataInfrastructureArn" => [String.t() | Atom.t()],
         "maxMemoryInGBs" => [integer()],
-        "lastMaintenanceRunId" => [String.t()],
+        "lastMaintenanceRunId" => [String.t() | Atom.t()],
         "cpuCount" => [integer()],
         "maintenanceWindow" => maintenance_window(),
-        "nextMaintenanceRunId" => [String.t()],
+        "nextMaintenanceRunId" => [String.t() | Atom.t()],
         "dataStorageSizeInTBs" => [float()],
-        "monthlyStorageServerVersion" => [String.t()],
+        "monthlyStorageServerVersion" => [String.t() | Atom.t()],
         "totalStorageSizeInGBs" => [integer()],
         "customerContactsToSendToOCI" => list(customer_contact()),
-        "ocid" => [String.t()],
+        "ocid" => [String.t() | Atom.t()],
         "createdAt" => [non_neg_integer()],
-        "storageServerType" => [String.t()],
-        "cloudExadataInfrastructureId" => String.t(),
+        "storageServerType" => [String.t() | Atom.t()],
+        "cloudExadataInfrastructureId" => String.t() | Atom.t(),
         "percentProgress" => [float()],
-        "storageServerVersion" => [String.t()],
+        "storageServerVersion" => [String.t() | Atom.t()],
         "maxCpuCount" => [integer()],
         "storageCount" => [integer()],
         "additionalStorageCount" => [integer()],
         "maxDataStorageInTBs" => [float()],
-        "monthlyDbServerVersion" => [String.t()],
+        "monthlyDbServerVersion" => [String.t() | Atom.t()],
         "status" => list(any()),
-        "ociUrl" => [String.t()],
-        "ociResourceAnchorName" => [String.t()],
+        "ociUrl" => [String.t() | Atom.t()],
+        "ociResourceAnchorName" => [String.t() | Atom.t()],
         "computeModel" => list(any()),
-        "dbServerVersion" => [String.t()],
-        "availabilityZoneId" => [String.t()],
-        "databaseServerType" => [String.t()],
-        "availabilityZone" => [String.t()],
+        "dbServerVersion" => [String.t() | Atom.t()],
+        "availabilityZoneId" => [String.t() | Atom.t()],
+        "databaseServerType" => [String.t() | Atom.t()],
+        "availabilityZone" => [String.t() | Atom.t()],
         "computeCount" => [integer()]
       }
       
   """
-  @type cloud_exadata_infrastructure_summary() :: %{String.t() => any()}
+  @type cloud_exadata_infrastructure_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -814,19 +817,19 @@ defmodule AWS.Odb do
       
       odb_peering_connection_summary() :: %{
         "createdAt" => [non_neg_integer()],
-        "displayName" => [String.t()],
-        "odbNetworkArn" => [String.t()],
-        "odbPeeringConnectionArn" => [String.t()],
-        "odbPeeringConnectionId" => String.t(),
-        "odbPeeringConnectionType" => [String.t()],
-        "peerNetworkArn" => [String.t()],
+        "displayName" => [String.t() | Atom.t()],
+        "odbNetworkArn" => [String.t() | Atom.t()],
+        "odbPeeringConnectionArn" => [String.t() | Atom.t()],
+        "odbPeeringConnectionId" => String.t() | Atom.t(),
+        "odbPeeringConnectionType" => [String.t() | Atom.t()],
+        "peerNetworkArn" => [String.t() | Atom.t()],
         "percentProgress" => [float()],
         "status" => list(any()),
-        "statusReason" => [String.t()]
+        "statusReason" => [String.t() | Atom.t()]
       }
       
   """
-  @type odb_peering_connection_summary() :: %{String.t() => any()}
+  @type odb_peering_connection_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -852,12 +855,12 @@ defmodule AWS.Odb do
       
       list_odb_peering_connections_input() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()],
-        optional("odbNetworkId") => String.t()
+        optional("nextToken") => [String.t() | Atom.t()],
+        optional("odbNetworkId") => String.t() | Atom.t()
       }
       
   """
-  @type list_odb_peering_connections_input() :: %{String.t() => any()}
+  @type list_odb_peering_connections_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -884,14 +887,14 @@ defmodule AWS.Odb do
         "minStorageCount" => [integer()],
         "minimumCoreCount" => [integer()],
         "minimumNodeCount" => [integer()],
-        "name" => [String.t()],
+        "name" => [String.t() | Atom.t()],
         "runtimeMinimumCoreCount" => [integer()],
-        "shapeFamily" => [String.t()],
+        "shapeFamily" => [String.t() | Atom.t()],
         "shapeType" => list(any())
       }
       
   """
-  @type db_system_shape_summary() :: %{String.t() => any()}
+  @type db_system_shape_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -902,34 +905,34 @@ defmodule AWS.Odb do
       }
       
   """
-  @type get_db_node_output() :: %{String.t() => any()}
+  @type get_db_node_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t()],
-        "quotaCode" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "quotaCode" => [String.t() | Atom.t()],
+        "resourceId" => [String.t() | Atom.t()],
+        "resourceType" => [String.t() | Atom.t()]
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_cloud_vm_clusters_input() :: %{
-        optional("cloudExadataInfrastructureId") => String.t(),
+        optional("cloudExadataInfrastructureId") => String.t() | Atom.t(),
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | Atom.t()]
       }
       
   """
-  @type list_cloud_vm_clusters_input() :: %{String.t() => any()}
+  @type list_cloud_vm_clusters_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -937,11 +940,11 @@ defmodule AWS.Odb do
       
       list_cloud_vm_clusters_output() :: %{
         "cloudVmClusters" => list(cloud_vm_cluster_summary()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | Atom.t()]
       }
       
   """
-  @type list_cloud_vm_clusters_output() :: %{String.t() => any()}
+  @type list_cloud_vm_clusters_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -954,21 +957,21 @@ defmodule AWS.Odb do
       }
       
   """
-  @type data_collection_options() :: %{String.t() => any()}
+  @type data_collection_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_cloud_exadata_infrastructure_output() :: %{
-        "cloudExadataInfrastructureId" => [String.t()],
-        "displayName" => [String.t()],
+        "cloudExadataInfrastructureId" => [String.t() | Atom.t()],
+        "displayName" => [String.t() | Atom.t()],
         "status" => list(any()),
-        "statusReason" => [String.t()]
+        "statusReason" => [String.t() | Atom.t()]
       }
       
   """
-  @type update_cloud_exadata_infrastructure_output() :: %{String.t() => any()}
+  @type update_cloud_exadata_infrastructure_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -997,7 +1000,10 @@ defmodule AWS.Odb do
       }
       
   """
-  @type get_cloud_exadata_infrastructure_unallocated_resources_output() :: %{String.t() => any()}
+  @type get_cloud_exadata_infrastructure_unallocated_resources_output() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1017,7 +1023,7 @@ defmodule AWS.Odb do
       }
       
   """
-  @type get_cloud_vm_cluster_output() :: %{String.t() => any()}
+  @type get_cloud_vm_cluster_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1042,14 +1048,14 @@ defmodule AWS.Odb do
   ## Example:
       
       update_odb_network_output() :: %{
-        "displayName" => [String.t()],
-        "odbNetworkId" => [String.t()],
+        "displayName" => [String.t() | Atom.t()],
+        "odbNetworkId" => [String.t() | Atom.t()],
         "status" => list(any()),
-        "statusReason" => [String.t()]
+        "statusReason" => [String.t() | Atom.t()]
       }
       
   """
-  @type update_odb_network_output() :: %{String.t() => any()}
+  @type update_odb_network_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1060,54 +1066,54 @@ defmodule AWS.Odb do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       odb_network() :: %{
-        "availabilityZone" => [String.t()],
-        "availabilityZoneId" => [String.t()],
-        "backupSubnetCidr" => [String.t()],
-        "clientSubnetCidr" => [String.t()],
+        "availabilityZone" => [String.t() | Atom.t()],
+        "availabilityZoneId" => [String.t() | Atom.t()],
+        "backupSubnetCidr" => [String.t() | Atom.t()],
+        "clientSubnetCidr" => [String.t() | Atom.t()],
         "createdAt" => [non_neg_integer()],
-        "customDomainName" => [String.t()],
-        "defaultDnsPrefix" => [String.t()],
-        "displayName" => [String.t()],
+        "customDomainName" => [String.t() | Atom.t()],
+        "defaultDnsPrefix" => [String.t() | Atom.t()],
+        "displayName" => [String.t() | Atom.t()],
         "managedServices" => managed_services(),
         "ociDnsForwardingConfigs" => list(oci_dns_forwarding_config()),
-        "ociNetworkAnchorId" => [String.t()],
-        "ociNetworkAnchorUrl" => [String.t()],
-        "ociResourceAnchorName" => [String.t()],
-        "ociVcnId" => [String.t()],
-        "ociVcnUrl" => [String.t()],
-        "odbNetworkArn" => [String.t()],
-        "odbNetworkId" => String.t(),
-        "peeredCidrs" => list([String.t()]()),
+        "ociNetworkAnchorId" => [String.t() | Atom.t()],
+        "ociNetworkAnchorUrl" => [String.t() | Atom.t()],
+        "ociResourceAnchorName" => [String.t() | Atom.t()],
+        "ociVcnId" => [String.t() | Atom.t()],
+        "ociVcnUrl" => [String.t() | Atom.t()],
+        "odbNetworkArn" => [String.t() | Atom.t()],
+        "odbNetworkId" => String.t() | Atom.t(),
+        "peeredCidrs" => list([String.t() | Atom.t()]()),
         "percentProgress" => [float()],
         "status" => list(any()),
-        "statusReason" => [String.t()]
+        "statusReason" => [String.t() | Atom.t()]
       }
       
   """
-  @type odb_network() :: %{String.t() => any()}
+  @type odb_network() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_odb_network_input() :: %{
-        optional("displayName") => String.t(),
-        optional("peeredCidrsToBeAdded") => list([String.t()]()),
-        optional("peeredCidrsToBeRemoved") => list([String.t()]()),
+        optional("displayName") => String.t() | Atom.t(),
+        optional("peeredCidrsToBeAdded") => list([String.t() | Atom.t()]()),
+        optional("peeredCidrsToBeRemoved") => list([String.t() | Atom.t()]()),
         optional("s3Access") => list(any()),
-        optional("s3PolicyDocument") => String.t(),
+        optional("s3PolicyDocument") => String.t() | Atom.t(),
         optional("zeroEtlAccess") => list(any())
       }
       
   """
-  @type update_odb_network_input() :: %{String.t() => any()}
+  @type update_odb_network_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1123,12 +1129,12 @@ defmodule AWS.Odb do
   ## Example:
       
       validation_exception_field() :: %{
-        "message" => [String.t()],
-        "name" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "name" => [String.t() | Atom.t()]
       }
       
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1139,103 +1145,103 @@ defmodule AWS.Odb do
       }
       
   """
-  @type day_of_week() :: %{String.t() => any()}
+  @type day_of_week() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       odb_network_summary() :: %{
-        "availabilityZone" => [String.t()],
-        "availabilityZoneId" => [String.t()],
-        "backupSubnetCidr" => [String.t()],
-        "clientSubnetCidr" => [String.t()],
+        "availabilityZone" => [String.t() | Atom.t()],
+        "availabilityZoneId" => [String.t() | Atom.t()],
+        "backupSubnetCidr" => [String.t() | Atom.t()],
+        "clientSubnetCidr" => [String.t() | Atom.t()],
         "createdAt" => [non_neg_integer()],
-        "customDomainName" => [String.t()],
-        "defaultDnsPrefix" => [String.t()],
-        "displayName" => [String.t()],
+        "customDomainName" => [String.t() | Atom.t()],
+        "defaultDnsPrefix" => [String.t() | Atom.t()],
+        "displayName" => [String.t() | Atom.t()],
         "managedServices" => managed_services(),
         "ociDnsForwardingConfigs" => list(oci_dns_forwarding_config()),
-        "ociNetworkAnchorId" => [String.t()],
-        "ociNetworkAnchorUrl" => [String.t()],
-        "ociResourceAnchorName" => [String.t()],
-        "ociVcnId" => [String.t()],
-        "ociVcnUrl" => [String.t()],
-        "odbNetworkArn" => [String.t()],
-        "odbNetworkId" => String.t(),
-        "peeredCidrs" => list([String.t()]()),
+        "ociNetworkAnchorId" => [String.t() | Atom.t()],
+        "ociNetworkAnchorUrl" => [String.t() | Atom.t()],
+        "ociResourceAnchorName" => [String.t() | Atom.t()],
+        "ociVcnId" => [String.t() | Atom.t()],
+        "ociVcnUrl" => [String.t() | Atom.t()],
+        "odbNetworkArn" => [String.t() | Atom.t()],
+        "odbNetworkId" => String.t() | Atom.t(),
+        "peeredCidrs" => list([String.t() | Atom.t()]()),
         "percentProgress" => [float()],
         "status" => list(any()),
-        "statusReason" => [String.t()]
+        "statusReason" => [String.t() | Atom.t()]
       }
       
   """
-  @type odb_network_summary() :: %{String.t() => any()}
+  @type odb_network_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_server_summary() :: %{
-        "autonomousVirtualMachineIds" => list([String.t()]()),
-        "autonomousVmClusterIds" => list([String.t()]()),
+        "autonomousVirtualMachineIds" => list([String.t() | Atom.t()]()),
+        "autonomousVmClusterIds" => list([String.t() | Atom.t()]()),
         "computeModel" => list(any()),
         "cpuCoreCount" => [integer()],
         "createdAt" => [non_neg_integer()],
         "dbNodeStorageSizeInGBs" => [integer()],
-        "dbServerId" => String.t(),
+        "dbServerId" => String.t() | Atom.t(),
         "dbServerPatchingDetails" => db_server_patching_details(),
-        "displayName" => [String.t()],
-        "exadataInfrastructureId" => [String.t()],
+        "displayName" => [String.t() | Atom.t()],
+        "exadataInfrastructureId" => [String.t() | Atom.t()],
         "maxCpuCount" => [integer()],
         "maxDbNodeStorageInGBs" => [integer()],
         "maxMemoryInGBs" => [integer()],
         "memorySizeInGBs" => [integer()],
-        "ociResourceAnchorName" => [String.t()],
-        "ocid" => [String.t()],
-        "shape" => [String.t()],
+        "ociResourceAnchorName" => [String.t() | Atom.t()],
+        "ocid" => [String.t() | Atom.t()],
+        "shape" => [String.t() | Atom.t()],
         "status" => list(any()),
-        "statusReason" => [String.t()],
-        "vmClusterIds" => list([String.t()]())
+        "statusReason" => [String.t() | Atom.t()],
+        "vmClusterIds" => list([String.t() | Atom.t()]())
       }
       
   """
-  @type db_server_summary() :: %{String.t() => any()}
+  @type db_server_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_db_node_output() :: %{
-        "dbNodeId" => [String.t()],
+        "dbNodeId" => [String.t() | Atom.t()],
         "status" => list(any()),
-        "statusReason" => [String.t()]
+        "statusReason" => [String.t() | Atom.t()]
       }
       
   """
-  @type stop_db_node_output() :: %{String.t() => any()}
+  @type stop_db_node_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_cloud_exadata_infrastructure_input() :: %{
-        optional("availabilityZone") => [String.t()],
-        optional("availabilityZoneId") => [String.t()],
-        optional("clientToken") => String.t(),
+        optional("availabilityZone") => [String.t() | Atom.t()],
+        optional("availabilityZoneId") => [String.t() | Atom.t()],
+        optional("clientToken") => String.t() | Atom.t(),
         optional("customerContactsToSendToOCI") => list(customer_contact()),
-        optional("databaseServerType") => String.t(),
+        optional("databaseServerType") => String.t() | Atom.t(),
         optional("maintenanceWindow") => maintenance_window(),
-        optional("storageServerType") => String.t(),
+        optional("storageServerType") => String.t() | Atom.t(),
         optional("tags") => map(),
         required("computeCount") => [integer()],
-        required("displayName") => String.t(),
-        required("shape") => String.t(),
+        required("displayName") => String.t() | Atom.t(),
+        required("shape") => String.t() | Atom.t(),
         required("storageCount") => [integer()]
       }
       
   """
-  @type create_cloud_exadata_infrastructure_input() :: %{String.t() => any()}
+  @type create_cloud_exadata_infrastructure_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1243,11 +1249,11 @@ defmodule AWS.Odb do
       
       list_db_servers_input() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | Atom.t()]
       }
       
   """
-  @type list_db_servers_input() :: %{String.t() => any()}
+  @type list_db_servers_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1263,35 +1269,35 @@ defmodule AWS.Odb do
   ## Example:
       
       internal_server_exception() :: %{
-        "message" => [String.t()],
+        "message" => [String.t() | Atom.t()],
         "retryAfterSeconds" => [integer()]
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_odb_peering_connections_output() :: %{
-        "nextToken" => [String.t()],
+        "nextToken" => [String.t() | Atom.t()],
         "odbPeeringConnections" => list(odb_peering_connection_summary())
       }
       
   """
-  @type list_odb_peering_connections_output() :: %{String.t() => any()}
+  @type list_odb_peering_connections_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       customer_contact() :: %{
-        "email" => String.t()
+        "email" => String.t() | Atom.t()
       }
       
   """
-  @type customer_contact() :: %{String.t() => any()}
+  @type customer_contact() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1311,55 +1317,55 @@ defmodule AWS.Odb do
       }
       
   """
-  @type delete_odb_network_input() :: %{String.t() => any()}
+  @type delete_odb_network_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       autonomous_virtual_machine_summary() :: %{
-        "autonomousVirtualMachineId" => String.t(),
-        "clientIpAddress" => [String.t()],
-        "cloudAutonomousVmClusterId" => [String.t()],
+        "autonomousVirtualMachineId" => String.t() | Atom.t(),
+        "clientIpAddress" => [String.t() | Atom.t()],
+        "cloudAutonomousVmClusterId" => [String.t() | Atom.t()],
         "cpuCoreCount" => [integer()],
         "dbNodeStorageSizeInGBs" => [integer()],
-        "dbServerDisplayName" => [String.t()],
-        "dbServerId" => String.t(),
+        "dbServerDisplayName" => [String.t() | Atom.t()],
+        "dbServerId" => String.t() | Atom.t(),
         "memorySizeInGBs" => [integer()],
-        "ociResourceAnchorName" => [String.t()],
-        "ocid" => [String.t()],
+        "ociResourceAnchorName" => [String.t() | Atom.t()],
+        "ocid" => [String.t() | Atom.t()],
         "status" => list(any()),
-        "statusReason" => [String.t()],
-        "vmName" => [String.t()]
+        "statusReason" => [String.t() | Atom.t()],
+        "vmName" => [String.t() | Atom.t()]
       }
       
   """
-  @type autonomous_virtual_machine_summary() :: %{String.t() => any()}
+  @type autonomous_virtual_machine_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_cloud_exadata_infrastructure_output() :: %{
-        "cloudExadataInfrastructureId" => [String.t()],
-        "displayName" => [String.t()],
+        "cloudExadataInfrastructureId" => [String.t() | Atom.t()],
+        "displayName" => [String.t() | Atom.t()],
         "status" => list(any()),
-        "statusReason" => [String.t()]
+        "statusReason" => [String.t() | Atom.t()]
       }
       
   """
-  @type create_cloud_exadata_infrastructure_output() :: %{String.t() => any()}
+  @type create_cloud_exadata_infrastructure_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1367,36 +1373,36 @@ defmodule AWS.Odb do
       
       list_cloud_exadata_infrastructures_output() :: %{
         "cloudExadataInfrastructures" => list(cloud_exadata_infrastructure_summary()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | Atom.t()]
       }
       
   """
-  @type list_cloud_exadata_infrastructures_output() :: %{String.t() => any()}
+  @type list_cloud_exadata_infrastructures_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       system_version_summary() :: %{
-        "giVersion" => [String.t()],
-        "shape" => [String.t()],
-        "systemVersions" => list([String.t()]())
+        "giVersion" => [String.t() | Atom.t()],
+        "shape" => [String.t() | Atom.t()],
+        "systemVersions" => list([String.t() | Atom.t()]())
       }
       
   """
-  @type system_version_summary() :: %{String.t() => any()}
+  @type system_version_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       managed_s3_backup_access() :: %{
-        "ipv4Addresses" => list([String.t()]()),
+        "ipv4Addresses" => list([String.t() | Atom.t()]()),
         "status" => list(any())
       }
       
   """
-  @type managed_s3_backup_access() :: %{String.t() => any()}
+  @type managed_s3_backup_access() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1412,38 +1418,38 @@ defmodule AWS.Odb do
   ## Example:
       
       db_node() :: %{
-        "additionalDetails" => [String.t()],
-        "backupIpId" => [String.t()],
-        "backupVnic2Id" => [String.t()],
-        "backupVnicId" => [String.t()],
+        "additionalDetails" => [String.t() | Atom.t()],
+        "backupIpId" => [String.t() | Atom.t()],
+        "backupVnic2Id" => [String.t() | Atom.t()],
+        "backupVnicId" => [String.t() | Atom.t()],
         "cpuCoreCount" => [integer()],
         "createdAt" => [non_neg_integer()],
-        "dbNodeArn" => String.t(),
-        "dbNodeId" => String.t(),
+        "dbNodeArn" => String.t() | Atom.t(),
+        "dbNodeId" => String.t() | Atom.t(),
         "dbNodeStorageSizeInGBs" => [integer()],
-        "dbServerId" => String.t(),
-        "dbSystemId" => [String.t()],
-        "faultDomain" => [String.t()],
-        "floatingIpAddress" => [String.t()],
-        "hostIpId" => [String.t()],
-        "hostname" => [String.t()],
+        "dbServerId" => String.t() | Atom.t(),
+        "dbSystemId" => [String.t() | Atom.t()],
+        "faultDomain" => [String.t() | Atom.t()],
+        "floatingIpAddress" => [String.t() | Atom.t()],
+        "hostIpId" => [String.t() | Atom.t()],
+        "hostname" => [String.t() | Atom.t()],
         "maintenanceType" => list(any()),
         "memorySizeInGBs" => [integer()],
-        "ociResourceAnchorName" => [String.t()],
-        "ocid" => [String.t()],
-        "privateIpAddress" => [String.t()],
+        "ociResourceAnchorName" => [String.t() | Atom.t()],
+        "ocid" => [String.t() | Atom.t()],
+        "privateIpAddress" => [String.t() | Atom.t()],
         "softwareStorageSizeInGB" => [integer()],
         "status" => list(any()),
-        "statusReason" => [String.t()],
-        "timeMaintenanceWindowEnd" => [String.t()],
-        "timeMaintenanceWindowStart" => [String.t()],
+        "statusReason" => [String.t() | Atom.t()],
+        "timeMaintenanceWindowEnd" => [String.t() | Atom.t()],
+        "timeMaintenanceWindowStart" => [String.t() | Atom.t()],
         "totalCpuCoreCount" => [integer()],
-        "vnic2Id" => [String.t()],
-        "vnicId" => [String.t()]
+        "vnic2Id" => [String.t() | Atom.t()],
+        "vnicId" => [String.t() | Atom.t()]
       }
       
   """
-  @type db_node() :: %{String.t() => any()}
+  @type db_node() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1451,23 +1457,23 @@ defmodule AWS.Odb do
       
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
-        "message" => [String.t()],
+        "message" => [String.t() | Atom.t()],
         "reason" => list(any())
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("resourceArn") => String.t()
+        required("resourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1478,7 +1484,7 @@ defmodule AWS.Odb do
       }
       
   """
-  @type month() :: %{String.t() => any()}
+  @type month() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1489,7 +1495,7 @@ defmodule AWS.Odb do
       }
       
   """
-  @type get_db_server_output() :: %{String.t() => any()}
+  @type get_db_server_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1505,12 +1511,12 @@ defmodule AWS.Odb do
   ## Example:
       
       throttling_exception() :: %{
-        "message" => [String.t()],
+        "message" => [String.t() | Atom.t()],
         "retryAfterSeconds" => [integer()]
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1518,110 +1524,110 @@ defmodule AWS.Odb do
       
       cloud_vm_cluster_summary() :: %{
         "iormConfigCache" => exadata_iorm_config(),
-        "shape" => [String.t()],
-        "displayName" => [String.t()],
+        "shape" => [String.t() | Atom.t()],
+        "displayName" => [String.t() | Atom.t()],
         "isSparseDiskgroupEnabled" => [boolean()],
-        "statusReason" => [String.t()],
-        "hostname" => [String.t()],
+        "statusReason" => [String.t() | Atom.t()],
+        "hostname" => [String.t() | Atom.t()],
         "memorySizeInGBs" => [integer()],
         "dbNodeStorageSizeInGBs" => [integer()],
         "licenseModel" => list(any()),
-        "lastUpdateHistoryEntryId" => [String.t()],
-        "domain" => [String.t()],
-        "vipIds" => list([String.t()]()),
+        "lastUpdateHistoryEntryId" => [String.t() | Atom.t()],
+        "domain" => [String.t() | Atom.t()],
+        "vipIds" => list([String.t() | Atom.t()]()),
         "cpuCoreCount" => [integer()],
         "dataStorageSizeInTBs" => [float()],
         "isLocalBackupEnabled" => [boolean()],
-        "giVersion" => [String.t()],
-        "systemVersion" => [String.t()],
+        "giVersion" => [String.t() | Atom.t()],
+        "systemVersion" => [String.t() | Atom.t()],
         "diskRedundancy" => list(any()),
-        "ocid" => [String.t()],
-        "scanDnsName" => [String.t()],
-        "dbServers" => list([String.t()]()),
+        "ocid" => [String.t() | Atom.t()],
+        "scanDnsName" => [String.t() | Atom.t()],
+        "dbServers" => list([String.t() | Atom.t()]()),
         "createdAt" => [non_neg_integer()],
-        "clusterName" => [String.t()],
+        "clusterName" => [String.t() | Atom.t()],
         "listenerPort" => [integer()],
-        "cloudExadataInfrastructureId" => [String.t()],
-        "cloudVmClusterArn" => [String.t()],
+        "cloudExadataInfrastructureId" => [String.t() | Atom.t()],
+        "cloudVmClusterArn" => [String.t() | Atom.t()],
         "percentProgress" => [float()],
         "storageSizeInGBs" => [integer()],
-        "sshPublicKeys" => list(String.t()),
-        "timeZone" => [String.t()],
-        "scanDnsRecordId" => [String.t()],
-        "scanIpIds" => list([String.t()]()),
+        "sshPublicKeys" => list(String.t() | Atom.t()),
+        "timeZone" => [String.t() | Atom.t()],
+        "scanDnsRecordId" => [String.t() | Atom.t()],
+        "scanIpIds" => list([String.t() | Atom.t()]()),
         "status" => list(any()),
-        "ociUrl" => [String.t()],
-        "ociResourceAnchorName" => [String.t()],
+        "ociUrl" => [String.t() | Atom.t()],
+        "ociResourceAnchorName" => [String.t() | Atom.t()],
         "nodeCount" => [integer()],
         "computeModel" => list(any()),
-        "odbNetworkId" => String.t(),
+        "odbNetworkId" => String.t() | Atom.t(),
         "dataCollectionOptions" => data_collection_options(),
-        "cloudVmClusterId" => String.t()
+        "cloudVmClusterId" => String.t() | Atom.t()
       }
       
   """
-  @type cloud_vm_cluster_summary() :: %{String.t() => any()}
+  @type cloud_vm_cluster_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_iorm_config() :: %{
-        "dbName" => [String.t()],
-        "flashCacheLimit" => [String.t()],
+        "dbName" => [String.t() | Atom.t()],
+        "flashCacheLimit" => [String.t() | Atom.t()],
         "share" => [integer()]
       }
       
   """
-  @type db_iorm_config() :: %{String.t() => any()}
+  @type db_iorm_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cloud_exadata_infrastructure() :: %{
-        "shape" => [String.t()],
+        "shape" => [String.t() | Atom.t()],
         "availableStorageSizeInGBs" => [integer()],
         "activatedStorageCount" => [integer()],
-        "displayName" => [String.t()],
-        "statusReason" => [String.t()],
+        "displayName" => [String.t() | Atom.t()],
+        "statusReason" => [String.t() | Atom.t()],
         "memorySizeInGBs" => [integer()],
         "maxDbNodeStorageSizeInGBs" => [integer()],
         "dbNodeStorageSizeInGBs" => [integer()],
-        "cloudExadataInfrastructureArn" => [String.t()],
+        "cloudExadataInfrastructureArn" => [String.t() | Atom.t()],
         "maxMemoryInGBs" => [integer()],
-        "lastMaintenanceRunId" => [String.t()],
+        "lastMaintenanceRunId" => [String.t() | Atom.t()],
         "cpuCount" => [integer()],
         "maintenanceWindow" => maintenance_window(),
-        "nextMaintenanceRunId" => [String.t()],
+        "nextMaintenanceRunId" => [String.t() | Atom.t()],
         "dataStorageSizeInTBs" => [float()],
-        "monthlyStorageServerVersion" => [String.t()],
+        "monthlyStorageServerVersion" => [String.t() | Atom.t()],
         "totalStorageSizeInGBs" => [integer()],
         "customerContactsToSendToOCI" => list(customer_contact()),
-        "ocid" => [String.t()],
+        "ocid" => [String.t() | Atom.t()],
         "createdAt" => [non_neg_integer()],
-        "storageServerType" => [String.t()],
-        "cloudExadataInfrastructureId" => String.t(),
+        "storageServerType" => [String.t() | Atom.t()],
+        "cloudExadataInfrastructureId" => String.t() | Atom.t(),
         "percentProgress" => [float()],
-        "storageServerVersion" => [String.t()],
+        "storageServerVersion" => [String.t() | Atom.t()],
         "maxCpuCount" => [integer()],
         "storageCount" => [integer()],
         "additionalStorageCount" => [integer()],
         "maxDataStorageInTBs" => [float()],
-        "monthlyDbServerVersion" => [String.t()],
+        "monthlyDbServerVersion" => [String.t() | Atom.t()],
         "status" => list(any()),
-        "ociUrl" => [String.t()],
-        "ociResourceAnchorName" => [String.t()],
+        "ociUrl" => [String.t() | Atom.t()],
+        "ociResourceAnchorName" => [String.t() | Atom.t()],
         "computeModel" => list(any()),
-        "dbServerVersion" => [String.t()],
-        "availabilityZoneId" => [String.t()],
-        "databaseServerType" => [String.t()],
-        "availabilityZone" => [String.t()],
+        "dbServerVersion" => [String.t() | Atom.t()],
+        "availabilityZoneId" => [String.t() | Atom.t()],
+        "databaseServerType" => [String.t() | Atom.t()],
+        "availabilityZone" => [String.t() | Atom.t()],
         "computeCount" => [integer()]
       }
       
   """
-  @type cloud_exadata_infrastructure() :: %{String.t() => any()}
+  @type cloud_exadata_infrastructure() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1638,11 +1644,11 @@ defmodule AWS.Odb do
       
       list_autonomous_virtual_machines_output() :: %{
         "autonomousVirtualMachines" => list(autonomous_virtual_machine_summary()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | Atom.t()]
       }
       
   """
-  @type list_autonomous_virtual_machines_output() :: %{String.t() => any()}
+  @type list_autonomous_virtual_machines_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1650,11 +1656,11 @@ defmodule AWS.Odb do
       
       list_cloud_exadata_infrastructures_input() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | Atom.t()]
       }
       
   """
-  @type list_cloud_exadata_infrastructures_input() :: %{String.t() => any()}
+  @type list_cloud_exadata_infrastructures_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1662,11 +1668,11 @@ defmodule AWS.Odb do
       
       list_gi_versions_output() :: %{
         "giVersions" => list(gi_version_summary()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | Atom.t()]
       }
       
   """
-  @type list_gi_versions_output() :: %{String.t() => any()}
+  @type list_gi_versions_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1683,52 +1689,52 @@ defmodule AWS.Odb do
       
       list_db_system_shapes_output() :: %{
         "dbSystemShapes" => list(db_system_shape_summary()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | Atom.t()]
       }
       
   """
-  @type list_db_system_shapes_output() :: %{String.t() => any()}
+  @type list_db_system_shapes_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_server() :: %{
-        "autonomousVirtualMachineIds" => list([String.t()]()),
-        "autonomousVmClusterIds" => list([String.t()]()),
+        "autonomousVirtualMachineIds" => list([String.t() | Atom.t()]()),
+        "autonomousVmClusterIds" => list([String.t() | Atom.t()]()),
         "computeModel" => list(any()),
         "cpuCoreCount" => [integer()],
         "createdAt" => [non_neg_integer()],
         "dbNodeStorageSizeInGBs" => [integer()],
-        "dbServerId" => String.t(),
+        "dbServerId" => String.t() | Atom.t(),
         "dbServerPatchingDetails" => db_server_patching_details(),
-        "displayName" => [String.t()],
-        "exadataInfrastructureId" => [String.t()],
+        "displayName" => [String.t() | Atom.t()],
+        "exadataInfrastructureId" => [String.t() | Atom.t()],
         "maxCpuCount" => [integer()],
         "maxDbNodeStorageInGBs" => [integer()],
         "maxMemoryInGBs" => [integer()],
         "memorySizeInGBs" => [integer()],
-        "ociResourceAnchorName" => [String.t()],
-        "ocid" => [String.t()],
-        "shape" => [String.t()],
+        "ociResourceAnchorName" => [String.t() | Atom.t()],
+        "ocid" => [String.t() | Atom.t()],
+        "shape" => [String.t() | Atom.t()],
         "status" => list(any()),
-        "statusReason" => [String.t()],
-        "vmClusterIds" => list([String.t()]())
+        "statusReason" => [String.t() | Atom.t()],
+        "vmClusterIds" => list([String.t() | Atom.t()]())
       }
       
   """
-  @type db_server() :: %{String.t() => any()}
+  @type db_server() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       accept_marketplace_registration_input() :: %{
-        required("marketplaceRegistrationToken") => [String.t()]
+        required("marketplaceRegistrationToken") => [String.t() | Atom.t()]
       }
       
   """
-  @type accept_marketplace_registration_input() :: %{String.t() => any()}
+  @type accept_marketplace_registration_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1736,25 +1742,25 @@ defmodule AWS.Odb do
       
       list_cloud_autonomous_vm_clusters_output() :: %{
         "cloudAutonomousVmClusters" => list(cloud_autonomous_vm_cluster_summary()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | Atom.t()]
       }
       
   """
-  @type list_cloud_autonomous_vm_clusters_output() :: %{String.t() => any()}
+  @type list_cloud_autonomous_vm_clusters_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_cloud_vm_cluster_output() :: %{
-        "cloudVmClusterId" => [String.t()],
-        "displayName" => [String.t()],
+        "cloudVmClusterId" => [String.t() | Atom.t()],
+        "displayName" => [String.t() | Atom.t()],
         "status" => list(any()),
-        "statusReason" => [String.t()]
+        "statusReason" => [String.t() | Atom.t()]
       }
       
   """
-  @type create_cloud_vm_cluster_output() :: %{String.t() => any()}
+  @type create_cloud_vm_cluster_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1762,16 +1768,16 @@ defmodule AWS.Odb do
       
       managed_services() :: %{
         "managedS3BackupAccess" => managed_s3_backup_access(),
-        "managedServicesIpv4Cidrs" => list([String.t()]()),
-        "resourceGatewayArn" => String.t(),
+        "managedServicesIpv4Cidrs" => list([String.t() | Atom.t()]()),
+        "resourceGatewayArn" => String.t() | Atom.t(),
         "s3Access" => s3_access(),
-        "serviceNetworkArn" => String.t(),
+        "serviceNetworkArn" => String.t() | Atom.t(),
         "serviceNetworkEndpoint" => service_network_endpoint(),
         "zeroEtlAccess" => zero_etl_access()
       }
       
   """
-  @type managed_services() :: %{String.t() => any()}
+  @type managed_services() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1800,7 +1806,7 @@ defmodule AWS.Odb do
       }
       
   """
-  @type maintenance_window() :: %{String.t() => any()}
+  @type maintenance_window() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1808,8 +1814,8 @@ defmodule AWS.Odb do
       
       cloud_exadata_infrastructure_unallocated_resources() :: %{
         "cloudAutonomousVmClusters" => list(cloud_autonomous_vm_cluster_resource_details()),
-        "cloudExadataInfrastructureDisplayName" => [String.t()],
-        "cloudExadataInfrastructureId" => String.t(),
+        "cloudExadataInfrastructureDisplayName" => [String.t() | Atom.t()],
+        "cloudExadataInfrastructureId" => String.t() | Atom.t(),
         "exadataStorageInTBs" => [float()],
         "localStorageInGBs" => [integer()],
         "memoryInGBs" => [integer()],
@@ -1817,7 +1823,7 @@ defmodule AWS.Odb do
       }
       
   """
-  @type cloud_exadata_infrastructure_unallocated_resources() :: %{String.t() => any()}
+  @type cloud_exadata_infrastructure_unallocated_resources() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1828,7 +1834,7 @@ defmodule AWS.Odb do
       }
       
   """
-  @type get_odb_peering_connection_output() :: %{String.t() => any()}
+  @type get_odb_peering_connection_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1839,7 +1845,7 @@ defmodule AWS.Odb do
       }
       
   """
-  @type update_cloud_exadata_infrastructure_input() :: %{String.t() => any()}
+  @type update_cloud_exadata_infrastructure_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1855,74 +1861,74 @@ defmodule AWS.Odb do
   ## Example:
       
       cloud_autonomous_vm_cluster() :: %{
-        "shape" => [String.t()],
+        "shape" => [String.t() | Atom.t()],
         "autonomousDataStoragePercentage" => [float()],
         "reclaimableCpus" => [float()],
-        "displayName" => String.t(),
-        "statusReason" => [String.t()],
-        "hostname" => [String.t()],
+        "displayName" => String.t() | Atom.t(),
+        "statusReason" => [String.t() | Atom.t()],
+        "hostname" => [String.t() | Atom.t()],
         "memorySizeInGBs" => [integer()],
         "dbNodeStorageSizeInGBs" => [integer()],
         "licenseModel" => list(any()),
         "maxAcdsLowestScaledValue" => [integer()],
-        "domain" => [String.t()],
+        "domain" => [String.t() | Atom.t()],
         "availableContainerDatabases" => [integer()],
         "scanListenerPortNonTls" => [integer()],
         "memoryPerOracleComputeUnitInGBs" => [integer()],
         "maintenanceWindow" => maintenance_window(),
         "totalContainerDatabases" => [integer()],
         "cpuCoreCount" => [integer()],
-        "description" => [String.t()],
+        "description" => [String.t() | Atom.t()],
         "isMtlsEnabledVmCluster" => [boolean()],
         "dataStorageSizeInGBs" => [float()],
         "dataStorageSizeInTBs" => [float()],
         "provisionedCpus" => [float()],
-        "cloudAutonomousVmClusterArn" => [String.t()],
-        "ocid" => [String.t()],
-        "dbServers" => list([String.t()]()),
+        "cloudAutonomousVmClusterArn" => [String.t() | Atom.t()],
+        "ocid" => [String.t() | Atom.t()],
+        "dbServers" => list([String.t() | Atom.t()]()),
         "createdAt" => [non_neg_integer()],
         "availableCpus" => [float()],
         "autonomousDataStorageSizeInTBs" => [float()],
         "timeOrdsCertificateExpires" => [non_neg_integer()],
-        "cloudExadataInfrastructureId" => String.t(),
+        "cloudExadataInfrastructureId" => String.t() | Atom.t(),
         "scanListenerPortTls" => [integer()],
         "percentProgress" => [float()],
         "reservedCpus" => [float()],
         "availableAutonomousDataStorageSizeInTBs" => [float()],
-        "timeZone" => [String.t()],
+        "timeZone" => [String.t() | Atom.t()],
         "nonProvisionableAutonomousContainerDatabases" => [integer()],
         "timeDatabaseSslCertificateExpires" => [non_neg_integer()],
         "provisionedAutonomousContainerDatabases" => [integer()],
         "status" => list(any()),
-        "ociUrl" => [String.t()],
-        "ociResourceAnchorName" => [String.t()],
+        "ociUrl" => [String.t() | Atom.t()],
+        "ociResourceAnchorName" => [String.t() | Atom.t()],
         "nodeCount" => [integer()],
         "exadataStorageInTBsLowestScaledValue" => [float()],
         "computeModel" => list(any()),
-        "cloudAutonomousVmClusterId" => String.t(),
+        "cloudAutonomousVmClusterId" => String.t() | Atom.t(),
         "cpuCoreCountPerNode" => [integer()],
         "provisionableAutonomousContainerDatabases" => [integer()],
-        "odbNetworkId" => String.t(),
+        "odbNetworkId" => String.t() | Atom.t(),
         "cpuPercentage" => [float()]
       }
       
   """
-  @type cloud_autonomous_vm_cluster() :: %{String.t() => any()}
+  @type cloud_autonomous_vm_cluster() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_odb_peering_connection_input() :: %{
-        optional("clientToken") => String.t(),
-        optional("displayName") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("displayName") => String.t() | Atom.t(),
         optional("tags") => map(),
-        required("odbNetworkId") => String.t(),
-        required("peerNetworkId") => String.t()
+        required("odbNetworkId") => String.t() | Atom.t(),
+        required("peerNetworkId") => String.t() | Atom.t()
       }
       
   """
-  @type create_odb_peering_connection_input() :: %{String.t() => any()}
+  @type create_odb_peering_connection_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 

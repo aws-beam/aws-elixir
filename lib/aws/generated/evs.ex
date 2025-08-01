@@ -20,12 +20,12 @@ defmodule AWS.Evs do
   ## Example:
       
       tag_resource_request() :: %{
-        required("resourceArn") => String.t(),
+        required("resourceArn") => String.t() | Atom.t(),
         required("tags") => map()
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -38,7 +38,7 @@ defmodule AWS.Evs do
       }
       
   """
-  @type check() :: %{String.t() => any()}
+  @type check() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -46,11 +46,11 @@ defmodule AWS.Evs do
       
       list_environment_hosts_response() :: %{
         "environmentHosts" => list(host()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_environment_hosts_response() :: %{String.t() => any()}
+  @type list_environment_hosts_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -67,26 +67,26 @@ defmodule AWS.Evs do
       
       list_environment_vlans_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_environment_vlans_request() :: %{String.t() => any()}
+  @type list_environment_vlans_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       host_info_for_create() :: %{
-        "dedicatedHostId" => String.t(),
-        "hostName" => String.t(),
+        "dedicatedHostId" => String.t() | Atom.t(),
+        "hostName" => String.t() | Atom.t(),
         "instanceType" => list(any()),
-        "keyName" => String.t(),
-        "placementGroupId" => String.t()
+        "keyName" => String.t() | Atom.t(),
+        "placementGroupId" => String.t() | Atom.t()
       }
       
   """
-  @type host_info_for_create() :: %{String.t() => any()}
+  @type host_info_for_create() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -98,7 +98,7 @@ defmodule AWS.Evs do
       }
       
   """
-  @type delete_environment_host_response() :: %{String.t() => any()}
+  @type delete_environment_host_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -106,9 +106,9 @@ defmodule AWS.Evs do
       
       environment_summary() :: %{
         "createdAt" => [non_neg_integer()],
-        "environmentArn" => String.t(),
-        "environmentId" => String.t(),
-        "environmentName" => String.t(),
+        "environmentArn" => String.t() | Atom.t(),
+        "environmentId" => String.t() | Atom.t(),
+        "environmentName" => String.t() | Atom.t(),
         "environmentState" => list(any()),
         "environmentStatus" => list(any()),
         "modifiedAt" => [non_neg_integer()],
@@ -116,7 +116,7 @@ defmodule AWS.Evs do
       }
       
   """
-  @type environment_summary() :: %{String.t() => any()}
+  @type environment_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -132,24 +132,24 @@ defmodule AWS.Evs do
   ## Example:
       
       create_environment_host_request() :: %{
-        optional("clientToken") => String.t(),
-        required("environmentId") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        required("environmentId") => String.t() | Atom.t(),
         required("host") => host_info_for_create()
       }
       
   """
-  @type create_environment_host_request() :: %{String.t() => any()}
+  @type create_environment_host_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       network_interface() :: %{
-        "networkInterfaceId" => String.t()
+        "networkInterfaceId" => String.t() | Atom.t()
       }
       
   """
-  @type network_interface() :: %{String.t() => any()}
+  @type network_interface() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -169,29 +169,29 @@ defmodule AWS.Evs do
       }
       
   """
-  @type initial_vlans() :: %{String.t() => any()}
+  @type initial_vlans() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       initial_vlan_info() :: %{
-        "cidr" => String.t()
+        "cidr" => String.t() | Atom.t()
       }
       
   """
-  @type initial_vlan_info() :: %{String.t() => any()}
+  @type initial_vlan_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_policy_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
       
   """
-  @type tag_policy_exception() :: %{String.t() => any()}
+  @type tag_policy_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -202,54 +202,54 @@ defmodule AWS.Evs do
       }
       
   """
-  @type get_environment_response() :: %{String.t() => any()}
+  @type get_environment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("resourceArn") => String.t(),
-        required("tagKeys") => list(String.t())
+        required("resourceArn") => String.t() | Atom.t(),
+        required("tagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       service_access_security_groups() :: %{
-        "securityGroups" => list(String.t())
+        "securityGroups" => list(String.t() | Atom.t())
       }
       
   """
-  @type service_access_security_groups() :: %{String.t() => any()}
+  @type service_access_security_groups() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       connectivity_info() :: %{
-        "privateRouteServerPeerings" => list(String.t())
+        "privateRouteServerPeerings" => list(String.t() | Atom.t())
       }
       
   """
-  @type connectivity_info() :: %{String.t() => any()}
+  @type connectivity_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "resourceId" => [String.t() | Atom.t()],
+        "resourceType" => [String.t() | Atom.t()]
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -260,37 +260,37 @@ defmodule AWS.Evs do
         "connectivityInfo" => connectivity_info(),
         "createdAt" => [non_neg_integer()],
         "credentials" => list(secret()),
-        "environmentArn" => String.t(),
-        "environmentId" => String.t(),
-        "environmentName" => String.t(),
+        "environmentArn" => String.t() | Atom.t(),
+        "environmentId" => String.t() | Atom.t(),
+        "environmentName" => String.t() | Atom.t(),
         "environmentState" => list(any()),
         "environmentStatus" => list(any()),
-        "kmsKeyId" => [String.t()],
+        "kmsKeyId" => [String.t() | Atom.t()],
         "licenseInfo" => list(license_info()),
         "modifiedAt" => [non_neg_integer()],
         "serviceAccessSecurityGroups" => service_access_security_groups(),
-        "serviceAccessSubnetId" => String.t(),
-        "siteId" => [String.t()],
-        "stateDetails" => String.t(),
+        "serviceAccessSubnetId" => String.t() | Atom.t(),
+        "siteId" => [String.t() | Atom.t()],
+        "stateDetails" => String.t() | Atom.t(),
         "termsAccepted" => [boolean()],
         "vcfHostnames" => vcf_hostnames(),
         "vcfVersion" => list(any()),
-        "vpcId" => String.t()
+        "vpcId" => String.t() | Atom.t()
       }
       
   """
-  @type environment() :: %{String.t() => any()}
+  @type environment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       secret() :: %{
-        "secretArn" => [String.t()]
+        "secretArn" => [String.t() | Atom.t()]
       }
       
   """
-  @type secret() :: %{String.t() => any()}
+  @type secret() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -301,7 +301,7 @@ defmodule AWS.Evs do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -309,11 +309,11 @@ defmodule AWS.Evs do
       
       list_environment_vlans_response() :: %{
         "environmentVlans" => list(vlan()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_environment_vlans_response() :: %{String.t() => any()}
+  @type list_environment_vlans_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -321,55 +321,55 @@ defmodule AWS.Evs do
       
       list_environments_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("state") => list(list(any())())
       }
       
   """
-  @type list_environments_request() :: %{String.t() => any()}
+  @type list_environments_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception_field() :: %{
-        "message" => [String.t()],
-        "name" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "name" => [String.t() | Atom.t()]
       }
       
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       vcf_hostnames() :: %{
-        "cloudBuilder" => String.t(),
-        "nsx" => String.t(),
-        "nsxEdge1" => String.t(),
-        "nsxEdge2" => String.t(),
-        "nsxManager1" => String.t(),
-        "nsxManager2" => String.t(),
-        "nsxManager3" => String.t(),
-        "sddcManager" => String.t(),
-        "vCenter" => String.t()
+        "cloudBuilder" => String.t() | Atom.t(),
+        "nsx" => String.t() | Atom.t(),
+        "nsxEdge1" => String.t() | Atom.t(),
+        "nsxEdge2" => String.t() | Atom.t(),
+        "nsxManager1" => String.t() | Atom.t(),
+        "nsxManager2" => String.t() | Atom.t(),
+        "nsxManager3" => String.t() | Atom.t(),
+        "sddcManager" => String.t() | Atom.t(),
+        "vCenter" => String.t() | Atom.t()
       }
       
   """
-  @type vcf_hostnames() :: %{String.t() => any()}
+  @type vcf_hostnames() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       license_info() :: %{
-        "solutionKey" => String.t(),
-        "vsanKey" => String.t()
+        "solutionKey" => String.t() | Atom.t(),
+        "vsanKey" => String.t() | Atom.t()
       }
       
   """
-  @type license_info() :: %{String.t() => any()}
+  @type license_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -377,21 +377,21 @@ defmodule AWS.Evs do
       
       host() :: %{
         "createdAt" => [non_neg_integer()],
-        "dedicatedHostId" => String.t(),
-        "ec2InstanceId" => [String.t()],
-        "hostName" => String.t(),
+        "dedicatedHostId" => String.t() | Atom.t(),
+        "ec2InstanceId" => [String.t() | Atom.t()],
+        "hostName" => String.t() | Atom.t(),
         "hostState" => list(any()),
         "instanceType" => list(any()),
-        "ipAddress" => String.t(),
-        "keyName" => String.t(),
+        "ipAddress" => String.t() | Atom.t(),
+        "keyName" => String.t() | Atom.t(),
         "modifiedAt" => [non_neg_integer()],
         "networkInterfaces" => list(network_interface()),
-        "placementGroupId" => String.t(),
-        "stateDetails" => String.t()
+        "placementGroupId" => String.t() | Atom.t(),
+        "stateDetails" => String.t() | Atom.t()
       }
       
   """
-  @type host() :: %{String.t() => any()}
+  @type host() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -399,11 +399,11 @@ defmodule AWS.Evs do
       
       list_environment_hosts_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_environment_hosts_request() :: %{String.t() => any()}
+  @type list_environment_hosts_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -414,18 +414,18 @@ defmodule AWS.Evs do
       }
       
   """
-  @type create_environment_response() :: %{String.t() => any()}
+  @type create_environment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_environment_request() :: %{
-        optional("clientToken") => String.t()
+        optional("clientToken") => String.t() | Atom.t()
       }
       
   """
-  @type delete_environment_request() :: %{String.t() => any()}
+  @type delete_environment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -437,7 +437,7 @@ defmodule AWS.Evs do
       }
       
   """
-  @type create_environment_host_response() :: %{String.t() => any()}
+  @type create_environment_host_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -454,35 +454,35 @@ defmodule AWS.Evs do
       
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
-        "message" => [String.t()],
+        "message" => [String.t() | Atom.t()],
         "reason" => list(any())
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("resourceArn") => String.t()
+        required("resourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "message" => [String.t()],
+        "message" => [String.t() | Atom.t()],
         "retryAfterSeconds" => [integer()]
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -490,55 +490,55 @@ defmodule AWS.Evs do
       
       list_environments_response() :: %{
         "environmentSummaries" => list(environment_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_environments_response() :: %{String.t() => any()}
+  @type list_environments_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_environment_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("environmentName") => String.t(),
-        optional("kmsKeyId") => [String.t()],
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("environmentName") => String.t() | Atom.t(),
+        optional("kmsKeyId") => [String.t() | Atom.t()],
         optional("serviceAccessSecurityGroups") => service_access_security_groups(),
         optional("tags") => map(),
         required("connectivityInfo") => connectivity_info(),
         required("hosts") => list(host_info_for_create()),
         required("initialVlans") => initial_vlans(),
         required("licenseInfo") => list(license_info()),
-        required("serviceAccessSubnetId") => String.t(),
-        required("siteId") => [String.t()],
+        required("serviceAccessSubnetId") => String.t() | Atom.t(),
+        required("siteId") => [String.t() | Atom.t()],
         required("termsAccepted") => [boolean()],
         required("vcfHostnames") => vcf_hostnames(),
         required("vcfVersion") => list(any()),
-        required("vpcId") => String.t()
+        required("vpcId") => String.t() | Atom.t()
       }
       
   """
-  @type create_environment_request() :: %{String.t() => any()}
+  @type create_environment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       vlan() :: %{
-        "availabilityZone" => [String.t()],
-        "cidr" => String.t(),
+        "availabilityZone" => [String.t() | Atom.t()],
+        "cidr" => String.t() | Atom.t(),
         "createdAt" => [non_neg_integer()],
-        "functionName" => [String.t()],
+        "functionName" => [String.t() | Atom.t()],
         "modifiedAt" => [non_neg_integer()],
-        "stateDetails" => String.t(),
-        "subnetId" => String.t(),
+        "stateDetails" => String.t() | Atom.t(),
+        "subnetId" => String.t() | Atom.t(),
         "vlanId" => integer(),
         "vlanState" => list(any())
       }
       
   """
-  @type vlan() :: %{String.t() => any()}
+  @type vlan() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -549,31 +549,31 @@ defmodule AWS.Evs do
       }
       
   """
-  @type delete_environment_response() :: %{String.t() => any()}
+  @type delete_environment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_tags_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
       
   """
-  @type too_many_tags_exception() :: %{String.t() => any()}
+  @type too_many_tags_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_environment_host_request() :: %{
-        optional("clientToken") => String.t(),
-        required("environmentId") => String.t(),
-        required("hostName") => String.t()
+        optional("clientToken") => String.t() | Atom.t(),
+        required("environmentId") => String.t() | Atom.t(),
+        required("hostName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_environment_host_request() :: %{String.t() => any()}
+  @type delete_environment_host_request() :: %{String.t() | Atom.t() => any()}
 
   @type create_environment_errors() :: validation_exception()
 

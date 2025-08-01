@@ -46,30 +46,30 @@ defmodule AWS.QLDBSession do
       }
       
   """
-  @type abort_transaction_result() :: %{String.t() => any()}
+  @type abort_transaction_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       bad_request_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type bad_request_exception() :: %{String.t() => any()}
+  @type bad_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       capacity_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type capacity_exceeded_exception() :: %{String.t() => any()}
+  @type capacity_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -77,11 +77,11 @@ defmodule AWS.QLDBSession do
       
       commit_transaction_request() :: %{
         "CommitDigest" => binary(),
-        "TransactionId" => String.t()
+        "TransactionId" => String.t() | Atom.t()
       }
       
   """
-  @type commit_transaction_request() :: %{String.t() => any()}
+  @type commit_transaction_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -91,11 +91,11 @@ defmodule AWS.QLDBSession do
         "CommitDigest" => binary(),
         "ConsumedIOs" => i_o_usage(),
         "TimingInformation" => timing_information(),
-        "TransactionId" => String.t()
+        "TransactionId" => String.t() | Atom.t()
       }
       
   """
-  @type commit_transaction_result() :: %{String.t() => any()}
+  @type commit_transaction_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -115,7 +115,7 @@ defmodule AWS.QLDBSession do
       }
       
   """
-  @type end_session_result() :: %{String.t() => any()}
+  @type end_session_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -123,12 +123,12 @@ defmodule AWS.QLDBSession do
       
       execute_statement_request() :: %{
         "Parameters" => list(value_holder()),
-        "Statement" => String.t(),
-        "TransactionId" => String.t()
+        "Statement" => String.t() | Atom.t(),
+        "TransactionId" => String.t() | Atom.t()
       }
       
   """
-  @type execute_statement_request() :: %{String.t() => any()}
+  @type execute_statement_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -141,19 +141,19 @@ defmodule AWS.QLDBSession do
       }
       
   """
-  @type execute_statement_result() :: %{String.t() => any()}
+  @type execute_statement_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       fetch_page_request() :: %{
-        "NextPageToken" => String.t(),
-        "TransactionId" => String.t()
+        "NextPageToken" => String.t() | Atom.t(),
+        "TransactionId" => String.t() | Atom.t()
       }
       
   """
-  @type fetch_page_request() :: %{String.t() => any()}
+  @type fetch_page_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -166,7 +166,7 @@ defmodule AWS.QLDBSession do
       }
       
   """
-  @type fetch_page_result() :: %{String.t() => any()}
+  @type fetch_page_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -178,64 +178,64 @@ defmodule AWS.QLDBSession do
       }
       
   """
-  @type i_o_usage() :: %{String.t() => any()}
+  @type i_o_usage() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_session_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_session_exception() :: %{String.t() => any()}
+  @type invalid_session_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       occ_conflict_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type occ_conflict_exception() :: %{String.t() => any()}
+  @type occ_conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       page() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | Atom.t(),
         "Values" => list(value_holder())
       }
       
   """
-  @type page() :: %{String.t() => any()}
+  @type page() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       rate_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type rate_exceeded_exception() :: %{String.t() => any()}
+  @type rate_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -247,13 +247,13 @@ defmodule AWS.QLDBSession do
         optional("EndSession") => end_session_request(),
         optional("ExecuteStatement") => execute_statement_request(),
         optional("FetchPage") => fetch_page_request(),
-        optional("SessionToken") => String.t(),
+        optional("SessionToken") => String.t() | Atom.t(),
         optional("StartSession") => start_session_request(),
         optional("StartTransaction") => start_transaction_request()
       }
       
   """
-  @type send_command_request() :: %{String.t() => any()}
+  @type send_command_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -270,30 +270,30 @@ defmodule AWS.QLDBSession do
       }
       
   """
-  @type send_command_result() :: %{String.t() => any()}
+  @type send_command_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_session_request() :: %{
-        "LedgerName" => String.t()
+        "LedgerName" => String.t() | Atom.t()
       }
       
   """
-  @type start_session_request() :: %{String.t() => any()}
+  @type start_session_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_session_result() :: %{
-        "SessionToken" => String.t(),
+        "SessionToken" => String.t() | Atom.t(),
         "TimingInformation" => timing_information()
       }
       
   """
-  @type start_session_result() :: %{String.t() => any()}
+  @type start_session_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -310,11 +310,11 @@ defmodule AWS.QLDBSession do
       
       start_transaction_result() :: %{
         "TimingInformation" => timing_information(),
-        "TransactionId" => String.t()
+        "TransactionId" => String.t() | Atom.t()
       }
       
   """
-  @type start_transaction_result() :: %{String.t() => any()}
+  @type start_transaction_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -325,7 +325,7 @@ defmodule AWS.QLDBSession do
       }
       
   """
-  @type timing_information() :: %{String.t() => any()}
+  @type timing_information() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -333,11 +333,11 @@ defmodule AWS.QLDBSession do
       
       value_holder() :: %{
         "IonBinary" => binary(),
-        "IonText" => String.t()
+        "IonText" => String.t() | Atom.t()
       }
       
   """
-  @type value_holder() :: %{String.t() => any()}
+  @type value_holder() :: %{String.t() | Atom.t() => any()}
 
   @type send_command_errors() ::
           rate_exceeded_exception()

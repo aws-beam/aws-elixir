@@ -31,47 +31,47 @@ defmodule AWS.ElastiCache do
   ## Example:
       
       cache_parameter_group_name_message() :: %{
-        "CacheParameterGroupName" => String.t()
+        "CacheParameterGroupName" => String.t() | Atom.t()
       }
       
   """
-  @type cache_parameter_group_name_message() :: %{String.t() => any()}
+  @type cache_parameter_group_name_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_user_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_user_state_fault() :: %{String.t() => any()}
+  @type invalid_user_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_apply_update_action_message() :: %{
-        optional("CacheClusterIds") => list(String.t()),
-        optional("ReplicationGroupIds") => list(String.t()),
-        required("ServiceUpdateName") => String.t()
+        optional("CacheClusterIds") => list(String.t() | Atom.t()),
+        optional("ReplicationGroupIds") => list(String.t() | Atom.t()),
+        required("ServiceUpdateName") => String.t() | Atom.t()
       }
       
   """
-  @type batch_apply_update_action_message() :: %{String.t() => any()}
+  @type batch_apply_update_action_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_update_actions_message() :: %{
-        optional("CacheClusterIds") => list(String.t()),
-        optional("Engine") => String.t(),
-        optional("Marker") => String.t(),
+        optional("CacheClusterIds") => list(String.t() | Atom.t()),
+        optional("Engine") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("ReplicationGroupIds") => list(String.t()),
-        optional("ServiceUpdateName") => String.t(),
+        optional("ReplicationGroupIds") => list(String.t() | Atom.t()),
+        optional("ServiceUpdateName") => String.t() | Atom.t(),
         optional("ServiceUpdateStatus") => list(list(any())()),
         optional("ServiceUpdateTimeRange") => time_range_filter(),
         optional("ShowNodeLevelUpdateStatus") => boolean(),
@@ -79,33 +79,33 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type describe_update_actions_message() :: %{String.t() => any()}
+  @type describe_update_actions_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       unprocessed_update_action() :: %{
-        "CacheClusterId" => String.t(),
-        "ErrorMessage" => String.t(),
-        "ErrorType" => String.t(),
-        "ReplicationGroupId" => String.t(),
-        "ServiceUpdateName" => String.t()
+        "CacheClusterId" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | Atom.t(),
+        "ErrorType" => String.t() | Atom.t(),
+        "ReplicationGroupId" => String.t() | Atom.t(),
+        "ServiceUpdateName" => String.t() | Atom.t()
       }
       
   """
-  @type unprocessed_update_action() :: %{String.t() => any()}
+  @type unprocessed_update_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       node_quota_for_customer_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type node_quota_for_customer_exceeded_fault() :: %{String.t() => any()}
+  @type node_quota_for_customer_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -113,55 +113,55 @@ defmodule AWS.ElastiCache do
       
       reserved_cache_node() :: %{
         "CacheNodeCount" => integer(),
-        "CacheNodeType" => String.t(),
+        "CacheNodeType" => String.t() | Atom.t(),
         "Duration" => integer(),
         "FixedPrice" => float(),
-        "OfferingType" => String.t(),
-        "ProductDescription" => String.t(),
+        "OfferingType" => String.t() | Atom.t(),
+        "ProductDescription" => String.t() | Atom.t(),
         "RecurringCharges" => list(recurring_charge()),
-        "ReservationARN" => String.t(),
-        "ReservedCacheNodeId" => String.t(),
-        "ReservedCacheNodesOfferingId" => String.t(),
+        "ReservationARN" => String.t() | Atom.t(),
+        "ReservedCacheNodeId" => String.t() | Atom.t(),
+        "ReservedCacheNodesOfferingId" => String.t() | Atom.t(),
         "StartTime" => non_neg_integer(),
-        "State" => String.t(),
+        "State" => String.t() | Atom.t(),
         "UsagePrice" => float()
       }
       
   """
-  @type reserved_cache_node() :: %{String.t() => any()}
+  @type reserved_cache_node() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       snapshot_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type snapshot_quota_exceeded_fault() :: %{String.t() => any()}
+  @type snapshot_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       snapshot_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type snapshot_not_found_fault() :: %{String.t() => any()}
+  @type snapshot_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reserved_cache_nodes_offering_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type reserved_cache_nodes_offering_not_found_fault() :: %{String.t() => any()}
+  @type reserved_cache_nodes_offering_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -172,23 +172,23 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type disassociate_global_replication_group_result() :: %{String.t() => any()}
+  @type disassociate_global_replication_group_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_cache_engine_versions_message() :: %{
-        optional("CacheParameterGroupFamily") => String.t(),
+        optional("CacheParameterGroupFamily") => String.t() | Atom.t(),
         optional("DefaultOnly") => boolean(),
-        optional("Engine") => String.t(),
-        optional("EngineVersion") => String.t(),
-        optional("Marker") => String.t(),
+        optional("Engine") => String.t() | Atom.t(),
+        optional("EngineVersion") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_cache_engine_versions_message() :: %{String.t() => any()}
+  @type describe_cache_engine_versions_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -201,7 +201,7 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type data_storage() :: %{String.t() => any()}
+  @type data_storage() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -213,18 +213,18 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type e_c_p_u_per_second() :: %{String.t() => any()}
+  @type e_c_p_u_per_second() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cache_parameter_group_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cache_parameter_group_not_found_fault() :: %{String.t() => any()}
+  @type cache_parameter_group_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -232,11 +232,11 @@ defmodule AWS.ElastiCache do
       
       cache_security_group_message() :: %{
         "CacheSecurityGroups" => list(cache_security_group()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type cache_security_group_message() :: %{String.t() => any()}
+  @type cache_security_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -248,51 +248,51 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type cache_usage_limits() :: %{String.t() => any()}
+  @type cache_usage_limits() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_user_groups_message() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("UserGroupId") => String.t()
+        optional("UserGroupId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_user_groups_message() :: %{String.t() => any()}
+  @type describe_user_groups_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_user_groups_result() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "UserGroups" => list(user_group())
       }
       
   """
-  @type describe_user_groups_result() :: %{String.t() => any()}
+  @type describe_user_groups_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cache_node_type_specific_parameter() :: %{
-        "AllowedValues" => String.t(),
+        "AllowedValues" => String.t() | Atom.t(),
         "CacheNodeTypeSpecificValues" => list(cache_node_type_specific_value()),
         "ChangeType" => list(any()),
-        "DataType" => String.t(),
-        "Description" => String.t(),
+        "DataType" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
         "IsModifiable" => boolean(),
-        "MinimumEngineVersion" => String.t(),
-        "ParameterName" => String.t(),
-        "Source" => String.t()
+        "MinimumEngineVersion" => String.t() | Atom.t(),
+        "ParameterName" => String.t() | Atom.t(),
+        "Source" => String.t() | Atom.t()
       }
       
   """
-  @type cache_node_type_specific_parameter() :: %{String.t() => any()}
+  @type cache_node_type_specific_parameter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -300,38 +300,38 @@ defmodule AWS.ElastiCache do
       
       describe_global_replication_groups_result() :: %{
         "GlobalReplicationGroups" => list(global_replication_group()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type describe_global_replication_groups_result() :: %{String.t() => any()}
+  @type describe_global_replication_groups_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       serverless_cache() :: %{
-        "ARN" => String.t(),
+        "ARN" => String.t() | Atom.t(),
         "CacheUsageLimits" => cache_usage_limits(),
         "CreateTime" => non_neg_integer(),
-        "DailySnapshotTime" => String.t(),
-        "Description" => String.t(),
+        "DailySnapshotTime" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
         "Endpoint" => endpoint(),
-        "Engine" => String.t(),
-        "FullEngineVersion" => String.t(),
-        "KmsKeyId" => String.t(),
-        "MajorEngineVersion" => String.t(),
+        "Engine" => String.t() | Atom.t(),
+        "FullEngineVersion" => String.t() | Atom.t(),
+        "KmsKeyId" => String.t() | Atom.t(),
+        "MajorEngineVersion" => String.t() | Atom.t(),
         "ReaderEndpoint" => endpoint(),
-        "SecurityGroupIds" => list(String.t()),
-        "ServerlessCacheName" => String.t(),
+        "SecurityGroupIds" => list(String.t() | Atom.t()),
+        "ServerlessCacheName" => String.t() | Atom.t(),
         "SnapshotRetentionLimit" => integer(),
-        "Status" => String.t(),
-        "SubnetIds" => list(String.t()),
-        "UserGroupId" => String.t()
+        "Status" => String.t() | Atom.t(),
+        "SubnetIds" => list(String.t() | Atom.t()),
+        "UserGroupId" => String.t() | Atom.t()
       }
       
   """
-  @type serverless_cache() :: %{String.t() => any()}
+  @type serverless_cache() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -339,33 +339,33 @@ defmodule AWS.ElastiCache do
       
       cache_parameter_groups_message() :: %{
         "CacheParameterGroups" => list(cache_parameter_group()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type cache_parameter_groups_message() :: %{String.t() => any()}
+  @type cache_parameter_groups_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cache_subnet_group_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cache_subnet_group_quota_exceeded_fault() :: %{String.t() => any()}
+  @type cache_subnet_group_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       availability_zone() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
       
   """
-  @type availability_zone() :: %{String.t() => any()}
+  @type availability_zone() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -376,72 +376,75 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type modify_replication_group_result() :: %{String.t() => any()}
+  @type modify_replication_group_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       allowed_node_type_modifications_message() :: %{
-        "ScaleDownModifications" => list(String.t()),
-        "ScaleUpModifications" => list(String.t())
+        "ScaleDownModifications" => list(String.t() | Atom.t()),
+        "ScaleUpModifications" => list(String.t() | Atom.t())
       }
       
   """
-  @type allowed_node_type_modifications_message() :: %{String.t() => any()}
+  @type allowed_node_type_modifications_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_replication_group_shard_configuration_message() :: %{
-        optional("NodeGroupsToRemove") => list(String.t()),
-        optional("NodeGroupsToRetain") => list(String.t()),
+        optional("NodeGroupsToRemove") => list(String.t() | Atom.t()),
+        optional("NodeGroupsToRetain") => list(String.t() | Atom.t()),
         optional("ReshardingConfiguration") => list(resharding_configuration()),
         required("ApplyImmediately") => boolean(),
         required("NodeGroupCount") => integer(),
-        required("ReplicationGroupId") => String.t()
+        required("ReplicationGroupId") => String.t() | Atom.t()
       }
       
   """
-  @type modify_replication_group_shard_configuration_message() :: %{String.t() => any()}
+  @type modify_replication_group_shard_configuration_message() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       modify_user_group_message() :: %{
-        optional("Engine") => String.t(),
-        optional("UserIdsToAdd") => list(String.t()),
-        optional("UserIdsToRemove") => list(String.t()),
-        required("UserGroupId") => String.t()
+        optional("Engine") => String.t() | Atom.t(),
+        optional("UserIdsToAdd") => list(String.t() | Atom.t()),
+        optional("UserIdsToRemove") => list(String.t() | Atom.t()),
+        required("UserGroupId") => String.t() | Atom.t()
       }
       
   """
-  @type modify_user_group_message() :: %{String.t() => any()}
+  @type modify_user_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       global_node_group() :: %{
-        "GlobalNodeGroupId" => String.t(),
-        "Slots" => String.t()
+        "GlobalNodeGroupId" => String.t() | Atom.t(),
+        "Slots" => String.t() | Atom.t()
       }
       
   """
-  @type global_node_group() :: %{String.t() => any()}
+  @type global_node_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_cache_cluster_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_cache_cluster_state_fault() :: %{String.t() => any()}
+  @type invalid_cache_cluster_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -452,7 +455,7 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type delete_replication_group_result() :: %{String.t() => any()}
+  @type delete_replication_group_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -461,11 +464,11 @@ defmodule AWS.ElastiCache do
       reset_cache_parameter_group_message() :: %{
         optional("ParameterNameValues") => list(parameter_name_value()),
         optional("ResetAllParameters") => boolean(),
-        required("CacheParameterGroupName") => String.t()
+        required("CacheParameterGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type reset_cache_parameter_group_message() :: %{String.t() => any()}
+  @type reset_cache_parameter_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -480,54 +483,54 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type log_delivery_configuration_request() :: %{String.t() => any()}
+  @type log_delivery_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       node_snapshot() :: %{
-        "CacheClusterId" => String.t(),
+        "CacheClusterId" => String.t() | Atom.t(),
         "CacheNodeCreateTime" => non_neg_integer(),
-        "CacheNodeId" => String.t(),
-        "CacheSize" => String.t(),
+        "CacheNodeId" => String.t() | Atom.t(),
+        "CacheSize" => String.t() | Atom.t(),
         "NodeGroupConfiguration" => node_group_configuration(),
-        "NodeGroupId" => String.t(),
+        "NodeGroupId" => String.t() | Atom.t(),
         "SnapshotCreateTime" => non_neg_integer()
       }
       
   """
-  @type node_snapshot() :: %{String.t() => any()}
+  @type node_snapshot() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       user_group() :: %{
-        optional("ARN") => String.t(),
-        optional("Engine") => String.t(),
-        optional("MinimumEngineVersion") => String.t(),
+        optional("ARN") => String.t() | Atom.t(),
+        optional("Engine") => String.t() | Atom.t(),
+        optional("MinimumEngineVersion") => String.t() | Atom.t(),
         optional("PendingChanges") => user_group_pending_changes(),
-        optional("ReplicationGroups") => list(String.t()),
-        optional("ServerlessCaches") => list(String.t()),
-        optional("Status") => String.t(),
-        optional("UserGroupId") => String.t(),
-        optional("UserIds") => list(String.t())
+        optional("ReplicationGroups") => list(String.t() | Atom.t()),
+        optional("ServerlessCaches") => list(String.t() | Atom.t()),
+        optional("Status") => String.t() | Atom.t(),
+        optional("UserGroupId") => String.t() | Atom.t(),
+        optional("UserIds") => list(String.t() | Atom.t())
       }
       
   """
-  @type user_group() :: %{String.t() => any()}
+  @type user_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       service_update_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type service_update_not_found_fault() :: %{String.t() => any()}
+  @type service_update_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -535,13 +538,13 @@ defmodule AWS.ElastiCache do
       
       engine_defaults() :: %{
         "CacheNodeTypeSpecificParameters" => list(cache_node_type_specific_parameter()),
-        "CacheParameterGroupFamily" => String.t(),
-        "Marker" => String.t(),
+        "CacheParameterGroupFamily" => String.t() | Atom.t(),
+        "Marker" => String.t() | Atom.t(),
         "Parameters" => list(parameter())
       }
       
   """
-  @type engine_defaults() :: %{String.t() => any()}
+  @type engine_defaults() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -552,29 +555,29 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type revoke_cache_security_group_ingress_result() :: %{String.t() => any()}
+  @type revoke_cache_security_group_ingress_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_user_group_message() :: %{
-        required("UserGroupId") => String.t()
+        required("UserGroupId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_user_group_message() :: %{String.t() => any()}
+  @type delete_user_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       serverless_cache_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type serverless_cache_already_exists_fault() :: %{String.t() => any()}
+  @type serverless_cache_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -582,64 +585,64 @@ defmodule AWS.ElastiCache do
       
       cache_parameter_group_details() :: %{
         "CacheNodeTypeSpecificParameters" => list(cache_node_type_specific_parameter()),
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "Parameters" => list(parameter())
       }
       
   """
-  @type cache_parameter_group_details() :: %{String.t() => any()}
+  @type cache_parameter_group_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_global_replication_groups_message() :: %{
-        optional("GlobalReplicationGroupId") => String.t(),
-        optional("Marker") => String.t(),
+        optional("GlobalReplicationGroupId") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
         optional("ShowMemberInfo") => boolean()
       }
       
   """
-  @type describe_global_replication_groups_message() :: %{String.t() => any()}
+  @type describe_global_replication_groups_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       security_group_membership() :: %{
-        "SecurityGroupId" => String.t(),
-        "Status" => String.t()
+        "SecurityGroupId" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type security_group_membership() :: %{String.t() => any()}
+  @type security_group_membership() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       ec2_security_group() :: %{
-        "EC2SecurityGroupName" => String.t(),
-        "EC2SecurityGroupOwnerId" => String.t(),
-        "Status" => String.t()
+        "EC2SecurityGroupName" => String.t() | Atom.t(),
+        "EC2SecurityGroupOwnerId" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type ec2_security_group() :: %{String.t() => any()}
+  @type ec2_security_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_replication_group_message() :: %{
-        optional("FinalSnapshotIdentifier") => String.t(),
+        optional("FinalSnapshotIdentifier") => String.t() | Atom.t(),
         optional("RetainPrimaryCluster") => boolean(),
-        required("ReplicationGroupId") => String.t()
+        required("ReplicationGroupId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_replication_group_message() :: %{String.t() => any()}
+  @type delete_replication_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -647,43 +650,43 @@ defmodule AWS.ElastiCache do
       
       recurring_charge() :: %{
         "RecurringChargeAmount" => float(),
-        "RecurringChargeFrequency" => String.t()
+        "RecurringChargeFrequency" => String.t() | Atom.t()
       }
       
   """
-  @type recurring_charge() :: %{String.t() => any()}
+  @type recurring_charge() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reserved_cache_nodes_offering() :: %{
-        "CacheNodeType" => String.t(),
+        "CacheNodeType" => String.t() | Atom.t(),
         "Duration" => integer(),
         "FixedPrice" => float(),
-        "OfferingType" => String.t(),
-        "ProductDescription" => String.t(),
+        "OfferingType" => String.t() | Atom.t(),
+        "ProductDescription" => String.t() | Atom.t(),
         "RecurringCharges" => list(recurring_charge()),
-        "ReservedCacheNodesOfferingId" => String.t(),
+        "ReservedCacheNodesOfferingId" => String.t() | Atom.t(),
         "UsagePrice" => float()
       }
       
   """
-  @type reserved_cache_nodes_offering() :: %{String.t() => any()}
+  @type reserved_cache_nodes_offering() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_serverless_cache_snapshot_request() :: %{
-        optional("KmsKeyId") => String.t(),
+        optional("KmsKeyId") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("ServerlessCacheName") => String.t(),
-        required("ServerlessCacheSnapshotName") => String.t()
+        required("ServerlessCacheName") => String.t() | Atom.t(),
+        required("ServerlessCacheSnapshotName") => String.t() | Atom.t()
       }
       
   """
-  @type create_serverless_cache_snapshot_request() :: %{String.t() => any()}
+  @type create_serverless_cache_snapshot_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -692,46 +695,49 @@ defmodule AWS.ElastiCache do
       increase_node_groups_in_global_replication_group_message() :: %{
         optional("RegionalConfigurations") => list(regional_configuration()),
         required("ApplyImmediately") => boolean(),
-        required("GlobalReplicationGroupId") => String.t(),
+        required("GlobalReplicationGroupId") => String.t() | Atom.t(),
         required("NodeGroupCount") => integer()
       }
       
   """
-  @type increase_node_groups_in_global_replication_group_message() :: %{String.t() => any()}
+  @type increase_node_groups_in_global_replication_group_message() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       describe_serverless_caches_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "ServerlessCaches" => list(serverless_cache())
       }
       
   """
-  @type describe_serverless_caches_response() :: %{String.t() => any()}
+  @type describe_serverless_caches_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_kms_key_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_kms_key_fault() :: %{String.t() => any()}
+  @type invalid_kms_key_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       user_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type user_not_found_fault() :: %{String.t() => any()}
+  @type user_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -739,11 +745,11 @@ defmodule AWS.ElastiCache do
       
       complete_migration_message() :: %{
         optional("Force") => boolean(),
-        required("ReplicationGroupId") => String.t()
+        required("ReplicationGroupId") => String.t() | Atom.t()
       }
       
   """
-  @type complete_migration_message() :: %{String.t() => any()}
+  @type complete_migration_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -751,13 +757,13 @@ defmodule AWS.ElastiCache do
       
       create_user_group_message() :: %{
         optional("Tags") => list(tag()),
-        optional("UserIds") => list(String.t()),
-        required("Engine") => String.t(),
-        required("UserGroupId") => String.t()
+        optional("UserIds") => list(String.t() | Atom.t()),
+        required("Engine") => String.t() | Atom.t(),
+        required("UserGroupId") => String.t() | Atom.t()
       }
       
   """
-  @type create_user_group_message() :: %{String.t() => any()}
+  @type create_user_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -765,99 +771,99 @@ defmodule AWS.ElastiCache do
       
       subnet() :: %{
         "SubnetAvailabilityZone" => availability_zone(),
-        "SubnetIdentifier" => String.t(),
+        "SubnetIdentifier" => String.t() | Atom.t(),
         "SubnetOutpost" => subnet_outpost(),
         "SupportedNetworkTypes" => list(list(any())())
       }
       
   """
-  @type subnet() :: %{String.t() => any()}
+  @type subnet() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_subnet() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_subnet() :: %{String.t() => any()}
+  @type invalid_subnet() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cache_parameter_group() :: %{
-        "ARN" => String.t(),
-        "CacheParameterGroupFamily" => String.t(),
-        "CacheParameterGroupName" => String.t(),
-        "Description" => String.t(),
+        "ARN" => String.t() | Atom.t(),
+        "CacheParameterGroupFamily" => String.t() | Atom.t(),
+        "CacheParameterGroupName" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
         "IsGlobal" => boolean()
       }
       
   """
-  @type cache_parameter_group() :: %{String.t() => any()}
+  @type cache_parameter_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       parameter_name_value() :: %{
-        "ParameterName" => String.t(),
-        "ParameterValue" => String.t()
+        "ParameterName" => String.t() | Atom.t(),
+        "ParameterValue" => String.t() | Atom.t()
       }
       
   """
-  @type parameter_name_value() :: %{String.t() => any()}
+  @type parameter_name_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_message() :: %{
-        required("ResourceName") => String.t()
+        required("ResourceName") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_message() :: %{String.t() => any()}
+  @type list_tags_for_resource_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cache_parameter_group_status() :: %{
-        "CacheNodeIdsToReboot" => list(String.t()),
-        "CacheParameterGroupName" => String.t(),
-        "ParameterApplyStatus" => String.t()
+        "CacheNodeIdsToReboot" => list(String.t() | Atom.t()),
+        "CacheParameterGroupName" => String.t() | Atom.t(),
+        "ParameterApplyStatus" => String.t() | Atom.t()
       }
       
   """
-  @type cache_parameter_group_status() :: %{String.t() => any()}
+  @type cache_parameter_group_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       user_group_pending_changes() :: %{
-        "UserIdsToAdd" => list(String.t()),
-        "UserIdsToRemove" => list(String.t())
+        "UserIdsToAdd" => list(String.t() | Atom.t()),
+        "UserIdsToRemove" => list(String.t() | Atom.t())
       }
       
   """
-  @type user_group_pending_changes() :: %{String.t() => any()}
+  @type user_group_pending_changes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       global_replication_group_info() :: %{
-        "GlobalReplicationGroupId" => String.t(),
-        "GlobalReplicationGroupMemberRole" => String.t()
+        "GlobalReplicationGroupId" => String.t() | Atom.t(),
+        "GlobalReplicationGroupMemberRole" => String.t() | Atom.t()
       }
       
   """
-  @type global_replication_group_info() :: %{String.t() => any()}
+  @type global_replication_group_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -868,19 +874,19 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type resharding_status() :: %{String.t() => any()}
+  @type resharding_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_serverless_cache_snapshots_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "ServerlessCacheSnapshots" => list(serverless_cache_snapshot())
       }
       
   """
-  @type describe_serverless_cache_snapshots_response() :: %{String.t() => any()}
+  @type describe_serverless_cache_snapshots_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -891,7 +897,7 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type rebalance_slots_in_global_replication_group_result() :: %{String.t() => any()}
+  @type rebalance_slots_in_global_replication_group_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -902,70 +908,70 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type decrease_replica_count_result() :: %{String.t() => any()}
+  @type decrease_replica_count_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cache_parameter_group_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cache_parameter_group_already_exists_fault() :: %{String.t() => any()}
+  @type cache_parameter_group_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_cache_parameter_group_message() :: %{
-        required("CacheParameterGroupName") => String.t()
+        required("CacheParameterGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_cache_parameter_group_message() :: %{String.t() => any()}
+  @type delete_cache_parameter_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       node_group() :: %{
-        "NodeGroupId" => String.t(),
+        "NodeGroupId" => String.t() | Atom.t(),
         "NodeGroupMembers" => list(node_group_member()),
         "PrimaryEndpoint" => endpoint(),
         "ReaderEndpoint" => endpoint(),
-        "Slots" => String.t(),
-        "Status" => String.t()
+        "Slots" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type node_group() :: %{String.t() => any()}
+  @type node_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_engine_default_parameters_message() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        required("CacheParameterGroupFamily") => String.t()
+        required("CacheParameterGroupFamily") => String.t() | Atom.t()
       }
       
   """
-  @type describe_engine_default_parameters_message() :: %{String.t() => any()}
+  @type describe_engine_default_parameters_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_allowed_node_type_modifications_message() :: %{
-        optional("CacheClusterId") => String.t(),
-        optional("ReplicationGroupId") => String.t()
+        optional("CacheClusterId") => String.t() | Atom.t(),
+        optional("ReplicationGroupId") => String.t() | Atom.t()
       }
       
   """
-  @type list_allowed_node_type_modifications_message() :: %{String.t() => any()}
+  @type list_allowed_node_type_modifications_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -976,31 +982,34 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type decrease_node_groups_in_global_replication_group_result() :: %{String.t() => any()}
+  @type decrease_node_groups_in_global_replication_group_result() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       cloud_watch_logs_destination_details() :: %{
-        "LogGroup" => String.t()
+        "LogGroup" => String.t() | Atom.t()
       }
       
   """
-  @type cloud_watch_logs_destination_details() :: %{String.t() => any()}
+  @type cloud_watch_logs_destination_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       revoke_cache_security_group_ingress_message() :: %{
-        required("CacheSecurityGroupName") => String.t(),
-        required("EC2SecurityGroupName") => String.t(),
-        required("EC2SecurityGroupOwnerId") => String.t()
+        required("CacheSecurityGroupName") => String.t() | Atom.t(),
+        required("EC2SecurityGroupName") => String.t() | Atom.t(),
+        required("EC2SecurityGroupOwnerId") => String.t() | Atom.t()
       }
       
   """
-  @type revoke_cache_security_group_ingress_message() :: %{String.t() => any()}
+  @type revoke_cache_security_group_ingress_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1011,18 +1020,18 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type copy_serverless_cache_snapshot_response() :: %{String.t() => any()}
+  @type copy_serverless_cache_snapshot_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reserved_cache_node_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type reserved_cache_node_not_found_fault() :: %{String.t() => any()}
+  @type reserved_cache_node_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1034,29 +1043,29 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type update_action_results_message() :: %{String.t() => any()}
+  @type update_action_results_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cache_cluster_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cache_cluster_not_found_fault() :: %{String.t() => any()}
+  @type cache_cluster_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type tag_not_found_fault() :: %{String.t() => any()}
+  @type tag_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1064,39 +1073,39 @@ defmodule AWS.ElastiCache do
       
       create_cache_cluster_message() :: %{
         optional("AZMode") => list(any()),
-        optional("AuthToken") => String.t(),
+        optional("AuthToken") => String.t() | Atom.t(),
         optional("AutoMinorVersionUpgrade") => boolean(),
-        optional("CacheNodeType") => String.t(),
-        optional("CacheParameterGroupName") => String.t(),
-        optional("CacheSecurityGroupNames") => list(String.t()),
-        optional("CacheSubnetGroupName") => String.t(),
-        optional("Engine") => String.t(),
-        optional("EngineVersion") => String.t(),
+        optional("CacheNodeType") => String.t() | Atom.t(),
+        optional("CacheParameterGroupName") => String.t() | Atom.t(),
+        optional("CacheSecurityGroupNames") => list(String.t() | Atom.t()),
+        optional("CacheSubnetGroupName") => String.t() | Atom.t(),
+        optional("Engine") => String.t() | Atom.t(),
+        optional("EngineVersion") => String.t() | Atom.t(),
         optional("IpDiscovery") => list(any()),
         optional("LogDeliveryConfigurations") => list(log_delivery_configuration_request()),
         optional("NetworkType") => list(any()),
-        optional("NotificationTopicArn") => String.t(),
+        optional("NotificationTopicArn") => String.t() | Atom.t(),
         optional("NumCacheNodes") => integer(),
         optional("OutpostMode") => list(any()),
         optional("Port") => integer(),
-        optional("PreferredAvailabilityZone") => String.t(),
-        optional("PreferredAvailabilityZones") => list(String.t()),
-        optional("PreferredMaintenanceWindow") => String.t(),
-        optional("PreferredOutpostArn") => String.t(),
-        optional("PreferredOutpostArns") => list(String.t()),
-        optional("ReplicationGroupId") => String.t(),
-        optional("SecurityGroupIds") => list(String.t()),
-        optional("SnapshotArns") => list(String.t()),
-        optional("SnapshotName") => String.t(),
+        optional("PreferredAvailabilityZone") => String.t() | Atom.t(),
+        optional("PreferredAvailabilityZones") => list(String.t() | Atom.t()),
+        optional("PreferredMaintenanceWindow") => String.t() | Atom.t(),
+        optional("PreferredOutpostArn") => String.t() | Atom.t(),
+        optional("PreferredOutpostArns") => list(String.t() | Atom.t()),
+        optional("ReplicationGroupId") => String.t() | Atom.t(),
+        optional("SecurityGroupIds") => list(String.t() | Atom.t()),
+        optional("SnapshotArns") => list(String.t() | Atom.t()),
+        optional("SnapshotName") => String.t() | Atom.t(),
         optional("SnapshotRetentionLimit") => integer(),
-        optional("SnapshotWindow") => String.t(),
+        optional("SnapshotWindow") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
         optional("TransitEncryptionEnabled") => boolean(),
-        required("CacheClusterId") => String.t()
+        required("CacheClusterId") => String.t() | Atom.t()
       }
       
   """
-  @type create_cache_cluster_message() :: %{String.t() => any()}
+  @type create_cache_cluster_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1107,30 +1116,30 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type create_cache_subnet_group_result() :: %{String.t() => any()}
+  @type create_cache_subnet_group_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cache_security_group_membership() :: %{
-        "CacheSecurityGroupName" => String.t(),
-        "Status" => String.t()
+        "CacheSecurityGroupName" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type cache_security_group_membership() :: %{String.t() => any()}
+  @type cache_security_group_membership() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_cache_parameter_group_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_cache_parameter_group_state_fault() :: %{String.t() => any()}
+  @type invalid_cache_parameter_group_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1141,126 +1150,126 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type test_failover_result() :: %{String.t() => any()}
+  @type test_failover_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameter_combination_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_parameter_combination_exception() :: %{String.t() => any()}
+  @type invalid_parameter_combination_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       serverless_cache_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type serverless_cache_not_found_fault() :: %{String.t() => any()}
+  @type serverless_cache_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reserved_cache_node_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type reserved_cache_node_already_exists_fault() :: %{String.t() => any()}
+  @type reserved_cache_node_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reserved_cache_nodes_offering_message() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "ReservedCacheNodesOfferings" => list(reserved_cache_nodes_offering())
       }
       
   """
-  @type reserved_cache_nodes_offering_message() :: %{String.t() => any()}
+  @type reserved_cache_nodes_offering_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_vpc_network_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_vpc_network_state_fault() :: %{String.t() => any()}
+  @type invalid_vpc_network_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_quota_per_resource_exceeded() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type tag_quota_per_resource_exceeded() :: %{String.t() => any()}
+  @type tag_quota_per_resource_exceeded() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_user_group_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_user_group_state_fault() :: %{String.t() => any()}
+  @type invalid_user_group_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       serverless_cache_snapshot() :: %{
-        "ARN" => String.t(),
-        "BytesUsedForCache" => String.t(),
+        "ARN" => String.t() | Atom.t(),
+        "BytesUsedForCache" => String.t() | Atom.t(),
         "CreateTime" => non_neg_integer(),
         "ExpiryTime" => non_neg_integer(),
-        "KmsKeyId" => String.t(),
+        "KmsKeyId" => String.t() | Atom.t(),
         "ServerlessCacheConfiguration" => serverless_cache_configuration(),
-        "ServerlessCacheSnapshotName" => String.t(),
-        "SnapshotType" => String.t(),
-        "Status" => String.t()
+        "ServerlessCacheSnapshotName" => String.t() | Atom.t(),
+        "SnapshotType" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type serverless_cache_snapshot() :: %{String.t() => any()}
+  @type serverless_cache_snapshot() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       subnet_not_allowed_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type subnet_not_allowed_fault() :: %{String.t() => any()}
+  @type subnet_not_allowed_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cache_cluster_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cache_cluster_already_exists_fault() :: %{String.t() => any()}
+  @type cache_cluster_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1271,7 +1280,7 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type create_serverless_cache_response() :: %{String.t() => any()}
+  @type create_serverless_cache_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1280,13 +1289,13 @@ defmodule AWS.ElastiCache do
       decrease_replica_count_message() :: %{
         optional("NewReplicaCount") => integer(),
         optional("ReplicaConfiguration") => list(configure_shard()),
-        optional("ReplicasToRemove") => list(String.t()),
+        optional("ReplicasToRemove") => list(String.t() | Atom.t()),
         required("ApplyImmediately") => boolean(),
-        required("ReplicationGroupId") => String.t()
+        required("ReplicationGroupId") => String.t() | Atom.t()
       }
       
   """
-  @type decrease_replica_count_message() :: %{String.t() => any()}
+  @type decrease_replica_count_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1297,7 +1306,7 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type modify_cache_subnet_group_result() :: %{String.t() => any()}
+  @type modify_cache_subnet_group_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1308,7 +1317,7 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type failover_global_replication_group_result() :: %{String.t() => any()}
+  @type failover_global_replication_group_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1319,36 +1328,36 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type modify_global_replication_group_result() :: %{String.t() => any()}
+  @type modify_global_replication_group_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cache_engine_version() :: %{
-        "CacheEngineDescription" => String.t(),
-        "CacheEngineVersionDescription" => String.t(),
-        "CacheParameterGroupFamily" => String.t(),
-        "Engine" => String.t(),
-        "EngineVersion" => String.t()
+        "CacheEngineDescription" => String.t() | Atom.t(),
+        "CacheEngineVersionDescription" => String.t() | Atom.t(),
+        "CacheParameterGroupFamily" => String.t() | Atom.t(),
+        "Engine" => String.t() | Atom.t(),
+        "EngineVersion" => String.t() | Atom.t()
       }
       
   """
-  @type cache_engine_version() :: %{String.t() => any()}
+  @type cache_engine_version() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_service_updates_message() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("ServiceUpdateName") => String.t(),
+        optional("ServiceUpdateName") => String.t() | Atom.t(),
         optional("ServiceUpdateStatus") => list(list(any())())
       }
       
   """
-  @type describe_service_updates_message() :: %{String.t() => any()}
+  @type describe_service_updates_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1356,53 +1365,53 @@ defmodule AWS.ElastiCache do
       
       modify_global_replication_group_message() :: %{
         optional("AutomaticFailoverEnabled") => boolean(),
-        optional("CacheNodeType") => String.t(),
-        optional("CacheParameterGroupName") => String.t(),
-        optional("Engine") => String.t(),
-        optional("EngineVersion") => String.t(),
-        optional("GlobalReplicationGroupDescription") => String.t(),
+        optional("CacheNodeType") => String.t() | Atom.t(),
+        optional("CacheParameterGroupName") => String.t() | Atom.t(),
+        optional("Engine") => String.t() | Atom.t(),
+        optional("EngineVersion") => String.t() | Atom.t(),
+        optional("GlobalReplicationGroupDescription") => String.t() | Atom.t(),
         required("ApplyImmediately") => boolean(),
-        required("GlobalReplicationGroupId") => String.t()
+        required("GlobalReplicationGroupId") => String.t() | Atom.t()
       }
       
   """
-  @type modify_global_replication_group_message() :: %{String.t() => any()}
+  @type modify_global_replication_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_cache_parameters_message() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("Source") => String.t(),
-        required("CacheParameterGroupName") => String.t()
+        optional("Source") => String.t() | Atom.t(),
+        required("CacheParameterGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_cache_parameters_message() :: %{String.t() => any()}
+  @type describe_cache_parameters_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       serverless_cache_snapshot_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type serverless_cache_snapshot_already_exists_fault() :: %{String.t() => any()}
+  @type serverless_cache_snapshot_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       replication_group_not_under_migration_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type replication_group_not_under_migration_fault() :: %{String.t() => any()}
+  @type replication_group_not_under_migration_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1413,7 +1422,7 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type create_global_replication_group_result() :: %{String.t() => any()}
+  @type create_global_replication_group_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1423,33 +1432,33 @@ defmodule AWS.ElastiCache do
         optional("NewReplicaCount") => integer(),
         optional("ReplicaConfiguration") => list(configure_shard()),
         required("ApplyImmediately") => boolean(),
-        required("ReplicationGroupId") => String.t()
+        required("ReplicationGroupId") => String.t() | Atom.t()
       }
       
   """
-  @type increase_replica_count_message() :: %{String.t() => any()}
+  @type increase_replica_count_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_global_replication_group_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_global_replication_group_state_fault() :: %{String.t() => any()}
+  @type invalid_global_replication_group_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cache_subnet_group_in_use() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cache_subnet_group_in_use() :: %{String.t() => any()}
+  @type cache_subnet_group_in_use() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1457,11 +1466,11 @@ defmodule AWS.ElastiCache do
       
       test_migration_message() :: %{
         required("CustomerNodeEndpointList") => list(customer_node_endpoint()),
-        required("ReplicationGroupId") => String.t()
+        required("ReplicationGroupId") => String.t() | Atom.t()
       }
       
   """
-  @type test_migration_message() :: %{String.t() => any()}
+  @type test_migration_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1469,9 +1478,9 @@ defmodule AWS.ElastiCache do
       
       pending_modified_values() :: %{
         "AuthTokenStatus" => list(any()),
-        "CacheNodeIdsToRemove" => list(String.t()),
-        "CacheNodeType" => String.t(),
-        "EngineVersion" => String.t(),
+        "CacheNodeIdsToRemove" => list(String.t() | Atom.t()),
+        "CacheNodeType" => String.t() | Atom.t(),
+        "EngineVersion" => String.t() | Atom.t(),
         "LogDeliveryConfigurations" => list(pending_log_delivery_configuration()),
         "NumCacheNodes" => integer(),
         "ScaleConfig" => scale_config(),
@@ -1480,30 +1489,30 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type pending_modified_values() :: %{String.t() => any()}
+  @type pending_modified_values() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       test_failover_message() :: %{
-        required("NodeGroupId") => String.t(),
-        required("ReplicationGroupId") => String.t()
+        required("NodeGroupId") => String.t() | Atom.t(),
+        required("ReplicationGroupId") => String.t() | Atom.t()
       }
       
   """
-  @type test_failover_message() :: %{String.t() => any()}
+  @type test_failover_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       authorization_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type authorization_not_found_fault() :: %{String.t() => any()}
+  @type authorization_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1511,17 +1520,17 @@ defmodule AWS.ElastiCache do
       
       cache_node() :: %{
         "CacheNodeCreateTime" => non_neg_integer(),
-        "CacheNodeId" => String.t(),
-        "CacheNodeStatus" => String.t(),
-        "CustomerAvailabilityZone" => String.t(),
-        "CustomerOutpostArn" => String.t(),
+        "CacheNodeId" => String.t() | Atom.t(),
+        "CacheNodeStatus" => String.t() | Atom.t(),
+        "CustomerAvailabilityZone" => String.t() | Atom.t(),
+        "CustomerOutpostArn" => String.t() | Atom.t(),
         "Endpoint" => endpoint(),
-        "ParameterGroupStatus" => String.t(),
-        "SourceCacheNodeId" => String.t()
+        "ParameterGroupStatus" => String.t() | Atom.t(),
+        "SourceCacheNodeId" => String.t() | Atom.t()
       }
       
   """
-  @type cache_node() :: %{String.t() => any()}
+  @type cache_node() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1532,7 +1541,7 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type increase_replica_count_result() :: %{String.t() => any()}
+  @type increase_replica_count_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1543,71 +1552,71 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type reboot_cache_cluster_result() :: %{String.t() => any()}
+  @type reboot_cache_cluster_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_snapshots_message() :: %{
-        optional("CacheClusterId") => String.t(),
-        optional("Marker") => String.t(),
+        optional("CacheClusterId") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("ReplicationGroupId") => String.t(),
+        optional("ReplicationGroupId") => String.t() | Atom.t(),
         optional("ShowNodeGroupConfig") => boolean(),
-        optional("SnapshotName") => String.t(),
-        optional("SnapshotSource") => String.t()
+        optional("SnapshotName") => String.t() | Atom.t(),
+        optional("SnapshotSource") => String.t() | Atom.t()
       }
       
   """
-  @type describe_snapshots_message() :: %{String.t() => any()}
+  @type describe_snapshots_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_cache_parameter_groups_message() :: %{
-        optional("CacheParameterGroupName") => String.t(),
-        optional("Marker") => String.t(),
+        optional("CacheParameterGroupName") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_cache_parameter_groups_message() :: %{String.t() => any()}
+  @type describe_cache_parameter_groups_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cache_security_group_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cache_security_group_not_found_fault() :: %{String.t() => any()}
+  @type cache_security_group_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cache_security_group() :: %{
-        "ARN" => String.t(),
-        "CacheSecurityGroupName" => String.t(),
-        "Description" => String.t(),
+        "ARN" => String.t() | Atom.t(),
+        "CacheSecurityGroupName" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
         "EC2SecurityGroups" => list(ec2_security_group()),
-        "OwnerId" => String.t()
+        "OwnerId" => String.t() | Atom.t()
       }
       
   """
-  @type cache_security_group() :: %{String.t() => any()}
+  @type cache_security_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       node_group_member_update_status() :: %{
-        "CacheClusterId" => String.t(),
-        "CacheNodeId" => String.t(),
+        "CacheClusterId" => String.t() | Atom.t(),
+        "CacheNodeId" => String.t() | Atom.t(),
         "NodeDeletionDate" => non_neg_integer(),
         "NodeUpdateEndDate" => non_neg_integer(),
         "NodeUpdateInitiatedBy" => list(any()),
@@ -1618,134 +1627,134 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type node_group_member_update_status() :: %{String.t() => any()}
+  @type node_group_member_update_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       node_group_configuration() :: %{
-        "NodeGroupId" => String.t(),
-        "PrimaryAvailabilityZone" => String.t(),
-        "PrimaryOutpostArn" => String.t(),
-        "ReplicaAvailabilityZones" => list(String.t()),
+        "NodeGroupId" => String.t() | Atom.t(),
+        "PrimaryAvailabilityZone" => String.t() | Atom.t(),
+        "PrimaryOutpostArn" => String.t() | Atom.t(),
+        "ReplicaAvailabilityZones" => list(String.t() | Atom.t()),
         "ReplicaCount" => integer(),
-        "ReplicaOutpostArns" => list(String.t()),
-        "Slots" => String.t()
+        "ReplicaOutpostArns" => list(String.t() | Atom.t()),
+        "Slots" => String.t() | Atom.t()
       }
       
   """
-  @type node_group_configuration() :: %{String.t() => any()}
+  @type node_group_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       subnet_outpost() :: %{
-        "SubnetOutpostArn" => String.t()
+        "SubnetOutpostArn" => String.t() | Atom.t()
       }
       
   """
-  @type subnet_outpost() :: %{String.t() => any()}
+  @type subnet_outpost() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_user_message() :: %{
-        required("UserId") => String.t()
+        required("UserId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_user_message() :: %{String.t() => any()}
+  @type delete_user_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reserved_cache_node_message() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "ReservedCacheNodes" => list(reserved_cache_node())
       }
       
   """
-  @type reserved_cache_node_message() :: %{String.t() => any()}
+  @type reserved_cache_node_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       authorization_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type authorization_already_exists_fault() :: %{String.t() => any()}
+  @type authorization_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       export_serverless_cache_snapshot_request() :: %{
-        required("S3BucketName") => String.t(),
-        required("ServerlessCacheSnapshotName") => String.t()
+        required("S3BucketName") => String.t() | Atom.t(),
+        required("ServerlessCacheSnapshotName") => String.t() | Atom.t()
       }
       
   """
-  @type export_serverless_cache_snapshot_request() :: %{String.t() => any()}
+  @type export_serverless_cache_snapshot_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       failover_global_replication_group_message() :: %{
-        required("GlobalReplicationGroupId") => String.t(),
-        required("PrimaryRegion") => String.t(),
-        required("PrimaryReplicationGroupId") => String.t()
+        required("GlobalReplicationGroupId") => String.t() | Atom.t(),
+        required("PrimaryRegion") => String.t() | Atom.t(),
+        required("PrimaryReplicationGroupId") => String.t() | Atom.t()
       }
       
   """
-  @type failover_global_replication_group_message() :: %{String.t() => any()}
+  @type failover_global_replication_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_reserved_cache_nodes_offerings_message() :: %{
-        optional("CacheNodeType") => String.t(),
-        optional("Duration") => String.t(),
-        optional("Marker") => String.t(),
+        optional("CacheNodeType") => String.t() | Atom.t(),
+        optional("Duration") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("OfferingType") => String.t(),
-        optional("ProductDescription") => String.t(),
-        optional("ReservedCacheNodesOfferingId") => String.t()
+        optional("OfferingType") => String.t() | Atom.t(),
+        optional("ProductDescription") => String.t() | Atom.t(),
+        optional("ReservedCacheNodesOfferingId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_reserved_cache_nodes_offerings_message() :: %{String.t() => any()}
+  @type describe_reserved_cache_nodes_offerings_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       no_operation_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type no_operation_fault() :: %{String.t() => any()}
+  @type no_operation_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1756,53 +1765,53 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type modify_replication_group_shard_configuration_result() :: %{String.t() => any()}
+  @type modify_replication_group_shard_configuration_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_snapshot_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_snapshot_state_fault() :: %{String.t() => any()}
+  @type invalid_snapshot_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       test_failover_not_available_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type test_failover_not_available_fault() :: %{String.t() => any()}
+  @type test_failover_not_available_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_stop_update_action_message() :: %{
-        optional("CacheClusterIds") => list(String.t()),
-        optional("ReplicationGroupIds") => list(String.t()),
-        required("ServiceUpdateName") => String.t()
+        optional("CacheClusterIds") => list(String.t() | Atom.t()),
+        optional("ReplicationGroupIds") => list(String.t() | Atom.t()),
+        required("ServiceUpdateName") => String.t() | Atom.t()
       }
       
   """
-  @type batch_stop_update_action_message() :: %{String.t() => any()}
+  @type batch_stop_update_action_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameter_value_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_parameter_value_exception() :: %{String.t() => any()}
+  @type invalid_parameter_value_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1810,50 +1819,50 @@ defmodule AWS.ElastiCache do
       
       modify_replication_group_message() :: %{
         optional("ApplyImmediately") => boolean(),
-        optional("AuthToken") => String.t(),
+        optional("AuthToken") => String.t() | Atom.t(),
         optional("AuthTokenUpdateStrategy") => list(any()),
         optional("AutoMinorVersionUpgrade") => boolean(),
         optional("AutomaticFailoverEnabled") => boolean(),
-        optional("CacheNodeType") => String.t(),
-        optional("CacheParameterGroupName") => String.t(),
-        optional("CacheSecurityGroupNames") => list(String.t()),
+        optional("CacheNodeType") => String.t() | Atom.t(),
+        optional("CacheParameterGroupName") => String.t() | Atom.t(),
+        optional("CacheSecurityGroupNames") => list(String.t() | Atom.t()),
         optional("ClusterMode") => list(any()),
-        optional("Engine") => String.t(),
-        optional("EngineVersion") => String.t(),
+        optional("Engine") => String.t() | Atom.t(),
+        optional("EngineVersion") => String.t() | Atom.t(),
         optional("IpDiscovery") => list(any()),
         optional("LogDeliveryConfigurations") => list(log_delivery_configuration_request()),
         optional("MultiAZEnabled") => boolean(),
-        optional("NodeGroupId") => String.t(),
-        optional("NotificationTopicArn") => String.t(),
-        optional("NotificationTopicStatus") => String.t(),
-        optional("PreferredMaintenanceWindow") => String.t(),
-        optional("PrimaryClusterId") => String.t(),
+        optional("NodeGroupId") => String.t() | Atom.t(),
+        optional("NotificationTopicArn") => String.t() | Atom.t(),
+        optional("NotificationTopicStatus") => String.t() | Atom.t(),
+        optional("PreferredMaintenanceWindow") => String.t() | Atom.t(),
+        optional("PrimaryClusterId") => String.t() | Atom.t(),
         optional("RemoveUserGroups") => boolean(),
-        optional("ReplicationGroupDescription") => String.t(),
-        optional("SecurityGroupIds") => list(String.t()),
+        optional("ReplicationGroupDescription") => String.t() | Atom.t(),
+        optional("SecurityGroupIds") => list(String.t() | Atom.t()),
         optional("SnapshotRetentionLimit") => integer(),
-        optional("SnapshotWindow") => String.t(),
-        optional("SnapshottingClusterId") => String.t(),
+        optional("SnapshotWindow") => String.t() | Atom.t(),
+        optional("SnapshottingClusterId") => String.t() | Atom.t(),
         optional("TransitEncryptionEnabled") => boolean(),
         optional("TransitEncryptionMode") => list(any()),
-        optional("UserGroupIdsToAdd") => list(String.t()),
-        optional("UserGroupIdsToRemove") => list(String.t()),
-        required("ReplicationGroupId") => String.t()
+        optional("UserGroupIdsToAdd") => list(String.t() | Atom.t()),
+        optional("UserGroupIdsToRemove") => list(String.t() | Atom.t()),
+        required("ReplicationGroupId") => String.t() | Atom.t()
       }
       
   """
-  @type modify_replication_group_message() :: %{String.t() => any()}
+  @type modify_replication_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       user_group_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type user_group_quota_exceeded_fault() :: %{String.t() => any()}
+  @type user_group_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1864,39 +1873,39 @@ defmodule AWS.ElastiCache do
         "DestinationType" => list(any()),
         "LogFormat" => list(any()),
         "LogType" => list(any()),
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type log_delivery_configuration() :: %{String.t() => any()}
+  @type log_delivery_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       service_updates_message() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "ServiceUpdates" => list(service_update())
       }
       
   """
-  @type service_updates_message() :: %{String.t() => any()}
+  @type service_updates_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       copy_snapshot_message() :: %{
-        optional("KmsKeyId") => String.t(),
+        optional("KmsKeyId") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        optional("TargetBucket") => String.t(),
-        required("SourceSnapshotName") => String.t(),
-        required("TargetSnapshotName") => String.t()
+        optional("TargetBucket") => String.t() | Atom.t(),
+        required("SourceSnapshotName") => String.t() | Atom.t(),
+        required("TargetSnapshotName") => String.t() | Atom.t()
       }
       
   """
-  @type copy_snapshot_message() :: %{String.t() => any()}
+  @type copy_snapshot_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1907,7 +1916,7 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type modify_cache_cluster_result() :: %{String.t() => any()}
+  @type modify_cache_cluster_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1921,7 +1930,7 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type pending_log_delivery_configuration() :: %{String.t() => any()}
+  @type pending_log_delivery_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1933,63 +1942,63 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type scale_config() :: %{String.t() => any()}
+  @type scale_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       parameter() :: %{
-        "AllowedValues" => String.t(),
+        "AllowedValues" => String.t() | Atom.t(),
         "ChangeType" => list(any()),
-        "DataType" => String.t(),
-        "Description" => String.t(),
+        "DataType" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
         "IsModifiable" => boolean(),
-        "MinimumEngineVersion" => String.t(),
-        "ParameterName" => String.t(),
-        "ParameterValue" => String.t(),
-        "Source" => String.t()
+        "MinimumEngineVersion" => String.t() | Atom.t(),
+        "ParameterName" => String.t() | Atom.t(),
+        "ParameterValue" => String.t() | Atom.t(),
+        "Source" => String.t() | Atom.t()
       }
       
   """
-  @type parameter() :: %{String.t() => any()}
+  @type parameter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       copy_serverless_cache_snapshot_request() :: %{
-        optional("KmsKeyId") => String.t(),
+        optional("KmsKeyId") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("SourceServerlessCacheSnapshotName") => String.t(),
-        required("TargetServerlessCacheSnapshotName") => String.t()
+        required("SourceServerlessCacheSnapshotName") => String.t() | Atom.t(),
+        required("TargetServerlessCacheSnapshotName") => String.t() | Atom.t()
       }
       
   """
-  @type copy_serverless_cache_snapshot_request() :: %{String.t() => any()}
+  @type copy_serverless_cache_snapshot_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reboot_cache_cluster_message() :: %{
-        required("CacheClusterId") => String.t(),
-        required("CacheNodeIdsToReboot") => list(String.t())
+        required("CacheClusterId") => String.t() | Atom.t(),
+        required("CacheNodeIdsToReboot") => list(String.t() | Atom.t())
       }
       
   """
-  @type reboot_cache_cluster_message() :: %{String.t() => any()}
+  @type reboot_cache_cluster_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_arn_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_arn_fault() :: %{String.t() => any()}
+  @type invalid_arn_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2001,53 +2010,53 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type authentication() :: %{String.t() => any()}
+  @type authentication() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_snapshot_message() :: %{
-        required("SnapshotName") => String.t()
+        required("SnapshotName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_snapshot_message() :: %{String.t() => any()}
+  @type delete_snapshot_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       serverless_cache_configuration() :: %{
-        "Engine" => String.t(),
-        "MajorEngineVersion" => String.t(),
-        "ServerlessCacheName" => String.t()
+        "Engine" => String.t() | Atom.t(),
+        "MajorEngineVersion" => String.t() | Atom.t(),
+        "ServerlessCacheName" => String.t() | Atom.t()
       }
       
   """
-  @type serverless_cache_configuration() :: %{String.t() => any()}
+  @type serverless_cache_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cache_cluster() :: %{
-        "Engine" => String.t(),
-        "ClientDownloadLandingPage" => String.t(),
+        "Engine" => String.t() | Atom.t(),
+        "ClientDownloadLandingPage" => String.t() | Atom.t(),
         "NetworkType" => list(any()),
-        "ReplicationGroupId" => String.t(),
+        "ReplicationGroupId" => String.t() | Atom.t(),
         "CacheClusterCreateTime" => non_neg_integer(),
-        "PreferredMaintenanceWindow" => String.t(),
+        "PreferredMaintenanceWindow" => String.t() | Atom.t(),
         "CacheParameterGroup" => cache_parameter_group_status(),
-        "ARN" => String.t(),
+        "ARN" => String.t() | Atom.t(),
         "AuthTokenEnabled" => boolean(),
-        "CacheClusterStatus" => String.t(),
-        "CacheClusterId" => String.t(),
+        "CacheClusterStatus" => String.t() | Atom.t(),
+        "CacheClusterId" => String.t() | Atom.t(),
         "PendingModifiedValues" => pending_modified_values(),
         "ReplicationGroupLogDeliveryEnabled" => boolean(),
         "SnapshotRetentionLimit" => integer(),
-        "PreferredAvailabilityZone" => String.t(),
-        "SnapshotWindow" => String.t(),
+        "PreferredAvailabilityZone" => String.t() | Atom.t(),
+        "SnapshotWindow" => String.t() | Atom.t(),
         "AtRestEncryptionEnabled" => boolean(),
         "ConfigurationEndpoint" => endpoint(),
         "AuthTokenLastModifiedDate" => non_neg_integer(),
@@ -2057,18 +2066,18 @@ defmodule AWS.ElastiCache do
         "LogDeliveryConfigurations" => list(log_delivery_configuration()),
         "TransitEncryptionEnabled" => boolean(),
         "NotificationConfiguration" => notification_configuration(),
-        "CacheSubnetGroupName" => String.t(),
+        "CacheSubnetGroupName" => String.t() | Atom.t(),
         "CacheNodes" => list(cache_node()),
-        "PreferredOutpostArn" => String.t(),
-        "EngineVersion" => String.t(),
+        "PreferredOutpostArn" => String.t() | Atom.t(),
+        "EngineVersion" => String.t() | Atom.t(),
         "CacheSecurityGroups" => list(cache_security_group_membership()),
         "SecurityGroups" => list(security_group_membership()),
-        "CacheNodeType" => String.t(),
+        "CacheNodeType" => String.t() | Atom.t(),
         "NumCacheNodes" => integer()
       }
       
   """
-  @type cache_cluster() :: %{String.t() => any()}
+  @type cache_cluster() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2077,129 +2086,129 @@ defmodule AWS.ElastiCache do
       create_user_message() :: %{
         optional("AuthenticationMode") => authentication_mode(),
         optional("NoPasswordRequired") => boolean(),
-        optional("Passwords") => list(String.t()),
+        optional("Passwords") => list(String.t() | Atom.t()),
         optional("Tags") => list(tag()),
-        required("AccessString") => String.t(),
-        required("Engine") => String.t(),
-        required("UserId") => String.t(),
-        required("UserName") => String.t()
+        required("AccessString") => String.t() | Atom.t(),
+        required("Engine") => String.t() | Atom.t(),
+        required("UserId") => String.t() | Atom.t(),
+        required("UserName") => String.t() | Atom.t()
       }
       
   """
-  @type create_user_message() :: %{String.t() => any()}
+  @type create_user_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cache_subnet_group() :: %{
-        "ARN" => String.t(),
-        "CacheSubnetGroupDescription" => String.t(),
-        "CacheSubnetGroupName" => String.t(),
+        "ARN" => String.t() | Atom.t(),
+        "CacheSubnetGroupDescription" => String.t() | Atom.t(),
+        "CacheSubnetGroupName" => String.t() | Atom.t(),
         "Subnets" => list(subnet()),
         "SupportedNetworkTypes" => list(list(any())()),
-        "VpcId" => String.t()
+        "VpcId" => String.t() | Atom.t()
       }
       
   """
-  @type cache_subnet_group() :: %{String.t() => any()}
+  @type cache_subnet_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_cache_subnet_groups_message() :: %{
-        optional("CacheSubnetGroupName") => String.t(),
-        optional("Marker") => String.t(),
+        optional("CacheSubnetGroupName") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_cache_subnet_groups_message() :: %{String.t() => any()}
+  @type describe_cache_subnet_groups_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_serverless_cache_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_serverless_cache_state_fault() :: %{String.t() => any()}
+  @type invalid_serverless_cache_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       node_group_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type node_group_not_found_fault() :: %{String.t() => any()}
+  @type node_group_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reserved_cache_node_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type reserved_cache_node_quota_exceeded_fault() :: %{String.t() => any()}
+  @type reserved_cache_node_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       node_group_member() :: %{
-        "CacheClusterId" => String.t(),
-        "CacheNodeId" => String.t(),
-        "CurrentRole" => String.t(),
-        "PreferredAvailabilityZone" => String.t(),
-        "PreferredOutpostArn" => String.t(),
+        "CacheClusterId" => String.t() | Atom.t(),
+        "CacheNodeId" => String.t() | Atom.t(),
+        "CurrentRole" => String.t() | Atom.t(),
+        "PreferredAvailabilityZone" => String.t() | Atom.t(),
+        "PreferredOutpostArn" => String.t() | Atom.t(),
         "ReadEndpoint" => endpoint()
       }
       
   """
-  @type node_group_member() :: %{String.t() => any()}
+  @type node_group_member() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       api_call_rate_for_customer_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type api_call_rate_for_customer_exceeded_fault() :: %{String.t() => any()}
+  @type api_call_rate_for_customer_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       replication_group_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type replication_group_already_exists_fault() :: %{String.t() => any()}
+  @type replication_group_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_replication_groups_message() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("ReplicationGroupId") => String.t()
+        optional("ReplicationGroupId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_replication_groups_message() :: %{String.t() => any()}
+  @type describe_replication_groups_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2210,7 +2219,7 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type create_replication_group_result() :: %{String.t() => any()}
+  @type create_replication_group_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2222,7 +2231,7 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type destination_details() :: %{String.t() => any()}
+  @type destination_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2233,198 +2242,198 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type purchase_reserved_cache_nodes_offering_result() :: %{String.t() => any()}
+  @type purchase_reserved_cache_nodes_offering_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       filter() :: %{
-        "Name" => String.t(),
-        "Values" => list(String.t())
+        "Name" => String.t() | Atom.t(),
+        "Values" => list(String.t() | Atom.t())
       }
       
   """
-  @type filter() :: %{String.t() => any()}
+  @type filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       replication_group() :: %{
-        "ARN" => String.t(),
+        "ARN" => String.t() | Atom.t(),
         "AtRestEncryptionEnabled" => boolean(),
         "AuthTokenEnabled" => boolean(),
         "AuthTokenLastModifiedDate" => non_neg_integer(),
         "AutoMinorVersionUpgrade" => boolean(),
         "AutomaticFailover" => list(any()),
-        "CacheNodeType" => String.t(),
+        "CacheNodeType" => String.t() | Atom.t(),
         "ClusterEnabled" => boolean(),
         "ClusterMode" => list(any()),
         "ConfigurationEndpoint" => endpoint(),
         "DataTiering" => list(any()),
-        "Description" => String.t(),
-        "Engine" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "Engine" => String.t() | Atom.t(),
         "GlobalReplicationGroupInfo" => global_replication_group_info(),
         "IpDiscovery" => list(any()),
-        "KmsKeyId" => String.t(),
+        "KmsKeyId" => String.t() | Atom.t(),
         "LogDeliveryConfigurations" => list(log_delivery_configuration()),
-        "MemberClusters" => list(String.t()),
-        "MemberClustersOutpostArns" => list(String.t()),
+        "MemberClusters" => list(String.t() | Atom.t()),
+        "MemberClustersOutpostArns" => list(String.t() | Atom.t()),
         "MultiAZ" => list(any()),
         "NetworkType" => list(any()),
         "NodeGroups" => list(node_group()),
         "PendingModifiedValues" => replication_group_pending_modified_values(),
         "ReplicationGroupCreateTime" => non_neg_integer(),
-        "ReplicationGroupId" => String.t(),
+        "ReplicationGroupId" => String.t() | Atom.t(),
         "SnapshotRetentionLimit" => integer(),
-        "SnapshotWindow" => String.t(),
-        "SnapshottingClusterId" => String.t(),
-        "Status" => String.t(),
+        "SnapshotWindow" => String.t() | Atom.t(),
+        "SnapshottingClusterId" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t(),
         "TransitEncryptionEnabled" => boolean(),
         "TransitEncryptionMode" => list(any()),
-        "UserGroupIds" => list(String.t())
+        "UserGroupIds" => list(String.t() | Atom.t())
       }
       
   """
-  @type replication_group() :: %{String.t() => any()}
+  @type replication_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_serverless_cache_request() :: %{
-        optional("FinalSnapshotName") => String.t(),
-        required("ServerlessCacheName") => String.t()
+        optional("FinalSnapshotName") => String.t() | Atom.t(),
+        required("ServerlessCacheName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_serverless_cache_request() :: %{String.t() => any()}
+  @type delete_serverless_cache_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_user_message() :: %{
-        optional("AccessString") => String.t(),
-        optional("AppendAccessString") => String.t(),
+        optional("AccessString") => String.t() | Atom.t(),
+        optional("AppendAccessString") => String.t() | Atom.t(),
         optional("AuthenticationMode") => authentication_mode(),
-        optional("Engine") => String.t(),
+        optional("Engine") => String.t() | Atom.t(),
         optional("NoPasswordRequired") => boolean(),
-        optional("Passwords") => list(String.t()),
-        required("UserId") => String.t()
+        optional("Passwords") => list(String.t() | Atom.t()),
+        required("UserId") => String.t() | Atom.t()
       }
       
   """
-  @type modify_user_message() :: %{String.t() => any()}
+  @type modify_user_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       replication_group_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type replication_group_not_found_fault() :: %{String.t() => any()}
+  @type replication_group_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_snapshot_message() :: %{
-        optional("CacheClusterId") => String.t(),
-        optional("KmsKeyId") => String.t(),
-        optional("ReplicationGroupId") => String.t(),
+        optional("CacheClusterId") => String.t() | Atom.t(),
+        optional("KmsKeyId") => String.t() | Atom.t(),
+        optional("ReplicationGroupId") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("SnapshotName") => String.t()
+        required("SnapshotName") => String.t() | Atom.t()
       }
       
   """
-  @type create_snapshot_message() :: %{String.t() => any()}
+  @type create_snapshot_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_quota_for_customer_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cluster_quota_for_customer_exceeded_fault() :: %{String.t() => any()}
+  @type cluster_quota_for_customer_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       user_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type user_already_exists_fault() :: %{String.t() => any()}
+  @type user_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       notification_configuration() :: %{
-        "TopicArn" => String.t(),
-        "TopicStatus" => String.t()
+        "TopicArn" => String.t() | Atom.t(),
+        "TopicStatus" => String.t() | Atom.t()
       }
       
   """
-  @type notification_configuration() :: %{String.t() => any()}
+  @type notification_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_cache_parameter_group_message() :: %{
-        required("CacheParameterGroupName") => String.t(),
+        required("CacheParameterGroupName") => String.t() | Atom.t(),
         required("ParameterNameValues") => list(parameter_name_value())
       }
       
   """
-  @type modify_cache_parameter_group_message() :: %{String.t() => any()}
+  @type modify_cache_parameter_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_cache_security_group_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_cache_security_group_state_fault() :: %{String.t() => any()}
+  @type invalid_cache_security_group_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoint() :: %{
-        "Address" => String.t(),
+        "Address" => String.t() | Atom.t(),
         "Port" => integer()
       }
       
   """
-  @type endpoint() :: %{String.t() => any()}
+  @type endpoint() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_cache_subnet_group_message() :: %{
-        optional("CacheSubnetGroupDescription") => String.t(),
-        optional("SubnetIds") => list(String.t()),
-        required("CacheSubnetGroupName") => String.t()
+        optional("CacheSubnetGroupDescription") => String.t() | Atom.t(),
+        optional("SubnetIds") => list(String.t() | Atom.t()),
+        required("CacheSubnetGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type modify_cache_subnet_group_message() :: %{String.t() => any()}
+  @type modify_cache_subnet_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2435,7 +2444,7 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type copy_snapshot_result() :: %{String.t() => any()}
+  @type copy_snapshot_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2446,7 +2455,7 @@ defmodule AWS.ElastiCache do
         "AutomaticFailoverStatus" => list(any()),
         "ClusterMode" => list(any()),
         "LogDeliveryConfigurations" => list(pending_log_delivery_configuration()),
-        "PrimaryClusterId" => String.t(),
+        "PrimaryClusterId" => String.t() | Atom.t(),
         "Resharding" => resharding_status(),
         "TransitEncryptionEnabled" => boolean(),
         "TransitEncryptionMode" => list(any()),
@@ -2454,18 +2463,18 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type replication_group_pending_modified_values() :: %{String.t() => any()}
+  @type replication_group_pending_modified_values() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cache_security_group_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cache_security_group_quota_exceeded_fault() :: %{String.t() => any()}
+  @type cache_security_group_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2473,34 +2482,34 @@ defmodule AWS.ElastiCache do
       
       events_message() :: %{
         "Events" => list(event()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type events_message() :: %{String.t() => any()}
+  @type events_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resharding_configuration() :: %{
-        "NodeGroupId" => String.t(),
-        "PreferredAvailabilityZones" => list(String.t())
+        "NodeGroupId" => String.t() | Atom.t(),
+        "PreferredAvailabilityZones" => list(String.t() | Atom.t())
       }
       
   """
-  @type resharding_configuration() :: %{String.t() => any()}
+  @type resharding_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       user_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type user_quota_exceeded_fault() :: %{String.t() => any()}
+  @type user_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2508,13 +2517,13 @@ defmodule AWS.ElastiCache do
       
       purchase_reserved_cache_nodes_offering_message() :: %{
         optional("CacheNodeCount") => integer(),
-        optional("ReservedCacheNodeId") => String.t(),
+        optional("ReservedCacheNodeId") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("ReservedCacheNodesOfferingId") => String.t()
+        required("ReservedCacheNodesOfferingId") => String.t() | Atom.t()
       }
       
   """
-  @type purchase_reserved_cache_nodes_offering_message() :: %{String.t() => any()}
+  @type purchase_reserved_cache_nodes_offering_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2522,37 +2531,37 @@ defmodule AWS.ElastiCache do
       
       describe_serverless_caches_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ServerlessCacheName") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("ServerlessCacheName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_serverless_caches_request() :: %{String.t() => any()}
+  @type describe_serverless_caches_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cache_parameter_group_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cache_parameter_group_quota_exceeded_fault() :: %{String.t() => any()}
+  @type cache_parameter_group_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       processed_update_action() :: %{
-        "CacheClusterId" => String.t(),
-        "ReplicationGroupId" => String.t(),
-        "ServiceUpdateName" => String.t(),
+        "CacheClusterId" => String.t() | Atom.t(),
+        "ReplicationGroupId" => String.t() | Atom.t(),
+        "ServiceUpdateName" => String.t() | Atom.t(),
         "UpdateActionStatus" => list(any())
       }
       
   """
-  @type processed_update_action() :: %{String.t() => any()}
+  @type processed_update_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2563,7 +2572,7 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type describe_engine_default_parameters_result() :: %{String.t() => any()}
+  @type describe_engine_default_parameters_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2574,7 +2583,7 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type test_migration_response() :: %{String.t() => any()}
+  @type test_migration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2585,7 +2594,7 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type delete_snapshot_result() :: %{String.t() => any()}
+  @type delete_snapshot_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2596,18 +2605,18 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type start_migration_response() :: %{String.t() => any()}
+  @type start_migration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       duplicate_user_name_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type duplicate_user_name_fault() :: %{String.t() => any()}
+  @type duplicate_user_name_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2615,13 +2624,13 @@ defmodule AWS.ElastiCache do
       
       event() :: %{
         "Date" => non_neg_integer(),
-        "Message" => String.t(),
-        "SourceIdentifier" => String.t(),
+        "Message" => String.t() | Atom.t(),
+        "SourceIdentifier" => String.t() | Atom.t(),
         "SourceType" => list(any())
       }
       
   """
-  @type event() :: %{String.t() => any()}
+  @type event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2629,36 +2638,36 @@ defmodule AWS.ElastiCache do
       
       cache_subnet_group_message() :: %{
         "CacheSubnetGroups" => list(cache_subnet_group()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type cache_subnet_group_message() :: %{String.t() => any()}
+  @type cache_subnet_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_global_replication_group_message() :: %{
-        optional("GlobalReplicationGroupDescription") => String.t(),
-        required("GlobalReplicationGroupIdSuffix") => String.t(),
-        required("PrimaryReplicationGroupId") => String.t()
+        optional("GlobalReplicationGroupDescription") => String.t() | Atom.t(),
+        required("GlobalReplicationGroupIdSuffix") => String.t() | Atom.t(),
+        required("PrimaryReplicationGroupId") => String.t() | Atom.t()
       }
       
   """
-  @type create_global_replication_group_message() :: %{String.t() => any()}
+  @type create_global_replication_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_users_result() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "Users" => list(user())
       }
       
   """
-  @type describe_users_result() :: %{String.t() => any()}
+  @type describe_users_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2666,52 +2675,52 @@ defmodule AWS.ElastiCache do
       
       configure_shard() :: %{
         "NewReplicaCount" => integer(),
-        "NodeGroupId" => String.t(),
-        "PreferredAvailabilityZones" => list(String.t()),
-        "PreferredOutpostArns" => list(String.t())
+        "NodeGroupId" => String.t() | Atom.t(),
+        "PreferredAvailabilityZones" => list(String.t() | Atom.t()),
+        "PreferredOutpostArns" => list(String.t() | Atom.t())
       }
       
   """
-  @type configure_shard() :: %{String.t() => any()}
+  @type configure_shard() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_cache_security_groups_message() :: %{
-        optional("CacheSecurityGroupName") => String.t(),
-        optional("Marker") => String.t(),
+        optional("CacheSecurityGroupName") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_cache_security_groups_message() :: %{String.t() => any()}
+  @type describe_cache_security_groups_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_global_replication_group_message() :: %{
-        required("GlobalReplicationGroupId") => String.t(),
+        required("GlobalReplicationGroupId") => String.t() | Atom.t(),
         required("RetainPrimaryReplicationGroup") => boolean()
       }
       
   """
-  @type delete_global_replication_group_message() :: %{String.t() => any()}
+  @type delete_global_replication_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_action() :: %{
-        "CacheClusterId" => String.t(),
+        "CacheClusterId" => String.t() | Atom.t(),
         "CacheNodeUpdateStatus" => list(cache_node_update_status()),
-        "Engine" => String.t(),
-        "EstimatedUpdateTime" => String.t(),
+        "Engine" => String.t() | Atom.t(),
+        "EstimatedUpdateTime" => String.t() | Atom.t(),
         "NodeGroupUpdateStatus" => list(node_group_update_status()),
-        "NodesUpdated" => String.t(),
-        "ReplicationGroupId" => String.t(),
-        "ServiceUpdateName" => String.t(),
+        "NodesUpdated" => String.t() | Atom.t(),
+        "ReplicationGroupId" => String.t() | Atom.t(),
+        "ServiceUpdateName" => String.t() | Atom.t(),
         "ServiceUpdateRecommendedApplyByDate" => non_neg_integer(),
         "ServiceUpdateReleaseDate" => non_neg_integer(),
         "ServiceUpdateSeverity" => list(any()),
@@ -2724,122 +2733,122 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type update_action() :: %{String.t() => any()}
+  @type update_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       node_group_update_status() :: %{
-        "NodeGroupId" => String.t(),
+        "NodeGroupId" => String.t() | Atom.t(),
         "NodeGroupMemberUpdateStatus" => list(node_group_member_update_status())
       }
       
   """
-  @type node_group_update_status() :: %{String.t() => any()}
+  @type node_group_update_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_actions_message() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "UpdateActions" => list(update_action())
       }
       
   """
-  @type update_actions_message() :: %{String.t() => any()}
+  @type update_actions_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_cache_cluster_message() :: %{
-        optional("FinalSnapshotIdentifier") => String.t(),
-        required("CacheClusterId") => String.t()
+        optional("FinalSnapshotIdentifier") => String.t() | Atom.t(),
+        required("CacheClusterId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_cache_cluster_message() :: %{String.t() => any()}
+  @type delete_cache_cluster_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       snapshot() :: %{
-        "ARN" => String.t(),
+        "ARN" => String.t() | Atom.t(),
         "AutoMinorVersionUpgrade" => boolean(),
         "AutomaticFailover" => list(any()),
         "CacheClusterCreateTime" => non_neg_integer(),
-        "CacheClusterId" => String.t(),
-        "CacheNodeType" => String.t(),
-        "CacheParameterGroupName" => String.t(),
-        "CacheSubnetGroupName" => String.t(),
+        "CacheClusterId" => String.t() | Atom.t(),
+        "CacheNodeType" => String.t() | Atom.t(),
+        "CacheParameterGroupName" => String.t() | Atom.t(),
+        "CacheSubnetGroupName" => String.t() | Atom.t(),
         "DataTiering" => list(any()),
-        "Engine" => String.t(),
-        "EngineVersion" => String.t(),
-        "KmsKeyId" => String.t(),
+        "Engine" => String.t() | Atom.t(),
+        "EngineVersion" => String.t() | Atom.t(),
+        "KmsKeyId" => String.t() | Atom.t(),
         "NodeSnapshots" => list(node_snapshot()),
         "NumCacheNodes" => integer(),
         "NumNodeGroups" => integer(),
         "Port" => integer(),
-        "PreferredAvailabilityZone" => String.t(),
-        "PreferredMaintenanceWindow" => String.t(),
-        "PreferredOutpostArn" => String.t(),
-        "ReplicationGroupDescription" => String.t(),
-        "ReplicationGroupId" => String.t(),
-        "SnapshotName" => String.t(),
+        "PreferredAvailabilityZone" => String.t() | Atom.t(),
+        "PreferredMaintenanceWindow" => String.t() | Atom.t(),
+        "PreferredOutpostArn" => String.t() | Atom.t(),
+        "ReplicationGroupDescription" => String.t() | Atom.t(),
+        "ReplicationGroupId" => String.t() | Atom.t(),
+        "SnapshotName" => String.t() | Atom.t(),
         "SnapshotRetentionLimit" => integer(),
-        "SnapshotSource" => String.t(),
-        "SnapshotStatus" => String.t(),
-        "SnapshotWindow" => String.t(),
-        "TopicArn" => String.t(),
-        "VpcId" => String.t()
+        "SnapshotSource" => String.t() | Atom.t(),
+        "SnapshotStatus" => String.t() | Atom.t(),
+        "SnapshotWindow" => String.t() | Atom.t(),
+        "TopicArn" => String.t() | Atom.t(),
+        "VpcId" => String.t() | Atom.t()
       }
       
   """
-  @type snapshot() :: %{String.t() => any()}
+  @type snapshot() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_reserved_cache_nodes_message() :: %{
-        optional("CacheNodeType") => String.t(),
-        optional("Duration") => String.t(),
-        optional("Marker") => String.t(),
+        optional("CacheNodeType") => String.t() | Atom.t(),
+        optional("Duration") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("OfferingType") => String.t(),
-        optional("ProductDescription") => String.t(),
-        optional("ReservedCacheNodeId") => String.t(),
-        optional("ReservedCacheNodesOfferingId") => String.t()
+        optional("OfferingType") => String.t() | Atom.t(),
+        optional("ProductDescription") => String.t() | Atom.t(),
+        optional("ReservedCacheNodeId") => String.t() | Atom.t(),
+        optional("ReservedCacheNodesOfferingId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_reserved_cache_nodes_message() :: %{String.t() => any()}
+  @type describe_reserved_cache_nodes_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       global_replication_group() :: %{
-        "ARN" => String.t(),
+        "ARN" => String.t() | Atom.t(),
         "AtRestEncryptionEnabled" => boolean(),
         "AuthTokenEnabled" => boolean(),
-        "CacheNodeType" => String.t(),
+        "CacheNodeType" => String.t() | Atom.t(),
         "ClusterEnabled" => boolean(),
-        "Engine" => String.t(),
-        "EngineVersion" => String.t(),
+        "Engine" => String.t() | Atom.t(),
+        "EngineVersion" => String.t() | Atom.t(),
         "GlobalNodeGroups" => list(global_node_group()),
-        "GlobalReplicationGroupDescription" => String.t(),
-        "GlobalReplicationGroupId" => String.t(),
+        "GlobalReplicationGroupDescription" => String.t() | Atom.t(),
+        "GlobalReplicationGroupId" => String.t() | Atom.t(),
         "Members" => list(global_replication_group_member()),
-        "Status" => String.t(),
+        "Status" => String.t() | Atom.t(),
         "TransitEncryptionEnabled" => boolean()
       }
       
   """
-  @type global_replication_group() :: %{String.t() => any()}
+  @type global_replication_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2850,18 +2859,18 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type tag_list_message() :: %{String.t() => any()}
+  @type tag_list_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       subnet_in_use() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type subnet_in_use() :: %{String.t() => any()}
+  @type subnet_in_use() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2869,80 +2878,80 @@ defmodule AWS.ElastiCache do
       
       create_cache_subnet_group_message() :: %{
         optional("Tags") => list(tag()),
-        required("CacheSubnetGroupDescription") => String.t(),
-        required("CacheSubnetGroupName") => String.t(),
-        required("SubnetIds") => list(String.t())
+        required("CacheSubnetGroupDescription") => String.t() | Atom.t(),
+        required("CacheSubnetGroupName") => String.t() | Atom.t(),
+        required("SubnetIds") => list(String.t() | Atom.t())
       }
       
   """
-  @type create_cache_subnet_group_message() :: %{String.t() => any()}
+  @type create_cache_subnet_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       service_linked_role_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type service_linked_role_not_found_fault() :: %{String.t() => any()}
+  @type service_linked_role_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       default_user_associated_to_user_group_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type default_user_associated_to_user_group_fault() :: %{String.t() => any()}
+  @type default_user_associated_to_user_group_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cache_subnet_group_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cache_subnet_group_not_found_fault() :: %{String.t() => any()}
+  @type cache_subnet_group_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       add_tags_to_resource_message() :: %{
-        required("ResourceName") => String.t(),
+        required("ResourceName") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
       
   """
-  @type add_tags_to_resource_message() :: %{String.t() => any()}
+  @type add_tags_to_resource_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_cache_subnet_group_message() :: %{
-        required("CacheSubnetGroupName") => String.t()
+        required("CacheSubnetGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_cache_subnet_group_message() :: %{String.t() => any()}
+  @type delete_cache_subnet_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       serverless_cache_snapshot_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type serverless_cache_snapshot_not_found_fault() :: %{String.t() => any()}
+  @type serverless_cache_snapshot_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2950,72 +2959,72 @@ defmodule AWS.ElastiCache do
       
       create_cache_security_group_message() :: %{
         optional("Tags") => list(tag()),
-        required("CacheSecurityGroupName") => String.t(),
-        required("Description") => String.t()
+        required("CacheSecurityGroupName") => String.t() | Atom.t(),
+        required("Description") => String.t() | Atom.t()
       }
       
   """
-  @type create_cache_security_group_message() :: %{String.t() => any()}
+  @type create_cache_security_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_replication_group_message() :: %{
-        optional("ServerlessCacheSnapshotName") => String.t(),
-        optional("SecurityGroupIds") => list(String.t()),
-        optional("UserGroupIds") => list(String.t()),
-        optional("PrimaryClusterId") => String.t(),
-        optional("CacheSubnetGroupName") => String.t(),
+        optional("ServerlessCacheSnapshotName") => String.t() | Atom.t(),
+        optional("SecurityGroupIds") => list(String.t() | Atom.t()),
+        optional("UserGroupIds") => list(String.t() | Atom.t()),
+        optional("PrimaryClusterId") => String.t() | Atom.t(),
+        optional("CacheSubnetGroupName") => String.t() | Atom.t(),
         optional("SnapshotRetentionLimit") => integer(),
         optional("NetworkType") => list(any()),
-        optional("GlobalReplicationGroupId") => String.t(),
-        required("ReplicationGroupId") => String.t(),
-        optional("AuthToken") => String.t(),
+        optional("GlobalReplicationGroupId") => String.t() | Atom.t(),
+        required("ReplicationGroupId") => String.t() | Atom.t(),
+        optional("AuthToken") => String.t() | Atom.t(),
         optional("ReplicasPerNodeGroup") => integer(),
-        optional("PreferredCacheClusterAZs") => list(String.t()),
-        optional("Engine") => String.t(),
+        optional("PreferredCacheClusterAZs") => list(String.t() | Atom.t()),
+        optional("Engine") => String.t() | Atom.t(),
         optional("IpDiscovery") => list(any()),
         optional("NumCacheClusters") => integer(),
         optional("NumNodeGroups") => integer(),
-        optional("CacheParameterGroupName") => String.t(),
-        optional("NotificationTopicArn") => String.t(),
+        optional("CacheParameterGroupName") => String.t() | Atom.t(),
+        optional("NotificationTopicArn") => String.t() | Atom.t(),
         optional("TransitEncryptionEnabled") => boolean(),
-        optional("SnapshotWindow") => String.t(),
+        optional("SnapshotWindow") => String.t() | Atom.t(),
         optional("AutoMinorVersionUpgrade") => boolean(),
-        optional("SnapshotArns") => list(String.t()),
+        optional("SnapshotArns") => list(String.t() | Atom.t()),
         optional("LogDeliveryConfigurations") => list(log_delivery_configuration_request()),
-        optional("EngineVersion") => String.t(),
-        optional("SnapshotName") => String.t(),
+        optional("EngineVersion") => String.t() | Atom.t(),
+        optional("SnapshotName") => String.t() | Atom.t(),
         optional("ClusterMode") => list(any()),
         optional("NodeGroupConfiguration") => list(node_group_configuration()),
-        optional("CacheSecurityGroupNames") => list(String.t()),
+        optional("CacheSecurityGroupNames") => list(String.t() | Atom.t()),
         optional("DataTieringEnabled") => boolean(),
         optional("Port") => integer(),
         optional("AtRestEncryptionEnabled") => boolean(),
-        required("ReplicationGroupDescription") => String.t(),
+        required("ReplicationGroupDescription") => String.t() | Atom.t(),
         optional("AutomaticFailoverEnabled") => boolean(),
         optional("MultiAZEnabled") => boolean(),
         optional("TransitEncryptionMode") => list(any()),
-        optional("KmsKeyId") => String.t(),
-        optional("PreferredMaintenanceWindow") => String.t(),
-        optional("CacheNodeType") => String.t(),
+        optional("KmsKeyId") => String.t() | Atom.t(),
+        optional("PreferredMaintenanceWindow") => String.t() | Atom.t(),
+        optional("CacheNodeType") => String.t() | Atom.t(),
         optional("Tags") => list(tag())
       }
       
   """
-  @type create_replication_group_message() :: %{String.t() => any()}
+  @type create_replication_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_serverless_cache_snapshot_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_serverless_cache_snapshot_state_fault() :: %{String.t() => any()}
+  @type invalid_serverless_cache_snapshot_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3024,15 +3033,15 @@ defmodule AWS.ElastiCache do
       describe_events_message() :: %{
         optional("Duration") => integer(),
         optional("EndTime") => non_neg_integer(),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("SourceIdentifier") => String.t(),
+        optional("SourceIdentifier") => String.t() | Atom.t(),
         optional("SourceType") => list(any()),
         optional("StartTime") => non_neg_integer()
       }
       
   """
-  @type describe_events_message() :: %{String.t() => any()}
+  @type describe_events_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3043,18 +3052,18 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type create_cache_security_group_result() :: %{String.t() => any()}
+  @type create_cache_security_group_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       snapshot_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type snapshot_already_exists_fault() :: %{String.t() => any()}
+  @type snapshot_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3062,11 +3071,11 @@ defmodule AWS.ElastiCache do
       
       cache_cluster_message() :: %{
         "CacheClusters" => list(cache_cluster()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type cache_cluster_message() :: %{String.t() => any()}
+  @type cache_cluster_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3077,19 +3086,19 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type create_snapshot_result() :: %{String.t() => any()}
+  @type create_snapshot_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       customer_node_endpoint() :: %{
-        "Address" => String.t(),
+        "Address" => String.t() | Atom.t(),
         "Port" => integer()
       }
       
   """
-  @type customer_node_endpoint() :: %{String.t() => any()}
+  @type customer_node_endpoint() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3100,7 +3109,7 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type complete_migration_response() :: %{String.t() => any()}
+  @type complete_migration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3108,14 +3117,14 @@ defmodule AWS.ElastiCache do
       
       describe_serverless_cache_snapshots_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ServerlessCacheName") => String.t(),
-        optional("ServerlessCacheSnapshotName") => String.t(),
-        optional("SnapshotType") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("ServerlessCacheName") => String.t() | Atom.t(),
+        optional("ServerlessCacheSnapshotName") => String.t() | Atom.t(),
+        optional("SnapshotType") => String.t() | Atom.t()
       }
       
   """
-  @type describe_serverless_cache_snapshots_request() :: %{String.t() => any()}
+  @type describe_serverless_cache_snapshots_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3127,47 +3136,47 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type time_range_filter() :: %{String.t() => any()}
+  @type time_range_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_snapshots_list_message() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "Snapshots" => list(snapshot())
       }
       
   """
-  @type describe_snapshots_list_message() :: %{String.t() => any()}
+  @type describe_snapshots_list_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_users_message() :: %{
-        optional("Engine") => String.t(),
+        optional("Engine") => String.t() | Atom.t(),
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("UserId") => String.t()
+        optional("UserId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_users_message() :: %{String.t() => any()}
+  @type describe_users_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       authorize_cache_security_group_ingress_message() :: %{
-        required("CacheSecurityGroupName") => String.t(),
-        required("EC2SecurityGroupName") => String.t(),
-        required("EC2SecurityGroupOwnerId") => String.t()
+        required("CacheSecurityGroupName") => String.t() | Atom.t(),
+        required("EC2SecurityGroupName") => String.t() | Atom.t(),
+        required("EC2SecurityGroupOwnerId") => String.t() | Atom.t()
       }
       
   """
-  @type authorize_cache_security_group_ingress_message() :: %{String.t() => any()}
+  @type authorize_cache_security_group_ingress_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3178,26 +3187,26 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type modify_serverless_cache_response() :: %{String.t() => any()}
+  @type modify_serverless_cache_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       user() :: %{
-        optional("ARN") => String.t(),
-        optional("AccessString") => String.t(),
+        optional("ARN") => String.t() | Atom.t(),
+        optional("AccessString") => String.t() | Atom.t(),
         optional("Authentication") => authentication(),
-        optional("Engine") => String.t(),
-        optional("MinimumEngineVersion") => String.t(),
-        optional("Status") => String.t(),
-        optional("UserGroupIds") => list(String.t()),
-        optional("UserId") => String.t(),
-        optional("UserName") => String.t()
+        optional("Engine") => String.t() | Atom.t(),
+        optional("MinimumEngineVersion") => String.t() | Atom.t(),
+        optional("Status") => String.t() | Atom.t(),
+        optional("UserGroupIds") => list(String.t() | Atom.t()),
+        optional("UserId") => String.t() | Atom.t(),
+        optional("UserName") => String.t() | Atom.t()
       }
       
   """
-  @type user() :: %{String.t() => any()}
+  @type user() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3205,13 +3214,13 @@ defmodule AWS.ElastiCache do
       
       create_cache_parameter_group_message() :: %{
         optional("Tags") => list(tag()),
-        required("CacheParameterGroupFamily") => String.t(),
-        required("CacheParameterGroupName") => String.t(),
-        required("Description") => String.t()
+        required("CacheParameterGroupFamily") => String.t() | Atom.t(),
+        required("CacheParameterGroupName") => String.t() | Atom.t(),
+        required("Description") => String.t() | Atom.t()
       }
       
   """
-  @type create_cache_parameter_group_message() :: %{String.t() => any()}
+  @type create_cache_parameter_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3219,12 +3228,12 @@ defmodule AWS.ElastiCache do
       
       service_update() :: %{
         "AutoUpdateAfterRecommendedApplyByDate" => boolean(),
-        "Engine" => String.t(),
-        "EngineVersion" => String.t(),
-        "EstimatedUpdateTime" => String.t(),
-        "ServiceUpdateDescription" => String.t(),
+        "Engine" => String.t() | Atom.t(),
+        "EngineVersion" => String.t() | Atom.t(),
+        "EstimatedUpdateTime" => String.t() | Atom.t(),
+        "ServiceUpdateDescription" => String.t() | Atom.t(),
         "ServiceUpdateEndDate" => non_neg_integer(),
-        "ServiceUpdateName" => String.t(),
+        "ServiceUpdateName" => String.t() | Atom.t(),
         "ServiceUpdateRecommendedApplyByDate" => non_neg_integer(),
         "ServiceUpdateReleaseDate" => non_neg_integer(),
         "ServiceUpdateSeverity" => list(any()),
@@ -3233,7 +3242,7 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type service_update() :: %{String.t() => any()}
+  @type service_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3244,7 +3253,7 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type authorize_cache_security_group_ingress_result() :: %{String.t() => any()}
+  @type authorize_cache_security_group_ingress_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3252,33 +3261,33 @@ defmodule AWS.ElastiCache do
       
       create_serverless_cache_request() :: %{
         optional("CacheUsageLimits") => cache_usage_limits(),
-        optional("DailySnapshotTime") => String.t(),
-        optional("Description") => String.t(),
-        optional("KmsKeyId") => String.t(),
-        optional("MajorEngineVersion") => String.t(),
-        optional("SecurityGroupIds") => list(String.t()),
-        optional("SnapshotArnsToRestore") => list(String.t()),
+        optional("DailySnapshotTime") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("KmsKeyId") => String.t() | Atom.t(),
+        optional("MajorEngineVersion") => String.t() | Atom.t(),
+        optional("SecurityGroupIds") => list(String.t() | Atom.t()),
+        optional("SnapshotArnsToRestore") => list(String.t() | Atom.t()),
         optional("SnapshotRetentionLimit") => integer(),
-        optional("SubnetIds") => list(String.t()),
+        optional("SubnetIds") => list(String.t() | Atom.t()),
         optional("Tags") => list(tag()),
-        optional("UserGroupId") => String.t(),
-        required("Engine") => String.t(),
-        required("ServerlessCacheName") => String.t()
+        optional("UserGroupId") => String.t() | Atom.t(),
+        required("Engine") => String.t() | Atom.t(),
+        required("ServerlessCacheName") => String.t() | Atom.t()
       }
       
   """
-  @type create_serverless_cache_request() :: %{String.t() => any()}
+  @type create_serverless_cache_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       default_user_required() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type default_user_required() :: %{String.t() => any()}
+  @type default_user_required() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3289,18 +3298,18 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type create_serverless_cache_snapshot_response() :: %{String.t() => any()}
+  @type create_serverless_cache_snapshot_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_replication_group_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_replication_group_state_fault() :: %{String.t() => any()}
+  @type invalid_replication_group_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3311,29 +3320,29 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type create_cache_parameter_group_result() :: %{String.t() => any()}
+  @type create_cache_parameter_group_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       global_replication_group_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type global_replication_group_not_found_fault() :: %{String.t() => any()}
+  @type global_replication_group_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       user_group_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type user_group_not_found_fault() :: %{String.t() => any()}
+  @type user_group_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3341,34 +3350,34 @@ defmodule AWS.ElastiCache do
       
       cache_engine_version_message() :: %{
         "CacheEngineVersions" => list(cache_engine_version()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type cache_engine_version_message() :: %{String.t() => any()}
+  @type cache_engine_version_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       authentication_mode() :: %{
-        "Passwords" => list(String.t()),
+        "Passwords" => list(String.t() | Atom.t()),
         "Type" => list(any())
       }
       
   """
-  @type authentication_mode() :: %{String.t() => any()}
+  @type authentication_mode() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       insufficient_cache_cluster_capacity_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type insufficient_cache_cluster_capacity_fault() :: %{String.t() => any()}
+  @type insufficient_cache_cluster_capacity_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3376,53 +3385,53 @@ defmodule AWS.ElastiCache do
       
       modify_serverless_cache_request() :: %{
         optional("CacheUsageLimits") => cache_usage_limits(),
-        optional("DailySnapshotTime") => String.t(),
-        optional("Description") => String.t(),
-        optional("Engine") => String.t(),
-        optional("MajorEngineVersion") => String.t(),
+        optional("DailySnapshotTime") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("Engine") => String.t() | Atom.t(),
+        optional("MajorEngineVersion") => String.t() | Atom.t(),
         optional("RemoveUserGroup") => boolean(),
-        optional("SecurityGroupIds") => list(String.t()),
+        optional("SecurityGroupIds") => list(String.t() | Atom.t()),
         optional("SnapshotRetentionLimit") => integer(),
-        optional("UserGroupId") => String.t(),
-        required("ServerlessCacheName") => String.t()
+        optional("UserGroupId") => String.t() | Atom.t(),
+        required("ServerlessCacheName") => String.t() | Atom.t()
       }
       
   """
-  @type modify_serverless_cache_request() :: %{String.t() => any()}
+  @type modify_serverless_cache_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_cache_clusters_message() :: %{
-        optional("CacheClusterId") => String.t(),
-        optional("Marker") => String.t(),
+        optional("CacheClusterId") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
         optional("ShowCacheClustersNotInReplicationGroups") => boolean(),
         optional("ShowCacheNodeInfo") => boolean()
       }
       
   """
-  @type describe_cache_clusters_message() :: %{String.t() => any()}
+  @type describe_cache_clusters_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_tags_from_resource_message() :: %{
-        required("ResourceName") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceName") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type remove_tags_from_resource_message() :: %{String.t() => any()}
+  @type remove_tags_from_resource_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cache_node_update_status() :: %{
-        "CacheNodeId" => String.t(),
+        "CacheNodeId" => String.t() | Atom.t(),
         "NodeDeletionDate" => non_neg_integer(),
         "NodeUpdateEndDate" => non_neg_integer(),
         "NodeUpdateInitiatedBy" => list(any()),
@@ -3433,7 +3442,7 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type cache_node_update_status() :: %{String.t() => any()}
+  @type cache_node_update_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3444,29 +3453,29 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type delete_serverless_cache_snapshot_response() :: %{String.t() => any()}
+  @type delete_serverless_cache_snapshot_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       replication_group_already_under_migration_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type replication_group_already_under_migration_fault() :: %{String.t() => any()}
+  @type replication_group_already_under_migration_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_cache_security_group_message() :: %{
-        required("CacheSecurityGroupName") => String.t()
+        required("CacheSecurityGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_cache_security_group_message() :: %{String.t() => any()}
+  @type delete_cache_security_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3477,7 +3486,7 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type export_serverless_cache_snapshot_response() :: %{String.t() => any()}
+  @type export_serverless_cache_snapshot_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3485,48 +3494,51 @@ defmodule AWS.ElastiCache do
       
       rebalance_slots_in_global_replication_group_message() :: %{
         required("ApplyImmediately") => boolean(),
-        required("GlobalReplicationGroupId") => String.t()
+        required("GlobalReplicationGroupId") => String.t() | Atom.t()
       }
       
   """
-  @type rebalance_slots_in_global_replication_group_message() :: %{String.t() => any()}
+  @type rebalance_slots_in_global_replication_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       decrease_node_groups_in_global_replication_group_message() :: %{
-        optional("GlobalNodeGroupsToRemove") => list(String.t()),
-        optional("GlobalNodeGroupsToRetain") => list(String.t()),
+        optional("GlobalNodeGroupsToRemove") => list(String.t() | Atom.t()),
+        optional("GlobalNodeGroupsToRetain") => list(String.t() | Atom.t()),
         required("ApplyImmediately") => boolean(),
-        required("GlobalReplicationGroupId") => String.t(),
+        required("GlobalReplicationGroupId") => String.t() | Atom.t(),
         required("NodeGroupCount") => integer()
       }
       
   """
-  @type decrease_node_groups_in_global_replication_group_message() :: %{String.t() => any()}
+  @type decrease_node_groups_in_global_replication_group_message() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       cache_security_group_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cache_security_group_already_exists_fault() :: %{String.t() => any()}
+  @type cache_security_group_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       snapshot_feature_not_supported_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type snapshot_feature_not_supported_fault() :: %{String.t() => any()}
+  @type snapshot_feature_not_supported_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3537,41 +3549,41 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type delete_global_replication_group_result() :: %{String.t() => any()}
+  @type delete_global_replication_group_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_credentials_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_credentials_exception() :: %{String.t() => any()}
+  @type invalid_credentials_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       serverless_cache_snapshot_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type serverless_cache_snapshot_quota_exceeded_fault() :: %{String.t() => any()}
+  @type serverless_cache_snapshot_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       user_groups_update_status() :: %{
-        "UserGroupIdsToAdd" => list(String.t()),
-        "UserGroupIdsToRemove" => list(String.t())
+        "UserGroupIdsToAdd" => list(String.t() | Atom.t()),
+        "UserGroupIdsToRemove" => list(String.t() | Atom.t())
       }
       
   """
-  @type user_groups_update_status() :: %{String.t() => any()}
+  @type user_groups_update_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3579,37 +3591,37 @@ defmodule AWS.ElastiCache do
       
       global_replication_group_member() :: %{
         "AutomaticFailover" => list(any()),
-        "ReplicationGroupId" => String.t(),
-        "ReplicationGroupRegion" => String.t(),
-        "Role" => String.t(),
-        "Status" => String.t()
+        "ReplicationGroupId" => String.t() | Atom.t(),
+        "ReplicationGroupRegion" => String.t() | Atom.t(),
+        "Role" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type global_replication_group_member() :: %{String.t() => any()}
+  @type global_replication_group_member() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_serverless_cache_snapshot_request() :: %{
-        required("ServerlessCacheSnapshotName") => String.t()
+        required("ServerlessCacheSnapshotName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_serverless_cache_snapshot_request() :: %{String.t() => any()}
+  @type delete_serverless_cache_snapshot_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cache_node_type_specific_value() :: %{
-        "CacheNodeType" => String.t(),
-        "Value" => String.t()
+        "CacheNodeType" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type cache_node_type_specific_value() :: %{String.t() => any()}
+  @type cache_node_type_specific_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3617,22 +3629,25 @@ defmodule AWS.ElastiCache do
       
       start_migration_message() :: %{
         required("CustomerNodeEndpointList") => list(customer_node_endpoint()),
-        required("ReplicationGroupId") => String.t()
+        required("ReplicationGroupId") => String.t() | Atom.t()
       }
       
   """
-  @type start_migration_message() :: %{String.t() => any()}
+  @type start_migration_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       node_groups_per_replication_group_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type node_groups_per_replication_group_quota_exceeded_fault() :: %{String.t() => any()}
+  @type node_groups_per_replication_group_quota_exceeded_fault() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -3643,7 +3658,7 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type slot_migration() :: %{String.t() => any()}
+  @type slot_migration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3654,65 +3669,65 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type create_cache_cluster_result() :: %{String.t() => any()}
+  @type create_cache_cluster_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       global_replication_group_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type global_replication_group_already_exists_fault() :: %{String.t() => any()}
+  @type global_replication_group_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       replication_group_message() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "ReplicationGroups" => list(replication_group())
       }
       
   """
-  @type replication_group_message() :: %{String.t() => any()}
+  @type replication_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_global_replication_group_message() :: %{
-        required("GlobalReplicationGroupId") => String.t(),
-        required("ReplicationGroupId") => String.t(),
-        required("ReplicationGroupRegion") => String.t()
+        required("GlobalReplicationGroupId") => String.t() | Atom.t(),
+        required("ReplicationGroupId") => String.t() | Atom.t(),
+        required("ReplicationGroupRegion") => String.t() | Atom.t()
       }
       
   """
-  @type disassociate_global_replication_group_message() :: %{String.t() => any()}
+  @type disassociate_global_replication_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       user_group_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type user_group_already_exists_fault() :: %{String.t() => any()}
+  @type user_group_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       serverless_cache_quota_for_customer_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type serverless_cache_quota_for_customer_exceeded_fault() :: %{String.t() => any()}
+  @type serverless_cache_quota_for_customer_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3723,7 +3738,7 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type delete_cache_cluster_result() :: %{String.t() => any()}
+  @type delete_cache_cluster_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3732,42 +3747,42 @@ defmodule AWS.ElastiCache do
       modify_cache_cluster_message() :: %{
         optional("AZMode") => list(any()),
         optional("ApplyImmediately") => boolean(),
-        optional("AuthToken") => String.t(),
+        optional("AuthToken") => String.t() | Atom.t(),
         optional("AuthTokenUpdateStrategy") => list(any()),
         optional("AutoMinorVersionUpgrade") => boolean(),
-        optional("CacheNodeIdsToRemove") => list(String.t()),
-        optional("CacheNodeType") => String.t(),
-        optional("CacheParameterGroupName") => String.t(),
-        optional("CacheSecurityGroupNames") => list(String.t()),
-        optional("Engine") => String.t(),
-        optional("EngineVersion") => String.t(),
+        optional("CacheNodeIdsToRemove") => list(String.t() | Atom.t()),
+        optional("CacheNodeType") => String.t() | Atom.t(),
+        optional("CacheParameterGroupName") => String.t() | Atom.t(),
+        optional("CacheSecurityGroupNames") => list(String.t() | Atom.t()),
+        optional("Engine") => String.t() | Atom.t(),
+        optional("EngineVersion") => String.t() | Atom.t(),
         optional("IpDiscovery") => list(any()),
         optional("LogDeliveryConfigurations") => list(log_delivery_configuration_request()),
-        optional("NewAvailabilityZones") => list(String.t()),
-        optional("NotificationTopicArn") => String.t(),
-        optional("NotificationTopicStatus") => String.t(),
+        optional("NewAvailabilityZones") => list(String.t() | Atom.t()),
+        optional("NotificationTopicArn") => String.t() | Atom.t(),
+        optional("NotificationTopicStatus") => String.t() | Atom.t(),
         optional("NumCacheNodes") => integer(),
-        optional("PreferredMaintenanceWindow") => String.t(),
+        optional("PreferredMaintenanceWindow") => String.t() | Atom.t(),
         optional("ScaleConfig") => scale_config(),
-        optional("SecurityGroupIds") => list(String.t()),
+        optional("SecurityGroupIds") => list(String.t() | Atom.t()),
         optional("SnapshotRetentionLimit") => integer(),
-        optional("SnapshotWindow") => String.t(),
-        required("CacheClusterId") => String.t()
+        optional("SnapshotWindow") => String.t() | Atom.t(),
+        required("CacheClusterId") => String.t() | Atom.t()
       }
       
   """
-  @type modify_cache_cluster_message() :: %{String.t() => any()}
+  @type modify_cache_cluster_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       kinesis_firehose_destination_details() :: %{
-        "DeliveryStream" => String.t()
+        "DeliveryStream" => String.t() | Atom.t()
       }
       
   """
-  @type kinesis_firehose_destination_details() :: %{String.t() => any()}
+  @type kinesis_firehose_destination_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3778,53 +3793,56 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type increase_node_groups_in_global_replication_group_result() :: %{String.t() => any()}
+  @type increase_node_groups_in_global_replication_group_result() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       cache_subnet_group_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cache_subnet_group_already_exists_fault() :: %{String.t() => any()}
+  @type cache_subnet_group_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cache_subnet_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cache_subnet_quota_exceeded_fault() :: %{String.t() => any()}
+  @type cache_subnet_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       regional_configuration() :: %{
-        "ReplicationGroupId" => String.t(),
-        "ReplicationGroupRegion" => String.t(),
+        "ReplicationGroupId" => String.t() | Atom.t(),
+        "ReplicationGroupRegion" => String.t() | Atom.t(),
         "ReshardingConfiguration" => list(resharding_configuration())
       }
       
   """
-  @type regional_configuration() :: %{String.t() => any()}
+  @type regional_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       node_quota_for_cluster_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type node_quota_for_cluster_exceeded_fault() :: %{String.t() => any()}
+  @type node_quota_for_cluster_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3835,7 +3853,7 @@ defmodule AWS.ElastiCache do
       }
       
   """
-  @type delete_serverless_cache_response() :: %{String.t() => any()}
+  @type delete_serverless_cache_response() :: %{String.t() | Atom.t() => any()}
 
   @type add_tags_to_resource_errors() ::
           user_group_not_found_fault()

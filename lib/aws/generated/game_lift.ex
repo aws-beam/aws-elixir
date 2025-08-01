@@ -83,26 +83,26 @@ defmodule AWS.GameLift do
   ## Example:
       
       update_game_server_input() :: %{
-        optional("GameServerData") => String.t(),
+        optional("GameServerData") => String.t() | Atom.t(),
         optional("HealthCheck") => list(any()),
         optional("UtilizationStatus") => list(any()),
-        required("GameServerGroupName") => String.t(),
-        required("GameServerId") => String.t()
+        required("GameServerGroupName") => String.t() | Atom.t(),
+        required("GameServerId") => String.t() | Atom.t()
       }
       
   """
-  @type update_game_server_input() :: %{String.t() => any()}
+  @type update_game_server_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_fleet_status_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_fleet_status_exception() :: %{String.t() => any()}
+  @type invalid_fleet_status_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -112,12 +112,12 @@ defmodule AWS.GameLift do
         optional("BalancingStrategy") => list(any()),
         optional("GameServerProtectionPolicy") => list(any()),
         optional("InstanceDefinitions") => list(instance_definition()),
-        optional("RoleArn") => String.t(),
-        required("GameServerGroupName") => String.t()
+        optional("RoleArn") => String.t() | Atom.t(),
+        required("GameServerGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type update_game_server_group_input() :: %{String.t() => any()}
+  @type update_game_server_group_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -125,15 +125,15 @@ defmodule AWS.GameLift do
       
       list_compute_input() :: %{
         optional("ComputeStatus") => list(any()),
-        optional("ContainerGroupDefinitionName") => String.t(),
+        optional("ContainerGroupDefinitionName") => String.t() | Atom.t(),
         optional("Limit") => integer(),
-        optional("Location") => String.t(),
-        optional("NextToken") => String.t(),
-        required("FleetId") => String.t()
+        optional("Location") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | Atom.t(),
+        required("FleetId") => String.t() | Atom.t()
       }
       
   """
-  @type list_compute_input() :: %{String.t() => any()}
+  @type list_compute_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -143,26 +143,26 @@ defmodule AWS.GameLift do
         "ActiveGameSessionCount" => integer(),
         "ActiveServerProcessCount" => integer(),
         "CurrentPlayerSessionCount" => integer(),
-        "FleetArn" => String.t(),
-        "FleetId" => String.t(),
-        "Location" => String.t(),
+        "FleetArn" => String.t() | Atom.t(),
+        "FleetId" => String.t() | Atom.t(),
+        "Location" => String.t() | Atom.t(),
         "MaximumPlayerSessionCount" => integer()
       }
       
   """
-  @type fleet_utilization() :: %{String.t() => any()}
+  @type fleet_utilization() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_fleet_port_settings_output() :: %{
-        "FleetArn" => String.t(),
-        "FleetId" => String.t()
+        "FleetArn" => String.t() | Atom.t(),
+        "FleetId" => String.t() | Atom.t()
       }
       
   """
-  @type update_fleet_port_settings_output() :: %{String.t() => any()}
+  @type update_fleet_port_settings_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -178,26 +178,26 @@ defmodule AWS.GameLift do
   ## Example:
       
       game_session_connection_info() :: %{
-        "DnsName" => String.t(),
-        "GameSessionArn" => String.t(),
-        "IpAddress" => String.t(),
+        "DnsName" => String.t() | Atom.t(),
+        "GameSessionArn" => String.t() | Atom.t(),
+        "IpAddress" => String.t() | Atom.t(),
         "MatchedPlayerSessions" => list(matched_player_session()),
         "Port" => integer()
       }
       
   """
-  @type game_session_connection_info() :: %{String.t() => any()}
+  @type game_session_connection_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_matchmaking_input() :: %{
-        required("TicketIds") => list(String.t())
+        required("TicketIds") => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_matchmaking_input() :: %{String.t() => any()}
+  @type describe_matchmaking_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -205,26 +205,26 @@ defmodule AWS.GameLift do
       
       instance_access() :: %{
         "Credentials" => instance_credentials(),
-        "FleetId" => String.t(),
-        "InstanceId" => String.t(),
-        "IpAddress" => String.t(),
+        "FleetId" => String.t() | Atom.t(),
+        "InstanceId" => String.t() | Atom.t(),
+        "IpAddress" => String.t() | Atom.t(),
         "OperatingSystem" => list(any())
       }
       
   """
-  @type instance_access() :: %{String.t() => any()}
+  @type instance_access() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
+        required("ResourceARN") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -232,23 +232,23 @@ defmodule AWS.GameLift do
       
       list_locations_output() :: %{
         "Locations" => list(location_model()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_locations_output() :: %{String.t() => any()}
+  @type list_locations_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       container_fleet_location_attributes() :: %{
-        "Location" => String.t(),
+        "Location" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type container_fleet_location_attributes() :: %{String.t() => any()}
+  @type container_fleet_location_attributes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -262,7 +262,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type game_server_container_group_counts() :: %{String.t() => any()}
+  @type game_server_container_group_counts() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -270,37 +270,37 @@ defmodule AWS.GameLift do
       
       player_latency() :: %{
         "LatencyInMilliseconds" => float(),
-        "PlayerId" => String.t(),
-        "RegionIdentifier" => String.t()
+        "PlayerId" => String.t() | Atom.t(),
+        "RegionIdentifier" => String.t() | Atom.t()
       }
       
   """
-  @type player_latency() :: %{String.t() => any()}
+  @type player_latency() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tagging_failed_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type tagging_failed_exception() :: %{String.t() => any()}
+  @type tagging_failed_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       game_server_instance() :: %{
-        "GameServerGroupArn" => String.t(),
-        "GameServerGroupName" => String.t(),
-        "InstanceId" => String.t(),
+        "GameServerGroupArn" => String.t() | Atom.t(),
+        "GameServerGroupName" => String.t() | Atom.t(),
+        "InstanceId" => String.t() | Atom.t(),
         "InstanceStatus" => list(any())
       }
       
   """
-  @type game_server_instance() :: %{String.t() => any()}
+  @type game_server_instance() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -308,11 +308,11 @@ defmodule AWS.GameLift do
       
       list_compute_output() :: %{
         "ComputeList" => list(compute()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_compute_output() :: %{String.t() => any()}
+  @type list_compute_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -320,58 +320,58 @@ defmodule AWS.GameLift do
       
       update_container_fleet_input() :: %{
         optional("DeploymentConfiguration") => deployment_configuration(),
-        optional("Description") => String.t(),
-        optional("GameServerContainerGroupDefinitionName") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("GameServerContainerGroupDefinitionName") => String.t() | Atom.t(),
         optional("GameServerContainerGroupsPerInstance") => integer(),
         optional("GameSessionCreationLimitPolicy") => game_session_creation_limit_policy(),
         optional("InstanceConnectionPortRange") => connection_port_range(),
         optional("InstanceInboundPermissionAuthorizations") => list(ip_permission()),
         optional("InstanceInboundPermissionRevocations") => list(ip_permission()),
         optional("LogConfiguration") => log_configuration(),
-        optional("MetricGroups") => list(String.t()),
+        optional("MetricGroups") => list(String.t() | Atom.t()),
         optional("NewGameSessionProtectionPolicy") => list(any()),
-        optional("PerInstanceContainerGroupDefinitionName") => String.t(),
+        optional("PerInstanceContainerGroupDefinitionName") => String.t() | Atom.t(),
         optional("RemoveAttributes") => list(list(any())()),
-        required("FleetId") => String.t()
+        required("FleetId") => String.t() | Atom.t()
       }
       
   """
-  @type update_container_fleet_input() :: %{String.t() => any()}
+  @type update_container_fleet_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       priority_configuration() :: %{
-        "LocationOrder" => list(String.t()),
+        "LocationOrder" => list(String.t() | Atom.t()),
         "PriorityOrder" => list(list(any())())
       }
       
   """
-  @type priority_configuration() :: %{String.t() => any()}
+  @type priority_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       unauthorized_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type unauthorized_exception() :: %{String.t() => any()}
+  @type unauthorized_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_fleet_port_settings_input() :: %{
-        optional("Location") => String.t(),
-        required("FleetId") => String.t()
+        optional("Location") => String.t() | Atom.t(),
+        required("FleetId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_fleet_port_settings_input() :: %{String.t() => any()}
+  @type describe_fleet_port_settings_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -379,56 +379,56 @@ defmodule AWS.GameLift do
       
       create_location_input() :: %{
         optional("Tags") => list(tag()),
-        required("LocationName") => String.t()
+        required("LocationName") => String.t() | Atom.t()
       }
       
   """
-  @type create_location_input() :: %{String.t() => any()}
+  @type create_location_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_script_input() :: %{
-        required("ScriptId") => String.t()
+        required("ScriptId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_script_input() :: %{String.t() => any()}
+  @type delete_script_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_scaling_policy_output() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
       
   """
-  @type put_scaling_policy_output() :: %{String.t() => any()}
+  @type put_scaling_policy_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resolve_alias_input() :: %{
-        required("AliasId") => String.t()
+        required("AliasId") => String.t() | Atom.t()
       }
       
   """
-  @type resolve_alias_input() :: %{String.t() => any()}
+  @type resolve_alias_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       matched_player_session() :: %{
-        "PlayerId" => String.t(),
-        "PlayerSessionId" => String.t()
+        "PlayerId" => String.t() | Atom.t(),
+        "PlayerSessionId" => String.t() | Atom.t()
       }
       
   """
-  @type matched_player_session() :: %{String.t() => any()}
+  @type matched_player_session() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -439,7 +439,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type create_game_server_group_output() :: %{String.t() => any()}
+  @type create_game_server_group_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -450,30 +450,30 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type describe_script_output() :: %{String.t() => any()}
+  @type describe_script_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_game_server_group_input() :: %{
-        required("GameServerGroupName") => String.t()
+        required("GameServerGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_game_server_group_input() :: %{String.t() => any()}
+  @type describe_game_server_group_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       priority_configuration_override() :: %{
-        "LocationOrder" => list(String.t()),
+        "LocationOrder" => list(String.t() | Atom.t()),
         "PlacementFallbackStrategy" => list(any())
       }
       
   """
-  @type priority_configuration_override() :: %{String.t() => any()}
+  @type priority_configuration_override() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -484,64 +484,64 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type describe_fleet_location_capacity_output() :: %{String.t() => any()}
+  @type describe_fleet_location_capacity_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_fleets_output() :: %{
-        "FleetIds" => list(String.t()),
-        "NextToken" => String.t()
+        "FleetIds" => list(String.t() | Atom.t()),
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_fleets_output() :: %{String.t() => any()}
+  @type list_fleets_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_credentials() :: %{
-        "Secret" => String.t(),
-        "UserName" => String.t()
+        "Secret" => String.t() | Atom.t(),
+        "UserName" => String.t() | Atom.t()
       }
       
   """
-  @type instance_credentials() :: %{String.t() => any()}
+  @type instance_credentials() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_fleet_location_attributes_output() :: %{
-        "FleetArn" => String.t(),
-        "FleetId" => String.t(),
+        "FleetArn" => String.t() | Atom.t(),
+        "FleetId" => String.t() | Atom.t(),
         "LocationAttributes" => list(location_attributes()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_fleet_location_attributes_output() :: %{String.t() => any()}
+  @type describe_fleet_location_attributes_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       build() :: %{
-        "BuildArn" => String.t(),
-        "BuildId" => String.t(),
+        "BuildArn" => String.t() | Atom.t(),
+        "BuildId" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "OperatingSystem" => list(any()),
-        "ServerSdkVersion" => String.t(),
+        "ServerSdkVersion" => String.t() | Atom.t(),
         "SizeOnDisk" => float(),
         "Status" => list(any()),
-        "Version" => String.t()
+        "Version" => String.t() | Atom.t()
       }
       
   """
-  @type build() :: %{String.t() => any()}
+  @type build() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -549,11 +549,11 @@ defmodule AWS.GameLift do
       
       instance_definition() :: %{
         "InstanceType" => list(any()),
-        "WeightedCapacity" => String.t()
+        "WeightedCapacity" => String.t() | Atom.t()
       }
       
   """
-  @type instance_definition() :: %{String.t() => any()}
+  @type instance_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -569,17 +569,17 @@ defmodule AWS.GameLift do
   ## Example:
       
       game_server_container_definition_input() :: %{
-        "ContainerName" => String.t(),
+        "ContainerName" => String.t() | Atom.t(),
         "DependsOn" => list(container_dependency()),
         "EnvironmentOverride" => list(container_environment()),
-        "ImageUri" => String.t(),
+        "ImageUri" => String.t() | Atom.t(),
         "MountPoints" => list(container_mount_point()),
         "PortConfiguration" => container_port_configuration(),
-        "ServerSdkVersion" => String.t()
+        "ServerSdkVersion" => String.t() | Atom.t()
       }
       
   """
-  @type game_server_container_definition_input() :: %{String.t() => any()}
+  @type game_server_container_definition_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -590,7 +590,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type start_matchmaking_output() :: %{String.t() => any()}
+  @type start_matchmaking_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -601,7 +601,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type describe_compute_output() :: %{String.t() => any()}
+  @type describe_compute_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -617,55 +617,55 @@ defmodule AWS.GameLift do
   ## Example:
       
       game_server_group() :: %{
-        "AutoScalingGroupArn" => String.t(),
+        "AutoScalingGroupArn" => String.t() | Atom.t(),
         "BalancingStrategy" => list(any()),
         "CreationTime" => non_neg_integer(),
-        "GameServerGroupArn" => String.t(),
-        "GameServerGroupName" => String.t(),
+        "GameServerGroupArn" => String.t() | Atom.t(),
+        "GameServerGroupName" => String.t() | Atom.t(),
         "GameServerProtectionPolicy" => list(any()),
         "InstanceDefinitions" => list(instance_definition()),
         "LastUpdatedTime" => non_neg_integer(),
-        "RoleArn" => String.t(),
+        "RoleArn" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "StatusReason" => String.t(),
+        "StatusReason" => String.t() | Atom.t(),
         "SuspendedActions" => list(list(any())())
       }
       
   """
-  @type game_server_group() :: %{String.t() => any()}
+  @type game_server_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       support_container_definition() :: %{
-        "ContainerName" => String.t(),
+        "ContainerName" => String.t() | Atom.t(),
         "DependsOn" => list(container_dependency()),
         "EnvironmentOverride" => list(container_environment()),
         "Essential" => boolean(),
         "HealthCheck" => container_health_check(),
-        "ImageUri" => String.t(),
+        "ImageUri" => String.t() | Atom.t(),
         "MemoryHardLimitMebibytes" => integer(),
         "MountPoints" => list(container_mount_point()),
         "PortConfiguration" => container_port_configuration(),
-        "ResolvedImageDigest" => String.t(),
+        "ResolvedImageDigest" => String.t() | Atom.t(),
         "Vcpu" => float()
       }
       
   """
-  @type support_container_definition() :: %{String.t() => any()}
+  @type support_container_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resume_game_server_group_input() :: %{
-        required("GameServerGroupName") => String.t(),
+        required("GameServerGroupName") => String.t() | Atom.t(),
         required("ResumeActions") => list(list(any())())
       }
       
   """
-  @type resume_game_server_group_input() :: %{String.t() => any()}
+  @type resume_game_server_group_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -673,38 +673,38 @@ defmodule AWS.GameLift do
       
       describe_fleet_location_attributes_input() :: %{
         optional("Limit") => integer(),
-        optional("Locations") => list(String.t()),
-        optional("NextToken") => String.t(),
-        required("FleetId") => String.t()
+        optional("Locations") => list(String.t() | Atom.t()),
+        optional("NextToken") => String.t() | Atom.t(),
+        required("FleetId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_fleet_location_attributes_input() :: %{String.t() => any()}
+  @type describe_fleet_location_attributes_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_fleet_locations_output() :: %{
-        "FleetArn" => String.t(),
-        "FleetId" => String.t(),
+        "FleetArn" => String.t() | Atom.t(),
+        "FleetId" => String.t() | Atom.t(),
         "LocationStates" => list(location_state())
       }
       
   """
-  @type delete_fleet_locations_output() :: %{String.t() => any()}
+  @type delete_fleet_locations_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_fleet_location_capacity_input() :: %{
-        required("FleetId") => String.t(),
-        required("Location") => String.t()
+        required("FleetId") => String.t() | Atom.t(),
+        required("Location") => String.t() | Atom.t()
       }
       
   """
-  @type describe_fleet_location_capacity_input() :: %{String.t() => any()}
+  @type describe_fleet_location_capacity_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -712,11 +712,11 @@ defmodule AWS.GameLift do
       
       describe_game_session_queues_output() :: %{
         "GameSessionQueues" => list(game_session_queue()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_game_session_queues_output() :: %{String.t() => any()}
+  @type describe_game_session_queues_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -736,18 +736,18 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type create_player_sessions_output() :: %{String.t() => any()}
+  @type create_player_sessions_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_matchmaking_configuration_input() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type delete_matchmaking_configuration_input() :: %{String.t() => any()}
+  @type delete_matchmaking_configuration_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -758,19 +758,19 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type update_build_output() :: %{String.t() => any()}
+  @type update_build_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_fleet_deployment_input() :: %{
-        optional("DeploymentId") => String.t(),
-        required("FleetId") => String.t()
+        optional("DeploymentId") => String.t() | Atom.t(),
+        required("FleetId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_fleet_deployment_input() :: %{String.t() => any()}
+  @type describe_fleet_deployment_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -781,33 +781,33 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type validate_matchmaking_rule_set_output() :: %{String.t() => any()}
+  @type validate_matchmaking_rule_set_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       compute() :: %{
-        "ComputeArn" => String.t(),
-        "ComputeName" => String.t(),
+        "ComputeArn" => String.t() | Atom.t(),
+        "ComputeName" => String.t() | Atom.t(),
         "ComputeStatus" => list(any()),
         "ContainerAttributes" => list(container_attribute()),
         "CreationTime" => non_neg_integer(),
-        "DnsName" => String.t(),
-        "FleetArn" => String.t(),
-        "FleetId" => String.t(),
-        "GameLiftAgentEndpoint" => String.t(),
-        "GameLiftServiceSdkEndpoint" => String.t(),
-        "GameServerContainerGroupDefinitionArn" => String.t(),
-        "InstanceId" => String.t(),
-        "IpAddress" => String.t(),
-        "Location" => String.t(),
+        "DnsName" => String.t() | Atom.t(),
+        "FleetArn" => String.t() | Atom.t(),
+        "FleetId" => String.t() | Atom.t(),
+        "GameLiftAgentEndpoint" => String.t() | Atom.t(),
+        "GameLiftServiceSdkEndpoint" => String.t() | Atom.t(),
+        "GameServerContainerGroupDefinitionArn" => String.t() | Atom.t(),
+        "InstanceId" => String.t() | Atom.t(),
+        "IpAddress" => String.t() | Atom.t(),
+        "Location" => String.t() | Atom.t(),
         "OperatingSystem" => list(any()),
         "Type" => list(any())
       }
       
   """
-  @type compute() :: %{String.t() => any()}
+  @type compute() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -823,13 +823,13 @@ defmodule AWS.GameLift do
   ## Example:
       
       create_vpc_peering_connection_input() :: %{
-        required("FleetId") => String.t(),
-        required("PeerVpcAwsAccountId") => String.t(),
-        required("PeerVpcId") => String.t()
+        required("FleetId") => String.t() | Atom.t(),
+        required("PeerVpcAwsAccountId") => String.t() | Atom.t(),
+        required("PeerVpcId") => String.t() | Atom.t()
       }
       
   """
-  @type create_vpc_peering_connection_input() :: %{String.t() => any()}
+  @type create_vpc_peering_connection_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -840,7 +840,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type describe_fleet_location_utilization_output() :: %{String.t() => any()}
+  @type describe_fleet_location_utilization_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -851,23 +851,23 @@ defmodule AWS.GameLift do
         "AcceptanceTimeoutSeconds" => integer(),
         "AdditionalPlayerCount" => integer(),
         "BackfillMode" => list(any()),
-        "ConfigurationArn" => String.t(),
+        "ConfigurationArn" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
-        "CustomEventData" => String.t(),
-        "Description" => String.t(),
+        "CustomEventData" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
         "FlexMatchMode" => list(any()),
         "GameProperties" => list(game_property()),
-        "GameSessionData" => String.t(),
-        "GameSessionQueueArns" => list(String.t()),
-        "Name" => String.t(),
-        "NotificationTarget" => String.t(),
+        "GameSessionData" => String.t() | Atom.t(),
+        "GameSessionQueueArns" => list(String.t() | Atom.t()),
+        "Name" => String.t() | Atom.t(),
+        "NotificationTarget" => String.t() | Atom.t(),
         "RequestTimeoutSeconds" => integer(),
-        "RuleSetArn" => String.t(),
-        "RuleSetName" => String.t()
+        "RuleSetArn" => String.t() | Atom.t(),
+        "RuleSetName" => String.t() | Atom.t()
       }
       
   """
-  @type matchmaking_configuration() :: %{String.t() => any()}
+  @type matchmaking_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -878,7 +878,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type ping_beacon() :: %{String.t() => any()}
+  @type ping_beacon() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -889,19 +889,19 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type describe_vpc_peering_authorizations_output() :: %{String.t() => any()}
+  @type describe_vpc_peering_authorizations_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       suspend_game_server_group_input() :: %{
-        required("GameServerGroupName") => String.t(),
+        required("GameServerGroupName") => String.t() | Atom.t(),
         required("SuspendActions") => list(list(any())())
       }
       
   """
-  @type suspend_game_server_group_input() :: %{String.t() => any()}
+  @type suspend_game_server_group_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -913,7 +913,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type game_server_group_auto_scaling_policy() :: %{String.t() => any()}
+  @type game_server_group_auto_scaling_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -925,7 +925,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type game_session_creation_limit_policy() :: %{String.t() => any()}
+  @type game_session_creation_limit_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -938,7 +938,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type runtime_configuration() :: %{String.t() => any()}
+  @type runtime_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -946,11 +946,11 @@ defmodule AWS.GameLift do
       
       list_container_group_definitions_output() :: %{
         "ContainerGroupDefinitions" => list(container_group_definition()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_container_group_definitions_output() :: %{String.t() => any()}
+  @type list_container_group_definitions_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -958,32 +958,32 @@ defmodule AWS.GameLift do
       
       player_session() :: %{
         "CreationTime" => non_neg_integer(),
-        "DnsName" => String.t(),
-        "FleetArn" => String.t(),
-        "FleetId" => String.t(),
-        "GameSessionId" => String.t(),
-        "IpAddress" => String.t(),
-        "PlayerData" => String.t(),
-        "PlayerId" => String.t(),
-        "PlayerSessionId" => String.t(),
+        "DnsName" => String.t() | Atom.t(),
+        "FleetArn" => String.t() | Atom.t(),
+        "FleetId" => String.t() | Atom.t(),
+        "GameSessionId" => String.t() | Atom.t(),
+        "IpAddress" => String.t() | Atom.t(),
+        "PlayerData" => String.t() | Atom.t(),
+        "PlayerId" => String.t() | Atom.t(),
+        "PlayerSessionId" => String.t() | Atom.t(),
         "Port" => integer(),
         "Status" => list(any()),
         "TerminationTime" => non_neg_integer()
       }
       
   """
-  @type player_session() :: %{String.t() => any()}
+  @type player_session() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_fleet_input() :: %{
-        required("FleetId") => String.t()
+        required("FleetId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_fleet_input() :: %{String.t() => any()}
+  @type delete_fleet_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -992,12 +992,12 @@ defmodule AWS.GameLift do
       player() :: %{
         "LatencyInMs" => map(),
         "PlayerAttributes" => map(),
-        "PlayerId" => String.t(),
-        "Team" => String.t()
+        "PlayerId" => String.t() | Atom.t(),
+        "Team" => String.t() | Atom.t()
       }
       
   """
-  @type player() :: %{String.t() => any()}
+  @type player() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1005,28 +1005,28 @@ defmodule AWS.GameLift do
       
       update_fleet_attributes_input() :: %{
         optional("AnywhereConfiguration") => anywhere_configuration(),
-        optional("Description") => String.t(),
-        optional("MetricGroups") => list(String.t()),
-        optional("Name") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("MetricGroups") => list(String.t() | Atom.t()),
+        optional("Name") => String.t() | Atom.t(),
         optional("NewGameSessionProtectionPolicy") => list(any()),
         optional("ResourceCreationLimitPolicy") => resource_creation_limit_policy(),
-        required("FleetId") => String.t()
+        required("FleetId") => String.t() | Atom.t()
       }
       
   """
-  @type update_fleet_attributes_input() :: %{String.t() => any()}
+  @type update_fleet_attributes_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       container_attribute() :: %{
-        "ContainerName" => String.t(),
-        "ContainerRuntimeId" => String.t()
+        "ContainerName" => String.t() | Atom.t(),
+        "ContainerRuntimeId" => String.t() | Atom.t()
       }
       
   """
-  @type container_attribute() :: %{String.t() => any()}
+  @type container_attribute() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1037,7 +1037,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type describe_runtime_configuration_output() :: %{String.t() => any()}
+  @type describe_runtime_configuration_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1045,22 +1045,22 @@ defmodule AWS.GameLift do
       
       list_aliases_output() :: %{
         "Aliases" => list(alias()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_aliases_output() :: %{String.t() => any()}
+  @type list_aliases_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       out_of_capacity_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type out_of_capacity_exception() :: %{String.t() => any()}
+  @type out_of_capacity_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1069,11 +1069,11 @@ defmodule AWS.GameLift do
       scaling_policy() :: %{
         "ComparisonOperator" => list(any()),
         "EvaluationPeriods" => integer(),
-        "FleetArn" => String.t(),
-        "FleetId" => String.t(),
-        "Location" => String.t(),
+        "FleetArn" => String.t() | Atom.t(),
+        "FleetId" => String.t() | Atom.t(),
+        "Location" => String.t() | Atom.t(),
         "MetricName" => list(any()),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "PolicyType" => list(any()),
         "ScalingAdjustment" => integer(),
         "ScalingAdjustmentType" => list(any()),
@@ -1084,7 +1084,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type scaling_policy() :: %{String.t() => any()}
+  @type scaling_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1095,7 +1095,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type describe_vpc_peering_connections_output() :: %{String.t() => any()}
+  @type describe_vpc_peering_connections_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1107,7 +1107,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type describe_fleet_deployment_output() :: %{String.t() => any()}
+  @type describe_fleet_deployment_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1115,23 +1115,23 @@ defmodule AWS.GameLift do
       
       list_builds_input() :: %{
         optional("Limit") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("Status") => list(any())
       }
       
   """
-  @type list_builds_input() :: %{String.t() => any()}
+  @type list_builds_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_game_session_log_url_output() :: %{
-        "PreSignedUrl" => String.t()
+        "PreSignedUrl" => String.t() | Atom.t()
       }
       
   """
-  @type get_game_session_log_url_output() :: %{String.t() => any()}
+  @type get_game_session_log_url_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1142,7 +1142,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type create_container_group_definition_output() :: %{String.t() => any()}
+  @type create_container_group_definition_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1153,7 +1153,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type update_matchmaking_configuration_output() :: %{String.t() => any()}
+  @type update_matchmaking_configuration_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1164,7 +1164,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type describe_game_server_group_output() :: %{String.t() => any()}
+  @type describe_game_server_group_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1172,84 +1172,84 @@ defmodule AWS.GameLift do
       
       describe_ec2_instance_limits_input() :: %{
         optional("EC2InstanceType") => list(any()),
-        optional("Location") => String.t()
+        optional("Location") => String.t() | Atom.t()
       }
       
   """
-  @type describe_ec2_instance_limits_input() :: %{String.t() => any()}
+  @type describe_ec2_instance_limits_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_fleet_port_settings_output() :: %{
-        "FleetArn" => String.t(),
-        "FleetId" => String.t(),
+        "FleetArn" => String.t() | Atom.t(),
+        "FleetId" => String.t() | Atom.t(),
         "InboundPermissions" => list(ip_permission()),
-        "Location" => String.t(),
+        "Location" => String.t() | Atom.t(),
         "UpdateStatus" => list(any())
       }
       
   """
-  @type describe_fleet_port_settings_output() :: %{String.t() => any()}
+  @type describe_fleet_port_settings_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_vpc_peering_connections_input() :: %{
-        optional("FleetId") => String.t()
+        optional("FleetId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_vpc_peering_connections_input() :: %{String.t() => any()}
+  @type describe_vpc_peering_connections_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       placed_player_session() :: %{
-        "PlayerId" => String.t(),
-        "PlayerSessionId" => String.t()
+        "PlayerId" => String.t() | Atom.t(),
+        "PlayerSessionId" => String.t() | Atom.t()
       }
       
   """
-  @type placed_player_session() :: %{String.t() => any()}
+  @type placed_player_session() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       deregister_game_server_input() :: %{
-        required("GameServerGroupName") => String.t(),
-        required("GameServerId") => String.t()
+        required("GameServerGroupName") => String.t() | Atom.t(),
+        required("GameServerId") => String.t() | Atom.t()
       }
       
   """
-  @type deregister_game_server_input() :: %{String.t() => any()}
+  @type deregister_game_server_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_service_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type internal_service_exception() :: %{String.t() => any()}
+  @type internal_service_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       desired_player_session() :: %{
-        "PlayerData" => String.t(),
-        "PlayerId" => String.t()
+        "PlayerData" => String.t() | Atom.t(),
+        "PlayerId" => String.t() | Atom.t()
       }
       
   """
-  @type desired_player_session() :: %{String.t() => any()}
+  @type desired_player_session() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1260,18 +1260,18 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type start_game_session_placement_output() :: %{String.t() => any()}
+  @type start_game_session_placement_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       fleet_capacity_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type fleet_capacity_exceeded_exception() :: %{String.t() => any()}
+  @type fleet_capacity_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1279,52 +1279,52 @@ defmodule AWS.GameLift do
       
       create_matchmaking_rule_set_input() :: %{
         optional("Tags") => list(tag()),
-        required("Name") => String.t(),
-        required("RuleSetBody") => String.t()
+        required("Name") => String.t() | Atom.t(),
+        required("RuleSetBody") => String.t() | Atom.t()
       }
       
   """
-  @type create_matchmaking_rule_set_input() :: %{String.t() => any()}
+  @type create_matchmaking_rule_set_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceARN") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_game_server_input() :: %{
-        required("GameServerGroupName") => String.t(),
-        required("GameServerId") => String.t()
+        required("GameServerGroupName") => String.t() | Atom.t(),
+        required("GameServerId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_game_server_input() :: %{String.t() => any()}
+  @type describe_game_server_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       fleet_capacity() :: %{
-        "FleetArn" => String.t(),
-        "FleetId" => String.t(),
+        "FleetArn" => String.t() | Atom.t(),
+        "FleetId" => String.t() | Atom.t(),
         "GameServerContainerGroupCounts" => game_server_container_group_counts(),
         "InstanceCounts" => ec2_instance_counts(),
         "InstanceType" => list(any()),
-        "Location" => String.t()
+        "Location" => String.t() | Atom.t()
       }
       
   """
-  @type fleet_capacity() :: %{String.t() => any()}
+  @type fleet_capacity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1338,13 +1338,13 @@ defmodule AWS.GameLift do
         optional("ScalingAdjustmentType") => list(any()),
         optional("TargetConfiguration") => target_configuration(),
         optional("Threshold") => float(),
-        required("FleetId") => String.t(),
+        required("FleetId") => String.t() | Atom.t(),
         required("MetricName") => list(any()),
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type put_scaling_policy_input() :: %{String.t() => any()}
+  @type put_scaling_policy_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1352,11 +1352,11 @@ defmodule AWS.GameLift do
       
       list_scripts_input() :: %{
         optional("Limit") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_scripts_input() :: %{String.t() => any()}
+  @type list_scripts_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1365,11 +1365,11 @@ defmodule AWS.GameLift do
       update_fleet_port_settings_input() :: %{
         optional("InboundPermissionAuthorizations") => list(ip_permission()),
         optional("InboundPermissionRevocations") => list(ip_permission()),
-        required("FleetId") => String.t()
+        required("FleetId") => String.t() | Atom.t()
       }
       
   """
-  @type update_fleet_port_settings_input() :: %{String.t() => any()}
+  @type update_fleet_port_settings_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1377,34 +1377,34 @@ defmodule AWS.GameLift do
       
       accept_match_input() :: %{
         required("AcceptanceType") => list(any()),
-        required("PlayerIds") => list(String.t()),
-        required("TicketId") => String.t()
+        required("PlayerIds") => list(String.t() | Atom.t()),
+        required("TicketId") => String.t() | Atom.t()
       }
       
   """
-  @type accept_match_input() :: %{String.t() => any()}
+  @type accept_match_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_game_session_placement_input() :: %{
-        required("PlacementId") => String.t()
+        required("PlacementId") => String.t() | Atom.t()
       }
       
   """
-  @type stop_game_session_placement_input() :: %{String.t() => any()}
+  @type stop_game_session_placement_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       location_configuration() :: %{
-        "Location" => String.t()
+        "Location" => String.t() | Atom.t()
       }
       
   """
-  @type location_configuration() :: %{String.t() => any()}
+  @type location_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1412,24 +1412,24 @@ defmodule AWS.GameLift do
       
       server_process() :: %{
         "ConcurrentExecutions" => integer(),
-        "LaunchPath" => String.t(),
-        "Parameters" => String.t()
+        "LaunchPath" => String.t() | Atom.t(),
+        "Parameters" => String.t() | Atom.t()
       }
       
   """
-  @type server_process() :: %{String.t() => any()}
+  @type server_process() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       location_state() :: %{
-        "Location" => String.t(),
+        "Location" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type location_state() :: %{String.t() => any()}
+  @type location_state() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1440,43 +1440,43 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type create_game_session_output() :: %{String.t() => any()}
+  @type create_game_session_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resolve_alias_output() :: %{
-        "FleetArn" => String.t(),
-        "FleetId" => String.t()
+        "FleetArn" => String.t() | Atom.t(),
+        "FleetId" => String.t() | Atom.t()
       }
       
   """
-  @type resolve_alias_output() :: %{String.t() => any()}
+  @type resolve_alias_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_fleet_location_utilization_input() :: %{
-        required("FleetId") => String.t(),
-        required("Location") => String.t()
+        required("FleetId") => String.t() | Atom.t(),
+        required("Location") => String.t() | Atom.t()
       }
       
   """
-  @type describe_fleet_location_utilization_input() :: %{String.t() => any()}
+  @type describe_fleet_location_utilization_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       support_container_definition_input() :: %{
-        "ContainerName" => String.t(),
+        "ContainerName" => String.t() | Atom.t(),
         "DependsOn" => list(container_dependency()),
         "EnvironmentOverride" => list(container_environment()),
         "Essential" => boolean(),
         "HealthCheck" => container_health_check(),
-        "ImageUri" => String.t(),
+        "ImageUri" => String.t() | Atom.t(),
         "MemoryHardLimitMebibytes" => integer(),
         "MountPoints" => list(container_mount_point()),
         "PortConfiguration" => container_port_configuration(),
@@ -1484,7 +1484,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type support_container_definition_input() :: %{String.t() => any()}
+  @type support_container_definition_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1496,7 +1496,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type request_upload_credentials_output() :: %{String.t() => any()}
+  @type request_upload_credentials_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1504,13 +1504,13 @@ defmodule AWS.GameLift do
       
       describe_matchmaking_configurations_input() :: %{
         optional("Limit") => integer(),
-        optional("Names") => list(String.t()),
-        optional("NextToken") => String.t(),
-        optional("RuleSetName") => String.t()
+        optional("Names") => list(String.t() | Atom.t()),
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("RuleSetName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_matchmaking_configurations_input() :: %{String.t() => any()}
+  @type describe_matchmaking_configurations_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1521,18 +1521,18 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type register_game_server_output() :: %{String.t() => any()}
+  @type register_game_server_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_alias_input() :: %{
-        required("AliasId") => String.t()
+        required("AliasId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_alias_input() :: %{String.t() => any()}
+  @type delete_alias_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1541,11 +1541,11 @@ defmodule AWS.GameLift do
       delete_container_group_definition_input() :: %{
         optional("VersionCountToRetain") => integer(),
         optional("VersionNumber") => integer(),
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type delete_container_group_definition_input() :: %{String.t() => any()}
+  @type delete_container_group_definition_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1556,37 +1556,37 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type update_game_server_group_output() :: %{String.t() => any()}
+  @type update_game_server_group_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       request_upload_credentials_input() :: %{
-        required("BuildId") => String.t()
+        required("BuildId") => String.t() | Atom.t()
       }
       
   """
-  @type request_upload_credentials_input() :: %{String.t() => any()}
+  @type request_upload_credentials_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       game_session_queue() :: %{
-        "CustomEventData" => String.t(),
+        "CustomEventData" => String.t() | Atom.t(),
         "Destinations" => list(game_session_queue_destination()),
         "FilterConfiguration" => filter_configuration(),
-        "GameSessionQueueArn" => String.t(),
-        "Name" => String.t(),
-        "NotificationTarget" => String.t(),
+        "GameSessionQueueArn" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "NotificationTarget" => String.t() | Atom.t(),
         "PlayerLatencyPolicies" => list(player_latency_policy()),
         "PriorityConfiguration" => priority_configuration(),
         "TimeoutInSeconds" => integer()
       }
       
   """
-  @type game_session_queue() :: %{String.t() => any()}
+  @type game_session_queue() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1608,7 +1608,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type location_attributes() :: %{String.t() => any()}
+  @type location_attributes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1616,13 +1616,13 @@ defmodule AWS.GameLift do
       
       claim_game_server_input() :: %{
         optional("FilterOption") => claim_filter_option(),
-        optional("GameServerData") => String.t(),
-        optional("GameServerId") => String.t(),
-        required("GameServerGroupName") => String.t()
+        optional("GameServerData") => String.t() | Atom.t(),
+        optional("GameServerId") => String.t() | Atom.t(),
+        required("GameServerGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type claim_game_server_input() :: %{String.t() => any()}
+  @type claim_game_server_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1630,11 +1630,11 @@ defmodule AWS.GameLift do
       
       list_game_server_groups_output() :: %{
         "GameServerGroups" => list(game_server_group()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_game_server_groups_output() :: %{String.t() => any()}
+  @type list_game_server_groups_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1642,36 +1642,36 @@ defmodule AWS.GameLift do
       
       list_container_group_definition_versions_input() :: %{
         optional("Limit") => integer(),
-        optional("NextToken") => String.t(),
-        required("Name") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type list_container_group_definition_versions_input() :: %{String.t() => any()}
+  @type list_container_group_definition_versions_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_vpc_peering_authorization_input() :: %{
-        required("GameLiftAwsAccountId") => String.t(),
-        required("PeerVpcId") => String.t()
+        required("GameLiftAwsAccountId") => String.t() | Atom.t(),
+        required("PeerVpcId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_vpc_peering_authorization_input() :: %{String.t() => any()}
+  @type delete_vpc_peering_authorization_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_vpc_peering_connection_input() :: %{
-        required("FleetId") => String.t(),
-        required("VpcPeeringConnectionId") => String.t()
+        required("FleetId") => String.t() | Atom.t(),
+        required("VpcPeeringConnectionId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_vpc_peering_connection_input() :: %{String.t() => any()}
+  @type delete_vpc_peering_connection_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1679,11 +1679,11 @@ defmodule AWS.GameLift do
       
       describe_fleet_utilization_output() :: %{
         "FleetUtilization" => list(fleet_utilization()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_fleet_utilization_output() :: %{String.t() => any()}
+  @type describe_fleet_utilization_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1696,35 +1696,35 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type deployment_configuration() :: %{String.t() => any()}
+  @type deployment_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_script_input() :: %{
-        required("ScriptId") => String.t()
+        required("ScriptId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_script_input() :: %{String.t() => any()}
+  @type describe_script_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       search_game_sessions_input() :: %{
-        optional("AliasId") => String.t(),
-        optional("FilterExpression") => String.t(),
-        optional("FleetId") => String.t(),
+        optional("AliasId") => String.t() | Atom.t(),
+        optional("FilterExpression") => String.t() | Atom.t(),
+        optional("FleetId") => String.t() | Atom.t(),
         optional("Limit") => integer(),
-        optional("Location") => String.t(),
-        optional("NextToken") => String.t(),
-        optional("SortExpression") => String.t()
+        optional("Location") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("SortExpression") => String.t() | Atom.t()
       }
       
   """
-  @type search_game_sessions_input() :: %{String.t() => any()}
+  @type search_game_sessions_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1735,112 +1735,112 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type update_script_output() :: %{String.t() => any()}
+  @type update_script_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       container_group_definition() :: %{
-        "ContainerGroupDefinitionArn" => String.t(),
+        "ContainerGroupDefinitionArn" => String.t() | Atom.t(),
         "ContainerGroupType" => list(any()),
         "CreationTime" => non_neg_integer(),
         "GameServerContainerDefinition" => game_server_container_definition(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "OperatingSystem" => list(any()),
         "Status" => list(any()),
-        "StatusReason" => String.t(),
+        "StatusReason" => String.t() | Atom.t(),
         "SupportContainerDefinitions" => list(support_container_definition()),
         "TotalMemoryLimitMebibytes" => integer(),
         "TotalVcpuLimit" => float(),
-        "VersionDescription" => String.t(),
+        "VersionDescription" => String.t() | Atom.t(),
         "VersionNumber" => integer()
       }
       
   """
-  @type container_group_definition() :: %{String.t() => any()}
+  @type container_group_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_game_session_queue_input() :: %{
-        optional("CustomEventData") => String.t(),
+        optional("CustomEventData") => String.t() | Atom.t(),
         optional("Destinations") => list(game_session_queue_destination()),
         optional("FilterConfiguration") => filter_configuration(),
-        optional("NotificationTarget") => String.t(),
+        optional("NotificationTarget") => String.t() | Atom.t(),
         optional("PlayerLatencyPolicies") => list(player_latency_policy()),
         optional("PriorityConfiguration") => priority_configuration(),
         optional("TimeoutInSeconds") => integer(),
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type update_game_session_queue_input() :: %{String.t() => any()}
+  @type update_game_session_queue_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_location_input() :: %{
-        required("LocationName") => String.t()
+        required("LocationName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_location_input() :: %{String.t() => any()}
+  @type delete_location_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_fleet_capacity_input() :: %{
-        optional("FleetIds") => list(String.t()),
+        optional("FleetIds") => list(String.t() | Atom.t()),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type describe_fleet_capacity_input() :: %{String.t() => any()}
+  @type describe_fleet_capacity_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       terminate_game_session_input() :: %{
-        required("GameSessionId") => String.t(),
+        required("GameSessionId") => String.t() | Atom.t(),
         required("TerminationMode") => list(any())
       }
       
   """
-  @type terminate_game_session_input() :: %{String.t() => any()}
+  @type terminate_game_session_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_compute_access_output() :: %{
-        "ComputeArn" => String.t(),
-        "ComputeName" => String.t(),
+        "ComputeArn" => String.t() | Atom.t(),
+        "ComputeName" => String.t() | Atom.t(),
         "ContainerIdentifiers" => list(container_identifier()),
         "Credentials" => aws_credentials(),
-        "FleetArn" => String.t(),
-        "FleetId" => String.t(),
-        "Target" => String.t()
+        "FleetArn" => String.t() | Atom.t(),
+        "FleetId" => String.t() | Atom.t(),
+        "Target" => String.t() | Atom.t()
       }
       
   """
-  @type get_compute_access_output() :: %{String.t() => any()}
+  @type get_compute_access_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1848,24 +1848,24 @@ defmodule AWS.GameLift do
       
       describe_matchmaking_rule_sets_input() :: %{
         optional("Limit") => integer(),
-        optional("Names") => list(String.t()),
-        optional("NextToken") => String.t()
+        optional("Names") => list(String.t() | Atom.t()),
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type describe_matchmaking_rule_sets_input() :: %{String.t() => any()}
+  @type describe_matchmaking_rule_sets_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1873,11 +1873,11 @@ defmodule AWS.GameLift do
       
       describe_game_sessions_output() :: %{
         "GameSessions" => list(game_session()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_game_sessions_output() :: %{String.t() => any()}
+  @type describe_game_sessions_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1886,24 +1886,24 @@ defmodule AWS.GameLift do
       describe_fleet_events_input() :: %{
         optional("EndTime") => non_neg_integer(),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("StartTime") => non_neg_integer(),
-        required("FleetId") => String.t()
+        required("FleetId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_fleet_events_input() :: %{String.t() => any()}
+  @type describe_fleet_events_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_request_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_request_exception() :: %{String.t() => any()}
+  @type invalid_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1916,23 +1916,23 @@ defmodule AWS.GameLift do
         optional("SupportContainerDefinitions") => list(support_container_definition_input()),
         optional("TotalMemoryLimitMebibytes") => integer(),
         optional("TotalVcpuLimit") => float(),
-        optional("VersionDescription") => String.t(),
-        required("Name") => String.t()
+        optional("VersionDescription") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type update_container_group_definition_input() :: %{String.t() => any()}
+  @type update_container_group_definition_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_container_fleet_input() :: %{
-        required("FleetId") => String.t()
+        required("FleetId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_container_fleet_input() :: %{String.t() => any()}
+  @type delete_container_fleet_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1943,18 +1943,18 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type describe_matchmaking_output() :: %{String.t() => any()}
+  @type describe_matchmaking_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_alias_input() :: %{
-        required("AliasId") => String.t()
+        required("AliasId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_alias_input() :: %{String.t() => any()}
+  @type describe_alias_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1962,23 +1962,23 @@ defmodule AWS.GameLift do
       
       list_fleet_deployments_output() :: %{
         "FleetDeployments" => list(fleet_deployment()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_fleet_deployments_output() :: %{String.t() => any()}
+  @type list_fleet_deployments_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_runtime_configuration_input() :: %{
-        required("FleetId") => String.t(),
+        required("FleetId") => String.t() | Atom.t(),
         required("RuntimeConfiguration") => runtime_configuration()
       }
       
   """
-  @type update_runtime_configuration_input() :: %{String.t() => any()}
+  @type update_runtime_configuration_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1989,7 +1989,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type create_alias_output() :: %{String.t() => any()}
+  @type create_alias_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2000,7 +2000,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type update_game_session_queue_output() :: %{String.t() => any()}
+  @type update_game_session_queue_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2008,32 +2008,32 @@ defmodule AWS.GameLift do
       
       update_fleet_capacity_input() :: %{
         optional("DesiredInstances") => integer(),
-        optional("Location") => String.t(),
+        optional("Location") => String.t() | Atom.t(),
         optional("MaxSize") => integer(),
         optional("MinSize") => integer(),
-        required("FleetId") => String.t()
+        required("FleetId") => String.t() | Atom.t()
       }
       
   """
-  @type update_fleet_capacity_input() :: %{String.t() => any()}
+  @type update_fleet_capacity_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       idempotent_parameter_mismatch_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type idempotent_parameter_mismatch_exception() :: %{String.t() => any()}
+  @type idempotent_parameter_mismatch_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       container_health_check() :: %{
-        "Command" => list(String.t()),
+        "Command" => list(String.t() | Atom.t()),
         "Interval" => integer(),
         "Retries" => integer(),
         "StartPeriod" => integer(),
@@ -2041,20 +2041,20 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type container_health_check() :: %{String.t() => any()}
+  @type container_health_check() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_player_session_input() :: %{
-        optional("PlayerData") => String.t(),
-        required("GameSessionId") => String.t(),
-        required("PlayerId") => String.t()
+        optional("PlayerData") => String.t() | Atom.t(),
+        required("GameSessionId") => String.t() | Atom.t(),
+        required("PlayerId") => String.t() | Atom.t()
       }
       
   """
-  @type create_player_session_input() :: %{String.t() => any()}
+  @type create_player_session_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2071,7 +2071,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type ec2_instance_counts() :: %{String.t() => any()}
+  @type ec2_instance_counts() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2082,41 +2082,41 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type update_alias_output() :: %{String.t() => any()}
+  @type update_alias_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_fleet_locations_input() :: %{
-        required("FleetId") => String.t(),
-        required("Locations") => list(String.t())
+        required("FleetId") => String.t() | Atom.t(),
+        required("Locations") => list(String.t() | Atom.t())
       }
       
   """
-  @type delete_fleet_locations_input() :: %{String.t() => any()}
+  @type delete_fleet_locations_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_build_input() :: %{
-        required("BuildId") => String.t()
+        required("BuildId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_build_input() :: %{String.t() => any()}
+  @type describe_build_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type not_found_exception() :: %{String.t() => any()}
+  @type not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2128,20 +2128,20 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type player_latency_policy() :: %{String.t() => any()}
+  @type player_latency_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_build_input() :: %{
-        optional("Name") => String.t(),
-        optional("Version") => String.t(),
-        required("BuildId") => String.t()
+        optional("Name") => String.t() | Atom.t(),
+        optional("Version") => String.t() | Atom.t(),
+        required("BuildId") => String.t() | Atom.t()
       }
       
   """
-  @type update_build_input() :: %{String.t() => any()}
+  @type update_build_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2152,7 +2152,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type register_compute_output() :: %{String.t() => any()}
+  @type register_compute_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2160,40 +2160,40 @@ defmodule AWS.GameLift do
       
       ip_permission() :: %{
         "FromPort" => integer(),
-        "IpRange" => String.t(),
+        "IpRange" => String.t() | Atom.t(),
         "Protocol" => list(any()),
         "ToPort" => integer()
       }
       
   """
-  @type ip_permission() :: %{String.t() => any()}
+  @type ip_permission() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_fleet_locations_input() :: %{
-        required("FleetId") => String.t(),
+        required("FleetId") => String.t() | Atom.t(),
         required("Locations") => list(location_configuration())
       }
       
   """
-  @type create_fleet_locations_input() :: %{String.t() => any()}
+  @type create_fleet_locations_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_script_input() :: %{
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("StorageLocation") => s3_location(),
-        optional("Version") => String.t(),
+        optional("Version") => String.t() | Atom.t(),
         optional("ZipFile") => binary(),
-        required("ScriptId") => String.t()
+        required("ScriptId") => String.t() | Atom.t()
       }
       
   """
-  @type update_script_input() :: %{String.t() => any()}
+  @type update_script_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2209,28 +2209,28 @@ defmodule AWS.GameLift do
   ## Example:
       
       describe_game_sessions_input() :: %{
-        optional("AliasId") => String.t(),
-        optional("FleetId") => String.t(),
-        optional("GameSessionId") => String.t(),
+        optional("AliasId") => String.t() | Atom.t(),
+        optional("FleetId") => String.t() | Atom.t(),
+        optional("GameSessionId") => String.t() | Atom.t(),
         optional("Limit") => integer(),
-        optional("Location") => String.t(),
-        optional("NextToken") => String.t(),
-        optional("StatusFilter") => String.t()
+        optional("Location") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("StatusFilter") => String.t() | Atom.t()
       }
       
   """
-  @type describe_game_sessions_input() :: %{String.t() => any()}
+  @type describe_game_sessions_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       filter_configuration() :: %{
-        "AllowedLocations" => list(String.t())
+        "AllowedLocations" => list(String.t() | Atom.t())
       }
       
   """
-  @type filter_configuration() :: %{String.t() => any()}
+  @type filter_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2241,7 +2241,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type create_matchmaking_rule_set_output() :: %{String.t() => any()}
+  @type create_matchmaking_rule_set_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2251,22 +2251,22 @@ defmodule AWS.GameLift do
         optional("AcceptanceTimeoutSeconds") => integer(),
         optional("AdditionalPlayerCount") => integer(),
         optional("BackfillMode") => list(any()),
-        optional("CustomEventData") => String.t(),
-        optional("Description") => String.t(),
+        optional("CustomEventData") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("FlexMatchMode") => list(any()),
         optional("GameProperties") => list(game_property()),
-        optional("GameSessionData") => String.t(),
-        optional("GameSessionQueueArns") => list(String.t()),
-        optional("NotificationTarget") => String.t(),
+        optional("GameSessionData") => String.t() | Atom.t(),
+        optional("GameSessionQueueArns") => list(String.t() | Atom.t()),
+        optional("NotificationTarget") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
         required("AcceptanceRequired") => boolean(),
-        required("Name") => String.t(),
+        required("Name") => String.t() | Atom.t(),
         required("RequestTimeoutSeconds") => integer(),
-        required("RuleSetName") => String.t()
+        required("RuleSetName") => String.t() | Atom.t()
       }
       
   """
-  @type create_matchmaking_configuration_input() :: %{String.t() => any()}
+  @type create_matchmaking_configuration_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2275,28 +2275,28 @@ defmodule AWS.GameLift do
       start_game_session_placement_input() :: %{
         optional("DesiredPlayerSessions") => list(desired_player_session()),
         optional("GameProperties") => list(game_property()),
-        optional("GameSessionData") => String.t(),
-        optional("GameSessionName") => String.t(),
+        optional("GameSessionData") => String.t() | Atom.t(),
+        optional("GameSessionName") => String.t() | Atom.t(),
         optional("PlayerLatencies") => list(player_latency()),
         optional("PriorityConfigurationOverride") => priority_configuration_override(),
-        required("GameSessionQueueName") => String.t(),
+        required("GameSessionQueueName") => String.t() | Atom.t(),
         required("MaximumPlayerSessionCount") => integer(),
-        required("PlacementId") => String.t()
+        required("PlacementId") => String.t() | Atom.t()
       }
       
   """
-  @type start_game_session_placement_input() :: %{String.t() => any()}
+  @type start_game_session_placement_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_game_session_placement_input() :: %{
-        required("PlacementId") => String.t()
+        required("PlacementId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_game_session_placement_input() :: %{String.t() => any()}
+  @type describe_game_session_placement_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2304,11 +2304,11 @@ defmodule AWS.GameLift do
       
       list_container_group_definition_versions_output() :: %{
         "ContainerGroupDefinitions" => list(container_group_definition()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_container_group_definition_versions_output() :: %{String.t() => any()}
+  @type list_container_group_definition_versions_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2319,31 +2319,31 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_fleet_locations_output() :: %{
-        "FleetArn" => String.t(),
-        "FleetId" => String.t(),
+        "FleetArn" => String.t() | Atom.t(),
+        "FleetId" => String.t() | Atom.t(),
         "LocationStates" => list(location_state())
       }
       
   """
-  @type create_fleet_locations_output() :: %{String.t() => any()}
+  @type create_fleet_locations_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_matchmaking_input() :: %{
-        required("TicketId") => String.t()
+        required("TicketId") => String.t() | Atom.t()
       }
       
   """
-  @type stop_matchmaking_input() :: %{String.t() => any()}
+  @type stop_matchmaking_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2352,38 +2352,38 @@ defmodule AWS.GameLift do
       vpc_peering_authorization() :: %{
         "CreationTime" => non_neg_integer(),
         "ExpirationTime" => non_neg_integer(),
-        "GameLiftAwsAccountId" => String.t(),
-        "PeerVpcAwsAccountId" => String.t(),
-        "PeerVpcId" => String.t()
+        "GameLiftAwsAccountId" => String.t() | Atom.t(),
+        "PeerVpcAwsAccountId" => String.t() | Atom.t(),
+        "PeerVpcId" => String.t() | Atom.t()
       }
       
   """
-  @type vpc_peering_authorization() :: %{String.t() => any()}
+  @type vpc_peering_authorization() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_runtime_configuration_input() :: %{
-        required("FleetId") => String.t()
+        required("FleetId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_runtime_configuration_input() :: %{String.t() => any()}
+  @type describe_runtime_configuration_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_alias_input() :: %{
-        optional("Description") => String.t(),
-        optional("Name") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("RoutingStrategy") => routing_strategy(),
-        required("AliasId") => String.t()
+        required("AliasId") => String.t() | Atom.t()
       }
       
   """
-  @type update_alias_input() :: %{String.t() => any()}
+  @type update_alias_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2399,23 +2399,23 @@ defmodule AWS.GameLift do
   ## Example:
       
       not_ready_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type not_ready_exception() :: %{String.t() => any()}
+  @type not_ready_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_compute_access_input() :: %{
-        required("ComputeName") => String.t(),
-        required("FleetId") => String.t()
+        required("ComputeName") => String.t() | Atom.t(),
+        required("FleetId") => String.t() | Atom.t()
       }
       
   """
-  @type get_compute_access_input() :: %{String.t() => any()}
+  @type get_compute_access_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2423,25 +2423,25 @@ defmodule AWS.GameLift do
       
       attribute_value() :: %{
         "N" => float(),
-        "S" => String.t(),
+        "S" => String.t() | Atom.t(),
         "SDM" => map(),
-        "SL" => list(String.t())
+        "SL" => list(String.t() | Atom.t())
       }
       
   """
-  @type attribute_value() :: %{String.t() => any()}
+  @type attribute_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       container_identifier() :: %{
-        "ContainerName" => String.t(),
-        "ContainerRuntimeId" => String.t()
+        "ContainerName" => String.t() | Atom.t(),
+        "ContainerRuntimeId" => String.t() | Atom.t()
       }
       
   """
-  @type container_identifier() :: %{String.t() => any()}
+  @type container_identifier() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2452,55 +2452,55 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type create_matchmaking_configuration_output() :: %{String.t() => any()}
+  @type create_matchmaking_configuration_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       anywhere_configuration() :: %{
-        "Cost" => String.t()
+        "Cost" => String.t() | Atom.t()
       }
       
   """
-  @type anywhere_configuration() :: %{String.t() => any()}
+  @type anywhere_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_location() :: %{
-        "Bucket" => String.t(),
-        "Key" => String.t(),
-        "ObjectVersion" => String.t(),
-        "RoleArn" => String.t()
+        "Bucket" => String.t() | Atom.t(),
+        "Key" => String.t() | Atom.t(),
+        "ObjectVersion" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | Atom.t()
       }
       
   """
-  @type s3_location() :: %{String.t() => any()}
+  @type s3_location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_build_input() :: %{
-        required("BuildId") => String.t()
+        required("BuildId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_build_input() :: %{String.t() => any()}
+  @type delete_build_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_player_sessions_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "PlayerSessions" => list(player_session())
       }
       
   """
-  @type describe_player_sessions_output() :: %{String.t() => any()}
+  @type describe_player_sessions_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2508,11 +2508,11 @@ defmodule AWS.GameLift do
       
       describe_instances_output() :: %{
         "Instances" => list(instance()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_instances_output() :: %{String.t() => any()}
+  @type describe_instances_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2520,26 +2520,26 @@ defmodule AWS.GameLift do
       
       list_aliases_input() :: %{
         optional("Limit") => integer(),
-        optional("Name") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("RoutingStrategyType") => list(any())
       }
       
   """
-  @type list_aliases_input() :: %{String.t() => any()}
+  @type list_aliases_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_fleet_utilization_input() :: %{
-        optional("FleetIds") => list(String.t()),
+        optional("FleetIds") => list(String.t() | Atom.t()),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type describe_fleet_utilization_input() :: %{String.t() => any()}
+  @type describe_fleet_utilization_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2550,19 +2550,19 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type update_container_group_definition_output() :: %{String.t() => any()}
+  @type update_container_group_definition_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_instance_access_input() :: %{
-        required("FleetId") => String.t(),
-        required("InstanceId") => String.t()
+        required("FleetId") => String.t() | Atom.t(),
+        required("InstanceId") => String.t() | Atom.t()
       }
       
   """
-  @type get_instance_access_input() :: %{String.t() => any()}
+  @type get_instance_access_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2574,7 +2574,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type create_fleet_output() :: %{String.t() => any()}
+  @type create_fleet_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2582,35 +2582,35 @@ defmodule AWS.GameLift do
       
       fleet_attributes() :: %{
         "AnywhereConfiguration" => anywhere_configuration(),
-        "BuildArn" => String.t(),
-        "BuildId" => String.t(),
+        "BuildArn" => String.t() | Atom.t(),
+        "BuildId" => String.t() | Atom.t(),
         "CertificateConfiguration" => certificate_configuration(),
         "ComputeType" => list(any()),
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "FleetArn" => String.t(),
-        "FleetId" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "FleetArn" => String.t() | Atom.t(),
+        "FleetId" => String.t() | Atom.t(),
         "FleetType" => list(any()),
-        "InstanceRoleArn" => String.t(),
+        "InstanceRoleArn" => String.t() | Atom.t(),
         "InstanceRoleCredentialsProvider" => list(any()),
         "InstanceType" => list(any()),
-        "LogPaths" => list(String.t()),
-        "MetricGroups" => list(String.t()),
-        "Name" => String.t(),
+        "LogPaths" => list(String.t() | Atom.t()),
+        "MetricGroups" => list(String.t() | Atom.t()),
+        "Name" => String.t() | Atom.t(),
         "NewGameSessionProtectionPolicy" => list(any()),
         "OperatingSystem" => list(any()),
         "ResourceCreationLimitPolicy" => resource_creation_limit_policy(),
-        "ScriptArn" => String.t(),
-        "ScriptId" => String.t(),
-        "ServerLaunchParameters" => String.t(),
-        "ServerLaunchPath" => String.t(),
+        "ScriptArn" => String.t() | Atom.t(),
+        "ScriptId" => String.t() | Atom.t(),
+        "ServerLaunchParameters" => String.t() | Atom.t(),
+        "ServerLaunchPath" => String.t() | Atom.t(),
         "Status" => list(any()),
         "StoppedActions" => list(list(any())()),
         "TerminationTime" => non_neg_integer()
       }
       
   """
-  @type fleet_attributes() :: %{String.t() => any()}
+  @type fleet_attributes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2618,11 +2618,11 @@ defmodule AWS.GameLift do
       
       list_game_server_groups_input() :: %{
         optional("Limit") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_game_server_groups_input() :: %{String.t() => any()}
+  @type list_game_server_groups_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2633,7 +2633,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type locational_deployment() :: %{String.t() => any()}
+  @type locational_deployment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2644,31 +2644,31 @@ defmodule AWS.GameLift do
         optional("GameServerContainerDefinition") => game_server_container_definition_input(),
         optional("SupportContainerDefinitions") => list(support_container_definition_input()),
         optional("Tags") => list(tag()),
-        optional("VersionDescription") => String.t(),
-        required("Name") => String.t(),
+        optional("VersionDescription") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t(),
         required("OperatingSystem") => list(any()),
         required("TotalMemoryLimitMebibytes") => integer(),
         required("TotalVcpuLimit") => float()
       }
       
   """
-  @type create_container_group_definition_input() :: %{String.t() => any()}
+  @type create_container_group_definition_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_player_sessions_input() :: %{
-        optional("GameSessionId") => String.t(),
+        optional("GameSessionId") => String.t() | Atom.t(),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t(),
-        optional("PlayerId") => String.t(),
-        optional("PlayerSessionId") => String.t(),
-        optional("PlayerSessionStatusFilter") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("PlayerId") => String.t() | Atom.t(),
+        optional("PlayerSessionId") => String.t() | Atom.t(),
+        optional("PlayerSessionStatusFilter") => String.t() | Atom.t()
       }
       
   """
-  @type describe_player_sessions_input() :: %{String.t() => any()}
+  @type describe_player_sessions_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2677,48 +2677,48 @@ defmodule AWS.GameLift do
       update_game_session_input() :: %{
         optional("GameProperties") => list(game_property()),
         optional("MaximumPlayerSessionCount") => integer(),
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("PlayerSessionCreationPolicy") => list(any()),
         optional("ProtectionPolicy") => list(any()),
-        required("GameSessionId") => String.t()
+        required("GameSessionId") => String.t() | Atom.t()
       }
       
   """
-  @type update_game_session_input() :: %{String.t() => any()}
+  @type update_game_session_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       matchmaking_ticket() :: %{
-        "ConfigurationArn" => String.t(),
-        "ConfigurationName" => String.t(),
+        "ConfigurationArn" => String.t() | Atom.t(),
+        "ConfigurationName" => String.t() | Atom.t(),
         "EndTime" => non_neg_integer(),
         "EstimatedWaitTime" => integer(),
         "GameSessionConnectionInfo" => game_session_connection_info(),
         "Players" => list(player()),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
-        "StatusMessage" => String.t(),
-        "StatusReason" => String.t(),
-        "TicketId" => String.t()
+        "StatusMessage" => String.t() | Atom.t(),
+        "StatusReason" => String.t() | Atom.t(),
+        "TicketId" => String.t() | Atom.t()
       }
       
   """
-  @type matchmaking_ticket() :: %{String.t() => any()}
+  @type matchmaking_ticket() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_fleet_capacity_output() :: %{
-        "FleetArn" => String.t(),
-        "FleetId" => String.t(),
-        "Location" => String.t()
+        "FleetArn" => String.t() | Atom.t(),
+        "FleetId" => String.t() | Atom.t(),
+        "Location" => String.t() | Atom.t()
       }
       
   """
-  @type update_fleet_capacity_output() :: %{String.t() => any()}
+  @type update_fleet_capacity_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2729,91 +2729,91 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type update_game_server_output() :: %{String.t() => any()}
+  @type update_game_server_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_container_fleet_input() :: %{
-        required("FleetId") => String.t()
+        required("FleetId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_container_fleet_input() :: %{String.t() => any()}
+  @type describe_container_fleet_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_game_session_queue_input() :: %{
-        optional("CustomEventData") => String.t(),
+        optional("CustomEventData") => String.t() | Atom.t(),
         optional("Destinations") => list(game_session_queue_destination()),
         optional("FilterConfiguration") => filter_configuration(),
-        optional("NotificationTarget") => String.t(),
+        optional("NotificationTarget") => String.t() | Atom.t(),
         optional("PlayerLatencyPolicies") => list(player_latency_policy()),
         optional("PriorityConfiguration") => priority_configuration(),
         optional("Tags") => list(tag()),
         optional("TimeoutInSeconds") => integer(),
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type create_game_session_queue_input() :: %{String.t() => any()}
+  @type create_game_session_queue_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_game_session_details_input() :: %{
-        optional("AliasId") => String.t(),
-        optional("FleetId") => String.t(),
-        optional("GameSessionId") => String.t(),
+        optional("AliasId") => String.t() | Atom.t(),
+        optional("FleetId") => String.t() | Atom.t(),
+        optional("GameSessionId") => String.t() | Atom.t(),
         optional("Limit") => integer(),
-        optional("Location") => String.t(),
-        optional("NextToken") => String.t(),
-        optional("StatusFilter") => String.t()
+        optional("Location") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("StatusFilter") => String.t() | Atom.t()
       }
       
   """
-  @type describe_game_session_details_input() :: %{String.t() => any()}
+  @type describe_game_session_details_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_fleet_actions_output() :: %{
-        "FleetArn" => String.t(),
-        "FleetId" => String.t()
+        "FleetArn" => String.t() | Atom.t(),
+        "FleetId" => String.t() | Atom.t()
       }
       
   """
-  @type start_fleet_actions_output() :: %{String.t() => any()}
+  @type start_fleet_actions_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       validate_matchmaking_rule_set_input() :: %{
-        required("RuleSetBody") => String.t()
+        required("RuleSetBody") => String.t() | Atom.t()
       }
       
   """
-  @type validate_matchmaking_rule_set_input() :: %{String.t() => any()}
+  @type validate_matchmaking_rule_set_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_fleets_input() :: %{
-        optional("BuildId") => String.t(),
+        optional("BuildId") => String.t() | Atom.t(),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ScriptId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("ScriptId") => String.t() | Atom.t()
       }
       
   """
-  @type list_fleets_input() :: %{String.t() => any()}
+  @type list_fleets_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2821,13 +2821,13 @@ defmodule AWS.GameLift do
       
       list_game_servers_input() :: %{
         optional("Limit") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("SortOrder") => list(any()),
-        required("GameServerGroupName") => String.t()
+        required("GameServerGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type list_game_servers_input() :: %{String.t() => any()}
+  @type list_game_servers_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2835,45 +2835,45 @@ defmodule AWS.GameLift do
       
       create_fleet_input() :: %{
         optional("AnywhereConfiguration") => anywhere_configuration(),
-        optional("BuildId") => String.t(),
+        optional("BuildId") => String.t() | Atom.t(),
         optional("CertificateConfiguration") => certificate_configuration(),
         optional("ComputeType") => list(any()),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("EC2InboundPermissions") => list(ip_permission()),
         optional("EC2InstanceType") => list(any()),
         optional("FleetType") => list(any()),
-        optional("InstanceRoleArn") => String.t(),
+        optional("InstanceRoleArn") => String.t() | Atom.t(),
         optional("InstanceRoleCredentialsProvider") => list(any()),
         optional("Locations") => list(location_configuration()),
-        optional("LogPaths") => list(String.t()),
-        optional("MetricGroups") => list(String.t()),
+        optional("LogPaths") => list(String.t() | Atom.t()),
+        optional("MetricGroups") => list(String.t() | Atom.t()),
         optional("NewGameSessionProtectionPolicy") => list(any()),
-        optional("PeerVpcAwsAccountId") => String.t(),
-        optional("PeerVpcId") => String.t(),
+        optional("PeerVpcAwsAccountId") => String.t() | Atom.t(),
+        optional("PeerVpcId") => String.t() | Atom.t(),
         optional("ResourceCreationLimitPolicy") => resource_creation_limit_policy(),
         optional("RuntimeConfiguration") => runtime_configuration(),
-        optional("ScriptId") => String.t(),
-        optional("ServerLaunchParameters") => String.t(),
-        optional("ServerLaunchPath") => String.t(),
+        optional("ScriptId") => String.t() | Atom.t(),
+        optional("ServerLaunchParameters") => String.t() | Atom.t(),
+        optional("ServerLaunchPath") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type create_fleet_input() :: %{String.t() => any()}
+  @type create_fleet_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_matchmaking_input() :: %{
-        optional("TicketId") => String.t(),
-        required("ConfigurationName") => String.t(),
+        optional("TicketId") => String.t() | Atom.t(),
+        required("ConfigurationName") => String.t() | Atom.t(),
         required("Players") => list(player())
       }
       
   """
-  @type start_matchmaking_input() :: %{String.t() => any()}
+  @type start_matchmaking_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2885,19 +2885,19 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type connection_port_range() :: %{String.t() => any()}
+  @type connection_port_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       container_environment() :: %{
-        "Name" => String.t(),
-        "Value" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type container_environment() :: %{String.t() => any()}
+  @type container_environment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2905,24 +2905,24 @@ defmodule AWS.GameLift do
       
       container_mount_point() :: %{
         "AccessLevel" => list(any()),
-        "ContainerPath" => String.t(),
-        "InstancePath" => String.t()
+        "ContainerPath" => String.t() | Atom.t(),
+        "InstancePath" => String.t() | Atom.t()
       }
       
   """
-  @type container_mount_point() :: %{String.t() => any()}
+  @type container_mount_point() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_fleet_actions_output() :: %{
-        "FleetArn" => String.t(),
-        "FleetId" => String.t()
+        "FleetArn" => String.t() | Atom.t(),
+        "FleetId" => String.t() | Atom.t()
       }
       
   """
-  @type stop_fleet_actions_output() :: %{String.t() => any()}
+  @type stop_fleet_actions_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2933,30 +2933,30 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type claim_filter_option() :: %{String.t() => any()}
+  @type claim_filter_option() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_game_session_queue_input() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type delete_game_session_queue_input() :: %{String.t() => any()}
+  @type delete_game_session_queue_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       deregister_compute_input() :: %{
-        required("ComputeName") => String.t(),
-        required("FleetId") => String.t()
+        required("ComputeName") => String.t() | Atom.t(),
+        required("FleetId") => String.t() | Atom.t()
       }
       
   """
-  @type deregister_compute_input() :: %{String.t() => any()}
+  @type deregister_compute_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2964,11 +2964,11 @@ defmodule AWS.GameLift do
       
       describe_fleet_events_output() :: %{
         "Events" => list(event()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_fleet_events_output() :: %{String.t() => any()}
+  @type describe_fleet_events_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2979,7 +2979,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type create_vpc_peering_authorization_output() :: %{String.t() => any()}
+  @type create_vpc_peering_authorization_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2990,20 +2990,20 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type create_game_session_queue_output() :: %{String.t() => any()}
+  @type create_game_session_queue_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       location_model() :: %{
-        "LocationArn" => String.t(),
-        "LocationName" => String.t(),
+        "LocationArn" => String.t() | Atom.t(),
+        "LocationName" => String.t() | Atom.t(),
         "PingBeacon" => ping_beacon()
       }
       
   """
-  @type location_model() :: %{String.t() => any()}
+  @type location_model() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3012,30 +3012,30 @@ defmodule AWS.GameLift do
       event() :: %{
         "Count" => float(),
         "EventCode" => list(any()),
-        "EventId" => String.t(),
+        "EventId" => String.t() | Atom.t(),
         "EventTime" => non_neg_integer(),
-        "Message" => String.t(),
-        "PreSignedLogUrl" => String.t(),
-        "ResourceId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "PreSignedLogUrl" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | Atom.t()
       }
       
   """
-  @type event() :: %{String.t() => any()}
+  @type event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_instances_input() :: %{
-        optional("InstanceId") => String.t(),
+        optional("InstanceId") => String.t() | Atom.t(),
         optional("Limit") => integer(),
-        optional("Location") => String.t(),
-        optional("NextToken") => String.t(),
-        required("FleetId") => String.t()
+        optional("Location") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | Atom.t(),
+        required("FleetId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_instances_input() :: %{String.t() => any()}
+  @type describe_instances_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3046,31 +3046,31 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type describe_game_server_output() :: %{String.t() => any()}
+  @type describe_game_server_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       u_d_p_endpoint() :: %{
-        "Domain" => String.t(),
+        "Domain" => String.t() | Atom.t(),
         "Port" => integer()
       }
       
   """
-  @type u_d_p_endpoint() :: %{String.t() => any()}
+  @type u_d_p_endpoint() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_vpc_peering_authorization_input() :: %{
-        required("GameLiftAwsAccountId") => String.t(),
-        required("PeerVpcId") => String.t()
+        required("GameLiftAwsAccountId") => String.t() | Atom.t(),
+        required("PeerVpcId") => String.t() | Atom.t()
       }
       
   """
-  @type create_vpc_peering_authorization_input() :: %{String.t() => any()}
+  @type create_vpc_peering_authorization_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3078,12 +3078,12 @@ defmodule AWS.GameLift do
       
       describe_game_session_queues_input() :: %{
         optional("Limit") => integer(),
-        optional("Names") => list(String.t()),
-        optional("NextToken") => String.t()
+        optional("Names") => list(String.t() | Atom.t()),
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type describe_game_session_queues_input() :: %{String.t() => any()}
+  @type describe_game_session_queues_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3091,11 +3091,11 @@ defmodule AWS.GameLift do
       
       search_game_sessions_output() :: %{
         "GameSessions" => list(game_session()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type search_game_sessions_output() :: %{String.t() => any()}
+  @type search_game_sessions_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3106,24 +3106,24 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type start_match_backfill_output() :: %{String.t() => any()}
+  @type start_match_backfill_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       alias() :: %{
-        "AliasArn" => String.t(),
-        "AliasId" => String.t(),
+        "AliasArn" => String.t() | Atom.t(),
+        "AliasId" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "LastUpdatedTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "RoutingStrategy" => routing_strategy()
       }
       
   """
-  @type alias() :: %{String.t() => any()}
+  @type alias() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3134,20 +3134,20 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type update_runtime_configuration_output() :: %{String.t() => any()}
+  @type update_runtime_configuration_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_fleet_deployments_input() :: %{
-        optional("FleetId") => String.t(),
+        optional("FleetId") => String.t() | Atom.t(),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_fleet_deployments_input() :: %{String.t() => any()}
+  @type list_fleet_deployments_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3155,19 +3155,19 @@ defmodule AWS.GameLift do
       
       instance() :: %{
         "CreationTime" => non_neg_integer(),
-        "DnsName" => String.t(),
-        "FleetArn" => String.t(),
-        "FleetId" => String.t(),
-        "InstanceId" => String.t(),
-        "IpAddress" => String.t(),
-        "Location" => String.t(),
+        "DnsName" => String.t() | Atom.t(),
+        "FleetArn" => String.t() | Atom.t(),
+        "FleetId" => String.t() | Atom.t(),
+        "InstanceId" => String.t() | Atom.t(),
+        "IpAddress" => String.t() | Atom.t(),
+        "Location" => String.t() | Atom.t(),
         "OperatingSystem" => list(any()),
         "Status" => list(any()),
         "Type" => list(any())
       }
       
   """
-  @type instance() :: %{String.t() => any()}
+  @type instance() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3178,31 +3178,31 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type terminate_game_session_output() :: %{String.t() => any()}
+  @type terminate_game_session_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_game_session_log_url_input() :: %{
-        required("GameSessionId") => String.t()
+        required("GameSessionId") => String.t() | Atom.t()
       }
       
   """
-  @type get_game_session_log_url_input() :: %{String.t() => any()}
+  @type get_game_session_log_url_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_fleet_actions_input() :: %{
-        optional("Location") => String.t(),
+        optional("Location") => String.t() | Atom.t(),
         required("Actions") => list(list(any())()),
-        required("FleetId") => String.t()
+        required("FleetId") => String.t() | Atom.t()
       }
       
   """
-  @type start_fleet_actions_input() :: %{String.t() => any()}
+  @type start_fleet_actions_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3213,20 +3213,20 @@ defmodule AWS.GameLift do
         optional("AcceptanceTimeoutSeconds") => integer(),
         optional("AdditionalPlayerCount") => integer(),
         optional("BackfillMode") => list(any()),
-        optional("CustomEventData") => String.t(),
-        optional("Description") => String.t(),
+        optional("CustomEventData") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("FlexMatchMode") => list(any()),
         optional("GameProperties") => list(game_property()),
-        optional("GameSessionData") => String.t(),
-        optional("GameSessionQueueArns") => list(String.t()),
-        optional("NotificationTarget") => String.t(),
+        optional("GameSessionData") => String.t() | Atom.t(),
+        optional("GameSessionQueueArns") => list(String.t() | Atom.t()),
+        optional("NotificationTarget") => String.t() | Atom.t(),
         optional("RequestTimeoutSeconds") => integer(),
-        optional("RuleSetName") => String.t(),
-        required("Name") => String.t()
+        optional("RuleSetName") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type update_matchmaking_configuration_input() :: %{String.t() => any()}
+  @type update_matchmaking_configuration_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3237,7 +3237,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type resume_game_server_group_output() :: %{String.t() => any()}
+  @type resume_game_server_group_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3253,23 +3253,23 @@ defmodule AWS.GameLift do
   ## Example:
       
       unsupported_region_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type unsupported_region_exception() :: %{String.t() => any()}
+  @type unsupported_region_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_scripts_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Scripts" => list(script())
       }
       
   """
-  @type list_scripts_output() :: %{String.t() => any()}
+  @type list_scripts_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3286,22 +3286,22 @@ defmodule AWS.GameLift do
       
       delete_game_server_group_input() :: %{
         optional("DeleteOption") => list(any()),
-        required("GameServerGroupName") => String.t()
+        required("GameServerGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_game_server_group_input() :: %{String.t() => any()}
+  @type delete_game_server_group_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       game_session_full_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type game_session_full_exception() :: %{String.t() => any()}
+  @type game_session_full_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3317,13 +3317,13 @@ defmodule AWS.GameLift do
   ## Example:
       
       aws_credentials() :: %{
-        "AccessKeyId" => String.t(),
-        "SecretAccessKey" => String.t(),
-        "SessionToken" => String.t()
+        "AccessKeyId" => String.t() | Atom.t(),
+        "SecretAccessKey" => String.t() | Atom.t(),
+        "SessionToken" => String.t() | Atom.t()
       }
       
   """
-  @type aws_credentials() :: %{String.t() => any()}
+  @type aws_credentials() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3336,31 +3336,31 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type container_port_range() :: %{String.t() => any()}
+  @type container_port_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_matchmaking_rule_sets_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "RuleSets" => list(matchmaking_rule_set())
       }
       
   """
-  @type describe_matchmaking_rule_sets_output() :: %{String.t() => any()}
+  @type describe_matchmaking_rule_sets_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       game_property() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type game_property() :: %{String.t() => any()}
+  @type game_property() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3369,11 +3369,11 @@ defmodule AWS.GameLift do
       list_container_group_definitions_input() :: %{
         optional("ContainerGroupType") => list(any()),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_container_group_definitions_input() :: %{String.t() => any()}
+  @type list_container_group_definitions_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3384,7 +3384,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type suspend_game_server_group_output() :: %{String.t() => any()}
+  @type suspend_game_server_group_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3395,20 +3395,20 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type get_instance_access_output() :: %{String.t() => any()}
+  @type get_instance_access_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_fleet_attributes_input() :: %{
-        optional("FleetIds") => list(String.t()),
+        optional("FleetIds") => list(String.t() | Atom.t()),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type describe_fleet_attributes_input() :: %{String.t() => any()}
+  @type describe_fleet_attributes_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3419,40 +3419,40 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type create_location_output() :: %{String.t() => any()}
+  @type create_location_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_game_session_input() :: %{
-        optional("AliasId") => String.t(),
-        optional("CreatorId") => String.t(),
-        optional("FleetId") => String.t(),
+        optional("AliasId") => String.t() | Atom.t(),
+        optional("CreatorId") => String.t() | Atom.t(),
+        optional("FleetId") => String.t() | Atom.t(),
         optional("GameProperties") => list(game_property()),
-        optional("GameSessionData") => String.t(),
-        optional("GameSessionId") => String.t(),
-        optional("IdempotencyToken") => String.t(),
-        optional("Location") => String.t(),
-        optional("Name") => String.t(),
+        optional("GameSessionData") => String.t() | Atom.t(),
+        optional("GameSessionId") => String.t() | Atom.t(),
+        optional("IdempotencyToken") => String.t() | Atom.t(),
+        optional("Location") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t(),
         required("MaximumPlayerSessionCount") => integer()
       }
       
   """
-  @type create_game_session_input() :: %{String.t() => any()}
+  @type create_game_session_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       routing_strategy() :: %{
-        "FleetId" => String.t(),
-        "Message" => String.t(),
+        "FleetId" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
         "Type" => list(any())
       }
       
   """
-  @type routing_strategy() :: %{String.t() => any()}
+  @type routing_strategy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3461,28 +3461,28 @@ defmodule AWS.GameLift do
       fleet_deployment() :: %{
         "CreationTime" => non_neg_integer(),
         "DeploymentConfiguration" => deployment_configuration(),
-        "DeploymentId" => String.t(),
+        "DeploymentId" => String.t() | Atom.t(),
         "DeploymentStatus" => list(any()),
-        "FleetId" => String.t(),
-        "GameServerBinaryArn" => String.t(),
-        "PerInstanceBinaryArn" => String.t(),
-        "RollbackGameServerBinaryArn" => String.t(),
-        "RollbackPerInstanceBinaryArn" => String.t()
+        "FleetId" => String.t() | Atom.t(),
+        "GameServerBinaryArn" => String.t() | Atom.t(),
+        "PerInstanceBinaryArn" => String.t() | Atom.t(),
+        "RollbackGameServerBinaryArn" => String.t() | Atom.t(),
+        "RollbackPerInstanceBinaryArn" => String.t() | Atom.t()
       }
       
   """
-  @type fleet_deployment() :: %{String.t() => any()}
+  @type fleet_deployment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       game_session_queue_destination() :: %{
-        "DestinationArn" => String.t()
+        "DestinationArn" => String.t() | Atom.t()
       }
       
   """
-  @type game_session_queue_destination() :: %{String.t() => any()}
+  @type game_session_queue_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3490,27 +3490,27 @@ defmodule AWS.GameLift do
       
       describe_game_server_instances_output() :: %{
         "GameServerInstances" => list(game_server_instance()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_game_server_instances_output() :: %{String.t() => any()}
+  @type describe_game_server_instances_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_compute_auth_token_output() :: %{
-        "AuthToken" => String.t(),
-        "ComputeArn" => String.t(),
-        "ComputeName" => String.t(),
+        "AuthToken" => String.t() | Atom.t(),
+        "ComputeArn" => String.t() | Atom.t(),
+        "ComputeName" => String.t() | Atom.t(),
         "ExpirationTimestamp" => non_neg_integer(),
-        "FleetArn" => String.t(),
-        "FleetId" => String.t()
+        "FleetArn" => String.t() | Atom.t(),
+        "FleetId" => String.t() | Atom.t()
       }
       
   """
-  @type get_compute_auth_token_output() :: %{String.t() => any()}
+  @type get_compute_auth_token_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3521,7 +3521,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type describe_ec2_instance_limits_output() :: %{String.t() => any()}
+  @type describe_ec2_instance_limits_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3532,7 +3532,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type delete_game_server_group_output() :: %{String.t() => any()}
+  @type delete_game_server_group_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3543,30 +3543,30 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type describe_build_output() :: %{String.t() => any()}
+  @type describe_build_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_scaling_policy_input() :: %{
-        required("FleetId") => String.t(),
-        required("Name") => String.t()
+        required("FleetId") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type delete_scaling_policy_input() :: %{String.t() => any()}
+  @type delete_scaling_policy_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t()
+        required("ResourceARN") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3574,11 +3574,11 @@ defmodule AWS.GameLift do
       
       describe_fleet_capacity_output() :: %{
         "FleetCapacity" => list(fleet_capacity()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_fleet_capacity_output() :: %{String.t() => any()}
+  @type describe_fleet_capacity_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3587,11 +3587,11 @@ defmodule AWS.GameLift do
       list_locations_input() :: %{
         optional("Filters") => list(list(any())()),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_locations_input() :: %{String.t() => any()}
+  @type list_locations_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3601,29 +3601,29 @@ defmodule AWS.GameLift do
         "BillingType" => list(any()),
         "CreationTime" => non_neg_integer(),
         "DeploymentDetails" => deployment_details(),
-        "Description" => String.t(),
-        "FleetArn" => String.t(),
-        "FleetId" => String.t(),
-        "FleetRoleArn" => String.t(),
-        "GameServerContainerGroupDefinitionArn" => String.t(),
-        "GameServerContainerGroupDefinitionName" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "FleetArn" => String.t() | Atom.t(),
+        "FleetId" => String.t() | Atom.t(),
+        "FleetRoleArn" => String.t() | Atom.t(),
+        "GameServerContainerGroupDefinitionArn" => String.t() | Atom.t(),
+        "GameServerContainerGroupDefinitionName" => String.t() | Atom.t(),
         "GameServerContainerGroupsPerInstance" => integer(),
         "GameSessionCreationLimitPolicy" => game_session_creation_limit_policy(),
         "InstanceConnectionPortRange" => connection_port_range(),
         "InstanceInboundPermissions" => list(ip_permission()),
-        "InstanceType" => String.t(),
+        "InstanceType" => String.t() | Atom.t(),
         "LocationAttributes" => list(container_fleet_location_attributes()),
         "LogConfiguration" => log_configuration(),
         "MaximumGameServerContainerGroupsPerInstance" => integer(),
-        "MetricGroups" => list(String.t()),
+        "MetricGroups" => list(String.t() | Atom.t()),
         "NewGameSessionProtectionPolicy" => list(any()),
-        "PerInstanceContainerGroupDefinitionArn" => String.t(),
-        "PerInstanceContainerGroupDefinitionName" => String.t(),
+        "PerInstanceContainerGroupDefinitionArn" => String.t() | Atom.t(),
+        "PerInstanceContainerGroupDefinitionName" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type container_fleet() :: %{String.t() => any()}
+  @type container_fleet() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3631,11 +3631,11 @@ defmodule AWS.GameLift do
       
       describe_fleet_attributes_output() :: %{
         "FleetAttributes" => list(fleet_attributes()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_fleet_attributes_output() :: %{String.t() => any()}
+  @type describe_fleet_attributes_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3643,16 +3643,16 @@ defmodule AWS.GameLift do
       
       script() :: %{
         "CreationTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "ScriptArn" => String.t(),
-        "ScriptId" => String.t(),
+        "Name" => String.t() | Atom.t(),
+        "ScriptArn" => String.t() | Atom.t(),
+        "ScriptId" => String.t() | Atom.t(),
         "SizeOnDisk" => float(),
         "StorageLocation" => s3_location(),
-        "Version" => String.t()
+        "Version" => String.t() | Atom.t()
       }
       
   """
-  @type script() :: %{String.t() => any()}
+  @type script() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3664,7 +3664,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type resource_creation_limit_policy() :: %{String.t() => any()}
+  @type resource_creation_limit_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3672,12 +3672,12 @@ defmodule AWS.GameLift do
       
       game_server() :: %{
         "ClaimStatus" => list(any()),
-        "ConnectionInfo" => String.t(),
-        "GameServerData" => String.t(),
-        "GameServerGroupArn" => String.t(),
-        "GameServerGroupName" => String.t(),
-        "GameServerId" => String.t(),
-        "InstanceId" => String.t(),
+        "ConnectionInfo" => String.t() | Atom.t(),
+        "GameServerData" => String.t() | Atom.t(),
+        "GameServerGroupArn" => String.t() | Atom.t(),
+        "GameServerGroupName" => String.t() | Atom.t(),
+        "GameServerId" => String.t() | Atom.t(),
+        "InstanceId" => String.t() | Atom.t(),
         "LastClaimTime" => non_neg_integer(),
         "LastHealthCheckTime" => non_neg_integer(),
         "RegistrationTime" => non_neg_integer(),
@@ -3685,7 +3685,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type game_server() :: %{String.t() => any()}
+  @type game_server() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3696,7 +3696,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type create_player_session_output() :: %{String.t() => any()}
+  @type create_player_session_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3707,7 +3707,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type describe_alias_output() :: %{String.t() => any()}
+  @type describe_alias_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3718,18 +3718,18 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type describe_game_session_placement_output() :: %{String.t() => any()}
+  @type describe_game_session_placement_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_game_session_status_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_game_session_status_exception() :: %{String.t() => any()}
+  @type invalid_game_session_status_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3740,23 +3740,23 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type container_port_configuration() :: %{String.t() => any()}
+  @type container_port_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       register_compute_input() :: %{
-        optional("CertificatePath") => String.t(),
-        optional("DnsName") => String.t(),
-        optional("IpAddress") => String.t(),
-        optional("Location") => String.t(),
-        required("ComputeName") => String.t(),
-        required("FleetId") => String.t()
+        optional("CertificatePath") => String.t() | Atom.t(),
+        optional("DnsName") => String.t() | Atom.t(),
+        optional("IpAddress") => String.t() | Atom.t(),
+        optional("Location") => String.t() | Atom.t(),
+        required("ComputeName") => String.t() | Atom.t(),
+        required("FleetId") => String.t() | Atom.t()
       }
       
   """
-  @type register_compute_input() :: %{String.t() => any()}
+  @type register_compute_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3772,11 +3772,11 @@ defmodule AWS.GameLift do
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3792,28 +3792,28 @@ defmodule AWS.GameLift do
   ## Example:
       
       create_alias_input() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("Name") => String.t(),
+        required("Name") => String.t() | Atom.t(),
         required("RoutingStrategy") => routing_strategy()
       }
       
   """
-  @type create_alias_input() :: %{String.t() => any()}
+  @type create_alias_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_match_backfill_input() :: %{
-        optional("GameSessionArn") => String.t(),
-        optional("TicketId") => String.t(),
-        required("ConfigurationName") => String.t(),
+        optional("GameSessionArn") => String.t() | Atom.t(),
+        optional("TicketId") => String.t() | Atom.t(),
+        required("ConfigurationName") => String.t() | Atom.t(),
         required("Players") => list(player())
       }
       
   """
-  @type start_match_backfill_input() :: %{String.t() => any()}
+  @type start_match_backfill_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3823,23 +3823,23 @@ defmodule AWS.GameLift do
         "CurrentInstances" => integer(),
         "EC2InstanceType" => list(any()),
         "InstanceLimit" => integer(),
-        "Location" => String.t()
+        "Location" => String.t() | Atom.t()
       }
       
   """
-  @type ec2_instance_limit() :: %{String.t() => any()}
+  @type ec2_instance_limit() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_compute_auth_token_input() :: %{
-        required("ComputeName") => String.t(),
-        required("FleetId") => String.t()
+        required("ComputeName") => String.t() | Atom.t(),
+        required("FleetId") => String.t() | Atom.t()
       }
       
   """
-  @type get_compute_auth_token_input() :: %{String.t() => any()}
+  @type get_compute_auth_token_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3847,11 +3847,11 @@ defmodule AWS.GameLift do
       
       list_container_fleets_output() :: %{
         "ContainerFleets" => list(container_fleet()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_container_fleets_output() :: %{String.t() => any()}
+  @type list_container_fleets_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3862,20 +3862,20 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type target_configuration() :: %{String.t() => any()}
+  @type target_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       launch_template_specification() :: %{
-        "LaunchTemplateId" => String.t(),
-        "LaunchTemplateName" => String.t(),
-        "Version" => String.t()
+        "LaunchTemplateId" => String.t() | Atom.t(),
+        "LaunchTemplateName" => String.t() | Atom.t(),
+        "Version" => String.t() | Atom.t()
       }
       
   """
-  @type launch_template_specification() :: %{String.t() => any()}
+  @type launch_template_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3886,7 +3886,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type claim_game_server_output() :: %{String.t() => any()}
+  @type claim_game_server_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3894,14 +3894,14 @@ defmodule AWS.GameLift do
       
       describe_scaling_policies_input() :: %{
         optional("Limit") => integer(),
-        optional("Location") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("Location") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("StatusFilter") => list(any()),
-        required("FleetId") => String.t()
+        required("FleetId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_scaling_policies_input() :: %{String.t() => any()}
+  @type describe_scaling_policies_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3909,23 +3909,23 @@ defmodule AWS.GameLift do
       
       list_game_servers_output() :: %{
         "GameServers" => list(game_server()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_game_servers_output() :: %{String.t() => any()}
+  @type list_game_servers_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       vpc_peering_connection_status() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type vpc_peering_connection_status() :: %{String.t() => any()}
+  @type vpc_peering_connection_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3936,93 +3936,93 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type describe_container_fleet_output() :: %{String.t() => any()}
+  @type describe_container_fleet_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_scaling_policies_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "ScalingPolicies" => list(scaling_policy())
       }
       
   """
-  @type describe_scaling_policies_output() :: %{String.t() => any()}
+  @type describe_scaling_policies_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_matchmaking_rule_set_input() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type delete_matchmaking_rule_set_input() :: %{String.t() => any()}
+  @type delete_matchmaking_rule_set_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_build_input() :: %{
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("OperatingSystem") => list(any()),
-        optional("ServerSdkVersion") => String.t(),
+        optional("ServerSdkVersion") => String.t() | Atom.t(),
         optional("StorageLocation") => s3_location(),
         optional("Tags") => list(tag()),
-        optional("Version") => String.t()
+        optional("Version") => String.t() | Atom.t()
       }
       
   """
-  @type create_build_input() :: %{String.t() => any()}
+  @type create_build_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       game_server_container_definition() :: %{
-        "ContainerName" => String.t(),
+        "ContainerName" => String.t() | Atom.t(),
         "DependsOn" => list(container_dependency()),
         "EnvironmentOverride" => list(container_environment()),
-        "ImageUri" => String.t(),
+        "ImageUri" => String.t() | Atom.t(),
         "MountPoints" => list(container_mount_point()),
         "PortConfiguration" => container_port_configuration(),
-        "ResolvedImageDigest" => String.t(),
-        "ServerSdkVersion" => String.t()
+        "ResolvedImageDigest" => String.t() | Atom.t(),
+        "ServerSdkVersion" => String.t() | Atom.t()
       }
       
   """
-  @type game_server_container_definition() :: %{String.t() => any()}
+  @type game_server_container_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       vpc_peering_connection() :: %{
-        "FleetArn" => String.t(),
-        "FleetId" => String.t(),
-        "GameLiftVpcId" => String.t(),
-        "IpV4CidrBlock" => String.t(),
-        "PeerVpcId" => String.t(),
+        "FleetArn" => String.t() | Atom.t(),
+        "FleetId" => String.t() | Atom.t(),
+        "GameLiftVpcId" => String.t() | Atom.t(),
+        "IpV4CidrBlock" => String.t() | Atom.t(),
+        "PeerVpcId" => String.t() | Atom.t(),
         "Status" => vpc_peering_connection_status(),
-        "VpcPeeringConnectionId" => String.t()
+        "VpcPeeringConnectionId" => String.t() | Atom.t()
       }
       
   """
-  @type vpc_peering_connection() :: %{String.t() => any()}
+  @type vpc_peering_connection() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_fleet_attributes_output() :: %{
-        "FleetArn" => String.t(),
-        "FleetId" => String.t()
+        "FleetArn" => String.t() | Atom.t(),
+        "FleetId" => String.t() | Atom.t()
       }
       
   """
-  @type update_fleet_attributes_output() :: %{String.t() => any()}
+  @type update_fleet_attributes_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4035,18 +4035,18 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type create_build_output() :: %{String.t() => any()}
+  @type create_build_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       deployment_details() :: %{
-        "LatestDeploymentId" => String.t()
+        "LatestDeploymentId" => String.t() | Atom.t()
       }
       
   """
-  @type deployment_details() :: %{String.t() => any()}
+  @type deployment_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4054,11 +4054,11 @@ defmodule AWS.GameLift do
       
       describe_game_session_details_output() :: %{
         "GameSessionDetails" => list(game_session_detail()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_game_session_details_output() :: %{String.t() => any()}
+  @type describe_game_session_details_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4075,12 +4075,12 @@ defmodule AWS.GameLift do
       
       log_configuration() :: %{
         "LogDestination" => list(any()),
-        "LogGroupArn" => String.t(),
-        "S3BucketName" => String.t()
+        "LogGroupArn" => String.t() | Atom.t(),
+        "S3BucketName" => String.t() | Atom.t()
       }
       
   """
-  @type log_configuration() :: %{String.t() => any()}
+  @type log_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4092,7 +4092,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type game_session_detail() :: %{String.t() => any()}
+  @type game_session_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4103,7 +4103,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type stop_game_session_placement_output() :: %{String.t() => any()}
+  @type stop_game_session_placement_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4123,7 +4123,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type describe_container_group_definition_output() :: %{String.t() => any()}
+  @type describe_container_group_definition_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4134,30 +4134,30 @@ defmodule AWS.GameLift do
         optional("BalancingStrategy") => list(any()),
         optional("GameServerProtectionPolicy") => list(any()),
         optional("Tags") => list(tag()),
-        optional("VpcSubnets") => list(String.t()),
-        required("GameServerGroupName") => String.t(),
+        optional("VpcSubnets") => list(String.t() | Atom.t()),
+        required("GameServerGroupName") => String.t() | Atom.t(),
         required("InstanceDefinitions") => list(instance_definition()),
         required("LaunchTemplate") => launch_template_specification(),
         required("MaxSize") => integer(),
         required("MinSize") => integer(),
-        required("RoleArn") => String.t()
+        required("RoleArn") => String.t() | Atom.t()
       }
       
   """
-  @type create_game_server_group_input() :: %{String.t() => any()}
+  @type create_game_server_group_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_fleet_actions_input() :: %{
-        optional("Location") => String.t(),
+        optional("Location") => String.t() | Atom.t(),
         required("Actions") => list(list(any())()),
-        required("FleetId") => String.t()
+        required("FleetId") => String.t() | Atom.t()
       }
       
   """
-  @type stop_fleet_actions_input() :: %{String.t() => any()}
+  @type stop_fleet_actions_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4168,7 +4168,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type certificate_configuration() :: %{String.t() => any()}
+  @type certificate_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4176,25 +4176,25 @@ defmodule AWS.GameLift do
       
       matchmaking_rule_set() :: %{
         "CreationTime" => non_neg_integer(),
-        "RuleSetArn" => String.t(),
-        "RuleSetBody" => String.t(),
-        "RuleSetName" => String.t()
+        "RuleSetArn" => String.t() | Atom.t(),
+        "RuleSetBody" => String.t() | Atom.t(),
+        "RuleSetName" => String.t() | Atom.t()
       }
       
   """
-  @type matchmaking_rule_set() :: %{String.t() => any()}
+  @type matchmaking_rule_set() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_compute_input() :: %{
-        required("ComputeName") => String.t(),
-        required("FleetId") => String.t()
+        required("ComputeName") => String.t() | Atom.t(),
+        required("FleetId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_compute_input() :: %{String.t() => any()}
+  @type describe_compute_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4202,39 +4202,39 @@ defmodule AWS.GameLift do
       
       create_container_fleet_input() :: %{
         optional("BillingType") => list(any()),
-        optional("Description") => String.t(),
-        optional("GameServerContainerGroupDefinitionName") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("GameServerContainerGroupDefinitionName") => String.t() | Atom.t(),
         optional("GameServerContainerGroupsPerInstance") => integer(),
         optional("GameSessionCreationLimitPolicy") => game_session_creation_limit_policy(),
         optional("InstanceConnectionPortRange") => connection_port_range(),
         optional("InstanceInboundPermissions") => list(ip_permission()),
-        optional("InstanceType") => String.t(),
+        optional("InstanceType") => String.t() | Atom.t(),
         optional("Locations") => list(location_configuration()),
         optional("LogConfiguration") => log_configuration(),
-        optional("MetricGroups") => list(String.t()),
+        optional("MetricGroups") => list(String.t() | Atom.t()),
         optional("NewGameSessionProtectionPolicy") => list(any()),
-        optional("PerInstanceContainerGroupDefinitionName") => String.t(),
+        optional("PerInstanceContainerGroupDefinitionName") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("FleetRoleArn") => String.t()
+        required("FleetRoleArn") => String.t() | Atom.t()
       }
       
   """
-  @type create_container_fleet_input() :: %{String.t() => any()}
+  @type create_container_fleet_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       register_game_server_input() :: %{
-        optional("ConnectionInfo") => String.t(),
-        optional("GameServerData") => String.t(),
-        required("GameServerGroupName") => String.t(),
-        required("GameServerId") => String.t(),
-        required("InstanceId") => String.t()
+        optional("ConnectionInfo") => String.t() | Atom.t(),
+        optional("GameServerData") => String.t() | Atom.t(),
+        required("GameServerGroupName") => String.t() | Atom.t(),
+        required("GameServerId") => String.t() | Atom.t(),
+        required("InstanceId") => String.t() | Atom.t()
       }
       
   """
-  @type register_game_server_input() :: %{String.t() => any()}
+  @type register_game_server_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4242,32 +4242,32 @@ defmodule AWS.GameLift do
       
       create_player_sessions_input() :: %{
         optional("PlayerDataMap") => map(),
-        required("GameSessionId") => String.t(),
-        required("PlayerIds") => list(String.t())
+        required("GameSessionId") => String.t() | Atom.t(),
+        required("PlayerIds") => list(String.t() | Atom.t())
       }
       
   """
-  @type create_player_sessions_input() :: %{String.t() => any()}
+  @type create_player_sessions_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       game_session_placement() :: %{
-        "DnsName" => String.t(),
+        "DnsName" => String.t() | Atom.t(),
         "EndTime" => non_neg_integer(),
         "GameProperties" => list(game_property()),
-        "GameSessionArn" => String.t(),
-        "GameSessionData" => String.t(),
-        "GameSessionId" => String.t(),
-        "GameSessionName" => String.t(),
-        "GameSessionQueueName" => String.t(),
-        "GameSessionRegion" => String.t(),
-        "IpAddress" => String.t(),
-        "MatchmakerData" => String.t(),
+        "GameSessionArn" => String.t() | Atom.t(),
+        "GameSessionData" => String.t() | Atom.t(),
+        "GameSessionId" => String.t() | Atom.t(),
+        "GameSessionName" => String.t() | Atom.t(),
+        "GameSessionQueueName" => String.t() | Atom.t(),
+        "GameSessionRegion" => String.t() | Atom.t(),
+        "IpAddress" => String.t() | Atom.t(),
+        "MatchmakerData" => String.t() | Atom.t(),
         "MaximumPlayerSessionCount" => integer(),
         "PlacedPlayerSessions" => list(placed_player_session()),
-        "PlacementId" => String.t(),
+        "PlacementId" => String.t() | Atom.t(),
         "PlayerLatencies" => list(player_latency()),
         "Port" => integer(),
         "PriorityConfigurationOverride" => priority_configuration_override(),
@@ -4276,7 +4276,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type game_session_placement() :: %{String.t() => any()}
+  @type game_session_placement() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4284,19 +4284,19 @@ defmodule AWS.GameLift do
       
       game_session() :: %{
         "CreationTime" => non_neg_integer(),
-        "CreatorId" => String.t(),
+        "CreatorId" => String.t() | Atom.t(),
         "CurrentPlayerSessionCount" => integer(),
-        "DnsName" => String.t(),
-        "FleetArn" => String.t(),
-        "FleetId" => String.t(),
+        "DnsName" => String.t() | Atom.t(),
+        "FleetArn" => String.t() | Atom.t(),
+        "FleetId" => String.t() | Atom.t(),
         "GameProperties" => list(game_property()),
-        "GameSessionData" => String.t(),
-        "GameSessionId" => String.t(),
-        "IpAddress" => String.t(),
-        "Location" => String.t(),
-        "MatchmakerData" => String.t(),
+        "GameSessionData" => String.t() | Atom.t(),
+        "GameSessionId" => String.t() | Atom.t(),
+        "IpAddress" => String.t() | Atom.t(),
+        "Location" => String.t() | Atom.t(),
+        "MatchmakerData" => String.t() | Atom.t(),
         "MaximumPlayerSessionCount" => integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "PlayerSessionCreationPolicy" => list(any()),
         "Port" => integer(),
         "Status" => list(any()),
@@ -4305,7 +4305,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type game_session() :: %{String.t() => any()}
+  @type game_session() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4316,7 +4316,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type update_game_session_output() :: %{String.t() => any()}
+  @type update_game_session_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4327,7 +4327,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type update_container_fleet_output() :: %{String.t() => any()}
+  @type update_container_fleet_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4335,26 +4335,26 @@ defmodule AWS.GameLift do
       
       list_builds_output() :: %{
         "Builds" => list(build()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_builds_output() :: %{String.t() => any()}
+  @type list_builds_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_script_input() :: %{
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("StorageLocation") => s3_location(),
         optional("Tags") => list(tag()),
-        optional("Version") => String.t(),
+        optional("Version") => String.t() | Atom.t(),
         optional("ZipFile") => binary()
       }
       
   """
-  @type create_script_input() :: %{String.t() => any()}
+  @type create_script_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4365,7 +4365,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type create_container_fleet_output() :: %{String.t() => any()}
+  @type create_container_fleet_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4376,7 +4376,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type create_script_output() :: %{String.t() => any()}
+  @type create_script_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4387,7 +4387,7 @@ defmodule AWS.GameLift do
       }
       
   """
-  @type target_tracking_configuration() :: %{String.t() => any()}
+  @type target_tracking_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4395,11 +4395,11 @@ defmodule AWS.GameLift do
       
       describe_container_group_definition_input() :: %{
         optional("VersionNumber") => integer(),
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type describe_container_group_definition_input() :: %{String.t() => any()}
+  @type describe_container_group_definition_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4407,11 +4407,11 @@ defmodule AWS.GameLift do
       
       describe_matchmaking_configurations_output() :: %{
         "Configurations" => list(matchmaking_configuration()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_matchmaking_configurations_output() :: %{String.t() => any()}
+  @type describe_matchmaking_configurations_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4419,49 +4419,49 @@ defmodule AWS.GameLift do
       
       container_dependency() :: %{
         "Condition" => list(any()),
-        "ContainerName" => String.t()
+        "ContainerName" => String.t() | Atom.t()
       }
       
   """
-  @type container_dependency() :: %{String.t() => any()}
+  @type container_dependency() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_container_fleets_input() :: %{
-        optional("ContainerGroupDefinitionName") => String.t(),
+        optional("ContainerGroupDefinitionName") => String.t() | Atom.t(),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_container_fleets_input() :: %{String.t() => any()}
+  @type list_container_fleets_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_game_server_instances_input() :: %{
-        optional("InstanceIds") => list(String.t()),
+        optional("InstanceIds") => list(String.t() | Atom.t()),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t(),
-        required("GameServerGroupName") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("GameServerGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_game_server_instances_input() :: %{String.t() => any()}
+  @type describe_game_server_instances_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       terminal_routing_strategy_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type terminal_routing_strategy_exception() :: %{String.t() => any()}
+  @type terminal_routing_strategy_exception() :: %{String.t() | Atom.t() => any()}
 
   @type accept_match_errors() ::
           unsupported_region_exception()

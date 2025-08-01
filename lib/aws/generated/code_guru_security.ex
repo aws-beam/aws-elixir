@@ -30,12 +30,12 @@ defmodule AWS.CodeGuruSecurity do
   ## Example:
 
       list_scans_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "summaries" => list(scan_summary())
       }
 
   """
-  @type list_scans_response() :: %{String.t() => any()}
+  @type list_scans_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -43,23 +43,23 @@ defmodule AWS.CodeGuruSecurity do
 
       list_scans_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_scans_request() :: %{String.t() => any()}
+  @type list_scans_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       finding_identifier() :: %{
-        "findingId" => [String.t()],
-        "scanName" => [String.t()]
+        "findingId" => [String.t() | Atom.t()],
+        "scanName" => [String.t() | Atom.t()]
       }
 
   """
-  @type finding_identifier() :: %{String.t() => any()}
+  @type finding_identifier() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -70,30 +70,30 @@ defmodule AWS.CodeGuruSecurity do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       encryption_config() :: %{
-        "kmsKeyArn" => String.t()
+        "kmsKeyArn" => String.t() | Atom.t()
       }
 
   """
-  @type encryption_config() :: %{String.t() => any()}
+  @type encryption_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       suggested_fix() :: %{
-        "code" => [String.t()],
-        "description" => [String.t()]
+        "code" => [String.t() | Atom.t()],
+        "description" => [String.t() | Atom.t()]
       }
 
   """
-  @type suggested_fix() :: %{String.t() => any()}
+  @type suggested_fix() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -101,14 +101,14 @@ defmodule AWS.CodeGuruSecurity do
 
       vulnerability() :: %{
         "filePath" => file_path(),
-        "id" => [String.t()],
+        "id" => [String.t() | Atom.t()],
         "itemCount" => [integer()],
-        "referenceUrls" => list([String.t()]()),
-        "relatedVulnerabilities" => list([String.t()]())
+        "referenceUrls" => list([String.t() | Atom.t()]()),
+        "relatedVulnerabilities" => list([String.t() | Atom.t()]())
       }
 
   """
-  @type vulnerability() :: %{String.t() => any()}
+  @type vulnerability() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -123,7 +123,7 @@ defmodule AWS.CodeGuruSecurity do
       }
 
   """
-  @type finding_metrics_value_per_severity() :: %{String.t() => any()}
+  @type finding_metrics_value_per_severity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -132,17 +132,17 @@ defmodule AWS.CodeGuruSecurity do
       get_scan_response() :: %{
         "analysisType" => list(any()),
         "createdAt" => [non_neg_integer()],
-        "errorMessage" => String.t(),
+        "errorMessage" => String.t() | Atom.t(),
         "numberOfRevisions" => [float()],
-        "runId" => String.t(),
-        "scanName" => String.t(),
-        "scanNameArn" => String.t(),
+        "runId" => String.t() | Atom.t(),
+        "scanName" => String.t() | Atom.t(),
+        "scanNameArn" => String.t() | Atom.t(),
         "scanState" => list(any()),
         "updatedAt" => [non_neg_integer()]
       }
 
   """
-  @type get_scan_response() :: %{String.t() => any()}
+  @type get_scan_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -154,7 +154,7 @@ defmodule AWS.CodeGuruSecurity do
       }
 
   """
-  @type remediation() :: %{String.t() => any()}
+  @type remediation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -170,12 +170,12 @@ defmodule AWS.CodeGuruSecurity do
   ## Example:
 
       category_with_finding_num() :: %{
-        "categoryName" => [String.t()],
+        "categoryName" => [String.t() | Atom.t()],
         "findingNumber" => [integer()]
       }
 
   """
-  @type category_with_finding_num() :: %{String.t() => any()}
+  @type category_with_finding_num() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -183,38 +183,38 @@ defmodule AWS.CodeGuruSecurity do
 
       create_scan_response() :: %{
         "resourceId" => list(),
-        "runId" => String.t(),
-        "scanName" => String.t(),
-        "scanNameArn" => String.t(),
+        "runId" => String.t() | Atom.t(),
+        "scanName" => String.t() | Atom.t(),
+        "scanNameArn" => String.t() | Atom.t(),
         "scanState" => list(any())
       }
 
   """
-  @type create_scan_response() :: %{String.t() => any()}
+  @type create_scan_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_upload_url_response() :: %{
-        "codeArtifactId" => String.t(),
+        "codeArtifactId" => String.t() | Atom.t(),
         "requestHeaders" => map(),
-        "s3Url" => String.t()
+        "s3Url" => String.t() | Atom.t()
       }
 
   """
-  @type create_upload_url_response() :: %{String.t() => any()}
+  @type create_upload_url_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_scan_request() :: %{
-        optional("runId") => String.t()
+        optional("runId") => String.t() | Atom.t()
       }
 
   """
-  @type get_scan_request() :: %{String.t() => any()}
+  @type get_scan_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -222,12 +222,12 @@ defmodule AWS.CodeGuruSecurity do
 
       get_findings_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("status") => list(any())
       }
 
   """
-  @type get_findings_request() :: %{String.t() => any()}
+  @type get_findings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -242,7 +242,7 @@ defmodule AWS.CodeGuruSecurity do
       }
 
   """
-  @type metrics_summary() :: %{String.t() => any()}
+  @type metrics_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -253,18 +253,18 @@ defmodule AWS.CodeGuruSecurity do
       }
 
   """
-  @type get_metrics_summary_response() :: %{String.t() => any()}
+  @type get_metrics_summary_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -272,11 +272,11 @@ defmodule AWS.CodeGuruSecurity do
 
       scan_name_with_finding_num() :: %{
         "findingNumber" => [integer()],
-        "scanName" => [String.t()]
+        "scanName" => [String.t() | Atom.t()]
       }
 
   """
-  @type scan_name_with_finding_num() :: %{String.t() => any()}
+  @type scan_name_with_finding_num() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -284,11 +284,11 @@ defmodule AWS.CodeGuruSecurity do
 
       list_findings_metrics_response() :: %{
         "findingsMetrics" => list(account_findings_metric()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_findings_metrics_response() :: %{String.t() => any()}
+  @type list_findings_metrics_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -300,35 +300,35 @@ defmodule AWS.CodeGuruSecurity do
       }
 
   """
-  @type batch_get_findings_response() :: %{String.t() => any()}
+  @type batch_get_findings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "errorCode" => [String.t()],
-        "message" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()]
+        "errorCode" => [String.t() | Atom.t()],
+        "message" => [String.t() | Atom.t()],
+        "resourceId" => [String.t() | Atom.t()],
+        "resourceType" => [String.t() | Atom.t()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "errorCode" => [String.t()],
-        "message" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()]
+        "errorCode" => [String.t() | Atom.t()],
+        "message" => [String.t() | Atom.t()],
+        "resourceId" => [String.t() | Atom.t()],
+        "resourceType" => [String.t() | Atom.t()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -336,13 +336,13 @@ defmodule AWS.CodeGuruSecurity do
 
       batch_get_findings_error() :: %{
         "errorCode" => list(any()),
-        "findingId" => [String.t()],
-        "message" => [String.t()],
-        "scanName" => String.t()
+        "findingId" => [String.t() | Atom.t()],
+        "message" => [String.t() | Atom.t()],
+        "scanName" => String.t() | Atom.t()
       }
 
   """
-  @type batch_get_findings_error() :: %{String.t() => any()}
+  @type batch_get_findings_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -350,11 +350,11 @@ defmodule AWS.CodeGuruSecurity do
 
       get_findings_response() :: %{
         "findings" => list(finding()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type get_findings_response() :: %{String.t() => any()}
+  @type get_findings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -362,37 +362,37 @@ defmodule AWS.CodeGuruSecurity do
 
       list_findings_metrics_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("endDate") => [non_neg_integer()],
         required("startDate") => [non_neg_integer()]
       }
 
   """
-  @type list_findings_metrics_request() :: %{String.t() => any()}
+  @type list_findings_metrics_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       code_line() :: %{
-        "content" => [String.t()],
+        "content" => [String.t() | Atom.t()],
         "number" => [integer()]
       }
 
   """
-  @type code_line() :: %{String.t() => any()}
+  @type code_line() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       recommendation() :: %{
-        "text" => [String.t()],
-        "url" => [String.t()]
+        "text" => [String.t() | Atom.t()],
+        "url" => [String.t() | Atom.t()]
       }
 
   """
-  @type recommendation() :: %{String.t() => any()}
+  @type recommendation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -403,7 +403,7 @@ defmodule AWS.CodeGuruSecurity do
       }
 
   """
-  @type get_metrics_summary_request() :: %{String.t() => any()}
+  @type get_metrics_summary_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -414,7 +414,7 @@ defmodule AWS.CodeGuruSecurity do
       }
 
   """
-  @type get_account_configuration_response() :: %{String.t() => any()}
+  @type get_account_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -422,25 +422,25 @@ defmodule AWS.CodeGuruSecurity do
 
       finding() :: %{
         "createdAt" => [non_neg_integer()],
-        "description" => [String.t()],
-        "detectorId" => [String.t()],
-        "detectorName" => [String.t()],
-        "detectorTags" => list([String.t()]()),
-        "generatorId" => [String.t()],
-        "id" => [String.t()],
+        "description" => [String.t() | Atom.t()],
+        "detectorId" => [String.t() | Atom.t()],
+        "detectorName" => [String.t() | Atom.t()],
+        "detectorTags" => list([String.t() | Atom.t()]()),
+        "generatorId" => [String.t() | Atom.t()],
+        "id" => [String.t() | Atom.t()],
         "remediation" => remediation(),
         "resource" => resource(),
-        "ruleId" => [String.t()],
+        "ruleId" => [String.t() | Atom.t()],
         "severity" => list(any()),
         "status" => list(any()),
-        "title" => [String.t()],
-        "type" => [String.t()],
+        "title" => [String.t() | Atom.t()],
+        "type" => [String.t() | Atom.t()],
         "updatedAt" => [non_neg_integer()],
         "vulnerability" => vulnerability()
       }
 
   """
-  @type finding() :: %{String.t() => any()}
+  @type finding() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -451,18 +451,18 @@ defmodule AWS.CodeGuruSecurity do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_upload_url_request() :: %{
-        required("scanName") => String.t()
+        required("scanName") => String.t() | Atom.t()
       }
 
   """
-  @type create_upload_url_request() :: %{String.t() => any()}
+  @type create_upload_url_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -473,31 +473,31 @@ defmodule AWS.CodeGuruSecurity do
       }
 
   """
-  @type batch_get_findings_request() :: %{String.t() => any()}
+  @type batch_get_findings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "message" => [String.t()],
-        "name" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "name" => [String.t() | Atom.t()]
       }
 
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "error" => [String.t()],
-        "message" => [String.t()]
+        "error" => [String.t() | Atom.t()],
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -505,29 +505,29 @@ defmodule AWS.CodeGuruSecurity do
 
       create_scan_request() :: %{
         optional("analysisType") => list(any()),
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("scanType") => list(any()),
         optional("tags") => map(),
         required("resourceId") => list(),
-        required("scanName") => String.t()
+        required("scanName") => String.t() | Atom.t()
       }
 
   """
-  @type create_scan_request() :: %{String.t() => any()}
+  @type create_scan_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "errorCode" => [String.t()],
-        "message" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()]
+        "errorCode" => [String.t() | Atom.t()],
+        "message" => [String.t() | Atom.t()],
+        "resourceId" => [String.t() | Atom.t()],
+        "resourceType" => [String.t() | Atom.t()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -543,14 +543,14 @@ defmodule AWS.CodeGuruSecurity do
   ## Example:
 
       validation_exception() :: %{
-        "errorCode" => [String.t()],
+        "errorCode" => [String.t() | Atom.t()],
         "fieldList" => list(validation_exception_field()),
-        "message" => [String.t()],
+        "message" => [String.t() | Atom.t()],
         "reason" => list(any())
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -568,27 +568,27 @@ defmodule AWS.CodeGuruSecurity do
       file_path() :: %{
         "codeSnippet" => list(code_line()),
         "endLine" => [integer()],
-        "name" => [String.t()],
-        "path" => [String.t()],
+        "name" => [String.t() | Atom.t()],
+        "path" => [String.t() | Atom.t()],
         "startLine" => [integer()]
       }
 
   """
-  @type file_path() :: %{String.t() => any()}
+  @type file_path() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "errorCode" => [String.t()],
-        "message" => [String.t()],
-        "quotaCode" => [String.t()],
-        "serviceCode" => [String.t()]
+        "errorCode" => [String.t() | Atom.t()],
+        "message" => [String.t() | Atom.t()],
+        "quotaCode" => [String.t() | Atom.t()],
+        "serviceCode" => [String.t() | Atom.t()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -596,15 +596,15 @@ defmodule AWS.CodeGuruSecurity do
 
       scan_summary() :: %{
         "createdAt" => [non_neg_integer()],
-        "runId" => String.t(),
-        "scanName" => String.t(),
-        "scanNameArn" => String.t(),
+        "runId" => String.t() | Atom.t(),
+        "scanName" => String.t() | Atom.t(),
+        "scanNameArn" => String.t() | Atom.t(),
         "scanState" => list(any()),
         "updatedAt" => [non_neg_integer()]
       }
 
   """
-  @type scan_summary() :: %{String.t() => any()}
+  @type scan_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -615,7 +615,7 @@ defmodule AWS.CodeGuruSecurity do
       }
 
   """
-  @type update_account_configuration_response() :: %{String.t() => any()}
+  @type update_account_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -630,7 +630,7 @@ defmodule AWS.CodeGuruSecurity do
       }
 
   """
-  @type account_findings_metric() :: %{String.t() => any()}
+  @type account_findings_metric() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -641,7 +641,7 @@ defmodule AWS.CodeGuruSecurity do
       }
 
   """
-  @type update_account_configuration_request() :: %{String.t() => any()}
+  @type update_account_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -657,12 +657,12 @@ defmodule AWS.CodeGuruSecurity do
   ## Example:
 
       resource() :: %{
-        "id" => [String.t()],
-        "subResourceId" => [String.t()]
+        "id" => [String.t() | Atom.t()],
+        "subResourceId" => [String.t() | Atom.t()]
       }
 
   """
-  @type resource() :: %{String.t() => any()}
+  @type resource() :: %{String.t() | Atom.t() => any()}
 
   @type batch_get_findings_errors() ::
           throttling_exception()
@@ -886,10 +886,10 @@ defmodule AWS.CodeGuruSecurity do
   """
   @spec get_findings(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, get_findings_response(), any()}
@@ -941,7 +941,7 @@ defmodule AWS.CodeGuruSecurity do
   and scans with
   most open critical findings.
   """
-  @spec get_metrics_summary(map(), String.t(), list()) ::
+  @spec get_metrics_summary(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_metrics_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -966,7 +966,7 @@ defmodule AWS.CodeGuruSecurity do
   @doc """
   Returns details about a scan, including whether or not a scan has completed.
   """
-  @spec get_scan(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_scan(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
           {:ok, get_scan_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -993,10 +993,10 @@ defmodule AWS.CodeGuruSecurity do
   """
   @spec list_findings_metrics(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
           list()
         ) ::
           {:ok, list_findings_metrics_response(), any()}
@@ -1054,7 +1054,7 @@ defmodule AWS.CodeGuruSecurity do
   Does not return `EXPRESS`
   scans.
   """
-  @spec list_scans(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_scans(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_scans_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1086,7 +1086,7 @@ defmodule AWS.CodeGuruSecurity do
   @doc """
   Returns a list of all tags associated with a scan.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1104,7 +1104,7 @@ defmodule AWS.CodeGuruSecurity do
   @doc """
   Use to add one or more tags to an existing scan.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1133,7 +1133,7 @@ defmodule AWS.CodeGuruSecurity do
   @doc """
   Use to remove one or more tags from an existing scan.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

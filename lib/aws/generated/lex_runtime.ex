@@ -27,13 +27,13 @@ defmodule AWS.LexRuntime do
   ## Example:
 
       active_context() :: %{
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "parameters" => map(),
         "timeToLive" => active_context_time_to_live()
       }
 
   """
-  @type active_context() :: %{String.t() => any()}
+  @type active_context() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -45,52 +45,52 @@ defmodule AWS.LexRuntime do
       }
 
   """
-  @type active_context_time_to_live() :: %{String.t() => any()}
+  @type active_context_time_to_live() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bad_gateway_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type bad_gateway_exception() :: %{String.t() => any()}
+  @type bad_gateway_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bad_request_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type bad_request_exception() :: %{String.t() => any()}
+  @type bad_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       button() :: %{
-        "text" => String.t(),
-        "value" => String.t()
+        "text" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type button() :: %{String.t() => any()}
+  @type button() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -106,25 +106,25 @@ defmodule AWS.LexRuntime do
   ## Example:
 
       delete_session_response() :: %{
-        "botAlias" => String.t(),
-        "botName" => String.t(),
-        "sessionId" => String.t(),
-        "userId" => String.t()
+        "botAlias" => String.t() | Atom.t(),
+        "botName" => String.t() | Atom.t(),
+        "sessionId" => String.t() | Atom.t(),
+        "userId" => String.t() | Atom.t()
       }
 
   """
-  @type delete_session_response() :: %{String.t() => any()}
+  @type delete_session_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       dependency_failed_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type dependency_failed_exception() :: %{String.t() => any()}
+  @type dependency_failed_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -132,42 +132,42 @@ defmodule AWS.LexRuntime do
 
       dialog_action() :: %{
         "fulfillmentState" => list(any()),
-        "intentName" => String.t(),
-        "message" => String.t(),
+        "intentName" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t(),
         "messageFormat" => list(any()),
-        "slotToElicit" => String.t(),
+        "slotToElicit" => String.t() | Atom.t(),
         "slots" => map(),
         "type" => list(any())
       }
 
   """
-  @type dialog_action() :: %{String.t() => any()}
+  @type dialog_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       generic_attachment() :: %{
-        "attachmentLinkUrl" => String.t(),
+        "attachmentLinkUrl" => String.t() | Atom.t(),
         "buttons" => list(button()),
-        "imageUrl" => String.t(),
-        "subTitle" => String.t(),
-        "title" => String.t()
+        "imageUrl" => String.t() | Atom.t(),
+        "subTitle" => String.t() | Atom.t(),
+        "title" => String.t() | Atom.t()
       }
 
   """
-  @type generic_attachment() :: %{String.t() => any()}
+  @type generic_attachment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_session_request() :: %{
-        optional("checkpointLabelFilter") => String.t()
+        optional("checkpointLabelFilter") => String.t() | Atom.t()
       }
 
   """
-  @type get_session_request() :: %{String.t() => any()}
+  @type get_session_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -178,11 +178,11 @@ defmodule AWS.LexRuntime do
         "dialogAction" => dialog_action(),
         "recentIntentSummaryView" => list(intent_summary()),
         "sessionAttributes" => map(),
-        "sessionId" => String.t()
+        "sessionId" => String.t() | Atom.t()
       }
 
   """
-  @type get_session_response() :: %{String.t() => any()}
+  @type get_session_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -193,124 +193,124 @@ defmodule AWS.LexRuntime do
       }
 
   """
-  @type intent_confidence() :: %{String.t() => any()}
+  @type intent_confidence() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       intent_summary() :: %{
-        "checkpointLabel" => String.t(),
+        "checkpointLabel" => String.t() | Atom.t(),
         "confirmationStatus" => list(any()),
         "dialogActionType" => list(any()),
         "fulfillmentState" => list(any()),
-        "intentName" => String.t(),
-        "slotToElicit" => String.t(),
+        "intentName" => String.t() | Atom.t(),
+        "slotToElicit" => String.t() | Atom.t(),
         "slots" => map()
       }
 
   """
-  @type intent_summary() :: %{String.t() => any()}
+  @type intent_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_failure_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_failure_exception() :: %{String.t() => any()}
+  @type internal_failure_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       limit_exceeded_exception() :: %{
-        "message" => String.t(),
-        "retryAfterSeconds" => String.t()
+        "message" => String.t() | Atom.t(),
+        "retryAfterSeconds" => String.t() | Atom.t()
       }
 
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       loop_detected_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type loop_detected_exception() :: %{String.t() => any()}
+  @type loop_detected_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       not_acceptable_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type not_acceptable_exception() :: %{String.t() => any()}
+  @type not_acceptable_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type not_found_exception() :: %{String.t() => any()}
+  @type not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       post_content_request() :: %{
-        optional("accept") => String.t(),
-        optional("activeContexts") => String.t(),
-        optional("requestAttributes") => String.t(),
-        optional("sessionAttributes") => String.t(),
-        required("contentType") => String.t(),
+        optional("accept") => String.t() | Atom.t(),
+        optional("activeContexts") => String.t() | Atom.t(),
+        optional("requestAttributes") => String.t() | Atom.t(),
+        optional("sessionAttributes") => String.t() | Atom.t(),
+        required("contentType") => String.t() | Atom.t(),
         required("inputStream") => binary()
       }
 
   """
-  @type post_content_request() :: %{String.t() => any()}
+  @type post_content_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       post_content_response() :: %{
-        "activeContexts" => String.t(),
-        "alternativeIntents" => String.t(),
+        "activeContexts" => String.t() | Atom.t(),
+        "alternativeIntents" => String.t() | Atom.t(),
         "audioStream" => binary(),
-        "botVersion" => String.t(),
-        "contentType" => String.t(),
+        "botVersion" => String.t() | Atom.t(),
+        "contentType" => String.t() | Atom.t(),
         "dialogState" => list(any()),
-        "encodedInputTranscript" => String.t(),
-        "encodedMessage" => String.t(),
-        "inputTranscript" => String.t(),
-        "intentName" => String.t(),
-        "message" => String.t(),
+        "encodedInputTranscript" => String.t() | Atom.t(),
+        "encodedMessage" => String.t() | Atom.t(),
+        "inputTranscript" => String.t() | Atom.t(),
+        "intentName" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t(),
         "messageFormat" => list(any()),
-        "nluIntentConfidence" => String.t(),
-        "sentimentResponse" => String.t(),
-        "sessionAttributes" => String.t(),
-        "sessionId" => String.t(),
-        "slotToElicit" => String.t(),
-        "slots" => String.t()
+        "nluIntentConfidence" => String.t() | Atom.t(),
+        "sentimentResponse" => String.t() | Atom.t(),
+        "sessionAttributes" => String.t() | Atom.t(),
+        "sessionId" => String.t() | Atom.t(),
+        "slotToElicit" => String.t() | Atom.t(),
+        "slots" => String.t() | Atom.t()
       }
 
   """
-  @type post_content_response() :: %{String.t() => any()}
+  @type post_content_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -320,11 +320,11 @@ defmodule AWS.LexRuntime do
         optional("activeContexts") => list(active_context()),
         optional("requestAttributes") => map(),
         optional("sessionAttributes") => map(),
-        required("inputText") => String.t()
+        required("inputText") => String.t() | Atom.t()
       }
 
   """
-  @type post_text_request() :: %{String.t() => any()}
+  @type post_text_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -333,42 +333,42 @@ defmodule AWS.LexRuntime do
       post_text_response() :: %{
         "activeContexts" => list(active_context()),
         "alternativeIntents" => list(predicted_intent()),
-        "botVersion" => String.t(),
+        "botVersion" => String.t() | Atom.t(),
         "dialogState" => list(any()),
-        "intentName" => String.t(),
-        "message" => String.t(),
+        "intentName" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t(),
         "messageFormat" => list(any()),
         "nluIntentConfidence" => intent_confidence(),
         "responseCard" => response_card(),
         "sentimentResponse" => sentiment_response(),
         "sessionAttributes" => map(),
-        "sessionId" => String.t(),
-        "slotToElicit" => String.t(),
+        "sessionId" => String.t() | Atom.t(),
+        "slotToElicit" => String.t() | Atom.t(),
         "slots" => map()
       }
 
   """
-  @type post_text_response() :: %{String.t() => any()}
+  @type post_text_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       predicted_intent() :: %{
-        "intentName" => String.t(),
+        "intentName" => String.t() | Atom.t(),
         "nluIntentConfidence" => intent_confidence(),
         "slots" => map()
       }
 
   """
-  @type predicted_intent() :: %{String.t() => any()}
+  @type predicted_intent() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_session_request() :: %{
-        optional("accept") => String.t(),
+        optional("accept") => String.t() | Atom.t(),
         optional("activeContexts") => list(active_context()),
         optional("dialogAction") => dialog_action(),
         optional("recentIntentSummaryView") => list(intent_summary()),
@@ -376,40 +376,40 @@ defmodule AWS.LexRuntime do
       }
 
   """
-  @type put_session_request() :: %{String.t() => any()}
+  @type put_session_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_session_response() :: %{
-        "activeContexts" => String.t(),
+        "activeContexts" => String.t() | Atom.t(),
         "audioStream" => binary(),
-        "contentType" => String.t(),
+        "contentType" => String.t() | Atom.t(),
         "dialogState" => list(any()),
-        "encodedMessage" => String.t(),
-        "intentName" => String.t(),
-        "message" => String.t(),
+        "encodedMessage" => String.t() | Atom.t(),
+        "intentName" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t(),
         "messageFormat" => list(any()),
-        "sessionAttributes" => String.t(),
-        "sessionId" => String.t(),
-        "slotToElicit" => String.t(),
-        "slots" => String.t()
+        "sessionAttributes" => String.t() | Atom.t(),
+        "sessionId" => String.t() | Atom.t(),
+        "slotToElicit" => String.t() | Atom.t(),
+        "slots" => String.t() | Atom.t()
       }
 
   """
-  @type put_session_response() :: %{String.t() => any()}
+  @type put_session_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       request_timeout_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type request_timeout_exception() :: %{String.t() => any()}
+  @type request_timeout_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -418,34 +418,34 @@ defmodule AWS.LexRuntime do
       response_card() :: %{
         "contentType" => list(any()),
         "genericAttachments" => list(generic_attachment()),
-        "version" => String.t()
+        "version" => String.t() | Atom.t()
       }
 
   """
-  @type response_card() :: %{String.t() => any()}
+  @type response_card() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       sentiment_response() :: %{
-        "sentimentLabel" => String.t(),
-        "sentimentScore" => String.t()
+        "sentimentLabel" => String.t() | Atom.t(),
+        "sentimentScore" => String.t() | Atom.t()
       }
 
   """
-  @type sentiment_response() :: %{String.t() => any()}
+  @type sentiment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       unsupported_media_type_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type unsupported_media_type_exception() :: %{String.t() => any()}
+  @type unsupported_media_type_exception() :: %{String.t() | Atom.t() => any()}
 
   @type delete_session_errors() ::
           not_found_exception()
@@ -514,9 +514,9 @@ defmodule AWS.LexRuntime do
   """
   @spec delete_session(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_session_request(),
           list()
         ) ::
@@ -551,7 +551,14 @@ defmodule AWS.LexRuntime do
   Returns session information for a specified bot, alias, and user
   ID.
   """
-  @spec get_session(map(), String.t(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_session(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, get_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -659,7 +666,14 @@ defmodule AWS.LexRuntime do
   `sessionAttributes`. For more information, see [Managing Conversation
   Context](https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html).
   """
-  @spec post_content(map(), String.t(), String.t(), String.t(), post_content_request(), list()) ::
+  @spec post_content(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          post_content_request(),
+          list()
+        ) ::
           {:ok, post_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -796,7 +810,14 @@ defmodule AWS.LexRuntime do
   `sessionAttributes`. For more information, see [Managing Conversation
   Context](https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html).
   """
-  @spec post_text(map(), String.t(), String.t(), String.t(), post_text_request(), list()) ::
+  @spec post_text(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          post_text_request(),
+          list()
+        ) ::
           {:ok, post_text_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -833,7 +854,14 @@ defmodule AWS.LexRuntime do
 
   For more information, see [Managing Sessions](https://docs.aws.amazon.com/lex/latest/dg/how-session-api.html).
   """
-  @spec put_session(map(), String.t(), String.t(), String.t(), put_session_request(), list()) ::
+  @spec put_session(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          put_session_request(),
+          list()
+        ) ::
           {:ok, put_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

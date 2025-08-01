@@ -45,13 +45,13 @@ defmodule AWS.DataPipeline do
   ## Example:
       
       set_status_input() :: %{
-        required("objectIds") => list(String.t()),
-        required("pipelineId") => String.t(),
-        required("status") => String.t()
+        required("objectIds") => list(String.t() | Atom.t()),
+        required("pipelineId") => String.t() | Atom.t(),
+        required("status") => String.t() | Atom.t()
       }
       
   """
-  @type set_status_input() :: %{String.t() => any()}
+  @type set_status_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -59,11 +59,11 @@ defmodule AWS.DataPipeline do
       
       deactivate_pipeline_input() :: %{
         optional("cancelActive") => boolean(),
-        required("pipelineId") => String.t()
+        required("pipelineId") => String.t() | Atom.t()
       }
       
   """
-  @type deactivate_pipeline_input() :: %{String.t() => any()}
+  @type deactivate_pipeline_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -71,36 +71,36 @@ defmodule AWS.DataPipeline do
       
       query_objects_input() :: %{
         optional("limit") => integer(),
-        optional("marker") => String.t(),
+        optional("marker") => String.t() | Atom.t(),
         optional("query") => query(),
-        required("pipelineId") => String.t(),
-        required("sphere") => String.t()
+        required("pipelineId") => String.t() | Atom.t(),
+        required("sphere") => String.t() | Atom.t()
       }
       
   """
-  @type query_objects_input() :: %{String.t() => any()}
+  @type query_objects_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       pipeline_deleted_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type pipeline_deleted_exception() :: %{String.t() => any()}
+  @type pipeline_deleted_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_pipeline_output() :: %{
-        "pipelineId" => String.t()
+        "pipelineId" => String.t() | Atom.t()
       }
       
   """
-  @type create_pipeline_output() :: %{String.t() => any()}
+  @type create_pipeline_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -113,7 +113,7 @@ defmodule AWS.DataPipeline do
       }
       
   """
-  @type validate_pipeline_definition_output() :: %{String.t() => any()}
+  @type validate_pipeline_definition_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -121,25 +121,25 @@ defmodule AWS.DataPipeline do
       
       pipeline_object() :: %{
         "fields" => list(field()),
-        "id" => String.t(),
-        "name" => String.t()
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
       
   """
-  @type pipeline_object() :: %{String.t() => any()}
+  @type pipeline_object() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       evaluate_expression_input() :: %{
-        required("expression") => String.t(),
-        required("objectId") => String.t(),
-        required("pipelineId") => String.t()
+        required("expression") => String.t() | Atom.t(),
+        required("objectId") => String.t() | Atom.t(),
+        required("pipelineId") => String.t() | Atom.t()
       }
       
   """
-  @type evaluate_expression_input() :: %{String.t() => any()}
+  @type evaluate_expression_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -148,25 +148,25 @@ defmodule AWS.DataPipeline do
       validate_pipeline_definition_input() :: %{
         optional("parameterObjects") => list(parameter_object()),
         optional("parameterValues") => list(parameter_value()),
-        required("pipelineId") => String.t(),
+        required("pipelineId") => String.t() | Atom.t(),
         required("pipelineObjects") => list(pipeline_object())
       }
       
   """
-  @type validate_pipeline_definition_input() :: %{String.t() => any()}
+  @type validate_pipeline_definition_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       poll_for_task_input() :: %{
-        optional("hostname") => String.t(),
+        optional("hostname") => String.t() | Atom.t(),
         optional("instanceIdentity") => instance_identity(),
-        required("workerGroup") => String.t()
+        required("workerGroup") => String.t() | Atom.t()
       }
       
   """
-  @type poll_for_task_input() :: %{String.t() => any()}
+  @type poll_for_task_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -182,12 +182,12 @@ defmodule AWS.DataPipeline do
   ## Example:
       
       selector() :: %{
-        "fieldName" => String.t(),
+        "fieldName" => String.t() | Atom.t(),
         "operator" => operator()
       }
       
   """
-  @type selector() :: %{String.t() => any()}
+  @type selector() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -198,34 +198,34 @@ defmodule AWS.DataPipeline do
       }
       
   """
-  @type report_task_progress_output() :: %{String.t() => any()}
+  @type report_task_progress_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       set_task_status_input() :: %{
-        optional("errorId") => String.t(),
-        optional("errorMessage") => String.t(),
-        optional("errorStackTrace") => String.t(),
-        required("taskId") => String.t(),
+        optional("errorId") => String.t() | Atom.t(),
+        optional("errorMessage") => String.t() | Atom.t(),
+        optional("errorStackTrace") => String.t() | Atom.t(),
+        required("taskId") => String.t() | Atom.t(),
         required("taskStatus") => list(any())
       }
       
   """
-  @type set_task_status_input() :: %{String.t() => any()}
+  @type set_task_status_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       add_tags_input() :: %{
-        required("pipelineId") => String.t(),
+        required("pipelineId") => String.t() | Atom.t(),
         required("tags") => list(tag())
       }
       
   """
-  @type add_tags_input() :: %{String.t() => any()}
+  @type add_tags_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -238,18 +238,18 @@ defmodule AWS.DataPipeline do
       }
       
   """
-  @type get_pipeline_definition_output() :: %{String.t() => any()}
+  @type get_pipeline_definition_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_pipelines_input() :: %{
-        required("pipelineIds") => list(String.t())
+        required("pipelineIds") => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_pipelines_input() :: %{String.t() => any()}
+  @type describe_pipelines_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -266,48 +266,48 @@ defmodule AWS.DataPipeline do
       
       operator() :: %{
         "type" => list(any()),
-        "values" => list(String.t())
+        "values" => list(String.t() | Atom.t())
       }
       
   """
-  @type operator() :: %{String.t() => any()}
+  @type operator() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_pipeline_input() :: %{
-        required("pipelineId") => String.t()
+        required("pipelineId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_pipeline_input() :: %{String.t() => any()}
+  @type delete_pipeline_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       parameter_value() :: %{
-        "id" => String.t(),
-        "stringValue" => String.t()
+        "id" => String.t() | Atom.t(),
+        "stringValue" => String.t() | Atom.t()
       }
       
   """
-  @type parameter_value() :: %{String.t() => any()}
+  @type parameter_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_pipeline_input() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("tags") => list(tag()),
-        required("name") => String.t(),
-        required("uniqueId") => String.t()
+        required("name") => String.t() | Atom.t(),
+        required("uniqueId") => String.t() | Atom.t()
       }
       
   """
-  @type create_pipeline_input() :: %{String.t() => any()}
+  @type create_pipeline_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -323,34 +323,34 @@ defmodule AWS.DataPipeline do
   ## Example:
       
       tag() :: %{
-        "key" => String.t(),
-        "value" => String.t()
+        "key" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_request_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_request_exception() :: %{String.t() => any()}
+  @type invalid_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_pipelines_input() :: %{
-        optional("marker") => String.t()
+        optional("marker") => String.t() | Atom.t()
       }
       
   """
-  @type list_pipelines_input() :: %{String.t() => any()}
+  @type list_pipelines_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -361,7 +361,7 @@ defmodule AWS.DataPipeline do
       }
       
   """
-  @type report_task_runner_heartbeat_output() :: %{String.t() => any()}
+  @type report_task_runner_heartbeat_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -372,70 +372,70 @@ defmodule AWS.DataPipeline do
       }
       
   """
-  @type describe_pipelines_output() :: %{String.t() => any()}
+  @type describe_pipelines_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       field() :: %{
-        "key" => String.t(),
-        "refValue" => String.t(),
-        "stringValue" => String.t()
+        "key" => String.t() | Atom.t(),
+        "refValue" => String.t() | Atom.t(),
+        "stringValue" => String.t() | Atom.t()
       }
       
   """
-  @type field() :: %{String.t() => any()}
+  @type field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_error() :: %{
-        "errors" => list(String.t()),
-        "id" => String.t()
+        "errors" => list(String.t() | Atom.t()),
+        "id" => String.t() | Atom.t()
       }
       
   """
-  @type validation_error() :: %{String.t() => any()}
+  @type validation_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       report_task_runner_heartbeat_input() :: %{
-        optional("hostname") => String.t(),
-        optional("workerGroup") => String.t(),
-        required("taskrunnerId") => String.t()
+        optional("hostname") => String.t() | Atom.t(),
+        optional("workerGroup") => String.t() | Atom.t(),
+        required("taskrunnerId") => String.t() | Atom.t()
       }
       
   """
-  @type report_task_runner_heartbeat_input() :: %{String.t() => any()}
+  @type report_task_runner_heartbeat_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       evaluate_expression_output() :: %{
-        "evaluatedExpression" => String.t()
+        "evaluatedExpression" => String.t() | Atom.t()
       }
       
   """
-  @type evaluate_expression_output() :: %{String.t() => any()}
+  @type evaluate_expression_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       task_object() :: %{
-        "attemptId" => String.t(),
+        "attemptId" => String.t() | Atom.t(),
         "objects" => map(),
-        "pipelineId" => String.t(),
-        "taskId" => String.t()
+        "pipelineId" => String.t() | Atom.t(),
+        "taskId" => String.t() | Atom.t()
       }
       
   """
-  @type task_object() :: %{String.t() => any()}
+  @type task_object() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -443,24 +443,24 @@ defmodule AWS.DataPipeline do
       
       describe_objects_output() :: %{
         "hasMoreResults" => boolean(),
-        "marker" => String.t(),
+        "marker" => String.t() | Atom.t(),
         "pipelineObjects" => list(pipeline_object())
       }
       
   """
-  @type describe_objects_output() :: %{String.t() => any()}
+  @type describe_objects_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_pipeline_definition_input() :: %{
-        optional("version") => String.t(),
-        required("pipelineId") => String.t()
+        optional("version") => String.t() | Atom.t(),
+        required("pipelineId") => String.t() | Atom.t()
       }
       
   """
-  @type get_pipeline_definition_input() :: %{String.t() => any()}
+  @type get_pipeline_definition_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -468,50 +468,50 @@ defmodule AWS.DataPipeline do
       
       query_objects_output() :: %{
         "hasMoreResults" => boolean(),
-        "ids" => list(String.t()),
-        "marker" => String.t()
+        "ids" => list(String.t() | Atom.t()),
+        "marker" => String.t() | Atom.t()
       }
       
   """
-  @type query_objects_output() :: %{String.t() => any()}
+  @type query_objects_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_warning() :: %{
-        "id" => String.t(),
-        "warnings" => list(String.t())
+        "id" => String.t() | Atom.t(),
+        "warnings" => list(String.t() | Atom.t())
       }
       
   """
-  @type validation_warning() :: %{String.t() => any()}
+  @type validation_warning() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       pipeline_description() :: %{
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "fields" => list(field()),
-        "name" => String.t(),
-        "pipelineId" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "pipelineId" => String.t() | Atom.t(),
         "tags" => list(tag())
       }
       
   """
-  @type pipeline_description() :: %{String.t() => any()}
+  @type pipeline_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_service_error() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type internal_service_error() :: %{String.t() => any()}
+  @type internal_service_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -531,7 +531,7 @@ defmodule AWS.DataPipeline do
       }
       
   """
-  @type poll_for_task_output() :: %{String.t() => any()}
+  @type poll_for_task_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -540,22 +540,22 @@ defmodule AWS.DataPipeline do
       activate_pipeline_input() :: %{
         optional("parameterValues") => list(parameter_value()),
         optional("startTimestamp") => non_neg_integer(),
-        required("pipelineId") => String.t()
+        required("pipelineId") => String.t() | Atom.t()
       }
       
   """
-  @type activate_pipeline_input() :: %{String.t() => any()}
+  @type activate_pipeline_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       pipeline_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type pipeline_not_found_exception() :: %{String.t() => any()}
+  @type pipeline_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -563,23 +563,23 @@ defmodule AWS.DataPipeline do
       
       list_pipelines_output() :: %{
         "hasMoreResults" => boolean(),
-        "marker" => String.t(),
+        "marker" => String.t() | Atom.t(),
         "pipelineIdList" => list(pipeline_id_name())
       }
       
   """
-  @type list_pipelines_output() :: %{String.t() => any()}
+  @type list_pipelines_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       task_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type task_not_found_exception() :: %{String.t() => any()}
+  @type task_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -592,7 +592,7 @@ defmodule AWS.DataPipeline do
       }
       
   """
-  @type put_pipeline_definition_output() :: %{String.t() => any()}
+  @type put_pipeline_definition_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -601,12 +601,12 @@ defmodule AWS.DataPipeline do
       put_pipeline_definition_input() :: %{
         optional("parameterObjects") => list(parameter_object()),
         optional("parameterValues") => list(parameter_value()),
-        required("pipelineId") => String.t(),
+        required("pipelineId") => String.t() | Atom.t(),
         required("pipelineObjects") => list(pipeline_object())
       }
       
   """
-  @type put_pipeline_definition_input() :: %{String.t() => any()}
+  @type put_pipeline_definition_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -617,19 +617,19 @@ defmodule AWS.DataPipeline do
       }
       
   """
-  @type query() :: %{String.t() => any()}
+  @type query() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_tags_input() :: %{
-        required("pipelineId") => String.t(),
-        required("tagKeys") => list(String.t())
+        required("pipelineId") => String.t() | Atom.t(),
+        required("tagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type remove_tags_input() :: %{String.t() => any()}
+  @type remove_tags_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -637,13 +637,13 @@ defmodule AWS.DataPipeline do
       
       describe_objects_input() :: %{
         optional("evaluateExpressions") => boolean(),
-        optional("marker") => String.t(),
-        required("objectIds") => list(String.t()),
-        required("pipelineId") => String.t()
+        optional("marker") => String.t() | Atom.t(),
+        required("objectIds") => list(String.t() | Atom.t()),
+        required("pipelineId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_objects_input() :: %{String.t() => any()}
+  @type describe_objects_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -651,35 +651,35 @@ defmodule AWS.DataPipeline do
       
       report_task_progress_input() :: %{
         optional("fields") => list(field()),
-        required("taskId") => String.t()
+        required("taskId") => String.t() | Atom.t()
       }
       
   """
-  @type report_task_progress_input() :: %{String.t() => any()}
+  @type report_task_progress_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_identity() :: %{
-        "document" => String.t(),
-        "signature" => String.t()
+        "document" => String.t() | Atom.t(),
+        "signature" => String.t() | Atom.t()
       }
       
   """
-  @type instance_identity() :: %{String.t() => any()}
+  @type instance_identity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       parameter_attribute() :: %{
-        "key" => String.t(),
-        "stringValue" => String.t()
+        "key" => String.t() | Atom.t(),
+        "stringValue" => String.t() | Atom.t()
       }
       
   """
-  @type parameter_attribute() :: %{String.t() => any()}
+  @type parameter_attribute() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -696,23 +696,23 @@ defmodule AWS.DataPipeline do
       
       parameter_object() :: %{
         "attributes" => list(parameter_attribute()),
-        "id" => String.t()
+        "id" => String.t() | Atom.t()
       }
       
   """
-  @type parameter_object() :: %{String.t() => any()}
+  @type parameter_object() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       pipeline_id_name() :: %{
-        "id" => String.t(),
-        "name" => String.t()
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
       
   """
-  @type pipeline_id_name() :: %{String.t() => any()}
+  @type pipeline_id_name() :: %{String.t() | Atom.t() => any()}
 
   @type activate_pipeline_errors() ::
           pipeline_not_found_exception()

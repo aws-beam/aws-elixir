@@ -16,11 +16,11 @@ defmodule AWS.Forecast do
       list_forecast_export_jobs_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_forecast_export_jobs_request() :: %{String.t() => any()}
+  @type list_forecast_export_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -32,53 +32,53 @@ defmodule AWS.Forecast do
       }
       
   """
-  @type weighted_quantile_loss() :: %{String.t() => any()}
+  @type weighted_quantile_loss() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_what_if_forecasts_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "WhatIfForecasts" => list(what_if_forecast_summary())
       }
       
   """
-  @type list_what_if_forecasts_response() :: %{String.t() => any()}
+  @type list_what_if_forecasts_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_explainability_export_request() :: %{
-        required("ExplainabilityExportArn") => String.t()
+        required("ExplainabilityExportArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_explainability_export_request() :: %{String.t() => any()}
+  @type describe_explainability_export_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
+        required("ResourceArn") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_predictor_request() :: %{
-        optional("AlgorithmArn") => String.t(),
+        optional("AlgorithmArn") => String.t() | Atom.t(),
         optional("AutoMLOverrideStrategy") => list(any()),
         optional("EncryptionConfig") => encryption_config(),
         optional("EvaluationParameters") => evaluation_parameters(),
-        optional("ForecastTypes") => list(String.t()),
+        optional("ForecastTypes") => list(String.t() | Atom.t()),
         optional("HPOConfig") => hyper_parameter_tuning_job_config(),
         optional("OptimizationMetric") => list(any()),
         optional("PerformAutoML") => boolean(),
@@ -88,11 +88,11 @@ defmodule AWS.Forecast do
         required("FeaturizationConfig") => featurization_config(),
         required("ForecastHorizon") => integer(),
         required("InputDataConfig") => input_data_config(),
-        required("PredictorName") => String.t()
+        required("PredictorName") => String.t() | Atom.t()
       }
       
   """
-  @type create_predictor_request() :: %{String.t() => any()}
+  @type create_predictor_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -101,12 +101,12 @@ defmodule AWS.Forecast do
       integer_parameter_range() :: %{
         "MaxValue" => integer(),
         "MinValue" => integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "ScalingType" => list(any())
       }
       
   """
-  @type integer_parameter_range() :: %{String.t() => any()}
+  @type integer_parameter_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -115,52 +115,52 @@ defmodule AWS.Forecast do
       describe_explainability_export_response() :: %{
         "CreationTime" => non_neg_integer(),
         "Destination" => data_destination(),
-        "ExplainabilityArn" => String.t(),
-        "ExplainabilityExportArn" => String.t(),
-        "ExplainabilityExportName" => String.t(),
-        "Format" => String.t(),
+        "ExplainabilityArn" => String.t() | Atom.t(),
+        "ExplainabilityExportArn" => String.t() | Atom.t(),
+        "ExplainabilityExportName" => String.t() | Atom.t(),
+        "Format" => String.t() | Atom.t(),
         "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t(),
-        "Status" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type describe_explainability_export_response() :: %{String.t() => any()}
+  @type describe_explainability_export_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       encryption_config() :: %{
-        "KMSKeyArn" => String.t(),
-        "RoleArn" => String.t()
+        "KMSKeyArn" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | Atom.t()
       }
       
   """
-  @type encryption_config() :: %{String.t() => any()}
+  @type encryption_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reference_predictor_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "State" => list(any())
       }
       
   """
-  @type reference_predictor_summary() :: %{String.t() => any()}
+  @type reference_predictor_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_monitor_request() :: %{
-        required("MonitorArn") => String.t()
+        required("MonitorArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_monitor_request() :: %{String.t() => any()}
+  @type delete_monitor_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -168,45 +168,45 @@ defmodule AWS.Forecast do
       
       list_monitors_response() :: %{
         "Monitors" => list(monitor_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_monitors_response() :: %{String.t() => any()}
+  @type list_monitors_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_monitor_evaluations_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "PredictorMonitorEvaluations" => list(predictor_monitor_evaluation())
       }
       
   """
-  @type list_monitor_evaluations_response() :: %{String.t() => any()}
+  @type list_monitor_evaluations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_forecast_request() :: %{
-        required("ForecastArn") => String.t()
+        required("ForecastArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_forecast_request() :: %{String.t() => any()}
+  @type delete_forecast_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_forecast_request() :: %{
-        required("ForecastArn") => String.t()
+        required("ForecastArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_forecast_request() :: %{String.t() => any()}
+  @type describe_forecast_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -220,40 +220,40 @@ defmodule AWS.Forecast do
       }
       
   """
-  @type get_accuracy_metrics_response() :: %{String.t() => any()}
+  @type get_accuracy_metrics_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       predictor_monitor_evaluation() :: %{
-        "EvaluationState" => String.t(),
+        "EvaluationState" => String.t() | Atom.t(),
         "EvaluationTime" => non_neg_integer(),
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "MetricResults" => list(metric_result()),
-        "MonitorArn" => String.t(),
+        "MonitorArn" => String.t() | Atom.t(),
         "MonitorDataSource" => monitor_data_source(),
         "NumItemsEvaluated" => float(),
         "PredictorEvent" => predictor_event(),
-        "ResourceArn" => String.t(),
+        "ResourceArn" => String.t() | Atom.t(),
         "WindowEndDatetime" => non_neg_integer(),
         "WindowStartDatetime" => non_neg_integer()
       }
       
   """
-  @type predictor_monitor_evaluation() :: %{String.t() => any()}
+  @type predictor_monitor_evaluation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       input_data_config() :: %{
-        "DatasetGroupArn" => String.t(),
+        "DatasetGroupArn" => String.t() | Atom.t(),
         "SupplementaryFeatures" => list(supplementary_feature())
       }
       
   """
-  @type input_data_config() :: %{String.t() => any()}
+  @type input_data_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -269,11 +269,11 @@ defmodule AWS.Forecast do
   ## Example:
       
       resource_in_use_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_in_use_exception() :: %{String.t() => any()}
+  @type resource_in_use_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -282,38 +282,38 @@ defmodule AWS.Forecast do
       describe_auto_predictor_response() :: %{
         "CreationTime" => non_neg_integer(),
         "DataConfig" => data_config(),
-        "DatasetImportJobArns" => list(String.t()),
+        "DatasetImportJobArns" => list(String.t() | Atom.t()),
         "EncryptionConfig" => encryption_config(),
         "EstimatedTimeRemainingInMinutes" => float(),
         "ExplainabilityInfo" => explainability_info(),
-        "ForecastDimensions" => list(String.t()),
-        "ForecastFrequency" => String.t(),
+        "ForecastDimensions" => list(String.t() | Atom.t()),
+        "ForecastFrequency" => String.t() | Atom.t(),
         "ForecastHorizon" => integer(),
-        "ForecastTypes" => list(String.t()),
+        "ForecastTypes" => list(String.t() | Atom.t()),
         "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "MonitorInfo" => monitor_info(),
         "OptimizationMetric" => list(any()),
-        "PredictorArn" => String.t(),
-        "PredictorName" => String.t(),
+        "PredictorArn" => String.t() | Atom.t(),
+        "PredictorName" => String.t() | Atom.t(),
         "ReferencePredictorSummary" => reference_predictor_summary(),
-        "Status" => String.t(),
+        "Status" => String.t() | Atom.t(),
         "TimeAlignmentBoundary" => time_alignment_boundary()
       }
       
   """
-  @type describe_auto_predictor_response() :: %{String.t() => any()}
+  @type describe_auto_predictor_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       monitor_config() :: %{
-        "MonitorName" => String.t()
+        "MonitorName" => String.t() | Atom.t()
       }
       
   """
-  @type monitor_config() :: %{String.t() => any()}
+  @type monitor_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -323,48 +323,48 @@ defmodule AWS.Forecast do
         "CreationTime" => non_neg_integer(),
         "DataSize" => float(),
         "DataSource" => data_source(),
-        "DatasetArn" => String.t(),
-        "DatasetImportJobArn" => String.t(),
-        "DatasetImportJobName" => String.t(),
+        "DatasetArn" => String.t() | Atom.t(),
+        "DatasetImportJobArn" => String.t() | Atom.t(),
+        "DatasetImportJobName" => String.t() | Atom.t(),
         "EstimatedTimeRemainingInMinutes" => float(),
         "FieldStatistics" => map(),
-        "Format" => String.t(),
-        "GeolocationFormat" => String.t(),
+        "Format" => String.t() | Atom.t(),
+        "GeolocationFormat" => String.t() | Atom.t(),
         "ImportMode" => list(any()),
         "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t(),
-        "Status" => String.t(),
-        "TimeZone" => String.t(),
-        "TimestampFormat" => String.t(),
+        "Message" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t(),
+        "TimeZone" => String.t() | Atom.t(),
+        "TimestampFormat" => String.t() | Atom.t(),
         "UseGeolocationForTimeZone" => boolean()
       }
       
   """
-  @type describe_dataset_import_job_response() :: %{String.t() => any()}
+  @type describe_dataset_import_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       attribute_config() :: %{
-        "AttributeName" => String.t(),
+        "AttributeName" => String.t() | Atom.t(),
         "Transformations" => map()
       }
       
   """
-  @type attribute_config() :: %{String.t() => any()}
+  @type attribute_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_what_if_analyses_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "WhatIfAnalyses" => list(what_if_analysis_summary())
       }
       
   """
-  @type list_what_if_analyses_response() :: %{String.t() => any()}
+  @type list_what_if_analyses_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -376,7 +376,7 @@ defmodule AWS.Forecast do
       }
       
   """
-  @type featurization_method() :: %{String.t() => any()}
+  @type featurization_method() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -389,18 +389,18 @@ defmodule AWS.Forecast do
       }
       
   """
-  @type parameter_ranges() :: %{String.t() => any()}
+  @type parameter_ranges() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_predictor_response() :: %{
-        "PredictorArn" => String.t()
+        "PredictorArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_predictor_response() :: %{String.t() => any()}
+  @type create_predictor_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -408,26 +408,26 @@ defmodule AWS.Forecast do
       
       list_forecast_export_jobs_response() :: %{
         "ForecastExportJobs" => list(forecast_export_job_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_forecast_export_jobs_response() :: %{String.t() => any()}
+  @type list_forecast_export_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_explainability_export_request() :: %{
-        optional("Format") => String.t(),
+        optional("Format") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
         required("Destination") => data_destination(),
-        required("ExplainabilityArn") => String.t(),
-        required("ExplainabilityExportName") => String.t()
+        required("ExplainabilityArn") => String.t() | Atom.t(),
+        required("ExplainabilityExportName") => String.t() | Atom.t()
       }
       
   """
-  @type create_explainability_export_request() :: %{String.t() => any()}
+  @type create_explainability_export_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -444,23 +444,23 @@ defmodule AWS.Forecast do
       
       list_datasets_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_datasets_request() :: %{String.t() => any()}
+  @type list_datasets_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_what_if_forecast_exports_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "WhatIfForecastExports" => list(what_if_forecast_export_summary())
       }
       
   """
-  @type list_what_if_forecast_exports_response() :: %{String.t() => any()}
+  @type list_what_if_forecast_exports_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -472,7 +472,7 @@ defmodule AWS.Forecast do
       }
       
   """
-  @type evaluation_parameters() :: %{String.t() => any()}
+  @type evaluation_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -480,12 +480,12 @@ defmodule AWS.Forecast do
       
       featurization_config() :: %{
         "Featurizations" => list(featurization()),
-        "ForecastDimensions" => list(String.t()),
-        "ForecastFrequency" => String.t()
+        "ForecastDimensions" => list(String.t() | Atom.t()),
+        "ForecastFrequency" => String.t() | Atom.t()
       }
       
   """
-  @type featurization_config() :: %{String.t() => any()}
+  @type featurization_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -494,69 +494,69 @@ defmodule AWS.Forecast do
       list_monitors_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_monitors_request() :: %{String.t() => any()}
+  @type list_monitors_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_predictors_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Predictors" => list(predictor_summary())
       }
       
   """
-  @type list_predictors_response() :: %{String.t() => any()}
+  @type list_predictors_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_predictor_backtest_export_job_response() :: %{
-        "PredictorBacktestExportJobArn" => String.t()
+        "PredictorBacktestExportJobArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_predictor_backtest_export_job_response() :: %{String.t() => any()}
+  @type create_predictor_backtest_export_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceArn") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       monitor_info() :: %{
-        "MonitorArn" => String.t(),
-        "Status" => String.t()
+        "MonitorArn" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type monitor_info() :: %{String.t() => any()}
+  @type monitor_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_monitor_response() :: %{
-        "MonitorArn" => String.t()
+        "MonitorArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_monitor_response() :: %{String.t() => any()}
+  @type create_monitor_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -565,11 +565,11 @@ defmodule AWS.Forecast do
       list_what_if_forecasts_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_what_if_forecasts_request() :: %{String.t() => any()}
+  @type list_what_if_forecasts_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -577,31 +577,31 @@ defmodule AWS.Forecast do
       
       explainability_summary() :: %{
         "CreationTime" => non_neg_integer(),
-        "ExplainabilityArn" => String.t(),
+        "ExplainabilityArn" => String.t() | Atom.t(),
         "ExplainabilityConfig" => explainability_config(),
-        "ExplainabilityName" => String.t(),
+        "ExplainabilityName" => String.t() | Atom.t(),
         "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t(),
-        "ResourceArn" => String.t(),
-        "Status" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "ResourceArn" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type explainability_summary() :: %{String.t() => any()}
+  @type explainability_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_dataset_group_request() :: %{
-        optional("DatasetArns") => list(String.t()),
+        optional("DatasetArns") => list(String.t() | Atom.t()),
         optional("Tags") => list(tag()),
-        required("DatasetGroupName") => String.t(),
+        required("DatasetGroupName") => String.t() | Atom.t(),
         required("Domain") => list(any())
       }
       
   """
-  @type create_dataset_group_request() :: %{String.t() => any()}
+  @type create_dataset_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -609,31 +609,31 @@ defmodule AWS.Forecast do
       
       describe_forecast_response() :: %{
         "CreationTime" => non_neg_integer(),
-        "DatasetGroupArn" => String.t(),
+        "DatasetGroupArn" => String.t() | Atom.t(),
         "EstimatedTimeRemainingInMinutes" => float(),
-        "ForecastArn" => String.t(),
-        "ForecastName" => String.t(),
-        "ForecastTypes" => list(String.t()),
+        "ForecastArn" => String.t() | Atom.t(),
+        "ForecastName" => String.t() | Atom.t(),
+        "ForecastTypes" => list(String.t() | Atom.t()),
         "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t(),
-        "PredictorArn" => String.t(),
-        "Status" => String.t(),
+        "Message" => String.t() | Atom.t(),
+        "PredictorArn" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t(),
         "TimeSeriesSelector" => time_series_selector()
       }
       
   """
-  @type describe_forecast_response() :: %{String.t() => any()}
+  @type describe_forecast_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_what_if_forecast_export_request() :: %{
-        required("WhatIfForecastExportArn") => String.t()
+        required("WhatIfForecastExportArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_what_if_forecast_export_request() :: %{String.t() => any()}
+  @type describe_what_if_forecast_export_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -644,7 +644,7 @@ defmodule AWS.Forecast do
       }
       
   """
-  @type baseline() :: %{String.t() => any()}
+  @type baseline() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -655,7 +655,7 @@ defmodule AWS.Forecast do
       }
       
   """
-  @type time_series_selector() :: %{String.t() => any()}
+  @type time_series_selector() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -666,7 +666,7 @@ defmodule AWS.Forecast do
       }
       
   """
-  @type predictor_execution_details() :: %{String.t() => any()}
+  @type predictor_execution_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -675,51 +675,51 @@ defmodule AWS.Forecast do
       forecast_summary() :: %{
         "CreatedUsingAutoPredictor" => boolean(),
         "CreationTime" => non_neg_integer(),
-        "DatasetGroupArn" => String.t(),
-        "ForecastArn" => String.t(),
-        "ForecastName" => String.t(),
+        "DatasetGroupArn" => String.t() | Atom.t(),
+        "ForecastArn" => String.t() | Atom.t(),
+        "ForecastName" => String.t() | Atom.t(),
         "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t(),
-        "PredictorArn" => String.t(),
-        "Status" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "PredictorArn" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type forecast_summary() :: %{String.t() => any()}
+  @type forecast_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_predictor_response() :: %{
-        "AlgorithmArn" => String.t(),
-        "AutoMLAlgorithmArns" => list(String.t()),
+        "AlgorithmArn" => String.t() | Atom.t(),
+        "AutoMLAlgorithmArns" => list(String.t() | Atom.t()),
         "AutoMLOverrideStrategy" => list(any()),
         "CreationTime" => non_neg_integer(),
-        "DatasetImportJobArns" => list(String.t()),
+        "DatasetImportJobArns" => list(String.t() | Atom.t()),
         "EncryptionConfig" => encryption_config(),
         "EstimatedTimeRemainingInMinutes" => float(),
         "EvaluationParameters" => evaluation_parameters(),
         "FeaturizationConfig" => featurization_config(),
         "ForecastHorizon" => integer(),
-        "ForecastTypes" => list(String.t()),
+        "ForecastTypes" => list(String.t() | Atom.t()),
         "HPOConfig" => hyper_parameter_tuning_job_config(),
         "InputDataConfig" => input_data_config(),
         "IsAutoPredictor" => boolean(),
         "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "OptimizationMetric" => list(any()),
         "PerformAutoML" => boolean(),
         "PerformHPO" => boolean(),
-        "PredictorArn" => String.t(),
+        "PredictorArn" => String.t() | Atom.t(),
         "PredictorExecutionDetails" => predictor_execution_details(),
-        "PredictorName" => String.t(),
-        "Status" => String.t(),
+        "PredictorName" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t(),
         "TrainingParameters" => map()
       }
       
   """
-  @type describe_predictor_response() :: %{String.t() => any()}
+  @type describe_predictor_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -729,40 +729,40 @@ defmodule AWS.Forecast do
         "CreationTime" => non_neg_integer(),
         "Destination" => data_destination(),
         "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t(),
-        "Status" => String.t(),
-        "WhatIfForecastArns" => list(String.t()),
-        "WhatIfForecastExportArn" => String.t(),
-        "WhatIfForecastExportName" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t(),
+        "WhatIfForecastArns" => list(String.t() | Atom.t()),
+        "WhatIfForecastExportArn" => String.t() | Atom.t(),
+        "WhatIfForecastExportName" => String.t() | Atom.t()
       }
       
   """
-  @type what_if_forecast_export_summary() :: %{String.t() => any()}
+  @type what_if_forecast_export_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       test_window_summary() :: %{
-        "Message" => String.t(),
-        "Status" => String.t(),
+        "Message" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t(),
         "TestWindowEnd" => non_neg_integer(),
         "TestWindowStart" => non_neg_integer()
       }
       
   """
-  @type test_window_summary() :: %{String.t() => any()}
+  @type test_window_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_resource_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type stop_resource_request() :: %{String.t() => any()}
+  @type stop_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -770,33 +770,33 @@ defmodule AWS.Forecast do
       
       list_explainability_exports_response() :: %{
         "ExplainabilityExports" => list(explainability_export_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_explainability_exports_response() :: %{String.t() => any()}
+  @type list_explainability_exports_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_auto_predictor_response() :: %{
-        "PredictorArn" => String.t()
+        "PredictorArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_auto_predictor_response() :: %{String.t() => any()}
+  @type create_auto_predictor_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_dataset_response() :: %{
-        "DatasetArn" => String.t()
+        "DatasetArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_dataset_response() :: %{String.t() => any()}
+  @type create_dataset_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -810,7 +810,7 @@ defmodule AWS.Forecast do
       }
       
   """
-  @type metrics() :: %{String.t() => any()}
+  @type metrics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -819,15 +819,15 @@ defmodule AWS.Forecast do
       explainability_export_summary() :: %{
         "CreationTime" => non_neg_integer(),
         "Destination" => data_destination(),
-        "ExplainabilityExportArn" => String.t(),
-        "ExplainabilityExportName" => String.t(),
+        "ExplainabilityExportArn" => String.t() | Atom.t(),
+        "ExplainabilityExportName" => String.t() | Atom.t(),
         "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t(),
-        "Status" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type explainability_export_summary() :: %{String.t() => any()}
+  @type explainability_export_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -836,42 +836,42 @@ defmodule AWS.Forecast do
       describe_what_if_forecast_response() :: %{
         "CreationTime" => non_neg_integer(),
         "EstimatedTimeRemainingInMinutes" => float(),
-        "ForecastTypes" => list(String.t()),
+        "ForecastTypes" => list(String.t() | Atom.t()),
         "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t(),
-        "Status" => String.t(),
+        "Message" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t(),
         "TimeSeriesReplacementsDataSource" => time_series_replacements_data_source(),
         "TimeSeriesTransformations" => list(time_series_transformation()),
-        "WhatIfAnalysisArn" => String.t(),
-        "WhatIfForecastArn" => String.t(),
-        "WhatIfForecastName" => String.t()
+        "WhatIfAnalysisArn" => String.t() | Atom.t(),
+        "WhatIfForecastArn" => String.t() | Atom.t(),
+        "WhatIfForecastName" => String.t() | Atom.t()
       }
       
   """
-  @type describe_what_if_forecast_response() :: %{String.t() => any()}
+  @type describe_what_if_forecast_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       supplementary_feature() :: %{
-        "Name" => String.t(),
-        "Value" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type supplementary_feature() :: %{String.t() => any()}
+  @type supplementary_feature() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -880,22 +880,22 @@ defmodule AWS.Forecast do
       list_dataset_import_jobs_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_dataset_import_jobs_request() :: %{String.t() => any()}
+  @type list_dataset_import_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_what_if_forecast_response() :: %{
-        "WhatIfForecastArn" => String.t()
+        "WhatIfForecastArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_what_if_forecast_response() :: %{String.t() => any()}
+  @type create_what_if_forecast_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -904,15 +904,15 @@ defmodule AWS.Forecast do
       forecast_export_job_summary() :: %{
         "CreationTime" => non_neg_integer(),
         "Destination" => data_destination(),
-        "ForecastExportJobArn" => String.t(),
-        "ForecastExportJobName" => String.t(),
+        "ForecastExportJobArn" => String.t() | Atom.t(),
+        "ForecastExportJobName" => String.t() | Atom.t(),
         "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t(),
-        "Status" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type forecast_export_job_summary() :: %{String.t() => any()}
+  @type forecast_export_job_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -922,44 +922,44 @@ defmodule AWS.Forecast do
         "CreationTime" => non_neg_integer(),
         "DataSource" => data_source(),
         "EnableVisualization" => boolean(),
-        "EndDateTime" => String.t(),
+        "EndDateTime" => String.t() | Atom.t(),
         "EstimatedTimeRemainingInMinutes" => float(),
-        "ExplainabilityArn" => String.t(),
+        "ExplainabilityArn" => String.t() | Atom.t(),
         "ExplainabilityConfig" => explainability_config(),
-        "ExplainabilityName" => String.t(),
+        "ExplainabilityName" => String.t() | Atom.t(),
         "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t(),
-        "ResourceArn" => String.t(),
+        "Message" => String.t() | Atom.t(),
+        "ResourceArn" => String.t() | Atom.t(),
         "Schema" => schema(),
-        "StartDateTime" => String.t(),
-        "Status" => String.t()
+        "StartDateTime" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type describe_explainability_response() :: %{String.t() => any()}
+  @type describe_explainability_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       explainability_info() :: %{
-        "ExplainabilityArn" => String.t(),
-        "Status" => String.t()
+        "ExplainabilityArn" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type explainability_info() :: %{String.t() => any()}
+  @type explainability_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_accuracy_metrics_request() :: %{
-        required("PredictorArn") => String.t()
+        required("PredictorArn") => String.t() | Atom.t()
       }
       
   """
-  @type get_accuracy_metrics_request() :: %{String.t() => any()}
+  @type get_accuracy_metrics_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -967,84 +967,84 @@ defmodule AWS.Forecast do
       
       dataset_summary() :: %{
         "CreationTime" => non_neg_integer(),
-        "DatasetArn" => String.t(),
-        "DatasetName" => String.t(),
+        "DatasetArn" => String.t() | Atom.t(),
+        "DatasetName" => String.t() | Atom.t(),
         "DatasetType" => list(any()),
         "Domain" => list(any()),
         "LastModificationTime" => non_neg_integer()
       }
       
   """
-  @type dataset_summary() :: %{String.t() => any()}
+  @type dataset_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_auto_predictor_request() :: %{
-        required("PredictorArn") => String.t()
+        required("PredictorArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_auto_predictor_request() :: %{String.t() => any()}
+  @type describe_auto_predictor_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resume_resource_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type resume_resource_request() :: %{String.t() => any()}
+  @type resume_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_config() :: %{
-        "KMSKeyArn" => String.t(),
-        "Path" => String.t(),
-        "RoleArn" => String.t()
+        "KMSKeyArn" => String.t() | Atom.t(),
+        "Path" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | Atom.t()
       }
       
   """
-  @type s3_config() :: %{String.t() => any()}
+  @type s3_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_dataset_import_job_request() :: %{
-        required("DatasetImportJobArn") => String.t()
+        required("DatasetImportJobArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_dataset_import_job_request() :: %{String.t() => any()}
+  @type delete_dataset_import_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_forecast_export_job_request() :: %{
-        required("ForecastExportJobArn") => String.t()
+        required("ForecastExportJobArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_forecast_export_job_request() :: %{String.t() => any()}
+  @type delete_forecast_export_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1056,7 +1056,7 @@ defmodule AWS.Forecast do
       }
       
   """
-  @type time_series_transformation() :: %{String.t() => any()}
+  @type time_series_transformation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1065,33 +1065,33 @@ defmodule AWS.Forecast do
       data_config() :: %{
         "AdditionalDatasets" => list(additional_dataset()),
         "AttributeConfigs" => list(attribute_config()),
-        "DatasetGroupArn" => String.t()
+        "DatasetGroupArn" => String.t() | Atom.t()
       }
       
   """
-  @type data_config() :: %{String.t() => any()}
+  @type data_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_next_token_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_next_token_exception() :: %{String.t() => any()}
+  @type invalid_next_token_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_forecast_export_job_response() :: %{
-        "ForecastExportJobArn" => String.t()
+        "ForecastExportJobArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_forecast_export_job_response() :: %{String.t() => any()}
+  @type create_forecast_export_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1101,12 +1101,12 @@ defmodule AWS.Forecast do
         optional("Tags") => list(tag()),
         optional("TimeSeriesReplacementsDataSource") => time_series_replacements_data_source(),
         optional("TimeSeriesTransformations") => list(time_series_transformation()),
-        required("WhatIfAnalysisArn") => String.t(),
-        required("WhatIfForecastName") => String.t()
+        required("WhatIfAnalysisArn") => String.t() | Atom.t(),
+        required("WhatIfForecastName") => String.t() | Atom.t()
       }
       
   """
-  @type create_what_if_forecast_request() :: %{String.t() => any()}
+  @type create_what_if_forecast_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1116,20 +1116,20 @@ defmodule AWS.Forecast do
         optional("DataConfig") => data_config(),
         optional("EncryptionConfig") => encryption_config(),
         optional("ExplainPredictor") => boolean(),
-        optional("ForecastDimensions") => list(String.t()),
-        optional("ForecastFrequency") => String.t(),
+        optional("ForecastDimensions") => list(String.t() | Atom.t()),
+        optional("ForecastFrequency") => String.t() | Atom.t(),
         optional("ForecastHorizon") => integer(),
-        optional("ForecastTypes") => list(String.t()),
+        optional("ForecastTypes") => list(String.t() | Atom.t()),
         optional("MonitorConfig") => monitor_config(),
         optional("OptimizationMetric") => list(any()),
-        optional("ReferencePredictorArn") => String.t(),
+        optional("ReferencePredictorArn") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
         optional("TimeAlignmentBoundary") => time_alignment_boundary(),
-        required("PredictorName") => String.t()
+        required("PredictorName") => String.t() | Atom.t()
       }
       
   """
-  @type create_auto_predictor_request() :: %{String.t() => any()}
+  @type create_auto_predictor_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1137,22 +1137,22 @@ defmodule AWS.Forecast do
       
       list_dataset_groups_response() :: %{
         "DatasetGroups" => list(dataset_group_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_dataset_groups_response() :: %{String.t() => any()}
+  @type list_dataset_groups_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_what_if_analysis_response() :: %{
-        "WhatIfAnalysisArn" => String.t()
+        "WhatIfAnalysisArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_what_if_analysis_response() :: %{String.t() => any()}
+  @type create_what_if_analysis_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1161,11 +1161,11 @@ defmodule AWS.Forecast do
       list_what_if_analyses_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_what_if_analyses_request() :: %{String.t() => any()}
+  @type list_what_if_analyses_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1174,11 +1174,11 @@ defmodule AWS.Forecast do
       list_predictors_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_predictors_request() :: %{String.t() => any()}
+  @type list_predictors_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1187,17 +1187,17 @@ defmodule AWS.Forecast do
       describe_what_if_analysis_response() :: %{
         "CreationTime" => non_neg_integer(),
         "EstimatedTimeRemainingInMinutes" => float(),
-        "ForecastArn" => String.t(),
+        "ForecastArn" => String.t() | Atom.t(),
         "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t(),
-        "Status" => String.t(),
+        "Message" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t(),
         "TimeSeriesSelector" => time_series_selector(),
-        "WhatIfAnalysisArn" => String.t(),
-        "WhatIfAnalysisName" => String.t()
+        "WhatIfAnalysisArn" => String.t() | Atom.t(),
+        "WhatIfAnalysisName" => String.t() | Atom.t()
       }
       
   """
-  @type describe_what_if_analysis_response() :: %{String.t() => any()}
+  @type describe_what_if_analysis_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1208,7 +1208,7 @@ defmodule AWS.Forecast do
       }
       
   """
-  @type schema() :: %{String.t() => any()}
+  @type schema() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1216,11 +1216,11 @@ defmodule AWS.Forecast do
       
       list_dataset_groups_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_dataset_groups_request() :: %{String.t() => any()}
+  @type list_dataset_groups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1228,33 +1228,33 @@ defmodule AWS.Forecast do
       
       list_forecasts_response() :: %{
         "Forecasts" => list(forecast_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_forecasts_response() :: %{String.t() => any()}
+  @type list_forecasts_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_input_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_input_exception() :: %{String.t() => any()}
+  @type invalid_input_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_explainability_request() :: %{
-        required("ExplainabilityArn") => String.t()
+        required("ExplainabilityArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_explainability_request() :: %{String.t() => any()}
+  @type delete_explainability_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1265,19 +1265,19 @@ defmodule AWS.Forecast do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_predictor_backtest_export_jobs_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "PredictorBacktestExportJobs" => list(predictor_backtest_export_job_summary())
       }
       
   """
-  @type list_predictor_backtest_export_jobs_response() :: %{String.t() => any()}
+  @type list_predictor_backtest_export_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1286,47 +1286,47 @@ defmodule AWS.Forecast do
       create_what_if_analysis_request() :: %{
         optional("Tags") => list(tag()),
         optional("TimeSeriesSelector") => time_series_selector(),
-        required("ForecastArn") => String.t(),
-        required("WhatIfAnalysisName") => String.t()
+        required("ForecastArn") => String.t() | Atom.t(),
+        required("WhatIfAnalysisName") => String.t() | Atom.t()
       }
       
   """
-  @type create_what_if_analysis_request() :: %{String.t() => any()}
+  @type create_what_if_analysis_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_what_if_analysis_request() :: %{
-        required("WhatIfAnalysisArn") => String.t()
+        required("WhatIfAnalysisArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_what_if_analysis_request() :: %{String.t() => any()}
+  @type describe_what_if_analysis_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       baseline_metric() :: %{
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Value" => float()
       }
       
   """
-  @type baseline_metric() :: %{String.t() => any()}
+  @type baseline_metric() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       categorical_parameter_range() :: %{
-        "Name" => String.t(),
-        "Values" => list(String.t())
+        "Name" => String.t() | Atom.t(),
+        "Values" => list(String.t() | Atom.t())
       }
       
   """
-  @type categorical_parameter_range() :: %{String.t() => any()}
+  @type categorical_parameter_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1335,17 +1335,17 @@ defmodule AWS.Forecast do
       describe_predictor_backtest_export_job_response() :: %{
         "CreationTime" => non_neg_integer(),
         "Destination" => data_destination(),
-        "Format" => String.t(),
+        "Format" => String.t() | Atom.t(),
         "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t(),
-        "PredictorArn" => String.t(),
-        "PredictorBacktestExportJobArn" => String.t(),
-        "PredictorBacktestExportJobName" => String.t(),
-        "Status" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "PredictorArn" => String.t() | Atom.t(),
+        "PredictorBacktestExportJobArn" => String.t() | Atom.t(),
+        "PredictorBacktestExportJobName" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type describe_predictor_backtest_export_job_response() :: %{String.t() => any()}
+  @type describe_predictor_backtest_export_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1353,12 +1353,12 @@ defmodule AWS.Forecast do
       
       filter() :: %{
         "Condition" => list(any()),
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type filter() :: %{String.t() => any()}
+  @type filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1367,24 +1367,24 @@ defmodule AWS.Forecast do
       list_explainabilities_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_explainabilities_request() :: %{String.t() => any()}
+  @type list_explainabilities_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       time_series_condition() :: %{
-        "AttributeName" => String.t(),
-        "AttributeValue" => String.t(),
+        "AttributeName" => String.t() | Atom.t(),
+        "AttributeValue" => String.t() | Atom.t(),
         "Condition" => list(any())
       }
       
   """
-  @type time_series_condition() :: %{String.t() => any()}
+  @type time_series_condition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1393,40 +1393,40 @@ defmodule AWS.Forecast do
       create_explainability_request() :: %{
         optional("DataSource") => data_source(),
         optional("EnableVisualization") => boolean(),
-        optional("EndDateTime") => String.t(),
+        optional("EndDateTime") => String.t() | Atom.t(),
         optional("Schema") => schema(),
-        optional("StartDateTime") => String.t(),
+        optional("StartDateTime") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
         required("ExplainabilityConfig") => explainability_config(),
-        required("ExplainabilityName") => String.t(),
-        required("ResourceArn") => String.t()
+        required("ExplainabilityName") => String.t() | Atom.t(),
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type create_explainability_request() :: %{String.t() => any()}
+  @type create_explainability_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_predictor_request() :: %{
-        required("PredictorArn") => String.t()
+        required("PredictorArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_predictor_request() :: %{String.t() => any()}
+  @type delete_predictor_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       metric_result() :: %{
-        "MetricName" => String.t(),
+        "MetricName" => String.t() | Atom.t(),
         "MetricValue" => float()
       }
       
   """
-  @type metric_result() :: %{String.t() => any()}
+  @type metric_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1437,7 +1437,7 @@ defmodule AWS.Forecast do
       }
       
   """
-  @type data_destination() :: %{String.t() => any()}
+  @type data_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1449,79 +1449,79 @@ defmodule AWS.Forecast do
       }
       
   """
-  @type explainability_config() :: %{String.t() => any()}
+  @type explainability_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       predictor_execution() :: %{
-        "AlgorithmArn" => String.t(),
+        "AlgorithmArn" => String.t() | Atom.t(),
         "TestWindows" => list(test_window_summary())
       }
       
   """
-  @type predictor_execution() :: %{String.t() => any()}
+  @type predictor_execution() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       monitor_data_source() :: %{
-        "DatasetImportJobArn" => String.t(),
-        "ForecastArn" => String.t(),
-        "PredictorArn" => String.t()
+        "DatasetImportJobArn" => String.t() | Atom.t(),
+        "ForecastArn" => String.t() | Atom.t(),
+        "PredictorArn" => String.t() | Atom.t()
       }
       
   """
-  @type monitor_data_source() :: %{String.t() => any()}
+  @type monitor_data_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_what_if_forecast_export_response() :: %{
-        "WhatIfForecastExportArn" => String.t()
+        "WhatIfForecastExportArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_what_if_forecast_export_response() :: %{String.t() => any()}
+  @type create_what_if_forecast_export_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       action() :: %{
-        "AttributeName" => String.t(),
+        "AttributeName" => String.t() | Atom.t(),
         "Operation" => list(any()),
         "Value" => float()
       }
       
   """
-  @type action() :: %{String.t() => any()}
+  @type action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       schema_attribute() :: %{
-        "AttributeName" => String.t(),
+        "AttributeName" => String.t() | Atom.t(),
         "AttributeType" => list(any())
       }
       
   """
-  @type schema_attribute() :: %{String.t() => any()}
+  @type schema_attribute() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_explainability_export_response() :: %{
-        "ExplainabilityExportArn" => String.t()
+        "ExplainabilityExportArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_explainability_export_response() :: %{String.t() => any()}
+  @type create_explainability_export_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1530,27 +1530,27 @@ defmodule AWS.Forecast do
       dataset_import_job_summary() :: %{
         "CreationTime" => non_neg_integer(),
         "DataSource" => data_source(),
-        "DatasetImportJobArn" => String.t(),
-        "DatasetImportJobName" => String.t(),
+        "DatasetImportJobArn" => String.t() | Atom.t(),
+        "DatasetImportJobName" => String.t() | Atom.t(),
         "ImportMode" => list(any()),
         "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t(),
-        "Status" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type dataset_import_job_summary() :: %{String.t() => any()}
+  @type dataset_import_job_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_predictor_backtest_export_job_request() :: %{
-        required("PredictorBacktestExportJobArn") => String.t()
+        required("PredictorBacktestExportJobArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_predictor_backtest_export_job_request() :: %{String.t() => any()}
+  @type describe_predictor_backtest_export_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1558,18 +1558,18 @@ defmodule AWS.Forecast do
       
       list_dataset_import_jobs_response() :: %{
         "DatasetImportJobs" => list(dataset_import_job_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_dataset_import_jobs_response() :: %{String.t() => any()}
+  @type list_dataset_import_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       error_metric() :: %{
-        "ForecastType" => String.t(),
+        "ForecastType" => String.t() | Atom.t(),
         "MAPE" => float(),
         "MASE" => float(),
         "RMSE" => float(),
@@ -1577,18 +1577,18 @@ defmodule AWS.Forecast do
       }
       
   """
-  @type error_metric() :: %{String.t() => any()}
+  @type error_metric() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_dataset_group_request() :: %{
-        required("DatasetGroupArn") => String.t()
+        required("DatasetGroupArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_dataset_group_request() :: %{String.t() => any()}
+  @type delete_dataset_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1596,30 +1596,30 @@ defmodule AWS.Forecast do
       
       predictor_summary() :: %{
         "CreationTime" => non_neg_integer(),
-        "DatasetGroupArn" => String.t(),
+        "DatasetGroupArn" => String.t() | Atom.t(),
         "IsAutoPredictor" => boolean(),
         "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t(),
-        "PredictorArn" => String.t(),
-        "PredictorName" => String.t(),
+        "Message" => String.t() | Atom.t(),
+        "PredictorArn" => String.t() | Atom.t(),
+        "PredictorName" => String.t() | Atom.t(),
         "ReferencePredictorSummary" => reference_predictor_summary(),
-        "Status" => String.t()
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type predictor_summary() :: %{String.t() => any()}
+  @type predictor_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_dataset_group_request() :: %{
-        required("DatasetArns") => list(String.t()),
-        required("DatasetGroupArn") => String.t()
+        required("DatasetArns") => list(String.t() | Atom.t()),
+        required("DatasetGroupArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_dataset_group_request() :: %{String.t() => any()}
+  @type update_dataset_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1635,11 +1635,11 @@ defmodule AWS.Forecast do
   ## Example:
       
       describe_predictor_request() :: %{
-        required("PredictorArn") => String.t()
+        required("PredictorArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_predictor_request() :: %{String.t() => any()}
+  @type describe_predictor_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1648,52 +1648,52 @@ defmodule AWS.Forecast do
       list_what_if_forecast_exports_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_what_if_forecast_exports_request() :: %{String.t() => any()}
+  @type list_what_if_forecast_exports_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_forecast_export_job_request() :: %{
-        optional("Format") => String.t(),
+        optional("Format") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
         required("Destination") => data_destination(),
-        required("ForecastArn") => String.t(),
-        required("ForecastExportJobName") => String.t()
+        required("ForecastArn") => String.t() | Atom.t(),
+        required("ForecastExportJobName") => String.t() | Atom.t()
       }
       
   """
-  @type create_forecast_export_job_request() :: %{String.t() => any()}
+  @type create_forecast_export_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_predictor_backtest_export_job_request() :: %{
-        optional("Format") => String.t(),
+        optional("Format") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
         required("Destination") => data_destination(),
-        required("PredictorArn") => String.t(),
-        required("PredictorBacktestExportJobName") => String.t()
+        required("PredictorArn") => String.t() | Atom.t(),
+        required("PredictorBacktestExportJobName") => String.t() | Atom.t()
       }
       
   """
-  @type create_predictor_backtest_export_job_request() :: %{String.t() => any()}
+  @type create_predictor_backtest_export_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_dataset_group_response() :: %{
-        "DatasetGroupArn" => String.t()
+        "DatasetGroupArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_dataset_group_response() :: %{String.t() => any()}
+  @type create_dataset_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1709,24 +1709,24 @@ defmodule AWS.Forecast do
         "CountNanLong" => float(),
         "CountNull" => integer(),
         "CountNullLong" => float(),
-        "Max" => String.t(),
-        "Min" => String.t(),
+        "Max" => String.t() | Atom.t(),
+        "Min" => String.t() | Atom.t(),
         "Stddev" => float()
       }
       
   """
-  @type statistics() :: %{String.t() => any()}
+  @type statistics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_what_if_forecast_request() :: %{
-        required("WhatIfForecastArn") => String.t()
+        required("WhatIfForecastArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_what_if_forecast_request() :: %{String.t() => any()}
+  @type delete_what_if_forecast_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1736,14 +1736,14 @@ defmodule AWS.Forecast do
         "CreationTime" => non_neg_integer(),
         "Destination" => data_destination(),
         "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t(),
-        "PredictorBacktestExportJobArn" => String.t(),
-        "PredictorBacktestExportJobName" => String.t(),
-        "Status" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "PredictorBacktestExportJobArn" => String.t() | Atom.t(),
+        "PredictorBacktestExportJobName" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type predictor_backtest_export_job_summary() :: %{String.t() => any()}
+  @type predictor_backtest_export_job_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1751,19 +1751,19 @@ defmodule AWS.Forecast do
       
       describe_dataset_response() :: %{
         "CreationTime" => non_neg_integer(),
-        "DataFrequency" => String.t(),
-        "DatasetArn" => String.t(),
-        "DatasetName" => String.t(),
+        "DataFrequency" => String.t() | Atom.t(),
+        "DatasetArn" => String.t() | Atom.t(),
+        "DatasetName" => String.t() | Atom.t(),
         "DatasetType" => list(any()),
         "Domain" => list(any()),
         "EncryptionConfig" => encryption_config(),
         "LastModificationTime" => non_neg_integer(),
         "Schema" => schema(),
-        "Status" => String.t()
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type describe_dataset_response() :: %{String.t() => any()}
+  @type describe_dataset_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1773,89 +1773,89 @@ defmodule AWS.Forecast do
         "CreationTime" => non_neg_integer(),
         "Destination" => data_destination(),
         "EstimatedTimeRemainingInMinutes" => float(),
-        "Format" => String.t(),
+        "Format" => String.t() | Atom.t(),
         "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t(),
-        "Status" => String.t(),
-        "WhatIfForecastArns" => list(String.t()),
-        "WhatIfForecastExportArn" => String.t(),
-        "WhatIfForecastExportName" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t(),
+        "WhatIfForecastArns" => list(String.t() | Atom.t()),
+        "WhatIfForecastExportArn" => String.t() | Atom.t(),
+        "WhatIfForecastExportName" => String.t() | Atom.t()
       }
       
   """
-  @type describe_what_if_forecast_export_response() :: %{String.t() => any()}
+  @type describe_what_if_forecast_export_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_what_if_forecast_request() :: %{
-        required("WhatIfForecastArn") => String.t()
+        required("WhatIfForecastArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_what_if_forecast_request() :: %{String.t() => any()}
+  @type describe_what_if_forecast_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_what_if_analysis_request() :: %{
-        required("WhatIfAnalysisArn") => String.t()
+        required("WhatIfAnalysisArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_what_if_analysis_request() :: %{String.t() => any()}
+  @type delete_what_if_analysis_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_dataset_request() :: %{
-        optional("DataFrequency") => String.t(),
+        optional("DataFrequency") => String.t() | Atom.t(),
         optional("EncryptionConfig") => encryption_config(),
         optional("Tags") => list(tag()),
-        required("DatasetName") => String.t(),
+        required("DatasetName") => String.t() | Atom.t(),
         required("DatasetType") => list(any()),
         required("Domain") => list(any()),
         required("Schema") => schema()
       }
       
   """
-  @type create_dataset_request() :: %{String.t() => any()}
+  @type create_dataset_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_dataset_group_request() :: %{
-        required("DatasetGroupArn") => String.t()
+        required("DatasetGroupArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_dataset_group_request() :: %{String.t() => any()}
+  @type describe_dataset_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_predictor_backtest_export_job_request() :: %{
-        required("PredictorBacktestExportJobArn") => String.t()
+        required("PredictorBacktestExportJobArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_predictor_backtest_export_job_request() :: %{String.t() => any()}
+  @type delete_predictor_backtest_export_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1864,43 +1864,43 @@ defmodule AWS.Forecast do
       continuous_parameter_range() :: %{
         "MaxValue" => float(),
         "MinValue" => float(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "ScalingType" => list(any())
       }
       
   """
-  @type continuous_parameter_range() :: %{String.t() => any()}
+  @type continuous_parameter_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_dataset_import_job_request() :: %{
-        optional("Format") => String.t(),
-        optional("GeolocationFormat") => String.t(),
+        optional("Format") => String.t() | Atom.t(),
+        optional("GeolocationFormat") => String.t() | Atom.t(),
         optional("ImportMode") => list(any()),
         optional("Tags") => list(tag()),
-        optional("TimeZone") => String.t(),
-        optional("TimestampFormat") => String.t(),
+        optional("TimeZone") => String.t() | Atom.t(),
+        optional("TimestampFormat") => String.t() | Atom.t(),
         optional("UseGeolocationForTimeZone") => boolean(),
         required("DataSource") => data_source(),
-        required("DatasetArn") => String.t(),
-        required("DatasetImportJobName") => String.t()
+        required("DatasetArn") => String.t() | Atom.t(),
+        required("DatasetImportJobName") => String.t() | Atom.t()
       }
       
   """
-  @type create_dataset_import_job_request() :: %{String.t() => any()}
+  @type create_dataset_import_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_monitor_request() :: %{
-        required("MonitorArn") => String.t()
+        required("MonitorArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_monitor_request() :: %{String.t() => any()}
+  @type describe_monitor_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1908,22 +1908,22 @@ defmodule AWS.Forecast do
       
       predictor_event() :: %{
         "Datetime" => non_neg_integer(),
-        "Detail" => String.t()
+        "Detail" => String.t() | Atom.t()
       }
       
   """
-  @type predictor_event() :: %{String.t() => any()}
+  @type predictor_event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_explainability_request() :: %{
-        required("ExplainabilityArn") => String.t()
+        required("ExplainabilityArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_explainability_request() :: %{String.t() => any()}
+  @type describe_explainability_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1932,28 +1932,28 @@ defmodule AWS.Forecast do
       describe_forecast_export_job_response() :: %{
         "CreationTime" => non_neg_integer(),
         "Destination" => data_destination(),
-        "ForecastArn" => String.t(),
-        "ForecastExportJobArn" => String.t(),
-        "ForecastExportJobName" => String.t(),
-        "Format" => String.t(),
+        "ForecastArn" => String.t() | Atom.t(),
+        "ForecastExportJobArn" => String.t() | Atom.t(),
+        "ForecastExportJobName" => String.t() | Atom.t(),
+        "Format" => String.t() | Atom.t(),
         "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t(),
-        "Status" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type describe_forecast_export_job_response() :: %{String.t() => any()}
+  @type describe_forecast_export_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_explainability_response() :: %{
-        "ExplainabilityArn" => String.t()
+        "ExplainabilityArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_explainability_response() :: %{String.t() => any()}
+  @type create_explainability_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1963,66 +1963,66 @@ defmodule AWS.Forecast do
         "Baseline" => baseline(),
         "CreationTime" => non_neg_integer(),
         "EstimatedEvaluationTimeRemainingInMinutes" => float(),
-        "LastEvaluationState" => String.t(),
+        "LastEvaluationState" => String.t() | Atom.t(),
         "LastEvaluationTime" => non_neg_integer(),
         "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t(),
-        "MonitorArn" => String.t(),
-        "MonitorName" => String.t(),
-        "ResourceArn" => String.t(),
-        "Status" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "MonitorArn" => String.t() | Atom.t(),
+        "MonitorName" => String.t() | Atom.t(),
+        "ResourceArn" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type describe_monitor_response() :: %{String.t() => any()}
+  @type describe_monitor_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_dataset_import_job_request() :: %{
-        required("DatasetImportJobArn") => String.t()
+        required("DatasetImportJobArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_dataset_import_job_request() :: %{String.t() => any()}
+  @type describe_dataset_import_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_forecast_export_job_request() :: %{
-        required("ForecastExportJobArn") => String.t()
+        required("ForecastExportJobArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_forecast_export_job_request() :: %{String.t() => any()}
+  @type describe_forecast_export_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_what_if_forecast_export_request() :: %{
-        optional("Format") => String.t(),
+        optional("Format") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
         required("Destination") => data_destination(),
-        required("WhatIfForecastArns") => list(String.t()),
-        required("WhatIfForecastExportName") => String.t()
+        required("WhatIfForecastArns") => list(String.t() | Atom.t()),
+        required("WhatIfForecastExportName") => String.t() | Atom.t()
       }
       
   """
-  @type create_what_if_forecast_export_request() :: %{String.t() => any()}
+  @type create_what_if_forecast_export_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2030,16 +2030,16 @@ defmodule AWS.Forecast do
       
       what_if_analysis_summary() :: %{
         "CreationTime" => non_neg_integer(),
-        "ForecastArn" => String.t(),
+        "ForecastArn" => String.t() | Atom.t(),
         "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t(),
-        "Status" => String.t(),
-        "WhatIfAnalysisArn" => String.t(),
-        "WhatIfAnalysisName" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t(),
+        "WhatIfAnalysisArn" => String.t() | Atom.t(),
+        "WhatIfAnalysisName" => String.t() | Atom.t()
       }
       
   """
-  @type what_if_analysis_summary() :: %{String.t() => any()}
+  @type what_if_analysis_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2048,12 +2048,12 @@ defmodule AWS.Forecast do
       list_monitor_evaluations_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("MonitorArn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("MonitorArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_monitor_evaluations_request() :: %{String.t() => any()}
+  @type list_monitor_evaluations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2061,28 +2061,28 @@ defmodule AWS.Forecast do
       
       describe_dataset_group_response() :: %{
         "CreationTime" => non_neg_integer(),
-        "DatasetArns" => list(String.t()),
-        "DatasetGroupArn" => String.t(),
-        "DatasetGroupName" => String.t(),
+        "DatasetArns" => list(String.t() | Atom.t()),
+        "DatasetGroupArn" => String.t() | Atom.t(),
+        "DatasetGroupName" => String.t() | Atom.t(),
         "Domain" => list(any()),
         "LastModificationTime" => non_neg_integer(),
-        "Status" => String.t()
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type describe_dataset_group_response() :: %{String.t() => any()}
+  @type describe_dataset_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       evaluation_result() :: %{
-        "AlgorithmArn" => String.t(),
+        "AlgorithmArn" => String.t() | Atom.t(),
         "TestWindows" => list(window_summary())
       }
       
   """
-  @type evaluation_result() :: %{String.t() => any()}
+  @type evaluation_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2091,33 +2091,33 @@ defmodule AWS.Forecast do
       list_forecasts_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_forecasts_request() :: %{String.t() => any()}
+  @type list_forecasts_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_dataset_request() :: %{
-        required("DatasetArn") => String.t()
+        required("DatasetArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_dataset_request() :: %{String.t() => any()}
+  @type describe_dataset_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_dataset_request() :: %{
-        required("DatasetArn") => String.t()
+        required("DatasetArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_dataset_request() :: %{String.t() => any()}
+  @type delete_dataset_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2125,11 +2125,11 @@ defmodule AWS.Forecast do
       
       list_datasets_response() :: %{
         "Datasets" => list(dataset_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_datasets_response() :: %{String.t() => any()}
+  @type list_datasets_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2138,30 +2138,30 @@ defmodule AWS.Forecast do
       what_if_forecast_summary() :: %{
         "CreationTime" => non_neg_integer(),
         "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t(),
-        "Status" => String.t(),
-        "WhatIfAnalysisArn" => String.t(),
-        "WhatIfForecastArn" => String.t(),
-        "WhatIfForecastName" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t(),
+        "WhatIfAnalysisArn" => String.t() | Atom.t(),
+        "WhatIfForecastArn" => String.t() | Atom.t(),
+        "WhatIfForecastName" => String.t() | Atom.t()
       }
       
   """
-  @type what_if_forecast_summary() :: %{String.t() => any()}
+  @type what_if_forecast_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_forecast_request() :: %{
-        optional("ForecastTypes") => list(String.t()),
+        optional("ForecastTypes") => list(String.t() | Atom.t()),
         optional("Tags") => list(tag()),
         optional("TimeSeriesSelector") => time_series_selector(),
-        required("ForecastName") => String.t(),
-        required("PredictorArn") => String.t()
+        required("ForecastName") => String.t() | Atom.t(),
+        required("PredictorArn") => String.t() | Atom.t()
       }
       
   """
-  @type create_forecast_request() :: %{String.t() => any()}
+  @type create_forecast_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2169,33 +2169,33 @@ defmodule AWS.Forecast do
       
       additional_dataset() :: %{
         "Configuration" => map(),
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
       
   """
-  @type additional_dataset() :: %{String.t() => any()}
+  @type additional_dataset() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_explainability_export_request() :: %{
-        required("ExplainabilityExportArn") => String.t()
+        required("ExplainabilityExportArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_explainability_export_request() :: %{String.t() => any()}
+  @type delete_explainability_export_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_already_exists_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_already_exists_exception() :: %{String.t() => any()}
+  @type resource_already_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2203,12 +2203,12 @@ defmodule AWS.Forecast do
       
       create_monitor_request() :: %{
         optional("Tags") => list(tag()),
-        required("MonitorName") => String.t(),
-        required("ResourceArn") => String.t()
+        required("MonitorName") => String.t() | Atom.t(),
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type create_monitor_request() :: %{String.t() => any()}
+  @type create_monitor_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2217,11 +2217,11 @@ defmodule AWS.Forecast do
       list_explainability_exports_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_explainability_exports_request() :: %{String.t() => any()}
+  @type list_explainability_exports_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2232,18 +2232,18 @@ defmodule AWS.Forecast do
       }
       
   """
-  @type data_source() :: %{String.t() => any()}
+  @type data_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_resource_tree_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_resource_tree_request() :: %{String.t() => any()}
+  @type delete_resource_tree_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2258,7 +2258,7 @@ defmodule AWS.Forecast do
       }
       
   """
-  @type window_summary() :: %{String.t() => any()}
+  @type window_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2266,11 +2266,11 @@ defmodule AWS.Forecast do
       
       list_explainabilities_response() :: %{
         "Explainabilities" => list(explainability_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_explainabilities_response() :: %{String.t() => any()}
+  @type list_explainabilities_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2281,7 +2281,7 @@ defmodule AWS.Forecast do
       }
       
   """
-  @type predictor_baseline() :: %{String.t() => any()}
+  @type predictor_baseline() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2292,43 +2292,43 @@ defmodule AWS.Forecast do
       }
       
   """
-  @type hyper_parameter_tuning_job_config() :: %{String.t() => any()}
+  @type hyper_parameter_tuning_job_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_forecast_response() :: %{
-        "ForecastArn" => String.t()
+        "ForecastArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_forecast_response() :: %{String.t() => any()}
+  @type create_forecast_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       time_series_replacements_data_source() :: %{
-        "Format" => String.t(),
+        "Format" => String.t() | Atom.t(),
         "S3Config" => s3_config(),
         "Schema" => schema(),
-        "TimestampFormat" => String.t()
+        "TimestampFormat" => String.t() | Atom.t()
       }
       
   """
-  @type time_series_replacements_data_source() :: %{String.t() => any()}
+  @type time_series_replacements_data_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_what_if_forecast_export_request() :: %{
-        required("WhatIfForecastExportArn") => String.t()
+        required("WhatIfForecastExportArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_what_if_forecast_export_request() :: %{String.t() => any()}
+  @type delete_what_if_forecast_export_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2337,14 +2337,14 @@ defmodule AWS.Forecast do
       monitor_summary() :: %{
         "CreationTime" => non_neg_integer(),
         "LastModificationTime" => non_neg_integer(),
-        "MonitorArn" => String.t(),
-        "MonitorName" => String.t(),
-        "ResourceArn" => String.t(),
-        "Status" => String.t()
+        "MonitorArn" => String.t() | Atom.t(),
+        "MonitorName" => String.t() | Atom.t(),
+        "ResourceArn" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type monitor_summary() :: %{String.t() => any()}
+  @type monitor_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2358,19 +2358,19 @@ defmodule AWS.Forecast do
       }
       
   """
-  @type time_alignment_boundary() :: %{String.t() => any()}
+  @type time_alignment_boundary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       featurization() :: %{
-        "AttributeName" => String.t(),
+        "AttributeName" => String.t() | Atom.t(),
         "FeaturizationPipeline" => list(featurization_method())
       }
       
   """
-  @type featurization() :: %{String.t() => any()}
+  @type featurization() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2379,11 +2379,11 @@ defmodule AWS.Forecast do
       list_predictor_backtest_export_jobs_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_predictor_backtest_export_jobs_request() :: %{String.t() => any()}
+  @type list_predictor_backtest_export_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2391,23 +2391,23 @@ defmodule AWS.Forecast do
       
       time_series_identifiers() :: %{
         "DataSource" => data_source(),
-        "Format" => String.t(),
+        "Format" => String.t() | Atom.t(),
         "Schema" => schema()
       }
       
   """
-  @type time_series_identifiers() :: %{String.t() => any()}
+  @type time_series_identifiers() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_dataset_import_job_response() :: %{
-        "DatasetImportJobArn" => String.t()
+        "DatasetImportJobArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_dataset_import_job_response() :: %{String.t() => any()}
+  @type create_dataset_import_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2415,13 +2415,13 @@ defmodule AWS.Forecast do
       
       dataset_group_summary() :: %{
         "CreationTime" => non_neg_integer(),
-        "DatasetGroupArn" => String.t(),
-        "DatasetGroupName" => String.t(),
+        "DatasetGroupArn" => String.t() | Atom.t(),
+        "DatasetGroupName" => String.t() | Atom.t(),
         "LastModificationTime" => non_neg_integer()
       }
       
   """
-  @type dataset_group_summary() :: %{String.t() => any()}
+  @type dataset_group_summary() :: %{String.t() | Atom.t() => any()}
 
   @type create_auto_predictor_errors() ::
           resource_already_exists_exception()

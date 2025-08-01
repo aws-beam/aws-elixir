@@ -10,14 +10,14 @@ defmodule AWS.S3 do
   ## Example:
 
       error() :: %{
-        "Code" => String.t(),
-        "Key" => String.t(),
-        "Message" => String.t(),
-        "VersionId" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Key" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
+        "VersionId" => String.t() | Atom.t()
       }
 
   """
-  @type error() :: %{String.t() => any()}
+  @type error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -26,13 +26,13 @@ defmodule AWS.S3 do
       put_bucket_policy_request() :: %{
         optional("ChecksumAlgorithm") => list(any()),
         optional("ConfirmRemoveSelfBucketAccess") => boolean(),
-        optional("ContentMD5") => String.t(),
-        optional("ExpectedBucketOwner") => String.t(),
-        required("Policy") => String.t()
+        optional("ContentMD5") => String.t() | Atom.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
+        required("Policy") => String.t() | Atom.t()
       }
 
   """
-  @type put_bucket_policy_request() :: %{String.t() => any()}
+  @type put_bucket_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -40,28 +40,28 @@ defmodule AWS.S3 do
 
       put_bucket_logging_request() :: %{
         optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t(),
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("ContentMD5") => String.t() | Atom.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
         required("BucketLoggingStatus") => bucket_logging_status()
       }
 
   """
-  @type put_bucket_logging_request() :: %{String.t() => any()}
+  @type put_bucket_logging_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       inventory_s3_bucket_destination() :: %{
-        "AccountId" => String.t(),
-        "Bucket" => String.t(),
+        "AccountId" => String.t() | Atom.t(),
+        "Bucket" => String.t() | Atom.t(),
         "Encryption" => inventory_encryption(),
         "Format" => list(any()),
-        "Prefix" => String.t()
+        "Prefix" => String.t() | Atom.t()
       }
 
   """
-  @type inventory_s3_bucket_destination() :: %{String.t() => any()}
+  @type inventory_s3_bucket_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -72,21 +72,21 @@ defmodule AWS.S3 do
       }
 
   """
-  @type records_event() :: %{String.t() => any()}
+  @type records_event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_bucket_metrics_configurations_output() :: %{
-        "ContinuationToken" => String.t(),
+        "ContinuationToken" => String.t() | Atom.t(),
         "IsTruncated" => boolean(),
         "MetricsConfigurationList" => list(metrics_configuration()),
-        "NextContinuationToken" => String.t()
+        "NextContinuationToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_bucket_metrics_configurations_output() :: %{String.t() => any()}
+  @type list_bucket_metrics_configurations_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -94,17 +94,17 @@ defmodule AWS.S3 do
 
       delete_object_request() :: %{
         optional("BypassGovernanceRetention") => boolean(),
-        optional("ExpectedBucketOwner") => String.t(),
-        optional("IfMatch") => String.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
+        optional("IfMatch") => String.t() | Atom.t(),
         optional("IfMatchLastModifiedTime") => non_neg_integer(),
         optional("IfMatchSize") => float(),
-        optional("MFA") => String.t(),
+        optional("MFA") => String.t() | Atom.t(),
         optional("RequestPayer") => list(any()),
-        optional("VersionId") => String.t()
+        optional("VersionId") => String.t() | Atom.t()
       }
 
   """
-  @type delete_object_request() :: %{String.t() => any()}
+  @type delete_object_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -116,7 +116,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type get_bucket_accelerate_configuration_output() :: %{String.t() => any()}
+  @type get_bucket_accelerate_configuration_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -127,30 +127,30 @@ defmodule AWS.S3 do
       }
 
   """
-  @type c_o_r_s_configuration() :: %{String.t() => any()}
+  @type c_o_r_s_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_bucket_ownership_controls_request() :: %{
-        optional("ExpectedBucketOwner") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t()
       }
 
   """
-  @type get_bucket_ownership_controls_request() :: %{String.t() => any()}
+  @type get_bucket_ownership_controls_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_bucket_metrics_configurations_request() :: %{
-        optional("ContinuationToken") => String.t(),
-        optional("ExpectedBucketOwner") => String.t()
+        optional("ContinuationToken") => String.t() | Atom.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t()
       }
 
   """
-  @type list_bucket_metrics_configurations_request() :: %{String.t() => any()}
+  @type list_bucket_metrics_configurations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -166,22 +166,22 @@ defmodule AWS.S3 do
   ## Example:
 
       get_bucket_policy_output() :: %{
-        "Policy" => String.t()
+        "Policy" => String.t() | Atom.t()
       }
 
   """
-  @type get_bucket_policy_output() :: %{String.t() => any()}
+  @type get_bucket_policy_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       encryption_configuration() :: %{
-        "ReplicaKmsKeyID" => String.t()
+        "ReplicaKmsKeyID" => String.t() | Atom.t()
       }
 
   """
-  @type encryption_configuration() :: %{String.t() => any()}
+  @type encryption_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -189,14 +189,14 @@ defmodule AWS.S3 do
 
       put_bucket_versioning_request() :: %{
         optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t(),
-        optional("ExpectedBucketOwner") => String.t(),
-        optional("MFA") => String.t(),
+        optional("ContentMD5") => String.t() | Atom.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
+        optional("MFA") => String.t() | Atom.t(),
         required("VersioningConfiguration") => versioning_configuration()
       }
 
   """
-  @type put_bucket_versioning_request() :: %{String.t() => any()}
+  @type put_bucket_versioning_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -208,19 +208,19 @@ defmodule AWS.S3 do
       }
 
   """
-  @type get_object_torrent_output() :: %{String.t() => any()}
+  @type get_object_torrent_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_object_tagging_request() :: %{
-        optional("ExpectedBucketOwner") => String.t(),
-        optional("VersionId") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
+        optional("VersionId") => String.t() | Atom.t()
       }
 
   """
-  @type delete_object_tagging_request() :: %{String.t() => any()}
+  @type delete_object_tagging_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -229,7 +229,7 @@ defmodule AWS.S3 do
       inventory_configuration() :: %{
         "Destination" => inventory_destination(),
         "Filter" => inventory_filter(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "IncludedObjectVersions" => list(any()),
         "IsEnabled" => boolean(),
         "OptionalFields" => list(list(any())()),
@@ -237,25 +237,25 @@ defmodule AWS.S3 do
       }
 
   """
-  @type inventory_configuration() :: %{String.t() => any()}
+  @type inventory_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       copy_object_result() :: %{
-        "ChecksumCRC32" => String.t(),
-        "ChecksumCRC32C" => String.t(),
-        "ChecksumCRC64NVME" => String.t(),
-        "ChecksumSHA1" => String.t(),
-        "ChecksumSHA256" => String.t(),
+        "ChecksumCRC32" => String.t() | Atom.t(),
+        "ChecksumCRC32C" => String.t() | Atom.t(),
+        "ChecksumCRC64NVME" => String.t() | Atom.t(),
+        "ChecksumSHA1" => String.t() | Atom.t(),
+        "ChecksumSHA256" => String.t() | Atom.t(),
         "ChecksumType" => list(any()),
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "LastModified" => non_neg_integer()
       }
 
   """
-  @type copy_object_result() :: %{String.t() => any()}
+  @type copy_object_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -269,19 +269,19 @@ defmodule AWS.S3 do
       }
 
   """
-  @type public_access_block_configuration() :: %{String.t() => any()}
+  @type public_access_block_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_bucket_accelerate_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
         optional("RequestPayer") => list(any())
       }
 
   """
-  @type get_bucket_accelerate_configuration_request() :: %{String.t() => any()}
+  @type get_bucket_accelerate_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -292,58 +292,58 @@ defmodule AWS.S3 do
       }
 
   """
-  @type inventory_schedule() :: %{String.t() => any()}
+  @type inventory_schedule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       write_get_object_response_request() :: %{
-        optional("VersionId") => String.t(),
-        optional("ChecksumCRC32C") => String.t(),
+        optional("VersionId") => String.t() | Atom.t(),
+        optional("ChecksumCRC32C") => String.t() | Atom.t(),
         optional("Expires") => non_neg_integer(),
         optional("Body") => binary(),
         optional("DeleteMarker") => boolean(),
-        optional("ChecksumSHA256") => String.t(),
+        optional("ChecksumSHA256") => String.t() | Atom.t(),
         optional("ReplicationStatus") => list(any()),
         optional("PartsCount") => integer(),
         optional("Metadata") => map(),
-        optional("SSECustomerAlgorithm") => String.t(),
-        optional("ContentRange") => String.t(),
+        optional("SSECustomerAlgorithm") => String.t() | Atom.t(),
+        optional("ContentRange") => String.t() | Atom.t(),
         optional("TagCount") => integer(),
-        optional("Restore") => String.t(),
+        optional("Restore") => String.t() | Atom.t(),
         optional("BucketKeyEnabled") => boolean(),
-        optional("SSECustomerKeyMD5") => String.t(),
+        optional("SSECustomerKeyMD5") => String.t() | Atom.t(),
         optional("LastModified") => non_neg_integer(),
-        optional("ContentDisposition") => String.t(),
-        optional("ChecksumCRC64NVME") => String.t(),
-        optional("ChecksumSHA1") => String.t(),
-        optional("ContentLanguage") => String.t(),
+        optional("ContentDisposition") => String.t() | Atom.t(),
+        optional("ChecksumCRC64NVME") => String.t() | Atom.t(),
+        optional("ChecksumSHA1") => String.t() | Atom.t(),
+        optional("ContentLanguage") => String.t() | Atom.t(),
         optional("RequestCharged") => list(any()),
-        optional("ETag") => String.t(),
+        optional("ETag") => String.t() | Atom.t(),
         optional("ServerSideEncryption") => list(any()),
-        optional("ErrorCode") => String.t(),
-        optional("ContentEncoding") => String.t(),
+        optional("ErrorCode") => String.t() | Atom.t(),
+        optional("ContentEncoding") => String.t() | Atom.t(),
         optional("StatusCode") => integer(),
         optional("ObjectLockRetainUntilDate") => non_neg_integer(),
-        optional("ContentType") => String.t(),
-        optional("ErrorMessage") => String.t(),
-        required("RequestRoute") => String.t(),
-        optional("ChecksumCRC32") => String.t(),
+        optional("ContentType") => String.t() | Atom.t(),
+        optional("ErrorMessage") => String.t() | Atom.t(),
+        required("RequestRoute") => String.t() | Atom.t(),
+        optional("ChecksumCRC32") => String.t() | Atom.t(),
         optional("ContentLength") => float(),
-        optional("CacheControl") => String.t(),
+        optional("CacheControl") => String.t() | Atom.t(),
         optional("MissingMeta") => integer(),
         optional("ObjectLockLegalHoldStatus") => list(any()),
-        optional("Expiration") => String.t(),
-        required("RequestToken") => String.t(),
+        optional("Expiration") => String.t() | Atom.t(),
+        required("RequestToken") => String.t() | Atom.t(),
         optional("StorageClass") => list(any()),
-        optional("SSEKMSKeyId") => String.t(),
+        optional("SSEKMSKeyId") => String.t() | Atom.t(),
         optional("ObjectLockMode") => list(any()),
-        optional("AcceptRanges") => String.t()
+        optional("AcceptRanges") => String.t() | Atom.t()
       }
 
   """
-  @type write_get_object_response_request() :: %{String.t() => any()}
+  @type write_get_object_response_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -355,18 +355,18 @@ defmodule AWS.S3 do
       }
 
   """
-  @type target_grant() :: %{String.t() => any()}
+  @type target_grant() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_bucket_website_request() :: %{
-        optional("ExpectedBucketOwner") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t()
       }
 
   """
-  @type delete_bucket_website_request() :: %{String.t() => any()}
+  @type delete_bucket_website_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -377,7 +377,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type get_bucket_ownership_controls_output() :: %{String.t() => any()}
+  @type get_bucket_ownership_controls_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -388,18 +388,18 @@ defmodule AWS.S3 do
       }
 
   """
-  @type ownership_controls_rule() :: %{String.t() => any()}
+  @type ownership_controls_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_bucket_request_payment_request() :: %{
-        optional("ExpectedBucketOwner") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t()
       }
 
   """
-  @type get_bucket_request_payment_request() :: %{String.t() => any()}
+  @type get_bucket_request_payment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -407,26 +407,26 @@ defmodule AWS.S3 do
 
       put_public_access_block_request() :: %{
         optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t(),
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("ContentMD5") => String.t() | Atom.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
         required("PublicAccessBlockConfiguration") => public_access_block_configuration()
       }
 
   """
-  @type put_public_access_block_request() :: %{String.t() => any()}
+  @type put_public_access_block_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_object_tagging_request() :: %{
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
         optional("RequestPayer") => list(any()),
-        optional("VersionId") => String.t()
+        optional("VersionId") => String.t() | Atom.t()
       }
 
   """
-  @type get_object_tagging_request() :: %{String.t() => any()}
+  @type get_object_tagging_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -437,7 +437,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type abort_incomplete_multipart_upload() :: %{String.t() => any()}
+  @type abort_incomplete_multipart_upload() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -447,57 +447,57 @@ defmodule AWS.S3 do
         "AbortIncompleteMultipartUpload" => abort_incomplete_multipart_upload(),
         "Expiration" => lifecycle_expiration(),
         "Filter" => lifecycle_rule_filter(),
-        "ID" => String.t(),
+        "ID" => String.t() | Atom.t(),
         "NoncurrentVersionExpiration" => noncurrent_version_expiration(),
         "NoncurrentVersionTransitions" => list(noncurrent_version_transition()),
-        "Prefix" => String.t(),
+        "Prefix" => String.t() | Atom.t(),
         "Status" => list(any()),
         "Transitions" => list(transition())
       }
 
   """
-  @type lifecycle_rule() :: %{String.t() => any()}
+  @type lifecycle_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_public_access_block_request() :: %{
-        optional("ExpectedBucketOwner") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t()
       }
 
   """
-  @type delete_public_access_block_request() :: %{String.t() => any()}
+  @type delete_public_access_block_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_bucket_policy_status_request() :: %{
-        optional("ExpectedBucketOwner") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t()
       }
 
   """
-  @type get_bucket_policy_status_request() :: %{String.t() => any()}
+  @type get_bucket_policy_status_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_object_versions_request() :: %{
-        optional("Delimiter") => String.t(),
+        optional("Delimiter") => String.t() | Atom.t(),
         optional("EncodingType") => list(any()),
-        optional("ExpectedBucketOwner") => String.t(),
-        optional("KeyMarker") => String.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
+        optional("KeyMarker") => String.t() | Atom.t(),
         optional("MaxKeys") => integer(),
         optional("OptionalObjectAttributes") => list(list(any())()),
-        optional("Prefix") => String.t(),
+        optional("Prefix") => String.t() | Atom.t(),
         optional("RequestPayer") => list(any()),
-        optional("VersionIdMarker") => String.t()
+        optional("VersionIdMarker") => String.t() | Atom.t()
       }
 
   """
-  @type list_object_versions_request() :: %{String.t() => any()}
+  @type list_object_versions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -509,7 +509,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type versioning_configuration() :: %{String.t() => any()}
+  @type versioning_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -521,7 +521,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type delete() :: %{String.t() => any()}
+  @type delete() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -529,21 +529,21 @@ defmodule AWS.S3 do
 
       upload_part_output() :: %{
         "BucketKeyEnabled" => boolean(),
-        "ChecksumCRC32" => String.t(),
-        "ChecksumCRC32C" => String.t(),
-        "ChecksumCRC64NVME" => String.t(),
-        "ChecksumSHA1" => String.t(),
-        "ChecksumSHA256" => String.t(),
-        "ETag" => String.t(),
+        "ChecksumCRC32" => String.t() | Atom.t(),
+        "ChecksumCRC32C" => String.t() | Atom.t(),
+        "ChecksumCRC64NVME" => String.t() | Atom.t(),
+        "ChecksumSHA1" => String.t() | Atom.t(),
+        "ChecksumSHA256" => String.t() | Atom.t(),
+        "ETag" => String.t() | Atom.t(),
         "RequestCharged" => list(any()),
-        "SSECustomerAlgorithm" => String.t(),
-        "SSECustomerKeyMD5" => String.t(),
-        "SSEKMSKeyId" => String.t(),
+        "SSECustomerAlgorithm" => String.t() | Atom.t(),
+        "SSECustomerKeyMD5" => String.t() | Atom.t(),
+        "SSEKMSKeyId" => String.t() | Atom.t(),
         "ServerSideEncryption" => list(any())
       }
 
   """
-  @type upload_part_output() :: %{String.t() => any()}
+  @type upload_part_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -551,25 +551,25 @@ defmodule AWS.S3 do
 
       put_bucket_cors_request() :: %{
         optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t(),
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("ContentMD5") => String.t() | Atom.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
         required("CORSConfiguration") => c_o_r_s_configuration()
       }
 
   """
-  @type put_bucket_cors_request() :: %{String.t() => any()}
+  @type put_bucket_cors_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_bucket_analytics_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t(),
-        required("Id") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
+        required("Id") => String.t() | Atom.t()
       }
 
   """
-  @type delete_bucket_analytics_configuration_request() :: %{String.t() => any()}
+  @type delete_bucket_analytics_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -577,14 +577,14 @@ defmodule AWS.S3 do
 
       head_bucket_output() :: %{
         "AccessPointAlias" => boolean(),
-        "BucketArn" => String.t(),
-        "BucketLocationName" => String.t(),
+        "BucketArn" => String.t() | Atom.t(),
+        "BucketLocationName" => String.t() | Atom.t(),
         "BucketLocationType" => list(any()),
-        "BucketRegion" => String.t()
+        "BucketRegion" => String.t() | Atom.t()
       }
 
   """
-  @type head_bucket_output() :: %{String.t() => any()}
+  @type head_bucket_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -595,7 +595,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type get_bucket_intelligent_tiering_configuration_output() :: %{String.t() => any()}
+  @type get_bucket_intelligent_tiering_configuration_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -604,12 +604,12 @@ defmodule AWS.S3 do
       queue_configuration() :: %{
         "Events" => list(list(any())()),
         "Filter" => notification_configuration_filter(),
-        "Id" => String.t(),
-        "QueueArn" => String.t()
+        "Id" => String.t() | Atom.t(),
+        "QueueArn" => String.t() | Atom.t()
       }
 
   """
-  @type queue_configuration() :: %{String.t() => any()}
+  @type queue_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -617,25 +617,25 @@ defmodule AWS.S3 do
 
       filter_rule() :: %{
         "Name" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type filter_rule() :: %{String.t() => any()}
+  @type filter_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       session_credentials() :: %{
-        "AccessKeyId" => String.t(),
+        "AccessKeyId" => String.t() | Atom.t(),
         "Expiration" => non_neg_integer(),
-        "SecretAccessKey" => String.t(),
-        "SessionToken" => String.t()
+        "SecretAccessKey" => String.t() | Atom.t(),
+        "SessionToken" => String.t() | Atom.t()
       }
 
   """
-  @type session_credentials() :: %{String.t() => any()}
+  @type session_credentials() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -646,22 +646,22 @@ defmodule AWS.S3 do
       }
 
   """
-  @type get_bucket_logging_output() :: %{String.t() => any()}
+  @type get_bucket_logging_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       redirect() :: %{
-        "HostName" => String.t(),
-        "HttpRedirectCode" => String.t(),
+        "HostName" => String.t() | Atom.t(),
+        "HttpRedirectCode" => String.t() | Atom.t(),
         "Protocol" => list(any()),
-        "ReplaceKeyPrefixWith" => String.t(),
-        "ReplaceKeyWith" => String.t()
+        "ReplaceKeyPrefixWith" => String.t() | Atom.t(),
+        "ReplaceKeyWith" => String.t() | Atom.t()
       }
 
   """
-  @type redirect() :: %{String.t() => any()}
+  @type redirect() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -673,7 +673,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type source_selection_criteria() :: %{String.t() => any()}
+  @type source_selection_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -681,58 +681,58 @@ defmodule AWS.S3 do
 
       head_object_output() :: %{
         "ContentLength" => float(),
-        "VersionId" => String.t(),
-        "Expiration" => String.t(),
+        "VersionId" => String.t() | Atom.t(),
+        "Expiration" => String.t() | Atom.t(),
         "BucketKeyEnabled" => boolean(),
-        "SSEKMSKeyId" => String.t(),
+        "SSEKMSKeyId" => String.t() | Atom.t(),
         "StorageClass" => list(any()),
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "ObjectLockRetainUntilDate" => non_neg_integer(),
         "ObjectLockMode" => list(any()),
         "ArchiveStatus" => list(any()),
-        "WebsiteRedirectLocation" => String.t(),
+        "WebsiteRedirectLocation" => String.t() | Atom.t(),
         "DeleteMarker" => boolean(),
-        "AcceptRanges" => String.t(),
+        "AcceptRanges" => String.t() | Atom.t(),
         "ServerSideEncryption" => list(any()),
-        "ChecksumSHA1" => String.t(),
-        "CacheControl" => String.t(),
+        "ChecksumSHA1" => String.t() | Atom.t(),
+        "CacheControl" => String.t() | Atom.t(),
         "ObjectLockLegalHoldStatus" => list(any()),
         "ChecksumType" => list(any()),
-        "ContentType" => String.t(),
-        "SSECustomerKeyMD5" => String.t(),
+        "ContentType" => String.t() | Atom.t(),
+        "SSECustomerKeyMD5" => String.t() | Atom.t(),
         "LastModified" => non_neg_integer(),
         "Expires" => non_neg_integer(),
         "TagCount" => integer(),
         "ReplicationStatus" => list(any()),
-        "ContentDisposition" => String.t(),
-        "ContentEncoding" => String.t(),
-        "ChecksumCRC32C" => String.t(),
-        "ChecksumCRC32" => String.t(),
-        "ChecksumCRC64NVME" => String.t(),
+        "ContentDisposition" => String.t() | Atom.t(),
+        "ContentEncoding" => String.t() | Atom.t(),
+        "ChecksumCRC32C" => String.t() | Atom.t(),
+        "ChecksumCRC32" => String.t() | Atom.t(),
+        "ChecksumCRC64NVME" => String.t() | Atom.t(),
         "Metadata" => map(),
         "PartsCount" => integer(),
-        "ChecksumSHA256" => String.t(),
+        "ChecksumSHA256" => String.t() | Atom.t(),
         "RequestCharged" => list(any()),
         "MissingMeta" => integer(),
-        "Restore" => String.t(),
-        "ContentRange" => String.t(),
-        "SSECustomerAlgorithm" => String.t(),
-        "ContentLanguage" => String.t()
+        "Restore" => String.t() | Atom.t(),
+        "ContentRange" => String.t() | Atom.t(),
+        "SSECustomerAlgorithm" => String.t() | Atom.t(),
+        "ContentLanguage" => String.t() | Atom.t()
       }
 
   """
-  @type head_object_output() :: %{String.t() => any()}
+  @type head_object_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_bucket_tagging_request() :: %{
-        optional("ExpectedBucketOwner") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t()
       }
 
   """
-  @type delete_bucket_tagging_request() :: %{String.t() => any()}
+  @type delete_bucket_tagging_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -743,7 +743,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type stats_event() :: %{String.t() => any()}
+  @type stats_event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -751,14 +751,14 @@ defmodule AWS.S3 do
 
       put_bucket_replication_request() :: %{
         optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t(),
-        optional("ExpectedBucketOwner") => String.t(),
-        optional("Token") => String.t(),
+        optional("ContentMD5") => String.t() | Atom.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
+        optional("Token") => String.t() | Atom.t(),
         required("ReplicationConfiguration") => replication_configuration()
       }
 
   """
-  @type put_bucket_replication_request() :: %{String.t() => any()}
+  @type put_bucket_replication_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -769,7 +769,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type put_object_lock_configuration_output() :: %{String.t() => any()}
+  @type put_object_lock_configuration_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -780,29 +780,29 @@ defmodule AWS.S3 do
       }
 
   """
-  @type get_object_retention_output() :: %{String.t() => any()}
+  @type get_object_retention_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       common_prefix() :: %{
-        "Prefix" => String.t()
+        "Prefix" => String.t() | Atom.t()
       }
 
   """
-  @type common_prefix() :: %{String.t() => any()}
+  @type common_prefix() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_bucket_acl_request() :: %{
-        optional("ExpectedBucketOwner") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t()
       }
 
   """
-  @type get_bucket_acl_request() :: %{String.t() => any()}
+  @type get_bucket_acl_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -810,13 +810,13 @@ defmodule AWS.S3 do
 
       create_bucket_metadata_table_configuration_request() :: %{
         optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t(),
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("ContentMD5") => String.t() | Atom.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
         required("MetadataTableConfiguration") => metadata_table_configuration()
       }
 
   """
-  @type create_bucket_metadata_table_configuration_request() :: %{String.t() => any()}
+  @type create_bucket_metadata_table_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -827,21 +827,21 @@ defmodule AWS.S3 do
       }
 
   """
-  @type analytics_export_destination() :: %{String.t() => any()}
+  @type analytics_export_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_bucket_inventory_configurations_output() :: %{
-        "ContinuationToken" => String.t(),
+        "ContinuationToken" => String.t() | Atom.t(),
         "InventoryConfigurationList" => list(inventory_configuration()),
         "IsTruncated" => boolean(),
-        "NextContinuationToken" => String.t()
+        "NextContinuationToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_bucket_inventory_configurations_output() :: %{String.t() => any()}
+  @type list_bucket_inventory_configurations_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -852,18 +852,18 @@ defmodule AWS.S3 do
       }
 
   """
-  @type put_object_legal_hold_output() :: %{String.t() => any()}
+  @type put_object_legal_hold_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       inventory_filter() :: %{
-        "Prefix" => String.t()
+        "Prefix" => String.t() | Atom.t()
       }
 
   """
-  @type inventory_filter() :: %{String.t() => any()}
+  @type inventory_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -874,7 +874,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type put_object_retention_output() :: %{String.t() => any()}
+  @type put_object_retention_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -884,19 +884,19 @@ defmodule AWS.S3 do
         optional("ACL") => list(any()),
         optional("AccessControlPolicy") => access_control_policy(),
         optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t(),
-        optional("ExpectedBucketOwner") => String.t(),
-        optional("GrantFullControl") => String.t(),
-        optional("GrantRead") => String.t(),
-        optional("GrantReadACP") => String.t(),
-        optional("GrantWrite") => String.t(),
-        optional("GrantWriteACP") => String.t(),
+        optional("ContentMD5") => String.t() | Atom.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
+        optional("GrantFullControl") => String.t() | Atom.t(),
+        optional("GrantRead") => String.t() | Atom.t(),
+        optional("GrantReadACP") => String.t() | Atom.t(),
+        optional("GrantWrite") => String.t() | Atom.t(),
+        optional("GrantWriteACP") => String.t() | Atom.t(),
         optional("RequestPayer") => list(any()),
-        optional("VersionId") => String.t()
+        optional("VersionId") => String.t() | Atom.t()
       }
 
   """
-  @type put_object_acl_request() :: %{String.t() => any()}
+  @type put_object_acl_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -904,31 +904,31 @@ defmodule AWS.S3 do
 
       restore_object_request() :: %{
         optional("ChecksumAlgorithm") => list(any()),
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
         optional("RequestPayer") => list(any()),
         optional("RestoreRequest") => restore_request(),
-        optional("VersionId") => String.t()
+        optional("VersionId") => String.t() | Atom.t()
       }
 
   """
-  @type restore_object_request() :: %{String.t() => any()}
+  @type restore_object_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       copy_part_result() :: %{
-        "ChecksumCRC32" => String.t(),
-        "ChecksumCRC32C" => String.t(),
-        "ChecksumCRC64NVME" => String.t(),
-        "ChecksumSHA1" => String.t(),
-        "ChecksumSHA256" => String.t(),
-        "ETag" => String.t(),
+        "ChecksumCRC32" => String.t() | Atom.t(),
+        "ChecksumCRC32C" => String.t() | Atom.t(),
+        "ChecksumCRC64NVME" => String.t() | Atom.t(),
+        "ChecksumSHA1" => String.t() | Atom.t(),
+        "ChecksumSHA256" => String.t() | Atom.t(),
+        "ETag" => String.t() | Atom.t(),
         "LastModified" => non_neg_integer()
       }
 
   """
-  @type copy_part_result() :: %{String.t() => any()}
+  @type copy_part_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -937,12 +937,12 @@ defmodule AWS.S3 do
       lambda_function_configuration() :: %{
         "Events" => list(list(any())()),
         "Filter" => notification_configuration_filter(),
-        "Id" => String.t(),
-        "LambdaFunctionArn" => String.t()
+        "Id" => String.t() | Atom.t(),
+        "LambdaFunctionArn" => String.t() | Atom.t()
       }
 
   """
-  @type lambda_function_configuration() :: %{String.t() => any()}
+  @type lambda_function_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -958,30 +958,30 @@ defmodule AWS.S3 do
   ## Example:
 
       list_objects_request() :: %{
-        optional("Delimiter") => String.t(),
+        optional("Delimiter") => String.t() | Atom.t(),
         optional("EncodingType") => list(any()),
-        optional("ExpectedBucketOwner") => String.t(),
-        optional("Marker") => String.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxKeys") => integer(),
         optional("OptionalObjectAttributes") => list(list(any())()),
-        optional("Prefix") => String.t(),
+        optional("Prefix") => String.t() | Atom.t(),
         optional("RequestPayer") => list(any())
       }
 
   """
-  @type list_objects_request() :: %{String.t() => any()}
+  @type list_objects_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_bucket_inventory_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t(),
-        required("Id") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
+        required("Id") => String.t() | Atom.t()
       }
 
   """
-  @type get_bucket_inventory_configuration_request() :: %{String.t() => any()}
+  @type get_bucket_inventory_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -995,7 +995,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type input_serialization() :: %{String.t() => any()}
+  @type input_serialization() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1004,39 +1004,39 @@ defmodule AWS.S3 do
       upload_part_request() :: %{
         optional("Body") => binary(),
         optional("ChecksumAlgorithm") => list(any()),
-        optional("ChecksumCRC32") => String.t(),
-        optional("ChecksumCRC32C") => String.t(),
-        optional("ChecksumCRC64NVME") => String.t(),
-        optional("ChecksumSHA1") => String.t(),
-        optional("ChecksumSHA256") => String.t(),
+        optional("ChecksumCRC32") => String.t() | Atom.t(),
+        optional("ChecksumCRC32C") => String.t() | Atom.t(),
+        optional("ChecksumCRC64NVME") => String.t() | Atom.t(),
+        optional("ChecksumSHA1") => String.t() | Atom.t(),
+        optional("ChecksumSHA256") => String.t() | Atom.t(),
         optional("ContentLength") => float(),
-        optional("ContentMD5") => String.t(),
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("ContentMD5") => String.t() | Atom.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
         optional("RequestPayer") => list(any()),
-        optional("SSECustomerAlgorithm") => String.t(),
-        optional("SSECustomerKey") => String.t(),
-        optional("SSECustomerKeyMD5") => String.t(),
+        optional("SSECustomerAlgorithm") => String.t() | Atom.t(),
+        optional("SSECustomerKey") => String.t() | Atom.t(),
+        optional("SSECustomerKeyMD5") => String.t() | Atom.t(),
         required("PartNumber") => integer(),
-        required("UploadId") => String.t()
+        required("UploadId") => String.t() | Atom.t()
       }
 
   """
-  @type upload_part_request() :: %{String.t() => any()}
+  @type upload_part_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       grantee() :: %{
-        "DisplayName" => String.t(),
-        "EmailAddress" => String.t(),
-        "ID" => String.t(),
+        "DisplayName" => String.t() | Atom.t(),
+        "EmailAddress" => String.t() | Atom.t(),
+        "ID" => String.t() | Atom.t(),
         "Type" => list(any()),
-        "URI" => String.t()
+        "URI" => String.t() | Atom.t()
       }
 
   """
-  @type grantee() :: %{String.t() => any()}
+  @type grantee() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1045,11 +1045,11 @@ defmodule AWS.S3 do
       get_bucket_metadata_table_configuration_result() :: %{
         "Error" => error_details(),
         "MetadataTableConfigurationResult" => metadata_table_configuration_result(),
-        "Status" => String.t()
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type get_bucket_metadata_table_configuration_result() :: %{String.t() => any()}
+  @type get_bucket_metadata_table_configuration_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1060,7 +1060,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type get_object_legal_hold_output() :: %{String.t() => any()}
+  @type get_object_legal_hold_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1068,13 +1068,13 @@ defmodule AWS.S3 do
 
       deleted_object() :: %{
         "DeleteMarker" => boolean(),
-        "DeleteMarkerVersionId" => String.t(),
-        "Key" => String.t(),
-        "VersionId" => String.t()
+        "DeleteMarkerVersionId" => String.t() | Atom.t(),
+        "Key" => String.t() | Atom.t(),
+        "VersionId" => String.t() | Atom.t()
       }
 
   """
-  @type deleted_object() :: %{String.t() => any()}
+  @type deleted_object() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1087,7 +1087,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type progress() :: %{String.t() => any()}
+  @type progress() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1116,7 +1116,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type get_bucket_inventory_configuration_output() :: %{String.t() => any()}
+  @type get_bucket_inventory_configuration_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1124,38 +1124,38 @@ defmodule AWS.S3 do
 
       put_object_output() :: %{
         "BucketKeyEnabled" => boolean(),
-        "ChecksumCRC32" => String.t(),
-        "ChecksumCRC32C" => String.t(),
-        "ChecksumCRC64NVME" => String.t(),
-        "ChecksumSHA1" => String.t(),
-        "ChecksumSHA256" => String.t(),
+        "ChecksumCRC32" => String.t() | Atom.t(),
+        "ChecksumCRC32C" => String.t() | Atom.t(),
+        "ChecksumCRC64NVME" => String.t() | Atom.t(),
+        "ChecksumSHA1" => String.t() | Atom.t(),
+        "ChecksumSHA256" => String.t() | Atom.t(),
         "ChecksumType" => list(any()),
-        "ETag" => String.t(),
-        "Expiration" => String.t(),
+        "ETag" => String.t() | Atom.t(),
+        "Expiration" => String.t() | Atom.t(),
         "RequestCharged" => list(any()),
-        "SSECustomerAlgorithm" => String.t(),
-        "SSECustomerKeyMD5" => String.t(),
-        "SSEKMSEncryptionContext" => String.t(),
-        "SSEKMSKeyId" => String.t(),
+        "SSECustomerAlgorithm" => String.t() | Atom.t(),
+        "SSECustomerKeyMD5" => String.t() | Atom.t(),
+        "SSEKMSEncryptionContext" => String.t() | Atom.t(),
+        "SSEKMSKeyId" => String.t() | Atom.t(),
         "ServerSideEncryption" => list(any()),
         "Size" => float(),
-        "VersionId" => String.t()
+        "VersionId" => String.t() | Atom.t()
       }
 
   """
-  @type put_object_output() :: %{String.t() => any()}
+  @type put_object_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_bucket_analytics_configurations_request() :: %{
-        optional("ContinuationToken") => String.t(),
-        optional("ExpectedBucketOwner") => String.t()
+        optional("ContinuationToken") => String.t() | Atom.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t()
       }
 
   """
-  @type list_bucket_analytics_configurations_request() :: %{String.t() => any()}
+  @type list_bucket_analytics_configurations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1164,23 +1164,23 @@ defmodule AWS.S3 do
       topic_configuration() :: %{
         "Events" => list(list(any())()),
         "Filter" => notification_configuration_filter(),
-        "Id" => String.t(),
-        "TopicArn" => String.t()
+        "Id" => String.t() | Atom.t(),
+        "TopicArn" => String.t() | Atom.t()
       }
 
   """
-  @type topic_configuration() :: %{String.t() => any()}
+  @type topic_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_bucket_versioning_request() :: %{
-        optional("ExpectedBucketOwner") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t()
       }
 
   """
-  @type get_bucket_versioning_request() :: %{String.t() => any()}
+  @type get_bucket_versioning_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1189,22 +1189,22 @@ defmodule AWS.S3 do
       list_object_versions_output() :: %{
         "CommonPrefixes" => list(common_prefix()),
         "DeleteMarkers" => list(delete_marker_entry()),
-        "Delimiter" => String.t(),
+        "Delimiter" => String.t() | Atom.t(),
         "EncodingType" => list(any()),
         "IsTruncated" => boolean(),
-        "KeyMarker" => String.t(),
+        "KeyMarker" => String.t() | Atom.t(),
         "MaxKeys" => integer(),
-        "Name" => String.t(),
-        "NextKeyMarker" => String.t(),
-        "NextVersionIdMarker" => String.t(),
-        "Prefix" => String.t(),
+        "Name" => String.t() | Atom.t(),
+        "NextKeyMarker" => String.t() | Atom.t(),
+        "NextVersionIdMarker" => String.t() | Atom.t(),
+        "Prefix" => String.t() | Atom.t(),
         "RequestCharged" => list(any()),
-        "VersionIdMarker" => String.t(),
+        "VersionIdMarker" => String.t() | Atom.t(),
         "Versions" => list(object_version())
       }
 
   """
-  @type list_object_versions_output() :: %{String.t() => any()}
+  @type list_object_versions_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1216,7 +1216,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type get_bucket_lifecycle_configuration_output() :: %{String.t() => any()}
+  @type get_bucket_lifecycle_configuration_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1227,7 +1227,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type sse_kms_encrypted_objects() :: %{String.t() => any()}
+  @type sse_kms_encrypted_objects() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1238,7 +1238,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type get_bucket_policy_status_output() :: %{String.t() => any()}
+  @type get_bucket_policy_status_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1246,23 +1246,23 @@ defmodule AWS.S3 do
 
       create_multipart_upload_output() :: %{
         "AbortDate" => non_neg_integer(),
-        "AbortRuleId" => String.t(),
-        "Bucket" => String.t(),
+        "AbortRuleId" => String.t() | Atom.t(),
+        "Bucket" => String.t() | Atom.t(),
         "BucketKeyEnabled" => boolean(),
         "ChecksumAlgorithm" => list(any()),
         "ChecksumType" => list(any()),
-        "Key" => String.t(),
+        "Key" => String.t() | Atom.t(),
         "RequestCharged" => list(any()),
-        "SSECustomerAlgorithm" => String.t(),
-        "SSECustomerKeyMD5" => String.t(),
-        "SSEKMSEncryptionContext" => String.t(),
-        "SSEKMSKeyId" => String.t(),
+        "SSECustomerAlgorithm" => String.t() | Atom.t(),
+        "SSECustomerKeyMD5" => String.t() | Atom.t(),
+        "SSEKMSEncryptionContext" => String.t() | Atom.t(),
+        "SSEKMSKeyId" => String.t() | Atom.t(),
         "ServerSideEncryption" => list(any()),
-        "UploadId" => String.t()
+        "UploadId" => String.t() | Atom.t()
       }
 
   """
-  @type create_multipart_upload_output() :: %{String.t() => any()}
+  @type create_multipart_upload_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1274,7 +1274,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type get_bucket_acl_output() :: %{String.t() => any()}
+  @type get_bucket_acl_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1285,30 +1285,30 @@ defmodule AWS.S3 do
       }
 
   """
-  @type object_lock_rule() :: %{String.t() => any()}
+  @type object_lock_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       location_info() :: %{
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Type" => list(any())
       }
 
   """
-  @type location_info() :: %{String.t() => any()}
+  @type location_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_bucket_ownership_controls_request() :: %{
-        optional("ExpectedBucketOwner") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t()
       }
 
   """
-  @type delete_bucket_ownership_controls_request() :: %{String.t() => any()}
+  @type delete_bucket_ownership_controls_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1319,7 +1319,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type get_bucket_location_output() :: %{String.t() => any()}
+  @type get_bucket_location_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1327,38 +1327,38 @@ defmodule AWS.S3 do
 
       replication_rule_filter() :: %{
         "And" => replication_rule_and_operator(),
-        "Prefix" => String.t(),
+        "Prefix" => String.t() | Atom.t(),
         "Tag" => tag()
       }
 
   """
-  @type replication_rule_filter() :: %{String.t() => any()}
+  @type replication_rule_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_bucket_inventory_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t(),
-        required("Id") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
+        required("Id") => String.t() | Atom.t()
       }
 
   """
-  @type delete_bucket_inventory_configuration_request() :: %{String.t() => any()}
+  @type delete_bucket_inventory_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       logging_enabled() :: %{
-        "TargetBucket" => String.t(),
+        "TargetBucket" => String.t() | Atom.t(),
         "TargetGrants" => list(target_grant()),
         "TargetObjectKeyFormat" => target_object_key_format(),
-        "TargetPrefix" => String.t()
+        "TargetPrefix" => String.t() | Atom.t()
       }
 
   """
-  @type logging_enabled() :: %{String.t() => any()}
+  @type logging_enabled() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1366,40 +1366,40 @@ defmodule AWS.S3 do
 
       delete_marker_entry() :: %{
         "IsLatest" => boolean(),
-        "Key" => String.t(),
+        "Key" => String.t() | Atom.t(),
         "LastModified" => non_neg_integer(),
         "Owner" => owner(),
-        "VersionId" => String.t()
+        "VersionId" => String.t() | Atom.t()
       }
 
   """
-  @type delete_marker_entry() :: %{String.t() => any()}
+  @type delete_marker_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_tables_destination() :: %{
-        "TableBucketArn" => String.t(),
-        "TableName" => String.t()
+        "TableBucketArn" => String.t() | Atom.t(),
+        "TableName" => String.t() | Atom.t()
       }
 
   """
-  @type s3_tables_destination() :: %{String.t() => any()}
+  @type s3_tables_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       select_parameters() :: %{
-        "Expression" => String.t(),
+        "Expression" => String.t() | Atom.t(),
         "ExpressionType" => list(any()),
         "InputSerialization" => input_serialization(),
         "OutputSerialization" => output_serialization()
       }
 
   """
-  @type select_parameters() :: %{String.t() => any()}
+  @type select_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1415,78 +1415,78 @@ defmodule AWS.S3 do
   ## Example:
 
       delete_bucket_policy_request() :: %{
-        optional("ExpectedBucketOwner") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t()
       }
 
   """
-  @type delete_bucket_policy_request() :: %{String.t() => any()}
+  @type delete_bucket_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_multipart_uploads_request() :: %{
-        optional("Delimiter") => String.t(),
+        optional("Delimiter") => String.t() | Atom.t(),
         optional("EncodingType") => list(any()),
-        optional("ExpectedBucketOwner") => String.t(),
-        optional("KeyMarker") => String.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
+        optional("KeyMarker") => String.t() | Atom.t(),
         optional("MaxUploads") => integer(),
-        optional("Prefix") => String.t(),
+        optional("Prefix") => String.t() | Atom.t(),
         optional("RequestPayer") => list(any()),
-        optional("UploadIdMarker") => String.t()
+        optional("UploadIdMarker") => String.t() | Atom.t()
       }
 
   """
-  @type list_multipart_uploads_request() :: %{String.t() => any()}
+  @type list_multipart_uploads_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_object_request() :: %{
-        optional("GrantRead") => String.t(),
-        optional("IfNoneMatch") => String.t(),
-        optional("ChecksumCRC32C") => String.t(),
+        optional("GrantRead") => String.t() | Atom.t(),
+        optional("IfNoneMatch") => String.t() | Atom.t(),
+        optional("ChecksumCRC32C") => String.t() | Atom.t(),
         optional("Expires") => non_neg_integer(),
         optional("Body") => binary(),
-        optional("GrantFullControl") => String.t(),
-        optional("ChecksumSHA256") => String.t(),
+        optional("GrantFullControl") => String.t() | Atom.t(),
+        optional("ChecksumSHA256") => String.t() | Atom.t(),
         optional("Metadata") => map(),
-        optional("SSECustomerAlgorithm") => String.t(),
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("SSECustomerAlgorithm") => String.t() | Atom.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
         optional("ACL") => list(any()),
-        optional("WebsiteRedirectLocation") => String.t(),
+        optional("WebsiteRedirectLocation") => String.t() | Atom.t(),
         optional("BucketKeyEnabled") => boolean(),
-        optional("SSECustomerKeyMD5") => String.t(),
-        optional("ContentDisposition") => String.t(),
-        optional("ChecksumCRC64NVME") => String.t(),
-        optional("ChecksumSHA1") => String.t(),
-        optional("ContentLanguage") => String.t(),
-        optional("IfMatch") => String.t(),
-        optional("GrantReadACP") => String.t(),
+        optional("SSECustomerKeyMD5") => String.t() | Atom.t(),
+        optional("ContentDisposition") => String.t() | Atom.t(),
+        optional("ChecksumCRC64NVME") => String.t() | Atom.t(),
+        optional("ChecksumSHA1") => String.t() | Atom.t(),
+        optional("ContentLanguage") => String.t() | Atom.t(),
+        optional("IfMatch") => String.t() | Atom.t(),
+        optional("GrantReadACP") => String.t() | Atom.t(),
         optional("ChecksumAlgorithm") => list(any()),
         optional("ServerSideEncryption") => list(any()),
-        optional("ContentEncoding") => String.t(),
+        optional("ContentEncoding") => String.t() | Atom.t(),
         optional("ObjectLockRetainUntilDate") => non_neg_integer(),
-        optional("GrantWriteACP") => String.t(),
-        optional("ContentType") => String.t(),
+        optional("GrantWriteACP") => String.t() | Atom.t(),
+        optional("ContentType") => String.t() | Atom.t(),
         optional("WriteOffsetBytes") => float(),
         optional("RequestPayer") => list(any()),
-        optional("ChecksumCRC32") => String.t(),
+        optional("ChecksumCRC32") => String.t() | Atom.t(),
         optional("ContentLength") => float(),
-        optional("ContentMD5") => String.t(),
-        optional("CacheControl") => String.t(),
-        optional("Tagging") => String.t(),
+        optional("ContentMD5") => String.t() | Atom.t(),
+        optional("CacheControl") => String.t() | Atom.t(),
+        optional("Tagging") => String.t() | Atom.t(),
         optional("ObjectLockLegalHoldStatus") => list(any()),
-        optional("SSEKMSEncryptionContext") => String.t(),
+        optional("SSEKMSEncryptionContext") => String.t() | Atom.t(),
         optional("StorageClass") => list(any()),
-        optional("SSEKMSKeyId") => String.t(),
+        optional("SSEKMSKeyId") => String.t() | Atom.t(),
         optional("ObjectLockMode") => list(any()),
-        optional("SSECustomerKey") => String.t()
+        optional("SSECustomerKey") => String.t() | Atom.t()
       }
 
   """
-  @type put_object_request() :: %{String.t() => any()}
+  @type put_object_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1495,19 +1495,19 @@ defmodule AWS.S3 do
       object_version() :: %{
         "ChecksumAlgorithm" => list(list(any())()),
         "ChecksumType" => list(any()),
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "IsLatest" => boolean(),
-        "Key" => String.t(),
+        "Key" => String.t() | Atom.t(),
         "LastModified" => non_neg_integer(),
         "Owner" => owner(),
         "RestoreStatus" => restore_status(),
         "Size" => float(),
         "StorageClass" => list(any()),
-        "VersionId" => String.t()
+        "VersionId" => String.t() | Atom.t()
       }
 
   """
-  @type object_version() :: %{String.t() => any()}
+  @type object_version() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1519,7 +1519,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type noncurrent_version_expiration() :: %{String.t() => any()}
+  @type noncurrent_version_expiration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1535,51 +1535,51 @@ defmodule AWS.S3 do
   ## Example:
 
       s3_tables_destination_result() :: %{
-        "TableArn" => String.t(),
-        "TableBucketArn" => String.t(),
-        "TableName" => String.t(),
-        "TableNamespace" => String.t()
+        "TableArn" => String.t() | Atom.t(),
+        "TableBucketArn" => String.t() | Atom.t(),
+        "TableName" => String.t() | Atom.t(),
+        "TableNamespace" => String.t() | Atom.t()
       }
 
   """
-  @type s3_tables_destination_result() :: %{String.t() => any()}
+  @type s3_tables_destination_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_object_legal_hold_request() :: %{
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
         optional("RequestPayer") => list(any()),
-        optional("VersionId") => String.t()
+        optional("VersionId") => String.t() | Atom.t()
       }
 
   """
-  @type get_object_legal_hold_request() :: %{String.t() => any()}
+  @type get_object_legal_hold_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_bucket_request() :: %{
-        optional("ExpectedBucketOwner") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t()
       }
 
   """
-  @type delete_bucket_request() :: %{String.t() => any()}
+  @type delete_bucket_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_bucket_notification_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
         optional("SkipDestinationValidation") => boolean(),
         required("NotificationConfiguration") => notification_configuration()
       }
 
   """
-  @type put_bucket_notification_configuration_request() :: %{String.t() => any()}
+  @type put_bucket_notification_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1591,7 +1591,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type scan_range() :: %{String.t() => any()}
+  @type scan_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1599,27 +1599,27 @@ defmodule AWS.S3 do
 
       put_object_legal_hold_request() :: %{
         optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t(),
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("ContentMD5") => String.t() | Atom.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
         optional("LegalHold") => object_lock_legal_hold(),
         optional("RequestPayer") => list(any()),
-        optional("VersionId") => String.t()
+        optional("VersionId") => String.t() | Atom.t()
       }
 
   """
-  @type put_object_legal_hold_request() :: %{String.t() => any()}
+  @type put_object_legal_hold_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_bucket_analytics_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t(),
-        required("Id") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
+        required("Id") => String.t() | Atom.t()
       }
 
   """
-  @type get_bucket_analytics_configuration_request() :: %{String.t() => any()}
+  @type get_bucket_analytics_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1627,11 +1627,11 @@ defmodule AWS.S3 do
 
       restore_object_output() :: %{
         "RequestCharged" => list(any()),
-        "RestoreOutputPath" => String.t()
+        "RestoreOutputPath" => String.t() | Atom.t()
       }
 
   """
-  @type restore_object_output() :: %{String.t() => any()}
+  @type restore_object_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1639,14 +1639,14 @@ defmodule AWS.S3 do
 
       create_session_request() :: %{
         optional("BucketKeyEnabled") => boolean(),
-        optional("SSEKMSEncryptionContext") => String.t(),
-        optional("SSEKMSKeyId") => String.t(),
+        optional("SSEKMSEncryptionContext") => String.t() | Atom.t(),
+        optional("SSEKMSKeyId") => String.t() | Atom.t(),
         optional("ServerSideEncryption") => list(any()),
         optional("SessionMode") => list(any())
       }
 
   """
-  @type create_session_request() :: %{String.t() => any()}
+  @type create_session_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1657,7 +1657,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type json_input() :: %{String.t() => any()}
+  @type json_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1669,7 +1669,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type metrics() :: %{String.t() => any()}
+  @type metrics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1680,18 +1680,18 @@ defmodule AWS.S3 do
       }
 
   """
-  @type replica_modifications() :: %{String.t() => any()}
+  @type replica_modifications() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_bucket_encryption_request() :: %{
-        optional("ExpectedBucketOwner") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t()
       }
 
   """
-  @type get_bucket_encryption_request() :: %{String.t() => any()}
+  @type get_bucket_encryption_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1702,34 +1702,34 @@ defmodule AWS.S3 do
       }
 
   """
-  @type replication_time_value() :: %{String.t() => any()}
+  @type replication_time_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       upload_part_copy_request() :: %{
-        optional("CopySourceIfMatch") => String.t(),
+        optional("CopySourceIfMatch") => String.t() | Atom.t(),
         optional("CopySourceIfModifiedSince") => non_neg_integer(),
-        optional("CopySourceIfNoneMatch") => String.t(),
+        optional("CopySourceIfNoneMatch") => String.t() | Atom.t(),
         optional("CopySourceIfUnmodifiedSince") => non_neg_integer(),
-        optional("CopySourceRange") => String.t(),
-        optional("CopySourceSSECustomerAlgorithm") => String.t(),
-        optional("CopySourceSSECustomerKey") => String.t(),
-        optional("CopySourceSSECustomerKeyMD5") => String.t(),
-        optional("ExpectedBucketOwner") => String.t(),
-        optional("ExpectedSourceBucketOwner") => String.t(),
+        optional("CopySourceRange") => String.t() | Atom.t(),
+        optional("CopySourceSSECustomerAlgorithm") => String.t() | Atom.t(),
+        optional("CopySourceSSECustomerKey") => String.t() | Atom.t(),
+        optional("CopySourceSSECustomerKeyMD5") => String.t() | Atom.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
+        optional("ExpectedSourceBucketOwner") => String.t() | Atom.t(),
         optional("RequestPayer") => list(any()),
-        optional("SSECustomerAlgorithm") => String.t(),
-        optional("SSECustomerKey") => String.t(),
-        optional("SSECustomerKeyMD5") => String.t(),
-        required("CopySource") => String.t(),
+        optional("SSECustomerAlgorithm") => String.t() | Atom.t(),
+        optional("SSECustomerKey") => String.t() | Atom.t(),
+        optional("SSECustomerKeyMD5") => String.t() | Atom.t(),
+        required("CopySource") => String.t() | Atom.t(),
         required("PartNumber") => integer(),
-        required("UploadId") => String.t()
+        required("UploadId") => String.t() | Atom.t()
       }
 
   """
-  @type upload_part_copy_request() :: %{String.t() => any()}
+  @type upload_part_copy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1740,7 +1740,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type policy_status() :: %{String.t() => any()}
+  @type policy_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1751,18 +1751,18 @@ defmodule AWS.S3 do
       }
 
   """
-  @type metadata_table_configuration() :: %{String.t() => any()}
+  @type metadata_table_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_bucket_replication_request() :: %{
-        optional("ExpectedBucketOwner") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t()
       }
 
   """
-  @type get_bucket_replication_request() :: %{String.t() => any()}
+  @type get_bucket_replication_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1770,25 +1770,25 @@ defmodule AWS.S3 do
 
       list_bucket_analytics_configurations_output() :: %{
         "AnalyticsConfigurationList" => list(analytics_configuration()),
-        "ContinuationToken" => String.t(),
+        "ContinuationToken" => String.t() | Atom.t(),
         "IsTruncated" => boolean(),
-        "NextContinuationToken" => String.t()
+        "NextContinuationToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_bucket_analytics_configurations_output() :: %{String.t() => any()}
+  @type list_bucket_analytics_configurations_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       replication_configuration() :: %{
-        "Role" => String.t(),
+        "Role" => String.t() | Atom.t(),
         "Rules" => list(replication_rule())
       }
 
   """
-  @type replication_configuration() :: %{String.t() => any()}
+  @type replication_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1799,34 +1799,34 @@ defmodule AWS.S3 do
       }
 
   """
-  @type get_bucket_tagging_output() :: %{String.t() => any()}
+  @type get_bucket_tagging_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       object_identifier() :: %{
-        "ETag" => String.t(),
-        "Key" => String.t(),
+        "ETag" => String.t() | Atom.t(),
+        "Key" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
         "Size" => float(),
-        "VersionId" => String.t()
+        "VersionId" => String.t() | Atom.t()
       }
 
   """
-  @type object_identifier() :: %{String.t() => any()}
+  @type object_identifier() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       intelligent_tiering_and_operator() :: %{
-        "Prefix" => String.t(),
+        "Prefix" => String.t() | Atom.t(),
         "Tags" => list(tag())
       }
 
   """
-  @type intelligent_tiering_and_operator() :: %{String.t() => any()}
+  @type intelligent_tiering_and_operator() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1837,7 +1837,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type metadata_table_configuration_result() :: %{String.t() => any()}
+  @type metadata_table_configuration_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1846,53 +1846,56 @@ defmodule AWS.S3 do
       copy_object_output() :: %{
         "BucketKeyEnabled" => boolean(),
         "CopyObjectResult" => copy_object_result(),
-        "CopySourceVersionId" => String.t(),
-        "Expiration" => String.t(),
+        "CopySourceVersionId" => String.t() | Atom.t(),
+        "Expiration" => String.t() | Atom.t(),
         "RequestCharged" => list(any()),
-        "SSECustomerAlgorithm" => String.t(),
-        "SSECustomerKeyMD5" => String.t(),
-        "SSEKMSEncryptionContext" => String.t(),
-        "SSEKMSKeyId" => String.t(),
+        "SSECustomerAlgorithm" => String.t() | Atom.t(),
+        "SSECustomerKeyMD5" => String.t() | Atom.t(),
+        "SSEKMSEncryptionContext" => String.t() | Atom.t(),
+        "SSEKMSKeyId" => String.t() | Atom.t(),
         "ServerSideEncryption" => list(any()),
-        "VersionId" => String.t()
+        "VersionId" => String.t() | Atom.t()
       }
 
   """
-  @type copy_object_output() :: %{String.t() => any()}
+  @type copy_object_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_bucket_website_request() :: %{
-        optional("ExpectedBucketOwner") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t()
       }
 
   """
-  @type get_bucket_website_request() :: %{String.t() => any()}
+  @type get_bucket_website_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       json_output() :: %{
-        "RecordDelimiter" => String.t()
+        "RecordDelimiter" => String.t() | Atom.t()
       }
 
   """
-  @type json_output() :: %{String.t() => any()}
+  @type json_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_bucket_intelligent_tiering_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t(),
-        required("Id") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
+        required("Id") => String.t() | Atom.t()
       }
 
   """
-  @type get_bucket_intelligent_tiering_configuration_request() :: %{String.t() => any()}
+  @type get_bucket_intelligent_tiering_configuration_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1904,7 +1907,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type grant() :: %{String.t() => any()}
+  @type grant() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1915,7 +1918,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type notification_configuration_filter() :: %{String.t() => any()}
+  @type notification_configuration_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1924,13 +1927,13 @@ defmodule AWS.S3 do
       create_session_output() :: %{
         "BucketKeyEnabled" => boolean(),
         "Credentials" => session_credentials(),
-        "SSEKMSEncryptionContext" => String.t(),
-        "SSEKMSKeyId" => String.t(),
+        "SSEKMSEncryptionContext" => String.t() | Atom.t(),
+        "SSEKMSKeyId" => String.t() | Atom.t(),
         "ServerSideEncryption" => list(any())
       }
 
   """
-  @type create_session_output() :: %{String.t() => any()}
+  @type create_session_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1946,12 +1949,12 @@ defmodule AWS.S3 do
   ## Example:
 
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1959,11 +1962,11 @@ defmodule AWS.S3 do
 
       get_object_tagging_output() :: %{
         "TagSet" => list(tag()),
-        "VersionId" => String.t()
+        "VersionId" => String.t() | Atom.t()
       }
 
   """
-  @type get_object_tagging_output() :: %{String.t() => any()}
+  @type get_object_tagging_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1972,17 +1975,17 @@ defmodule AWS.S3 do
       get_object_attributes_output() :: %{
         "Checksum" => checksum(),
         "DeleteMarker" => boolean(),
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "LastModified" => non_neg_integer(),
         "ObjectParts" => get_object_attributes_parts(),
         "ObjectSize" => float(),
         "RequestCharged" => list(any()),
         "StorageClass" => list(any()),
-        "VersionId" => String.t()
+        "VersionId" => String.t() | Atom.t()
       }
 
   """
-  @type get_object_attributes_output() :: %{String.t() => any()}
+  @type get_object_attributes_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1993,7 +1996,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type get_bucket_encryption_output() :: %{String.t() => any()}
+  @type get_bucket_encryption_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2004,7 +2007,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type get_bucket_cors_output() :: %{String.t() => any()}
+  @type get_bucket_cors_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2017,7 +2020,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type noncurrent_version_transition() :: %{String.t() => any()}
+  @type noncurrent_version_transition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2029,18 +2032,18 @@ defmodule AWS.S3 do
       }
 
   """
-  @type bucket_info() :: %{String.t() => any()}
+  @type bucket_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_object_tagging_output() :: %{
-        "VersionId" => String.t()
+        "VersionId" => String.t() | Atom.t()
       }
 
   """
-  @type delete_object_tagging_output() :: %{String.t() => any()}
+  @type delete_object_tagging_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2051,7 +2054,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type abort_multipart_upload_output() :: %{String.t() => any()}
+  @type abort_multipart_upload_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2062,7 +2065,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type select_object_content_output() :: %{String.t() => any()}
+  @type select_object_content_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2072,24 +2075,27 @@ defmodule AWS.S3 do
         "And" => lifecycle_rule_and_operator(),
         "ObjectSizeGreaterThan" => float(),
         "ObjectSizeLessThan" => float(),
-        "Prefix" => String.t(),
+        "Prefix" => String.t() | Atom.t(),
         "Tag" => tag()
       }
 
   """
-  @type lifecycle_rule_filter() :: %{String.t() => any()}
+  @type lifecycle_rule_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_bucket_intelligent_tiering_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t(),
-        required("Id") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
+        required("Id") => String.t() | Atom.t()
       }
 
   """
-  @type delete_bucket_intelligent_tiering_configuration_request() :: %{String.t() => any()}
+  @type delete_bucket_intelligent_tiering_configuration_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -2100,7 +2106,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type put_bucket_lifecycle_configuration_output() :: %{String.t() => any()}
+  @type put_bucket_lifecycle_configuration_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2109,37 +2115,37 @@ defmodule AWS.S3 do
       create_multipart_upload_request() :: %{
         optional("ACL") => list(any()),
         optional("BucketKeyEnabled") => boolean(),
-        optional("CacheControl") => String.t(),
+        optional("CacheControl") => String.t() | Atom.t(),
         optional("ChecksumAlgorithm") => list(any()),
         optional("ChecksumType") => list(any()),
-        optional("ContentDisposition") => String.t(),
-        optional("ContentEncoding") => String.t(),
-        optional("ContentLanguage") => String.t(),
-        optional("ContentType") => String.t(),
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("ContentDisposition") => String.t() | Atom.t(),
+        optional("ContentEncoding") => String.t() | Atom.t(),
+        optional("ContentLanguage") => String.t() | Atom.t(),
+        optional("ContentType") => String.t() | Atom.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
         optional("Expires") => non_neg_integer(),
-        optional("GrantFullControl") => String.t(),
-        optional("GrantRead") => String.t(),
-        optional("GrantReadACP") => String.t(),
-        optional("GrantWriteACP") => String.t(),
+        optional("GrantFullControl") => String.t() | Atom.t(),
+        optional("GrantRead") => String.t() | Atom.t(),
+        optional("GrantReadACP") => String.t() | Atom.t(),
+        optional("GrantWriteACP") => String.t() | Atom.t(),
         optional("Metadata") => map(),
         optional("ObjectLockLegalHoldStatus") => list(any()),
         optional("ObjectLockMode") => list(any()),
         optional("ObjectLockRetainUntilDate") => non_neg_integer(),
         optional("RequestPayer") => list(any()),
-        optional("SSECustomerAlgorithm") => String.t(),
-        optional("SSECustomerKey") => String.t(),
-        optional("SSECustomerKeyMD5") => String.t(),
-        optional("SSEKMSEncryptionContext") => String.t(),
-        optional("SSEKMSKeyId") => String.t(),
+        optional("SSECustomerAlgorithm") => String.t() | Atom.t(),
+        optional("SSECustomerKey") => String.t() | Atom.t(),
+        optional("SSECustomerKeyMD5") => String.t() | Atom.t(),
+        optional("SSEKMSEncryptionContext") => String.t() | Atom.t(),
+        optional("SSEKMSKeyId") => String.t() | Atom.t(),
         optional("ServerSideEncryption") => list(any()),
         optional("StorageClass") => list(any()),
-        optional("Tagging") => String.t(),
-        optional("WebsiteRedirectLocation") => String.t()
+        optional("Tagging") => String.t() | Atom.t(),
+        optional("WebsiteRedirectLocation") => String.t() | Atom.t()
       }
 
   """
-  @type create_multipart_upload_request() :: %{String.t() => any()}
+  @type create_multipart_upload_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2147,16 +2153,16 @@ defmodule AWS.S3 do
 
       csv_input() :: %{
         "AllowQuotedRecordDelimiter" => boolean(),
-        "Comments" => String.t(),
-        "FieldDelimiter" => String.t(),
+        "Comments" => String.t() | Atom.t(),
+        "FieldDelimiter" => String.t() | Atom.t(),
         "FileHeaderInfo" => list(any()),
-        "QuoteCharacter" => String.t(),
-        "QuoteEscapeCharacter" => String.t(),
-        "RecordDelimiter" => String.t()
+        "QuoteCharacter" => String.t() | Atom.t(),
+        "QuoteEscapeCharacter" => String.t() | Atom.t(),
+        "RecordDelimiter" => String.t() | Atom.t()
       }
 
   """
-  @type csv_input() :: %{String.t() => any()}
+  @type csv_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2169,7 +2175,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type stats() :: %{String.t() => any()}
+  @type stats() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2177,13 +2183,13 @@ defmodule AWS.S3 do
 
       list_buckets_output() :: %{
         "Buckets" => list(bucket()),
-        "ContinuationToken" => String.t(),
+        "ContinuationToken" => String.t() | Atom.t(),
         "Owner" => owner(),
-        "Prefix" => String.t()
+        "Prefix" => String.t() | Atom.t()
       }
 
   """
-  @type list_buckets_output() :: %{String.t() => any()}
+  @type list_buckets_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2197,7 +2203,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type create_bucket_configuration() :: %{String.t() => any()}
+  @type create_bucket_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2218,84 +2224,87 @@ defmodule AWS.S3 do
       }
 
   """
-  @type server_side_encryption_rule() :: %{String.t() => any()}
+  @type server_side_encryption_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_bucket_intelligent_tiering_configurations_output() :: %{
-        "ContinuationToken" => String.t(),
+        "ContinuationToken" => String.t() | Atom.t(),
         "IntelligentTieringConfigurationList" => list(intelligent_tiering_configuration()),
         "IsTruncated" => boolean(),
-        "NextContinuationToken" => String.t()
+        "NextContinuationToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_bucket_intelligent_tiering_configurations_output() :: %{String.t() => any()}
+  @type list_bucket_intelligent_tiering_configurations_output() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       initiator() :: %{
-        "DisplayName" => String.t(),
-        "ID" => String.t()
+        "DisplayName" => String.t() | Atom.t(),
+        "ID" => String.t() | Atom.t()
       }
 
   """
-  @type initiator() :: %{String.t() => any()}
+  @type initiator() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       select_object_content_request() :: %{
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
         optional("RequestProgress") => request_progress(),
-        optional("SSECustomerAlgorithm") => String.t(),
-        optional("SSECustomerKey") => String.t(),
-        optional("SSECustomerKeyMD5") => String.t(),
+        optional("SSECustomerAlgorithm") => String.t() | Atom.t(),
+        optional("SSECustomerKey") => String.t() | Atom.t(),
+        optional("SSECustomerKeyMD5") => String.t() | Atom.t(),
         optional("ScanRange") => scan_range(),
-        required("Expression") => String.t(),
+        required("Expression") => String.t() | Atom.t(),
         required("ExpressionType") => list(any()),
         required("InputSerialization") => input_serialization(),
         required("OutputSerialization") => output_serialization()
       }
 
   """
-  @type select_object_content_request() :: %{String.t() => any()}
+  @type select_object_content_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       completed_part() :: %{
-        "ChecksumCRC32" => String.t(),
-        "ChecksumCRC32C" => String.t(),
-        "ChecksumCRC64NVME" => String.t(),
-        "ChecksumSHA1" => String.t(),
-        "ChecksumSHA256" => String.t(),
-        "ETag" => String.t(),
+        "ChecksumCRC32" => String.t() | Atom.t(),
+        "ChecksumCRC32C" => String.t() | Atom.t(),
+        "ChecksumCRC64NVME" => String.t() | Atom.t(),
+        "ChecksumSHA1" => String.t() | Atom.t(),
+        "ChecksumSHA256" => String.t() | Atom.t(),
+        "ETag" => String.t() | Atom.t(),
         "PartNumber" => integer()
       }
 
   """
-  @type completed_part() :: %{String.t() => any()}
+  @type completed_part() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       analytics_s3_bucket_destination() :: %{
-        "Bucket" => String.t(),
-        "BucketAccountId" => String.t(),
+        "Bucket" => String.t() | Atom.t(),
+        "BucketAccountId" => String.t() | Atom.t(),
         "Format" => list(any()),
-        "Prefix" => String.t()
+        "Prefix" => String.t() | Atom.t()
       }
 
   """
-  @type analytics_s3_bucket_destination() :: %{String.t() => any()}
+  @type analytics_s3_bucket_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2303,23 +2312,23 @@ defmodule AWS.S3 do
 
       encryption() :: %{
         "EncryptionType" => list(any()),
-        "KMSContext" => String.t(),
-        "KMSKeyId" => String.t()
+        "KMSContext" => String.t() | Atom.t(),
+        "KMSKeyId" => String.t() | Atom.t()
       }
 
   """
-  @type encryption() :: %{String.t() => any()}
+  @type encryption() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_bucket_encryption_request() :: %{
-        optional("ExpectedBucketOwner") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t()
       }
 
   """
-  @type delete_bucket_encryption_request() :: %{String.t() => any()}
+  @type delete_bucket_encryption_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2339,19 +2348,19 @@ defmodule AWS.S3 do
       }
 
   """
-  @type s3_key_filter() :: %{String.t() => any()}
+  @type s3_key_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_bucket_metrics_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t(),
-        required("Id") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
+        required("Id") => String.t() | Atom.t()
       }
 
   """
-  @type delete_bucket_metrics_configuration_request() :: %{String.t() => any()}
+  @type delete_bucket_metrics_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2359,25 +2368,25 @@ defmodule AWS.S3 do
 
       intelligent_tiering_configuration() :: %{
         "Filter" => intelligent_tiering_filter(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "Status" => list(any()),
         "Tierings" => list(tiering())
       }
 
   """
-  @type intelligent_tiering_configuration() :: %{String.t() => any()}
+  @type intelligent_tiering_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       redirect_all_requests_to() :: %{
-        "HostName" => String.t(),
+        "HostName" => String.t() | Atom.t(),
         "Protocol" => list(any())
       }
 
   """
-  @type redirect_all_requests_to() :: %{String.t() => any()}
+  @type redirect_all_requests_to() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2388,7 +2397,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type tagging() :: %{String.t() => any()}
+  @type tagging() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2399,19 +2408,19 @@ defmodule AWS.S3 do
       }
 
   """
-  @type request_payment_configuration() :: %{String.t() => any()}
+  @type request_payment_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       error_details() :: %{
-        "ErrorCode" => String.t(),
-        "ErrorMessage" => String.t()
+        "ErrorCode" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | Atom.t()
       }
 
   """
-  @type error_details() :: %{String.t() => any()}
+  @type error_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2422,7 +2431,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type access_control_translation() :: %{String.t() => any()}
+  @type access_control_translation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2430,25 +2439,25 @@ defmodule AWS.S3 do
 
       put_bucket_request_payment_request() :: %{
         optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t(),
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("ContentMD5") => String.t() | Atom.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
         required("RequestPaymentConfiguration") => request_payment_configuration()
       }
 
   """
-  @type put_bucket_request_payment_request() :: %{String.t() => any()}
+  @type put_bucket_request_payment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       server_side_encryption_by_default() :: %{
-        "KMSMasterKeyID" => String.t(),
+        "KMSMasterKeyID" => String.t() | Atom.t(),
         "SSEAlgorithm" => list(any())
       }
 
   """
-  @type server_side_encryption_by_default() :: %{String.t() => any()}
+  @type server_side_encryption_by_default() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2471,7 +2480,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type website_configuration() :: %{String.t() => any()}
+  @type website_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2482,7 +2491,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type output_location() :: %{String.t() => any()}
+  @type output_location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2494,7 +2503,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type target_object_key_format() :: %{String.t() => any()}
+  @type target_object_key_format() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2505,7 +2514,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type storage_class_analysis() :: %{String.t() => any()}
+  @type storage_class_analysis() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2514,14 +2523,14 @@ defmodule AWS.S3 do
       get_object_attributes_parts() :: %{
         "IsTruncated" => boolean(),
         "MaxParts" => integer(),
-        "NextPartNumberMarker" => String.t(),
-        "PartNumberMarker" => String.t(),
+        "NextPartNumberMarker" => String.t() | Atom.t(),
+        "PartNumberMarker" => String.t() | Atom.t(),
         "Parts" => list(object_part()),
         "TotalPartsCount" => integer()
       }
 
   """
-  @type get_object_attributes_parts() :: %{String.t() => any()}
+  @type get_object_attributes_parts() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2530,33 +2539,33 @@ defmodule AWS.S3 do
       list_objects_v2_output() :: %{
         "CommonPrefixes" => list(common_prefix()),
         "Contents" => list(object()),
-        "ContinuationToken" => String.t(),
-        "Delimiter" => String.t(),
+        "ContinuationToken" => String.t() | Atom.t(),
+        "Delimiter" => String.t() | Atom.t(),
         "EncodingType" => list(any()),
         "IsTruncated" => boolean(),
         "KeyCount" => integer(),
         "MaxKeys" => integer(),
-        "Name" => String.t(),
-        "NextContinuationToken" => String.t(),
-        "Prefix" => String.t(),
+        "Name" => String.t() | Atom.t(),
+        "NextContinuationToken" => String.t() | Atom.t(),
+        "Prefix" => String.t() | Atom.t(),
         "RequestCharged" => list(any()),
-        "StartAfter" => String.t()
+        "StartAfter" => String.t() | Atom.t()
       }
 
   """
-  @type list_objects_v2_output() :: %{String.t() => any()}
+  @type list_objects_v2_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       condition() :: %{
-        "HttpErrorCodeReturnedEquals" => String.t(),
-        "KeyPrefixEquals" => String.t()
+        "HttpErrorCodeReturnedEquals" => String.t() | Atom.t(),
+        "KeyPrefixEquals" => String.t() | Atom.t()
       }
 
   """
-  @type condition() :: %{String.t() => any()}
+  @type condition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2564,47 +2573,47 @@ defmodule AWS.S3 do
 
       get_object_output() :: %{
         "ContentLength" => float(),
-        "VersionId" => String.t(),
-        "Expiration" => String.t(),
+        "VersionId" => String.t() | Atom.t(),
+        "Expiration" => String.t() | Atom.t(),
         "BucketKeyEnabled" => boolean(),
-        "SSEKMSKeyId" => String.t(),
+        "SSEKMSKeyId" => String.t() | Atom.t(),
         "StorageClass" => list(any()),
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "ObjectLockRetainUntilDate" => non_neg_integer(),
         "ObjectLockMode" => list(any()),
         "Body" => binary(),
-        "WebsiteRedirectLocation" => String.t(),
+        "WebsiteRedirectLocation" => String.t() | Atom.t(),
         "DeleteMarker" => boolean(),
-        "AcceptRanges" => String.t(),
+        "AcceptRanges" => String.t() | Atom.t(),
         "ServerSideEncryption" => list(any()),
-        "ChecksumSHA1" => String.t(),
-        "CacheControl" => String.t(),
+        "ChecksumSHA1" => String.t() | Atom.t(),
+        "CacheControl" => String.t() | Atom.t(),
         "ObjectLockLegalHoldStatus" => list(any()),
         "ChecksumType" => list(any()),
-        "ContentType" => String.t(),
-        "SSECustomerKeyMD5" => String.t(),
+        "ContentType" => String.t() | Atom.t(),
+        "SSECustomerKeyMD5" => String.t() | Atom.t(),
         "LastModified" => non_neg_integer(),
         "Expires" => non_neg_integer(),
         "TagCount" => integer(),
         "ReplicationStatus" => list(any()),
-        "ContentDisposition" => String.t(),
-        "ContentEncoding" => String.t(),
-        "ChecksumCRC32C" => String.t(),
-        "ChecksumCRC32" => String.t(),
-        "ChecksumCRC64NVME" => String.t(),
+        "ContentDisposition" => String.t() | Atom.t(),
+        "ContentEncoding" => String.t() | Atom.t(),
+        "ChecksumCRC32C" => String.t() | Atom.t(),
+        "ChecksumCRC32" => String.t() | Atom.t(),
+        "ChecksumCRC64NVME" => String.t() | Atom.t(),
         "Metadata" => map(),
         "PartsCount" => integer(),
-        "ChecksumSHA256" => String.t(),
+        "ChecksumSHA256" => String.t() | Atom.t(),
         "RequestCharged" => list(any()),
         "MissingMeta" => integer(),
-        "Restore" => String.t(),
-        "ContentRange" => String.t(),
-        "SSECustomerAlgorithm" => String.t(),
-        "ContentLanguage" => String.t()
+        "Restore" => String.t() | Atom.t(),
+        "ContentRange" => String.t() | Atom.t(),
+        "SSECustomerAlgorithm" => String.t() | Atom.t(),
+        "ContentLanguage" => String.t() | Atom.t()
       }
 
   """
-  @type get_object_output() :: %{String.t() => any()}
+  @type get_object_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2612,17 +2621,17 @@ defmodule AWS.S3 do
 
       s3_location() :: %{
         "AccessControlList" => list(grant()),
-        "BucketName" => String.t(),
+        "BucketName" => String.t() | Atom.t(),
         "CannedACL" => list(any()),
         "Encryption" => encryption(),
-        "Prefix" => String.t(),
+        "Prefix" => String.t() | Atom.t(),
         "StorageClass" => list(any()),
         "Tagging" => tagging(),
         "UserMetadata" => list(metadata_entry())
       }
 
   """
-  @type s3_location() :: %{String.t() => any()}
+  @type s3_location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2631,8 +2640,8 @@ defmodule AWS.S3 do
       object() :: %{
         "ChecksumAlgorithm" => list(list(any())()),
         "ChecksumType" => list(any()),
-        "ETag" => String.t(),
-        "Key" => String.t(),
+        "ETag" => String.t() | Atom.t(),
+        "Key" => String.t() | Atom.t(),
         "LastModified" => non_neg_integer(),
         "Owner" => owner(),
         "RestoreStatus" => restore_status(),
@@ -2641,7 +2650,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type object() :: %{String.t() => any()}
+  @type object() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2652,44 +2661,44 @@ defmodule AWS.S3 do
       }
 
   """
-  @type progress_event() :: %{String.t() => any()}
+  @type progress_event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       complete_multipart_upload_output() :: %{
-        "Bucket" => String.t(),
+        "Bucket" => String.t() | Atom.t(),
         "BucketKeyEnabled" => boolean(),
-        "ChecksumCRC32" => String.t(),
-        "ChecksumCRC32C" => String.t(),
-        "ChecksumCRC64NVME" => String.t(),
-        "ChecksumSHA1" => String.t(),
-        "ChecksumSHA256" => String.t(),
+        "ChecksumCRC32" => String.t() | Atom.t(),
+        "ChecksumCRC32C" => String.t() | Atom.t(),
+        "ChecksumCRC64NVME" => String.t() | Atom.t(),
+        "ChecksumSHA1" => String.t() | Atom.t(),
+        "ChecksumSHA256" => String.t() | Atom.t(),
         "ChecksumType" => list(any()),
-        "ETag" => String.t(),
-        "Expiration" => String.t(),
-        "Key" => String.t(),
-        "Location" => String.t(),
+        "ETag" => String.t() | Atom.t(),
+        "Expiration" => String.t() | Atom.t(),
+        "Key" => String.t() | Atom.t(),
+        "Location" => String.t() | Atom.t(),
         "RequestCharged" => list(any()),
-        "SSEKMSKeyId" => String.t(),
+        "SSEKMSKeyId" => String.t() | Atom.t(),
         "ServerSideEncryption" => list(any()),
-        "VersionId" => String.t()
+        "VersionId" => String.t() | Atom.t()
       }
 
   """
-  @type complete_multipart_upload_output() :: %{String.t() => any()}
+  @type complete_multipart_upload_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_bucket_metadata_table_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t()
       }
 
   """
-  @type get_bucket_metadata_table_configuration_request() :: %{String.t() => any()}
+  @type get_bucket_metadata_table_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2700,7 +2709,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type server_side_encryption_configuration() :: %{String.t() => any()}
+  @type server_side_encryption_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2713,7 +2722,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type get_object_acl_output() :: %{String.t() => any()}
+  @type get_object_acl_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2721,13 +2730,13 @@ defmodule AWS.S3 do
 
       put_bucket_encryption_request() :: %{
         optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t(),
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("ContentMD5") => String.t() | Atom.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
         required("ServerSideEncryptionConfiguration") => server_side_encryption_configuration()
       }
 
   """
-  @type put_bucket_encryption_request() :: %{String.t() => any()}
+  @type put_bucket_encryption_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2740,7 +2749,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type default_retention() :: %{String.t() => any()}
+  @type default_retention() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2751,7 +2760,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type ownership_controls() :: %{String.t() => any()}
+  @type ownership_controls() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2765,7 +2774,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type notification_configuration() :: %{String.t() => any()}
+  @type notification_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2777,38 +2786,38 @@ defmodule AWS.S3 do
       }
 
   """
-  @type object_lock_configuration() :: %{String.t() => any()}
+  @type object_lock_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       rename_object_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("DestinationIfMatch") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("DestinationIfMatch") => String.t() | Atom.t(),
         optional("DestinationIfModifiedSince") => non_neg_integer(),
-        optional("DestinationIfNoneMatch") => String.t(),
+        optional("DestinationIfNoneMatch") => String.t() | Atom.t(),
         optional("DestinationIfUnmodifiedSince") => non_neg_integer(),
-        optional("SourceIfMatch") => String.t(),
+        optional("SourceIfMatch") => String.t() | Atom.t(),
         optional("SourceIfModifiedSince") => non_neg_integer(),
-        optional("SourceIfNoneMatch") => String.t(),
+        optional("SourceIfNoneMatch") => String.t() | Atom.t(),
         optional("SourceIfUnmodifiedSince") => non_neg_integer(),
-        required("RenameSource") => String.t()
+        required("RenameSource") => String.t() | Atom.t()
       }
 
   """
-  @type rename_object_request() :: %{String.t() => any()}
+  @type rename_object_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_bucket_lifecycle_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t()
       }
 
   """
-  @type get_bucket_lifecycle_configuration_request() :: %{String.t() => any()}
+  @type get_bucket_lifecycle_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2821,7 +2830,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type delete_objects_output() :: %{String.t() => any()}
+  @type delete_objects_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2832,7 +2841,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type put_object_acl_output() :: %{String.t() => any()}
+  @type put_object_acl_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2841,35 +2850,35 @@ defmodule AWS.S3 do
       list_objects_output() :: %{
         "CommonPrefixes" => list(common_prefix()),
         "Contents" => list(object()),
-        "Delimiter" => String.t(),
+        "Delimiter" => String.t() | Atom.t(),
         "EncodingType" => list(any()),
         "IsTruncated" => boolean(),
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "MaxKeys" => integer(),
-        "Name" => String.t(),
-        "NextMarker" => String.t(),
-        "Prefix" => String.t(),
+        "Name" => String.t() | Atom.t(),
+        "NextMarker" => String.t() | Atom.t(),
+        "Prefix" => String.t() | Atom.t(),
         "RequestCharged" => list(any())
       }
 
   """
-  @type list_objects_output() :: %{String.t() => any()}
+  @type list_objects_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       checksum() :: %{
-        "ChecksumCRC32" => String.t(),
-        "ChecksumCRC32C" => String.t(),
-        "ChecksumCRC64NVME" => String.t(),
-        "ChecksumSHA1" => String.t(),
-        "ChecksumSHA256" => String.t(),
+        "ChecksumCRC32" => String.t() | Atom.t(),
+        "ChecksumCRC32C" => String.t() | Atom.t(),
+        "ChecksumCRC64NVME" => String.t() | Atom.t(),
+        "ChecksumSHA1" => String.t() | Atom.t(),
+        "ChecksumSHA256" => String.t() | Atom.t(),
         "ChecksumType" => list(any())
       }
 
   """
-  @type checksum() :: %{String.t() => any()}
+  @type checksum() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2890,7 +2899,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type get_bucket_versioning_output() :: %{String.t() => any()}
+  @type get_bucket_versioning_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2906,34 +2915,34 @@ defmodule AWS.S3 do
   ## Example:
 
       delete_bucket_metadata_table_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t()
       }
 
   """
-  @type delete_bucket_metadata_table_configuration_request() :: %{String.t() => any()}
+  @type delete_bucket_metadata_table_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_bucket_metrics_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t(),
-        required("Id") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
+        required("Id") => String.t() | Atom.t()
       }
 
   """
-  @type get_bucket_metrics_configuration_request() :: %{String.t() => any()}
+  @type get_bucket_metrics_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_bucket_policy_request() :: %{
-        optional("ExpectedBucketOwner") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t()
       }
 
   """
-  @type get_bucket_policy_request() :: %{String.t() => any()}
+  @type get_bucket_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2944,79 +2953,79 @@ defmodule AWS.S3 do
       }
 
   """
-  @type bucket_logging_status() :: %{String.t() => any()}
+  @type bucket_logging_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_object_lock_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t()
       }
 
   """
-  @type get_object_lock_configuration_request() :: %{String.t() => any()}
+  @type get_object_lock_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       copy_object_request() :: %{
-        optional("GrantRead") => String.t(),
+        optional("GrantRead") => String.t() | Atom.t(),
         optional("Expires") => non_neg_integer(),
-        optional("CopySourceIfNoneMatch") => String.t(),
-        optional("CopySourceSSECustomerKeyMD5") => String.t(),
-        optional("GrantFullControl") => String.t(),
-        required("CopySource") => String.t(),
+        optional("CopySourceIfNoneMatch") => String.t() | Atom.t(),
+        optional("CopySourceSSECustomerKeyMD5") => String.t() | Atom.t(),
+        optional("GrantFullControl") => String.t() | Atom.t(),
+        required("CopySource") => String.t() | Atom.t(),
         optional("CopySourceIfUnmodifiedSince") => non_neg_integer(),
-        optional("CopySourceSSECustomerAlgorithm") => String.t(),
+        optional("CopySourceSSECustomerAlgorithm") => String.t() | Atom.t(),
         optional("CopySourceIfModifiedSince") => non_neg_integer(),
         optional("Metadata") => map(),
-        optional("SSECustomerAlgorithm") => String.t(),
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("SSECustomerAlgorithm") => String.t() | Atom.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
         optional("ACL") => list(any()),
-        optional("WebsiteRedirectLocation") => String.t(),
+        optional("WebsiteRedirectLocation") => String.t() | Atom.t(),
         optional("BucketKeyEnabled") => boolean(),
-        optional("SSECustomerKeyMD5") => String.t(),
+        optional("SSECustomerKeyMD5") => String.t() | Atom.t(),
         optional("MetadataDirective") => list(any()),
-        optional("CopySourceIfMatch") => String.t(),
-        optional("ContentDisposition") => String.t(),
+        optional("CopySourceIfMatch") => String.t() | Atom.t(),
+        optional("ContentDisposition") => String.t() | Atom.t(),
         optional("TaggingDirective") => list(any()),
-        optional("ContentLanguage") => String.t(),
-        optional("CopySourceSSECustomerKey") => String.t(),
-        optional("GrantReadACP") => String.t(),
+        optional("ContentLanguage") => String.t() | Atom.t(),
+        optional("CopySourceSSECustomerKey") => String.t() | Atom.t(),
+        optional("GrantReadACP") => String.t() | Atom.t(),
         optional("ChecksumAlgorithm") => list(any()),
         optional("ServerSideEncryption") => list(any()),
-        optional("ContentEncoding") => String.t(),
+        optional("ContentEncoding") => String.t() | Atom.t(),
         optional("ObjectLockRetainUntilDate") => non_neg_integer(),
-        optional("ExpectedSourceBucketOwner") => String.t(),
-        optional("GrantWriteACP") => String.t(),
-        optional("ContentType") => String.t(),
+        optional("ExpectedSourceBucketOwner") => String.t() | Atom.t(),
+        optional("GrantWriteACP") => String.t() | Atom.t(),
+        optional("ContentType") => String.t() | Atom.t(),
         optional("RequestPayer") => list(any()),
-        optional("CacheControl") => String.t(),
-        optional("Tagging") => String.t(),
+        optional("CacheControl") => String.t() | Atom.t(),
+        optional("Tagging") => String.t() | Atom.t(),
         optional("ObjectLockLegalHoldStatus") => list(any()),
-        optional("SSEKMSEncryptionContext") => String.t(),
+        optional("SSEKMSEncryptionContext") => String.t() | Atom.t(),
         optional("StorageClass") => list(any()),
-        optional("SSEKMSKeyId") => String.t(),
+        optional("SSEKMSKeyId") => String.t() | Atom.t(),
         optional("ObjectLockMode") => list(any()),
-        optional("SSECustomerKey") => String.t()
+        optional("SSECustomerKey") => String.t() | Atom.t()
       }
 
   """
-  @type copy_object_request() :: %{String.t() => any()}
+  @type copy_object_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_directory_buckets_request() :: %{
-        optional("ContinuationToken") => String.t(),
+        optional("ContinuationToken") => String.t() | Atom.t(),
         optional("MaxDirectoryBuckets") => integer()
       }
 
   """
-  @type list_directory_buckets_request() :: %{String.t() => any()}
+  @type list_directory_buckets_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3024,24 +3033,24 @@ defmodule AWS.S3 do
 
       put_bucket_ownership_controls_request() :: %{
         optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t(),
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("ContentMD5") => String.t() | Atom.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
         required("OwnershipControls") => ownership_controls()
       }
 
   """
-  @type put_bucket_ownership_controls_request() :: %{String.t() => any()}
+  @type put_bucket_ownership_controls_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_bucket_lifecycle_request() :: %{
-        optional("ExpectedBucketOwner") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t()
       }
 
   """
-  @type delete_bucket_lifecycle_request() :: %{String.t() => any()}
+  @type delete_bucket_lifecycle_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3050,14 +3059,14 @@ defmodule AWS.S3 do
       delete_objects_request() :: %{
         optional("BypassGovernanceRetention") => boolean(),
         optional("ChecksumAlgorithm") => list(any()),
-        optional("ExpectedBucketOwner") => String.t(),
-        optional("MFA") => String.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
+        optional("MFA") => String.t() | Atom.t(),
         optional("RequestPayer") => list(any()),
         required("Delete") => delete()
       }
 
   """
-  @type delete_objects_request() :: %{String.t() => any()}
+  @type delete_objects_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3068,7 +3077,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type get_public_access_block_output() :: %{String.t() => any()}
+  @type get_public_access_block_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3080,33 +3089,33 @@ defmodule AWS.S3 do
       }
 
   """
-  @type restore_status() :: %{String.t() => any()}
+  @type restore_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       analytics_and_operator() :: %{
-        "Prefix" => String.t(),
+        "Prefix" => String.t() | Atom.t(),
         "Tags" => list(tag())
       }
 
   """
-  @type analytics_and_operator() :: %{String.t() => any()}
+  @type analytics_and_operator() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bucket() :: %{
-        "BucketArn" => String.t(),
-        "BucketRegion" => String.t(),
+        "BucketArn" => String.t() | Atom.t(),
+        "BucketRegion" => String.t() | Atom.t(),
         "CreationDate" => non_neg_integer(),
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type bucket() :: %{String.t() => any()}
+  @type bucket() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3117,7 +3126,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type delete_marker_replication() :: %{String.t() => any()}
+  @type delete_marker_replication() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3129,7 +3138,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type inventory_encryption() :: %{String.t() => any()}
+  @type inventory_encryption() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3138,17 +3147,17 @@ defmodule AWS.S3 do
       create_bucket_request() :: %{
         optional("ACL") => list(any()),
         optional("CreateBucketConfiguration") => create_bucket_configuration(),
-        optional("GrantFullControl") => String.t(),
-        optional("GrantRead") => String.t(),
-        optional("GrantReadACP") => String.t(),
-        optional("GrantWrite") => String.t(),
-        optional("GrantWriteACP") => String.t(),
+        optional("GrantFullControl") => String.t() | Atom.t(),
+        optional("GrantRead") => String.t() | Atom.t(),
+        optional("GrantReadACP") => String.t() | Atom.t(),
+        optional("GrantWrite") => String.t() | Atom.t(),
+        optional("GrantWriteACP") => String.t() | Atom.t(),
         optional("ObjectLockEnabledForBucket") => boolean(),
         optional("ObjectOwnership") => list(any())
       }
 
   """
-  @type create_bucket_request() :: %{String.t() => any()}
+  @type create_bucket_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3160,7 +3169,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type storage_class_analysis_data_export() :: %{String.t() => any()}
+  @type storage_class_analysis_data_export() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3168,28 +3177,28 @@ defmodule AWS.S3 do
 
       put_bucket_accelerate_configuration_request() :: %{
         optional("ChecksumAlgorithm") => list(any()),
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
         required("AccelerateConfiguration") => accelerate_configuration()
       }
 
   """
-  @type put_bucket_accelerate_configuration_request() :: %{String.t() => any()}
+  @type put_bucket_accelerate_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       c_o_r_s_rule() :: %{
-        "AllowedHeaders" => list(String.t()),
-        "AllowedMethods" => list(String.t()),
-        "AllowedOrigins" => list(String.t()),
-        "ExposeHeaders" => list(String.t()),
-        "ID" => String.t(),
+        "AllowedHeaders" => list(String.t() | Atom.t()),
+        "AllowedMethods" => list(String.t() | Atom.t()),
+        "AllowedOrigins" => list(String.t() | Atom.t()),
+        "ExposeHeaders" => list(String.t() | Atom.t()),
+        "ID" => String.t() | Atom.t(),
         "MaxAgeSeconds" => integer()
       }
 
   """
-  @type c_o_r_s_rule() :: %{String.t() => any()}
+  @type c_o_r_s_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3199,17 +3208,17 @@ defmodule AWS.S3 do
         optional("ACL") => list(any()),
         optional("AccessControlPolicy") => access_control_policy(),
         optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t(),
-        optional("ExpectedBucketOwner") => String.t(),
-        optional("GrantFullControl") => String.t(),
-        optional("GrantRead") => String.t(),
-        optional("GrantReadACP") => String.t(),
-        optional("GrantWrite") => String.t(),
-        optional("GrantWriteACP") => String.t()
+        optional("ContentMD5") => String.t() | Atom.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
+        optional("GrantFullControl") => String.t() | Atom.t(),
+        optional("GrantRead") => String.t() | Atom.t(),
+        optional("GrantReadACP") => String.t() | Atom.t(),
+        optional("GrantWrite") => String.t() | Atom.t(),
+        optional("GrantWriteACP") => String.t() | Atom.t()
       }
 
   """
-  @type put_bucket_acl_request() :: %{String.t() => any()}
+  @type put_bucket_acl_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3229,7 +3238,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type existing_object_replication() :: %{String.t() => any()}
+  @type existing_object_replication() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3242,18 +3251,18 @@ defmodule AWS.S3 do
       }
 
   """
-  @type transition() :: %{String.t() => any()}
+  @type transition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       index_document() :: %{
-        "Suffix" => String.t()
+        "Suffix" => String.t() | Atom.t()
       }
 
   """
-  @type index_document() :: %{String.t() => any()}
+  @type index_document() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3261,37 +3270,37 @@ defmodule AWS.S3 do
 
       intelligent_tiering_filter() :: %{
         "And" => intelligent_tiering_and_operator(),
-        "Prefix" => String.t(),
+        "Prefix" => String.t() | Atom.t(),
         "Tag" => tag()
       }
 
   """
-  @type intelligent_tiering_filter() :: %{String.t() => any()}
+  @type intelligent_tiering_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_object_torrent_request() :: %{
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
         optional("RequestPayer") => list(any())
       }
 
   """
-  @type get_object_torrent_request() :: %{String.t() => any()}
+  @type get_object_torrent_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_bucket_metrics_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t(),
-        required("Id") => String.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
+        required("Id") => String.t() | Atom.t(),
         required("MetricsConfiguration") => metrics_configuration()
       }
 
   """
-  @type put_bucket_metrics_configuration_request() :: %{String.t() => any()}
+  @type put_bucket_metrics_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3300,76 +3309,76 @@ defmodule AWS.S3 do
       put_object_retention_request() :: %{
         optional("BypassGovernanceRetention") => boolean(),
         optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t(),
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("ContentMD5") => String.t() | Atom.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
         optional("RequestPayer") => list(any()),
         optional("Retention") => object_lock_retention(),
-        optional("VersionId") => String.t()
+        optional("VersionId") => String.t() | Atom.t()
       }
 
   """
-  @type put_object_retention_request() :: %{String.t() => any()}
+  @type put_object_retention_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_buckets_request() :: %{
-        optional("BucketRegion") => String.t(),
-        optional("ContinuationToken") => String.t(),
+        optional("BucketRegion") => String.t() | Atom.t(),
+        optional("ContinuationToken") => String.t() | Atom.t(),
         optional("MaxBuckets") => integer(),
-        optional("Prefix") => String.t()
+        optional("Prefix") => String.t() | Atom.t()
       }
 
   """
-  @type list_buckets_request() :: %{String.t() => any()}
+  @type list_buckets_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       part() :: %{
-        "ChecksumCRC32" => String.t(),
-        "ChecksumCRC32C" => String.t(),
-        "ChecksumCRC64NVME" => String.t(),
-        "ChecksumSHA1" => String.t(),
-        "ChecksumSHA256" => String.t(),
-        "ETag" => String.t(),
+        "ChecksumCRC32" => String.t() | Atom.t(),
+        "ChecksumCRC32C" => String.t() | Atom.t(),
+        "ChecksumCRC64NVME" => String.t() | Atom.t(),
+        "ChecksumSHA1" => String.t() | Atom.t(),
+        "ChecksumSHA256" => String.t() | Atom.t(),
+        "ETag" => String.t() | Atom.t(),
         "LastModified" => non_neg_integer(),
         "PartNumber" => integer(),
         "Size" => float()
       }
 
   """
-  @type part() :: %{String.t() => any()}
+  @type part() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_bucket_tagging_request() :: %{
-        optional("ExpectedBucketOwner") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t()
       }
 
   """
-  @type get_bucket_tagging_request() :: %{String.t() => any()}
+  @type get_bucket_tagging_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       object_part() :: %{
-        "ChecksumCRC32" => String.t(),
-        "ChecksumCRC32C" => String.t(),
-        "ChecksumCRC64NVME" => String.t(),
-        "ChecksumSHA1" => String.t(),
-        "ChecksumSHA256" => String.t(),
+        "ChecksumCRC32" => String.t() | Atom.t(),
+        "ChecksumCRC32C" => String.t() | Atom.t(),
+        "ChecksumCRC64NVME" => String.t() | Atom.t(),
+        "ChecksumSHA1" => String.t() | Atom.t(),
+        "ChecksumSHA256" => String.t() | Atom.t(),
         "PartNumber" => integer(),
         "Size" => float()
       }
 
   """
-  @type object_part() :: %{String.t() => any()}
+  @type object_part() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3385,12 +3394,12 @@ defmodule AWS.S3 do
   ## Example:
 
       metadata_entry() :: %{
-        "Name" => String.t(),
-        "Value" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type metadata_entry() :: %{String.t() => any()}
+  @type metadata_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3406,24 +3415,24 @@ defmodule AWS.S3 do
   ## Example:
 
       get_bucket_logging_request() :: %{
-        optional("ExpectedBucketOwner") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t()
       }
 
   """
-  @type get_bucket_logging_request() :: %{String.t() => any()}
+  @type get_bucket_logging_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_object_acl_request() :: %{
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
         optional("RequestPayer") => list(any()),
-        optional("VersionId") => String.t()
+        optional("VersionId") => String.t() | Atom.t()
       }
 
   """
-  @type get_object_acl_request() :: %{String.t() => any()}
+  @type get_object_acl_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3434,60 +3443,63 @@ defmodule AWS.S3 do
         "Destination" => destination(),
         "ExistingObjectReplication" => existing_object_replication(),
         "Filter" => replication_rule_filter(),
-        "ID" => String.t(),
-        "Prefix" => String.t(),
+        "ID" => String.t() | Atom.t(),
+        "Prefix" => String.t() | Atom.t(),
         "Priority" => integer(),
         "SourceSelectionCriteria" => source_selection_criteria(),
         "Status" => list(any())
       }
 
   """
-  @type replication_rule() :: %{String.t() => any()}
+  @type replication_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_objects_v2_request() :: %{
-        optional("ContinuationToken") => String.t(),
-        optional("Delimiter") => String.t(),
+        optional("ContinuationToken") => String.t() | Atom.t(),
+        optional("Delimiter") => String.t() | Atom.t(),
         optional("EncodingType") => list(any()),
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
         optional("FetchOwner") => boolean(),
         optional("MaxKeys") => integer(),
         optional("OptionalObjectAttributes") => list(list(any())()),
-        optional("Prefix") => String.t(),
+        optional("Prefix") => String.t() | Atom.t(),
         optional("RequestPayer") => list(any()),
-        optional("StartAfter") => String.t()
+        optional("StartAfter") => String.t() | Atom.t()
       }
 
   """
-  @type list_objects_v2_request() :: %{String.t() => any()}
+  @type list_objects_v2_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_bucket_output() :: %{
-        "BucketArn" => String.t(),
-        "Location" => String.t()
+        "BucketArn" => String.t() | Atom.t(),
+        "Location" => String.t() | Atom.t()
       }
 
   """
-  @type create_bucket_output() :: %{String.t() => any()}
+  @type create_bucket_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_bucket_intelligent_tiering_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t(),
-        required("Id") => String.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
+        required("Id") => String.t() | Atom.t(),
         required("IntelligentTieringConfiguration") => intelligent_tiering_configuration()
       }
 
   """
-  @type put_bucket_intelligent_tiering_configuration_request() :: %{String.t() => any()}
+  @type put_bucket_intelligent_tiering_configuration_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -3495,8 +3507,8 @@ defmodule AWS.S3 do
 
       destination() :: %{
         "AccessControlTranslation" => access_control_translation(),
-        "Account" => String.t(),
-        "Bucket" => String.t(),
+        "Account" => String.t() | Atom.t(),
+        "Bucket" => String.t() | Atom.t(),
         "EncryptionConfiguration" => encryption_configuration(),
         "Metrics" => metrics(),
         "ReplicationTime" => replication_time(),
@@ -3504,18 +3516,18 @@ defmodule AWS.S3 do
       }
 
   """
-  @type destination() :: %{String.t() => any()}
+  @type destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       head_bucket_request() :: %{
-        optional("ExpectedBucketOwner") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t()
       }
 
   """
-  @type head_bucket_request() :: %{String.t() => any()}
+  @type head_bucket_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3528,7 +3540,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type lifecycle_expiration() :: %{String.t() => any()}
+  @type lifecycle_expiration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3540,20 +3552,20 @@ defmodule AWS.S3 do
       }
 
   """
-  @type access_control_policy() :: %{String.t() => any()}
+  @type access_control_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_bucket_analytics_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
         required("AnalyticsConfiguration") => analytics_configuration(),
-        required("Id") => String.t()
+        required("Id") => String.t() | Atom.t()
       }
 
   """
-  @type put_bucket_analytics_configuration_request() :: %{String.t() => any()}
+  @type put_bucket_analytics_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3565,18 +3577,18 @@ defmodule AWS.S3 do
       }
 
   """
-  @type object_lock_retention() :: %{String.t() => any()}
+  @type object_lock_retention() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_object_tagging_output() :: %{
-        "VersionId" => String.t()
+        "VersionId" => String.t() | Atom.t()
       }
 
   """
-  @type put_object_tagging_output() :: %{String.t() => any()}
+  @type put_object_tagging_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3585,27 +3597,27 @@ defmodule AWS.S3 do
       upload_part_copy_output() :: %{
         "BucketKeyEnabled" => boolean(),
         "CopyPartResult" => copy_part_result(),
-        "CopySourceVersionId" => String.t(),
+        "CopySourceVersionId" => String.t() | Atom.t(),
         "RequestCharged" => list(any()),
-        "SSECustomerAlgorithm" => String.t(),
-        "SSECustomerKeyMD5" => String.t(),
-        "SSEKMSKeyId" => String.t(),
+        "SSECustomerAlgorithm" => String.t() | Atom.t(),
+        "SSECustomerKeyMD5" => String.t() | Atom.t(),
+        "SSEKMSKeyId" => String.t() | Atom.t(),
         "ServerSideEncryption" => list(any())
       }
 
   """
-  @type upload_part_copy_output() :: %{String.t() => any()}
+  @type upload_part_copy_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_bucket_location_request() :: %{
-        optional("ExpectedBucketOwner") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t()
       }
 
   """
-  @type get_bucket_location_request() :: %{String.t() => any()}
+  @type get_bucket_location_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3616,14 +3628,14 @@ defmodule AWS.S3 do
         "ChecksumType" => list(any()),
         "Initiated" => non_neg_integer(),
         "Initiator" => initiator(),
-        "Key" => String.t(),
+        "Key" => String.t() | Atom.t(),
         "Owner" => owner(),
         "StorageClass" => list(any()),
-        "UploadId" => String.t()
+        "UploadId" => String.t() | Atom.t()
       }
 
   """
-  @type multipart_upload() :: %{String.t() => any()}
+  @type multipart_upload() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3631,13 +3643,13 @@ defmodule AWS.S3 do
 
       put_bucket_tagging_request() :: %{
         optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t(),
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("ContentMD5") => String.t() | Atom.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
         required("Tagging") => tagging()
       }
 
   """
-  @type put_bucket_tagging_request() :: %{String.t() => any()}
+  @type put_bucket_tagging_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3648,42 +3660,42 @@ defmodule AWS.S3 do
       }
 
   """
-  @type partitioned_prefix() :: %{String.t() => any()}
+  @type partitioned_prefix() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_bucket_inventory_configurations_request() :: %{
-        optional("ContinuationToken") => String.t(),
-        optional("ExpectedBucketOwner") => String.t()
+        optional("ContinuationToken") => String.t() | Atom.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t()
       }
 
   """
-  @type list_bucket_inventory_configurations_request() :: %{String.t() => any()}
+  @type list_bucket_inventory_configurations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_multipart_uploads_output() :: %{
-        "Bucket" => String.t(),
+        "Bucket" => String.t() | Atom.t(),
         "CommonPrefixes" => list(common_prefix()),
-        "Delimiter" => String.t(),
+        "Delimiter" => String.t() | Atom.t(),
         "EncodingType" => list(any()),
         "IsTruncated" => boolean(),
-        "KeyMarker" => String.t(),
+        "KeyMarker" => String.t() | Atom.t(),
         "MaxUploads" => integer(),
-        "NextKeyMarker" => String.t(),
-        "NextUploadIdMarker" => String.t(),
-        "Prefix" => String.t(),
+        "NextKeyMarker" => String.t() | Atom.t(),
+        "NextUploadIdMarker" => String.t() | Atom.t(),
+        "Prefix" => String.t() | Atom.t(),
         "RequestCharged" => list(any()),
-        "UploadIdMarker" => String.t(),
+        "UploadIdMarker" => String.t() | Atom.t(),
         "Uploads" => list(multipart_upload())
       }
 
   """
-  @type list_multipart_uploads_output() :: %{String.t() => any()}
+  @type list_multipart_uploads_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3699,11 +3711,11 @@ defmodule AWS.S3 do
   ## Example:
 
       sse_kms() :: %{
-        "KeyId" => String.t()
+        "KeyId" => String.t() | Atom.t()
       }
 
   """
-  @type sse_kms() :: %{String.t() => any()}
+  @type sse_kms() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3711,15 +3723,15 @@ defmodule AWS.S3 do
 
       put_object_lock_configuration_request() :: %{
         optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t(),
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("ContentMD5") => String.t() | Atom.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
         optional("ObjectLockConfiguration") => object_lock_configuration(),
         optional("RequestPayer") => list(any()),
-        optional("Token") => String.t()
+        optional("Token") => String.t() | Atom.t()
       }
 
   """
-  @type put_object_lock_configuration_request() :: %{String.t() => any()}
+  @type put_object_lock_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3728,11 +3740,11 @@ defmodule AWS.S3 do
       delete_object_output() :: %{
         "DeleteMarker" => boolean(),
         "RequestCharged" => list(any()),
-        "VersionId" => String.t()
+        "VersionId" => String.t() | Atom.t()
       }
 
   """
-  @type delete_object_output() :: %{String.t() => any()}
+  @type delete_object_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3743,7 +3755,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type completed_multipart_upload() :: %{String.t() => any()}
+  @type completed_multipart_upload() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3751,40 +3763,40 @@ defmodule AWS.S3 do
 
       list_parts_output() :: %{
         "AbortDate" => non_neg_integer(),
-        "AbortRuleId" => String.t(),
-        "Bucket" => String.t(),
+        "AbortRuleId" => String.t() | Atom.t(),
+        "Bucket" => String.t() | Atom.t(),
         "ChecksumAlgorithm" => list(any()),
         "ChecksumType" => list(any()),
         "Initiator" => initiator(),
         "IsTruncated" => boolean(),
-        "Key" => String.t(),
+        "Key" => String.t() | Atom.t(),
         "MaxParts" => integer(),
-        "NextPartNumberMarker" => String.t(),
+        "NextPartNumberMarker" => String.t() | Atom.t(),
         "Owner" => owner(),
-        "PartNumberMarker" => String.t(),
+        "PartNumberMarker" => String.t() | Atom.t(),
         "Parts" => list(part()),
         "RequestCharged" => list(any()),
         "StorageClass" => list(any()),
-        "UploadId" => String.t()
+        "UploadId" => String.t() | Atom.t()
       }
 
   """
-  @type list_parts_output() :: %{String.t() => any()}
+  @type list_parts_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       csv_output() :: %{
-        "FieldDelimiter" => String.t(),
-        "QuoteCharacter" => String.t(),
-        "QuoteEscapeCharacter" => String.t(),
+        "FieldDelimiter" => String.t() | Atom.t(),
+        "QuoteCharacter" => String.t() | Atom.t(),
+        "QuoteEscapeCharacter" => String.t() | Atom.t(),
         "QuoteFields" => list(any()),
-        "RecordDelimiter" => String.t()
+        "RecordDelimiter" => String.t() | Atom.t()
       }
 
   """
-  @type csv_output() :: %{String.t() => any()}
+  @type csv_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3795,7 +3807,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type get_bucket_analytics_configuration_output() :: %{String.t() => any()}
+  @type get_bucket_analytics_configuration_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3811,39 +3823,39 @@ defmodule AWS.S3 do
   ## Example:
 
       replication_rule_and_operator() :: %{
-        "Prefix" => String.t(),
+        "Prefix" => String.t() | Atom.t(),
         "Tags" => list(tag())
       }
 
   """
-  @type replication_rule_and_operator() :: %{String.t() => any()}
+  @type replication_rule_and_operator() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_object_retention_request() :: %{
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
         optional("RequestPayer") => list(any()),
-        optional("VersionId") => String.t()
+        optional("VersionId") => String.t() | Atom.t()
       }
 
   """
-  @type get_object_retention_request() :: %{String.t() => any()}
+  @type get_object_retention_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       abort_multipart_upload_request() :: %{
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
         optional("IfMatchInitiatedTime") => non_neg_integer(),
         optional("RequestPayer") => list(any()),
-        required("UploadId") => String.t()
+        required("UploadId") => String.t() | Atom.t()
       }
 
   """
-  @type abort_multipart_upload_request() :: %{String.t() => any()}
+  @type abort_multipart_upload_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3855,7 +3867,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type tiering() :: %{String.t() => any()}
+  @type tiering() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3863,39 +3875,39 @@ defmodule AWS.S3 do
 
       head_object_request() :: %{
         optional("ChecksumMode") => list(any()),
-        optional("ExpectedBucketOwner") => String.t(),
-        optional("IfMatch") => String.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
+        optional("IfMatch") => String.t() | Atom.t(),
         optional("IfModifiedSince") => non_neg_integer(),
-        optional("IfNoneMatch") => String.t(),
+        optional("IfNoneMatch") => String.t() | Atom.t(),
         optional("IfUnmodifiedSince") => non_neg_integer(),
         optional("PartNumber") => integer(),
-        optional("Range") => String.t(),
+        optional("Range") => String.t() | Atom.t(),
         optional("RequestPayer") => list(any()),
-        optional("ResponseCacheControl") => String.t(),
-        optional("ResponseContentDisposition") => String.t(),
-        optional("ResponseContentEncoding") => String.t(),
-        optional("ResponseContentLanguage") => String.t(),
-        optional("ResponseContentType") => String.t(),
+        optional("ResponseCacheControl") => String.t() | Atom.t(),
+        optional("ResponseContentDisposition") => String.t() | Atom.t(),
+        optional("ResponseContentEncoding") => String.t() | Atom.t(),
+        optional("ResponseContentLanguage") => String.t() | Atom.t(),
+        optional("ResponseContentType") => String.t() | Atom.t(),
         optional("ResponseExpires") => non_neg_integer(),
-        optional("SSECustomerAlgorithm") => String.t(),
-        optional("SSECustomerKey") => String.t(),
-        optional("SSECustomerKeyMD5") => String.t(),
-        optional("VersionId") => String.t()
+        optional("SSECustomerAlgorithm") => String.t() | Atom.t(),
+        optional("SSECustomerKey") => String.t() | Atom.t(),
+        optional("SSECustomerKeyMD5") => String.t() | Atom.t(),
+        optional("VersionId") => String.t() | Atom.t()
       }
 
   """
-  @type head_object_request() :: %{String.t() => any()}
+  @type head_object_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_public_access_block_request() :: %{
-        optional("ExpectedBucketOwner") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t()
       }
 
   """
-  @type get_public_access_block_request() :: %{String.t() => any()}
+  @type get_public_access_block_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3906,18 +3918,18 @@ defmodule AWS.S3 do
       }
 
   """
-  @type get_bucket_metadata_table_configuration_output() :: %{String.t() => any()}
+  @type get_bucket_metadata_table_configuration_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_bucket_cors_request() :: %{
-        optional("ExpectedBucketOwner") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t()
       }
 
   """
-  @type get_bucket_cors_request() :: %{String.t() => any()}
+  @type get_bucket_cors_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3928,7 +3940,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type glacier_job_parameters() :: %{String.t() => any()}
+  @type glacier_job_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3948,25 +3960,25 @@ defmodule AWS.S3 do
       }
 
   """
-  @type inventory_destination() :: %{String.t() => any()}
+  @type inventory_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_parts_request() :: %{
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
         optional("MaxParts") => integer(),
-        optional("PartNumberMarker") => String.t(),
+        optional("PartNumberMarker") => String.t() | Atom.t(),
         optional("RequestPayer") => list(any()),
-        optional("SSECustomerAlgorithm") => String.t(),
-        optional("SSECustomerKey") => String.t(),
-        optional("SSECustomerKeyMD5") => String.t(),
-        required("UploadId") => String.t()
+        optional("SSECustomerAlgorithm") => String.t() | Atom.t(),
+        optional("SSECustomerKey") => String.t() | Atom.t(),
+        optional("SSECustomerKeyMD5") => String.t() | Atom.t(),
+        required("UploadId") => String.t() | Atom.t()
       }
 
   """
-  @type list_parts_request() :: %{String.t() => any()}
+  @type list_parts_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3977,7 +3989,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type object_lock_legal_hold() :: %{String.t() => any()}
+  @type object_lock_legal_hold() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3989,7 +4001,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type replication_time() :: %{String.t() => any()}
+  @type replication_time() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4000,7 +4012,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type get_bucket_metrics_configuration_output() :: %{String.t() => any()}
+  @type get_bucket_metrics_configuration_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4008,11 +4020,11 @@ defmodule AWS.S3 do
 
       list_directory_buckets_output() :: %{
         "Buckets" => list(bucket()),
-        "ContinuationToken" => String.t()
+        "ContinuationToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_directory_buckets_output() :: %{String.t() => any()}
+  @type list_directory_buckets_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4023,7 +4035,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type request_progress() :: %{String.t() => any()}
+  @type request_progress() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4031,13 +4043,13 @@ defmodule AWS.S3 do
 
       put_bucket_lifecycle_configuration_request() :: %{
         optional("ChecksumAlgorithm") => list(any()),
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
         optional("LifecycleConfiguration") => bucket_lifecycle_configuration(),
         optional("TransitionDefaultMinimumObjectSize") => list(any())
       }
 
   """
-  @type put_bucket_lifecycle_configuration_request() :: %{String.t() => any()}
+  @type put_bucket_lifecycle_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4049,7 +4061,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type output_serialization() :: %{String.t() => any()}
+  @type output_serialization() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4066,41 +4078,41 @@ defmodule AWS.S3 do
 
       get_object_request() :: %{
         optional("ChecksumMode") => list(any()),
-        optional("ExpectedBucketOwner") => String.t(),
-        optional("IfMatch") => String.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
+        optional("IfMatch") => String.t() | Atom.t(),
         optional("IfModifiedSince") => non_neg_integer(),
-        optional("IfNoneMatch") => String.t(),
+        optional("IfNoneMatch") => String.t() | Atom.t(),
         optional("IfUnmodifiedSince") => non_neg_integer(),
         optional("PartNumber") => integer(),
-        optional("Range") => String.t(),
+        optional("Range") => String.t() | Atom.t(),
         optional("RequestPayer") => list(any()),
-        optional("ResponseCacheControl") => String.t(),
-        optional("ResponseContentDisposition") => String.t(),
-        optional("ResponseContentEncoding") => String.t(),
-        optional("ResponseContentLanguage") => String.t(),
-        optional("ResponseContentType") => String.t(),
+        optional("ResponseCacheControl") => String.t() | Atom.t(),
+        optional("ResponseContentDisposition") => String.t() | Atom.t(),
+        optional("ResponseContentEncoding") => String.t() | Atom.t(),
+        optional("ResponseContentLanguage") => String.t() | Atom.t(),
+        optional("ResponseContentType") => String.t() | Atom.t(),
         optional("ResponseExpires") => non_neg_integer(),
-        optional("SSECustomerAlgorithm") => String.t(),
-        optional("SSECustomerKey") => String.t(),
-        optional("SSECustomerKeyMD5") => String.t(),
-        optional("VersionId") => String.t()
+        optional("SSECustomerAlgorithm") => String.t() | Atom.t(),
+        optional("SSECustomerKey") => String.t() | Atom.t(),
+        optional("SSECustomerKeyMD5") => String.t() | Atom.t(),
+        optional("VersionId") => String.t() | Atom.t()
       }
 
   """
-  @type get_object_request() :: %{String.t() => any()}
+  @type get_object_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       metrics_and_operator() :: %{
-        "AccessPointArn" => String.t(),
-        "Prefix" => String.t(),
+        "AccessPointArn" => String.t() | Atom.t(),
+        "Prefix" => String.t() | Atom.t(),
         "Tags" => list(tag())
       }
 
   """
-  @type metrics_and_operator() :: %{String.t() => any()}
+  @type metrics_and_operator() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4114,7 +4126,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type get_bucket_website_output() :: %{String.t() => any()}
+  @type get_bucket_website_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4125,7 +4137,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type get_bucket_request_payment_output() :: %{String.t() => any()}
+  @type get_bucket_request_payment_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4136,7 +4148,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type bucket_lifecycle_configuration() :: %{String.t() => any()}
+  @type bucket_lifecycle_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4148,7 +4160,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type routing_rule() :: %{String.t() => any()}
+  @type routing_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4160,33 +4172,33 @@ defmodule AWS.S3 do
       }
 
   """
-  @type invalid_object_state() :: %{String.t() => any()}
+  @type invalid_object_state() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       complete_multipart_upload_request() :: %{
-        optional("ChecksumCRC32") => String.t(),
-        optional("ChecksumCRC32C") => String.t(),
-        optional("ChecksumCRC64NVME") => String.t(),
-        optional("ChecksumSHA1") => String.t(),
-        optional("ChecksumSHA256") => String.t(),
+        optional("ChecksumCRC32") => String.t() | Atom.t(),
+        optional("ChecksumCRC32C") => String.t() | Atom.t(),
+        optional("ChecksumCRC64NVME") => String.t() | Atom.t(),
+        optional("ChecksumSHA1") => String.t() | Atom.t(),
+        optional("ChecksumSHA256") => String.t() | Atom.t(),
         optional("ChecksumType") => list(any()),
-        optional("ExpectedBucketOwner") => String.t(),
-        optional("IfMatch") => String.t(),
-        optional("IfNoneMatch") => String.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
+        optional("IfMatch") => String.t() | Atom.t(),
+        optional("IfNoneMatch") => String.t() | Atom.t(),
         optional("MpuObjectSize") => float(),
         optional("MultipartUpload") => completed_multipart_upload(),
         optional("RequestPayer") => list(any()),
-        optional("SSECustomerAlgorithm") => String.t(),
-        optional("SSECustomerKey") => String.t(),
-        optional("SSECustomerKeyMD5") => String.t(),
-        required("UploadId") => String.t()
+        optional("SSECustomerAlgorithm") => String.t() | Atom.t(),
+        optional("SSECustomerKey") => String.t() | Atom.t(),
+        optional("SSECustomerKeyMD5") => String.t() | Atom.t(),
+        required("UploadId") => String.t() | Atom.t()
       }
 
   """
-  @type complete_multipart_upload_request() :: %{String.t() => any()}
+  @type complete_multipart_upload_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4194,13 +4206,13 @@ defmodule AWS.S3 do
 
       put_bucket_website_request() :: %{
         optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t(),
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("ContentMD5") => String.t() | Atom.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
         required("WebsiteConfiguration") => website_configuration()
       }
 
   """
-  @type put_bucket_website_request() :: %{String.t() => any()}
+  @type put_bucket_website_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4208,7 +4220,7 @@ defmodule AWS.S3 do
 
       restore_request() :: %{
         "Days" => integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "GlacierJobParameters" => glacier_job_parameters(),
         "OutputLocation" => output_location(),
         "SelectParameters" => select_parameters(),
@@ -4217,7 +4229,7 @@ defmodule AWS.S3 do
       }
 
   """
-  @type restore_request() :: %{String.t() => any()}
+  @type restore_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4225,23 +4237,23 @@ defmodule AWS.S3 do
 
       analytics_configuration() :: %{
         "Filter" => list(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "StorageClassAnalysis" => storage_class_analysis()
       }
 
   """
-  @type analytics_configuration() :: %{String.t() => any()}
+  @type analytics_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_bucket_replication_request() :: %{
-        optional("ExpectedBucketOwner") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t()
       }
 
   """
-  @type delete_bucket_replication_request() :: %{String.t() => any()}
+  @type delete_bucket_replication_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4249,15 +4261,15 @@ defmodule AWS.S3 do
 
       put_object_tagging_request() :: %{
         optional("ChecksumAlgorithm") => list(any()),
-        optional("ContentMD5") => String.t(),
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("ContentMD5") => String.t() | Atom.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
         optional("RequestPayer") => list(any()),
-        optional("VersionId") => String.t(),
+        optional("VersionId") => String.t() | Atom.t(),
         required("Tagging") => tagging()
       }
 
   """
-  @type put_object_tagging_request() :: %{String.t() => any()}
+  @type put_object_tagging_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4268,41 +4280,44 @@ defmodule AWS.S3 do
       }
 
   """
-  @type get_bucket_replication_output() :: %{String.t() => any()}
+  @type get_bucket_replication_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_bucket_intelligent_tiering_configurations_request() :: %{
-        optional("ContinuationToken") => String.t(),
-        optional("ExpectedBucketOwner") => String.t()
+        optional("ContinuationToken") => String.t() | Atom.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t()
       }
 
   """
-  @type list_bucket_intelligent_tiering_configurations_request() :: %{String.t() => any()}
+  @type list_bucket_intelligent_tiering_configurations_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       get_bucket_notification_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t()
       }
 
   """
-  @type get_bucket_notification_configuration_request() :: %{String.t() => any()}
+  @type get_bucket_notification_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_bucket_cors_request() :: %{
-        optional("ExpectedBucketOwner") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | Atom.t()
       }
 
   """
-  @type delete_bucket_cors_request() :: %{String.t() => any()}
+  @type delete_bucket_cors_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4322,38 +4337,38 @@ defmodule AWS.S3 do
       }
 
   """
-  @type get_object_lock_configuration_output() :: %{String.t() => any()}
+  @type get_object_lock_configuration_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_object_attributes_request() :: %{
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
         optional("MaxParts") => integer(),
-        optional("PartNumberMarker") => String.t(),
+        optional("PartNumberMarker") => String.t() | Atom.t(),
         optional("RequestPayer") => list(any()),
-        optional("SSECustomerAlgorithm") => String.t(),
-        optional("SSECustomerKey") => String.t(),
-        optional("SSECustomerKeyMD5") => String.t(),
-        optional("VersionId") => String.t(),
+        optional("SSECustomerAlgorithm") => String.t() | Atom.t(),
+        optional("SSECustomerKey") => String.t() | Atom.t(),
+        optional("SSECustomerKeyMD5") => String.t() | Atom.t(),
+        optional("VersionId") => String.t() | Atom.t(),
         required("ObjectAttributes") => list(list(any())())
       }
 
   """
-  @type get_object_attributes_request() :: %{String.t() => any()}
+  @type get_object_attributes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       owner() :: %{
-        "DisplayName" => String.t(),
-        "ID" => String.t()
+        "DisplayName" => String.t() | Atom.t(),
+        "ID" => String.t() | Atom.t()
       }
 
   """
-  @type owner() :: %{String.t() => any()}
+  @type owner() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4361,11 +4376,11 @@ defmodule AWS.S3 do
 
       metrics_configuration() :: %{
         "Filter" => list(),
-        "Id" => String.t()
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type metrics_configuration() :: %{String.t() => any()}
+  @type metrics_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4376,31 +4391,31 @@ defmodule AWS.S3 do
       }
 
   """
-  @type accelerate_configuration() :: %{String.t() => any()}
+  @type accelerate_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       error_document() :: %{
-        "Key" => String.t()
+        "Key" => String.t() | Atom.t()
       }
 
   """
-  @type error_document() :: %{String.t() => any()}
+  @type error_document() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_bucket_inventory_configuration_request() :: %{
-        optional("ExpectedBucketOwner") => String.t(),
-        required("Id") => String.t(),
+        optional("ExpectedBucketOwner") => String.t() | Atom.t(),
+        required("Id") => String.t() | Atom.t(),
         required("InventoryConfiguration") => inventory_configuration()
       }
 
   """
-  @type put_bucket_inventory_configuration_request() :: %{String.t() => any()}
+  @type put_bucket_inventory_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4409,12 +4424,12 @@ defmodule AWS.S3 do
       lifecycle_rule_and_operator() :: %{
         "ObjectSizeGreaterThan" => float(),
         "ObjectSizeLessThan" => float(),
-        "Prefix" => String.t(),
+        "Prefix" => String.t() | Atom.t(),
         "Tags" => list(tag())
       }
 
   """
-  @type lifecycle_rule_and_operator() :: %{String.t() => any()}
+  @type lifecycle_rule_and_operator() :: %{String.t() | Atom.t() => any()}
 
   @type abort_multipart_upload_errors() :: no_such_upload()
 
@@ -4583,8 +4598,8 @@ defmodule AWS.S3 do
   """
   @spec abort_multipart_upload(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           abort_multipart_upload_request(),
           list()
         ) ::
@@ -4832,8 +4847,8 @@ defmodule AWS.S3 do
   """
   @spec complete_multipart_upload(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           complete_multipart_upload_request(),
           list()
         ) ::
@@ -5149,7 +5164,13 @@ defmodule AWS.S3 do
 
   [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
   """
-  @spec copy_object(map(), String.t(), String.t(), copy_object_request(), list()) ::
+  @spec copy_object(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          copy_object_request(),
+          list()
+        ) ::
           {:ok, copy_object_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5443,7 +5464,7 @@ defmodule AWS.S3 do
 
   [DeleteBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html)
   """
-  @spec create_bucket(map(), String.t(), create_bucket_request(), list()) ::
+  @spec create_bucket(map(), String.t() | Atom.t(), create_bucket_request(), list()) ::
           {:ok, create_bucket_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5550,7 +5571,7 @@ defmodule AWS.S3 do
   """
   @spec create_bucket_metadata_table_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           create_bucket_metadata_table_configuration_request(),
           list()
         ) ::
@@ -5915,8 +5936,8 @@ defmodule AWS.S3 do
   """
   @spec create_multipart_upload(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           create_multipart_upload_request(),
           list()
         ) ::
@@ -6189,12 +6210,12 @@ defmodule AWS.S3 do
   """
   @spec create_session(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, create_session_output(), any()}
@@ -6336,7 +6357,7 @@ defmodule AWS.S3 do
 
   [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
   """
-  @spec delete_bucket(map(), String.t(), delete_bucket_request(), list()) ::
+  @spec delete_bucket(map(), String.t() | Atom.t(), delete_bucket_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6402,7 +6423,7 @@ defmodule AWS.S3 do
   """
   @spec delete_bucket_analytics_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_bucket_analytics_configuration_request(),
           list()
         ) ::
@@ -6464,7 +6485,7 @@ defmodule AWS.S3 do
 
   [RESTOPTIONSobject](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTOPTIONSobject.html)
   """
-  @spec delete_bucket_cors(map(), String.t(), delete_bucket_cors_request(), list()) ::
+  @spec delete_bucket_cors(map(), String.t() | Atom.t(), delete_bucket_cors_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6555,7 +6576,12 @@ defmodule AWS.S3 do
 
   [GetBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketEncryption.html)
   """
-  @spec delete_bucket_encryption(map(), String.t(), delete_bucket_encryption_request(), list()) ::
+  @spec delete_bucket_encryption(
+          map(),
+          String.t() | Atom.t(),
+          delete_bucket_encryption_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6625,7 +6651,7 @@ defmodule AWS.S3 do
   """
   @spec delete_bucket_intelligent_tiering_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_bucket_intelligent_tiering_configuration_request(),
           list()
         ) ::
@@ -6702,7 +6728,7 @@ defmodule AWS.S3 do
   """
   @spec delete_bucket_inventory_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_bucket_inventory_configuration_request(),
           list()
         ) ::
@@ -6824,7 +6850,12 @@ defmodule AWS.S3 do
 
   [GetBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html)
   """
-  @spec delete_bucket_lifecycle(map(), String.t(), delete_bucket_lifecycle_request(), list()) ::
+  @spec delete_bucket_lifecycle(
+          map(),
+          String.t() | Atom.t(),
+          delete_bucket_lifecycle_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6888,7 +6919,7 @@ defmodule AWS.S3 do
   """
   @spec delete_bucket_metadata_table_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_bucket_metadata_table_configuration_request(),
           list()
         ) ::
@@ -6966,7 +6997,7 @@ defmodule AWS.S3 do
   """
   @spec delete_bucket_metrics_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_bucket_metrics_configuration_request(),
           list()
         ) ::
@@ -7028,7 +7059,7 @@ defmodule AWS.S3 do
   """
   @spec delete_bucket_ownership_controls(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_bucket_ownership_controls_request(),
           list()
         ) ::
@@ -7144,7 +7175,7 @@ defmodule AWS.S3 do
 
   [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
   """
-  @spec delete_bucket_policy(map(), String.t(), delete_bucket_policy_request(), list()) ::
+  @spec delete_bucket_policy(map(), String.t() | Atom.t(), delete_bucket_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7206,7 +7237,12 @@ defmodule AWS.S3 do
 
   [GetBucketReplication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketReplication.html)
   """
-  @spec delete_bucket_replication(map(), String.t(), delete_bucket_replication_request(), list()) ::
+  @spec delete_bucket_replication(
+          map(),
+          String.t() | Atom.t(),
+          delete_bucket_replication_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7257,7 +7293,12 @@ defmodule AWS.S3 do
 
   [PutBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html)
   """
-  @spec delete_bucket_tagging(map(), String.t(), delete_bucket_tagging_request(), list()) ::
+  @spec delete_bucket_tagging(
+          map(),
+          String.t() | Atom.t(),
+          delete_bucket_tagging_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7325,7 +7366,12 @@ defmodule AWS.S3 do
 
   [PutBucketWebsite](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketWebsite.html)
   """
-  @spec delete_bucket_website(map(), String.t(), delete_bucket_website_request(), list()) ::
+  @spec delete_bucket_website(
+          map(),
+          String.t() | Atom.t(),
+          delete_bucket_website_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7494,7 +7540,13 @@ defmodule AWS.S3 do
 
   [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
   """
-  @spec delete_object(map(), String.t(), String.t(), delete_object_request(), list()) ::
+  @spec delete_object(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_object_request(),
+          list()
+        ) ::
           {:ok, delete_object_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7574,8 +7626,8 @@ defmodule AWS.S3 do
   """
   @spec delete_object_tagging(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_object_tagging_request(),
           list()
         ) ::
@@ -7790,7 +7842,7 @@ defmodule AWS.S3 do
 
   [AbortMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html)
   """
-  @spec delete_objects(map(), String.t(), delete_objects_request(), list()) ::
+  @spec delete_objects(map(), String.t() | Atom.t(), delete_objects_request(), list()) ::
           {:ok, delete_objects_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7872,7 +7924,7 @@ defmodule AWS.S3 do
   """
   @spec delete_public_access_block(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_public_access_block_request(),
           list()
         ) ::
@@ -7948,9 +8000,9 @@ defmodule AWS.S3 do
   """
   @spec get_bucket_accelerate_configuration(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, get_bucket_accelerate_configuration_output(), any()}
@@ -8042,7 +8094,7 @@ defmodule AWS.S3 do
 
   [ListObjects](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html)
   """
-  @spec get_bucket_acl(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_bucket_acl(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
           {:ok, get_bucket_acl_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8103,9 +8155,9 @@ defmodule AWS.S3 do
   """
   @spec get_bucket_analytics_configuration(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, get_bucket_analytics_configuration_output(), any()}
@@ -8176,7 +8228,7 @@ defmodule AWS.S3 do
 
   [DeleteBucketCors](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketCors.html)
   """
-  @spec get_bucket_cors(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_bucket_cors(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
           {:ok, get_bucket_cors_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8261,7 +8313,7 @@ defmodule AWS.S3 do
 
   [DeleteBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketEncryption.html)
   """
-  @spec get_bucket_encryption(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_bucket_encryption(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
           {:ok, get_bucket_encryption_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8327,9 +8379,9 @@ defmodule AWS.S3 do
   """
   @spec get_bucket_intelligent_tiering_configuration(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, get_bucket_intelligent_tiering_configuration_output(), any()}
@@ -8403,9 +8455,9 @@ defmodule AWS.S3 do
   """
   @spec get_bucket_inventory_configuration(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, get_bucket_inventory_configuration_output(), any()}
@@ -8553,7 +8605,12 @@ defmodule AWS.S3 do
 
   [DeleteBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html)
   """
-  @spec get_bucket_lifecycle_configuration(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_bucket_lifecycle_configuration(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, get_bucket_lifecycle_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8623,7 +8680,7 @@ defmodule AWS.S3 do
 
   [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
   """
-  @spec get_bucket_location(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_bucket_location(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
           {:ok, get_bucket_location_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8677,7 +8734,7 @@ defmodule AWS.S3 do
 
   [PutBucketLogging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLogging.html)
   """
-  @spec get_bucket_logging(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_bucket_logging(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
           {:ok, get_bucket_logging_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8729,7 +8786,12 @@ defmodule AWS.S3 do
 
   [DeleteBucketMetadataTableConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetadataTableConfiguration.html)
   """
-  @spec get_bucket_metadata_table_configuration(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_bucket_metadata_table_configuration(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, get_bucket_metadata_table_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8795,7 +8857,13 @@ defmodule AWS.S3 do
   [Monitoring Metrics with Amazon
   CloudWatch](https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html)
   """
-  @spec get_bucket_metrics_configuration(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_bucket_metrics_configuration(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, get_bucket_metrics_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8868,7 +8936,12 @@ defmodule AWS.S3 do
 
   [PutBucketNotification](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketNotification.html)
   """
-  @spec get_bucket_notification_configuration(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_bucket_notification_configuration(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, notification_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8928,7 +9001,12 @@ defmodule AWS.S3 do
 
   `DeleteBucketOwnershipControls`
   """
-  @spec get_bucket_ownership_controls(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_bucket_ownership_controls(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, get_bucket_ownership_controls_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9044,7 +9122,7 @@ defmodule AWS.S3 do
 
   [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
   """
-  @spec get_bucket_policy(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_bucket_policy(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
           {:ok, get_bucket_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9098,7 +9176,12 @@ defmodule AWS.S3 do
 
   [DeletePublicAccessBlock](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeletePublicAccessBlock.html)
   """
-  @spec get_bucket_policy_status(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_bucket_policy_status(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, get_bucket_policy_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9163,7 +9246,7 @@ defmodule AWS.S3 do
 
   [DeleteBucketReplication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketReplication.html)
   """
-  @spec get_bucket_replication(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_bucket_replication(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
           {:ok, get_bucket_replication_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9205,7 +9288,12 @@ defmodule AWS.S3 do
 
   [ListObjects](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html)
   """
-  @spec get_bucket_request_payment(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_bucket_request_payment(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, get_bucket_request_payment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9260,7 +9348,7 @@ defmodule AWS.S3 do
 
   [DeleteBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html)
   """
-  @spec get_bucket_tagging(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_bucket_tagging(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
           {:ok, get_bucket_tagging_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9309,7 +9397,7 @@ defmodule AWS.S3 do
 
   [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
   """
-  @spec get_bucket_versioning(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_bucket_versioning(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
           {:ok, get_bucket_versioning_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9363,7 +9451,7 @@ defmodule AWS.S3 do
 
   [PutBucketWebsite](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketWebsite.html)
   """
-  @spec get_bucket_website(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_bucket_website(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
           {:ok, get_bucket_website_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9601,27 +9689,27 @@ defmodule AWS.S3 do
   """
   @spec get_object(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, get_object_output(), any()}
@@ -9894,11 +9982,11 @@ defmodule AWS.S3 do
   """
   @spec get_object_acl(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, get_object_acl_output(), any()}
@@ -10204,17 +10292,17 @@ defmodule AWS.S3 do
   """
   @spec get_object_attributes(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, get_object_attributes_output(), any()}
@@ -10339,11 +10427,11 @@ defmodule AWS.S3 do
   """
   @spec get_object_legal_hold(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, get_object_legal_hold_output(), any()}
@@ -10407,7 +10495,12 @@ defmodule AWS.S3 do
 
   [GetObjectAttributes](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html)
   """
-  @spec get_object_lock_configuration(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_object_lock_configuration(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, get_object_lock_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10450,11 +10543,11 @@ defmodule AWS.S3 do
   """
   @spec get_object_retention(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, get_object_retention_output(), any()}
@@ -10540,11 +10633,11 @@ defmodule AWS.S3 do
   """
   @spec get_object_tagging(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, get_object_tagging_output(), any()}
@@ -10622,10 +10715,10 @@ defmodule AWS.S3 do
   """
   @spec get_object_torrent(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, get_object_torrent_output(), any()}
@@ -10716,7 +10809,7 @@ defmodule AWS.S3 do
 
   [DeletePublicAccessBlock](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeletePublicAccessBlock.html)
   """
-  @spec get_public_access_block(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_public_access_block(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
           {:ok, get_public_access_block_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10837,7 +10930,7 @@ defmodule AWS.S3 do
   in the
   *Amazon S3 User Guide*.
   """
-  @spec head_bucket(map(), String.t(), head_bucket_request(), list()) ::
+  @spec head_bucket(map(), String.t() | Atom.t(), head_bucket_request(), list()) ::
           {:ok, head_bucket_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11083,7 +11176,13 @@ defmodule AWS.S3 do
 
   [GetObjectAttributes](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html)
   """
-  @spec head_object(map(), String.t(), String.t(), head_object_request(), list()) ::
+  @spec head_object(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          head_object_request(),
+          list()
+        ) ::
           {:ok, head_object_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11228,9 +11327,9 @@ defmodule AWS.S3 do
   """
   @spec list_bucket_analytics_configurations(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_bucket_analytics_configurations_output(), any()}
@@ -11306,9 +11405,9 @@ defmodule AWS.S3 do
   """
   @spec list_bucket_intelligent_tiering_configurations(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_bucket_intelligent_tiering_configurations_output(), any()}
@@ -11392,9 +11491,9 @@ defmodule AWS.S3 do
   """
   @spec list_bucket_inventory_configurations(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_bucket_inventory_configurations_output(), any()}
@@ -11479,9 +11578,9 @@ defmodule AWS.S3 do
   """
   @spec list_bucket_metrics_configurations(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_bucket_metrics_configurations_output(), any()}
@@ -11555,10 +11654,10 @@ defmodule AWS.S3 do
   """
   @spec list_buckets(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_buckets_output(), any()}
@@ -11656,7 +11755,12 @@ defmodule AWS.S3 do
   The `BucketRegion` response element is not part of the
   `ListDirectoryBuckets` Response Syntax.
   """
-  @spec list_directory_buckets(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_directory_buckets(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_directory_buckets_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11855,15 +11959,15 @@ defmodule AWS.S3 do
   """
   @spec list_multipart_uploads(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_multipart_uploads_output(), any()}
@@ -12008,16 +12112,16 @@ defmodule AWS.S3 do
   """
   @spec list_object_versions(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_object_versions_output(), any()}
@@ -12171,15 +12275,15 @@ defmodule AWS.S3 do
   """
   @spec list_objects(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_objects_output(), any()}
@@ -12404,17 +12508,17 @@ defmodule AWS.S3 do
   """
   @spec list_objects_v2(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_objects_v2_output(), any()}
@@ -12653,16 +12757,16 @@ defmodule AWS.S3 do
   """
   @spec list_parts(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_parts_output(), any()}
@@ -12816,7 +12920,7 @@ defmodule AWS.S3 do
   """
   @spec put_bucket_accelerate_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_bucket_accelerate_configuration_request(),
           list()
         ) ::
@@ -13076,7 +13180,7 @@ defmodule AWS.S3 do
 
   [GetObjectAcl](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html)
   """
-  @spec put_bucket_acl(map(), String.t(), put_bucket_acl_request(), list()) ::
+  @spec put_bucket_acl(map(), String.t() | Atom.t(), put_bucket_acl_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13215,7 +13319,7 @@ defmodule AWS.S3 do
   """
   @spec put_bucket_analytics_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_bucket_analytics_configuration_request(),
           list()
         ) ::
@@ -13315,7 +13419,7 @@ defmodule AWS.S3 do
 
   [RESTOPTIONSobject](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTOPTIONSobject.html)
   """
-  @spec put_bucket_cors(map(), String.t(), put_bucket_cors_request(), list()) ::
+  @spec put_bucket_cors(map(), String.t() | Atom.t(), put_bucket_cors_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13507,7 +13611,12 @@ defmodule AWS.S3 do
 
   [DeleteBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketEncryption.html)
   """
-  @spec put_bucket_encryption(map(), String.t(), put_bucket_encryption_request(), list()) ::
+  @spec put_bucket_encryption(
+          map(),
+          String.t() | Atom.t(),
+          put_bucket_encryption_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13611,7 +13720,7 @@ defmodule AWS.S3 do
   """
   @spec put_bucket_intelligent_tiering_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_bucket_intelligent_tiering_configuration_request(),
           list()
         ) ::
@@ -13756,7 +13865,7 @@ defmodule AWS.S3 do
   """
   @spec put_bucket_inventory_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_bucket_inventory_configuration_request(),
           list()
         ) ::
@@ -13946,7 +14055,7 @@ defmodule AWS.S3 do
   """
   @spec put_bucket_lifecycle_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_bucket_lifecycle_configuration_request(),
           list()
         ) ::
@@ -14101,7 +14210,7 @@ defmodule AWS.S3 do
 
   [GetBucketLogging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLogging.html)
   """
-  @spec put_bucket_logging(map(), String.t(), put_bucket_logging_request(), list()) ::
+  @spec put_bucket_logging(map(), String.t() | Atom.t(), put_bucket_logging_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14187,7 +14296,7 @@ defmodule AWS.S3 do
   """
   @spec put_bucket_metrics_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_bucket_metrics_configuration_request(),
           list()
         ) ::
@@ -14305,7 +14414,7 @@ defmodule AWS.S3 do
   """
   @spec put_bucket_notification_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_bucket_notification_configuration_request(),
           list()
         ) ::
@@ -14362,7 +14471,7 @@ defmodule AWS.S3 do
   """
   @spec put_bucket_ownership_controls(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_bucket_ownership_controls_request(),
           list()
         ) ::
@@ -14491,7 +14600,7 @@ defmodule AWS.S3 do
 
   [DeleteBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html)
   """
-  @spec put_bucket_policy(map(), String.t(), put_bucket_policy_request(), list()) ::
+  @spec put_bucket_policy(map(), String.t() | Atom.t(), put_bucket_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14615,7 +14724,12 @@ defmodule AWS.S3 do
 
   [DeleteBucketReplication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketReplication.html)
   """
-  @spec put_bucket_replication(map(), String.t(), put_bucket_replication_request(), list()) ::
+  @spec put_bucket_replication(
+          map(),
+          String.t() | Atom.t(),
+          put_bucket_replication_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14673,7 +14787,7 @@ defmodule AWS.S3 do
   """
   @spec put_bucket_request_payment(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_bucket_request_payment_request(),
           list()
         ) ::
@@ -14777,7 +14891,7 @@ defmodule AWS.S3 do
 
   [DeleteBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html)
   """
-  @spec put_bucket_tagging(map(), String.t(), put_bucket_tagging_request(), list()) ::
+  @spec put_bucket_tagging(map(), String.t() | Atom.t(), put_bucket_tagging_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14877,7 +14991,12 @@ defmodule AWS.S3 do
 
   [GetBucketVersioning](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html)
   """
-  @spec put_bucket_versioning(map(), String.t(), put_bucket_versioning_request(), list()) ::
+  @spec put_bucket_versioning(
+          map(),
+          String.t() | Atom.t(),
+          put_bucket_versioning_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15032,7 +15151,7 @@ defmodule AWS.S3 do
 
   The maximum request length is limited to 128 KB.
   """
-  @spec put_bucket_website(map(), String.t(), put_bucket_website_request(), list()) ::
+  @spec put_bucket_website(map(), String.t() | Atom.t(), put_bucket_website_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15262,7 +15381,13 @@ defmodule AWS.S3 do
 
   [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
   """
-  @spec put_object(map(), String.t(), String.t(), put_object_request(), list()) ::
+  @spec put_object(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          put_object_request(),
+          list()
+        ) ::
           {:ok, put_object_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15569,7 +15694,13 @@ defmodule AWS.S3 do
 
   [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
   """
-  @spec put_object_acl(map(), String.t(), String.t(), put_object_acl_request(), list()) ::
+  @spec put_object_acl(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          put_object_acl_request(),
+          list()
+        ) ::
           {:ok, put_object_acl_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15634,8 +15765,8 @@ defmodule AWS.S3 do
   """
   @spec put_object_legal_hold(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           put_object_legal_hold_request(),
           list()
         ) ::
@@ -15710,7 +15841,7 @@ defmodule AWS.S3 do
   """
   @spec put_object_lock_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_object_lock_configuration_request(),
           list()
         ) ::
@@ -15770,8 +15901,8 @@ defmodule AWS.S3 do
   """
   @spec put_object_retention(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           put_object_retention_request(),
           list()
         ) ::
@@ -15881,7 +16012,13 @@ defmodule AWS.S3 do
 
   [DeleteObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html)
   """
-  @spec put_object_tagging(map(), String.t(), String.t(), put_object_tagging_request(), list()) ::
+  @spec put_object_tagging(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          put_object_tagging_request(),
+          list()
+        ) ::
           {:ok, put_object_tagging_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15969,7 +16106,12 @@ defmodule AWS.S3 do
   Public
   Access](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html)
   """
-  @spec put_public_access_block(map(), String.t(), put_public_access_block_request(), list()) ::
+  @spec put_public_access_block(
+          map(),
+          String.t() | Atom.t(),
+          put_public_access_block_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16077,7 +16219,13 @@ defmodule AWS.S3 do
 
   .
   """
-  @spec rename_object(map(), String.t(), String.t(), rename_object_request(), list()) ::
+  @spec rename_object(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          rename_object_request(),
+          list()
+        ) ::
           {:ok, rename_object_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16343,7 +16491,13 @@ defmodule AWS.S3 do
 
   [GetBucketNotificationConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketNotificationConfiguration.html)
   """
-  @spec restore_object(map(), String.t(), String.t(), restore_object_request(), list()) ::
+  @spec restore_object(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          restore_object_request(),
+          list()
+        ) ::
           {:ok, restore_object_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16528,8 +16682,8 @@ defmodule AWS.S3 do
   """
   @spec select_object_content(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           select_object_content_request(),
           list()
         ) ::
@@ -16795,7 +16949,13 @@ defmodule AWS.S3 do
 
   [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
   """
-  @spec upload_part(map(), String.t(), String.t(), upload_part_request(), list()) ::
+  @spec upload_part(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          upload_part_request(),
+          list()
+        ) ::
           {:ok, upload_part_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -17119,7 +17279,13 @@ defmodule AWS.S3 do
 
   [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
   """
-  @spec upload_part_copy(map(), String.t(), String.t(), upload_part_copy_request(), list()) ::
+  @spec upload_part_copy(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          upload_part_copy_request(),
+          list()
+        ) ::
           {:ok, upload_part_copy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

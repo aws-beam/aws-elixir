@@ -26,25 +26,25 @@ defmodule AWS.FreeTier do
   ## Example:
       
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       activity_summary() :: %{
-        "activityId" => String.t(),
+        "activityId" => String.t() | Atom.t(),
         "reward" => list(),
         "status" => list(any()),
-        "title" => String.t()
+        "title" => String.t() | Atom.t()
       }
       
   """
-  @type activity_summary() :: %{String.t() => any()}
+  @type activity_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -53,11 +53,11 @@ defmodule AWS.FreeTier do
       dimension_values() :: %{
         "Key" => list(any()),
         "MatchOptions" => list(list(any())()),
-        "Values" => list(String.t())
+        "Values" => list(String.t() | Atom.t())
       }
       
   """
-  @type dimension_values() :: %{String.t() => any()}
+  @type dimension_values() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -71,7 +71,7 @@ defmodule AWS.FreeTier do
       }
       
   """
-  @type expression() :: %{String.t() => any()}
+  @type expression() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -79,19 +79,19 @@ defmodule AWS.FreeTier do
       
       free_tier_usage() :: %{
         "actualUsageAmount" => float(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "forecastedUsageAmount" => float(),
-        "freeTierType" => String.t(),
+        "freeTierType" => String.t() | Atom.t(),
         "limit" => float(),
-        "operation" => String.t(),
-        "region" => String.t(),
-        "service" => String.t(),
-        "unit" => String.t(),
-        "usageType" => String.t()
+        "operation" => String.t() | Atom.t(),
+        "region" => String.t() | Atom.t(),
+        "service" => String.t() | Atom.t(),
+        "unit" => String.t() | Atom.t(),
+        "usageType" => String.t() | Atom.t()
       }
       
   """
-  @type free_tier_usage() :: %{String.t() => any()}
+  @type free_tier_usage() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -99,31 +99,31 @@ defmodule AWS.FreeTier do
       
       get_account_activity_request() :: %{
         optional("languageCode") => list(any()),
-        required("activityId") => String.t()
+        required("activityId") => String.t() | Atom.t()
       }
       
   """
-  @type get_account_activity_request() :: %{String.t() => any()}
+  @type get_account_activity_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_account_activity_response() :: %{
-        "activityId" => String.t(),
+        "activityId" => String.t() | Atom.t(),
         "completedAt" => [non_neg_integer()],
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "estimatedTimeToCompleteInMinutes" => [integer()],
         "expiresAt" => [non_neg_integer()],
-        "instructionsUrl" => String.t(),
+        "instructionsUrl" => String.t() | Atom.t(),
         "reward" => list(),
         "startedAt" => [non_neg_integer()],
         "status" => list(any()),
-        "title" => String.t()
+        "title" => String.t() | Atom.t()
       }
       
   """
-  @type get_account_activity_response() :: %{String.t() => any()}
+  @type get_account_activity_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -139,7 +139,7 @@ defmodule AWS.FreeTier do
   ## Example:
       
       get_account_plan_state_response() :: %{
-        "accountId" => String.t(),
+        "accountId" => String.t() | Atom.t(),
         "accountPlanExpirationDate" => [non_neg_integer()],
         "accountPlanRemainingCredits" => monetary_amount(),
         "accountPlanStatus" => list(any()),
@@ -147,7 +147,7 @@ defmodule AWS.FreeTier do
       }
       
   """
-  @type get_account_plan_state_response() :: %{String.t() => any()}
+  @type get_account_plan_state_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -156,11 +156,11 @@ defmodule AWS.FreeTier do
       get_free_tier_usage_request() :: %{
         optional("filter") => expression(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type get_free_tier_usage_request() :: %{String.t() => any()}
+  @type get_free_tier_usage_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -168,22 +168,22 @@ defmodule AWS.FreeTier do
       
       get_free_tier_usage_response() :: %{
         "freeTierUsages" => list(free_tier_usage()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type get_free_tier_usage_response() :: %{String.t() => any()}
+  @type get_free_tier_usage_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -193,11 +193,11 @@ defmodule AWS.FreeTier do
         optional("filterActivityStatuses") => list(list(any())()),
         optional("languageCode") => list(any()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_account_activities_request() :: %{String.t() => any()}
+  @type list_account_activities_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -205,11 +205,11 @@ defmodule AWS.FreeTier do
       
       list_account_activities_response() :: %{
         "activities" => list(activity_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_account_activities_response() :: %{String.t() => any()}
+  @type list_account_activities_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -221,29 +221,29 @@ defmodule AWS.FreeTier do
       }
       
   """
-  @type monetary_amount() :: %{String.t() => any()}
+  @type monetary_amount() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -254,31 +254,31 @@ defmodule AWS.FreeTier do
       }
       
   """
-  @type upgrade_account_plan_request() :: %{String.t() => any()}
+  @type upgrade_account_plan_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       upgrade_account_plan_response() :: %{
-        "accountId" => String.t(),
+        "accountId" => String.t() | Atom.t(),
         "accountPlanStatus" => list(any()),
         "accountPlanType" => list(any())
       }
       
   """
-  @type upgrade_account_plan_response() :: %{String.t() => any()}
+  @type upgrade_account_plan_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @type get_account_activity_errors() ::
           validation_exception()

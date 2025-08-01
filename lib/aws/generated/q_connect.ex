@@ -42,13 +42,13 @@ defmodule AWS.QConnect do
 
       start_content_upload_response() :: %{
         required("headersToInclude") => map(),
-        required("uploadId") => String.t(),
-        required("url") => String.t(),
+        required("uploadId") => String.t() | Atom.t(),
+        required("url") => String.t() | Atom.t(),
         required("urlExpiry") => [non_neg_integer()]
       }
 
   """
-  @type start_content_upload_response() :: %{String.t() => any()}
+  @type start_content_upload_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -56,11 +56,11 @@ defmodule AWS.QConnect do
 
       list_message_template_versions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_message_template_versions_request() :: %{String.t() => any()}
+  @type list_message_template_versions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -76,11 +76,11 @@ defmodule AWS.QConnect do
   ## Example:
 
       update_knowledge_base_template_uri_request() :: %{
-        required("templateUri") => String.t()
+        required("templateUri") => String.t() | Atom.t()
       }
 
   """
-  @type update_knowledge_base_template_uri_request() :: %{String.t() => any()}
+  @type update_knowledge_base_template_uri_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -88,12 +88,12 @@ defmodule AWS.QConnect do
 
       put_feedback_request() :: %{
         required("contentFeedback") => list(),
-        required("targetId") => String.t(),
-        required("targetType") => String.t()
+        required("targetId") => String.t() | Atom.t(),
+        required("targetType") => String.t() | Atom.t()
       }
 
   """
-  @type put_feedback_request() :: %{String.t() => any()}
+  @type put_feedback_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -109,12 +109,12 @@ defmodule AWS.QConnect do
   ## Example:
 
       query_assistant_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("results") => list(result_data())
       }
 
   """
-  @type query_assistant_response() :: %{String.t() => any()}
+  @type query_assistant_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -125,7 +125,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type message_configuration() :: %{String.t() => any()}
+  @type message_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -133,12 +133,12 @@ defmodule AWS.QConnect do
 
       list_a_i_agents_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("origin") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("origin") => String.t() | Atom.t()
       }
 
   """
-  @type list_a_i_agents_request() :: %{String.t() => any()}
+  @type list_a_i_agents_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -149,19 +149,19 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       message_template_order_field() :: %{
-        "name" => String.t(),
-        "order" => String.t()
+        "name" => String.t() | Atom.t(),
+        "order" => String.t() | Atom.t()
       }
 
   """
-  @type message_template_order_field() :: %{String.t() => any()}
+  @type message_template_order_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -177,14 +177,14 @@ defmodule AWS.QConnect do
   ## Example:
 
       session_summary() :: %{
-        "assistantArn" => String.t(),
-        "assistantId" => String.t(),
-        "sessionArn" => String.t(),
-        "sessionId" => String.t()
+        "assistantArn" => String.t() | Atom.t(),
+        "assistantId" => String.t() | Atom.t(),
+        "sessionArn" => String.t() | Atom.t(),
+        "sessionId" => String.t() | Atom.t()
       }
 
   """
-  @type session_summary() :: %{String.t() => any()}
+  @type session_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -195,7 +195,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type create_quick_response_response() :: %{String.t() => any()}
+  @type create_quick_response_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -207,7 +207,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type a_i_agent_version_summary() :: %{String.t() => any()}
+  @type a_i_agent_version_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -218,7 +218,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type get_session_response() :: %{String.t() => any()}
+  @type get_session_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -226,23 +226,23 @@ defmodule AWS.QConnect do
 
       list_a_i_agent_versions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("origin") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("origin") => String.t() | Atom.t()
       }
 
   """
-  @type list_a_i_agent_versions_request() :: %{String.t() => any()}
+  @type list_a_i_agent_versions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       unauthorized_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type unauthorized_exception() :: %{String.t() => any()}
+  @type unauthorized_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -258,11 +258,11 @@ defmodule AWS.QConnect do
   ## Example:
 
       remove_assistant_a_i_agent_request() :: %{
-        required("aiAgentType") => String.t()
+        required("aiAgentType") => String.t() | Atom.t()
       }
 
   """
-  @type remove_assistant_a_i_agent_request() :: %{String.t() => any()}
+  @type remove_assistant_a_i_agent_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -274,7 +274,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type data_summary() :: %{String.t() => any()}
+  @type data_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -283,12 +283,12 @@ defmodule AWS.QConnect do
       search_quick_responses_request() :: %{
         optional("attributes") => map(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("searchExpression") => quick_response_search_expression()
       }
 
   """
-  @type search_quick_responses_request() :: %{String.t() => any()}
+  @type search_quick_responses_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -310,7 +310,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type quick_response_search_expression() :: %{String.t() => any()}
+  @type quick_response_search_expression() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -326,13 +326,13 @@ defmodule AWS.QConnect do
   ## Example:
 
       deactivate_message_template_response() :: %{
-        "messageTemplateArn" => String.t(),
-        "messageTemplateId" => String.t(),
+        "messageTemplateArn" => String.t() | Atom.t(),
+        "messageTemplateId" => String.t() | Atom.t(),
         "versionNumber" => float()
       }
 
   """
-  @type deactivate_message_template_response() :: %{String.t() => any()}
+  @type deactivate_message_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -344,7 +344,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type fixed_size_chunking_configuration() :: %{String.t() => any()}
+  @type fixed_size_chunking_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -356,50 +356,50 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type highlight() :: %{String.t() => any()}
+  @type highlight() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       guardrail_topic_config() :: %{
-        "definition" => String.t(),
-        "examples" => list(String.t()),
-        "name" => String.t(),
-        "type" => String.t()
+        "definition" => String.t() | Atom.t(),
+        "examples" => list(String.t() | Atom.t()),
+        "name" => String.t() | Atom.t(),
+        "type" => String.t() | Atom.t()
       }
 
   """
-  @type guardrail_topic_config() :: %{String.t() => any()}
+  @type guardrail_topic_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       app_integrations_configuration() :: %{
-        "appIntegrationArn" => String.t(),
-        "objectFields" => list(String.t())
+        "appIntegrationArn" => String.t() | Atom.t(),
+        "objectFields" => list(String.t() | Atom.t())
       }
 
   """
-  @type app_integrations_configuration() :: %{String.t() => any()}
+  @type app_integrations_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_a_i_agent_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("tags") => map(),
         required("configuration") => list(),
-        required("name") => String.t(),
-        required("type") => String.t(),
-        required("visibilityStatus") => String.t()
+        required("name") => String.t() | Atom.t(),
+        required("type") => String.t() | Atom.t(),
+        required("visibilityStatus") => String.t() | Atom.t()
       }
 
   """
-  @type create_a_i_agent_request() :: %{String.t() => any()}
+  @type create_a_i_agent_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -407,11 +407,11 @@ defmodule AWS.QConnect do
 
       list_a_i_agent_versions_response() :: %{
         "aiAgentVersionSummaries" => list(a_i_agent_version_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_a_i_agent_versions_response() :: %{String.t() => any()}
+  @type list_a_i_agent_versions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -422,19 +422,19 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type create_a_i_agent_response() :: %{String.t() => any()}
+  @type create_a_i_agent_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_a_iprompt_version_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("modifiedTime") => [non_neg_integer()]
       }
 
   """
-  @type create_a_iprompt_version_request() :: %{String.t() => any()}
+  @type create_a_iprompt_version_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -446,30 +446,30 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type get_a_i_agent_response() :: %{String.t() => any()}
+  @type get_a_i_agent_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_contents_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("contentSummaries") => list(content_summary())
       }
 
   """
-  @type list_contents_response() :: %{String.t() => any()}
+  @type list_contents_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       query_text_input_data() :: %{
-        "text" => String.t()
+        "text" => String.t() | Atom.t()
       }
 
   """
-  @type query_text_input_data() :: %{String.t() => any()}
+  @type query_text_input_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -477,13 +477,13 @@ defmodule AWS.QConnect do
 
       quick_response_filter_field() :: %{
         "includeNoExistence" => [boolean()],
-        "name" => String.t(),
-        "operator" => String.t(),
-        "values" => list(String.t())
+        "name" => String.t() | Atom.t(),
+        "operator" => String.t() | Atom.t(),
+        "values" => list(String.t() | Atom.t())
       }
 
   """
-  @type quick_response_filter_field() :: %{String.t() => any()}
+  @type quick_response_filter_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -491,11 +491,11 @@ defmodule AWS.QConnect do
 
       list_messages_response() :: %{
         "messages" => list(message_output()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_messages_response() :: %{String.t() => any()}
+  @type list_messages_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -503,23 +503,23 @@ defmodule AWS.QConnect do
 
       guardrail_contextual_grounding_filter_config() :: %{
         "threshold" => float(),
-        "type" => String.t()
+        "type" => String.t() | Atom.t()
       }
 
   """
-  @type guardrail_contextual_grounding_filter_config() :: %{String.t() => any()}
+  @type guardrail_contextual_grounding_filter_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_condition() :: %{
-        "key" => String.t(),
-        "value" => String.t()
+        "key" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type tag_condition() :: %{String.t() => any()}
+  @type tag_condition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -528,14 +528,14 @@ defmodule AWS.QConnect do
       get_next_message_response() :: %{
         "conversationSessionData" => list(runtime_session_data()),
         "conversationState" => conversation_state(),
-        "nextMessageToken" => String.t(),
-        "requestMessageId" => String.t(),
+        "nextMessageToken" => String.t() | Atom.t(),
+        "requestMessageId" => String.t() | Atom.t(),
         "response" => message_output(),
-        "type" => String.t()
+        "type" => String.t() | Atom.t()
       }
 
   """
-  @type get_next_message_response() :: %{String.t() => any()}
+  @type get_next_message_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -543,18 +543,18 @@ defmodule AWS.QConnect do
 
       content_association_data() :: %{
         "associationData" => list(),
-        "associationType" => String.t(),
-        "contentArn" => String.t(),
-        "contentAssociationArn" => String.t(),
-        "contentAssociationId" => String.t(),
-        "contentId" => String.t(),
-        "knowledgeBaseArn" => String.t(),
-        "knowledgeBaseId" => String.t(),
+        "associationType" => String.t() | Atom.t(),
+        "contentArn" => String.t() | Atom.t(),
+        "contentAssociationArn" => String.t() | Atom.t(),
+        "contentAssociationId" => String.t() | Atom.t(),
+        "contentId" => String.t() | Atom.t(),
+        "knowledgeBaseArn" => String.t() | Atom.t(),
+        "knowledgeBaseId" => String.t() | Atom.t(),
         "tags" => map()
       }
 
   """
-  @type content_association_data() :: %{String.t() => any()}
+  @type content_association_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -562,11 +562,11 @@ defmodule AWS.QConnect do
 
       list_a_i_guardrail_versions_response() :: %{
         "aiGuardrailVersionSummaries" => list(a_i_guardrail_version_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_a_i_guardrail_versions_response() :: %{String.t() => any()}
+  @type list_a_i_guardrail_versions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -577,7 +577,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type activate_message_template_request() :: %{String.t() => any()}
+  @type activate_message_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -585,23 +585,23 @@ defmodule AWS.QConnect do
 
       external_source_configuration() :: %{
         "configuration" => list(),
-        "source" => String.t()
+        "source" => String.t() | Atom.t()
       }
 
   """
-  @type external_source_configuration() :: %{String.t() => any()}
+  @type external_source_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       agent_attributes() :: %{
-        "firstName" => String.t(),
-        "lastName" => String.t()
+        "firstName" => String.t() | Atom.t(),
+        "lastName" => String.t() | Atom.t()
       }
 
   """
-  @type agent_attributes() :: %{String.t() => any()}
+  @type agent_attributes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -612,7 +612,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type create_content_association_response() :: %{String.t() => any()}
+  @type create_content_association_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -624,7 +624,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type a_iprompt_version_summary() :: %{String.t() => any()}
+  @type a_iprompt_version_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -633,14 +633,14 @@ defmodule AWS.QConnect do
       recommendation_data() :: %{
         "data" => data_summary(),
         "document" => document(),
-        "recommendationId" => String.t(),
-        "relevanceLevel" => String.t(),
+        "recommendationId" => String.t() | Atom.t(),
+        "relevanceLevel" => String.t() | Atom.t(),
         "relevanceScore" => float(),
-        "type" => String.t()
+        "type" => String.t() | Atom.t()
       }
 
   """
-  @type recommendation_data() :: %{String.t() => any()}
+  @type recommendation_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -648,11 +648,11 @@ defmodule AWS.QConnect do
 
       list_contents_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_contents_request() :: %{String.t() => any()}
+  @type list_contents_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -686,12 +686,12 @@ defmodule AWS.QConnect do
   ## Example:
 
       conversation_state() :: %{
-        "reason" => String.t(),
-        "status" => String.t()
+        "reason" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
 
   """
-  @type conversation_state() :: %{String.t() => any()}
+  @type conversation_state() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -702,30 +702,30 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type get_content_summary_response() :: %{String.t() => any()}
+  @type get_content_summary_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       assistant_integration_configuration() :: %{
-        "topicIntegrationArn" => String.t()
+        "topicIntegrationArn" => String.t() | Atom.t()
       }
 
   """
-  @type assistant_integration_configuration() :: %{String.t() => any()}
+  @type assistant_integration_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       intent_detected_data_details() :: %{
-        "intent" => String.t(),
-        "intentId" => String.t()
+        "intent" => String.t() | Atom.t(),
+        "intentId" => String.t() | Atom.t()
       }
 
   """
-  @type intent_detected_data_details() :: %{String.t() => any()}
+  @type intent_detected_data_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -737,7 +737,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type text_data() :: %{String.t() => any()}
+  @type text_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -753,13 +753,13 @@ defmodule AWS.QConnect do
   ## Example:
 
       generative_chunk_data_details() :: %{
-        "completion" => String.t(),
-        "nextChunkToken" => String.t(),
+        "completion" => String.t() | Atom.t(),
+        "nextChunkToken" => String.t() | Atom.t(),
         "references" => list(data_summary())
       }
 
   """
-  @type generative_chunk_data_details() :: %{String.t() => any()}
+  @type generative_chunk_data_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -770,7 +770,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type create_content_response() :: %{String.t() => any()}
+  @type create_content_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -778,11 +778,11 @@ defmodule AWS.QConnect do
 
       list_a_iprompts_response() :: %{
         "aiPromptSummaries" => list(a_iprompt_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_a_iprompts_response() :: %{String.t() => any()}
+  @type list_a_iprompts_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -793,7 +793,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type get_assistant_response() :: %{String.t() => any()}
+  @type get_assistant_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -805,38 +805,38 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type get_recommendations_response() :: %{String.t() => any()}
+  @type get_recommendations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       request_timeout_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type request_timeout_exception() :: %{String.t() => any()}
+  @type request_timeout_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_a_i_guardrail_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("contentPolicyConfig") => a_i_guardrail_content_policy_config(),
         optional("contextualGroundingPolicyConfig") => a_i_guardrail_contextual_grounding_policy_config(),
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("sensitiveInformationPolicyConfig") => a_i_guardrail_sensitive_information_policy_config(),
         optional("topicPolicyConfig") => a_i_guardrail_topic_policy_config(),
         optional("wordPolicyConfig") => a_i_guardrail_word_policy_config(),
-        required("blockedInputMessaging") => String.t(),
-        required("blockedOutputsMessaging") => String.t(),
-        required("visibilityStatus") => String.t()
+        required("blockedInputMessaging") => String.t() | Atom.t(),
+        required("blockedOutputsMessaging") => String.t() | Atom.t(),
+        required("visibilityStatus") => String.t() | Atom.t()
       }
 
   """
-  @type update_a_i_guardrail_request() :: %{String.t() => any()}
+  @type update_a_i_guardrail_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -844,26 +844,26 @@ defmodule AWS.QConnect do
 
       list_a_iprompts_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("origin") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("origin") => String.t() | Atom.t()
       }
 
   """
-  @type list_a_iprompts_request() :: %{String.t() => any()}
+  @type list_a_iprompts_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_a_iprompt_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("templateConfiguration") => list(),
-        required("visibilityStatus") => String.t()
+        required("visibilityStatus") => String.t() | Atom.t()
       }
 
   """
-  @type update_a_iprompt_request() :: %{String.t() => any()}
+  @type update_a_iprompt_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -877,37 +877,37 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type message_template_attributes() :: %{String.t() => any()}
+  @type message_template_attributes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_feedback_response() :: %{
-        "assistantArn" => String.t(),
-        "assistantId" => String.t(),
+        "assistantArn" => String.t() | Atom.t(),
+        "assistantId" => String.t() | Atom.t(),
         "contentFeedback" => list(),
-        "targetId" => String.t(),
-        "targetType" => String.t()
+        "targetId" => String.t() | Atom.t(),
+        "targetType" => String.t() | Atom.t()
       }
 
   """
-  @type put_feedback_response() :: %{String.t() => any()}
+  @type put_feedback_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_import_job_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("externalSourceConfiguration") => external_source_configuration(),
         optional("metadata") => map(),
-        required("importJobType") => String.t(),
-        required("uploadId") => String.t()
+        required("importJobType") => String.t() | Atom.t(),
+        required("uploadId") => String.t() | Atom.t()
       }
 
   """
-  @type start_import_job_request() :: %{String.t() => any()}
+  @type start_import_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -918,18 +918,18 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type create_knowledge_base_response() :: %{String.t() => any()}
+  @type create_knowledge_base_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -937,11 +937,11 @@ defmodule AWS.QConnect do
 
       parsing_configuration() :: %{
         "bedrockFoundationModelConfiguration" => bedrock_foundation_model_configuration_for_parsing(),
-        "parsingStrategy" => String.t()
+        "parsingStrategy" => String.t() | Atom.t()
       }
 
   """
-  @type parsing_configuration() :: %{String.t() => any()}
+  @type parsing_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -952,28 +952,28 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type get_assistant_association_response() :: %{String.t() => any()}
+  @type get_assistant_association_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_quick_response_request() :: %{
-        optional("channels") => list(String.t()),
-        optional("clientToken") => String.t(),
-        optional("contentType") => String.t(),
-        optional("description") => String.t(),
+        optional("channels") => list(String.t() | Atom.t()),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("contentType") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("groupingConfiguration") => grouping_configuration(),
         optional("isActive") => [boolean()],
-        optional("language") => String.t(),
-        optional("shortcutKey") => String.t(),
+        optional("language") => String.t() | Atom.t(),
+        optional("shortcutKey") => String.t() | Atom.t(),
         optional("tags") => map(),
         required("content") => list(),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_quick_response_request() :: %{String.t() => any()}
+  @type create_quick_response_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1003,7 +1003,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type create_a_i_agent_version_response() :: %{String.t() => any()}
+  @type create_a_i_agent_version_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1011,29 +1011,29 @@ defmodule AWS.QConnect do
 
       content_association_summary() :: %{
         "associationData" => list(),
-        "associationType" => String.t(),
-        "contentArn" => String.t(),
-        "contentAssociationArn" => String.t(),
-        "contentAssociationId" => String.t(),
-        "contentId" => String.t(),
-        "knowledgeBaseArn" => String.t(),
-        "knowledgeBaseId" => String.t(),
+        "associationType" => String.t() | Atom.t(),
+        "contentArn" => String.t() | Atom.t(),
+        "contentAssociationArn" => String.t() | Atom.t(),
+        "contentAssociationId" => String.t() | Atom.t(),
+        "contentId" => String.t() | Atom.t(),
+        "knowledgeBaseArn" => String.t() | Atom.t(),
+        "knowledgeBaseId" => String.t() | Atom.t(),
         "tags" => map()
       }
 
   """
-  @type content_association_summary() :: %{String.t() => any()}
+  @type content_association_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       connect_configuration() :: %{
-        "instanceId" => String.t()
+        "instanceId" => String.t() | Atom.t()
       }
 
   """
-  @type connect_configuration() :: %{String.t() => any()}
+  @type connect_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1049,12 +1049,12 @@ defmodule AWS.QConnect do
   ## Example:
 
       search_content_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("contentSummaries") => list(content_summary())
       }
 
   """
-  @type search_content_response() :: %{String.t() => any()}
+  @type search_content_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1080,49 +1080,49 @@ defmodule AWS.QConnect do
 
       message_template_filter_field() :: %{
         "includeNoExistence" => [boolean()],
-        "name" => String.t(),
-        "operator" => String.t(),
-        "values" => list(String.t())
+        "name" => String.t() | Atom.t(),
+        "operator" => String.t() | Atom.t(),
+        "values" => list(String.t() | Atom.t())
       }
 
   """
-  @type message_template_filter_field() :: %{String.t() => any()}
+  @type message_template_filter_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_message_template_attachment_request() :: %{
-        optional("clientToken") => String.t(),
-        required("body") => String.t(),
-        required("contentDisposition") => String.t(),
-        required("name") => String.t()
+        optional("clientToken") => String.t() | Atom.t(),
+        required("body") => String.t() | Atom.t(),
+        required("contentDisposition") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_message_template_attachment_request() :: %{String.t() => any()}
+  @type create_message_template_attachment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       assistant_capability_configuration() :: %{
-        "type" => String.t()
+        "type" => String.t() | Atom.t()
       }
 
   """
-  @type assistant_capability_configuration() :: %{String.t() => any()}
+  @type assistant_capability_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       a_i_agent_configuration_data() :: %{
-        "aiAgentId" => String.t()
+        "aiAgentId" => String.t() | Atom.t()
       }
 
   """
-  @type a_i_agent_configuration_data() :: %{String.t() => any()}
+  @type a_i_agent_configuration_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1134,7 +1134,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type get_a_i_guardrail_response() :: %{String.t() => any()}
+  @type get_a_i_guardrail_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1142,11 +1142,11 @@ defmodule AWS.QConnect do
 
       list_a_i_agents_response() :: %{
         "aiAgentSummaries" => list(a_i_agent_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_a_i_agents_response() :: %{String.t() => any()}
+  @type list_a_i_agents_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1159,7 +1159,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type message_template_search_expression() :: %{String.t() => any()}
+  @type message_template_search_expression() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1167,34 +1167,34 @@ defmodule AWS.QConnect do
 
       list_quick_responses_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_quick_responses_request() :: %{String.t() => any()}
+  @type list_quick_responses_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       system_endpoint_attributes() :: %{
-        "address" => String.t()
+        "address" => String.t() | Atom.t()
       }
 
   """
-  @type system_endpoint_attributes() :: %{String.t() => any()}
+  @type system_endpoint_attributes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       generative_reference() :: %{
-        "generationId" => String.t(),
-        "modelId" => String.t()
+        "generationId" => String.t() | Atom.t(),
+        "modelId" => String.t() | Atom.t()
       }
 
   """
-  @type generative_reference() :: %{String.t() => any()}
+  @type generative_reference() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1202,22 +1202,22 @@ defmodule AWS.QConnect do
 
       start_content_upload_request() :: %{
         optional("presignedUrlTimeToLive") => integer(),
-        required("contentType") => String.t()
+        required("contentType") => String.t() | Atom.t()
       }
 
   """
-  @type start_content_upload_request() :: %{String.t() => any()}
+  @type start_content_upload_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       guardrail_managed_words_config() :: %{
-        "type" => String.t()
+        "type" => String.t() | Atom.t()
       }
 
   """
-  @type guardrail_managed_words_config() :: %{String.t() => any()}
+  @type guardrail_managed_words_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1233,19 +1233,19 @@ defmodule AWS.QConnect do
   ## Example:
 
       create_message_template_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("defaultAttributes") => message_template_attributes(),
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("groupingConfiguration") => grouping_configuration(),
-        optional("language") => String.t(),
+        optional("language") => String.t() | Atom.t(),
         optional("tags") => map(),
-        required("channelSubtype") => String.t(),
+        required("channelSubtype") => String.t() | Atom.t(),
         required("content") => list(),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_message_template_request() :: %{String.t() => any()}
+  @type create_message_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1262,12 +1262,12 @@ defmodule AWS.QConnect do
 
       list_a_iprompt_versions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("origin") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("origin") => String.t() | Atom.t()
       }
 
   """
-  @type list_a_iprompt_versions_request() :: %{String.t() => any()}
+  @type list_a_iprompt_versions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1275,13 +1275,13 @@ defmodule AWS.QConnect do
 
       self_service_a_i_agent_configuration() :: %{
         "associationConfigurations" => list(association_configuration()),
-        "selfServiceAIGuardrailId" => String.t(),
-        "selfServiceAnswerGenerationAIPromptId" => String.t(),
-        "selfServicePreProcessingAIPromptId" => String.t()
+        "selfServiceAIGuardrailId" => String.t() | Atom.t(),
+        "selfServiceAnswerGenerationAIPromptId" => String.t() | Atom.t(),
+        "selfServicePreProcessingAIPromptId" => String.t() | Atom.t()
       }
 
   """
-  @type self_service_a_i_agent_configuration() :: %{String.t() => any()}
+  @type self_service_a_i_agent_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1289,11 +1289,11 @@ defmodule AWS.QConnect do
 
       list_content_associations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_content_associations_request() :: %{String.t() => any()}
+  @type list_content_associations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1301,12 +1301,12 @@ defmodule AWS.QConnect do
 
       association_configuration() :: %{
         "associationConfigurationData" => list(),
-        "associationId" => String.t(),
-        "associationType" => String.t()
+        "associationId" => String.t() | Atom.t(),
+        "associationType" => String.t() | Atom.t()
       }
 
   """
-  @type association_configuration() :: %{String.t() => any()}
+  @type association_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1318,7 +1318,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type hierarchical_chunking_configuration() :: %{String.t() => any()}
+  @type hierarchical_chunking_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1326,83 +1326,83 @@ defmodule AWS.QConnect do
 
       create_session_request() :: %{
         optional("aiAgentConfiguration") => map(),
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("tagFilter") => list(),
         optional("tags") => map(),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_session_request() :: %{String.t() => any()}
+  @type create_session_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       customer_profile_attributes() :: %{
-        "billingAddress2" => String.t(),
-        "billingProvince" => String.t(),
-        "postalCode" => String.t(),
-        "businessName" => String.t(),
-        "firstName" => String.t(),
-        "mailingCity" => String.t(),
-        "billingCountry" => String.t(),
-        "partyType" => String.t(),
-        "address3" => String.t(),
-        "mailingCounty" => String.t(),
-        "businessPhoneNumber" => String.t(),
-        "billingPostalCode" => String.t(),
-        "shippingAddress3" => String.t(),
-        "homePhoneNumber" => String.t(),
-        "mailingAddress2" => String.t(),
-        "mailingCountry" => String.t(),
-        "billingCity" => String.t(),
-        "billingAddress1" => String.t(),
-        "businessEmailAddress" => String.t(),
-        "billingAddress4" => String.t(),
-        "state" => String.t(),
-        "address2" => String.t(),
-        "shippingAddress2" => String.t(),
+        "billingAddress2" => String.t() | Atom.t(),
+        "billingProvince" => String.t() | Atom.t(),
+        "postalCode" => String.t() | Atom.t(),
+        "businessName" => String.t() | Atom.t(),
+        "firstName" => String.t() | Atom.t(),
+        "mailingCity" => String.t() | Atom.t(),
+        "billingCountry" => String.t() | Atom.t(),
+        "partyType" => String.t() | Atom.t(),
+        "address3" => String.t() | Atom.t(),
+        "mailingCounty" => String.t() | Atom.t(),
+        "businessPhoneNumber" => String.t() | Atom.t(),
+        "billingPostalCode" => String.t() | Atom.t(),
+        "shippingAddress3" => String.t() | Atom.t(),
+        "homePhoneNumber" => String.t() | Atom.t(),
+        "mailingAddress2" => String.t() | Atom.t(),
+        "mailingCountry" => String.t() | Atom.t(),
+        "billingCity" => String.t() | Atom.t(),
+        "billingAddress1" => String.t() | Atom.t(),
+        "businessEmailAddress" => String.t() | Atom.t(),
+        "billingAddress4" => String.t() | Atom.t(),
+        "state" => String.t() | Atom.t(),
+        "address2" => String.t() | Atom.t(),
+        "shippingAddress2" => String.t() | Atom.t(),
         "custom" => map(),
-        "mailingAddress1" => String.t(),
-        "shippingCounty" => String.t(),
-        "mailingPostalCode" => String.t(),
-        "shippingAddress4" => String.t(),
-        "country" => String.t(),
-        "city" => String.t(),
-        "county" => String.t(),
-        "phoneNumber" => String.t(),
-        "middleName" => String.t(),
-        "shippingCity" => String.t(),
-        "mailingAddress4" => String.t(),
-        "province" => String.t(),
-        "address4" => String.t(),
-        "shippingProvince" => String.t(),
-        "shippingAddress1" => String.t(),
-        "lastName" => String.t(),
-        "gender" => String.t(),
-        "billingState" => String.t(),
-        "shippingCountry" => String.t(),
-        "mobilePhoneNumber" => String.t(),
-        "shippingState" => String.t(),
-        "mailingAddress3" => String.t(),
-        "mailingProvince" => String.t(),
-        "accountNumber" => String.t(),
-        "mailingState" => String.t(),
-        "shippingPostalCode" => String.t(),
-        "emailAddress" => String.t(),
-        "birthDate" => String.t(),
-        "profileId" => String.t(),
-        "additionalInformation" => String.t(),
-        "profileARN" => String.t(),
-        "address1" => String.t(),
-        "billingAddress3" => String.t(),
-        "billingCounty" => String.t()
+        "mailingAddress1" => String.t() | Atom.t(),
+        "shippingCounty" => String.t() | Atom.t(),
+        "mailingPostalCode" => String.t() | Atom.t(),
+        "shippingAddress4" => String.t() | Atom.t(),
+        "country" => String.t() | Atom.t(),
+        "city" => String.t() | Atom.t(),
+        "county" => String.t() | Atom.t(),
+        "phoneNumber" => String.t() | Atom.t(),
+        "middleName" => String.t() | Atom.t(),
+        "shippingCity" => String.t() | Atom.t(),
+        "mailingAddress4" => String.t() | Atom.t(),
+        "province" => String.t() | Atom.t(),
+        "address4" => String.t() | Atom.t(),
+        "shippingProvince" => String.t() | Atom.t(),
+        "shippingAddress1" => String.t() | Atom.t(),
+        "lastName" => String.t() | Atom.t(),
+        "gender" => String.t() | Atom.t(),
+        "billingState" => String.t() | Atom.t(),
+        "shippingCountry" => String.t() | Atom.t(),
+        "mobilePhoneNumber" => String.t() | Atom.t(),
+        "shippingState" => String.t() | Atom.t(),
+        "mailingAddress3" => String.t() | Atom.t(),
+        "mailingProvince" => String.t() | Atom.t(),
+        "accountNumber" => String.t() | Atom.t(),
+        "mailingState" => String.t() | Atom.t(),
+        "shippingPostalCode" => String.t() | Atom.t(),
+        "emailAddress" => String.t() | Atom.t(),
+        "birthDate" => String.t() | Atom.t(),
+        "profileId" => String.t() | Atom.t(),
+        "additionalInformation" => String.t() | Atom.t(),
+        "profileARN" => String.t() | Atom.t(),
+        "address1" => String.t() | Atom.t(),
+        "billingAddress3" => String.t() | Atom.t(),
+        "billingCounty" => String.t() | Atom.t()
       }
 
   """
-  @type customer_profile_attributes() :: %{String.t() => any()}
+  @type customer_profile_attributes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1413,7 +1413,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type update_knowledge_base_template_uri_response() :: %{String.t() => any()}
+  @type update_knowledge_base_template_uri_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1429,26 +1429,26 @@ defmodule AWS.QConnect do
   ## Example:
 
       a_iprompt_data() :: %{
-        "aiPromptArn" => String.t(),
-        "aiPromptId" => String.t(),
-        "apiFormat" => String.t(),
-        "assistantArn" => String.t(),
-        "assistantId" => String.t(),
-        "description" => String.t(),
-        "modelId" => String.t(),
+        "aiPromptArn" => String.t() | Atom.t(),
+        "aiPromptId" => String.t() | Atom.t(),
+        "apiFormat" => String.t() | Atom.t(),
+        "assistantArn" => String.t() | Atom.t(),
+        "assistantId" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "modelId" => String.t() | Atom.t(),
         "modifiedTime" => [non_neg_integer()],
-        "name" => String.t(),
-        "origin" => String.t(),
-        "status" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "origin" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t(),
         "tags" => map(),
         "templateConfiguration" => list(),
-        "templateType" => String.t(),
-        "type" => String.t(),
-        "visibilityStatus" => String.t()
+        "templateType" => String.t() | Atom.t(),
+        "type" => String.t() | Atom.t(),
+        "visibilityStatus" => String.t() | Atom.t()
       }
 
   """
-  @type a_iprompt_data() :: %{String.t() => any()}
+  @type a_iprompt_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1459,7 +1459,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type update_a_i_guardrail_response() :: %{String.t() => any()}
+  @type update_a_i_guardrail_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1488,26 +1488,26 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type create_message_template_attachment_response() :: %{String.t() => any()}
+  @type create_message_template_attachment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_knowledge_base_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("renderingConfiguration") => rendering_configuration(),
         optional("serverSideEncryptionConfiguration") => server_side_encryption_configuration(),
         optional("sourceConfiguration") => list(),
         optional("tags") => map(),
         optional("vectorIngestionConfiguration") => vector_ingestion_configuration(),
-        required("knowledgeBaseType") => String.t(),
-        required("name") => String.t()
+        required("knowledgeBaseType") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_knowledge_base_request() :: %{String.t() => any()}
+  @type create_knowledge_base_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1518,7 +1518,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type message_input() :: %{String.t() => any()}
+  @type message_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1526,11 +1526,11 @@ defmodule AWS.QConnect do
 
       list_import_jobs_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_import_jobs_request() :: %{String.t() => any()}
+  @type list_import_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1538,32 +1538,32 @@ defmodule AWS.QConnect do
 
       list_message_template_versions_response() :: %{
         "messageTemplateVersionSummaries" => list(message_template_version_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_message_template_versions_response() :: %{String.t() => any()}
+  @type list_message_template_versions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       knowledge_base_summary() :: %{
-        "description" => String.t(),
-        "knowledgeBaseArn" => String.t(),
-        "knowledgeBaseId" => String.t(),
-        "knowledgeBaseType" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "knowledgeBaseArn" => String.t() | Atom.t(),
+        "knowledgeBaseId" => String.t() | Atom.t(),
+        "knowledgeBaseType" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "renderingConfiguration" => rendering_configuration(),
         "serverSideEncryptionConfiguration" => server_side_encryption_configuration(),
         "sourceConfiguration" => list(),
-        "status" => String.t(),
+        "status" => String.t() | Atom.t(),
         "tags" => map(),
         "vectorIngestionConfiguration" => vector_ingestion_configuration()
       }
 
   """
-  @type knowledge_base_summary() :: %{String.t() => any()}
+  @type knowledge_base_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1574,19 +1574,19 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type create_a_iprompt_response() :: %{String.t() => any()}
+  @type create_a_iprompt_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_quick_responses_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "quickResponseSummaries" => list(quick_response_summary())
       }
 
   """
-  @type list_quick_responses_response() :: %{String.t() => any()}
+  @type list_quick_responses_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1594,48 +1594,48 @@ defmodule AWS.QConnect do
 
       list_knowledge_bases_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_knowledge_bases_request() :: %{String.t() => any()}
+  @type list_knowledge_bases_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_content_association_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("tags") => map(),
         required("association") => list(),
-        required("associationType") => String.t()
+        required("associationType") => String.t() | Atom.t()
       }
 
   """
-  @type create_content_association_request() :: %{String.t() => any()}
+  @type create_content_association_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()],
-        "resourceName" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "resourceName" => [String.t() | Atom.t()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1653,75 +1653,75 @@ defmodule AWS.QConnect do
       import_job_data() :: %{
         "createdTime" => [non_neg_integer()],
         "externalSourceConfiguration" => external_source_configuration(),
-        "failedRecordReport" => String.t(),
-        "importJobId" => String.t(),
-        "importJobType" => String.t(),
-        "knowledgeBaseArn" => String.t(),
-        "knowledgeBaseId" => String.t(),
+        "failedRecordReport" => String.t() | Atom.t(),
+        "importJobId" => String.t() | Atom.t(),
+        "importJobType" => String.t() | Atom.t(),
+        "knowledgeBaseArn" => String.t() | Atom.t(),
+        "knowledgeBaseId" => String.t() | Atom.t(),
         "lastModifiedTime" => [non_neg_integer()],
         "metadata" => map(),
-        "status" => String.t(),
-        "uploadId" => String.t(),
-        "url" => String.t(),
+        "status" => String.t() | Atom.t(),
+        "uploadId" => String.t() | Atom.t(),
+        "url" => String.t() | Atom.t(),
         "urlExpiry" => [non_neg_integer()]
       }
 
   """
-  @type import_job_data() :: %{String.t() => any()}
+  @type import_job_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       knowledge_base_data() :: %{
-        "description" => String.t(),
-        "ingestionFailureReasons" => list(String.t()),
-        "ingestionStatus" => String.t(),
-        "knowledgeBaseArn" => String.t(),
-        "knowledgeBaseId" => String.t(),
-        "knowledgeBaseType" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "ingestionFailureReasons" => list(String.t() | Atom.t()),
+        "ingestionStatus" => String.t() | Atom.t(),
+        "knowledgeBaseArn" => String.t() | Atom.t(),
+        "knowledgeBaseId" => String.t() | Atom.t(),
+        "knowledgeBaseType" => String.t() | Atom.t(),
         "lastContentModificationTime" => [non_neg_integer()],
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "renderingConfiguration" => rendering_configuration(),
         "serverSideEncryptionConfiguration" => server_side_encryption_configuration(),
         "sourceConfiguration" => list(),
-        "status" => String.t(),
+        "status" => String.t() | Atom.t(),
         "tags" => map(),
         "vectorIngestionConfiguration" => vector_ingestion_configuration()
       }
 
   """
-  @type knowledge_base_data() :: %{String.t() => any()}
+  @type knowledge_base_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       assistant_association_data() :: %{
-        "assistantArn" => String.t(),
-        "assistantAssociationArn" => String.t(),
-        "assistantAssociationId" => String.t(),
-        "assistantId" => String.t(),
+        "assistantArn" => String.t() | Atom.t(),
+        "assistantAssociationArn" => String.t() | Atom.t(),
+        "assistantAssociationId" => String.t() | Atom.t(),
+        "assistantId" => String.t() | Atom.t(),
         "associationData" => list(),
-        "associationType" => String.t(),
+        "associationType" => String.t() | Atom.t(),
         "tags" => map()
       }
 
   """
-  @type assistant_association_data() :: %{String.t() => any()}
+  @type assistant_association_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       guardrail_content_filter_config() :: %{
-        "inputStrength" => String.t(),
-        "outputStrength" => String.t(),
-        "type" => String.t()
+        "inputStrength" => String.t() | Atom.t(),
+        "outputStrength" => String.t() | Atom.t(),
+        "type" => String.t() | Atom.t()
       }
 
   """
-  @type guardrail_content_filter_config() :: %{String.t() => any()}
+  @type guardrail_content_filter_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1729,11 +1729,11 @@ defmodule AWS.QConnect do
 
       document_text() :: %{
         "highlights" => list(highlight()),
-        "text" => String.t()
+        "text" => String.t() | Atom.t()
       }
 
   """
-  @type document_text() :: %{String.t() => any()}
+  @type document_text() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1759,14 +1759,14 @@ defmodule AWS.QConnect do
 
       message_template_query_field() :: %{
         "allowFuzziness" => [boolean()],
-        "name" => String.t(),
-        "operator" => String.t(),
-        "priority" => String.t(),
-        "values" => list(String.t())
+        "name" => String.t() | Atom.t(),
+        "operator" => String.t() | Atom.t(),
+        "priority" => String.t() | Atom.t(),
+        "values" => list(String.t() | Atom.t())
       }
 
   """
-  @type message_template_query_field() :: %{String.t() => any()}
+  @type message_template_query_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1777,34 +1777,34 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type deactivate_message_template_request() :: %{String.t() => any()}
+  @type deactivate_message_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       a_i_guardrail_data() :: %{
-        "aiGuardrailArn" => String.t(),
-        "aiGuardrailId" => String.t(),
-        "assistantArn" => String.t(),
-        "assistantId" => String.t(),
-        "blockedInputMessaging" => String.t(),
-        "blockedOutputsMessaging" => String.t(),
+        "aiGuardrailArn" => String.t() | Atom.t(),
+        "aiGuardrailId" => String.t() | Atom.t(),
+        "assistantArn" => String.t() | Atom.t(),
+        "assistantId" => String.t() | Atom.t(),
+        "blockedInputMessaging" => String.t() | Atom.t(),
+        "blockedOutputsMessaging" => String.t() | Atom.t(),
         "contentPolicyConfig" => a_i_guardrail_content_policy_config(),
         "contextualGroundingPolicyConfig" => a_i_guardrail_contextual_grounding_policy_config(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "modifiedTime" => [non_neg_integer()],
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "sensitiveInformationPolicyConfig" => a_i_guardrail_sensitive_information_policy_config(),
-        "status" => String.t(),
+        "status" => String.t() | Atom.t(),
         "tags" => map(),
         "topicPolicyConfig" => a_i_guardrail_topic_policy_config(),
-        "visibilityStatus" => String.t(),
+        "visibilityStatus" => String.t() | Atom.t(),
         "wordPolicyConfig" => a_i_guardrail_word_policy_config()
       }
 
   """
-  @type a_i_guardrail_data() :: %{String.t() => any()}
+  @type a_i_guardrail_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1813,11 +1813,11 @@ defmodule AWS.QConnect do
       update_message_template_request() :: %{
         optional("content") => list(),
         optional("defaultAttributes") => message_template_attributes(),
-        optional("language") => String.t()
+        optional("language") => String.t() | Atom.t()
       }
 
   """
-  @type update_message_template_request() :: %{String.t() => any()}
+  @type update_message_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1825,42 +1825,42 @@ defmodule AWS.QConnect do
 
       extended_message_template_data() :: %{
         "attachments" => list(message_template_attachment()),
-        "attributeTypes" => list(String.t()),
-        "channelSubtype" => String.t(),
+        "attributeTypes" => list(String.t() | Atom.t()),
+        "channelSubtype" => String.t() | Atom.t(),
         "content" => list(),
         "createdTime" => [non_neg_integer()],
         "defaultAttributes" => message_template_attributes(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "groupingConfiguration" => grouping_configuration(),
         "isActive" => [boolean()],
-        "knowledgeBaseArn" => String.t(),
-        "knowledgeBaseId" => String.t(),
-        "language" => String.t(),
-        "lastModifiedBy" => String.t(),
+        "knowledgeBaseArn" => String.t() | Atom.t(),
+        "knowledgeBaseId" => String.t() | Atom.t(),
+        "language" => String.t() | Atom.t(),
+        "lastModifiedBy" => String.t() | Atom.t(),
         "lastModifiedTime" => [non_neg_integer()],
-        "messageTemplateArn" => String.t(),
-        "messageTemplateContentSha256" => String.t(),
-        "messageTemplateId" => String.t(),
-        "name" => String.t(),
+        "messageTemplateArn" => String.t() | Atom.t(),
+        "messageTemplateContentSha256" => String.t() | Atom.t(),
+        "messageTemplateId" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "tags" => map(),
         "versionNumber" => float()
       }
 
   """
-  @type extended_message_template_data() :: %{String.t() => any()}
+  @type extended_message_template_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_message_template_metadata_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("groupingConfiguration") => grouping_configuration(),
-        optional("name") => String.t()
+        optional("name") => String.t() | Atom.t()
       }
 
   """
-  @type update_message_template_metadata_request() :: %{String.t() => any()}
+  @type update_message_template_metadata_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1872,40 +1872,40 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type quick_response_contents() :: %{String.t() => any()}
+  @type quick_response_contents() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       text_message() :: %{
-        "value" => String.t()
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type text_message() :: %{String.t() => any()}
+  @type text_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       seed_url() :: %{
-        "url" => String.t()
+        "url" => String.t() | Atom.t()
       }
 
   """
-  @type seed_url() :: %{String.t() => any()}
+  @type seed_url() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       amazon_connect_guide_association_data() :: %{
-        "flowId" => String.t()
+        "flowId" => String.t() | Atom.t()
       }
 
   """
-  @type amazon_connect_guide_association_data() :: %{String.t() => any()}
+  @type amazon_connect_guide_association_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1916,7 +1916,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type create_message_template_response() :: %{String.t() => any()}
+  @type create_message_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1928,7 +1928,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type create_a_i_guardrail_version_response() :: %{String.t() => any()}
+  @type create_a_i_guardrail_version_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1939,7 +1939,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type create_a_i_guardrail_response() :: %{String.t() => any()}
+  @type create_a_i_guardrail_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1959,7 +1959,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type url_configuration() :: %{String.t() => any()}
+  @type url_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1967,20 +1967,20 @@ defmodule AWS.QConnect do
 
       assistant_data() :: %{
         "aiAgentConfiguration" => map(),
-        "assistantArn" => String.t(),
-        "assistantId" => String.t(),
+        "assistantArn" => String.t() | Atom.t(),
+        "assistantId" => String.t() | Atom.t(),
         "capabilityConfiguration" => assistant_capability_configuration(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "integrationConfiguration" => assistant_integration_configuration(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "serverSideEncryptionConfiguration" => server_side_encryption_configuration(),
-        "status" => String.t(),
+        "status" => String.t() | Atom.t(),
         "tags" => map(),
-        "type" => String.t()
+        "type" => String.t() | Atom.t()
       }
 
   """
-  @type assistant_data() :: %{String.t() => any()}
+  @type assistant_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1991,18 +1991,18 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type conversation_context() :: %{String.t() => any()}
+  @type conversation_context() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2013,7 +2013,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type web_crawler_limits() :: %{String.t() => any()}
+  @type web_crawler_limits() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2024,31 +2024,31 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type create_assistant_response() :: %{String.t() => any()}
+  @type create_assistant_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       quick_response_summary() :: %{
-        "channels" => list(String.t()),
-        "contentType" => String.t(),
+        "channels" => list(String.t() | Atom.t()),
+        "contentType" => String.t() | Atom.t(),
         "createdTime" => [non_neg_integer()],
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "isActive" => [boolean()],
-        "knowledgeBaseArn" => String.t(),
-        "knowledgeBaseId" => String.t(),
-        "lastModifiedBy" => String.t(),
+        "knowledgeBaseArn" => String.t() | Atom.t(),
+        "knowledgeBaseId" => String.t() | Atom.t(),
+        "lastModifiedBy" => String.t() | Atom.t(),
         "lastModifiedTime" => [non_neg_integer()],
-        "name" => String.t(),
-        "quickResponseArn" => String.t(),
-        "quickResponseId" => String.t(),
-        "status" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "quickResponseArn" => String.t() | Atom.t(),
+        "quickResponseId" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t(),
         "tags" => map()
       }
 
   """
-  @type quick_response_summary() :: %{String.t() => any()}
+  @type quick_response_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2059,7 +2059,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type get_quick_response_response() :: %{String.t() => any()}
+  @type get_quick_response_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2075,16 +2075,16 @@ defmodule AWS.QConnect do
   ## Example:
 
       create_assistant_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("serverSideEncryptionConfiguration") => server_side_encryption_configuration(),
         optional("tags") => map(),
-        required("name") => String.t(),
-        required("type") => String.t()
+        required("name") => String.t() | Atom.t(),
+        required("type") => String.t() | Atom.t()
       }
 
   """
-  @type create_assistant_request() :: %{String.t() => any()}
+  @type create_assistant_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2092,23 +2092,23 @@ defmodule AWS.QConnect do
 
       get_recommendations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextChunkToken") => String.t(),
+        optional("nextChunkToken") => String.t() | Atom.t(),
         optional("waitTimeSeconds") => integer()
       }
 
   """
-  @type get_recommendations_request() :: %{String.t() => any()}
+  @type get_recommendations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       query_recommendation_trigger_data() :: %{
-        "text" => String.t()
+        "text" => String.t() | Atom.t()
       }
 
   """
-  @type query_recommendation_trigger_data() :: %{String.t() => any()}
+  @type query_recommendation_trigger_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2119,21 +2119,21 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type sms_message_template_content_body() :: %{String.t() => any()}
+  @type sms_message_template_content_body() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       message_output() :: %{
-        "messageId" => String.t(),
-        "participant" => String.t(),
+        "messageId" => String.t() | Atom.t(),
+        "participant" => String.t() | Atom.t(),
         "timestamp" => [non_neg_integer()],
         "value" => list()
       }
 
   """
-  @type message_output() :: %{String.t() => any()}
+  @type message_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2141,35 +2141,35 @@ defmodule AWS.QConnect do
 
       search_message_templates_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("searchExpression") => message_template_search_expression()
       }
 
   """
-  @type search_message_templates_request() :: %{String.t() => any()}
+  @type search_message_templates_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       a_i_agent_summary() :: %{
-        "aiAgentArn" => String.t(),
-        "aiAgentId" => String.t(),
-        "assistantArn" => String.t(),
-        "assistantId" => String.t(),
+        "aiAgentArn" => String.t() | Atom.t(),
+        "aiAgentId" => String.t() | Atom.t(),
+        "assistantArn" => String.t() | Atom.t(),
+        "assistantId" => String.t() | Atom.t(),
         "configuration" => list(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "modifiedTime" => [non_neg_integer()],
-        "name" => String.t(),
-        "origin" => String.t(),
-        "status" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "origin" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t(),
         "tags" => map(),
-        "type" => String.t(),
-        "visibilityStatus" => String.t()
+        "type" => String.t() | Atom.t(),
+        "visibilityStatus" => String.t() | Atom.t()
       }
 
   """
-  @type a_i_agent_summary() :: %{String.t() => any()}
+  @type a_i_agent_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2177,38 +2177,38 @@ defmodule AWS.QConnect do
 
       update_session_request() :: %{
         optional("aiAgentConfiguration") => map(),
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("tagFilter") => list()
       }
 
   """
-  @type update_session_request() :: %{String.t() => any()}
+  @type update_session_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       search_sessions_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("sessionSummaries") => list(session_summary())
       }
 
   """
-  @type search_sessions_response() :: %{String.t() => any()}
+  @type search_sessions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       chunking_configuration() :: %{
-        "chunkingStrategy" => String.t(),
+        "chunkingStrategy" => String.t() | Atom.t(),
         "fixedSizeChunkingConfiguration" => fixed_size_chunking_configuration(),
         "hierarchicalChunkingConfiguration" => hierarchical_chunking_configuration(),
         "semanticChunkingConfiguration" => semantic_chunking_configuration()
       }
 
   """
-  @type chunking_configuration() :: %{String.t() => any()}
+  @type chunking_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2225,84 +2225,84 @@ defmodule AWS.QConnect do
 
       notify_recommendations_received_response() :: %{
         optional("errors") => list(notify_recommendations_received_error()),
-        optional("recommendationIds") => list(String.t())
+        optional("recommendationIds") => list(String.t() | Atom.t())
       }
 
   """
-  @type notify_recommendations_received_response() :: %{String.t() => any()}
+  @type notify_recommendations_received_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_quick_response_request() :: %{
-        optional("channels") => list(String.t()),
+        optional("channels") => list(String.t() | Atom.t()),
         optional("content") => list(),
-        optional("contentType") => String.t(),
-        optional("description") => String.t(),
+        optional("contentType") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("groupingConfiguration") => grouping_configuration(),
         optional("isActive") => [boolean()],
-        optional("language") => String.t(),
-        optional("name") => String.t(),
+        optional("language") => String.t() | Atom.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("removeDescription") => [boolean()],
         optional("removeGroupingConfiguration") => [boolean()],
         optional("removeShortcutKey") => [boolean()],
-        optional("shortcutKey") => String.t()
+        optional("shortcutKey") => String.t() | Atom.t()
       }
 
   """
-  @type update_quick_response_request() :: %{String.t() => any()}
+  @type update_quick_response_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       quick_response_data() :: %{
-        "channels" => list(String.t()),
-        "contentType" => String.t(),
+        "channels" => list(String.t() | Atom.t()),
+        "contentType" => String.t() | Atom.t(),
         "contents" => quick_response_contents(),
         "createdTime" => [non_neg_integer()],
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "groupingConfiguration" => grouping_configuration(),
         "isActive" => [boolean()],
-        "knowledgeBaseArn" => String.t(),
-        "knowledgeBaseId" => String.t(),
-        "language" => String.t(),
-        "lastModifiedBy" => String.t(),
+        "knowledgeBaseArn" => String.t() | Atom.t(),
+        "knowledgeBaseId" => String.t() | Atom.t(),
+        "language" => String.t() | Atom.t(),
+        "lastModifiedBy" => String.t() | Atom.t(),
         "lastModifiedTime" => [non_neg_integer()],
-        "name" => String.t(),
-        "quickResponseArn" => String.t(),
-        "quickResponseId" => String.t(),
-        "shortcutKey" => String.t(),
-        "status" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "quickResponseArn" => String.t() | Atom.t(),
+        "quickResponseId" => String.t() | Atom.t(),
+        "shortcutKey" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t(),
         "tags" => map()
       }
 
   """
-  @type quick_response_data() :: %{String.t() => any()}
+  @type quick_response_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       intent_input_data() :: %{
-        "intentId" => String.t()
+        "intentId" => String.t() | Atom.t()
       }
 
   """
-  @type intent_input_data() :: %{String.t() => any()}
+  @type intent_input_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       knowledge_base_association_data() :: %{
-        "knowledgeBaseArn" => String.t(),
-        "knowledgeBaseId" => String.t()
+        "knowledgeBaseArn" => String.t() | Atom.t(),
+        "knowledgeBaseId" => String.t() | Atom.t()
       }
 
   """
-  @type knowledge_base_association_data() :: %{String.t() => any()}
+  @type knowledge_base_association_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2313,20 +2313,20 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       query_condition_item() :: %{
-        "comparator" => String.t(),
-        "field" => String.t(),
-        "value" => String.t()
+        "comparator" => String.t() | Atom.t(),
+        "field" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type query_condition_item() :: %{String.t() => any()}
+  @type query_condition_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2337,18 +2337,18 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type update_a_i_agent_response() :: %{String.t() => any()}
+  @type update_a_i_agent_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       parsing_prompt() :: %{
-        "parsingPromptText" => String.t()
+        "parsingPromptText" => String.t() | Atom.t()
       }
 
   """
-  @type parsing_prompt() :: %{String.t() => any()}
+  @type parsing_prompt() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2356,31 +2356,31 @@ defmodule AWS.QConnect do
 
       list_assistant_associations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_assistant_associations_request() :: %{String.t() => any()}
+  @type list_assistant_associations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       a_i_guardrail_summary() :: %{
-        "aiGuardrailArn" => String.t(),
-        "aiGuardrailId" => String.t(),
-        "assistantArn" => String.t(),
-        "assistantId" => String.t(),
-        "description" => String.t(),
+        "aiGuardrailArn" => String.t() | Atom.t(),
+        "aiGuardrailId" => String.t() | Atom.t(),
+        "assistantArn" => String.t() | Atom.t(),
+        "assistantId" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
         "modifiedTime" => [non_neg_integer()],
-        "name" => String.t(),
-        "status" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t(),
         "tags" => map(),
-        "visibilityStatus" => String.t()
+        "visibilityStatus" => String.t() | Atom.t()
       }
 
   """
-  @type a_i_guardrail_summary() :: %{String.t() => any()}
+  @type a_i_guardrail_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2400,7 +2400,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type update_quick_response_response() :: %{String.t() => any()}
+  @type update_quick_response_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2408,20 +2408,20 @@ defmodule AWS.QConnect do
 
       assistant_summary() :: %{
         "aiAgentConfiguration" => map(),
-        "assistantArn" => String.t(),
-        "assistantId" => String.t(),
+        "assistantArn" => String.t() | Atom.t(),
+        "assistantId" => String.t() | Atom.t(),
         "capabilityConfiguration" => assistant_capability_configuration(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "integrationConfiguration" => assistant_integration_configuration(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "serverSideEncryptionConfiguration" => server_side_encryption_configuration(),
-        "status" => String.t(),
+        "status" => String.t() | Atom.t(),
         "tags" => map(),
-        "type" => String.t()
+        "type" => String.t() | Atom.t()
       }
 
   """
-  @type assistant_summary() :: %{String.t() => any()}
+  @type assistant_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2432,18 +2432,18 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type a_i_guardrail_topic_policy_config() :: %{String.t() => any()}
+  @type a_i_guardrail_topic_policy_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       generative_content_feedback_data() :: %{
-        "relevance" => String.t()
+        "relevance" => String.t() | Atom.t()
       }
 
   """
-  @type generative_content_feedback_data() :: %{String.t() => any()}
+  @type generative_content_feedback_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2454,43 +2454,43 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type search_expression() :: %{String.t() => any()}
+  @type search_expression() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       filter() :: %{
-        "field" => String.t(),
-        "operator" => String.t(),
-        "value" => String.t()
+        "field" => String.t() | Atom.t(),
+        "operator" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type filter() :: %{String.t() => any()}
+  @type filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       a_i_agent_data() :: %{
-        "aiAgentArn" => String.t(),
-        "aiAgentId" => String.t(),
-        "assistantArn" => String.t(),
-        "assistantId" => String.t(),
+        "aiAgentArn" => String.t() | Atom.t(),
+        "aiAgentId" => String.t() | Atom.t(),
+        "assistantArn" => String.t() | Atom.t(),
+        "assistantId" => String.t() | Atom.t(),
         "configuration" => list(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "modifiedTime" => [non_neg_integer()],
-        "name" => String.t(),
-        "origin" => String.t(),
-        "status" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "origin" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t(),
         "tags" => map(),
-        "type" => String.t(),
-        "visibilityStatus" => String.t()
+        "type" => String.t() | Atom.t(),
+        "visibilityStatus" => String.t() | Atom.t()
       }
 
   """
-  @type a_i_agent_data() :: %{String.t() => any()}
+  @type a_i_agent_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2498,36 +2498,36 @@ defmodule AWS.QConnect do
 
       source_content_data_details() :: %{
         "citationSpan" => citation_span(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "rankingData" => ranking_data(),
         "textData" => text_data(),
-        "type" => String.t()
+        "type" => String.t() | Atom.t()
       }
 
   """
-  @type source_content_data_details() :: %{String.t() => any()}
+  @type source_content_data_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       server_side_encryption_configuration() :: %{
-        "kmsKeyId" => String.t()
+        "kmsKeyId" => String.t() | Atom.t()
       }
 
   """
-  @type server_side_encryption_configuration() :: %{String.t() => any()}
+  @type server_side_encryption_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       guardrail_word_config() :: %{
-        "text" => String.t()
+        "text" => String.t() | Atom.t()
       }
 
   """
-  @type guardrail_word_config() :: %{String.t() => any()}
+  @type guardrail_word_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2535,18 +2535,18 @@ defmodule AWS.QConnect do
 
       session_data() :: %{
         "aiAgentConfiguration" => map(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "integrationConfiguration" => session_integration_configuration(),
-        "name" => String.t(),
-        "origin" => String.t(),
-        "sessionArn" => String.t(),
-        "sessionId" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "origin" => String.t() | Atom.t(),
+        "sessionArn" => String.t() | Atom.t(),
+        "sessionId" => String.t() | Atom.t(),
         "tagFilter" => list(),
         "tags" => map()
       }
 
   """
-  @type session_data() :: %{String.t() => any()}
+  @type session_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2554,12 +2554,12 @@ defmodule AWS.QConnect do
 
       search_sessions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("searchExpression") => search_expression()
       }
 
   """
-  @type search_sessions_request() :: %{String.t() => any()}
+  @type search_sessions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2572,7 +2572,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type semantic_chunking_configuration() :: %{String.t() => any()}
+  @type semantic_chunking_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2583,44 +2583,44 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type create_message_template_version_response() :: %{String.t() => any()}
+  @type create_message_template_version_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       message_template_search_result_data() :: %{
-        "channelSubtype" => String.t(),
+        "channelSubtype" => String.t() | Atom.t(),
         "createdTime" => [non_neg_integer()],
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "groupingConfiguration" => grouping_configuration(),
         "isActive" => [boolean()],
-        "knowledgeBaseArn" => String.t(),
-        "knowledgeBaseId" => String.t(),
-        "language" => String.t(),
-        "lastModifiedBy" => String.t(),
+        "knowledgeBaseArn" => String.t() | Atom.t(),
+        "knowledgeBaseId" => String.t() | Atom.t(),
+        "language" => String.t() | Atom.t(),
+        "lastModifiedBy" => String.t() | Atom.t(),
         "lastModifiedTime" => [non_neg_integer()],
-        "messageTemplateArn" => String.t(),
-        "messageTemplateId" => String.t(),
-        "name" => String.t(),
+        "messageTemplateArn" => String.t() | Atom.t(),
+        "messageTemplateId" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "tags" => map(),
         "versionNumber" => float()
       }
 
   """
-  @type message_template_search_result_data() :: %{String.t() => any()}
+  @type message_template_search_result_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       email_header() :: %{
-        "name" => String.t(),
-        "value" => String.t()
+        "name" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type email_header() :: %{String.t() => any()}
+  @type email_header() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2628,14 +2628,14 @@ defmodule AWS.QConnect do
 
       web_crawler_configuration() :: %{
         "crawlerLimits" => web_crawler_limits(),
-        "exclusionFilters" => list(String.t()),
-        "inclusionFilters" => list(String.t()),
-        "scope" => String.t(),
+        "exclusionFilters" => list(String.t() | Atom.t()),
+        "inclusionFilters" => list(String.t() | Atom.t()),
+        "scope" => String.t() | Atom.t(),
         "urlConfiguration" => url_configuration()
       }
 
   """
-  @type web_crawler_configuration() :: %{String.t() => any()}
+  @type web_crawler_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2643,23 +2643,23 @@ defmodule AWS.QConnect do
 
       list_import_jobs_response() :: %{
         "importJobSummaries" => list(import_job_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_import_jobs_response() :: %{String.t() => any()}
+  @type list_import_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_a_i_guardrail_version_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("modifiedTime") => [non_neg_integer()]
       }
 
   """
-  @type create_a_i_guardrail_version_request() :: %{String.t() => any()}
+  @type create_a_i_guardrail_version_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2675,12 +2675,12 @@ defmodule AWS.QConnect do
   ## Example:
 
       bedrock_foundation_model_configuration_for_parsing() :: %{
-        "modelArn" => String.t(),
+        "modelArn" => String.t() | Atom.t(),
         "parsingPrompt" => parsing_prompt()
       }
 
   """
-  @type bedrock_foundation_model_configuration_for_parsing() :: %{String.t() => any()}
+  @type bedrock_foundation_model_configuration_for_parsing() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2696,25 +2696,25 @@ defmodule AWS.QConnect do
   ## Example:
 
       a_iprompt_summary() :: %{
-        "aiPromptArn" => String.t(),
-        "aiPromptId" => String.t(),
-        "apiFormat" => String.t(),
-        "assistantArn" => String.t(),
-        "assistantId" => String.t(),
-        "description" => String.t(),
-        "modelId" => String.t(),
+        "aiPromptArn" => String.t() | Atom.t(),
+        "aiPromptId" => String.t() | Atom.t(),
+        "apiFormat" => String.t() | Atom.t(),
+        "assistantArn" => String.t() | Atom.t(),
+        "assistantId" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "modelId" => String.t() | Atom.t(),
         "modifiedTime" => [non_neg_integer()],
-        "name" => String.t(),
-        "origin" => String.t(),
-        "status" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "origin" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t(),
         "tags" => map(),
-        "templateType" => String.t(),
-        "type" => String.t(),
-        "visibilityStatus" => String.t()
+        "templateType" => String.t() | Atom.t(),
+        "type" => String.t() | Atom.t(),
+        "visibilityStatus" => String.t() | Atom.t()
       }
 
   """
-  @type a_iprompt_summary() :: %{String.t() => any()}
+  @type a_iprompt_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2726,7 +2726,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type a_i_guardrail_word_policy_config() :: %{String.t() => any()}
+  @type a_i_guardrail_word_policy_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2742,25 +2742,25 @@ defmodule AWS.QConnect do
   ## Example:
 
       generative_data_details() :: %{
-        "completion" => String.t(),
+        "completion" => String.t() | Atom.t(),
         "rankingData" => ranking_data(),
         "references" => list(data_summary())
       }
 
   """
-  @type generative_data_details() :: %{String.t() => any()}
+  @type generative_data_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       search_quick_responses_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "results" => list(quick_response_search_result_data())
       }
 
   """
-  @type search_quick_responses_response() :: %{String.t() => any()}
+  @type search_quick_responses_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2777,11 +2777,11 @@ defmodule AWS.QConnect do
 
       list_a_i_guardrail_versions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_a_i_guardrail_versions_request() :: %{String.t() => any()}
+  @type list_a_i_guardrail_versions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2793,21 +2793,21 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type a_i_guardrail_version_summary() :: %{String.t() => any()}
+  @type a_i_guardrail_version_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       guardrail_regex_config() :: %{
-        "action" => String.t(),
-        "description" => String.t(),
-        "name" => String.t(),
-        "pattern" => String.t()
+        "action" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "pattern" => String.t() | Atom.t()
       }
 
   """
-  @type guardrail_regex_config() :: %{String.t() => any()}
+  @type guardrail_regex_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2815,11 +2815,11 @@ defmodule AWS.QConnect do
 
       list_message_templates_response() :: %{
         "messageTemplateSummaries" => list(message_template_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_message_templates_response() :: %{String.t() => any()}
+  @type list_message_templates_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2831,27 +2831,27 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type get_a_iprompt_response() :: %{String.t() => any()}
+  @type get_a_iprompt_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_a_iprompt_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("tags") => map(),
-        required("apiFormat") => String.t(),
-        required("modelId") => String.t(),
-        required("name") => String.t(),
+        required("apiFormat") => String.t() | Atom.t(),
+        required("modelId") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t(),
         required("templateConfiguration") => list(),
-        required("templateType") => String.t(),
-        required("type") => String.t(),
-        required("visibilityStatus") => String.t()
+        required("templateType") => String.t() | Atom.t(),
+        required("type") => String.t() | Atom.t(),
+        required("visibilityStatus") => String.t() | Atom.t()
       }
 
   """
-  @type create_a_iprompt_request() :: %{String.t() => any()}
+  @type create_a_iprompt_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2862,19 +2862,19 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type a_i_guardrail_contextual_grounding_policy_config() :: %{String.t() => any()}
+  @type a_i_guardrail_contextual_grounding_policy_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       notify_recommendations_received_error() :: %{
-        "message" => String.t(),
-        "recommendationId" => String.t()
+        "message" => String.t() | Atom.t(),
+        "recommendationId" => String.t() | Atom.t()
       }
 
   """
-  @type notify_recommendations_received_error() :: %{String.t() => any()}
+  @type notify_recommendations_received_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2885,21 +2885,21 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type get_import_job_response() :: %{String.t() => any()}
+  @type get_import_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       manual_search_a_i_agent_configuration() :: %{
-        "answerGenerationAIGuardrailId" => String.t(),
-        "answerGenerationAIPromptId" => String.t(),
+        "answerGenerationAIGuardrailId" => String.t() | Atom.t(),
+        "answerGenerationAIPromptId" => String.t() | Atom.t(),
         "associationConfigurations" => list(association_configuration()),
-        "locale" => String.t()
+        "locale" => String.t() | Atom.t()
       }
 
   """
-  @type manual_search_a_i_agent_configuration() :: %{String.t() => any()}
+  @type manual_search_a_i_agent_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2910,7 +2910,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type update_content_response() :: %{String.t() => any()}
+  @type update_content_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2930,7 +2930,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type get_message_template_response() :: %{String.t() => any()}
+  @type get_message_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2951,18 +2951,18 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type a_i_guardrail_sensitive_information_policy_config() :: %{String.t() => any()}
+  @type a_i_guardrail_sensitive_information_policy_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2973,24 +2973,24 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type create_assistant_association_response() :: %{String.t() => any()}
+  @type create_assistant_association_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_content_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("metadata") => map(),
-        optional("overrideLinkOutUri") => String.t(),
+        optional("overrideLinkOutUri") => String.t() | Atom.t(),
         optional("tags") => map(),
-        optional("title") => String.t(),
-        required("name") => String.t(),
-        required("uploadId") => String.t()
+        optional("title") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t(),
+        required("uploadId") => String.t() | Atom.t()
       }
 
   """
-  @type create_content_request() :: %{String.t() => any()}
+  @type create_content_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2998,21 +2998,21 @@ defmodule AWS.QConnect do
 
       message_template_summary() :: %{
         "activeVersionNumber" => float(),
-        "channelSubtype" => String.t(),
+        "channelSubtype" => String.t() | Atom.t(),
         "createdTime" => [non_neg_integer()],
-        "description" => String.t(),
-        "knowledgeBaseArn" => String.t(),
-        "knowledgeBaseId" => String.t(),
-        "lastModifiedBy" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "knowledgeBaseArn" => String.t() | Atom.t(),
+        "knowledgeBaseId" => String.t() | Atom.t(),
+        "lastModifiedBy" => String.t() | Atom.t(),
         "lastModifiedTime" => [non_neg_integer()],
-        "messageTemplateArn" => String.t(),
-        "messageTemplateId" => String.t(),
-        "name" => String.t(),
+        "messageTemplateArn" => String.t() | Atom.t(),
+        "messageTemplateId" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "tags" => map()
       }
 
   """
-  @type message_template_summary() :: %{String.t() => any()}
+  @type message_template_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3030,18 +3030,18 @@ defmodule AWS.QConnect do
       import_job_summary() :: %{
         "createdTime" => [non_neg_integer()],
         "externalSourceConfiguration" => external_source_configuration(),
-        "importJobId" => String.t(),
-        "importJobType" => String.t(),
-        "knowledgeBaseArn" => String.t(),
-        "knowledgeBaseId" => String.t(),
+        "importJobId" => String.t() | Atom.t(),
+        "importJobType" => String.t() | Atom.t(),
+        "knowledgeBaseArn" => String.t() | Atom.t(),
+        "knowledgeBaseId" => String.t() | Atom.t(),
         "lastModifiedTime" => [non_neg_integer()],
         "metadata" => map(),
-        "status" => String.t(),
-        "uploadId" => String.t()
+        "status" => String.t() | Atom.t(),
+        "uploadId" => String.t() | Atom.t()
       }
 
   """
-  @type import_job_summary() :: %{String.t() => any()}
+  @type import_job_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3049,16 +3049,16 @@ defmodule AWS.QConnect do
 
       query_assistant_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("overrideKnowledgeBaseSearchType") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("overrideKnowledgeBaseSearchType") => String.t() | Atom.t(),
         optional("queryCondition") => list(list()),
         optional("queryInputData") => list(),
-        optional("queryText") => String.t(),
-        optional("sessionId") => String.t()
+        optional("queryText") => String.t() | Atom.t(),
+        optional("sessionId") => String.t() | Atom.t()
       }
 
   """
-  @type query_assistant_request() :: %{String.t() => any()}
+  @type query_assistant_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3074,41 +3074,41 @@ defmodule AWS.QConnect do
   ## Example:
 
       quick_response_search_result_data() :: %{
-        "attributesInterpolated" => list(String.t()),
-        "attributesNotInterpolated" => list(String.t()),
-        "channels" => list(String.t()),
-        "contentType" => String.t(),
+        "attributesInterpolated" => list(String.t() | Atom.t()),
+        "attributesNotInterpolated" => list(String.t() | Atom.t()),
+        "channels" => list(String.t() | Atom.t()),
+        "contentType" => String.t() | Atom.t(),
         "contents" => quick_response_contents(),
         "createdTime" => [non_neg_integer()],
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "groupingConfiguration" => grouping_configuration(),
         "isActive" => [boolean()],
-        "knowledgeBaseArn" => String.t(),
-        "knowledgeBaseId" => String.t(),
-        "language" => String.t(),
-        "lastModifiedBy" => String.t(),
+        "knowledgeBaseArn" => String.t() | Atom.t(),
+        "knowledgeBaseId" => String.t() | Atom.t(),
+        "language" => String.t() | Atom.t(),
+        "lastModifiedBy" => String.t() | Atom.t(),
         "lastModifiedTime" => [non_neg_integer()],
-        "name" => String.t(),
-        "quickResponseArn" => String.t(),
-        "quickResponseId" => String.t(),
-        "shortcutKey" => String.t(),
-        "status" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "quickResponseArn" => String.t() | Atom.t(),
+        "quickResponseId" => String.t() | Atom.t(),
+        "shortcutKey" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t(),
         "tags" => map()
       }
 
   """
-  @type quick_response_search_result_data() :: %{String.t() => any()}
+  @type quick_response_search_result_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       rendering_configuration() :: %{
-        "templateUri" => String.t()
+        "templateUri" => String.t() | Atom.t()
       }
 
   """
-  @type rendering_configuration() :: %{String.t() => any()}
+  @type rendering_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3119,7 +3119,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type get_content_association_response() :: %{String.t() => any()}
+  @type get_content_association_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3127,12 +3127,12 @@ defmodule AWS.QConnect do
 
       system_attributes() :: %{
         "customerEndpoint" => system_endpoint_attributes(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "systemEndpoint" => system_endpoint_attributes()
       }
 
   """
-  @type system_attributes() :: %{String.t() => any()}
+  @type system_attributes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3149,11 +3149,11 @@ defmodule AWS.QConnect do
 
       list_a_i_guardrails_response() :: %{
         "aiGuardrailSummaries" => list(a_i_guardrail_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_a_i_guardrails_response() :: %{String.t() => any()}
+  @type list_a_i_guardrails_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3178,22 +3178,22 @@ defmodule AWS.QConnect do
   ## Example:
 
       create_message_template_version_request() :: %{
-        optional("messageTemplateContentSha256") => String.t()
+        optional("messageTemplateContentSha256") => String.t() | Atom.t()
       }
 
   """
-  @type create_message_template_version_request() :: %{String.t() => any()}
+  @type create_message_template_version_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3209,52 +3209,52 @@ defmodule AWS.QConnect do
   ## Example:
 
       runtime_session_data() :: %{
-        "key" => String.t(),
+        "key" => String.t() | Atom.t(),
         "value" => list()
       }
 
   """
-  @type runtime_session_data() :: %{String.t() => any()}
+  @type runtime_session_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       content_reference() :: %{
-        "contentArn" => String.t(),
-        "contentId" => String.t(),
-        "knowledgeBaseArn" => String.t(),
-        "knowledgeBaseId" => String.t(),
-        "referenceType" => String.t(),
-        "sourceURL" => [String.t()]
+        "contentArn" => String.t() | Atom.t(),
+        "contentId" => String.t() | Atom.t(),
+        "knowledgeBaseArn" => String.t() | Atom.t(),
+        "knowledgeBaseId" => String.t() | Atom.t(),
+        "referenceType" => String.t() | Atom.t(),
+        "sourceURL" => [String.t() | Atom.t()]
       }
 
   """
-  @type content_reference() :: %{String.t() => any()}
+  @type content_reference() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       guardrail_pii_entity_config() :: %{
-        "action" => String.t(),
-        "type" => String.t()
+        "action" => String.t() | Atom.t(),
+        "type" => String.t() | Atom.t()
       }
 
   """
-  @type guardrail_pii_entity_config() :: %{String.t() => any()}
+  @type guardrail_pii_entity_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       search_message_templates_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "results" => list(message_template_search_result_data())
       }
 
   """
-  @type search_message_templates_response() :: %{String.t() => any()}
+  @type search_message_templates_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3266,63 +3266,63 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type citation_span() :: %{String.t() => any()}
+  @type citation_span() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       content_data() :: %{
-        "contentArn" => String.t(),
-        "contentId" => String.t(),
-        "contentType" => String.t(),
-        "knowledgeBaseArn" => String.t(),
-        "knowledgeBaseId" => String.t(),
-        "linkOutUri" => String.t(),
+        "contentArn" => String.t() | Atom.t(),
+        "contentId" => String.t() | Atom.t(),
+        "contentType" => String.t() | Atom.t(),
+        "knowledgeBaseArn" => String.t() | Atom.t(),
+        "knowledgeBaseId" => String.t() | Atom.t(),
+        "linkOutUri" => String.t() | Atom.t(),
         "metadata" => map(),
-        "name" => String.t(),
-        "revisionId" => String.t(),
-        "status" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "revisionId" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t(),
         "tags" => map(),
-        "title" => String.t(),
-        "url" => String.t(),
+        "title" => String.t() | Atom.t(),
+        "url" => String.t() | Atom.t(),
         "urlExpiry" => [non_neg_integer()]
       }
 
   """
-  @type content_data() :: %{String.t() => any()}
+  @type content_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       content_summary() :: %{
-        "contentArn" => String.t(),
-        "contentId" => String.t(),
-        "contentType" => String.t(),
-        "knowledgeBaseArn" => String.t(),
-        "knowledgeBaseId" => String.t(),
+        "contentArn" => String.t() | Atom.t(),
+        "contentId" => String.t() | Atom.t(),
+        "contentType" => String.t() | Atom.t(),
+        "knowledgeBaseArn" => String.t() | Atom.t(),
+        "knowledgeBaseId" => String.t() | Atom.t(),
         "metadata" => map(),
-        "name" => String.t(),
-        "revisionId" => String.t(),
-        "status" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "revisionId" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t(),
         "tags" => map(),
-        "title" => String.t()
+        "title" => String.t() | Atom.t()
       }
 
   """
-  @type content_summary() :: %{String.t() => any()}
+  @type content_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3330,26 +3330,26 @@ defmodule AWS.QConnect do
 
       update_session_data_response() :: %{
         "data" => list(runtime_session_data()),
-        "namespace" => String.t(),
-        "sessionArn" => String.t(),
-        "sessionId" => String.t()
+        "namespace" => String.t() | Atom.t(),
+        "sessionArn" => String.t() | Atom.t(),
+        "sessionId" => String.t() | Atom.t()
       }
 
   """
-  @type update_session_data_response() :: %{String.t() => any()}
+  @type update_session_data_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       self_service_conversation_history() :: %{
-        "botResponse" => String.t(),
-        "inputTranscript" => String.t(),
+        "botResponse" => String.t() | Atom.t(),
+        "inputTranscript" => String.t() | Atom.t(),
         "turnNumber" => [integer()]
       }
 
   """
-  @type self_service_conversation_history() :: %{String.t() => any()}
+  @type self_service_conversation_history() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3358,11 +3358,11 @@ defmodule AWS.QConnect do
       knowledge_base_association_configuration_data() :: %{
         "contentTagFilter" => list(),
         "maxResults" => integer(),
-        "overrideKnowledgeBaseSearchType" => String.t()
+        "overrideKnowledgeBaseSearchType" => String.t() | Atom.t()
       }
 
   """
-  @type knowledge_base_association_configuration_data() :: %{String.t() => any()}
+  @type knowledge_base_association_configuration_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3373,7 +3373,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type hierarchical_chunking_level_configuration() :: %{String.t() => any()}
+  @type hierarchical_chunking_level_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3384,7 +3384,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type a_i_guardrail_content_policy_config() :: %{String.t() => any()}
+  @type a_i_guardrail_content_policy_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3395,7 +3395,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type get_content_response() :: %{String.t() => any()}
+  @type get_content_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3416,7 +3416,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type content_data_details() :: %{String.t() => any()}
+  @type content_data_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3424,14 +3424,14 @@ defmodule AWS.QConnect do
 
       recommendation_trigger() :: %{
         "data" => list(),
-        "id" => String.t(),
-        "recommendationIds" => list(String.t()),
-        "source" => String.t(),
-        "type" => String.t()
+        "id" => String.t() | Atom.t(),
+        "recommendationIds" => list(String.t() | Atom.t()),
+        "source" => String.t() | Atom.t(),
+        "type" => String.t() | Atom.t()
       }
 
   """
-  @type recommendation_trigger() :: %{String.t() => any()}
+  @type recommendation_trigger() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3442,33 +3442,33 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type update_session_response() :: %{String.t() => any()}
+  @type update_session_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       notify_recommendations_received_request() :: %{
-        required("recommendationIds") => list(String.t())
+        required("recommendationIds") => list(String.t() | Atom.t())
       }
 
   """
-  @type notify_recommendations_received_request() :: %{String.t() => any()}
+  @type notify_recommendations_received_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       send_message_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("configuration") => message_configuration(),
         optional("conversationContext") => conversation_context(),
         required("message") => message_input(),
-        required("type") => String.t()
+        required("type") => String.t() | Atom.t()
       }
 
   """
-  @type send_message_request() :: %{String.t() => any()}
+  @type send_message_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3484,39 +3484,39 @@ defmodule AWS.QConnect do
   ## Example:
 
       message_template_data() :: %{
-        "attributeTypes" => list(String.t()),
-        "channelSubtype" => String.t(),
+        "attributeTypes" => list(String.t() | Atom.t()),
+        "channelSubtype" => String.t() | Atom.t(),
         "content" => list(),
         "createdTime" => [non_neg_integer()],
         "defaultAttributes" => message_template_attributes(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "groupingConfiguration" => grouping_configuration(),
-        "knowledgeBaseArn" => String.t(),
-        "knowledgeBaseId" => String.t(),
-        "language" => String.t(),
-        "lastModifiedBy" => String.t(),
+        "knowledgeBaseArn" => String.t() | Atom.t(),
+        "knowledgeBaseId" => String.t() | Atom.t(),
+        "language" => String.t() | Atom.t(),
+        "lastModifiedBy" => String.t() | Atom.t(),
         "lastModifiedTime" => [non_neg_integer()],
-        "messageTemplateArn" => String.t(),
-        "messageTemplateContentSha256" => String.t(),
-        "messageTemplateId" => String.t(),
-        "name" => String.t(),
+        "messageTemplateArn" => String.t() | Atom.t(),
+        "messageTemplateContentSha256" => String.t() | Atom.t(),
+        "messageTemplateId" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "tags" => map()
       }
 
   """
-  @type message_template_data() :: %{String.t() => any()}
+  @type message_template_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_knowledge_bases_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("knowledgeBaseSummaries") => list(knowledge_base_summary())
       }
 
   """
-  @type list_knowledge_bases_response() :: %{String.t() => any()}
+  @type list_knowledge_bases_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3527,7 +3527,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type get_knowledge_base_response() :: %{String.t() => any()}
+  @type get_knowledge_base_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3538,19 +3538,19 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type sms_message_template_content() :: %{String.t() => any()}
+  @type sms_message_template_content() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_assistant_associations_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("assistantAssociationSummaries") => list(assistant_association_summary())
       }
 
   """
-  @type list_assistant_associations_response() :: %{String.t() => any()}
+  @type list_assistant_associations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3560,12 +3560,12 @@ defmodule AWS.QConnect do
         "data" => data_summary(),
         "document" => document(),
         "relevanceScore" => float(),
-        "resultId" => String.t(),
-        "type" => String.t()
+        "resultId" => String.t() | Atom.t(),
+        "type" => String.t() | Atom.t()
       }
 
   """
-  @type result_data() :: %{String.t() => any()}
+  @type result_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3576,18 +3576,18 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type update_message_template_metadata_response() :: %{String.t() => any()}
+  @type update_message_template_metadata_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_next_message_request() :: %{
-        required("nextMessageToken") => String.t()
+        required("nextMessageToken") => String.t() | Atom.t()
       }
 
   """
-  @type get_next_message_request() :: %{String.t() => any()}
+  @type get_next_message_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3595,12 +3595,12 @@ defmodule AWS.QConnect do
 
       render_message_template_response() :: %{
         "attachments" => list(message_template_attachment()),
-        "attributesNotInterpolated" => list(String.t()),
+        "attributesNotInterpolated" => list(String.t() | Atom.t()),
         "content" => list()
       }
 
   """
-  @type render_message_template_response() :: %{String.t() => any()}
+  @type render_message_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3612,7 +3612,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type email_message_template_content_body() :: %{String.t() => any()}
+  @type email_message_template_content_body() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3620,29 +3620,29 @@ defmodule AWS.QConnect do
 
       list_a_i_guardrails_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_a_i_guardrails_request() :: %{String.t() => any()}
+  @type list_a_i_guardrails_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       message_template_version_summary() :: %{
-        "channelSubtype" => String.t(),
+        "channelSubtype" => String.t() | Atom.t(),
         "isActive" => [boolean()],
-        "knowledgeBaseArn" => String.t(),
-        "knowledgeBaseId" => String.t(),
-        "messageTemplateArn" => String.t(),
-        "messageTemplateId" => String.t(),
-        "name" => String.t(),
+        "knowledgeBaseArn" => String.t() | Atom.t(),
+        "knowledgeBaseId" => String.t() | Atom.t(),
+        "messageTemplateArn" => String.t() | Atom.t(),
+        "messageTemplateId" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "versionNumber" => float()
       }
 
   """
-  @type message_template_version_summary() :: %{String.t() => any()}
+  @type message_template_version_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3650,25 +3650,25 @@ defmodule AWS.QConnect do
 
       list_message_templates_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_message_templates_request() :: %{String.t() => any()}
+  @type list_message_templates_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_a_i_agent_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("configuration") => list(),
-        optional("description") => String.t(),
-        required("visibilityStatus") => String.t()
+        optional("description") => String.t() | Atom.t(),
+        required("visibilityStatus") => String.t() | Atom.t()
       }
 
   """
-  @type update_a_i_agent_request() :: %{String.t() => any()}
+  @type update_a_i_agent_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3679,7 +3679,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type start_import_job_response() :: %{String.t() => any()}
+  @type start_import_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3687,32 +3687,32 @@ defmodule AWS.QConnect do
 
       update_content_request() :: %{
         optional("metadata") => map(),
-        optional("overrideLinkOutUri") => String.t(),
+        optional("overrideLinkOutUri") => String.t() | Atom.t(),
         optional("removeOverrideLinkOutUri") => [boolean()],
-        optional("revisionId") => String.t(),
-        optional("title") => String.t(),
-        optional("uploadId") => String.t()
+        optional("revisionId") => String.t() | Atom.t(),
+        optional("title") => String.t() | Atom.t(),
+        optional("uploadId") => String.t() | Atom.t()
       }
 
   """
-  @type update_content_request() :: %{String.t() => any()}
+  @type update_content_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       assistant_association_summary() :: %{
-        "assistantArn" => String.t(),
-        "assistantAssociationArn" => String.t(),
-        "assistantAssociationId" => String.t(),
-        "assistantId" => String.t(),
+        "assistantArn" => String.t() | Atom.t(),
+        "assistantAssociationArn" => String.t() | Atom.t(),
+        "assistantAssociationId" => String.t() | Atom.t(),
+        "assistantId" => String.t() | Atom.t(),
         "associationData" => list(),
-        "associationType" => String.t(),
+        "associationType" => String.t() | Atom.t(),
         "tags" => map()
       }
 
   """
-  @type assistant_association_summary() :: %{String.t() => any()}
+  @type assistant_association_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3729,25 +3729,25 @@ defmodule AWS.QConnect do
 
       quick_response_query_field() :: %{
         "allowFuzziness" => [boolean()],
-        "name" => String.t(),
-        "operator" => String.t(),
-        "priority" => String.t(),
-        "values" => list(String.t())
+        "name" => String.t() | Atom.t(),
+        "operator" => String.t() | Atom.t(),
+        "priority" => String.t() | Atom.t(),
+        "values" => list(String.t() | Atom.t())
       }
 
   """
-  @type quick_response_query_field() :: %{String.t() => any()}
+  @type quick_response_query_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       text_full_a_iprompt_edit_template_configuration() :: %{
-        "text" => String.t()
+        "text" => String.t() | Atom.t()
       }
 
   """
-  @type text_full_a_iprompt_edit_template_configuration() :: %{String.t() => any()}
+  @type text_full_a_iprompt_edit_template_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3782,23 +3782,23 @@ defmodule AWS.QConnect do
 
       list_a_iprompt_versions_response() :: %{
         "aiPromptVersionSummaries" => list(a_iprompt_version_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_a_iprompt_versions_response() :: %{String.t() => any()}
+  @type list_a_iprompt_versions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       quick_response_order_field() :: %{
-        "name" => String.t(),
-        "order" => String.t()
+        "name" => String.t() | Atom.t(),
+        "order" => String.t() | Atom.t()
       }
 
   """
-  @type quick_response_order_field() :: %{String.t() => any()}
+  @type quick_response_order_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3806,36 +3806,36 @@ defmodule AWS.QConnect do
 
       send_message_response() :: %{
         "configuration" => message_configuration(),
-        "nextMessageToken" => String.t(),
-        "requestMessageId" => String.t()
+        "nextMessageToken" => String.t() | Atom.t(),
+        "requestMessageId" => String.t() | Atom.t()
       }
 
   """
-  @type send_message_response() :: %{String.t() => any()}
+  @type send_message_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_assistants_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("assistantSummaries") => list(assistant_summary())
       }
 
   """
-  @type list_assistants_response() :: %{String.t() => any()}
+  @type list_assistants_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_assistant_a_i_agent_request() :: %{
-        required("aiAgentType") => String.t(),
+        required("aiAgentType") => String.t() | Atom.t(),
         required("configuration") => a_i_agent_configuration_data()
       }
 
   """
-  @type update_assistant_a_i_agent_request() :: %{String.t() => any()}
+  @type update_assistant_a_i_agent_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3851,16 +3851,16 @@ defmodule AWS.QConnect do
   ## Example:
 
       message_template_attachment() :: %{
-        "attachmentId" => String.t(),
-        "contentDisposition" => String.t(),
-        "name" => String.t(),
+        "attachmentId" => String.t() | Atom.t(),
+        "contentDisposition" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "uploadedTime" => [non_neg_integer()],
-        "url" => String.t(),
+        "url" => String.t() | Atom.t(),
         "urlExpiry" => [non_neg_integer()]
       }
 
   """
-  @type message_template_attachment() :: %{String.t() => any()}
+  @type message_template_attachment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3868,24 +3868,24 @@ defmodule AWS.QConnect do
 
       search_content_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("searchExpression") => search_expression()
       }
 
   """
-  @type search_content_request() :: %{String.t() => any()}
+  @type search_content_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       ranking_data() :: %{
-        "relevanceLevel" => String.t(),
+        "relevanceLevel" => String.t() | Atom.t(),
         "relevanceScore" => float()
       }
 
   """
-  @type ranking_data() :: %{String.t() => any()}
+  @type ranking_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3897,71 +3897,71 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type vector_ingestion_configuration() :: %{String.t() => any()}
+  @type vector_ingestion_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       grouping_configuration() :: %{
-        "criteria" => String.t(),
-        "values" => list(String.t())
+        "criteria" => String.t() | Atom.t(),
+        "values" => list(String.t() | Atom.t())
       }
 
   """
-  @type grouping_configuration() :: %{String.t() => any()}
+  @type grouping_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_assistant_association_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("tags") => map(),
         required("association") => list(),
-        required("associationType") => String.t()
+        required("associationType") => String.t() | Atom.t()
       }
 
   """
-  @type create_assistant_association_request() :: %{String.t() => any()}
+  @type create_assistant_association_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_a_i_guardrail_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("contentPolicyConfig") => a_i_guardrail_content_policy_config(),
         optional("contextualGroundingPolicyConfig") => a_i_guardrail_contextual_grounding_policy_config(),
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("sensitiveInformationPolicyConfig") => a_i_guardrail_sensitive_information_policy_config(),
         optional("tags") => map(),
         optional("topicPolicyConfig") => a_i_guardrail_topic_policy_config(),
         optional("wordPolicyConfig") => a_i_guardrail_word_policy_config(),
-        required("blockedInputMessaging") => String.t(),
-        required("blockedOutputsMessaging") => String.t(),
-        required("name") => String.t(),
-        required("visibilityStatus") => String.t()
+        required("blockedInputMessaging") => String.t() | Atom.t(),
+        required("blockedOutputsMessaging") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t(),
+        required("visibilityStatus") => String.t() | Atom.t()
       }
 
   """
-  @type create_a_i_guardrail_request() :: %{String.t() => any()}
+  @type create_a_i_guardrail_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       answer_recommendation_a_i_agent_configuration() :: %{
-        "answerGenerationAIGuardrailId" => String.t(),
-        "answerGenerationAIPromptId" => String.t(),
+        "answerGenerationAIGuardrailId" => String.t() | Atom.t(),
+        "answerGenerationAIPromptId" => String.t() | Atom.t(),
         "associationConfigurations" => list(association_configuration()),
-        "intentLabelingGenerationAIPromptId" => String.t(),
-        "locale" => String.t(),
-        "queryReformulationAIPromptId" => String.t()
+        "intentLabelingGenerationAIPromptId" => String.t() | Atom.t(),
+        "locale" => String.t() | Atom.t(),
+        "queryReformulationAIPromptId" => String.t() | Atom.t()
       }
 
   """
-  @type answer_recommendation_a_i_agent_configuration() :: %{String.t() => any()}
+  @type answer_recommendation_a_i_agent_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3970,11 +3970,11 @@ defmodule AWS.QConnect do
       email_message_template_content() :: %{
         "body" => email_message_template_content_body(),
         "headers" => list(email_header()),
-        "subject" => String.t()
+        "subject" => String.t() | Atom.t()
       }
 
   """
-  @type email_message_template_content() :: %{String.t() => any()}
+  @type email_message_template_content() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3985,18 +3985,18 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type create_session_response() :: %{String.t() => any()}
+  @type create_session_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       precondition_failed_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type precondition_failed_exception() :: %{String.t() => any()}
+  @type precondition_failed_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4007,7 +4007,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type update_a_iprompt_response() :: %{String.t() => any()}
+  @type update_a_iprompt_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4015,23 +4015,23 @@ defmodule AWS.QConnect do
 
       list_content_associations_response() :: %{
         "contentAssociationSummaries" => list(content_association_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_content_associations_response() :: %{String.t() => any()}
+  @type list_content_associations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_a_i_agent_version_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("modifiedTime") => [non_neg_integer()]
       }
 
   """
-  @type create_a_i_agent_version_request() :: %{String.t() => any()}
+  @type create_a_i_agent_version_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4053,7 +4053,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type document() :: %{String.t() => any()}
+  @type document() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4064,7 +4064,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type render_message_template_request() :: %{String.t() => any()}
+  @type render_message_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4072,23 +4072,23 @@ defmodule AWS.QConnect do
 
       list_assistants_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_assistants_request() :: %{String.t() => any()}
+  @type list_assistants_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_session_data_request() :: %{
-        optional("namespace") => String.t(),
+        optional("namespace") => String.t() | Atom.t(),
         required("data") => list(runtime_session_data())
       }
 
   """
-  @type update_session_data_request() :: %{String.t() => any()}
+  @type update_session_data_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4108,18 +4108,18 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type update_message_template_response() :: %{String.t() => any()}
+  @type update_message_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       session_integration_configuration() :: %{
-        "topicIntegrationArn" => String.t()
+        "topicIntegrationArn" => String.t() | Atom.t()
       }
 
   """
-  @type session_integration_configuration() :: %{String.t() => any()}
+  @type session_integration_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4130,7 +4130,7 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type update_assistant_a_i_agent_response() :: %{String.t() => any()}
+  @type update_assistant_a_i_agent_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4146,12 +4146,12 @@ defmodule AWS.QConnect do
   ## Example:
 
       too_many_tags_exception() :: %{
-        "message" => [String.t()],
-        "resourceName" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "resourceName" => [String.t() | Atom.t()]
       }
 
   """
-  @type too_many_tags_exception() :: %{String.t() => any()}
+  @type too_many_tags_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4159,11 +4159,11 @@ defmodule AWS.QConnect do
 
       list_messages_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_messages_request() :: %{String.t() => any()}
+  @type list_messages_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4175,20 +4175,20 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type create_a_iprompt_version_response() :: %{String.t() => any()}
+  @type create_a_iprompt_version_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       activate_message_template_response() :: %{
-        "messageTemplateArn" => String.t(),
-        "messageTemplateId" => String.t(),
+        "messageTemplateArn" => String.t() | Atom.t(),
+        "messageTemplateId" => String.t() | Atom.t(),
         "versionNumber" => float()
       }
 
   """
-  @type activate_message_template_response() :: %{String.t() => any()}
+  @type activate_message_template_response() :: %{String.t() | Atom.t() => any()}
 
   @type activate_message_template_errors() ::
           throttling_exception()
@@ -4785,8 +4785,8 @@ defmodule AWS.QConnect do
   """
   @spec activate_message_template(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           activate_message_template_request(),
           list()
         ) ::
@@ -4826,7 +4826,7 @@ defmodule AWS.QConnect do
   @doc """
   Creates an Amazon Q in Connect AI Agent.
   """
-  @spec create_a_i_agent(map(), String.t(), create_a_i_agent_request(), list()) ::
+  @spec create_a_i_agent(map(), String.t() | Atom.t(), create_a_i_agent_request(), list()) ::
           {:ok, create_a_i_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4857,8 +4857,8 @@ defmodule AWS.QConnect do
   """
   @spec create_a_i_agent_version(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           create_a_i_agent_version_request(),
           list()
         ) ::
@@ -4898,7 +4898,7 @@ defmodule AWS.QConnect do
   @doc """
   Creates an Amazon Q in Connect AI Guardrail.
   """
-  @spec create_a_i_guardrail(map(), String.t(), create_a_i_guardrail_request(), list()) ::
+  @spec create_a_i_guardrail(map(), String.t() | Atom.t(), create_a_i_guardrail_request(), list()) ::
           {:ok, create_a_i_guardrail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4929,8 +4929,8 @@ defmodule AWS.QConnect do
   """
   @spec create_a_i_guardrail_version(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           create_a_i_guardrail_version_request(),
           list()
         ) ::
@@ -4970,7 +4970,7 @@ defmodule AWS.QConnect do
   @doc """
   Creates an Amazon Q in Connect AI Prompt.
   """
-  @spec create_a_iprompt(map(), String.t(), create_a_iprompt_request(), list()) ::
+  @spec create_a_iprompt(map(), String.t() | Atom.t(), create_a_iprompt_request(), list()) ::
           {:ok, create_a_iprompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5001,8 +5001,8 @@ defmodule AWS.QConnect do
   """
   @spec create_a_iprompt_version(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           create_a_iprompt_version_request(),
           list()
         ) ::
@@ -5077,7 +5077,7 @@ defmodule AWS.QConnect do
   """
   @spec create_assistant_association(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           create_assistant_association_request(),
           list()
         ) ::
@@ -5113,7 +5113,7 @@ defmodule AWS.QConnect do
   [StartContentUpload](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_StartContentUpload.html)
   to upload an asset.
   """
-  @spec create_content(map(), String.t(), create_content_request(), list()) ::
+  @spec create_content(map(), String.t() | Atom.t(), create_content_request(), list()) ::
           {:ok, create_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5165,8 +5165,8 @@ defmodule AWS.QConnect do
   """
   @spec create_content_association(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           create_content_association_request(),
           list()
         ) ::
@@ -5258,7 +5258,12 @@ defmodule AWS.QConnect do
   after creation. After the message template is created, you can use the `$LATEST`
   qualifier to reference the created message template.
   """
-  @spec create_message_template(map(), String.t(), create_message_template_request(), list()) ::
+  @spec create_message_template(
+          map(),
+          String.t() | Atom.t(),
+          create_message_template_request(),
+          list()
+        ) ::
           {:ok, create_message_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5295,8 +5300,8 @@ defmodule AWS.QConnect do
   """
   @spec create_message_template_attachment(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           create_message_template_attachment_request(),
           list()
         ) ::
@@ -5349,8 +5354,8 @@ defmodule AWS.QConnect do
   """
   @spec create_message_template_version(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           create_message_template_version_request(),
           list()
         ) ::
@@ -5390,7 +5395,12 @@ defmodule AWS.QConnect do
   @doc """
   Creates an Amazon Q in Connect quick response.
   """
-  @spec create_quick_response(map(), String.t(), create_quick_response_request(), list()) ::
+  @spec create_quick_response(
+          map(),
+          String.t() | Atom.t(),
+          create_quick_response_request(),
+          list()
+        ) ::
           {:ok, create_quick_response_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5423,7 +5433,7 @@ defmodule AWS.QConnect do
   Connect creates a new Amazon Q in Connect session for each contact on which
   Amazon Q in Connect is enabled.
   """
-  @spec create_session(map(), String.t(), create_session_request(), list()) ::
+  @spec create_session(map(), String.t() | Atom.t(), create_session_request(), list()) ::
           {:ok, create_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5457,8 +5467,8 @@ defmodule AWS.QConnect do
   """
   @spec deactivate_message_template(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           deactivate_message_template_request(),
           list()
         ) ::
@@ -5498,7 +5508,13 @@ defmodule AWS.QConnect do
   @doc """
   Deletes an Amazon Q in Connect AI Agent.
   """
-  @spec delete_a_i_agent(map(), String.t(), String.t(), delete_a_i_agent_request(), list()) ::
+  @spec delete_a_i_agent(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_a_i_agent_request(),
+          list()
+        ) ::
           {:ok, delete_a_i_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5531,9 +5547,9 @@ defmodule AWS.QConnect do
   """
   @spec delete_a_i_agent_version(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_a_i_agent_version_request(),
           list()
         ) ::
@@ -5576,8 +5592,8 @@ defmodule AWS.QConnect do
   """
   @spec delete_a_i_guardrail(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_a_i_guardrail_request(),
           list()
         ) ::
@@ -5619,9 +5635,9 @@ defmodule AWS.QConnect do
   """
   @spec delete_a_i_guardrail_version(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_a_i_guardrail_version_request(),
           list()
         ) ::
@@ -5662,7 +5678,13 @@ defmodule AWS.QConnect do
   @doc """
   Deletes an Amazon Q in Connect AI Prompt.
   """
-  @spec delete_a_iprompt(map(), String.t(), String.t(), delete_a_iprompt_request(), list()) ::
+  @spec delete_a_iprompt(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_a_iprompt_request(),
+          list()
+        ) ::
           {:ok, delete_a_iprompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5695,9 +5717,9 @@ defmodule AWS.QConnect do
   """
   @spec delete_a_iprompt_version(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_a_iprompt_version_request(),
           list()
         ) ::
@@ -5738,7 +5760,7 @@ defmodule AWS.QConnect do
   @doc """
   Deletes an assistant.
   """
-  @spec delete_assistant(map(), String.t(), delete_assistant_request(), list()) ::
+  @spec delete_assistant(map(), String.t() | Atom.t(), delete_assistant_request(), list()) ::
           {:ok, delete_assistant_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5769,8 +5791,8 @@ defmodule AWS.QConnect do
   """
   @spec delete_assistant_association(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_assistant_association_request(),
           list()
         ) ::
@@ -5810,7 +5832,13 @@ defmodule AWS.QConnect do
   @doc """
   Deletes the content.
   """
-  @spec delete_content(map(), String.t(), String.t(), delete_content_request(), list()) ::
+  @spec delete_content(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_content_request(),
+          list()
+        ) ::
           {:ok, delete_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5847,9 +5875,9 @@ defmodule AWS.QConnect do
   """
   @spec delete_content_association(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_content_association_request(),
           list()
         ) ::
@@ -5890,7 +5918,13 @@ defmodule AWS.QConnect do
   @doc """
   Deletes the quick response import job.
   """
-  @spec delete_import_job(map(), String.t(), String.t(), delete_import_job_request(), list()) ::
+  @spec delete_import_job(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_import_job_request(),
+          list()
+        ) ::
           {:ok, delete_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5936,7 +5970,12 @@ defmodule AWS.QConnect do
   [CreateDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html)
   in the *Amazon AppIntegrations API Reference*.
   """
-  @spec delete_knowledge_base(map(), String.t(), delete_knowledge_base_request(), list()) ::
+  @spec delete_knowledge_base(
+          map(),
+          String.t() | Atom.t(),
+          delete_knowledge_base_request(),
+          list()
+        ) ::
           {:ok, delete_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5973,8 +6012,8 @@ defmodule AWS.QConnect do
   """
   @spec delete_message_template(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_message_template_request(),
           list()
         ) ::
@@ -6019,9 +6058,9 @@ defmodule AWS.QConnect do
   """
   @spec delete_message_template_attachment(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_message_template_attachment_request(),
           list()
         ) ::
@@ -6064,8 +6103,8 @@ defmodule AWS.QConnect do
   """
   @spec delete_quick_response(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_quick_response_request(),
           list()
         ) ::
@@ -6105,7 +6144,7 @@ defmodule AWS.QConnect do
   @doc """
   Gets an Amazon Q in Connect AI Agent.
   """
-  @spec get_a_i_agent(map(), String.t(), String.t(), list()) ::
+  @spec get_a_i_agent(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_a_i_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6125,7 +6164,7 @@ defmodule AWS.QConnect do
   @doc """
   Gets the Amazon Q in Connect AI Guardrail.
   """
-  @spec get_a_i_guardrail(map(), String.t(), String.t(), list()) ::
+  @spec get_a_i_guardrail(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_a_i_guardrail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6145,7 +6184,7 @@ defmodule AWS.QConnect do
   @doc """
   Gets and Amazon Q in Connect AI Prompt.
   """
-  @spec get_a_iprompt(map(), String.t(), String.t(), list()) ::
+  @spec get_a_iprompt(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_a_iprompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6165,7 +6204,7 @@ defmodule AWS.QConnect do
   @doc """
   Retrieves information about an assistant.
   """
-  @spec get_assistant(map(), String.t(), list()) ::
+  @spec get_assistant(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_assistant_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6183,7 +6222,7 @@ defmodule AWS.QConnect do
   @doc """
   Retrieves information about an assistant association.
   """
-  @spec get_assistant_association(map(), String.t(), String.t(), list()) ::
+  @spec get_assistant_association(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_assistant_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6208,7 +6247,7 @@ defmodule AWS.QConnect do
   @doc """
   Retrieves content, including a pre-signed URL to download the content.
   """
-  @spec get_content(map(), String.t(), String.t(), list()) ::
+  @spec get_content(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6232,7 +6271,13 @@ defmodule AWS.QConnect do
   used--see [Integrate Amazon Q in Connect with step-by-step guides](https://docs.aws.amazon.com/connect/latest/adminguide/integrate-q-with-guides.html)
   in the *Amazon Connect Administrator Guide*.
   """
-  @spec get_content_association(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_content_association(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_content_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6258,7 +6303,7 @@ defmodule AWS.QConnect do
   @doc """
   Retrieves summary information about the content.
   """
-  @spec get_content_summary(map(), String.t(), String.t(), list()) ::
+  @spec get_content_summary(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_content_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6278,7 +6323,7 @@ defmodule AWS.QConnect do
   @doc """
   Retrieves the started import job.
   """
-  @spec get_import_job(map(), String.t(), String.t(), list()) ::
+  @spec get_import_job(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6298,7 +6343,7 @@ defmodule AWS.QConnect do
   @doc """
   Retrieves information about the knowledge base.
   """
-  @spec get_knowledge_base(map(), String.t(), list()) ::
+  @spec get_knowledge_base(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6321,7 +6366,7 @@ defmodule AWS.QConnect do
   an Amazon Q Connect managed qualifier `$ACTIVE_VERSION` | `$LATEST`. If it is
   not supplied, then `$LATEST` is assumed implicitly.
   """
-  @spec get_message_template(map(), String.t(), String.t(), list()) ::
+  @spec get_message_template(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_message_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6346,7 +6391,13 @@ defmodule AWS.QConnect do
   @doc """
   Retrieves next message on an Amazon Q in Connect session.
   """
-  @spec get_next_message(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_next_message(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_next_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6379,7 +6430,7 @@ defmodule AWS.QConnect do
   @doc """
   Retrieves the quick response.
   """
-  @spec get_quick_response(map(), String.t(), String.t(), list()) ::
+  @spec get_quick_response(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_quick_response_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6412,11 +6463,11 @@ defmodule AWS.QConnect do
   """
   @spec get_recommendations(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, get_recommendations_response(), any()}
@@ -6467,7 +6518,7 @@ defmodule AWS.QConnect do
   @doc """
   Retrieves information for a specified session.
   """
-  @spec get_session(map(), String.t(), String.t(), list()) ::
+  @spec get_session(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6489,11 +6540,11 @@ defmodule AWS.QConnect do
   """
   @spec list_a_i_agent_versions(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_a_i_agent_versions_response(), any()}
@@ -6546,10 +6597,10 @@ defmodule AWS.QConnect do
   """
   @spec list_a_i_agents(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_a_i_agents_response(), any()}
@@ -6599,10 +6650,10 @@ defmodule AWS.QConnect do
   """
   @spec list_a_i_guardrail_versions(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_a_i_guardrail_versions_response(), any()}
@@ -6645,7 +6696,13 @@ defmodule AWS.QConnect do
   @doc """
   Lists the AI Guardrails available on the Amazon Q in Connect assistant.
   """
-  @spec list_a_i_guardrails(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_a_i_guardrails(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_a_i_guardrails_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6685,11 +6742,11 @@ defmodule AWS.QConnect do
   """
   @spec list_a_iprompt_versions(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_a_iprompt_versions_response(), any()}
@@ -6742,10 +6799,10 @@ defmodule AWS.QConnect do
   """
   @spec list_a_iprompts(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_a_iprompts_response(), any()}
@@ -6793,7 +6850,13 @@ defmodule AWS.QConnect do
   @doc """
   Lists information about assistant associations.
   """
-  @spec list_assistant_associations(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_assistant_associations(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_assistant_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6831,7 +6894,7 @@ defmodule AWS.QConnect do
   @doc """
   Lists information about assistants.
   """
-  @spec list_assistants(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_assistants(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_assistants_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6869,10 +6932,10 @@ defmodule AWS.QConnect do
   """
   @spec list_content_associations(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_content_associations_response(), any()}
@@ -6915,7 +6978,13 @@ defmodule AWS.QConnect do
   @doc """
   Lists the content.
   """
-  @spec list_contents(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_contents(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_contents_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6953,7 +7022,13 @@ defmodule AWS.QConnect do
   @doc """
   Lists information about import jobs.
   """
-  @spec list_import_jobs(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_import_jobs(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6991,7 +7066,12 @@ defmodule AWS.QConnect do
   @doc """
   Lists the knowledge bases.
   """
-  @spec list_knowledge_bases(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_knowledge_bases(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_knowledge_bases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7031,10 +7111,10 @@ defmodule AWS.QConnect do
   """
   @spec list_message_template_versions(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_message_template_versions_response(), any()}
@@ -7078,7 +7158,13 @@ defmodule AWS.QConnect do
   Lists all the available Amazon Q in Connect message templates for the specified
   knowledge base.
   """
-  @spec list_message_templates(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_message_templates(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_message_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7116,7 +7202,14 @@ defmodule AWS.QConnect do
   @doc """
   Lists messages on an Amazon Q in Connect session.
   """
-  @spec list_messages(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_messages(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_messages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7157,7 +7250,13 @@ defmodule AWS.QConnect do
   @doc """
   Lists information about quick response.
   """
-  @spec list_quick_responses(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_quick_responses(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_quick_responses_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7195,7 +7294,7 @@ defmodule AWS.QConnect do
   @doc """
   Lists the tags for the specified resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7221,8 +7320,8 @@ defmodule AWS.QConnect do
   """
   @spec notify_recommendations_received(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           notify_recommendations_received_request(),
           list()
         ) ::
@@ -7264,7 +7363,7 @@ defmodule AWS.QConnect do
 
   This API only supports generative targets.
   """
-  @spec put_feedback(map(), String.t(), put_feedback_request(), list()) ::
+  @spec put_feedback(map(), String.t() | Atom.t(), put_feedback_request(), list()) ::
           {:ok, put_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7301,7 +7400,7 @@ defmodule AWS.QConnect do
   recommendations for an assistant, use
   [GetRecommendations](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetRecommendations.html).
   """
-  @spec query_assistant(map(), String.t(), query_assistant_request(), list()) ::
+  @spec query_assistant(map(), String.t() | Atom.t(), query_assistant_request(), list()) ::
           {:ok, query_assistant_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7333,7 +7432,7 @@ defmodule AWS.QConnect do
   """
   @spec remove_assistant_a_i_agent(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           remove_assistant_a_i_agent_request(),
           list()
         ) ::
@@ -7372,7 +7471,7 @@ defmodule AWS.QConnect do
   """
   @spec remove_knowledge_base_template_uri(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           remove_knowledge_base_template_uri_request(),
           list()
         ) ::
@@ -7417,8 +7516,8 @@ defmodule AWS.QConnect do
   """
   @spec render_message_template(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           render_message_template_request(),
           list()
         ) ::
@@ -7460,7 +7559,7 @@ defmodule AWS.QConnect do
 
   Can be used to get a specific content resource by its name.
   """
-  @spec search_content(map(), String.t(), search_content_request(), list()) ::
+  @spec search_content(map(), String.t() | Atom.t(), search_content_request(), list()) ::
           {:ok, search_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7496,7 +7595,12 @@ defmodule AWS.QConnect do
   Searches for Amazon Q in Connect message templates in the specified knowledge
   base.
   """
-  @spec search_message_templates(map(), String.t(), search_message_templates_request(), list()) ::
+  @spec search_message_templates(
+          map(),
+          String.t() | Atom.t(),
+          search_message_templates_request(),
+          list()
+        ) ::
           {:ok, search_message_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7532,7 +7636,12 @@ defmodule AWS.QConnect do
   Searches existing Amazon Q in Connect quick responses in an Amazon Q in Connect
   knowledge base.
   """
-  @spec search_quick_responses(map(), String.t(), search_quick_responses_request(), list()) ::
+  @spec search_quick_responses(
+          map(),
+          String.t() | Atom.t(),
+          search_quick_responses_request(),
+          list()
+        ) ::
           {:ok, search_quick_responses_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7567,7 +7676,7 @@ defmodule AWS.QConnect do
   @doc """
   Searches for sessions.
   """
-  @spec search_sessions(map(), String.t(), search_sessions_request(), list()) ::
+  @spec search_sessions(map(), String.t() | Atom.t(), search_sessions_request(), list()) ::
           {:ok, search_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7602,7 +7711,13 @@ defmodule AWS.QConnect do
   @doc """
   Submits a message to the Amazon Q in Connect session.
   """
-  @spec send_message(map(), String.t(), String.t(), send_message_request(), list()) ::
+  @spec send_message(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          send_message_request(),
+          list()
+        ) ::
           {:ok, send_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7640,7 +7755,7 @@ defmodule AWS.QConnect do
   to modify an existing resource. You can only upload content to a knowledge base
   of type CUSTOM.
   """
-  @spec start_content_upload(map(), String.t(), start_content_upload_request(), list()) ::
+  @spec start_content_upload(map(), String.t() | Atom.t(), start_content_upload_request(), list()) ::
           {:ok, start_content_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7678,7 +7793,7 @@ defmodule AWS.QConnect do
   format the csv file for importing quick responses, see [Import quick
   responses](https://docs.aws.amazon.com/console/connect/quick-responses/add-data).
   """
-  @spec start_import_job(map(), String.t(), start_import_job_request(), list()) ::
+  @spec start_import_job(map(), String.t() | Atom.t(), start_import_job_request(), list()) ::
           {:ok, start_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7707,7 +7822,7 @@ defmodule AWS.QConnect do
   @doc """
   Adds the specified tags to the specified resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7736,7 +7851,7 @@ defmodule AWS.QConnect do
   @doc """
   Removes the specified tags from the specified resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7770,7 +7885,13 @@ defmodule AWS.QConnect do
   @doc """
   Updates an AI Agent.
   """
-  @spec update_a_i_agent(map(), String.t(), String.t(), update_a_i_agent_request(), list()) ::
+  @spec update_a_i_agent(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_a_i_agent_request(),
+          list()
+        ) ::
           {:ok, update_a_i_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7803,8 +7924,8 @@ defmodule AWS.QConnect do
   """
   @spec update_a_i_guardrail(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_a_i_guardrail_request(),
           list()
         ) ::
@@ -7844,7 +7965,13 @@ defmodule AWS.QConnect do
   @doc """
   Updates an AI Prompt.
   """
-  @spec update_a_iprompt(map(), String.t(), String.t(), update_a_iprompt_request(), list()) ::
+  @spec update_a_iprompt(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_a_iprompt_request(),
+          list()
+        ) ::
           {:ok, update_a_iprompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7878,7 +8005,7 @@ defmodule AWS.QConnect do
   """
   @spec update_assistant_a_i_agent(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_assistant_a_i_agent_request(),
           list()
         ) ::
@@ -7910,7 +8037,13 @@ defmodule AWS.QConnect do
   @doc """
   Updates information about the content.
   """
-  @spec update_content(map(), String.t(), String.t(), update_content_request(), list()) ::
+  @spec update_content(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_content_request(),
+          list()
+        ) ::
           {:ok, update_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7949,7 +8082,7 @@ defmodule AWS.QConnect do
   """
   @spec update_knowledge_base_template_uri(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_knowledge_base_template_uri_request(),
           list()
         ) ::
@@ -7994,8 +8127,8 @@ defmodule AWS.QConnect do
   """
   @spec update_message_template(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_message_template_request(),
           list()
         ) ::
@@ -8042,8 +8175,8 @@ defmodule AWS.QConnect do
   """
   @spec update_message_template_metadata(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_message_template_metadata_request(),
           list()
         ) ::
@@ -8085,8 +8218,8 @@ defmodule AWS.QConnect do
   """
   @spec update_quick_response(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_quick_response_request(),
           list()
         ) ::
@@ -8130,7 +8263,13 @@ defmodule AWS.QConnect do
   Connect updates the existing Amazon Q in Connect session for each contact on
   which Amazon Q in Connect is enabled.
   """
-  @spec update_session(map(), String.t(), String.t(), update_session_request(), list()) ::
+  @spec update_session(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_session_request(),
+          list()
+        ) ::
           {:ok, update_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8161,7 +8300,13 @@ defmodule AWS.QConnect do
   @doc """
   Updates the data stored on an Amazon Q in Connect Session.
   """
-  @spec update_session_data(map(), String.t(), String.t(), update_session_data_request(), list()) ::
+  @spec update_session_data(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_session_data_request(),
+          list()
+        ) ::
           {:ok, update_session_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

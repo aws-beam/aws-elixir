@@ -25,12 +25,12 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       contact_filter() :: %{
-        "channel" => list(String.t()),
-        "contactArn" => String.t()
+        "channel" => list(String.t() | Atom.t()),
+        "contactArn" => String.t() | Atom.t()
       }
 
   """
-  @type contact_filter() :: %{String.t() => any()}
+  @type contact_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -77,7 +77,7 @@ defmodule AWS.ConnectCases do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -85,23 +85,23 @@ defmodule AWS.ConnectCases do
 
       update_layout_request() :: %{
         optional("content") => list(),
-        optional("name") => String.t()
+        optional("name") => String.t() | Atom.t()
       }
 
   """
-  @type update_layout_request() :: %{String.t() => any()}
+  @type update_layout_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       template_rule() :: %{
-        "caseRuleId" => String.t(),
-        "fieldId" => String.t()
+        "caseRuleId" => String.t() | Atom.t(),
+        "fieldId" => String.t() | Atom.t()
       }
 
   """
-  @type template_rule() :: %{String.t() => any()}
+  @type template_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -109,11 +109,11 @@ defmodule AWS.ConnectCases do
 
       get_case_audit_events_response() :: %{
         "auditEvents" => list(audit_event()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type get_case_audit_events_response() :: %{String.t() => any()}
+  @type get_case_audit_events_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -124,19 +124,19 @@ defmodule AWS.ConnectCases do
       }
 
   """
-  @type sla_content() :: %{String.t() => any()}
+  @type sla_content() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       search_related_items_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("relatedItems") => list(search_related_items_response_item())
       }
 
   """
-  @type search_related_items_response() :: %{String.t() => any()}
+  @type search_related_items_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -144,11 +144,11 @@ defmodule AWS.ConnectCases do
 
       list_fields_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_fields_request() :: %{String.t() => any()}
+  @type list_fields_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -158,13 +158,13 @@ defmodule AWS.ConnectCases do
         optional("fields") => list(field_identifier()),
         optional("filter") => list(),
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t(),
-        optional("searchTerm") => [String.t()],
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("searchTerm") => [String.t() | Atom.t()],
         optional("sorts") => list(sort())
       }
 
   """
-  @type search_cases_request() :: %{String.t() => any()}
+  @type search_cases_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -172,23 +172,23 @@ defmodule AWS.ConnectCases do
 
       get_case_audit_events_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type get_case_audit_events_request() :: %{String.t() => any()}
+  @type get_case_audit_events_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_case_rule_response() :: %{
-        "caseRuleArn" => String.t(),
-        "caseRuleId" => String.t()
+        "caseRuleArn" => String.t() | Atom.t(),
+        "caseRuleId" => String.t() | Atom.t()
       }
 
   """
-  @type create_case_rule_response() :: %{String.t() => any()}
+  @type create_case_rule_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -196,80 +196,80 @@ defmodule AWS.ConnectCases do
 
       list_templates_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("status") => list(String.t())
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("status") => list(String.t() | Atom.t())
       }
 
   """
-  @type list_templates_request() :: %{String.t() => any()}
+  @type list_templates_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_case_request() :: %{
-        optional("clientToken") => [String.t()],
+        optional("clientToken") => [String.t() | Atom.t()],
         optional("performedBy") => list(),
         required("fields") => list(field_value()),
-        required("templateId") => String.t()
+        required("templateId") => String.t() | Atom.t()
       }
 
   """
-  @type create_case_request() :: %{String.t() => any()}
+  @type create_case_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       field_option_error() :: %{
-        "errorCode" => [String.t()],
-        "message" => [String.t()],
-        "value" => String.t()
+        "errorCode" => [String.t() | Atom.t()],
+        "message" => [String.t() | Atom.t()],
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type field_option_error() :: %{String.t() => any()}
+  @type field_option_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_layouts_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("layouts") => list(layout_summary())
       }
 
   """
-  @type list_layouts_response() :: %{String.t() => any()}
+  @type list_layouts_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       domain_summary() :: %{
-        "domainArn" => String.t(),
-        "domainId" => String.t(),
-        "name" => String.t()
+        "domainArn" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type domain_summary() :: %{String.t() => any()}
+  @type domain_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_template_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("layoutConfiguration") => layout_configuration(),
         optional("requiredFields") => list(required_field()),
         optional("rules") => list(template_rule()),
-        optional("status") => String.t(),
-        required("name") => String.t()
+        optional("status") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_template_request() :: %{String.t() => any()}
+  @type create_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -278,20 +278,20 @@ defmodule AWS.ConnectCases do
       get_template_response() :: %{
         optional("createdTime") => non_neg_integer(),
         optional("deleted") => boolean(),
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("lastModifiedTime") => non_neg_integer(),
         optional("layoutConfiguration") => layout_configuration(),
         optional("requiredFields") => list(required_field()),
         optional("rules") => list(template_rule()),
         optional("tags") => map(),
-        required("name") => String.t(),
-        required("status") => String.t(),
-        required("templateArn") => String.t(),
-        required("templateId") => String.t()
+        required("name") => String.t() | Atom.t(),
+        required("status") => String.t() | Atom.t(),
+        required("templateArn") => String.t() | Atom.t(),
+        required("templateId") => String.t() | Atom.t()
       }
 
   """
-  @type get_template_response() :: %{String.t() => any()}
+  @type get_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -311,7 +311,7 @@ defmodule AWS.ConnectCases do
       }
 
   """
-  @type batch_put_field_options_request() :: %{String.t() => any()}
+  @type batch_put_field_options_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -327,23 +327,23 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       create_case_response() :: %{
-        required("caseArn") => String.t(),
-        required("caseId") => String.t()
+        required("caseArn") => String.t() | Atom.t(),
+        required("caseId") => String.t() | Atom.t()
       }
 
   """
-  @type create_case_response() :: %{String.t() => any()}
+  @type create_case_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       file_filter() :: %{
-        "fileArn" => String.t()
+        "fileArn" => String.t() | Atom.t()
       }
 
   """
-  @type file_filter() :: %{String.t() => any()}
+  @type file_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -360,12 +360,12 @@ defmodule AWS.ConnectCases do
 
       list_field_options_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("values") => list(String.t())
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("values") => list(String.t() | Atom.t())
       }
 
   """
-  @type list_field_options_request() :: %{String.t() => any()}
+  @type list_field_options_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -373,118 +373,118 @@ defmodule AWS.ConnectCases do
 
       create_layout_request() :: %{
         required("content") => list(),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_layout_request() :: %{String.t() => any()}
+  @type create_layout_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_template_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("layoutConfiguration") => layout_configuration(),
-        optional("name") => String.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("requiredFields") => list(required_field()),
         optional("rules") => list(template_rule()),
-        optional("status") => String.t()
+        optional("status") => String.t() | Atom.t()
       }
 
   """
-  @type update_template_request() :: %{String.t() => any()}
+  @type update_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_cases_for_contact_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("cases") => list(case_summary())
       }
 
   """
-  @type list_cases_for_contact_response() :: %{String.t() => any()}
+  @type list_cases_for_contact_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_field_response() :: %{
-        required("fieldArn") => String.t(),
-        required("fieldId") => String.t()
+        required("fieldArn") => String.t() | Atom.t(),
+        required("fieldId") => String.t() | Atom.t()
       }
 
   """
-  @type create_field_response() :: %{String.t() => any()}
+  @type create_field_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_case_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("tags") => map(),
         required("fields") => list(field_value()),
-        required("templateId") => String.t()
+        required("templateId") => String.t() | Atom.t()
       }
 
   """
-  @type get_case_response() :: %{String.t() => any()}
+  @type get_case_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       comment_content() :: %{
-        "body" => String.t(),
-        "contentType" => String.t()
+        "body" => String.t() | Atom.t(),
+        "contentType" => String.t() | Atom.t()
       }
 
   """
-  @type comment_content() :: %{String.t() => any()}
+  @type comment_content() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       required_field() :: %{
-        "fieldId" => String.t()
+        "fieldId" => String.t() | Atom.t()
       }
 
   """
-  @type required_field() :: %{String.t() => any()}
+  @type required_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_case_rule_response() :: %{
-        "caseRuleArn" => String.t(),
-        "caseRuleId" => String.t(),
+        "caseRuleArn" => String.t() | Atom.t(),
+        "caseRuleId" => String.t() | Atom.t(),
         "createdTime" => non_neg_integer(),
         "deleted" => boolean(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "lastModifiedTime" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "rule" => list(),
         "tags" => map()
       }
 
   """
-  @type get_case_rule_response() :: %{String.t() => any()}
+  @type get_case_rule_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -500,14 +500,14 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       search_cases_response_item() :: %{
-        "caseId" => String.t(),
+        "caseId" => String.t() | Atom.t(),
         "fields" => list(field_value()),
         "tags" => map(),
-        "templateId" => String.t()
+        "templateId" => String.t() | Atom.t()
       }
 
   """
-  @type search_cases_response_item() :: %{String.t() => any()}
+  @type search_cases_response_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -516,11 +516,11 @@ defmodule AWS.ConnectCases do
       search_related_items_request() :: %{
         optional("filters") => list(list()),
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type search_related_items_request() :: %{String.t() => any()}
+  @type search_related_items_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -541,7 +541,7 @@ defmodule AWS.ConnectCases do
       }
 
   """
-  @type basic_layout() :: %{String.t() => any()}
+  @type basic_layout() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -575,35 +575,35 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "resourceId" => [String.t() | Atom.t()],
+        "resourceType" => [String.t() | Atom.t()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_domain_request() :: %{
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_domain_request() :: %{String.t() => any()}
+  @type create_domain_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -614,7 +614,7 @@ defmodule AWS.ConnectCases do
       }
 
   """
-  @type batch_get_field_request() :: %{String.t() => any()}
+  @type batch_get_field_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -625,43 +625,43 @@ defmodule AWS.ConnectCases do
       }
 
   """
-  @type get_case_event_configuration_response() :: %{String.t() => any()}
+  @type get_case_event_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       audit_event_field() :: %{
-        "eventFieldId" => String.t(),
+        "eventFieldId" => String.t() | Atom.t(),
         "newValue" => list(),
         "oldValue" => list()
       }
 
   """
-  @type audit_event_field() :: %{String.t() => any()}
+  @type audit_event_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_case_request() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("fields") => list(field_identifier())
       }
 
   """
-  @type get_case_request() :: %{String.t() => any()}
+  @type get_case_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -671,25 +671,25 @@ defmodule AWS.ConnectCases do
         "associationTime" => non_neg_integer(),
         "content" => list(),
         "performedBy" => list(),
-        "relatedItemId" => String.t(),
+        "relatedItemId" => String.t() | Atom.t(),
         "tags" => map(),
-        "type" => String.t()
+        "type" => String.t() | Atom.t()
       }
 
   """
-  @type search_related_items_response_item() :: %{String.t() => any()}
+  @type search_related_items_response_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_domains_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("domains") => list(domain_summary())
       }
 
   """
-  @type list_domains_response() :: %{String.t() => any()}
+  @type list_domains_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -697,11 +697,11 @@ defmodule AWS.ConnectCases do
 
       list_case_rules_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_case_rules_request() :: %{String.t() => any()}
+  @type list_case_rules_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -717,40 +717,40 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       template_summary() :: %{
-        "name" => String.t(),
-        "status" => String.t(),
-        "templateArn" => String.t(),
-        "templateId" => String.t()
+        "name" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t(),
+        "templateArn" => String.t() | Atom.t(),
+        "templateId" => String.t() | Atom.t()
       }
 
   """
-  @type template_summary() :: %{String.t() => any()}
+  @type template_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_case_rule_request() :: %{
-        optional("description") => String.t(),
-        required("name") => String.t(),
+        optional("description") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t(),
         required("rule") => list()
       }
 
   """
-  @type create_case_rule_request() :: %{String.t() => any()}
+  @type create_case_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_field_request() :: %{
-        optional("description") => String.t(),
-        required("name") => String.t(),
-        required("type") => String.t()
+        optional("description") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t(),
+        required("type") => String.t() | Atom.t()
       }
 
   """
-  @type create_field_request() :: %{String.t() => any()}
+  @type create_field_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -762,7 +762,7 @@ defmodule AWS.ConnectCases do
       }
 
   """
-  @type batch_get_field_response() :: %{String.t() => any()}
+  @type batch_get_field_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -770,26 +770,26 @@ defmodule AWS.ConnectCases do
 
       list_case_rules_response() :: %{
         "caseRules" => list(case_rule_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_case_rules_response() :: %{String.t() => any()}
+  @type list_case_rules_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       sla_input_configuration() :: %{
-        "fieldId" => String.t(),
-        "name" => String.t(),
+        "fieldId" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "targetFieldValues" => list(list()),
         "targetSlaMinutes" => float(),
-        "type" => String.t()
+        "type" => String.t() | Atom.t()
       }
 
   """
-  @type sla_input_configuration() :: %{String.t() => any()}
+  @type sla_input_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -809,19 +809,19 @@ defmodule AWS.ConnectCases do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_layout_response() :: %{
-        required("layoutArn") => String.t(),
-        required("layoutId") => String.t()
+        required("layoutArn") => String.t() | Atom.t(),
+        required("layoutId") => String.t() | Atom.t()
       }
 
   """
-  @type create_layout_response() :: %{String.t() => any()}
+  @type create_layout_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -846,12 +846,12 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       list_fields_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("fields") => list(field_summary())
       }
 
   """
-  @type list_fields_response() :: %{String.t() => any()}
+  @type list_fields_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -867,35 +867,35 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       sort() :: %{
-        "fieldId" => String.t(),
-        "sortOrder" => String.t()
+        "fieldId" => String.t() | Atom.t(),
+        "sortOrder" => String.t() | Atom.t()
       }
 
   """
-  @type sort() :: %{String.t() => any()}
+  @type sort() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       contact() :: %{
-        "contactArn" => String.t()
+        "contactArn" => String.t() | Atom.t()
       }
 
   """
-  @type contact() :: %{String.t() => any()}
+  @type contact() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_related_item_response() :: %{
-        required("relatedItemArn") => String.t(),
-        required("relatedItemId") => String.t()
+        required("relatedItemArn") => String.t() | Atom.t(),
+        required("relatedItemId") => String.t() | Atom.t()
       }
 
   """
-  @type create_related_item_response() :: %{String.t() => any()}
+  @type create_related_item_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -904,53 +904,53 @@ defmodule AWS.ConnectCases do
       get_domain_response() :: %{
         optional("tags") => map(),
         required("createdTime") => non_neg_integer(),
-        required("domainArn") => String.t(),
-        required("domainId") => String.t(),
-        required("domainStatus") => String.t(),
-        required("name") => String.t()
+        required("domainArn") => String.t() | Atom.t(),
+        required("domainId") => String.t() | Atom.t(),
+        required("domainStatus") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type get_domain_response() :: %{String.t() => any()}
+  @type get_domain_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       field_item() :: %{
-        "id" => String.t()
+        "id" => String.t() | Atom.t()
       }
 
   """
-  @type field_item() :: %{String.t() => any()}
+  @type field_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       field_error() :: %{
-        "errorCode" => [String.t()],
-        "id" => String.t(),
-        "message" => [String.t()]
+        "errorCode" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t(),
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type field_error() :: %{String.t() => any()}
+  @type field_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       field_summary() :: %{
-        "fieldArn" => String.t(),
-        "fieldId" => String.t(),
-        "name" => String.t(),
-        "namespace" => String.t(),
-        "type" => String.t()
+        "fieldArn" => String.t() | Atom.t(),
+        "fieldId" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "namespace" => String.t() | Atom.t(),
+        "type" => String.t() | Atom.t()
       }
 
   """
-  @type field_summary() :: %{String.t() => any()}
+  @type field_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -976,11 +976,11 @@ defmodule AWS.ConnectCases do
 
       list_layouts_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_layouts_request() :: %{String.t() => any()}
+  @type list_layouts_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -997,23 +997,23 @@ defmodule AWS.ConnectCases do
 
       list_domains_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_domains_request() :: %{String.t() => any()}
+  @type list_domains_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t()],
+        "message" => [String.t() | Atom.t()],
         "retryAfterSeconds" => [integer()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1025,7 +1025,7 @@ defmodule AWS.ConnectCases do
       }
 
   """
-  @type event_included_data() :: %{String.t() => any()}
+  @type event_included_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1037,19 +1037,19 @@ defmodule AWS.ConnectCases do
       }
 
   """
-  @type update_case_request() :: %{String.t() => any()}
+  @type update_case_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       sla_filter() :: %{
-        "name" => String.t(),
-        "status" => String.t()
+        "name" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
 
   """
-  @type sla_filter() :: %{String.t() => any()}
+  @type sla_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1061,7 +1061,7 @@ defmodule AWS.ConnectCases do
       }
 
   """
-  @type event_bridge_configuration() :: %{String.t() => any()}
+  @type event_bridge_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1078,29 +1078,29 @@ defmodule AWS.ConnectCases do
 
       sla_configuration() :: %{
         "completionTime" => non_neg_integer(),
-        "fieldId" => String.t(),
-        "name" => String.t(),
-        "status" => String.t(),
+        "fieldId" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t(),
         "targetFieldValues" => list(list()),
         "targetTime" => non_neg_integer(),
-        "type" => String.t()
+        "type" => String.t() | Atom.t()
       }
 
   """
-  @type sla_configuration() :: %{String.t() => any()}
+  @type sla_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_case_rule_request() :: %{
-        optional("description") => String.t(),
-        optional("name") => String.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("rule") => list()
       }
 
   """
-  @type update_case_rule_request() :: %{String.t() => any()}
+  @type update_case_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1116,26 +1116,26 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       case_rule_summary() :: %{
-        "caseRuleArn" => String.t(),
-        "caseRuleId" => String.t(),
-        "description" => String.t(),
-        "name" => String.t(),
-        "ruleType" => String.t()
+        "caseRuleArn" => String.t() | Atom.t(),
+        "caseRuleId" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "ruleType" => String.t() | Atom.t()
       }
 
   """
-  @type case_rule_summary() :: %{String.t() => any()}
+  @type case_rule_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1147,31 +1147,31 @@ defmodule AWS.ConnectCases do
       }
 
   """
-  @type batch_get_case_rule_response() :: %{String.t() => any()}
+  @type batch_get_case_rule_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       field_value() :: %{
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "value" => list()
       }
 
   """
-  @type field_value() :: %{String.t() => any()}
+  @type field_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_field_request() :: %{
-        optional("description") => String.t(),
-        optional("name") => String.t()
+        optional("description") => String.t() | Atom.t(),
+        optional("name") => String.t() | Atom.t()
       }
 
   """
-  @type update_field_request() :: %{String.t() => any()}
+  @type update_field_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1179,37 +1179,37 @@ defmodule AWS.ConnectCases do
 
       field_option() :: %{
         "active" => [boolean()],
-        "name" => String.t(),
-        "value" => String.t()
+        "name" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type field_option() :: %{String.t() => any()}
+  @type field_option() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       layout_summary() :: %{
-        "layoutArn" => String.t(),
-        "layoutId" => String.t(),
-        "name" => String.t()
+        "layoutArn" => String.t() | Atom.t(),
+        "layoutId" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type layout_summary() :: %{String.t() => any()}
+  @type layout_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_templates_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("templates") => list(template_summary())
       }
 
   """
-  @type list_templates_response() :: %{String.t() => any()}
+  @type list_templates_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1220,7 +1220,7 @@ defmodule AWS.ConnectCases do
       }
 
   """
-  @type put_case_event_configuration_request() :: %{String.t() => any()}
+  @type put_case_event_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1231,7 +1231,7 @@ defmodule AWS.ConnectCases do
       }
 
   """
-  @type layout_sections() :: %{String.t() => any()}
+  @type layout_sections() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1247,11 +1247,11 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       validation_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1267,24 +1267,24 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_domain_response() :: %{
-        required("domainArn") => String.t(),
-        required("domainId") => String.t(),
-        required("domainStatus") => String.t()
+        required("domainArn") => String.t() | Atom.t(),
+        required("domainId") => String.t() | Atom.t(),
+        required("domainStatus") => String.t() | Atom.t()
       }
 
   """
-  @type create_domain_response() :: %{String.t() => any()}
+  @type create_domain_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1296,25 +1296,25 @@ defmodule AWS.ConnectCases do
         optional("lastModifiedTime") => non_neg_integer(),
         optional("tags") => map(),
         required("content") => list(),
-        required("layoutArn") => String.t(),
-        required("layoutId") => String.t(),
-        required("name") => String.t()
+        required("layoutArn") => String.t() | Atom.t(),
+        required("layoutId") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type get_layout_response() :: %{String.t() => any()}
+  @type get_layout_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       search_cases_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("cases") => list(search_cases_response_item())
       }
 
   """
-  @type search_cases_response() :: %{String.t() => any()}
+  @type search_cases_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1325,7 +1325,7 @@ defmodule AWS.ConnectCases do
       }
 
   """
-  @type batch_put_field_options_response() :: %{String.t() => any()}
+  @type batch_put_field_options_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1341,25 +1341,25 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       case_rule_error() :: %{
-        "errorCode" => [String.t()],
-        "id" => String.t(),
-        "message" => [String.t()]
+        "errorCode" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t(),
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type case_rule_error() :: %{String.t() => any()}
+  @type case_rule_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_template_response() :: %{
-        required("templateArn") => String.t(),
-        required("templateId") => String.t()
+        required("templateArn") => String.t() | Atom.t(),
+        required("templateId") => String.t() | Atom.t()
       }
 
   """
-  @type create_template_response() :: %{String.t() => any()}
+  @type create_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1384,22 +1384,22 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       field_identifier() :: %{
-        "id" => String.t()
+        "id" => String.t() | Atom.t()
       }
 
   """
-  @type field_identifier() :: %{String.t() => any()}
+  @type field_identifier() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       file_content() :: %{
-        "fileArn" => String.t()
+        "fileArn" => String.t() | Atom.t()
       }
 
   """
-  @type file_content() :: %{String.t() => any()}
+  @type file_content() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1412,7 +1412,7 @@ defmodule AWS.ConnectCases do
       }
 
   """
-  @type boolean_operands() :: %{String.t() => any()}
+  @type boolean_operands() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1433,30 +1433,30 @@ defmodule AWS.ConnectCases do
       }
 
   """
-  @type required_case_rule() :: %{String.t() => any()}
+  @type required_case_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_field_options_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("options") => list(field_option())
       }
 
   """
-  @type list_field_options_response() :: %{String.t() => any()}
+  @type list_field_options_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       case_rule_identifier() :: %{
-        "id" => String.t()
+        "id" => String.t() | Atom.t()
       }
 
   """
-  @type case_rule_identifier() :: %{String.t() => any()}
+  @type case_rule_identifier() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1464,12 +1464,12 @@ defmodule AWS.ConnectCases do
 
       list_cases_for_contact_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t(),
-        required("contactArn") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("contactArn") => String.t() | Atom.t()
       }
 
   """
-  @type list_cases_for_contact_request() :: %{String.t() => any()}
+  @type list_cases_for_contact_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1478,11 +1478,11 @@ defmodule AWS.ConnectCases do
       create_related_item_request() :: %{
         optional("performedBy") => list(),
         required("content") => list(),
-        required("type") => String.t()
+        required("type") => String.t() | Atom.t()
       }
 
   """
-  @type create_related_item_request() :: %{String.t() => any()}
+  @type create_related_item_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1491,30 +1491,30 @@ defmodule AWS.ConnectCases do
       get_field_response() :: %{
         "createdTime" => non_neg_integer(),
         "deleted" => boolean(),
-        "description" => String.t(),
-        "fieldArn" => String.t(),
-        "fieldId" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "fieldArn" => String.t() | Atom.t(),
+        "fieldId" => String.t() | Atom.t(),
         "lastModifiedTime" => non_neg_integer(),
-        "name" => String.t(),
-        "namespace" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "namespace" => String.t() | Atom.t(),
         "tags" => map(),
-        "type" => String.t()
+        "type" => String.t() | Atom.t()
       }
 
   """
-  @type get_field_response() :: %{String.t() => any()}
+  @type get_field_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       case_summary() :: %{
-        "caseId" => String.t(),
-        "templateId" => String.t()
+        "caseId" => String.t() | Atom.t(),
+        "templateId" => String.t() | Atom.t()
       }
 
   """
-  @type case_summary() :: %{String.t() => any()}
+  @type case_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1522,27 +1522,27 @@ defmodule AWS.ConnectCases do
 
       field_group() :: %{
         "fields" => list(field_item()),
-        "name" => [String.t()]
+        "name" => [String.t() | Atom.t()]
       }
 
   """
-  @type field_group() :: %{String.t() => any()}
+  @type field_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       audit_event() :: %{
-        "eventId" => String.t(),
+        "eventId" => String.t() | Atom.t(),
         "fields" => list(audit_event_field()),
         "performedBy" => audit_event_performed_by(),
         "performedTime" => non_neg_integer(),
-        "relatedItemType" => String.t(),
-        "type" => String.t()
+        "relatedItemType" => String.t() | Atom.t(),
+        "type" => String.t() | Atom.t()
       }
 
   """
-  @type audit_event() :: %{String.t() => any()}
+  @type audit_event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1553,18 +1553,18 @@ defmodule AWS.ConnectCases do
       }
 
   """
-  @type case_event_included_data() :: %{String.t() => any()}
+  @type case_event_included_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       layout_configuration() :: %{
-        "defaultLayout" => String.t()
+        "defaultLayout" => String.t() | Atom.t()
       }
 
   """
-  @type layout_configuration() :: %{String.t() => any()}
+  @type layout_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1575,32 +1575,32 @@ defmodule AWS.ConnectCases do
       }
 
   """
-  @type related_item_event_included_data() :: %{String.t() => any()}
+  @type related_item_event_included_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       contact_content() :: %{
-        "channel" => String.t(),
+        "channel" => String.t() | Atom.t(),
         "connectedToSystemTime" => non_neg_integer(),
-        "contactArn" => String.t()
+        "contactArn" => String.t() | Atom.t()
       }
 
   """
-  @type contact_content() :: %{String.t() => any()}
+  @type contact_content() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       audit_event_performed_by() :: %{
-        "iamPrincipalArn" => String.t(),
+        "iamPrincipalArn" => String.t() | Atom.t(),
         "user" => list()
       }
 
   """
-  @type audit_event_performed_by() :: %{String.t() => any()}
+  @type audit_event_performed_by() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1611,7 +1611,7 @@ defmodule AWS.ConnectCases do
       }
 
   """
-  @type batch_get_case_rule_request() :: %{String.t() => any()}
+  @type batch_get_case_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @type batch_get_case_rule_errors() ::
           throttling_exception()
@@ -1945,7 +1945,7 @@ defmodule AWS.ConnectCases do
   conditions*. For more information about case field conditions, see [Add case field conditions to a case
   template](https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html).
   """
-  @spec batch_get_case_rule(map(), String.t(), batch_get_case_rule_request(), list()) ::
+  @spec batch_get_case_rule(map(), String.t() | Atom.t(), batch_get_case_rule_request(), list()) ::
           {:ok, batch_get_case_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1974,7 +1974,7 @@ defmodule AWS.ConnectCases do
   @doc """
   Returns the description for the list of fields in the request parameters.
   """
-  @spec batch_get_field(map(), String.t(), batch_get_field_request(), list()) ::
+  @spec batch_get_field(map(), String.t() | Atom.t(), batch_get_field_request(), list()) ::
           {:ok, batch_get_field_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2006,8 +2006,8 @@ defmodule AWS.ConnectCases do
   """
   @spec batch_put_field_options(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           batch_put_field_options_request(),
           list()
         ) ::
@@ -2056,7 +2056,7 @@ defmodule AWS.ConnectCases do
 
     * `title`
   """
-  @spec create_case(map(), String.t(), create_case_request(), list()) ::
+  @spec create_case(map(), String.t() | Atom.t(), create_case_request(), list()) ::
           {:ok, create_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2089,7 +2089,7 @@ defmodule AWS.ConnectCases do
   conditions*. For more information about case field conditions, see [Add case field conditions to a case
   template](https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html).
   """
-  @spec create_case_rule(map(), String.t(), create_case_rule_request(), list()) ::
+  @spec create_case_rule(map(), String.t() | Atom.t(), create_case_rule_request(), list()) ::
           {:ok, create_case_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2159,7 +2159,7 @@ defmodule AWS.ConnectCases do
   This field is used to define the case object model (that is, defines what data
   can be captured on cases) in a Cases domain.
   """
-  @spec create_field(map(), String.t(), create_field_request(), list()) ::
+  @spec create_field(map(), String.t() | Atom.t(), create_field_request(), list()) ::
           {:ok, create_field_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2198,7 +2198,7 @@ defmodule AWS.ConnectCases do
   Title and Status fields cannot be part of layouts since they are not
   configurable.
   """
-  @spec create_layout(map(), String.t(), create_layout_request(), list()) ::
+  @spec create_layout(map(), String.t() | Atom.t(), create_layout_request(), list()) ::
           {:ok, create_layout_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2240,7 +2240,13 @@ defmodule AWS.ConnectCases do
 
      The `type` field is reserved for internal use only.
   """
-  @spec create_related_item(map(), String.t(), String.t(), create_related_item_request(), list()) ::
+  @spec create_related_item(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          create_related_item_request(),
+          list()
+        ) ::
           {:ok, create_related_item_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2288,7 +2294,7 @@ defmodule AWS.ConnectCases do
   [ListTemplates](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_ListTemplates.html)     *
   [UpdateTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_UpdateTemplate.html)
   """
-  @spec create_template(map(), String.t(), create_template_request(), list()) ::
+  @spec create_template(map(), String.t() | Atom.t(), create_template_request(), list()) ::
           {:ok, create_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2329,7 +2335,13 @@ defmodule AWS.ConnectCases do
   This action is irreversible. Once you delete a case, you cannot recover its
   data.
   """
-  @spec delete_case(map(), String.t(), String.t(), delete_case_request(), list()) ::
+  @spec delete_case(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_case_request(),
+          list()
+        ) ::
           {:ok, delete_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2362,7 +2374,13 @@ defmodule AWS.ConnectCases do
   conditions*. For more information about case field conditions, see [Add case field conditions to a case
   template](https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html).
   """
-  @spec delete_case_rule(map(), String.t(), String.t(), delete_case_rule_request(), list()) ::
+  @spec delete_case_rule(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_case_rule_request(),
+          list()
+        ) ::
           {:ok, delete_case_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2398,7 +2416,7 @@ defmodule AWS.ConnectCases do
   again with this Amazon Connect instance. See
   [DeleteIntegrationAssociation](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteIntegrationAssociation.html).
   """
-  @spec delete_domain(map(), String.t(), delete_domain_request(), list()) ::
+  @spec delete_domain(map(), String.t() | Atom.t(), delete_domain_request(), list()) ::
           {:ok, delete_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2466,7 +2484,13 @@ defmodule AWS.ConnectCases do
     * Calling `GetCaseEventConfiguration` does not return field IDs for
   deleted fields.
   """
-  @spec delete_field(map(), String.t(), String.t(), delete_field_request(), list()) ::
+  @spec delete_field(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_field_request(),
+          list()
+        ) ::
           {:ok, delete_field_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2508,7 +2532,13 @@ defmodule AWS.ConnectCases do
 
     * Deleted layouts are not included in the `ListLayouts` response.
   """
-  @spec delete_layout(map(), String.t(), String.t(), delete_layout_request(), list()) ::
+  @spec delete_layout(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_layout_request(),
+          list()
+        ) ::
           {:ok, delete_layout_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2546,9 +2576,9 @@ defmodule AWS.ConnectCases do
   """
   @spec delete_related_item(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_related_item_request(),
           list()
         ) ::
@@ -2602,7 +2632,13 @@ defmodule AWS.ConnectCases do
     * Deleted templates are not included in the `ListTemplates`
   response.
   """
-  @spec delete_template(map(), String.t(), String.t(), delete_template_request(), list()) ::
+  @spec delete_template(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_template_request(),
+          list()
+        ) ::
           {:ok, delete_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2633,7 +2669,7 @@ defmodule AWS.ConnectCases do
   @doc """
   Returns information about a specific case if it exists.
   """
-  @spec get_case(map(), String.t(), String.t(), get_case_request(), list()) ::
+  @spec get_case(map(), String.t() | Atom.t(), String.t() | Atom.t(), get_case_request(), list()) ::
           {:ok, get_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2664,8 +2700,8 @@ defmodule AWS.ConnectCases do
   """
   @spec get_case_audit_events(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           get_case_audit_events_request(),
           list()
         ) ::
@@ -2701,7 +2737,7 @@ defmodule AWS.ConnectCases do
   """
   @spec get_case_event_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           get_case_event_configuration_request(),
           list()
         ) ::
@@ -2733,7 +2769,7 @@ defmodule AWS.ConnectCases do
   @doc """
   Returns information about a specific domain if it exists.
   """
-  @spec get_domain(map(), String.t(), get_domain_request(), list()) ::
+  @spec get_domain(map(), String.t() | Atom.t(), get_domain_request(), list()) ::
           {:ok, get_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2762,7 +2798,13 @@ defmodule AWS.ConnectCases do
   @doc """
   Returns the details for the requested layout.
   """
-  @spec get_layout(map(), String.t(), String.t(), get_layout_request(), list()) ::
+  @spec get_layout(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          get_layout_request(),
+          list()
+        ) ::
           {:ok, get_layout_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2803,7 +2845,13 @@ defmodule AWS.ConnectCases do
   [ListTemplates](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_ListTemplates.html)     *
   [UpdateTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_UpdateTemplate.html)
   """
-  @spec get_template(map(), String.t(), String.t(), get_template_request(), list()) ::
+  @spec get_template(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          get_template_request(),
+          list()
+        ) ::
           {:ok, get_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2838,7 +2886,7 @@ defmodule AWS.ConnectCases do
   conditions*. For more information about case field conditions, see [Add case field conditions to a case
   template](https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html).
   """
-  @spec list_case_rules(map(), String.t(), list_case_rules_request(), list()) ::
+  @spec list_case_rules(map(), String.t() | Atom.t(), list_case_rules_request(), list()) ::
           {:ok, list_case_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2873,7 +2921,12 @@ defmodule AWS.ConnectCases do
   @doc """
   Lists cases for a given contact.
   """
-  @spec list_cases_for_contact(map(), String.t(), list_cases_for_contact_request(), list()) ::
+  @spec list_cases_for_contact(
+          map(),
+          String.t() | Atom.t(),
+          list_cases_for_contact_request(),
+          list()
+        ) ::
           {:ok, list_cases_for_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2939,7 +2992,13 @@ defmodule AWS.ConnectCases do
   @doc """
   Lists all of the field options for a field identifier in the domain.
   """
-  @spec list_field_options(map(), String.t(), String.t(), list_field_options_request(), list()) ::
+  @spec list_field_options(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list_field_options_request(),
+          list()
+        ) ::
           {:ok, list_field_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2977,7 +3036,7 @@ defmodule AWS.ConnectCases do
   @doc """
   Lists all fields in a Cases domain.
   """
-  @spec list_fields(map(), String.t(), list_fields_request(), list()) ::
+  @spec list_fields(map(), String.t() | Atom.t(), list_fields_request(), list()) ::
           {:ok, list_fields_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3014,7 +3073,7 @@ defmodule AWS.ConnectCases do
 
   Each list item is a condensed summary object of the layout.
   """
-  @spec list_layouts(map(), String.t(), list_layouts_request(), list()) ::
+  @spec list_layouts(map(), String.t() | Atom.t(), list_layouts_request(), list()) ::
           {:ok, list_layouts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3049,7 +3108,7 @@ defmodule AWS.ConnectCases do
   @doc """
   Lists tags for a resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3079,7 +3138,7 @@ defmodule AWS.ConnectCases do
   [GetTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_GetTemplate.html)     *
   [UpdateTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_UpdateTemplate.html)
   """
-  @spec list_templates(map(), String.t(), list_templates_request(), list()) ::
+  @spec list_templates(map(), String.t() | Atom.t(), list_templates_request(), list()) ::
           {:ok, list_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3120,7 +3179,7 @@ defmodule AWS.ConnectCases do
   """
   @spec put_case_event_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_case_event_configuration_request(),
           list()
         ) ::
@@ -3158,7 +3217,7 @@ defmodule AWS.ConnectCases do
   ` arn:aws:profile:your AWS Region:your AWS account ID:domains/profiles domain
   name/profiles/profile ID`.
   """
-  @spec search_cases(map(), String.t(), search_cases_request(), list()) ::
+  @spec search_cases(map(), String.t() | Atom.t(), search_cases_request(), list()) ::
           {:ok, search_cases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3192,8 +3251,8 @@ defmodule AWS.ConnectCases do
   """
   @spec search_related_items(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           search_related_items_request(),
           list()
         ) ::
@@ -3227,7 +3286,7 @@ defmodule AWS.ConnectCases do
   @doc """
   Adds tags to a resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3256,7 +3315,7 @@ defmodule AWS.ConnectCases do
   @doc """
   Untags a resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3300,7 +3359,13 @@ defmodule AWS.ConnectCases do
   If the action is successful, the service sends back an HTTP 200 response with an
   empty HTTP body.
   """
-  @spec update_case(map(), String.t(), String.t(), update_case_request(), list()) ::
+  @spec update_case(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_case_request(),
+          list()
+        ) ::
           {:ok, update_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3333,7 +3398,13 @@ defmodule AWS.ConnectCases do
   conditions*. For more information about case field conditions, see [Add case field conditions to a case
   template](https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html).
   """
-  @spec update_case_rule(map(), String.t(), String.t(), update_case_rule_request(), list()) ::
+  @spec update_case_rule(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_case_rule_request(),
+          list()
+        ) ::
           {:ok, update_case_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3364,7 +3435,13 @@ defmodule AWS.ConnectCases do
   @doc """
   Updates the properties of an existing field.
   """
-  @spec update_field(map(), String.t(), String.t(), update_field_request(), list()) ::
+  @spec update_field(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_field_request(),
+          list()
+        ) ::
           {:ok, update_field_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3404,7 +3481,13 @@ defmodule AWS.ConnectCases do
   Title and Status fields cannot be part of layouts because they are not
   configurable.
   """
-  @spec update_layout(map(), String.t(), String.t(), update_layout_request(), list()) ::
+  @spec update_layout(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_layout_request(),
+          list()
+        ) ::
           {:ok, update_layout_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3450,7 +3533,13 @@ defmodule AWS.ConnectCases do
   [GetTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_GetTemplate.html)     *
   [ListTemplates](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_ListTemplates.html)
   """
-  @spec update_template(map(), String.t(), String.t(), update_template_request(), list()) ::
+  @spec update_template(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_template_request(),
+          list()
+        ) ::
           {:ok, update_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

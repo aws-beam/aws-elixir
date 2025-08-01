@@ -94,43 +94,43 @@ defmodule AWS.Organizations do
   ## Example:
       
       organization() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "AvailablePolicyTypes" => list(policy_type_summary()),
         "FeatureSet" => list(any()),
-        "Id" => String.t(),
-        "MasterAccountArn" => String.t(),
-        "MasterAccountEmail" => String.t(),
-        "MasterAccountId" => String.t()
+        "Id" => String.t() | Atom.t(),
+        "MasterAccountArn" => String.t() | Atom.t(),
+        "MasterAccountEmail" => String.t() | Atom.t(),
+        "MasterAccountId" => String.t() | Atom.t()
       }
       
   """
-  @type organization() :: %{String.t() => any()}
+  @type organization() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       policy_target_summary() :: %{
-        "Arn" => String.t(),
-        "Name" => String.t(),
-        "TargetId" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "TargetId" => String.t() | Atom.t(),
         "Type" => list(any())
       }
       
   """
-  @type policy_target_summary() :: %{String.t() => any()}
+  @type policy_target_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       handshake_constraint_violation_exception() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "Reason" => list(any())
       }
       
   """
-  @type handshake_constraint_violation_exception() :: %{String.t() => any()}
+  @type handshake_constraint_violation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -141,29 +141,29 @@ defmodule AWS.Organizations do
       }
       
   """
-  @type create_gov_cloud_account_response() :: %{String.t() => any()}
+  @type create_gov_cloud_account_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_account_from_organization_request() :: %{
-        required("AccountId") => String.t()
+        required("AccountId") => String.t() | Atom.t()
       }
       
   """
-  @type remove_account_from_organization_request() :: %{String.t() => any()}
+  @type remove_account_from_organization_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       organizational_unit_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type organizational_unit_not_found_exception() :: %{String.t() => any()}
+  @type organizational_unit_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -171,23 +171,23 @@ defmodule AWS.Organizations do
       
       list_aws_service_access_for_organization_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_aws_service_access_for_organization_request() :: %{String.t() => any()}
+  @type list_aws_service_access_for_organization_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceId") => String.t(),
+        required("ResourceId") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -195,80 +195,80 @@ defmodule AWS.Organizations do
       
       list_create_account_status_response() :: %{
         "CreateAccountStatuses" => list(create_account_status()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_create_account_status_response() :: %{String.t() => any()}
+  @type list_create_account_status_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       duplicate_account_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type duplicate_account_exception() :: %{String.t() => any()}
+  @type duplicate_account_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       move_account_request() :: %{
-        required("AccountId") => String.t(),
-        required("DestinationParentId") => String.t(),
-        required("SourceParentId") => String.t()
+        required("AccountId") => String.t() | Atom.t(),
+        required("DestinationParentId") => String.t() | Atom.t(),
+        required("SourceParentId") => String.t() | Atom.t()
       }
       
   """
-  @type move_account_request() :: %{String.t() => any()}
+  @type move_account_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       duplicate_handshake_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type duplicate_handshake_exception() :: %{String.t() => any()}
+  @type duplicate_handshake_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_account_request() :: %{
-        required("AccountId") => String.t()
+        required("AccountId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_account_request() :: %{String.t() => any()}
+  @type describe_account_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       finalizing_organization_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type finalizing_organization_exception() :: %{String.t() => any()}
+  @type finalizing_organization_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_organizational_unit_request() :: %{
-        optional("Name") => String.t(),
-        required("OrganizationalUnitId") => String.t()
+        optional("Name") => String.t() | Atom.t(),
+        required("OrganizationalUnitId") => String.t() | Atom.t()
       }
       
   """
-  @type update_organizational_unit_request() :: %{String.t() => any()}
+  @type update_organizational_unit_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -276,71 +276,71 @@ defmodule AWS.Organizations do
       
       enabled_service_principal() :: %{
         "DateEnabled" => non_neg_integer(),
-        "ServicePrincipal" => String.t()
+        "ServicePrincipal" => String.t() | Atom.t()
       }
       
   """
-  @type enabled_service_principal() :: %{String.t() => any()}
+  @type enabled_service_principal() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_policies_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Policies" => list(policy_summary())
       }
       
   """
-  @type list_policies_response() :: %{String.t() => any()}
+  @type list_policies_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       decline_handshake_request() :: %{
-        required("HandshakeId") => String.t()
+        required("HandshakeId") => String.t() | Atom.t()
       }
       
   """
-  @type decline_handshake_request() :: %{String.t() => any()}
+  @type decline_handshake_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_roots_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Roots" => list(root())
       }
       
   """
-  @type list_roots_response() :: %{String.t() => any()}
+  @type list_roots_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       root() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "PolicyTypes" => list(policy_type_summary())
       }
       
   """
-  @type root() :: %{String.t() => any()}
+  @type root() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       aws_organizations_not_in_use_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type aws_organizations_not_in_use_exception() :: %{String.t() => any()}
+  @type aws_organizations_not_in_use_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -348,12 +348,12 @@ defmodule AWS.Organizations do
       
       list_policies_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         required("Filter") => list(any())
       }
       
   """
-  @type list_policies_request() :: %{String.t() => any()}
+  @type list_policies_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -361,13 +361,13 @@ defmodule AWS.Organizations do
       
       list_policies_for_target_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         required("Filter") => list(any()),
-        required("TargetId") => String.t()
+        required("TargetId") => String.t() | Atom.t()
       }
       
   """
-  @type list_policies_for_target_request() :: %{String.t() => any()}
+  @type list_policies_for_target_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -375,34 +375,34 @@ defmodule AWS.Organizations do
       
       list_accounts_for_parent_response() :: %{
         "Accounts" => list(account()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_accounts_for_parent_response() :: %{String.t() => any()}
+  @type list_accounts_for_parent_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_organizational_units_for_parent_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "OrganizationalUnits" => list(organizational_unit())
       }
       
   """
-  @type list_organizational_units_for_parent_response() :: %{String.t() => any()}
+  @type list_organizational_units_for_parent_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       duplicate_organizational_unit_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type duplicate_organizational_unit_exception() :: %{String.t() => any()}
+  @type duplicate_organizational_unit_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -410,47 +410,47 @@ defmodule AWS.Organizations do
       
       create_policy_request() :: %{
         optional("Tags") => list(tag()),
-        required("Content") => String.t(),
-        required("Description") => String.t(),
-        required("Name") => String.t(),
+        required("Content") => String.t() | Atom.t(),
+        required("Description") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t(),
         required("Type") => list(any())
       }
       
   """
-  @type create_policy_request() :: %{String.t() => any()}
+  @type create_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_create_account_status_request() :: %{
-        required("CreateAccountRequestId") => String.t()
+        required("CreateAccountRequestId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_create_account_status_request() :: %{String.t() => any()}
+  @type describe_create_account_status_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_account_status_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type create_account_status_not_found_exception() :: %{String.t() => any()}
+  @type create_account_status_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_handshake_request() :: %{
-        required("HandshakeId") => String.t()
+        required("HandshakeId") => String.t() | Atom.t()
       }
       
   """
-  @type cancel_handshake_request() :: %{String.t() => any()}
+  @type cancel_handshake_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -458,47 +458,50 @@ defmodule AWS.Organizations do
       
       list_parents_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ChildId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ChildId") => String.t() | Atom.t()
       }
       
   """
-  @type list_parents_request() :: %{String.t() => any()}
+  @type list_parents_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       handshake_party() :: %{
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "Type" => list(any())
       }
       
   """
-  @type handshake_party() :: %{String.t() => any()}
+  @type handshake_party() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       policy_type_not_available_for_organization_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type policy_type_not_available_for_organization_exception() :: %{String.t() => any()}
+  @type policy_type_not_available_for_organization_exception() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       detach_policy_request() :: %{
-        required("PolicyId") => String.t(),
-        required("TargetId") => String.t()
+        required("PolicyId") => String.t() | Atom.t(),
+        required("TargetId") => String.t() | Atom.t()
       }
       
   """
-  @type detach_policy_request() :: %{String.t() => any()}
+  @type detach_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -509,19 +512,19 @@ defmodule AWS.Organizations do
       }
       
   """
-  @type update_policy_response() :: %{String.t() => any()}
+  @type update_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceId") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceId") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -529,35 +532,35 @@ defmodule AWS.Organizations do
       
       list_roots_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_roots_request() :: %{String.t() => any()}
+  @type list_roots_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_requests_exception() :: %{
-        "Message" => String.t(),
-        "Type" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "Type" => String.t() | Atom.t()
       }
       
   """
-  @type too_many_requests_exception() :: %{String.t() => any()}
+  @type too_many_requests_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       register_delegated_administrator_request() :: %{
-        required("AccountId") => String.t(),
-        required("ServicePrincipal") => String.t()
+        required("AccountId") => String.t() | Atom.t(),
+        required("ServicePrincipal") => String.t() | Atom.t()
       }
       
   """
-  @type register_delegated_administrator_request() :: %{String.t() => any()}
+  @type register_delegated_administrator_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -565,12 +568,12 @@ defmodule AWS.Organizations do
       
       create_organizational_unit_request() :: %{
         optional("Tags") => list(tag()),
-        required("Name") => String.t(),
-        required("ParentId") => String.t()
+        required("Name") => String.t() | Atom.t(),
+        required("ParentId") => String.t() | Atom.t()
       }
       
   """
-  @type create_organizational_unit_request() :: %{String.t() => any()}
+  @type create_organizational_unit_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -581,29 +584,29 @@ defmodule AWS.Organizations do
       }
       
   """
-  @type describe_account_response() :: %{String.t() => any()}
+  @type describe_account_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       handshake_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type handshake_not_found_exception() :: %{String.t() => any()}
+  @type handshake_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       accept_handshake_request() :: %{
-        required("HandshakeId") => String.t()
+        required("HandshakeId") => String.t() | Atom.t()
       }
       
   """
-  @type accept_handshake_request() :: %{String.t() => any()}
+  @type accept_handshake_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -611,23 +614,23 @@ defmodule AWS.Organizations do
       
       list_organizational_units_for_parent_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ParentId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ParentId") => String.t() | Atom.t()
       }
       
   """
-  @type list_organizational_units_for_parent_request() :: %{String.t() => any()}
+  @type list_organizational_units_for_parent_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       duplicate_policy_attachment_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type duplicate_policy_attachment_exception() :: %{String.t() => any()}
+  @type duplicate_policy_attachment_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -635,11 +638,11 @@ defmodule AWS.Organizations do
       
       enable_policy_type_request() :: %{
         required("PolicyType") => list(any()),
-        required("RootId") => String.t()
+        required("RootId") => String.t() | Atom.t()
       }
       
   """
-  @type enable_policy_type_request() :: %{String.t() => any()}
+  @type enable_policy_type_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -650,7 +653,7 @@ defmodule AWS.Organizations do
       }
       
   """
-  @type cancel_handshake_response() :: %{String.t() => any()}
+  @type cancel_handshake_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -661,7 +664,7 @@ defmodule AWS.Organizations do
       }
       
   """
-  @type describe_create_account_status_response() :: %{String.t() => any()}
+  @type describe_create_account_status_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -672,7 +675,7 @@ defmodule AWS.Organizations do
       }
       
   """
-  @type create_organizational_unit_response() :: %{String.t() => any()}
+  @type create_organizational_unit_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -683,18 +686,18 @@ defmodule AWS.Organizations do
       }
       
   """
-  @type decline_handshake_response() :: %{String.t() => any()}
+  @type decline_handshake_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       policy_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type policy_not_found_exception() :: %{String.t() => any()}
+  @type policy_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -703,68 +706,68 @@ defmodule AWS.Organizations do
       list_handshakes_for_organization_request() :: %{
         optional("Filter") => handshake_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_handshakes_for_organization_request() :: %{String.t() => any()}
+  @type list_handshakes_for_organization_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       organization_not_empty_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type organization_not_empty_exception() :: %{String.t() => any()}
+  @type organization_not_empty_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_targets_for_policy_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Targets" => list(policy_target_summary())
       }
       
   """
-  @type list_targets_for_policy_response() :: %{String.t() => any()}
+  @type list_targets_for_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_effective_policy_request() :: %{
-        optional("TargetId") => String.t(),
+        optional("TargetId") => String.t() | Atom.t(),
         required("PolicyType") => list(any())
       }
       
   """
-  @type describe_effective_policy_request() :: %{String.t() => any()}
+  @type describe_effective_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       child_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type child_not_found_exception() :: %{String.t() => any()}
+  @type child_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -772,11 +775,11 @@ defmodule AWS.Organizations do
       
       list_accounts_response() :: %{
         "Accounts" => list(account()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_accounts_response() :: %{String.t() => any()}
+  @type list_accounts_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -787,31 +790,31 @@ defmodule AWS.Organizations do
       }
       
   """
-  @type enable_all_features_response() :: %{String.t() => any()}
+  @type enable_all_features_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       child() :: %{
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "Type" => list(any())
       }
       
   """
-  @type child() :: %{String.t() => any()}
+  @type child() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -819,12 +822,12 @@ defmodule AWS.Organizations do
       
       list_delegated_administrators_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ServicePrincipal") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("ServicePrincipal") => String.t() | Atom.t()
       }
       
   """
-  @type list_delegated_administrators_request() :: %{String.t() => any()}
+  @type list_delegated_administrators_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -835,29 +838,29 @@ defmodule AWS.Organizations do
       }
       
   """
-  @type disable_policy_type_response() :: %{String.t() => any()}
+  @type disable_policy_type_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       handshake_already_in_state_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type handshake_already_in_state_exception() :: %{String.t() => any()}
+  @type handshake_already_in_state_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       duplicate_policy_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type duplicate_policy_exception() :: %{String.t() => any()}
+  @type duplicate_policy_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -865,82 +868,82 @@ defmodule AWS.Organizations do
       
       effective_policy() :: %{
         "LastUpdatedTimestamp" => non_neg_integer(),
-        "PolicyContent" => String.t(),
+        "PolicyContent" => String.t() | Atom.t(),
         "PolicyType" => list(any()),
-        "TargetId" => String.t()
+        "TargetId" => String.t() | Atom.t()
       }
       
   """
-  @type effective_policy() :: %{String.t() => any()}
+  @type effective_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       attach_policy_request() :: %{
-        required("PolicyId") => String.t(),
-        required("TargetId") => String.t()
+        required("PolicyId") => String.t() | Atom.t(),
+        required("TargetId") => String.t() | Atom.t()
       }
       
   """
-  @type attach_policy_request() :: %{String.t() => any()}
+  @type attach_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       account_already_closed_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type account_already_closed_exception() :: %{String.t() => any()}
+  @type account_already_closed_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       account_not_registered_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type account_not_registered_exception() :: %{String.t() => any()}
+  @type account_not_registered_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_account_status() :: %{
-        "AccountId" => String.t(),
-        "AccountName" => String.t(),
+        "AccountId" => String.t() | Atom.t(),
+        "AccountName" => String.t() | Atom.t(),
         "CompletedTimestamp" => non_neg_integer(),
         "FailureReason" => list(any()),
-        "GovCloudAccountId" => String.t(),
-        "Id" => String.t(),
+        "GovCloudAccountId" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "RequestedTimestamp" => non_neg_integer(),
         "State" => list(any())
       }
       
   """
-  @type create_account_status() :: %{String.t() => any()}
+  @type create_account_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       account() :: %{
-        "Arn" => String.t(),
-        "Email" => String.t(),
-        "Id" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Email" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "JoinedMethod" => list(any()),
         "JoinedTimestamp" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type account() :: %{String.t() => any()}
+  @type account() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -951,7 +954,7 @@ defmodule AWS.Organizations do
       }
       
   """
-  @type update_organizational_unit_response() :: %{String.t() => any()}
+  @type update_organizational_unit_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -959,11 +962,11 @@ defmodule AWS.Organizations do
       
       list_handshakes_for_organization_response() :: %{
         "Handshakes" => list(handshake()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_handshakes_for_organization_response() :: %{String.t() => any()}
+  @type list_handshakes_for_organization_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -971,84 +974,84 @@ defmodule AWS.Organizations do
       
       delegated_service() :: %{
         "DelegationEnabledDate" => non_neg_integer(),
-        "ServicePrincipal" => String.t()
+        "ServicePrincipal" => String.t() | Atom.t()
       }
       
   """
-  @type delegated_service() :: %{String.t() => any()}
+  @type delegated_service() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       service_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type service_exception() :: %{String.t() => any()}
+  @type service_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_policy_request() :: %{
-        required("PolicyId") => String.t()
+        required("PolicyId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_policy_request() :: %{String.t() => any()}
+  @type describe_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invite_account_to_organization_request() :: %{
-        optional("Notes") => String.t(),
+        optional("Notes") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
         required("Target") => handshake_party()
       }
       
   """
-  @type invite_account_to_organization_request() :: %{String.t() => any()}
+  @type invite_account_to_organization_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_input_exception() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "Reason" => list(any())
       }
       
   """
-  @type invalid_input_exception() :: %{String.t() => any()}
+  @type invalid_input_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Tags" => list(tag())
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_policy_request() :: %{
-        optional("Content") => String.t(),
-        optional("Description") => String.t(),
-        optional("Name") => String.t(),
-        required("PolicyId") => String.t()
+        optional("Content") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t(),
+        required("PolicyId") => String.t() | Atom.t()
       }
       
   """
-  @type update_policy_request() :: %{String.t() => any()}
+  @type update_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1059,51 +1062,51 @@ defmodule AWS.Organizations do
       }
       
   """
-  @type describe_effective_policy_response() :: %{String.t() => any()}
+  @type describe_effective_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       account_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type account_not_found_exception() :: %{String.t() => any()}
+  @type account_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       parent_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type parent_not_found_exception() :: %{String.t() => any()}
+  @type parent_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       root_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type root_not_found_exception() :: %{String.t() => any()}
+  @type root_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       effective_policy_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type effective_policy_not_found_exception() :: %{String.t() => any()}
+  @type effective_policy_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1114,7 +1117,7 @@ defmodule AWS.Organizations do
       }
       
   """
-  @type create_policy_response() :: %{String.t() => any()}
+  @type create_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1125,7 +1128,7 @@ defmodule AWS.Organizations do
       }
       
   """
-  @type describe_organizational_unit_response() :: %{String.t() => any()}
+  @type describe_organizational_unit_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1136,29 +1139,29 @@ defmodule AWS.Organizations do
       }
       
   """
-  @type describe_organization_response() :: %{String.t() => any()}
+  @type describe_organization_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       unsupported_api_endpoint_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type unsupported_api_endpoint_exception() :: %{String.t() => any()}
+  @type unsupported_api_endpoint_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       master_cannot_leave_organization_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type master_cannot_leave_organization_exception() :: %{String.t() => any()}
+  @type master_cannot_leave_organization_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1166,11 +1169,11 @@ defmodule AWS.Organizations do
       
       handshake_filter() :: %{
         "ActionType" => list(any()),
-        "ParentHandshakeId" => String.t()
+        "ParentHandshakeId" => String.t() | Atom.t()
       }
       
   """
-  @type handshake_filter() :: %{String.t() => any()}
+  @type handshake_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1178,48 +1181,48 @@ defmodule AWS.Organizations do
       
       create_account_request() :: %{
         optional("IamUserAccessToBilling") => list(any()),
-        optional("RoleName") => String.t(),
+        optional("RoleName") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("AccountName") => String.t(),
-        required("Email") => String.t()
+        required("AccountName") => String.t() | Atom.t(),
+        required("Email") => String.t() | Atom.t()
       }
       
   """
-  @type create_account_request() :: %{String.t() => any()}
+  @type create_account_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       organizational_unit_not_empty_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type organizational_unit_not_empty_exception() :: %{String.t() => any()}
+  @type organizational_unit_not_empty_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_policy() :: %{
-        "Content" => String.t(),
+        "Content" => String.t() | Atom.t(),
         "ResourcePolicySummary" => resource_policy_summary()
       }
       
   """
-  @type resource_policy() :: %{String.t() => any()}
+  @type resource_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_policy_request() :: %{
-        required("PolicyId") => String.t()
+        required("PolicyId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_policy_request() :: %{String.t() => any()}
+  @type delete_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1227,11 +1230,11 @@ defmodule AWS.Organizations do
       
       list_aws_service_access_for_organization_response() :: %{
         "EnabledServicePrincipals" => list(enabled_service_principal()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_aws_service_access_for_organization_response() :: %{String.t() => any()}
+  @type list_aws_service_access_for_organization_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1239,11 +1242,11 @@ defmodule AWS.Organizations do
       
       disable_policy_type_request() :: %{
         required("PolicyType") => list(any()),
-        required("RootId") => String.t()
+        required("RootId") => String.t() | Atom.t()
       }
       
   """
-  @type disable_policy_type_request() :: %{String.t() => any()}
+  @type disable_policy_type_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1251,9 +1254,9 @@ defmodule AWS.Organizations do
       
       handshake() :: %{
         "Action" => list(any()),
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "ExpirationTimestamp" => non_neg_integer(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "Parties" => list(handshake_party()),
         "RequestedTimestamp" => non_neg_integer(),
         "Resources" => list(handshake_resource()),
@@ -1261,19 +1264,19 @@ defmodule AWS.Organizations do
       }
       
   """
-  @type handshake() :: %{String.t() => any()}
+  @type handshake() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       policy() :: %{
-        "Content" => String.t(),
+        "Content" => String.t() | Atom.t(),
         "PolicySummary" => policy_summary()
       }
       
   """
-  @type policy() :: %{String.t() => any()}
+  @type policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1281,68 +1284,68 @@ defmodule AWS.Organizations do
       
       put_resource_policy_request() :: %{
         optional("Tags") => list(tag()),
-        required("Content") => String.t()
+        required("Content") => String.t() | Atom.t()
       }
       
   """
-  @type put_resource_policy_request() :: %{String.t() => any()}
+  @type put_resource_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_policies_for_target_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Policies" => list(policy_summary())
       }
       
   """
-  @type list_policies_for_target_response() :: %{String.t() => any()}
+  @type list_policies_for_target_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_organizational_unit_request() :: %{
-        required("OrganizationalUnitId") => String.t()
+        required("OrganizationalUnitId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_organizational_unit_request() :: %{String.t() => any()}
+  @type delete_organizational_unit_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       already_in_organization_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type already_in_organization_exception() :: %{String.t() => any()}
+  @type already_in_organization_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       deregister_delegated_administrator_request() :: %{
-        required("AccountId") => String.t(),
-        required("ServicePrincipal") => String.t()
+        required("AccountId") => String.t() | Atom.t(),
+        required("ServicePrincipal") => String.t() | Atom.t()
       }
       
   """
-  @type deregister_delegated_administrator_request() :: %{String.t() => any()}
+  @type deregister_delegated_administrator_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1350,24 +1353,24 @@ defmodule AWS.Organizations do
       
       list_children_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         required("ChildType") => list(any()),
-        required("ParentId") => String.t()
+        required("ParentId") => String.t() | Atom.t()
       }
       
   """
-  @type list_children_request() :: %{String.t() => any()}
+  @type list_children_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_handshake_transition_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_handshake_transition_exception() :: %{String.t() => any()}
+  @type invalid_handshake_transition_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1378,29 +1381,29 @@ defmodule AWS.Organizations do
       }
       
   """
-  @type invite_account_to_organization_response() :: %{String.t() => any()}
+  @type invite_account_to_organization_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       policy_type_not_enabled_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type policy_type_not_enabled_exception() :: %{String.t() => any()}
+  @type policy_type_not_enabled_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       concurrent_modification_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type concurrent_modification_exception() :: %{String.t() => any()}
+  @type concurrent_modification_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1411,29 +1414,29 @@ defmodule AWS.Organizations do
       }
       
   """
-  @type accept_handshake_response() :: %{String.t() => any()}
+  @type accept_handshake_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       close_account_request() :: %{
-        required("AccountId") => String.t()
+        required("AccountId") => String.t() | Atom.t()
       }
       
   """
-  @type close_account_request() :: %{String.t() => any()}
+  @type close_account_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       policy_in_use_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type policy_in_use_exception() :: %{String.t() => any()}
+  @type policy_in_use_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1441,57 +1444,57 @@ defmodule AWS.Organizations do
       
       list_children_response() :: %{
         "Children" => list(child()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_children_response() :: %{String.t() => any()}
+  @type list_children_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       constraint_violation_exception() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "Reason" => list(any())
       }
       
   """
-  @type constraint_violation_exception() :: %{String.t() => any()}
+  @type constraint_violation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       account_already_registered_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type account_already_registered_exception() :: %{String.t() => any()}
+  @type account_already_registered_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       account_owner_not_verified_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type account_owner_not_verified_exception() :: %{String.t() => any()}
+  @type account_owner_not_verified_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        optional("NextToken") => String.t(),
-        required("ResourceId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ResourceId") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1500,34 +1503,34 @@ defmodule AWS.Organizations do
       handshake_resource() :: %{
         "Resources" => list(handshake_resource()),
         "Type" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type handshake_resource() :: %{String.t() => any()}
+  @type handshake_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       target_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type target_not_found_exception() :: %{String.t() => any()}
+  @type target_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_parents_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Parents" => list(parent())
       }
       
   """
-  @type list_parents_response() :: %{String.t() => any()}
+  @type list_parents_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1538,18 +1541,18 @@ defmodule AWS.Organizations do
       }
       
   """
-  @type create_organization_response() :: %{String.t() => any()}
+  @type create_organization_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       policy_not_attached_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type policy_not_attached_exception() :: %{String.t() => any()}
+  @type policy_not_attached_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1557,39 +1560,39 @@ defmodule AWS.Organizations do
       
       list_targets_for_policy_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("PolicyId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("PolicyId") => String.t() | Atom.t()
       }
       
   """
-  @type list_targets_for_policy_request() :: %{String.t() => any()}
+  @type list_targets_for_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       malformed_policy_document_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type malformed_policy_document_exception() :: %{String.t() => any()}
+  @type malformed_policy_document_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       policy_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "AwsManaged" => boolean(),
-        "Description" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "Type" => list(any())
       }
       
   """
-  @type policy_summary() :: %{String.t() => any()}
+  @type policy_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1600,20 +1603,20 @@ defmodule AWS.Organizations do
       }
       
   """
-  @type describe_resource_policy_response() :: %{String.t() => any()}
+  @type describe_resource_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       organizational_unit() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
       
   """
-  @type organizational_unit() :: %{String.t() => any()}
+  @type organizational_unit() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1621,23 +1624,23 @@ defmodule AWS.Organizations do
       
       list_delegated_services_for_account_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("AccountId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("AccountId") => String.t() | Atom.t()
       }
       
   """
-  @type list_delegated_services_for_account_request() :: %{String.t() => any()}
+  @type list_delegated_services_for_account_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_organizational_unit_request() :: %{
-        required("OrganizationalUnitId") => String.t()
+        required("OrganizationalUnitId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_organizational_unit_request() :: %{String.t() => any()}
+  @type describe_organizational_unit_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1645,11 +1648,11 @@ defmodule AWS.Organizations do
       
       list_handshakes_for_account_response() :: %{
         "Handshakes" => list(handshake()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_handshakes_for_account_response() :: %{String.t() => any()}
+  @type list_handshakes_for_account_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1657,11 +1660,11 @@ defmodule AWS.Organizations do
       
       list_delegated_administrators_response() :: %{
         "DelegatedAdministrators" => list(delegated_administrator()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_delegated_administrators_response() :: %{String.t() => any()}
+  @type list_delegated_administrators_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1672,7 +1675,7 @@ defmodule AWS.Organizations do
       }
       
   """
-  @type enable_policy_type_response() :: %{String.t() => any()}
+  @type enable_policy_type_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1692,41 +1695,41 @@ defmodule AWS.Organizations do
       }
       
   """
-  @type put_resource_policy_response() :: %{String.t() => any()}
+  @type put_resource_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       destination_parent_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type destination_parent_not_found_exception() :: %{String.t() => any()}
+  @type destination_parent_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       source_parent_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type source_parent_not_found_exception() :: %{String.t() => any()}
+  @type source_parent_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_for_dependency_exception() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "Reason" => list(any())
       }
       
   """
-  @type access_denied_for_dependency_exception() :: %{String.t() => any()}
+  @type access_denied_for_dependency_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1734,11 +1737,11 @@ defmodule AWS.Organizations do
       
       list_delegated_services_for_account_response() :: %{
         "DelegatedServices" => list(delegated_service()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_delegated_services_for_account_response() :: %{String.t() => any()}
+  @type list_delegated_services_for_account_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1749,41 +1752,41 @@ defmodule AWS.Organizations do
       }
       
   """
-  @type create_account_response() :: %{String.t() => any()}
+  @type create_account_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       policy_changes_in_progress_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type policy_changes_in_progress_exception() :: %{String.t() => any()}
+  @type policy_changes_in_progress_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disable_aws_service_access_request() :: %{
-        required("ServicePrincipal") => String.t()
+        required("ServicePrincipal") => String.t() | Atom.t()
       }
       
   """
-  @type disable_aws_service_access_request() :: %{String.t() => any()}
+  @type disable_aws_service_access_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       parent() :: %{
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "Type" => list(any())
       }
       
   """
-  @type parent() :: %{String.t() => any()}
+  @type parent() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1791,46 +1794,46 @@ defmodule AWS.Organizations do
       
       list_accounts_for_parent_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ParentId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ParentId") => String.t() | Atom.t()
       }
       
   """
-  @type list_accounts_for_parent_request() :: %{String.t() => any()}
+  @type list_accounts_for_parent_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_policy_summary() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t()
       }
       
   """
-  @type resource_policy_summary() :: %{String.t() => any()}
+  @type resource_policy_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_policy_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_policy_not_found_exception() :: %{String.t() => any()}
+  @type resource_policy_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       enable_aws_service_access_request() :: %{
-        required("ServicePrincipal") => String.t()
+        required("ServicePrincipal") => String.t() | Atom.t()
       }
       
   """
-  @type enable_aws_service_access_request() :: %{String.t() => any()}
+  @type enable_aws_service_access_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1838,14 +1841,14 @@ defmodule AWS.Organizations do
       
       create_gov_cloud_account_request() :: %{
         optional("IamUserAccessToBilling") => list(any()),
-        optional("RoleName") => String.t(),
+        optional("RoleName") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("AccountName") => String.t(),
-        required("Email") => String.t()
+        required("AccountName") => String.t() | Atom.t(),
+        required("Email") => String.t() | Atom.t()
       }
       
   """
-  @type create_gov_cloud_account_request() :: %{String.t() => any()}
+  @type create_gov_cloud_account_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1856,7 +1859,7 @@ defmodule AWS.Organizations do
       }
       
   """
-  @type describe_handshake_response() :: %{String.t() => any()}
+  @type describe_handshake_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1864,11 +1867,11 @@ defmodule AWS.Organizations do
       
       list_accounts_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_accounts_request() :: %{String.t() => any()}
+  @type list_accounts_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1877,11 +1880,11 @@ defmodule AWS.Organizations do
       list_handshakes_for_account_request() :: %{
         optional("Filter") => handshake_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_handshakes_for_account_request() :: %{String.t() => any()}
+  @type list_handshakes_for_account_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1889,30 +1892,30 @@ defmodule AWS.Organizations do
       
       list_create_account_status_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("States") => list(list(any())())
       }
       
   """
-  @type list_create_account_status_request() :: %{String.t() => any()}
+  @type list_create_account_status_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delegated_administrator() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "DelegationEnabledDate" => non_neg_integer(),
-        "Email" => String.t(),
-        "Id" => String.t(),
+        "Email" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "JoinedMethod" => list(any()),
         "JoinedTimestamp" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type delegated_administrator() :: %{String.t() => any()}
+  @type delegated_administrator() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1924,18 +1927,18 @@ defmodule AWS.Organizations do
       }
       
   """
-  @type policy_type_summary() :: %{String.t() => any()}
+  @type policy_type_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_handshake_request() :: %{
-        required("HandshakeId") => String.t()
+        required("HandshakeId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_handshake_request() :: %{String.t() => any()}
+  @type describe_handshake_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1946,18 +1949,18 @@ defmodule AWS.Organizations do
       }
       
   """
-  @type describe_policy_response() :: %{String.t() => any()}
+  @type describe_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       policy_type_already_enabled_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type policy_type_already_enabled_exception() :: %{String.t() => any()}
+  @type policy_type_already_enabled_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1968,7 +1971,7 @@ defmodule AWS.Organizations do
       }
       
   """
-  @type create_organization_request() :: %{String.t() => any()}
+  @type create_organization_request() :: %{String.t() | Atom.t() => any()}
 
   @type accept_handshake_errors() ::
           access_denied_for_dependency_exception()

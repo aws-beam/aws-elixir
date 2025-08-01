@@ -14,12 +14,12 @@ defmodule AWS.TimestreamQuery do
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
+        required("ResourceARN") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -35,25 +35,25 @@ defmodule AWS.TimestreamQuery do
   ## Example:
       
       scheduled_query_description() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
         "ErrorReportConfiguration" => error_report_configuration(),
-        "KmsKeyId" => String.t(),
+        "KmsKeyId" => String.t() | Atom.t(),
         "LastRunSummary" => scheduled_query_run_summary(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "NextInvocationTime" => non_neg_integer(),
         "NotificationConfiguration" => notification_configuration(),
         "PreviousInvocationTime" => non_neg_integer(),
-        "QueryString" => String.t(),
+        "QueryString" => String.t() | Atom.t(),
         "RecentlyFailedRuns" => list(scheduled_query_run_summary()),
         "ScheduleConfiguration" => schedule_configuration(),
-        "ScheduledQueryExecutionRoleArn" => String.t(),
+        "ScheduledQueryExecutionRoleArn" => String.t() | Atom.t(),
         "State" => list(any()),
         "TargetConfiguration" => target_configuration()
       }
       
   """
-  @type scheduled_query_description() :: %{String.t() => any()}
+  @type scheduled_query_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -64,7 +64,7 @@ defmodule AWS.TimestreamQuery do
       }
       
   """
-  @type query_insights() :: %{String.t() => any()}
+  @type query_insights() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -80,11 +80,11 @@ defmodule AWS.TimestreamQuery do
   ## Example:
       
       delete_scheduled_query_request() :: %{
-        required("ScheduledQueryArn") => String.t()
+        required("ScheduledQueryArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_scheduled_query_request() :: %{String.t() => any()}
+  @type delete_scheduled_query_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -96,7 +96,7 @@ defmodule AWS.TimestreamQuery do
       }
       
   """
-  @type query_compute_request() :: %{String.t() => any()}
+  @type query_compute_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -109,7 +109,7 @@ defmodule AWS.TimestreamQuery do
       }
       
   """
-  @type query_status() :: %{String.t() => any()}
+  @type query_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -117,25 +117,25 @@ defmodule AWS.TimestreamQuery do
       
       select_column() :: %{
         "Aliased" => boolean(),
-        "DatabaseName" => String.t(),
-        "Name" => String.t(),
-        "TableName" => String.t(),
+        "DatabaseName" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "TableName" => String.t() | Atom.t(),
         "Type" => type()
       }
       
   """
-  @type select_column() :: %{String.t() => any()}
+  @type select_column() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_scheduled_query_response() :: %{
-        "Arn" => String.t()
+        "Arn" => String.t() | Atom.t()
       }
       
   """
-  @type create_scheduled_query_response() :: %{String.t() => any()}
+  @type create_scheduled_query_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -143,12 +143,12 @@ defmodule AWS.TimestreamQuery do
       
       multi_measure_attribute_mapping() :: %{
         "MeasureValueType" => list(any()),
-        "SourceColumn" => String.t(),
-        "TargetMultiMeasureAttributeName" => String.t()
+        "SourceColumn" => String.t() | Atom.t(),
+        "TargetMultiMeasureAttributeName" => String.t() | Atom.t()
       }
       
   """
-  @type multi_measure_attribute_mapping() :: %{String.t() => any()}
+  @type multi_measure_attribute_mapping() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -161,30 +161,30 @@ defmodule AWS.TimestreamQuery do
       }
       
   """
-  @type update_account_settings_response() :: %{String.t() => any()}
+  @type update_account_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       parameter_mapping() :: %{
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Type" => type()
       }
       
   """
-  @type parameter_mapping() :: %{String.t() => any()}
+  @type parameter_mapping() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_endpoint_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_endpoint_exception() :: %{String.t() => any()}
+  @type invalid_endpoint_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -194,12 +194,12 @@ defmodule AWS.TimestreamQuery do
         "ArrayValue" => list(datum()),
         "NullValue" => boolean(),
         "RowValue" => row(),
-        "ScalarValue" => String.t(),
+        "ScalarValue" => String.t() | Atom.t(),
         "TimeSeriesValue" => list(time_series_data_point())
       }
       
   """
-  @type datum() :: %{String.t() => any()}
+  @type datum() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -210,7 +210,7 @@ defmodule AWS.TimestreamQuery do
       }
       
   """
-  @type describe_endpoints_response() :: %{String.t() => any()}
+  @type describe_endpoints_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -221,7 +221,7 @@ defmodule AWS.TimestreamQuery do
       }
       
   """
-  @type error_report_location() :: %{String.t() => any()}
+  @type error_report_location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -230,7 +230,7 @@ defmodule AWS.TimestreamQuery do
       scheduled_query_run_summary() :: %{
         "ErrorReportLocation" => error_report_location(),
         "ExecutionStats" => execution_stats(),
-        "FailureReason" => String.t(),
+        "FailureReason" => String.t() | Atom.t(),
         "InvocationTime" => non_neg_integer(),
         "QueryInsightsResponse" => scheduled_query_insights_response(),
         "RunStatus" => list(any()),
@@ -238,7 +238,7 @@ defmodule AWS.TimestreamQuery do
       }
       
   """
-  @type scheduled_query_run_summary() :: %{String.t() => any()}
+  @type scheduled_query_run_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -246,31 +246,31 @@ defmodule AWS.TimestreamQuery do
       
       list_scheduled_queries_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_scheduled_queries_request() :: %{String.t() => any()}
+  @type list_scheduled_queries_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_scheduled_query_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("KmsKeyId") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("KmsKeyId") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
         optional("TargetConfiguration") => target_configuration(),
         required("ErrorReportConfiguration") => error_report_configuration(),
-        required("Name") => String.t(),
+        required("Name") => String.t() | Atom.t(),
         required("NotificationConfiguration") => notification_configuration(),
-        required("QueryString") => String.t(),
+        required("QueryString") => String.t() | Atom.t(),
         required("ScheduleConfiguration") => schedule_configuration(),
-        required("ScheduledQueryExecutionRoleArn") => String.t()
+        required("ScheduledQueryExecutionRoleArn") => String.t() | Atom.t()
       }
       
   """
-  @type create_scheduled_query_request() :: %{String.t() => any()}
+  @type create_scheduled_query_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -281,18 +281,18 @@ defmodule AWS.TimestreamQuery do
       }
       
   """
-  @type describe_scheduled_query_response() :: %{String.t() => any()}
+  @type describe_scheduled_query_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_query_response() :: %{
-        "CancellationMessage" => String.t()
+        "CancellationMessage" => String.t() | Atom.t()
       }
       
   """
-  @type cancel_query_response() :: %{String.t() => any()}
+  @type cancel_query_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -307,42 +307,42 @@ defmodule AWS.TimestreamQuery do
       }
       
   """
-  @type scheduled_query_insights_response() :: %{String.t() => any()}
+  @type scheduled_query_insights_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceARN") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       query_temporal_range_max() :: %{
-        "TableArn" => String.t(),
+        "TableArn" => String.t() | Atom.t(),
         "Value" => float()
       }
       
   """
-  @type query_temporal_range_max() :: %{String.t() => any()}
+  @type query_temporal_range_max() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       scheduled_query() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
         "ErrorReportConfiguration" => error_report_configuration(),
         "LastRunStatus" => list(any()),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "NextInvocationTime" => non_neg_integer(),
         "PreviousInvocationTime" => non_neg_integer(),
         "State" => list(any()),
@@ -350,19 +350,19 @@ defmodule AWS.TimestreamQuery do
       }
       
   """
-  @type scheduled_query() :: %{String.t() => any()}
+  @type scheduled_query() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       account_settings_notification_configuration() :: %{
-        "RoleArn" => String.t(),
+        "RoleArn" => String.t() | Atom.t(),
         "SnsConfiguration" => sns_configuration()
       }
       
   """
-  @type account_settings_notification_configuration() :: %{String.t() => any()}
+  @type account_settings_notification_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -378,34 +378,34 @@ defmodule AWS.TimestreamQuery do
   ## Example:
       
       conflict_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t(),
-        "ScheduledQueryArn" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "ScheduledQueryArn" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_query_request() :: %{
-        required("QueryId") => String.t()
+        required("QueryId") => String.t() | Atom.t()
       }
       
   """
-  @type cancel_query_request() :: %{String.t() => any()}
+  @type cancel_query_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -413,12 +413,12 @@ defmodule AWS.TimestreamQuery do
       
       last_update() :: %{
         "Status" => list(any()),
-        "StatusMessage" => String.t(),
+        "StatusMessage" => String.t() | Atom.t(),
         "TargetQueryTCU" => integer()
       }
       
   """
-  @type last_update() :: %{String.t() => any()}
+  @type last_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -426,27 +426,27 @@ defmodule AWS.TimestreamQuery do
       
       query_response() :: %{
         "ColumnInfo" => list(column_info()),
-        "NextToken" => String.t(),
-        "QueryId" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
+        "QueryId" => String.t() | Atom.t(),
         "QueryInsightsResponse" => query_insights_response(),
         "QueryStatus" => query_status(),
         "Rows" => list(row())
       }
       
   """
-  @type query_response() :: %{String.t() => any()}
+  @type query_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -457,55 +457,55 @@ defmodule AWS.TimestreamQuery do
       }
       
   """
-  @type row() :: %{String.t() => any()}
+  @type row() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       time_series_data_point() :: %{
-        "Time" => String.t(),
+        "Time" => String.t() | Atom.t(),
         "Value" => datum()
       }
       
   """
-  @type time_series_data_point() :: %{String.t() => any()}
+  @type time_series_data_point() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       query_spatial_coverage_max() :: %{
-        "PartitionKey" => list(String.t()),
-        "TableArn" => String.t(),
+        "PartitionKey" => list(String.t() | Atom.t()),
+        "TableArn" => String.t() | Atom.t(),
         "Value" => float()
       }
       
   """
-  @type query_spatial_coverage_max() :: %{String.t() => any()}
+  @type query_spatial_coverage_max() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Tags" => list(tag())
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -513,11 +513,11 @@ defmodule AWS.TimestreamQuery do
       
       prepare_query_request() :: %{
         optional("ValidateOnly") => boolean(),
-        required("QueryString") => String.t()
+        required("QueryString") => String.t() | Atom.t()
       }
       
   """
-  @type prepare_query_request() :: %{String.t() => any()}
+  @type prepare_query_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -530,38 +530,38 @@ defmodule AWS.TimestreamQuery do
       }
       
   """
-  @type update_account_settings_request() :: %{String.t() => any()}
+  @type update_account_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       execute_scheduled_query_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
         optional("QueryInsights") => scheduled_query_insights(),
         required("InvocationTime") => non_neg_integer(),
-        required("ScheduledQueryArn") => String.t()
+        required("ScheduledQueryArn") => String.t() | Atom.t()
       }
       
   """
-  @type execute_scheduled_query_request() :: %{String.t() => any()}
+  @type execute_scheduled_query_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       timestream_configuration() :: %{
-        "DatabaseName" => String.t(),
+        "DatabaseName" => String.t() | Atom.t(),
         "DimensionMappings" => list(dimension_mapping()),
-        "MeasureNameColumn" => String.t(),
+        "MeasureNameColumn" => String.t() | Atom.t(),
         "MixedMeasureMappings" => list(mixed_measure_mapping()),
         "MultiMeasureMappings" => multi_measure_mappings(),
-        "TableName" => String.t(),
-        "TimeColumn" => String.t()
+        "TableName" => String.t() | Atom.t(),
+        "TimeColumn" => String.t() | Atom.t()
       }
       
   """
-  @type timestream_configuration() :: %{String.t() => any()}
+  @type timestream_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -572,7 +572,7 @@ defmodule AWS.TimestreamQuery do
       }
       
   """
-  @type target_destination() :: %{String.t() => any()}
+  @type target_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -583,7 +583,7 @@ defmodule AWS.TimestreamQuery do
       }
       
   """
-  @type notification_configuration() :: %{String.t() => any()}
+  @type notification_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -594,30 +594,30 @@ defmodule AWS.TimestreamQuery do
       }
       
   """
-  @type error_report_configuration() :: %{String.t() => any()}
+  @type error_report_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoint() :: %{
-        "Address" => String.t(),
+        "Address" => String.t() | Atom.t(),
         "CachePeriodInMinutes" => float()
       }
       
   """
-  @type endpoint() :: %{String.t() => any()}
+  @type endpoint() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -628,19 +628,19 @@ defmodule AWS.TimestreamQuery do
       }
       
   """
-  @type query_temporal_range() :: %{String.t() => any()}
+  @type query_temporal_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_scheduled_query_request() :: %{
-        required("ScheduledQueryArn") => String.t(),
+        required("ScheduledQueryArn") => String.t() | Atom.t(),
         required("State") => list(any())
       }
       
   """
-  @type update_scheduled_query_request() :: %{String.t() => any()}
+  @type update_scheduled_query_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -648,22 +648,22 @@ defmodule AWS.TimestreamQuery do
       
       multi_measure_mappings() :: %{
         "MultiMeasureAttributeMappings" => list(multi_measure_attribute_mapping()),
-        "TargetMultiMeasureName" => String.t()
+        "TargetMultiMeasureName" => String.t() | Atom.t()
       }
       
   """
-  @type multi_measure_mappings() :: %{String.t() => any()}
+  @type multi_measure_mappings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -679,46 +679,46 @@ defmodule AWS.TimestreamQuery do
   ## Example:
       
       timestream_destination() :: %{
-        "DatabaseName" => String.t(),
-        "TableName" => String.t()
+        "DatabaseName" => String.t() | Atom.t(),
+        "TableName" => String.t() | Atom.t()
       }
       
   """
-  @type timestream_destination() :: %{String.t() => any()}
+  @type timestream_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_scheduled_queries_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "ScheduledQueries" => list(scheduled_query())
       }
       
   """
-  @type list_scheduled_queries_response() :: %{String.t() => any()}
+  @type list_scheduled_queries_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_scheduled_query_request() :: %{
-        required("ScheduledQueryArn") => String.t()
+        required("ScheduledQueryArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_scheduled_query_request() :: %{String.t() => any()}
+  @type describe_scheduled_query_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -726,23 +726,23 @@ defmodule AWS.TimestreamQuery do
       
       list_tags_for_resource_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ResourceARN") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ResourceARN") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       schedule_configuration() :: %{
-        "ScheduleExpression" => String.t()
+        "ScheduleExpression" => String.t() | Atom.t()
       }
       
   """
-  @type schedule_configuration() :: %{String.t() => any()}
+  @type schedule_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -760,18 +760,18 @@ defmodule AWS.TimestreamQuery do
       }
       
   """
-  @type query_insights_response() :: %{String.t() => any()}
+  @type query_insights_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -784,7 +784,7 @@ defmodule AWS.TimestreamQuery do
       }
       
   """
-  @type describe_account_settings_response() :: %{String.t() => any()}
+  @type describe_account_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -798,35 +798,35 @@ defmodule AWS.TimestreamQuery do
       }
       
   """
-  @type type() :: %{String.t() => any()}
+  @type type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_configuration() :: %{
-        "BucketName" => String.t(),
+        "BucketName" => String.t() | Atom.t(),
         "EncryptionOption" => list(any()),
-        "ObjectKeyPrefix" => String.t()
+        "ObjectKeyPrefix" => String.t() | Atom.t()
       }
       
   """
-  @type s3_configuration() :: %{String.t() => any()}
+  @type s3_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       mixed_measure_mapping() :: %{
-        "MeasureName" => String.t(),
+        "MeasureName" => String.t() | Atom.t(),
         "MeasureValueType" => list(any()),
         "MultiMeasureAttributeMappings" => list(multi_measure_attribute_mapping()),
-        "SourceColumn" => String.t(),
-        "TargetMeasureName" => String.t()
+        "SourceColumn" => String.t() | Atom.t(),
+        "TargetMeasureName" => String.t() | Atom.t()
       }
       
   """
-  @type mixed_measure_mapping() :: %{String.t() => any()}
+  @type mixed_measure_mapping() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -835,11 +835,11 @@ defmodule AWS.TimestreamQuery do
       prepare_query_response() :: %{
         "Columns" => list(select_column()),
         "Parameters" => list(parameter_mapping()),
-        "QueryString" => String.t()
+        "QueryString" => String.t() | Atom.t()
       }
       
   """
-  @type prepare_query_response() :: %{String.t() => any()}
+  @type prepare_query_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -850,22 +850,22 @@ defmodule AWS.TimestreamQuery do
       }
       
   """
-  @type target_configuration() :: %{String.t() => any()}
+  @type target_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       query_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
         optional("MaxRows") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("QueryInsights") => query_insights(),
-        required("QueryString") => String.t()
+        required("QueryString") => String.t() | Atom.t()
       }
       
   """
-  @type query_request() :: %{String.t() => any()}
+  @type query_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -877,30 +877,30 @@ defmodule AWS.TimestreamQuery do
       }
       
   """
-  @type query_compute_response() :: %{String.t() => any()}
+  @type query_compute_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       query_execution_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type query_execution_exception() :: %{String.t() => any()}
+  @type query_execution_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       column_info() :: %{
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Type" => type()
       }
       
   """
-  @type column_info() :: %{String.t() => any()}
+  @type column_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -912,7 +912,7 @@ defmodule AWS.TimestreamQuery do
       }
       
   """
-  @type provisioned_capacity_request() :: %{String.t() => any()}
+  @type provisioned_capacity_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -923,30 +923,30 @@ defmodule AWS.TimestreamQuery do
       }
       
   """
-  @type query_spatial_coverage() :: %{String.t() => any()}
+  @type query_spatial_coverage() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_report_location() :: %{
-        "BucketName" => String.t(),
-        "ObjectKey" => String.t()
+        "BucketName" => String.t() | Atom.t(),
+        "ObjectKey" => String.t() | Atom.t()
       }
       
   """
-  @type s3_report_location() :: %{String.t() => any()}
+  @type s3_report_location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       sns_configuration() :: %{
-        "TopicArn" => String.t()
+        "TopicArn" => String.t() | Atom.t()
       }
       
   """
-  @type sns_configuration() :: %{String.t() => any()}
+  @type sns_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -954,11 +954,11 @@ defmodule AWS.TimestreamQuery do
       
       dimension_mapping() :: %{
         "DimensionValueType" => list(any()),
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
       
   """
-  @type dimension_mapping() :: %{String.t() => any()}
+  @type dimension_mapping() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -969,7 +969,7 @@ defmodule AWS.TimestreamQuery do
       }
       
   """
-  @type scheduled_query_insights() :: %{String.t() => any()}
+  @type scheduled_query_insights() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -985,7 +985,7 @@ defmodule AWS.TimestreamQuery do
       }
       
   """
-  @type execution_stats() :: %{String.t() => any()}
+  @type execution_stats() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -998,7 +998,7 @@ defmodule AWS.TimestreamQuery do
       }
       
   """
-  @type provisioned_capacity_response() :: %{String.t() => any()}
+  @type provisioned_capacity_response() :: %{String.t() | Atom.t() => any()}
 
   @type cancel_query_errors() ::
           throttling_exception()

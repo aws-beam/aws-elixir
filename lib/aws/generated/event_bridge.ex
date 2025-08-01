@@ -38,22 +38,22 @@ defmodule AWS.EventBridge do
   ## Example:
       
       cancel_replay_request() :: %{
-        required("ReplayName") => String.t()
+        required("ReplayName") => String.t() | Atom.t()
       }
       
   """
-  @type cancel_replay_request() :: %{String.t() => any()}
+  @type cancel_replay_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_event_bus_request() :: %{
-        optional("Name") => String.t()
+        optional("Name") => String.t() | Atom.t()
       }
       
   """
-  @type describe_event_bus_request() :: %{String.t() => any()}
+  @type describe_event_bus_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -62,21 +62,21 @@ defmodule AWS.EventBridge do
       update_connection_request() :: %{
         optional("AuthParameters") => update_connection_auth_request_parameters(),
         optional("AuthorizationType") => list(any()),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("InvocationConnectivityParameters") => connectivity_resource_parameters(),
-        optional("KmsKeyIdentifier") => String.t(),
-        required("Name") => String.t()
+        optional("KmsKeyIdentifier") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type update_connection_request() :: %{String.t() => any()}
+  @type update_connection_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       deauthorize_connection_response() :: %{
-        "ConnectionArn" => String.t(),
+        "ConnectionArn" => String.t() | Atom.t(),
         "ConnectionState" => list(any()),
         "CreationTime" => non_neg_integer(),
         "LastAuthorizedTime" => non_neg_integer(),
@@ -84,7 +84,7 @@ defmodule AWS.EventBridge do
       }
       
   """
-  @type deauthorize_connection_response() :: %{String.t() => any()}
+  @type deauthorize_connection_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -92,27 +92,27 @@ defmodule AWS.EventBridge do
       
       create_event_bus_request() :: %{
         optional("DeadLetterConfig") => dead_letter_config(),
-        optional("Description") => String.t(),
-        optional("EventSourceName") => String.t(),
-        optional("KmsKeyIdentifier") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("EventSourceName") => String.t() | Atom.t(),
+        optional("KmsKeyIdentifier") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type create_event_bus_request() :: %{String.t() => any()}
+  @type create_event_bus_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
+        required("ResourceARN") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -123,7 +123,7 @@ defmodule AWS.EventBridge do
       }
       
   """
-  @type batch_retry_strategy() :: %{String.t() => any()}
+  @type batch_retry_strategy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -131,26 +131,26 @@ defmodule AWS.EventBridge do
       
       list_archives_response() :: %{
         "Archives" => list(archive()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_archives_response() :: %{String.t() => any()}
+  @type list_archives_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_partner_events_request_entry() :: %{
-        "Detail" => String.t(),
-        "DetailType" => String.t(),
-        "Resources" => list(String.t()),
-        "Source" => String.t(),
+        "Detail" => String.t() | Atom.t(),
+        "DetailType" => String.t() | Atom.t(),
+        "Resources" => list(String.t() | Atom.t()),
+        "Source" => String.t() | Atom.t(),
         "Time" => non_neg_integer()
       }
       
   """
-  @type put_partner_events_request_entry() :: %{String.t() => any()}
+  @type put_partner_events_request_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -158,106 +158,106 @@ defmodule AWS.EventBridge do
       
       connection_query_string_parameter() :: %{
         "IsValueSecret" => boolean(),
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type connection_query_string_parameter() :: %{String.t() => any()}
+  @type connection_query_string_parameter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_connection_o_auth_request_parameters() :: %{
-        "AuthorizationEndpoint" => String.t(),
+        "AuthorizationEndpoint" => String.t() | Atom.t(),
         "ClientParameters" => update_connection_o_auth_client_request_parameters(),
         "HttpMethod" => list(any()),
         "OAuthHttpParameters" => connection_http_parameters()
       }
       
   """
-  @type update_connection_o_auth_request_parameters() :: %{String.t() => any()}
+  @type update_connection_o_auth_request_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_rule_response() :: %{
-        "RuleArn" => String.t()
+        "RuleArn" => String.t() | Atom.t()
       }
       
   """
-  @type put_rule_response() :: %{String.t() => any()}
+  @type put_rule_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       run_command_target() :: %{
-        "Key" => String.t(),
-        "Values" => list(String.t())
+        "Key" => String.t() | Atom.t(),
+        "Values" => list(String.t() | Atom.t())
       }
       
   """
-  @type run_command_target() :: %{String.t() => any()}
+  @type run_command_target() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_event_pattern_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_event_pattern_exception() :: %{String.t() => any()}
+  @type invalid_event_pattern_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_endpoint_response() :: %{
-        "Arn" => String.t(),
-        "EndpointId" => String.t(),
-        "EndpointUrl" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "EndpointId" => String.t() | Atom.t(),
+        "EndpointUrl" => String.t() | Atom.t(),
         "EventBuses" => list(endpoint_event_bus()),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "ReplicationConfig" => replication_config(),
-        "RoleArn" => String.t(),
+        "RoleArn" => String.t() | Atom.t(),
         "RoutingConfig" => routing_config(),
         "State" => list(any())
       }
       
   """
-  @type update_endpoint_response() :: %{String.t() => any()}
+  @type update_endpoint_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_event_source_response() :: %{
-        "Arn" => String.t(),
-        "CreatedBy" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "CreatedBy" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
         "ExpirationTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "State" => list(any())
       }
       
   """
-  @type describe_event_source_response() :: %{String.t() => any()}
+  @type describe_event_source_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       policy_length_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type policy_length_exceeded_exception() :: %{String.t() => any()}
+  @type policy_length_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -273,70 +273,70 @@ defmodule AWS.EventBridge do
   ## Example:
       
       put_targets_result_entry() :: %{
-        "ErrorCode" => String.t(),
-        "ErrorMessage" => String.t(),
-        "TargetId" => String.t()
+        "ErrorCode" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | Atom.t(),
+        "TargetId" => String.t() | Atom.t()
       }
       
   """
-  @type put_targets_result_entry() :: %{String.t() => any()}
+  @type put_targets_result_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_connection_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type describe_connection_request() :: %{String.t() => any()}
+  @type describe_connection_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_api_destination_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type describe_api_destination_request() :: %{String.t() => any()}
+  @type describe_api_destination_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       enable_rule_request() :: %{
-        optional("EventBusName") => String.t(),
-        required("Name") => String.t()
+        optional("EventBusName") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type enable_rule_request() :: %{String.t() => any()}
+  @type enable_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_archive_request() :: %{
-        required("ArchiveName") => String.t()
+        required("ArchiveName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_archive_request() :: %{String.t() => any()}
+  @type describe_archive_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       test_event_pattern_request() :: %{
-        required("Event") => String.t(),
-        required("EventPattern") => String.t()
+        required("Event") => String.t() | Atom.t(),
+        required("EventPattern") => String.t() | Atom.t()
       }
       
   """
-  @type test_event_pattern_request() :: %{String.t() => any()}
+  @type test_event_pattern_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -351,18 +351,18 @@ defmodule AWS.EventBridge do
       }
       
   """
-  @type connection_auth_response_parameters() :: %{String.t() => any()}
+  @type connection_auth_response_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       deactivate_event_source_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type deactivate_event_source_request() :: %{String.t() => any()}
+  @type deactivate_event_source_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -370,11 +370,11 @@ defmodule AWS.EventBridge do
       
       list_event_sources_response() :: %{
         "EventSources" => list(event_source()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_event_sources_response() :: %{String.t() => any()}
+  @type list_event_sources_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -385,47 +385,47 @@ defmodule AWS.EventBridge do
       }
       
   """
-  @type batch_array_properties() :: %{String.t() => any()}
+  @type batch_array_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       partner_event_source_account() :: %{
-        "Account" => String.t(),
+        "Account" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
         "ExpirationTime" => non_neg_integer(),
         "State" => list(any())
       }
       
   """
-  @type partner_event_source_account() :: %{String.t() => any()}
+  @type partner_event_source_account() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_connection_o_auth_request_parameters() :: %{
-        "AuthorizationEndpoint" => String.t(),
+        "AuthorizationEndpoint" => String.t() | Atom.t(),
         "ClientParameters" => create_connection_o_auth_client_request_parameters(),
         "HttpMethod" => list(any()),
         "OAuthHttpParameters" => connection_http_parameters()
       }
       
   """
-  @type create_connection_o_auth_request_parameters() :: %{String.t() => any()}
+  @type create_connection_o_auth_request_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_partner_event_source_request() :: %{
-        required("Account") => String.t(),
-        required("Name") => String.t()
+        required("Account") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type create_partner_event_source_request() :: %{String.t() => any()}
+  @type create_partner_event_source_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -433,11 +433,11 @@ defmodule AWS.EventBridge do
       
       list_connections_response() :: %{
         "Connections" => list(connection()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_connections_response() :: %{String.t() => any()}
+  @type list_connections_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -445,13 +445,13 @@ defmodule AWS.EventBridge do
       
       batch_parameters() :: %{
         "ArrayProperties" => batch_array_properties(),
-        "JobDefinition" => String.t(),
-        "JobName" => String.t(),
+        "JobDefinition" => String.t() | Atom.t(),
+        "JobName" => String.t() | Atom.t(),
         "RetryStrategy" => batch_retry_strategy()
       }
       
   """
-  @type batch_parameters() :: %{String.t() => any()}
+  @type batch_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -459,12 +459,12 @@ defmodule AWS.EventBridge do
       
       list_event_sources_request() :: %{
         optional("Limit") => integer(),
-        optional("NamePrefix") => String.t(),
-        optional("NextToken") => String.t()
+        optional("NamePrefix") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_event_sources_request() :: %{String.t() => any()}
+  @type list_event_sources_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -475,23 +475,23 @@ defmodule AWS.EventBridge do
       }
       
   """
-  @type run_command_parameters() :: %{String.t() => any()}
+  @type run_command_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_endpoint_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("ReplicationConfig") => replication_config(),
-        optional("RoleArn") => String.t(),
+        optional("RoleArn") => String.t() | Atom.t(),
         required("EventBuses") => list(endpoint_event_bus()),
-        required("Name") => String.t(),
+        required("Name") => String.t() | Atom.t(),
         required("RoutingConfig") => routing_config()
       }
       
   """
-  @type create_endpoint_request() :: %{String.t() => any()}
+  @type create_endpoint_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -499,35 +499,35 @@ defmodule AWS.EventBridge do
       
       http_parameters() :: %{
         "HeaderParameters" => map(),
-        "PathParameterValues" => list(String.t()),
+        "PathParameterValues" => list(String.t() | Atom.t()),
         "QueryStringParameters" => map()
       }
       
   """
-  @type http_parameters() :: %{String.t() => any()}
+  @type http_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       app_sync_parameters() :: %{
-        "GraphQLOperation" => String.t()
+        "GraphQLOperation" => String.t() | Atom.t()
       }
       
   """
-  @type app_sync_parameters() :: %{String.t() => any()}
+  @type app_sync_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       sage_maker_pipeline_parameter() :: %{
-        "Name" => String.t(),
-        "Value" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type sage_maker_pipeline_parameter() :: %{String.t() => any()}
+  @type sage_maker_pipeline_parameter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -535,12 +535,12 @@ defmodule AWS.EventBridge do
       
       connection_header_parameter() :: %{
         "IsValueSecret" => boolean(),
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type connection_header_parameter() :: %{String.t() => any()}
+  @type connection_header_parameter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -551,7 +551,7 @@ defmodule AWS.EventBridge do
       }
       
   """
-  @type describe_connection_connectivity_parameters() :: %{String.t() => any()}
+  @type describe_connection_connectivity_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -568,29 +568,29 @@ defmodule AWS.EventBridge do
       
       create_event_bus_response() :: %{
         "DeadLetterConfig" => dead_letter_config(),
-        "Description" => String.t(),
-        "EventBusArn" => String.t(),
-        "KmsKeyIdentifier" => String.t()
+        "Description" => String.t() | Atom.t(),
+        "EventBusArn" => String.t() | Atom.t(),
+        "KmsKeyIdentifier" => String.t() | Atom.t()
       }
       
   """
-  @type create_event_bus_response() :: %{String.t() => any()}
+  @type create_event_bus_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_endpoint_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("EventBuses") => list(endpoint_event_bus()),
         optional("ReplicationConfig") => replication_config(),
-        optional("RoleArn") => String.t(),
+        optional("RoleArn") => String.t() | Atom.t(),
         optional("RoutingConfig") => routing_config(),
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type update_endpoint_request() :: %{String.t() => any()}
+  @type update_endpoint_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -602,7 +602,7 @@ defmodule AWS.EventBridge do
       }
       
   """
-  @type put_events_response() :: %{String.t() => any()}
+  @type put_events_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -613,80 +613,80 @@ defmodule AWS.EventBridge do
       }
       
   """
-  @type routing_config() :: %{String.t() => any()}
+  @type routing_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_events_request_entry() :: %{
-        "Detail" => String.t(),
-        "DetailType" => String.t(),
-        "EventBusName" => String.t(),
-        "Resources" => list(String.t()),
-        "Source" => String.t(),
+        "Detail" => String.t() | Atom.t(),
+        "DetailType" => String.t() | Atom.t(),
+        "EventBusName" => String.t() | Atom.t(),
+        "Resources" => list(String.t() | Atom.t()),
+        "Source" => String.t() | Atom.t(),
         "Time" => non_neg_integer(),
-        "TraceHeader" => String.t()
+        "TraceHeader" => String.t() | Atom.t()
       }
       
   """
-  @type put_events_request_entry() :: %{String.t() => any()}
+  @type put_events_request_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceARN") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_state_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_state_exception() :: %{String.t() => any()}
+  @type invalid_state_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_replay_response() :: %{
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "Destination" => replay_destination(),
         "EventEndTime" => non_neg_integer(),
         "EventLastReplayedTime" => non_neg_integer(),
-        "EventSourceArn" => String.t(),
+        "EventSourceArn" => String.t() | Atom.t(),
         "EventStartTime" => non_neg_integer(),
-        "ReplayArn" => String.t(),
+        "ReplayArn" => String.t() | Atom.t(),
         "ReplayEndTime" => non_neg_integer(),
-        "ReplayName" => String.t(),
+        "ReplayName" => String.t() | Atom.t(),
         "ReplayStartTime" => non_neg_integer(),
         "State" => list(any()),
-        "StateReason" => String.t()
+        "StateReason" => String.t() | Atom.t()
       }
       
   """
-  @type describe_replay_response() :: %{String.t() => any()}
+  @type describe_replay_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       connection_api_key_auth_response_parameters() :: %{
-        "ApiKeyName" => String.t()
+        "ApiKeyName" => String.t() | Atom.t()
       }
       
   """
-  @type connection_api_key_auth_response_parameters() :: %{String.t() => any()}
+  @type connection_api_key_auth_response_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -695,47 +695,47 @@ defmodule AWS.EventBridge do
       replay() :: %{
         "EventEndTime" => non_neg_integer(),
         "EventLastReplayedTime" => non_neg_integer(),
-        "EventSourceArn" => String.t(),
+        "EventSourceArn" => String.t() | Atom.t(),
         "EventStartTime" => non_neg_integer(),
         "ReplayEndTime" => non_neg_integer(),
-        "ReplayName" => String.t(),
+        "ReplayName" => String.t() | Atom.t(),
         "ReplayStartTime" => non_neg_integer(),
         "State" => list(any()),
-        "StateReason" => String.t()
+        "StateReason" => String.t() | Atom.t()
       }
       
   """
-  @type replay() :: %{String.t() => any()}
+  @type replay() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_rules_request() :: %{
-        optional("EventBusName") => String.t(),
+        optional("EventBusName") => String.t() | Atom.t(),
         optional("Limit") => integer(),
-        optional("NamePrefix") => String.t(),
-        optional("NextToken") => String.t()
+        optional("NamePrefix") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_rules_request() :: %{String.t() => any()}
+  @type list_rules_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       event_source() :: %{
-        "Arn" => String.t(),
-        "CreatedBy" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "CreatedBy" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
         "ExpirationTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "State" => list(any())
       }
       
   """
-  @type event_source() :: %{String.t() => any()}
+  @type event_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -750,30 +750,30 @@ defmodule AWS.EventBridge do
       }
       
   """
-  @type update_connection_auth_request_parameters() :: %{String.t() => any()}
+  @type update_connection_auth_request_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoint_event_bus() :: %{
-        "EventBusArn" => String.t()
+        "EventBusArn" => String.t() | Atom.t()
       }
       
   """
-  @type endpoint_event_bus() :: %{String.t() => any()}
+  @type endpoint_event_bus() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_partner_event_source_response() :: %{
-        "Arn" => String.t(),
-        "Name" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
       
   """
-  @type describe_partner_event_source_response() :: %{String.t() => any()}
+  @type describe_partner_event_source_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -789,52 +789,52 @@ defmodule AWS.EventBridge do
   ## Example:
       
       update_connection_api_key_auth_request_parameters() :: %{
-        "ApiKeyName" => String.t(),
-        "ApiKeyValue" => String.t()
+        "ApiKeyName" => String.t() | Atom.t(),
+        "ApiKeyValue" => String.t() | Atom.t()
       }
       
   """
-  @type update_connection_api_key_auth_request_parameters() :: %{String.t() => any()}
+  @type update_connection_api_key_auth_request_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_archive_request() :: %{
-        optional("Description") => String.t(),
-        optional("EventPattern") => String.t(),
-        optional("KmsKeyIdentifier") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("EventPattern") => String.t() | Atom.t(),
+        optional("KmsKeyIdentifier") => String.t() | Atom.t(),
         optional("RetentionDays") => integer(),
-        required("ArchiveName") => String.t(),
-        required("EventSourceArn") => String.t()
+        required("ArchiveName") => String.t() | Atom.t(),
+        required("EventSourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type create_archive_request() :: %{String.t() => any()}
+  @type create_archive_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_rule_request() :: %{
-        optional("EventBusName") => String.t(),
+        optional("EventBusName") => String.t() | Atom.t(),
         optional("Force") => boolean(),
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type delete_rule_request() :: %{String.t() => any()}
+  @type delete_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_archive_request() :: %{
-        required("ArchiveName") => String.t()
+        required("ArchiveName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_archive_request() :: %{String.t() => any()}
+  @type delete_archive_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -842,12 +842,12 @@ defmodule AWS.EventBridge do
       
       list_partner_event_source_accounts_request() :: %{
         optional("Limit") => integer(),
-        optional("NextToken") => String.t(),
-        required("EventSourceName") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("EventSourceName") => String.t() | Atom.t()
       }
       
   """
-  @type list_partner_event_source_accounts_request() :: %{String.t() => any()}
+  @type list_partner_event_source_accounts_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -856,54 +856,54 @@ defmodule AWS.EventBridge do
       describe_connection_response() :: %{
         "AuthParameters" => connection_auth_response_parameters(),
         "AuthorizationType" => list(any()),
-        "ConnectionArn" => String.t(),
+        "ConnectionArn" => String.t() | Atom.t(),
         "ConnectionState" => list(any()),
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "InvocationConnectivityParameters" => describe_connection_connectivity_parameters(),
-        "KmsKeyIdentifier" => String.t(),
+        "KmsKeyIdentifier" => String.t() | Atom.t(),
         "LastAuthorizedTime" => non_neg_integer(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "SecretArn" => String.t(),
-        "StateReason" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "SecretArn" => String.t() | Atom.t(),
+        "StateReason" => String.t() | Atom.t()
       }
       
   """
-  @type describe_connection_response() :: %{String.t() => any()}
+  @type describe_connection_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_targets_result_entry() :: %{
-        "ErrorCode" => String.t(),
-        "ErrorMessage" => String.t(),
-        "TargetId" => String.t()
+        "ErrorCode" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | Atom.t(),
+        "TargetId" => String.t() | Atom.t()
       }
       
   """
-  @type remove_targets_result_entry() :: %{String.t() => any()}
+  @type remove_targets_result_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_api_destination_response() :: %{
-        "ApiDestinationArn" => String.t(),
+        "ApiDestinationArn" => String.t() | Atom.t(),
         "ApiDestinationState" => list(any()),
-        "ConnectionArn" => String.t(),
+        "ConnectionArn" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "HttpMethod" => list(any()),
-        "InvocationEndpoint" => String.t(),
+        "InvocationEndpoint" => String.t() | Atom.t(),
         "InvocationRateLimitPerSecond" => integer(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
       
   """
-  @type describe_api_destination_response() :: %{String.t() => any()}
+  @type describe_api_destination_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -911,26 +911,26 @@ defmodule AWS.EventBridge do
       
       target() :: %{
         "AppSyncParameters" => app_sync_parameters(),
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "BatchParameters" => batch_parameters(),
         "DeadLetterConfig" => dead_letter_config(),
         "EcsParameters" => ecs_parameters(),
         "HttpParameters" => http_parameters(),
-        "Id" => String.t(),
-        "Input" => String.t(),
-        "InputPath" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "Input" => String.t() | Atom.t(),
+        "InputPath" => String.t() | Atom.t(),
         "InputTransformer" => input_transformer(),
         "KinesisParameters" => kinesis_parameters(),
         "RedshiftDataParameters" => redshift_data_parameters(),
         "RetryPolicy" => retry_policy(),
-        "RoleArn" => String.t(),
+        "RoleArn" => String.t() | Atom.t(),
         "RunCommandParameters" => run_command_parameters(),
         "SageMakerPipelineParameters" => sage_maker_pipeline_parameters(),
         "SqsParameters" => sqs_parameters()
       }
       
   """
-  @type target() :: %{String.t() => any()}
+  @type target() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -939,128 +939,128 @@ defmodule AWS.EventBridge do
       list_connections_request() :: %{
         optional("ConnectionState") => list(any()),
         optional("Limit") => integer(),
-        optional("NamePrefix") => String.t(),
-        optional("NextToken") => String.t()
+        optional("NamePrefix") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_connections_request() :: %{String.t() => any()}
+  @type list_connections_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_archives_request() :: %{
-        optional("EventSourceArn") => String.t(),
+        optional("EventSourceArn") => String.t() | Atom.t(),
         optional("Limit") => integer(),
-        optional("NamePrefix") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NamePrefix") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("State") => list(any())
       }
       
   """
-  @type list_archives_request() :: %{String.t() => any()}
+  @type list_archives_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_archive_response() :: %{
-        "ArchiveArn" => String.t(),
-        "ArchiveName" => String.t(),
+        "ArchiveArn" => String.t() | Atom.t(),
+        "ArchiveName" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "EventCount" => float(),
-        "EventPattern" => String.t(),
-        "EventSourceArn" => String.t(),
-        "KmsKeyIdentifier" => String.t(),
+        "EventPattern" => String.t() | Atom.t(),
+        "EventSourceArn" => String.t() | Atom.t(),
+        "KmsKeyIdentifier" => String.t() | Atom.t(),
         "RetentionDays" => integer(),
         "SizeBytes" => float(),
         "State" => list(any()),
-        "StateReason" => String.t()
+        "StateReason" => String.t() | Atom.t()
       }
       
   """
-  @type describe_archive_response() :: %{String.t() => any()}
+  @type describe_archive_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_replays_request() :: %{
-        optional("EventSourceArn") => String.t(),
+        optional("EventSourceArn") => String.t() | Atom.t(),
         optional("Limit") => integer(),
-        optional("NamePrefix") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NamePrefix") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("State") => list(any())
       }
       
   """
-  @type list_replays_request() :: %{String.t() => any()}
+  @type list_replays_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       redshift_data_parameters() :: %{
-        "Database" => String.t(),
-        "DbUser" => String.t(),
-        "SecretManagerArn" => String.t(),
-        "Sql" => String.t(),
-        "Sqls" => list(String.t()),
-        "StatementName" => String.t(),
+        "Database" => String.t() | Atom.t(),
+        "DbUser" => String.t() | Atom.t(),
+        "SecretManagerArn" => String.t() | Atom.t(),
+        "Sql" => String.t() | Atom.t(),
+        "Sqls" => list(String.t() | Atom.t()),
+        "StatementName" => String.t() | Atom.t(),
         "WithEvent" => boolean()
       }
       
   """
-  @type redshift_data_parameters() :: %{String.t() => any()}
+  @type redshift_data_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_replay_response() :: %{
-        "ReplayArn" => String.t(),
+        "ReplayArn" => String.t() | Atom.t(),
         "ReplayStartTime" => non_neg_integer(),
         "State" => list(any()),
-        "StateReason" => String.t()
+        "StateReason" => String.t() | Atom.t()
       }
       
   """
-  @type start_replay_response() :: %{String.t() => any()}
+  @type start_replay_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       secondary() :: %{
-        "Route" => String.t()
+        "Route" => String.t() | Atom.t()
       }
       
   """
-  @type secondary() :: %{String.t() => any()}
+  @type secondary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       deauthorize_connection_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type deauthorize_connection_request() :: %{String.t() => any()}
+  @type deauthorize_connection_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1068,23 +1068,23 @@ defmodule AWS.EventBridge do
       
       input_transformer() :: %{
         "InputPathsMap" => map(),
-        "InputTemplate" => String.t()
+        "InputTemplate" => String.t() | Atom.t()
       }
       
   """
-  @type input_transformer() :: %{String.t() => any()}
+  @type input_transformer() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_connection_resource_parameters() :: %{
-        "ResourceAssociationArn" => String.t(),
-        "ResourceConfigurationArn" => String.t()
+        "ResourceAssociationArn" => String.t() | Atom.t(),
+        "ResourceConfigurationArn" => String.t() | Atom.t()
       }
       
   """
-  @type describe_connection_resource_parameters() :: %{String.t() => any()}
+  @type describe_connection_resource_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1097,35 +1097,35 @@ defmodule AWS.EventBridge do
       }
       
   """
-  @type connection_http_parameters() :: %{String.t() => any()}
+  @type connection_http_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_api_destination_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("InvocationRateLimitPerSecond") => integer(),
-        required("ConnectionArn") => String.t(),
+        required("ConnectionArn") => String.t() | Atom.t(),
         required("HttpMethod") => list(any()),
-        required("InvocationEndpoint") => String.t(),
-        required("Name") => String.t()
+        required("InvocationEndpoint") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type create_api_destination_request() :: %{String.t() => any()}
+  @type create_api_destination_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1142,23 +1142,23 @@ defmodule AWS.EventBridge do
       
       list_endpoints_response() :: %{
         "Endpoints" => list(endpoint()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_endpoints_response() :: %{String.t() => any()}
+  @type list_endpoints_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_events_request() :: %{
-        optional("EndpointId") => String.t(),
+        optional("EndpointId") => String.t() | Atom.t(),
         required("Entries") => list(put_events_request_entry())
       }
       
   """
-  @type put_events_request() :: %{String.t() => any()}
+  @type put_events_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1166,63 +1166,63 @@ defmodule AWS.EventBridge do
       
       connection() :: %{
         "AuthorizationType" => list(any()),
-        "ConnectionArn" => String.t(),
+        "ConnectionArn" => String.t() | Atom.t(),
         "ConnectionState" => list(any()),
         "CreationTime" => non_neg_integer(),
         "LastAuthorizedTime" => non_neg_integer(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "StateReason" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "StateReason" => String.t() | Atom.t()
       }
       
   """
-  @type connection() :: %{String.t() => any()}
+  @type connection() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       primary() :: %{
-        "HealthCheck" => String.t()
+        "HealthCheck" => String.t() | Atom.t()
       }
       
   """
-  @type primary() :: %{String.t() => any()}
+  @type primary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       activate_event_source_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type activate_event_source_request() :: %{String.t() => any()}
+  @type activate_event_source_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       replay_destination() :: %{
-        "Arn" => String.t(),
-        "FilterArns" => list(String.t())
+        "Arn" => String.t() | Atom.t(),
+        "FilterArns" => list(String.t() | Atom.t())
       }
       
   """
-  @type replay_destination() :: %{String.t() => any()}
+  @type replay_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_replays_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Replays" => list(replay())
       }
       
   """
-  @type list_replays_response() :: %{String.t() => any()}
+  @type list_replays_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1230,62 +1230,62 @@ defmodule AWS.EventBridge do
       
       list_event_buses_request() :: %{
         optional("Limit") => integer(),
-        optional("NamePrefix") => String.t(),
-        optional("NextToken") => String.t()
+        optional("NamePrefix") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_event_buses_request() :: %{String.t() => any()}
+  @type list_event_buses_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_event_source_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type describe_event_source_request() :: %{String.t() => any()}
+  @type describe_event_source_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_api_destination_response() :: %{
-        "ApiDestinationArn" => String.t(),
+        "ApiDestinationArn" => String.t() | Atom.t(),
         "ApiDestinationState" => list(any()),
         "CreationTime" => non_neg_integer(),
         "LastModifiedTime" => non_neg_integer()
       }
       
   """
-  @type create_api_destination_response() :: %{String.t() => any()}
+  @type create_api_destination_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_permission_request() :: %{
-        optional("EventBusName") => String.t(),
+        optional("EventBusName") => String.t() | Atom.t(),
         optional("RemoveAllPermissions") => boolean(),
-        optional("StatementId") => String.t()
+        optional("StatementId") => String.t() | Atom.t()
       }
       
   """
-  @type remove_permission_request() :: %{String.t() => any()}
+  @type remove_permission_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_endpoint_request() :: %{
-        optional("HomeRegion") => String.t(),
-        required("Name") => String.t()
+        optional("HomeRegion") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type describe_endpoint_request() :: %{String.t() => any()}
+  @type describe_endpoint_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1296,7 +1296,7 @@ defmodule AWS.EventBridge do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1307,37 +1307,37 @@ defmodule AWS.EventBridge do
       }
       
   """
-  @type sage_maker_pipeline_parameters() :: %{String.t() => any()}
+  @type sage_maker_pipeline_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       managed_rule_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type managed_rule_exception() :: %{String.t() => any()}
+  @type managed_rule_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disable_rule_request() :: %{
-        optional("EventBusName") => String.t(),
-        required("Name") => String.t()
+        optional("EventBusName") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type disable_rule_request() :: %{String.t() => any()}
+  @type disable_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_connection_response() :: %{
-        "ConnectionArn" => String.t(),
+        "ConnectionArn" => String.t() | Atom.t(),
         "ConnectionState" => list(any()),
         "CreationTime" => non_neg_integer(),
         "LastAuthorizedTime" => non_neg_integer(),
@@ -1345,34 +1345,34 @@ defmodule AWS.EventBridge do
       }
       
   """
-  @type update_connection_response() :: %{String.t() => any()}
+  @type update_connection_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       sqs_parameters() :: %{
-        "MessageGroupId" => String.t()
+        "MessageGroupId" => String.t() | Atom.t()
       }
       
   """
-  @type sqs_parameters() :: %{String.t() => any()}
+  @type sqs_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_permission_request() :: %{
-        optional("Action") => String.t(),
+        optional("Action") => String.t() | Atom.t(),
         optional("Condition") => condition(),
-        optional("EventBusName") => String.t(),
-        optional("Policy") => String.t(),
-        optional("Principal") => String.t(),
-        optional("StatementId") => String.t()
+        optional("EventBusName") => String.t() | Atom.t(),
+        optional("Policy") => String.t() | Atom.t(),
+        optional("Principal") => String.t() | Atom.t(),
+        optional("StatementId") => String.t() | Atom.t()
       }
       
   """
-  @type put_permission_request() :: %{String.t() => any()}
+  @type put_permission_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1380,35 +1380,35 @@ defmodule AWS.EventBridge do
       
       list_api_destinations_response() :: %{
         "ApiDestinations" => list(api_destination()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_api_destinations_response() :: %{String.t() => any()}
+  @type list_api_destinations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_event_bus_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type delete_event_bus_request() :: %{String.t() => any()}
+  @type delete_event_bus_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       condition() :: %{
-        "Key" => String.t(),
-        "Type" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Type" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type condition() :: %{String.t() => any()}
+  @type condition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1420,162 +1420,162 @@ defmodule AWS.EventBridge do
       }
       
   """
-  @type put_partner_events_response() :: %{String.t() => any()}
+  @type put_partner_events_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       partner_event_source() :: %{
-        "Arn" => String.t(),
-        "Name" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
       
   """
-  @type partner_event_source() :: %{String.t() => any()}
+  @type partner_event_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       operation_disabled_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type operation_disabled_exception() :: %{String.t() => any()}
+  @type operation_disabled_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       rule() :: %{
-        "Arn" => String.t(),
-        "Description" => String.t(),
-        "EventBusName" => String.t(),
-        "EventPattern" => String.t(),
-        "ManagedBy" => String.t(),
-        "Name" => String.t(),
-        "RoleArn" => String.t(),
-        "ScheduleExpression" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "EventBusName" => String.t() | Atom.t(),
+        "EventPattern" => String.t() | Atom.t(),
+        "ManagedBy" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | Atom.t(),
+        "ScheduleExpression" => String.t() | Atom.t(),
         "State" => list(any())
       }
       
   """
-  @type rule() :: %{String.t() => any()}
+  @type rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_events_result_entry() :: %{
-        "ErrorCode" => String.t(),
-        "ErrorMessage" => String.t(),
-        "EventId" => String.t()
+        "ErrorCode" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | Atom.t(),
+        "EventId" => String.t() | Atom.t()
       }
       
   """
-  @type put_events_result_entry() :: %{String.t() => any()}
+  @type put_events_result_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_api_destination_request() :: %{
-        optional("ConnectionArn") => String.t(),
-        optional("Description") => String.t(),
+        optional("ConnectionArn") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("HttpMethod") => list(any()),
-        optional("InvocationEndpoint") => String.t(),
+        optional("InvocationEndpoint") => String.t() | Atom.t(),
         optional("InvocationRateLimitPerSecond") => integer(),
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type update_api_destination_request() :: %{String.t() => any()}
+  @type update_api_destination_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoint() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "EndpointId" => String.t(),
-        "EndpointUrl" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "EndpointId" => String.t() | Atom.t(),
+        "EndpointUrl" => String.t() | Atom.t(),
         "EventBuses" => list(endpoint_event_bus()),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "ReplicationConfig" => replication_config(),
-        "RoleArn" => String.t(),
+        "RoleArn" => String.t() | Atom.t(),
         "RoutingConfig" => routing_config(),
         "State" => list(any()),
-        "StateReason" => String.t()
+        "StateReason" => String.t() | Atom.t()
       }
       
   """
-  @type endpoint() :: %{String.t() => any()}
+  @type endpoint() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_connection_api_key_auth_request_parameters() :: %{
-        "ApiKeyName" => String.t(),
-        "ApiKeyValue" => String.t()
+        "ApiKeyName" => String.t() | Atom.t(),
+        "ApiKeyValue" => String.t() | Atom.t()
       }
       
   """
-  @type create_connection_api_key_auth_request_parameters() :: %{String.t() => any()}
+  @type create_connection_api_key_auth_request_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_endpoints_request() :: %{
-        optional("HomeRegion") => String.t(),
+        optional("HomeRegion") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NamePrefix") => String.t(),
-        optional("NextToken") => String.t()
+        optional("NamePrefix") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_endpoints_request() :: %{String.t() => any()}
+  @type list_endpoints_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_rule_request() :: %{
-        optional("EventBusName") => String.t(),
-        required("Name") => String.t()
+        optional("EventBusName") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type describe_rule_request() :: %{String.t() => any()}
+  @type describe_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_connection_o_auth_client_request_parameters() :: %{
-        "ClientID" => String.t(),
-        "ClientSecret" => String.t()
+        "ClientID" => String.t() | Atom.t(),
+        "ClientSecret" => String.t() | Atom.t()
       }
       
   """
-  @type create_connection_o_auth_client_request_parameters() :: %{String.t() => any()}
+  @type create_connection_o_auth_client_request_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       connectivity_resource_configuration_arn() :: %{
-        "ResourceConfigurationArn" => String.t()
+        "ResourceConfigurationArn" => String.t() | Atom.t()
       }
       
   """
-  @type connectivity_resource_configuration_arn() :: %{String.t() => any()}
+  @type connectivity_resource_configuration_arn() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1583,35 +1583,35 @@ defmodule AWS.EventBridge do
       
       capacity_provider_strategy_item() :: %{
         "base" => integer(),
-        "capacityProvider" => String.t(),
+        "capacityProvider" => String.t() | Atom.t(),
         "weight" => integer()
       }
       
   """
-  @type capacity_provider_strategy_item() :: %{String.t() => any()}
+  @type capacity_provider_strategy_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_endpoint_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type delete_endpoint_request() :: %{String.t() => any()}
+  @type delete_endpoint_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       placement_constraint() :: %{
-        "expression" => String.t(),
+        "expression" => String.t() | Atom.t(),
         "type" => list(any())
       }
       
   """
-  @type placement_constraint() :: %{String.t() => any()}
+  @type placement_constraint() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1622,105 +1622,105 @@ defmodule AWS.EventBridge do
       }
       
   """
-  @type network_configuration() :: %{String.t() => any()}
+  @type network_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       api_destination() :: %{
-        "ApiDestinationArn" => String.t(),
+        "ApiDestinationArn" => String.t() | Atom.t(),
         "ApiDestinationState" => list(any()),
-        "ConnectionArn" => String.t(),
+        "ConnectionArn" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
         "HttpMethod" => list(any()),
-        "InvocationEndpoint" => String.t(),
+        "InvocationEndpoint" => String.t() | Atom.t(),
         "InvocationRateLimitPerSecond" => integer(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
       
   """
-  @type api_destination() :: %{String.t() => any()}
+  @type api_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type internal_exception() :: %{String.t() => any()}
+  @type internal_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_rules_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Rules" => list(rule())
       }
       
   """
-  @type list_rules_response() :: %{String.t() => any()}
+  @type list_rules_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_endpoint_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "EndpointId" => String.t(),
-        "EndpointUrl" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "EndpointId" => String.t() | Atom.t(),
+        "EndpointUrl" => String.t() | Atom.t(),
         "EventBuses" => list(endpoint_event_bus()),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "ReplicationConfig" => replication_config(),
-        "RoleArn" => String.t(),
+        "RoleArn" => String.t() | Atom.t(),
         "RoutingConfig" => routing_config(),
         "State" => list(any()),
-        "StateReason" => String.t()
+        "StateReason" => String.t() | Atom.t()
       }
       
   """
-  @type describe_endpoint_response() :: %{String.t() => any()}
+  @type describe_endpoint_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_partner_event_source_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type describe_partner_event_source_request() :: %{String.t() => any()}
+  @type describe_partner_event_source_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_partner_event_source_response() :: %{
-        "EventSourceArn" => String.t()
+        "EventSourceArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_partner_event_source_response() :: %{String.t() => any()}
+  @type create_partner_event_source_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1736,12 +1736,12 @@ defmodule AWS.EventBridge do
   ## Example:
       
       update_connection_basic_auth_request_parameters() :: %{
-        "Password" => String.t(),
-        "Username" => String.t()
+        "Password" => String.t() | Atom.t(),
+        "Username" => String.t() | Atom.t()
       }
       
   """
-  @type update_connection_basic_auth_request_parameters() :: %{String.t() => any()}
+  @type update_connection_basic_auth_request_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1749,80 +1749,80 @@ defmodule AWS.EventBridge do
       
       list_partner_event_sources_request() :: %{
         optional("Limit") => integer(),
-        optional("NextToken") => String.t(),
-        required("NamePrefix") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("NamePrefix") => String.t() | Atom.t()
       }
       
   """
-  @type list_partner_event_sources_request() :: %{String.t() => any()}
+  @type list_partner_event_sources_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_event_bus_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
         "DeadLetterConfig" => dead_letter_config(),
-        "Description" => String.t(),
-        "KmsKeyIdentifier" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "KmsKeyIdentifier" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "Policy" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Policy" => String.t() | Atom.t()
       }
       
   """
-  @type describe_event_bus_response() :: %{String.t() => any()}
+  @type describe_event_bus_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_targets_request() :: %{
-        optional("EventBusName") => String.t(),
+        optional("EventBusName") => String.t() | Atom.t(),
         optional("Force") => boolean(),
-        required("Ids") => list(String.t()),
-        required("Rule") => String.t()
+        required("Ids") => list(String.t() | Atom.t()),
+        required("Rule") => String.t() | Atom.t()
       }
       
   """
-  @type remove_targets_request() :: %{String.t() => any()}
+  @type remove_targets_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       dead_letter_config() :: %{
-        "Arn" => String.t()
+        "Arn" => String.t() | Atom.t()
       }
       
   """
-  @type dead_letter_config() :: %{String.t() => any()}
+  @type dead_letter_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       concurrent_modification_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type concurrent_modification_exception() :: %{String.t() => any()}
+  @type concurrent_modification_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_api_destination_response() :: %{
-        "ApiDestinationArn" => String.t(),
+        "ApiDestinationArn" => String.t() | Atom.t(),
         "ApiDestinationState" => list(any()),
         "CreationTime" => non_neg_integer(),
         "LastModifiedTime" => non_neg_integer()
       }
       
   """
-  @type update_api_destination_response() :: %{String.t() => any()}
+  @type update_api_destination_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1830,33 +1830,33 @@ defmodule AWS.EventBridge do
       
       update_event_bus_request() :: %{
         optional("DeadLetterConfig") => dead_letter_config(),
-        optional("Description") => String.t(),
-        optional("KmsKeyIdentifier") => String.t(),
-        optional("Name") => String.t()
+        optional("Description") => String.t() | Atom.t(),
+        optional("KmsKeyIdentifier") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t()
       }
       
   """
-  @type update_event_bus_request() :: %{String.t() => any()}
+  @type update_event_bus_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_replay_response() :: %{
-        "ReplayArn" => String.t(),
+        "ReplayArn" => String.t() | Atom.t(),
         "State" => list(any()),
-        "StateReason" => String.t()
+        "StateReason" => String.t() | Atom.t()
       }
       
   """
-  @type cancel_replay_response() :: %{String.t() => any()}
+  @type cancel_replay_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_connection_response() :: %{
-        "ConnectionArn" => String.t(),
+        "ConnectionArn" => String.t() | Atom.t(),
         "ConnectionState" => list(any()),
         "CreationTime" => non_neg_integer(),
         "LastAuthorizedTime" => non_neg_integer(),
@@ -1864,146 +1864,146 @@ defmodule AWS.EventBridge do
       }
       
   """
-  @type delete_connection_response() :: %{String.t() => any()}
+  @type delete_connection_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t()
+        required("ResourceARN") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_rule_request() :: %{
-        optional("Description") => String.t(),
-        optional("EventBusName") => String.t(),
-        optional("EventPattern") => String.t(),
-        optional("RoleArn") => String.t(),
-        optional("ScheduleExpression") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("EventBusName") => String.t() | Atom.t(),
+        optional("EventPattern") => String.t() | Atom.t(),
+        optional("RoleArn") => String.t() | Atom.t(),
+        optional("ScheduleExpression") => String.t() | Atom.t(),
         optional("State") => list(any()),
         optional("Tags") => list(tag()),
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type put_rule_request() :: %{String.t() => any()}
+  @type put_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_partner_event_sources_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "PartnerEventSources" => list(partner_event_source())
       }
       
   """
-  @type list_partner_event_sources_response() :: %{String.t() => any()}
+  @type list_partner_event_sources_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_replay_request() :: %{
-        required("ReplayName") => String.t()
+        required("ReplayName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_replay_request() :: %{String.t() => any()}
+  @type describe_replay_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_api_destinations_request() :: %{
-        optional("ConnectionArn") => String.t(),
+        optional("ConnectionArn") => String.t() | Atom.t(),
         optional("Limit") => integer(),
-        optional("NamePrefix") => String.t(),
-        optional("NextToken") => String.t()
+        optional("NamePrefix") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_api_destinations_request() :: %{String.t() => any()}
+  @type list_api_destinations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_archive_response() :: %{
-        "ArchiveArn" => String.t(),
+        "ArchiveArn" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
         "State" => list(any()),
-        "StateReason" => String.t()
+        "StateReason" => String.t() | Atom.t()
       }
       
   """
-  @type create_archive_response() :: %{String.t() => any()}
+  @type create_archive_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_replay_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         required("Destination") => replay_destination(),
         required("EventEndTime") => non_neg_integer(),
-        required("EventSourceArn") => String.t(),
+        required("EventSourceArn") => String.t() | Atom.t(),
         required("EventStartTime") => non_neg_integer(),
-        required("ReplayName") => String.t()
+        required("ReplayName") => String.t() | Atom.t()
       }
       
   """
-  @type start_replay_request() :: %{String.t() => any()}
+  @type start_replay_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       connection_o_auth_response_parameters() :: %{
-        "AuthorizationEndpoint" => String.t(),
+        "AuthorizationEndpoint" => String.t() | Atom.t(),
         "ClientParameters" => connection_o_auth_client_response_parameters(),
         "HttpMethod" => list(any()),
         "OAuthHttpParameters" => connection_http_parameters()
       }
       
   """
-  @type connection_o_auth_response_parameters() :: %{String.t() => any()}
+  @type connection_o_auth_response_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       archive() :: %{
-        "ArchiveName" => String.t(),
+        "ArchiveName" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
         "EventCount" => float(),
-        "EventSourceArn" => String.t(),
+        "EventSourceArn" => String.t() | Atom.t(),
         "RetentionDays" => integer(),
         "SizeBytes" => float(),
         "State" => list(any()),
-        "StateReason" => String.t()
+        "StateReason" => String.t() | Atom.t()
       }
       
   """
-  @type archive() :: %{String.t() => any()}
+  @type archive() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2015,32 +2015,32 @@ defmodule AWS.EventBridge do
       }
       
   """
-  @type remove_targets_response() :: %{String.t() => any()}
+  @type remove_targets_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_connection_response() :: %{
-        "ConnectionArn" => String.t(),
+        "ConnectionArn" => String.t() | Atom.t(),
         "ConnectionState" => list(any()),
         "CreationTime" => non_neg_integer(),
         "LastModifiedTime" => non_neg_integer()
       }
       
   """
-  @type create_connection_response() :: %{String.t() => any()}
+  @type create_connection_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2048,40 +2048,40 @@ defmodule AWS.EventBridge do
       
       list_event_buses_response() :: %{
         "EventBuses" => list(event_bus()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_event_buses_response() :: %{String.t() => any()}
+  @type list_event_buses_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_archive_request() :: %{
-        optional("Description") => String.t(),
-        optional("EventPattern") => String.t(),
-        optional("KmsKeyIdentifier") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("EventPattern") => String.t() | Atom.t(),
+        optional("KmsKeyIdentifier") => String.t() | Atom.t(),
         optional("RetentionDays") => integer(),
-        required("ArchiveName") => String.t()
+        required("ArchiveName") => String.t() | Atom.t()
       }
       
   """
-  @type update_archive_request() :: %{String.t() => any()}
+  @type update_archive_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_rule_names_by_target_request() :: %{
-        optional("EventBusName") => String.t(),
+        optional("EventBusName") => String.t() | Atom.t(),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t(),
-        required("TargetArn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("TargetArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_rule_names_by_target_request() :: %{String.t() => any()}
+  @type list_rule_names_by_target_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2089,12 +2089,12 @@ defmodule AWS.EventBridge do
       
       aws_vpc_configuration() :: %{
         "AssignPublicIp" => list(any()),
-        "SecurityGroups" => list(String.t()),
-        "Subnets" => list(String.t())
+        "SecurityGroups" => list(String.t() | Atom.t()),
+        "Subnets" => list(String.t() | Atom.t())
       }
       
   """
-  @type aws_vpc_configuration() :: %{String.t() => any()}
+  @type aws_vpc_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2105,49 +2105,49 @@ defmodule AWS.EventBridge do
       }
       
   """
-  @type connectivity_resource_parameters() :: %{String.t() => any()}
+  @type connectivity_resource_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_endpoint_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "EventBuses" => list(endpoint_event_bus()),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "ReplicationConfig" => replication_config(),
-        "RoleArn" => String.t(),
+        "RoleArn" => String.t() | Atom.t(),
         "RoutingConfig" => routing_config(),
         "State" => list(any())
       }
       
   """
-  @type create_endpoint_response() :: %{String.t() => any()}
+  @type create_endpoint_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_partner_events_result_entry() :: %{
-        "ErrorCode" => String.t(),
-        "ErrorMessage" => String.t(),
-        "EventId" => String.t()
+        "ErrorCode" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | Atom.t(),
+        "EventId" => String.t() | Atom.t()
       }
       
   """
-  @type put_partner_events_result_entry() :: %{String.t() => any()}
+  @type put_partner_events_result_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_connection_basic_auth_request_parameters() :: %{
-        "Password" => String.t(),
-        "Username" => String.t()
+        "Password" => String.t() | Atom.t(),
+        "Username" => String.t() | Atom.t()
       }
       
   """
-  @type create_connection_basic_auth_request_parameters() :: %{String.t() => any()}
+  @type create_connection_basic_auth_request_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2158,52 +2158,52 @@ defmodule AWS.EventBridge do
       }
       
   """
-  @type put_partner_events_request() :: %{String.t() => any()}
+  @type put_partner_events_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_already_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_already_exists_exception() :: %{String.t() => any()}
+  @type resource_already_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       kinesis_parameters() :: %{
-        "PartitionKeyPath" => String.t()
+        "PartitionKeyPath" => String.t() | Atom.t()
       }
       
   """
-  @type kinesis_parameters() :: %{String.t() => any()}
+  @type kinesis_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_targets_by_rule_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Targets" => list(target())
       }
       
   """
-  @type list_targets_by_rule_response() :: %{String.t() => any()}
+  @type list_targets_by_rule_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_connection_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type delete_connection_request() :: %{String.t() => any()}
+  @type delete_connection_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2214,21 +2214,21 @@ defmodule AWS.EventBridge do
       }
       
   """
-  @type replication_config() :: %{String.t() => any()}
+  @type replication_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_archive_response() :: %{
-        "ArchiveArn" => String.t(),
+        "ArchiveArn" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
         "State" => list(any()),
-        "StateReason" => String.t()
+        "StateReason" => String.t() | Atom.t()
       }
       
   """
-  @type update_archive_response() :: %{String.t() => any()}
+  @type update_archive_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2239,32 +2239,32 @@ defmodule AWS.EventBridge do
       }
       
   """
-  @type test_event_pattern_response() :: %{String.t() => any()}
+  @type test_event_pattern_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       illegal_status_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type illegal_status_exception() :: %{String.t() => any()}
+  @type illegal_status_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_targets_by_rule_request() :: %{
-        optional("EventBusName") => String.t(),
+        optional("EventBusName") => String.t() | Atom.t(),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t(),
-        required("Rule") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("Rule") => String.t() | Atom.t()
       }
       
   """
-  @type list_targets_by_rule_request() :: %{String.t() => any()}
+  @type list_targets_by_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2276,7 +2276,7 @@ defmodule AWS.EventBridge do
       }
       
   """
-  @type retry_policy() :: %{String.t() => any()}
+  @type retry_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2284,12 +2284,12 @@ defmodule AWS.EventBridge do
       
       connection_body_parameter() :: %{
         "IsValueSecret" => boolean(),
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type connection_body_parameter() :: %{String.t() => any()}
+  @type connection_body_parameter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2301,75 +2301,75 @@ defmodule AWS.EventBridge do
       }
       
   """
-  @type failover_config() :: %{String.t() => any()}
+  @type failover_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       connection_basic_auth_response_parameters() :: %{
-        "Username" => String.t()
+        "Username" => String.t() | Atom.t()
       }
       
   """
-  @type connection_basic_auth_response_parameters() :: %{String.t() => any()}
+  @type connection_basic_auth_response_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_targets_request() :: %{
-        optional("EventBusName") => String.t(),
-        required("Rule") => String.t(),
+        optional("EventBusName") => String.t() | Atom.t(),
+        required("Rule") => String.t() | Atom.t(),
         required("Targets") => list(target())
       }
       
   """
-  @type put_targets_request() :: %{String.t() => any()}
+  @type put_targets_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_connection_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("InvocationConnectivityParameters") => connectivity_resource_parameters(),
-        optional("KmsKeyIdentifier") => String.t(),
+        optional("KmsKeyIdentifier") => String.t() | Atom.t(),
         required("AuthParameters") => create_connection_auth_request_parameters(),
         required("AuthorizationType") => list(any()),
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type create_connection_request() :: %{String.t() => any()}
+  @type create_connection_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_connection_o_auth_client_request_parameters() :: %{
-        "ClientID" => String.t(),
-        "ClientSecret" => String.t()
+        "ClientID" => String.t() | Atom.t(),
+        "ClientSecret" => String.t() | Atom.t()
       }
       
   """
-  @type update_connection_o_auth_client_request_parameters() :: %{String.t() => any()}
+  @type update_connection_o_auth_client_request_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       event_bus() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "Policy" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Policy" => String.t() | Atom.t()
       }
       
   """
-  @type event_bus() :: %{String.t() => any()}
+  @type event_bus() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2384,112 +2384,112 @@ defmodule AWS.EventBridge do
       }
       
   """
-  @type create_connection_auth_request_parameters() :: %{String.t() => any()}
+  @type create_connection_auth_request_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_api_destination_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type delete_api_destination_request() :: %{String.t() => any()}
+  @type delete_api_destination_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       connection_o_auth_client_response_parameters() :: %{
-        "ClientID" => String.t()
+        "ClientID" => String.t() | Atom.t()
       }
       
   """
-  @type connection_o_auth_client_response_parameters() :: %{String.t() => any()}
+  @type connection_o_auth_client_response_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_rule_response() :: %{
-        "Arn" => String.t(),
-        "CreatedBy" => String.t(),
-        "Description" => String.t(),
-        "EventBusName" => String.t(),
-        "EventPattern" => String.t(),
-        "ManagedBy" => String.t(),
-        "Name" => String.t(),
-        "RoleArn" => String.t(),
-        "ScheduleExpression" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "CreatedBy" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "EventBusName" => String.t() | Atom.t(),
+        "EventPattern" => String.t() | Atom.t(),
+        "ManagedBy" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | Atom.t(),
+        "ScheduleExpression" => String.t() | Atom.t(),
         "State" => list(any())
       }
       
   """
-  @type describe_rule_response() :: %{String.t() => any()}
+  @type describe_rule_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_partner_event_source_accounts_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "PartnerEventSourceAccounts" => list(partner_event_source_account())
       }
       
   """
-  @type list_partner_event_source_accounts_response() :: %{String.t() => any()}
+  @type list_partner_event_source_accounts_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_rule_names_by_target_response() :: %{
-        "NextToken" => String.t(),
-        "RuleNames" => list(String.t())
+        "NextToken" => String.t() | Atom.t(),
+        "RuleNames" => list(String.t() | Atom.t())
       }
       
   """
-  @type list_rule_names_by_target_response() :: %{String.t() => any()}
+  @type list_rule_names_by_target_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_event_bus_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "DeadLetterConfig" => dead_letter_config(),
-        "Description" => String.t(),
-        "KmsKeyIdentifier" => String.t(),
-        "Name" => String.t()
+        "Description" => String.t() | Atom.t(),
+        "KmsKeyIdentifier" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
       
   """
-  @type update_event_bus_response() :: %{String.t() => any()}
+  @type update_event_bus_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_partner_event_source_request() :: %{
-        required("Account") => String.t(),
-        required("Name") => String.t()
+        required("Account") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type delete_partner_event_source_request() :: %{String.t() => any()}
+  @type delete_partner_event_source_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       placement_strategy() :: %{
-        "field" => String.t(),
+        "field" => String.t() | Atom.t(),
         "type" => list(any())
       }
       
   """
-  @type placement_strategy() :: %{String.t() => any()}
+  @type placement_strategy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2499,21 +2499,21 @@ defmodule AWS.EventBridge do
         "CapacityProviderStrategy" => list(capacity_provider_strategy_item()),
         "EnableECSManagedTags" => boolean(),
         "EnableExecuteCommand" => boolean(),
-        "Group" => String.t(),
+        "Group" => String.t() | Atom.t(),
         "LaunchType" => list(any()),
         "NetworkConfiguration" => network_configuration(),
         "PlacementConstraints" => list(placement_constraint()),
         "PlacementStrategy" => list(placement_strategy()),
-        "PlatformVersion" => String.t(),
+        "PlatformVersion" => String.t() | Atom.t(),
         "PropagateTags" => list(any()),
-        "ReferenceId" => String.t(),
+        "ReferenceId" => String.t() | Atom.t(),
         "Tags" => list(tag()),
         "TaskCount" => integer(),
-        "TaskDefinitionArn" => String.t()
+        "TaskDefinitionArn" => String.t() | Atom.t()
       }
       
   """
-  @type ecs_parameters() :: %{String.t() => any()}
+  @type ecs_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2525,7 +2525,7 @@ defmodule AWS.EventBridge do
       }
       
   """
-  @type put_targets_response() :: %{String.t() => any()}
+  @type put_targets_response() :: %{String.t() | Atom.t() => any()}
 
   @type activate_event_source_errors() ::
           concurrent_modification_exception()

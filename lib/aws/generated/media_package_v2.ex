@@ -40,11 +40,11 @@ defmodule AWS.MediaPackageV2 do
   ## Example:
 
       put_channel_policy_request() :: %{
-        required("Policy") => String.t()
+        required("Policy") => String.t() | Atom.t()
       }
 
   """
-  @type put_channel_policy_request() :: %{String.t() => any()}
+  @type put_channel_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -64,7 +64,7 @@ defmodule AWS.MediaPackageV2 do
       }
 
   """
-  @type input_switch_configuration() :: %{String.t() => any()}
+  @type input_switch_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -80,15 +80,15 @@ defmodule AWS.MediaPackageV2 do
   ## Example:
 
       dash_program_information() :: %{
-        "Copyright" => [String.t()],
-        "LanguageCode" => [String.t()],
-        "MoreInformationUrl" => [String.t()],
-        "Source" => [String.t()],
-        "Title" => [String.t()]
+        "Copyright" => [String.t() | Atom.t()],
+        "LanguageCode" => [String.t() | Atom.t()],
+        "MoreInformationUrl" => [String.t() | Atom.t()],
+        "Source" => [String.t() | Atom.t()],
+        "Title" => [String.t() | Atom.t()]
       }
 
   """
-  @type dash_program_information() :: %{String.t() => any()}
+  @type dash_program_information() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -117,16 +117,16 @@ defmodule AWS.MediaPackageV2 do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_origin_endpoint_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
         optional("DashManifests") => list(create_dash_manifest_configuration()),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("ForceEndpointErrorConfiguration") => force_endpoint_error_configuration(),
         optional("HlsManifests") => list(create_hls_manifest_configuration()),
         optional("LowLatencyHlsManifests") => list(create_low_latency_hls_manifest_configuration()),
@@ -135,28 +135,28 @@ defmodule AWS.MediaPackageV2 do
         optional("StartoverWindowSeconds") => [integer()],
         optional("Tags") => map(),
         required("ContainerType") => list(any()),
-        required("OriginEndpointName") => String.t()
+        required("OriginEndpointName") => String.t() | Atom.t()
       }
 
   """
-  @type create_origin_endpoint_request() :: %{String.t() => any()}
+  @type create_origin_endpoint_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       channel_list_configuration() :: %{
-        "Arn" => [String.t()],
-        "ChannelGroupName" => [String.t()],
-        "ChannelName" => [String.t()],
+        "Arn" => [String.t() | Atom.t()],
+        "ChannelGroupName" => [String.t() | Atom.t()],
+        "ChannelName" => [String.t() | Atom.t()],
         "CreatedAt" => [non_neg_integer()],
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "InputType" => list(any()),
         "ModifiedAt" => [non_neg_integer()]
       }
 
   """
-  @type channel_list_configuration() :: %{String.t() => any()}
+  @type channel_list_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -168,19 +168,19 @@ defmodule AWS.MediaPackageV2 do
       }
 
   """
-  @type harvester_schedule_configuration() :: %{String.t() => any()}
+  @type harvester_schedule_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_channel_response() :: %{
-        "Arn" => [String.t()],
-        "ChannelGroupName" => [String.t()],
-        "ChannelName" => [String.t()],
+        "Arn" => [String.t() | Atom.t()],
+        "ChannelGroupName" => [String.t() | Atom.t()],
+        "ChannelName" => [String.t() | Atom.t()],
         "CreatedAt" => [non_neg_integer()],
-        "Description" => String.t(),
-        "ETag" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "ETag" => String.t() | Atom.t(),
         "IngestEndpoints" => list(ingest_endpoint()),
         "InputSwitchConfiguration" => input_switch_configuration(),
         "InputType" => list(any()),
@@ -190,34 +190,34 @@ defmodule AWS.MediaPackageV2 do
       }
 
   """
-  @type create_channel_response() :: %{String.t() => any()}
+  @type create_channel_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_dash_manifest_configuration() :: %{
-        "ManifestName" => String.t(),
-        "Url" => [String.t()]
+        "ManifestName" => String.t() | Atom.t(),
+        "Url" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_dash_manifest_configuration() :: %{String.t() => any()}
+  @type list_dash_manifest_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       channel_group_list_configuration() :: %{
-        "Arn" => [String.t()],
-        "ChannelGroupName" => [String.t()],
+        "Arn" => [String.t() | Atom.t()],
+        "ChannelGroupName" => [String.t() | Atom.t()],
         "CreatedAt" => [non_neg_integer()],
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "ModifiedAt" => [non_neg_integer()]
       }
 
   """
-  @type channel_group_list_configuration() :: %{String.t() => any()}
+  @type channel_group_list_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -233,49 +233,49 @@ defmodule AWS.MediaPackageV2 do
   ## Example:
 
       list_hls_manifest_configuration() :: %{
-        "ChildManifestName" => String.t(),
-        "ManifestName" => String.t(),
-        "Url" => [String.t()]
+        "ChildManifestName" => String.t() | Atom.t(),
+        "ManifestName" => String.t() | Atom.t(),
+        "Url" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_hls_manifest_configuration() :: %{String.t() => any()}
+  @type list_hls_manifest_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_origin_endpoint_response() :: %{
-        "Arn" => [String.t()],
-        "ChannelGroupName" => String.t(),
-        "ChannelName" => String.t(),
+        "Arn" => [String.t() | Atom.t()],
+        "ChannelGroupName" => String.t() | Atom.t(),
+        "ChannelName" => String.t() | Atom.t(),
         "ContainerType" => list(any()),
         "CreatedAt" => [non_neg_integer()],
         "DashManifests" => list(get_dash_manifest_configuration()),
-        "Description" => String.t(),
-        "ETag" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "ETag" => String.t() | Atom.t(),
         "ForceEndpointErrorConfiguration" => force_endpoint_error_configuration(),
         "HlsManifests" => list(get_hls_manifest_configuration()),
         "LowLatencyHlsManifests" => list(get_low_latency_hls_manifest_configuration()),
         "ModifiedAt" => [non_neg_integer()],
         "MssManifests" => list(get_mss_manifest_configuration()),
-        "OriginEndpointName" => String.t(),
+        "OriginEndpointName" => String.t() | Atom.t(),
         "Segment" => segment(),
         "StartoverWindowSeconds" => [integer()],
         "Tags" => map()
       }
 
   """
-  @type create_origin_endpoint_response() :: %{String.t() => any()}
+  @type create_origin_endpoint_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_hls_manifest_configuration() :: %{
-        "ChildManifestName" => String.t(),
+        "ChildManifestName" => String.t() | Atom.t(),
         "FilterConfiguration" => filter_configuration(),
-        "ManifestName" => String.t(),
+        "ManifestName" => String.t() | Atom.t(),
         "ManifestWindowSeconds" => [integer()],
         "ProgramDateTimeIntervalSeconds" => [integer()],
         "ScteHls" => scte_hls(),
@@ -284,7 +284,7 @@ defmodule AWS.MediaPackageV2 do
       }
 
   """
-  @type create_hls_manifest_configuration() :: %{String.t() => any()}
+  @type create_hls_manifest_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -296,7 +296,7 @@ defmodule AWS.MediaPackageV2 do
         "DrmSignaling" => list(any()),
         "DvbSettings" => dash_dvb_settings(),
         "FilterConfiguration" => filter_configuration(),
-        "ManifestName" => String.t(),
+        "ManifestName" => String.t() | Atom.t(),
         "ManifestWindowSeconds" => [integer()],
         "MinBufferTimeSeconds" => [integer()],
         "MinUpdatePeriodSeconds" => [integer()],
@@ -311,20 +311,20 @@ defmodule AWS.MediaPackageV2 do
       }
 
   """
-  @type create_dash_manifest_configuration() :: %{String.t() => any()}
+  @type create_dash_manifest_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       dash_dvb_font_download() :: %{
-        "FontFamily" => [String.t()],
-        "MimeType" => [String.t()],
-        "Url" => [String.t()]
+        "FontFamily" => [String.t() | Atom.t()],
+        "MimeType" => [String.t() | Atom.t()],
+        "Url" => [String.t() | Atom.t()]
       }
 
   """
-  @type dash_dvb_font_download() :: %{String.t() => any()}
+  @type dash_dvb_font_download() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -332,8 +332,8 @@ defmodule AWS.MediaPackageV2 do
 
       update_origin_endpoint_request() :: %{
         optional("DashManifests") => list(create_dash_manifest_configuration()),
-        optional("Description") => String.t(),
-        optional("ETag") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("ETag") => String.t() | Atom.t(),
         optional("ForceEndpointErrorConfiguration") => force_endpoint_error_configuration(),
         optional("HlsManifests") => list(create_hls_manifest_configuration()),
         optional("LowLatencyHlsManifests") => list(create_low_latency_hls_manifest_configuration()),
@@ -344,7 +344,7 @@ defmodule AWS.MediaPackageV2 do
       }
 
   """
-  @type update_origin_endpoint_request() :: %{String.t() => any()}
+  @type update_origin_endpoint_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -360,22 +360,22 @@ defmodule AWS.MediaPackageV2 do
   ## Example:
 
       harvested_dash_manifest() :: %{
-        "ManifestName" => String.t()
+        "ManifestName" => String.t() | Atom.t()
       }
 
   """
-  @type harvested_dash_manifest() :: %{String.t() => any()}
+  @type harvested_dash_manifest() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_origin_endpoint_policy_request() :: %{
-        required("Policy") => String.t()
+        required("Policy") => String.t() | Atom.t()
       }
 
   """
-  @type put_origin_endpoint_policy_request() :: %{String.t() => any()}
+  @type put_origin_endpoint_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -383,26 +383,26 @@ defmodule AWS.MediaPackageV2 do
 
       dash_utc_timing() :: %{
         "TimingMode" => list(any()),
-        "TimingSource" => [String.t()]
+        "TimingSource" => [String.t() | Atom.t()]
       }
 
   """
-  @type dash_utc_timing() :: %{String.t() => any()}
+  @type dash_utc_timing() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_harvest_jobs_request() :: %{
-        optional("ChannelName") => String.t(),
+        optional("ChannelName") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t()],
-        optional("OriginEndpointName") => String.t(),
+        optional("NextToken") => [String.t() | Atom.t()],
+        optional("OriginEndpointName") => String.t() | Atom.t(),
         optional("Status") => list(any())
       }
 
   """
-  @type list_harvest_jobs_request() :: %{String.t() => any()}
+  @type list_harvest_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -429,62 +429,62 @@ defmodule AWS.MediaPackageV2 do
       get_mss_manifest_configuration() :: %{
         "FilterConfiguration" => filter_configuration(),
         "ManifestLayout" => list(any()),
-        "ManifestName" => String.t(),
+        "ManifestName" => String.t() | Atom.t(),
         "ManifestWindowSeconds" => [integer()],
-        "Url" => [String.t()]
+        "Url" => [String.t() | Atom.t()]
       }
 
   """
-  @type get_mss_manifest_configuration() :: %{String.t() => any()}
+  @type get_mss_manifest_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_low_latency_hls_manifest_configuration() :: %{
-        "ChildManifestName" => String.t(),
+        "ChildManifestName" => String.t() | Atom.t(),
         "FilterConfiguration" => filter_configuration(),
-        "ManifestName" => String.t(),
+        "ManifestName" => String.t() | Atom.t(),
         "ManifestWindowSeconds" => [integer()],
         "ProgramDateTimeIntervalSeconds" => [integer()],
         "ScteHls" => scte_hls(),
         "StartTag" => start_tag(),
-        "Url" => [String.t()],
+        "Url" => [String.t() | Atom.t()],
         "UrlEncodeChildManifest" => [boolean()]
       }
 
   """
-  @type get_low_latency_hls_manifest_configuration() :: %{String.t() => any()}
+  @type get_low_latency_hls_manifest_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_hls_manifest_configuration() :: %{
-        "ChildManifestName" => String.t(),
+        "ChildManifestName" => String.t() | Atom.t(),
         "FilterConfiguration" => filter_configuration(),
-        "ManifestName" => String.t(),
+        "ManifestName" => String.t() | Atom.t(),
         "ManifestWindowSeconds" => [integer()],
         "ProgramDateTimeIntervalSeconds" => [integer()],
         "ScteHls" => scte_hls(),
         "StartTag" => start_tag(),
-        "Url" => [String.t()],
+        "Url" => [String.t() | Atom.t()],
         "UrlEncodeChildManifest" => [boolean()]
       }
 
   """
-  @type get_hls_manifest_configuration() :: %{String.t() => any()}
+  @type get_hls_manifest_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t())
+        required("TagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -492,11 +492,11 @@ defmodule AWS.MediaPackageV2 do
 
       list_channel_groups_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t()]
+        optional("NextToken") => [String.t() | Atom.t()]
       }
 
   """
-  @type list_channel_groups_request() :: %{String.t() => any()}
+  @type list_channel_groups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -507,13 +507,13 @@ defmodule AWS.MediaPackageV2 do
         "IncludeIframeOnlyStreams" => [boolean()],
         "Scte" => scte(),
         "SegmentDurationSeconds" => [integer()],
-        "SegmentName" => [String.t()],
+        "SegmentName" => [String.t() | Atom.t()],
         "TsIncludeDvbSubtitles" => [boolean()],
         "TsUseAudioRenditionGroup" => [boolean()]
       }
 
   """
-  @type segment() :: %{String.t() => any()}
+  @type segment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -521,11 +521,11 @@ defmodule AWS.MediaPackageV2 do
 
       list_origin_endpoints_response() :: %{
         "Items" => list(origin_endpoint_list_configuration()),
-        "NextToken" => [String.t()]
+        "NextToken" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_origin_endpoints_response() :: %{String.t() => any()}
+  @type list_origin_endpoints_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -541,9 +541,9 @@ defmodule AWS.MediaPackageV2 do
   ## Example:
 
       create_harvest_job_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("Description") => String.t(),
-        optional("HarvestJobName") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("HarvestJobName") => String.t() | Atom.t(),
         optional("Tags") => map(),
         required("Destination") => destination(),
         required("HarvestedManifests") => harvested_manifests(),
@@ -551,18 +551,18 @@ defmodule AWS.MediaPackageV2 do
       }
 
   """
-  @type create_harvest_job_request() :: %{String.t() => any()}
+  @type create_harvest_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       harvested_low_latency_hls_manifest() :: %{
-        "ManifestName" => String.t()
+        "ManifestName" => String.t() | Atom.t()
       }
 
   """
-  @type harvested_low_latency_hls_manifest() :: %{String.t() => any()}
+  @type harvested_low_latency_hls_manifest() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -574,7 +574,7 @@ defmodule AWS.MediaPackageV2 do
       }
 
   """
-  @type start_tag() :: %{String.t() => any()}
+  @type start_tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -585,7 +585,7 @@ defmodule AWS.MediaPackageV2 do
       }
 
   """
-  @type force_endpoint_error_configuration() :: %{String.t() => any()}
+  @type force_endpoint_error_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -596,7 +596,7 @@ defmodule AWS.MediaPackageV2 do
       }
 
   """
-  @type output_header_configuration() :: %{String.t() => any()}
+  @type output_header_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -612,12 +612,12 @@ defmodule AWS.MediaPackageV2 do
   ## Example:
 
       list_mss_manifest_configuration() :: %{
-        "ManifestName" => String.t(),
-        "Url" => [String.t()]
+        "ManifestName" => String.t() | Atom.t(),
+        "Url" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_mss_manifest_configuration() :: %{String.t() => any()}
+  @type list_mss_manifest_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -628,7 +628,7 @@ defmodule AWS.MediaPackageV2 do
       }
 
   """
-  @type dash_ttml_configuration() :: %{String.t() => any()}
+  @type dash_ttml_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -636,23 +636,23 @@ defmodule AWS.MediaPackageV2 do
 
       conflict_exception() :: %{
         "ConflictExceptionType" => list(any()),
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => [String.t()],
+        "Message" => [String.t() | Atom.t()],
         "ResourceTypeNotFound" => list(any())
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -663,21 +663,21 @@ defmodule AWS.MediaPackageV2 do
       }
 
   """
-  @type dash_subtitle_configuration() :: %{String.t() => any()}
+  @type dash_subtitle_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_channel_group_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("Description") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("Tags") => map(),
-        required("ChannelGroupName") => String.t()
+        required("ChannelGroupName") => String.t() | Atom.t()
       }
 
   """
-  @type create_channel_group_request() :: %{String.t() => any()}
+  @type create_channel_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -685,22 +685,22 @@ defmodule AWS.MediaPackageV2 do
 
       dash_dvb_metrics_reporting() :: %{
         "Probability" => [integer()],
-        "ReportingUrl" => [String.t()]
+        "ReportingUrl" => [String.t() | Atom.t()]
       }
 
   """
-  @type dash_dvb_metrics_reporting() :: %{String.t() => any()}
+  @type dash_dvb_metrics_reporting() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -709,12 +709,12 @@ defmodule AWS.MediaPackageV2 do
       dash_base_url() :: %{
         "DvbPriority" => [integer()],
         "DvbWeight" => [integer()],
-        "ServiceLocation" => [String.t()],
-        "Url" => [String.t()]
+        "ServiceLocation" => [String.t() | Atom.t()],
+        "Url" => [String.t() | Atom.t()]
       }
 
   """
-  @type dash_base_url() :: %{String.t() => any()}
+  @type dash_base_url() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -748,15 +748,15 @@ defmodule AWS.MediaPackageV2 do
   ## Example:
 
       reset_origin_endpoint_state_response() :: %{
-        "Arn" => [String.t()],
-        "ChannelGroupName" => String.t(),
-        "ChannelName" => String.t(),
-        "OriginEndpointName" => String.t(),
+        "Arn" => [String.t() | Atom.t()],
+        "ChannelGroupName" => String.t() | Atom.t(),
+        "ChannelName" => String.t() | Atom.t(),
+        "OriginEndpointName" => String.t() | Atom.t(),
         "ResetAt" => [non_neg_integer()]
       }
 
   """
-  @type reset_origin_endpoint_state_response() :: %{String.t() => any()}
+  @type reset_origin_endpoint_state_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -768,19 +768,19 @@ defmodule AWS.MediaPackageV2 do
       }
 
   """
-  @type dash_dvb_settings() :: %{String.t() => any()}
+  @type dash_dvb_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_channel_group_request() :: %{
-        optional("Description") => String.t(),
-        optional("ETag") => String.t()
+        optional("Description") => String.t() | Atom.t(),
+        optional("ETag") => String.t() | Atom.t()
       }
 
   """
-  @type update_channel_group_request() :: %{String.t() => any()}
+  @type update_channel_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -789,13 +789,13 @@ defmodule AWS.MediaPackageV2 do
       speke_key_provider() :: %{
         "DrmSystems" => list(list(any())()),
         "EncryptionContractConfiguration" => encryption_contract_configuration(),
-        "ResourceId" => [String.t()],
-        "RoleArn" => [String.t()],
-        "Url" => [String.t()]
+        "ResourceId" => [String.t() | Atom.t()],
+        "RoleArn" => [String.t() | Atom.t()],
+        "Url" => [String.t() | Atom.t()]
       }
 
   """
-  @type speke_key_provider() :: %{String.t() => any()}
+  @type speke_key_provider() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -803,26 +803,26 @@ defmodule AWS.MediaPackageV2 do
 
       encryption() :: %{
         "CmafExcludeSegmentDrmMetadata" => [boolean()],
-        "ConstantInitializationVector" => [String.t()],
+        "ConstantInitializationVector" => [String.t() | Atom.t()],
         "EncryptionMethod" => encryption_method(),
         "KeyRotationIntervalSeconds" => [integer()],
         "SpekeKeyProvider" => speke_key_provider()
       }
 
   """
-  @type encryption() :: %{String.t() => any()}
+  @type encryption() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       ingest_endpoint() :: %{
-        "Id" => [String.t()],
-        "Url" => [String.t()]
+        "Id" => [String.t() | Atom.t()],
+        "Url" => [String.t() | Atom.t()]
       }
 
   """
-  @type ingest_endpoint() :: %{String.t() => any()}
+  @type ingest_endpoint() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -838,17 +838,17 @@ defmodule AWS.MediaPackageV2 do
   ## Example:
 
       create_channel_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("Description") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("InputSwitchConfiguration") => input_switch_configuration(),
         optional("InputType") => list(any()),
         optional("OutputHeaderConfiguration") => output_header_configuration(),
         optional("Tags") => map(),
-        required("ChannelName") => String.t()
+        required("ChannelName") => String.t() | Atom.t()
       }
 
   """
-  @type create_channel_request() :: %{String.t() => any()}
+  @type create_channel_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -857,13 +857,13 @@ defmodule AWS.MediaPackageV2 do
       filter_configuration() :: %{
         "ClipStartTime" => [non_neg_integer()],
         "End" => [non_neg_integer()],
-        "ManifestFilter" => [String.t()],
+        "ManifestFilter" => [String.t() | Atom.t()],
         "Start" => [non_neg_integer()],
         "TimeDelaySeconds" => [integer()]
       }
 
   """
-  @type filter_configuration() :: %{String.t() => any()}
+  @type filter_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -874,20 +874,20 @@ defmodule AWS.MediaPackageV2 do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_channel_policy_response() :: %{
-        "ChannelGroupName" => [String.t()],
-        "ChannelName" => [String.t()],
-        "Policy" => String.t()
+        "ChannelGroupName" => [String.t() | Atom.t()],
+        "ChannelName" => [String.t() | Atom.t()],
+        "Policy" => String.t() | Atom.t()
       }
 
   """
-  @type get_channel_policy_response() :: %{String.t() => any()}
+  @type get_channel_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -899,7 +899,7 @@ defmodule AWS.MediaPackageV2 do
         "DrmSignaling" => list(any()),
         "DvbSettings" => dash_dvb_settings(),
         "FilterConfiguration" => filter_configuration(),
-        "ManifestName" => String.t(),
+        "ManifestName" => String.t() | Atom.t(),
         "ManifestWindowSeconds" => [integer()],
         "MinBufferTimeSeconds" => [integer()],
         "MinUpdatePeriodSeconds" => [integer()],
@@ -910,12 +910,12 @@ defmodule AWS.MediaPackageV2 do
         "SegmentTemplateFormat" => list(any()),
         "SubtitleConfiguration" => dash_subtitle_configuration(),
         "SuggestedPresentationDelaySeconds" => [integer()],
-        "Url" => [String.t()],
+        "Url" => [String.t() | Atom.t()],
         "UtcTiming" => dash_utc_timing()
       }
 
   """
-  @type get_dash_manifest_configuration() :: %{String.t() => any()}
+  @type get_dash_manifest_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -923,11 +923,11 @@ defmodule AWS.MediaPackageV2 do
 
       list_channels_response() :: %{
         "Items" => list(channel_list_configuration()),
-        "NextToken" => [String.t()]
+        "NextToken" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_channels_response() :: %{String.t() => any()}
+  @type list_channels_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -945,44 +945,44 @@ defmodule AWS.MediaPackageV2 do
       create_mss_manifest_configuration() :: %{
         "FilterConfiguration" => filter_configuration(),
         "ManifestLayout" => list(any()),
-        "ManifestName" => String.t(),
+        "ManifestName" => String.t() | Atom.t(),
         "ManifestWindowSeconds" => [integer()]
       }
 
   """
-  @type create_mss_manifest_configuration() :: %{String.t() => any()}
+  @type create_mss_manifest_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_channel_group_response() :: %{
-        "Arn" => [String.t()],
-        "ChannelGroupName" => [String.t()],
+        "Arn" => [String.t() | Atom.t()],
+        "ChannelGroupName" => [String.t() | Atom.t()],
         "CreatedAt" => [non_neg_integer()],
-        "Description" => String.t(),
-        "ETag" => String.t(),
-        "EgressDomain" => [String.t()],
+        "Description" => String.t() | Atom.t(),
+        "ETag" => String.t() | Atom.t(),
+        "EgressDomain" => [String.t() | Atom.t()],
         "ModifiedAt" => [non_neg_integer()],
         "Tags" => map()
       }
 
   """
-  @type update_channel_group_response() :: %{String.t() => any()}
+  @type update_channel_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_channel_request() :: %{
-        optional("Description") => String.t(),
-        optional("ETag") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("ETag") => String.t() | Atom.t(),
         optional("InputSwitchConfiguration") => input_switch_configuration(),
         optional("OutputHeaderConfiguration") => output_header_configuration()
       }
 
   """
-  @type update_channel_request() :: %{String.t() => any()}
+  @type update_channel_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -994,29 +994,29 @@ defmodule AWS.MediaPackageV2 do
       }
 
   """
-  @type encryption_contract_configuration() :: %{String.t() => any()}
+  @type encryption_contract_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       harvested_hls_manifest() :: %{
-        "ManifestName" => String.t()
+        "ManifestName" => String.t() | Atom.t()
       }
 
   """
-  @type harvested_hls_manifest() :: %{String.t() => any()}
+  @type harvested_hls_manifest() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1027,7 +1027,7 @@ defmodule AWS.MediaPackageV2 do
       }
 
   """
-  @type scte_dash() :: %{String.t() => any()}
+  @type scte_dash() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1035,33 +1035,33 @@ defmodule AWS.MediaPackageV2 do
 
       list_channel_groups_response() :: %{
         "Items" => list(channel_group_list_configuration()),
-        "NextToken" => [String.t()]
+        "NextToken" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_channel_groups_response() :: %{String.t() => any()}
+  @type list_channel_groups_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_harvest_job_request() :: %{
-        optional("ETag") => String.t()
+        optional("ETag") => String.t() | Atom.t()
       }
 
   """
-  @type cancel_harvest_job_request() :: %{String.t() => any()}
+  @type cancel_harvest_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1074,7 +1074,7 @@ defmodule AWS.MediaPackageV2 do
       }
 
   """
-  @type encryption_method() :: %{String.t() => any()}
+  @type encryption_method() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1085,7 +1085,7 @@ defmodule AWS.MediaPackageV2 do
       }
 
   """
-  @type scte_hls() :: %{String.t() => any()}
+  @type scte_hls() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1110,12 +1110,12 @@ defmodule AWS.MediaPackageV2 do
   ## Example:
 
       validation_exception() :: %{
-        "Message" => [String.t()],
+        "Message" => [String.t() | Atom.t()],
         "ValidationExceptionType" => list(any())
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1135,80 +1135,80 @@ defmodule AWS.MediaPackageV2 do
       }
 
   """
-  @type destination() :: %{String.t() => any()}
+  @type destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_low_latency_hls_manifest_configuration() :: %{
-        "ChildManifestName" => String.t(),
-        "ManifestName" => String.t(),
-        "Url" => [String.t()]
+        "ChildManifestName" => String.t() | Atom.t(),
+        "ManifestName" => String.t() | Atom.t(),
+        "Url" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_low_latency_hls_manifest_configuration() :: %{String.t() => any()}
+  @type list_low_latency_hls_manifest_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_harvest_job_response() :: %{
-        "Arn" => [String.t()],
-        "ChannelGroupName" => String.t(),
-        "ChannelName" => String.t(),
+        "Arn" => [String.t() | Atom.t()],
+        "ChannelGroupName" => String.t() | Atom.t(),
+        "ChannelName" => String.t() | Atom.t(),
         "CreatedAt" => [non_neg_integer()],
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "Destination" => destination(),
-        "ETag" => String.t(),
-        "ErrorMessage" => [String.t()],
-        "HarvestJobName" => String.t(),
+        "ETag" => String.t() | Atom.t(),
+        "ErrorMessage" => [String.t() | Atom.t()],
+        "HarvestJobName" => String.t() | Atom.t(),
         "HarvestedManifests" => harvested_manifests(),
         "ModifiedAt" => [non_neg_integer()],
-        "OriginEndpointName" => String.t(),
+        "OriginEndpointName" => String.t() | Atom.t(),
         "ScheduleConfiguration" => harvester_schedule_configuration(),
         "Status" => list(any()),
         "Tags" => map()
       }
 
   """
-  @type get_harvest_job_response() :: %{String.t() => any()}
+  @type get_harvest_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       harvest_job() :: %{
-        "Arn" => [String.t()],
-        "ChannelGroupName" => String.t(),
-        "ChannelName" => String.t(),
+        "Arn" => [String.t() | Atom.t()],
+        "ChannelGroupName" => String.t() | Atom.t(),
+        "ChannelName" => String.t() | Atom.t(),
         "CreatedAt" => [non_neg_integer()],
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "Destination" => destination(),
-        "ETag" => String.t(),
-        "ErrorMessage" => [String.t()],
-        "HarvestJobName" => String.t(),
+        "ETag" => String.t() | Atom.t(),
+        "ErrorMessage" => [String.t() | Atom.t()],
+        "HarvestJobName" => String.t() | Atom.t(),
         "HarvestedManifests" => harvested_manifests(),
         "ModifiedAt" => [non_neg_integer()],
-        "OriginEndpointName" => String.t(),
+        "OriginEndpointName" => String.t() | Atom.t(),
         "ScheduleConfiguration" => harvester_schedule_configuration(),
         "Status" => list(any())
       }
 
   """
-  @type harvest_job() :: %{String.t() => any()}
+  @type harvest_job() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1228,19 +1228,19 @@ defmodule AWS.MediaPackageV2 do
       }
 
   """
-  @type scte() :: %{String.t() => any()}
+  @type scte() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_channel_response() :: %{
-        "Arn" => [String.t()],
-        "ChannelGroupName" => [String.t()],
-        "ChannelName" => [String.t()],
+        "Arn" => [String.t() | Atom.t()],
+        "ChannelGroupName" => [String.t() | Atom.t()],
+        "ChannelName" => [String.t() | Atom.t()],
         "CreatedAt" => [non_neg_integer()],
-        "Description" => String.t(),
-        "ETag" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "ETag" => String.t() | Atom.t(),
         "IngestEndpoints" => list(ingest_endpoint()),
         "InputSwitchConfiguration" => input_switch_configuration(),
         "InputType" => list(any()),
@@ -1251,7 +1251,7 @@ defmodule AWS.MediaPackageV2 do
       }
 
   """
-  @type get_channel_response() :: %{String.t() => any()}
+  @type get_channel_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1267,25 +1267,25 @@ defmodule AWS.MediaPackageV2 do
   ## Example:
 
       create_harvest_job_response() :: %{
-        "Arn" => [String.t()],
-        "ChannelGroupName" => String.t(),
-        "ChannelName" => String.t(),
+        "Arn" => [String.t() | Atom.t()],
+        "ChannelGroupName" => String.t() | Atom.t(),
+        "ChannelName" => String.t() | Atom.t(),
         "CreatedAt" => [non_neg_integer()],
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "Destination" => destination(),
-        "ETag" => String.t(),
-        "ErrorMessage" => [String.t()],
-        "HarvestJobName" => String.t(),
+        "ETag" => String.t() | Atom.t(),
+        "ErrorMessage" => [String.t() | Atom.t()],
+        "HarvestJobName" => String.t() | Atom.t(),
         "HarvestedManifests" => harvested_manifests(),
         "ModifiedAt" => [non_neg_integer()],
-        "OriginEndpointName" => String.t(),
+        "OriginEndpointName" => String.t() | Atom.t(),
         "ScheduleConfiguration" => harvester_schedule_configuration(),
         "Status" => list(any()),
         "Tags" => map()
       }
 
   """
-  @type create_harvest_job_response() :: %{String.t() => any()}
+  @type create_harvest_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1293,11 +1293,11 @@ defmodule AWS.MediaPackageV2 do
 
       list_harvest_jobs_response() :: %{
         "Items" => list(harvest_job()),
-        "NextToken" => [String.t()]
+        "NextToken" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_harvest_jobs_response() :: %{String.t() => any()}
+  @type list_harvest_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1313,12 +1313,12 @@ defmodule AWS.MediaPackageV2 do
   ## Example:
 
       update_channel_response() :: %{
-        "Arn" => [String.t()],
-        "ChannelGroupName" => [String.t()],
-        "ChannelName" => [String.t()],
+        "Arn" => [String.t() | Atom.t()],
+        "ChannelGroupName" => [String.t() | Atom.t()],
+        "ChannelName" => [String.t() | Atom.t()],
         "CreatedAt" => [non_neg_integer()],
-        "Description" => String.t(),
-        "ETag" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "ETag" => String.t() | Atom.t(),
         "IngestEndpoints" => list(ingest_endpoint()),
         "InputSwitchConfiguration" => input_switch_configuration(),
         "InputType" => list(any()),
@@ -1328,30 +1328,30 @@ defmodule AWS.MediaPackageV2 do
       }
 
   """
-  @type update_channel_response() :: %{String.t() => any()}
+  @type update_channel_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       origin_endpoint_list_configuration() :: %{
-        "Arn" => [String.t()],
-        "ChannelGroupName" => String.t(),
-        "ChannelName" => String.t(),
+        "Arn" => [String.t() | Atom.t()],
+        "ChannelGroupName" => String.t() | Atom.t(),
+        "ChannelName" => String.t() | Atom.t(),
         "ContainerType" => list(any()),
         "CreatedAt" => [non_neg_integer()],
         "DashManifests" => list(list_dash_manifest_configuration()),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "ForceEndpointErrorConfiguration" => force_endpoint_error_configuration(),
         "HlsManifests" => list(list_hls_manifest_configuration()),
         "LowLatencyHlsManifests" => list(list_low_latency_hls_manifest_configuration()),
         "ModifiedAt" => [non_neg_integer()],
         "MssManifests" => list(list_mss_manifest_configuration()),
-        "OriginEndpointName" => String.t()
+        "OriginEndpointName" => String.t() | Atom.t()
       }
 
   """
-  @type origin_endpoint_list_configuration() :: %{String.t() => any()}
+  @type origin_endpoint_list_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1367,41 +1367,41 @@ defmodule AWS.MediaPackageV2 do
   ## Example:
 
       reset_channel_state_response() :: %{
-        "Arn" => [String.t()],
-        "ChannelGroupName" => [String.t()],
-        "ChannelName" => [String.t()],
+        "Arn" => [String.t() | Atom.t()],
+        "ChannelGroupName" => [String.t() | Atom.t()],
+        "ChannelName" => [String.t() | Atom.t()],
         "ResetAt" => [non_neg_integer()]
       }
 
   """
-  @type reset_channel_state_response() :: %{String.t() => any()}
+  @type reset_channel_state_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_channel_group_response() :: %{
-        "Arn" => [String.t()],
-        "ChannelGroupName" => [String.t()],
+        "Arn" => [String.t() | Atom.t()],
+        "ChannelGroupName" => [String.t() | Atom.t()],
         "CreatedAt" => [non_neg_integer()],
-        "Description" => String.t(),
-        "ETag" => String.t(),
-        "EgressDomain" => [String.t()],
+        "Description" => String.t() | Atom.t(),
+        "ETag" => String.t() | Atom.t(),
+        "EgressDomain" => [String.t() | Atom.t()],
         "ModifiedAt" => [non_neg_integer()],
         "Tags" => map()
       }
 
   """
-  @type get_channel_group_response() :: %{String.t() => any()}
+  @type get_channel_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_low_latency_hls_manifest_configuration() :: %{
-        "ChildManifestName" => String.t(),
+        "ChildManifestName" => String.t() | Atom.t(),
         "FilterConfiguration" => filter_configuration(),
-        "ManifestName" => String.t(),
+        "ManifestName" => String.t() | Atom.t(),
         "ManifestWindowSeconds" => [integer()],
         "ProgramDateTimeIntervalSeconds" => [integer()],
         "ScteHls" => scte_hls(),
@@ -1410,25 +1410,25 @@ defmodule AWS.MediaPackageV2 do
       }
 
   """
-  @type create_low_latency_hls_manifest_configuration() :: %{String.t() => any()}
+  @type create_low_latency_hls_manifest_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_channel_group_response() :: %{
-        "Arn" => [String.t()],
-        "ChannelGroupName" => [String.t()],
+        "Arn" => [String.t() | Atom.t()],
+        "ChannelGroupName" => [String.t() | Atom.t()],
         "CreatedAt" => [non_neg_integer()],
-        "Description" => String.t(),
-        "ETag" => String.t(),
-        "EgressDomain" => [String.t()],
+        "Description" => String.t() | Atom.t(),
+        "ETag" => String.t() | Atom.t(),
+        "EgressDomain" => [String.t() | Atom.t()],
         "ModifiedAt" => [non_neg_integer()],
         "Tags" => map()
       }
 
   """
-  @type create_channel_group_response() :: %{String.t() => any()}
+  @type create_channel_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1441,34 +1441,34 @@ defmodule AWS.MediaPackageV2 do
       }
 
   """
-  @type harvested_manifests() :: %{String.t() => any()}
+  @type harvested_manifests() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_origin_endpoint_response() :: %{
-        "Arn" => [String.t()],
-        "ChannelGroupName" => String.t(),
-        "ChannelName" => String.t(),
+        "Arn" => [String.t() | Atom.t()],
+        "ChannelGroupName" => String.t() | Atom.t(),
+        "ChannelName" => String.t() | Atom.t(),
         "ContainerType" => list(any()),
         "CreatedAt" => [non_neg_integer()],
         "DashManifests" => list(get_dash_manifest_configuration()),
-        "Description" => String.t(),
-        "ETag" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "ETag" => String.t() | Atom.t(),
         "ForceEndpointErrorConfiguration" => force_endpoint_error_configuration(),
         "HlsManifests" => list(get_hls_manifest_configuration()),
         "LowLatencyHlsManifests" => list(get_low_latency_hls_manifest_configuration()),
         "ModifiedAt" => [non_neg_integer()],
         "MssManifests" => list(get_mss_manifest_configuration()),
-        "OriginEndpointName" => String.t(),
+        "OriginEndpointName" => String.t() | Atom.t(),
         "Segment" => segment(),
         "StartoverWindowSeconds" => [integer()],
         "Tags" => map()
       }
 
   """
-  @type update_origin_endpoint_response() :: %{String.t() => any()}
+  @type update_origin_endpoint_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1476,11 +1476,11 @@ defmodule AWS.MediaPackageV2 do
 
       list_channels_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t()]
+        optional("NextToken") => [String.t() | Atom.t()]
       }
 
   """
-  @type list_channels_request() :: %{String.t() => any()}
+  @type list_channels_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1488,57 +1488,57 @@ defmodule AWS.MediaPackageV2 do
 
       list_origin_endpoints_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t()]
+        optional("NextToken") => [String.t() | Atom.t()]
       }
 
   """
-  @type list_origin_endpoints_request() :: %{String.t() => any()}
+  @type list_origin_endpoints_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_destination_config() :: %{
-        "BucketName" => String.t(),
-        "DestinationPath" => String.t()
+        "BucketName" => String.t() | Atom.t(),
+        "DestinationPath" => String.t() | Atom.t()
       }
 
   """
-  @type s3_destination_config() :: %{String.t() => any()}
+  @type s3_destination_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_origin_endpoint_policy_response() :: %{
-        "ChannelGroupName" => String.t(),
-        "ChannelName" => String.t(),
-        "OriginEndpointName" => String.t(),
-        "Policy" => String.t()
+        "ChannelGroupName" => String.t() | Atom.t(),
+        "ChannelName" => String.t() | Atom.t(),
+        "OriginEndpointName" => String.t() | Atom.t(),
+        "Policy" => String.t() | Atom.t()
       }
 
   """
-  @type get_origin_endpoint_policy_response() :: %{String.t() => any()}
+  @type get_origin_endpoint_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_origin_endpoint_response() :: %{
-        "Arn" => [String.t()],
-        "ChannelGroupName" => String.t(),
-        "ChannelName" => String.t(),
+        "Arn" => [String.t() | Atom.t()],
+        "ChannelGroupName" => String.t() | Atom.t(),
+        "ChannelName" => String.t() | Atom.t(),
         "ContainerType" => list(any()),
         "CreatedAt" => [non_neg_integer()],
         "DashManifests" => list(get_dash_manifest_configuration()),
-        "Description" => String.t(),
-        "ETag" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "ETag" => String.t() | Atom.t(),
         "ForceEndpointErrorConfiguration" => force_endpoint_error_configuration(),
         "HlsManifests" => list(get_hls_manifest_configuration()),
         "LowLatencyHlsManifests" => list(get_low_latency_hls_manifest_configuration()),
         "ModifiedAt" => [non_neg_integer()],
         "MssManifests" => list(get_mss_manifest_configuration()),
-        "OriginEndpointName" => String.t(),
+        "OriginEndpointName" => String.t() | Atom.t(),
         "ResetAt" => [non_neg_integer()],
         "Segment" => segment(),
         "StartoverWindowSeconds" => [integer()],
@@ -1546,7 +1546,7 @@ defmodule AWS.MediaPackageV2 do
       }
 
   """
-  @type get_origin_endpoint_response() :: %{String.t() => any()}
+  @type get_origin_endpoint_response() :: %{String.t() | Atom.t() => any()}
 
   @type cancel_harvest_job_errors() ::
           throttling_exception()
@@ -1779,10 +1779,10 @@ defmodule AWS.MediaPackageV2 do
   """
   @spec cancel_harvest_job(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           cancel_harvest_job_request(),
           list()
         ) ::
@@ -1837,7 +1837,7 @@ defmodule AWS.MediaPackageV2 do
   channel groups, such as putting redundant channels in the same AWS Region in
   different channel groups.
   """
-  @spec create_channel(map(), String.t(), create_channel_request(), list()) ::
+  @spec create_channel(map(), String.t() | Atom.t(), create_channel_request(), list()) ::
           {:ok, create_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1916,9 +1916,9 @@ defmodule AWS.MediaPackageV2 do
   """
   @spec create_harvest_job(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           create_harvest_job_request(),
           list()
         ) ::
@@ -1972,8 +1972,8 @@ defmodule AWS.MediaPackageV2 do
   """
   @spec create_origin_endpoint(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           create_origin_endpoint_request(),
           list()
         ) ::
@@ -2022,7 +2022,13 @@ defmodule AWS.MediaPackageV2 do
   You must delete the channel's origin endpoints before you can delete the
   channel.
   """
-  @spec delete_channel(map(), String.t(), String.t(), delete_channel_request(), list()) ::
+  @spec delete_channel(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_channel_request(),
+          list()
+        ) ::
           {:ok, delete_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2057,7 +2063,7 @@ defmodule AWS.MediaPackageV2 do
   delete the channel group. If you delete a channel group, you'll lose access to
   the egress domain and will have to create a new channel group to replace it.
   """
-  @spec delete_channel_group(map(), String.t(), delete_channel_group_request(), list()) ::
+  @spec delete_channel_group(map(), String.t() | Atom.t(), delete_channel_group_request(), list()) ::
           {:ok, delete_channel_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2088,8 +2094,8 @@ defmodule AWS.MediaPackageV2 do
   """
   @spec delete_channel_policy(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_channel_policy_request(),
           list()
         ) ::
@@ -2134,9 +2140,9 @@ defmodule AWS.MediaPackageV2 do
   """
   @spec delete_origin_endpoint(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_origin_endpoint_request(),
           list()
         ) ::
@@ -2179,9 +2185,9 @@ defmodule AWS.MediaPackageV2 do
   """
   @spec delete_origin_endpoint_policy(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_origin_endpoint_policy_request(),
           list()
         ) ::
@@ -2223,7 +2229,7 @@ defmodule AWS.MediaPackageV2 do
   Retrieves the specified channel that's configured in AWS Elemental MediaPackage,
   including the origin endpoints that are associated with it.
   """
-  @spec get_channel(map(), String.t(), String.t(), list()) ::
+  @spec get_channel(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2245,7 +2251,7 @@ defmodule AWS.MediaPackageV2 do
   MediaPackage, including the channels and origin endpoints that are associated
   with it.
   """
-  @spec get_channel_group(map(), String.t(), list()) ::
+  @spec get_channel_group(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_channel_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2267,7 +2273,7 @@ defmodule AWS.MediaPackageV2 do
   With policies, you can specify who has access to AWS resources and what actions
   they can perform on those resources.
   """
-  @spec get_channel_policy(map(), String.t(), String.t(), list()) ::
+  @spec get_channel_policy(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_channel_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2287,7 +2293,14 @@ defmodule AWS.MediaPackageV2 do
   @doc """
   Retrieves the details of a specific harvest job.
   """
-  @spec get_harvest_job(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_harvest_job(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_harvest_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2316,7 +2329,13 @@ defmodule AWS.MediaPackageV2 do
   MediaPackage to obtain its playback URL and to view the packaging settings that
   it's currently using.
   """
-  @spec get_origin_endpoint(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_origin_endpoint(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_origin_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2343,7 +2362,13 @@ defmodule AWS.MediaPackageV2 do
   Retrieves the specified origin endpoint policy that's configured in AWS
   Elemental MediaPackage.
   """
-  @spec get_origin_endpoint_policy(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_origin_endpoint_policy(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_origin_endpoint_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2369,7 +2394,12 @@ defmodule AWS.MediaPackageV2 do
   @doc """
   Retrieves all channel groups that are configured in Elemental MediaPackage.
   """
-  @spec list_channel_groups(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_channel_groups(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_channel_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2408,7 +2438,13 @@ defmodule AWS.MediaPackageV2 do
   Elemental MediaPackage, including the origin endpoints that are associated with
   it.
   """
-  @spec list_channels(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_channels(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2448,12 +2484,12 @@ defmodule AWS.MediaPackageV2 do
   """
   @spec list_harvest_jobs(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_harvest_jobs_response(), any()}
@@ -2520,10 +2556,10 @@ defmodule AWS.MediaPackageV2 do
   """
   @spec list_origin_endpoints(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_origin_endpoints_response(), any()}
@@ -2566,7 +2602,7 @@ defmodule AWS.MediaPackageV2 do
   @doc """
   Lists the tags assigned to a resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2588,7 +2624,13 @@ defmodule AWS.MediaPackageV2 do
   they can perform on those resources. You can attach only one policy with each
   request.
   """
-  @spec put_channel_policy(map(), String.t(), String.t(), put_channel_policy_request(), list()) ::
+  @spec put_channel_policy(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          put_channel_policy_request(),
+          list()
+        ) ::
           {:ok, put_channel_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2629,9 +2671,9 @@ defmodule AWS.MediaPackageV2 do
   """
   @spec put_origin_endpoint_policy(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           put_origin_endpoint_policy_request(),
           list()
         ) ::
@@ -2678,7 +2720,13 @@ defmodule AWS.MediaPackageV2 do
   Be sure to stop the encoder before you reset the channel, and wait at least 30
   seconds before you restart the encoder.
   """
-  @spec reset_channel_state(map(), String.t(), String.t(), reset_channel_state_request(), list()) ::
+  @spec reset_channel_state(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          reset_channel_state_request(),
+          list()
+        ) ::
           {:ok, reset_channel_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2726,9 +2774,9 @@ defmodule AWS.MediaPackageV2 do
   """
   @spec reset_origin_endpoint_state(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           reset_origin_endpoint_state_request(),
           list()
         ) ::
@@ -2781,7 +2829,7 @@ defmodule AWS.MediaPackageV2 do
   specify a tag key that is already associated with the resource, the new tag
   value that you specify replaces the previous value for that tag.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2810,7 +2858,7 @@ defmodule AWS.MediaPackageV2 do
   @doc """
   Removes one or more tags from the specified resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2852,7 +2900,13 @@ defmodule AWS.MediaPackageV2 do
   Any edits you make that impact the video output may not be reflected for a few
   minutes.
   """
-  @spec update_channel(map(), String.t(), String.t(), update_channel_request(), list()) ::
+  @spec update_channel(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_channel_request(),
+          list()
+        ) ::
           {:ok, update_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2895,7 +2949,7 @@ defmodule AWS.MediaPackageV2 do
   Any edits you make that impact the video output may not be reflected for a few
   minutes.
   """
-  @spec update_channel_group(map(), String.t(), update_channel_group_request(), list()) ::
+  @spec update_channel_group(map(), String.t() | Atom.t(), update_channel_group_request(), list()) ::
           {:ok, update_channel_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2938,9 +2992,9 @@ defmodule AWS.MediaPackageV2 do
   """
   @spec update_origin_endpoint(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_origin_endpoint_request(),
           list()
         ) ::

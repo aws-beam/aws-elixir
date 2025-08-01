@@ -23,41 +23,41 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type create_media_capture_pipeline_response() :: %{String.t() => any()}
+  @type create_media_capture_pipeline_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       kinesis_data_stream_sink_configuration() :: %{
-        "InsightsTarget" => String.t()
+        "InsightsTarget" => String.t() | Atom.t()
       }
 
   """
-  @type kinesis_data_stream_sink_configuration() :: %{String.t() => any()}
+  @type kinesis_data_stream_sink_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       recording_stream_configuration() :: %{
-        "StreamArn" => String.t()
+        "StreamArn" => String.t() | Atom.t()
       }
 
   """
-  @type recording_stream_configuration() :: %{String.t() => any()}
+  @type recording_stream_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
+        required("ResourceARN") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -68,7 +68,10 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type update_media_insights_pipeline_configuration_response() :: %{String.t() => any()}
+  @type update_media_insights_pipeline_configuration_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -79,20 +82,20 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type data_channel_concatenation_configuration() :: %{String.t() => any()}
+  @type data_channel_concatenation_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_voice_tone_analysis_task_request() :: %{
-        optional("ClientRequestToken") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
         optional("KinesisVideoStreamSourceTaskConfiguration") => kinesis_video_stream_source_task_configuration(),
         required("LanguageCode") => list(any())
       }
 
   """
-  @type start_voice_tone_analysis_task_request() :: %{String.t() => any()}
+  @type start_voice_tone_analysis_task_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -103,7 +106,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type video_concatenation_configuration() :: %{String.t() => any()}
+  @type video_concatenation_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -114,7 +117,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type start_speaker_search_task_response() :: %{String.t() => any()}
+  @type start_speaker_search_task_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -130,14 +133,14 @@ defmodule AWS.ChimeSDKMediaPipelines do
   ## Example:
 
       create_media_concatenation_pipeline_request() :: %{
-        optional("ClientRequestToken") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
         required("Sinks") => list(concatenation_sink()),
         required("Sources") => list(concatenation_source())
       }
 
   """
-  @type create_media_concatenation_pipeline_request() :: %{String.t() => any()}
+  @type create_media_concatenation_pipeline_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -148,7 +151,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type get_media_capture_pipeline_response() :: %{String.t() => any()}
+  @type get_media_capture_pipeline_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -169,7 +172,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type video_artifacts_configuration() :: %{String.t() => any()}
+  @type video_artifacts_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -177,12 +180,12 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       service_failure_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
 
   """
-  @type service_failure_exception() :: %{String.t() => any()}
+  @type service_failure_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -193,21 +196,21 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type meeting_events_concatenation_configuration() :: %{String.t() => any()}
+  @type meeting_events_concatenation_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       chime_sdk_meeting_live_connector_configuration() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CompositedVideo" => composited_video_artifacts_configuration(),
         "MuxType" => list(any()),
         "SourceConfiguration" => source_configuration()
       }
 
   """
-  @type chime_sdk_meeting_live_connector_configuration() :: %{String.t() => any()}
+  @type chime_sdk_meeting_live_connector_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -215,26 +218,29 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       forbidden_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
 
   """
-  @type forbidden_exception() :: %{String.t() => any()}
+  @type forbidden_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_media_pipeline_kinesis_video_stream_pool_request() :: %{
-        optional("ClientRequestToken") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("PoolName") => String.t(),
+        required("PoolName") => String.t() | Atom.t(),
         required("StreamConfiguration") => kinesis_video_stream_configuration()
       }
 
   """
-  @type create_media_pipeline_kinesis_video_stream_pool_request() :: %{String.t() => any()}
+  @type create_media_pipeline_kinesis_video_stream_pool_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -260,11 +266,14 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       list_media_pipeline_kinesis_video_stream_pools_response() :: %{
         "KinesisVideoStreamPools" => list(kinesis_video_stream_pool_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_media_pipeline_kinesis_video_stream_pools_response() :: %{String.t() => any()}
+  @type list_media_pipeline_kinesis_video_stream_pools_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -289,23 +298,23 @@ defmodule AWS.ChimeSDKMediaPipelines do
   ## Example:
 
       sqs_queue_sink_configuration() :: %{
-        "InsightsTarget" => String.t()
+        "InsightsTarget" => String.t() | Atom.t()
       }
 
   """
-  @type sqs_queue_sink_configuration() :: %{String.t() => any()}
+  @type sqs_queue_sink_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       selected_video_streams() :: %{
-        "AttendeeIds" => list(String.t()),
-        "ExternalUserIds" => list(String.t())
+        "AttendeeIds" => list(String.t() | Atom.t()),
+        "ExternalUserIds" => list(String.t() | Atom.t())
       }
 
   """
-  @type selected_video_streams() :: %{String.t() => any()}
+  @type selected_video_streams() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -313,12 +322,12 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       live_connector_r_t_m_p_configuration() :: %{
         "AudioChannels" => list(any()),
-        "AudioSampleRate" => String.t(),
-        "Url" => String.t()
+        "AudioSampleRate" => String.t() | Atom.t(),
+        "Url" => String.t() | Atom.t()
       }
 
   """
-  @type live_connector_r_t_m_p_configuration() :: %{String.t() => any()}
+  @type live_connector_r_t_m_p_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -326,24 +335,24 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       kinesis_video_stream_source_task_configuration() :: %{
         "ChannelId" => integer(),
-        "FragmentNumber" => String.t(),
-        "StreamArn" => String.t()
+        "FragmentNumber" => String.t() | Atom.t(),
+        "StreamArn" => String.t() | Atom.t()
       }
 
   """
-  @type kinesis_video_stream_source_task_configuration() :: %{String.t() => any()}
+  @type kinesis_video_stream_source_task_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_recording_sink_configuration() :: %{
-        "Destination" => String.t(),
+        "Destination" => String.t() | Atom.t(),
         "RecordingFileFormat" => list(any())
       }
 
   """
-  @type s3_recording_sink_configuration() :: %{String.t() => any()}
+  @type s3_recording_sink_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -351,12 +360,12 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       unauthorized_client_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
 
   """
-  @type unauthorized_client_exception() :: %{String.t() => any()}
+  @type unauthorized_client_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -367,7 +376,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type audio_concatenation_configuration() :: %{String.t() => any()}
+  @type audio_concatenation_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -378,7 +387,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type composited_video_concatenation_configuration() :: %{String.t() => any()}
+  @type composited_video_concatenation_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -386,13 +395,13 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       speaker_search_task() :: %{
         "CreatedTimestamp" => non_neg_integer(),
-        "SpeakerSearchTaskId" => String.t(),
+        "SpeakerSearchTaskId" => String.t() | Atom.t(),
         "SpeakerSearchTaskStatus" => list(any()),
         "UpdatedTimestamp" => non_neg_integer()
       }
 
   """
-  @type speaker_search_task() :: %{String.t() => any()}
+  @type speaker_search_task() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -404,7 +413,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type media_insights_pipeline_element_status() :: %{String.t() => any()}
+  @type media_insights_pipeline_element_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -412,11 +421,11 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       list_media_pipelines_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_media_pipelines_request() :: %{String.t() => any()}
+  @type list_media_pipelines_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -428,7 +437,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type concatenation_sink() :: %{String.t() => any()}
+  @type concatenation_sink() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -439,7 +448,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type get_speaker_search_task_response() :: %{String.t() => any()}
+  @type get_speaker_search_task_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -460,7 +469,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type content_artifacts_configuration() :: %{String.t() => any()}
+  @type content_artifacts_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -468,26 +477,26 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       throttled_client_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
 
   """
-  @type throttled_client_exception() :: %{String.t() => any()}
+  @type throttled_client_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       vertical_layout_configuration() :: %{
-        "TileAspectRatio" => String.t(),
+        "TileAspectRatio" => String.t() | Atom.t(),
         "TileCount" => integer(),
         "TileOrder" => list(any()),
         "TilePosition" => list(any())
       }
 
   """
-  @type vertical_layout_configuration() :: %{String.t() => any()}
+  @type vertical_layout_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -495,11 +504,11 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       list_media_insights_pipeline_configurations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_media_insights_pipeline_configurations_request() :: %{String.t() => any()}
+  @type list_media_insights_pipeline_configurations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -507,11 +516,11 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       list_media_capture_pipelines_response() :: %{
         "MediaCapturePipelines" => list(media_capture_pipeline_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_media_capture_pipelines_response() :: %{String.t() => any()}
+  @type list_media_capture_pipelines_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -523,7 +532,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type fragment_selector() :: %{String.t() => any()}
+  @type fragment_selector() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -534,32 +543,35 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type create_media_pipeline_kinesis_video_stream_pool_response() :: %{String.t() => any()}
+  @type create_media_pipeline_kinesis_video_stream_pool_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       sentiment_configuration() :: %{
-        "RuleName" => String.t(),
+        "RuleName" => String.t() | Atom.t(),
         "SentimentType" => list(any()),
         "TimePeriod" => integer()
       }
 
   """
-  @type sentiment_configuration() :: %{String.t() => any()}
+  @type sentiment_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceARN") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -571,18 +583,18 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type live_connector_sink_configuration() :: %{String.t() => any()}
+  @type live_connector_sink_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       sns_topic_sink_configuration() :: %{
-        "InsightsTarget" => String.t()
+        "InsightsTarget" => String.t() | Atom.t()
       }
 
   """
-  @type sns_topic_sink_configuration() :: %{String.t() => any()}
+  @type sns_topic_sink_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -593,7 +605,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type presenter_only_configuration() :: %{String.t() => any()}
+  @type presenter_only_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -604,7 +616,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type get_voice_tone_analysis_task_response() :: %{String.t() => any()}
+  @type get_voice_tone_analysis_task_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -624,7 +636,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type get_media_insights_pipeline_configuration_response() :: %{String.t() => any()}
+  @type get_media_insights_pipeline_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -635,7 +647,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type kinesis_video_stream_configuration_update() :: %{String.t() => any()}
+  @type kinesis_video_stream_configuration_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -646,7 +658,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type start_voice_tone_analysis_task_response() :: %{String.t() => any()}
+  @type start_voice_tone_analysis_task_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -657,7 +669,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type create_media_concatenation_pipeline_response() :: %{String.t() => any()}
+  @type create_media_concatenation_pipeline_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -669,7 +681,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type live_connector_source_configuration() :: %{String.t() => any()}
+  @type live_connector_source_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -678,53 +690,53 @@ defmodule AWS.ChimeSDKMediaPipelines do
       media_insights_pipeline_configuration() :: %{
         "CreatedTimestamp" => non_neg_integer(),
         "Elements" => list(media_insights_pipeline_configuration_element()),
-        "MediaInsightsPipelineConfigurationArn" => String.t(),
-        "MediaInsightsPipelineConfigurationId" => String.t(),
-        "MediaInsightsPipelineConfigurationName" => String.t(),
+        "MediaInsightsPipelineConfigurationArn" => String.t() | Atom.t(),
+        "MediaInsightsPipelineConfigurationId" => String.t() | Atom.t(),
+        "MediaInsightsPipelineConfigurationName" => String.t() | Atom.t(),
         "RealTimeAlertConfiguration" => real_time_alert_configuration(),
-        "ResourceAccessRoleArn" => String.t(),
+        "ResourceAccessRoleArn" => String.t() | Atom.t(),
         "UpdatedTimestamp" => non_neg_integer()
       }
 
   """
-  @type media_insights_pipeline_configuration() :: %{String.t() => any()}
+  @type media_insights_pipeline_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       horizontal_layout_configuration() :: %{
-        "TileAspectRatio" => String.t(),
+        "TileAspectRatio" => String.t() | Atom.t(),
         "TileCount" => integer(),
         "TileOrder" => list(any()),
         "TilePosition" => list(any())
       }
 
   """
-  @type horizontal_layout_configuration() :: %{String.t() => any()}
+  @type horizontal_layout_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       issue_detection_configuration() :: %{
-        "RuleName" => String.t()
+        "RuleName" => String.t() | Atom.t()
       }
 
   """
-  @type issue_detection_configuration() :: %{String.t() => any()}
+  @type issue_detection_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       sse_aws_key_management_params() :: %{
-        "AwsKmsEncryptionContext" => String.t(),
-        "AwsKmsKeyId" => String.t()
+        "AwsKmsEncryptionContext" => String.t() | Atom.t(),
+        "AwsKmsKeyId" => String.t() | Atom.t()
       }
 
   """
-  @type sse_aws_key_management_params() :: %{String.t() => any()}
+  @type sse_aws_key_management_params() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -733,12 +745,12 @@ defmodule AWS.ChimeSDKMediaPipelines do
       media_capture_pipeline() :: %{
         "ChimeSdkMeetingConfiguration" => chime_sdk_meeting_configuration(),
         "CreatedTimestamp" => non_neg_integer(),
-        "MediaPipelineArn" => String.t(),
-        "MediaPipelineId" => String.t(),
-        "SinkArn" => String.t(),
-        "SinkIamRoleArn" => String.t(),
+        "MediaPipelineArn" => String.t() | Atom.t(),
+        "MediaPipelineId" => String.t() | Atom.t(),
+        "SinkArn" => String.t() | Atom.t(),
+        "SinkIamRoleArn" => String.t() | Atom.t(),
         "SinkType" => list(any()),
-        "SourceArn" => String.t(),
+        "SourceArn" => String.t() | Atom.t(),
         "SourceType" => list(any()),
         "SseAwsKeyManagementParams" => sse_aws_key_management_params(),
         "Status" => list(any()),
@@ -746,7 +758,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type media_capture_pipeline() :: %{String.t() => any()}
+  @type media_capture_pipeline() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -754,12 +766,12 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       conflict_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -767,8 +779,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       media_concatenation_pipeline() :: %{
         "CreatedTimestamp" => non_neg_integer(),
-        "MediaPipelineArn" => String.t(),
-        "MediaPipelineId" => String.t(),
+        "MediaPipelineArn" => String.t() | Atom.t(),
+        "MediaPipelineId" => String.t() | Atom.t(),
         "Sinks" => list(concatenation_sink()),
         "Sources" => list(concatenation_source()),
         "Status" => list(any()),
@@ -776,7 +788,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type media_concatenation_pipeline() :: %{String.t() => any()}
+  @type media_concatenation_pipeline() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -784,72 +796,75 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       kinesis_video_stream_configuration() :: %{
         "DataRetentionInHours" => integer(),
-        "Region" => String.t()
+        "Region" => String.t() | Atom.t()
       }
 
   """
-  @type kinesis_video_stream_configuration() :: %{String.t() => any()}
+  @type kinesis_video_stream_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       amazon_transcribe_call_analytics_processor_configuration() :: %{
-        "CallAnalyticsStreamCategories" => list(String.t()),
+        "CallAnalyticsStreamCategories" => list(String.t() | Atom.t()),
         "ContentIdentificationType" => list(any()),
         "ContentRedactionType" => list(any()),
         "EnablePartialResultsStabilization" => boolean(),
         "FilterPartialResults" => boolean(),
         "LanguageCode" => list(any()),
-        "LanguageModelName" => String.t(),
+        "LanguageModelName" => String.t() | Atom.t(),
         "PartialResultsStability" => list(any()),
-        "PiiEntityTypes" => String.t(),
+        "PiiEntityTypes" => String.t() | Atom.t(),
         "PostCallAnalyticsSettings" => post_call_analytics_settings(),
         "VocabularyFilterMethod" => list(any()),
-        "VocabularyFilterName" => String.t(),
-        "VocabularyName" => String.t()
+        "VocabularyFilterName" => String.t() | Atom.t(),
+        "VocabularyName" => String.t() | Atom.t()
       }
 
   """
-  @type amazon_transcribe_call_analytics_processor_configuration() :: %{String.t() => any()}
+  @type amazon_transcribe_call_analytics_processor_configuration() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       kinesis_video_stream_pool_summary() :: %{
-        "PoolArn" => String.t(),
-        "PoolId" => String.t(),
-        "PoolName" => String.t()
+        "PoolArn" => String.t() | Atom.t(),
+        "PoolId" => String.t() | Atom.t(),
+        "PoolName" => String.t() | Atom.t()
       }
 
   """
-  @type kinesis_video_stream_pool_summary() :: %{String.t() => any()}
+  @type kinesis_video_stream_pool_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_speaker_search_task_request() :: %{
-        optional("ClientRequestToken") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
         optional("KinesisVideoStreamSourceTaskConfiguration") => kinesis_video_stream_source_task_configuration(),
-        required("VoiceProfileDomainArn") => String.t()
+        required("VoiceProfileDomainArn") => String.t() | Atom.t()
       }
 
   """
-  @type start_speaker_search_task_request() :: %{String.t() => any()}
+  @type start_speaker_search_task_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -857,12 +872,12 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       resource_limit_exceeded_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
 
   """
-  @type resource_limit_exceeded_exception() :: %{String.t() => any()}
+  @type resource_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -870,11 +885,14 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       list_media_pipeline_kinesis_video_stream_pools_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_media_pipeline_kinesis_video_stream_pools_request() :: %{String.t() => any()}
+  @type list_media_pipeline_kinesis_video_stream_pools_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -887,7 +905,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type composited_video_artifacts_configuration() :: %{String.t() => any()}
+  @type composited_video_artifacts_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -899,7 +917,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type channel_definition() :: %{String.t() => any()}
+  @type channel_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -908,11 +926,14 @@ defmodule AWS.ChimeSDKMediaPipelines do
       update_media_insights_pipeline_configuration_request() :: %{
         optional("RealTimeAlertConfiguration") => real_time_alert_configuration(),
         required("Elements") => list(media_insights_pipeline_configuration_element()),
-        required("ResourceAccessRoleArn") => String.t()
+        required("ResourceAccessRoleArn") => String.t() | Atom.t()
       }
 
   """
-  @type update_media_insights_pipeline_configuration_request() :: %{String.t() => any()}
+  @type update_media_insights_pipeline_configuration_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -926,7 +947,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type real_time_alert_rule() :: %{String.t() => any()}
+  @type real_time_alert_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -943,12 +964,12 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       not_found_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
 
   """
-  @type not_found_exception() :: %{String.t() => any()}
+  @type not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -959,7 +980,10 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type get_media_pipeline_kinesis_video_stream_pool_response() :: %{String.t() => any()}
+  @type get_media_pipeline_kinesis_video_stream_pool_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -967,8 +991,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       media_live_connector_pipeline() :: %{
         "CreatedTimestamp" => non_neg_integer(),
-        "MediaPipelineArn" => String.t(),
-        "MediaPipelineId" => String.t(),
+        "MediaPipelineArn" => String.t() | Atom.t(),
+        "MediaPipelineId" => String.t() | Atom.t(),
         "Sinks" => list(live_connector_sink_configuration()),
         "Sources" => list(live_connector_source_configuration()),
         "Status" => list(any()),
@@ -976,7 +1000,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type media_live_connector_pipeline() :: %{String.t() => any()}
+  @type media_live_connector_pipeline() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -984,11 +1008,11 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       list_media_pipelines_response() :: %{
         "MediaPipelines" => list(media_pipeline_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_media_pipelines_response() :: %{String.t() => any()}
+  @type list_media_pipelines_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1008,7 +1032,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type media_insights_pipeline_configuration_element() :: %{String.t() => any()}
+  @type media_insights_pipeline_configuration_element() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1019,7 +1043,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type audio_artifacts_configuration() :: %{String.t() => any()}
+  @type audio_artifacts_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1028,12 +1052,12 @@ defmodule AWS.ChimeSDKMediaPipelines do
       media_stream_sink() :: %{
         "MediaStreamType" => list(any()),
         "ReservedStreamCapacity" => integer(),
-        "SinkArn" => String.t(),
+        "SinkArn" => String.t() | Atom.t(),
         "SinkType" => list(any())
       }
 
   """
-  @type media_stream_sink() :: %{String.t() => any()}
+  @type media_stream_sink() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1041,11 +1065,11 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       list_media_capture_pipelines_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_media_capture_pipelines_request() :: %{String.t() => any()}
+  @type list_media_capture_pipelines_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1057,21 +1081,21 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type voice_analytics_processor_configuration() :: %{String.t() => any()}
+  @type voice_analytics_processor_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_media_live_connector_pipeline_request() :: %{
-        optional("ClientRequestToken") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
         required("Sinks") => list(live_connector_sink_configuration()),
         required("Sources") => list(live_connector_source_configuration())
       }
 
   """
-  @type create_media_live_connector_pipeline_request() :: %{String.t() => any()}
+  @type create_media_live_connector_pipeline_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1079,11 +1103,11 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       media_capture_pipeline_source_configuration() :: %{
         "ChimeSdkMeetingConfiguration" => chime_sdk_meeting_concatenation_configuration(),
-        "MediaPipelineArn" => String.t()
+        "MediaPipelineArn" => String.t() | Atom.t()
       }
 
   """
-  @type media_capture_pipeline_source_configuration() :: %{String.t() => any()}
+  @type media_capture_pipeline_source_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1091,24 +1115,24 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       post_call_analytics_settings() :: %{
         "ContentRedactionOutput" => list(any()),
-        "DataAccessRoleArn" => String.t(),
-        "OutputEncryptionKMSKeyId" => String.t(),
-        "OutputLocation" => String.t()
+        "DataAccessRoleArn" => String.t() | Atom.t(),
+        "OutputEncryptionKMSKeyId" => String.t() | Atom.t(),
+        "OutputLocation" => String.t() | Atom.t()
       }
 
   """
-  @type post_call_analytics_settings() :: %{String.t() => any()}
+  @type post_call_analytics_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       lambda_function_sink_configuration() :: %{
-        "InsightsTarget" => String.t()
+        "InsightsTarget" => String.t() | Atom.t()
       }
 
   """
-  @type lambda_function_sink_configuration() :: %{String.t() => any()}
+  @type lambda_function_sink_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1119,7 +1143,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1130,7 +1154,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type source_configuration() :: %{String.t() => any()}
+  @type source_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1138,12 +1162,12 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       service_unavailable_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
 
   """
-  @type service_unavailable_exception() :: %{String.t() => any()}
+  @type service_unavailable_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1152,12 +1176,12 @@ defmodule AWS.ChimeSDKMediaPipelines do
       voice_tone_analysis_task() :: %{
         "CreatedTimestamp" => non_neg_integer(),
         "UpdatedTimestamp" => non_neg_integer(),
-        "VoiceToneAnalysisTaskId" => String.t(),
+        "VoiceToneAnalysisTaskId" => String.t() | Atom.t(),
         "VoiceToneAnalysisTaskStatus" => list(any())
       }
 
   """
-  @type voice_tone_analysis_task() :: %{String.t() => any()}
+  @type voice_tone_analysis_task() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1171,7 +1195,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type video_attribute() :: %{String.t() => any()}
+  @type video_attribute() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1183,31 +1207,31 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type chime_sdk_meeting_configuration() :: %{String.t() => any()}
+  @type chime_sdk_meeting_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       media_pipeline_summary() :: %{
-        "MediaPipelineArn" => String.t(),
-        "MediaPipelineId" => String.t()
+        "MediaPipelineArn" => String.t() | Atom.t(),
+        "MediaPipelineId" => String.t() | Atom.t()
       }
 
   """
-  @type media_pipeline_summary() :: %{String.t() => any()}
+  @type media_pipeline_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       media_capture_pipeline_summary() :: %{
-        "MediaPipelineArn" => String.t(),
-        "MediaPipelineId" => String.t()
+        "MediaPipelineArn" => String.t() | Atom.t(),
+        "MediaPipelineId" => String.t() | Atom.t()
       }
 
   """
-  @type media_capture_pipeline_summary() :: %{String.t() => any()}
+  @type media_capture_pipeline_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1220,7 +1244,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type kinesis_video_stream_source_runtime_configuration() :: %{String.t() => any()}
+  @type kinesis_video_stream_source_runtime_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1231,16 +1255,16 @@ defmodule AWS.ChimeSDKMediaPipelines do
         "ElementStatuses" => list(media_insights_pipeline_element_status()),
         "KinesisVideoStreamRecordingSourceRuntimeConfiguration" => kinesis_video_stream_recording_source_runtime_configuration(),
         "KinesisVideoStreamSourceRuntimeConfiguration" => kinesis_video_stream_source_runtime_configuration(),
-        "MediaInsightsPipelineConfigurationArn" => String.t(),
+        "MediaInsightsPipelineConfigurationArn" => String.t() | Atom.t(),
         "MediaInsightsRuntimeMetadata" => map(),
-        "MediaPipelineArn" => String.t(),
-        "MediaPipelineId" => String.t(),
+        "MediaPipelineArn" => String.t() | Atom.t(),
+        "MediaPipelineId" => String.t() | Atom.t(),
         "S3RecordingSinkRuntimeConfiguration" => s3_recording_sink_runtime_configuration(),
         "Status" => list(any())
       }
 
   """
-  @type media_insights_pipeline() :: %{String.t() => any()}
+  @type media_insights_pipeline() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1252,7 +1276,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type concatenation_source() :: %{String.t() => any()}
+  @type concatenation_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1260,8 +1284,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       media_stream_pipeline() :: %{
         "CreatedTimestamp" => non_neg_integer(),
-        "MediaPipelineArn" => String.t(),
-        "MediaPipelineId" => String.t(),
+        "MediaPipelineArn" => String.t() | Atom.t(),
+        "MediaPipelineId" => String.t() | Atom.t(),
         "Sinks" => list(media_stream_sink()),
         "Sources" => list(media_stream_source()),
         "Status" => list(any()),
@@ -1269,19 +1293,19 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type media_stream_pipeline() :: %{String.t() => any()}
+  @type media_stream_pipeline() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       media_stream_source() :: %{
-        "SourceArn" => String.t(),
+        "SourceArn" => String.t() | Atom.t(),
         "SourceType" => list(any())
       }
 
   """
-  @type media_stream_source() :: %{String.t() => any()}
+  @type media_stream_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1292,7 +1316,10 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type update_media_pipeline_kinesis_video_stream_pool_response() :: %{String.t() => any()}
+  @type update_media_pipeline_kinesis_video_stream_pool_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1308,25 +1335,25 @@ defmodule AWS.ChimeSDKMediaPipelines do
   ## Example:
 
       s3_recording_sink_runtime_configuration() :: %{
-        "Destination" => String.t(),
+        "Destination" => String.t() | Atom.t(),
         "RecordingFileFormat" => list(any())
       }
 
   """
-  @type s3_recording_sink_runtime_configuration() :: %{String.t() => any()}
+  @type s3_recording_sink_runtime_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       media_insights_pipeline_configuration_summary() :: %{
-        "MediaInsightsPipelineConfigurationArn" => String.t(),
-        "MediaInsightsPipelineConfigurationId" => String.t(),
-        "MediaInsightsPipelineConfigurationName" => String.t()
+        "MediaInsightsPipelineConfigurationArn" => String.t() | Atom.t(),
+        "MediaInsightsPipelineConfigurationId" => String.t() | Atom.t(),
+        "MediaInsightsPipelineConfigurationName" => String.t() | Atom.t()
       }
 
   """
-  @type media_insights_pipeline_configuration_summary() :: %{String.t() => any()}
+  @type media_insights_pipeline_configuration_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1334,11 +1361,14 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       list_media_insights_pipeline_configurations_response() :: %{
         "MediaInsightsPipelineConfigurations" => list(media_insights_pipeline_configuration_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_media_insights_pipeline_configurations_response() :: %{String.t() => any()}
+  @type list_media_insights_pipeline_configurations_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1350,7 +1380,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type timestamp_range() :: %{String.t() => any()}
+  @type timestamp_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1361,7 +1391,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type content_concatenation_configuration() :: %{String.t() => any()}
+  @type content_concatenation_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1387,18 +1417,18 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       create_media_capture_pipeline_request() :: %{
         optional("ChimeSdkMeetingConfiguration") => chime_sdk_meeting_configuration(),
-        optional("ClientRequestToken") => String.t(),
-        optional("SinkIamRoleArn") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
+        optional("SinkIamRoleArn") => String.t() | Atom.t(),
         optional("SseAwsKeyManagementParams") => sse_aws_key_management_params(),
         optional("Tags") => list(tag()),
-        required("SinkArn") => String.t(),
+        required("SinkArn") => String.t() | Atom.t(),
         required("SinkType") => list(any()),
-        required("SourceArn") => String.t(),
+        required("SourceArn") => String.t() | Atom.t(),
         required("SourceType") => list(any())
       }
 
   """
-  @type create_media_capture_pipeline_request() :: %{String.t() => any()}
+  @type create_media_capture_pipeline_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1409,24 +1439,24 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type create_media_live_connector_pipeline_response() :: %{String.t() => any()}
+  @type create_media_live_connector_pipeline_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_media_insights_pipeline_request() :: %{
-        optional("ClientRequestToken") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
         optional("KinesisVideoStreamRecordingSourceRuntimeConfiguration") => kinesis_video_stream_recording_source_runtime_configuration(),
         optional("KinesisVideoStreamSourceRuntimeConfiguration") => kinesis_video_stream_source_runtime_configuration(),
         optional("MediaInsightsRuntimeMetadata") => map(),
         optional("S3RecordingSinkRuntimeConfiguration") => s3_recording_sink_runtime_configuration(),
         optional("Tags") => list(tag()),
-        required("MediaInsightsPipelineConfigurationArn") => String.t()
+        required("MediaInsightsPipelineConfigurationArn") => String.t() | Atom.t()
       }
 
   """
-  @type create_media_insights_pipeline_request() :: %{String.t() => any()}
+  @type create_media_insights_pipeline_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1437,18 +1467,18 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type get_media_pipeline_response() :: %{String.t() => any()}
+  @type get_media_pipeline_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t()
+        required("ResourceARN") => String.t() | Atom.t()
       }
 
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1460,7 +1490,10 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type kinesis_video_stream_recording_source_runtime_configuration() :: %{String.t() => any()}
+  @type kinesis_video_stream_recording_source_runtime_configuration() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1471,7 +1504,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type voice_enhancement_sink_configuration() :: %{String.t() => any()}
+  @type voice_enhancement_sink_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1488,7 +1521,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type artifacts_concatenation_configuration() :: %{String.t() => any()}
+  @type artifacts_concatenation_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1499,7 +1532,10 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type create_media_insights_pipeline_configuration_response() :: %{String.t() => any()}
+  @type create_media_insights_pipeline_configuration_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1514,7 +1550,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type media_pipeline() :: %{String.t() => any()}
+  @type media_pipeline() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1525,7 +1561,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type active_speaker_only_configuration() :: %{String.t() => any()}
+  @type active_speaker_only_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1536,34 +1572,34 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type update_media_insights_pipeline_status_request() :: %{String.t() => any()}
+  @type update_media_insights_pipeline_status_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_media_stream_pipeline_request() :: %{
-        optional("ClientRequestToken") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
         required("Sinks") => list(media_stream_sink()),
         required("Sources") => list(media_stream_source())
       }
 
   """
-  @type create_media_stream_pipeline_request() :: %{String.t() => any()}
+  @type create_media_stream_pipeline_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       keyword_match_configuration() :: %{
-        "Keywords" => list(String.t()),
+        "Keywords" => list(String.t() | Atom.t()),
         "Negate" => boolean(),
-        "RuleName" => String.t()
+        "RuleName" => String.t() | Atom.t()
       }
 
   """
-  @type keyword_match_configuration() :: %{String.t() => any()}
+  @type keyword_match_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1571,12 +1607,12 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       bad_request_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
 
   """
-  @type bad_request_exception() :: %{String.t() => any()}
+  @type bad_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1593,7 +1629,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type grid_view_configuration() :: %{String.t() => any()}
+  @type grid_view_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1614,7 +1650,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type real_time_alert_configuration() :: %{String.t() => any()}
+  @type real_time_alert_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1625,7 +1661,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type create_media_stream_pipeline_response() :: %{String.t() => any()}
+  @type create_media_stream_pipeline_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1641,16 +1677,19 @@ defmodule AWS.ChimeSDKMediaPipelines do
   ## Example:
 
       create_media_insights_pipeline_configuration_request() :: %{
-        optional("ClientRequestToken") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
         optional("RealTimeAlertConfiguration") => real_time_alert_configuration(),
         optional("Tags") => list(tag()),
         required("Elements") => list(media_insights_pipeline_configuration_element()),
-        required("MediaInsightsPipelineConfigurationName") => String.t(),
-        required("ResourceAccessRoleArn") => String.t()
+        required("MediaInsightsPipelineConfigurationName") => String.t() | Atom.t(),
+        required("ResourceAccessRoleArn") => String.t() | Atom.t()
       }
 
   """
-  @type create_media_insights_pipeline_configuration_request() :: %{String.t() => any()}
+  @type create_media_insights_pipeline_configuration_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1661,7 +1700,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type transcription_messages_concatenation_configuration() :: %{String.t() => any()}
+  @type transcription_messages_concatenation_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1675,32 +1714,32 @@ defmodule AWS.ChimeSDKMediaPipelines do
         "IdentifyLanguage" => boolean(),
         "IdentifyMultipleLanguages" => boolean(),
         "LanguageCode" => list(any()),
-        "LanguageModelName" => String.t(),
-        "LanguageOptions" => String.t(),
+        "LanguageModelName" => String.t() | Atom.t(),
+        "LanguageOptions" => String.t() | Atom.t(),
         "PartialResultsStability" => list(any()),
-        "PiiEntityTypes" => String.t(),
+        "PiiEntityTypes" => String.t() | Atom.t(),
         "PreferredLanguage" => list(any()),
         "ShowSpeakerLabel" => boolean(),
         "VocabularyFilterMethod" => list(any()),
-        "VocabularyFilterName" => String.t(),
-        "VocabularyFilterNames" => String.t(),
-        "VocabularyName" => String.t(),
-        "VocabularyNames" => String.t()
+        "VocabularyFilterName" => String.t() | Atom.t(),
+        "VocabularyFilterNames" => String.t() | Atom.t(),
+        "VocabularyName" => String.t() | Atom.t(),
+        "VocabularyNames" => String.t() | Atom.t()
       }
 
   """
-  @type amazon_transcribe_processor_configuration() :: %{String.t() => any()}
+  @type amazon_transcribe_processor_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_bucket_sink_configuration() :: %{
-        "Destination" => String.t()
+        "Destination" => String.t() | Atom.t()
       }
 
   """
-  @type s3_bucket_sink_configuration() :: %{String.t() => any()}
+  @type s3_bucket_sink_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1714,7 +1753,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type artifacts_configuration() :: %{String.t() => any()}
+  @type artifacts_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1725,7 +1764,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type create_media_insights_pipeline_response() :: %{String.t() => any()}
+  @type create_media_insights_pipeline_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1736,7 +1775,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type chime_sdk_meeting_concatenation_configuration() :: %{String.t() => any()}
+  @type chime_sdk_meeting_concatenation_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1747,7 +1786,10 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type update_media_pipeline_kinesis_video_stream_pool_request() :: %{String.t() => any()}
+  @type update_media_pipeline_kinesis_video_stream_pool_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1755,9 +1797,9 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       kinesis_video_stream_pool_configuration() :: %{
         "CreatedTimestamp" => non_neg_integer(),
-        "PoolArn" => String.t(),
-        "PoolId" => String.t(),
-        "PoolName" => String.t(),
+        "PoolArn" => String.t() | Atom.t(),
+        "PoolId" => String.t() | Atom.t(),
+        "PoolName" => String.t() | Atom.t(),
         "PoolSize" => integer(),
         "PoolStatus" => list(any()),
         "StreamConfiguration" => kinesis_video_stream_configuration(),
@@ -1765,20 +1807,20 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type kinesis_video_stream_pool_configuration() :: %{String.t() => any()}
+  @type kinesis_video_stream_pool_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       stream_configuration() :: %{
-        "FragmentNumber" => String.t(),
-        "StreamArn" => String.t(),
+        "FragmentNumber" => String.t() | Atom.t(),
+        "StreamArn" => String.t() | Atom.t(),
         "StreamChannelDefinition" => stream_channel_definition()
       }
 
   """
-  @type stream_configuration() :: %{String.t() => any()}
+  @type stream_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1790,7 +1832,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       }
 
   """
-  @type stream_channel_definition() :: %{String.t() => any()}
+  @type stream_channel_definition() :: %{String.t() | Atom.t() => any()}
 
   @type create_media_capture_pipeline_errors() ::
           bad_request_exception()
@@ -2350,7 +2392,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   """
   @spec delete_media_capture_pipeline(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_media_capture_pipeline_request(),
           list()
         ) ::
@@ -2384,7 +2426,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   """
   @spec delete_media_insights_pipeline_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_media_insights_pipeline_configuration_request(),
           list()
         ) ::
@@ -2421,7 +2463,12 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Deletes the media pipeline.
   """
-  @spec delete_media_pipeline(map(), String.t(), delete_media_pipeline_request(), list()) ::
+  @spec delete_media_pipeline(
+          map(),
+          String.t() | Atom.t(),
+          delete_media_pipeline_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2452,7 +2499,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   """
   @spec delete_media_pipeline_kinesis_video_stream_pool(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_media_pipeline_kinesis_video_stream_pool_request(),
           list()
         ) ::
@@ -2489,7 +2536,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Gets an existing media pipeline.
   """
-  @spec get_media_capture_pipeline(map(), String.t(), list()) ::
+  @spec get_media_capture_pipeline(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_media_capture_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2507,7 +2554,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Gets the configuration settings for a media insights pipeline.
   """
-  @spec get_media_insights_pipeline_configuration(map(), String.t(), list()) ::
+  @spec get_media_insights_pipeline_configuration(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_media_insights_pipeline_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2525,7 +2572,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Gets an existing media pipeline.
   """
-  @spec get_media_pipeline(map(), String.t(), list()) ::
+  @spec get_media_pipeline(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_media_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2543,7 +2590,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Gets an Kinesis video stream pool.
   """
-  @spec get_media_pipeline_kinesis_video_stream_pool(map(), String.t(), list()) ::
+  @spec get_media_pipeline_kinesis_video_stream_pool(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_media_pipeline_kinesis_video_stream_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2561,7 +2608,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Retrieves the details of the specified speaker search task.
   """
-  @spec get_speaker_search_task(map(), String.t(), String.t(), list()) ::
+  @spec get_speaker_search_task(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_speaker_search_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2586,7 +2633,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Retrieves the details of a voice tone analysis task.
   """
-  @spec get_voice_tone_analysis_task(map(), String.t(), String.t(), list()) ::
+  @spec get_voice_tone_analysis_task(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_voice_tone_analysis_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2611,7 +2658,12 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Returns a list of media pipelines.
   """
-  @spec list_media_capture_pipelines(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_media_capture_pipelines(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_media_capture_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2650,8 +2702,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
   """
   @spec list_media_insights_pipeline_configurations(
           map(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_media_insights_pipeline_configurations_response(), any()}
@@ -2692,8 +2744,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
   """
   @spec list_media_pipeline_kinesis_video_stream_pools(
           map(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_media_pipeline_kinesis_video_stream_pools_response(), any()}
@@ -2732,7 +2784,12 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Returns a list of media pipelines.
   """
-  @spec list_media_pipelines(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_media_pipelines(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_media_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2769,7 +2826,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Lists the tags available for a media pipeline.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2800,7 +2857,12 @@ defmodule AWS.ChimeSDKMediaPipelines do
   [AWS service terms](https://aws.amazon.com/service-terms/) for the Amazon Chime
   SDK.
   """
-  @spec start_speaker_search_task(map(), String.t(), start_speaker_search_task_request(), list()) ::
+  @spec start_speaker_search_task(
+          map(),
+          String.t() | Atom.t(),
+          start_speaker_search_task_request(),
+          list()
+        ) ::
           {:ok, start_speaker_search_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2843,7 +2905,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   """
   @spec start_voice_tone_analysis_task(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           start_voice_tone_analysis_task_request(),
           list()
         ) ::
@@ -2879,8 +2941,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
   """
   @spec stop_speaker_search_task(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           stop_speaker_search_task_request(),
           list()
         ) ::
@@ -2922,8 +2984,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
   """
   @spec stop_voice_tone_analysis_task(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           stop_voice_tone_analysis_task_request(),
           list()
         ) ::
@@ -3025,7 +3087,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   """
   @spec update_media_insights_pipeline_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_media_insights_pipeline_configuration_request(),
           list()
         ) ::
@@ -3064,7 +3126,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   """
   @spec update_media_insights_pipeline_status(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_media_insights_pipeline_status_request(),
           list()
         ) ::
@@ -3098,7 +3160,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   """
   @spec update_media_pipeline_kinesis_video_stream_pool(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_media_pipeline_kinesis_video_stream_pool_request(),
           list()
         ) ::

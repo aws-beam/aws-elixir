@@ -26,332 +26,332 @@ defmodule AWS.CloudHSM do
   ## Example:
       
       delete_hsm_request() :: %{
-        required("HsmArn") => String.t()
+        required("HsmArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_hsm_request() :: %{String.t() => any()}
+  @type delete_hsm_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_hsm_response() :: %{
-        "HsmArn" => String.t()
+        "HsmArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_hsm_response() :: %{String.t() => any()}
+  @type create_hsm_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_hapg_response() :: %{
-        "HapgArn" => String.t()
+        "HapgArn" => String.t() | Atom.t()
       }
       
   """
-  @type modify_hapg_response() :: %{String.t() => any()}
+  @type modify_hapg_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_luna_client_request() :: %{
-        required("Certificate") => String.t(),
-        required("ClientArn") => String.t()
+        required("Certificate") => String.t() | Atom.t(),
+        required("ClientArn") => String.t() | Atom.t()
       }
       
   """
-  @type modify_luna_client_request() :: %{String.t() => any()}
+  @type modify_luna_client_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_hsm_request() :: %{
-        optional("EniIp") => String.t(),
-        optional("ExternalId") => String.t(),
-        optional("IamRoleArn") => String.t(),
-        optional("SubnetId") => String.t(),
-        optional("SyslogIp") => String.t(),
-        required("HsmArn") => String.t()
+        optional("EniIp") => String.t() | Atom.t(),
+        optional("ExternalId") => String.t() | Atom.t(),
+        optional("IamRoleArn") => String.t() | Atom.t(),
+        optional("SubnetId") => String.t() | Atom.t(),
+        optional("SyslogIp") => String.t() | Atom.t(),
+        required("HsmArn") => String.t() | Atom.t()
       }
       
   """
-  @type modify_hsm_request() :: %{String.t() => any()}
+  @type modify_hsm_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_hapgs_request() :: %{
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_hapgs_request() :: %{String.t() => any()}
+  @type list_hapgs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_tags_from_resource_response() :: %{
-        "Status" => String.t()
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type remove_tags_from_resource_response() :: %{String.t() => any()}
+  @type remove_tags_from_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_config_request() :: %{
-        required("ClientArn") => String.t(),
+        required("ClientArn") => String.t() | Atom.t(),
         required("ClientVersion") => list(any()),
-        required("HapgList") => list(String.t())
+        required("HapgList") => list(String.t() | Atom.t())
       }
       
   """
-  @type get_config_request() :: %{String.t() => any()}
+  @type get_config_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_hsms_request() :: %{
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_hsms_request() :: %{String.t() => any()}
+  @type list_hsms_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_luna_clients_request() :: %{
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_luna_clients_request() :: %{String.t() => any()}
+  @type list_luna_clients_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_config_response() :: %{
-        "ConfigCred" => String.t(),
-        "ConfigFile" => String.t(),
-        "ConfigType" => String.t()
+        "ConfigCred" => String.t() | Atom.t(),
+        "ConfigFile" => String.t() | Atom.t(),
+        "ConfigType" => String.t() | Atom.t()
       }
       
   """
-  @type get_config_response() :: %{String.t() => any()}
+  @type get_config_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_hapg_request() :: %{
-        required("HapgArn") => String.t()
+        required("HapgArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_hapg_request() :: %{String.t() => any()}
+  @type describe_hapg_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_luna_client_request() :: %{
-        required("ClientArn") => String.t()
+        required("ClientArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_luna_client_request() :: %{String.t() => any()}
+  @type delete_luna_client_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       add_tags_to_resource_request() :: %{
-        required("ResourceArn") => String.t(),
+        required("ResourceArn") => String.t() | Atom.t(),
         required("TagList") => list(tag())
       }
       
   """
-  @type add_tags_to_resource_request() :: %{String.t() => any()}
+  @type add_tags_to_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_hsm_response() :: %{
-        "AvailabilityZone" => String.t(),
-        "EniId" => String.t(),
-        "EniIp" => String.t(),
-        "HsmArn" => String.t(),
-        "HsmType" => String.t(),
-        "IamRoleArn" => String.t(),
-        "Partitions" => list(String.t()),
-        "SerialNumber" => String.t(),
-        "ServerCertLastUpdated" => String.t(),
-        "ServerCertUri" => String.t(),
-        "SoftwareVersion" => String.t(),
-        "SshKeyLastUpdated" => String.t(),
-        "SshPublicKey" => String.t(),
+        "AvailabilityZone" => String.t() | Atom.t(),
+        "EniId" => String.t() | Atom.t(),
+        "EniIp" => String.t() | Atom.t(),
+        "HsmArn" => String.t() | Atom.t(),
+        "HsmType" => String.t() | Atom.t(),
+        "IamRoleArn" => String.t() | Atom.t(),
+        "Partitions" => list(String.t() | Atom.t()),
+        "SerialNumber" => String.t() | Atom.t(),
+        "ServerCertLastUpdated" => String.t() | Atom.t(),
+        "ServerCertUri" => String.t() | Atom.t(),
+        "SoftwareVersion" => String.t() | Atom.t(),
+        "SshKeyLastUpdated" => String.t() | Atom.t(),
+        "SshPublicKey" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "StatusDetails" => String.t(),
-        "SubnetId" => String.t(),
-        "SubscriptionEndDate" => String.t(),
-        "SubscriptionStartDate" => String.t(),
+        "StatusDetails" => String.t() | Atom.t(),
+        "SubnetId" => String.t() | Atom.t(),
+        "SubscriptionEndDate" => String.t() | Atom.t(),
+        "SubscriptionStartDate" => String.t() | Atom.t(),
         "SubscriptionType" => list(any()),
-        "VendorName" => String.t(),
-        "VpcId" => String.t()
+        "VendorName" => String.t() | Atom.t(),
+        "VpcId" => String.t() | Atom.t()
       }
       
   """
-  @type describe_hsm_response() :: %{String.t() => any()}
+  @type describe_hsm_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_luna_client_response() :: %{
-        "Certificate" => String.t(),
-        "CertificateFingerprint" => String.t(),
-        "ClientArn" => String.t(),
-        "Label" => String.t(),
-        "LastModifiedTimestamp" => String.t()
+        "Certificate" => String.t() | Atom.t(),
+        "CertificateFingerprint" => String.t() | Atom.t(),
+        "ClientArn" => String.t() | Atom.t(),
+        "Label" => String.t() | Atom.t(),
+        "LastModifiedTimestamp" => String.t() | Atom.t()
       }
       
   """
-  @type describe_luna_client_response() :: %{String.t() => any()}
+  @type describe_luna_client_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_luna_client_response() :: %{
-        "Status" => String.t()
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type delete_luna_client_response() :: %{String.t() => any()}
+  @type delete_luna_client_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_luna_client_response() :: %{
-        "ClientArn" => String.t()
+        "ClientArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_luna_client_response() :: %{String.t() => any()}
+  @type create_luna_client_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_hsm_response() :: %{
-        "Status" => String.t()
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type delete_hsm_response() :: %{String.t() => any()}
+  @type delete_hsm_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_hapg_request() :: %{
-        required("HapgArn") => String.t()
+        required("HapgArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_hapg_request() :: %{String.t() => any()}
+  @type delete_hapg_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_luna_client_response() :: %{
-        "ClientArn" => String.t()
+        "ClientArn" => String.t() | Atom.t()
       }
       
   """
-  @type modify_luna_client_response() :: %{String.t() => any()}
+  @type modify_luna_client_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_hapg_request() :: %{
-        optional("Label") => String.t(),
-        optional("PartitionSerialList") => list(String.t()),
-        required("HapgArn") => String.t()
+        optional("Label") => String.t() | Atom.t(),
+        optional("PartitionSerialList") => list(String.t() | Atom.t()),
+        required("HapgArn") => String.t() | Atom.t()
       }
       
   """
-  @type modify_hapg_request() :: %{String.t() => any()}
+  @type modify_hapg_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_request_exception() :: %{
-        "message" => String.t(),
+        "message" => String.t() | Atom.t(),
         "retryable" => boolean()
       }
       
   """
-  @type invalid_request_exception() :: %{String.t() => any()}
+  @type invalid_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_hapg_response() :: %{
-        "HapgArn" => String.t()
+        "HapgArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_hapg_response() :: %{String.t() => any()}
+  @type create_hapg_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_hsm_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("EniIp") => String.t(),
-        optional("ExternalId") => String.t(),
-        optional("SyslogIp") => String.t(),
-        required("IamRoleArn") => String.t(),
-        required("SshKey") => String.t(),
-        required("SubnetId") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("EniIp") => String.t() | Atom.t(),
+        optional("ExternalId") => String.t() | Atom.t(),
+        optional("SyslogIp") => String.t() | Atom.t(),
+        required("IamRoleArn") => String.t() | Atom.t(),
+        required("SshKey") => String.t() | Atom.t(),
+        required("SubnetId") => String.t() | Atom.t(),
         required("SubscriptionType") => list(any())
       }
       
   """
-  @type create_hsm_request() :: %{String.t() => any()}
+  @type create_hsm_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -362,66 +362,66 @@ defmodule AWS.CloudHSM do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_tags_from_resource_request() :: %{
-        required("ResourceArn") => String.t(),
-        required("TagKeyList") => list(String.t())
+        required("ResourceArn") => String.t() | Atom.t(),
+        required("TagKeyList") => list(String.t() | Atom.t())
       }
       
   """
-  @type remove_tags_from_resource_request() :: %{String.t() => any()}
+  @type remove_tags_from_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       add_tags_to_resource_response() :: %{
-        "Status" => String.t()
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type add_tags_to_resource_response() :: %{String.t() => any()}
+  @type add_tags_to_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cloud_hsm_internal_exception() :: %{
-        "message" => String.t(),
+        "message" => String.t() | Atom.t(),
         "retryable" => boolean()
       }
       
   """
-  @type cloud_hsm_internal_exception() :: %{String.t() => any()}
+  @type cloud_hsm_internal_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_hapgs_response() :: %{
-        "HapgList" => list(String.t()),
-        "NextToken" => String.t()
+        "HapgList" => list(String.t() | Atom.t()),
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_hapgs_response() :: %{String.t() => any()}
+  @type list_hapgs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_hsm_request() :: %{
-        optional("HsmArn") => String.t(),
-        optional("HsmSerialNumber") => String.t()
+        optional("HsmArn") => String.t() | Atom.t(),
+        optional("HsmSerialNumber") => String.t() | Atom.t()
       }
       
   """
-  @type describe_hsm_request() :: %{String.t() => any()}
+  @type describe_hsm_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -437,134 +437,134 @@ defmodule AWS.CloudHSM do
   ## Example:
       
       cloud_hsm_service_exception() :: %{
-        "message" => String.t(),
+        "message" => String.t() | Atom.t(),
         "retryable" => boolean()
       }
       
   """
-  @type cloud_hsm_service_exception() :: %{String.t() => any()}
+  @type cloud_hsm_service_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_luna_clients_response() :: %{
-        "ClientList" => list(String.t()),
-        "NextToken" => String.t()
+        "ClientList" => list(String.t() | Atom.t()),
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_luna_clients_response() :: %{String.t() => any()}
+  @type list_luna_clients_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_available_zones_response() :: %{
-        "AZList" => list(String.t())
+        "AZList" => list(String.t() | Atom.t())
       }
       
   """
-  @type list_available_zones_response() :: %{String.t() => any()}
+  @type list_available_zones_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_hapg_request() :: %{
-        required("Label") => String.t()
+        required("Label") => String.t() | Atom.t()
       }
       
   """
-  @type create_hapg_request() :: %{String.t() => any()}
+  @type create_hapg_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_hsms_response() :: %{
-        "HsmList" => list(String.t()),
-        "NextToken" => String.t()
+        "HsmList" => list(String.t() | Atom.t()),
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_hsms_response() :: %{String.t() => any()}
+  @type list_hsms_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_luna_client_request() :: %{
-        optional("CertificateFingerprint") => String.t(),
-        optional("ClientArn") => String.t()
+        optional("CertificateFingerprint") => String.t() | Atom.t(),
+        optional("ClientArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_luna_client_request() :: %{String.t() => any()}
+  @type describe_luna_client_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_hapg_response() :: %{
-        "Status" => String.t()
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type delete_hapg_response() :: %{String.t() => any()}
+  @type delete_hapg_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_hapg_response() :: %{
-        "HapgArn" => String.t(),
-        "HapgSerial" => String.t(),
-        "HsmsLastActionFailed" => list(String.t()),
-        "HsmsPendingDeletion" => list(String.t()),
-        "HsmsPendingRegistration" => list(String.t()),
-        "Label" => String.t(),
-        "LastModifiedTimestamp" => String.t(),
-        "PartitionSerialList" => list(String.t()),
+        "HapgArn" => String.t() | Atom.t(),
+        "HapgSerial" => String.t() | Atom.t(),
+        "HsmsLastActionFailed" => list(String.t() | Atom.t()),
+        "HsmsPendingDeletion" => list(String.t() | Atom.t()),
+        "HsmsPendingRegistration" => list(String.t() | Atom.t()),
+        "Label" => String.t() | Atom.t(),
+        "LastModifiedTimestamp" => String.t() | Atom.t(),
+        "PartitionSerialList" => list(String.t() | Atom.t()),
         "State" => list(any())
       }
       
   """
-  @type describe_hapg_response() :: %{String.t() => any()}
+  @type describe_hapg_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_hsm_response() :: %{
-        "HsmArn" => String.t()
+        "HsmArn" => String.t() | Atom.t()
       }
       
   """
-  @type modify_hsm_response() :: %{String.t() => any()}
+  @type modify_hsm_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_luna_client_request() :: %{
-        optional("Label") => String.t(),
-        required("Certificate") => String.t()
+        optional("Label") => String.t() | Atom.t(),
+        required("Certificate") => String.t() | Atom.t()
       }
       
   """
-  @type create_luna_client_request() :: %{String.t() => any()}
+  @type create_luna_client_request() :: %{String.t() | Atom.t() => any()}
 
   @type add_tags_to_resource_errors() ::
           cloud_hsm_service_exception()

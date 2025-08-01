@@ -47,11 +47,11 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       get_resource_log_level_request() :: %{
-        required("ResourceType") => String.t()
+        required("ResourceType") => String.t() | Atom.t()
       }
 
   """
-  @type get_resource_log_level_request() :: %{String.t() => any()}
+  @type get_resource_log_level_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -59,11 +59,11 @@ defmodule AWS.IoTWireless do
 
       list_destinations_response() :: %{
         "DestinationList" => list(destinations()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_destinations_response() :: %{String.t() => any()}
+  @type list_destinations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -74,7 +74,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type summary_metric_configuration() :: %{String.t() => any()}
+  @type summary_metric_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -85,18 +85,21 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type connection_status_resource_type_event_configuration() :: %{String.t() => any()}
+  @type connection_status_resource_type_event_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_wireless_device_with_multicast_group_request() :: %{
-        required("WirelessDeviceId") => String.t()
+        required("WirelessDeviceId") => String.t() | Atom.t()
       }
 
   """
-  @type associate_wireless_device_with_multicast_group_request() :: %{String.t() => any()}
+  @type associate_wireless_device_with_multicast_group_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -107,70 +110,70 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type position_solver_configurations() :: %{String.t() => any()}
+  @type position_solver_configurations() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_single_wireless_device_import_task_request() :: %{
-        optional("ClientRequestToken") => String.t(),
-        optional("DeviceName") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
+        optional("DeviceName") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("DestinationName") => String.t(),
+        required("DestinationName") => String.t() | Atom.t(),
         required("Sidewalk") => sidewalk_single_start_import_info()
       }
 
   """
-  @type start_single_wireless_device_import_task_request() :: %{String.t() => any()}
+  @type start_single_wireless_device_import_task_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
+        required("ResourceArn") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_position_configurations_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "PositionConfigurationList" => list(position_configuration_item())
       }
 
   """
-  @type list_position_configurations_response() :: %{String.t() => any()}
+  @type list_position_configurations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       send_data_to_multicast_group_request() :: %{
-        required("PayloadData") => String.t(),
+        required("PayloadData") => String.t() | Atom.t(),
         required("WirelessMetadata") => multicast_wireless_metadata()
       }
 
   """
-  @type send_data_to_multicast_group_request() :: %{String.t() => any()}
+  @type send_data_to_multicast_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_destination_response() :: %{
-        "Arn" => String.t(),
-        "Name" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type create_destination_response() :: %{String.t() => any()}
+  @type create_destination_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -182,19 +185,19 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type update_resource_position_request() :: %{String.t() => any()}
+  @type update_resource_position_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_network_analyzer_configuration_response() :: %{
-        "Arn" => String.t(),
-        "Name" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type create_network_analyzer_configuration_response() :: %{String.t() => any()}
+  @type create_network_analyzer_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -205,7 +208,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type get_wireless_device_request() :: %{String.t() => any()}
+  @type get_wireless_device_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -216,20 +219,20 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type start_fuota_task_request() :: %{String.t() => any()}
+  @type start_fuota_task_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       abp_v1_1() :: %{
-        "DevAddr" => String.t(),
+        "DevAddr" => String.t() | Atom.t(),
         "FCntStart" => integer(),
         "SessionKeys" => session_keys_abp_v1_1()
       }
 
   """
-  @type abp_v1_1() :: %{String.t() => any()}
+  @type abp_v1_1() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -241,7 +244,8 @@ defmodule AWS.IoTWireless do
 
   """
   @type lo_ra_w_a_n_connection_status_event_notification_configurations() :: %{
-          String.t() => any()
+          String.t()
+          | Atom.t() => any()
         }
 
   @typedoc """
@@ -253,12 +257,12 @@ defmodule AWS.IoTWireless do
         "Dimensions" => list(dimension()),
         "EndTimestamp" => non_neg_integer(),
         "MetricName" => list(any()),
-        "QueryId" => String.t(),
+        "QueryId" => String.t() | Atom.t(),
         "StartTimestamp" => non_neg_integer()
       }
 
   """
-  @type summary_metric_query() :: %{String.t() => any()}
+  @type summary_metric_query() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -273,24 +277,24 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type lo_ra_w_a_n_multicast_session() :: %{String.t() => any()}
+  @type lo_ra_w_a_n_multicast_session() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_multicast_group_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
-        "Id" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "LoRaWAN" => lo_ra_w_a_n_multicast_get(),
-        "Name" => String.t(),
-        "Status" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type get_multicast_group_response() :: %{String.t() => any()}
+  @type get_multicast_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -306,44 +310,44 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       network_analyzer_configurations() :: %{
-        "Arn" => String.t(),
-        "Name" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type network_analyzer_configurations() :: %{String.t() => any()}
+  @type network_analyzer_configurations() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_wireless_gateway_request() :: %{
-        optional("ClientRequestToken") => String.t(),
-        optional("Description") => String.t(),
-        optional("Name") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
         required("LoRaWAN") => lo_ra_w_a_n_gateway()
       }
 
   """
-  @type create_wireless_gateway_request() :: %{String.t() => any()}
+  @type create_wireless_gateway_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_destination_request() :: %{
-        optional("ClientRequestToken") => String.t(),
-        optional("Description") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("Expression") => String.t(),
+        required("Expression") => String.t() | Atom.t(),
         required("ExpressionType") => list(any()),
-        required("Name") => String.t(),
-        required("RoleArn") => String.t()
+        required("Name") => String.t() | Atom.t(),
+        required("RoleArn") => String.t() | Atom.t()
       }
 
   """
-  @type create_destination_request() :: %{String.t() => any()}
+  @type create_destination_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -369,13 +373,13 @@ defmodule AWS.IoTWireless do
 
       downlink_queue_message() :: %{
         "LoRaWAN" => lo_ra_w_a_n_send_data_to_device(),
-        "MessageId" => String.t(),
-        "ReceivedAt" => String.t(),
+        "MessageId" => String.t() | Atom.t(),
+        "ReceivedAt" => String.t() | Atom.t(),
         "TransmitMode" => integer()
       }
 
   """
-  @type downlink_queue_message() :: %{String.t() => any()}
+  @type downlink_queue_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -395,22 +399,22 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type get_position_request() :: %{String.t() => any()}
+  @type get_position_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_device_profile_response() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "LoRaWAN" => lo_ra_w_a_n_device_profile(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Sidewalk" => sidewalk_get_device_profile()
       }
 
   """
-  @type get_device_profile_response() :: %{String.t() => any()}
+  @type get_device_profile_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -430,7 +434,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type update_wireless_device_import_task_request() :: %{String.t() => any()}
+  @type update_wireless_device_import_task_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -447,36 +451,36 @@ defmodule AWS.IoTWireless do
 
       send_data_to_wireless_device_request() :: %{
         optional("WirelessMetadata") => wireless_metadata(),
-        required("PayloadData") => String.t(),
+        required("PayloadData") => String.t() | Atom.t(),
         required("TransmitMode") => integer()
       }
 
   """
-  @type send_data_to_wireless_device_request() :: %{String.t() => any()}
+  @type send_data_to_wireless_device_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       abp_v1_0_x() :: %{
-        "DevAddr" => String.t(),
+        "DevAddr" => String.t() | Atom.t(),
         "FCntStart" => integer(),
         "SessionKeys" => session_keys_abp_v1_0_x()
       }
 
   """
-  @type abp_v1_0_x() :: %{String.t() => any()}
+  @type abp_v1_0_x() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       sidewalk_update_import_info() :: %{
-        "DeviceCreationFile" => String.t()
+        "DeviceCreationFile" => String.t() | Atom.t()
       }
 
   """
-  @type sidewalk_update_import_info() :: %{String.t() => any()}
+  @type sidewalk_update_import_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -487,7 +491,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type proximity_resource_type_event_configuration() :: %{String.t() => any()}
+  @type proximity_resource_type_event_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -499,24 +503,24 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type wireless_metadata() :: %{String.t() => any()}
+  @type wireless_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_network_analyzer_configuration_response() :: %{
-        "Arn" => String.t(),
-        "Description" => String.t(),
-        "MulticastGroups" => list(String.t()),
-        "Name" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "MulticastGroups" => list(String.t() | Atom.t()),
+        "Name" => String.t() | Atom.t(),
         "TraceContent" => trace_content(),
-        "WirelessDevices" => list(String.t()),
-        "WirelessGateways" => list(String.t())
+        "WirelessDevices" => list(String.t() | Atom.t()),
+        "WirelessGateways" => list(String.t() | Atom.t())
       }
 
   """
-  @type get_network_analyzer_configuration_response() :: %{String.t() => any()}
+  @type get_network_analyzer_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -531,7 +535,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type get_event_configuration_by_resource_types_response() :: %{String.t() => any()}
+  @type get_event_configuration_by_resource_types_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -542,18 +546,18 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type get_resource_position_response() :: %{String.t() => any()}
+  @type get_resource_position_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       test_wireless_device_response() :: %{
-        "Result" => String.t()
+        "Result" => String.t() | Atom.t()
       }
 
   """
-  @type test_wireless_device_response() :: %{String.t() => any()}
+  @type test_wireless_device_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -565,7 +569,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type device_registration_state_event_configuration() :: %{String.t() => any()}
+  @type device_registration_state_event_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -581,28 +585,28 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       get_destination_response() :: %{
-        "Arn" => String.t(),
-        "Description" => String.t(),
-        "Expression" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "Expression" => String.t() | Atom.t(),
         "ExpressionType" => list(any()),
-        "Name" => String.t(),
-        "RoleArn" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | Atom.t()
       }
 
   """
-  @type get_destination_response() :: %{String.t() => any()}
+  @type get_destination_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       lo_ra_w_a_n_fuota_task_get_info() :: %{
-        "RfRegion" => String.t(),
+        "RfRegion" => String.t() | Atom.t(),
         "StartTime" => non_neg_integer()
       }
 
   """
-  @type lo_ra_w_a_n_fuota_task_get_info() :: %{String.t() => any()}
+  @type lo_ra_w_a_n_fuota_task_get_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -614,7 +618,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type message_delivery_status_event_configuration() :: %{String.t() => any()}
+  @type message_delivery_status_event_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -626,19 +630,19 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type global_identity() :: %{String.t() => any()}
+  @type global_identity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_wireless_gateway_certificate_response() :: %{
-        "IotCertificateId" => String.t(),
-        "LoRaWANNetworkServerCertificateId" => String.t()
+        "IotCertificateId" => String.t() | Atom.t(),
+        "LoRaWANNetworkServerCertificateId" => String.t() | Atom.t()
       }
 
   """
-  @type get_wireless_gateway_certificate_response() :: %{String.t() => any()}
+  @type get_wireless_gateway_certificate_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -649,7 +653,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type get_position_estimate_response() :: %{String.t() => any()}
+  @type get_position_estimate_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -660,18 +664,18 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type update_metric_configuration_request() :: %{String.t() => any()}
+  @type update_metric_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_wireless_gateway_with_certificate_request() :: %{
-        required("IotCertificateId") => String.t()
+        required("IotCertificateId") => String.t() | Atom.t()
       }
 
   """
-  @type associate_wireless_gateway_with_certificate_request() :: %{String.t() => any()}
+  @type associate_wireless_gateway_with_certificate_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -682,7 +686,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type get_resource_log_level_response() :: %{String.t() => any()}
+  @type get_resource_log_level_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -697,7 +701,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type cell_towers() :: %{String.t() => any()}
+  @type cell_towers() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -705,11 +709,11 @@ defmodule AWS.IoTWireless do
 
       list_multicast_groups_by_fuota_task_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_multicast_groups_by_fuota_task_request() :: %{String.t() => any()}
+  @type list_multicast_groups_by_fuota_task_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -725,14 +729,14 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       get_service_profile_response() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "LoRaWAN" => lo_ra_w_a_n_get_service_profile_info(),
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type get_service_profile_response() :: %{String.t() => any()}
+  @type get_service_profile_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -743,7 +747,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type sidewalk_event_notification_configurations() :: %{String.t() => any()}
+  @type sidewalk_event_notification_configurations() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -759,16 +763,16 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       destinations() :: %{
-        "Arn" => String.t(),
-        "Description" => String.t(),
-        "Expression" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "Expression" => String.t() | Atom.t(),
         "ExpressionType" => list(any()),
-        "Name" => String.t(),
-        "RoleArn" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | Atom.t()
       }
 
   """
-  @type destinations() :: %{String.t() => any()}
+  @type destinations() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -777,12 +781,12 @@ defmodule AWS.IoTWireless do
       imported_sidewalk_device() :: %{
         "LastUpdateTime" => non_neg_integer(),
         "OnboardingStatus" => list(any()),
-        "OnboardingStatusReason" => String.t(),
-        "SidewalkManufacturingSn" => String.t()
+        "OnboardingStatusReason" => String.t() | Atom.t(),
+        "SidewalkManufacturingSn" => String.t() | Atom.t()
       }
 
   """
-  @type imported_sidewalk_device() :: %{String.t() => any()}
+  @type imported_sidewalk_device() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -790,35 +794,35 @@ defmodule AWS.IoTWireless do
 
       gateway_list_item() :: %{
         "DownlinkFrequency" => integer(),
-        "GatewayId" => String.t()
+        "GatewayId" => String.t() | Atom.t()
       }
 
   """
-  @type gateway_list_item() :: %{String.t() => any()}
+  @type gateway_list_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       device_profile() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type device_profile() :: %{String.t() => any()}
+  @type device_profile() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       sidewalk_update_account() :: %{
-        "AppServerPrivateKey" => String.t()
+        "AppServerPrivateKey" => String.t() | Atom.t()
       }
 
   """
-  @type sidewalk_update_account() :: %{String.t() => any()}
+  @type sidewalk_update_account() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -834,12 +838,12 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       create_multicast_group_response() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type create_multicast_group_response() :: %{String.t() => any()}
+  @type create_multicast_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -851,7 +855,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type join_event_configuration() :: %{String.t() => any()}
+  @type join_event_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -862,7 +866,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type get_position_configuration_request() :: %{String.t() => any()}
+  @type get_position_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -873,7 +877,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type get_metric_configuration_response() :: %{String.t() => any()}
+  @type get_metric_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -882,12 +886,12 @@ defmodule AWS.IoTWireless do
       lo_ra_w_a_n_update_gateway_task_create() :: %{
         "CurrentVersion" => lo_ra_w_a_n_gateway_version(),
         "SigKeyCrc" => float(),
-        "UpdateSignature" => String.t(),
+        "UpdateSignature" => String.t() | Atom.t(),
         "UpdateVersion" => lo_ra_w_a_n_gateway_version()
       }
 
   """
-  @type lo_ra_w_a_n_update_gateway_task_create() :: %{String.t() => any()}
+  @type lo_ra_w_a_n_update_gateway_task_create() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -895,37 +899,37 @@ defmodule AWS.IoTWireless do
 
       list_wireless_gateway_task_definitions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("TaskDefinitionType") => list(any())
       }
 
   """
-  @type list_wireless_gateway_task_definitions_request() :: %{String.t() => any()}
+  @type list_wireless_gateway_task_definitions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_wireless_gateway_task_entry() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "LoRaWAN" => lo_ra_w_a_n_update_gateway_task_entry()
       }
 
   """
-  @type update_wireless_gateway_task_entry() :: %{String.t() => any()}
+  @type update_wireless_gateway_task_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       participating_gateways_multicast() :: %{
-        "GatewayList" => list(String.t()),
+        "GatewayList" => list(String.t() | Atom.t()),
         "TransmissionInterval" => integer()
       }
 
   """
-  @type participating_gateways_multicast() :: %{String.t() => any()}
+  @type participating_gateways_multicast() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -938,7 +942,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type trace_content() :: %{String.t() => any()}
+  @type trace_content() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1004,46 +1008,46 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type accuracy() :: %{String.t() => any()}
+  @type accuracy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_fuota_task_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
-        "Descriptor" => String.t(),
-        "FirmwareUpdateImage" => String.t(),
-        "FirmwareUpdateRole" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "Descriptor" => String.t() | Atom.t(),
+        "FirmwareUpdateImage" => String.t() | Atom.t(),
+        "FirmwareUpdateRole" => String.t() | Atom.t(),
         "FragmentIntervalMS" => integer(),
         "FragmentSizeBytes" => integer(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "LoRaWAN" => lo_ra_w_a_n_fuota_task_get_info(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "RedundancyPercent" => integer(),
         "Status" => list(any())
       }
 
   """
-  @type get_fuota_task_response() :: %{String.t() => any()}
+  @type get_fuota_task_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       wireless_gateway_statistics() :: %{
-        "Arn" => String.t(),
-        "Description" => String.t(),
-        "Id" => String.t(),
-        "LastUplinkReceivedAt" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "LastUplinkReceivedAt" => String.t() | Atom.t(),
         "LoRaWAN" => lo_ra_w_a_n_gateway(),
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type wireless_gateway_statistics() :: %{String.t() => any()}
+  @type wireless_gateway_statistics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1057,19 +1061,19 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type sidewalk_device_metadata() :: %{String.t() => any()}
+  @type sidewalk_device_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceArn") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1099,7 +1103,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type lo_ra_w_a_n_update_gateway_task_entry() :: %{String.t() => any()}
+  @type lo_ra_w_a_n_update_gateway_task_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1107,11 +1111,11 @@ defmodule AWS.IoTWireless do
 
       delete_queued_messages_request() :: %{
         optional("WirelessDeviceType") => list(any()),
-        required("MessageId") => String.t()
+        required("MessageId") => String.t() | Atom.t()
       }
 
   """
-  @type delete_queued_messages_request() :: %{String.t() => any()}
+  @type delete_queued_messages_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1128,11 +1132,11 @@ defmodule AWS.IoTWireless do
 
       list_partner_accounts_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_partner_accounts_request() :: %{String.t() => any()}
+  @type list_partner_accounts_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1144,25 +1148,25 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type get_resource_event_configuration_request() :: %{String.t() => any()}
+  @type get_resource_event_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_network_analyzer_configuration_request() :: %{
-        optional("ClientRequestToken") => String.t(),
-        optional("Description") => String.t(),
-        optional("MulticastGroups") => list(String.t()),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("MulticastGroups") => list(String.t() | Atom.t()),
         optional("Tags") => list(tag()),
         optional("TraceContent") => trace_content(),
-        optional("WirelessDevices") => list(String.t()),
-        optional("WirelessGateways") => list(String.t()),
-        required("Name") => String.t()
+        optional("WirelessDevices") => list(String.t() | Atom.t()),
+        optional("WirelessGateways") => list(String.t() | Atom.t()),
+        required("Name") => String.t() | Atom.t()
       }
 
   """
-  @type create_network_analyzer_configuration_request() :: %{String.t() => any()}
+  @type create_network_analyzer_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1170,12 +1174,12 @@ defmodule AWS.IoTWireless do
 
       list_queued_messages_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("WirelessDeviceType") => list(any())
       }
 
   """
-  @type list_queued_messages_request() :: %{String.t() => any()}
+  @type list_queued_messages_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1183,11 +1187,11 @@ defmodule AWS.IoTWireless do
 
       list_fuota_tasks_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_fuota_tasks_request() :: %{String.t() => any()}
+  @type list_fuota_tasks_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1203,13 +1207,13 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       otaa_v1_1() :: %{
-        "AppKey" => String.t(),
-        "JoinEui" => String.t(),
-        "NwkKey" => String.t()
+        "AppKey" => String.t() | Atom.t(),
+        "JoinEui" => String.t() | Atom.t(),
+        "NwkKey" => String.t() | Atom.t()
       }
 
   """
-  @type otaa_v1_1() :: %{String.t() => any()}
+  @type otaa_v1_1() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1254,13 +1258,13 @@ defmodule AWS.IoTWireless do
       lo_ra_w_a_n_update_device() :: %{
         "AbpV1_0_x" => update_abp_v1_0_x(),
         "AbpV1_1" => update_abp_v1_1(),
-        "DeviceProfileId" => String.t(),
+        "DeviceProfileId" => String.t() | Atom.t(),
         "FPorts" => update_f_ports(),
-        "ServiceProfileId" => String.t()
+        "ServiceProfileId" => String.t() | Atom.t()
       }
 
   """
-  @type lo_ra_w_a_n_update_device() :: %{String.t() => any()}
+  @type lo_ra_w_a_n_update_device() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1280,7 +1284,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type get_resource_position_request() :: %{String.t() => any()}
+  @type get_resource_position_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1288,12 +1292,12 @@ defmodule AWS.IoTWireless do
 
       list_position_configurations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("ResourceType") => list(any())
       }
 
   """
-  @type list_position_configurations_request() :: %{String.t() => any()}
+  @type list_position_configurations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1305,22 +1309,22 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type gsm_local_id() :: %{String.t() => any()}
+  @type gsm_local_id() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_wireless_device_request() :: %{
-        optional("Description") => String.t(),
-        optional("DestinationName") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("DestinationName") => String.t() | Atom.t(),
         optional("LoRaWAN") => lo_ra_w_a_n_update_device(),
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("Positioning") => list(any())
       }
 
   """
-  @type update_wireless_device_request() :: %{String.t() => any()}
+  @type update_wireless_device_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1363,37 +1367,37 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       start_wireless_device_import_task_response() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type start_wireless_device_import_task_response() :: %{String.t() => any()}
+  @type start_wireless_device_import_task_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_wireless_device_import_tasks_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "WirelessDeviceImportTaskList" => list(wireless_device_import_task())
       }
 
   """
-  @type list_wireless_device_import_tasks_response() :: %{String.t() => any()}
+  @type list_wireless_device_import_tasks_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_profile() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type service_profile() :: %{String.t() => any()}
+  @type service_profile() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1409,76 +1413,76 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       update_multicast_group_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("LoRaWAN") => lo_ra_w_a_n_multicast(),
-        optional("Name") => String.t()
+        optional("Name") => String.t() | Atom.t()
       }
 
   """
-  @type update_multicast_group_request() :: %{String.t() => any()}
+  @type update_multicast_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_multicast_group_request() :: %{
-        optional("ClientRequestToken") => String.t(),
-        optional("Description") => String.t(),
-        optional("Name") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
         required("LoRaWAN") => lo_ra_w_a_n_multicast()
       }
 
   """
-  @type create_multicast_group_request() :: %{String.t() => any()}
+  @type create_multicast_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_fuota_task_response() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type create_fuota_task_response() :: %{String.t() => any()}
+  @type create_fuota_task_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_service_profile_response() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type create_service_profile_response() :: %{String.t() => any()}
+  @type create_service_profile_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_wireless_gateways_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "WirelessGatewayList" => list(wireless_gateway_statistics())
       }
 
   """
-  @type list_wireless_gateways_response() :: %{String.t() => any()}
+  @type list_wireless_gateways_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_wireless_devices_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "WirelessDeviceList" => list(wireless_device_statistics())
       }
 
   """
-  @type list_wireless_devices_response() :: %{String.t() => any()}
+  @type list_wireless_devices_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1486,29 +1490,29 @@ defmodule AWS.IoTWireless do
 
       lo_ra_w_a_n_gateway() :: %{
         "Beaconing" => beaconing(),
-        "GatewayEui" => String.t(),
-        "JoinEuiFilters" => list(list(String.t())()),
+        "GatewayEui" => String.t() | Atom.t(),
+        "JoinEuiFilters" => list(list(String.t() | Atom.t())()),
         "MaxEirp" => float(),
-        "NetIdFilters" => list(String.t()),
-        "RfRegion" => String.t(),
+        "NetIdFilters" => list(String.t() | Atom.t()),
+        "RfRegion" => String.t() | Atom.t(),
         "SubBands" => list(integer())
       }
 
   """
-  @type lo_ra_w_a_n_gateway() :: %{String.t() => any()}
+  @type lo_ra_w_a_n_gateway() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_aws_account_with_partner_account_request() :: %{
-        optional("ClientRequestToken") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
         required("Sidewalk") => sidewalk_account_info()
       }
 
   """
-  @type associate_aws_account_with_partner_account_request() :: %{String.t() => any()}
+  @type associate_aws_account_with_partner_account_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1519,12 +1523,12 @@ defmodule AWS.IoTWireless do
         "Position" => list(float()),
         "SolverProvider" => list(any()),
         "SolverType" => list(any()),
-        "SolverVersion" => String.t(),
-        "Timestamp" => String.t()
+        "SolverVersion" => String.t() | Atom.t(),
+        "Timestamp" => String.t() | Atom.t()
       }
 
   """
-  @type get_position_response() :: %{String.t() => any()}
+  @type get_position_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1536,7 +1540,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type wcdma_local_id() :: %{String.t() => any()}
+  @type wcdma_local_id() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1544,25 +1548,25 @@ defmodule AWS.IoTWireless do
 
       list_multicast_groups_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_multicast_groups_request() :: %{String.t() => any()}
+  @type list_multicast_groups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       session_keys_abp_v1_1() :: %{
-        "AppSKey" => String.t(),
-        "FNwkSIntKey" => String.t(),
-        "NwkSEncKey" => String.t(),
-        "SNwkSIntKey" => String.t()
+        "AppSKey" => String.t() | Atom.t(),
+        "FNwkSIntKey" => String.t() | Atom.t(),
+        "NwkSEncKey" => String.t() | Atom.t(),
+        "SNwkSIntKey" => String.t() | Atom.t()
       }
 
   """
-  @type session_keys_abp_v1_1() :: %{String.t() => any()}
+  @type session_keys_abp_v1_1() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1572,14 +1576,14 @@ defmodule AWS.IoTWireless do
         "ClassBTimeout" => integer(),
         "ClassCTimeout" => integer(),
         "FactoryPresetFreqsList" => list(integer()),
-        "MacVersion" => String.t(),
+        "MacVersion" => String.t() | Atom.t(),
         "MaxDutyCycle" => integer(),
         "MaxEirp" => integer(),
         "PingSlotDr" => integer(),
         "PingSlotFreq" => integer(),
         "PingSlotPeriod" => integer(),
-        "RegParamsRevision" => String.t(),
-        "RfRegion" => String.t(),
+        "RegParamsRevision" => String.t() | Atom.t(),
+        "RfRegion" => String.t() | Atom.t(),
         "RxDataRate2" => integer(),
         "RxDelay1" => integer(),
         "RxDrOffset1" => integer(),
@@ -1591,7 +1595,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type lo_ra_w_a_n_device_profile() :: %{String.t() => any()}
+  @type lo_ra_w_a_n_device_profile() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1602,7 +1606,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type update_abp_v1_0_x() :: %{String.t() => any()}
+  @type update_abp_v1_0_x() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1633,7 +1637,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type positioning() :: %{String.t() => any()}
+  @type positioning() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1645,20 +1649,20 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type cdma_local_id() :: %{String.t() => any()}
+  @type cdma_local_id() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => String.t(),
-        "ResourceId" => String.t(),
-        "ResourceType" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1673,7 +1677,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type wcdma_nmr_obj() :: %{String.t() => any()}
+  @type wcdma_nmr_obj() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1687,20 +1691,20 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type gsm_nmr_obj() :: %{String.t() => any()}
+  @type gsm_nmr_obj() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t(),
-        "ResourceId" => String.t(),
-        "ResourceType" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1712,7 +1716,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type lte_local_id() :: %{String.t() => any()}
+  @type lte_local_id() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1737,27 +1741,27 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       get_wireless_gateway_task_response() :: %{
-        "LastUplinkReceivedAt" => String.t(),
+        "LastUplinkReceivedAt" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "TaskCreatedAt" => String.t(),
-        "WirelessGatewayId" => String.t(),
-        "WirelessGatewayTaskDefinitionId" => String.t()
+        "TaskCreatedAt" => String.t() | Atom.t(),
+        "WirelessGatewayId" => String.t() | Atom.t(),
+        "WirelessGatewayTaskDefinitionId" => String.t() | Atom.t()
       }
 
   """
-  @type get_wireless_gateway_task_response() :: %{String.t() => any()}
+  @type get_wireless_gateway_task_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1768,7 +1772,10 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type disassociate_aws_account_from_partner_account_request() :: %{String.t() => any()}
+  @type disassociate_aws_account_from_partner_account_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1779,7 +1786,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type get_metrics_request() :: %{String.t() => any()}
+  @type get_metrics_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1804,17 +1811,17 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       get_wireless_gateway_response() :: %{
-        "Arn" => String.t(),
-        "Description" => String.t(),
-        "Id" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "LoRaWAN" => lo_ra_w_a_n_gateway(),
-        "Name" => String.t(),
-        "ThingArn" => String.t(),
-        "ThingName" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "ThingArn" => String.t() | Atom.t(),
+        "ThingName" => String.t() | Atom.t()
       }
 
   """
-  @type get_wireless_gateway_response() :: %{String.t() => any()}
+  @type get_wireless_gateway_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1825,7 +1832,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type get_wireless_gateway_firmware_information_response() :: %{String.t() => any()}
+  @type get_wireless_gateway_firmware_information_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1855,7 +1862,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type get_partner_account_response() :: %{String.t() => any()}
+  @type get_partner_account_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1864,16 +1871,16 @@ defmodule AWS.IoTWireless do
       lo_ra_w_a_n_device() :: %{
         "AbpV1_0_x" => abp_v1_0_x(),
         "AbpV1_1" => abp_v1_1(),
-        "DevEui" => String.t(),
-        "DeviceProfileId" => String.t(),
+        "DevEui" => String.t() | Atom.t(),
+        "DeviceProfileId" => String.t() | Atom.t(),
         "FPorts" => f_ports(),
         "OtaaV1_0_x" => otaa_v1_0_x(),
         "OtaaV1_1" => otaa_v1_1(),
-        "ServiceProfileId" => String.t()
+        "ServiceProfileId" => String.t() | Atom.t()
       }
 
   """
-  @type lo_ra_w_a_n_device() :: %{String.t() => any()}
+  @type lo_ra_w_a_n_device() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1889,23 +1896,23 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       wi_fi_access_point() :: %{
-        "MacAddress" => String.t(),
+        "MacAddress" => String.t() | Atom.t(),
         "Rss" => integer()
       }
 
   """
-  @type wi_fi_access_point() :: %{String.t() => any()}
+  @type wi_fi_access_point() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_wireless_gateway_with_thing_request() :: %{
-        required("ThingArn") => String.t()
+        required("ThingArn") => String.t() | Atom.t()
       }
 
   """
-  @type associate_wireless_gateway_with_thing_request() :: %{String.t() => any()}
+  @type associate_wireless_gateway_with_thing_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1916,12 +1923,12 @@ defmodule AWS.IoTWireless do
         "AssistPosition" => list(float()),
         "CaptureTime" => float(),
         "CaptureTimeAccuracy" => float(),
-        "Payload" => String.t(),
+        "Payload" => String.t() | Atom.t(),
         "Use2DSolver" => boolean()
       }
 
   """
-  @type gnss() :: %{String.t() => any()}
+  @type gnss() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1938,7 +1945,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type update_resource_event_configuration_request() :: %{String.t() => any()}
+  @type update_resource_event_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1968,7 +1975,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type lo_ra_w_a_n_send_data_to_device() :: %{String.t() => any()}
+  @type lo_ra_w_a_n_send_data_to_device() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2002,21 +2009,21 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       create_fuota_task_request() :: %{
-        optional("ClientRequestToken") => String.t(),
-        optional("Description") => String.t(),
-        optional("Descriptor") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("Descriptor") => String.t() | Atom.t(),
         optional("FragmentIntervalMS") => integer(),
         optional("FragmentSizeBytes") => integer(),
         optional("LoRaWAN") => lo_ra_w_a_n_fuota_task(),
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("RedundancyPercent") => integer(),
         optional("Tags") => list(tag()),
-        required("FirmwareUpdateImage") => String.t(),
-        required("FirmwareUpdateRole") => String.t()
+        required("FirmwareUpdateImage") => String.t() | Atom.t(),
+        required("FirmwareUpdateRole") => String.t() | Atom.t()
       }
 
   """
-  @type create_fuota_task_request() :: %{String.t() => any()}
+  @type create_fuota_task_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2031,7 +2038,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type tdscdma_nmr_obj() :: %{String.t() => any()}
+  @type tdscdma_nmr_obj() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2042,20 +2049,20 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type get_wireless_gateway_request() :: %{String.t() => any()}
+  @type get_wireless_gateway_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       sidewalk_account_info_with_fingerprint() :: %{
-        "AmazonId" => String.t(),
-        "Arn" => String.t(),
-        "Fingerprint" => String.t()
+        "AmazonId" => String.t() | Atom.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Fingerprint" => String.t() | Atom.t()
       }
 
   """
-  @type sidewalk_account_info_with_fingerprint() :: %{String.t() => any()}
+  @type sidewalk_account_info_with_fingerprint() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2083,7 +2090,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type tdscdma_obj() :: %{String.t() => any()}
+  @type tdscdma_obj() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2091,27 +2098,27 @@ defmodule AWS.IoTWireless do
 
       lo_ra_w_a_n_device_metadata() :: %{
         "DataRate" => integer(),
-        "DevEui" => String.t(),
+        "DevEui" => String.t() | Atom.t(),
         "FPort" => integer(),
         "Frequency" => integer(),
         "Gateways" => list(lo_ra_w_a_n_gateway_metadata()),
         "PublicGateways" => list(lo_ra_w_a_n_public_gateway_metadata()),
-        "Timestamp" => String.t()
+        "Timestamp" => String.t() | Atom.t()
       }
 
   """
-  @type lo_ra_w_a_n_device_metadata() :: %{String.t() => any()}
+  @type lo_ra_w_a_n_device_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       send_data_to_multicast_group_response() :: %{
-        "MessageId" => String.t()
+        "MessageId" => String.t() | Atom.t()
       }
 
   """
-  @type send_data_to_multicast_group_response() :: %{String.t() => any()}
+  @type send_data_to_multicast_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2128,13 +2135,16 @@ defmodule AWS.IoTWireless do
 
       list_devices_for_wireless_device_import_task_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("Status") => list(any()),
-        required("Id") => String.t()
+        required("Id") => String.t() | Atom.t()
       }
 
   """
-  @type list_devices_for_wireless_device_import_task_request() :: %{String.t() => any()}
+  @type list_devices_for_wireless_device_import_task_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -2154,7 +2164,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2162,11 +2172,11 @@ defmodule AWS.IoTWireless do
 
       list_destinations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_destinations_request() :: %{String.t() => any()}
+  @type list_destinations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2182,11 +2192,11 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       sidewalk_create_wireless_device() :: %{
-        "DeviceProfileId" => String.t()
+        "DeviceProfileId" => String.t() | Atom.t()
       }
 
   """
-  @type sidewalk_create_wireless_device() :: %{String.t() => any()}
+  @type sidewalk_create_wireless_device() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2219,7 +2229,10 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type update_event_configuration_by_resource_types_request() :: %{String.t() => any()}
+  @type update_event_configuration_by_resource_types_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -2234,18 +2247,18 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type get_resource_event_configuration_response() :: %{String.t() => any()}
+  @type get_resource_event_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       send_data_to_wireless_device_response() :: %{
-        "MessageId" => String.t()
+        "MessageId" => String.t() | Atom.t()
       }
 
   """
-  @type send_data_to_wireless_device_response() :: %{String.t() => any()}
+  @type send_data_to_wireless_device_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2257,19 +2270,19 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type connection_status_event_configuration() :: %{String.t() => any()}
+  @type connection_status_event_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_aws_account_with_partner_account_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "Sidewalk" => sidewalk_account_info()
       }
 
   """
-  @type associate_aws_account_with_partner_account_response() :: %{String.t() => any()}
+  @type associate_aws_account_with_partner_account_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2286,13 +2299,13 @@ defmodule AWS.IoTWireless do
 
       event_configuration_item() :: %{
         "Events" => event_notification_item_configurations(),
-        "Identifier" => String.t(),
+        "Identifier" => String.t() | Atom.t(),
         "IdentifierType" => list(any()),
         "PartnerType" => list(any())
       }
 
   """
-  @type event_configuration_item() :: %{String.t() => any()}
+  @type event_configuration_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2303,7 +2316,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type update_abp_v1_1() :: %{String.t() => any()}
+  @type update_abp_v1_1() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2311,11 +2324,11 @@ defmodule AWS.IoTWireless do
 
       list_service_profiles_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_service_profiles_request() :: %{String.t() => any()}
+  @type list_service_profiles_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2335,7 +2348,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type imported_wireless_device() :: %{String.t() => any()}
+  @type imported_wireless_device() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2356,18 +2369,18 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type wireless_gateway_event_log_option() :: %{String.t() => any()}
+  @type wireless_gateway_event_log_option() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_wireless_gateway_task_request() :: %{
-        required("WirelessGatewayTaskDefinitionId") => String.t()
+        required("WirelessGatewayTaskDefinitionId") => String.t() | Atom.t()
       }
 
   """
-  @type create_wireless_gateway_task_request() :: %{String.t() => any()}
+  @type create_wireless_gateway_task_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2379,7 +2392,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type semtech_gnss_configuration() :: %{String.t() => any()}
+  @type semtech_gnss_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2396,11 +2409,11 @@ defmodule AWS.IoTWireless do
 
       list_multicast_groups_by_fuota_task_response() :: %{
         "MulticastGroupList" => list(multicast_group_by_fuota_task()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_multicast_groups_by_fuota_task_response() :: %{String.t() => any()}
+  @type list_multicast_groups_by_fuota_task_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2420,38 +2433,38 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type get_service_endpoint_request() :: %{String.t() => any()}
+  @type get_service_endpoint_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_service_profiles_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "ServiceProfileList" => list(service_profile())
       }
 
   """
-  @type list_service_profiles_response() :: %{String.t() => any()}
+  @type list_service_profiles_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_wireless_device_request() :: %{
-        optional("ClientRequestToken") => String.t(),
-        optional("Description") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("LoRaWAN") => lo_ra_w_a_n_device(),
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("Positioning") => list(any()),
         optional("Sidewalk") => sidewalk_create_wireless_device(),
         optional("Tags") => list(tag()),
-        required("DestinationName") => String.t(),
+        required("DestinationName") => String.t() | Atom.t(),
         required("Type") => list(any())
       }
 
   """
-  @type create_wireless_device_request() :: %{String.t() => any()}
+  @type create_wireless_device_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2462,41 +2475,44 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type lo_ra_w_a_n_join_event_notification_configurations() :: %{String.t() => any()}
+  @type lo_ra_w_a_n_join_event_notification_configurations() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       wireless_device_statistics() :: %{
-        "Arn" => String.t(),
-        "DestinationName" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "DestinationName" => String.t() | Atom.t(),
         "FuotaDeviceStatus" => list(any()),
-        "Id" => String.t(),
-        "LastUplinkReceivedAt" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "LastUplinkReceivedAt" => String.t() | Atom.t(),
         "LoRaWAN" => lo_ra_w_a_n_list_device(),
         "McGroupId" => integer(),
-        "MulticastDeviceStatus" => String.t(),
-        "Name" => String.t(),
+        "MulticastDeviceStatus" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "Sidewalk" => sidewalk_list_device(),
         "Type" => list(any())
       }
 
   """
-  @type wireless_device_statistics() :: %{String.t() => any()}
+  @type wireless_device_statistics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_devices_for_wireless_device_import_task_response() :: %{
-        "DestinationName" => String.t(),
+        "DestinationName" => String.t() | Atom.t(),
         "ImportedWirelessDeviceList" => list(imported_wireless_device()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_devices_for_wireless_device_import_task_response() :: %{String.t() => any()}
+  @type list_devices_for_wireless_device_import_task_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -2508,7 +2524,8 @@ defmodule AWS.IoTWireless do
 
   """
   @type lo_ra_w_a_n_connection_status_resource_type_event_configuration() :: %{
-          String.t() => any()
+          String.t()
+          | Atom.t() => any()
         }
 
   @typedoc """
@@ -2517,11 +2534,11 @@ defmodule AWS.IoTWireless do
 
       put_resource_log_level_request() :: %{
         required("LogLevel") => list(any()),
-        required("ResourceType") => String.t()
+        required("ResourceType") => String.t() | Atom.t()
       }
 
   """
-  @type put_resource_log_level_request() :: %{String.t() => any()}
+  @type put_resource_log_level_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2533,22 +2550,22 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type tdscdma_local_id() :: %{String.t() => any()}
+  @type tdscdma_local_id() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       dak_certificate_metadata() :: %{
-        "ApId" => String.t(),
-        "CertificateId" => String.t(),
-        "DeviceTypeId" => String.t(),
+        "ApId" => String.t() | Atom.t(),
+        "CertificateId" => String.t() | Atom.t(),
+        "DeviceTypeId" => String.t() | Atom.t(),
         "FactorySupport" => boolean(),
         "MaxAllowedSignature" => integer()
       }
 
   """
-  @type dak_certificate_metadata() :: %{String.t() => any()}
+  @type dak_certificate_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2556,11 +2573,11 @@ defmodule AWS.IoTWireless do
 
       list_event_configurations_response() :: %{
         "EventConfigurationsList" => list(event_configuration_item()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_event_configurations_response() :: %{String.t() => any()}
+  @type list_event_configurations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2576,14 +2593,14 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       create_service_profile_request() :: %{
-        optional("ClientRequestToken") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
         optional("LoRaWAN") => lo_ra_w_a_n_service_profile(),
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("Tags") => list(tag())
       }
 
   """
-  @type create_service_profile_request() :: %{String.t() => any()}
+  @type create_service_profile_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2596,7 +2613,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type fuota_task_log_option() :: %{String.t() => any()}
+  @type fuota_task_log_option() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2609,58 +2626,58 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type wireless_gateway_log_option() :: %{String.t() => any()}
+  @type wireless_gateway_log_option() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_destination_request() :: %{
-        optional("Description") => String.t(),
-        optional("Expression") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("Expression") => String.t() | Atom.t(),
         optional("ExpressionType") => list(any()),
-        optional("RoleArn") => String.t()
+        optional("RoleArn") => String.t() | Atom.t()
       }
 
   """
-  @type update_destination_request() :: %{String.t() => any()}
+  @type update_destination_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       position_configuration_item() :: %{
-        "Destination" => String.t(),
-        "ResourceIdentifier" => String.t(),
+        "Destination" => String.t() | Atom.t(),
+        "ResourceIdentifier" => String.t() | Atom.t(),
         "ResourceType" => list(any()),
         "Solvers" => position_solver_details()
       }
 
   """
-  @type position_configuration_item() :: %{String.t() => any()}
+  @type position_configuration_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_device_profile_response() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type create_device_profile_response() :: %{String.t() => any()}
+  @type create_device_profile_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2672,7 +2689,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type update_partner_account_request() :: %{String.t() => any()}
+  @type update_partner_account_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2683,19 +2700,19 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type start_multicast_group_session_request() :: %{String.t() => any()}
+  @type start_multicast_group_session_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_wireless_gateway_task_definitions_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "TaskDefinitions" => list(update_wireless_gateway_task_entry())
       }
 
   """
-  @type list_wireless_gateway_task_definitions_response() :: %{String.t() => any()}
+  @type list_wireless_gateway_task_definitions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2706,7 +2723,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type get_metrics_response() :: %{String.t() => any()}
+  @type get_metrics_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2721,7 +2738,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type event_notification_item_configurations() :: %{String.t() => any()}
+  @type event_notification_item_configurations() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2746,13 +2763,13 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       lo_ra_w_a_n_gateway_metadata() :: %{
-        "GatewayEui" => String.t(),
+        "GatewayEui" => String.t() | Atom.t(),
         "Rssi" => float(),
         "Snr" => float()
       }
 
   """
-  @type lo_ra_w_a_n_gateway_metadata() :: %{String.t() => any()}
+  @type lo_ra_w_a_n_gateway_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2760,11 +2777,11 @@ defmodule AWS.IoTWireless do
 
       list_wireless_device_import_tasks_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_wireless_device_import_tasks_request() :: %{String.t() => any()}
+  @type list_wireless_device_import_tasks_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2798,13 +2815,13 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       fuota_task() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type fuota_task() :: %{String.t() => any()}
+  @type fuota_task() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2824,7 +2841,10 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type message_delivery_status_resource_type_event_configuration() :: %{String.t() => any()}
+  @type message_delivery_status_resource_type_event_configuration() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -2835,19 +2855,19 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type lo_ra_w_a_n_start_fuota_task() :: %{String.t() => any()}
+  @type lo_ra_w_a_n_start_fuota_task() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_wireless_gateway_task_definition_response() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type create_wireless_gateway_task_definition_response() :: %{String.t() => any()}
+  @type create_wireless_gateway_task_definition_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2861,7 +2881,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type update_log_levels_by_resource_types_request() :: %{String.t() => any()}
+  @type update_log_levels_by_resource_types_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2882,7 +2902,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type update_position_request() :: %{String.t() => any()}
+  @type update_position_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2898,24 +2918,24 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       create_wireless_gateway_response() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type create_wireless_gateway_response() :: %{String.t() => any()}
+  @type create_wireless_gateway_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_position_configuration_response() :: %{
-        "Destination" => String.t(),
+        "Destination" => String.t() | Atom.t(),
         "Solvers" => position_solver_details()
       }
 
   """
-  @type get_position_configuration_response() :: %{String.t() => any()}
+  @type get_position_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2923,11 +2943,11 @@ defmodule AWS.IoTWireless do
 
       lo_ra_w_a_n_get_service_profile_info() :: %{
         "AddGwMetadata" => boolean(),
-        "ChannelMask" => String.t(),
+        "ChannelMask" => String.t() | Atom.t(),
         "DevStatusReqFreq" => integer(),
         "DlBucketSize" => integer(),
         "DlRate" => integer(),
-        "DlRatePolicy" => String.t(),
+        "DlRatePolicy" => String.t() | Atom.t(),
         "DrMax" => integer(),
         "DrMin" => integer(),
         "HrAllowed" => boolean(),
@@ -2940,11 +2960,11 @@ defmodule AWS.IoTWireless do
         "TargetPer" => integer(),
         "UlBucketSize" => integer(),
         "UlRate" => integer(),
-        "UlRatePolicy" => String.t()
+        "UlRatePolicy" => String.t() | Atom.t()
       }
 
   """
-  @type lo_ra_w_a_n_get_service_profile_info() :: %{String.t() => any()}
+  @type lo_ra_w_a_n_get_service_profile_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2952,11 +2972,11 @@ defmodule AWS.IoTWireless do
 
       list_network_analyzer_configurations_response() :: %{
         "NetworkAnalyzerConfigurationList" => list(network_analyzer_configurations()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_network_analyzer_configurations_response() :: %{String.t() => any()}
+  @type list_network_analyzer_configurations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2964,63 +2984,63 @@ defmodule AWS.IoTWireless do
 
       list_network_analyzer_configurations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_network_analyzer_configurations_request() :: %{String.t() => any()}
+  @type list_network_analyzer_configurations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_network_analyzer_configuration_request() :: %{
-        optional("Description") => String.t(),
-        optional("MulticastGroupsToAdd") => list(String.t()),
-        optional("MulticastGroupsToRemove") => list(String.t()),
+        optional("Description") => String.t() | Atom.t(),
+        optional("MulticastGroupsToAdd") => list(String.t() | Atom.t()),
+        optional("MulticastGroupsToRemove") => list(String.t() | Atom.t()),
         optional("TraceContent") => trace_content(),
-        optional("WirelessDevicesToAdd") => list(String.t()),
-        optional("WirelessDevicesToRemove") => list(String.t()),
-        optional("WirelessGatewaysToAdd") => list(String.t()),
-        optional("WirelessGatewaysToRemove") => list(String.t())
+        optional("WirelessDevicesToAdd") => list(String.t() | Atom.t()),
+        optional("WirelessDevicesToRemove") => list(String.t() | Atom.t()),
+        optional("WirelessGatewaysToAdd") => list(String.t() | Atom.t()),
+        optional("WirelessGatewaysToRemove") => list(String.t() | Atom.t())
       }
 
   """
-  @type update_network_analyzer_configuration_request() :: %{String.t() => any()}
+  @type update_network_analyzer_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_single_wireless_device_import_task_response() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type start_single_wireless_device_import_task_response() :: %{String.t() => any()}
+  @type start_single_wireless_device_import_task_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_wireless_device_with_thing_request() :: %{
-        required("ThingArn") => String.t()
+        required("ThingArn") => String.t() | Atom.t()
       }
 
   """
-  @type associate_wireless_device_with_thing_request() :: %{String.t() => any()}
+  @type associate_wireless_device_with_thing_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3038,7 +3058,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type gsm_obj() :: %{String.t() => any()}
+  @type gsm_obj() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3059,7 +3079,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type beaconing() :: %{String.t() => any()}
+  @type beaconing() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3075,11 +3095,11 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       ip() :: %{
-        "IpAddress" => String.t()
+        "IpAddress" => String.t() | Atom.t()
       }
 
   """
-  @type ip() :: %{String.t() => any()}
+  @type ip() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3087,12 +3107,12 @@ defmodule AWS.IoTWireless do
 
       list_event_configurations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         required("ResourceType") => list(any())
       }
 
   """
-  @type list_event_configurations_request() :: %{String.t() => any()}
+  @type list_event_configurations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3107,7 +3127,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type get_position_estimate_request() :: %{String.t() => any()}
+  @type get_position_estimate_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3120,7 +3140,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type participating_gateways() :: %{String.t() => any()}
+  @type participating_gateways() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3140,28 +3160,28 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type lo_ra_w_a_n_fuota_task() :: %{String.t() => any()}
+  @type lo_ra_w_a_n_fuota_task() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_wireless_device_import_task_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
-        "DestinationName" => String.t(),
+        "DestinationName" => String.t() | Atom.t(),
         "FailedImportedDeviceCount" => float(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "InitializedImportedDeviceCount" => float(),
         "OnboardedImportedDeviceCount" => float(),
         "PendingImportedDeviceCount" => float(),
         "Sidewalk" => sidewalk_get_start_import_info(),
         "Status" => list(any()),
-        "StatusReason" => String.t()
+        "StatusReason" => String.t() | Atom.t()
       }
 
   """
-  @type get_wireless_device_import_task_response() :: %{String.t() => any()}
+  @type get_wireless_device_import_task_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3169,11 +3189,11 @@ defmodule AWS.IoTWireless do
 
       create_wireless_gateway_task_response() :: %{
         "Status" => list(any()),
-        "WirelessGatewayTaskDefinitionId" => String.t()
+        "WirelessGatewayTaskDefinitionId" => String.t() | Atom.t()
       }
 
   """
-  @type create_wireless_gateway_task_response() :: %{String.t() => any()}
+  @type create_wireless_gateway_task_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3181,15 +3201,15 @@ defmodule AWS.IoTWireless do
 
       lo_ra_w_a_n_public_gateway_metadata() :: %{
         "DlAllowed" => boolean(),
-        "Id" => String.t(),
-        "ProviderNetId" => String.t(),
-        "RfRegion" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "ProviderNetId" => String.t() | Atom.t(),
+        "RfRegion" => String.t() | Atom.t(),
         "Rssi" => float(),
         "Snr" => float()
       }
 
   """
-  @type lo_ra_w_a_n_public_gateway_metadata() :: %{String.t() => any()}
+  @type lo_ra_w_a_n_public_gateway_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3210,56 +3230,56 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type wireless_device_event_log_option() :: %{String.t() => any()}
+  @type wireless_device_event_log_option() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_wireless_gateway_task_definition_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "AutoCreateTasks" => boolean(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Update" => update_wireless_gateway_task_create()
       }
 
   """
-  @type get_wireless_gateway_task_definition_response() :: %{String.t() => any()}
+  @type get_wireless_gateway_task_definition_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       wireless_device_import_task() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
-        "DestinationName" => String.t(),
+        "DestinationName" => String.t() | Atom.t(),
         "FailedImportedDeviceCount" => float(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "InitializedImportedDeviceCount" => float(),
         "OnboardedImportedDeviceCount" => float(),
         "PendingImportedDeviceCount" => float(),
         "Sidewalk" => sidewalk_get_start_import_info(),
         "Status" => list(any()),
-        "StatusReason" => String.t()
+        "StatusReason" => String.t() | Atom.t()
       }
 
   """
-  @type wireless_device_import_task() :: %{String.t() => any()}
+  @type wireless_device_import_task() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       otaa_v1_0_x() :: %{
-        "AppEui" => String.t(),
-        "AppKey" => String.t(),
-        "GenAppKey" => String.t(),
-        "JoinEui" => String.t()
+        "AppEui" => String.t() | Atom.t(),
+        "AppKey" => String.t() | Atom.t(),
+        "GenAppKey" => String.t() | Atom.t(),
+        "JoinEui" => String.t() | Atom.t()
       }
 
   """
-  @type otaa_v1_0_x() :: %{String.t() => any()}
+  @type otaa_v1_0_x() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3267,70 +3287,70 @@ defmodule AWS.IoTWireless do
 
       get_wireless_gateway_statistics_response() :: %{
         "ConnectionStatus" => list(any()),
-        "LastUplinkReceivedAt" => String.t(),
-        "WirelessGatewayId" => String.t()
+        "LastUplinkReceivedAt" => String.t() | Atom.t(),
+        "WirelessGatewayId" => String.t() | Atom.t()
       }
 
   """
-  @type get_wireless_gateway_statistics_response() :: %{String.t() => any()}
+  @type get_wireless_gateway_statistics_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       multicast_group_by_fuota_task() :: %{
-        "Id" => String.t()
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type multicast_group_by_fuota_task() :: %{String.t() => any()}
+  @type multicast_group_by_fuota_task() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_partner_accounts_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Sidewalk" => list(sidewalk_account_info_with_fingerprint())
       }
 
   """
-  @type list_partner_accounts_response() :: %{String.t() => any()}
+  @type list_partner_accounts_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
 
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_service_endpoint_response() :: %{
-        "ServerTrust" => String.t(),
-        "ServiceEndpoint" => String.t(),
+        "ServerTrust" => String.t() | Atom.t(),
+        "ServiceEndpoint" => String.t() | Atom.t(),
         "ServiceType" => list(any())
       }
 
   """
-  @type get_service_endpoint_response() :: %{String.t() => any()}
+  @type get_service_endpoint_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3346,11 +3366,11 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       reset_resource_log_level_request() :: %{
-        required("ResourceType") => String.t()
+        required("ResourceType") => String.t() | Atom.t()
       }
 
   """
-  @type reset_resource_log_level_request() :: %{String.t() => any()}
+  @type reset_resource_log_level_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3358,11 +3378,11 @@ defmodule AWS.IoTWireless do
 
       list_queued_messages_response() :: %{
         "DownlinkQueueMessagesList" => list(downlink_queue_message()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_queued_messages_response() :: %{String.t() => any()}
+  @type list_queued_messages_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3373,7 +3393,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type lo_ra_w_a_n_gateway_current_version() :: %{String.t() => any()}
+  @type lo_ra_w_a_n_gateway_current_version() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3385,7 +3405,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type update_f_ports() :: %{String.t() => any()}
+  @type update_f_ports() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3397,18 +3417,18 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type fuota_task_event_log_option() :: %{String.t() => any()}
+  @type fuota_task_event_log_option() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3428,18 +3448,18 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type lo_ra_w_a_n_multicast_metadata() :: %{String.t() => any()}
+  @type lo_ra_w_a_n_multicast_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_wireless_device_with_fuota_task_request() :: %{
-        required("WirelessDeviceId") => String.t()
+        required("WirelessDeviceId") => String.t() | Atom.t()
       }
 
   """
-  @type associate_wireless_device_with_fuota_task_request() :: %{String.t() => any()}
+  @type associate_wireless_device_with_fuota_task_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3457,7 +3477,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type wcdma_obj() :: %{String.t() => any()}
+  @type wcdma_obj() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3473,11 +3493,14 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       associate_wireless_gateway_with_certificate_response() :: %{
-        "IotCertificateId" => String.t()
+        "IotCertificateId" => String.t() | Atom.t()
       }
 
   """
-  @type associate_wireless_gateway_with_certificate_response() :: %{String.t() => any()}
+  @type associate_wireless_gateway_with_certificate_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -3499,20 +3522,21 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type lo_ra_w_a_n_multicast() :: %{String.t() => any()}
+  @type lo_ra_w_a_n_multicast() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_bulk_associate_wireless_device_with_multicast_group_request() :: %{
-        optional("QueryString") => String.t(),
+        optional("QueryString") => String.t() | Atom.t(),
         optional("Tags") => list(tag())
       }
 
   """
   @type start_bulk_associate_wireless_device_with_multicast_group_request() :: %{
-          String.t() => any()
+          String.t()
+          | Atom.t() => any()
         }
 
   @typedoc """
@@ -3520,24 +3544,24 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       session_keys_abp_v1_0_x() :: %{
-        "AppSKey" => String.t(),
-        "NwkSKey" => String.t()
+        "AppSKey" => String.t() | Atom.t(),
+        "NwkSKey" => String.t() | Atom.t()
       }
 
   """
-  @type session_keys_abp_v1_0_x() :: %{String.t() => any()}
+  @type session_keys_abp_v1_0_x() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       sidewalk_start_import_info() :: %{
-        "DeviceCreationFile" => String.t(),
-        "Role" => String.t()
+        "DeviceCreationFile" => String.t() | Atom.t(),
+        "Role" => String.t() | Atom.t()
       }
 
   """
-  @type sidewalk_start_import_info() :: %{String.t() => any()}
+  @type sidewalk_start_import_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3552,25 +3576,25 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type lo_ra_w_a_n_multicast_get() :: %{String.t() => any()}
+  @type lo_ra_w_a_n_multicast_get() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       sidewalk_device() :: %{
-        "AmazonId" => String.t(),
-        "CertificateId" => String.t(),
+        "AmazonId" => String.t() | Atom.t(),
+        "CertificateId" => String.t() | Atom.t(),
         "DeviceCertificates" => list(certificate_list()),
-        "DeviceProfileId" => String.t(),
+        "DeviceProfileId" => String.t() | Atom.t(),
         "PrivateKeys" => list(certificate_list()),
-        "SidewalkId" => String.t(),
-        "SidewalkManufacturingSn" => String.t(),
+        "SidewalkId" => String.t() | Atom.t(),
+        "SidewalkManufacturingSn" => String.t() | Atom.t(),
         "Status" => list(any())
       }
 
   """
-  @type sidewalk_device() :: %{String.t() => any()}
+  @type sidewalk_device() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3578,11 +3602,11 @@ defmodule AWS.IoTWireless do
 
       certificate_list() :: %{
         "SigningAlg" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type certificate_list() :: %{String.t() => any()}
+  @type certificate_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3596,7 +3620,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type get_log_levels_by_resource_types_response() :: %{String.t() => any()}
+  @type get_log_levels_by_resource_types_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3604,11 +3628,11 @@ defmodule AWS.IoTWireless do
 
       dimension() :: %{
         "name" => list(any()),
-        "value" => String.t()
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type dimension() :: %{String.t() => any()}
+  @type dimension() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3616,11 +3640,11 @@ defmodule AWS.IoTWireless do
 
       list_multicast_groups_response() :: %{
         "MulticastGroupList" => list(multicast_group()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_multicast_groups_response() :: %{String.t() => any()}
+  @type list_multicast_groups_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3634,7 +3658,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type cdma_nmr_obj() :: %{String.t() => any()}
+  @type cdma_nmr_obj() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3648,7 +3672,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type semtech_gnss_detail() :: %{String.t() => any()}
+  @type semtech_gnss_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3663,7 +3687,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type f_ports() :: %{String.t() => any()}
+  @type f_ports() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3678,33 +3702,34 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type lte_nmr_obj() :: %{String.t() => any()}
+  @type lte_nmr_obj() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_position_configuration_request() :: %{
-        optional("Destination") => String.t(),
+        optional("Destination") => String.t() | Atom.t(),
         optional("Solvers") => position_solver_configurations(),
         required("ResourceType") => list(any())
       }
 
   """
-  @type put_position_configuration_request() :: %{String.t() => any()}
+  @type put_position_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_bulk_disassociate_wireless_device_from_multicast_group_request() :: %{
-        optional("QueryString") => String.t(),
+        optional("QueryString") => String.t() | Atom.t(),
         optional("Tags") => list(tag())
       }
 
   """
   @type start_bulk_disassociate_wireless_device_from_multicast_group_request() :: %{
-          String.t() => any()
+          String.t()
+          | Atom.t() => any()
         }
 
   @typedoc """
@@ -3716,50 +3741,50 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type get_partner_account_request() :: %{String.t() => any()}
+  @type get_partner_account_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_wireless_gateway_request() :: %{
-        optional("Description") => String.t(),
-        optional("JoinEuiFilters") => list(list(String.t())()),
+        optional("Description") => String.t() | Atom.t(),
+        optional("JoinEuiFilters") => list(list(String.t() | Atom.t())()),
         optional("MaxEirp") => float(),
-        optional("Name") => String.t(),
-        optional("NetIdFilters") => list(String.t())
+        optional("Name") => String.t() | Atom.t(),
+        optional("NetIdFilters") => list(String.t() | Atom.t())
       }
 
   """
-  @type update_wireless_gateway_request() :: %{String.t() => any()}
+  @type update_wireless_gateway_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_wireless_gateway_task_definition_request() :: %{
-        optional("ClientRequestToken") => String.t(),
-        optional("Name") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
         optional("Update") => update_wireless_gateway_task_create(),
         required("AutoCreateTasks") => boolean()
       }
 
   """
-  @type create_wireless_gateway_task_definition_request() :: %{String.t() => any()}
+  @type create_wireless_gateway_task_definition_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       application_config() :: %{
-        "DestinationName" => String.t(),
+        "DestinationName" => String.t() | Atom.t(),
         "FPort" => integer(),
         "Type" => list(any())
       }
 
   """
-  @type application_config() :: %{String.t() => any()}
+  @type application_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3770,7 +3795,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type multicast_wireless_metadata() :: %{String.t() => any()}
+  @type multicast_wireless_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3786,36 +3811,36 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       create_device_profile_request() :: %{
-        optional("ClientRequestToken") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
         optional("LoRaWAN") => lo_ra_w_a_n_device_profile(),
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("Sidewalk") => sidewalk_create_device_profile(),
         optional("Tags") => list(tag())
       }
 
   """
-  @type create_device_profile_request() :: %{String.t() => any()}
+  @type create_device_profile_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_wireless_device_response() :: %{
-        "Arn" => String.t(),
-        "Description" => String.t(),
-        "DestinationName" => String.t(),
-        "Id" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "DestinationName" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "LoRaWAN" => lo_ra_w_a_n_device(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Positioning" => list(any()),
         "Sidewalk" => sidewalk_device(),
-        "ThingArn" => String.t(),
-        "ThingName" => String.t(),
+        "ThingArn" => String.t() | Atom.t(),
+        "ThingName" => String.t() | Atom.t(),
         "Type" => list(any())
       }
 
   """
-  @type get_wireless_device_response() :: %{String.t() => any()}
+  @type get_wireless_device_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3828,7 +3853,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type wireless_device_log_option() :: %{String.t() => any()}
+  @type wireless_device_log_option() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3838,44 +3863,44 @@ defmodule AWS.IoTWireless do
         "AggregationPeriod" => list(any()),
         "Dimensions" => list(dimension()),
         "EndTimestamp" => non_neg_integer(),
-        "Error" => String.t(),
+        "Error" => String.t() | Atom.t(),
         "MetricName" => list(any()),
-        "QueryId" => String.t(),
+        "QueryId" => String.t() | Atom.t(),
         "QueryStatus" => list(any()),
         "StartTimestamp" => non_neg_integer(),
         "Timestamps" => list(non_neg_integer()),
-        "Unit" => String.t(),
+        "Unit" => String.t() | Atom.t(),
         "Values" => list(metric_query_value())
       }
 
   """
-  @type summary_metric_query_result() :: %{String.t() => any()}
+  @type summary_metric_query_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_wireless_device_import_task_request() :: %{
-        optional("ClientRequestToken") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("DestinationName") => String.t(),
+        required("DestinationName") => String.t() | Atom.t(),
         required("Sidewalk") => sidewalk_start_import_info()
       }
 
   """
-  @type start_wireless_device_import_task_request() :: %{String.t() => any()}
+  @type start_wireless_device_import_task_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       sidewalk_account_info() :: %{
-        "AmazonId" => String.t(),
-        "AppServerPrivateKey" => String.t()
+        "AmazonId" => String.t() | Atom.t(),
+        "AppServerPrivateKey" => String.t() | Atom.t()
       }
 
   """
-  @type sidewalk_account_info() :: %{String.t() => any()}
+  @type sidewalk_account_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3892,11 +3917,11 @@ defmodule AWS.IoTWireless do
 
       list_fuota_tasks_response() :: %{
         "FuotaTaskList" => list(fuota_task()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_fuota_tasks_response() :: %{String.t() => any()}
+  @type list_fuota_tasks_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3912,44 +3937,44 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       multicast_group() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type multicast_group() :: %{String.t() => any()}
+  @type multicast_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_wireless_devices_request() :: %{
-        optional("DestinationName") => String.t(),
-        optional("DeviceProfileId") => String.t(),
-        optional("FuotaTaskId") => String.t(),
+        optional("DestinationName") => String.t() | Atom.t(),
+        optional("DeviceProfileId") => String.t() | Atom.t(),
+        optional("FuotaTaskId") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("MulticastGroupId") => String.t(),
-        optional("NextToken") => String.t(),
-        optional("ServiceProfileId") => String.t(),
+        optional("MulticastGroupId") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("ServiceProfileId") => String.t() | Atom.t(),
         optional("WirelessDeviceType") => list(any())
       }
 
   """
-  @type list_wireless_devices_request() :: %{String.t() => any()}
+  @type list_wireless_devices_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       lo_ra_w_a_n_gateway_version() :: %{
-        "Model" => String.t(),
-        "PackageVersion" => String.t(),
-        "Station" => String.t()
+        "Model" => String.t() | Atom.t(),
+        "PackageVersion" => String.t() | Atom.t(),
+        "Station" => String.t() | Atom.t()
       }
 
   """
-  @type lo_ra_w_a_n_gateway_version() :: %{String.t() => any()}
+  @type lo_ra_w_a_n_gateway_version() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3957,23 +3982,23 @@ defmodule AWS.IoTWireless do
 
       update_wireless_gateway_task_create() :: %{
         "LoRaWAN" => lo_ra_w_a_n_update_gateway_task_create(),
-        "UpdateDataRole" => String.t(),
-        "UpdateDataSource" => String.t()
+        "UpdateDataRole" => String.t() | Atom.t(),
+        "UpdateDataSource" => String.t() | Atom.t()
       }
 
   """
-  @type update_wireless_gateway_task_create() :: %{String.t() => any()}
+  @type update_wireless_gateway_task_create() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_multicast_group_with_fuota_task_request() :: %{
-        required("MulticastGroupId") => String.t()
+        required("MulticastGroupId") => String.t() | Atom.t()
       }
 
   """
-  @type associate_multicast_group_with_fuota_task_request() :: %{String.t() => any()}
+  @type associate_multicast_group_with_fuota_task_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3989,7 +4014,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type metric_query_value() :: %{String.t() => any()}
+  @type metric_query_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4009,7 +4034,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type lo_ra_w_a_n_join_resource_type_event_configuration() :: %{String.t() => any()}
+  @type lo_ra_w_a_n_join_resource_type_event_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4020,7 +4045,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type deregister_wireless_device_request() :: %{String.t() => any()}
+  @type deregister_wireless_device_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4029,11 +4054,11 @@ defmodule AWS.IoTWireless do
       list_device_profiles_request() :: %{
         optional("DeviceProfileType") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_device_profiles_request() :: %{String.t() => any()}
+  @type list_device_profiles_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4041,22 +4066,22 @@ defmodule AWS.IoTWireless do
 
       list_device_profiles_response() :: %{
         "DeviceProfileList" => list(device_profile()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_device_profiles_response() :: %{String.t() => any()}
+  @type list_device_profiles_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       sidewalk_single_start_import_info() :: %{
-        "SidewalkManufacturingSn" => String.t()
+        "SidewalkManufacturingSn" => String.t() | Atom.t()
       }
 
   """
-  @type sidewalk_single_start_import_info() :: %{String.t() => any()}
+  @type sidewalk_single_start_import_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4072,12 +4097,12 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       create_wireless_device_response() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type create_wireless_device_response() :: %{String.t() => any()}
+  @type create_wireless_device_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4088,7 +4113,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type position_solver_details() :: %{String.t() => any()}
+  @type position_solver_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4104,13 +4129,13 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       sidewalk_get_device_profile() :: %{
-        "ApplicationServerPublicKey" => String.t(),
+        "ApplicationServerPublicKey" => String.t() | Atom.t(),
         "DakCertificateMetadata" => list(dak_certificate_metadata()),
         "QualificationStatus" => boolean()
       }
 
   """
-  @type sidewalk_get_device_profile() :: %{String.t() => any()}
+  @type sidewalk_get_device_profile() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4132,7 +4157,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type sidewalk_send_data_to_device() :: %{String.t() => any()}
+  @type sidewalk_send_data_to_device() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4148,11 +4173,11 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       lo_ra_w_a_n_list_device() :: %{
-        "DevEui" => String.t()
+        "DevEui" => String.t() | Atom.t()
       }
 
   """
-  @type lo_ra_w_a_n_list_device() :: %{String.t() => any()}
+  @type lo_ra_w_a_n_list_device() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4164,21 +4189,21 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type proximity_event_configuration() :: %{String.t() => any()}
+  @type proximity_event_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_wireless_device_statistics_response() :: %{
-        "LastUplinkReceivedAt" => String.t(),
+        "LastUplinkReceivedAt" => String.t() | Atom.t(),
         "LoRaWAN" => lo_ra_w_a_n_device_metadata(),
         "Sidewalk" => sidewalk_device_metadata(),
-        "WirelessDeviceId" => String.t()
+        "WirelessDeviceId" => String.t() | Atom.t()
       }
 
   """
-  @type get_wireless_device_statistics_response() :: %{String.t() => any()}
+  @type get_wireless_device_statistics_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4193,7 +4218,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type lo_ra_w_a_n_service_profile() :: %{String.t() => any()}
+  @type lo_ra_w_a_n_service_profile() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4204,7 +4229,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type sidewalk_resource_type_event_configuration() :: %{String.t() => any()}
+  @type sidewalk_resource_type_event_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4220,16 +4245,16 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       sidewalk_list_device() :: %{
-        "AmazonId" => String.t(),
+        "AmazonId" => String.t() | Atom.t(),
         "DeviceCertificates" => list(certificate_list()),
-        "DeviceProfileId" => String.t(),
-        "SidewalkId" => String.t(),
-        "SidewalkManufacturingSn" => String.t(),
+        "DeviceProfileId" => String.t() | Atom.t(),
+        "SidewalkId" => String.t() | Atom.t(),
+        "SidewalkManufacturingSn" => String.t() | Atom.t(),
         "Status" => list(any())
       }
 
   """
-  @type sidewalk_list_device() :: %{String.t() => any()}
+  @type sidewalk_list_device() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4249,26 +4274,29 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type device_registration_state_resource_type_event_configuration() :: %{String.t() => any()}
+  @type device_registration_state_resource_type_event_configuration() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       update_fuota_task_request() :: %{
-        optional("Description") => String.t(),
-        optional("Descriptor") => String.t(),
-        optional("FirmwareUpdateImage") => String.t(),
-        optional("FirmwareUpdateRole") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("Descriptor") => String.t() | Atom.t(),
+        optional("FirmwareUpdateImage") => String.t() | Atom.t(),
+        optional("FirmwareUpdateRole") => String.t() | Atom.t(),
         optional("FragmentIntervalMS") => integer(),
         optional("FragmentSizeBytes") => integer(),
         optional("LoRaWAN") => lo_ra_w_a_n_fuota_task(),
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("RedundancyPercent") => integer()
       }
 
   """
-  @type update_fuota_task_request() :: %{String.t() => any()}
+  @type update_fuota_task_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4297,19 +4325,19 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type lte_obj() :: %{String.t() => any()}
+  @type lte_obj() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_tags_exception() :: %{
-        "Message" => String.t(),
-        "ResourceName" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "ResourceName" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_tags_exception() :: %{String.t() => any()}
+  @type too_many_tags_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4326,11 +4354,11 @@ defmodule AWS.IoTWireless do
 
       list_wireless_gateways_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_wireless_gateways_request() :: %{String.t() => any()}
+  @type list_wireless_gateways_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4359,7 +4387,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type join_resource_type_event_configuration() :: %{String.t() => any()}
+  @type join_resource_type_event_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4379,19 +4407,19 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type get_multicast_group_session_response() :: %{String.t() => any()}
+  @type get_multicast_group_session_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       sidewalk_get_start_import_info() :: %{
-        "DeviceCreationFileList" => list(String.t()),
-        "Role" => String.t()
+        "DeviceCreationFileList" => list(String.t() | Atom.t()),
+        "Role" => String.t() | Atom.t()
       }
 
   """
-  @type sidewalk_get_start_import_info() :: %{String.t() => any()}
+  @type sidewalk_get_start_import_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4410,7 +4438,7 @@ defmodule AWS.IoTWireless do
       }
 
   """
-  @type cdma_obj() :: %{String.t() => any()}
+  @type cdma_obj() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5276,7 +5304,7 @@ defmodule AWS.IoTWireless do
   """
   @spec associate_multicast_group_with_fuota_task(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           associate_multicast_group_with_fuota_task_request(),
           list()
         ) ::
@@ -5310,7 +5338,7 @@ defmodule AWS.IoTWireless do
   """
   @spec associate_wireless_device_with_fuota_task(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           associate_wireless_device_with_fuota_task_request(),
           list()
         ) ::
@@ -5344,7 +5372,7 @@ defmodule AWS.IoTWireless do
   """
   @spec associate_wireless_device_with_multicast_group(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           associate_wireless_device_with_multicast_group_request(),
           list()
         ) ::
@@ -5378,7 +5406,7 @@ defmodule AWS.IoTWireless do
   """
   @spec associate_wireless_device_with_thing(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           associate_wireless_device_with_thing_request(),
           list()
         ) ::
@@ -5412,7 +5440,7 @@ defmodule AWS.IoTWireless do
   """
   @spec associate_wireless_gateway_with_certificate(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           associate_wireless_gateway_with_certificate_request(),
           list()
         ) ::
@@ -5446,7 +5474,7 @@ defmodule AWS.IoTWireless do
   """
   @spec associate_wireless_gateway_with_thing(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           associate_wireless_gateway_with_thing_request(),
           list()
         ) ::
@@ -5480,7 +5508,7 @@ defmodule AWS.IoTWireless do
   """
   @spec cancel_multicast_group_session(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           cancel_multicast_group_session_request(),
           list()
         ) ::
@@ -5764,7 +5792,7 @@ defmodule AWS.IoTWireless do
   """
   @spec create_wireless_gateway_task(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           create_wireless_gateway_task_request(),
           list()
         ) ::
@@ -5829,7 +5857,7 @@ defmodule AWS.IoTWireless do
   @doc """
   Deletes a destination.
   """
-  @spec delete_destination(map(), String.t(), delete_destination_request(), list()) ::
+  @spec delete_destination(map(), String.t() | Atom.t(), delete_destination_request(), list()) ::
           {:ok, delete_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5858,7 +5886,12 @@ defmodule AWS.IoTWireless do
   @doc """
   Deletes a device profile.
   """
-  @spec delete_device_profile(map(), String.t(), delete_device_profile_request(), list()) ::
+  @spec delete_device_profile(
+          map(),
+          String.t() | Atom.t(),
+          delete_device_profile_request(),
+          list()
+        ) ::
           {:ok, delete_device_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5887,7 +5920,7 @@ defmodule AWS.IoTWireless do
   @doc """
   Deletes a FUOTA task.
   """
-  @spec delete_fuota_task(map(), String.t(), delete_fuota_task_request(), list()) ::
+  @spec delete_fuota_task(map(), String.t() | Atom.t(), delete_fuota_task_request(), list()) ::
           {:ok, delete_fuota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5916,7 +5949,12 @@ defmodule AWS.IoTWireless do
   @doc """
   Deletes a multicast group if it is not in use by a FUOTA task.
   """
-  @spec delete_multicast_group(map(), String.t(), delete_multicast_group_request(), list()) ::
+  @spec delete_multicast_group(
+          map(),
+          String.t() | Atom.t(),
+          delete_multicast_group_request(),
+          list()
+        ) ::
           {:ok, delete_multicast_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5947,7 +5985,7 @@ defmodule AWS.IoTWireless do
   """
   @spec delete_network_analyzer_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_network_analyzer_configuration_request(),
           list()
         ) ::
@@ -5984,7 +6022,12 @@ defmodule AWS.IoTWireless do
   @doc """
   Remove queued messages from the downlink queue.
   """
-  @spec delete_queued_messages(map(), String.t(), delete_queued_messages_request(), list()) ::
+  @spec delete_queued_messages(
+          map(),
+          String.t() | Atom.t(),
+          delete_queued_messages_request(),
+          list()
+        ) ::
           {:ok, delete_queued_messages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6019,7 +6062,12 @@ defmodule AWS.IoTWireless do
   @doc """
   Deletes a service profile.
   """
-  @spec delete_service_profile(map(), String.t(), delete_service_profile_request(), list()) ::
+  @spec delete_service_profile(
+          map(),
+          String.t() | Atom.t(),
+          delete_service_profile_request(),
+          list()
+        ) ::
           {:ok, delete_service_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6048,7 +6096,12 @@ defmodule AWS.IoTWireless do
   @doc """
   Deletes a wireless device.
   """
-  @spec delete_wireless_device(map(), String.t(), delete_wireless_device_request(), list()) ::
+  @spec delete_wireless_device(
+          map(),
+          String.t() | Atom.t(),
+          delete_wireless_device_request(),
+          list()
+        ) ::
           {:ok, delete_wireless_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6079,7 +6132,7 @@ defmodule AWS.IoTWireless do
   """
   @spec delete_wireless_device_import_task(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_wireless_device_import_task_request(),
           list()
         ) ::
@@ -6125,7 +6178,12 @@ defmodule AWS.IoTWireless do
   for
   each request within the specified time period.
   """
-  @spec delete_wireless_gateway(map(), String.t(), delete_wireless_gateway_request(), list()) ::
+  @spec delete_wireless_gateway(
+          map(),
+          String.t() | Atom.t(),
+          delete_wireless_gateway_request(),
+          list()
+        ) ::
           {:ok, delete_wireless_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6156,7 +6214,7 @@ defmodule AWS.IoTWireless do
   """
   @spec delete_wireless_gateway_task(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_wireless_gateway_task_request(),
           list()
         ) ::
@@ -6193,7 +6251,7 @@ defmodule AWS.IoTWireless do
   """
   @spec delete_wireless_gateway_task_definition(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_wireless_gateway_task_definition_request(),
           list()
         ) ::
@@ -6227,7 +6285,7 @@ defmodule AWS.IoTWireless do
   """
   @spec deregister_wireless_device(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           deregister_wireless_device_request(),
           list()
         ) ::
@@ -6270,7 +6328,7 @@ defmodule AWS.IoTWireless do
   """
   @spec disassociate_aws_account_from_partner_account(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           disassociate_aws_account_from_partner_account_request(),
           list()
         ) ::
@@ -6314,8 +6372,8 @@ defmodule AWS.IoTWireless do
   """
   @spec disassociate_multicast_group_from_fuota_task(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           disassociate_multicast_group_from_fuota_task_request(),
           list()
         ) ::
@@ -6357,8 +6415,8 @@ defmodule AWS.IoTWireless do
   """
   @spec disassociate_wireless_device_from_fuota_task(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           disassociate_wireless_device_from_fuota_task_request(),
           list()
         ) ::
@@ -6400,8 +6458,8 @@ defmodule AWS.IoTWireless do
   """
   @spec disassociate_wireless_device_from_multicast_group(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           disassociate_wireless_device_from_multicast_group_request(),
           list()
         ) ::
@@ -6443,7 +6501,7 @@ defmodule AWS.IoTWireless do
   """
   @spec disassociate_wireless_device_from_thing(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           disassociate_wireless_device_from_thing_request(),
           list()
         ) ::
@@ -6477,7 +6535,7 @@ defmodule AWS.IoTWireless do
   """
   @spec disassociate_wireless_gateway_from_certificate(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           disassociate_wireless_gateway_from_certificate_request(),
           list()
         ) ::
@@ -6511,7 +6569,7 @@ defmodule AWS.IoTWireless do
   """
   @spec disassociate_wireless_gateway_from_thing(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           disassociate_wireless_gateway_from_thing_request(),
           list()
         ) ::
@@ -6543,7 +6601,7 @@ defmodule AWS.IoTWireless do
   @doc """
   Gets information about a destination.
   """
-  @spec get_destination(map(), String.t(), list()) ::
+  @spec get_destination(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6561,7 +6619,7 @@ defmodule AWS.IoTWireless do
   @doc """
   Gets information about a device profile.
   """
-  @spec get_device_profile(map(), String.t(), list()) ::
+  @spec get_device_profile(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_device_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6597,7 +6655,7 @@ defmodule AWS.IoTWireless do
   @doc """
   Gets information about a FUOTA task.
   """
-  @spec get_fuota_task(map(), String.t(), list()) ::
+  @spec get_fuota_task(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_fuota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6685,7 +6743,7 @@ defmodule AWS.IoTWireless do
   @doc """
   Gets information about a multicast group.
   """
-  @spec get_multicast_group(map(), String.t(), list()) ::
+  @spec get_multicast_group(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_multicast_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6703,7 +6761,7 @@ defmodule AWS.IoTWireless do
   @doc """
   Gets information about a multicast group session.
   """
-  @spec get_multicast_group_session(map(), String.t(), list()) ::
+  @spec get_multicast_group_session(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_multicast_group_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6721,7 +6779,7 @@ defmodule AWS.IoTWireless do
   @doc """
   Get network analyzer configuration.
   """
-  @spec get_network_analyzer_configuration(map(), String.t(), list()) ::
+  @spec get_network_analyzer_configuration(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_network_analyzer_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6742,7 +6800,7 @@ defmodule AWS.IoTWireless do
   If `PartnerAccountId` and
   `PartnerType` are `null`, returns all partner accounts.
   """
-  @spec get_partner_account(map(), String.t(), String.t(), list()) ::
+  @spec get_partner_account(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_partner_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6772,7 +6830,7 @@ defmodule AWS.IoTWireless do
   [GetResourcePosition](https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_GetResourcePosition.html)
   API operation instead.
   """
-  @spec get_position(map(), String.t(), String.t(), list()) ::
+  @spec get_position(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6802,7 +6860,7 @@ defmodule AWS.IoTWireless do
   [GetResourcePosition](https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_GetResourcePosition.html)
   API operation instead.
   """
-  @spec get_position_configuration(map(), String.t(), String.t(), list()) ::
+  @spec get_position_configuration(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_position_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6865,7 +6923,13 @@ defmodule AWS.IoTWireless do
   @doc """
   Get the event configuration for a particular resource identifier.
   """
-  @spec get_resource_event_configuration(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_resource_event_configuration(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, get_resource_event_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6904,7 +6968,7 @@ defmodule AWS.IoTWireless do
   Fetches the log-level override, if any, for a given resource ID and resource
   type..
   """
-  @spec get_resource_log_level(map(), String.t(), String.t(), list()) ::
+  @spec get_resource_log_level(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_resource_log_level_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6937,7 +7001,7 @@ defmodule AWS.IoTWireless do
 
   The position information uses the [ World Geodetic System (WGS84)](https://gisgeography.com/wgs84-world-geodetic-system/).
   """
-  @spec get_resource_position(map(), String.t(), String.t(), list()) ::
+  @spec get_resource_position(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_resource_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6964,7 +7028,7 @@ defmodule AWS.IoTWireless do
   protocol
   or LoRaWAN Network Server (LNS) connections.
   """
-  @spec get_service_endpoint(map(), String.t() | nil, list()) ::
+  @spec get_service_endpoint(map(), String.t() | Atom.t() | nil, list()) ::
           {:ok, get_service_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6989,7 +7053,7 @@ defmodule AWS.IoTWireless do
   @doc """
   Gets information about a service profile.
   """
-  @spec get_service_profile(map(), String.t(), list()) ::
+  @spec get_service_profile(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_service_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7007,7 +7071,7 @@ defmodule AWS.IoTWireless do
   @doc """
   Gets information about a wireless device.
   """
-  @spec get_wireless_device(map(), String.t(), String.t(), list()) ::
+  @spec get_wireless_device(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_wireless_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7033,7 +7097,7 @@ defmodule AWS.IoTWireless do
   Get information about an import task and count of device onboarding summary
   information for the import task.
   """
-  @spec get_wireless_device_import_task(map(), String.t(), list()) ::
+  @spec get_wireless_device_import_task(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_wireless_device_import_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7051,7 +7115,7 @@ defmodule AWS.IoTWireless do
   @doc """
   Gets operating information about a wireless device.
   """
-  @spec get_wireless_device_statistics(map(), String.t(), list()) ::
+  @spec get_wireless_device_statistics(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_wireless_device_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7069,7 +7133,7 @@ defmodule AWS.IoTWireless do
   @doc """
   Gets information about a wireless gateway.
   """
-  @spec get_wireless_gateway(map(), String.t(), String.t(), list()) ::
+  @spec get_wireless_gateway(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_wireless_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7095,7 +7159,7 @@ defmodule AWS.IoTWireless do
   Gets the ID of the certificate that is currently associated with a wireless
   gateway.
   """
-  @spec get_wireless_gateway_certificate(map(), String.t(), list()) ::
+  @spec get_wireless_gateway_certificate(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_wireless_gateway_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7113,7 +7177,7 @@ defmodule AWS.IoTWireless do
   @doc """
   Gets the firmware version and other information about a wireless gateway.
   """
-  @spec get_wireless_gateway_firmware_information(map(), String.t(), list()) ::
+  @spec get_wireless_gateway_firmware_information(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_wireless_gateway_firmware_information_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7131,7 +7195,7 @@ defmodule AWS.IoTWireless do
   @doc """
   Gets operating information about a wireless gateway.
   """
-  @spec get_wireless_gateway_statistics(map(), String.t(), list()) ::
+  @spec get_wireless_gateway_statistics(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_wireless_gateway_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7149,7 +7213,7 @@ defmodule AWS.IoTWireless do
   @doc """
   Gets information about a wireless gateway task.
   """
-  @spec get_wireless_gateway_task(map(), String.t(), list()) ::
+  @spec get_wireless_gateway_task(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_wireless_gateway_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7167,7 +7231,7 @@ defmodule AWS.IoTWireless do
   @doc """
   Gets information about a wireless gateway task definition.
   """
-  @spec get_wireless_gateway_task_definition(map(), String.t(), list()) ::
+  @spec get_wireless_gateway_task_definition(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_wireless_gateway_task_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7185,7 +7249,7 @@ defmodule AWS.IoTWireless do
   @doc """
   Lists the destinations registered to your AWS account.
   """
-  @spec list_destinations(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_destinations(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7217,7 +7281,13 @@ defmodule AWS.IoTWireless do
   @doc """
   Lists the device profiles registered to your AWS account.
   """
-  @spec list_device_profiles(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_device_profiles(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_device_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7264,10 +7334,10 @@ defmodule AWS.IoTWireless do
   """
   @spec list_devices_for_wireless_device_import_task(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_devices_for_wireless_device_import_task_response(), any()}
@@ -7322,7 +7392,13 @@ defmodule AWS.IoTWireless do
   @doc """
   List event configurations where at least one event topic has been enabled.
   """
-  @spec list_event_configurations(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
+  @spec list_event_configurations(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, list_event_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7367,7 +7443,7 @@ defmodule AWS.IoTWireless do
   @doc """
   Lists the FUOTA tasks registered to your AWS account.
   """
-  @spec list_fuota_tasks(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_fuota_tasks(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_fuota_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7399,7 +7475,12 @@ defmodule AWS.IoTWireless do
   @doc """
   Lists the multicast groups registered to your AWS account.
   """
-  @spec list_multicast_groups(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_multicast_groups(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_multicast_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7438,9 +7519,9 @@ defmodule AWS.IoTWireless do
   """
   @spec list_multicast_groups_by_fuota_task(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_multicast_groups_by_fuota_task_response(), any()}
@@ -7480,7 +7561,12 @@ defmodule AWS.IoTWireless do
   @doc """
   Lists the network analyzer configurations.
   """
-  @spec list_network_analyzer_configurations(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_network_analyzer_configurations(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_network_analyzer_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7517,7 +7603,12 @@ defmodule AWS.IoTWireless do
   @doc """
   Lists the partner accounts associated with your AWS account.
   """
-  @spec list_partner_accounts(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_partner_accounts(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_partner_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7562,9 +7653,9 @@ defmodule AWS.IoTWireless do
   """
   @spec list_position_configurations(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_position_configurations_response(), any()}
@@ -7613,10 +7704,10 @@ defmodule AWS.IoTWireless do
   """
   @spec list_queued_messages(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_queued_messages_response(), any()}
@@ -7664,7 +7755,12 @@ defmodule AWS.IoTWireless do
   @doc """
   Lists the service profiles registered to your AWS account.
   """
-  @spec list_service_profiles(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_service_profiles(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_service_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7701,7 +7797,7 @@ defmodule AWS.IoTWireless do
   @doc """
   Lists the tags (metadata) you have assigned to the resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7726,7 +7822,12 @@ defmodule AWS.IoTWireless do
   @doc """
   List wireless devices that have been added to an import task.
   """
-  @spec list_wireless_device_import_tasks(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_wireless_device_import_tasks(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_wireless_device_import_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7765,14 +7866,14 @@ defmodule AWS.IoTWireless do
   """
   @spec list_wireless_devices(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_wireless_devices_response(), any()}
@@ -7861,9 +7962,9 @@ defmodule AWS.IoTWireless do
   """
   @spec list_wireless_gateway_task_definitions(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_wireless_gateway_task_definitions_response(), any()}
@@ -7910,7 +8011,12 @@ defmodule AWS.IoTWireless do
   @doc """
   Lists the wireless gateways registered to your AWS account.
   """
-  @spec list_wireless_gateways(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_wireless_gateways(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_wireless_gateways_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7954,7 +8060,7 @@ defmodule AWS.IoTWireless do
   """
   @spec put_position_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_position_configuration_request(),
           list()
         ) ::
@@ -7994,7 +8100,12 @@ defmodule AWS.IoTWireless do
   A limit of 200 log
   level override can be set per account.
   """
-  @spec put_resource_log_level(map(), String.t(), put_resource_log_level_request(), list()) ::
+  @spec put_resource_log_level(
+          map(),
+          String.t() | Atom.t(),
+          put_resource_log_level_request(),
+          list()
+        ) ::
           {:ok, put_resource_log_level_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8061,7 +8172,12 @@ defmodule AWS.IoTWireless do
 
   It can be used for a wireless device, a wireless gateway, or a FUOTA task.
   """
-  @spec reset_resource_log_level(map(), String.t(), reset_resource_log_level_request(), list()) ::
+  @spec reset_resource_log_level(
+          map(),
+          String.t() | Atom.t(),
+          reset_resource_log_level_request(),
+          list()
+        ) ::
           {:ok, reset_resource_log_level_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8097,7 +8213,7 @@ defmodule AWS.IoTWireless do
   """
   @spec send_data_to_multicast_group(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           send_data_to_multicast_group_request(),
           list()
         ) ::
@@ -8131,7 +8247,7 @@ defmodule AWS.IoTWireless do
   """
   @spec send_data_to_wireless_device(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           send_data_to_wireless_device_request(),
           list()
         ) ::
@@ -8166,7 +8282,7 @@ defmodule AWS.IoTWireless do
   """
   @spec start_bulk_associate_wireless_device_with_multicast_group(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           start_bulk_associate_wireless_device_with_multicast_group_request(),
           list()
         ) ::
@@ -8206,7 +8322,7 @@ defmodule AWS.IoTWireless do
   """
   @spec start_bulk_disassociate_wireless_device_from_multicast_group(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           start_bulk_disassociate_wireless_device_from_multicast_group_request(),
           list()
         ) ::
@@ -8243,7 +8359,7 @@ defmodule AWS.IoTWireless do
   @doc """
   Starts a FUOTA task.
   """
-  @spec start_fuota_task(map(), String.t(), start_fuota_task_request(), list()) ::
+  @spec start_fuota_task(map(), String.t() | Atom.t(), start_fuota_task_request(), list()) ::
           {:ok, start_fuota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8274,7 +8390,7 @@ defmodule AWS.IoTWireless do
   """
   @spec start_multicast_group_session(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           start_multicast_group_session_request(),
           list()
         ) ::
@@ -8408,7 +8524,7 @@ defmodule AWS.IoTWireless do
   Simulates a provisioned device by sending an uplink data payload of
   `Hello`.
   """
-  @spec test_wireless_device(map(), String.t(), test_wireless_device_request(), list()) ::
+  @spec test_wireless_device(map(), String.t() | Atom.t(), test_wireless_device_request(), list()) ::
           {:ok, test_wireless_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8472,7 +8588,7 @@ defmodule AWS.IoTWireless do
   @doc """
   Updates properties of a destination.
   """
-  @spec update_destination(map(), String.t(), update_destination_request(), list()) ::
+  @spec update_destination(map(), String.t() | Atom.t(), update_destination_request(), list()) ::
           {:ok, update_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8534,7 +8650,7 @@ defmodule AWS.IoTWireless do
   @doc """
   Updates properties of a FUOTA task.
   """
-  @spec update_fuota_task(map(), String.t(), update_fuota_task_request(), list()) ::
+  @spec update_fuota_task(map(), String.t() | Atom.t(), update_fuota_task_request(), list()) ::
           {:ok, update_fuota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8630,7 +8746,12 @@ defmodule AWS.IoTWireless do
   @doc """
   Updates properties of a multicast group session.
   """
-  @spec update_multicast_group(map(), String.t(), update_multicast_group_request(), list()) ::
+  @spec update_multicast_group(
+          map(),
+          String.t() | Atom.t(),
+          update_multicast_group_request(),
+          list()
+        ) ::
           {:ok, update_multicast_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8661,7 +8782,7 @@ defmodule AWS.IoTWireless do
   """
   @spec update_network_analyzer_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_network_analyzer_configuration_request(),
           list()
         ) ::
@@ -8698,7 +8819,12 @@ defmodule AWS.IoTWireless do
   @doc """
   Updates properties of a partner account.
   """
-  @spec update_partner_account(map(), String.t(), update_partner_account_request(), list()) ::
+  @spec update_partner_account(
+          map(),
+          String.t() | Atom.t(),
+          update_partner_account_request(),
+          list()
+        ) ::
           {:ok, update_partner_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8737,7 +8863,7 @@ defmodule AWS.IoTWireless do
   [UpdateResourcePosition](https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_UpdateResourcePosition.html)
   API operation instead.
   """
-  @spec update_position(map(), String.t(), update_position_request(), list()) ::
+  @spec update_position(map(), String.t() | Atom.t(), update_position_request(), list()) ::
           {:ok, update_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8773,7 +8899,7 @@ defmodule AWS.IoTWireless do
   """
   @spec update_resource_event_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_resource_event_configuration_request(),
           list()
         ) ::
@@ -8814,7 +8940,12 @@ defmodule AWS.IoTWireless do
 
   The position coordinates are based on the [ World Geodetic System (WGS84)](https://gisgeography.com/wgs84-world-geodetic-system/).
   """
-  @spec update_resource_position(map(), String.t(), update_resource_position_request(), list()) ::
+  @spec update_resource_position(
+          map(),
+          String.t() | Atom.t(),
+          update_resource_position_request(),
+          list()
+        ) ::
           {:ok, update_resource_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8848,7 +8979,12 @@ defmodule AWS.IoTWireless do
   @doc """
   Updates properties of a wireless device.
   """
-  @spec update_wireless_device(map(), String.t(), update_wireless_device_request(), list()) ::
+  @spec update_wireless_device(
+          map(),
+          String.t() | Atom.t(),
+          update_wireless_device_request(),
+          list()
+        ) ::
           {:ok, update_wireless_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8879,7 +9015,7 @@ defmodule AWS.IoTWireless do
   """
   @spec update_wireless_device_import_task(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_wireless_device_import_task_request(),
           list()
         ) ::
@@ -8911,7 +9047,12 @@ defmodule AWS.IoTWireless do
   @doc """
   Updates properties of a wireless gateway.
   """
-  @spec update_wireless_gateway(map(), String.t(), update_wireless_gateway_request(), list()) ::
+  @spec update_wireless_gateway(
+          map(),
+          String.t() | Atom.t(),
+          update_wireless_gateway_request(),
+          list()
+        ) ::
           {:ok, update_wireless_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

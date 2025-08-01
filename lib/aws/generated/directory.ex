@@ -47,54 +47,54 @@ defmodule AWS.Directory do
       
       list_certificates_result() :: %{
         "CertificatesInfo" => list(certificate_info()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_certificates_result() :: %{String.t() => any()}
+  @type list_certificates_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       domain_controller() :: %{
-        "AvailabilityZone" => String.t(),
-        "DirectoryId" => String.t(),
-        "DnsIpAddr" => String.t(),
-        "DomainControllerId" => String.t(),
+        "AvailabilityZone" => String.t() | Atom.t(),
+        "DirectoryId" => String.t() | Atom.t(),
+        "DnsIpAddr" => String.t() | Atom.t(),
+        "DomainControllerId" => String.t() | Atom.t(),
         "LaunchTime" => non_neg_integer(),
         "Status" => list(any()),
         "StatusLastUpdatedDateTime" => non_neg_integer(),
-        "StatusReason" => String.t(),
-        "SubnetId" => String.t(),
-        "VpcId" => String.t()
+        "StatusReason" => String.t() | Atom.t(),
+        "SubnetId" => String.t() | Atom.t(),
+        "VpcId" => String.t() | Atom.t()
       }
       
   """
-  @type domain_controller() :: %{String.t() => any()}
+  @type domain_controller() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_log_subscription_request() :: %{
-        required("DirectoryId") => String.t()
+        required("DirectoryId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_log_subscription_request() :: %{String.t() => any()}
+  @type delete_log_subscription_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       entity_already_exists_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type entity_already_exists_exception() :: %{String.t() => any()}
+  @type entity_already_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -107,7 +107,7 @@ defmodule AWS.Directory do
       }
       
   """
-  @type client_authentication_setting_info() :: %{String.t() => any()}
+  @type client_authentication_setting_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -118,7 +118,7 @@ defmodule AWS.Directory do
       }
       
   """
-  @type update_value() :: %{String.t() => any()}
+  @type update_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -134,40 +134,40 @@ defmodule AWS.Directory do
   ## Example:
       
       unshare_target() :: %{
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "Type" => list(any())
       }
       
   """
-  @type unshare_target() :: %{String.t() => any()}
+  @type unshare_target() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_directory_request() :: %{
-        optional("Description") => String.t(),
-        optional("ShortName") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("ShortName") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
         optional("VpcSettings") => directory_vpc_settings(),
-        required("Name") => String.t(),
-        required("Password") => String.t(),
+        required("Name") => String.t() | Atom.t(),
+        required("Password") => String.t() | Atom.t(),
         required("Size") => list(any())
       }
       
   """
-  @type create_directory_request() :: %{String.t() => any()}
+  @type create_directory_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_snapshot_request() :: %{
-        required("SnapshotId") => String.t()
+        required("SnapshotId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_snapshot_request() :: %{String.t() => any()}
+  @type delete_snapshot_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -175,36 +175,36 @@ defmodule AWS.Directory do
       
       describe_ldaps_settings_request() :: %{
         optional("Limit") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("Type") => list(any()),
-        required("DirectoryId") => String.t()
+        required("DirectoryId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_ldaps_settings_request() :: %{String.t() => any()}
+  @type describe_ldaps_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       verify_trust_request() :: %{
-        required("TrustId") => String.t()
+        required("TrustId") => String.t() | Atom.t()
       }
       
   """
-  @type verify_trust_request() :: %{String.t() => any()}
+  @type verify_trust_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_event_topics_request() :: %{
-        optional("DirectoryId") => String.t(),
-        optional("TopicNames") => list(String.t())
+        optional("DirectoryId") => String.t() | Atom.t(),
+        optional("TopicNames") => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_event_topics_request() :: %{String.t() => any()}
+  @type describe_event_topics_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -212,60 +212,60 @@ defmodule AWS.Directory do
       
       describe_ldaps_settings_result() :: %{
         "LDAPSSettingsInfo" => list(ldaps_setting_info()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_ldaps_settings_result() :: %{String.t() => any()}
+  @type describe_ldaps_settings_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_conditional_forwarder_request() :: %{
-        required("DirectoryId") => String.t(),
-        required("DnsIpAddrs") => list(String.t()),
-        required("RemoteDomainName") => String.t()
+        required("DirectoryId") => String.t() | Atom.t(),
+        required("DnsIpAddrs") => list(String.t() | Atom.t()),
+        required("RemoteDomainName") => String.t() | Atom.t()
       }
       
   """
-  @type update_conditional_forwarder_request() :: %{String.t() => any()}
+  @type update_conditional_forwarder_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       snapshot_limit_exceeded_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type snapshot_limit_exceeded_exception() :: %{String.t() => any()}
+  @type snapshot_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       ip_route() :: %{
-        "CidrIp" => String.t(),
-        "Description" => String.t()
+        "CidrIp" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t()
       }
       
   """
-  @type ip_route() :: %{String.t() => any()}
+  @type ip_route() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_target_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_target_exception() :: %{String.t() => any()}
+  @type invalid_target_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -276,83 +276,83 @@ defmodule AWS.Directory do
       }
       
   """
-  @type get_snapshot_limits_result() :: %{String.t() => any()}
+  @type get_snapshot_limits_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       unshare_directory_request() :: %{
-        required("DirectoryId") => String.t(),
+        required("DirectoryId") => String.t() | Atom.t(),
         required("UnshareTarget") => unshare_target()
       }
       
   """
-  @type unshare_directory_request() :: %{String.t() => any()}
+  @type unshare_directory_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       domain_controller_limit_exceeded_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type domain_controller_limit_exceeded_exception() :: %{String.t() => any()}
+  @type domain_controller_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_directory_result() :: %{
-        "DirectoryId" => String.t()
+        "DirectoryId" => String.t() | Atom.t()
       }
       
   """
-  @type create_directory_result() :: %{String.t() => any()}
+  @type create_directory_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       unsupported_operation_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type unsupported_operation_exception() :: %{String.t() => any()}
+  @type unsupported_operation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_ldaps_status_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_ldaps_status_exception() :: %{String.t() => any()}
+  @type invalid_ldaps_status_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_trust_request() :: %{
-        optional("ConditionalForwarderIpAddrs") => list(String.t()),
+        optional("ConditionalForwarderIpAddrs") => list(String.t() | Atom.t()),
         optional("SelectiveAuth") => list(any()),
         optional("TrustType") => list(any()),
-        required("DirectoryId") => String.t(),
-        required("RemoteDomainName") => String.t(),
+        required("DirectoryId") => String.t() | Atom.t(),
+        required("RemoteDomainName") => String.t() | Atom.t(),
         required("TrustDirection") => list(any()),
-        required("TrustPassword") => String.t()
+        required("TrustPassword") => String.t() | Atom.t()
       }
       
   """
-  @type create_trust_request() :: %{String.t() => any()}
+  @type create_trust_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -368,11 +368,11 @@ defmodule AWS.Directory do
   ## Example:
       
       reject_shared_directory_request() :: %{
-        required("SharedDirectoryId") => String.t()
+        required("SharedDirectoryId") => String.t() | Atom.t()
       }
       
   """
-  @type reject_shared_directory_request() :: %{String.t() => any()}
+  @type reject_shared_directory_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -383,46 +383,46 @@ defmodule AWS.Directory do
       }
       
   """
-  @type o_s_update_settings() :: %{String.t() => any()}
+  @type o_s_update_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       insufficient_permissions_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type insufficient_permissions_exception() :: %{String.t() => any()}
+  @type insufficient_permissions_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       certificate_info() :: %{
-        "CertificateId" => String.t(),
-        "CommonName" => String.t(),
+        "CertificateId" => String.t() | Atom.t(),
+        "CommonName" => String.t() | Atom.t(),
         "ExpiryDateTime" => non_neg_integer(),
         "State" => list(any()),
         "Type" => list(any())
       }
       
   """
-  @type certificate_info() :: %{String.t() => any()}
+  @type certificate_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       setting() :: %{
-        "Name" => String.t(),
-        "Value" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type setting() :: %{String.t() => any()}
+  @type setting() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -438,144 +438,144 @@ defmodule AWS.Directory do
   ## Example:
       
       share_directory_request() :: %{
-        optional("ShareNotes") => String.t(),
-        required("DirectoryId") => String.t(),
+        optional("ShareNotes") => String.t() | Atom.t(),
+        required("DirectoryId") => String.t() | Atom.t(),
         required("ShareMethod") => list(any()),
         required("ShareTarget") => share_target()
       }
       
   """
-  @type share_directory_request() :: %{String.t() => any()}
+  @type share_directory_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       setting_entry() :: %{
-        "AllowedValues" => String.t(),
-        "AppliedValue" => String.t(),
-        "DataType" => String.t(),
+        "AllowedValues" => String.t() | Atom.t(),
+        "AppliedValue" => String.t() | Atom.t(),
+        "DataType" => String.t() | Atom.t(),
         "LastRequestedDateTime" => non_neg_integer(),
         "LastUpdatedDateTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "RequestDetailedStatus" => map(),
         "RequestStatus" => list(any()),
-        "RequestStatusMessage" => String.t(),
-        "RequestedValue" => String.t(),
-        "Type" => String.t()
+        "RequestStatusMessage" => String.t() | Atom.t(),
+        "RequestedValue" => String.t() | Atom.t(),
+        "Type" => String.t() | Atom.t()
       }
       
   """
-  @type setting_entry() :: %{String.t() => any()}
+  @type setting_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_conditional_forwarder_request() :: %{
-        required("DirectoryId") => String.t(),
-        required("DnsIpAddrs") => list(String.t()),
-        required("RemoteDomainName") => String.t()
+        required("DirectoryId") => String.t() | Atom.t(),
+        required("DnsIpAddrs") => list(String.t() | Atom.t()),
+        required("RemoteDomainName") => String.t() | Atom.t()
       }
       
   """
-  @type create_conditional_forwarder_request() :: %{String.t() => any()}
+  @type create_conditional_forwarder_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_alias_request() :: %{
-        required("Alias") => String.t(),
-        required("DirectoryId") => String.t()
+        required("Alias") => String.t() | Atom.t(),
+        required("DirectoryId") => String.t() | Atom.t()
       }
       
   """
-  @type create_alias_request() :: %{String.t() => any()}
+  @type create_alias_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       no_available_certificate_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type no_available_certificate_exception() :: %{String.t() => any()}
+  @type no_available_certificate_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       directory_in_desired_state_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type directory_in_desired_state_exception() :: %{String.t() => any()}
+  @type directory_in_desired_state_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       region_limit_exceeded_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type region_limit_exceeded_exception() :: %{String.t() => any()}
+  @type region_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_snapshot_request() :: %{
-        optional("Name") => String.t(),
-        required("DirectoryId") => String.t()
+        optional("Name") => String.t() | Atom.t(),
+        required("DirectoryId") => String.t() | Atom.t()
       }
       
   """
-  @type create_snapshot_request() :: %{String.t() => any()}
+  @type create_snapshot_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       register_certificate_result() :: %{
-        "CertificateId" => String.t()
+        "CertificateId" => String.t() | Atom.t()
       }
       
   """
-  @type register_certificate_result() :: %{String.t() => any()}
+  @type register_certificate_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_log_subscriptions_request() :: %{
-        optional("DirectoryId") => String.t(),
+        optional("DirectoryId") => String.t() | Atom.t(),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_log_subscriptions_request() :: %{String.t() => any()}
+  @type list_log_subscriptions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       directory_already_shared_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type directory_already_shared_exception() :: %{String.t() => any()}
+  @type directory_already_shared_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -591,80 +591,80 @@ defmodule AWS.Directory do
   ## Example:
       
       unshare_directory_result() :: %{
-        "SharedDirectoryId" => String.t()
+        "SharedDirectoryId" => String.t() | Atom.t()
       }
       
   """
-  @type unshare_directory_result() :: %{String.t() => any()}
+  @type unshare_directory_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_region_request() :: %{
-        required("DirectoryId") => String.t()
+        required("DirectoryId") => String.t() | Atom.t()
       }
       
   """
-  @type remove_region_request() :: %{String.t() => any()}
+  @type remove_region_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_trust_result() :: %{
-        "RequestId" => String.t(),
-        "TrustId" => String.t()
+        "RequestId" => String.t() | Atom.t(),
+        "TrustId" => String.t() | Atom.t()
       }
       
   """
-  @type update_trust_result() :: %{String.t() => any()}
+  @type update_trust_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_directory_data_access_request() :: %{
-        required("DirectoryId") => String.t()
+        required("DirectoryId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_directory_data_access_request() :: %{String.t() => any()}
+  @type describe_directory_data_access_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       enable_radius_request() :: %{
-        required("DirectoryId") => String.t(),
+        required("DirectoryId") => String.t() | Atom.t(),
         required("RadiusSettings") => radius_settings()
       }
       
   """
-  @type enable_radius_request() :: %{String.t() => any()}
+  @type enable_radius_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       unsupported_settings_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type unsupported_settings_exception() :: %{String.t() => any()}
+  @type unsupported_settings_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       restore_from_snapshot_request() :: %{
-        required("SnapshotId") => String.t()
+        required("SnapshotId") => String.t() | Atom.t()
       }
       
   """
-  @type restore_from_snapshot_request() :: %{String.t() => any()}
+  @type restore_from_snapshot_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -672,12 +672,12 @@ defmodule AWS.Directory do
       
       computer() :: %{
         "ComputerAttributes" => list(attribute()),
-        "ComputerId" => String.t(),
-        "ComputerName" => String.t()
+        "ComputerId" => String.t() | Atom.t(),
+        "ComputerName" => String.t() | Atom.t()
       }
       
   """
-  @type computer() :: %{String.t() => any()}
+  @type computer() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -688,65 +688,65 @@ defmodule AWS.Directory do
       }
       
   """
-  @type get_directory_limits_result() :: %{String.t() => any()}
+  @type get_directory_limits_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       verify_trust_result() :: %{
-        "TrustId" => String.t()
+        "TrustId" => String.t() | Atom.t()
       }
       
   """
-  @type verify_trust_result() :: %{String.t() => any()}
+  @type verify_trust_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       deregister_certificate_request() :: %{
-        required("CertificateId") => String.t(),
-        required("DirectoryId") => String.t()
+        required("CertificateId") => String.t() | Atom.t(),
+        required("DirectoryId") => String.t() | Atom.t()
       }
       
   """
-  @type deregister_certificate_request() :: %{String.t() => any()}
+  @type deregister_certificate_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_schema_extensions_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "SchemaExtensionsInfo" => list(schema_extension_info())
       }
       
   """
-  @type list_schema_extensions_result() :: %{String.t() => any()}
+  @type list_schema_extensions_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       enable_directory_data_access_request() :: %{
-        required("DirectoryId") => String.t()
+        required("DirectoryId") => String.t() | Atom.t()
       }
       
   """
-  @type enable_directory_data_access_request() :: %{String.t() => any()}
+  @type enable_directory_data_access_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       add_tags_to_resource_request() :: %{
-        required("ResourceId") => String.t(),
+        required("ResourceId") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
       
   """
-  @type add_tags_to_resource_request() :: %{String.t() => any()}
+  @type add_tags_to_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -762,31 +762,31 @@ defmodule AWS.Directory do
   ## Example:
       
       disable_sso_request() :: %{
-        optional("Password") => String.t(),
-        optional("UserName") => String.t(),
-        required("DirectoryId") => String.t()
+        optional("Password") => String.t() | Atom.t(),
+        optional("UserName") => String.t() | Atom.t(),
+        required("DirectoryId") => String.t() | Atom.t()
       }
       
   """
-  @type disable_sso_request() :: %{String.t() => any()}
+  @type disable_sso_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_info_entry() :: %{
-        "InitiatedBy" => String.t(),
+        "InitiatedBy" => String.t() | Atom.t(),
         "LastUpdatedDateTime" => non_neg_integer(),
         "NewValue" => update_value(),
         "PreviousValue" => update_value(),
-        "Region" => String.t(),
+        "Region" => String.t() | Atom.t(),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
-        "StatusReason" => String.t()
+        "StatusReason" => String.t() | Atom.t()
       }
       
   """
-  @type update_info_entry() :: %{String.t() => any()}
+  @type update_info_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -811,47 +811,47 @@ defmodule AWS.Directory do
   ## Example:
       
       directory_not_shared_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type directory_not_shared_exception() :: %{String.t() => any()}
+  @type directory_not_shared_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_update_directory_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "UpdateActivities" => list(update_info_entry())
       }
       
   """
-  @type describe_update_directory_result() :: %{String.t() => any()}
+  @type describe_update_directory_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       client_cert_auth_settings() :: %{
-        "OCSPUrl" => String.t()
+        "OCSPUrl" => String.t() | Atom.t()
       }
       
   """
-  @type client_cert_auth_settings() :: %{String.t() => any()}
+  @type client_cert_auth_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_log_subscription_request() :: %{
-        required("DirectoryId") => String.t(),
-        required("LogGroupName") => String.t()
+        required("DirectoryId") => String.t() | Atom.t(),
+        required("LogGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type create_log_subscription_request() :: %{String.t() => any()}
+  @type create_log_subscription_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -862,19 +862,19 @@ defmodule AWS.Directory do
       }
       
   """
-  @type create_computer_result() :: %{String.t() => any()}
+  @type create_computer_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_trusts_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Trusts" => list(trust())
       }
       
   """
-  @type describe_trusts_result() :: %{String.t() => any()}
+  @type describe_trusts_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -882,34 +882,34 @@ defmodule AWS.Directory do
       
       list_certificates_request() :: %{
         optional("Limit") => integer(),
-        optional("NextToken") => String.t(),
-        required("DirectoryId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("DirectoryId") => String.t() | Atom.t()
       }
       
   """
-  @type list_certificates_request() :: %{String.t() => any()}
+  @type list_certificates_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       share_directory_result() :: %{
-        "SharedDirectoryId" => String.t()
+        "SharedDirectoryId" => String.t() | Atom.t()
       }
       
   """
-  @type share_directory_result() :: %{String.t() => any()}
+  @type share_directory_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_microsoft_ad_result() :: %{
-        "DirectoryId" => String.t()
+        "DirectoryId" => String.t() | Atom.t()
       }
       
   """
-  @type create_microsoft_ad_result() :: %{String.t() => any()}
+  @type create_microsoft_ad_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -928,23 +928,23 @@ defmodule AWS.Directory do
       }
       
   """
-  @type directory_limits() :: %{String.t() => any()}
+  @type directory_limits() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       owner_directory_description() :: %{
-        "AccountId" => String.t(),
-        "DirectoryId" => String.t(),
-        "DnsIpAddrs" => list(String.t()),
+        "AccountId" => String.t() | Atom.t(),
+        "DirectoryId" => String.t() | Atom.t(),
+        "DnsIpAddrs" => list(String.t() | Atom.t()),
         "RadiusSettings" => radius_settings(),
         "RadiusStatus" => list(any()),
         "VpcSettings" => directory_vpc_settings_description()
       }
       
   """
-  @type owner_directory_description() :: %{String.t() => any()}
+  @type owner_directory_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -960,13 +960,13 @@ defmodule AWS.Directory do
   ## Example:
       
       describe_directories_request() :: %{
-        optional("DirectoryIds") => list(String.t()),
+        optional("DirectoryIds") => list(String.t() | Atom.t()),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type describe_directories_request() :: %{String.t() => any()}
+  @type describe_directories_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -974,35 +974,35 @@ defmodule AWS.Directory do
       
       list_ip_routes_request() :: %{
         optional("Limit") => integer(),
-        optional("NextToken") => String.t(),
-        required("DirectoryId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("DirectoryId") => String.t() | Atom.t()
       }
       
   """
-  @type list_ip_routes_request() :: %{String.t() => any()}
+  @type list_ip_routes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       certificate_already_exists_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type certificate_already_exists_exception() :: %{String.t() => any()}
+  @type certificate_already_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_snapshot_limits_request() :: %{
-        required("DirectoryId") => String.t()
+        required("DirectoryId") => String.t() | Atom.t()
       }
       
   """
-  @type get_snapshot_limits_request() :: %{String.t() => any()}
+  @type get_snapshot_limits_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1018,13 +1018,13 @@ defmodule AWS.Directory do
   ## Example:
       
       describe_regions_request() :: %{
-        optional("NextToken") => String.t(),
-        optional("RegionName") => String.t(),
-        required("DirectoryId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("RegionName") => String.t() | Atom.t(),
+        required("DirectoryId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_regions_request() :: %{String.t() => any()}
+  @type describe_regions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1060,29 +1060,29 @@ defmodule AWS.Directory do
       shared_directory() :: %{
         "CreatedDateTime" => non_neg_integer(),
         "LastUpdatedDateTime" => non_neg_integer(),
-        "OwnerAccountId" => String.t(),
-        "OwnerDirectoryId" => String.t(),
+        "OwnerAccountId" => String.t() | Atom.t(),
+        "OwnerDirectoryId" => String.t() | Atom.t(),
         "ShareMethod" => list(any()),
-        "ShareNotes" => String.t(),
+        "ShareNotes" => String.t() | Atom.t(),
         "ShareStatus" => list(any()),
-        "SharedAccountId" => String.t(),
-        "SharedDirectoryId" => String.t()
+        "SharedAccountId" => String.t() | Atom.t(),
+        "SharedDirectoryId" => String.t() | Atom.t()
       }
       
   """
-  @type shared_directory() :: %{String.t() => any()}
+  @type shared_directory() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       client_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type client_exception() :: %{String.t() => any()}
+  @type client_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1090,17 +1090,17 @@ defmodule AWS.Directory do
       
       radius_settings() :: %{
         "AuthenticationProtocol" => list(any()),
-        "DisplayLabel" => String.t(),
+        "DisplayLabel" => String.t() | Atom.t(),
         "RadiusPort" => integer(),
         "RadiusRetries" => integer(),
-        "RadiusServers" => list(String.t()),
+        "RadiusServers" => list(String.t() | Atom.t()),
         "RadiusTimeout" => integer(),
-        "SharedSecret" => String.t(),
+        "SharedSecret" => String.t() | Atom.t(),
         "UseSameUsername" => boolean()
       }
       
   """
-  @type radius_settings() :: %{String.t() => any()}
+  @type radius_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1116,12 +1116,12 @@ defmodule AWS.Directory do
   ## Example:
       
       disable_ldaps_request() :: %{
-        required("DirectoryId") => String.t(),
+        required("DirectoryId") => String.t() | Atom.t(),
         required("Type") => list(any())
       }
       
   """
-  @type disable_ldaps_request() :: %{String.t() => any()}
+  @type disable_ldaps_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1132,44 +1132,44 @@ defmodule AWS.Directory do
       }
       
   """
-  @type describe_event_topics_result() :: %{String.t() => any()}
+  @type describe_event_topics_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       directory_does_not_exist_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type directory_does_not_exist_exception() :: %{String.t() => any()}
+  @type directory_does_not_exist_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       log_subscription() :: %{
-        "DirectoryId" => String.t(),
-        "LogGroupName" => String.t(),
+        "DirectoryId" => String.t() | Atom.t(),
+        "LogGroupName" => String.t() | Atom.t(),
         "SubscriptionCreatedDateTime" => non_neg_integer()
       }
       
   """
-  @type log_subscription() :: %{String.t() => any()}
+  @type log_subscription() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       incompatible_settings_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type incompatible_settings_exception() :: %{String.t() => any()}
+  @type incompatible_settings_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1185,12 +1185,12 @@ defmodule AWS.Directory do
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1198,37 +1198,37 @@ defmodule AWS.Directory do
       
       describe_client_authentication_settings_request() :: %{
         optional("Limit") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("Type") => list(any()),
-        required("DirectoryId") => String.t()
+        required("DirectoryId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_client_authentication_settings_request() :: %{String.t() => any()}
+  @type describe_client_authentication_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       deregister_event_topic_request() :: %{
-        required("DirectoryId") => String.t(),
-        required("TopicName") => String.t()
+        required("DirectoryId") => String.t() | Atom.t(),
+        required("TopicName") => String.t() | Atom.t()
       }
       
   """
-  @type deregister_event_topic_request() :: %{String.t() => any()}
+  @type deregister_event_topic_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       organizations_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type organizations_exception() :: %{String.t() => any()}
+  @type organizations_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1244,24 +1244,24 @@ defmodule AWS.Directory do
   ## Example:
       
       directory_vpc_settings() :: %{
-        "SubnetIds" => list(String.t()),
-        "VpcId" => String.t()
+        "SubnetIds" => list(String.t() | Atom.t()),
+        "VpcId" => String.t() | Atom.t()
       }
       
   """
-  @type directory_vpc_settings() :: %{String.t() => any()}
+  @type directory_vpc_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_schema_extension_request() :: %{
-        required("DirectoryId") => String.t(),
-        required("SchemaExtensionId") => String.t()
+        required("DirectoryId") => String.t() | Atom.t(),
+        required("SchemaExtensionId") => String.t() | Atom.t()
       }
       
   """
-  @type cancel_schema_extension_request() :: %{String.t() => any()}
+  @type cancel_schema_extension_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1277,67 +1277,67 @@ defmodule AWS.Directory do
   ## Example:
       
       invalid_next_token_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_next_token_exception() :: %{String.t() => any()}
+  @type invalid_next_token_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_certificate_request() :: %{
-        required("CertificateId") => String.t(),
-        required("DirectoryId") => String.t()
+        required("CertificateId") => String.t() | Atom.t(),
+        required("DirectoryId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_certificate_request() :: %{String.t() => any()}
+  @type describe_certificate_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       enable_client_authentication_request() :: %{
-        required("DirectoryId") => String.t(),
+        required("DirectoryId") => String.t() | Atom.t(),
         required("Type") => list(any())
       }
       
   """
-  @type enable_client_authentication_request() :: %{String.t() => any()}
+  @type enable_client_authentication_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       connect_directory_request() :: %{
-        optional("Description") => String.t(),
-        optional("ShortName") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("ShortName") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
         required("ConnectSettings") => directory_connect_settings(),
-        required("Name") => String.t(),
-        required("Password") => String.t(),
+        required("Name") => String.t() | Atom.t(),
+        required("Password") => String.t() | Atom.t(),
         required("Size") => list(any())
       }
       
   """
-  @type connect_directory_request() :: %{String.t() => any()}
+  @type connect_directory_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       directory_vpc_settings_description() :: %{
-        "AvailabilityZones" => list(String.t()),
-        "SecurityGroupId" => String.t(),
-        "SubnetIds" => list(String.t()),
-        "VpcId" => String.t()
+        "AvailabilityZones" => list(String.t() | Atom.t()),
+        "SecurityGroupId" => String.t() | Atom.t(),
+        "SubnetIds" => list(String.t() | Atom.t()),
+        "VpcId" => String.t() | Atom.t()
       }
       
   """
-  @type directory_vpc_settings_description() :: %{String.t() => any()}
+  @type directory_vpc_settings_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1348,19 +1348,19 @@ defmodule AWS.Directory do
       }
       
   """
-  @type describe_conditional_forwarders_result() :: %{String.t() => any()}
+  @type describe_conditional_forwarders_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_shared_directories_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "SharedDirectories" => list(shared_directory())
       }
       
   """
-  @type describe_shared_directories_result() :: %{String.t() => any()}
+  @type describe_shared_directories_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1368,111 +1368,111 @@ defmodule AWS.Directory do
       
       describe_client_authentication_settings_result() :: %{
         "ClientAuthenticationSettingsInfo" => list(client_authentication_setting_info()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_client_authentication_settings_result() :: %{String.t() => any()}
+  @type describe_client_authentication_settings_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_limit_exceeded_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type tag_limit_exceeded_exception() :: %{String.t() => any()}
+  @type tag_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_trust_result() :: %{
-        "TrustId" => String.t()
+        "TrustId" => String.t() | Atom.t()
       }
       
   """
-  @type create_trust_result() :: %{String.t() => any()}
+  @type create_trust_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       directory_description() :: %{
-        "AccessUrl" => String.t(),
-        "Alias" => String.t(),
+        "AccessUrl" => String.t() | Atom.t(),
+        "Alias" => String.t() | Atom.t(),
         "ConnectSettings" => directory_connect_settings_description(),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "DesiredNumberOfDomainControllers" => integer(),
-        "DirectoryId" => String.t(),
-        "DnsIpAddrs" => list(String.t()),
+        "DirectoryId" => String.t() | Atom.t(),
+        "DnsIpAddrs" => list(String.t() | Atom.t()),
         "Edition" => list(any()),
         "LaunchTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "OsVersion" => list(any()),
         "OwnerDirectoryDescription" => owner_directory_description(),
         "RadiusSettings" => radius_settings(),
         "RadiusStatus" => list(any()),
         "RegionsInfo" => regions_info(),
         "ShareMethod" => list(any()),
-        "ShareNotes" => String.t(),
+        "ShareNotes" => String.t() | Atom.t(),
         "ShareStatus" => list(any()),
-        "ShortName" => String.t(),
+        "ShortName" => String.t() | Atom.t(),
         "Size" => list(any()),
         "SsoEnabled" => boolean(),
         "Stage" => list(any()),
         "StageLastUpdatedDateTime" => non_neg_integer(),
-        "StageReason" => String.t(),
+        "StageReason" => String.t() | Atom.t(),
         "Type" => list(any()),
         "VpcSettings" => directory_vpc_settings_description()
       }
       
   """
-  @type directory_description() :: %{String.t() => any()}
+  @type directory_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       service_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type service_exception() :: %{String.t() => any()}
+  @type service_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_certificate_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_certificate_exception() :: %{String.t() => any()}
+  @type invalid_certificate_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       schema_extension_info() :: %{
-        "Description" => String.t(),
-        "DirectoryId" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "DirectoryId" => String.t() | Atom.t(),
         "EndDateTime" => non_neg_integer(),
-        "SchemaExtensionId" => String.t(),
+        "SchemaExtensionId" => String.t() | Atom.t(),
         "SchemaExtensionStatus" => list(any()),
-        "SchemaExtensionStatusReason" => String.t(),
+        "SchemaExtensionStatusReason" => String.t() | Atom.t(),
         "StartDateTime" => non_neg_integer()
       }
       
   """
-  @type schema_extension_info() :: %{String.t() => any()}
+  @type schema_extension_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1480,25 +1480,25 @@ defmodule AWS.Directory do
       
       add_ip_routes_request() :: %{
         optional("UpdateSecurityGroupForDirectoryControllers") => boolean(),
-        required("DirectoryId") => String.t(),
+        required("DirectoryId") => String.t() | Atom.t(),
         required("IpRoutes") => list(ip_route())
       }
       
   """
-  @type add_ip_routes_request() :: %{String.t() => any()}
+  @type add_ip_routes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       conditional_forwarder() :: %{
-        "DnsIpAddrs" => list(String.t()),
-        "RemoteDomainName" => String.t(),
+        "DnsIpAddrs" => list(String.t() | Atom.t()),
+        "RemoteDomainName" => String.t() | Atom.t(),
         "ReplicationScope" => list(any())
       }
       
   """
-  @type conditional_forwarder() :: %{String.t() => any()}
+  @type conditional_forwarder() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1514,12 +1514,12 @@ defmodule AWS.Directory do
   ## Example:
       
       update_settings_request() :: %{
-        required("DirectoryId") => String.t(),
+        required("DirectoryId") => String.t() | Atom.t(),
         required("Settings") => list(setting())
       }
       
   """
-  @type update_settings_request() :: %{String.t() => any()}
+  @type update_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1528,35 +1528,35 @@ defmodule AWS.Directory do
       register_certificate_request() :: %{
         optional("ClientCertAuthSettings") => client_cert_auth_settings(),
         optional("Type") => list(any()),
-        required("CertificateData") => String.t(),
-        required("DirectoryId") => String.t()
+        required("CertificateData") => String.t() | Atom.t(),
+        required("DirectoryId") => String.t() | Atom.t()
       }
       
   """
-  @type register_certificate_request() :: %{String.t() => any()}
+  @type register_certificate_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_directory_result() :: %{
-        "DirectoryId" => String.t()
+        "DirectoryId" => String.t() | Atom.t()
       }
       
   """
-  @type delete_directory_result() :: %{String.t() => any()}
+  @type delete_directory_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_snapshots_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Snapshots" => list(snapshot())
       }
       
   """
-  @type describe_snapshots_result() :: %{String.t() => any()}
+  @type describe_snapshots_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1564,11 +1564,11 @@ defmodule AWS.Directory do
       
       describe_directories_result() :: %{
         "DirectoryDescriptions" => list(directory_description()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_directories_result() :: %{String.t() => any()}
+  @type describe_directories_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1576,11 +1576,11 @@ defmodule AWS.Directory do
       
       update_trust_request() :: %{
         optional("SelectiveAuth") => list(any()),
-        required("TrustId") => String.t()
+        required("TrustId") => String.t() | Atom.t()
       }
       
   """
-  @type update_trust_request() :: %{String.t() => any()}
+  @type update_trust_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1588,48 +1588,48 @@ defmodule AWS.Directory do
       
       describe_domain_controllers_result() :: %{
         "DomainControllers" => list(domain_controller()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_domain_controllers_result() :: %{String.t() => any()}
+  @type describe_domain_controllers_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_tags_from_resource_request() :: %{
-        required("ResourceId") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceId") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type remove_tags_from_resource_request() :: %{String.t() => any()}
+  @type remove_tags_from_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       connect_directory_result() :: %{
-        "DirectoryId" => String.t()
+        "DirectoryId" => String.t() | Atom.t()
       }
       
   """
-  @type connect_directory_result() :: %{String.t() => any()}
+  @type connect_directory_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_update_directory_request() :: %{
-        optional("NextToken") => String.t(),
-        optional("RegionName") => String.t(),
-        required("DirectoryId") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("RegionName") => String.t() | Atom.t(),
+        required("DirectoryId") => String.t() | Atom.t(),
         required("UpdateType") => list(any())
       }
       
   """
-  @type describe_update_directory_request() :: %{String.t() => any()}
+  @type describe_update_directory_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1655,10 +1655,10 @@ defmodule AWS.Directory do
       
       region_description() :: %{
         "DesiredNumberOfDomainControllers" => integer(),
-        "DirectoryId" => String.t(),
+        "DirectoryId" => String.t() | Atom.t(),
         "LastUpdatedDateTime" => non_neg_integer(),
         "LaunchTime" => non_neg_integer(),
-        "RegionName" => String.t(),
+        "RegionName" => String.t() | Atom.t(),
         "RegionType" => list(any()),
         "Status" => list(any()),
         "StatusLastUpdatedDateTime" => non_neg_integer(),
@@ -1666,7 +1666,7 @@ defmodule AWS.Directory do
       }
       
   """
-  @type region_description() :: %{String.t() => any()}
+  @type region_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1691,62 +1691,62 @@ defmodule AWS.Directory do
   ## Example:
       
       describe_conditional_forwarders_request() :: %{
-        optional("RemoteDomainNames") => list(String.t()),
-        required("DirectoryId") => String.t()
+        optional("RemoteDomainNames") => list(String.t() | Atom.t()),
+        required("DirectoryId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_conditional_forwarders_request() :: %{String.t() => any()}
+  @type describe_conditional_forwarders_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_trusts_request() :: %{
-        optional("DirectoryId") => String.t(),
+        optional("DirectoryId") => String.t() | Atom.t(),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t(),
-        optional("TrustIds") => list(String.t())
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("TrustIds") => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_trusts_request() :: %{String.t() => any()}
+  @type describe_trusts_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       certificate_in_use_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type certificate_in_use_exception() :: %{String.t() => any()}
+  @type certificate_in_use_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reset_user_password_request() :: %{
-        required("DirectoryId") => String.t(),
-        required("NewPassword") => String.t(),
-        required("UserName") => String.t()
+        required("DirectoryId") => String.t() | Atom.t(),
+        required("NewPassword") => String.t() | Atom.t(),
+        required("UserName") => String.t() | Atom.t()
       }
       
   """
-  @type reset_user_password_request() :: %{String.t() => any()}
+  @type reset_user_password_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disable_directory_data_access_request() :: %{
-        required("DirectoryId") => String.t()
+        required("DirectoryId") => String.t() | Atom.t()
       }
       
   """
-  @type disable_directory_data_access_request() :: %{String.t() => any()}
+  @type disable_directory_data_access_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1754,61 +1754,61 @@ defmodule AWS.Directory do
       
       trust() :: %{
         "CreatedDateTime" => non_neg_integer(),
-        "DirectoryId" => String.t(),
+        "DirectoryId" => String.t() | Atom.t(),
         "LastUpdatedDateTime" => non_neg_integer(),
-        "RemoteDomainName" => String.t(),
+        "RemoteDomainName" => String.t() | Atom.t(),
         "SelectiveAuth" => list(any()),
         "StateLastUpdatedDateTime" => non_neg_integer(),
         "TrustDirection" => list(any()),
-        "TrustId" => String.t(),
+        "TrustId" => String.t() | Atom.t(),
         "TrustState" => list(any()),
-        "TrustStateReason" => String.t(),
+        "TrustStateReason" => String.t() | Atom.t(),
         "TrustType" => list(any())
       }
       
   """
-  @type trust() :: %{String.t() => any()}
+  @type trust() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Tags" => list(tag())
       }
       
   """
-  @type list_tags_for_resource_result() :: %{String.t() => any()}
+  @type list_tags_for_resource_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       certificate() :: %{
-        "CertificateId" => String.t(),
+        "CertificateId" => String.t() | Atom.t(),
         "ClientCertAuthSettings" => client_cert_auth_settings(),
-        "CommonName" => String.t(),
+        "CommonName" => String.t() | Atom.t(),
         "ExpiryDateTime" => non_neg_integer(),
         "RegisteredDateTime" => non_neg_integer(),
         "State" => list(any()),
-        "StateReason" => String.t(),
+        "StateReason" => String.t() | Atom.t(),
         "Type" => list(any())
       }
       
   """
-  @type certificate() :: %{String.t() => any()}
+  @type certificate() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       accept_shared_directory_request() :: %{
-        required("SharedDirectoryId") => String.t()
+        required("SharedDirectoryId") => String.t() | Atom.t()
       }
       
   """
-  @type accept_shared_directory_request() :: %{String.t() => any()}
+  @type accept_shared_directory_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1816,23 +1816,23 @@ defmodule AWS.Directory do
       
       ldaps_setting_info() :: %{
         "LDAPSStatus" => list(any()),
-        "LDAPSStatusReason" => String.t(),
+        "LDAPSStatusReason" => String.t() | Atom.t(),
         "LastUpdatedDateTime" => non_neg_integer()
       }
       
   """
-  @type ldaps_setting_info() :: %{String.t() => any()}
+  @type ldaps_setting_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_snapshot_result() :: %{
-        "SnapshotId" => String.t()
+        "SnapshotId" => String.t() | Atom.t()
       }
       
   """
-  @type delete_snapshot_result() :: %{String.t() => any()}
+  @type delete_snapshot_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1840,73 +1840,73 @@ defmodule AWS.Directory do
       
       list_ip_routes_result() :: %{
         "IpRoutesInfo" => list(ip_route_info()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_ip_routes_result() :: %{String.t() => any()}
+  @type list_ip_routes_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disable_radius_request() :: %{
-        required("DirectoryId") => String.t()
+        required("DirectoryId") => String.t() | Atom.t()
       }
       
   """
-  @type disable_radius_request() :: %{String.t() => any()}
+  @type disable_radius_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       user_does_not_exist_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type user_does_not_exist_exception() :: %{String.t() => any()}
+  @type user_does_not_exist_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       snapshot() :: %{
-        "DirectoryId" => String.t(),
-        "Name" => String.t(),
-        "SnapshotId" => String.t(),
+        "DirectoryId" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "SnapshotId" => String.t() | Atom.t(),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
         "Type" => list(any())
       }
       
   """
-  @type snapshot() :: %{String.t() => any()}
+  @type snapshot() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       ip_route_limit_exceeded_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type ip_route_limit_exceeded_exception() :: %{String.t() => any()}
+  @type ip_route_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reject_shared_directory_result() :: %{
-        "SharedDirectoryId" => String.t()
+        "SharedDirectoryId" => String.t() | Atom.t()
       }
       
   """
-  @type reject_shared_directory_result() :: %{String.t() => any()}
+  @type reject_shared_directory_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1923,49 +1923,49 @@ defmodule AWS.Directory do
       
       describe_shared_directories_request() :: %{
         optional("Limit") => integer(),
-        optional("NextToken") => String.t(),
-        optional("SharedDirectoryIds") => list(String.t()),
-        required("OwnerDirectoryId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("SharedDirectoryIds") => list(String.t() | Atom.t()),
+        required("OwnerDirectoryId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_shared_directories_request() :: %{String.t() => any()}
+  @type describe_shared_directories_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameter_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_parameter_exception() :: %{String.t() => any()}
+  @type invalid_parameter_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       entity_does_not_exist_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type entity_does_not_exist_exception() :: %{String.t() => any()}
+  @type entity_does_not_exist_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1981,47 +1981,47 @@ defmodule AWS.Directory do
   ## Example:
       
       delete_directory_request() :: %{
-        required("DirectoryId") => String.t()
+        required("DirectoryId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_directory_request() :: %{String.t() => any()}
+  @type delete_directory_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_conditional_forwarder_request() :: %{
-        required("DirectoryId") => String.t(),
-        required("RemoteDomainName") => String.t()
+        required("DirectoryId") => String.t() | Atom.t(),
+        required("RemoteDomainName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_conditional_forwarder_request() :: %{String.t() => any()}
+  @type delete_conditional_forwarder_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_client_auth_status_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_client_auth_status_exception() :: %{String.t() => any()}
+  @type invalid_client_auth_status_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       directory_already_in_region_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type directory_already_in_region_exception() :: %{String.t() => any()}
+  @type directory_already_in_region_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2029,34 +2029,34 @@ defmodule AWS.Directory do
       
       list_log_subscriptions_result() :: %{
         "LogSubscriptions" => list(log_subscription()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_log_subscriptions_result() :: %{String.t() => any()}
+  @type list_log_subscriptions_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       directory_unavailable_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type directory_unavailable_exception() :: %{String.t() => any()}
+  @type directory_unavailable_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_snapshot_result() :: %{
-        "SnapshotId" => String.t()
+        "SnapshotId" => String.t() | Atom.t()
       }
       
   """
-  @type create_snapshot_result() :: %{String.t() => any()}
+  @type create_snapshot_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2064,23 +2064,23 @@ defmodule AWS.Directory do
       
       list_tags_for_resource_request() :: %{
         optional("Limit") => integer(),
-        optional("NextToken") => String.t(),
-        required("ResourceId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ResourceId") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_settings_result() :: %{
-        "DirectoryId" => String.t()
+        "DirectoryId" => String.t() | Atom.t()
       }
       
   """
-  @type update_settings_result() :: %{String.t() => any()}
+  @type update_settings_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2088,110 +2088,110 @@ defmodule AWS.Directory do
       
       update_number_of_domain_controllers_request() :: %{
         required("DesiredNumber") => integer(),
-        required("DirectoryId") => String.t()
+        required("DirectoryId") => String.t() | Atom.t()
       }
       
   """
-  @type update_number_of_domain_controllers_request() :: %{String.t() => any()}
+  @type update_number_of_domain_controllers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_settings_result() :: %{
-        "DirectoryId" => String.t(),
-        "NextToken" => String.t(),
+        "DirectoryId" => String.t() | Atom.t(),
+        "NextToken" => String.t() | Atom.t(),
         "SettingEntries" => list(setting_entry())
       }
       
   """
-  @type describe_settings_result() :: %{String.t() => any()}
+  @type describe_settings_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       register_event_topic_request() :: %{
-        required("DirectoryId") => String.t(),
-        required("TopicName") => String.t()
+        required("DirectoryId") => String.t() | Atom.t(),
+        required("TopicName") => String.t() | Atom.t()
       }
       
   """
-  @type register_event_topic_request() :: %{String.t() => any()}
+  @type register_event_topic_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_ip_routes_request() :: %{
-        required("CidrIps") => list(String.t()),
-        required("DirectoryId") => String.t()
+        required("CidrIps") => list(String.t() | Atom.t()),
+        required("DirectoryId") => String.t() | Atom.t()
       }
       
   """
-  @type remove_ip_routes_request() :: %{String.t() => any()}
+  @type remove_ip_routes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       enable_sso_request() :: %{
-        optional("Password") => String.t(),
-        optional("UserName") => String.t(),
-        required("DirectoryId") => String.t()
+        optional("Password") => String.t() | Atom.t(),
+        optional("UserName") => String.t() | Atom.t(),
+        required("DirectoryId") => String.t() | Atom.t()
       }
       
   """
-  @type enable_sso_request() :: %{String.t() => any()}
+  @type enable_sso_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_trust_result() :: %{
-        "TrustId" => String.t()
+        "TrustId" => String.t() | Atom.t()
       }
       
   """
-  @type delete_trust_result() :: %{String.t() => any()}
+  @type delete_trust_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       attribute() :: %{
-        "Name" => String.t(),
-        "Value" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type attribute() :: %{String.t() => any()}
+  @type attribute() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_snapshots_request() :: %{
-        optional("DirectoryId") => String.t(),
+        optional("DirectoryId") => String.t() | Atom.t(),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t(),
-        optional("SnapshotIds") => list(String.t())
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("SnapshotIds") => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_snapshots_request() :: %{String.t() => any()}
+  @type describe_snapshots_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_alias_result() :: %{
-        "Alias" => String.t(),
-        "DirectoryId" => String.t()
+        "Alias" => String.t() | Atom.t(),
+        "DirectoryId" => String.t() | Atom.t()
       }
       
   """
-  @type create_alias_result() :: %{String.t() => any()}
+  @type create_alias_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2211,30 +2211,30 @@ defmodule AWS.Directory do
       }
       
   """
-  @type describe_directory_data_access_result() :: %{String.t() => any()}
+  @type describe_directory_data_access_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       directory_limit_exceeded_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type directory_limit_exceeded_exception() :: %{String.t() => any()}
+  @type directory_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_schema_extension_result() :: %{
-        "SchemaExtensionId" => String.t()
+        "SchemaExtensionId" => String.t() | Atom.t()
       }
       
   """
-  @type start_schema_extension_result() :: %{String.t() => any()}
+  @type start_schema_extension_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2242,13 +2242,13 @@ defmodule AWS.Directory do
       
       start_schema_extension_request() :: %{
         required("CreateSnapshotBeforeSchemaExtension") => boolean(),
-        required("Description") => String.t(),
-        required("DirectoryId") => String.t(),
-        required("LdifContent") => String.t()
+        required("Description") => String.t() | Atom.t(),
+        required("DirectoryId") => String.t() | Atom.t(),
+        required("LdifContent") => String.t() | Atom.t()
       }
       
   """
-  @type start_schema_extension_request() :: %{String.t() => any()}
+  @type start_schema_extension_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2264,53 +2264,53 @@ defmodule AWS.Directory do
   ## Example:
       
       enable_ldaps_request() :: %{
-        required("DirectoryId") => String.t(),
+        required("DirectoryId") => String.t() | Atom.t(),
         required("Type") => list(any())
       }
       
   """
-  @type enable_ldaps_request() :: %{String.t() => any()}
+  @type enable_ldaps_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_settings_request() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("Status") => list(any()),
-        required("DirectoryId") => String.t()
+        required("DirectoryId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_settings_request() :: %{String.t() => any()}
+  @type describe_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       directory_connect_settings_description() :: %{
-        "AvailabilityZones" => list(String.t()),
-        "ConnectIps" => list(String.t()),
-        "CustomerUserName" => String.t(),
-        "SecurityGroupId" => String.t(),
-        "SubnetIds" => list(String.t()),
-        "VpcId" => String.t()
+        "AvailabilityZones" => list(String.t() | Atom.t()),
+        "ConnectIps" => list(String.t() | Atom.t()),
+        "CustomerUserName" => String.t() | Atom.t(),
+        "SecurityGroupId" => String.t() | Atom.t(),
+        "SubnetIds" => list(String.t() | Atom.t()),
+        "VpcId" => String.t() | Atom.t()
       }
       
   """
-  @type directory_connect_settings_description() :: %{String.t() => any()}
+  @type directory_connect_settings_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       certificate_does_not_exist_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type certificate_does_not_exist_exception() :: %{String.t() => any()}
+  @type certificate_does_not_exist_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2318,65 +2318,65 @@ defmodule AWS.Directory do
       
       list_schema_extensions_request() :: %{
         optional("Limit") => integer(),
-        optional("NextToken") => String.t(),
-        required("DirectoryId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("DirectoryId") => String.t() | Atom.t()
       }
       
   """
-  @type list_schema_extensions_request() :: %{String.t() => any()}
+  @type list_schema_extensions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       authentication_failed_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type authentication_failed_exception() :: %{String.t() => any()}
+  @type authentication_failed_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       share_limit_exceeded_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type share_limit_exceeded_exception() :: %{String.t() => any()}
+  @type share_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_microsoft_ad_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("Edition") => list(any()),
-        optional("ShortName") => String.t(),
+        optional("ShortName") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("Name") => String.t(),
-        required("Password") => String.t(),
+        required("Name") => String.t() | Atom.t(),
+        required("Password") => String.t() | Atom.t(),
         required("VpcSettings") => directory_vpc_settings()
       }
       
   """
-  @type create_microsoft_ad_request() :: %{String.t() => any()}
+  @type create_microsoft_ad_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_regions_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "RegionsDescription" => list(region_description())
       }
       
   """
-  @type describe_regions_result() :: %{String.t() => any()}
+  @type describe_regions_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2411,27 +2411,27 @@ defmodule AWS.Directory do
       
       ip_route_info() :: %{
         "AddedDateTime" => non_neg_integer(),
-        "CidrIp" => String.t(),
-        "Description" => String.t(),
-        "DirectoryId" => String.t(),
+        "CidrIp" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "DirectoryId" => String.t() | Atom.t(),
         "IpRouteStatusMsg" => list(any()),
-        "IpRouteStatusReason" => String.t()
+        "IpRouteStatusReason" => String.t() | Atom.t()
       }
       
   """
-  @type ip_route_info() :: %{String.t() => any()}
+  @type ip_route_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       regions_info() :: %{
-        "AdditionalRegions" => list(String.t()),
-        "PrimaryRegion" => String.t()
+        "AdditionalRegions" => list(String.t() | Atom.t()),
+        "PrimaryRegion" => String.t() | Atom.t()
       }
       
   """
-  @type regions_info() :: %{String.t() => any()}
+  @type regions_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2444,7 +2444,7 @@ defmodule AWS.Directory do
       }
       
   """
-  @type snapshot_limits() :: %{String.t() => any()}
+  @type snapshot_limits() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2452,11 +2452,11 @@ defmodule AWS.Directory do
       
       delete_trust_request() :: %{
         optional("DeleteAssociatedConditionalForwarder") => boolean(),
-        required("TrustId") => String.t()
+        required("TrustId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_trust_request() :: %{String.t() => any()}
+  @type delete_trust_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2467,7 +2467,7 @@ defmodule AWS.Directory do
       }
       
   """
-  @type accept_shared_directory_result() :: %{String.t() => any()}
+  @type accept_shared_directory_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2475,14 +2475,14 @@ defmodule AWS.Directory do
       
       create_computer_request() :: %{
         optional("ComputerAttributes") => list(attribute()),
-        optional("OrganizationalUnitDistinguishedName") => String.t(),
-        required("ComputerName") => String.t(),
-        required("DirectoryId") => String.t(),
-        required("Password") => String.t()
+        optional("OrganizationalUnitDistinguishedName") => String.t() | Atom.t(),
+        required("ComputerName") => String.t() | Atom.t(),
+        required("DirectoryId") => String.t() | Atom.t(),
+        required("Password") => String.t() | Atom.t()
       }
       
   """
-  @type create_computer_request() :: %{String.t() => any()}
+  @type create_computer_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2502,7 +2502,7 @@ defmodule AWS.Directory do
       }
       
   """
-  @type describe_certificate_result() :: %{String.t() => any()}
+  @type describe_certificate_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2510,66 +2510,66 @@ defmodule AWS.Directory do
       
       event_topic() :: %{
         "CreatedDateTime" => non_neg_integer(),
-        "DirectoryId" => String.t(),
+        "DirectoryId" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "TopicArn" => String.t(),
-        "TopicName" => String.t()
+        "TopicArn" => String.t() | Atom.t(),
+        "TopicName" => String.t() | Atom.t()
       }
       
   """
-  @type event_topic() :: %{String.t() => any()}
+  @type event_topic() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       directory_connect_settings() :: %{
-        "CustomerDnsIps" => list(String.t()),
-        "CustomerUserName" => String.t(),
-        "SubnetIds" => list(String.t()),
-        "VpcId" => String.t()
+        "CustomerDnsIps" => list(String.t() | Atom.t()),
+        "CustomerUserName" => String.t() | Atom.t(),
+        "SubnetIds" => list(String.t() | Atom.t()),
+        "VpcId" => String.t() | Atom.t()
       }
       
   """
-  @type directory_connect_settings() :: %{String.t() => any()}
+  @type directory_connect_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_password_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_password_exception() :: %{String.t() => any()}
+  @type invalid_password_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disable_client_authentication_request() :: %{
-        required("DirectoryId") => String.t(),
+        required("DirectoryId") => String.t() | Atom.t(),
         required("Type") => list(any())
       }
       
   """
-  @type disable_client_authentication_request() :: %{String.t() => any()}
+  @type disable_client_authentication_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_domain_controllers_request() :: %{
-        optional("DomainControllerIds") => list(String.t()),
+        optional("DomainControllerIds") => list(String.t() | Atom.t()),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t(),
-        required("DirectoryId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("DirectoryId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_domain_controllers_request() :: %{String.t() => any()}
+  @type describe_domain_controllers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2578,24 +2578,24 @@ defmodule AWS.Directory do
       update_directory_setup_request() :: %{
         optional("CreateSnapshotBeforeUpdate") => boolean(),
         optional("OSUpdateSettings") => o_s_update_settings(),
-        required("DirectoryId") => String.t(),
+        required("DirectoryId") => String.t() | Atom.t(),
         required("UpdateType") => list(any())
       }
       
   """
-  @type update_directory_setup_request() :: %{String.t() => any()}
+  @type update_directory_setup_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       share_target() :: %{
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "Type" => list(any())
       }
       
   """
-  @type share_target() :: %{String.t() => any()}
+  @type share_target() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2611,37 +2611,37 @@ defmodule AWS.Directory do
   ## Example:
       
       add_region_request() :: %{
-        required("DirectoryId") => String.t(),
-        required("RegionName") => String.t(),
+        required("DirectoryId") => String.t() | Atom.t(),
+        required("RegionName") => String.t() | Atom.t(),
         required("VPCSettings") => directory_vpc_settings()
       }
       
   """
-  @type add_region_request() :: %{String.t() => any()}
+  @type add_region_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       certificate_limit_exceeded_exception() :: %{
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
       
   """
-  @type certificate_limit_exceeded_exception() :: %{String.t() => any()}
+  @type certificate_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_radius_request() :: %{
-        required("DirectoryId") => String.t(),
+        required("DirectoryId") => String.t() | Atom.t(),
         required("RadiusSettings") => radius_settings()
       }
       
   """
-  @type update_radius_request() :: %{String.t() => any()}
+  @type update_radius_request() :: %{String.t() | Atom.t() => any()}
 
   @type accept_shared_directory_errors() ::
           entity_does_not_exist_exception()

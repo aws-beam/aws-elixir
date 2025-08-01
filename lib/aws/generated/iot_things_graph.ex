@@ -26,74 +26,74 @@ defmodule AWS.IoTThingsGraph do
   ## Example:
       
       delete_namespace_response() :: %{
-        "namespaceArn" => String.t(),
-        "namespaceName" => String.t()
+        "namespaceArn" => String.t() | Atom.t(),
+        "namespaceName" => String.t() | Atom.t()
       }
       
   """
-  @type delete_namespace_response() :: %{String.t() => any()}
+  @type delete_namespace_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_namespace_response() :: %{
-        "namespaceArn" => String.t(),
-        "namespaceName" => String.t(),
+        "namespaceArn" => String.t() | Atom.t(),
+        "namespaceName" => String.t() | Atom.t(),
         "namespaceVersion" => float(),
-        "trackingNamespaceName" => String.t(),
+        "trackingNamespaceName" => String.t() | Atom.t(),
         "trackingNamespaceVersion" => float()
       }
       
   """
-  @type describe_namespace_response() :: %{String.t() => any()}
+  @type describe_namespace_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       search_flow_templates_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "summaries" => list(flow_template_summary())
       }
       
   """
-  @type search_flow_templates_response() :: %{String.t() => any()}
+  @type search_flow_templates_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("resourceArn") => String.t(),
+        required("resourceArn") => String.t() | Atom.t(),
         required("tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_failure_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type internal_failure_exception() :: %{String.t() => any()}
+  @type internal_failure_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       search_things_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "things" => list(thing())
       }
       
   """
-  @type search_things_response() :: %{String.t() => any()}
+  @type search_things_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -106,7 +106,7 @@ defmodule AWS.IoTThingsGraph do
       }
       
   """
-  @type upload_entity_definitions_request() :: %{String.t() => any()}
+  @type upload_entity_definitions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -114,14 +114,14 @@ defmodule AWS.IoTThingsGraph do
       
       get_namespace_deletion_status_response() :: %{
         "errorCode" => list(any()),
-        "errorMessage" => String.t(),
-        "namespaceArn" => String.t(),
-        "namespaceName" => String.t(),
+        "errorMessage" => String.t() | Atom.t(),
+        "namespaceArn" => String.t() | Atom.t(),
+        "namespaceName" => String.t() | Atom.t(),
         "status" => list(any())
       }
       
   """
-  @type get_namespace_deletion_status_response() :: %{String.t() => any()}
+  @type get_namespace_deletion_status_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -129,15 +129,15 @@ defmodule AWS.IoTThingsGraph do
       
       flow_execution_summary() :: %{
         "createdAt" => non_neg_integer(),
-        "flowExecutionId" => String.t(),
-        "flowTemplateId" => String.t(),
+        "flowExecutionId" => String.t() | Atom.t(),
+        "flowTemplateId" => String.t() | Atom.t(),
         "status" => list(any()),
-        "systemInstanceId" => String.t(),
+        "systemInstanceId" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer()
       }
       
   """
-  @type flow_execution_summary() :: %{String.t() => any()}
+  @type flow_execution_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -145,11 +145,11 @@ defmodule AWS.IoTThingsGraph do
       
       system_instance_filter() :: %{
         "name" => list(any()),
-        "value" => list(String.t())
+        "value" => list(String.t() | Atom.t())
       }
       
   """
-  @type system_instance_filter() :: %{String.t() => any()}
+  @type system_instance_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -165,33 +165,33 @@ defmodule AWS.IoTThingsGraph do
   ## Example:
       
       upload_entity_definitions_response() :: %{
-        "uploadId" => String.t()
+        "uploadId" => String.t() | Atom.t()
       }
       
   """
-  @type upload_entity_definitions_response() :: %{String.t() => any()}
+  @type upload_entity_definitions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_in_use_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_in_use_exception() :: %{String.t() => any()}
+  @type resource_in_use_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_system_instance_request() :: %{
-        optional("id") => String.t()
+        optional("id") => String.t() | Atom.t()
       }
       
   """
-  @type delete_system_instance_request() :: %{String.t() => any()}
+  @type delete_system_instance_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -199,12 +199,12 @@ defmodule AWS.IoTThingsGraph do
       
       associate_entity_to_thing_request() :: %{
         optional("namespaceVersion") => float(),
-        required("entityId") => String.t(),
-        required("thingName") => String.t()
+        required("entityId") => String.t() | Atom.t(),
+        required("thingName") => String.t() | Atom.t()
       }
       
   """
-  @type associate_entity_to_thing_request() :: %{String.t() => any()}
+  @type associate_entity_to_thing_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -212,11 +212,11 @@ defmodule AWS.IoTThingsGraph do
       
       entity_filter() :: %{
         "name" => list(any()),
-        "value" => list(String.t())
+        "value" => list(String.t() | Atom.t())
       }
       
   """
-  @type entity_filter() :: %{String.t() => any()}
+  @type entity_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -225,11 +225,11 @@ defmodule AWS.IoTThingsGraph do
       update_system_template_request() :: %{
         optional("compatibleNamespaceVersion") => float(),
         required("definition") => definition_document(),
-        required("id") => String.t()
+        required("id") => String.t() | Atom.t()
       }
       
   """
-  @type update_system_template_request() :: %{String.t() => any()}
+  @type update_system_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -237,16 +237,16 @@ defmodule AWS.IoTThingsGraph do
       
       get_upload_status_response() :: %{
         "createdDate" => non_neg_integer(),
-        "failureReason" => list(String.t()),
-        "namespaceArn" => String.t(),
-        "namespaceName" => String.t(),
+        "failureReason" => list(String.t() | Atom.t()),
+        "namespaceArn" => String.t() | Atom.t(),
+        "namespaceName" => String.t() | Atom.t(),
         "namespaceVersion" => float(),
-        "uploadId" => String.t(),
+        "uploadId" => String.t() | Atom.t(),
         "uploadStatus" => list(any())
       }
       
   """
-  @type get_upload_status_response() :: %{String.t() => any()}
+  @type get_upload_status_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -254,12 +254,12 @@ defmodule AWS.IoTThingsGraph do
       
       get_system_template_revisions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("id") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("id") => String.t() | Atom.t()
       }
       
   """
-  @type get_system_template_revisions_request() :: %{String.t() => any()}
+  @type get_system_template_revisions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -270,7 +270,7 @@ defmodule AWS.IoTThingsGraph do
       }
       
   """
-  @type undeploy_system_instance_response() :: %{String.t() => any()}
+  @type undeploy_system_instance_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -278,11 +278,11 @@ defmodule AWS.IoTThingsGraph do
       
       get_entities_request() :: %{
         optional("namespaceVersion") => float(),
-        required("ids") => list(String.t())
+        required("ids") => list(String.t() | Atom.t())
       }
       
   """
-  @type get_entities_request() :: %{String.t() => any()}
+  @type get_entities_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -290,22 +290,22 @@ defmodule AWS.IoTThingsGraph do
       
       search_entities_response() :: %{
         "descriptions" => list(entity_description()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type search_entities_response() :: %{String.t() => any()}
+  @type search_entities_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_upload_status_request() :: %{
-        required("uploadId") => String.t()
+        required("uploadId") => String.t() | Atom.t()
       }
       
   """
-  @type get_upload_status_request() :: %{String.t() => any()}
+  @type get_upload_status_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -316,7 +316,7 @@ defmodule AWS.IoTThingsGraph do
       }
       
   """
-  @type get_entities_response() :: %{String.t() => any()}
+  @type get_entities_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -327,29 +327,29 @@ defmodule AWS.IoTThingsGraph do
       }
       
   """
-  @type get_system_instance_response() :: %{String.t() => any()}
+  @type get_system_instance_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_system_instance_request() :: %{
-        required("id") => String.t()
+        required("id") => String.t() | Atom.t()
       }
       
   """
-  @type get_system_instance_request() :: %{String.t() => any()}
+  @type get_system_instance_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_namespace_request() :: %{
-        optional("namespaceName") => String.t()
+        optional("namespaceName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_namespace_request() :: %{String.t() => any()}
+  @type describe_namespace_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -360,19 +360,19 @@ defmodule AWS.IoTThingsGraph do
       }
       
   """
-  @type update_flow_template_response() :: %{String.t() => any()}
+  @type update_flow_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("resourceArn") => String.t(),
-        required("tagKeys") => list(String.t())
+        required("resourceArn") => String.t() | Atom.t(),
+        required("tagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -383,7 +383,7 @@ defmodule AWS.IoTThingsGraph do
       }
       
   """
-  @type get_system_template_response() :: %{String.t() => any()}
+  @type get_system_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -395,24 +395,24 @@ defmodule AWS.IoTThingsGraph do
       }
       
   """
-  @type create_system_template_request() :: %{String.t() => any()}
+  @type create_system_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_system_instance_request() :: %{
-        optional("flowActionsRoleArn") => String.t(),
-        optional("greengrassGroupName") => String.t(),
+        optional("flowActionsRoleArn") => String.t() | Atom.t(),
+        optional("greengrassGroupName") => String.t() | Atom.t(),
         optional("metricsConfiguration") => metrics_configuration(),
-        optional("s3BucketName") => String.t(),
+        optional("s3BucketName") => String.t() | Atom.t(),
         optional("tags") => list(tag()),
         required("definition") => definition_document(),
         required("target") => list(any())
       }
       
   """
-  @type create_system_instance_request() :: %{String.t() => any()}
+  @type create_system_instance_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -439,49 +439,49 @@ defmodule AWS.IoTThingsGraph do
       search_system_templates_request() :: %{
         optional("filters") => list(system_template_filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type search_system_templates_request() :: %{String.t() => any()}
+  @type search_system_templates_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       search_flow_executions_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "summaries" => list(flow_execution_summary())
       }
       
   """
-  @type search_flow_executions_response() :: %{String.t() => any()}
+  @type search_flow_executions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       entity_description() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
         "definition" => definition_document(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "type" => list(any())
       }
       
   """
-  @type entity_description() :: %{String.t() => any()}
+  @type entity_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -494,7 +494,7 @@ defmodule AWS.IoTThingsGraph do
       }
       
   """
-  @type system_template_description() :: %{String.t() => any()}
+  @type system_template_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -510,12 +510,12 @@ defmodule AWS.IoTThingsGraph do
   ## Example:
       
       tag() :: %{
-        "key" => String.t(),
-        "value" => String.t()
+        "key" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -523,33 +523,33 @@ defmodule AWS.IoTThingsGraph do
       
       get_flow_template_request() :: %{
         optional("revisionNumber") => float(),
-        required("id") => String.t()
+        required("id") => String.t() | Atom.t()
       }
       
   """
-  @type get_flow_template_request() :: %{String.t() => any()}
+  @type get_flow_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_request_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_request_exception() :: %{String.t() => any()}
+  @type invalid_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_system_template_request() :: %{
-        required("id") => String.t()
+        required("id") => String.t() | Atom.t()
       }
       
   """
-  @type delete_system_template_request() :: %{String.t() => any()}
+  @type delete_system_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -557,23 +557,23 @@ defmodule AWS.IoTThingsGraph do
       
       get_system_template_request() :: %{
         optional("revisionNumber") => float(),
-        required("id") => String.t()
+        required("id") => String.t() | Atom.t()
       }
       
   """
-  @type get_system_template_request() :: %{String.t() => any()}
+  @type get_system_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       thing() :: %{
-        "thingArn" => String.t(),
-        "thingName" => String.t()
+        "thingArn" => String.t() | Atom.t(),
+        "thingName" => String.t() | Atom.t()
       }
       
   """
-  @type thing() :: %{String.t() => any()}
+  @type thing() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -591,11 +591,11 @@ defmodule AWS.IoTThingsGraph do
       search_system_instances_request() :: %{
         optional("filters") => list(system_instance_filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type search_system_instances_request() :: %{String.t() => any()}
+  @type search_system_instances_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -604,25 +604,25 @@ defmodule AWS.IoTThingsGraph do
       search_flow_templates_request() :: %{
         optional("filters") => list(flow_template_filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type search_flow_templates_request() :: %{String.t() => any()}
+  @type search_flow_templates_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       system_template_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "revisionNumber" => float()
       }
       
   """
-  @type system_template_summary() :: %{String.t() => any()}
+  @type system_template_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -633,7 +633,7 @@ defmodule AWS.IoTThingsGraph do
       }
       
   """
-  @type create_flow_template_response() :: %{String.t() => any()}
+  @type create_flow_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -641,54 +641,54 @@ defmodule AWS.IoTThingsGraph do
       
       list_flow_execution_messages_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("flowExecutionId") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("flowExecutionId") => String.t() | Atom.t()
       }
       
   """
-  @type list_flow_execution_messages_request() :: %{String.t() => any()}
+  @type list_flow_execution_messages_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "tags" => list(tag())
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       undeploy_system_instance_request() :: %{
-        optional("id") => String.t()
+        optional("id") => String.t() | Atom.t()
       }
       
   """
-  @type undeploy_system_instance_request() :: %{String.t() => any()}
+  @type undeploy_system_instance_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       system_instance_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "greengrassGroupId" => String.t(),
-        "greengrassGroupName" => String.t(),
-        "greengrassGroupVersionId" => String.t(),
-        "id" => String.t(),
+        "greengrassGroupId" => String.t() | Atom.t(),
+        "greengrassGroupName" => String.t() | Atom.t(),
+        "greengrassGroupVersionId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "status" => list(any()),
         "target" => list(any()),
         "updatedAt" => non_neg_integer()
       }
       
   """
-  @type system_instance_summary() :: %{String.t() => any()}
+  @type system_instance_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -700,19 +700,19 @@ defmodule AWS.IoTThingsGraph do
       }
       
   """
-  @type create_flow_template_request() :: %{String.t() => any()}
+  @type create_flow_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_flow_template_revisions_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "summaries" => list(flow_template_summary())
       }
       
   """
-  @type get_flow_template_revisions_response() :: %{String.t() => any()}
+  @type get_flow_template_revisions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -721,12 +721,12 @@ defmodule AWS.IoTThingsGraph do
       search_things_request() :: %{
         optional("maxResults") => integer(),
         optional("namespaceVersion") => float(),
-        optional("nextToken") => String.t(),
-        required("entityId") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("entityId") => String.t() | Atom.t()
       }
       
   """
-  @type search_things_request() :: %{String.t() => any()}
+  @type search_things_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -745,12 +745,12 @@ defmodule AWS.IoTThingsGraph do
         optional("filters") => list(entity_filter()),
         optional("maxResults") => integer(),
         optional("namespaceVersion") => float(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("entityTypes") => list(list(any())())
       }
       
   """
-  @type search_entities_request() :: %{String.t() => any()}
+  @type search_entities_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -772,19 +772,19 @@ defmodule AWS.IoTThingsGraph do
       }
       
   """
-  @type flow_template_description() :: %{String.t() => any()}
+  @type flow_template_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       search_system_instances_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "summaries" => list(system_instance_summary())
       }
       
   """
-  @type search_system_instances_response() :: %{String.t() => any()}
+  @type search_system_instances_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -801,13 +801,13 @@ defmodule AWS.IoTThingsGraph do
       
       flow_execution_message() :: %{
         "eventType" => list(any()),
-        "messageId" => String.t(),
-        "payload" => String.t(),
+        "messageId" => String.t() | Atom.t(),
+        "payload" => String.t() | Atom.t(),
         "timestamp" => non_neg_integer()
       }
       
   """
-  @type flow_execution_message() :: %{String.t() => any()}
+  @type flow_execution_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -818,7 +818,7 @@ defmodule AWS.IoTThingsGraph do
       }
       
   """
-  @type create_system_template_response() :: %{String.t() => any()}
+  @type create_system_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -826,11 +826,11 @@ defmodule AWS.IoTThingsGraph do
       
       definition_document() :: %{
         "language" => list(any()),
-        "text" => String.t()
+        "text" => String.t() | Atom.t()
       }
       
   """
-  @type definition_document() :: %{String.t() => any()}
+  @type definition_document() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -838,12 +838,12 @@ defmodule AWS.IoTThingsGraph do
       
       list_tags_for_resource_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("resourceArn") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("resourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -851,27 +851,27 @@ defmodule AWS.IoTThingsGraph do
       
       system_instance_description() :: %{
         "definition" => definition_document(),
-        "flowActionsRoleArn" => String.t(),
+        "flowActionsRoleArn" => String.t() | Atom.t(),
         "metricsConfiguration" => metrics_configuration(),
-        "s3BucketName" => String.t(),
+        "s3BucketName" => String.t() | Atom.t(),
         "summary" => system_instance_summary(),
         "validatedDependencyRevisions" => list(dependency_revision()),
         "validatedNamespaceVersion" => float()
       }
       
   """
-  @type system_instance_description() :: %{String.t() => any()}
+  @type system_instance_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -888,12 +888,12 @@ defmodule AWS.IoTThingsGraph do
       
       get_flow_template_revisions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("id") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("id") => String.t() | Atom.t()
       }
       
   """
-  @type get_flow_template_revisions_request() :: %{String.t() => any()}
+  @type get_flow_template_revisions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -902,11 +902,11 @@ defmodule AWS.IoTThingsGraph do
       update_flow_template_request() :: %{
         optional("compatibleNamespaceVersion") => float(),
         required("definition") => definition_document(),
-        required("id") => String.t()
+        required("id") => String.t() | Atom.t()
       }
       
   """
-  @type update_flow_template_request() :: %{String.t() => any()}
+  @type update_flow_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -917,7 +917,7 @@ defmodule AWS.IoTThingsGraph do
       }
       
   """
-  @type create_system_instance_response() :: %{String.t() => any()}
+  @type create_system_instance_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -925,34 +925,34 @@ defmodule AWS.IoTThingsGraph do
       
       system_template_filter() :: %{
         "name" => list(any()),
-        "value" => list(String.t())
+        "value" => list(String.t() | Atom.t())
       }
       
   """
-  @type system_template_filter() :: %{String.t() => any()}
+  @type system_template_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       search_system_templates_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "summaries" => list(system_template_summary())
       }
       
   """
-  @type search_system_templates_response() :: %{String.t() => any()}
+  @type search_system_templates_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -972,19 +972,19 @@ defmodule AWS.IoTThingsGraph do
       }
       
   """
-  @type update_system_template_response() :: %{String.t() => any()}
+  @type update_system_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_system_template_revisions_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "summaries" => list(system_template_summary())
       }
       
   """
-  @type get_system_template_revisions_response() :: %{String.t() => any()}
+  @type get_system_template_revisions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -992,47 +992,47 @@ defmodule AWS.IoTThingsGraph do
       
       dissociate_entity_from_thing_request() :: %{
         required("entityType") => list(any()),
-        required("thingName") => String.t()
+        required("thingName") => String.t() | Atom.t()
       }
       
   """
-  @type dissociate_entity_from_thing_request() :: %{String.t() => any()}
+  @type dissociate_entity_from_thing_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       flow_template_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "revisionNumber" => float()
       }
       
   """
-  @type flow_template_summary() :: %{String.t() => any()}
+  @type flow_template_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_already_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_already_exists_exception() :: %{String.t() => any()}
+  @type resource_already_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_flow_template_request() :: %{
-        required("id") => String.t()
+        required("id") => String.t() | Atom.t()
       }
       
   """
-  @type delete_flow_template_request() :: %{String.t() => any()}
+  @type delete_flow_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1040,23 +1040,23 @@ defmodule AWS.IoTThingsGraph do
       
       list_flow_execution_messages_response() :: %{
         "messages" => list(flow_execution_message()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_flow_execution_messages_response() :: %{String.t() => any()}
+  @type list_flow_execution_messages_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       dependency_revision() :: %{
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "revisionNumber" => float()
       }
       
   """
-  @type dependency_revision() :: %{String.t() => any()}
+  @type dependency_revision() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1064,26 +1064,26 @@ defmodule AWS.IoTThingsGraph do
       
       search_flow_executions_request() :: %{
         optional("endTime") => non_neg_integer(),
-        optional("flowExecutionId") => String.t(),
+        optional("flowExecutionId") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("startTime") => non_neg_integer(),
-        required("systemInstanceId") => String.t()
+        required("systemInstanceId") => String.t() | Atom.t()
       }
       
   """
-  @type search_flow_executions_request() :: %{String.t() => any()}
+  @type search_flow_executions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       deprecate_flow_template_request() :: %{
-        required("id") => String.t()
+        required("id") => String.t() | Atom.t()
       }
       
   """
-  @type deprecate_flow_template_request() :: %{String.t() => any()}
+  @type deprecate_flow_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1094,7 +1094,7 @@ defmodule AWS.IoTThingsGraph do
       }
       
   """
-  @type get_flow_template_response() :: %{String.t() => any()}
+  @type get_flow_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1102,11 +1102,11 @@ defmodule AWS.IoTThingsGraph do
       
       flow_template_filter() :: %{
         "name" => list(any()),
-        "value" => list(String.t())
+        "value" => list(String.t() | Atom.t())
       }
       
   """
-  @type flow_template_filter() :: %{String.t() => any()}
+  @type flow_template_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1122,23 +1122,23 @@ defmodule AWS.IoTThingsGraph do
   ## Example:
       
       deprecate_system_template_request() :: %{
-        required("id") => String.t()
+        required("id") => String.t() | Atom.t()
       }
       
   """
-  @type deprecate_system_template_request() :: %{String.t() => any()}
+  @type deprecate_system_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       deploy_system_instance_response() :: %{
-        "greengrassDeploymentId" => String.t(),
+        "greengrassDeploymentId" => String.t() | Atom.t(),
         "summary" => system_instance_summary()
       }
       
   """
-  @type deploy_system_instance_response() :: %{String.t() => any()}
+  @type deploy_system_instance_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1146,22 +1146,22 @@ defmodule AWS.IoTThingsGraph do
       
       metrics_configuration() :: %{
         "cloudMetricEnabled" => boolean(),
-        "metricRuleRoleArn" => String.t()
+        "metricRuleRoleArn" => String.t() | Atom.t()
       }
       
   """
-  @type metrics_configuration() :: %{String.t() => any()}
+  @type metrics_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       deploy_system_instance_request() :: %{
-        optional("id") => String.t()
+        optional("id") => String.t() | Atom.t()
       }
       
   """
-  @type deploy_system_instance_request() :: %{String.t() => any()}
+  @type deploy_system_instance_request() :: %{String.t() | Atom.t() => any()}
 
   @type associate_entity_to_thing_errors() ::
           throttling_exception()

@@ -37,26 +37,26 @@ defmodule AWS.ApplicationInsights do
       update_problem_request() :: %{
         optional("UpdateStatus") => list(any()),
         optional("Visibility") => list(any()),
-        required("ProblemId") => String.t()
+        required("ProblemId") => String.t() | Atom.t()
       }
       
   """
-  @type update_problem_request() :: %{String.t() => any()}
+  @type update_problem_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_log_patterns_request() :: %{
-        optional("AccountId") => String.t(),
+        optional("AccountId") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("PatternSetName") => String.t(),
-        required("ResourceGroupName") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("PatternSetName") => String.t() | Atom.t(),
+        required("ResourceGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type list_log_patterns_request() :: %{String.t() => any()}
+  @type list_log_patterns_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -64,76 +64,76 @@ defmodule AWS.ApplicationInsights do
       
       add_workload_response() :: %{
         "WorkloadConfiguration" => workload_configuration(),
-        "WorkloadId" => String.t()
+        "WorkloadId" => String.t() | Atom.t()
       }
       
   """
-  @type add_workload_response() :: %{String.t() => any()}
+  @type add_workload_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
+        required("ResourceARN") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_workloads_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "WorkloadList" => list(workload())
       }
       
   """
-  @type list_workloads_response() :: %{String.t() => any()}
+  @type list_workloads_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_log_pattern_request() :: %{
-        optional("AccountId") => String.t(),
-        required("PatternName") => String.t(),
-        required("PatternSetName") => String.t(),
-        required("ResourceGroupName") => String.t()
+        optional("AccountId") => String.t() | Atom.t(),
+        required("PatternName") => String.t() | Atom.t(),
+        required("PatternSetName") => String.t() | Atom.t(),
+        required("ResourceGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_log_pattern_request() :: %{String.t() => any()}
+  @type describe_log_pattern_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_workloads_request() :: %{
-        optional("AccountId") => String.t(),
+        optional("AccountId") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ComponentName") => String.t(),
-        required("ResourceGroupName") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ComponentName") => String.t() | Atom.t(),
+        required("ResourceGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type list_workloads_request() :: %{String.t() => any()}
+  @type list_workloads_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_problem_observations_request() :: %{
-        optional("AccountId") => String.t(),
-        required("ProblemId") => String.t()
+        optional("AccountId") => String.t() | Atom.t(),
+        required("ProblemId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_problem_observations_request() :: %{String.t() => any()}
+  @type describe_problem_observations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -149,25 +149,25 @@ defmodule AWS.ApplicationInsights do
   ## Example:
       
       resource_in_use_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_in_use_exception() :: %{String.t() => any()}
+  @type resource_in_use_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_problems_response() :: %{
-        "AccountId" => String.t(),
-        "NextToken" => String.t(),
+        "AccountId" => String.t() | Atom.t(),
+        "NextToken" => String.t() | Atom.t(),
         "ProblemList" => list(problem()),
-        "ResourceGroupName" => String.t()
+        "ResourceGroupName" => String.t() | Atom.t()
       }
       
   """
-  @type list_problems_response() :: %{String.t() => any()}
+  @type list_problems_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -178,7 +178,7 @@ defmodule AWS.ApplicationInsights do
       }
       
   """
-  @type describe_observation_response() :: %{String.t() => any()}
+  @type describe_observation_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -186,40 +186,43 @@ defmodule AWS.ApplicationInsights do
       
       describe_component_configuration_recommendation_request() :: %{
         optional("RecommendationType") => list(any()),
-        optional("WorkloadName") => String.t(),
-        required("ComponentName") => String.t(),
-        required("ResourceGroupName") => String.t(),
+        optional("WorkloadName") => String.t() | Atom.t(),
+        required("ComponentName") => String.t() | Atom.t(),
+        required("ResourceGroupName") => String.t() | Atom.t(),
         required("Tier") => list(any())
       }
       
   """
-  @type describe_component_configuration_recommendation_request() :: %{String.t() => any()}
+  @type describe_component_configuration_recommendation_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       log_pattern() :: %{
-        "Pattern" => String.t(),
-        "PatternName" => String.t(),
-        "PatternSetName" => String.t(),
+        "Pattern" => String.t() | Atom.t(),
+        "PatternName" => String.t() | Atom.t(),
+        "PatternSetName" => String.t() | Atom.t(),
         "Rank" => integer()
       }
       
   """
-  @type log_pattern() :: %{String.t() => any()}
+  @type log_pattern() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_component_request() :: %{
-        required("ComponentName") => String.t(),
-        required("ResourceGroupName") => String.t()
+        required("ComponentName") => String.t() | Atom.t(),
+        required("ResourceGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_component_request() :: %{String.t() => any()}
+  @type delete_component_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -227,36 +230,36 @@ defmodule AWS.ApplicationInsights do
       
       list_configuration_history_response() :: %{
         "EventList" => list(configuration_event()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_configuration_history_response() :: %{String.t() => any()}
+  @type list_configuration_history_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceARN") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_component_configuration_response() :: %{
-        "ComponentConfiguration" => String.t(),
+        "ComponentConfiguration" => String.t() | Atom.t(),
         "Monitor" => boolean(),
         "Tier" => list(any())
       }
       
   """
-  @type describe_component_configuration_response() :: %{String.t() => any()}
+  @type describe_component_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -273,11 +276,11 @@ defmodule AWS.ApplicationInsights do
       
       update_log_pattern_response() :: %{
         "LogPattern" => log_pattern(),
-        "ResourceGroupName" => String.t()
+        "ResourceGroupName" => String.t() | Atom.t()
       }
       
   """
-  @type update_log_pattern_response() :: %{String.t() => any()}
+  @type update_log_pattern_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -288,7 +291,7 @@ defmodule AWS.ApplicationInsights do
       }
       
   """
-  @type describe_problem_observations_response() :: %{String.t() => any()}
+  @type describe_problem_observations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -297,53 +300,53 @@ defmodule AWS.ApplicationInsights do
       observation() :: %{
         "XRayRequestCount" => integer(),
         "Value" => float(),
-        "SourceType" => String.t(),
-        "Unit" => String.t(),
-        "StatesInput" => String.t(),
-        "EbsCause" => String.t(),
-        "EbsResult" => String.t(),
-        "XRayNodeType" => String.t(),
-        "HealthEventArn" => String.t(),
+        "SourceType" => String.t() | Atom.t(),
+        "Unit" => String.t() | Atom.t(),
+        "StatesInput" => String.t() | Atom.t(),
+        "EbsCause" => String.t() | Atom.t(),
+        "EbsResult" => String.t() | Atom.t(),
+        "XRayNodeType" => String.t() | Atom.t(),
+        "HealthEventArn" => String.t() | Atom.t(),
         "LineTime" => non_neg_integer(),
-        "HealthEventDescription" => String.t(),
+        "HealthEventDescription" => String.t() | Atom.t(),
         "CloudWatchEventSource" => list(any()),
-        "RdsEventCategories" => String.t(),
+        "RdsEventCategories" => String.t() | Atom.t(),
         "StartTime" => non_neg_integer(),
         "XRayErrorPercent" => integer(),
         "XRayFaultPercent" => integer(),
-        "StatesStatus" => String.t(),
-        "MetricNamespace" => String.t(),
-        "Id" => String.t(),
-        "MetricName" => String.t(),
+        "StatesStatus" => String.t() | Atom.t(),
+        "MetricNamespace" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "MetricName" => String.t() | Atom.t(),
         "XRayRequestAverageLatency" => float(),
-        "HealthEventTypeCode" => String.t(),
-        "CodeDeployApplication" => String.t(),
-        "LogGroup" => String.t(),
+        "HealthEventTypeCode" => String.t() | Atom.t(),
+        "CodeDeployApplication" => String.t() | Atom.t(),
+        "LogGroup" => String.t() | Atom.t(),
         "LogFilter" => list(any()),
-        "Ec2State" => String.t(),
-        "CodeDeployInstanceGroupId" => String.t(),
-        "CodeDeployDeploymentGroup" => String.t(),
-        "CloudWatchEventId" => String.t(),
-        "LogText" => String.t(),
-        "HealthEventTypeCategory" => String.t(),
-        "CodeDeployDeploymentId" => String.t(),
-        "SourceARN" => String.t(),
-        "HealthService" => String.t(),
-        "StatesArn" => String.t(),
-        "EbsEvent" => String.t(),
+        "Ec2State" => String.t() | Atom.t(),
+        "CodeDeployInstanceGroupId" => String.t() | Atom.t(),
+        "CodeDeployDeploymentGroup" => String.t() | Atom.t(),
+        "CloudWatchEventId" => String.t() | Atom.t(),
+        "LogText" => String.t() | Atom.t(),
+        "HealthEventTypeCategory" => String.t() | Atom.t(),
+        "CodeDeployDeploymentId" => String.t() | Atom.t(),
+        "SourceARN" => String.t() | Atom.t(),
+        "HealthService" => String.t() | Atom.t(),
+        "StatesArn" => String.t() | Atom.t(),
+        "EbsEvent" => String.t() | Atom.t(),
         "XRayThrottlePercent" => integer(),
-        "XRayNodeName" => String.t(),
-        "RdsEventMessage" => String.t(),
-        "StatesExecutionArn" => String.t(),
+        "XRayNodeName" => String.t() | Atom.t(),
+        "RdsEventMessage" => String.t() | Atom.t(),
+        "StatesExecutionArn" => String.t() | Atom.t(),
         "EndTime" => non_neg_integer(),
-        "EbsRequestId" => String.t(),
-        "CodeDeployState" => String.t(),
-        "S3EventName" => String.t(),
-        "CloudWatchEventDetailType" => String.t()
+        "EbsRequestId" => String.t() | Atom.t(),
+        "CodeDeployState" => String.t() | Atom.t(),
+        "S3EventName" => String.t() | Atom.t(),
+        "CloudWatchEventDetailType" => String.t() | Atom.t()
       }
       
   """
-  @type observation() :: %{String.t() => any()}
+  @type observation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -369,113 +372,113 @@ defmodule AWS.ApplicationInsights do
       
       describe_problem_response() :: %{
         "Problem" => problem(),
-        "SNSNotificationArn" => String.t()
+        "SNSNotificationArn" => String.t() | Atom.t()
       }
       
   """
-  @type describe_problem_response() :: %{String.t() => any()}
+  @type describe_problem_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       application_info() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | Atom.t(),
         "AttachMissingPermission" => boolean(),
         "AutoConfigEnabled" => boolean(),
         "CWEMonitorEnabled" => boolean(),
         "DiscoveryType" => list(any()),
-        "LifeCycle" => String.t(),
+        "LifeCycle" => String.t() | Atom.t(),
         "OpsCenterEnabled" => boolean(),
-        "OpsItemSNSTopicArn" => String.t(),
-        "Remarks" => String.t(),
-        "ResourceGroupName" => String.t(),
-        "SNSNotificationArn" => String.t()
+        "OpsItemSNSTopicArn" => String.t() | Atom.t(),
+        "Remarks" => String.t() | Atom.t(),
+        "ResourceGroupName" => String.t() | Atom.t(),
+        "SNSNotificationArn" => String.t() | Atom.t()
       }
       
   """
-  @type application_info() :: %{String.t() => any()}
+  @type application_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_component_request() :: %{
-        optional("NewComponentName") => String.t(),
-        optional("ResourceList") => list(String.t()),
-        required("ComponentName") => String.t(),
-        required("ResourceGroupName") => String.t()
+        optional("NewComponentName") => String.t() | Atom.t(),
+        optional("ResourceList") => list(String.t() | Atom.t()),
+        required("ComponentName") => String.t() | Atom.t(),
+        required("ResourceGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type update_component_request() :: %{String.t() => any()}
+  @type update_component_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       workload() :: %{
-        "ComponentName" => String.t(),
+        "ComponentName" => String.t() | Atom.t(),
         "MissingWorkloadConfig" => boolean(),
         "Tier" => list(any()),
-        "WorkloadId" => String.t(),
-        "WorkloadName" => String.t(),
-        "WorkloadRemarks" => String.t()
+        "WorkloadId" => String.t() | Atom.t(),
+        "WorkloadName" => String.t() | Atom.t(),
+        "WorkloadRemarks" => String.t() | Atom.t()
       }
       
   """
-  @type workload() :: %{String.t() => any()}
+  @type workload() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_components_request() :: %{
-        optional("AccountId") => String.t(),
+        optional("AccountId") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ResourceGroupName") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ResourceGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type list_components_request() :: %{String.t() => any()}
+  @type list_components_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_log_pattern_sets_response() :: %{
-        "AccountId" => String.t(),
-        "LogPatternSets" => list(String.t()),
-        "NextToken" => String.t(),
-        "ResourceGroupName" => String.t()
+        "AccountId" => String.t() | Atom.t(),
+        "LogPatternSets" => list(String.t() | Atom.t()),
+        "NextToken" => String.t() | Atom.t(),
+        "ResourceGroupName" => String.t() | Atom.t()
       }
       
   """
-  @type list_log_pattern_sets_response() :: %{String.t() => any()}
+  @type list_log_pattern_sets_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -491,13 +494,13 @@ defmodule AWS.ApplicationInsights do
   ## Example:
       
       workload_configuration() :: %{
-        "Configuration" => String.t(),
+        "Configuration" => String.t() | Atom.t(),
         "Tier" => list(any()),
-        "WorkloadName" => String.t()
+        "WorkloadName" => String.t() | Atom.t()
       }
       
   """
-  @type workload_configuration() :: %{String.t() => any()}
+  @type workload_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -505,40 +508,40 @@ defmodule AWS.ApplicationInsights do
       
       describe_workload_response() :: %{
         "WorkloadConfiguration" => workload_configuration(),
-        "WorkloadId" => String.t(),
-        "WorkloadRemarks" => String.t()
+        "WorkloadId" => String.t() | Atom.t(),
+        "WorkloadRemarks" => String.t() | Atom.t()
       }
       
   """
-  @type describe_workload_response() :: %{String.t() => any()}
+  @type describe_workload_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_component_request() :: %{
-        required("ComponentName") => String.t(),
-        required("ResourceGroupName") => String.t(),
-        required("ResourceList") => list(String.t())
+        required("ComponentName") => String.t() | Atom.t(),
+        required("ResourceGroupName") => String.t() | Atom.t(),
+        required("ResourceList") => list(String.t() | Atom.t())
       }
       
   """
-  @type create_component_request() :: %{String.t() => any()}
+  @type create_component_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_log_pattern_request() :: %{
-        required("Pattern") => String.t(),
-        required("PatternName") => String.t(),
-        required("PatternSetName") => String.t(),
+        required("Pattern") => String.t() | Atom.t(),
+        required("PatternName") => String.t() | Atom.t(),
+        required("PatternSetName") => String.t() | Atom.t(),
         required("Rank") => integer(),
-        required("ResourceGroupName") => String.t()
+        required("ResourceGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type create_log_pattern_request() :: %{String.t() => any()}
+  @type create_log_pattern_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -558,7 +561,7 @@ defmodule AWS.ApplicationInsights do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -571,28 +574,28 @@ defmodule AWS.ApplicationInsights do
         optional("CWEMonitorEnabled") => boolean(),
         optional("GroupingType") => list(any()),
         optional("OpsCenterEnabled") => boolean(),
-        optional("OpsItemSNSTopicArn") => String.t(),
-        optional("ResourceGroupName") => String.t(),
-        optional("SNSNotificationArn") => String.t(),
+        optional("OpsItemSNSTopicArn") => String.t() | Atom.t(),
+        optional("ResourceGroupName") => String.t() | Atom.t(),
+        optional("SNSNotificationArn") => String.t() | Atom.t(),
         optional("Tags") => list(tag())
       }
       
   """
-  @type create_application_request() :: %{String.t() => any()}
+  @type create_application_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_log_patterns_response() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | Atom.t(),
         "LogPatterns" => list(log_pattern()),
-        "NextToken" => String.t(),
-        "ResourceGroupName" => String.t()
+        "NextToken" => String.t() | Atom.t(),
+        "ResourceGroupName" => String.t() | Atom.t()
       }
       
   """
-  @type list_log_patterns_response() :: %{String.t() => any()}
+  @type list_log_patterns_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -603,22 +606,22 @@ defmodule AWS.ApplicationInsights do
       }
       
   """
-  @type create_application_response() :: %{String.t() => any()}
+  @type create_application_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_log_pattern_request() :: %{
-        optional("Pattern") => String.t(),
+        optional("Pattern") => String.t() | Atom.t(),
         optional("Rank") => integer(),
-        required("PatternName") => String.t(),
-        required("PatternSetName") => String.t(),
-        required("ResourceGroupName") => String.t()
+        required("PatternName") => String.t() | Atom.t(),
+        required("PatternSetName") => String.t() | Atom.t(),
+        required("ResourceGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type update_log_pattern_request() :: %{String.t() => any()}
+  @type update_log_pattern_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -626,11 +629,11 @@ defmodule AWS.ApplicationInsights do
       
       update_workload_response() :: %{
         "WorkloadConfiguration" => workload_configuration(),
-        "WorkloadId" => String.t()
+        "WorkloadId" => String.t() | Atom.t()
       }
       
   """
-  @type update_workload_response() :: %{String.t() => any()}
+  @type update_workload_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -647,11 +650,11 @@ defmodule AWS.ApplicationInsights do
       
       create_log_pattern_response() :: %{
         "LogPattern" => log_pattern(),
-        "ResourceGroupName" => String.t()
+        "ResourceGroupName" => String.t() | Atom.t()
       }
       
   """
-  @type create_log_pattern_response() :: %{String.t() => any()}
+  @type create_log_pattern_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -671,14 +674,14 @@ defmodule AWS.ApplicationInsights do
         optional("AutoConfigEnabled") => boolean(),
         optional("CWEMonitorEnabled") => boolean(),
         optional("OpsCenterEnabled") => boolean(),
-        optional("OpsItemSNSTopicArn") => String.t(),
+        optional("OpsItemSNSTopicArn") => String.t() | Atom.t(),
         optional("RemoveSNSTopic") => boolean(),
-        optional("SNSNotificationArn") => String.t(),
-        required("ResourceGroupName") => String.t()
+        optional("SNSNotificationArn") => String.t() | Atom.t(),
+        required("ResourceGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type update_application_request() :: %{String.t() => any()}
+  @type update_application_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -689,60 +692,60 @@ defmodule AWS.ApplicationInsights do
       }
       
   """
-  @type update_application_response() :: %{String.t() => any()}
+  @type update_application_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_workload_request() :: %{
-        required("ComponentName") => String.t(),
-        required("ResourceGroupName") => String.t(),
-        required("WorkloadId") => String.t()
+        required("ComponentName") => String.t() | Atom.t(),
+        required("ResourceGroupName") => String.t() | Atom.t(),
+        required("WorkloadId") => String.t() | Atom.t()
       }
       
   """
-  @type remove_workload_request() :: %{String.t() => any()}
+  @type remove_workload_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_configuration_history_request() :: %{
-        optional("AccountId") => String.t(),
+        optional("AccountId") => String.t() | Atom.t(),
         optional("EndTime") => non_neg_integer(),
         optional("EventStatus") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ResourceGroupName") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("ResourceGroupName") => String.t() | Atom.t(),
         optional("StartTime") => non_neg_integer()
       }
       
   """
-  @type list_configuration_history_request() :: %{String.t() => any()}
+  @type list_configuration_history_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_application_request() :: %{
-        optional("AccountId") => String.t(),
-        required("ResourceGroupName") => String.t()
+        optional("AccountId") => String.t() | Atom.t(),
+        required("ResourceGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_application_request() :: %{String.t() => any()}
+  @type describe_application_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -758,80 +761,80 @@ defmodule AWS.ApplicationInsights do
   ## Example:
       
       list_applications_request() :: %{
-        optional("AccountId") => String.t(),
+        optional("AccountId") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_applications_request() :: %{String.t() => any()}
+  @type list_applications_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       problem() :: %{
-        "AccountId" => String.t(),
-        "AffectedResource" => String.t(),
+        "AccountId" => String.t() | Atom.t(),
+        "AffectedResource" => String.t() | Atom.t(),
         "EndTime" => non_neg_integer(),
         "Feedback" => map(),
-        "Id" => String.t(),
-        "Insights" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "Insights" => String.t() | Atom.t(),
         "LastRecurrenceTime" => non_neg_integer(),
         "RecurringCount" => float(),
         "ResolutionMethod" => list(any()),
-        "ResourceGroupName" => String.t(),
+        "ResourceGroupName" => String.t() | Atom.t(),
         "SeverityLevel" => list(any()),
-        "ShortName" => String.t(),
+        "ShortName" => String.t() | Atom.t(),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
-        "Title" => String.t(),
+        "Title" => String.t() | Atom.t(),
         "Visibility" => list(any())
       }
       
   """
-  @type problem() :: %{String.t() => any()}
+  @type problem() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_observation_request() :: %{
-        optional("AccountId") => String.t(),
-        required("ObservationId") => String.t()
+        optional("AccountId") => String.t() | Atom.t(),
+        required("ObservationId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_observation_request() :: %{String.t() => any()}
+  @type describe_observation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       configuration_event() :: %{
-        "AccountId" => String.t(),
-        "EventDetail" => String.t(),
-        "EventResourceName" => String.t(),
+        "AccountId" => String.t() | Atom.t(),
+        "EventDetail" => String.t() | Atom.t(),
+        "EventResourceName" => String.t() | Atom.t(),
         "EventResourceType" => list(any()),
         "EventStatus" => list(any()),
         "EventTime" => non_neg_integer(),
-        "MonitoredResourceARN" => String.t(),
-        "ResourceGroupName" => String.t()
+        "MonitoredResourceARN" => String.t() | Atom.t(),
+        "ResourceGroupName" => String.t() | Atom.t()
       }
       
   """
-  @type configuration_event() :: %{String.t() => any()}
+  @type configuration_event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -847,70 +850,73 @@ defmodule AWS.ApplicationInsights do
   ## Example:
       
       delete_log_pattern_request() :: %{
-        required("PatternName") => String.t(),
-        required("PatternSetName") => String.t(),
-        required("ResourceGroupName") => String.t()
+        required("PatternName") => String.t() | Atom.t(),
+        required("PatternSetName") => String.t() | Atom.t(),
+        required("ResourceGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_log_pattern_request() :: %{String.t() => any()}
+  @type delete_log_pattern_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tags_already_exist_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type tags_already_exist_exception() :: %{String.t() => any()}
+  @type tags_already_exist_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t()
+        required("ResourceARN") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_component_configuration_recommendation_response() :: %{
-        "ComponentConfiguration" => String.t()
+        "ComponentConfiguration" => String.t() | Atom.t()
       }
       
   """
-  @type describe_component_configuration_recommendation_response() :: %{String.t() => any()}
+  @type describe_component_configuration_recommendation_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       describe_log_pattern_response() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | Atom.t(),
         "LogPattern" => log_pattern(),
-        "ResourceGroupName" => String.t()
+        "ResourceGroupName" => String.t() | Atom.t()
       }
       
   """
-  @type describe_log_pattern_response() :: %{String.t() => any()}
+  @type describe_log_pattern_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -918,29 +924,29 @@ defmodule AWS.ApplicationInsights do
       
       describe_component_response() :: %{
         "ApplicationComponent" => application_component(),
-        "ResourceList" => list(String.t())
+        "ResourceList" => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_component_response() :: %{String.t() => any()}
+  @type describe_component_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_problems_request() :: %{
-        optional("AccountId") => String.t(),
-        optional("ComponentName") => String.t(),
+        optional("AccountId") => String.t() | Atom.t(),
+        optional("ComponentName") => String.t() | Atom.t(),
         optional("EndTime") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ResourceGroupName") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("ResourceGroupName") => String.t() | Atom.t(),
         optional("StartTime") => non_neg_integer(),
         optional("Visibility") => list(any())
       }
       
   """
-  @type list_problems_request() :: %{String.t() => any()}
+  @type list_problems_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -951,7 +957,7 @@ defmodule AWS.ApplicationInsights do
       }
       
   """
-  @type related_observations() :: %{String.t() => any()}
+  @type related_observations() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -959,11 +965,11 @@ defmodule AWS.ApplicationInsights do
       
       list_components_response() :: %{
         "ApplicationComponentList" => list(application_component()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_components_response() :: %{String.t() => any()}
+  @type list_components_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -971,132 +977,132 @@ defmodule AWS.ApplicationInsights do
       
       list_applications_response() :: %{
         "ApplicationInfoList" => list(application_info()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_applications_response() :: %{String.t() => any()}
+  @type list_applications_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       bad_request_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type bad_request_exception() :: %{String.t() => any()}
+  @type bad_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       add_workload_request() :: %{
-        required("ComponentName") => String.t(),
-        required("ResourceGroupName") => String.t(),
+        required("ComponentName") => String.t() | Atom.t(),
+        required("ResourceGroupName") => String.t() | Atom.t(),
         required("WorkloadConfiguration") => workload_configuration()
       }
       
   """
-  @type add_workload_request() :: %{String.t() => any()}
+  @type add_workload_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_component_configuration_request() :: %{
-        optional("AccountId") => String.t(),
-        required("ComponentName") => String.t(),
-        required("ResourceGroupName") => String.t()
+        optional("AccountId") => String.t() | Atom.t(),
+        required("ComponentName") => String.t() | Atom.t(),
+        required("ResourceGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_component_configuration_request() :: %{String.t() => any()}
+  @type describe_component_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_component_request() :: %{
-        optional("AccountId") => String.t(),
-        required("ComponentName") => String.t(),
-        required("ResourceGroupName") => String.t()
+        optional("AccountId") => String.t() | Atom.t(),
+        required("ComponentName") => String.t() | Atom.t(),
+        required("ResourceGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_component_request() :: %{String.t() => any()}
+  @type describe_component_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       application_component() :: %{
-        "ComponentName" => String.t(),
-        "ComponentRemarks" => String.t(),
+        "ComponentName" => String.t() | Atom.t(),
+        "ComponentRemarks" => String.t() | Atom.t(),
         "DetectedWorkload" => map(),
         "Monitor" => boolean(),
         "OsType" => list(any()),
-        "ResourceType" => String.t(),
+        "ResourceType" => String.t() | Atom.t(),
         "Tier" => list(any())
       }
       
   """
-  @type application_component() :: %{String.t() => any()}
+  @type application_component() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_workload_request() :: %{
-        optional("AccountId") => String.t(),
-        required("ComponentName") => String.t(),
-        required("ResourceGroupName") => String.t(),
-        required("WorkloadId") => String.t()
+        optional("AccountId") => String.t() | Atom.t(),
+        required("ComponentName") => String.t() | Atom.t(),
+        required("ResourceGroupName") => String.t() | Atom.t(),
+        required("WorkloadId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_workload_request() :: %{String.t() => any()}
+  @type describe_workload_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_log_pattern_sets_request() :: %{
-        optional("AccountId") => String.t(),
+        optional("AccountId") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ResourceGroupName") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ResourceGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type list_log_pattern_sets_request() :: %{String.t() => any()}
+  @type list_log_pattern_sets_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_problem_request() :: %{
-        optional("AccountId") => String.t(),
-        required("ProblemId") => String.t()
+        optional("AccountId") => String.t() | Atom.t(),
+        required("ProblemId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_problem_request() :: %{String.t() => any()}
+  @type describe_problem_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_workload_request() :: %{
-        optional("WorkloadId") => String.t(),
-        required("ComponentName") => String.t(),
-        required("ResourceGroupName") => String.t(),
+        optional("WorkloadId") => String.t() | Atom.t(),
+        required("ComponentName") => String.t() | Atom.t(),
+        required("ResourceGroupName") => String.t() | Atom.t(),
         required("WorkloadConfiguration") => workload_configuration()
       }
       
   """
-  @type update_workload_request() :: %{String.t() => any()}
+  @type update_workload_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1107,19 +1113,19 @@ defmodule AWS.ApplicationInsights do
       }
       
   """
-  @type describe_application_response() :: %{String.t() => any()}
+  @type describe_application_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_tags_exception() :: %{
-        "Message" => String.t(),
-        "ResourceName" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "ResourceName" => String.t() | Atom.t()
       }
       
   """
-  @type too_many_tags_exception() :: %{String.t() => any()}
+  @type too_many_tags_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1127,26 +1133,26 @@ defmodule AWS.ApplicationInsights do
       
       update_component_configuration_request() :: %{
         optional("AutoConfigEnabled") => boolean(),
-        optional("ComponentConfiguration") => String.t(),
+        optional("ComponentConfiguration") => String.t() | Atom.t(),
         optional("Monitor") => boolean(),
         optional("Tier") => list(any()),
-        required("ComponentName") => String.t(),
-        required("ResourceGroupName") => String.t()
+        required("ComponentName") => String.t() | Atom.t(),
+        required("ResourceGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type update_component_configuration_request() :: %{String.t() => any()}
+  @type update_component_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_application_request() :: %{
-        required("ResourceGroupName") => String.t()
+        required("ResourceGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_application_request() :: %{String.t() => any()}
+  @type delete_application_request() :: %{String.t() | Atom.t() => any()}
 
   @type add_workload_errors() ::
           validation_exception()

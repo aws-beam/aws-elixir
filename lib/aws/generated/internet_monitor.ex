@@ -53,17 +53,17 @@ defmodule AWS.InternetMonitor do
         optional("EndedAt") => [non_neg_integer()],
         optional("HealthScoreThreshold") => float(),
         optional("PercentOfTotalTrafficImpacted") => [float()],
-        required("EventArn") => String.t(),
-        required("EventId") => String.t(),
-        required("ImpactType") => String.t(),
+        required("EventArn") => String.t() | Atom.t(),
+        required("EventId") => String.t() | Atom.t(),
+        required("ImpactType") => String.t() | Atom.t(),
         required("ImpactedLocations") => list(impacted_location()),
         required("LastUpdatedAt") => [non_neg_integer()],
         required("StartedAt") => [non_neg_integer()],
-        required("Status") => String.t()
+        required("Status") => String.t() | Atom.t()
       }
 
   """
-  @type get_health_event_output() :: %{String.t() => any()}
+  @type get_health_event_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -77,7 +77,7 @@ defmodule AWS.InternetMonitor do
       }
 
   """
-  @type health_events_config() :: %{String.t() => any()}
+  @type health_events_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -86,25 +86,25 @@ defmodule AWS.InternetMonitor do
       list_monitors_input() :: %{
         optional("IncludeLinkedAccounts") => [boolean()],
         optional("MaxResults") => integer(),
-        optional("MonitorStatus") => [String.t()],
-        optional("NextToken") => [String.t()]
+        optional("MonitorStatus") => [String.t() | Atom.t()],
+        optional("NextToken") => [String.t() | Atom.t()]
       }
 
   """
-  @type list_monitors_input() :: %{String.t() => any()}
+  @type list_monitors_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_query_results_output() :: %{
-        "Data" => list(list([String.t()]())()),
+        "Data" => list(list([String.t() | Atom.t()]())()),
         "Fields" => list(query_field()),
-        "NextToken" => [String.t()]
+        "NextToken" => [String.t() | Atom.t()]
       }
 
   """
-  @type get_query_results_output() :: %{String.t() => any()}
+  @type get_query_results_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -116,29 +116,29 @@ defmodule AWS.InternetMonitor do
         "InternetMeasurementsLogDelivery" => internet_measurements_log_delivery(),
         "MaxCityNetworksToMonitor" => integer(),
         "ModifiedAt" => [non_neg_integer()],
-        "MonitorArn" => String.t(),
-        "MonitorName" => String.t(),
-        "ProcessingStatus" => String.t(),
-        "ProcessingStatusInfo" => [String.t()],
-        "Resources" => list(String.t()),
-        "Status" => String.t(),
+        "MonitorArn" => String.t() | Atom.t(),
+        "MonitorName" => String.t() | Atom.t(),
+        "ProcessingStatus" => String.t() | Atom.t(),
+        "ProcessingStatusInfo" => [String.t() | Atom.t()],
+        "Resources" => list(String.t() | Atom.t()),
+        "Status" => String.t() | Atom.t(),
         "Tags" => map(),
         "TrafficPercentageToMonitor" => integer()
       }
 
   """
-  @type get_monitor_output() :: %{String.t() => any()}
+  @type get_monitor_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_query_output() :: %{
-        "QueryId" => [String.t()]
+        "QueryId" => [String.t() | Atom.t()]
       }
 
   """
-  @type start_query_output() :: %{String.t() => any()}
+  @type start_query_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -146,24 +146,24 @@ defmodule AWS.InternetMonitor do
 
       list_monitors_output() :: %{
         "Monitors" => list(monitor()),
-        "NextToken" => [String.t()]
+        "NextToken" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_monitors_output() :: %{String.t() => any()}
+  @type list_monitors_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       filter_parameter() :: %{
-        "Field" => [String.t()],
-        "Operator" => String.t(),
-        "Values" => list([String.t()]())
+        "Field" => [String.t() | Atom.t()],
+        "Operator" => String.t() | Atom.t(),
+        "Values" => list([String.t() | Atom.t()]())
       }
 
   """
-  @type filter_parameter() :: %{String.t() => any()}
+  @type filter_parameter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -180,12 +180,12 @@ defmodule AWS.InternetMonitor do
 
       network_impairment() :: %{
         "AsPath" => list(network()),
-        "NetworkEventType" => String.t(),
+        "NetworkEventType" => String.t() | Atom.t(),
         "Networks" => list(network())
       }
 
   """
-  @type network_impairment() :: %{String.t() => any()}
+  @type network_impairment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -201,18 +201,18 @@ defmodule AWS.InternetMonitor do
   ## Example:
 
       client_location() :: %{
-        "ASName" => [String.t()],
+        "ASName" => [String.t() | Atom.t()],
         "ASNumber" => [float()],
-        "City" => [String.t()],
-        "Country" => [String.t()],
+        "City" => [String.t() | Atom.t()],
+        "Country" => [String.t() | Atom.t()],
         "Latitude" => [float()],
         "Longitude" => [float()],
-        "Metro" => [String.t()],
-        "Subdivision" => [String.t()]
+        "Metro" => [String.t() | Atom.t()],
+        "Subdivision" => [String.t() | Atom.t()]
       }
 
   """
-  @type client_location() :: %{String.t() => any()}
+  @type client_location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -220,26 +220,26 @@ defmodule AWS.InternetMonitor do
 
       list_internet_events_input() :: %{
         optional("EndTime") => [non_neg_integer()],
-        optional("EventStatus") => [String.t()],
-        optional("EventType") => [String.t()],
+        optional("EventStatus") => [String.t() | Atom.t()],
+        optional("EventType") => [String.t() | Atom.t()],
         optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t()],
+        optional("NextToken") => [String.t() | Atom.t()],
         optional("StartTime") => [non_neg_integer()]
       }
 
   """
-  @type list_internet_events_input() :: %{String.t() => any()}
+  @type list_internet_events_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_requests_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type too_many_requests_exception() :: %{String.t() => any()}
+  @type too_many_requests_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -250,57 +250,57 @@ defmodule AWS.InternetMonitor do
       }
 
   """
-  @type list_tags_for_resource_output() :: %{String.t() => any()}
+  @type list_tags_for_resource_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       monitor() :: %{
-        "MonitorArn" => String.t(),
-        "MonitorName" => String.t(),
-        "ProcessingStatus" => String.t(),
-        "Status" => String.t()
+        "MonitorArn" => String.t() | Atom.t(),
+        "MonitorName" => String.t() | Atom.t(),
+        "ProcessingStatus" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type monitor() :: %{String.t() => any()}
+  @type monitor() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       impacted_location() :: %{
-        "ASName" => [String.t()],
+        "ASName" => [String.t() | Atom.t()],
         "ASNumber" => [float()],
         "CausedBy" => network_impairment(),
-        "City" => [String.t()],
-        "Country" => [String.t()],
-        "CountryCode" => [String.t()],
+        "City" => [String.t() | Atom.t()],
+        "Country" => [String.t() | Atom.t()],
+        "CountryCode" => [String.t() | Atom.t()],
         "InternetHealth" => internet_health(),
-        "Ipv4Prefixes" => list([String.t()]()),
+        "Ipv4Prefixes" => list([String.t() | Atom.t()]()),
         "Latitude" => [float()],
         "Longitude" => [float()],
-        "Metro" => [String.t()],
-        "ServiceLocation" => [String.t()],
-        "Status" => String.t(),
-        "Subdivision" => [String.t()],
-        "SubdivisionCode" => [String.t()]
+        "Metro" => [String.t() | Atom.t()],
+        "ServiceLocation" => [String.t() | Atom.t()],
+        "Status" => String.t() | Atom.t(),
+        "Subdivision" => [String.t() | Atom.t()],
+        "SubdivisionCode" => [String.t() | Atom.t()]
       }
 
   """
-  @type impacted_location() :: %{String.t() => any()}
+  @type impacted_location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_query_status_output() :: %{
-        "Status" => String.t()
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type get_query_status_output() :: %{String.t() => any()}
+  @type get_query_status_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -316,22 +316,22 @@ defmodule AWS.InternetMonitor do
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -351,7 +351,7 @@ defmodule AWS.InternetMonitor do
       }
 
   """
-  @type internet_measurements_log_delivery() :: %{String.t() => any()}
+  @type internet_measurements_log_delivery() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -360,24 +360,24 @@ defmodule AWS.InternetMonitor do
       local_health_events_config() :: %{
         "HealthScoreThreshold" => float(),
         "MinTrafficImpact" => float(),
-        "Status" => String.t()
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type local_health_events_config() :: %{String.t() => any()}
+  @type local_health_events_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_config() :: %{
-        "BucketName" => [String.t()],
-        "BucketPrefix" => [String.t()],
-        "LogDeliveryStatus" => String.t()
+        "BucketName" => [String.t() | Atom.t()],
+        "BucketPrefix" => [String.t() | Atom.t()],
+        "LogDeliveryStatus" => String.t() | Atom.t()
       }
 
   """
-  @type s3_config() :: %{String.t() => any()}
+  @type s3_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -386,26 +386,26 @@ defmodule AWS.InternetMonitor do
       get_internet_event_output() :: %{
         "ClientLocation" => client_location(),
         "EndedAt" => [non_neg_integer()],
-        "EventArn" => String.t(),
-        "EventId" => String.t(),
-        "EventStatus" => String.t(),
-        "EventType" => String.t(),
+        "EventArn" => String.t() | Atom.t(),
+        "EventId" => String.t() | Atom.t(),
+        "EventStatus" => String.t() | Atom.t(),
+        "EventType" => String.t() | Atom.t(),
         "StartedAt" => [non_neg_integer()]
       }
 
   """
-  @type get_internet_event_output() :: %{String.t() => any()}
+  @type get_internet_event_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       not_found_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type not_found_exception() :: %{String.t() => any()}
+  @type not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -419,7 +419,7 @@ defmodule AWS.InternetMonitor do
       }
 
   """
-  @type performance_measurement() :: %{String.t() => any()}
+  @type performance_measurement() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -435,11 +435,11 @@ defmodule AWS.InternetMonitor do
   ## Example:
 
       get_monitor_input() :: %{
-        optional("LinkedAccountId") => String.t()
+        optional("LinkedAccountId") => String.t() | Atom.t()
       }
 
   """
-  @type get_monitor_input() :: %{String.t() => any()}
+  @type get_monitor_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -459,30 +459,30 @@ defmodule AWS.InternetMonitor do
       }
 
   """
-  @type tag_resource_input() :: %{String.t() => any()}
+  @type tag_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_health_events_output() :: %{
-        optional("NextToken") => [String.t()],
+        optional("NextToken") => [String.t() | Atom.t()],
         required("HealthEvents") => list(health_event())
       }
 
   """
-  @type list_health_events_output() :: %{String.t() => any()}
+  @type list_health_events_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_health_event_input() :: %{
-        optional("LinkedAccountId") => String.t()
+        optional("LinkedAccountId") => String.t() | Atom.t()
       }
 
   """
-  @type get_health_event_input() :: %{String.t() => any()}
+  @type get_health_event_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -498,11 +498,11 @@ defmodule AWS.InternetMonitor do
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -515,7 +515,7 @@ defmodule AWS.InternetMonitor do
       }
 
   """
-  @type availability_measurement() :: %{String.t() => any()}
+  @type availability_measurement() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -523,67 +523,67 @@ defmodule AWS.InternetMonitor do
 
       list_health_events_input() :: %{
         optional("EndTime") => [non_neg_integer()],
-        optional("EventStatus") => String.t(),
-        optional("LinkedAccountId") => String.t(),
+        optional("EventStatus") => String.t() | Atom.t(),
+        optional("LinkedAccountId") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t()],
+        optional("NextToken") => [String.t() | Atom.t()],
         optional("StartTime") => [non_neg_integer()]
       }
 
   """
-  @type list_health_events_input() :: %{String.t() => any()}
+  @type list_health_events_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       query_field() :: %{
-        "Name" => [String.t()],
-        "Type" => [String.t()]
+        "Name" => [String.t() | Atom.t()],
+        "Type" => [String.t() | Atom.t()]
       }
 
   """
-  @type query_field() :: %{String.t() => any()}
+  @type query_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_input() :: %{
-        "TagKeys" => list(String.t())
+        "TagKeys" => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_input() :: %{String.t() => any()}
+  @type untag_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_monitor_input() :: %{
-        optional("ClientToken") => [String.t()],
+        optional("ClientToken") => [String.t() | Atom.t()],
         optional("HealthEventsConfig") => health_events_config(),
         optional("InternetMeasurementsLogDelivery") => internet_measurements_log_delivery(),
         optional("MaxCityNetworksToMonitor") => integer(),
-        optional("ResourcesToAdd") => list(String.t()),
-        optional("ResourcesToRemove") => list(String.t()),
-        optional("Status") => String.t(),
+        optional("ResourcesToAdd") => list(String.t() | Atom.t()),
+        optional("ResourcesToRemove") => list(String.t() | Atom.t()),
+        optional("Status") => String.t() | Atom.t(),
         optional("TrafficPercentageToMonitor") => integer()
       }
 
   """
-  @type update_monitor_input() :: %{String.t() => any()}
+  @type update_monitor_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -592,19 +592,19 @@ defmodule AWS.InternetMonitor do
       health_event() :: %{
         "CreatedAt" => [non_neg_integer()],
         "EndedAt" => [non_neg_integer()],
-        "EventArn" => String.t(),
-        "EventId" => String.t(),
+        "EventArn" => String.t() | Atom.t(),
+        "EventId" => String.t() | Atom.t(),
         "HealthScoreThreshold" => float(),
-        "ImpactType" => String.t(),
+        "ImpactType" => String.t() | Atom.t(),
         "ImpactedLocations" => list(impacted_location()),
         "LastUpdatedAt" => [non_neg_integer()],
         "PercentOfTotalTrafficImpacted" => [float()],
         "StartedAt" => [non_neg_integer()],
-        "Status" => String.t()
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type health_event() :: %{String.t() => any()}
+  @type health_event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -612,23 +612,23 @@ defmodule AWS.InternetMonitor do
 
       get_query_results_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t()]
+        optional("NextToken") => [String.t() | Atom.t()]
       }
 
   """
-  @type get_query_results_input() :: %{String.t() => any()}
+  @type get_query_results_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       network() :: %{
-        "ASName" => [String.t()],
+        "ASName" => [String.t() | Atom.t()],
         "ASNumber" => [float()]
       }
 
   """
-  @type network() :: %{String.t() => any()}
+  @type network() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -641,18 +641,18 @@ defmodule AWS.InternetMonitor do
       }
 
   """
-  @type round_trip_time() :: %{String.t() => any()}
+  @type round_trip_time() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -677,56 +677,56 @@ defmodule AWS.InternetMonitor do
   ## Example:
 
       internal_server_error_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type internal_server_error_exception() :: %{String.t() => any()}
+  @type internal_server_error_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       limit_exceeded_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_monitor_output() :: %{
-        "Arn" => String.t(),
-        "Status" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type create_monitor_output() :: %{String.t() => any()}
+  @type create_monitor_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bad_request_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type bad_request_exception() :: %{String.t() => any()}
+  @type bad_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -738,7 +738,7 @@ defmodule AWS.InternetMonitor do
       }
 
   """
-  @type internet_health() :: %{String.t() => any()}
+  @type internet_health() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -746,11 +746,11 @@ defmodule AWS.InternetMonitor do
 
       list_internet_events_output() :: %{
         "InternetEvents" => list(internet_event_summary()),
-        "NextToken" => [String.t()]
+        "NextToken" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_internet_events_output() :: %{String.t() => any()}
+  @type list_internet_events_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -759,15 +759,15 @@ defmodule AWS.InternetMonitor do
       internet_event_summary() :: %{
         "ClientLocation" => client_location(),
         "EndedAt" => [non_neg_integer()],
-        "EventArn" => String.t(),
-        "EventId" => String.t(),
-        "EventStatus" => String.t(),
-        "EventType" => String.t(),
+        "EventArn" => String.t() | Atom.t(),
+        "EventId" => String.t() | Atom.t(),
+        "EventStatus" => String.t() | Atom.t(),
+        "EventType" => String.t() | Atom.t(),
         "StartedAt" => [non_neg_integer()]
       }
 
   """
-  @type internet_event_summary() :: %{String.t() => any()}
+  @type internet_event_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -775,44 +775,44 @@ defmodule AWS.InternetMonitor do
 
       start_query_input() :: %{
         optional("FilterParameters") => list(filter_parameter()),
-        optional("LinkedAccountId") => String.t(),
+        optional("LinkedAccountId") => String.t() | Atom.t(),
         required("EndTime") => [non_neg_integer()],
-        required("QueryType") => String.t(),
+        required("QueryType") => String.t() | Atom.t(),
         required("StartTime") => [non_neg_integer()]
       }
 
   """
-  @type start_query_input() :: %{String.t() => any()}
+  @type start_query_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_monitor_output() :: %{
-        "MonitorArn" => String.t(),
-        "Status" => String.t()
+        "MonitorArn" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type update_monitor_output() :: %{String.t() => any()}
+  @type update_monitor_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_monitor_input() :: %{
-        optional("ClientToken") => [String.t()],
+        optional("ClientToken") => [String.t() | Atom.t()],
         optional("HealthEventsConfig") => health_events_config(),
         optional("InternetMeasurementsLogDelivery") => internet_measurements_log_delivery(),
         optional("MaxCityNetworksToMonitor") => integer(),
-        optional("Resources") => list(String.t()),
+        optional("Resources") => list(String.t() | Atom.t()),
         optional("Tags") => map(),
         optional("TrafficPercentageToMonitor") => integer(),
-        required("MonitorName") => String.t()
+        required("MonitorName") => String.t() | Atom.t()
       }
 
   """
-  @type create_monitor_input() :: %{String.t() => any()}
+  @type create_monitor_input() :: %{String.t() | Atom.t() => any()}
 
   @type create_monitor_errors() ::
           limit_exceeded_exception()
@@ -991,7 +991,7 @@ defmodule AWS.InternetMonitor do
   @doc """
   Deletes a monitor in Amazon CloudWatch Internet Monitor.
   """
-  @spec delete_monitor(map(), String.t(), delete_monitor_input(), list()) ::
+  @spec delete_monitor(map(), String.t() | Atom.t(), delete_monitor_input(), list()) ::
           {:ok, delete_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1031,7 +1031,13 @@ defmodule AWS.InternetMonitor do
   Information rolled up at the global traffic level is also returned, including
   the impact type and total traffic impact.
   """
-  @spec get_health_event(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_health_event(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, get_health_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1075,7 +1081,7 @@ defmodule AWS.InternetMonitor do
   (`PERFORMANCE` or `AVAILABILITY`),
   and the status (`ACTIVE` or `RESOLVED`).
   """
-  @spec get_internet_event(map(), String.t(), list()) ::
+  @spec get_internet_event(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_internet_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1097,7 +1103,7 @@ defmodule AWS.InternetMonitor do
   The information returned includes the Amazon Resource Name (ARN), create time,
   modified time, resources included in the monitor, and status information.
   """
-  @spec get_monitor(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_monitor(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
           {:ok, get_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1132,10 +1138,10 @@ defmodule AWS.InternetMonitor do
   """
   @spec get_query_results(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, get_query_results_output(), any()}
@@ -1202,7 +1208,7 @@ defmodule AWS.InternetMonitor do
 
   `CANCELED`: The query was canceled.
   """
-  @spec get_query_status(map(), String.t(), String.t(), list()) ::
+  @spec get_query_status(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_query_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1231,13 +1237,13 @@ defmodule AWS.InternetMonitor do
   """
   @spec list_health_events(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_health_events_output(), any()}
@@ -1326,12 +1332,12 @@ defmodule AWS.InternetMonitor do
   """
   @spec list_internet_events(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_internet_events_output(), any()}
@@ -1405,10 +1411,10 @@ defmodule AWS.InternetMonitor do
   """
   @spec list_monitors(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_monitors_output(), any()}
@@ -1465,7 +1471,7 @@ defmodule AWS.InternetMonitor do
 
   Tags are supported only for monitors in Amazon CloudWatch Internet Monitor.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1494,7 +1500,7 @@ defmodule AWS.InternetMonitor do
   [Using the Amazon CloudWatch Internet Monitor query interface](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-view-cw-tools-cwim-query.html)
   in the Amazon CloudWatch Internet Monitor User Guide.
   """
-  @spec start_query(map(), String.t(), start_query_input(), list()) ::
+  @spec start_query(map(), String.t() | Atom.t(), start_query_input(), list()) ::
           {:ok, start_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1523,7 +1529,13 @@ defmodule AWS.InternetMonitor do
   @doc """
   Stop a query that is progress for a specific monitor.
   """
-  @spec stop_query(map(), String.t(), String.t(), stop_query_input(), list()) ::
+  @spec stop_query(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          stop_query_input(),
+          list()
+        ) ::
           {:ok, stop_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1560,7 +1572,7 @@ defmodule AWS.InternetMonitor do
   A minimum of one tag is required for this call. It returns an error if you use
   the `TagResource` request with 0 tags.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1589,7 +1601,7 @@ defmodule AWS.InternetMonitor do
   @doc """
   Removes a tag from a resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1633,7 +1645,7 @@ defmodule AWS.InternetMonitor do
   For more information, see [Choosing a city-network maximum value](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html)
   in the *Amazon CloudWatch User Guide*.
   """
-  @spec update_monitor(map(), String.t(), update_monitor_input(), list()) ::
+  @spec update_monitor(map(), String.t() | Atom.t(), update_monitor_input(), list()) ::
           {:ok, update_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

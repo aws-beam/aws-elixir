@@ -14,12 +14,12 @@ defmodule AWS.SagemakerEdge do
   ## Example:
 
       checksum() :: %{
-        "Sum" => String.t(),
+        "Sum" => String.t() | Atom.t(),
         "Type" => list(any())
       }
 
   """
-  @type checksum() :: %{String.t() => any()}
+  @type checksum() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -27,13 +27,13 @@ defmodule AWS.SagemakerEdge do
 
       definition() :: %{
         "Checksum" => checksum(),
-        "ModelHandle" => String.t(),
-        "S3Url" => String.t(),
+        "ModelHandle" => String.t() | Atom.t(),
+        "S3Url" => String.t() | Atom.t(),
         "State" => list(any())
       }
 
   """
-  @type definition() :: %{String.t() => any()}
+  @type definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -41,17 +41,17 @@ defmodule AWS.SagemakerEdge do
 
       deployment_model() :: %{
         "DesiredState" => list(any()),
-        "ModelHandle" => String.t(),
-        "ModelName" => String.t(),
-        "ModelVersion" => String.t(),
-        "RollbackFailureReason" => String.t(),
+        "ModelHandle" => String.t() | Atom.t(),
+        "ModelName" => String.t() | Atom.t(),
+        "ModelVersion" => String.t() | Atom.t(),
+        "RollbackFailureReason" => String.t() | Atom.t(),
         "State" => list(any()),
         "Status" => list(any()),
-        "StatusReason" => String.t()
+        "StatusReason" => String.t() | Atom.t()
       }
 
   """
-  @type deployment_model() :: %{String.t() => any()}
+  @type deployment_model() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -60,14 +60,14 @@ defmodule AWS.SagemakerEdge do
       deployment_result() :: %{
         "DeploymentEndTime" => non_neg_integer(),
         "DeploymentModels" => list(deployment_model()),
-        "DeploymentName" => String.t(),
+        "DeploymentName" => String.t() | Atom.t(),
         "DeploymentStartTime" => non_neg_integer(),
-        "DeploymentStatus" => String.t(),
-        "DeploymentStatusMessage" => String.t()
+        "DeploymentStatus" => String.t() | Atom.t(),
+        "DeploymentStatusMessage" => String.t() | Atom.t()
       }
 
   """
-  @type deployment_result() :: %{String.t() => any()}
+  @type deployment_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -75,39 +75,39 @@ defmodule AWS.SagemakerEdge do
 
       edge_deployment() :: %{
         "Definitions" => list(definition()),
-        "DeploymentName" => String.t(),
+        "DeploymentName" => String.t() | Atom.t(),
         "FailureHandlingPolicy" => list(any()),
         "Type" => list(any())
       }
 
   """
-  @type edge_deployment() :: %{String.t() => any()}
+  @type edge_deployment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       edge_metric() :: %{
-        "Dimension" => String.t(),
-        "MetricName" => String.t(),
+        "Dimension" => String.t() | Atom.t(),
+        "MetricName" => String.t() | Atom.t(),
         "Timestamp" => non_neg_integer(),
         "Value" => float()
       }
 
   """
-  @type edge_metric() :: %{String.t() => any()}
+  @type edge_metric() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_deployments_request() :: %{
-        required("DeviceFleetName") => String.t(),
-        required("DeviceName") => String.t()
+        required("DeviceFleetName") => String.t() | Atom.t(),
+        required("DeviceName") => String.t() | Atom.t()
       }
 
   """
-  @type get_deployments_request() :: %{String.t() => any()}
+  @type get_deployments_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -118,42 +118,42 @@ defmodule AWS.SagemakerEdge do
       }
 
   """
-  @type get_deployments_result() :: %{String.t() => any()}
+  @type get_deployments_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_device_registration_request() :: %{
-        required("DeviceFleetName") => String.t(),
-        required("DeviceName") => String.t()
+        required("DeviceFleetName") => String.t() | Atom.t(),
+        required("DeviceName") => String.t() | Atom.t()
       }
 
   """
-  @type get_device_registration_request() :: %{String.t() => any()}
+  @type get_device_registration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_device_registration_result() :: %{
-        "CacheTTL" => String.t(),
-        "DeviceRegistration" => String.t()
+        "CacheTTL" => String.t() | Atom.t(),
+        "DeviceRegistration" => String.t() | Atom.t()
       }
 
   """
-  @type get_device_registration_result() :: %{String.t() => any()}
+  @type get_device_registration_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_service_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_service_exception() :: %{String.t() => any()}
+  @type internal_service_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -163,12 +163,12 @@ defmodule AWS.SagemakerEdge do
         "LatestInference" => non_neg_integer(),
         "LatestSampleTime" => non_neg_integer(),
         "ModelMetrics" => list(edge_metric()),
-        "ModelName" => String.t(),
-        "ModelVersion" => String.t()
+        "ModelName" => String.t() | Atom.t(),
+        "ModelVersion" => String.t() | Atom.t()
       }
 
   """
-  @type model() :: %{String.t() => any()}
+  @type model() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -178,13 +178,13 @@ defmodule AWS.SagemakerEdge do
         optional("AgentMetrics") => list(edge_metric()),
         optional("DeploymentResult") => deployment_result(),
         optional("Models") => list(model()),
-        required("AgentVersion") => String.t(),
-        required("DeviceFleetName") => String.t(),
-        required("DeviceName") => String.t()
+        required("AgentVersion") => String.t() | Atom.t(),
+        required("DeviceFleetName") => String.t() | Atom.t(),
+        required("DeviceName") => String.t() | Atom.t()
       }
 
   """
-  @type send_heartbeat_request() :: %{String.t() => any()}
+  @type send_heartbeat_request() :: %{String.t() | Atom.t() => any()}
 
   @type get_deployments_errors() :: internal_service_exception()
 

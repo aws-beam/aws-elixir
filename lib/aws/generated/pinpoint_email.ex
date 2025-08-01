@@ -73,11 +73,11 @@ defmodule AWS.PinpointEmail do
   ## Example:
 
       tracking_options() :: %{
-        "CustomRedirectDomain" => String.t()
+        "CustomRedirectDomain" => String.t() | Atom.t()
       }
 
   """
-  @type tracking_options() :: %{String.t() => any()}
+  @type tracking_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -93,7 +93,7 @@ defmodule AWS.PinpointEmail do
       }
 
   """
-  @type get_email_identity_response() :: %{String.t() => any()}
+  @type get_email_identity_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -118,24 +118,24 @@ defmodule AWS.PinpointEmail do
   ## Example:
 
       list_deliverability_test_reports_request() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("PageSize") => integer()
       }
 
   """
-  @type list_deliverability_test_reports_request() :: %{String.t() => any()}
+  @type list_deliverability_test_reports_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
+        required("ResourceArn") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -146,7 +146,7 @@ defmodule AWS.PinpointEmail do
       }
 
   """
-  @type put_account_sending_attributes_request() :: %{String.t() => any()}
+  @type put_account_sending_attributes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -154,14 +154,14 @@ defmodule AWS.PinpointEmail do
 
       get_account_response() :: %{
         "DedicatedIpAutoWarmupEnabled" => boolean(),
-        "EnforcementStatus" => String.t(),
+        "EnforcementStatus" => String.t() | Atom.t(),
         "ProductionAccessEnabled" => boolean(),
         "SendQuota" => send_quota(),
         "SendingEnabled" => boolean()
       }
 
   """
-  @type get_account_response() :: %{String.t() => any()}
+  @type get_account_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -184,7 +184,7 @@ defmodule AWS.PinpointEmail do
       }
 
   """
-  @type volume_statistics() :: %{String.t() => any()}
+  @type volume_statistics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -192,11 +192,11 @@ defmodule AWS.PinpointEmail do
 
       list_email_identities_response() :: %{
         "EmailIdentities" => list(identity_info()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_email_identities_response() :: %{String.t() => any()}
+  @type list_email_identities_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -234,19 +234,19 @@ defmodule AWS.PinpointEmail do
       }
 
   """
-  @type put_email_identity_feedback_attributes_request() :: %{String.t() => any()}
+  @type put_email_identity_feedback_attributes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       isp_placement() :: %{
-        "IspName" => String.t(),
+        "IspName" => String.t() | Atom.t(),
         "PlacementStatistics" => placement_statistics()
       }
 
   """
-  @type isp_placement() :: %{String.t() => any()}
+  @type isp_placement() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -254,34 +254,34 @@ defmodule AWS.PinpointEmail do
 
       list_deliverability_test_reports_response() :: %{
         "DeliverabilityTestReports" => list(deliverability_test_report()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_deliverability_test_reports_response() :: %{String.t() => any()}
+  @type list_deliverability_test_reports_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       kinesis_firehose_destination() :: %{
-        "DeliveryStreamArn" => String.t(),
-        "IamRoleArn" => String.t()
+        "DeliveryStreamArn" => String.t() | Atom.t(),
+        "IamRoleArn" => String.t() | Atom.t()
       }
 
   """
-  @type kinesis_firehose_destination() :: %{String.t() => any()}
+  @type kinesis_firehose_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       already_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type already_exists_exception() :: %{String.t() => any()}
+  @type already_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -303,7 +303,7 @@ defmodule AWS.PinpointEmail do
       }
 
   """
-  @type send_quota() :: %{String.t() => any()}
+  @type send_quota() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -312,11 +312,11 @@ defmodule AWS.PinpointEmail do
       dkim_attributes() :: %{
         "SigningEnabled" => boolean(),
         "Status" => list(any()),
-        "Tokens" => list(String.t())
+        "Tokens" => list(String.t() | Atom.t())
       }
 
   """
-  @type dkim_attributes() :: %{String.t() => any()}
+  @type dkim_attributes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -329,18 +329,18 @@ defmodule AWS.PinpointEmail do
       }
 
   """
-  @type create_email_identity_response() :: %{String.t() => any()}
+  @type create_email_identity_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       sending_paused_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type sending_paused_exception() :: %{String.t() => any()}
+  @type sending_paused_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -352,7 +352,7 @@ defmodule AWS.PinpointEmail do
       }
 
   """
-  @type put_deliverability_dashboard_option_request() :: %{String.t() => any()}
+  @type put_deliverability_dashboard_option_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -368,11 +368,11 @@ defmodule AWS.PinpointEmail do
   ## Example:
 
       account_suspended_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type account_suspended_exception() :: %{String.t() => any()}
+  @type account_suspended_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -385,7 +385,7 @@ defmodule AWS.PinpointEmail do
       }
 
   """
-  @type email_content() :: %{String.t() => any()}
+  @type email_content() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -400,7 +400,7 @@ defmodule AWS.PinpointEmail do
       }
 
   """
-  @type get_deliverability_dashboard_options_response() :: %{String.t() => any()}
+  @type get_deliverability_dashboard_options_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -434,36 +434,36 @@ defmodule AWS.PinpointEmail do
   ## Example:
 
       cloud_watch_dimension_configuration() :: %{
-        "DefaultDimensionValue" => String.t(),
-        "DimensionName" => String.t(),
+        "DefaultDimensionValue" => String.t() | Atom.t(),
+        "DimensionName" => String.t() | Atom.t(),
         "DimensionValueSource" => list(any())
       }
 
   """
-  @type cloud_watch_dimension_configuration() :: %{String.t() => any()}
+  @type cloud_watch_dimension_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceArn") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_requests_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_requests_exception() :: %{String.t() => any()}
+  @type too_many_requests_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -471,11 +471,11 @@ defmodule AWS.PinpointEmail do
 
       create_deliverability_test_report_response() :: %{
         "DeliverabilityTestStatus" => list(any()),
-        "ReportId" => String.t()
+        "ReportId" => String.t() | Atom.t()
       }
 
   """
-  @type create_deliverability_test_report_response() :: %{String.t() => any()}
+  @type create_deliverability_test_report_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -491,7 +491,7 @@ defmodule AWS.PinpointEmail do
       }
 
   """
-  @type event_destination_definition() :: %{String.t() => any()}
+  @type event_destination_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -499,11 +499,11 @@ defmodule AWS.PinpointEmail do
 
       list_domain_deliverability_campaigns_response() :: %{
         "DomainDeliverabilityCampaigns" => list(domain_deliverability_campaign()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_domain_deliverability_campaigns_response() :: %{String.t() => any()}
+  @type list_domain_deliverability_campaigns_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -519,11 +519,11 @@ defmodule AWS.PinpointEmail do
   ## Example:
 
       send_email_response() :: %{
-        "MessageId" => String.t()
+        "MessageId" => String.t() | Atom.t()
       }
 
   """
-  @type send_email_response() :: %{String.t() => any()}
+  @type send_email_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -543,31 +543,31 @@ defmodule AWS.PinpointEmail do
       }
 
   """
-  @type cloud_watch_destination() :: %{String.t() => any()}
+  @type cloud_watch_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       blacklist_entry() :: %{
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "ListingTime" => non_neg_integer(),
-        "RblName" => String.t()
+        "RblName" => String.t() | Atom.t()
       }
 
   """
-  @type blacklist_entry() :: %{String.t() => any()}
+  @type blacklist_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       mail_from_domain_not_verified_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type mail_from_domain_not_verified_exception() :: %{String.t() => any()}
+  @type mail_from_domain_not_verified_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -580,7 +580,7 @@ defmodule AWS.PinpointEmail do
       }
 
   """
-  @type overall_volume() :: %{String.t() => any()}
+  @type overall_volume() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -589,38 +589,38 @@ defmodule AWS.PinpointEmail do
       domain_isp_placement() :: %{
         "InboxPercentage" => float(),
         "InboxRawCount" => float(),
-        "IspName" => String.t(),
+        "IspName" => String.t() | Atom.t(),
         "SpamPercentage" => float(),
         "SpamRawCount" => float()
       }
 
   """
-  @type domain_isp_placement() :: %{String.t() => any()}
+  @type domain_isp_placement() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       dedicated_ip() :: %{
-        "Ip" => String.t(),
-        "PoolName" => String.t(),
+        "Ip" => String.t() | Atom.t(),
+        "PoolName" => String.t() | Atom.t(),
         "WarmupPercentage" => integer(),
         "WarmupStatus" => list(any())
       }
 
   """
-  @type dedicated_ip() :: %{String.t() => any()}
+  @type dedicated_ip() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_blacklist_reports_request() :: %{
-        required("BlacklistItemNames") => list(String.t())
+        required("BlacklistItemNames") => list(String.t() | Atom.t())
       }
 
   """
-  @type get_blacklist_reports_request() :: %{String.t() => any()}
+  @type get_blacklist_reports_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -628,12 +628,12 @@ defmodule AWS.PinpointEmail do
 
       mail_from_attributes() :: %{
         "BehaviorOnMxFailure" => list(any()),
-        "MailFromDomain" => String.t(),
+        "MailFromDomain" => String.t() | Atom.t(),
         "MailFromDomainStatus" => list(any())
       }
 
   """
-  @type mail_from_attributes() :: %{String.t() => any()}
+  @type mail_from_attributes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -654,7 +654,7 @@ defmodule AWS.PinpointEmail do
       }
 
   """
-  @type reputation_options() :: %{String.t() => any()}
+  @type reputation_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -671,11 +671,11 @@ defmodule AWS.PinpointEmail do
 
       create_email_identity_request() :: %{
         optional("Tags") => list(tag()),
-        required("EmailIdentity") => String.t()
+        required("EmailIdentity") => String.t() | Atom.t()
       }
 
   """
-  @type create_email_identity_request() :: %{String.t() => any()}
+  @type create_email_identity_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -683,23 +683,23 @@ defmodule AWS.PinpointEmail do
 
       inbox_placement_tracking_option() :: %{
         "Global" => boolean(),
-        "TrackedIsps" => list(String.t())
+        "TrackedIsps" => list(String.t() | Atom.t())
       }
 
   """
-  @type inbox_placement_tracking_option() :: %{String.t() => any()}
+  @type inbox_placement_tracking_option() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -710,13 +710,13 @@ defmodule AWS.PinpointEmail do
         "Enabled" => boolean(),
         "KinesisFirehoseDestination" => kinesis_firehose_destination(),
         "MatchingEventTypes" => list(list(any())()),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "PinpointDestination" => pinpoint_destination(),
         "SnsDestination" => sns_destination()
       }
 
   """
-  @type event_destination() :: %{String.t() => any()}
+  @type event_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -727,33 +727,33 @@ defmodule AWS.PinpointEmail do
       }
 
   """
-  @type update_configuration_set_event_destination_request() :: %{String.t() => any()}
+  @type update_configuration_set_event_destination_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       message_tag() :: %{
-        "Name" => String.t(),
-        "Value" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type message_tag() :: %{String.t() => any()}
+  @type message_tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_domain_deliverability_campaigns_request() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("PageSize") => integer(),
         required("EndDate") => non_neg_integer(),
         required("StartDate") => non_neg_integer()
       }
 
   """
-  @type list_domain_deliverability_campaigns_request() :: %{String.t() => any()}
+  @type list_domain_deliverability_campaigns_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -774,7 +774,7 @@ defmodule AWS.PinpointEmail do
       }
 
   """
-  @type get_domain_statistics_report_request() :: %{String.t() => any()}
+  @type get_domain_statistics_report_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -785,7 +785,7 @@ defmodule AWS.PinpointEmail do
       }
 
   """
-  @type put_account_dedicated_ip_warmup_attributes_request() :: %{String.t() => any()}
+  @type put_account_dedicated_ip_warmup_attributes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -801,11 +801,11 @@ defmodule AWS.PinpointEmail do
   ## Example:
 
       not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type not_found_exception() :: %{String.t() => any()}
+  @type not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -820,20 +820,20 @@ defmodule AWS.PinpointEmail do
       }
 
   """
-  @type placement_statistics() :: %{String.t() => any()}
+  @type placement_statistics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       identity_info() :: %{
-        "IdentityName" => String.t(),
+        "IdentityName" => String.t() | Atom.t(),
         "IdentityType" => list(any()),
         "SendingEnabled" => boolean()
       }
 
   """
-  @type identity_info() :: %{String.t() => any()}
+  @type identity_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -844,31 +844,31 @@ defmodule AWS.PinpointEmail do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_configuration_sets_response() :: %{
-        "ConfigurationSets" => list(String.t()),
-        "NextToken" => String.t()
+        "ConfigurationSets" => list(String.t() | Atom.t()),
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_configuration_sets_response() :: %{String.t() => any()}
+  @type list_configuration_sets_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_dedicated_ip_pools_request() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("PageSize") => integer()
       }
 
   """
-  @type list_dedicated_ip_pools_request() :: %{String.t() => any()}
+  @type list_dedicated_ip_pools_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -879,7 +879,7 @@ defmodule AWS.PinpointEmail do
       }
 
   """
-  @type get_configuration_set_event_destinations_response() :: %{String.t() => any()}
+  @type get_configuration_set_event_destinations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -890,32 +890,32 @@ defmodule AWS.PinpointEmail do
       }
 
   """
-  @type get_domain_deliverability_campaign_response() :: %{String.t() => any()}
+  @type get_domain_deliverability_campaign_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_configuration_sets_request() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("PageSize") => integer()
       }
 
   """
-  @type list_configuration_sets_request() :: %{String.t() => any()}
+  @type list_configuration_sets_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_dedicated_ips_request() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("PageSize") => integer(),
-        optional("PoolName") => String.t()
+        optional("PoolName") => String.t() | Atom.t()
       }
 
   """
-  @type get_dedicated_ips_request() :: %{String.t() => any()}
+  @type get_dedicated_ips_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -926,18 +926,18 @@ defmodule AWS.PinpointEmail do
       }
 
   """
-  @type raw_message() :: %{String.t() => any()}
+  @type raw_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_dedicated_ip_in_pool_request() :: %{
-        required("DestinationPoolName") => String.t()
+        required("DestinationPoolName") => String.t() | Atom.t()
       }
 
   """
-  @type put_dedicated_ip_in_pool_request() :: %{String.t() => any()}
+  @type put_dedicated_ip_in_pool_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -948,7 +948,7 @@ defmodule AWS.PinpointEmail do
       }
 
   """
-  @type put_email_identity_dkim_attributes_request() :: %{String.t() => any()}
+  @type put_email_identity_dkim_attributes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -973,11 +973,11 @@ defmodule AWS.PinpointEmail do
   ## Example:
 
       put_configuration_set_tracking_options_request() :: %{
-        optional("CustomRedirectDomain") => String.t()
+        optional("CustomRedirectDomain") => String.t() | Atom.t()
       }
 
   """
-  @type put_configuration_set_tracking_options_request() :: %{String.t() => any()}
+  @type put_configuration_set_tracking_options_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -985,11 +985,11 @@ defmodule AWS.PinpointEmail do
 
       create_dedicated_ip_pool_request() :: %{
         optional("Tags") => list(tag()),
-        required("PoolName") => String.t()
+        required("PoolName") => String.t() | Atom.t()
       }
 
   """
-  @type create_dedicated_ip_pool_request() :: %{String.t() => any()}
+  @type create_dedicated_ip_pool_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1000,7 +1000,7 @@ defmodule AWS.PinpointEmail do
       }
 
   """
-  @type get_dedicated_ip_response() :: %{String.t() => any()}
+  @type get_dedicated_ip_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1025,12 +1025,12 @@ defmodule AWS.PinpointEmail do
   ## Example:
 
       put_configuration_set_delivery_options_request() :: %{
-        optional("SendingPoolName") => String.t(),
+        optional("SendingPoolName") => String.t() | Atom.t(),
         optional("TlsPolicy") => list(any())
       }
 
   """
-  @type put_configuration_set_delivery_options_request() :: %{String.t() => any()}
+  @type put_configuration_set_delivery_options_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1038,11 +1038,11 @@ defmodule AWS.PinpointEmail do
 
       put_email_identity_mail_from_attributes_request() :: %{
         optional("BehaviorOnMxFailure") => list(any()),
-        optional("MailFromDomain") => String.t()
+        optional("MailFromDomain") => String.t() | Atom.t()
       }
 
   """
-  @type put_email_identity_mail_from_attributes_request() :: %{String.t() => any()}
+  @type put_email_identity_mail_from_attributes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1058,14 +1058,14 @@ defmodule AWS.PinpointEmail do
   ## Example:
 
       create_deliverability_test_report_request() :: %{
-        optional("ReportName") => String.t(),
+        optional("ReportName") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
         required("Content") => email_content(),
-        required("FromEmailAddress") => String.t()
+        required("FromEmailAddress") => String.t() | Atom.t()
       }
 
   """
-  @type create_deliverability_test_report_request() :: %{String.t() => any()}
+  @type create_deliverability_test_report_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1078,7 +1078,7 @@ defmodule AWS.PinpointEmail do
       }
 
   """
-  @type daily_volume() :: %{String.t() => any()}
+  @type daily_volume() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1098,18 +1098,18 @@ defmodule AWS.PinpointEmail do
       }
 
   """
-  @type sending_options() :: %{String.t() => any()}
+  @type sending_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       concurrent_modification_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type concurrent_modification_exception() :: %{String.t() => any()}
+  @type concurrent_modification_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1120,31 +1120,31 @@ defmodule AWS.PinpointEmail do
       }
 
   """
-  @type get_blacklist_reports_response() :: %{String.t() => any()}
+  @type get_blacklist_reports_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
 
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       destination() :: %{
-        "BccAddresses" => list(String.t()),
-        "CcAddresses" => list(String.t()),
-        "ToAddresses" => list(String.t())
+        "BccAddresses" => list(String.t() | Atom.t()),
+        "CcAddresses" => list(String.t() | Atom.t()),
+        "ToAddresses" => list(String.t() | Atom.t())
       }
 
   """
-  @type destination() :: %{String.t() => any()}
+  @type destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1156,7 +1156,7 @@ defmodule AWS.PinpointEmail do
       }
 
   """
-  @type body() :: %{String.t() => any()}
+  @type body() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1177,7 +1177,7 @@ defmodule AWS.PinpointEmail do
       }
 
   """
-  @type get_domain_statistics_report_response() :: %{String.t() => any()}
+  @type get_domain_statistics_report_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1193,23 +1193,23 @@ defmodule AWS.PinpointEmail do
   ## Example:
 
       message_rejected() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type message_rejected() :: %{String.t() => any()}
+  @type message_rejected() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_dedicated_ip_pools_response() :: %{
-        "DedicatedIpPools" => list(String.t()),
-        "NextToken" => String.t()
+        "DedicatedIpPools" => list(String.t() | Atom.t()),
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_dedicated_ip_pools_response() :: %{String.t() => any()}
+  @type list_dedicated_ip_pools_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1235,24 +1235,24 @@ defmodule AWS.PinpointEmail do
 
       create_configuration_set_event_destination_request() :: %{
         required("EventDestination") => event_destination_definition(),
-        required("EventDestinationName") => String.t()
+        required("EventDestinationName") => String.t() | Atom.t()
       }
 
   """
-  @type create_configuration_set_event_destination_request() :: %{String.t() => any()}
+  @type create_configuration_set_event_destination_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       domain_deliverability_tracking_option() :: %{
-        "Domain" => String.t(),
+        "Domain" => String.t() | Atom.t(),
         "InboxPlacementTrackingOption" => inbox_placement_tracking_option(),
         "SubscriptionStartDate" => non_neg_integer()
       }
 
   """
-  @type domain_deliverability_tracking_option() :: %{String.t() => any()}
+  @type domain_deliverability_tracking_option() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1263,30 +1263,30 @@ defmodule AWS.PinpointEmail do
       }
 
   """
-  @type put_configuration_set_sending_options_request() :: %{String.t() => any()}
+  @type put_configuration_set_sending_options_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delivery_options() :: %{
-        "SendingPoolName" => String.t(),
+        "SendingPoolName" => String.t() | Atom.t(),
         "TlsPolicy" => list(any())
       }
 
   """
-  @type delivery_options() :: %{String.t() => any()}
+  @type delivery_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1302,30 +1302,30 @@ defmodule AWS.PinpointEmail do
   ## Example:
 
       bad_request_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type bad_request_exception() :: %{String.t() => any()}
+  @type bad_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       content() :: %{
-        "Charset" => String.t(),
-        "Data" => String.t()
+        "Charset" => String.t() | Atom.t(),
+        "Data" => String.t() | Atom.t()
       }
 
   """
-  @type content() :: %{String.t() => any()}
+  @type content() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_configuration_set_response() :: %{
-        "ConfigurationSetName" => String.t(),
+        "ConfigurationSetName" => String.t() | Atom.t(),
         "DeliveryOptions" => delivery_options(),
         "ReputationOptions" => reputation_options(),
         "SendingOptions" => sending_options(),
@@ -1334,36 +1334,36 @@ defmodule AWS.PinpointEmail do
       }
 
   """
-  @type get_configuration_set_response() :: %{String.t() => any()}
+  @type get_configuration_set_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       template() :: %{
-        optional("TemplateArn") => String.t(),
-        optional("TemplateData") => String.t()
+        optional("TemplateArn") => String.t() | Atom.t(),
+        optional("TemplateData") => String.t() | Atom.t()
       }
 
   """
-  @type template() :: %{String.t() => any()}
+  @type template() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       send_email_request() :: %{
-        optional("ConfigurationSetName") => String.t(),
+        optional("ConfigurationSetName") => String.t() | Atom.t(),
         optional("EmailTags") => list(message_tag()),
-        optional("FeedbackForwardingEmailAddress") => String.t(),
-        optional("FromEmailAddress") => String.t(),
-        optional("ReplyToAddresses") => list(String.t()),
+        optional("FeedbackForwardingEmailAddress") => String.t() | Atom.t(),
+        optional("FromEmailAddress") => String.t() | Atom.t(),
+        optional("ReplyToAddresses") => list(String.t() | Atom.t()),
         required("Content") => email_content(),
         required("Destination") => destination()
       }
 
   """
-  @type send_email_request() :: %{String.t() => any()}
+  @type send_email_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1383,31 +1383,31 @@ defmodule AWS.PinpointEmail do
       }
 
   """
-  @type put_dedicated_ip_warmup_attributes_request() :: %{String.t() => any()}
+  @type put_dedicated_ip_warmup_attributes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       domain_deliverability_campaign() :: %{
-        "CampaignId" => String.t(),
+        "CampaignId" => String.t() | Atom.t(),
         "DeleteRate" => float(),
-        "Esps" => list(String.t()),
+        "Esps" => list(String.t() | Atom.t()),
         "FirstSeenDateTime" => non_neg_integer(),
-        "FromAddress" => String.t(),
-        "ImageUrl" => String.t(),
+        "FromAddress" => String.t() | Atom.t(),
+        "ImageUrl" => String.t() | Atom.t(),
         "InboxCount" => float(),
         "LastSeenDateTime" => non_neg_integer(),
         "ProjectedVolume" => float(),
         "ReadDeleteRate" => float(),
         "ReadRate" => float(),
-        "SendingIps" => list(String.t()),
+        "SendingIps" => list(String.t() | Atom.t()),
         "SpamCount" => float(),
-        "Subject" => String.t()
+        "Subject" => String.t() | Atom.t()
       }
 
   """
-  @type domain_deliverability_campaign() :: %{String.t() => any()}
+  @type domain_deliverability_campaign() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1432,12 +1432,12 @@ defmodule AWS.PinpointEmail do
   ## Example:
 
       list_email_identities_request() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("PageSize") => integer()
       }
 
   """
-  @type list_email_identities_request() :: %{String.t() => any()}
+  @type list_email_identities_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1448,7 +1448,7 @@ defmodule AWS.PinpointEmail do
       }
 
   """
-  @type put_configuration_set_reputation_options_request() :: %{String.t() => any()}
+  @type put_configuration_set_reputation_options_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1460,33 +1460,33 @@ defmodule AWS.PinpointEmail do
         optional("SendingOptions") => sending_options(),
         optional("Tags") => list(tag()),
         optional("TrackingOptions") => tracking_options(),
-        required("ConfigurationSetName") => String.t()
+        required("ConfigurationSetName") => String.t() | Atom.t()
       }
 
   """
-  @type create_configuration_set_request() :: %{String.t() => any()}
+  @type create_configuration_set_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       sns_destination() :: %{
-        "TopicArn" => String.t()
+        "TopicArn" => String.t() | Atom.t()
       }
 
   """
-  @type sns_destination() :: %{String.t() => any()}
+  @type sns_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       pinpoint_destination() :: %{
-        "ApplicationArn" => String.t()
+        "ApplicationArn" => String.t() | Atom.t()
       }
 
   """
-  @type pinpoint_destination() :: %{String.t() => any()}
+  @type pinpoint_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1504,14 +1504,14 @@ defmodule AWS.PinpointEmail do
       deliverability_test_report() :: %{
         "CreateDate" => non_neg_integer(),
         "DeliverabilityTestStatus" => list(any()),
-        "FromEmailAddress" => String.t(),
-        "ReportId" => String.t(),
-        "ReportName" => String.t(),
-        "Subject" => String.t()
+        "FromEmailAddress" => String.t() | Atom.t(),
+        "ReportId" => String.t() | Atom.t(),
+        "ReportName" => String.t() | Atom.t(),
+        "Subject" => String.t() | Atom.t()
       }
 
   """
-  @type deliverability_test_report() :: %{String.t() => any()}
+  @type deliverability_test_report() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1520,13 +1520,13 @@ defmodule AWS.PinpointEmail do
       get_deliverability_test_report_response() :: %{
         "DeliverabilityTestReport" => deliverability_test_report(),
         "IspPlacements" => list(isp_placement()),
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "OverallPlacement" => placement_statistics(),
         "Tags" => list(tag())
       }
 
   """
-  @type get_deliverability_test_report_response() :: %{String.t() => any()}
+  @type get_deliverability_test_report_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1543,11 +1543,11 @@ defmodule AWS.PinpointEmail do
 
       get_dedicated_ips_response() :: %{
         "DedicatedIps" => list(dedicated_ip()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type get_dedicated_ips_response() :: %{String.t() => any()}
+  @type get_dedicated_ips_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1559,7 +1559,7 @@ defmodule AWS.PinpointEmail do
       }
 
   """
-  @type message() :: %{String.t() => any()}
+  @type message() :: %{String.t() | Atom.t() => any()}
 
   @type create_configuration_set_errors() ::
           bad_request_exception()
@@ -1804,7 +1804,7 @@ defmodule AWS.PinpointEmail do
   """
   @spec create_configuration_set_event_destination(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           create_configuration_set_event_destination_request(),
           list()
         ) ::
@@ -1984,7 +1984,12 @@ defmodule AWS.PinpointEmail do
   applied to
   the email.
   """
-  @spec delete_configuration_set(map(), String.t(), delete_configuration_set_request(), list()) ::
+  @spec delete_configuration_set(
+          map(),
+          String.t() | Atom.t(),
+          delete_configuration_set_request(),
+          list()
+        ) ::
           {:ok, delete_configuration_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2023,8 +2028,8 @@ defmodule AWS.PinpointEmail do
   """
   @spec delete_configuration_set_event_destination(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_configuration_set_event_destination_request(),
           list()
         ) ::
@@ -2064,7 +2069,12 @@ defmodule AWS.PinpointEmail do
   @doc """
   Delete a dedicated IP pool.
   """
-  @spec delete_dedicated_ip_pool(map(), String.t(), delete_dedicated_ip_pool_request(), list()) ::
+  @spec delete_dedicated_ip_pool(
+          map(),
+          String.t() | Atom.t(),
+          delete_dedicated_ip_pool_request(),
+          list()
+        ) ::
           {:ok, delete_dedicated_ip_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2097,7 +2107,12 @@ defmodule AWS.PinpointEmail do
   An identity
   can be either an email address or a domain name.
   """
-  @spec delete_email_identity(map(), String.t(), delete_email_identity_request(), list()) ::
+  @spec delete_email_identity(
+          map(),
+          String.t() | Atom.t(),
+          delete_email_identity_request(),
+          list()
+        ) ::
           {:ok, delete_email_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2146,7 +2161,7 @@ defmodule AWS.PinpointEmail do
   @doc """
   Retrieve a list of the blacklists that your dedicated IP addresses appear on.
   """
-  @spec get_blacklist_reports(map(), String.t(), list()) ::
+  @spec get_blacklist_reports(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_blacklist_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2182,7 +2197,7 @@ defmodule AWS.PinpointEmail do
   applied to
   the email.
   """
-  @spec get_configuration_set(map(), String.t(), list()) ::
+  @spec get_configuration_set(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_configuration_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2209,7 +2224,7 @@ defmodule AWS.PinpointEmail do
   you can use
   Amazon Kinesis Data Firehose to stream data to Amazon S3 for long-term storage.
   """
-  @spec get_configuration_set_event_destinations(map(), String.t(), list()) ::
+  @spec get_configuration_set_event_destinations(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_configuration_set_event_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2237,7 +2252,7 @@ defmodule AWS.PinpointEmail do
   process
   for the address.
   """
-  @spec get_dedicated_ip(map(), String.t(), list()) ::
+  @spec get_dedicated_ip(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_dedicated_ip_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2256,7 +2271,13 @@ defmodule AWS.PinpointEmail do
   List the dedicated IP addresses that are associated with your Amazon Pinpoint
   account.
   """
-  @spec get_dedicated_ips(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec get_dedicated_ips(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, get_dedicated_ips_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2332,7 +2353,7 @@ defmodule AWS.PinpointEmail do
   @doc """
   Retrieve the results of a predictive inbox placement test.
   """
-  @spec get_deliverability_test_report(map(), String.t(), list()) ::
+  @spec get_deliverability_test_report(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_deliverability_test_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2355,7 +2376,7 @@ defmodule AWS.PinpointEmail do
   Deliverability dashboard is enabled for (`PutDeliverabilityDashboardOption`
   operation).
   """
-  @spec get_domain_deliverability_campaign(map(), String.t(), list()) ::
+  @spec get_domain_deliverability_campaign(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_domain_deliverability_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2375,7 +2396,13 @@ defmodule AWS.PinpointEmail do
   send
   email.
   """
-  @spec get_domain_statistics_report(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_domain_statistics_report(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_domain_statistics_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2419,7 +2446,7 @@ defmodule AWS.PinpointEmail do
   and its
   custom Mail-From settings.
   """
-  @spec get_email_identity(map(), String.t(), list()) ::
+  @spec get_email_identity(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_email_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2447,7 +2474,12 @@ defmodule AWS.PinpointEmail do
   applied to
   the email.
   """
-  @spec list_configuration_sets(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_configuration_sets(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_configuration_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2486,7 +2518,12 @@ defmodule AWS.PinpointEmail do
   the current
   AWS Region.
   """
-  @spec list_dedicated_ip_pools(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_dedicated_ip_pools(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_dedicated_ip_pools_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2529,7 +2566,12 @@ defmodule AWS.PinpointEmail do
   `GetDeliverabilityTestReport`
   operation to view the results.
   """
-  @spec list_deliverability_test_reports(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_deliverability_test_reports(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_deliverability_test_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2575,11 +2617,11 @@ defmodule AWS.PinpointEmail do
   """
   @spec list_domain_deliverability_campaigns(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
           list()
         ) ::
           {:ok, list_domain_deliverability_campaigns_response(), any()}
@@ -2642,7 +2684,12 @@ defmodule AWS.PinpointEmail do
   An identity can be either an email address or a domain. This operation returns
   identities that are verified as well as those that aren't.
   """
-  @spec list_email_identities(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_email_identities(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_email_identities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2688,7 +2735,7 @@ defmodule AWS.PinpointEmail do
   value
   acts as a descriptor within a tag key.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2780,7 +2827,7 @@ defmodule AWS.PinpointEmail do
   """
   @spec put_configuration_set_delivery_options(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_configuration_set_delivery_options_request(),
           list()
         ) ::
@@ -2823,7 +2870,7 @@ defmodule AWS.PinpointEmail do
   """
   @spec put_configuration_set_reputation_options(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_configuration_set_reputation_options_request(),
           list()
         ) ::
@@ -2866,7 +2913,7 @@ defmodule AWS.PinpointEmail do
   """
   @spec put_configuration_set_sending_options(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_configuration_set_sending_options_request(),
           list()
         ) ::
@@ -2909,7 +2956,7 @@ defmodule AWS.PinpointEmail do
   """
   @spec put_configuration_set_tracking_options(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_configuration_set_tracking_options_request(),
           list()
         ) ::
@@ -2955,7 +3002,12 @@ defmodule AWS.PinpointEmail do
   by
   using the `CreateDedicatedIpPool` operation.
   """
-  @spec put_dedicated_ip_in_pool(map(), String.t(), put_dedicated_ip_in_pool_request(), list()) ::
+  @spec put_dedicated_ip_in_pool(
+          map(),
+          String.t() | Atom.t(),
+          put_dedicated_ip_in_pool_request(),
+          list()
+        ) ::
           {:ok, put_dedicated_ip_in_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2983,7 +3035,7 @@ defmodule AWS.PinpointEmail do
 
   @spec put_dedicated_ip_warmup_attributes(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_dedicated_ip_warmup_attributes_request(),
           list()
         ) ::
@@ -3063,7 +3115,7 @@ defmodule AWS.PinpointEmail do
   """
   @spec put_email_identity_dkim_attributes(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_email_identity_dkim_attributes_request(),
           list()
         ) ::
@@ -3118,7 +3170,7 @@ defmodule AWS.PinpointEmail do
   """
   @spec put_email_identity_feedback_attributes(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_email_identity_feedback_attributes_request(),
           list()
         ) ::
@@ -3158,7 +3210,7 @@ defmodule AWS.PinpointEmail do
   """
   @spec put_email_identity_mail_from_attributes(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_email_identity_mail_from_attributes_request(),
           list()
         ) ::
@@ -3329,8 +3381,8 @@ defmodule AWS.PinpointEmail do
   """
   @spec update_configuration_set_event_destination(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_configuration_set_event_destination_request(),
           list()
         ) ::

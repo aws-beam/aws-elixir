@@ -28,19 +28,19 @@ defmodule AWS.GameLiftStreams do
   ## Example:
 
       stream_session_summary() :: %{
-        "ApplicationArn" => String.t(),
-        "Arn" => String.t(),
+        "ApplicationArn" => String.t() | Atom.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreatedAt" => [non_neg_integer()],
         "ExportFilesMetadata" => export_files_metadata(),
         "LastUpdatedAt" => [non_neg_integer()],
-        "Location" => String.t(),
+        "Location" => String.t() | Atom.t(),
         "Protocol" => list(any()),
         "Status" => list(any()),
-        "UserId" => String.t()
+        "UserId" => String.t() | Atom.t()
       }
 
   """
-  @type stream_session_summary() :: %{String.t() => any()}
+  @type stream_session_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -51,41 +51,41 @@ defmodule AWS.GameLiftStreams do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_stream_session_connection_input() :: %{
-        optional("ClientToken") => String.t(),
-        required("SignalRequest") => String.t()
+        optional("ClientToken") => String.t() | Atom.t(),
+        required("SignalRequest") => String.t() | Atom.t()
       }
 
   """
-  @type create_stream_session_connection_input() :: %{String.t() => any()}
+  @type create_stream_session_connection_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_applications_input() :: %{
-        required("ApplicationIdentifiers") => list(String.t())
+        required("ApplicationIdentifiers") => list(String.t() | Atom.t())
       }
 
   """
-  @type disassociate_applications_input() :: %{String.t() => any()}
+  @type disassociate_applications_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       remove_stream_group_locations_input() :: %{
-        required("Locations") => list([String.t()]())
+        required("Locations") => list([String.t() | Atom.t()]())
       }
 
   """
-  @type remove_stream_group_locations_input() :: %{String.t() => any()}
+  @type remove_stream_group_locations_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -102,11 +102,11 @@ defmodule AWS.GameLiftStreams do
 
       list_stream_sessions_output() :: %{
         "Items" => list(stream_session_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_stream_sessions_output() :: %{String.t() => any()}
+  @type list_stream_sessions_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -122,11 +122,11 @@ defmodule AWS.GameLiftStreams do
   ## Example:
 
       associate_applications_input() :: %{
-        required("ApplicationIdentifiers") => list(String.t())
+        required("ApplicationIdentifiers") => list(String.t() | Atom.t())
       }
 
   """
-  @type associate_applications_input() :: %{String.t() => any()}
+  @type associate_applications_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -134,29 +134,29 @@ defmodule AWS.GameLiftStreams do
 
       start_stream_session_output() :: %{
         "AdditionalEnvironmentVariables" => map(),
-        "AdditionalLaunchArgs" => list([String.t()]()),
-        "ApplicationArn" => String.t(),
-        "Arn" => String.t(),
+        "AdditionalLaunchArgs" => list([String.t() | Atom.t()]()),
+        "ApplicationArn" => String.t() | Atom.t(),
+        "Arn" => String.t() | Atom.t(),
         "ConnectionTimeoutSeconds" => integer(),
         "CreatedAt" => [non_neg_integer()],
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "ExportFilesMetadata" => export_files_metadata(),
         "LastUpdatedAt" => [non_neg_integer()],
-        "Location" => String.t(),
-        "LogFileLocationUri" => String.t(),
+        "Location" => String.t() | Atom.t(),
+        "LogFileLocationUri" => String.t() | Atom.t(),
         "Protocol" => list(any()),
         "SessionLengthSeconds" => integer(),
-        "SignalRequest" => String.t(),
-        "SignalResponse" => String.t(),
+        "SignalRequest" => String.t() | Atom.t(),
+        "SignalResponse" => String.t() | Atom.t(),
         "Status" => list(any()),
         "StatusReason" => list(any()),
-        "StreamGroupId" => String.t(),
-        "UserId" => String.t(),
-        "WebSdkProtocolUrl" => String.t()
+        "StreamGroupId" => String.t() | Atom.t(),
+        "UserId" => String.t() | Atom.t(),
+        "WebSdkProtocolUrl" => String.t() | Atom.t()
       }
 
   """
-  @type start_stream_session_output() :: %{String.t() => any()}
+  @type start_stream_session_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -164,26 +164,26 @@ defmodule AWS.GameLiftStreams do
 
       list_stream_sessions_by_account_output() :: %{
         "Items" => list(stream_session_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_stream_sessions_by_account_output() :: %{String.t() => any()}
+  @type list_stream_sessions_by_account_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_application_output() :: %{
-        "ApplicationLogOutputUri" => String.t(),
-        "ApplicationLogPaths" => list(String.t()),
-        "ApplicationSourceUri" => String.t(),
-        "Arn" => String.t(),
-        "AssociatedStreamGroups" => list(String.t()),
+        "ApplicationLogOutputUri" => String.t() | Atom.t(),
+        "ApplicationLogPaths" => list(String.t() | Atom.t()),
+        "ApplicationSourceUri" => String.t() | Atom.t(),
+        "Arn" => String.t() | Atom.t(),
+        "AssociatedStreamGroups" => list(String.t() | Atom.t()),
         "CreatedAt" => [non_neg_integer()],
-        "Description" => String.t(),
-        "ExecutablePath" => String.t(),
-        "Id" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "ExecutablePath" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "LastUpdatedAt" => [non_neg_integer()],
         "ReplicationStatuses" => list(replication_status()),
         "RuntimeEnvironment" => runtime_environment(),
@@ -192,31 +192,31 @@ defmodule AWS.GameLiftStreams do
       }
 
   """
-  @type create_application_output() :: %{String.t() => any()}
+  @type create_application_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       default_application() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type default_application() :: %{String.t() => any()}
+  @type default_application() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_stream_group_output() :: %{
-        "Arn" => String.t(),
-        "AssociatedApplications" => list(String.t()),
+        "Arn" => String.t() | Atom.t(),
+        "AssociatedApplications" => list(String.t() | Atom.t()),
         "CreatedAt" => [non_neg_integer()],
         "DefaultApplication" => default_application(),
-        "Description" => String.t(),
-        "Id" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "LastUpdatedAt" => [non_neg_integer()],
         "LocationStates" => list(location_state()),
         "Status" => list(any()),
@@ -225,18 +225,18 @@ defmodule AWS.GameLiftStreams do
       }
 
   """
-  @type create_stream_group_output() :: %{String.t() => any()}
+  @type create_stream_group_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t())
+        required("TagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -244,12 +244,12 @@ defmodule AWS.GameLiftStreams do
 
       location_configuration() :: %{
         "AlwaysOnCapacity" => integer(),
-        "LocationName" => String.t(),
+        "LocationName" => String.t() | Atom.t(),
         "OnDemandCapacity" => integer()
       }
 
   """
-  @type location_configuration() :: %{String.t() => any()}
+  @type location_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -259,14 +259,14 @@ defmodule AWS.GameLiftStreams do
         "AllocatedCapacity" => integer(),
         "AlwaysOnCapacity" => integer(),
         "IdleCapacity" => integer(),
-        "LocationName" => String.t(),
+        "LocationName" => String.t() | Atom.t(),
         "OnDemandCapacity" => integer(),
         "RequestedCapacity" => integer(),
         "Status" => list(any())
       }
 
   """
-  @type location_state() :: %{String.t() => any()}
+  @type location_state() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -291,12 +291,12 @@ defmodule AWS.GameLiftStreams do
   ## Example:
 
       associate_applications_output() :: %{
-        "ApplicationArns" => list(String.t()),
-        "Arn" => String.t()
+        "ApplicationArns" => list(String.t() | Atom.t()),
+        "Arn" => String.t() | Atom.t()
       }
 
   """
-  @type associate_applications_output() :: %{String.t() => any()}
+  @type associate_applications_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -304,11 +304,11 @@ defmodule AWS.GameLiftStreams do
 
       list_applications_output() :: %{
         "Items" => list(application_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_applications_output() :: %{String.t() => any()}
+  @type list_applications_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -316,44 +316,44 @@ defmodule AWS.GameLiftStreams do
 
       list_applications_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_applications_input() :: %{String.t() => any()}
+  @type list_applications_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -369,18 +369,18 @@ defmodule AWS.GameLiftStreams do
   ## Example:
 
       create_application_input() :: %{
-        optional("ApplicationLogOutputUri") => String.t(),
-        optional("ApplicationLogPaths") => list(String.t()),
-        optional("ClientToken") => String.t(),
+        optional("ApplicationLogOutputUri") => String.t() | Atom.t(),
+        optional("ApplicationLogPaths") => list(String.t() | Atom.t()),
+        optional("ClientToken") => String.t() | Atom.t(),
         optional("Tags") => map(),
-        required("ApplicationSourceUri") => String.t(),
-        required("Description") => String.t(),
-        required("ExecutablePath") => String.t(),
+        required("ApplicationSourceUri") => String.t() | Atom.t(),
+        required("Description") => String.t() | Atom.t(),
+        required("ExecutablePath") => String.t() | Atom.t(),
         required("RuntimeEnvironment") => runtime_environment()
       }
 
   """
-  @type create_application_input() :: %{String.t() => any()}
+  @type create_application_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -389,37 +389,37 @@ defmodule AWS.GameLiftStreams do
       list_stream_sessions_by_account_input() :: %{
         optional("ExportFilesStatus") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("Status") => list(any())
       }
 
   """
-  @type list_stream_sessions_by_account_input() :: %{String.t() => any()}
+  @type list_stream_sessions_by_account_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       export_files_metadata() :: %{
-        "OutputUri" => String.t(),
+        "OutputUri" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "StatusReason" => String.t()
+        "StatusReason" => String.t() | Atom.t()
       }
 
   """
-  @type export_files_metadata() :: %{String.t() => any()}
+  @type export_files_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_applications_output() :: %{
-        "ApplicationArns" => list(String.t()),
-        "Arn" => String.t()
+        "ApplicationArns" => list(String.t() | Atom.t()),
+        "Arn" => String.t() | Atom.t()
       }
 
   """
-  @type disassociate_applications_output() :: %{String.t() => any()}
+  @type disassociate_applications_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -430,19 +430,19 @@ defmodule AWS.GameLiftStreams do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       add_stream_group_locations_output() :: %{
-        "Identifier" => String.t(),
+        "Identifier" => String.t() | Atom.t(),
         "Locations" => list(location_state())
       }
 
   """
-  @type add_stream_group_locations_output() :: %{String.t() => any()}
+  @type add_stream_group_locations_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -450,32 +450,32 @@ defmodule AWS.GameLiftStreams do
 
       start_stream_session_input() :: %{
         optional("AdditionalEnvironmentVariables") => map(),
-        optional("AdditionalLaunchArgs") => list([String.t()]()),
-        optional("ClientToken") => String.t(),
+        optional("AdditionalLaunchArgs") => list([String.t() | Atom.t()]()),
+        optional("ClientToken") => String.t() | Atom.t(),
         optional("ConnectionTimeoutSeconds") => integer(),
-        optional("Description") => String.t(),
-        optional("Locations") => list(String.t()),
+        optional("Description") => String.t() | Atom.t(),
+        optional("Locations") => list(String.t() | Atom.t()),
         optional("SessionLengthSeconds") => integer(),
-        optional("UserId") => String.t(),
-        required("ApplicationIdentifier") => String.t(),
+        optional("UserId") => String.t() | Atom.t(),
+        required("ApplicationIdentifier") => String.t() | Atom.t(),
         required("Protocol") => list(any()),
-        required("SignalRequest") => String.t()
+        required("SignalRequest") => String.t() | Atom.t()
       }
 
   """
-  @type start_stream_session_input() :: %{String.t() => any()}
+  @type start_stream_session_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_stream_group_input() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("LocationConfigurations") => list(location_configuration())
       }
 
   """
-  @type update_stream_group_input() :: %{String.t() => any()}
+  @type update_stream_group_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -483,38 +483,38 @@ defmodule AWS.GameLiftStreams do
 
       list_stream_groups_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_stream_groups_input() :: %{String.t() => any()}
+  @type list_stream_groups_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       replication_status() :: %{
-        "Location" => String.t(),
+        "Location" => String.t() | Atom.t(),
         "Status" => list(any())
       }
 
   """
-  @type replication_status() :: %{String.t() => any()}
+  @type replication_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_application_output() :: %{
-        "ApplicationLogOutputUri" => String.t(),
-        "ApplicationLogPaths" => list(String.t()),
-        "ApplicationSourceUri" => String.t(),
-        "Arn" => String.t(),
-        "AssociatedStreamGroups" => list(String.t()),
+        "ApplicationLogOutputUri" => String.t() | Atom.t(),
+        "ApplicationLogPaths" => list(String.t() | Atom.t()),
+        "ApplicationSourceUri" => String.t() | Atom.t(),
+        "Arn" => String.t() | Atom.t(),
+        "AssociatedStreamGroups" => list(String.t() | Atom.t()),
         "CreatedAt" => [non_neg_integer()],
-        "Description" => String.t(),
-        "ExecutablePath" => String.t(),
-        "Id" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "ExecutablePath" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "LastUpdatedAt" => [non_neg_integer()],
         "ReplicationStatuses" => list(replication_status()),
         "RuntimeEnvironment" => runtime_environment(),
@@ -523,63 +523,63 @@ defmodule AWS.GameLiftStreams do
       }
 
   """
-  @type get_application_output() :: %{String.t() => any()}
+  @type get_application_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       stream_group_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreatedAt" => [non_neg_integer()],
         "DefaultApplication" => default_application(),
-        "Description" => String.t(),
-        "Id" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "LastUpdatedAt" => [non_neg_integer()],
         "Status" => list(any()),
         "StreamClass" => list(any())
       }
 
   """
-  @type stream_group_summary() :: %{String.t() => any()}
+  @type stream_group_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_stream_group_input() :: %{
-        optional("ClientToken") => String.t(),
-        optional("DefaultApplicationIdentifier") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("DefaultApplicationIdentifier") => String.t() | Atom.t(),
         optional("LocationConfigurations") => list(location_configuration()),
         optional("Tags") => map(),
-        required("Description") => String.t(),
+        required("Description") => String.t() | Atom.t(),
         required("StreamClass") => list(any())
       }
 
   """
-  @type create_stream_group_input() :: %{String.t() => any()}
+  @type create_stream_group_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -604,11 +604,11 @@ defmodule AWS.GameLiftStreams do
   ## Example:
 
       create_stream_session_connection_output() :: %{
-        "SignalResponse" => String.t()
+        "SignalResponse" => String.t() | Atom.t()
       }
 
   """
-  @type create_stream_session_connection_output() :: %{String.t() => any()}
+  @type create_stream_session_connection_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -616,23 +616,23 @@ defmodule AWS.GameLiftStreams do
 
       runtime_environment() :: %{
         "Type" => list(any()),
-        "Version" => String.t()
+        "Version" => String.t() | Atom.t()
       }
 
   """
-  @type runtime_environment() :: %{String.t() => any()}
+  @type runtime_environment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_stream_group_output() :: %{
-        "Arn" => String.t(),
-        "AssociatedApplications" => list(String.t()),
+        "Arn" => String.t() | Atom.t(),
+        "AssociatedApplications" => list(String.t() | Atom.t()),
         "CreatedAt" => [non_neg_integer()],
         "DefaultApplication" => default_application(),
-        "Description" => String.t(),
-        "Id" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "LastUpdatedAt" => [non_neg_integer()],
         "LocationStates" => list(location_state()),
         "Status" => list(any()),
@@ -641,18 +641,18 @@ defmodule AWS.GameLiftStreams do
       }
 
   """
-  @type get_stream_group_output() :: %{String.t() => any()}
+  @type get_stream_group_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -668,41 +668,41 @@ defmodule AWS.GameLiftStreams do
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       application_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreatedAt" => [non_neg_integer()],
-        "Description" => String.t(),
-        "Id" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "LastUpdatedAt" => [non_neg_integer()],
         "RuntimeEnvironment" => runtime_environment(),
         "Status" => list(any())
       }
 
   """
-  @type application_summary() :: %{String.t() => any()}
+  @type application_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_application_input() :: %{
-        optional("ApplicationLogOutputUri") => String.t(),
-        optional("ApplicationLogPaths") => list(String.t()),
-        optional("Description") => String.t()
+        optional("ApplicationLogOutputUri") => String.t() | Atom.t(),
+        optional("ApplicationLogPaths") => list(String.t() | Atom.t()),
+        optional("Description") => String.t() | Atom.t()
       }
 
   """
-  @type update_application_input() :: %{String.t() => any()}
+  @type update_application_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -713,19 +713,19 @@ defmodule AWS.GameLiftStreams do
       }
 
   """
-  @type add_stream_group_locations_input() :: %{String.t() => any()}
+  @type add_stream_group_locations_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_stream_group_output() :: %{
-        "Arn" => String.t(),
-        "AssociatedApplications" => list(String.t()),
+        "Arn" => String.t() | Atom.t(),
+        "AssociatedApplications" => list(String.t() | Atom.t()),
         "CreatedAt" => [non_neg_integer()],
         "DefaultApplication" => default_application(),
-        "Description" => String.t(),
-        "Id" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "LastUpdatedAt" => [non_neg_integer()],
         "LocationStates" => list(location_state()),
         "Status" => list(any()),
@@ -734,18 +734,18 @@ defmodule AWS.GameLiftStreams do
       }
 
   """
-  @type update_stream_group_output() :: %{String.t() => any()}
+  @type update_stream_group_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       export_stream_session_files_input() :: %{
-        required("OutputUri") => String.t()
+        required("OutputUri") => String.t() | Atom.t()
       }
 
   """
-  @type export_stream_session_files_input() :: %{String.t() => any()}
+  @type export_stream_session_files_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -753,11 +753,11 @@ defmodule AWS.GameLiftStreams do
 
       list_stream_groups_output() :: %{
         "Items" => list(stream_group_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_stream_groups_output() :: %{String.t() => any()}
+  @type list_stream_groups_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -775,12 +775,12 @@ defmodule AWS.GameLiftStreams do
       list_stream_sessions_input() :: %{
         optional("ExportFilesStatus") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("Status") => list(any())
       }
 
   """
-  @type list_stream_sessions_input() :: %{String.t() => any()}
+  @type list_stream_sessions_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -788,29 +788,29 @@ defmodule AWS.GameLiftStreams do
 
       get_stream_session_output() :: %{
         "AdditionalEnvironmentVariables" => map(),
-        "AdditionalLaunchArgs" => list([String.t()]()),
-        "ApplicationArn" => String.t(),
-        "Arn" => String.t(),
+        "AdditionalLaunchArgs" => list([String.t() | Atom.t()]()),
+        "ApplicationArn" => String.t() | Atom.t(),
+        "Arn" => String.t() | Atom.t(),
         "ConnectionTimeoutSeconds" => integer(),
         "CreatedAt" => [non_neg_integer()],
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "ExportFilesMetadata" => export_files_metadata(),
         "LastUpdatedAt" => [non_neg_integer()],
-        "Location" => String.t(),
-        "LogFileLocationUri" => String.t(),
+        "Location" => String.t() | Atom.t(),
+        "LogFileLocationUri" => String.t() | Atom.t(),
         "Protocol" => list(any()),
         "SessionLengthSeconds" => integer(),
-        "SignalRequest" => String.t(),
-        "SignalResponse" => String.t(),
+        "SignalRequest" => String.t() | Atom.t(),
+        "SignalResponse" => String.t() | Atom.t(),
         "Status" => list(any()),
         "StatusReason" => list(any()),
-        "StreamGroupId" => String.t(),
-        "UserId" => String.t(),
-        "WebSdkProtocolUrl" => String.t()
+        "StreamGroupId" => String.t() | Atom.t(),
+        "UserId" => String.t() | Atom.t(),
+        "WebSdkProtocolUrl" => String.t() | Atom.t()
       }
 
   """
-  @type get_stream_session_output() :: %{String.t() => any()}
+  @type get_stream_session_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -826,15 +826,15 @@ defmodule AWS.GameLiftStreams do
   ## Example:
 
       update_application_output() :: %{
-        "ApplicationLogOutputUri" => String.t(),
-        "ApplicationLogPaths" => list(String.t()),
-        "ApplicationSourceUri" => String.t(),
-        "Arn" => String.t(),
-        "AssociatedStreamGroups" => list(String.t()),
+        "ApplicationLogOutputUri" => String.t() | Atom.t(),
+        "ApplicationLogPaths" => list(String.t() | Atom.t()),
+        "ApplicationSourceUri" => String.t() | Atom.t(),
+        "Arn" => String.t() | Atom.t(),
+        "AssociatedStreamGroups" => list(String.t() | Atom.t()),
         "CreatedAt" => [non_neg_integer()],
-        "Description" => String.t(),
-        "ExecutablePath" => String.t(),
-        "Id" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "ExecutablePath" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "LastUpdatedAt" => [non_neg_integer()],
         "ReplicationStatuses" => list(replication_status()),
         "RuntimeEnvironment" => runtime_environment(),
@@ -843,7 +843,7 @@ defmodule AWS.GameLiftStreams do
       }
 
   """
-  @type update_application_output() :: %{String.t() => any()}
+  @type update_application_output() :: %{String.t() | Atom.t() => any()}
 
   @type add_stream_group_locations_errors() ::
           throttling_exception()
@@ -1048,7 +1048,12 @@ defmodule AWS.GameLiftStreams do
   each location. This allows Amazon GameLift Streams to host performant stream
   sessions.
   """
-  @spec add_stream_group_locations(map(), String.t(), add_stream_group_locations_input(), list()) ::
+  @spec add_stream_group_locations(
+          map(),
+          String.t() | Atom.t(),
+          add_stream_group_locations_input(),
+          list()
+        ) ::
           {:ok, add_stream_group_locations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1083,7 +1088,12 @@ defmodule AWS.GameLiftStreams do
   using
   [DisassociateApplications](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_DisassociateApplications.html).
   """
-  @spec associate_applications(map(), String.t(), associate_applications_input(), list()) ::
+  @spec associate_applications(
+          map(),
+          String.t() | Atom.t(),
+          associate_applications_input(),
+          list()
+        ) ::
           {:ok, associate_applications_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1239,8 +1249,8 @@ defmodule AWS.GameLiftStreams do
   """
   @spec create_stream_session_connection(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           create_stream_session_connection_input(),
           list()
         ) ::
@@ -1305,7 +1315,7 @@ defmodule AWS.GameLiftStreams do
   If any active stream groups exist for this application, this request returns a
   `ValidationException`.
   """
-  @spec delete_application(map(), String.t(), delete_application_input(), list()) ::
+  @spec delete_application(map(), String.t() | Atom.t(), delete_application_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1344,7 +1354,7 @@ defmodule AWS.GameLiftStreams do
   stream group, any application associations referring to that stream group are
   automatically removed.
   """
-  @spec delete_stream_group(map(), String.t(), delete_stream_group_input(), list()) ::
+  @spec delete_stream_group(map(), String.t() | Atom.t(), delete_stream_group_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1384,7 +1394,12 @@ defmodule AWS.GameLiftStreams do
   the stream group. Check `DefaultApplicationIdentifier` by calling
   [GetStreamGroup](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamGroup.html).
   """
-  @spec disassociate_applications(map(), String.t(), disassociate_applications_input(), list()) ::
+  @spec disassociate_applications(
+          map(),
+          String.t() | Atom.t(),
+          disassociate_applications_input(),
+          list()
+        ) ::
           {:ok, disassociate_applications_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1444,8 +1459,8 @@ defmodule AWS.GameLiftStreams do
   """
   @spec export_stream_session_files(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           export_stream_session_files_input(),
           list()
         ) ::
@@ -1488,7 +1503,7 @@ defmodule AWS.GameLiftStreams do
   Specify the ID of the application that you want to retrieve. If the operation is
   successful, it returns properties for the requested application.
   """
-  @spec get_application(map(), String.t(), list()) ::
+  @spec get_application(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_application_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1509,7 +1524,7 @@ defmodule AWS.GameLiftStreams do
   Specify the ID of the stream group that you want to retrieve. If the operation
   is successful, it returns properties for the requested stream group.
   """
-  @spec get_stream_group(map(), String.t(), list()) ::
+  @spec get_stream_group(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_stream_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1531,7 +1546,7 @@ defmodule AWS.GameLiftStreams do
   retrieve and its stream group ARN. If the operation is successful, it returns
   properties for the requested resource.
   """
-  @spec get_stream_session(map(), String.t(), String.t(), list()) ::
+  @spec get_stream_session(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_stream_session_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1555,7 +1570,7 @@ defmodule AWS.GameLiftStreams do
   This operation returns applications in all statuses, in no particular order. You
   can paginate the results as needed.
   """
-  @spec list_applications(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_applications(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_applications_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1591,7 +1606,12 @@ defmodule AWS.GameLiftStreams do
   This operation returns stream groups in all statuses, in no particular order.
   You can paginate the results as needed.
   """
-  @spec list_stream_groups(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_stream_groups(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_stream_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1631,11 +1651,11 @@ defmodule AWS.GameLiftStreams do
   """
   @spec list_stream_sessions(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_stream_sessions_output(), any()}
@@ -1701,10 +1721,10 @@ defmodule AWS.GameLiftStreams do
   """
   @spec list_stream_sessions_by_account(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_stream_sessions_by_account_output(), any()}
@@ -1768,7 +1788,7 @@ defmodule AWS.GameLiftStreams do
 
   [ Amazon Web Services Tagging Strategies](http://aws.amazon.com/answers/account-management/aws-tagging-strategies/)
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1797,7 +1817,7 @@ defmodule AWS.GameLiftStreams do
   """
   @spec remove_stream_group_locations(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           remove_stream_group_locations_input(),
           list()
         ) ::
@@ -1869,7 +1889,7 @@ defmodule AWS.GameLiftStreams do
   Streams stops processing the request, and the stream session object status
   changes to `ERROR` with status reason `placementTimeout`.
   """
-  @spec start_stream_session(map(), String.t(), start_stream_session_input(), list()) ::
+  @spec start_stream_session(map(), String.t() | Atom.t(), start_stream_session_input(), list()) ::
           {:ok, start_stream_session_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1912,7 +1932,7 @@ defmodule AWS.GameLiftStreams do
 
   [ Amazon Web Services Tagging Strategies](http://aws.amazon.com/answers/account-management/aws-tagging-strategies/)
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1947,8 +1967,8 @@ defmodule AWS.GameLiftStreams do
   """
   @spec terminate_stream_session(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           terminate_stream_session_input(),
           list()
         ) ::
@@ -1991,7 +2011,7 @@ defmodule AWS.GameLiftStreams do
   To remove tags, specify the Amazon GameLift Streams resource and a list of one
   or more tags to remove.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2033,7 +2053,7 @@ defmodule AWS.GameLiftStreams do
   values. If the operation is successful, it returns the complete updated set of
   settings for the application.
   """
-  @spec update_application(map(), String.t(), update_application_input(), list()) ::
+  @spec update_application(map(), String.t() | Atom.t(), update_application_input(), list()) ::
           {:ok, update_application_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2085,7 +2105,7 @@ defmodule AWS.GameLiftStreams do
   and provide the new values. If the request is successful, Amazon GameLift
   Streams returns the complete updated metadata for the stream group.
   """
-  @spec update_stream_group(map(), String.t(), update_stream_group_input(), list()) ::
+  @spec update_stream_group(map(), String.t() | Atom.t(), update_stream_group_input(), list()) ::
           {:ok, update_stream_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

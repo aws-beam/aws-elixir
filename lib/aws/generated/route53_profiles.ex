@@ -16,20 +16,20 @@ defmodule AWS.Route53Profiles do
   ## Example:
 
       profile() :: %{
-        "Arn" => String.t(),
-        "ClientToken" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "ClientToken" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "ModificationTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "OwnerId" => String.t(),
+        "Name" => String.t() | Atom.t(),
+        "OwnerId" => String.t() | Atom.t(),
         "ShareStatus" => list(any()),
         "Status" => list(any()),
-        "StatusMessage" => String.t()
+        "StatusMessage" => String.t() | Atom.t()
       }
 
   """
-  @type profile() :: %{String.t() => any()}
+  @type profile() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -40,7 +40,7 @@ defmodule AWS.Route53Profiles do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -66,11 +66,11 @@ defmodule AWS.Route53Profiles do
 
       list_profiles_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_profiles_request() :: %{String.t() => any()}
+  @type list_profiles_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -81,7 +81,7 @@ defmodule AWS.Route53Profiles do
       }
 
   """
-  @type delete_profile_response() :: %{String.t() => any()}
+  @type delete_profile_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -89,13 +89,13 @@ defmodule AWS.Route53Profiles do
 
       associate_profile_request() :: %{
         optional("Tags") => list(tag()),
-        required("Name") => String.t(),
-        required("ProfileId") => String.t(),
-        required("ResourceId") => String.t()
+        required("Name") => String.t() | Atom.t(),
+        required("ProfileId") => String.t() | Atom.t(),
+        required("ResourceId") => String.t() | Atom.t()
       }
 
   """
-  @type associate_profile_request() :: %{String.t() => any()}
+  @type associate_profile_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -103,26 +103,26 @@ defmodule AWS.Route53Profiles do
 
       list_profile_resource_associations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ResourceType") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("ResourceType") => String.t() | Atom.t()
       }
 
   """
-  @type list_profile_resource_associations_request() :: %{String.t() => any()}
+  @type list_profile_resource_associations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_resource_to_profile_request() :: %{
-        optional("ResourceProperties") => String.t(),
-        required("Name") => String.t(),
-        required("ProfileId") => String.t(),
-        required("ResourceArn") => String.t()
+        optional("ResourceProperties") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t(),
+        required("ProfileId") => String.t() | Atom.t(),
+        required("ResourceArn") => String.t() | Atom.t()
       }
 
   """
-  @type associate_resource_to_profile_request() :: %{String.t() => any()}
+  @type associate_resource_to_profile_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -142,41 +142,41 @@ defmodule AWS.Route53Profiles do
       }
 
   """
-  @type update_profile_resource_association_response() :: %{String.t() => any()}
+  @type update_profile_resource_association_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_service_error_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_service_error_exception() :: %{String.t() => any()}
+  @type internal_service_error_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_profile_resource_association_request() :: %{
-        optional("Name") => String.t(),
-        optional("ResourceProperties") => String.t()
+        optional("Name") => String.t() | Atom.t(),
+        optional("ResourceProperties") => String.t() | Atom.t()
       }
 
   """
-  @type update_profile_resource_association_request() :: %{String.t() => any()}
+  @type update_profile_resource_association_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t())
+        required("TagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -193,13 +193,13 @@ defmodule AWS.Route53Profiles do
 
       list_profile_associations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ProfileId") => String.t(),
-        optional("ResourceId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("ProfileId") => String.t() | Atom.t(),
+        optional("ResourceId") => String.t() | Atom.t()
       }
 
   """
-  @type list_profile_associations_request() :: %{String.t() => any()}
+  @type list_profile_associations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -210,7 +210,7 @@ defmodule AWS.Route53Profiles do
       }
 
   """
-  @type associate_resource_to_profile_response() :: %{String.t() => any()}
+  @type associate_resource_to_profile_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -221,7 +221,7 @@ defmodule AWS.Route53Profiles do
       }
 
   """
-  @type get_profile_resource_association_response() :: %{String.t() => any()}
+  @type get_profile_resource_association_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -229,12 +229,12 @@ defmodule AWS.Route53Profiles do
 
       create_profile_request() :: %{
         optional("Tags") => list(tag()),
-        required("ClientToken") => String.t(),
-        required("Name") => String.t()
+        required("ClientToken") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t()
       }
 
   """
-  @type create_profile_request() :: %{String.t() => any()}
+  @type create_profile_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -245,18 +245,18 @@ defmodule AWS.Route53Profiles do
       }
 
   """
-  @type disassociate_profile_response() :: %{String.t() => any()}
+  @type disassociate_profile_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -267,31 +267,31 @@ defmodule AWS.Route53Profiles do
       }
 
   """
-  @type disassociate_resource_from_profile_response() :: %{String.t() => any()}
+  @type disassociate_resource_from_profile_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t(),
-        "ResourceType" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -302,7 +302,7 @@ defmodule AWS.Route53Profiles do
       }
 
   """
-  @type associate_profile_response() :: %{String.t() => any()}
+  @type associate_profile_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -313,18 +313,18 @@ defmodule AWS.Route53Profiles do
       }
 
   """
-  @type get_profile_response() :: %{String.t() => any()}
+  @type get_profile_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_next_token_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_next_token_exception() :: %{String.t() => any()}
+  @type invalid_next_token_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -335,19 +335,19 @@ defmodule AWS.Route53Profiles do
       }
 
   """
-  @type create_profile_response() :: %{String.t() => any()}
+  @type create_profile_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_profile_associations_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "ProfileAssociations" => list(profile_association())
       }
 
   """
-  @type list_profile_associations_response() :: %{String.t() => any()}
+  @type list_profile_associations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -363,12 +363,12 @@ defmodule AWS.Route53Profiles do
   ## Example:
 
       list_profile_resource_associations_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "ProfileResourceAssociations" => list(profile_resource_association())
       }
 
   """
-  @type list_profile_resource_associations_response() :: %{String.t() => any()}
+  @type list_profile_resource_associations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -379,7 +379,7 @@ defmodule AWS.Route53Profiles do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -387,55 +387,55 @@ defmodule AWS.Route53Profiles do
 
       profile_resource_association() :: %{
         "CreationTime" => non_neg_integer(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "ModificationTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "OwnerId" => String.t(),
-        "ProfileId" => String.t(),
-        "ResourceArn" => String.t(),
-        "ResourceProperties" => String.t(),
-        "ResourceType" => String.t(),
+        "Name" => String.t() | Atom.t(),
+        "OwnerId" => String.t() | Atom.t(),
+        "ProfileId" => String.t() | Atom.t(),
+        "ResourceArn" => String.t() | Atom.t(),
+        "ResourceProperties" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "StatusMessage" => String.t()
+        "StatusMessage" => String.t() | Atom.t()
       }
 
   """
-  @type profile_resource_association() :: %{String.t() => any()}
+  @type profile_resource_association() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_exists_exception() :: %{
-        "Message" => String.t(),
-        "ResourceType" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t()
       }
 
   """
-  @type resource_exists_exception() :: %{String.t() => any()}
+  @type resource_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_parameter_exception() :: %{
-        "FieldName" => String.t(),
-        "Message" => String.t()
+        "FieldName" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_parameter_exception() :: %{String.t() => any()}
+  @type invalid_parameter_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -461,18 +461,18 @@ defmodule AWS.Route53Profiles do
 
       profile_association() :: %{
         "CreationTime" => non_neg_integer(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "ModificationTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "OwnerId" => String.t(),
-        "ProfileId" => String.t(),
-        "ResourceId" => String.t(),
+        "Name" => String.t() | Atom.t(),
+        "OwnerId" => String.t() | Atom.t(),
+        "ProfileId" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "StatusMessage" => String.t()
+        "StatusMessage" => String.t() | Atom.t()
       }
 
   """
-  @type profile_association() :: %{String.t() => any()}
+  @type profile_association() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -488,23 +488,23 @@ defmodule AWS.Route53Profiles do
   ## Example:
 
       list_profiles_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "ProfileSummaries" => list(profile_summary())
       }
 
   """
-  @type list_profiles_response() :: %{String.t() => any()}
+  @type list_profiles_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -520,37 +520,37 @@ defmodule AWS.Route53Profiles do
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       limit_exceeded_exception() :: %{
-        "Message" => String.t(),
-        "ResourceType" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t()
       }
 
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       profile_summary() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "ShareStatus" => list(any())
       }
 
   """
-  @type profile_summary() :: %{String.t() => any()}
+  @type profile_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -561,7 +561,7 @@ defmodule AWS.Route53Profiles do
       }
 
   """
-  @type get_profile_association_response() :: %{String.t() => any()}
+  @type get_profile_association_response() :: %{String.t() | Atom.t() => any()}
 
   @type associate_profile_errors() ::
           limit_exceeded_exception()
@@ -804,7 +804,7 @@ defmodule AWS.Route53Profiles do
 
   Before you can delete a profile, you must first disassociate it from all VPCs.
   """
-  @spec delete_profile(map(), String.t(), delete_profile_request(), list()) ::
+  @spec delete_profile(map(), String.t() | Atom.t(), delete_profile_request(), list()) ::
           {:ok, delete_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -836,8 +836,8 @@ defmodule AWS.Route53Profiles do
   """
   @spec disassociate_profile(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           disassociate_profile_request(),
           list()
         ) ::
@@ -874,8 +874,8 @@ defmodule AWS.Route53Profiles do
   """
   @spec disassociate_resource_from_profile(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           disassociate_resource_from_profile_request(),
           list()
         ) ::
@@ -917,7 +917,7 @@ defmodule AWS.Route53Profiles do
   Returns information about a specified Route 53 Profile, such as whether whether
   the Profile is shared, and the current status of the Profile.
   """
-  @spec get_profile(map(), String.t(), list()) ::
+  @spec get_profile(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -939,7 +939,7 @@ defmodule AWS.Route53Profiles do
   A VPC can have only one Profile association, but a Profile can be associated
   with up to 5000 VPCs.
   """
-  @spec get_profile_association(map(), String.t(), list()) ::
+  @spec get_profile_association(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_profile_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -958,7 +958,7 @@ defmodule AWS.Route53Profiles do
 
   Returns information about a specified Route 53 Profile resource association.
   """
-  @spec get_profile_resource_association(map(), String.t(), list()) ::
+  @spec get_profile_resource_association(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_profile_resource_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -985,10 +985,10 @@ defmodule AWS.Route53Profiles do
   """
   @spec list_profile_associations(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_profile_associations_response(), any()}
@@ -1046,10 +1046,10 @@ defmodule AWS.Route53Profiles do
   """
   @spec list_profile_resource_associations(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_profile_resource_associations_response(), any()}
@@ -1099,7 +1099,7 @@ defmodule AWS.Route53Profiles do
   Lists all the Route 53 Profiles associated with your Amazon Web Services
   account.
   """
-  @spec list_profiles(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_profiles(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1132,7 +1132,7 @@ defmodule AWS.Route53Profiles do
 
   Lists the tags that you associated with the specified resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1151,7 +1151,7 @@ defmodule AWS.Route53Profiles do
 
   Adds one or more tags to a specified resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1181,7 +1181,7 @@ defmodule AWS.Route53Profiles do
 
   Removes one or more tags from a specified resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1218,7 +1218,7 @@ defmodule AWS.Route53Profiles do
   """
   @spec update_profile_resource_association(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_profile_resource_association_request(),
           list()
         ) ::

@@ -45,24 +45,24 @@ defmodule AWS.Connect do
   ## Example:
 
       associate_instance_storage_config_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
         required("ResourceType") => list(any()),
         required("StorageConfig") => instance_storage_config()
       }
 
   """
-  @type associate_instance_storage_config_request() :: %{String.t() => any()}
+  @type associate_instance_storage_config_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_attached_file_request() :: %{
-        required("AssociatedResourceArn") => String.t()
+        required("AssociatedResourceArn") => String.t() | Atom.t()
       }
 
   """
-  @type delete_attached_file_request() :: %{String.t() => any()}
+  @type delete_attached_file_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -73,7 +73,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type contact_filter() :: %{String.t() => any()}
+  @type contact_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -85,7 +85,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type answer_machine_detection_config() :: %{String.t() => any()}
+  @type answer_machine_detection_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -96,32 +96,32 @@ defmodule AWS.Connect do
       }
 
   """
-  @type update_user_identity_info_request() :: %{String.t() => any()}
+  @type update_user_identity_info_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_contact_evaluations_request() :: %{
-        optional("NextToken") => String.t(),
-        required("ContactId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ContactId") => String.t() | Atom.t()
       }
 
   """
-  @type list_contact_evaluations_request() :: %{String.t() => any()}
+  @type list_contact_evaluations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       outbound_caller_config() :: %{
-        "OutboundCallerIdName" => String.t(),
-        "OutboundCallerIdNumberId" => String.t(),
-        "OutboundFlowId" => String.t()
+        "OutboundCallerIdName" => String.t() | Atom.t(),
+        "OutboundCallerIdNumberId" => String.t() | Atom.t(),
+        "OutboundFlowId" => String.t() | Atom.t()
       }
 
   """
-  @type outbound_caller_config() :: %{String.t() => any()}
+  @type outbound_caller_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -132,7 +132,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type queue_search_filter() :: %{String.t() => any()}
+  @type queue_search_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -143,7 +143,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type action_summary() :: %{String.t() => any()}
+  @type action_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -154,29 +154,29 @@ defmodule AWS.Connect do
       }
 
   """
-  @type update_user_proficiencies_request() :: %{String.t() => any()}
+  @type update_user_proficiencies_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_default_vocabulary_request() :: %{
-        optional("VocabularyId") => String.t()
+        optional("VocabularyId") => String.t() | Atom.t()
       }
 
   """
-  @type associate_default_vocabulary_request() :: %{String.t() => any()}
+  @type associate_default_vocabulary_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_persistent_contact_association_response() :: %{
-        "ContinuedFromContactId" => String.t()
+        "ContinuedFromContactId" => String.t() | Atom.t()
       }
 
   """
-  @type create_persistent_contact_association_response() :: %{String.t() => any()}
+  @type create_persistent_contact_association_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -202,71 +202,71 @@ defmodule AWS.Connect do
 
       get_current_user_data_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         required("Filters") => user_data_filters()
       }
 
   """
-  @type get_current_user_data_request() :: %{String.t() => any()}
+  @type get_current_user_data_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       chat_streaming_configuration() :: %{
-        "StreamingEndpointArn" => String.t()
+        "StreamingEndpointArn" => String.t() | Atom.t()
       }
 
   """
-  @type chat_streaming_configuration() :: %{String.t() => any()}
+  @type chat_streaming_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_effective_hours_of_operations_request() :: %{
-        required("FromDate") => String.t(),
-        required("ToDate") => String.t()
+        required("FromDate") => String.t() | Atom.t(),
+        required("ToDate") => String.t() | Atom.t()
       }
 
   """
-  @type get_effective_hours_of_operations_request() :: %{String.t() => any()}
+  @type get_effective_hours_of_operations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       view_input_content() :: %{
-        "Actions" => list(String.t()),
-        "Template" => String.t()
+        "Actions" => list(String.t() | Atom.t()),
+        "Template" => String.t() | Atom.t()
       }
 
   """
-  @type view_input_content() :: %{String.t() => any()}
+  @type view_input_content() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_contact_references_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "ReferenceSummaryList" => list(list())
       }
 
   """
-  @type list_contact_references_response() :: %{String.t() => any()}
+  @type list_contact_references_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       search_vocabularies_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "VocabularySummaryList" => list(vocabulary_summary())
       }
 
   """
-  @type search_vocabularies_response() :: %{String.t() => any()}
+  @type search_vocabularies_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -275,14 +275,14 @@ defmodule AWS.Connect do
       get_current_metric_data_request() :: %{
         optional("Groupings") => list(list(any())()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("SortCriteria") => list(current_metric_sort_criteria()),
         required("CurrentMetrics") => list(current_metric()),
         required("Filters") => filters()
       }
 
   """
-  @type get_current_metric_data_request() :: %{String.t() => any()}
+  @type get_current_metric_data_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -294,51 +294,51 @@ defmodule AWS.Connect do
       }
 
   """
-  @type participant_capabilities() :: %{String.t() => any()}
+  @type participant_capabilities() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_rule_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
         required("Actions") => list(rule_action()),
-        required("Function") => String.t(),
-        required("Name") => String.t(),
+        required("Function") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t(),
         required("PublishStatus") => list(any()),
         required("TriggerEventSource") => rule_trigger_event_source()
       }
 
   """
-  @type create_rule_request() :: %{String.t() => any()}
+  @type create_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_evaluation_form_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
         optional("CreateNewVersion") => boolean(),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("ScoringStrategy") => evaluation_form_scoring_strategy(),
         required("EvaluationFormVersion") => integer(),
         required("Items") => list(list()),
-        required("Title") => String.t()
+        required("Title") => String.t() | Atom.t()
       }
 
   """
-  @type update_evaluation_form_request() :: %{String.t() => any()}
+  @type update_evaluation_form_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_outbound_email_contact_response() :: %{
-        "ContactId" => String.t()
+        "ContactId" => String.t() | Atom.t()
       }
 
   """
-  @type start_outbound_email_contact_response() :: %{String.t() => any()}
+  @type start_outbound_email_contact_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -351,68 +351,71 @@ defmodule AWS.Connect do
       }
 
   """
-  @type security_profile_search_criteria() :: %{String.t() => any()}
+  @type security_profile_search_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_traffic_distribution_group_user_request() :: %{
-        required("InstanceId") => String.t(),
-        required("UserId") => String.t()
+        required("InstanceId") => String.t() | Atom.t(),
+        required("UserId") => String.t() | Atom.t()
       }
 
   """
-  @type disassociate_traffic_distribution_group_user_request() :: %{String.t() => any()}
+  @type disassociate_traffic_distribution_group_user_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       email_reference() :: %{
-        "Name" => String.t(),
-        "Value" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type email_reference() :: %{String.t() => any()}
+  @type email_reference() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       number_reference() :: %{
-        "Name" => String.t(),
-        "Value" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type number_reference() :: %{String.t() => any()}
+  @type number_reference() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_participant_request() :: %{
-        optional("ClientToken") => String.t(),
-        required("ContactId") => String.t(),
-        required("InstanceId") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
+        required("ContactId") => String.t() | Atom.t(),
+        required("InstanceId") => String.t() | Atom.t(),
         required("ParticipantDetails") => participant_details_to_add()
       }
 
   """
-  @type create_participant_request() :: %{String.t() => any()}
+  @type create_participant_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       output_type_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type output_type_not_found_exception() :: %{String.t() => any()}
+  @type output_type_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -423,7 +426,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -441,56 +444,56 @@ defmodule AWS.Connect do
       }
 
   """
-  @type chat_contact_metrics() :: %{String.t() => any()}
+  @type chat_contact_metrics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       traffic_distribution_group_summary() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
-        "InstanceArn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "InstanceArn" => String.t() | Atom.t(),
         "IsDefault" => boolean(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Status" => list(any())
       }
 
   """
-  @type traffic_distribution_group_summary() :: %{String.t() => any()}
+  @type traffic_distribution_group_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       contact_flow_module() :: %{
-        "Arn" => String.t(),
-        "Content" => String.t(),
-        "Description" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Content" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "State" => list(any()),
         "Status" => list(any()),
         "Tags" => map()
       }
 
   """
-  @type contact_flow_module() :: %{String.t() => any()}
+  @type contact_flow_module() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       user_summary() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
-        "LastModifiedRegion" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "LastModifiedRegion" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "Username" => String.t()
+        "Username" => String.t() | Atom.t()
       }
 
   """
-  @type user_summary() :: %{String.t() => any()}
+  @type user_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -502,7 +505,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type range() :: %{String.t() => any()}
+  @type range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -528,12 +531,12 @@ defmodule AWS.Connect do
 
       list_queues_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("QueueTypes") => list(list(any())())
       }
 
   """
-  @type list_queues_request() :: %{String.t() => any()}
+  @type list_queues_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -541,11 +544,11 @@ defmodule AWS.Connect do
 
       list_lambda_functions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_lambda_functions_request() :: %{String.t() => any()}
+  @type list_lambda_functions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -553,11 +556,11 @@ defmodule AWS.Connect do
 
       encryption_config() :: %{
         "EncryptionType" => list(any()),
-        "KeyId" => String.t()
+        "KeyId" => String.t() | Atom.t()
       }
 
   """
-  @type encryption_config() :: %{String.t() => any()}
+  @type encryption_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -565,44 +568,44 @@ defmodule AWS.Connect do
 
       search_contact_flow_modules_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("SearchCriteria") => contact_flow_module_search_criteria(),
         optional("SearchFilter") => contact_flow_module_search_filter(),
-        required("InstanceId") => String.t()
+        required("InstanceId") => String.t() | Atom.t()
       }
 
   """
-  @type search_contact_flow_modules_request() :: %{String.t() => any()}
+  @type search_contact_flow_modules_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_phone_numbers_summary() :: %{
-        "InstanceId" => String.t(),
-        "PhoneNumber" => String.t(),
-        "PhoneNumberArn" => String.t(),
+        "InstanceId" => String.t() | Atom.t(),
+        "PhoneNumber" => String.t() | Atom.t(),
+        "PhoneNumberArn" => String.t() | Atom.t(),
         "PhoneNumberCountryCode" => list(any()),
-        "PhoneNumberDescription" => String.t(),
-        "PhoneNumberId" => String.t(),
+        "PhoneNumberDescription" => String.t() | Atom.t(),
+        "PhoneNumberId" => String.t() | Atom.t(),
         "PhoneNumberType" => list(any()),
-        "SourcePhoneNumberArn" => String.t(),
-        "TargetArn" => String.t()
+        "SourcePhoneNumberArn" => String.t() | Atom.t(),
+        "TargetArn" => String.t() | Atom.t()
       }
 
   """
-  @type list_phone_numbers_summary() :: %{String.t() => any()}
+  @type list_phone_numbers_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       campaign() :: %{
-        "CampaignId" => String.t()
+        "CampaignId" => String.t() | Atom.t()
       }
 
   """
-  @type campaign() :: %{String.t() => any()}
+  @type campaign() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -627,7 +630,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type contact_flow_search_criteria() :: %{String.t() => any()}
+  @type contact_flow_search_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -635,12 +638,12 @@ defmodule AWS.Connect do
 
       search_users_response() :: %{
         "ApproximateTotalCount" => float(),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Users" => list(user_search_summary())
       }
 
   """
-  @type search_users_response() :: %{String.t() => any()}
+  @type search_users_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -649,46 +652,46 @@ defmodule AWS.Connect do
       start_outbound_chat_contact_request() :: %{
         optional("Attributes") => map(),
         optional("ChatDurationInMinutes") => integer(),
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
         optional("InitialSystemMessage") => chat_message(),
         optional("ParticipantDetails") => participant_details(),
-        optional("RelatedContactId") => String.t(),
-        optional("SupportedMessagingContentTypes") => list(String.t()),
-        required("ContactFlowId") => String.t(),
+        optional("RelatedContactId") => String.t() | Atom.t(),
+        optional("SupportedMessagingContentTypes") => list(String.t() | Atom.t()),
+        required("ContactFlowId") => String.t() | Atom.t(),
         required("DestinationEndpoint") => endpoint(),
-        required("InstanceId") => String.t(),
+        required("InstanceId") => String.t() | Atom.t(),
         required("SegmentAttributes") => map(),
         required("SourceEndpoint") => endpoint()
       }
 
   """
-  @type start_outbound_chat_contact_request() :: %{String.t() => any()}
+  @type start_outbound_chat_contact_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_contact_recording_request() :: %{
-        required("ContactId") => String.t(),
-        required("InitialContactId") => String.t(),
-        required("InstanceId") => String.t(),
+        required("ContactId") => String.t() | Atom.t(),
+        required("InitialContactId") => String.t() | Atom.t(),
+        required("InstanceId") => String.t() | Atom.t(),
         required("VoiceRecordingConfiguration") => voice_recording_configuration()
       }
 
   """
-  @type start_contact_recording_request() :: %{String.t() => any()}
+  @type start_contact_recording_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_traffic_distribution_group_users_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "TrafficDistributionGroupUserSummaryList" => list(traffic_distribution_group_user_summary())
       }
 
   """
-  @type list_traffic_distribution_group_users_response() :: %{String.t() => any()}
+  @type list_traffic_distribution_group_users_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -699,7 +702,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type routing_criteria_input() :: %{String.t() => any()}
+  @type routing_criteria_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -710,19 +713,19 @@ defmodule AWS.Connect do
       }
 
   """
-  @type user_hierarchy_group_search_filter() :: %{String.t() => any()}
+  @type user_hierarchy_group_search_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       email_recipient() :: %{
-        "Address" => String.t(),
-        "DisplayName" => String.t()
+        "Address" => String.t() | Atom.t(),
+        "DisplayName" => String.t() | Atom.t()
       }
 
   """
-  @type email_recipient() :: %{String.t() => any()}
+  @type email_recipient() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -738,31 +741,31 @@ defmodule AWS.Connect do
   ## Example:
 
       attribute_condition() :: %{
-        "ComparisonOperator" => String.t(),
+        "ComparisonOperator" => String.t() | Atom.t(),
         "MatchCriteria" => match_criteria(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "ProficiencyLevel" => float(),
         "Range" => range(),
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type attribute_condition() :: %{String.t() => any()}
+  @type attribute_condition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       prompt_summary() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
-        "LastModifiedRegion" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "LastModifiedRegion" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type prompt_summary() :: %{String.t() => any()}
+  @type prompt_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -792,7 +795,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type list_condition() :: %{String.t() => any()}
+  @type list_condition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -803,45 +806,45 @@ defmodule AWS.Connect do
       }
 
   """
-  @type routing_criteria_input_step_expiry() :: %{String.t() => any()}
+  @type routing_criteria_input_step_expiry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_use_case_response() :: %{
-        "UseCaseArn" => String.t(),
-        "UseCaseId" => String.t()
+        "UseCaseArn" => String.t() | Atom.t(),
+        "UseCaseId" => String.t() | Atom.t()
       }
 
   """
-  @type create_use_case_response() :: %{String.t() => any()}
+  @type create_use_case_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       replicate_instance_request() :: %{
-        optional("ClientToken") => String.t(),
-        required("ReplicaAlias") => String.t(),
-        required("ReplicaRegion") => String.t()
+        optional("ClientToken") => String.t() | Atom.t(),
+        required("ReplicaAlias") => String.t() | Atom.t(),
+        required("ReplicaRegion") => String.t() | Atom.t()
       }
 
   """
-  @type replicate_instance_request() :: %{String.t() => any()}
+  @type replicate_instance_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       deactivate_evaluation_form_response() :: %{
-        "EvaluationFormArn" => String.t(),
-        "EvaluationFormId" => String.t(),
+        "EvaluationFormArn" => String.t() | Atom.t(),
+        "EvaluationFormId" => String.t() | Atom.t(),
         "EvaluationFormVersion" => integer()
       }
 
   """
-  @type deactivate_evaluation_form_response() :: %{String.t() => any()}
+  @type deactivate_evaluation_form_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -852,7 +855,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type contact_flow_search_filter() :: %{String.t() => any()}
+  @type contact_flow_search_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -861,27 +864,27 @@ defmodule AWS.Connect do
       search_hours_of_operations_response() :: %{
         "ApproximateTotalCount" => float(),
         "HoursOfOperations" => list(hours_of_operation()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type search_hours_of_operations_response() :: %{String.t() => any()}
+  @type search_hours_of_operations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       view_summary() :: %{
-        "Arn" => String.t(),
-        "Description" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "Status" => list(any()),
         "Type" => list(any())
       }
 
   """
-  @type view_summary() :: %{String.t() => any()}
+  @type view_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -893,7 +896,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type searchable_segment_attributes() :: %{String.t() => any()}
+  @type searchable_segment_attributes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -904,19 +907,19 @@ defmodule AWS.Connect do
       }
 
   """
-  @type activate_evaluation_form_request() :: %{String.t() => any()}
+  @type activate_evaluation_form_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       successful_request() :: %{
-        "ContactId" => String.t(),
-        "RequestIdentifier" => String.t()
+        "ContactId" => String.t() | Atom.t(),
+        "RequestIdentifier" => String.t() | Atom.t()
       }
 
   """
-  @type successful_request() :: %{String.t() => any()}
+  @type successful_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -927,7 +930,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type describe_instance_storage_config_response() :: %{String.t() => any()}
+  @type describe_instance_storage_config_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -943,20 +946,20 @@ defmodule AWS.Connect do
   ## Example:
 
       agent_status() :: %{
-        "AgentStatusARN" => String.t(),
-        "AgentStatusId" => String.t(),
-        "Description" => String.t(),
+        "AgentStatusARN" => String.t() | Atom.t(),
+        "AgentStatusId" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
         "DisplayOrder" => integer(),
-        "LastModifiedRegion" => String.t(),
+        "LastModifiedRegion" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "State" => list(any()),
         "Tags" => map(),
         "Type" => list(any())
       }
 
   """
-  @type agent_status() :: %{String.t() => any()}
+  @type agent_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -964,11 +967,11 @@ defmodule AWS.Connect do
 
       search_available_phone_numbers_response() :: %{
         "AvailableNumbersList" => list(available_number_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type search_available_phone_numbers_response() :: %{String.t() => any()}
+  @type search_available_phone_numbers_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -978,35 +981,35 @@ defmodule AWS.Connect do
         "Channel" => list(any()),
         "Queue" => queue_reference(),
         "RoutingProfile" => routing_profile_reference(),
-        "RoutingStepExpression" => String.t()
+        "RoutingStepExpression" => String.t() | Atom.t()
       }
 
   """
-  @type dimensions() :: %{String.t() => any()}
+  @type dimensions() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_task_template_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "Constraints" => task_template_constraints(),
-        "ContactFlowId" => String.t(),
+        "ContactFlowId" => String.t() | Atom.t(),
         "CreatedTime" => non_neg_integer(),
         "Defaults" => task_template_defaults(),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "Fields" => list(task_template_field()),
-        "Id" => String.t(),
-        "InstanceId" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "InstanceId" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "SelfAssignFlowId" => String.t(),
+        "Name" => String.t() | Atom.t(),
+        "SelfAssignFlowId" => String.t() | Atom.t(),
         "Status" => list(any()),
         "Tags" => map()
       }
 
   """
-  @type get_task_template_response() :: %{String.t() => any()}
+  @type get_task_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1026,7 +1029,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type describe_prompt_response() :: %{String.t() => any()}
+  @type describe_prompt_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1034,23 +1037,23 @@ defmodule AWS.Connect do
 
       list_hours_of_operations_response() :: %{
         "HoursOfOperationSummaryList" => list(hours_of_operation_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_hours_of_operations_response() :: %{String.t() => any()}
+  @type list_hours_of_operations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       property_validation_exception() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "PropertyList" => list(property_validation_exception_property())
       }
 
   """
-  @type property_validation_exception() :: %{String.t() => any()}
+  @type property_validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1066,12 +1069,12 @@ defmodule AWS.Connect do
   ## Example:
 
       user_identity_info_lite() :: %{
-        "FirstName" => String.t(),
-        "LastName" => String.t()
+        "FirstName" => String.t() | Atom.t(),
+        "LastName" => String.t() | Atom.t()
       }
 
   """
-  @type user_identity_info_lite() :: %{String.t() => any()}
+  @type user_identity_info_lite() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1082,7 +1085,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type describe_contact_response() :: %{String.t() => any()}
+  @type describe_contact_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1090,11 +1093,11 @@ defmodule AWS.Connect do
 
       list_flow_associations_response() :: %{
         "FlowAssociationSummaryList" => list(flow_association_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_flow_associations_response() :: %{String.t() => any()}
+  @type list_flow_associations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1107,19 +1110,19 @@ defmodule AWS.Connect do
       }
 
   """
-  @type search_contacts_time_range() :: %{String.t() => any()}
+  @type search_contacts_time_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       threshold_v2() :: %{
-        "Comparison" => String.t(),
+        "Comparison" => String.t() | Atom.t(),
         "ThresholdValue" => float()
       }
 
   """
-  @type threshold_v2() :: %{String.t() => any()}
+  @type threshold_v2() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1135,16 +1138,16 @@ defmodule AWS.Connect do
   ## Example:
 
       create_contact_flow_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("Status") => list(any()),
         optional("Tags") => map(),
-        required("Content") => String.t(),
-        required("Name") => String.t(),
+        required("Content") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t(),
         required("Type") => list(any())
       }
 
   """
-  @type create_contact_flow_request() :: %{String.t() => any()}
+  @type create_contact_flow_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1157,7 +1160,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type metric_interval() :: %{String.t() => any()}
+  @type metric_interval() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1165,12 +1168,12 @@ defmodule AWS.Connect do
 
       upload_url_metadata() :: %{
         "HeadersToInclude" => map(),
-        "Url" => String.t(),
-        "UrlExpiry" => String.t()
+        "Url" => String.t() | Atom.t(),
+        "UrlExpiry" => String.t() | Atom.t()
       }
 
   """
-  @type upload_url_metadata() :: %{String.t() => any()}
+  @type upload_url_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1178,12 +1181,15 @@ defmodule AWS.Connect do
 
       real_time_contact_analysis_transcript_item_with_content() :: %{
         "CharacterOffsets" => real_time_contact_analysis_character_interval(),
-        "Content" => String.t(),
-        "Id" => String.t()
+        "Content" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type real_time_contact_analysis_transcript_item_with_content() :: %{String.t() => any()}
+  @type real_time_contact_analysis_transcript_item_with_content() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1191,25 +1197,25 @@ defmodule AWS.Connect do
 
       search_predefined_attributes_response() :: %{
         "ApproximateTotalCount" => float(),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "PredefinedAttributes" => list(predefined_attribute())
       }
 
   """
-  @type search_predefined_attributes_response() :: %{String.t() => any()}
+  @type search_predefined_attributes_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_in_use_exception() :: %{
-        "Message" => String.t(),
-        "ResourceId" => String.t(),
+        "Message" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | Atom.t(),
         "ResourceType" => list(any())
       }
 
   """
-  @type resource_in_use_exception() :: %{String.t() => any()}
+  @type resource_in_use_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1217,14 +1223,14 @@ defmodule AWS.Connect do
 
       search_hours_of_operations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("SearchCriteria") => hours_of_operation_search_criteria(),
         optional("SearchFilter") => hours_of_operation_search_filter(),
-        required("InstanceId") => String.t()
+        required("InstanceId") => String.t() | Atom.t()
       }
 
   """
-  @type search_hours_of_operations_request() :: %{String.t() => any()}
+  @type search_hours_of_operations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1240,13 +1246,13 @@ defmodule AWS.Connect do
   ## Example:
 
       get_prompt_file_response() :: %{
-        "LastModifiedRegion" => String.t(),
+        "LastModifiedRegion" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "PromptPresignedUrl" => String.t()
+        "PromptPresignedUrl" => String.t() | Atom.t()
       }
 
   """
-  @type get_prompt_file_response() :: %{String.t() => any()}
+  @type get_prompt_file_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1261,39 +1267,39 @@ defmodule AWS.Connect do
       }
 
   """
-  @type hierarchy_path_reference() :: %{String.t() => any()}
+  @type hierarchy_path_reference() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_flow_association_response() :: %{
-        "FlowId" => String.t(),
-        "ResourceId" => String.t(),
+        "FlowId" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | Atom.t(),
         "ResourceType" => list(any())
       }
 
   """
-  @type get_flow_association_response() :: %{String.t() => any()}
+  @type get_flow_association_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       evaluation_form_version_summary() :: %{
-        "CreatedBy" => String.t(),
+        "CreatedBy" => String.t() | Atom.t(),
         "CreatedTime" => non_neg_integer(),
-        "EvaluationFormArn" => String.t(),
-        "EvaluationFormId" => String.t(),
+        "EvaluationFormArn" => String.t() | Atom.t(),
+        "EvaluationFormId" => String.t() | Atom.t(),
         "EvaluationFormVersion" => integer(),
-        "LastModifiedBy" => String.t(),
+        "LastModifiedBy" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
         "Locked" => boolean(),
         "Status" => list(any())
       }
 
   """
-  @type evaluation_form_version_summary() :: %{String.t() => any()}
+  @type evaluation_form_version_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1306,33 +1312,33 @@ defmodule AWS.Connect do
       }
 
   """
-  @type routing_criteria() :: %{String.t() => any()}
+  @type routing_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       email_attachment() :: %{
-        "FileName" => String.t(),
-        "S3Url" => String.t()
+        "FileName" => String.t() | Atom.t(),
+        "S3Url" => String.t() | Atom.t()
       }
 
   """
-  @type email_attachment() :: %{String.t() => any()}
+  @type email_attachment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_user_proficiencies_response() :: %{
-        "LastModifiedRegion" => String.t(),
+        "LastModifiedRegion" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "UserProficiencyList" => list(user_proficiency())
       }
 
   """
-  @type list_user_proficiencies_response() :: %{String.t() => any()}
+  @type list_user_proficiencies_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1344,7 +1350,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type historical_metric_result() :: %{String.t() => any()}
+  @type historical_metric_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1355,19 +1361,19 @@ defmodule AWS.Connect do
       }
 
   """
-  @type describe_agent_status_response() :: %{String.t() => any()}
+  @type describe_agent_status_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       send_chat_integration_event_response() :: %{
-        "InitialContactId" => String.t(),
+        "InitialContactId" => String.t() | Atom.t(),
         "NewChatCreated" => boolean()
       }
 
   """
-  @type send_chat_integration_event_response() :: %{String.t() => any()}
+  @type send_chat_integration_event_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1375,25 +1381,25 @@ defmodule AWS.Connect do
 
       meeting() :: %{
         "MediaPlacement" => media_placement(),
-        "MediaRegion" => String.t(),
+        "MediaRegion" => String.t() | Atom.t(),
         "MeetingFeatures" => meeting_features_configuration(),
-        "MeetingId" => String.t()
+        "MeetingId" => String.t() | Atom.t()
       }
 
   """
-  @type meeting() :: %{String.t() => any()}
+  @type meeting() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       attached_file() :: %{
-        "AssociatedResourceArn" => String.t(),
+        "AssociatedResourceArn" => String.t() | Atom.t(),
         "CreatedBy" => list(),
-        "CreationTime" => String.t(),
-        "FileArn" => String.t(),
-        "FileId" => String.t(),
-        "FileName" => String.t(),
+        "CreationTime" => String.t() | Atom.t(),
+        "FileArn" => String.t() | Atom.t(),
+        "FileId" => String.t() | Atom.t(),
+        "FileName" => String.t() | Atom.t(),
         "FileSizeInBytes" => float(),
         "FileStatus" => list(any()),
         "FileUseCaseType" => list(any()),
@@ -1401,19 +1407,19 @@ defmodule AWS.Connect do
       }
 
   """
-  @type attached_file() :: %{String.t() => any()}
+  @type attached_file() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       search_resource_tags_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Tags" => list(tag_set())
       }
 
   """
-  @type search_resource_tags_response() :: %{String.t() => any()}
+  @type search_resource_tags_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1429,23 +1435,23 @@ defmodule AWS.Connect do
   ## Example:
 
       phone_number_quick_connect_config() :: %{
-        "PhoneNumber" => String.t()
+        "PhoneNumber" => String.t() | Atom.t()
       }
 
   """
-  @type phone_number_quick_connect_config() :: %{String.t() => any()}
+  @type phone_number_quick_connect_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       searchable_segment_attributes_criteria() :: %{
-        "Key" => String.t(),
-        "Values" => list(String.t())
+        "Key" => String.t() | Atom.t(),
+        "Values" => list(String.t() | Atom.t())
       }
 
   """
-  @type searchable_segment_attributes_criteria() :: %{String.t() => any()}
+  @type searchable_segment_attributes_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1467,13 +1473,13 @@ defmodule AWS.Connect do
         "MessageLengthInChars" => integer(),
         "MessagesSent" => integer(),
         "NumResponses" => integer(),
-        "ParticipantId" => String.t(),
+        "ParticipantId" => String.t() | Atom.t(),
         "ParticipantType" => list(any()),
         "TotalResponseTimeInMillis" => float()
       }
 
   """
-  @type participant_metrics() :: %{String.t() => any()}
+  @type participant_metrics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1484,7 +1490,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type describe_security_profile_response() :: %{String.t() => any()}
+  @type describe_security_profile_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1495,7 +1501,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type delete_evaluation_form_request() :: %{String.t() => any()}
+  @type delete_evaluation_form_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1508,57 +1514,57 @@ defmodule AWS.Connect do
       }
 
   """
-  @type agent_status_search_criteria() :: %{String.t() => any()}
+  @type agent_status_search_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_security_profile_response() :: %{
-        "SecurityProfileArn" => String.t(),
-        "SecurityProfileId" => String.t()
+        "SecurityProfileArn" => String.t() | Atom.t(),
+        "SecurityProfileId" => String.t() | Atom.t()
       }
 
   """
-  @type create_security_profile_response() :: %{String.t() => any()}
+  @type create_security_profile_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       outbound_contact_not_permitted_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type outbound_contact_not_permitted_exception() :: %{String.t() => any()}
+  @type outbound_contact_not_permitted_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_prompts_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "PromptSummaryList" => list(prompt_summary())
       }
 
   """
-  @type list_prompts_response() :: %{String.t() => any()}
+  @type list_prompts_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       user_data_filters() :: %{
-        "Agents" => list(String.t()),
+        "Agents" => list(String.t() | Atom.t()),
         "ContactFilter" => contact_filter(),
-        "Queues" => list(String.t()),
-        "RoutingProfiles" => list(String.t()),
-        "UserHierarchyGroups" => list(String.t())
+        "Queues" => list(String.t() | Atom.t()),
+        "RoutingProfiles" => list(String.t() | Atom.t()),
+        "UserHierarchyGroups" => list(String.t() | Atom.t())
       }
 
   """
-  @type user_data_filters() :: %{String.t() => any()}
+  @type user_data_filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1574,38 +1580,38 @@ defmodule AWS.Connect do
   ## Example:
 
       chat_message() :: %{
-        "Content" => String.t(),
-        "ContentType" => String.t()
+        "Content" => String.t() | Atom.t(),
+        "ContentType" => String.t() | Atom.t()
       }
 
   """
-  @type chat_message() :: %{String.t() => any()}
+  @type chat_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_push_notification_registration_response() :: %{
-        "RegistrationId" => String.t()
+        "RegistrationId" => String.t() | Atom.t()
       }
 
   """
-  @type create_push_notification_registration_response() :: %{String.t() => any()}
+  @type create_push_notification_registration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_hours_of_operation_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("Tags") => map(),
         required("Config") => list(hours_of_operation_config()),
-        required("Name") => String.t(),
-        required("TimeZone") => String.t()
+        required("Name") => String.t() | Atom.t(),
+        required("TimeZone") => String.t() | Atom.t()
       }
 
   """
-  @type create_hours_of_operation_request() :: %{String.t() => any()}
+  @type create_hours_of_operation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1616,7 +1622,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type real_time_contact_analysis_point_of_interest() :: %{String.t() => any()}
+  @type real_time_contact_analysis_point_of_interest() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1641,13 +1647,13 @@ defmodule AWS.Connect do
   ## Example:
 
       disassociate_lex_bot_request() :: %{
-        optional("ClientToken") => String.t(),
-        required("BotName") => String.t(),
-        required("LexRegion") => String.t()
+        optional("ClientToken") => String.t() | Atom.t(),
+        required("BotName") => String.t() | Atom.t(),
+        required("LexRegion") => String.t() | Atom.t()
       }
 
   """
-  @type disassociate_lex_bot_request() :: %{String.t() => any()}
+  @type disassociate_lex_bot_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1660,24 +1666,24 @@ defmodule AWS.Connect do
       }
 
   """
-  @type outbound_email_content() :: %{String.t() => any()}
+  @type outbound_email_content() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_security_profile_request() :: %{
-        optional("AllowedAccessControlHierarchyGroupId") => String.t(),
+        optional("AllowedAccessControlHierarchyGroupId") => String.t() | Atom.t(),
         optional("AllowedAccessControlTags") => map(),
         optional("Applications") => list(application()),
-        optional("Description") => String.t(),
-        optional("HierarchyRestrictedResources") => list(String.t()),
-        optional("Permissions") => list(String.t()),
-        optional("TagRestrictedResources") => list(String.t())
+        optional("Description") => String.t() | Atom.t(),
+        optional("HierarchyRestrictedResources") => list(String.t() | Atom.t()),
+        optional("Permissions") => list(String.t() | Atom.t()),
+        optional("TagRestrictedResources") => list(String.t() | Atom.t())
       }
 
   """
-  @type update_security_profile_request() :: %{String.t() => any()}
+  @type update_security_profile_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1685,26 +1691,26 @@ defmodule AWS.Connect do
 
       search_user_hierarchy_groups_response() :: %{
         "ApproximateTotalCount" => float(),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "UserHierarchyGroups" => list(hierarchy_group())
       }
 
   """
-  @type search_user_hierarchy_groups_response() :: %{String.t() => any()}
+  @type search_user_hierarchy_groups_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       credentials() :: %{
-        "AccessToken" => String.t(),
+        "AccessToken" => String.t() | Atom.t(),
         "AccessTokenExpiration" => non_neg_integer(),
-        "RefreshToken" => String.t(),
+        "RefreshToken" => String.t() | Atom.t(),
         "RefreshTokenExpiration" => non_neg_integer()
       }
 
   """
-  @type credentials() :: %{String.t() => any()}
+  @type credentials() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1713,11 +1719,11 @@ defmodule AWS.Connect do
       search_contact_flow_modules_response() :: %{
         "ApproximateTotalCount" => float(),
         "ContactFlowModules" => list(contact_flow_module()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type search_contact_flow_modules_response() :: %{String.t() => any()}
+  @type search_contact_flow_modules_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1740,7 +1746,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type hours_of_operation_override_search_criteria() :: %{String.t() => any()}
+  @type hours_of_operation_override_search_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1748,73 +1754,73 @@ defmodule AWS.Connect do
 
       list_associated_contacts_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ContactId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ContactId") => String.t() | Atom.t()
       }
 
   """
-  @type list_associated_contacts_request() :: %{String.t() => any()}
+  @type list_associated_contacts_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_instance_storage_config_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
         required("ResourceType") => list(any()),
         required("StorageConfig") => instance_storage_config()
       }
 
   """
-  @type update_instance_storage_config_request() :: %{String.t() => any()}
+  @type update_instance_storage_config_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_condition() :: %{
-        "TagKey" => String.t(),
-        "TagValue" => String.t()
+        "TagKey" => String.t() | Atom.t(),
+        "TagValue" => String.t() | Atom.t()
       }
 
   """
-  @type tag_condition() :: %{String.t() => any()}
+  @type tag_condition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       contact_flow_version_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "Version" => float(),
-        "VersionDescription" => String.t()
+        "VersionDescription" => String.t() | Atom.t()
       }
 
   """
-  @type contact_flow_version_summary() :: %{String.t() => any()}
+  @type contact_flow_version_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       view() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "Content" => view_content(),
         "CreatedTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "Id" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Status" => list(any()),
         "Tags" => map(),
         "Type" => list(any()),
         "Version" => integer(),
-        "VersionDescription" => String.t(),
-        "ViewContentSha256" => String.t()
+        "VersionDescription" => String.t() | Atom.t(),
+        "ViewContentSha256" => String.t() | Atom.t()
       }
 
   """
-  @type view() :: %{String.t() => any()}
+  @type view() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1822,11 +1828,11 @@ defmodule AWS.Connect do
 
       list_contact_flow_versions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_contact_flow_versions_request() :: %{String.t() => any()}
+  @type list_contact_flow_versions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1837,7 +1843,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type describe_queue_response() :: %{String.t() => any()}
+  @type describe_queue_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1859,7 +1865,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type control_plane_attribute_filter() :: %{String.t() => any()}
+  @type control_plane_attribute_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1867,18 +1873,18 @@ defmodule AWS.Connect do
 
       hours_of_operation() :: %{
         "Config" => list(hours_of_operation_config()),
-        "Description" => String.t(),
-        "HoursOfOperationArn" => String.t(),
-        "HoursOfOperationId" => String.t(),
-        "LastModifiedRegion" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "HoursOfOperationArn" => String.t() | Atom.t(),
+        "HoursOfOperationId" => String.t() | Atom.t(),
+        "LastModifiedRegion" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Tags" => map(),
-        "TimeZone" => String.t()
+        "TimeZone" => String.t() | Atom.t()
       }
 
   """
-  @type hours_of_operation() :: %{String.t() => any()}
+  @type hours_of_operation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1889,19 +1895,19 @@ defmodule AWS.Connect do
       }
 
   """
-  @type read_only_field_info() :: %{String.t() => any()}
+  @type read_only_field_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_quick_connect_name_request() :: %{
-        optional("Description") => String.t(),
-        optional("Name") => String.t()
+        optional("Description") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t()
       }
 
   """
-  @type update_quick_connect_name_request() :: %{String.t() => any()}
+  @type update_quick_connect_name_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1917,13 +1923,13 @@ defmodule AWS.Connect do
   ## Example:
 
       metric_filter_v2() :: %{
-        "MetricFilterKey" => String.t(),
-        "MetricFilterValues" => list(String.t()),
+        "MetricFilterKey" => String.t() | Atom.t(),
+        "MetricFilterValues" => list(String.t() | Atom.t()),
         "Negate" => boolean()
       }
 
   """
-  @type metric_filter_v2() :: %{String.t() => any()}
+  @type metric_filter_v2() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1933,13 +1939,13 @@ defmodule AWS.Connect do
         "Channel" => list(any()),
         "Delay" => integer(),
         "Priority" => integer(),
-        "QueueArn" => String.t(),
-        "QueueId" => String.t(),
-        "QueueName" => String.t()
+        "QueueArn" => String.t() | Atom.t(),
+        "QueueId" => String.t() | Atom.t(),
+        "QueueName" => String.t() | Atom.t()
       }
 
   """
-  @type routing_profile_queue_config_summary() :: %{String.t() => any()}
+  @type routing_profile_queue_config_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1947,12 +1953,12 @@ defmodule AWS.Connect do
 
       date_condition() :: %{
         "ComparisonType" => list(any()),
-        "FieldName" => String.t(),
-        "Value" => String.t()
+        "FieldName" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type date_condition() :: %{String.t() => any()}
+  @type date_condition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1960,11 +1966,11 @@ defmodule AWS.Connect do
 
       get_metric_data_v2_response() :: %{
         "MetricResults" => list(metric_result_v2()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type get_metric_data_v2_response() :: %{String.t() => any()}
+  @type get_metric_data_v2_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1972,12 +1978,12 @@ defmodule AWS.Connect do
 
       list_flow_associations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("ResourceType") => list(any())
       }
 
   """
-  @type list_flow_associations_request() :: %{String.t() => any()}
+  @type list_flow_associations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1988,63 +1994,63 @@ defmodule AWS.Connect do
       }
 
   """
-  @type hours_of_operation_search_filter() :: %{String.t() => any()}
+  @type hours_of_operation_search_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_task_template_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
         optional("Constraints") => task_template_constraints(),
-        optional("ContactFlowId") => String.t(),
+        optional("ContactFlowId") => String.t() | Atom.t(),
         optional("Defaults") => task_template_defaults(),
-        optional("Description") => String.t(),
-        optional("SelfAssignFlowId") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("SelfAssignFlowId") => String.t() | Atom.t(),
         optional("Status") => list(any()),
         required("Fields") => list(task_template_field()),
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
 
   """
-  @type create_task_template_request() :: %{String.t() => any()}
+  @type create_task_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       error_result() :: %{
-        "ErrorCode" => String.t(),
-        "ErrorMessage" => String.t()
+        "ErrorCode" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | Atom.t()
       }
 
   """
-  @type error_result() :: %{String.t() => any()}
+  @type error_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       kinesis_firehose_config() :: %{
-        "FirehoseArn" => String.t()
+        "FirehoseArn" => String.t() | Atom.t()
       }
 
   """
-  @type kinesis_firehose_config() :: %{String.t() => any()}
+  @type kinesis_firehose_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       task_template_field() :: %{
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "Id" => task_template_field_identifier(),
-        "SingleSelectOptions" => list(String.t()),
+        "SingleSelectOptions" => list(String.t() | Atom.t()),
         "Type" => list(any())
       }
 
   """
-  @type task_template_field() :: %{String.t() => any()}
+  @type task_template_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2055,7 +2061,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type describe_evaluation_form_response() :: %{String.t() => any()}
+  @type describe_evaluation_form_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2066,7 +2072,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type task_template_defaults() :: %{String.t() => any()}
+  @type task_template_defaults() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2077,7 +2083,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type update_queue_max_contacts_request() :: %{String.t() => any()}
+  @type update_queue_max_contacts_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2093,12 +2099,12 @@ defmodule AWS.Connect do
   ## Example:
 
       create_integration_association_response() :: %{
-        "IntegrationAssociationArn" => String.t(),
-        "IntegrationAssociationId" => String.t()
+        "IntegrationAssociationArn" => String.t() | Atom.t(),
+        "IntegrationAssociationId" => String.t() | Atom.t()
       }
 
   """
-  @type create_integration_association_response() :: %{String.t() => any()}
+  @type create_integration_association_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2109,40 +2115,40 @@ defmodule AWS.Connect do
       }
 
   """
-  @type required_field_info() :: %{String.t() => any()}
+  @type required_field_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       user_search_summary() :: %{
-        "Arn" => String.t(),
-        "DirectoryUserId" => String.t(),
-        "HierarchyGroupId" => String.t(),
-        "Id" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "DirectoryUserId" => String.t() | Atom.t(),
+        "HierarchyGroupId" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "IdentityInfo" => user_identity_info_lite(),
         "PhoneConfig" => user_phone_config(),
-        "RoutingProfileId" => String.t(),
-        "SecurityProfileIds" => list(String.t()),
+        "RoutingProfileId" => String.t() | Atom.t(),
+        "SecurityProfileIds" => list(String.t() | Atom.t()),
         "Tags" => map(),
-        "Username" => String.t()
+        "Username" => String.t() | Atom.t()
       }
 
   """
-  @type user_search_summary() :: %{String.t() => any()}
+  @type user_search_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       attached_file_error() :: %{
-        "ErrorCode" => String.t(),
-        "ErrorMessage" => String.t(),
-        "FileId" => String.t()
+        "ErrorCode" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | Atom.t(),
+        "FileId" => String.t() | Atom.t()
       }
 
   """
-  @type attached_file_error() :: %{String.t() => any()}
+  @type attached_file_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2150,61 +2156,61 @@ defmodule AWS.Connect do
 
       start_outbound_email_contact_request() :: %{
         optional("AdditionalRecipients") => outbound_additional_recipients(),
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
         optional("FromEmailAddress") => email_address_info(),
-        required("ContactId") => String.t(),
+        required("ContactId") => String.t() | Atom.t(),
         required("DestinationEmailAddress") => email_address_info(),
         required("EmailMessage") => outbound_email_content(),
-        required("InstanceId") => String.t()
+        required("InstanceId") => String.t() | Atom.t()
       }
 
   """
-  @type start_outbound_email_contact_request() :: %{String.t() => any()}
+  @type start_outbound_email_contact_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       lex_v2_bot() :: %{
-        "AliasArn" => String.t()
+        "AliasArn" => String.t() | Atom.t()
       }
 
   """
-  @type lex_v2_bot() :: %{String.t() => any()}
+  @type lex_v2_bot() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_traffic_distribution_group_response() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type create_traffic_distribution_group_response() :: %{String.t() => any()}
+  @type create_traffic_distribution_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       contact_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type contact_not_found_exception() :: %{String.t() => any()}
+  @type contact_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       contact_flow_not_published_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type contact_flow_not_published_exception() :: %{String.t() => any()}
+  @type contact_flow_not_published_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2219,31 +2225,31 @@ defmodule AWS.Connect do
       }
 
   """
-  @type contact_flow_module_search_criteria() :: %{String.t() => any()}
+  @type contact_flow_module_search_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       traffic_distribution_group_user_summary() :: %{
-        "UserId" => String.t()
+        "UserId" => String.t() | Atom.t()
       }
 
   """
-  @type traffic_distribution_group_user_summary() :: %{String.t() => any()}
+  @type traffic_distribution_group_user_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       use_case() :: %{
-        "UseCaseArn" => String.t(),
-        "UseCaseId" => String.t(),
+        "UseCaseArn" => String.t() | Atom.t(),
+        "UseCaseId" => String.t() | Atom.t(),
         "UseCaseType" => list(any())
       }
 
   """
-  @type use_case() :: %{String.t() => any()}
+  @type use_case() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2251,13 +2257,13 @@ defmodule AWS.Connect do
 
       update_hours_of_operation_request() :: %{
         optional("Config") => list(hours_of_operation_config()),
-        optional("Description") => String.t(),
-        optional("Name") => String.t(),
-        optional("TimeZone") => String.t()
+        optional("Description") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t(),
+        optional("TimeZone") => String.t() | Atom.t()
       }
 
   """
-  @type update_hours_of_operation_request() :: %{String.t() => any()}
+  @type update_hours_of_operation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2268,7 +2274,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type customer_quality_metrics() :: %{String.t() => any()}
+  @type customer_quality_metrics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2276,13 +2282,13 @@ defmodule AWS.Connect do
 
       number_condition() :: %{
         "ComparisonType" => list(any()),
-        "FieldName" => String.t(),
+        "FieldName" => String.t() | Atom.t(),
         "MaxValue" => integer(),
         "MinValue" => integer()
       }
 
   """
-  @type number_condition() :: %{String.t() => any()}
+  @type number_condition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2290,14 +2296,14 @@ defmodule AWS.Connect do
 
       search_routing_profiles_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("SearchCriteria") => routing_profile_search_criteria(),
         optional("SearchFilter") => routing_profile_search_filter(),
-        required("InstanceId") => String.t()
+        required("InstanceId") => String.t() | Atom.t()
       }
 
   """
-  @type search_routing_profiles_request() :: %{String.t() => any()}
+  @type search_routing_profiles_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2305,24 +2311,24 @@ defmodule AWS.Connect do
 
       update_rule_request() :: %{
         required("Actions") => list(rule_action()),
-        required("Function") => String.t(),
-        required("Name") => String.t(),
+        required("Function") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t(),
         required("PublishStatus") => list(any())
       }
 
   """
-  @type update_rule_request() :: %{String.t() => any()}
+  @type update_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_outbound_voice_contact_response() :: %{
-        "ContactId" => String.t()
+        "ContactId" => String.t() | Atom.t()
       }
 
   """
-  @type start_outbound_voice_contact_response() :: %{String.t() => any()}
+  @type start_outbound_voice_contact_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2331,39 +2337,42 @@ defmodule AWS.Connect do
       list_contact_flows_request() :: %{
         optional("ContactFlowTypes") => list(list(any())()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_contact_flows_request() :: %{String.t() => any()}
+  @type list_contact_flows_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       user_identity_info() :: %{
-        "Email" => String.t(),
-        "FirstName" => String.t(),
-        "LastName" => String.t(),
-        "Mobile" => String.t(),
-        "SecondaryEmail" => String.t()
+        "Email" => String.t() | Atom.t(),
+        "FirstName" => String.t() | Atom.t(),
+        "LastName" => String.t() | Atom.t(),
+        "Mobile" => String.t() | Atom.t(),
+        "SecondaryEmail" => String.t() | Atom.t()
       }
 
   """
-  @type user_identity_info() :: %{String.t() => any()}
+  @type user_identity_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       real_time_contact_analysis_segment_post_contact_summary() :: %{
-        "Content" => String.t(),
+        "Content" => String.t() | Atom.t(),
         "FailureCode" => list(any()),
         "Status" => list(any())
       }
 
   """
-  @type real_time_contact_analysis_segment_post_contact_summary() :: %{String.t() => any()}
+  @type real_time_contact_analysis_segment_post_contact_summary() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -2371,11 +2380,11 @@ defmodule AWS.Connect do
 
       list_instance_attributes_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_instance_attributes_request() :: %{String.t() => any()}
+  @type list_instance_attributes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2383,46 +2392,46 @@ defmodule AWS.Connect do
 
       create_vocabulary_response() :: %{
         "State" => list(any()),
-        "VocabularyArn" => String.t(),
-        "VocabularyId" => String.t()
+        "VocabularyArn" => String.t() | Atom.t(),
+        "VocabularyId" => String.t() | Atom.t()
       }
 
   """
-  @type create_vocabulary_response() :: %{String.t() => any()}
+  @type create_vocabulary_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       wisdom_info() :: %{
-        "SessionArn" => String.t()
+        "SessionArn" => String.t() | Atom.t()
       }
 
   """
-  @type wisdom_info() :: %{String.t() => any()}
+  @type wisdom_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       release_phone_number_request() :: %{
-        optional("ClientToken") => String.t()
+        optional("ClientToken") => String.t() | Atom.t()
       }
 
   """
-  @type release_phone_number_request() :: %{String.t() => any()}
+  @type release_phone_number_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       analytics_data_sets_result() :: %{
-        "DataSetId" => String.t(),
-        "DataSetName" => String.t()
+        "DataSetId" => String.t() | Atom.t(),
+        "DataSetName" => String.t() | Atom.t()
       }
 
   """
-  @type analytics_data_sets_result() :: %{String.t() => any()}
+  @type analytics_data_sets_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2430,12 +2439,12 @@ defmodule AWS.Connect do
 
       stop_contact_request() :: %{
         optional("DisconnectReason") => disconnect_reason(),
-        required("ContactId") => String.t(),
-        required("InstanceId") => String.t()
+        required("ContactId") => String.t() | Atom.t(),
+        required("InstanceId") => String.t() | Atom.t()
       }
 
   """
-  @type stop_contact_request() :: %{String.t() => any()}
+  @type stop_contact_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2451,25 +2460,25 @@ defmodule AWS.Connect do
   ## Example:
 
       update_phone_number_response() :: %{
-        "PhoneNumberArn" => String.t(),
-        "PhoneNumberId" => String.t()
+        "PhoneNumberArn" => String.t() | Atom.t(),
+        "PhoneNumberId" => String.t() | Atom.t()
       }
 
   """
-  @type update_phone_number_response() :: %{String.t() => any()}
+  @type update_phone_number_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       contact_configuration() :: %{
-        "ContactId" => String.t(),
+        "ContactId" => String.t() | Atom.t(),
         "IncludeRawMessage" => boolean(),
         "ParticipantRole" => list(any())
       }
 
   """
-  @type contact_configuration() :: %{String.t() => any()}
+  @type contact_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2490,18 +2499,18 @@ defmodule AWS.Connect do
       }
 
   """
-  @type lex_bot_config() :: %{String.t() => any()}
+  @type lex_bot_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       agent_hierarchy_group() :: %{
-        "Arn" => String.t()
+        "Arn" => String.t() | Atom.t()
       }
 
   """
-  @type agent_hierarchy_group() :: %{String.t() => any()}
+  @type agent_hierarchy_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2512,19 +2521,19 @@ defmodule AWS.Connect do
       }
 
   """
-  @type real_time_contact_analysis_segment_issues() :: %{String.t() => any()}
+  @type real_time_contact_analysis_segment_issues() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_instance_response() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type create_instance_response() :: %{String.t() => any()}
+  @type create_instance_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2532,69 +2541,69 @@ defmodule AWS.Connect do
 
       list_contact_evaluations_response() :: %{
         "EvaluationSummaryList" => list(evaluation_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_contact_evaluations_response() :: %{String.t() => any()}
+  @type list_contact_evaluations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       task_template_default_field_value() :: %{
-        "DefaultValue" => String.t(),
+        "DefaultValue" => String.t() | Atom.t(),
         "Id" => task_template_field_identifier()
       }
 
   """
-  @type task_template_default_field_value() :: %{String.t() => any()}
+  @type task_template_default_field_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       authentication_profile() :: %{
-        "AllowedIps" => list(String.t()),
-        "Arn" => String.t(),
-        "BlockedIps" => list(String.t()),
+        "AllowedIps" => list(String.t() | Atom.t()),
+        "Arn" => String.t() | Atom.t(),
+        "BlockedIps" => list(String.t() | Atom.t()),
         "CreatedTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "Id" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "IsDefault" => boolean(),
-        "LastModifiedRegion" => String.t(),
+        "LastModifiedRegion" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
         "MaxSessionDuration" => integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "PeriodicSessionDuration" => integer()
       }
 
   """
-  @type authentication_profile() :: %{String.t() => any()}
+  @type authentication_profile() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       evaluation_note() :: %{
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type evaluation_note() :: %{String.t() => any()}
+  @type evaluation_note() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_contact_flow_module_metadata_request() :: %{
-        optional("Description") => String.t(),
-        optional("Name") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("State") => list(any())
       }
 
   """
-  @type update_contact_flow_module_metadata_request() :: %{String.t() => any()}
+  @type update_contact_flow_module_metadata_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2602,25 +2611,25 @@ defmodule AWS.Connect do
 
       list_hours_of_operation_overrides_response() :: %{
         "HoursOfOperationOverrideList" => list(hours_of_operation_override()),
-        "LastModifiedRegion" => String.t(),
+        "LastModifiedRegion" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_hours_of_operation_overrides_response() :: %{String.t() => any()}
+  @type list_hours_of_operation_overrides_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_prompt_response() :: %{
-        "PromptARN" => String.t(),
-        "PromptId" => String.t()
+        "PromptARN" => String.t() | Atom.t(),
+        "PromptId" => String.t() | Atom.t()
       }
 
   """
-  @type update_prompt_response() :: %{String.t() => any()}
+  @type update_prompt_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2631,7 +2640,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type invalid_contact_flow_exception() :: %{String.t() => any()}
+  @type invalid_contact_flow_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2648,11 +2657,11 @@ defmodule AWS.Connect do
 
       list_evaluation_form_versions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_evaluation_form_versions_request() :: %{String.t() => any()}
+  @type list_evaluation_form_versions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2660,14 +2669,14 @@ defmodule AWS.Connect do
 
       search_agent_statuses_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("SearchCriteria") => agent_status_search_criteria(),
         optional("SearchFilter") => agent_status_search_filter(),
-        required("InstanceId") => String.t()
+        required("InstanceId") => String.t() | Atom.t()
       }
 
   """
-  @type search_agent_statuses_request() :: %{String.t() => any()}
+  @type search_agent_statuses_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2679,7 +2688,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type inbound_email_content() :: %{String.t() => any()}
+  @type inbound_email_content() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2695,12 +2704,12 @@ defmodule AWS.Connect do
   ## Example:
 
       import_phone_number_response() :: %{
-        "PhoneNumberArn" => String.t(),
-        "PhoneNumberId" => String.t()
+        "PhoneNumberArn" => String.t() | Atom.t(),
+        "PhoneNumberId" => String.t() | Atom.t()
       }
 
   """
-  @type import_phone_number_response() :: %{String.t() => any()}
+  @type import_phone_number_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2708,11 +2717,11 @@ defmodule AWS.Connect do
 
       persistent_chat() :: %{
         "RehydrationType" => list(any()),
-        "SourceContactId" => String.t()
+        "SourceContactId" => String.t() | Atom.t()
       }
 
   """
-  @type persistent_chat() :: %{String.t() => any()}
+  @type persistent_chat() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2728,22 +2737,22 @@ defmodule AWS.Connect do
   ## Example:
 
       queue() :: %{
-        "Description" => String.t(),
-        "HoursOfOperationId" => String.t(),
-        "LastModifiedRegion" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "HoursOfOperationId" => String.t() | Atom.t(),
+        "LastModifiedRegion" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
         "MaxContacts" => integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "OutboundCallerConfig" => outbound_caller_config(),
         "OutboundEmailConfig" => outbound_email_config(),
-        "QueueArn" => String.t(),
-        "QueueId" => String.t(),
+        "QueueArn" => String.t() | Atom.t(),
+        "QueueId" => String.t() | Atom.t(),
         "Status" => list(any()),
         "Tags" => map()
       }
 
   """
-  @type queue() :: %{String.t() => any()}
+  @type queue() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2759,13 +2768,13 @@ defmodule AWS.Connect do
   ## Example:
 
       replication_status_summary() :: %{
-        "Region" => String.t(),
+        "Region" => String.t() | Atom.t(),
         "ReplicationStatus" => list(any()),
-        "ReplicationStatusReason" => String.t()
+        "ReplicationStatusReason" => String.t() | Atom.t()
       }
 
   """
-  @type replication_status_summary() :: %{String.t() => any()}
+  @type replication_status_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2777,30 +2786,30 @@ defmodule AWS.Connect do
       }
 
   """
-  @type override_time_slice() :: %{String.t() => any()}
+  @type override_time_slice() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       user_proficiency_disassociate() :: %{
-        "AttributeName" => String.t(),
-        "AttributeValue" => String.t()
+        "AttributeName" => String.t() | Atom.t(),
+        "AttributeValue" => String.t() | Atom.t()
       }
 
   """
-  @type user_proficiency_disassociate() :: %{String.t() => any()}
+  @type user_proficiency_disassociate() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_service_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_service_exception() :: %{String.t() => any()}
+  @type internal_service_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2808,23 +2817,23 @@ defmodule AWS.Connect do
 
       list_use_cases_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_use_cases_request() :: %{String.t() => any()}
+  @type list_use_cases_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_approved_origin_request() :: %{
-        optional("ClientToken") => String.t(),
-        required("Origin") => String.t()
+        optional("ClientToken") => String.t() | Atom.t(),
+        required("Origin") => String.t() | Atom.t()
       }
 
   """
-  @type disassociate_approved_origin_request() :: %{String.t() => any()}
+  @type disassociate_approved_origin_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2833,11 +2842,11 @@ defmodule AWS.Connect do
       segment_attribute_value() :: %{
         "ValueInteger" => integer(),
         "ValueMap" => map(),
-        "ValueString" => String.t()
+        "ValueString" => String.t() | Atom.t()
       }
 
   """
-  @type segment_attribute_value() :: %{String.t() => any()}
+  @type segment_attribute_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2848,19 +2857,19 @@ defmodule AWS.Connect do
       }
 
   """
-  @type real_time_contact_analysis_segment_categories() :: %{String.t() => any()}
+  @type real_time_contact_analysis_segment_categories() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_lambda_function_request() :: %{
-        optional("ClientToken") => String.t(),
-        required("FunctionArn") => String.t()
+        optional("ClientToken") => String.t() | Atom.t(),
+        required("FunctionArn") => String.t() | Atom.t()
       }
 
   """
-  @type associate_lambda_function_request() :: %{String.t() => any()}
+  @type associate_lambda_function_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2872,19 +2881,19 @@ defmodule AWS.Connect do
       }
 
   """
-  @type transcript() :: %{String.t() => any()}
+  @type transcript() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       download_url_metadata() :: %{
-        "Url" => String.t(),
-        "UrlExpiry" => String.t()
+        "Url" => String.t() | Atom.t(),
+        "UrlExpiry" => String.t() | Atom.t()
       }
 
   """
-  @type download_url_metadata() :: %{String.t() => any()}
+  @type download_url_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2909,11 +2918,11 @@ defmodule AWS.Connect do
   ## Example:
 
       disassociate_queue_quick_connects_request() :: %{
-        required("QuickConnectIds") => list(String.t())
+        required("QuickConnectIds") => list(String.t() | Atom.t())
       }
 
   """
-  @type disassociate_queue_quick_connects_request() :: %{String.t() => any()}
+  @type disassociate_queue_quick_connects_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2929,11 +2938,11 @@ defmodule AWS.Connect do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2941,14 +2950,14 @@ defmodule AWS.Connect do
 
       update_hours_of_operation_override_request() :: %{
         optional("Config") => list(hours_of_operation_override_config()),
-        optional("Description") => String.t(),
-        optional("EffectiveFrom") => String.t(),
-        optional("EffectiveTill") => String.t(),
-        optional("Name") => String.t()
+        optional("Description") => String.t() | Atom.t(),
+        optional("EffectiveFrom") => String.t() | Atom.t(),
+        optional("EffectiveTill") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t()
       }
 
   """
-  @type update_hours_of_operation_override_request() :: %{String.t() => any()}
+  @type update_hours_of_operation_override_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2956,13 +2965,13 @@ defmodule AWS.Connect do
 
       list_security_profile_applications_response() :: %{
         "Applications" => list(application()),
-        "LastModifiedRegion" => String.t(),
+        "LastModifiedRegion" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_security_profile_applications_response() :: %{String.t() => any()}
+  @type list_security_profile_applications_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2973,41 +2982,41 @@ defmodule AWS.Connect do
       }
 
   """
-  @type update_quick_connect_config_request() :: %{String.t() => any()}
+  @type update_quick_connect_config_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_queue_hours_of_operation_request() :: %{
-        required("HoursOfOperationId") => String.t()
+        required("HoursOfOperationId") => String.t() | Atom.t()
       }
 
   """
-  @type update_queue_hours_of_operation_request() :: %{String.t() => any()}
+  @type update_queue_hours_of_operation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_requests_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_requests_exception() :: %{String.t() => any()}
+  @type too_many_requests_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       participant_details_to_add() :: %{
-        "DisplayName" => String.t(),
+        "DisplayName" => String.t() | Atom.t(),
         "ParticipantRole" => list(any())
       }
 
   """
-  @type participant_details_to_add() :: %{String.t() => any()}
+  @type participant_details_to_add() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3015,38 +3024,38 @@ defmodule AWS.Connect do
 
       start_contact_streaming_request() :: %{
         required("ChatStreamingConfiguration") => chat_streaming_configuration(),
-        required("ClientToken") => String.t(),
-        required("ContactId") => String.t(),
-        required("InstanceId") => String.t()
+        required("ClientToken") => String.t() | Atom.t(),
+        required("ContactId") => String.t() | Atom.t(),
+        required("InstanceId") => String.t() | Atom.t()
       }
 
   """
-  @type start_contact_streaming_request() :: %{String.t() => any()}
+  @type start_contact_streaming_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_analytics_data_set_response() :: %{
-        "DataSetId" => String.t(),
-        "ResourceShareArn" => String.t(),
-        "ResourceShareId" => String.t(),
-        "TargetAccountId" => String.t()
+        "DataSetId" => String.t() | Atom.t(),
+        "ResourceShareArn" => String.t() | Atom.t(),
+        "ResourceShareId" => String.t() | Atom.t(),
+        "TargetAccountId" => String.t() | Atom.t()
       }
 
   """
-  @type associate_analytics_data_set_response() :: %{String.t() => any()}
+  @type associate_analytics_data_set_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       queue_info_input() :: %{
-        "Id" => String.t()
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type queue_info_input() :: %{String.t() => any()}
+  @type queue_info_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3055,39 +3064,39 @@ defmodule AWS.Connect do
       list_rules_request() :: %{
         optional("EventSourceName") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("PublishStatus") => list(any())
       }
 
   """
-  @type list_rules_request() :: %{String.t() => any()}
+  @type list_rules_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       import_phone_number_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("PhoneNumberDescription") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("PhoneNumberDescription") => String.t() | Atom.t(),
         optional("Tags") => map(),
-        required("InstanceId") => String.t(),
-        required("SourcePhoneNumberArn") => String.t()
+        required("InstanceId") => String.t() | Atom.t(),
+        required("SourcePhoneNumberArn") => String.t() | Atom.t()
       }
 
   """
-  @type import_phone_number_request() :: %{String.t() => any()}
+  @type import_phone_number_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       claim_phone_number_response() :: %{
-        "PhoneNumberArn" => String.t(),
-        "PhoneNumberId" => String.t()
+        "PhoneNumberArn" => String.t() | Atom.t(),
+        "PhoneNumberId" => String.t() | Atom.t()
       }
 
   """
-  @type claim_phone_number_response() :: %{String.t() => any()}
+  @type claim_phone_number_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3095,11 +3104,11 @@ defmodule AWS.Connect do
 
       queue_info() :: %{
         "EnqueueTimestamp" => non_neg_integer(),
-        "Id" => String.t()
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type queue_info() :: %{String.t() => any()}
+  @type queue_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3120,20 +3129,20 @@ defmodule AWS.Connect do
       }
 
   """
-  @type evaluation_answer_output() :: %{String.t() => any()}
+  @type evaluation_answer_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       available_number_summary() :: %{
-        "PhoneNumber" => String.t(),
+        "PhoneNumber" => String.t() | Atom.t(),
         "PhoneNumberCountryCode" => list(any()),
         "PhoneNumberType" => list(any())
       }
 
   """
-  @type available_number_summary() :: %{String.t() => any()}
+  @type available_number_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3141,11 +3150,11 @@ defmodule AWS.Connect do
 
       get_effective_hours_of_operations_response() :: %{
         "EffectiveHoursOfOperationList" => list(effective_hours_of_operations()),
-        "TimeZone" => String.t()
+        "TimeZone" => String.t() | Atom.t()
       }
 
   """
-  @type get_effective_hours_of_operations_response() :: %{String.t() => any()}
+  @type get_effective_hours_of_operations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3156,7 +3165,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type create_view_version_response() :: %{String.t() => any()}
+  @type create_view_version_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3167,34 +3176,34 @@ defmodule AWS.Connect do
       }
 
   """
-  @type describe_phone_number_response() :: %{String.t() => any()}
+  @type describe_phone_number_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       hierarchy_group_summary() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
-        "LastModifiedRegion" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "LastModifiedRegion" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type hierarchy_group_summary() :: %{String.t() => any()}
+  @type hierarchy_group_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       participant_token_credentials() :: %{
-        "Expiry" => String.t(),
-        "ParticipantToken" => String.t()
+        "Expiry" => String.t() | Atom.t(),
+        "ParticipantToken" => String.t() | Atom.t()
       }
 
   """
-  @type participant_token_credentials() :: %{String.t() => any()}
+  @type participant_token_credentials() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3210,13 +3219,13 @@ defmodule AWS.Connect do
   ## Example:
 
       pause_contact_request() :: %{
-        optional("ContactFlowId") => String.t(),
-        required("ContactId") => String.t(),
-        required("InstanceId") => String.t()
+        optional("ContactFlowId") => String.t() | Atom.t(),
+        required("ContactId") => String.t() | Atom.t(),
+        required("InstanceId") => String.t() | Atom.t()
       }
 
   """
-  @type pause_contact_request() :: %{String.t() => any()}
+  @type pause_contact_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3227,7 +3236,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type describe_instance_attribute_response() :: %{String.t() => any()}
+  @type describe_instance_attribute_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3240,19 +3249,19 @@ defmodule AWS.Connect do
       }
 
   """
-  @type participant_timer_configuration() :: %{String.t() => any()}
+  @type participant_timer_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_approved_origin_request() :: %{
-        optional("ClientToken") => String.t(),
-        required("Origin") => String.t()
+        optional("ClientToken") => String.t() | Atom.t(),
+        required("Origin") => String.t() | Atom.t()
       }
 
   """
-  @type associate_approved_origin_request() :: %{String.t() => any()}
+  @type associate_approved_origin_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3265,18 +3274,18 @@ defmodule AWS.Connect do
       }
 
   """
-  @type email_address_search_criteria() :: %{String.t() => any()}
+  @type email_address_search_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       destination_not_allowed_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type destination_not_allowed_exception() :: %{String.t() => any()}
+  @type destination_not_allowed_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3287,19 +3296,19 @@ defmodule AWS.Connect do
       }
 
   """
-  @type invisible_field_info() :: %{String.t() => any()}
+  @type invisible_field_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_quick_connect_response() :: %{
-        "QuickConnectARN" => String.t(),
-        "QuickConnectId" => String.t()
+        "QuickConnectARN" => String.t() | Atom.t(),
+        "QuickConnectId" => String.t() | Atom.t()
       }
 
   """
-  @type create_quick_connect_response() :: %{String.t() => any()}
+  @type create_quick_connect_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3307,37 +3316,37 @@ defmodule AWS.Connect do
 
       list_lex_bots_response() :: %{
         "LexBots" => list(lex_bot()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_lex_bots_response() :: %{String.t() => any()}
+  @type list_lex_bots_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       contact_search_summary_segment_attribute_value() :: %{
-        "ValueString" => String.t()
+        "ValueString" => String.t() | Atom.t()
       }
 
   """
-  @type contact_search_summary_segment_attribute_value() :: %{String.t() => any()}
+  @type contact_search_summary_segment_attribute_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_vocabulary_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
         optional("Tags") => map(),
-        required("Content") => String.t(),
+        required("Content") => String.t() | Atom.t(),
         required("LanguageCode") => list(any()),
-        required("VocabularyName") => String.t()
+        required("VocabularyName") => String.t() | Atom.t()
       }
 
   """
-  @type create_vocabulary_request() :: %{String.t() => any()}
+  @type create_vocabulary_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3350,7 +3359,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type metric_result_v2() :: %{String.t() => any()}
+  @type metric_result_v2() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3362,32 +3371,32 @@ defmodule AWS.Connect do
       }
 
   """
-  @type batch_get_attached_file_metadata_response() :: %{String.t() => any()}
+  @type batch_get_attached_file_metadata_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       email_message_reference() :: %{
-        "Arn" => String.t(),
-        "Name" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type email_message_reference() :: %{String.t() => any()}
+  @type email_message_reference() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_email_address_metadata_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("Description") => String.t(),
-        optional("DisplayName") => String.t()
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("DisplayName") => String.t() | Atom.t()
       }
 
   """
-  @type update_email_address_metadata_request() :: %{String.t() => any()}
+  @type update_email_address_metadata_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3395,27 +3404,27 @@ defmodule AWS.Connect do
 
       get_attached_file_request() :: %{
         optional("UrlExpiryInSeconds") => integer(),
-        required("AssociatedResourceArn") => String.t()
+        required("AssociatedResourceArn") => String.t() | Atom.t()
       }
 
   """
-  @type get_attached_file_request() :: %{String.t() => any()}
+  @type get_attached_file_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       transfer_contact_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("QueueId") => String.t(),
-        optional("UserId") => String.t(),
-        required("ContactFlowId") => String.t(),
-        required("ContactId") => String.t(),
-        required("InstanceId") => String.t()
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("QueueId") => String.t() | Atom.t(),
+        optional("UserId") => String.t() | Atom.t(),
+        required("ContactFlowId") => String.t() | Atom.t(),
+        required("ContactId") => String.t() | Atom.t(),
+        required("InstanceId") => String.t() | Atom.t()
       }
 
   """
-  @type transfer_contact_request() :: %{String.t() => any()}
+  @type transfer_contact_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3442,39 +3451,39 @@ defmodule AWS.Connect do
       list_agent_status_request() :: %{
         optional("AgentStatusTypes") => list(list(any())()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_agent_status_request() :: %{String.t() => any()}
+  @type list_agent_status_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       queue_summary() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
-        "LastModifiedRegion" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "LastModifiedRegion" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "QueueType" => list(any())
       }
 
   """
-  @type queue_summary() :: %{String.t() => any()}
+  @type queue_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_contact_response() :: %{
-        "ContactArn" => String.t(),
-        "ContactId" => String.t()
+        "ContactArn" => String.t() | Atom.t(),
+        "ContactId" => String.t() | Atom.t()
       }
 
   """
-  @type create_contact_response() :: %{String.t() => any()}
+  @type create_contact_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3499,12 +3508,12 @@ defmodule AWS.Connect do
   ## Example:
 
       list_task_templates_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "TaskTemplates" => list(task_template_metadata())
       }
 
   """
-  @type list_task_templates_response() :: %{String.t() => any()}
+  @type list_task_templates_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3512,12 +3521,12 @@ defmodule AWS.Connect do
 
       get_current_user_data_response() :: %{
         "ApproximateTotalCount" => float(),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "UserDataList" => list(user_data())
       }
 
   """
-  @type get_current_user_data_response() :: %{String.t() => any()}
+  @type get_current_user_data_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3542,16 +3551,16 @@ defmodule AWS.Connect do
   ## Example:
 
       contact_flow_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "ContactFlowState" => list(any()),
         "ContactFlowStatus" => list(any()),
         "ContactFlowType" => list(any()),
-        "Id" => String.t(),
-        "Name" => String.t()
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type contact_flow_summary() :: %{String.t() => any()}
+  @type contact_flow_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3563,7 +3572,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type update_contact_evaluation_request() :: %{String.t() => any()}
+  @type update_contact_evaluation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3571,11 +3580,11 @@ defmodule AWS.Connect do
 
       list_analytics_data_lake_data_sets_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_analytics_data_lake_data_sets_request() :: %{String.t() => any()}
+  @type list_analytics_data_lake_data_sets_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3583,28 +3592,28 @@ defmodule AWS.Connect do
 
       list_lex_bots_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_lex_bots_request() :: %{String.t() => any()}
+  @type list_lex_bots_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_phone_numbers_v2_request() :: %{
-        optional("InstanceId") => String.t(),
+        optional("InstanceId") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("PhoneNumberCountryCodes") => list(list(any())()),
-        optional("PhoneNumberPrefix") => String.t(),
+        optional("PhoneNumberPrefix") => String.t() | Atom.t(),
         optional("PhoneNumberTypes") => list(list(any())()),
-        optional("TargetArn") => String.t()
+        optional("TargetArn") => String.t() | Atom.t()
       }
 
   """
-  @type list_phone_numbers_v2_request() :: %{String.t() => any()}
+  @type list_phone_numbers_v2_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3621,14 +3630,14 @@ defmodule AWS.Connect do
 
       send_chat_integration_event_request() :: %{
         optional("NewSessionDetails") => new_session_details(),
-        optional("Subtype") => String.t(),
-        required("DestinationId") => String.t(),
+        optional("Subtype") => String.t() | Atom.t(),
+        required("DestinationId") => String.t() | Atom.t(),
         required("Event") => chat_event(),
-        required("SourceId") => String.t()
+        required("SourceId") => String.t() | Atom.t()
       }
 
   """
-  @type send_chat_integration_event_request() :: %{String.t() => any()}
+  @type send_chat_integration_event_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3639,7 +3648,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type describe_user_hierarchy_structure_response() :: %{String.t() => any()}
+  @type describe_user_hierarchy_structure_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3651,40 +3660,40 @@ defmodule AWS.Connect do
         "Contacts" => list(agent_contact_reference()),
         "HierarchyPath" => hierarchy_path_reference(),
         "MaxSlotsByChannel" => map(),
-        "NextStatus" => String.t(),
+        "NextStatus" => String.t() | Atom.t(),
         "RoutingProfile" => routing_profile_reference(),
         "Status" => agent_status_reference(),
         "User" => user_reference()
       }
 
   """
-  @type user_data() :: %{String.t() => any()}
+  @type user_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       outbound_email_config() :: %{
-        "OutboundEmailAddressId" => String.t()
+        "OutboundEmailAddressId" => String.t() | Atom.t()
       }
 
   """
-  @type outbound_email_config() :: %{String.t() => any()}
+  @type outbound_email_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       connect_reference() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "StatusReason" => String.t(),
+        "StatusReason" => String.t() | Atom.t(),
         "Type" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type connect_reference() :: %{String.t() => any()}
+  @type connect_reference() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3695,18 +3704,18 @@ defmodule AWS.Connect do
       }
 
   """
-  @type describe_predefined_attribute_response() :: %{String.t() => any()}
+  @type describe_predefined_attribute_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_email_contact_response() :: %{
-        "ContactId" => String.t()
+        "ContactId" => String.t() | Atom.t()
       }
 
   """
-  @type start_email_contact_response() :: %{String.t() => any()}
+  @type start_email_contact_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3714,26 +3723,26 @@ defmodule AWS.Connect do
 
       get_federation_token_response() :: %{
         "Credentials" => credentials(),
-        "SignInUrl" => String.t(),
-        "UserArn" => String.t(),
-        "UserId" => String.t()
+        "SignInUrl" => String.t() | Atom.t(),
+        "UserArn" => String.t() | Atom.t(),
+        "UserId" => String.t() | Atom.t()
       }
 
   """
-  @type get_federation_token_response() :: %{String.t() => any()}
+  @type get_federation_token_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_traffic_distribution_groups_request() :: %{
-        optional("InstanceId") => String.t(),
+        optional("InstanceId") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_traffic_distribution_groups_request() :: %{String.t() => any()}
+  @type list_traffic_distribution_groups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3746,7 +3755,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type quick_connect_search_criteria() :: %{String.t() => any()}
+  @type quick_connect_search_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3757,7 +3766,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type describe_view_response() :: %{String.t() => any()}
+  @type describe_view_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3765,54 +3774,54 @@ defmodule AWS.Connect do
 
       monitor_contact_request() :: %{
         optional("AllowedMonitorCapabilities") => list(list(any())()),
-        optional("ClientToken") => String.t(),
-        required("ContactId") => String.t(),
-        required("InstanceId") => String.t(),
-        required("UserId") => String.t()
+        optional("ClientToken") => String.t() | Atom.t(),
+        required("ContactId") => String.t() | Atom.t(),
+        required("InstanceId") => String.t() | Atom.t(),
+        required("UserId") => String.t() | Atom.t()
       }
 
   """
-  @type monitor_contact_request() :: %{String.t() => any()}
+  @type monitor_contact_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_quick_connect_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("Tags") => map(),
-        required("Name") => String.t(),
+        required("Name") => String.t() | Atom.t(),
         required("QuickConnectConfig") => quick_connect_config()
       }
 
   """
-  @type create_quick_connect_request() :: %{String.t() => any()}
+  @type create_quick_connect_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       task_action_definition() :: %{
-        "ContactFlowId" => String.t(),
-        "Description" => String.t(),
-        "Name" => String.t(),
+        "ContactFlowId" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "References" => map()
       }
 
   """
-  @type task_action_definition() :: %{String.t() => any()}
+  @type task_action_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_traffic_distribution_group_user_request() :: %{
-        required("InstanceId") => String.t(),
-        required("UserId") => String.t()
+        required("InstanceId") => String.t() | Atom.t(),
+        required("UserId") => String.t() | Atom.t()
       }
 
   """
-  @type associate_traffic_distribution_group_user_request() :: %{String.t() => any()}
+  @type associate_traffic_distribution_group_user_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3824,7 +3833,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type customer() :: %{String.t() => any()}
+  @type customer() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3840,39 +3849,39 @@ defmodule AWS.Connect do
   ## Example:
 
       update_instance_attribute_request() :: %{
-        optional("ClientToken") => String.t(),
-        required("Value") => String.t()
+        optional("ClientToken") => String.t() | Atom.t(),
+        required("Value") => String.t() | Atom.t()
       }
 
   """
-  @type update_instance_attribute_request() :: %{String.t() => any()}
+  @type update_instance_attribute_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       hours_of_operation_summary() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
-        "LastModifiedRegion" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "LastModifiedRegion" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type hours_of_operation_summary() :: %{String.t() => any()}
+  @type hours_of_operation_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_evaluation_form_response() :: %{
-        "EvaluationFormArn" => String.t(),
-        "EvaluationFormId" => String.t()
+        "EvaluationFormArn" => String.t() | Atom.t(),
+        "EvaluationFormId" => String.t() | Atom.t()
       }
 
   """
-  @type create_evaluation_form_response() :: %{String.t() => any()}
+  @type create_evaluation_form_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3882,26 +3891,26 @@ defmodule AWS.Connect do
         "AgentContactState" => list(any()),
         "Channel" => list(any()),
         "ConnectedToAgentTimestamp" => non_neg_integer(),
-        "ContactId" => String.t(),
+        "ContactId" => String.t() | Atom.t(),
         "InitiationMethod" => list(any()),
         "Queue" => queue_reference(),
         "StateStartTimestamp" => non_neg_integer()
       }
 
   """
-  @type agent_contact_reference() :: %{String.t() => any()}
+  @type agent_contact_reference() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_lambda_functions_response() :: %{
-        "LambdaFunctions" => list(String.t()),
-        "NextToken" => String.t()
+        "LambdaFunctions" => list(String.t() | Atom.t()),
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_lambda_functions_response() :: %{String.t() => any()}
+  @type list_lambda_functions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3921,7 +3930,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type cross_channel_behavior() :: %{String.t() => any()}
+  @type cross_channel_behavior() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3937,13 +3946,13 @@ defmodule AWS.Connect do
   ## Example:
 
       view_content() :: %{
-        "Actions" => list(String.t()),
-        "InputSchema" => String.t(),
-        "Template" => String.t()
+        "Actions" => list(String.t() | Atom.t()),
+        "InputSchema" => String.t() | Atom.t(),
+        "Template" => String.t() | Atom.t()
       }
 
   """
-  @type view_content() :: %{String.t() => any()}
+  @type view_content() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3954,7 +3963,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type update_queue_outbound_email_config_request() :: %{String.t() => any()}
+  @type update_queue_outbound_email_config_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3962,43 +3971,43 @@ defmodule AWS.Connect do
 
       evaluation_form_summary() :: %{
         "ActiveVersion" => integer(),
-        "CreatedBy" => String.t(),
+        "CreatedBy" => String.t() | Atom.t(),
         "CreatedTime" => non_neg_integer(),
-        "EvaluationFormArn" => String.t(),
-        "EvaluationFormId" => String.t(),
-        "LastActivatedBy" => String.t(),
+        "EvaluationFormArn" => String.t() | Atom.t(),
+        "EvaluationFormId" => String.t() | Atom.t(),
+        "LastActivatedBy" => String.t() | Atom.t(),
         "LastActivatedTime" => non_neg_integer(),
-        "LastModifiedBy" => String.t(),
+        "LastModifiedBy" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
         "LatestVersion" => integer(),
-        "Title" => String.t()
+        "Title" => String.t() | Atom.t()
       }
 
   """
-  @type evaluation_form_summary() :: %{String.t() => any()}
+  @type evaluation_form_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_task_template_request() :: %{
-        optional("SnapshotVersion") => String.t()
+        optional("SnapshotVersion") => String.t() | Atom.t()
       }
 
   """
-  @type get_task_template_request() :: %{String.t() => any()}
+  @type get_task_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_analytics_data_set_request() :: %{
-        optional("TargetAccountId") => String.t(),
-        required("DataSetId") => String.t()
+        optional("TargetAccountId") => String.t() | Atom.t(),
+        required("DataSetId") => String.t() | Atom.t()
       }
 
   """
-  @type disassociate_analytics_data_set_request() :: %{String.t() => any()}
+  @type disassociate_analytics_data_set_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4015,41 +4024,41 @@ defmodule AWS.Connect do
 
       list_security_keys_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_security_keys_request() :: %{String.t() => any()}
+  @type list_security_keys_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       authentication_profile_summary() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "IsDefault" => boolean(),
-        "LastModifiedRegion" => String.t(),
+        "LastModifiedRegion" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type authentication_profile_summary() :: %{String.t() => any()}
+  @type authentication_profile_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_prompt_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("Tags") => map(),
-        required("Name") => String.t(),
-        required("S3Uri") => String.t()
+        required("Name") => String.t() | Atom.t(),
+        required("S3Uri") => String.t() | Atom.t()
       }
 
   """
-  @type create_prompt_request() :: %{String.t() => any()}
+  @type create_prompt_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4060,7 +4069,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type associate_routing_profile_queues_request() :: %{String.t() => any()}
+  @type associate_routing_profile_queues_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4068,12 +4077,12 @@ defmodule AWS.Connect do
 
       search_prompts_response() :: %{
         "ApproximateTotalCount" => float(),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Prompts" => list(prompt())
       }
 
   """
-  @type search_prompts_response() :: %{String.t() => any()}
+  @type search_prompts_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4081,78 +4090,78 @@ defmodule AWS.Connect do
 
       list_bots_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         required("LexVersion") => list(any())
       }
 
   """
-  @type list_bots_request() :: %{String.t() => any()}
+  @type list_bots_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       replication_configuration() :: %{
-        "GlobalSignInEndpoint" => String.t(),
+        "GlobalSignInEndpoint" => String.t() | Atom.t(),
         "ReplicationStatusSummaryList" => list(replication_status_summary()),
-        "SourceRegion" => String.t()
+        "SourceRegion" => String.t() | Atom.t()
       }
 
   """
-  @type replication_configuration() :: %{String.t() => any()}
+  @type replication_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_security_profile_request() :: %{
-        optional("AllowedAccessControlHierarchyGroupId") => String.t(),
+        optional("AllowedAccessControlHierarchyGroupId") => String.t() | Atom.t(),
         optional("AllowedAccessControlTags") => map(),
         optional("Applications") => list(application()),
-        optional("Description") => String.t(),
-        optional("HierarchyRestrictedResources") => list(String.t()),
-        optional("Permissions") => list(String.t()),
-        optional("TagRestrictedResources") => list(String.t()),
+        optional("Description") => String.t() | Atom.t(),
+        optional("HierarchyRestrictedResources") => list(String.t() | Atom.t()),
+        optional("Permissions") => list(String.t() | Atom.t()),
+        optional("TagRestrictedResources") => list(String.t() | Atom.t()),
         optional("Tags") => map(),
-        required("SecurityProfileName") => String.t()
+        required("SecurityProfileName") => String.t() | Atom.t()
       }
 
   """
-  @type create_security_profile_request() :: %{String.t() => any()}
+  @type create_security_profile_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_view_version_request() :: %{
-        optional("VersionDescription") => String.t(),
-        optional("ViewContentSha256") => String.t()
+        optional("VersionDescription") => String.t() | Atom.t(),
+        optional("ViewContentSha256") => String.t() | Atom.t()
       }
 
   """
-  @type create_view_version_request() :: %{String.t() => any()}
+  @type create_view_version_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4168,26 +4177,26 @@ defmodule AWS.Connect do
   ## Example:
 
       list_security_profile_permissions_response() :: %{
-        "LastModifiedRegion" => String.t(),
+        "LastModifiedRegion" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "NextToken" => String.t(),
-        "Permissions" => list(String.t())
+        "NextToken" => String.t() | Atom.t(),
+        "Permissions" => list(String.t() | Atom.t())
       }
 
   """
-  @type list_security_profile_permissions_response() :: %{String.t() => any()}
+  @type list_security_profile_permissions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_predefined_attribute_request() :: %{
-        required("Name") => String.t(),
+        required("Name") => String.t() | Atom.t(),
         required("Values") => list()
       }
 
   """
-  @type create_predefined_attribute_request() :: %{String.t() => any()}
+  @type create_predefined_attribute_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4195,13 +4204,13 @@ defmodule AWS.Connect do
 
       stop_contact_recording_request() :: %{
         optional("ContactRecordingType") => list(any()),
-        required("ContactId") => String.t(),
-        required("InitialContactId") => String.t(),
-        required("InstanceId") => String.t()
+        required("ContactId") => String.t() | Atom.t(),
+        required("InitialContactId") => String.t() | Atom.t(),
+        required("InstanceId") => String.t() | Atom.t()
       }
 
   """
-  @type stop_contact_recording_request() :: %{String.t() => any()}
+  @type stop_contact_recording_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4212,37 +4221,37 @@ defmodule AWS.Connect do
       }
 
   """
-  @type real_time_contact_analysis_category_details() :: %{String.t() => any()}
+  @type real_time_contact_analysis_category_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_traffic_distribution_group_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("Description") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("Tags") => map(),
-        required("InstanceId") => String.t(),
-        required("Name") => String.t()
+        required("InstanceId") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t()
       }
 
   """
-  @type create_traffic_distribution_group_request() :: %{String.t() => any()}
+  @type create_traffic_distribution_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       security_profile_summary() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
-        "LastModifiedRegion" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "LastModifiedRegion" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type security_profile_summary() :: %{String.t() => any()}
+  @type security_profile_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4254,7 +4263,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type describe_contact_evaluation_response() :: %{String.t() => any()}
+  @type describe_contact_evaluation_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4265,46 +4274,46 @@ defmodule AWS.Connect do
       }
 
   """
-  @type describe_evaluation_form_request() :: %{String.t() => any()}
+  @type describe_evaluation_form_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       send_notification_action_definition() :: %{
-        "Content" => String.t(),
+        "Content" => String.t() | Atom.t(),
         "ContentType" => list(any()),
         "DeliveryMethod" => list(any()),
         "Recipient" => notification_recipient_type(),
-        "Subject" => String.t()
+        "Subject" => String.t() | Atom.t()
       }
 
   """
-  @type send_notification_action_definition() :: %{String.t() => any()}
+  @type send_notification_action_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       user_quick_connect_config() :: %{
-        "ContactFlowId" => String.t(),
-        "UserId" => String.t()
+        "ContactFlowId" => String.t() | Atom.t(),
+        "UserId" => String.t() | Atom.t()
       }
 
   """
-  @type user_quick_connect_config() :: %{String.t() => any()}
+  @type user_quick_connect_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       phone_number_status() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "Status" => list(any())
       }
 
   """
-  @type phone_number_status() :: %{String.t() => any()}
+  @type phone_number_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4320,12 +4329,12 @@ defmodule AWS.Connect do
         "ConnectedToAgentTimestamp" => non_neg_integer(),
         "DeviceInfo" => device_info(),
         "HierarchyGroups" => hierarchy_groups(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "StateTransitions" => list(state_transition())
       }
 
   """
-  @type agent_info() :: %{String.t() => any()}
+  @type agent_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4336,47 +4345,47 @@ defmodule AWS.Connect do
       }
 
   """
-  @type describe_hours_of_operation_response() :: %{String.t() => any()}
+  @type describe_hours_of_operation_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_disassociate_analytics_data_set_request() :: %{
-        optional("TargetAccountId") => String.t(),
-        required("DataSetIds") => list(String.t())
+        optional("TargetAccountId") => String.t() | Atom.t(),
+        required("DataSetIds") => list(String.t() | Atom.t())
       }
 
   """
-  @type batch_disassociate_analytics_data_set_request() :: %{String.t() => any()}
+  @type batch_disassociate_analytics_data_set_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_prompt_response() :: %{
-        "PromptARN" => String.t(),
-        "PromptId" => String.t()
+        "PromptARN" => String.t() | Atom.t(),
+        "PromptId" => String.t() | Atom.t()
       }
 
   """
-  @type create_prompt_response() :: %{String.t() => any()}
+  @type create_prompt_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_integration_association_request() :: %{
-        optional("SourceApplicationName") => String.t(),
-        optional("SourceApplicationUrl") => String.t(),
+        optional("SourceApplicationName") => String.t() | Atom.t(),
+        optional("SourceApplicationUrl") => String.t() | Atom.t(),
         optional("SourceType") => list(any()),
         optional("Tags") => map(),
-        required("IntegrationArn") => String.t(),
+        required("IntegrationArn") => String.t() | Atom.t(),
         required("IntegrationType") => list(any())
       }
 
   """
-  @type create_integration_association_request() :: %{String.t() => any()}
+  @type create_integration_association_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4387,7 +4396,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type audio_features() :: %{String.t() => any()}
+  @type audio_features() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4400,19 +4409,19 @@ defmodule AWS.Connect do
       }
 
   """
-  @type routing_profile_queue_config() :: %{String.t() => any()}
+  @type routing_profile_queue_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_request_exception() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "Reason" => list()
       }
 
   """
-  @type invalid_request_exception() :: %{String.t() => any()}
+  @type invalid_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4420,17 +4429,17 @@ defmodule AWS.Connect do
 
       update_task_template_request() :: %{
         optional("Constraints") => task_template_constraints(),
-        optional("ContactFlowId") => String.t(),
+        optional("ContactFlowId") => String.t() | Atom.t(),
         optional("Defaults") => task_template_defaults(),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("Fields") => list(task_template_field()),
-        optional("Name") => String.t(),
-        optional("SelfAssignFlowId") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
+        optional("SelfAssignFlowId") => String.t() | Atom.t(),
         optional("Status") => list(any())
       }
 
   """
-  @type update_task_template_request() :: %{String.t() => any()}
+  @type update_task_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4446,13 +4455,13 @@ defmodule AWS.Connect do
   ## Example:
 
       disassociate_bot_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
         optional("LexBot") => lex_bot(),
         optional("LexV2Bot") => lex_v2_bot()
       }
 
   """
-  @type disassociate_bot_request() :: %{String.t() => any()}
+  @type disassociate_bot_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4465,19 +4474,19 @@ defmodule AWS.Connect do
       }
 
   """
-  @type evaluation_score() :: %{String.t() => any()}
+  @type evaluation_score() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_put_contact_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
         required("ContactDataRequestList") => list(contact_data_request())
       }
 
   """
-  @type batch_put_contact_request() :: %{String.t() => any()}
+  @type batch_put_contact_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4485,13 +4494,13 @@ defmodule AWS.Connect do
 
       list_task_templates_request() :: %{
         optional("MaxResults") => integer(),
-        optional("Name") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("Status") => list(any())
       }
 
   """
-  @type list_task_templates_request() :: %{String.t() => any()}
+  @type list_task_templates_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4502,19 +4511,19 @@ defmodule AWS.Connect do
       }
 
   """
-  @type telephony_config() :: %{String.t() => any()}
+  @type telephony_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_security_profiles_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "SecurityProfileSummaryList" => list(security_profile_summary())
       }
 
   """
-  @type list_security_profiles_response() :: %{String.t() => any()}
+  @type list_security_profiles_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4522,11 +4531,11 @@ defmodule AWS.Connect do
 
       create_participant_response() :: %{
         "ParticipantCredentials" => participant_token_credentials(),
-        "ParticipantId" => String.t()
+        "ParticipantId" => String.t() | Atom.t()
       }
 
   """
-  @type create_participant_response() :: %{String.t() => any()}
+  @type create_participant_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4534,28 +4543,28 @@ defmodule AWS.Connect do
 
       hierarchy_group_condition() :: %{
         "HierarchyGroupMatchType" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type hierarchy_group_condition() :: %{String.t() => any()}
+  @type hierarchy_group_condition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       vocabulary_summary() :: %{
-        "Arn" => String.t(),
-        "FailureReason" => String.t(),
-        "Id" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "FailureReason" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "LanguageCode" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "State" => list(any())
       }
 
   """
-  @type vocabulary_summary() :: %{String.t() => any()}
+  @type vocabulary_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4563,26 +4572,26 @@ defmodule AWS.Connect do
 
       list_view_versions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_view_versions_request() :: %{String.t() => any()}
+  @type list_view_versions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_contact_flow_module_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("Description") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("Tags") => map(),
-        required("Content") => String.t(),
-        required("Name") => String.t()
+        required("Content") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t()
       }
 
   """
-  @type create_contact_flow_module_request() :: %{String.t() => any()}
+  @type create_contact_flow_module_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4602,31 +4611,31 @@ defmodule AWS.Connect do
       }
 
   """
-  @type security_profiles_search_filter() :: %{String.t() => any()}
+  @type security_profiles_search_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_get_attached_file_metadata_request() :: %{
-        required("AssociatedResourceArn") => String.t(),
-        required("FileIds") => list(String.t())
+        required("AssociatedResourceArn") => String.t() | Atom.t(),
+        required("FileIds") => list(String.t() | Atom.t())
       }
 
   """
-  @type batch_get_attached_file_metadata_request() :: %{String.t() => any()}
+  @type batch_get_attached_file_metadata_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "Reason" => list()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4634,24 +4643,24 @@ defmodule AWS.Connect do
 
       batch_get_flow_association_request() :: %{
         optional("ResourceType") => list(any()),
-        required("ResourceIds") => list(String.t())
+        required("ResourceIds") => list(String.t() | Atom.t())
       }
 
   """
-  @type batch_get_flow_association_request() :: %{String.t() => any()}
+  @type batch_get_flow_association_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_config() :: %{
-        "BucketName" => String.t(),
-        "BucketPrefix" => String.t(),
+        "BucketName" => String.t() | Atom.t(),
+        "BucketPrefix" => String.t() | Atom.t(),
         "EncryptionConfig" => encryption_config()
       }
 
   """
-  @type s3_config() :: %{String.t() => any()}
+  @type s3_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4659,22 +4668,22 @@ defmodule AWS.Connect do
 
       list_authentication_profiles_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_authentication_profiles_request() :: %{String.t() => any()}
+  @type list_authentication_profiles_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_contact_flow_content_request() :: %{
-        required("Content") => String.t()
+        required("Content") => String.t() | Atom.t()
       }
 
   """
-  @type update_contact_flow_content_request() :: %{String.t() => any()}
+  @type update_contact_flow_content_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4683,12 +4692,12 @@ defmodule AWS.Connect do
       user_phone_config() :: %{
         "AfterContactWorkTimeLimit" => integer(),
         "AutoAccept" => boolean(),
-        "DeskPhoneNumber" => String.t(),
+        "DeskPhoneNumber" => String.t() | Atom.t(),
         "PhoneType" => list(any())
       }
 
   """
-  @type user_phone_config() :: %{String.t() => any()}
+  @type user_phone_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4704,36 +4713,36 @@ defmodule AWS.Connect do
   ## Example:
 
       submit_contact_evaluation_response() :: %{
-        "EvaluationArn" => String.t(),
-        "EvaluationId" => String.t()
+        "EvaluationArn" => String.t() | Atom.t(),
+        "EvaluationId" => String.t() | Atom.t()
       }
 
   """
-  @type submit_contact_evaluation_response() :: %{String.t() => any()}
+  @type submit_contact_evaluation_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       evaluation_form() :: %{
-        "CreatedBy" => String.t(),
+        "CreatedBy" => String.t() | Atom.t(),
         "CreatedTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "EvaluationFormArn" => String.t(),
-        "EvaluationFormId" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "EvaluationFormArn" => String.t() | Atom.t(),
+        "EvaluationFormId" => String.t() | Atom.t(),
         "EvaluationFormVersion" => integer(),
         "Items" => list(list()),
-        "LastModifiedBy" => String.t(),
+        "LastModifiedBy" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
         "Locked" => boolean(),
         "ScoringStrategy" => evaluation_form_scoring_strategy(),
         "Status" => list(any()),
         "Tags" => map(),
-        "Title" => String.t()
+        "Title" => String.t() | Atom.t()
       }
 
   """
-  @type evaluation_form() :: %{String.t() => any()}
+  @type evaluation_form() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4741,12 +4750,13 @@ defmodule AWS.Connect do
 
       real_time_contact_analysis_transcript_item_with_character_offsets() :: %{
         "CharacterOffsets" => real_time_contact_analysis_character_interval(),
-        "Id" => String.t()
+        "Id" => String.t() | Atom.t()
       }
 
   """
   @type real_time_contact_analysis_transcript_item_with_character_offsets() :: %{
-          String.t() => any()
+          String.t()
+          | Atom.t() => any()
         }
 
   @typedoc """
@@ -4754,17 +4764,17 @@ defmodule AWS.Connect do
   ## Example:
 
       view_version_summary() :: %{
-        "Arn" => String.t(),
-        "Description" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "Type" => list(any()),
         "Version" => integer(),
-        "VersionDescription" => String.t()
+        "VersionDescription" => String.t() | Atom.t()
       }
 
   """
-  @type view_version_summary() :: %{String.t() => any()}
+  @type view_version_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4775,7 +4785,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type numeric_question_property_value_automation() :: %{String.t() => any()}
+  @type numeric_question_property_value_automation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4788,7 +4798,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type update_traffic_distribution_request() :: %{String.t() => any()}
+  @type update_traffic_distribution_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4814,25 +4824,25 @@ defmodule AWS.Connect do
 
       list_phone_numbers_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("PhoneNumberCountryCodes") => list(list(any())()),
         optional("PhoneNumberTypes") => list(list(any())())
       }
 
   """
-  @type list_phone_numbers_request() :: %{String.t() => any()}
+  @type list_phone_numbers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_contact_flow_version_response() :: %{
-        "ContactFlowArn" => String.t(),
+        "ContactFlowArn" => String.t() | Atom.t(),
         "Version" => float()
       }
 
   """
-  @type create_contact_flow_version_response() :: %{String.t() => any()}
+  @type create_contact_flow_version_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4841,7 +4851,7 @@ defmodule AWS.Connect do
       get_metric_data_request() :: %{
         optional("Groupings") => list(list(any())()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         required("EndTime") => non_neg_integer(),
         required("Filters") => filters(),
         required("HistoricalMetrics") => list(historical_metric()),
@@ -4849,40 +4859,40 @@ defmodule AWS.Connect do
       }
 
   """
-  @type get_metric_data_request() :: %{String.t() => any()}
+  @type get_metric_data_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       vocabulary() :: %{
-        "Arn" => String.t(),
-        "Content" => String.t(),
-        "FailureReason" => String.t(),
-        "Id" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Content" => String.t() | Atom.t(),
+        "FailureReason" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "LanguageCode" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "State" => list(any()),
         "Tags" => map()
       }
 
   """
-  @type vocabulary() :: %{String.t() => any()}
+  @type vocabulary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       inbound_raw_message() :: %{
-        "Body" => String.t(),
-        "ContentType" => String.t(),
+        "Body" => String.t() | Atom.t(),
+        "ContentType" => String.t() | Atom.t(),
         "Headers" => map(),
-        "Subject" => String.t()
+        "Subject" => String.t() | Atom.t()
       }
 
   """
-  @type inbound_raw_message() :: %{String.t() => any()}
+  @type inbound_raw_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4893,34 +4903,34 @@ defmodule AWS.Connect do
       }
 
   """
-  @type disassociate_routing_profile_queues_request() :: %{String.t() => any()}
+  @type disassociate_routing_profile_queues_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       filter_v2() :: %{
-        "FilterKey" => String.t(),
-        "FilterValues" => list(String.t())
+        "FilterKey" => String.t() | Atom.t(),
+        "FilterValues" => list(String.t() | Atom.t())
       }
 
   """
-  @type filter_v2() :: %{String.t() => any()}
+  @type filter_v2() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_agent_status_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("DisplayOrder") => integer(),
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("ResetOrderNumber") => boolean(),
         optional("State") => list(any())
       }
 
   """
-  @type update_agent_status_request() :: %{String.t() => any()}
+  @type update_agent_status_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4940,58 +4950,58 @@ defmodule AWS.Connect do
       }
 
   """
-  @type routing_profile_search_filter() :: %{String.t() => any()}
+  @type routing_profile_search_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_view_metadata_request() :: %{
-        optional("Description") => String.t(),
-        optional("Name") => String.t()
+        optional("Description") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t()
       }
 
   """
-  @type update_view_metadata_request() :: %{String.t() => any()}
+  @type update_view_metadata_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_users_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "UserSummaryList" => list(user_summary())
       }
 
   """
-  @type list_users_response() :: %{String.t() => any()}
+  @type list_users_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       application() :: %{
-        "ApplicationPermissions" => list(String.t()),
-        "Namespace" => String.t()
+        "ApplicationPermissions" => list(String.t() | Atom.t()),
+        "Namespace" => String.t() | Atom.t()
       }
 
   """
-  @type application() :: %{String.t() => any()}
+  @type application() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       hierarchy_level() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
-        "LastModifiedRegion" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "LastModifiedRegion" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type hierarchy_level() :: %{String.t() => any()}
+  @type hierarchy_level() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5007,13 +5017,13 @@ defmodule AWS.Connect do
   ## Example:
 
       get_attached_file_response() :: %{
-        "AssociatedResourceArn" => String.t(),
+        "AssociatedResourceArn" => String.t() | Atom.t(),
         "CreatedBy" => list(),
-        "CreationTime" => String.t(),
+        "CreationTime" => String.t() | Atom.t(),
         "DownloadUrlMetadata" => download_url_metadata(),
-        "FileArn" => String.t(),
-        "FileId" => String.t(),
-        "FileName" => String.t(),
+        "FileArn" => String.t() | Atom.t(),
+        "FileId" => String.t() | Atom.t(),
+        "FileName" => String.t() | Atom.t(),
         "FileSizeInBytes" => float(),
         "FileStatus" => list(any()),
         "FileUseCaseType" => list(any()),
@@ -5021,31 +5031,31 @@ defmodule AWS.Connect do
       }
 
   """
-  @type get_attached_file_response() :: %{String.t() => any()}
+  @type get_attached_file_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_evaluation_form_response() :: %{
-        "EvaluationFormArn" => String.t(),
-        "EvaluationFormId" => String.t(),
+        "EvaluationFormArn" => String.t() | Atom.t(),
+        "EvaluationFormId" => String.t() | Atom.t(),
         "EvaluationFormVersion" => integer()
       }
 
   """
-  @type update_evaluation_form_response() :: %{String.t() => any()}
+  @type update_evaluation_form_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       user_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type user_not_found_exception() :: %{String.t() => any()}
+  @type user_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5053,26 +5063,26 @@ defmodule AWS.Connect do
 
       list_evaluation_form_versions_response() :: %{
         "EvaluationFormVersionSummaryList" => list(evaluation_form_version_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_evaluation_form_versions_response() :: %{String.t() => any()}
+  @type list_evaluation_form_versions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_evaluation_form_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("Description") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("ScoringStrategy") => evaluation_form_scoring_strategy(),
         required("Items") => list(list()),
-        required("Title") => String.t()
+        required("Title") => String.t() | Atom.t()
       }
 
   """
-  @type create_evaluation_form_request() :: %{String.t() => any()}
+  @type create_evaluation_form_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5088,58 +5098,58 @@ defmodule AWS.Connect do
   ## Example:
 
       get_metric_data_v2_request() :: %{
-        optional("Groupings") => list(String.t()),
+        optional("Groupings") => list(String.t() | Atom.t()),
         optional("Interval") => interval_details(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         required("EndTime") => non_neg_integer(),
         required("Filters") => list(filter_v2()),
         required("Metrics") => list(metric_v2()),
-        required("ResourceArn") => String.t(),
+        required("ResourceArn") => String.t() | Atom.t(),
         required("StartTime") => non_neg_integer()
       }
 
   """
-  @type get_metric_data_v2_request() :: %{String.t() => any()}
+  @type get_metric_data_v2_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       claim_phone_number_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("InstanceId") => String.t(),
-        optional("PhoneNumberDescription") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("InstanceId") => String.t() | Atom.t(),
+        optional("PhoneNumberDescription") => String.t() | Atom.t(),
         optional("Tags") => map(),
-        optional("TargetArn") => String.t(),
-        required("PhoneNumber") => String.t()
+        optional("TargetArn") => String.t() | Atom.t(),
+        required("PhoneNumber") => String.t() | Atom.t()
       }
 
   """
-  @type claim_phone_number_request() :: %{String.t() => any()}
+  @type claim_phone_number_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       email_address_info() :: %{
-        "DisplayName" => String.t(),
-        "EmailAddress" => String.t()
+        "DisplayName" => String.t() | Atom.t(),
+        "EmailAddress" => String.t() | Atom.t()
       }
 
   """
-  @type email_address_info() :: %{String.t() => any()}
+  @type email_address_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_contact_request() :: %{
-        required("TagKeys") => list(String.t())
+        required("TagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_contact_request() :: %{String.t() => any()}
+  @type untag_contact_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5147,12 +5157,12 @@ defmodule AWS.Connect do
 
       search_quick_connects_response() :: %{
         "ApproximateTotalCount" => float(),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "QuickConnects" => list(quick_connect())
       }
 
   """
-  @type search_quick_connects_response() :: %{String.t() => any()}
+  @type search_quick_connects_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5160,44 +5170,44 @@ defmodule AWS.Connect do
 
       list_realtime_contact_analysis_segments_v2_response() :: %{
         "Channel" => list(any()),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Segments" => list(list()),
         "Status" => list(any())
       }
 
   """
-  @type list_realtime_contact_analysis_segments_v2_response() :: %{String.t() => any()}
+  @type list_realtime_contact_analysis_segments_v2_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       integration_association_summary() :: %{
-        "InstanceId" => String.t(),
-        "IntegrationArn" => String.t(),
-        "IntegrationAssociationArn" => String.t(),
-        "IntegrationAssociationId" => String.t(),
+        "InstanceId" => String.t() | Atom.t(),
+        "IntegrationArn" => String.t() | Atom.t(),
+        "IntegrationAssociationArn" => String.t() | Atom.t(),
+        "IntegrationAssociationId" => String.t() | Atom.t(),
         "IntegrationType" => list(any()),
-        "SourceApplicationName" => String.t(),
-        "SourceApplicationUrl" => String.t(),
+        "SourceApplicationName" => String.t() | Atom.t(),
+        "SourceApplicationUrl" => String.t() | Atom.t(),
         "SourceType" => list(any())
       }
 
   """
-  @type integration_association_summary() :: %{String.t() => any()}
+  @type integration_association_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_analytics_data_associations_request() :: %{
-        optional("DataSetId") => String.t(),
+        optional("DataSetId") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_analytics_data_associations_request() :: %{String.t() => any()}
+  @type list_analytics_data_associations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5205,12 +5215,12 @@ defmodule AWS.Connect do
 
       search_contacts_response() :: %{
         "Contacts" => list(contact_search_summary()),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "TotalCount" => float()
       }
 
   """
-  @type search_contacts_response() :: %{String.t() => any()}
+  @type search_contacts_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5218,11 +5228,11 @@ defmodule AWS.Connect do
 
       list_predefined_attributes_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_predefined_attributes_request() :: %{String.t() => any()}
+  @type list_predefined_attributes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5230,12 +5240,12 @@ defmodule AWS.Connect do
 
       list_quick_connects_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("QuickConnectTypes") => list(list(any())())
       }
 
   """
-  @type list_quick_connects_request() :: %{String.t() => any()}
+  @type list_quick_connects_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5243,11 +5253,11 @@ defmodule AWS.Connect do
 
       distribution() :: %{
         "Percentage" => integer(),
-        "Region" => String.t()
+        "Region" => String.t() | Atom.t()
       }
 
   """
-  @type distribution() :: %{String.t() => any()}
+  @type distribution() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5258,44 +5268,44 @@ defmodule AWS.Connect do
       }
 
   """
-  @type agent_quality_metrics() :: %{String.t() => any()}
+  @type agent_quality_metrics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_push_notification_registration_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
         required("ContactConfiguration") => contact_configuration(),
-        required("DeviceToken") => String.t(),
+        required("DeviceToken") => String.t() | Atom.t(),
         required("DeviceType") => list(any()),
-        required("PinpointAppArn") => String.t()
+        required("PinpointAppArn") => String.t() | Atom.t()
       }
 
   """
-  @type create_push_notification_registration_request() :: %{String.t() => any()}
+  @type create_push_notification_registration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_contact_streaming_response() :: %{
-        "StreamingId" => String.t()
+        "StreamingId" => String.t() | Atom.t()
       }
 
   """
-  @type start_contact_streaming_response() :: %{String.t() => any()}
+  @type start_contact_streaming_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_user_hierarchy_request() :: %{
-        optional("HierarchyGroupId") => String.t()
+        optional("HierarchyGroupId") => String.t() | Atom.t()
       }
 
   """
-  @type update_user_hierarchy_request() :: %{String.t() => any()}
+  @type update_user_hierarchy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5306,19 +5316,19 @@ defmodule AWS.Connect do
       }
 
   """
-  @type quick_connect_search_filter() :: %{String.t() => any()}
+  @type quick_connect_search_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_lambda_function_request() :: %{
-        optional("ClientToken") => String.t(),
-        required("FunctionArn") => String.t()
+        optional("ClientToken") => String.t() | Atom.t(),
+        required("FunctionArn") => String.t() | Atom.t()
       }
 
   """
-  @type disassociate_lambda_function_request() :: %{String.t() => any()}
+  @type disassociate_lambda_function_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5330,19 +5340,19 @@ defmodule AWS.Connect do
       }
 
   """
-  @type assign_sla_action_definition() :: %{String.t() => any()}
+  @type assign_sla_action_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_instance_storage_config_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
         required("ResourceType") => list(any())
       }
 
   """
-  @type disassociate_instance_storage_config_request() :: %{String.t() => any()}
+  @type disassociate_instance_storage_config_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5353,18 +5363,18 @@ defmodule AWS.Connect do
       }
 
   """
-  @type update_routing_profile_queues_request() :: %{String.t() => any()}
+  @type update_routing_profile_queues_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conditional_operation_failed_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type conditional_operation_failed_exception() :: %{String.t() => any()}
+  @type conditional_operation_failed_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5375,65 +5385,65 @@ defmodule AWS.Connect do
       }
 
   """
-  @type update_user_phone_config_request() :: %{String.t() => any()}
+  @type update_user_phone_config_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       evaluation_form_question() :: %{
-        "Instructions" => String.t(),
+        "Instructions" => String.t() | Atom.t(),
         "NotApplicableEnabled" => boolean(),
         "QuestionType" => list(any()),
         "QuestionTypeProperties" => list(),
-        "RefId" => String.t(),
-        "Title" => String.t(),
+        "RefId" => String.t() | Atom.t(),
+        "Title" => String.t() | Atom.t(),
         "Weight" => float()
       }
 
   """
-  @type evaluation_form_question() :: %{String.t() => any()}
+  @type evaluation_form_question() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       notification_recipient_type() :: %{
-        "UserIds" => list(String.t()),
+        "UserIds" => list(String.t() | Atom.t()),
         "UserTags" => map()
       }
 
   """
-  @type notification_recipient_type() :: %{String.t() => any()}
+  @type notification_recipient_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       kinesis_stream_config() :: %{
-        "StreamArn" => String.t()
+        "StreamArn" => String.t() | Atom.t()
       }
 
   """
-  @type kinesis_stream_config() :: %{String.t() => any()}
+  @type kinesis_stream_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_email_address_response() :: %{
-        "CreateTimestamp" => String.t(),
-        "Description" => String.t(),
-        "DisplayName" => String.t(),
-        "EmailAddress" => String.t(),
-        "EmailAddressArn" => String.t(),
-        "EmailAddressId" => String.t(),
-        "ModifiedTimestamp" => String.t(),
+        "CreateTimestamp" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "DisplayName" => String.t() | Atom.t(),
+        "EmailAddress" => String.t() | Atom.t(),
+        "EmailAddressArn" => String.t() | Atom.t(),
+        "EmailAddressId" => String.t() | Atom.t(),
+        "ModifiedTimestamp" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type describe_email_address_response() :: %{String.t() => any()}
+  @type describe_email_address_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5441,42 +5451,42 @@ defmodule AWS.Connect do
 
       template_attributes() :: %{
         "CustomAttributes" => map(),
-        "CustomerProfileAttributes" => String.t()
+        "CustomerProfileAttributes" => String.t() | Atom.t()
       }
 
   """
-  @type template_attributes() :: %{String.t() => any()}
+  @type template_attributes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       real_time_contact_analysis_segment_event() :: %{
-        "DisplayName" => String.t(),
-        "EventType" => String.t(),
-        "Id" => String.t(),
-        "ParticipantId" => String.t(),
+        "DisplayName" => String.t() | Atom.t(),
+        "EventType" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "ParticipantId" => String.t() | Atom.t(),
         "ParticipantRole" => list(any()),
         "Time" => list()
       }
 
   """
-  @type real_time_contact_analysis_segment_event() :: %{String.t() => any()}
+  @type real_time_contact_analysis_segment_event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       agent_hierarchy_groups() :: %{
-        "L1Ids" => list(String.t()),
-        "L2Ids" => list(String.t()),
-        "L3Ids" => list(String.t()),
-        "L4Ids" => list(String.t()),
-        "L5Ids" => list(String.t())
+        "L1Ids" => list(String.t() | Atom.t()),
+        "L2Ids" => list(String.t() | Atom.t()),
+        "L3Ids" => list(String.t() | Atom.t()),
+        "L4Ids" => list(String.t() | Atom.t()),
+        "L5Ids" => list(String.t() | Atom.t())
       }
 
   """
-  @type agent_hierarchy_groups() :: %{String.t() => any()}
+  @type agent_hierarchy_groups() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5487,31 +5497,31 @@ defmodule AWS.Connect do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_use_cases_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "UseCaseSummaryList" => list(use_case())
       }
 
   """
-  @type list_use_cases_response() :: %{String.t() => any()}
+  @type list_use_cases_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_set() :: %{
-        "key" => String.t(),
-        "value" => String.t()
+        "key" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type tag_set() :: %{String.t() => any()}
+  @type tag_set() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5522,18 +5532,18 @@ defmodule AWS.Connect do
       }
 
   """
-  @type match_criteria() :: %{String.t() => any()}
+  @type match_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       problem_detail() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type problem_detail() :: %{String.t() => any()}
+  @type problem_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5541,39 +5551,39 @@ defmodule AWS.Connect do
 
       search_queues_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("SearchCriteria") => queue_search_criteria(),
         optional("SearchFilter") => queue_search_filter(),
-        required("InstanceId") => String.t()
+        required("InstanceId") => String.t() | Atom.t()
       }
 
   """
-  @type search_queues_request() :: %{String.t() => any()}
+  @type search_queues_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_screen_sharing_request() :: %{
-        optional("ClientToken") => String.t(),
-        required("ContactId") => String.t(),
-        required("InstanceId") => String.t()
+        optional("ClientToken") => String.t() | Atom.t(),
+        required("ContactId") => String.t() | Atom.t(),
+        required("InstanceId") => String.t() | Atom.t()
       }
 
   """
-  @type start_screen_sharing_request() :: %{String.t() => any()}
+  @type start_screen_sharing_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_analytics_data_set_request() :: %{
-        optional("TargetAccountId") => String.t(),
-        required("DataSetId") => String.t()
+        optional("TargetAccountId") => String.t() | Atom.t(),
+        required("DataSetId") => String.t() | Atom.t()
       }
 
   """
-  @type associate_analytics_data_set_request() :: %{String.t() => any()}
+  @type associate_analytics_data_set_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5581,26 +5591,26 @@ defmodule AWS.Connect do
 
       search_users_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("SearchCriteria") => user_search_criteria(),
         optional("SearchFilter") => user_search_filter(),
-        required("InstanceId") => String.t()
+        required("InstanceId") => String.t() | Atom.t()
       }
 
   """
-  @type search_users_request() :: %{String.t() => any()}
+  @type search_users_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_user_hierarchy_group_response() :: %{
-        "HierarchyGroupArn" => String.t(),
-        "HierarchyGroupId" => String.t()
+        "HierarchyGroupArn" => String.t() | Atom.t(),
+        "HierarchyGroupId" => String.t() | Atom.t()
       }
 
   """
-  @type create_user_hierarchy_group_response() :: %{String.t() => any()}
+  @type create_user_hierarchy_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5611,7 +5621,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type disassociate_user_proficiencies_request() :: %{String.t() => any()}
+  @type disassociate_user_proficiencies_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5621,24 +5631,24 @@ defmodule AWS.Connect do
         "Attributes" => map(),
         "Campaign" => campaign(),
         "CustomerEndpoint" => endpoint(),
-        "QueueId" => String.t(),
-        "RequestIdentifier" => String.t(),
+        "QueueId" => String.t() | Atom.t(),
+        "RequestIdentifier" => String.t() | Atom.t(),
         "SystemEndpoint" => endpoint()
       }
 
   """
-  @type contact_data_request() :: %{String.t() => any()}
+  @type contact_data_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_phone_number_contact_flow_request() :: %{
-        required("InstanceId") => String.t()
+        required("InstanceId") => String.t() | Atom.t()
       }
 
   """
-  @type disassociate_phone_number_contact_flow_request() :: %{String.t() => any()}
+  @type disassociate_phone_number_contact_flow_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5649,17 +5659,17 @@ defmodule AWS.Connect do
       }
 
   """
-  @type contact_analysis() :: %{String.t() => any()}
+  @type contact_analysis() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       recording_info() :: %{
-        "DeletionReason" => String.t(),
-        "FragmentStartNumber" => String.t(),
-        "FragmentStopNumber" => String.t(),
-        "Location" => String.t(),
+        "DeletionReason" => String.t() | Atom.t(),
+        "FragmentStartNumber" => String.t() | Atom.t(),
+        "FragmentStopNumber" => String.t() | Atom.t(),
+        "Location" => String.t() | Atom.t(),
         "MediaStreamType" => list(any()),
         "ParticipantType" => list(any()),
         "StartTimestamp" => non_neg_integer(),
@@ -5669,58 +5679,58 @@ defmodule AWS.Connect do
       }
 
   """
-  @type recording_info() :: %{String.t() => any()}
+  @type recording_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_approved_origins_response() :: %{
-        "NextToken" => String.t(),
-        "Origins" => list(String.t())
+        "NextToken" => String.t() | Atom.t(),
+        "Origins" => list(String.t() | Atom.t())
       }
 
   """
-  @type list_approved_origins_response() :: %{String.t() => any()}
+  @type list_approved_origins_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       security_profile_search_summary() :: %{
-        "Arn" => String.t(),
-        "Description" => String.t(),
-        "Id" => String.t(),
-        "OrganizationResourceId" => String.t(),
-        "SecurityProfileName" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "OrganizationResourceId" => String.t() | Atom.t(),
+        "SecurityProfileName" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type security_profile_search_summary() :: %{String.t() => any()}
+  @type security_profile_search_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       agents_criteria() :: %{
-        "AgentIds" => list(String.t())
+        "AgentIds" => list(String.t() | Atom.t())
       }
 
   """
-  @type agents_criteria() :: %{String.t() => any()}
+  @type agents_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       effective_hours_of_operations() :: %{
-        "Date" => String.t(),
+        "Date" => String.t() | Atom.t(),
         "OperationalHours" => list(operational_hour())
       }
 
   """
-  @type effective_hours_of_operations() :: %{String.t() => any()}
+  @type effective_hours_of_operations() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5731,7 +5741,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type create_view_response() :: %{String.t() => any()}
+  @type create_view_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5744,7 +5754,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type routing_profile_search_criteria() :: %{String.t() => any()}
+  @type routing_profile_search_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5758,7 +5768,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type evaluation_form_numeric_question_option() :: %{String.t() => any()}
+  @type evaluation_form_numeric_question_option() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5766,22 +5776,22 @@ defmodule AWS.Connect do
 
       start_task_contact_request() :: %{
         optional("Attributes") => map(),
-        optional("ClientToken") => String.t(),
-        optional("ContactFlowId") => String.t(),
-        optional("Description") => String.t(),
-        optional("PreviousContactId") => String.t(),
-        optional("QuickConnectId") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ContactFlowId") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("PreviousContactId") => String.t() | Atom.t(),
+        optional("QuickConnectId") => String.t() | Atom.t(),
         optional("References") => map(),
-        optional("RelatedContactId") => String.t(),
+        optional("RelatedContactId") => String.t() | Atom.t(),
         optional("ScheduledTime") => non_neg_integer(),
         optional("SegmentAttributes") => map(),
-        optional("TaskTemplateId") => String.t(),
-        required("InstanceId") => String.t(),
-        required("Name") => String.t()
+        optional("TaskTemplateId") => String.t() | Atom.t(),
+        required("InstanceId") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t()
       }
 
   """
-  @type start_task_contact_request() :: %{String.t() => any()}
+  @type start_task_contact_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5789,23 +5799,23 @@ defmodule AWS.Connect do
 
       create_case_action_definition() :: %{
         "Fields" => list(field_value()),
-        "TemplateId" => String.t()
+        "TemplateId" => String.t() | Atom.t()
       }
 
   """
-  @type create_case_action_definition() :: %{String.t() => any()}
+  @type create_case_action_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_rule_response() :: %{
-        "RuleArn" => String.t(),
-        "RuleId" => String.t()
+        "RuleArn" => String.t() | Atom.t(),
+        "RuleId" => String.t() | Atom.t()
       }
 
   """
-  @type create_rule_response() :: %{String.t() => any()}
+  @type create_rule_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5817,7 +5827,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type current_metric_result() :: %{String.t() => any()}
+  @type current_metric_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5829,19 +5839,19 @@ defmodule AWS.Connect do
       }
 
   """
-  @type condition() :: %{String.t() => any()}
+  @type condition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_phone_number_contact_flow_request() :: %{
-        required("ContactFlowId") => String.t(),
-        required("InstanceId") => String.t()
+        required("ContactFlowId") => String.t() | Atom.t(),
+        required("InstanceId") => String.t() | Atom.t()
       }
 
   """
-  @type associate_phone_number_contact_flow_request() :: %{String.t() => any()}
+  @type associate_phone_number_contact_flow_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5852,7 +5862,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type update_predefined_attribute_request() :: %{String.t() => any()}
+  @type update_predefined_attribute_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5860,46 +5870,46 @@ defmodule AWS.Connect do
 
       search_email_addresses_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("SearchCriteria") => email_address_search_criteria(),
         optional("SearchFilter") => email_address_search_filter(),
-        required("InstanceId") => String.t()
+        required("InstanceId") => String.t() | Atom.t()
       }
 
   """
-  @type search_email_addresses_request() :: %{String.t() => any()}
+  @type search_email_addresses_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_integration_associations_request() :: %{
-        optional("IntegrationArn") => String.t(),
+        optional("IntegrationArn") => String.t() | Atom.t(),
         optional("IntegrationType") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_integration_associations_request() :: %{String.t() => any()}
+  @type list_integration_associations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_queue_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("MaxContacts") => integer(),
         optional("OutboundCallerConfig") => outbound_caller_config(),
         optional("OutboundEmailConfig") => outbound_email_config(),
-        optional("QuickConnectIds") => list(String.t()),
+        optional("QuickConnectIds") => list(String.t() | Atom.t()),
         optional("Tags") => map(),
-        required("HoursOfOperationId") => String.t(),
-        required("Name") => String.t()
+        required("HoursOfOperationId") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t()
       }
 
   """
-  @type create_queue_request() :: %{String.t() => any()}
+  @type create_queue_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5911,7 +5921,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type attribute_and_condition() :: %{String.t() => any()}
+  @type attribute_and_condition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5927,15 +5937,15 @@ defmodule AWS.Connect do
   ## Example:
 
       email_address_metadata() :: %{
-        "Description" => String.t(),
-        "DisplayName" => String.t(),
-        "EmailAddress" => String.t(),
-        "EmailAddressArn" => String.t(),
-        "EmailAddressId" => String.t()
+        "Description" => String.t() | Atom.t(),
+        "DisplayName" => String.t() | Atom.t(),
+        "EmailAddress" => String.t() | Atom.t(),
+        "EmailAddressArn" => String.t() | Atom.t(),
+        "EmailAddressId" => String.t() | Atom.t()
       }
 
   """
-  @type email_address_metadata() :: %{String.t() => any()}
+  @type email_address_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5946,45 +5956,45 @@ defmodule AWS.Connect do
       }
 
   """
-  @type chat_participant_role_config() :: %{String.t() => any()}
+  @type chat_participant_role_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       single_select_question_rule_category_automation() :: %{
-        "Category" => String.t(),
+        "Category" => String.t() | Atom.t(),
         "Condition" => list(any()),
-        "OptionRefId" => String.t()
+        "OptionRefId" => String.t() | Atom.t()
       }
 
   """
-  @type single_select_question_rule_category_automation() :: %{String.t() => any()}
+  @type single_select_question_rule_category_automation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       lex_bot() :: %{
-        "LexRegion" => String.t(),
-        "Name" => String.t()
+        "LexRegion" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type lex_bot() :: %{String.t() => any()}
+  @type lex_bot() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       device_info() :: %{
-        "OperatingSystem" => String.t(),
-        "PlatformName" => String.t(),
-        "PlatformVersion" => String.t()
+        "OperatingSystem" => String.t() | Atom.t(),
+        "PlatformName" => String.t() | Atom.t(),
+        "PlatformVersion" => String.t() | Atom.t()
       }
 
   """
-  @type device_info() :: %{String.t() => any()}
+  @type device_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5999,7 +6009,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type hierarchy_path() :: %{String.t() => any()}
+  @type hierarchy_path() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6013,7 +6023,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type quick_connect_config() :: %{String.t() => any()}
+  @type quick_connect_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6021,11 +6031,11 @@ defmodule AWS.Connect do
 
       list_instances_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_instances_request() :: %{String.t() => any()}
+  @type list_instances_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6037,30 +6047,30 @@ defmodule AWS.Connect do
       }
 
   """
-  @type connection_data() :: %{String.t() => any()}
+  @type connection_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       monitor_contact_response() :: %{
-        "ContactArn" => String.t(),
-        "ContactId" => String.t()
+        "ContactArn" => String.t() | Atom.t(),
+        "ContactId" => String.t() | Atom.t()
       }
 
   """
-  @type monitor_contact_response() :: %{String.t() => any()}
+  @type monitor_contact_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_instance_storage_config_response() :: %{
-        "AssociationId" => String.t()
+        "AssociationId" => String.t() | Atom.t()
       }
 
   """
-  @type associate_instance_storage_config_response() :: %{String.t() => any()}
+  @type associate_instance_storage_config_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6068,11 +6078,11 @@ defmodule AWS.Connect do
 
       list_traffic_distribution_group_users_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_traffic_distribution_group_users_request() :: %{String.t() => any()}
+  @type list_traffic_distribution_group_users_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6089,11 +6099,11 @@ defmodule AWS.Connect do
 
       get_metric_data_response() :: %{
         "MetricResults" => list(historical_metric_result()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type get_metric_data_response() :: %{String.t() => any()}
+  @type get_metric_data_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6101,38 +6111,38 @@ defmodule AWS.Connect do
 
       list_evaluation_forms_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_evaluation_forms_request() :: %{String.t() => any()}
+  @type list_evaluation_forms_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       contact_flow_module_summary() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "State" => list(any())
       }
 
   """
-  @type contact_flow_module_summary() :: %{String.t() => any()}
+  @type contact_flow_module_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       flow_association_summary() :: %{
-        "FlowId" => String.t(),
-        "ResourceId" => String.t(),
+        "FlowId" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | Atom.t(),
         "ResourceType" => list(any())
       }
 
   """
-  @type flow_association_summary() :: %{String.t() => any()}
+  @type flow_association_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6141,19 +6151,19 @@ defmodule AWS.Connect do
       rule() :: %{
         "Actions" => list(rule_action()),
         "CreatedTime" => non_neg_integer(),
-        "Function" => String.t(),
-        "LastUpdatedBy" => String.t(),
+        "Function" => String.t() | Atom.t(),
+        "LastUpdatedBy" => String.t() | Atom.t(),
         "LastUpdatedTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "PublishStatus" => list(any()),
-        "RuleArn" => String.t(),
-        "RuleId" => String.t(),
+        "RuleArn" => String.t() | Atom.t(),
+        "RuleId" => String.t() | Atom.t(),
         "Tags" => map(),
         "TriggerEventSource" => rule_trigger_event_source()
       }
 
   """
-  @type rule() :: %{String.t() => any()}
+  @type rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6161,11 +6171,11 @@ defmodule AWS.Connect do
 
       list_user_hierarchy_groups_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_user_hierarchy_groups_request() :: %{String.t() => any()}
+  @type list_user_hierarchy_groups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6177,7 +6187,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type sort() :: %{String.t() => any()}
+  @type sort() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6185,14 +6195,14 @@ defmodule AWS.Connect do
 
       contact() :: %{
         "QueueTimeAdjustmentSeconds" => integer(),
-        "RelatedContactId" => String.t(),
+        "RelatedContactId" => String.t() | Atom.t(),
         "InitiationTimestamp" => non_neg_integer(),
         "Tags" => map(),
         "AnsweringMachineDetectionStatus" => list(any()),
         "AgentInfo" => agent_info(),
         "LastPausedTimestamp" => non_neg_integer(),
         "Channel" => list(any()),
-        "DisconnectReason" => String.t(),
+        "DisconnectReason" => String.t() | Atom.t(),
         "LastResumedTimestamp" => non_neg_integer(),
         "LastUpdateTimestamp" => non_neg_integer(),
         "ContactDetails" => contact_details(),
@@ -6200,27 +6210,27 @@ defmodule AWS.Connect do
         "QueueInfo" => queue_info(),
         "SegmentAttributes" => map(),
         "Customer" => customer(),
-        "ContactAssociationId" => String.t(),
+        "ContactAssociationId" => String.t() | Atom.t(),
         "RoutingCriteria" => routing_criteria(),
         "WisdomInfo" => wisdom_info(),
         "InitiationMethod" => list(any()),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "AdditionalEmailRecipients" => additional_email_recipients(),
         "Campaign" => campaign(),
-        "PreviousContactId" => String.t(),
+        "PreviousContactId" => String.t() | Atom.t(),
         "ContactEvaluations" => map(),
         "TotalPauseDurationInSeconds" => integer(),
         "CustomerEndpoint" => endpoint_info(),
         "SystemEndpoint" => endpoint_info(),
-        "CustomerId" => String.t(),
+        "CustomerId" => String.t() | Atom.t(),
         "QueuePriority" => float(),
         "ScheduledTimestamp" => non_neg_integer(),
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "DisconnectTimestamp" => non_neg_integer(),
         "QualityMetrics" => quality_metrics(),
-        "Name" => String.t(),
-        "InitialContactId" => String.t(),
-        "Description" => String.t(),
+        "Name" => String.t() | Atom.t(),
+        "InitialContactId" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
         "ConnectedToSystemTimestamp" => non_neg_integer(),
         "DisconnectDetails" => disconnect_details(),
         "TotalPauseCount" => integer(),
@@ -6230,18 +6240,21 @@ defmodule AWS.Connect do
       }
 
   """
-  @type contact() :: %{String.t() => any()}
+  @type contact() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_routing_profile_default_outbound_queue_request() :: %{
-        required("DefaultOutboundQueueId") => String.t()
+        required("DefaultOutboundQueueId") => String.t() | Atom.t()
       }
 
   """
-  @type update_routing_profile_default_outbound_queue_request() :: %{String.t() => any()}
+  @type update_routing_profile_default_outbound_queue_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -6252,7 +6265,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type update_routing_profile_concurrency_request() :: %{String.t() => any()}
+  @type update_routing_profile_concurrency_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6260,11 +6273,11 @@ defmodule AWS.Connect do
 
       routing_profile_queue_reference() :: %{
         "Channel" => list(any()),
-        "QueueId" => String.t()
+        "QueueId" => String.t() | Atom.t()
       }
 
   """
-  @type routing_profile_queue_reference() :: %{String.t() => any()}
+  @type routing_profile_queue_reference() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6278,19 +6291,19 @@ defmodule AWS.Connect do
       }
 
   """
-  @type control_plane_user_attribute_filter() :: %{String.t() => any()}
+  @type control_plane_user_attribute_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_agent_status_response() :: %{
-        "AgentStatusARN" => String.t(),
-        "AgentStatusId" => String.t()
+        "AgentStatusARN" => String.t() | Atom.t(),
+        "AgentStatusId" => String.t() | Atom.t()
       }
 
   """
-  @type create_agent_status_response() :: %{String.t() => any()}
+  @type create_agent_status_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6298,37 +6311,37 @@ defmodule AWS.Connect do
 
       list_views_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("Type") => list(any())
       }
 
   """
-  @type list_views_request() :: %{String.t() => any()}
+  @type list_views_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       stop_contact_streaming_request() :: %{
-        required("ContactId") => String.t(),
-        required("InstanceId") => String.t(),
-        required("StreamingId") => String.t()
+        required("ContactId") => String.t() | Atom.t(),
+        required("InstanceId") => String.t() | Atom.t(),
+        required("StreamingId") => String.t() | Atom.t()
       }
 
   """
-  @type stop_contact_streaming_request() :: %{String.t() => any()}
+  @type stop_contact_streaming_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       user_reference() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type user_reference() :: %{String.t() => any()}
+  @type user_reference() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6336,12 +6349,12 @@ defmodule AWS.Connect do
 
       update_contact_flow_metadata_request() :: %{
         optional("ContactFlowState") => list(any()),
-        optional("Description") => String.t(),
-        optional("Name") => String.t()
+        optional("Description") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t()
       }
 
   """
-  @type update_contact_flow_metadata_request() :: %{String.t() => any()}
+  @type update_contact_flow_metadata_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6354,7 +6367,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type state_transition() :: %{String.t() => any()}
+  @type state_transition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6362,40 +6375,40 @@ defmodule AWS.Connect do
 
       search_hours_of_operation_overrides_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("SearchCriteria") => hours_of_operation_override_search_criteria(),
         optional("SearchFilter") => hours_of_operation_search_filter(),
-        required("InstanceId") => String.t()
+        required("InstanceId") => String.t() | Atom.t()
       }
 
   """
-  @type search_hours_of_operation_overrides_request() :: %{String.t() => any()}
+  @type search_hours_of_operation_overrides_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       routing_profile_summary() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
-        "LastModifiedRegion" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "LastModifiedRegion" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type routing_profile_summary() :: %{String.t() => any()}
+  @type routing_profile_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       dismiss_user_contact_request() :: %{
-        required("ContactId") => String.t()
+        required("ContactId") => String.t() | Atom.t()
       }
 
   """
-  @type dismiss_user_contact_request() :: %{String.t() => any()}
+  @type dismiss_user_contact_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6407,7 +6420,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type voice_recording_configuration() :: %{String.t() => any()}
+  @type voice_recording_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6421,7 +6434,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type evaluation_form_numeric_question_properties() :: %{String.t() => any()}
+  @type evaluation_form_numeric_question_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6433,7 +6446,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type additional_email_recipients() :: %{String.t() => any()}
+  @type additional_email_recipients() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6441,88 +6454,88 @@ defmodule AWS.Connect do
 
       list_instance_attributes_response() :: %{
         "Attributes" => list(attribute()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_instance_attributes_response() :: %{String.t() => any()}
+  @type list_instance_attributes_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_user_status_request() :: %{
-        required("AgentStatusId") => String.t()
+        required("AgentStatusId") => String.t() | Atom.t()
       }
 
   """
-  @type put_user_status_request() :: %{String.t() => any()}
+  @type put_user_status_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       hierarchy_group() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "HierarchyPath" => hierarchy_path(),
-        "Id" => String.t(),
-        "LastModifiedRegion" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "LastModifiedRegion" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "LevelId" => String.t(),
-        "Name" => String.t(),
+        "LevelId" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type hierarchy_group() :: %{String.t() => any()}
+  @type hierarchy_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       searchable_contact_attributes_criteria() :: %{
-        "Key" => String.t(),
-        "Values" => list(String.t())
+        "Key" => String.t() | Atom.t(),
+        "Values" => list(String.t() | Atom.t())
       }
 
   """
-  @type searchable_contact_attributes_criteria() :: %{String.t() => any()}
+  @type searchable_contact_attributes_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_view_versions_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "ViewVersionSummaryList" => list(view_version_summary())
       }
 
   """
-  @type list_view_versions_response() :: %{String.t() => any()}
+  @type list_view_versions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       endpoint() :: %{
-        "Address" => String.t(),
+        "Address" => String.t() | Atom.t(),
         "Type" => list(any())
       }
 
   """
-  @type endpoint() :: %{String.t() => any()}
+  @type endpoint() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       queue_reference() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type queue_reference() :: %{String.t() => any()}
+  @type queue_reference() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6530,11 +6543,11 @@ defmodule AWS.Connect do
 
       interval_details() :: %{
         "IntervalPeriod" => list(any()),
-        "TimeZone" => String.t()
+        "TimeZone" => String.t() | Atom.t()
       }
 
   """
-  @type interval_details() :: %{String.t() => any()}
+  @type interval_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6543,15 +6556,15 @@ defmodule AWS.Connect do
       contact_evaluation() :: %{
         "DeleteTimestamp" => non_neg_integer(),
         "EndTimestamp" => non_neg_integer(),
-        "EvaluationArn" => String.t(),
-        "ExportLocation" => String.t(),
-        "FormId" => String.t(),
+        "EvaluationArn" => String.t() | Atom.t(),
+        "ExportLocation" => String.t() | Atom.t(),
+        "FormId" => String.t() | Atom.t(),
         "StartTimestamp" => non_neg_integer(),
         "Status" => list(any())
       }
 
   """
-  @type contact_evaluation() :: %{String.t() => any()}
+  @type contact_evaluation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6559,11 +6572,11 @@ defmodule AWS.Connect do
 
       list_contact_flow_modules_response() :: %{
         "ContactFlowModulesSummaryList" => list(contact_flow_module_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_contact_flow_modules_response() :: %{String.t() => any()}
+  @type list_contact_flow_modules_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6583,7 +6596,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type rule_action() :: %{String.t() => any()}
+  @type rule_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6591,11 +6604,11 @@ defmodule AWS.Connect do
 
       list_instances_response() :: %{
         "InstanceSummaryList" => list(instance_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_instances_response() :: %{String.t() => any()}
+  @type list_instances_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6606,7 +6619,10 @@ defmodule AWS.Connect do
       }
 
   """
-  @type update_routing_profile_agent_availability_timer_request() :: %{String.t() => any()}
+  @type update_routing_profile_agent_availability_timer_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -6623,11 +6639,11 @@ defmodule AWS.Connect do
 
       list_prompts_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_prompts_request() :: %{String.t() => any()}
+  @type list_prompts_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6636,11 +6652,11 @@ defmodule AWS.Connect do
       search_email_addresses_response() :: %{
         "ApproximateTotalCount" => float(),
         "EmailAddresses" => list(email_address_metadata()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type search_email_addresses_response() :: %{String.t() => any()}
+  @type search_email_addresses_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6657,11 +6673,11 @@ defmodule AWS.Connect do
 
       list_security_profile_permissions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_security_profile_permissions_request() :: %{String.t() => any()}
+  @type list_security_profile_permissions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6672,7 +6688,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type update_case_action_definition() :: %{String.t() => any()}
+  @type update_case_action_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6688,50 +6704,50 @@ defmodule AWS.Connect do
   ## Example:
 
       security_profile() :: %{
-        "AllowedAccessControlHierarchyGroupId" => String.t(),
+        "AllowedAccessControlHierarchyGroupId" => String.t() | Atom.t(),
         "AllowedAccessControlTags" => map(),
-        "Arn" => String.t(),
-        "Description" => String.t(),
-        "HierarchyRestrictedResources" => list(String.t()),
-        "Id" => String.t(),
-        "LastModifiedRegion" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "HierarchyRestrictedResources" => list(String.t() | Atom.t()),
+        "Id" => String.t() | Atom.t(),
+        "LastModifiedRegion" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "OrganizationResourceId" => String.t(),
-        "SecurityProfileName" => String.t(),
-        "TagRestrictedResources" => list(String.t()),
+        "OrganizationResourceId" => String.t() | Atom.t(),
+        "SecurityProfileName" => String.t() | Atom.t(),
+        "TagRestrictedResources" => list(String.t() | Atom.t()),
         "Tags" => map()
       }
 
   """
-  @type security_profile() :: %{String.t() => any()}
+  @type security_profile() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       quick_connect_summary() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
-        "LastModifiedRegion" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "LastModifiedRegion" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "QuickConnectType" => list(any())
       }
 
   """
-  @type quick_connect_summary() :: %{String.t() => any()}
+  @type quick_connect_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_security_key_request() :: %{
-        optional("ClientToken") => String.t(),
-        required("Key") => String.t()
+        optional("ClientToken") => String.t() | Atom.t(),
+        required("Key") => String.t() | Atom.t()
       }
 
   """
-  @type associate_security_key_request() :: %{String.t() => any()}
+  @type associate_security_key_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6743,25 +6759,25 @@ defmodule AWS.Connect do
       }
 
   """
-  @type current_metric() :: %{String.t() => any()}
+  @type current_metric() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       traffic_distribution_group() :: %{
-        "Arn" => String.t(),
-        "Description" => String.t(),
-        "Id" => String.t(),
-        "InstanceArn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "InstanceArn" => String.t() | Atom.t(),
         "IsDefault" => boolean(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Status" => list(any()),
         "Tags" => map()
       }
 
   """
-  @type traffic_distribution_group() :: %{String.t() => any()}
+  @type traffic_distribution_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6774,7 +6790,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type user_hierarchy_group_search_criteria() :: %{String.t() => any()}
+  @type user_hierarchy_group_search_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6782,29 +6798,29 @@ defmodule AWS.Connect do
 
       hours_of_operation_override() :: %{
         "Config" => list(hours_of_operation_override_config()),
-        "Description" => String.t(),
-        "EffectiveFrom" => String.t(),
-        "EffectiveTill" => String.t(),
-        "HoursOfOperationArn" => String.t(),
-        "HoursOfOperationId" => String.t(),
-        "HoursOfOperationOverrideId" => String.t(),
-        "Name" => String.t()
+        "Description" => String.t() | Atom.t(),
+        "EffectiveFrom" => String.t() | Atom.t(),
+        "EffectiveTill" => String.t() | Atom.t(),
+        "HoursOfOperationArn" => String.t() | Atom.t(),
+        "HoursOfOperationId" => String.t() | Atom.t(),
+        "HoursOfOperationOverrideId" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type hours_of_operation_override() :: %{String.t() => any()}
+  @type hours_of_operation_override() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_analytics_data_lake_data_sets_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Results" => list(analytics_data_sets_result())
       }
 
   """
-  @type list_analytics_data_lake_data_sets_response() :: %{String.t() => any()}
+  @type list_analytics_data_lake_data_sets_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6815,14 +6831,14 @@ defmodule AWS.Connect do
         "CreatedTime" => non_neg_integer(),
         "EventSourceName" => list(any()),
         "LastUpdatedTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "PublishStatus" => list(any()),
-        "RuleArn" => String.t(),
-        "RuleId" => String.t()
+        "RuleArn" => String.t() | Atom.t(),
+        "RuleId" => String.t() | Atom.t()
       }
 
   """
-  @type rule_summary() :: %{String.t() => any()}
+  @type rule_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6830,23 +6846,23 @@ defmodule AWS.Connect do
 
       list_security_profile_applications_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_security_profile_applications_request() :: %{String.t() => any()}
+  @type list_security_profile_applications_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_routing_profile_name_request() :: %{
-        optional("Description") => String.t(),
-        optional("Name") => String.t()
+        optional("Description") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t()
       }
 
   """
-  @type update_routing_profile_name_request() :: %{String.t() => any()}
+  @type update_routing_profile_name_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6857,7 +6873,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type contact_flow_module_search_filter() :: %{String.t() => any()}
+  @type contact_flow_module_search_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6868,21 +6884,21 @@ defmodule AWS.Connect do
       }
 
   """
-  @type describe_hours_of_operation_override_response() :: %{String.t() => any()}
+  @type describe_hours_of_operation_override_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_routing_profile_queues_response() :: %{
-        "LastModifiedRegion" => String.t(),
+        "LastModifiedRegion" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "RoutingProfileQueueConfigSummaryList" => list(routing_profile_queue_config_summary())
       }
 
   """
-  @type list_routing_profile_queues_response() :: %{String.t() => any()}
+  @type list_routing_profile_queues_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6891,36 +6907,36 @@ defmodule AWS.Connect do
       list_contact_flow_modules_request() :: %{
         optional("ContactFlowModuleState") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_contact_flow_modules_request() :: %{String.t() => any()}
+  @type list_contact_flow_modules_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_bot_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
         optional("LexBot") => lex_bot(),
         optional("LexV2Bot") => lex_v2_bot()
       }
 
   """
-  @type associate_bot_request() :: %{String.t() => any()}
+  @type associate_bot_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_lex_bot_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
         required("LexBot") => lex_bot()
       }
 
   """
-  @type associate_lex_bot_request() :: %{String.t() => any()}
+  @type associate_lex_bot_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6940,7 +6956,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type describe_user_response() :: %{String.t() => any()}
+  @type describe_user_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6948,12 +6964,12 @@ defmodule AWS.Connect do
 
       string_condition() :: %{
         "ComparisonType" => list(any()),
-        "FieldName" => String.t(),
-        "Value" => String.t()
+        "FieldName" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type string_condition() :: %{String.t() => any()}
+  @type string_condition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6961,11 +6977,11 @@ defmodule AWS.Connect do
 
       list_bots_response() :: %{
         "LexBots" => list(lex_bot_config()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_bots_response() :: %{String.t() => any()}
+  @type list_bots_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6977,7 +6993,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type routing_criteria_input_step() :: %{String.t() => any()}
+  @type routing_criteria_input_step() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6985,11 +7001,11 @@ defmodule AWS.Connect do
 
       contact_search_summary_agent_info() :: %{
         "ConnectedToAgentTimestamp" => non_neg_integer(),
-        "Id" => String.t()
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type contact_search_summary_agent_info() :: %{String.t() => any()}
+  @type contact_search_summary_agent_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7001,7 +7017,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type quality_metrics() :: %{String.t() => any()}
+  @type quality_metrics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7012,7 +7028,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type update_user_hierarchy_structure_request() :: %{String.t() => any()}
+  @type update_user_hierarchy_structure_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7029,24 +7045,24 @@ defmodule AWS.Connect do
 
       list_contact_flow_versions_response() :: %{
         "ContactFlowVersionSummaryList" => list(contact_flow_version_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_contact_flow_versions_response() :: %{String.t() => any()}
+  @type list_contact_flow_versions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       outbound_raw_message() :: %{
-        "Body" => String.t(),
-        "ContentType" => String.t(),
-        "Subject" => String.t()
+        "Body" => String.t() | Atom.t(),
+        "ContentType" => String.t() | Atom.t(),
+        "Subject" => String.t() | Atom.t()
       }
 
   """
-  @type outbound_raw_message() :: %{String.t() => any()}
+  @type outbound_raw_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7066,68 +7082,68 @@ defmodule AWS.Connect do
       }
 
   """
-  @type deactivate_evaluation_form_request() :: %{String.t() => any()}
+  @type deactivate_evaluation_form_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_user_security_profiles_request() :: %{
-        required("SecurityProfileIds") => list(String.t())
+        required("SecurityProfileIds") => list(String.t() | Atom.t())
       }
 
   """
-  @type update_user_security_profiles_request() :: %{String.t() => any()}
+  @type update_user_security_profiles_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       instance_status_reason() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type instance_status_reason() :: %{String.t() => any()}
+  @type instance_status_reason() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_agent_status_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("DisplayOrder") => integer(),
         optional("Tags") => map(),
-        required("Name") => String.t(),
+        required("Name") => String.t() | Atom.t(),
         required("State") => list(any())
       }
 
   """
-  @type create_agent_status_request() :: %{String.t() => any()}
+  @type create_agent_status_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_push_notification_registration_request() :: %{
-        required("ContactId") => String.t()
+        required("ContactId") => String.t() | Atom.t()
       }
 
   """
-  @type delete_push_notification_registration_request() :: %{String.t() => any()}
+  @type delete_push_notification_registration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resume_contact_request() :: %{
-        optional("ContactFlowId") => String.t(),
-        required("ContactId") => String.t(),
-        required("InstanceId") => String.t()
+        optional("ContactFlowId") => String.t() | Atom.t(),
+        required("ContactId") => String.t() | Atom.t(),
+        required("InstanceId") => String.t() | Atom.t()
       }
 
   """
-  @type resume_contact_request() :: %{String.t() => any()}
+  @type resume_contact_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7148,7 +7164,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type customer_voice_activity() :: %{String.t() => any()}
+  @type customer_voice_activity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7182,41 +7198,41 @@ defmodule AWS.Connect do
   ## Example:
 
       list_security_keys_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "SecurityKeys" => list(security_key())
       }
 
   """
-  @type list_security_keys_response() :: %{String.t() => any()}
+  @type list_security_keys_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_view_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("Description") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("Tags") => map(),
         required("Content") => view_input_content(),
-        required("Name") => String.t(),
+        required("Name") => String.t() | Atom.t(),
         required("Status") => list(any())
       }
 
   """
-  @type create_view_request() :: %{String.t() => any()}
+  @type create_view_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_prompt_request() :: %{
-        optional("Description") => String.t(),
-        optional("Name") => String.t(),
-        optional("S3Uri") => String.t()
+        optional("Description") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t(),
+        optional("S3Uri") => String.t() | Atom.t()
       }
 
   """
-  @type update_prompt_request() :: %{String.t() => any()}
+  @type update_prompt_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7231,7 +7247,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type user_search_criteria() :: %{String.t() => any()}
+  @type user_search_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7251,7 +7267,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type agent_status_search_filter() :: %{String.t() => any()}
+  @type agent_status_search_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7259,26 +7275,26 @@ defmodule AWS.Connect do
 
       get_traffic_distribution_response() :: %{
         "AgentConfig" => agent_config(),
-        "Arn" => String.t(),
-        "Id" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "SignInConfig" => sign_in_config(),
         "TelephonyConfig" => telephony_config()
       }
 
   """
-  @type get_traffic_distribution_response() :: %{String.t() => any()}
+  @type get_traffic_distribution_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       transfer_contact_response() :: %{
-        "ContactArn" => String.t(),
-        "ContactId" => String.t()
+        "ContactArn" => String.t() | Atom.t(),
+        "ContactId" => String.t() | Atom.t()
       }
 
   """
-  @type transfer_contact_response() :: %{String.t() => any()}
+  @type transfer_contact_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7290,19 +7306,19 @@ defmodule AWS.Connect do
       }
 
   """
-  @type update_view_content_request() :: %{String.t() => any()}
+  @type update_view_content_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_contact_evaluation_response() :: %{
-        "EvaluationArn" => String.t(),
-        "EvaluationId" => String.t()
+        "EvaluationArn" => String.t() | Atom.t(),
+        "EvaluationId" => String.t() | Atom.t()
       }
 
   """
-  @type update_contact_evaluation_response() :: %{String.t() => any()}
+  @type update_contact_evaluation_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7310,13 +7326,13 @@ defmodule AWS.Connect do
 
       evaluation_form_single_select_question_option() :: %{
         "AutomaticFail" => boolean(),
-        "RefId" => String.t(),
+        "RefId" => String.t() | Atom.t(),
         "Score" => integer(),
-        "Text" => String.t()
+        "Text" => String.t() | Atom.t()
       }
 
   """
-  @type evaluation_form_single_select_question_option() :: %{String.t() => any()}
+  @type evaluation_form_single_select_question_option() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7327,7 +7343,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type update_view_content_response() :: %{String.t() => any()}
+  @type update_view_content_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7337,30 +7353,30 @@ defmodule AWS.Connect do
         optional("AdditionalRecipients") => inbound_additional_recipients(),
         optional("Attachments") => list(email_attachment()),
         optional("Attributes") => map(),
-        optional("ClientToken") => String.t(),
-        optional("ContactFlowId") => String.t(),
-        optional("Description") => String.t(),
-        optional("Name") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ContactFlowId") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("References") => map(),
-        optional("RelatedContactId") => String.t(),
+        optional("RelatedContactId") => String.t() | Atom.t(),
         optional("SegmentAttributes") => map(),
-        required("DestinationEmailAddress") => String.t(),
+        required("DestinationEmailAddress") => String.t() | Atom.t(),
         required("EmailMessage") => inbound_email_content(),
         required("FromEmailAddress") => email_address_info(),
-        required("InstanceId") => String.t()
+        required("InstanceId") => String.t() | Atom.t()
       }
 
   """
-  @type start_email_contact_request() :: %{String.t() => any()}
+  @type start_email_contact_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_instance_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("DirectoryId") => String.t(),
-        optional("InstanceAlias") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("DirectoryId") => String.t() | Atom.t(),
+        optional("InstanceAlias") => String.t() | Atom.t(),
         optional("Tags") => map(),
         required("IdentityManagementType") => list(any()),
         required("InboundCallsEnabled") => boolean(),
@@ -7368,19 +7384,19 @@ defmodule AWS.Connect do
       }
 
   """
-  @type create_instance_request() :: %{String.t() => any()}
+  @type create_instance_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       hierarchy_group_summary_reference() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type hierarchy_group_summary_reference() :: %{String.t() => any()}
+  @type hierarchy_group_summary_reference() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7395,7 +7411,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type hierarchy_structure() :: %{String.t() => any()}
+  @type hierarchy_structure() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7416,7 +7432,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type describe_instance_response() :: %{String.t() => any()}
+  @type describe_instance_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7426,11 +7442,11 @@ defmodule AWS.Connect do
         "Attributes" => map(),
         "ParticipantDetails" => participant_details(),
         "StreamingConfiguration" => chat_streaming_configuration(),
-        "SupportedMessagingContentTypes" => list(String.t())
+        "SupportedMessagingContentTypes" => list(String.t() | Atom.t())
       }
 
   """
-  @type new_session_details() :: %{String.t() => any()}
+  @type new_session_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7445,7 +7461,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type hierarchy_groups() :: %{String.t() => any()}
+  @type hierarchy_groups() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7456,7 +7472,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type update_queue_outbound_caller_config_request() :: %{String.t() => any()}
+  @type update_queue_outbound_caller_config_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7467,29 +7483,29 @@ defmodule AWS.Connect do
       }
 
   """
-  @type get_contact_attributes_response() :: %{String.t() => any()}
+  @type get_contact_attributes_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       instance() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreatedTime" => non_neg_integer(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "IdentityManagementType" => list(any()),
         "InboundCallsEnabled" => boolean(),
-        "InstanceAccessUrl" => String.t(),
-        "InstanceAlias" => String.t(),
+        "InstanceAccessUrl" => String.t() | Atom.t(),
+        "InstanceAlias" => String.t() | Atom.t(),
         "InstanceStatus" => list(any()),
         "OutboundCallsEnabled" => boolean(),
-        "ServiceRole" => String.t(),
+        "ServiceRole" => String.t() | Atom.t(),
         "StatusReason" => instance_status_reason(),
         "Tags" => map()
       }
 
   """
-  @type instance() :: %{String.t() => any()}
+  @type instance() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7500,41 +7516,41 @@ defmodule AWS.Connect do
       }
 
   """
-  @type sign_in_config() :: %{String.t() => any()}
+  @type sign_in_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_routing_profiles_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "RoutingProfileSummaryList" => list(routing_profile_summary())
       }
 
   """
-  @type list_routing_profiles_response() :: %{String.t() => any()}
+  @type list_routing_profiles_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_parameter_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_parameter_exception() :: %{String.t() => any()}
+  @type invalid_parameter_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7543,23 +7559,23 @@ defmodule AWS.Connect do
       search_hours_of_operation_overrides_response() :: %{
         "ApproximateTotalCount" => float(),
         "HoursOfOperationOverrides" => list(hours_of_operation_override()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type search_hours_of_operation_overrides_response() :: %{String.t() => any()}
+  @type search_hours_of_operation_overrides_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_contact_flow_module_response() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type create_contact_flow_module_response() :: %{String.t() => any()}
+  @type create_contact_flow_module_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7567,13 +7583,13 @@ defmodule AWS.Connect do
 
       start_web_r_t_c_contact_response() :: %{
         "ConnectionData" => connection_data(),
-        "ContactId" => String.t(),
-        "ParticipantId" => String.t(),
-        "ParticipantToken" => String.t()
+        "ContactId" => String.t() | Atom.t(),
+        "ParticipantId" => String.t() | Atom.t(),
+        "ParticipantToken" => String.t() | Atom.t()
       }
 
   """
-  @type start_web_r_t_c_contact_response() :: %{String.t() => any()}
+  @type start_web_r_t_c_contact_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7585,7 +7601,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type current_metric_sort_criteria() :: %{String.t() => any()}
+  @type current_metric_sort_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7601,36 +7617,36 @@ defmodule AWS.Connect do
   ## Example:
 
       security_key() :: %{
-        "AssociationId" => String.t(),
+        "AssociationId" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
-        "Key" => String.t()
+        "Key" => String.t() | Atom.t()
       }
 
   """
-  @type security_key() :: %{String.t() => any()}
+  @type security_key() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_rules_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "RuleSummaryList" => list(rule_summary())
       }
 
   """
-  @type list_rules_response() :: %{String.t() => any()}
+  @type list_rules_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_hours_of_operation_override_response() :: %{
-        "HoursOfOperationOverrideId" => String.t()
+        "HoursOfOperationOverrideId" => String.t() | Atom.t()
       }
 
   """
-  @type create_hours_of_operation_override_response() :: %{String.t() => any()}
+  @type create_hours_of_operation_override_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7638,37 +7654,37 @@ defmodule AWS.Connect do
 
       search_resource_tags_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ResourceTypes") => list(String.t()),
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("ResourceTypes") => list(String.t() | Atom.t()),
         optional("SearchCriteria") => resource_tags_search_criteria(),
-        required("InstanceId") => String.t()
+        required("InstanceId") => String.t() | Atom.t()
       }
 
   """
-  @type search_resource_tags_request() :: %{String.t() => any()}
+  @type search_resource_tags_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disconnect_reason() :: %{
-        "Code" => String.t()
+        "Code" => String.t() | Atom.t()
       }
 
   """
-  @type disconnect_reason() :: %{String.t() => any()}
+  @type disconnect_reason() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       replicate_instance_response() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type replicate_instance_response() :: %{String.t() => any()}
+  @type replicate_instance_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7680,19 +7696,19 @@ defmodule AWS.Connect do
       }
 
   """
-  @type real_time_contact_analysis_character_interval() :: %{String.t() => any()}
+  @type real_time_contact_analysis_character_interval() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       field_value() :: %{
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "Value" => field_value_union()
       }
 
   """
-  @type field_value() :: %{String.t() => any()}
+  @type field_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7705,7 +7721,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type task_template_constraints() :: %{String.t() => any()}
+  @type task_template_constraints() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7718,7 +7734,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type update_contact_routing_data_request() :: %{String.t() => any()}
+  @type update_contact_routing_data_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7729,7 +7745,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type describe_traffic_distribution_group_response() :: %{String.t() => any()}
+  @type describe_traffic_distribution_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7737,11 +7753,11 @@ defmodule AWS.Connect do
 
       list_hours_of_operations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_hours_of_operations_request() :: %{String.t() => any()}
+  @type list_hours_of_operations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7752,56 +7768,56 @@ defmodule AWS.Connect do
       }
 
   """
-  @type describe_user_hierarchy_group_response() :: %{String.t() => any()}
+  @type describe_user_hierarchy_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       audio_quality_metrics_info() :: %{
-        "PotentialQualityIssues" => list(String.t()),
+        "PotentialQualityIssues" => list(String.t() | Atom.t()),
         "QualityScore" => float()
       }
 
   """
-  @type audio_quality_metrics_info() :: %{String.t() => any()}
+  @type audio_quality_metrics_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_queue_name_request() :: %{
-        optional("Description") => String.t(),
-        optional("Name") => String.t()
+        optional("Description") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t()
       }
 
   """
-  @type update_queue_name_request() :: %{String.t() => any()}
+  @type update_queue_name_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_contact_request() :: %{
-        required("ContactId") => String.t(),
-        required("InstanceId") => String.t(),
+        required("ContactId") => String.t() | Atom.t(),
+        required("InstanceId") => String.t() | Atom.t(),
         required("Tags") => map()
       }
 
   """
-  @type tag_contact_request() :: %{String.t() => any()}
+  @type tag_contact_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_contact_evaluation_response() :: %{
-        "EvaluationArn" => String.t(),
-        "EvaluationId" => String.t()
+        "EvaluationArn" => String.t() | Atom.t(),
+        "EvaluationId" => String.t() | Atom.t()
       }
 
   """
-  @type start_contact_evaluation_response() :: %{String.t() => any()}
+  @type start_contact_evaluation_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7809,62 +7825,62 @@ defmodule AWS.Connect do
 
       search_routing_profiles_response() :: %{
         "ApproximateTotalCount" => float(),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "RoutingProfiles" => list(routing_profile())
       }
 
   """
-  @type search_routing_profiles_response() :: %{String.t() => any()}
+  @type search_routing_profiles_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       queue_quick_connect_config() :: %{
-        "ContactFlowId" => String.t(),
-        "QueueId" => String.t()
+        "ContactFlowId" => String.t() | Atom.t(),
+        "QueueId" => String.t() | Atom.t()
       }
 
   """
-  @type queue_quick_connect_config() :: %{String.t() => any()}
+  @type queue_quick_connect_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       user_proficiency() :: %{
-        "AttributeName" => String.t(),
-        "AttributeValue" => String.t(),
+        "AttributeName" => String.t() | Atom.t(),
+        "AttributeValue" => String.t() | Atom.t(),
         "Level" => float()
       }
 
   """
-  @type user_proficiency() :: %{String.t() => any()}
+  @type user_proficiency() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       endpoint_info() :: %{
-        "Address" => String.t(),
-        "DisplayName" => String.t(),
+        "Address" => String.t() | Atom.t(),
+        "DisplayName" => String.t() | Atom.t(),
         "Type" => list(any())
       }
 
   """
-  @type endpoint_info() :: %{String.t() => any()}
+  @type endpoint_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       source_campaign() :: %{
-        "CampaignId" => String.t(),
-        "OutboundRequestId" => String.t()
+        "CampaignId" => String.t() | Atom.t(),
+        "OutboundRequestId" => String.t() | Atom.t()
       }
 
   """
-  @type source_campaign() :: %{String.t() => any()}
+  @type source_campaign() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7878,7 +7894,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type queue_search_criteria() :: %{String.t() => any()}
+  @type queue_search_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7890,7 +7906,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type submit_contact_evaluation_request() :: %{String.t() => any()}
+  @type submit_contact_evaluation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7901,7 +7917,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type common_attribute_and_condition() :: %{String.t() => any()}
+  @type common_attribute_and_condition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7921,7 +7937,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type associate_user_proficiencies_request() :: %{String.t() => any()}
+  @type associate_user_proficiencies_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7929,14 +7945,14 @@ defmodule AWS.Connect do
 
       search_security_profiles_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("SearchCriteria") => security_profile_search_criteria(),
         optional("SearchFilter") => security_profiles_search_filter(),
-        required("InstanceId") => String.t()
+        required("InstanceId") => String.t() | Atom.t()
       }
 
   """
-  @type search_security_profiles_request() :: %{String.t() => any()}
+  @type search_security_profiles_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7944,14 +7960,14 @@ defmodule AWS.Connect do
 
       search_prompts_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("SearchCriteria") => prompt_search_criteria(),
         optional("SearchFilter") => prompt_search_filter(),
-        required("InstanceId") => String.t()
+        required("InstanceId") => String.t() | Atom.t()
       }
 
   """
-  @type search_prompts_request() :: %{String.t() => any()}
+  @type search_prompts_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7968,12 +7984,12 @@ defmodule AWS.Connect do
 
       search_security_profiles_response() :: %{
         "ApproximateTotalCount" => float(),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "SecurityProfiles" => list(security_profile_search_summary())
       }
 
   """
-  @type search_security_profiles_response() :: %{String.t() => any()}
+  @type search_security_profiles_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7984,7 +8000,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type agent_config() :: %{String.t() => any()}
+  @type agent_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7995,18 +8011,18 @@ defmodule AWS.Connect do
       }
 
   """
-  @type evaluation_answer_input() :: %{String.t() => any()}
+  @type evaluation_answer_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       event_bridge_action_definition() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type event_bridge_action_definition() :: %{String.t() => any()}
+  @type event_bridge_action_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8015,38 +8031,38 @@ defmodule AWS.Connect do
       list_default_vocabularies_request() :: %{
         optional("LanguageCode") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_default_vocabularies_request() :: %{String.t() => any()}
+  @type list_default_vocabularies_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_participant_authentication_request() :: %{
-        optional("Code") => String.t(),
-        optional("Error") => String.t(),
-        optional("ErrorDescription") => String.t(),
-        required("InstanceId") => String.t(),
-        required("State") => String.t()
+        optional("Code") => String.t() | Atom.t(),
+        optional("Error") => String.t() | Atom.t(),
+        optional("ErrorDescription") => String.t() | Atom.t(),
+        required("InstanceId") => String.t() | Atom.t(),
+        required("State") => String.t() | Atom.t()
       }
 
   """
-  @type update_participant_authentication_request() :: %{String.t() => any()}
+  @type update_participant_authentication_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_contact_references_request() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         required("ReferenceTypes") => list(list(any())())
       }
 
   """
-  @type list_contact_references_request() :: %{String.t() => any()}
+  @type list_contact_references_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8057,7 +8073,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type meeting_features_configuration() :: %{String.t() => any()}
+  @type meeting_features_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8065,12 +8081,12 @@ defmodule AWS.Connect do
 
       update_contact_attributes_request() :: %{
         required("Attributes") => map(),
-        required("InitialContactId") => String.t(),
-        required("InstanceId") => String.t()
+        required("InitialContactId") => String.t() | Atom.t(),
+        required("InstanceId") => String.t() | Atom.t()
       }
 
   """
-  @type update_contact_attributes_request() :: %{String.t() => any()}
+  @type update_contact_attributes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8078,8 +8094,8 @@ defmodule AWS.Connect do
 
       update_contact_request() :: %{
         optional("CustomerEndpoint") => endpoint(),
-        optional("Description") => String.t(),
-        optional("Name") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("QueueInfo") => queue_info_input(),
         optional("References") => map(),
         optional("SegmentAttributes") => map(),
@@ -8088,7 +8104,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type update_contact_request() :: %{String.t() => any()}
+  @type update_contact_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8104,14 +8120,14 @@ defmodule AWS.Connect do
   ## Example:
 
       list_queue_quick_connects_response() :: %{
-        "LastModifiedRegion" => String.t(),
+        "LastModifiedRegion" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "QuickConnectSummaryList" => list(quick_connect_summary())
       }
 
   """
-  @type list_queue_quick_connects_response() :: %{String.t() => any()}
+  @type list_queue_quick_connects_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8119,11 +8135,11 @@ defmodule AWS.Connect do
 
       list_associated_contacts_response() :: %{
         "ContactSummaryList" => list(associated_contact_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_associated_contacts_response() :: %{String.t() => any()}
+  @type list_associated_contacts_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8134,7 +8150,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type outbound_additional_recipients() :: %{String.t() => any()}
+  @type outbound_additional_recipients() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8146,7 +8162,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type searchable_contact_attributes() :: %{String.t() => any()}
+  @type searchable_contact_attributes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8154,11 +8170,11 @@ defmodule AWS.Connect do
 
       list_routing_profiles_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_routing_profiles_request() :: %{String.t() => any()}
+  @type list_routing_profiles_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8170,7 +8186,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type batch_put_contact_response() :: %{String.t() => any()}
+  @type batch_put_contact_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8181,7 +8197,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type describe_contact_flow_response() :: %{String.t() => any()}
+  @type describe_contact_flow_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8210,7 +8226,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type invalid_contact_flow_module_exception() :: %{String.t() => any()}
+  @type invalid_contact_flow_module_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8226,36 +8242,36 @@ defmodule AWS.Connect do
   ## Example:
 
       contact_flow() :: %{
-        "Arn" => String.t(),
-        "Content" => String.t(),
-        "Description" => String.t(),
-        "FlowContentSha256" => String.t(),
-        "Id" => String.t(),
-        "LastModifiedRegion" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Content" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "FlowContentSha256" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "LastModifiedRegion" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "State" => list(any()),
         "Status" => list(any()),
         "Tags" => map(),
         "Type" => list(any()),
         "Version" => float(),
-        "VersionDescription" => String.t()
+        "VersionDescription" => String.t() | Atom.t()
       }
 
   """
-  @type contact_flow() :: %{String.t() => any()}
+  @type contact_flow() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_traffic_distribution_groups_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "TrafficDistributionGroupSummaryList" => list(traffic_distribution_group_summary())
       }
 
   """
-  @type list_traffic_distribution_groups_response() :: %{String.t() => any()}
+  @type list_traffic_distribution_groups_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8263,22 +8279,22 @@ defmodule AWS.Connect do
 
       list_contact_flows_response() :: %{
         "ContactFlowSummaryList" => list(contact_flow_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_contact_flows_response() :: %{String.t() => any()}
+  @type list_contact_flows_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       idempotency_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type idempotency_exception() :: %{String.t() => any()}
+  @type idempotency_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8286,29 +8302,29 @@ defmodule AWS.Connect do
 
       search_quick_connects_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("SearchCriteria") => quick_connect_search_criteria(),
         optional("SearchFilter") => quick_connect_search_filter(),
-        required("InstanceId") => String.t()
+        required("InstanceId") => String.t() | Atom.t()
       }
 
   """
-  @type search_quick_connects_request() :: %{String.t() => any()}
+  @type search_quick_connects_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       evaluation_form_section() :: %{
-        "Instructions" => String.t(),
+        "Instructions" => String.t() | Atom.t(),
         "Items" => list(list()),
-        "RefId" => String.t(),
-        "Title" => String.t(),
+        "RefId" => String.t() | Atom.t(),
+        "Title" => String.t() | Atom.t(),
         "Weight" => float()
       }
 
   """
-  @type evaluation_form_section() :: %{String.t() => any()}
+  @type evaluation_form_section() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8316,15 +8332,15 @@ defmodule AWS.Connect do
 
       search_contacts_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("SearchCriteria") => search_criteria(),
         optional("Sort") => sort(),
-        required("InstanceId") => String.t(),
+        required("InstanceId") => String.t() | Atom.t(),
         required("TimeRange") => search_contacts_time_range()
       }
 
   """
-  @type search_contacts_request() :: %{String.t() => any()}
+  @type search_contacts_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8340,11 +8356,11 @@ defmodule AWS.Connect do
   ## Example:
 
       start_outbound_chat_contact_response() :: %{
-        "ContactId" => String.t()
+        "ContactId" => String.t() | Atom.t()
       }
 
   """
-  @type start_outbound_chat_contact_response() :: %{String.t() => any()}
+  @type start_outbound_chat_contact_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8352,11 +8368,11 @@ defmodule AWS.Connect do
 
       list_integration_associations_response() :: %{
         "IntegrationAssociationSummaryList" => list(integration_association_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_integration_associations_response() :: %{String.t() => any()}
+  @type list_integration_associations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8366,37 +8382,37 @@ defmodule AWS.Connect do
         "BooleanValue" => boolean(),
         "DoubleValue" => float(),
         "EmptyValue" => empty_field_value(),
-        "StringValue" => String.t()
+        "StringValue" => String.t() | Atom.t()
       }
 
   """
-  @type field_value_union() :: %{String.t() => any()}
+  @type field_value_union() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       phone_number_summary() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
-        "PhoneNumber" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "PhoneNumber" => String.t() | Atom.t(),
         "PhoneNumberCountryCode" => list(any()),
         "PhoneNumberType" => list(any())
       }
 
   """
-  @type phone_number_summary() :: %{String.t() => any()}
+  @type phone_number_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       hierarchy_level_update() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type hierarchy_level_update() :: %{String.t() => any()}
+  @type hierarchy_level_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8404,44 +8420,44 @@ defmodule AWS.Connect do
 
       resume_contact_recording_request() :: %{
         optional("ContactRecordingType") => list(any()),
-        required("ContactId") => String.t(),
-        required("InitialContactId") => String.t(),
-        required("InstanceId") => String.t()
+        required("ContactId") => String.t() | Atom.t(),
+        required("InitialContactId") => String.t() | Atom.t(),
+        required("InstanceId") => String.t() | Atom.t()
       }
 
   """
-  @type resume_contact_recording_request() :: %{String.t() => any()}
+  @type resume_contact_recording_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_security_key_request() :: %{
-        optional("ClientToken") => String.t()
+        optional("ClientToken") => String.t() | Atom.t()
       }
 
   """
-  @type disassociate_security_key_request() :: %{String.t() => any()}
+  @type disassociate_security_key_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       instance_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreatedTime" => non_neg_integer(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "IdentityManagementType" => list(any()),
         "InboundCallsEnabled" => boolean(),
-        "InstanceAccessUrl" => String.t(),
-        "InstanceAlias" => String.t(),
+        "InstanceAccessUrl" => String.t() | Atom.t(),
+        "InstanceAlias" => String.t() | Atom.t(),
         "InstanceStatus" => list(any()),
         "OutboundCallsEnabled" => boolean(),
-        "ServiceRole" => String.t()
+        "ServiceRole" => String.t() | Atom.t()
       }
 
   """
-  @type instance_summary() :: %{String.t() => any()}
+  @type instance_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8452,18 +8468,18 @@ defmodule AWS.Connect do
       }
 
   """
-  @type describe_instance_storage_config_request() :: %{String.t() => any()}
+  @type describe_instance_storage_config_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8474,7 +8490,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type update_participant_role_config_request() :: %{String.t() => any()}
+  @type update_participant_role_config_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8482,24 +8498,24 @@ defmodule AWS.Connect do
 
       search_predefined_attributes_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("SearchCriteria") => predefined_attribute_search_criteria(),
-        required("InstanceId") => String.t()
+        required("InstanceId") => String.t() | Atom.t()
       }
 
   """
-  @type search_predefined_attributes_request() :: %{String.t() => any()}
+  @type search_predefined_attributes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_instance_request() :: %{
-        optional("ClientToken") => String.t()
+        optional("ClientToken") => String.t() | Atom.t()
       }
 
   """
-  @type delete_instance_request() :: %{String.t() => any()}
+  @type delete_instance_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8511,41 +8527,41 @@ defmodule AWS.Connect do
       }
 
   """
-  @type current_metric_data() :: %{String.t() => any()}
+  @type current_metric_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       user() :: %{
-        "Arn" => String.t(),
-        "DirectoryUserId" => String.t(),
-        "HierarchyGroupId" => String.t(),
-        "Id" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "DirectoryUserId" => String.t() | Atom.t(),
+        "HierarchyGroupId" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "IdentityInfo" => user_identity_info(),
-        "LastModifiedRegion" => String.t(),
+        "LastModifiedRegion" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
         "PhoneConfig" => user_phone_config(),
-        "RoutingProfileId" => String.t(),
-        "SecurityProfileIds" => list(String.t()),
+        "RoutingProfileId" => String.t() | Atom.t(),
+        "SecurityProfileIds" => list(String.t() | Atom.t()),
         "Tags" => map(),
-        "Username" => String.t()
+        "Username" => String.t() | Atom.t()
       }
 
   """
-  @type user() :: %{String.t() => any()}
+  @type user() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_contact_flow_name_request() :: %{
-        optional("Description") => String.t(),
-        optional("Name") => String.t()
+        optional("Description") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t()
       }
 
   """
-  @type update_contact_flow_name_request() :: %{String.t() => any()}
+  @type update_contact_flow_name_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8568,7 +8584,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type expression() :: %{String.t() => any()}
+  @type expression() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8576,48 +8592,48 @@ defmodule AWS.Connect do
 
       contact_search_summary() :: %{
         "AgentInfo" => contact_search_summary_agent_info(),
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "Channel" => list(any()),
         "DisconnectTimestamp" => non_neg_integer(),
-        "Id" => String.t(),
-        "InitialContactId" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "InitialContactId" => String.t() | Atom.t(),
         "InitiationMethod" => list(any()),
         "InitiationTimestamp" => non_neg_integer(),
-        "PreviousContactId" => String.t(),
+        "PreviousContactId" => String.t() | Atom.t(),
         "QueueInfo" => contact_search_summary_queue_info(),
         "ScheduledTimestamp" => non_neg_integer(),
         "SegmentAttributes" => map()
       }
 
   """
-  @type contact_search_summary() :: %{String.t() => any()}
+  @type contact_search_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_hours_of_operation_override_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         required("Config") => list(hours_of_operation_override_config()),
-        required("EffectiveFrom") => String.t(),
-        required("EffectiveTill") => String.t(),
-        required("Name") => String.t()
+        required("EffectiveFrom") => String.t() | Atom.t(),
+        required("EffectiveTill") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t()
       }
 
   """
-  @type create_hours_of_operation_override_request() :: %{String.t() => any()}
+  @type create_hours_of_operation_override_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_email_address_response() :: %{
-        "EmailAddressArn" => String.t(),
-        "EmailAddressId" => String.t()
+        "EmailAddressArn" => String.t() | Atom.t(),
+        "EmailAddressId" => String.t() | Atom.t()
       }
 
   """
-  @type create_email_address_response() :: %{String.t() => any()}
+  @type create_email_address_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8628,7 +8644,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type describe_contact_flow_module_response() :: %{String.t() => any()}
+  @type describe_contact_flow_module_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8636,23 +8652,23 @@ defmodule AWS.Connect do
 
       create_contact_request() :: %{
         optional("Attributes") => map(),
-        optional("ClientToken") => String.t(),
-        optional("Description") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("ExpiryDurationInMinutes") => integer(),
         optional("InitiateAs") => list(any()),
-        optional("Name") => String.t(),
-        optional("PreviousContactId") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
+        optional("PreviousContactId") => String.t() | Atom.t(),
         optional("References") => map(),
-        optional("RelatedContactId") => String.t(),
+        optional("RelatedContactId") => String.t() | Atom.t(),
         optional("SegmentAttributes") => map(),
         optional("UserInfo") => user_info(),
         required("Channel") => list(any()),
         required("InitiationMethod") => list(any()),
-        required("InstanceId") => String.t()
+        required("InstanceId") => String.t() | Atom.t()
       }
 
   """
-  @type create_contact_request() :: %{String.t() => any()}
+  @type create_contact_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8674,7 +8690,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type predefined_attribute_search_criteria() :: %{String.t() => any()}
+  @type predefined_attribute_search_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8685,20 +8701,20 @@ defmodule AWS.Connect do
       }
 
   """
-  @type describe_quick_connect_response() :: %{String.t() => any()}
+  @type describe_quick_connect_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       predefined_attribute_summary() :: %{
-        "LastModifiedRegion" => String.t(),
+        "LastModifiedRegion" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type predefined_attribute_summary() :: %{String.t() => any()}
+  @type predefined_attribute_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8709,32 +8725,35 @@ defmodule AWS.Connect do
       }
 
   """
-  @type real_time_contact_analysis_transcript_item_redaction() :: %{String.t() => any()}
+  @type real_time_contact_analysis_transcript_item_redaction() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       create_user_hierarchy_group_request() :: %{
-        optional("ParentGroupId") => String.t(),
+        optional("ParentGroupId") => String.t() | Atom.t(),
         optional("Tags") => map(),
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
 
   """
-  @type create_user_hierarchy_group_request() :: %{String.t() => any()}
+  @type create_user_hierarchy_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_hours_of_operation_response() :: %{
-        "HoursOfOperationArn" => String.t(),
-        "HoursOfOperationId" => String.t()
+        "HoursOfOperationArn" => String.t() | Atom.t(),
+        "HoursOfOperationId" => String.t() | Atom.t()
       }
 
   """
-  @type create_hours_of_operation_response() :: %{String.t() => any()}
+  @type create_hours_of_operation_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8747,19 +8766,19 @@ defmodule AWS.Connect do
       }
 
   """
-  @type hours_of_operation_search_criteria() :: %{String.t() => any()}
+  @type hours_of_operation_search_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_routing_profile_response() :: %{
-        "RoutingProfileArn" => String.t(),
-        "RoutingProfileId" => String.t()
+        "RoutingProfileArn" => String.t() | Atom.t(),
+        "RoutingProfileId" => String.t() | Atom.t()
       }
 
   """
-  @type create_routing_profile_response() :: %{String.t() => any()}
+  @type create_routing_profile_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8776,14 +8795,14 @@ defmodule AWS.Connect do
 
       search_contact_flows_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("SearchCriteria") => contact_flow_search_criteria(),
         optional("SearchFilter") => contact_flow_search_filter(),
-        required("InstanceId") => String.t()
+        required("InstanceId") => String.t() | Atom.t()
       }
 
   """
-  @type search_contact_flows_request() :: %{String.t() => any()}
+  @type search_contact_flows_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8799,15 +8818,15 @@ defmodule AWS.Connect do
   ## Example:
 
       analytics_data_association_result() :: %{
-        "DataSetId" => String.t(),
-        "ResourceShareArn" => String.t(),
-        "ResourceShareId" => String.t(),
-        "ResourceShareStatus" => String.t(),
-        "TargetAccountId" => String.t()
+        "DataSetId" => String.t() | Atom.t(),
+        "ResourceShareArn" => String.t() | Atom.t(),
+        "ResourceShareId" => String.t() | Atom.t(),
+        "ResourceShareStatus" => String.t() | Atom.t(),
+        "TargetAccountId" => String.t() | Atom.t()
       }
 
   """
-  @type analytics_data_association_result() :: %{String.t() => any()}
+  @type analytics_data_association_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8815,15 +8834,15 @@ defmodule AWS.Connect do
 
       start_attached_file_upload_response() :: %{
         "CreatedBy" => list(),
-        "CreationTime" => String.t(),
-        "FileArn" => String.t(),
-        "FileId" => String.t(),
+        "CreationTime" => String.t() | Atom.t(),
+        "FileArn" => String.t() | Atom.t(),
+        "FileId" => String.t() | Atom.t(),
         "FileStatus" => list(any()),
         "UploadUrlMetadata" => upload_url_metadata()
       }
 
   """
-  @type start_attached_file_upload_response() :: %{String.t() => any()}
+  @type start_attached_file_upload_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8840,11 +8859,11 @@ defmodule AWS.Connect do
 
       list_phone_numbers_v2_response() :: %{
         "ListPhoneNumbersSummaryList" => list(list_phone_numbers_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_phone_numbers_v2_response() :: %{String.t() => any()}
+  @type list_phone_numbers_v2_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8852,34 +8871,34 @@ defmodule AWS.Connect do
 
       list_user_proficiencies_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_user_proficiencies_request() :: %{String.t() => any()}
+  @type list_user_proficiencies_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_task_template_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "Constraints" => task_template_constraints(),
-        "ContactFlowId" => String.t(),
+        "ContactFlowId" => String.t() | Atom.t(),
         "CreatedTime" => non_neg_integer(),
         "Defaults" => task_template_defaults(),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "Fields" => list(task_template_field()),
-        "Id" => String.t(),
-        "InstanceId" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "InstanceId" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "SelfAssignFlowId" => String.t(),
+        "Name" => String.t() | Atom.t(),
+        "SelfAssignFlowId" => String.t() | Atom.t(),
         "Status" => list(any())
       }
 
   """
-  @type update_task_template_response() :: %{String.t() => any()}
+  @type update_task_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8887,12 +8906,12 @@ defmodule AWS.Connect do
 
       metric_v2() :: %{
         "MetricFilters" => list(metric_filter_v2()),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Threshold" => list(threshold_v2())
       }
 
   """
-  @type metric_v2() :: %{String.t() => any()}
+  @type metric_v2() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8904,7 +8923,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type threshold() :: %{String.t() => any()}
+  @type threshold() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8912,14 +8931,14 @@ defmodule AWS.Connect do
 
       create_contact_flow_version_request() :: %{
         optional("ContactFlowVersion") => float(),
-        optional("Description") => String.t(),
-        optional("FlowContentSha256") => String.t(),
-        optional("LastModifiedRegion") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("FlowContentSha256") => String.t() | Atom.t(),
+        optional("LastModifiedRegion") => String.t() | Atom.t(),
         optional("LastModifiedTime") => non_neg_integer()
       }
 
   """
-  @type create_contact_flow_version_request() :: %{String.t() => any()}
+  @type create_contact_flow_version_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8928,22 +8947,22 @@ defmodule AWS.Connect do
       start_outbound_voice_contact_request() :: %{
         optional("AnswerMachineDetectionConfig") => answer_machine_detection_config(),
         optional("Attributes") => map(),
-        optional("CampaignId") => String.t(),
-        optional("ClientToken") => String.t(),
-        optional("Description") => String.t(),
-        optional("Name") => String.t(),
-        optional("QueueId") => String.t(),
+        optional("CampaignId") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t(),
+        optional("QueueId") => String.t() | Atom.t(),
         optional("References") => map(),
-        optional("RelatedContactId") => String.t(),
-        optional("SourcePhoneNumber") => String.t(),
+        optional("RelatedContactId") => String.t() | Atom.t(),
+        optional("SourcePhoneNumber") => String.t() | Atom.t(),
         optional("TrafficType") => list(any()),
-        required("ContactFlowId") => String.t(),
-        required("DestinationPhoneNumber") => String.t(),
-        required("InstanceId") => String.t()
+        required("ContactFlowId") => String.t() | Atom.t(),
+        required("DestinationPhoneNumber") => String.t() | Atom.t(),
+        required("InstanceId") => String.t() | Atom.t()
       }
 
   """
-  @type start_outbound_voice_contact_request() :: %{String.t() => any()}
+  @type start_outbound_voice_contact_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8951,11 +8970,11 @@ defmodule AWS.Connect do
 
       attribute() :: %{
         "AttributeType" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type attribute() :: %{String.t() => any()}
+  @type attribute() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8967,7 +8986,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type create_use_case_request() :: %{String.t() => any()}
+  @type create_use_case_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8975,49 +8994,49 @@ defmodule AWS.Connect do
 
       list_users_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_users_request() :: %{String.t() => any()}
+  @type list_users_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       default_vocabulary() :: %{
-        "InstanceId" => String.t(),
+        "InstanceId" => String.t() | Atom.t(),
         "LanguageCode" => list(any()),
-        "VocabularyId" => String.t(),
-        "VocabularyName" => String.t()
+        "VocabularyId" => String.t() | Atom.t(),
+        "VocabularyName" => String.t() | Atom.t()
       }
 
   """
-  @type default_vocabulary() :: %{String.t() => any()}
+  @type default_vocabulary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_task_contact_response() :: %{
-        "ContactId" => String.t()
+        "ContactId" => String.t() | Atom.t()
       }
 
   """
-  @type start_task_contact_response() :: %{String.t() => any()}
+  @type start_task_contact_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       chat_event() :: %{
-        "Content" => String.t(),
-        "ContentType" => String.t(),
+        "Content" => String.t() | Atom.t(),
+        "ContentType" => String.t() | Atom.t(),
         "Type" => list(any())
       }
 
   """
-  @type chat_event() :: %{String.t() => any()}
+  @type chat_event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9025,13 +9044,13 @@ defmodule AWS.Connect do
 
       filters() :: %{
         "Channels" => list(list(any())()),
-        "Queues" => list(String.t()),
-        "RoutingProfiles" => list(String.t()),
-        "RoutingStepExpressions" => list(String.t())
+        "Queues" => list(String.t() | Atom.t()),
+        "RoutingProfiles" => list(String.t() | Atom.t()),
+        "RoutingStepExpressions" => list(String.t() | Atom.t())
       }
 
   """
-  @type filters() :: %{String.t() => any()}
+  @type filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9039,33 +9058,33 @@ defmodule AWS.Connect do
 
       list_agent_status_response() :: %{
         "AgentStatusSummaryList" => list(agent_status_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_agent_status_response() :: %{String.t() => any()}
+  @type list_agent_status_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_user_routing_profile_request() :: %{
-        required("RoutingProfileId") => String.t()
+        required("RoutingProfileId") => String.t() | Atom.t()
       }
 
   """
-  @type update_user_routing_profile_request() :: %{String.t() => any()}
+  @type update_user_routing_profile_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       task_template_field_identifier() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type task_template_field_identifier() :: %{String.t() => any()}
+  @type task_template_field_identifier() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9073,34 +9092,34 @@ defmodule AWS.Connect do
 
       list_queue_quick_connects_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_queue_quick_connects_request() :: %{String.t() => any()}
+  @type list_queue_quick_connects_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       limit_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_queues_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "QueueSummaryList" => list(queue_summary())
       }
 
   """
-  @type list_queues_response() :: %{String.t() => any()}
+  @type list_queues_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9108,11 +9127,11 @@ defmodule AWS.Connect do
 
       list_evaluation_forms_response() :: %{
         "EvaluationFormSummaryList" => list(evaluation_form_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_evaluation_forms_response() :: %{String.t() => any()}
+  @type list_evaluation_forms_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9125,7 +9144,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type evaluation_form_single_select_question_properties() :: %{String.t() => any()}
+  @type evaluation_form_single_select_question_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9141,23 +9160,23 @@ defmodule AWS.Connect do
   ## Example:
 
       complete_attached_file_upload_request() :: %{
-        required("AssociatedResourceArn") => String.t()
+        required("AssociatedResourceArn") => String.t() | Atom.t()
       }
 
   """
-  @type complete_attached_file_upload_request() :: %{String.t() => any()}
+  @type complete_attached_file_upload_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       attendee() :: %{
-        "AttendeeId" => String.t(),
-        "JoinToken" => String.t()
+        "AttendeeId" => String.t() | Atom.t(),
+        "JoinToken" => String.t() | Atom.t()
       }
 
   """
-  @type attendee() :: %{String.t() => any()}
+  @type attendee() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9168,18 +9187,18 @@ defmodule AWS.Connect do
       }
 
   """
-  @type describe_authentication_profile_response() :: %{String.t() => any()}
+  @type describe_authentication_profile_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disconnect_details() :: %{
-        "PotentialDisconnectIssue" => String.t()
+        "PotentialDisconnectIssue" => String.t() | Atom.t()
       }
 
   """
-  @type disconnect_details() :: %{String.t() => any()}
+  @type disconnect_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9187,7 +9206,7 @@ defmodule AWS.Connect do
 
       send_outbound_email_request() :: %{
         optional("AdditionalRecipients") => outbound_additional_recipients(),
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
         optional("SourceCampaign") => source_campaign(),
         required("DestinationEmailAddress") => email_address_info(),
         required("EmailMessage") => outbound_email_content(),
@@ -9196,23 +9215,23 @@ defmodule AWS.Connect do
       }
 
   """
-  @type send_outbound_email_request() :: %{String.t() => any()}
+  @type send_outbound_email_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       agent_status_summary() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
-        "LastModifiedRegion" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "LastModifiedRegion" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Type" => list(any())
       }
 
   """
-  @type agent_status_summary() :: %{String.t() => any()}
+  @type agent_status_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9230,13 +9249,13 @@ defmodule AWS.Connect do
       search_vocabularies_request() :: %{
         optional("LanguageCode") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NameStartsWith") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("NameStartsWith") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("State") => list(any())
       }
 
   """
-  @type search_vocabularies_request() :: %{String.t() => any()}
+  @type search_vocabularies_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9247,7 +9266,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type prompt_search_filter() :: %{String.t() => any()}
+  @type prompt_search_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9255,11 +9274,11 @@ defmodule AWS.Connect do
 
       list_hours_of_operation_overrides_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_hours_of_operation_overrides_request() :: %{String.t() => any()}
+  @type list_hours_of_operation_overrides_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9270,7 +9289,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type update_queue_status_request() :: %{String.t() => any()}
+  @type update_queue_status_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9283,7 +9302,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type chat_metrics() :: %{String.t() => any()}
+  @type chat_metrics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9294,20 +9313,20 @@ defmodule AWS.Connect do
       }
 
   """
-  @type describe_vocabulary_response() :: %{String.t() => any()}
+  @type describe_vocabulary_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_flow_request() :: %{
-        required("FlowId") => String.t(),
-        required("ResourceId") => String.t(),
+        required("FlowId") => String.t() | Atom.t(),
+        required("ResourceId") => String.t() | Atom.t(),
         required("ResourceType") => list(any())
       }
 
   """
-  @type associate_flow_request() :: %{String.t() => any()}
+  @type associate_flow_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9319,19 +9338,19 @@ defmodule AWS.Connect do
       }
 
   """
-  @type operational_hour() :: %{String.t() => any()}
+  @type operational_hour() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       contact_details() :: %{
-        "Description" => String.t(),
-        "Name" => String.t()
+        "Description" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type contact_details() :: %{String.t() => any()}
+  @type contact_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9343,7 +9362,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type metric_data_v2() :: %{String.t() => any()}
+  @type metric_data_v2() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9354,7 +9373,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type email_address_search_filter() :: %{String.t() => any()}
+  @type email_address_search_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9370,26 +9389,26 @@ defmodule AWS.Connect do
   ## Example:
 
       list_phone_numbers_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "PhoneNumberSummaryList" => list(phone_number_summary())
       }
 
   """
-  @type list_phone_numbers_response() :: %{String.t() => any()}
+  @type list_phone_numbers_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       real_time_contact_analysis_attachment() :: %{
-        "AttachmentId" => String.t(),
-        "AttachmentName" => String.t(),
-        "ContentType" => String.t(),
+        "AttachmentId" => String.t() | Atom.t(),
+        "AttachmentName" => String.t() | Atom.t(),
+        "ContentType" => String.t() | Atom.t(),
         "Status" => list(any())
       }
 
   """
-  @type real_time_contact_analysis_attachment() :: %{String.t() => any()}
+  @type real_time_contact_analysis_attachment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9397,26 +9416,26 @@ defmodule AWS.Connect do
 
       contact_search_summary_queue_info() :: %{
         "EnqueueTimestamp" => non_neg_integer(),
-        "Id" => String.t()
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type contact_search_summary_queue_info() :: %{String.t() => any()}
+  @type contact_search_summary_queue_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_email_address_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("Description") => String.t(),
-        optional("DisplayName") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("DisplayName") => String.t() | Atom.t(),
         optional("Tags") => map(),
-        required("EmailAddress") => String.t()
+        required("EmailAddress") => String.t() | Atom.t()
       }
 
   """
-  @type create_email_address_request() :: %{String.t() => any()}
+  @type create_email_address_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9434,8 +9453,8 @@ defmodule AWS.Connect do
       evaluation() :: %{
         "Answers" => map(),
         "CreatedTime" => non_neg_integer(),
-        "EvaluationArn" => String.t(),
-        "EvaluationId" => String.t(),
+        "EvaluationArn" => String.t() | Atom.t(),
+        "EvaluationId" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
         "Metadata" => evaluation_metadata(),
         "Notes" => map(),
@@ -9445,7 +9464,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type evaluation() :: %{String.t() => any()}
+  @type evaluation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9453,24 +9472,24 @@ defmodule AWS.Connect do
 
       delete_vocabulary_response() :: %{
         "State" => list(any()),
-        "VocabularyArn" => String.t(),
-        "VocabularyId" => String.t()
+        "VocabularyArn" => String.t() | Atom.t(),
+        "VocabularyId" => String.t() | Atom.t()
       }
 
   """
-  @type delete_vocabulary_response() :: %{String.t() => any()}
+  @type delete_vocabulary_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_phone_number_metadata_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("PhoneNumberDescription") => String.t()
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("PhoneNumberDescription") => String.t() | Atom.t()
       }
 
   """
-  @type update_phone_number_metadata_request() :: %{String.t() => any()}
+  @type update_phone_number_metadata_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9478,11 +9497,11 @@ defmodule AWS.Connect do
 
       sign_in_distribution() :: %{
         "Enabled" => boolean(),
-        "Region" => String.t()
+        "Region" => String.t() | Atom.t()
       }
 
   """
-  @type sign_in_distribution() :: %{String.t() => any()}
+  @type sign_in_distribution() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9504,7 +9523,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type media_concurrency() :: %{String.t() => any()}
+  @type media_concurrency() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9517,34 +9536,34 @@ defmodule AWS.Connect do
       }
 
   """
-  @type control_plane_tag_filter() :: %{String.t() => any()}
+  @type control_plane_tag_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       evaluation_metadata() :: %{
-        "ContactAgentId" => String.t(),
-        "ContactId" => String.t(),
-        "EvaluatorArn" => String.t(),
+        "ContactAgentId" => String.t() | Atom.t(),
+        "ContactId" => String.t() | Atom.t(),
+        "EvaluatorArn" => String.t() | Atom.t(),
         "Score" => evaluation_score()
       }
 
   """
-  @type evaluation_metadata() :: %{String.t() => any()}
+  @type evaluation_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       templated_message_config() :: %{
-        "KnowledgeBaseId" => String.t(),
-        "MessageTemplateId" => String.t(),
+        "KnowledgeBaseId" => String.t() | Atom.t(),
+        "MessageTemplateId" => String.t() | Atom.t(),
         "TemplateAttributes" => template_attributes()
       }
 
   """
-  @type templated_message_config() :: %{String.t() => any()}
+  @type templated_message_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9556,7 +9575,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type evaluation_form_scoring_strategy() :: %{String.t() => any()}
+  @type evaluation_form_scoring_strategy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9565,29 +9584,29 @@ defmodule AWS.Connect do
       search_agent_statuses_response() :: %{
         "AgentStatuses" => list(agent_status()),
         "ApproximateTotalCount" => float(),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type search_agent_statuses_response() :: %{String.t() => any()}
+  @type search_agent_statuses_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       quick_connect() :: %{
-        "Description" => String.t(),
-        "LastModifiedRegion" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "LastModifiedRegion" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "QuickConnectARN" => String.t(),
+        "Name" => String.t() | Atom.t(),
+        "QuickConnectARN" => String.t() | Atom.t(),
         "QuickConnectConfig" => quick_connect_config(),
-        "QuickConnectId" => String.t(),
+        "QuickConnectId" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type quick_connect() :: %{String.t() => any()}
+  @type quick_connect() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9596,11 +9615,11 @@ defmodule AWS.Connect do
       search_contact_flows_response() :: %{
         "ApproximateTotalCount" => float(),
         "ContactFlows" => list(contact_flow()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type search_contact_flows_response() :: %{String.t() => any()}
+  @type search_contact_flows_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9608,18 +9627,18 @@ defmodule AWS.Connect do
 
       associated_contact_summary() :: %{
         "Channel" => list(any()),
-        "ContactArn" => String.t(),
-        "ContactId" => String.t(),
+        "ContactArn" => String.t() | Atom.t(),
+        "ContactId" => String.t() | Atom.t(),
         "DisconnectTimestamp" => non_neg_integer(),
-        "InitialContactId" => String.t(),
+        "InitialContactId" => String.t() | Atom.t(),
         "InitiationMethod" => list(any()),
         "InitiationTimestamp" => non_neg_integer(),
-        "PreviousContactId" => String.t(),
-        "RelatedContactId" => String.t()
+        "PreviousContactId" => String.t() | Atom.t(),
+        "RelatedContactId" => String.t() | Atom.t()
       }
 
   """
-  @type associated_contact_summary() :: %{String.t() => any()}
+  @type associated_contact_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9635,11 +9654,11 @@ defmodule AWS.Connect do
   ## Example:
 
       associate_security_key_response() :: %{
-        "AssociationId" => String.t()
+        "AssociationId" => String.t() | Atom.t()
       }
 
   """
-  @type associate_security_key_response() :: %{String.t() => any()}
+  @type associate_security_key_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9652,38 +9671,38 @@ defmodule AWS.Connect do
       }
 
   """
-  @type hours_of_operation_config() :: %{String.t() => any()}
+  @type hours_of_operation_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_attached_file_upload_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
         optional("CreatedBy") => list(),
         optional("Tags") => map(),
         optional("UrlExpiryInSeconds") => integer(),
-        required("AssociatedResourceArn") => String.t(),
-        required("FileName") => String.t(),
+        required("AssociatedResourceArn") => String.t() | Atom.t(),
+        required("FileName") => String.t() | Atom.t(),
         required("FileSizeInBytes") => float(),
         required("FileUseCaseType") => list(any())
       }
 
   """
-  @type start_attached_file_upload_request() :: %{String.t() => any()}
+  @type start_attached_file_upload_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       activate_evaluation_form_response() :: %{
-        "EvaluationFormArn" => String.t(),
-        "EvaluationFormId" => String.t(),
+        "EvaluationFormArn" => String.t() | Atom.t(),
+        "EvaluationFormId" => String.t() | Atom.t(),
         "EvaluationFormVersion" => integer()
       }
 
   """
-  @type activate_evaluation_form_response() :: %{String.t() => any()}
+  @type activate_evaluation_form_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9691,26 +9710,26 @@ defmodule AWS.Connect do
 
       list_approved_origins_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_approved_origins_request() :: %{String.t() => any()}
+  @type list_approved_origins_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       case_sla_configuration() :: %{
-        "FieldId" => String.t(),
-        "Name" => String.t(),
+        "FieldId" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "TargetFieldValues" => list(field_value_union()),
         "TargetSlaMinutes" => float(),
         "Type" => list(any())
       }
 
   """
-  @type case_sla_configuration() :: %{String.t() => any()}
+  @type case_sla_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9724,7 +9743,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type historical_metric() :: %{String.t() => any()}
+  @type historical_metric() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9732,24 +9751,24 @@ defmodule AWS.Connect do
 
       failed_request() :: %{
         "FailureReasonCode" => list(any()),
-        "FailureReasonMessage" => String.t(),
-        "RequestIdentifier" => String.t()
+        "FailureReasonMessage" => String.t() | Atom.t(),
+        "RequestIdentifier" => String.t() | Atom.t()
       }
 
   """
-  @type failed_request() :: %{String.t() => any()}
+  @type failed_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_associate_analytics_data_set_request() :: %{
-        optional("TargetAccountId") => String.t(),
-        required("DataSetIds") => list(String.t())
+        optional("TargetAccountId") => String.t() | Atom.t(),
+        required("DataSetIds") => list(String.t() | Atom.t())
       }
 
   """
-  @type batch_associate_analytics_data_set_request() :: %{String.t() => any()}
+  @type batch_associate_analytics_data_set_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9762,99 +9781,99 @@ defmodule AWS.Connect do
       }
 
   """
-  @type step() :: %{String.t() => any()}
+  @type step() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_queue_quick_connects_request() :: %{
-        required("QuickConnectIds") => list(String.t())
+        required("QuickConnectIds") => list(String.t() | Atom.t())
       }
 
   """
-  @type associate_queue_quick_connects_request() :: %{String.t() => any()}
+  @type associate_queue_quick_connects_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_search_condition() :: %{
-        "tagKey" => String.t(),
+        "tagKey" => String.t() | Atom.t(),
         "tagKeyComparisonType" => list(any()),
-        "tagValue" => String.t(),
+        "tagValue" => String.t() | Atom.t(),
         "tagValueComparisonType" => list(any())
       }
 
   """
-  @type tag_search_condition() :: %{String.t() => any()}
+  @type tag_search_condition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       task_template_metadata() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreatedTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "Id" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Status" => list(any())
       }
 
   """
-  @type task_template_metadata() :: %{String.t() => any()}
+  @type task_template_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       attachment_reference() :: %{
-        "Arn" => String.t(),
-        "Name" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type attachment_reference() :: %{String.t() => any()}
+  @type attachment_reference() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       url_reference() :: %{
-        "Name" => String.t(),
-        "Value" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type url_reference() :: %{String.t() => any()}
+  @type url_reference() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       string_reference() :: %{
-        "Name" => String.t(),
-        "Value" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type string_reference() :: %{String.t() => any()}
+  @type string_reference() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_predefined_attributes_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "PredefinedAttributeSummaryList" => list(predefined_attribute_summary())
       }
 
   """
-  @type list_predefined_attributes_response() :: %{String.t() => any()}
+  @type list_predefined_attributes_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9862,24 +9881,24 @@ defmodule AWS.Connect do
 
       routing_profile() :: %{
         "AgentAvailabilityTimer" => list(any()),
-        "AssociatedQueueIds" => list(String.t()),
-        "DefaultOutboundQueueId" => String.t(),
-        "Description" => String.t(),
-        "InstanceId" => String.t(),
+        "AssociatedQueueIds" => list(String.t() | Atom.t()),
+        "DefaultOutboundQueueId" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "InstanceId" => String.t() | Atom.t(),
         "IsDefault" => boolean(),
-        "LastModifiedRegion" => String.t(),
+        "LastModifiedRegion" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
         "MediaConcurrencies" => list(media_concurrency()),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "NumberOfAssociatedQueues" => float(),
         "NumberOfAssociatedUsers" => float(),
-        "RoutingProfileArn" => String.t(),
-        "RoutingProfileId" => String.t(),
+        "RoutingProfileArn" => String.t() | Atom.t(),
+        "RoutingProfileId" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type routing_profile() :: %{String.t() => any()}
+  @type routing_profile() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9890,7 +9909,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type describe_routing_profile_response() :: %{String.t() => any()}
+  @type describe_routing_profile_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9898,11 +9917,11 @@ defmodule AWS.Connect do
 
       rule_trigger_event_source() :: %{
         "EventSourceName" => list(any()),
-        "IntegrationAssociationId" => String.t()
+        "IntegrationAssociationId" => String.t() | Atom.t()
       }
 
   """
-  @type rule_trigger_event_source() :: %{String.t() => any()}
+  @type rule_trigger_event_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9912,14 +9931,14 @@ defmodule AWS.Connect do
         optional("AgentAvailabilityTimer") => list(any()),
         optional("QueueConfigs") => list(routing_profile_queue_config()),
         optional("Tags") => map(),
-        required("DefaultOutboundQueueId") => String.t(),
-        required("Description") => String.t(),
+        required("DefaultOutboundQueueId") => String.t() | Atom.t(),
+        required("Description") => String.t() | Atom.t(),
         required("MediaConcurrencies") => list(media_concurrency()),
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
 
   """
-  @type create_routing_profile_request() :: %{String.t() => any()}
+  @type create_routing_profile_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -9928,60 +9947,60 @@ defmodule AWS.Connect do
       start_chat_contact_request() :: %{
         optional("Attributes") => map(),
         optional("ChatDurationInMinutes") => integer(),
-        optional("ClientToken") => String.t(),
-        optional("CustomerId") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("CustomerId") => String.t() | Atom.t(),
         optional("InitialMessage") => chat_message(),
         optional("PersistentChat") => persistent_chat(),
-        optional("RelatedContactId") => String.t(),
+        optional("RelatedContactId") => String.t() | Atom.t(),
         optional("SegmentAttributes") => map(),
-        optional("SupportedMessagingContentTypes") => list(String.t()),
-        required("ContactFlowId") => String.t(),
-        required("InstanceId") => String.t(),
+        optional("SupportedMessagingContentTypes") => list(String.t() | Atom.t()),
+        required("ContactFlowId") => String.t() | Atom.t(),
+        required("InstanceId") => String.t() | Atom.t(),
         required("ParticipantDetails") => participant_details()
       }
 
   """
-  @type start_chat_contact_request() :: %{String.t() => any()}
+  @type start_chat_contact_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_chat_contact_response() :: %{
-        "ContactId" => String.t(),
-        "ContinuedFromContactId" => String.t(),
-        "ParticipantId" => String.t(),
-        "ParticipantToken" => String.t()
+        "ContactId" => String.t() | Atom.t(),
+        "ContinuedFromContactId" => String.t() | Atom.t(),
+        "ParticipantId" => String.t() | Atom.t(),
+        "ParticipantToken" => String.t() | Atom.t()
       }
 
   """
-  @type start_chat_contact_response() :: %{String.t() => any()}
+  @type start_chat_contact_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_phone_number_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("InstanceId") => String.t(),
-        optional("TargetArn") => String.t()
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("InstanceId") => String.t() | Atom.t(),
+        optional("TargetArn") => String.t() | Atom.t()
       }
 
   """
-  @type update_phone_number_request() :: %{String.t() => any()}
+  @type update_phone_number_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_contact_schedule_request() :: %{
-        required("ContactId") => String.t(),
-        required("InstanceId") => String.t(),
+        required("ContactId") => String.t() | Atom.t(),
+        required("InstanceId") => String.t() | Atom.t(),
         required("ScheduledTime") => non_neg_integer()
       }
 
   """
-  @type update_contact_schedule_request() :: %{String.t() => any()}
+  @type update_contact_schedule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10002,7 +10021,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type hours_of_operation_time_slice() :: %{String.t() => any()}
+  @type hours_of_operation_time_slice() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10015,7 +10034,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type prompt_search_criteria() :: %{String.t() => any()}
+  @type prompt_search_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10023,17 +10042,17 @@ defmodule AWS.Connect do
 
       search_criteria() :: %{
         "AgentHierarchyGroups" => agent_hierarchy_groups(),
-        "AgentIds" => list(String.t()),
+        "AgentIds" => list(String.t() | Atom.t()),
         "Channels" => list(list(any())()),
         "ContactAnalysis" => contact_analysis(),
         "InitiationMethods" => list(list(any())()),
-        "QueueIds" => list(String.t()),
+        "QueueIds" => list(String.t() | Atom.t()),
         "SearchableContactAttributes" => searchable_contact_attributes(),
         "SearchableSegmentAttributes" => searchable_segment_attributes()
       }
 
   """
-  @type search_criteria() :: %{String.t() => any()}
+  @type search_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10050,11 +10069,11 @@ defmodule AWS.Connect do
 
       list_security_profiles_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_security_profiles_request() :: %{String.t() => any()}
+  @type list_security_profiles_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10080,70 +10099,70 @@ defmodule AWS.Connect do
 
       kinesis_video_stream_config() :: %{
         "EncryptionConfig" => encryption_config(),
-        "Prefix" => String.t(),
+        "Prefix" => String.t() | Atom.t(),
         "RetentionPeriodHours" => integer()
       }
 
   """
-  @type kinesis_video_stream_config() :: %{String.t() => any()}
+  @type kinesis_video_stream_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_contact_evaluation_request() :: %{
-        optional("ClientToken") => String.t(),
-        required("ContactId") => String.t(),
-        required("EvaluationFormId") => String.t()
+        optional("ClientToken") => String.t() | Atom.t(),
+        required("ContactId") => String.t() | Atom.t(),
+        required("EvaluationFormId") => String.t() | Atom.t()
       }
 
   """
-  @type start_contact_evaluation_request() :: %{String.t() => any()}
+  @type start_contact_evaluation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       claimed_phone_number_summary() :: %{
-        "InstanceId" => String.t(),
-        "PhoneNumber" => String.t(),
-        "PhoneNumberArn" => String.t(),
+        "InstanceId" => String.t() | Atom.t(),
+        "PhoneNumber" => String.t() | Atom.t(),
+        "PhoneNumberArn" => String.t() | Atom.t(),
         "PhoneNumberCountryCode" => list(any()),
-        "PhoneNumberDescription" => String.t(),
-        "PhoneNumberId" => String.t(),
+        "PhoneNumberDescription" => String.t() | Atom.t(),
+        "PhoneNumberId" => String.t() | Atom.t(),
         "PhoneNumberStatus" => phone_number_status(),
         "PhoneNumberType" => list(any()),
-        "SourcePhoneNumberArn" => String.t(),
+        "SourcePhoneNumberArn" => String.t() | Atom.t(),
         "Tags" => map(),
-        "TargetArn" => String.t()
+        "TargetArn" => String.t() | Atom.t()
       }
 
   """
-  @type claimed_phone_number_summary() :: %{String.t() => any()}
+  @type claimed_phone_number_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_quick_connects_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "QuickConnectSummaryList" => list(quick_connect_summary())
       }
 
   """
-  @type list_quick_connects_response() :: %{String.t() => any()}
+  @type list_quick_connects_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_task_template_response() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type create_task_template_response() :: %{String.t() => any()}
+  @type create_task_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10151,14 +10170,14 @@ defmodule AWS.Connect do
 
       search_user_hierarchy_groups_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("SearchCriteria") => user_hierarchy_group_search_criteria(),
         optional("SearchFilter") => user_hierarchy_group_search_filter(),
-        required("InstanceId") => String.t()
+        required("InstanceId") => String.t() | Atom.t()
       }
 
   """
-  @type search_user_hierarchy_groups_request() :: %{String.t() => any()}
+  @type search_user_hierarchy_groups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10166,18 +10185,18 @@ defmodule AWS.Connect do
 
       evaluation_summary() :: %{
         "CreatedTime" => non_neg_integer(),
-        "EvaluationArn" => String.t(),
-        "EvaluationFormId" => String.t(),
-        "EvaluationFormTitle" => String.t(),
-        "EvaluationId" => String.t(),
-        "EvaluatorArn" => String.t(),
+        "EvaluationArn" => String.t() | Atom.t(),
+        "EvaluationFormId" => String.t() | Atom.t(),
+        "EvaluationFormTitle" => String.t() | Atom.t(),
+        "EvaluationId" => String.t() | Atom.t(),
+        "EvaluatorArn" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
         "Score" => evaluation_score(),
         "Status" => list(any())
       }
 
   """
-  @type evaluation_summary() :: %{String.t() => any()}
+  @type evaluation_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10198,7 +10217,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type historical_metric_data() :: %{String.t() => any()}
+  @type historical_metric_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10214,35 +10233,35 @@ defmodule AWS.Connect do
   ## Example:
 
       list_instance_storage_configs_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "StorageConfigs" => list(instance_storage_config())
       }
 
   """
-  @type list_instance_storage_configs_response() :: %{String.t() => any()}
+  @type list_instance_storage_configs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_ready_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_ready_exception() :: %{String.t() => any()}
+  @type resource_not_ready_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       evaluation_form_single_select_question_automation() :: %{
-        "DefaultOptionRefId" => String.t(),
+        "DefaultOptionRefId" => String.t() | Atom.t(),
         "Options" => list(list())
       }
 
   """
-  @type evaluation_form_single_select_question_automation() :: %{String.t() => any()}
+  @type evaluation_form_single_select_question_automation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10250,24 +10269,24 @@ defmodule AWS.Connect do
 
       search_queues_response() :: %{
         "ApproximateTotalCount" => float(),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Queues" => list(queue())
       }
 
   """
-  @type search_queues_response() :: %{String.t() => any()}
+  @type search_queues_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       routing_profile_reference() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type routing_profile_reference() :: %{String.t() => any()}
+  @type routing_profile_reference() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10278,22 +10297,22 @@ defmodule AWS.Connect do
       }
 
   """
-  @type real_time_contact_analysis_issue_detected() :: %{String.t() => any()}
+  @type real_time_contact_analysis_issue_detected() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_authentication_profile_request() :: %{
-        optional("AllowedIps") => list(String.t()),
-        optional("BlockedIps") => list(String.t()),
-        optional("Description") => String.t(),
-        optional("Name") => String.t(),
+        optional("AllowedIps") => list(String.t() | Atom.t()),
+        optional("BlockedIps") => list(String.t() | Atom.t()),
+        optional("Description") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("PeriodicSessionDuration") => integer()
       }
 
   """
-  @type update_authentication_profile_request() :: %{String.t() => any()}
+  @type update_authentication_profile_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10318,12 +10337,12 @@ defmodule AWS.Connect do
   ## Example:
 
       create_user_response() :: %{
-        "UserArn" => String.t(),
-        "UserId" => String.t()
+        "UserArn" => String.t() | Atom.t(),
+        "UserId" => String.t() | Atom.t()
       }
 
   """
-  @type create_user_response() :: %{String.t() => any()}
+  @type create_user_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10335,7 +10354,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type inbound_additional_recipients() :: %{String.t() => any()}
+  @type inbound_additional_recipients() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10343,35 +10362,35 @@ defmodule AWS.Connect do
 
       list_instance_storage_configs_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         required("ResourceType") => list(any())
       }
 
   """
-  @type list_instance_storage_configs_request() :: %{String.t() => any()}
+  @type list_instance_storage_configs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_views_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "ViewsSummaryList" => list(view_summary())
       }
 
   """
-  @type list_views_response() :: %{String.t() => any()}
+  @type list_views_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       duplicate_resource_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type duplicate_resource_exception() :: %{String.t() => any()}
+  @type duplicate_resource_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10387,36 +10406,36 @@ defmodule AWS.Connect do
   ## Example:
 
       maximum_result_returned_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type maximum_result_returned_exception() :: %{String.t() => any()}
+  @type maximum_result_returned_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_persistent_contact_association_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
         required("RehydrationType") => list(any()),
-        required("SourceContactId") => String.t()
+        required("SourceContactId") => String.t() | Atom.t()
       }
 
   """
-  @type create_persistent_contact_association_request() :: %{String.t() => any()}
+  @type create_persistent_contact_association_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_analytics_data_associations_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Results" => list(analytics_data_association_result())
       }
 
   """
-  @type list_analytics_data_associations_response() :: %{String.t() => any()}
+  @type list_analytics_data_associations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10432,23 +10451,23 @@ defmodule AWS.Connect do
   ## Example:
 
       resource_conflict_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_conflict_exception() :: %{String.t() => any()}
+  @type resource_conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_user_hierarchy_groups_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "UserHierarchyGroupSummaryList" => list(hierarchy_group_summary())
       }
 
   """
-  @type list_user_hierarchy_groups_response() :: %{String.t() => any()}
+  @type list_user_hierarchy_groups_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10457,17 +10476,17 @@ defmodule AWS.Connect do
       start_web_r_t_c_contact_request() :: %{
         optional("AllowedCapabilities") => allowed_capabilities(),
         optional("Attributes") => map(),
-        optional("ClientToken") => String.t(),
-        optional("Description") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("References") => map(),
-        optional("RelatedContactId") => String.t(),
-        required("ContactFlowId") => String.t(),
-        required("InstanceId") => String.t(),
+        optional("RelatedContactId") => String.t() | Atom.t(),
+        required("ContactFlowId") => String.t() | Atom.t(),
+        required("InstanceId") => String.t() | Atom.t(),
         required("ParticipantDetails") => participant_details()
       }
 
   """
-  @type start_web_r_t_c_contact_request() :: %{String.t() => any()}
+  @type start_web_r_t_c_contact_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10482,7 +10501,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type hierarchy_structure_update() :: %{String.t() => any()}
+  @type hierarchy_structure_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10490,11 +10509,11 @@ defmodule AWS.Connect do
 
       list_default_vocabularies_response() :: %{
         "DefaultVocabularyList" => list(default_vocabulary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_default_vocabularies_response() :: %{String.t() => any()}
+  @type list_default_vocabularies_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10506,39 +10525,39 @@ defmodule AWS.Connect do
       }
 
   """
-  @type user_search_filter() :: %{String.t() => any()}
+  @type user_search_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       prompt() :: %{
-        "Description" => String.t(),
-        "LastModifiedRegion" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "LastModifiedRegion" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "PromptARN" => String.t(),
-        "PromptId" => String.t(),
+        "Name" => String.t() | Atom.t(),
+        "PromptARN" => String.t() | Atom.t(),
+        "PromptId" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type prompt() :: %{String.t() => any()}
+  @type prompt() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       media_placement() :: %{
-        "AudioFallbackUrl" => String.t(),
-        "AudioHostUrl" => String.t(),
-        "EventIngestionUrl" => String.t(),
-        "SignalingUrl" => String.t(),
-        "TurnControlUrl" => String.t()
+        "AudioFallbackUrl" => String.t() | Atom.t(),
+        "AudioHostUrl" => String.t() | Atom.t(),
+        "EventIngestionUrl" => String.t() | Atom.t(),
+        "SignalingUrl" => String.t() | Atom.t(),
+        "TurnControlUrl" => String.t() | Atom.t()
       }
 
   """
-  @type media_placement() :: %{String.t() => any()}
+  @type media_placement() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10546,13 +10565,13 @@ defmodule AWS.Connect do
 
       list_realtime_contact_analysis_segments_v2_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         required("OutputType") => list(any()),
         required("SegmentTypes") => list(list(any())())
       }
 
   """
-  @type list_realtime_contact_analysis_segments_v2_request() :: %{String.t() => any()}
+  @type list_realtime_contact_analysis_segments_v2_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10571,11 +10590,11 @@ defmodule AWS.Connect do
         "ApproximateTotalCount" => float(),
         "DataSnapshotTime" => non_neg_integer(),
         "MetricResults" => list(current_metric_result()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type get_current_metric_data_response() :: %{String.t() => any()}
+  @type get_current_metric_data_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10583,28 +10602,28 @@ defmodule AWS.Connect do
 
       list_authentication_profiles_response() :: %{
         "AuthenticationProfileSummaryList" => list(authentication_profile_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_authentication_profiles_response() :: %{String.t() => any()}
+  @type list_authentication_profiles_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       search_available_phone_numbers_request() :: %{
-        optional("InstanceId") => String.t(),
+        optional("InstanceId") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("PhoneNumberPrefix") => String.t(),
-        optional("TargetArn") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("PhoneNumberPrefix") => String.t() | Atom.t(),
+        optional("TargetArn") => String.t() | Atom.t(),
         required("PhoneNumberCountryCode") => list(any()),
         required("PhoneNumberType") => list(any())
       }
 
   """
-  @type search_available_phone_numbers_request() :: %{String.t() => any()}
+  @type search_available_phone_numbers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10615,90 +10634,90 @@ defmodule AWS.Connect do
       }
 
   """
-  @type describe_rule_response() :: %{String.t() => any()}
+  @type describe_rule_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       participant_details() :: %{
-        "DisplayName" => String.t()
+        "DisplayName" => String.t() | Atom.t()
       }
 
   """
-  @type participant_details() :: %{String.t() => any()}
+  @type participant_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       date_reference() :: %{
-        "Name" => String.t(),
-        "Value" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type date_reference() :: %{String.t() => any()}
+  @type date_reference() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_queue_response() :: %{
-        "QueueArn" => String.t(),
-        "QueueId" => String.t()
+        "QueueArn" => String.t() | Atom.t(),
+        "QueueId" => String.t() | Atom.t()
       }
 
   """
-  @type create_queue_response() :: %{String.t() => any()}
+  @type create_queue_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_email_address_metadata_response() :: %{
-        "EmailAddressArn" => String.t(),
-        "EmailAddressId" => String.t()
+        "EmailAddressArn" => String.t() | Atom.t(),
+        "EmailAddressId" => String.t() | Atom.t()
       }
 
   """
-  @type update_email_address_metadata_response() :: %{String.t() => any()}
+  @type update_email_address_metadata_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       predefined_attribute() :: %{
-        "LastModifiedRegion" => String.t(),
+        "LastModifiedRegion" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Values" => list()
       }
 
   """
-  @type predefined_attribute() :: %{String.t() => any()}
+  @type predefined_attribute() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_user_hierarchy_group_name_request() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
 
   """
-  @type update_user_hierarchy_group_name_request() :: %{String.t() => any()}
+  @type update_user_hierarchy_group_name_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       user_info() :: %{
-        "UserId" => String.t()
+        "UserId" => String.t() | Atom.t()
       }
 
   """
-  @type user_info() :: %{String.t() => any()}
+  @type user_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10706,15 +10725,15 @@ defmodule AWS.Connect do
 
       real_time_contact_analysis_segment_attachments() :: %{
         "Attachments" => list(real_time_contact_analysis_attachment()),
-        "DisplayName" => String.t(),
-        "Id" => String.t(),
-        "ParticipantId" => String.t(),
+        "DisplayName" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "ParticipantId" => String.t() | Atom.t(),
         "ParticipantRole" => list(any()),
         "Time" => list()
       }
 
   """
-  @type real_time_contact_analysis_segment_attachments() :: %{String.t() => any()}
+  @type real_time_contact_analysis_segment_attachments() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10726,18 +10745,18 @@ defmodule AWS.Connect do
       }
 
   """
-  @type expiry() :: %{String.t() => any()}
+  @type expiry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       real_time_contact_analysis_segment_transcript() :: %{
-        "Content" => String.t(),
-        "ContentType" => String.t(),
-        "DisplayName" => String.t(),
-        "Id" => String.t(),
-        "ParticipantId" => String.t(),
+        "Content" => String.t() | Atom.t(),
+        "ContentType" => String.t() | Atom.t(),
+        "DisplayName" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "ParticipantId" => String.t() | Atom.t(),
         "ParticipantRole" => list(any()),
         "Redaction" => real_time_contact_analysis_transcript_item_redaction(),
         "Sentiment" => list(any()),
@@ -10745,7 +10764,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type real_time_contact_analysis_segment_transcript() :: %{String.t() => any()}
+  @type real_time_contact_analysis_segment_transcript() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10754,24 +10773,24 @@ defmodule AWS.Connect do
       transcript_criteria() :: %{
         "MatchType" => list(any()),
         "ParticipantRole" => list(any()),
-        "SearchText" => list(String.t())
+        "SearchText" => list(String.t() | Atom.t())
       }
 
   """
-  @type transcript_criteria() :: %{String.t() => any()}
+  @type transcript_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_contact_flow_response() :: %{
-        "ContactFlowArn" => String.t(),
-        "ContactFlowId" => String.t(),
-        "FlowContentSha256" => String.t()
+        "ContactFlowArn" => String.t() | Atom.t(),
+        "ContactFlowId" => String.t() | Atom.t(),
+        "FlowContentSha256" => String.t() | Atom.t()
       }
 
   """
-  @type create_contact_flow_response() :: %{String.t() => any()}
+  @type create_contact_flow_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10787,23 +10806,23 @@ defmodule AWS.Connect do
   ## Example:
 
       batch_disassociate_analytics_data_set_response() :: %{
-        "Deleted" => list(String.t()),
+        "Deleted" => list(String.t() | Atom.t()),
         "Errors" => list(error_result())
       }
 
   """
-  @type batch_disassociate_analytics_data_set_response() :: %{String.t() => any()}
+  @type batch_disassociate_analytics_data_set_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       submit_auto_evaluation_action_definition() :: %{
-        "EvaluationFormId" => String.t()
+        "EvaluationFormId" => String.t() | Atom.t()
       }
 
   """
-  @type submit_auto_evaluation_action_definition() :: %{String.t() => any()}
+  @type submit_auto_evaluation_action_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10823,7 +10842,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type batch_get_flow_association_response() :: %{String.t() => any()}
+  @type batch_get_flow_association_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10834,7 +10853,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type resource_tags_search_criteria() :: %{String.t() => any()}
+  @type resource_tags_search_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10842,62 +10861,62 @@ defmodule AWS.Connect do
 
       suspend_contact_recording_request() :: %{
         optional("ContactRecordingType") => list(any()),
-        required("ContactId") => String.t(),
-        required("InitialContactId") => String.t(),
-        required("InstanceId") => String.t()
+        required("ContactId") => String.t() | Atom.t(),
+        required("InitialContactId") => String.t() | Atom.t(),
+        required("InstanceId") => String.t() | Atom.t()
       }
 
   """
-  @type suspend_contact_recording_request() :: %{String.t() => any()}
+  @type suspend_contact_recording_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_user_request() :: %{
-        optional("DirectoryUserId") => String.t(),
-        optional("HierarchyGroupId") => String.t(),
+        optional("DirectoryUserId") => String.t() | Atom.t(),
+        optional("HierarchyGroupId") => String.t() | Atom.t(),
         optional("IdentityInfo") => user_identity_info(),
-        optional("Password") => String.t(),
+        optional("Password") => String.t() | Atom.t(),
         optional("Tags") => map(),
         required("PhoneConfig") => user_phone_config(),
-        required("RoutingProfileId") => String.t(),
-        required("SecurityProfileIds") => list(String.t()),
-        required("Username") => String.t()
+        required("RoutingProfileId") => String.t() | Atom.t(),
+        required("SecurityProfileIds") => list(String.t() | Atom.t()),
+        required("Username") => String.t() | Atom.t()
       }
 
   """
-  @type create_user_request() :: %{String.t() => any()}
+  @type create_user_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       property_validation_exception_property() :: %{
-        "Message" => String.t(),
-        "PropertyPath" => String.t(),
+        "Message" => String.t() | Atom.t(),
+        "PropertyPath" => String.t() | Atom.t(),
         "Reason" => list(any())
       }
 
   """
-  @type property_validation_exception_property() :: %{String.t() => any()}
+  @type property_validation_exception_property() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       evaluation_form_content() :: %{
-        "Description" => String.t(),
-        "EvaluationFormArn" => String.t(),
-        "EvaluationFormId" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "EvaluationFormArn" => String.t() | Atom.t(),
+        "EvaluationFormId" => String.t() | Atom.t(),
         "EvaluationFormVersion" => integer(),
         "Items" => list(list()),
         "ScoringStrategy" => evaluation_form_scoring_strategy(),
-        "Title" => String.t()
+        "Title" => String.t() | Atom.t()
       }
 
   """
-  @type evaluation_form_content() :: %{String.t() => any()}
+  @type evaluation_form_content() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10913,18 +10932,18 @@ defmodule AWS.Connect do
   ## Example:
 
       update_contact_flow_module_content_request() :: %{
-        required("Content") => String.t()
+        required("Content") => String.t() | Atom.t()
       }
 
   """
-  @type update_contact_flow_module_content_request() :: %{String.t() => any()}
+  @type update_contact_flow_module_content_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       instance_storage_config() :: %{
-        "AssociationId" => String.t(),
+        "AssociationId" => String.t() | Atom.t(),
         "KinesisFirehoseConfig" => kinesis_firehose_config(),
         "KinesisStreamConfig" => kinesis_stream_config(),
         "KinesisVideoStreamConfig" => kinesis_video_stream_config(),
@@ -10933,7 +10952,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type instance_storage_config() :: %{String.t() => any()}
+  @type instance_storage_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10941,24 +10960,24 @@ defmodule AWS.Connect do
 
       list_routing_profile_queues_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_routing_profile_queues_request() :: %{String.t() => any()}
+  @type list_routing_profile_queues_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       agent_status_reference() :: %{
-        "StatusArn" => String.t(),
-        "StatusName" => String.t(),
+        "StatusArn" => String.t() | Atom.t(),
+        "StatusName" => String.t() | Atom.t(),
         "StatusStartTimestamp" => non_neg_integer()
       }
 
   """
-  @type agent_status_reference() :: %{String.t() => any()}
+  @type agent_status_reference() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10970,7 +10989,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type allowed_capabilities() :: %{String.t() => any()}
+  @type allowed_capabilities() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -10992,7 +11011,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type hours_of_operation_override_config() :: %{String.t() => any()}
+  @type hours_of_operation_override_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -11004,7 +11023,7 @@ defmodule AWS.Connect do
       }
 
   """
-  @type batch_associate_analytics_data_set_response() :: %{String.t() => any()}
+  @type batch_associate_analytics_data_set_response() :: %{String.t() | Atom.t() => any()}
 
   @type activate_evaluation_form_errors() ::
           resource_conflict_exception()
@@ -13147,8 +13166,8 @@ defmodule AWS.Connect do
   """
   @spec activate_evaluation_form(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           activate_evaluation_form_request(),
           list()
         ) ::
@@ -13193,7 +13212,7 @@ defmodule AWS.Connect do
   """
   @spec associate_analytics_data_set(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           associate_analytics_data_set_request(),
           list()
         ) ::
@@ -13227,7 +13246,12 @@ defmodule AWS.Connect do
 
   Associates an approved origin to an Amazon Connect instance.
   """
-  @spec associate_approved_origin(map(), String.t(), associate_approved_origin_request(), list()) ::
+  @spec associate_approved_origin(
+          map(),
+          String.t() | Atom.t(),
+          associate_approved_origin_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13259,7 +13283,7 @@ defmodule AWS.Connect do
   Allows the specified Amazon Connect instance to access the specified Amazon Lex
   or Amazon Lex V2 bot.
   """
-  @spec associate_bot(map(), String.t(), associate_bot_request(), list()) ::
+  @spec associate_bot(map(), String.t() | Atom.t(), associate_bot_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13293,8 +13317,8 @@ defmodule AWS.Connect do
   """
   @spec associate_default_vocabulary(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           associate_default_vocabulary_request(),
           list()
         ) ::
@@ -13334,7 +13358,7 @@ defmodule AWS.Connect do
   @doc """
   Associates a connect resource to a flow.
   """
-  @spec associate_flow(map(), String.t(), associate_flow_request(), list()) ::
+  @spec associate_flow(map(), String.t() | Atom.t(), associate_flow_request(), list()) ::
           {:ok, associate_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13377,7 +13401,7 @@ defmodule AWS.Connect do
   """
   @spec associate_instance_storage_config(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           associate_instance_storage_config_request(),
           list()
         ) ::
@@ -13412,7 +13436,12 @@ defmodule AWS.Connect do
   Allows the specified Amazon Connect instance to access the specified Lambda
   function.
   """
-  @spec associate_lambda_function(map(), String.t(), associate_lambda_function_request(), list()) ::
+  @spec associate_lambda_function(
+          map(),
+          String.t() | Atom.t(),
+          associate_lambda_function_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13444,7 +13473,7 @@ defmodule AWS.Connect do
   Allows the specified Amazon Connect instance to access the specified Amazon Lex
   V1 bot. This API only supports the association of Amazon Lex V1 bots.
   """
-  @spec associate_lex_bot(map(), String.t(), associate_lex_bot_request(), list()) ::
+  @spec associate_lex_bot(map(), String.t() | Atom.t(), associate_lex_bot_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13489,7 +13518,7 @@ defmodule AWS.Connect do
   """
   @spec associate_phone_number_contact_flow(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           associate_phone_number_contact_flow_request(),
           list()
         ) ::
@@ -13530,8 +13559,8 @@ defmodule AWS.Connect do
   """
   @spec associate_queue_quick_connects(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           associate_queue_quick_connects_request(),
           list()
         ) ::
@@ -13573,8 +13602,8 @@ defmodule AWS.Connect do
   """
   @spec associate_routing_profile_queues(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           associate_routing_profile_queues_request(),
           list()
         ) ::
@@ -13616,7 +13645,12 @@ defmodule AWS.Connect do
 
   Associates a security key to the instance.
   """
-  @spec associate_security_key(map(), String.t(), associate_security_key_request(), list()) ::
+  @spec associate_security_key(
+          map(),
+          String.t() | Atom.t(),
+          associate_security_key_request(),
+          list()
+        ) ::
           {:ok, associate_security_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13650,7 +13684,7 @@ defmodule AWS.Connect do
   """
   @spec associate_traffic_distribution_group_user(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           associate_traffic_distribution_group_user_request(),
           list()
         ) ::
@@ -13691,8 +13725,8 @@ defmodule AWS.Connect do
   """
   @spec associate_user_proficiencies(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           associate_user_proficiencies_request(),
           list()
         ) ::
@@ -13732,7 +13766,7 @@ defmodule AWS.Connect do
   """
   @spec batch_associate_analytics_data_set(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           batch_associate_analytics_data_set_request(),
           list()
         ) ::
@@ -13769,7 +13803,7 @@ defmodule AWS.Connect do
   """
   @spec batch_disassociate_analytics_data_set(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           batch_disassociate_analytics_data_set_request(),
           list()
         ) ::
@@ -13807,7 +13841,7 @@ defmodule AWS.Connect do
   """
   @spec batch_get_attached_file_metadata(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           batch_get_attached_file_metadata_request(),
           list()
         ) ::
@@ -13846,7 +13880,7 @@ defmodule AWS.Connect do
   """
   @spec batch_get_flow_association(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           batch_get_flow_association_request(),
           list()
         ) ::
@@ -13892,7 +13926,7 @@ defmodule AWS.Connect do
   created by
   BatchPutContact.
   """
-  @spec batch_put_contact(map(), String.t(), batch_put_contact_request(), list()) ::
+  @spec batch_put_contact(map(), String.t() | Atom.t(), batch_put_contact_request(), list()) ::
           {:ok, batch_put_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13997,8 +14031,8 @@ defmodule AWS.Connect do
   """
   @spec complete_attached_file_upload(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           complete_attached_file_upload_request(),
           list()
         ) ::
@@ -14045,7 +14079,7 @@ defmodule AWS.Connect do
 
   Creates an agent status for the specified Amazon Connect instance.
   """
-  @spec create_agent_status(map(), String.t(), create_agent_status_request(), list()) ::
+  @spec create_agent_status(map(), String.t() | Atom.t(), create_agent_status_request(), list()) ::
           {:ok, create_agent_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14130,7 +14164,7 @@ defmodule AWS.Connect do
   You can also create and update flows using the [Amazon Connect Flow
   language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
   """
-  @spec create_contact_flow(map(), String.t(), create_contact_flow_request(), list()) ::
+  @spec create_contact_flow(map(), String.t() | Atom.t(), create_contact_flow_request(), list()) ::
           {:ok, create_contact_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14161,7 +14195,7 @@ defmodule AWS.Connect do
   """
   @spec create_contact_flow_module(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           create_contact_flow_module_request(),
           list()
         ) ::
@@ -14201,8 +14235,8 @@ defmodule AWS.Connect do
   """
   @spec create_contact_flow_version(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           create_contact_flow_version_request(),
           list()
         ) ::
@@ -14247,7 +14281,7 @@ defmodule AWS.Connect do
   in the
   Amazon Connect Administrator Guide.
   """
-  @spec create_email_address(map(), String.t(), create_email_address_request(), list()) ::
+  @spec create_email_address(map(), String.t() | Atom.t(), create_email_address_request(), list()) ::
           {:ok, create_email_address_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14283,7 +14317,12 @@ defmodule AWS.Connect do
   evaluation
   form.
   """
-  @spec create_evaluation_form(map(), String.t(), create_evaluation_form_request(), list()) ::
+  @spec create_evaluation_form(
+          map(),
+          String.t() | Atom.t(),
+          create_evaluation_form_request(),
+          list()
+        ) ::
           {:ok, create_evaluation_form_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14314,7 +14353,12 @@ defmodule AWS.Connect do
 
   Creates hours of operation.
   """
-  @spec create_hours_of_operation(map(), String.t(), create_hours_of_operation_request(), list()) ::
+  @spec create_hours_of_operation(
+          map(),
+          String.t() | Atom.t(),
+          create_hours_of_operation_request(),
+          list()
+        ) ::
           {:ok, create_hours_of_operation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14346,8 +14390,8 @@ defmodule AWS.Connect do
   """
   @spec create_hours_of_operation_override(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           create_hours_of_operation_override_request(),
           list()
         ) ::
@@ -14436,7 +14480,7 @@ defmodule AWS.Connect do
   """
   @spec create_integration_association(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           create_integration_association_request(),
           list()
         ) ::
@@ -14507,8 +14551,8 @@ defmodule AWS.Connect do
   """
   @spec create_persistent_contact_association(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           create_persistent_contact_association_request(),
           list()
         ) ::
@@ -14557,7 +14601,7 @@ defmodule AWS.Connect do
   """
   @spec create_predefined_attribute(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           create_predefined_attribute_request(),
           list()
         ) ::
@@ -14594,7 +14638,7 @@ defmodule AWS.Connect do
   the *Amazon Connect Administrator
   Guide*.
   """
-  @spec create_prompt(map(), String.t(), create_prompt_request(), list()) ::
+  @spec create_prompt(map(), String.t() | Atom.t(), create_prompt_request(), list()) ::
           {:ok, create_prompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14632,7 +14676,7 @@ defmodule AWS.Connect do
   """
   @spec create_push_notification_registration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           create_push_notification_registration_request(),
           list()
         ) ::
@@ -14691,7 +14735,7 @@ defmodule AWS.Connect do
   queue API actions for phone numbers in a replica
   Region](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_resource-level-policy-examples.html#allow-deny-queue-actions-replica-region).
   """
-  @spec create_queue(map(), String.t(), create_queue_request(), list()) ::
+  @spec create_queue(map(), String.t() | Atom.t(), create_queue_request(), list()) ::
           {:ok, create_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14720,7 +14764,7 @@ defmodule AWS.Connect do
   @doc """
   Creates a quick connect for the specified Amazon Connect instance.
   """
-  @spec create_quick_connect(map(), String.t(), create_quick_connect_request(), list()) ::
+  @spec create_quick_connect(map(), String.t() | Atom.t(), create_quick_connect_request(), list()) ::
           {:ok, create_quick_connect_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14749,7 +14793,12 @@ defmodule AWS.Connect do
   @doc """
   Creates a new routing profile.
   """
-  @spec create_routing_profile(map(), String.t(), create_routing_profile_request(), list()) ::
+  @spec create_routing_profile(
+          map(),
+          String.t() | Atom.t(),
+          create_routing_profile_request(),
+          list()
+        ) ::
           {:ok, create_routing_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14782,7 +14831,7 @@ defmodule AWS.Connect do
   to
   code conditions for the rule.
   """
-  @spec create_rule(map(), String.t(), create_rule_request(), list()) ::
+  @spec create_rule(map(), String.t() | Atom.t(), create_rule_request(), list()) ::
           {:ok, create_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14817,7 +14866,12 @@ defmodule AWS.Connect do
   user interface name of the security profile permissions, see [List of security profile
   permissions](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html).
   """
-  @spec create_security_profile(map(), String.t(), create_security_profile_request(), list()) ::
+  @spec create_security_profile(
+          map(),
+          String.t() | Atom.t(),
+          create_security_profile_request(),
+          list()
+        ) ::
           {:ok, create_security_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14846,7 +14900,7 @@ defmodule AWS.Connect do
   @doc """
   Creates a new task template in the specified Amazon Connect instance.
   """
-  @spec create_task_template(map(), String.t(), create_task_template_request(), list()) ::
+  @spec create_task_template(map(), String.t() | Atom.t(), create_task_template_request(), list()) ::
           {:ok, create_task_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14922,7 +14976,13 @@ defmodule AWS.Connect do
   @doc """
   Creates a use case for an integration association.
   """
-  @spec create_use_case(map(), String.t(), String.t(), create_use_case_request(), list()) ::
+  @spec create_use_case(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          create_use_case_request(),
+          list()
+        ) ::
           {:ok, create_use_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14971,7 +15031,7 @@ defmodule AWS.Connect do
   Users](https://docs.aws.amazon.com/connect/latest/adminguide/user-management.html)
   in the *Amazon Connect Administrator Guide*.
   """
-  @spec create_user(map(), String.t(), create_user_request(), list()) ::
+  @spec create_user(map(), String.t() | Atom.t(), create_user_request(), list()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15002,7 +15062,7 @@ defmodule AWS.Connect do
   """
   @spec create_user_hierarchy_group(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           create_user_hierarchy_group_request(),
           list()
         ) ::
@@ -15045,7 +15105,7 @@ defmodule AWS.Connect do
   view
   is idempotent if ClientToken is provided.
   """
-  @spec create_view(map(), String.t(), create_view_request(), list()) ::
+  @spec create_view(map(), String.t() | Atom.t(), create_view_request(), list()) ::
           {:ok, create_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15082,7 +15142,13 @@ defmodule AWS.Connect do
   ViewContentSha256 of
   the `$LATEST` alias.
   """
-  @spec create_view_version(map(), String.t(), String.t(), create_view_version_request(), list()) ::
+  @spec create_view_version(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          create_view_version_request(),
+          list()
+        ) ::
           {:ok, create_view_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15119,7 +15185,7 @@ defmodule AWS.Connect do
   vocabulary in post-call and real-time contact analysis sessions for that
   language.
   """
-  @spec create_vocabulary(map(), String.t(), create_vocabulary_request(), list()) ::
+  @spec create_vocabulary(map(), String.t() | Atom.t(), create_vocabulary_request(), list()) ::
           {:ok, create_vocabulary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15153,8 +15219,8 @@ defmodule AWS.Connect do
   """
   @spec deactivate_evaluation_form(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           deactivate_evaluation_form_request(),
           list()
         ) ::
@@ -15199,8 +15265,8 @@ defmodule AWS.Connect do
   """
   @spec delete_attached_file(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_attached_file_request(),
           list()
         ) ::
@@ -15241,8 +15307,8 @@ defmodule AWS.Connect do
   """
   @spec delete_contact_evaluation(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_contact_evaluation_request(),
           list()
         ) ::
@@ -15282,7 +15348,13 @@ defmodule AWS.Connect do
   @doc """
   Deletes a flow for the specified Amazon Connect instance.
   """
-  @spec delete_contact_flow(map(), String.t(), String.t(), delete_contact_flow_request(), list()) ::
+  @spec delete_contact_flow(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_contact_flow_request(),
+          list()
+        ) ::
           {:ok, delete_contact_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15315,8 +15387,8 @@ defmodule AWS.Connect do
   """
   @spec delete_contact_flow_module(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_contact_flow_module_request(),
           list()
         ) ::
@@ -15358,9 +15430,9 @@ defmodule AWS.Connect do
   """
   @spec delete_contact_flow_version(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_contact_flow_version_request(),
           list()
         ) ::
@@ -15403,8 +15475,8 @@ defmodule AWS.Connect do
   """
   @spec delete_email_address(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_email_address_request(),
           list()
         ) ::
@@ -15454,8 +15526,8 @@ defmodule AWS.Connect do
   """
   @spec delete_evaluation_form(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_evaluation_form_request(),
           list()
         ) ::
@@ -15504,8 +15576,8 @@ defmodule AWS.Connect do
   """
   @spec delete_hours_of_operation(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_hours_of_operation_request(),
           list()
         ) ::
@@ -15548,9 +15620,9 @@ defmodule AWS.Connect do
   """
   @spec delete_hours_of_operation_override(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_hours_of_operation_override_request(),
           list()
         ) ::
@@ -15603,7 +15675,7 @@ defmodule AWS.Connect do
   You must wait 30 days before you can restart creating and deleting instances in
   your account.
   """
-  @spec delete_instance(map(), String.t(), delete_instance_request(), list()) ::
+  @spec delete_instance(map(), String.t() | Atom.t(), delete_instance_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15643,8 +15715,8 @@ defmodule AWS.Connect do
   """
   @spec delete_integration_association(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_integration_association_request(),
           list()
         ) ::
@@ -15686,8 +15758,8 @@ defmodule AWS.Connect do
   """
   @spec delete_predefined_attribute(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_predefined_attribute_request(),
           list()
         ) ::
@@ -15721,7 +15793,13 @@ defmodule AWS.Connect do
   @doc """
   Deletes a prompt.
   """
-  @spec delete_prompt(map(), String.t(), String.t(), delete_prompt_request(), list()) ::
+  @spec delete_prompt(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_prompt_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15752,8 +15830,8 @@ defmodule AWS.Connect do
   """
   @spec delete_push_notification_registration(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_push_notification_registration_request(),
           list()
         ) ::
@@ -15798,7 +15876,13 @@ defmodule AWS.Connect do
   @doc """
   Deletes a queue.
   """
-  @spec delete_queue(map(), String.t(), String.t(), delete_queue_request(), list()) ::
+  @spec delete_queue(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_queue_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15848,8 +15932,8 @@ defmodule AWS.Connect do
   """
   @spec delete_quick_connect(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_quick_connect_request(),
           list()
         ) ::
@@ -15891,8 +15975,8 @@ defmodule AWS.Connect do
   """
   @spec delete_routing_profile(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_routing_profile_request(),
           list()
         ) ::
@@ -15932,7 +16016,13 @@ defmodule AWS.Connect do
   @doc """
   Deletes a rule for the specified Amazon Connect instance.
   """
-  @spec delete_rule(map(), String.t(), String.t(), delete_rule_request(), list()) ::
+  @spec delete_rule(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_rule_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15963,8 +16053,8 @@ defmodule AWS.Connect do
   """
   @spec delete_security_profile(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_security_profile_request(),
           list()
         ) ::
@@ -16006,8 +16096,8 @@ defmodule AWS.Connect do
   """
   @spec delete_task_template(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_task_template_request(),
           list()
         ) ::
@@ -16058,7 +16148,7 @@ defmodule AWS.Connect do
   """
   @spec delete_traffic_distribution_group(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_traffic_distribution_group_request(),
           list()
         ) ::
@@ -16097,9 +16187,9 @@ defmodule AWS.Connect do
   """
   @spec delete_use_case(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_use_case_request(),
           list()
         ) ::
@@ -16164,7 +16254,13 @@ defmodule AWS.Connect do
   Global
   Resiliency](https://docs.aws.amazon.com/connect/latest/adminguide/setup-connect-global-resiliency.html).
   """
-  @spec delete_user(map(), String.t(), String.t(), delete_user_request(), list()) ::
+  @spec delete_user(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_user_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16198,8 +16294,8 @@ defmodule AWS.Connect do
   """
   @spec delete_user_hierarchy_group(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_user_hierarchy_group_request(),
           list()
         ) ::
@@ -16242,7 +16338,13 @@ defmodule AWS.Connect do
   It deletes the view and all associated qualifiers (versions and
   aliases).
   """
-  @spec delete_view(map(), String.t(), String.t(), delete_view_request(), list()) ::
+  @spec delete_view(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_view_request(),
+          list()
+        ) ::
           {:ok, delete_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16273,9 +16375,9 @@ defmodule AWS.Connect do
   """
   @spec delete_view_version(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_view_version_request(),
           list()
         ) ::
@@ -16316,7 +16418,13 @@ defmodule AWS.Connect do
   @doc """
   Deletes the vocabulary that has the given identifier.
   """
-  @spec delete_vocabulary(map(), String.t(), String.t(), delete_vocabulary_request(), list()) ::
+  @spec delete_vocabulary(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_vocabulary_request(),
+          list()
+        ) ::
           {:ok, delete_vocabulary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16349,7 +16457,7 @@ defmodule AWS.Connect do
 
   Describes an agent status.
   """
-  @spec describe_agent_status(map(), String.t(), String.t(), list()) ::
+  @spec describe_agent_status(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, describe_agent_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16374,7 +16482,12 @@ defmodule AWS.Connect do
 
   Describes the target authentication profile.
   """
-  @spec describe_authentication_profile(map(), String.t(), String.t(), list()) ::
+  @spec describe_authentication_profile(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, describe_authentication_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16411,7 +16524,7 @@ defmodule AWS.Connect do
   `InitiationTimestamp`, and then it is deleted. Only contact information that is
   available in Amazon Connect is returned by this API.
   """
-  @spec describe_contact(map(), String.t(), String.t(), list()) ::
+  @spec describe_contact(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, describe_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16429,7 +16542,7 @@ defmodule AWS.Connect do
   @doc """
   Describes a contact evaluation in the specified Amazon Connect instance.
   """
-  @spec describe_contact_evaluation(map(), String.t(), String.t(), list()) ::
+  @spec describe_contact_evaluation(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, describe_contact_evaluation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16465,7 +16578,7 @@ defmodule AWS.Connect do
   validation on the content. `SAVED` does not initiate validation of the content.
   `SAVED` | `PUBLISHED`
   """
-  @spec describe_contact_flow(map(), String.t(), String.t(), list()) ::
+  @spec describe_contact_flow(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, describe_contact_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16490,7 +16603,7 @@ defmodule AWS.Connect do
   published, `$SAVED` needs to be supplied to view saved content that has not been
   published.
   """
-  @spec describe_contact_flow_module(map(), String.t(), String.t(), list()) ::
+  @spec describe_contact_flow_module(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, describe_contact_flow_module_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16515,7 +16628,7 @@ defmodule AWS.Connect do
   @doc """
   Describe email address form the specified Amazon Connect instance.
   """
-  @spec describe_email_address(map(), String.t(), String.t(), list()) ::
+  @spec describe_email_address(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, describe_email_address_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16539,7 +16652,13 @@ defmodule AWS.Connect do
   property is not provided, the latest version of the evaluation form is
   described.
   """
-  @spec describe_evaluation_form(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec describe_evaluation_form(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, describe_evaluation_form_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16574,7 +16693,7 @@ defmodule AWS.Connect do
 
   Describes the hours of operation.
   """
-  @spec describe_hours_of_operation(map(), String.t(), String.t(), list()) ::
+  @spec describe_hours_of_operation(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, describe_hours_of_operation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16599,7 +16718,13 @@ defmodule AWS.Connect do
   @doc """
   Describes the hours of operation override.
   """
-  @spec describe_hours_of_operation_override(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec describe_hours_of_operation_override(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, describe_hours_of_operation_override_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16635,7 +16760,7 @@ defmodule AWS.Connect do
   hours after the
   CreateInstance API was invoked.
   """
-  @spec describe_instance(map(), String.t(), list()) ::
+  @spec describe_instance(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16655,7 +16780,7 @@ defmodule AWS.Connect do
 
   Describes the specified instance attribute.
   """
-  @spec describe_instance_attribute(map(), String.t(), String.t(), list()) ::
+  @spec describe_instance_attribute(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, describe_instance_attribute_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16679,7 +16804,13 @@ defmodule AWS.Connect do
   association
   ID, and instance ID.
   """
-  @spec describe_instance_storage_config(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec describe_instance_storage_config(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, describe_instance_storage_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16727,7 +16858,7 @@ defmodule AWS.Connect do
   in
   this scenario, you receive a `ResourceNotFoundException`.
   """
-  @spec describe_phone_number(map(), String.t(), list()) ::
+  @spec describe_phone_number(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16752,7 +16883,7 @@ defmodule AWS.Connect do
   see [Create predefined attributes for routing contacts to
   agents](https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html).
   """
-  @spec describe_predefined_attribute(map(), String.t(), String.t(), list()) ::
+  @spec describe_predefined_attribute(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, describe_predefined_attribute_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16772,7 +16903,7 @@ defmodule AWS.Connect do
   @doc """
   Describes the prompt.
   """
-  @spec describe_prompt(map(), String.t(), String.t(), list()) ::
+  @spec describe_prompt(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, describe_prompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16792,7 +16923,7 @@ defmodule AWS.Connect do
 
   Describes the specified queue.
   """
-  @spec describe_queue(map(), String.t(), String.t(), list()) ::
+  @spec describe_queue(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, describe_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16810,7 +16941,7 @@ defmodule AWS.Connect do
   @doc """
   Describes the quick connect.
   """
-  @spec describe_quick_connect(map(), String.t(), String.t(), list()) ::
+  @spec describe_quick_connect(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, describe_quick_connect_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16836,7 +16967,7 @@ defmodule AWS.Connect do
   [SearchRoutingProfiles](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchRoutingProfiles.html)
   does include AssociatedQueueIds.
   """
-  @spec describe_routing_profile(map(), String.t(), String.t(), list()) ::
+  @spec describe_routing_profile(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, describe_routing_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16856,7 +16987,7 @@ defmodule AWS.Connect do
   @doc """
   Describes a rule for the specified Amazon Connect instance.
   """
-  @spec describe_rule(map(), String.t(), String.t(), list()) ::
+  @spec describe_rule(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, describe_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16880,7 +17011,7 @@ defmodule AWS.Connect do
   user interface name of the security profile permissions, see [List of security profile
   permissions](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html).
   """
-  @spec describe_security_profile(map(), String.t(), String.t(), list()) ::
+  @spec describe_security_profile(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, describe_security_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16905,7 +17036,7 @@ defmodule AWS.Connect do
   @doc """
   Gets details and status of a traffic distribution group.
   """
-  @spec describe_traffic_distribution_group(map(), String.t(), list()) ::
+  @spec describe_traffic_distribution_group(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_traffic_distribution_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16931,7 +17062,7 @@ defmodule AWS.Connect do
   (it’s the final part of the ARN). The console does not display the
   user IDs. Instead, list the users and note the IDs provided in the output.
   """
-  @spec describe_user(map(), String.t(), String.t(), list()) ::
+  @spec describe_user(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, describe_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16949,7 +17080,7 @@ defmodule AWS.Connect do
   @doc """
   Describes the specified hierarchy group.
   """
-  @spec describe_user_hierarchy_group(map(), String.t(), String.t(), list()) ::
+  @spec describe_user_hierarchy_group(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, describe_user_hierarchy_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16974,7 +17105,7 @@ defmodule AWS.Connect do
   @doc """
   Describes the hierarchy structure of the specified Amazon Connect instance.
   """
-  @spec describe_user_hierarchy_structure(map(), String.t(), list()) ::
+  @spec describe_user_hierarchy_structure(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_user_hierarchy_structure_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -17005,7 +17136,7 @@ defmodule AWS.Connect do
   no published content available. Version 1 is assumed for Amazon Web Services
   managed views.
   """
-  @spec describe_view(map(), String.t(), String.t(), list()) ::
+  @spec describe_view(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, describe_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -17023,7 +17154,7 @@ defmodule AWS.Connect do
   @doc """
   Describes the specified vocabulary.
   """
-  @spec describe_vocabulary(map(), String.t(), String.t(), list()) ::
+  @spec describe_vocabulary(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, describe_vocabulary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -17045,7 +17176,7 @@ defmodule AWS.Connect do
   """
   @spec disassociate_analytics_data_set(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           disassociate_analytics_data_set_request(),
           list()
         ) ::
@@ -17081,7 +17212,7 @@ defmodule AWS.Connect do
   """
   @spec disassociate_approved_origin(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           disassociate_approved_origin_request(),
           list()
         ) ::
@@ -17123,7 +17254,7 @@ defmodule AWS.Connect do
   Lex or Amazon Lex V2
   bot.
   """
-  @spec disassociate_bot(map(), String.t(), disassociate_bot_request(), list()) ::
+  @spec disassociate_bot(map(), String.t() | Atom.t(), disassociate_bot_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -17154,9 +17285,9 @@ defmodule AWS.Connect do
   """
   @spec disassociate_flow(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           disassociate_flow_request(),
           list()
         ) ::
@@ -17203,8 +17334,8 @@ defmodule AWS.Connect do
   """
   @spec disassociate_instance_storage_config(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           disassociate_instance_storage_config_request(),
           list()
         ) ::
@@ -17255,7 +17386,7 @@ defmodule AWS.Connect do
   """
   @spec disassociate_lambda_function(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           disassociate_lambda_function_request(),
           list()
         ) ::
@@ -17297,7 +17428,7 @@ defmodule AWS.Connect do
   Lex
   bot.
   """
-  @spec disassociate_lex_bot(map(), String.t(), disassociate_lex_bot_request(), list()) ::
+  @spec disassociate_lex_bot(map(), String.t() | Atom.t(), disassociate_lex_bot_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -17348,7 +17479,7 @@ defmodule AWS.Connect do
   """
   @spec disassociate_phone_number_contact_flow(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           disassociate_phone_number_contact_flow_request(),
           list()
         ) ::
@@ -17394,8 +17525,8 @@ defmodule AWS.Connect do
   """
   @spec disassociate_queue_quick_connects(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           disassociate_queue_quick_connects_request(),
           list()
         ) ::
@@ -17437,8 +17568,8 @@ defmodule AWS.Connect do
   """
   @spec disassociate_routing_profile_queues(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           disassociate_routing_profile_queues_request(),
           list()
         ) ::
@@ -17482,8 +17613,8 @@ defmodule AWS.Connect do
   """
   @spec disassociate_security_key(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           disassociate_security_key_request(),
           list()
         ) ::
@@ -17533,7 +17664,7 @@ defmodule AWS.Connect do
   """
   @spec disassociate_traffic_distribution_group_user(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           disassociate_traffic_distribution_group_user_request(),
           list()
         ) ::
@@ -17580,8 +17711,8 @@ defmodule AWS.Connect do
   """
   @spec disassociate_user_proficiencies(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           disassociate_user_proficiencies_request(),
           list()
         ) ::
@@ -17630,8 +17761,8 @@ defmodule AWS.Connect do
   """
   @spec dismiss_user_contact(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           dismiss_user_contact_request(),
           list()
         ) ::
@@ -17670,7 +17801,14 @@ defmodule AWS.Connect do
   status of the attached
   file is `APPROVED`.
   """
-  @spec get_attached_file(map(), String.t(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_attached_file(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, get_attached_file_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -17711,7 +17849,7 @@ defmodule AWS.Connect do
   @doc """
   Retrieves the contact attributes for the specified contact.
   """
-  @spec get_contact_attributes(map(), String.t(), String.t(), list()) ::
+  @spec get_contact_attributes(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_contact_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -17735,7 +17873,12 @@ defmodule AWS.Connect do
   in the
   *Amazon Connect Administrator Guide*.
   """
-  @spec get_current_metric_data(map(), String.t(), get_current_metric_data_request(), list()) ::
+  @spec get_current_metric_data(
+          map(),
+          String.t() | Atom.t(),
+          get_current_metric_data_request(),
+          list()
+        ) ::
           {:ok, get_current_metric_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -17764,7 +17907,12 @@ defmodule AWS.Connect do
   @doc """
   Gets the real-time active user data from the specified Amazon Connect instance.
   """
-  @spec get_current_user_data(map(), String.t(), get_current_user_data_request(), list()) ::
+  @spec get_current_user_data(
+          map(),
+          String.t() | Atom.t(),
+          get_current_user_data_request(),
+          list()
+        ) ::
           {:ok, get_current_user_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -17795,10 +17943,10 @@ defmodule AWS.Connect do
   """
   @spec get_effective_hours_of_operations(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           list()
         ) ::
           {:ok, get_effective_hours_of_operations_response(), any()}
@@ -17859,7 +18007,7 @@ defmodule AWS.Connect do
   Amazon Connect
   ```
   """
-  @spec get_federation_token(map(), String.t(), list()) ::
+  @spec get_federation_token(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_federation_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -17877,7 +18025,13 @@ defmodule AWS.Connect do
   @doc """
   Retrieves the flow associated for a given resource.
   """
-  @spec get_flow_association(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_flow_association(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_flow_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -17921,7 +18075,7 @@ defmodule AWS.Connect do
   changed per day
   of the week.
   """
-  @spec get_metric_data(map(), String.t(), get_metric_data_request(), list()) ::
+  @spec get_metric_data(map(), String.t() | Atom.t(), get_metric_data_request(), list()) ::
           {:ok, get_metric_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -17995,7 +18149,7 @@ defmodule AWS.Connect do
   @doc """
   Gets the prompt file.
   """
-  @spec get_prompt_file(map(), String.t(), String.t(), list()) ::
+  @spec get_prompt_file(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_prompt_file_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -18016,7 +18170,13 @@ defmodule AWS.Connect do
   Gets details about a specific task template in the specified Amazon Connect
   instance.
   """
-  @spec get_task_template(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_task_template(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, get_task_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -18050,7 +18210,7 @@ defmodule AWS.Connect do
   Retrieves the current traffic distribution for a given traffic distribution
   group.
   """
-  @spec get_traffic_distribution(map(), String.t(), list()) ::
+  @spec get_traffic_distribution(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_traffic_distribution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -18136,10 +18296,10 @@ defmodule AWS.Connect do
   """
   @spec list_agent_statuses(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_agent_status_response(), any()}
@@ -18190,10 +18350,10 @@ defmodule AWS.Connect do
   """
   @spec list_analytics_data_associations(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_analytics_data_associations_response(), any()}
@@ -18245,9 +18405,9 @@ defmodule AWS.Connect do
   """
   @spec list_analytics_data_lake_data_sets(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_analytics_data_lake_data_sets_response(), any()}
@@ -18289,7 +18449,13 @@ defmodule AWS.Connect do
 
   Returns a paginated list of all approved origins associated with the instance.
   """
-  @spec list_approved_origins(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_approved_origins(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_approved_origins_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -18331,10 +18497,10 @@ defmodule AWS.Connect do
   """
   @spec list_associated_contacts(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_associated_contacts_response(), any()}
@@ -18390,9 +18556,9 @@ defmodule AWS.Connect do
   """
   @spec list_authentication_profiles(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_authentication_profiles_response(), any()}
@@ -18436,7 +18602,14 @@ defmodule AWS.Connect do
   Amazon Lex bots currently associated with the instance. Use this API to return
   both Amazon Lex V1 and V2 bots.
   """
-  @spec list_bots(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_bots(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_bots_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -18482,7 +18655,13 @@ defmodule AWS.Connect do
   @doc """
   Lists contact evaluations in the specified Amazon Connect instance.
   """
-  @spec list_contact_evaluations(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec list_contact_evaluations(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_contact_evaluations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -18523,10 +18702,10 @@ defmodule AWS.Connect do
   """
   @spec list_contact_flow_modules(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_contact_flow_modules_response(), any()}
@@ -18578,10 +18757,10 @@ defmodule AWS.Connect do
   """
   @spec list_contact_flow_versions(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_contact_flow_versions_response(), any()}
@@ -18634,10 +18813,10 @@ defmodule AWS.Connect do
   """
   @spec list_contact_flows(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_contact_flows_response(), any()}
@@ -18691,10 +18870,10 @@ defmodule AWS.Connect do
   """
   @spec list_contact_references(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
           list()
         ) ::
           {:ok, list_contact_references_response(), any()}
@@ -18737,7 +18916,12 @@ defmodule AWS.Connect do
   @doc """
   Lists the default vocabularies for the specified Amazon Connect instance.
   """
-  @spec list_default_vocabularies(map(), String.t(), list_default_vocabularies_request(), list()) ::
+  @spec list_default_vocabularies(
+          map(),
+          String.t() | Atom.t(),
+          list_default_vocabularies_request(),
+          list()
+        ) ::
           {:ok, list_default_vocabularies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -18768,10 +18952,10 @@ defmodule AWS.Connect do
   """
   @spec list_evaluation_form_versions(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_evaluation_form_versions_response(), any()}
@@ -18814,7 +18998,13 @@ defmodule AWS.Connect do
   @doc """
   Lists evaluation forms in the specified Amazon Connect instance.
   """
-  @spec list_evaluation_forms(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_evaluation_forms(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_evaluation_forms_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -18854,10 +19044,10 @@ defmodule AWS.Connect do
   """
   @spec list_flow_associations(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_flow_associations_response(), any()}
@@ -18907,10 +19097,10 @@ defmodule AWS.Connect do
   """
   @spec list_hours_of_operation_overrides(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_hours_of_operation_overrides_response(), any()}
@@ -18959,7 +19149,13 @@ defmodule AWS.Connect do
   Queue](https://docs.aws.amazon.com/connect/latest/adminguide/set-hours-operation.html)
   in the *Amazon Connect Administrator Guide*.
   """
-  @spec list_hours_of_operations(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_hours_of_operations(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_hours_of_operations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -18999,7 +19195,13 @@ defmodule AWS.Connect do
 
   Returns a paginated list of all attribute types for the given instance.
   """
-  @spec list_instance_attributes(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_instance_attributes(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_instance_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -19043,10 +19245,10 @@ defmodule AWS.Connect do
   """
   @spec list_instance_storage_configs(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
           list()
         ) ::
           {:ok, list_instance_storage_configs_response(), any()}
@@ -19100,7 +19302,7 @@ defmodule AWS.Connect do
   are returned only
   for 24 hours after the CreateInstance API was invoked.
   """
-  @spec list_instances(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_instances(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -19136,11 +19338,11 @@ defmodule AWS.Connect do
   """
   @spec list_integration_associations(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_integration_associations_response(), any()}
@@ -19200,7 +19402,13 @@ defmodule AWS.Connect do
   options in the
   relevant flow blocks.
   """
-  @spec list_lambda_functions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_lambda_functions(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_lambda_functions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -19244,7 +19452,13 @@ defmodule AWS.Connect do
   [ListBots](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListBots.html)
   API.
   """
-  @spec list_lex_bots(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_lex_bots(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_lex_bots_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -19308,11 +19522,11 @@ defmodule AWS.Connect do
   """
   @spec list_phone_numbers(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_phone_numbers_response(), any()}
@@ -19424,7 +19638,13 @@ defmodule AWS.Connect do
   see [Create predefined attributes for routing contacts to
   agents](https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html).
   """
-  @spec list_predefined_attributes(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_predefined_attributes(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_predefined_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -19463,7 +19683,13 @@ defmodule AWS.Connect do
   Provides information about the prompts for the specified Amazon Connect
   instance.
   """
-  @spec list_prompts(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_prompts(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_prompts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -19505,10 +19731,10 @@ defmodule AWS.Connect do
   """
   @spec list_queue_quick_connects(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_queue_quick_connects_response(), any()}
@@ -19563,10 +19789,10 @@ defmodule AWS.Connect do
   """
   @spec list_queues(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_queues_response(), any()}
@@ -19617,10 +19843,10 @@ defmodule AWS.Connect do
   """
   @spec list_quick_connects(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_quick_connects_response(), any()}
@@ -19676,8 +19902,8 @@ defmodule AWS.Connect do
   """
   @spec list_realtime_contact_analysis_segments_v2(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           list_realtime_contact_analysis_segments_v2_request(),
           list()
         ) ::
@@ -19719,10 +19945,10 @@ defmodule AWS.Connect do
   """
   @spec list_routing_profile_queues(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_routing_profile_queues_response(), any()}
@@ -19771,7 +19997,13 @@ defmodule AWS.Connect do
   and [Create a Routing Profile](https://docs.aws.amazon.com/connect/latest/adminguide/routing-profiles.html)
   in the *Amazon Connect Administrator Guide*.
   """
-  @spec list_routing_profiles(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_routing_profiles(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_routing_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -19811,11 +20043,11 @@ defmodule AWS.Connect do
   """
   @spec list_rules(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_rules_response(), any()}
@@ -19873,7 +20105,13 @@ defmodule AWS.Connect do
 
   Returns a paginated list of all security keys associated with the instance.
   """
-  @spec list_security_keys(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_security_keys(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_security_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -19913,10 +20151,10 @@ defmodule AWS.Connect do
   """
   @spec list_security_profile_applications(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_security_profile_applications_response(), any()}
@@ -19967,10 +20205,10 @@ defmodule AWS.Connect do
   """
   @spec list_security_profile_permissions(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_security_profile_permissions_response(), any()}
@@ -20020,7 +20258,13 @@ defmodule AWS.Connect do
   user interface name of the security profile permissions, see [List of security profile
   permissions](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html).
   """
-  @spec list_security_profiles(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_security_profiles(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_security_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -20063,7 +20307,7 @@ defmodule AWS.Connect do
   in the *Amazon Connect Administrator
   Guide*.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -20083,11 +20327,11 @@ defmodule AWS.Connect do
   """
   @spec list_task_templates(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_task_templates_response(), any()}
@@ -20145,9 +20389,9 @@ defmodule AWS.Connect do
   """
   @spec list_traffic_distribution_group_users(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_traffic_distribution_group_users_response(), any()}
@@ -20191,9 +20435,9 @@ defmodule AWS.Connect do
   """
   @spec list_traffic_distribution_groups(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_traffic_distribution_groups_response(), any()}
@@ -20240,7 +20484,14 @@ defmodule AWS.Connect do
   @doc """
   Lists the use cases for the integration association.
   """
-  @spec list_use_cases(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_use_cases(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_use_cases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -20287,7 +20538,13 @@ defmodule AWS.Connect do
   in the
   *Amazon Connect Administrator Guide*.
   """
-  @spec list_user_hierarchy_groups(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_user_hierarchy_groups(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_user_hierarchy_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -20327,10 +20584,10 @@ defmodule AWS.Connect do
   """
   @spec list_user_proficiencies(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_user_proficiencies_response(), any()}
@@ -20374,7 +20631,13 @@ defmodule AWS.Connect do
   Provides summary information about the users for the specified Amazon Connect
   instance.
   """
-  @spec list_users(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_users(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -20418,10 +20681,10 @@ defmodule AWS.Connect do
   """
   @spec list_view_versions(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_view_versions_response(), any()}
@@ -20468,10 +20731,10 @@ defmodule AWS.Connect do
   """
   @spec list_views(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_views_response(), any()}
@@ -20588,7 +20851,13 @@ defmodule AWS.Connect do
   and [Set your next status](https://docs.aws.amazon.com/connect/latest/adminguide/set-next-status.html)
   in the *Amazon Connect Administrator Guide*.
   """
-  @spec put_user_status(map(), String.t(), String.t(), put_user_status_request(), list()) ::
+  @spec put_user_status(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          put_user_status_request(),
+          list()
+        ) ::
           {:ok, put_user_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -20655,7 +20924,7 @@ defmodule AWS.Connect do
   you
   open an Amazon Web Services support ticket.
   """
-  @spec release_phone_number(map(), String.t(), release_phone_number_request(), list()) ::
+  @spec release_phone_number(map(), String.t() | Atom.t(), release_phone_number_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -20697,7 +20966,7 @@ defmodule AWS.Connect do
   in the *Amazon Connect
   Administrator Guide*.
   """
-  @spec replicate_instance(map(), String.t(), replicate_instance_request(), list()) ::
+  @spec replicate_instance(map(), String.t() | Atom.t(), replicate_instance_request(), list()) ::
           {:ok, replicate_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -21326,7 +21595,7 @@ defmodule AWS.Connect do
   Searches for vocabularies within a specific Amazon Connect instance using
   `State`, `NameStartsWith`, and `LanguageCode`.
   """
-  @spec search_vocabularies(map(), String.t(), search_vocabularies_request(), list()) ::
+  @spec search_vocabularies(map(), String.t() | Atom.t(), search_vocabularies_request(), list()) ::
           {:ok, search_vocabularies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -21413,7 +21682,7 @@ defmodule AWS.Connect do
   assume a
   role in your account and call this API.
   """
-  @spec send_outbound_email(map(), String.t(), send_outbound_email_request(), list()) ::
+  @spec send_outbound_email(map(), String.t() | Atom.t(), send_outbound_email_request(), list()) ::
           {:ok, send_outbound_email_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -21448,7 +21717,7 @@ defmodule AWS.Connect do
   """
   @spec start_attached_file_upload(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           start_attached_file_upload_request(),
           list()
         ) ::
@@ -21562,7 +21831,12 @@ defmodule AWS.Connect do
   suggested from
   automation.
   """
-  @spec start_contact_evaluation(map(), String.t(), start_contact_evaluation_request(), list()) ::
+  @spec start_contact_evaluation(
+          map(),
+          String.t() | Atom.t(),
+          start_contact_evaluation_request(),
+          list()
+        ) ::
           {:ok, start_contact_evaluation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22154,8 +22428,8 @@ defmodule AWS.Connect do
   """
   @spec submit_contact_evaluation(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           submit_contact_evaluation_request(),
           list()
         ) ::
@@ -22284,7 +22558,7 @@ defmodule AWS.Connect do
   in the *Amazon Connect Administrator
   Guide*.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22374,7 +22648,13 @@ defmodule AWS.Connect do
   used, see [Set up granular billing for a detailed view of your Amazon Connect
   usage](https://docs.aws.amazon.com/connect/latest/adminguide/granular-billing.html).
   """
-  @spec untag_contact(map(), String.t(), String.t(), untag_contact_request(), list()) ::
+  @spec untag_contact(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          untag_contact_request(),
+          list()
+        ) ::
           {:ok, untag_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22410,7 +22690,7 @@ defmodule AWS.Connect do
   @doc """
   Removes the specified tags from the specified resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22446,7 +22726,13 @@ defmodule AWS.Connect do
 
   Updates agent status.
   """
-  @spec update_agent_status(map(), String.t(), String.t(), update_agent_status_request(), list()) ::
+  @spec update_agent_status(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_agent_status_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22484,8 +22770,8 @@ defmodule AWS.Connect do
   """
   @spec update_authentication_profile(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_authentication_profile_request(),
           list()
         ) ::
@@ -22533,7 +22819,13 @@ defmodule AWS.Connect do
   completed
   contacts.
   """
-  @spec update_contact(map(), String.t(), String.t(), update_contact_request(), list()) ::
+  @spec update_contact(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_contact_request(),
+          list()
+        ) ::
           {:ok, update_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22624,8 +22916,8 @@ defmodule AWS.Connect do
   """
   @spec update_contact_evaluation(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_contact_evaluation_request(),
           list()
         ) ::
@@ -22675,8 +22967,8 @@ defmodule AWS.Connect do
   """
   @spec update_contact_flow_content(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_contact_flow_content_request(),
           list()
         ) ::
@@ -22718,8 +23010,8 @@ defmodule AWS.Connect do
   """
   @spec update_contact_flow_metadata(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_contact_flow_metadata_request(),
           list()
         ) ::
@@ -22766,8 +23058,8 @@ defmodule AWS.Connect do
   """
   @spec update_contact_flow_module_content(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_contact_flow_module_content_request(),
           list()
         ) ::
@@ -22809,8 +23101,8 @@ defmodule AWS.Connect do
   """
   @spec update_contact_flow_module_metadata(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_contact_flow_module_metadata_request(),
           list()
         ) ::
@@ -22855,8 +23147,8 @@ defmodule AWS.Connect do
   """
   @spec update_contact_flow_name(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_contact_flow_name_request(),
           list()
         ) ::
@@ -22917,8 +23209,8 @@ defmodule AWS.Connect do
   """
   @spec update_contact_routing_data(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_contact_routing_data_request(),
           list()
         ) ::
@@ -22992,8 +23284,8 @@ defmodule AWS.Connect do
   """
   @spec update_email_address_metadata(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_email_address_metadata_request(),
           list()
         ) ::
@@ -23044,8 +23336,8 @@ defmodule AWS.Connect do
   """
   @spec update_evaluation_form(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_evaluation_form_request(),
           list()
         ) ::
@@ -23089,8 +23381,8 @@ defmodule AWS.Connect do
   """
   @spec update_hours_of_operation(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_hours_of_operation_request(),
           list()
         ) ::
@@ -23132,9 +23424,9 @@ defmodule AWS.Connect do
   """
   @spec update_hours_of_operation_override(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_hours_of_operation_override_request(),
           list()
         ) ::
@@ -23179,8 +23471,8 @@ defmodule AWS.Connect do
   """
   @spec update_instance_attribute(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_instance_attribute_request(),
           list()
         ) ::
@@ -23224,8 +23516,8 @@ defmodule AWS.Connect do
   """
   @spec update_instance_storage_config(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_instance_storage_config_request(),
           list()
         ) ::
@@ -23342,8 +23634,8 @@ defmodule AWS.Connect do
   """
   @spec update_participant_role_config(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_participant_role_config_request(),
           list()
         ) ::
@@ -23400,7 +23692,7 @@ defmodule AWS.Connect do
   [UpdatePhoneNumber](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html)
   operation.
   """
-  @spec update_phone_number(map(), String.t(), update_phone_number_request(), list()) ::
+  @spec update_phone_number(map(), String.t() | Atom.t(), update_phone_number_request(), list()) ::
           {:ok, update_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -23435,7 +23727,7 @@ defmodule AWS.Connect do
   """
   @spec update_phone_number_metadata(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_phone_number_metadata_request(),
           list()
         ) ::
@@ -23476,8 +23768,8 @@ defmodule AWS.Connect do
   """
   @spec update_predefined_attribute(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_predefined_attribute_request(),
           list()
         ) ::
@@ -23511,7 +23803,13 @@ defmodule AWS.Connect do
   @doc """
   Updates a prompt.
   """
-  @spec update_prompt(map(), String.t(), String.t(), update_prompt_request(), list()) ::
+  @spec update_prompt(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_prompt_request(),
+          list()
+        ) ::
           {:ok, update_prompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -23544,8 +23842,8 @@ defmodule AWS.Connect do
   """
   @spec update_queue_hours_of_operation(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_queue_hours_of_operation_request(),
           list()
         ) ::
@@ -23591,8 +23889,8 @@ defmodule AWS.Connect do
   """
   @spec update_queue_max_contacts(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_queue_max_contacts_request(),
           list()
         ) ::
@@ -23629,7 +23927,13 @@ defmodule AWS.Connect do
   Updates the name and description of a queue. At least `Name` or `Description`
   must be provided.
   """
-  @spec update_queue_name(map(), String.t(), String.t(), update_queue_name_request(), list()) ::
+  @spec update_queue_name(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_queue_name_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -23691,8 +23995,8 @@ defmodule AWS.Connect do
   """
   @spec update_queue_outbound_caller_config(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_queue_outbound_caller_config_request(),
           list()
         ) ::
@@ -23734,8 +24038,8 @@ defmodule AWS.Connect do
   """
   @spec update_queue_outbound_email_config(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_queue_outbound_email_config_request(),
           list()
         ) ::
@@ -23777,7 +24081,13 @@ defmodule AWS.Connect do
 
   Updates the status of the queue.
   """
-  @spec update_queue_status(map(), String.t(), String.t(), update_queue_status_request(), list()) ::
+  @spec update_queue_status(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_queue_status_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -23810,8 +24120,8 @@ defmodule AWS.Connect do
   """
   @spec update_quick_connect_config(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_quick_connect_config_request(),
           list()
         ) ::
@@ -23856,8 +24166,8 @@ defmodule AWS.Connect do
   """
   @spec update_quick_connect_name(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_quick_connect_name_request(),
           list()
         ) ::
@@ -23902,8 +24212,8 @@ defmodule AWS.Connect do
   """
   @spec update_routing_profile_agent_availability_timer(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_routing_profile_agent_availability_timer_request(),
           list()
         ) ::
@@ -23947,8 +24257,8 @@ defmodule AWS.Connect do
   """
   @spec update_routing_profile_concurrency(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_routing_profile_concurrency_request(),
           list()
         ) ::
@@ -23990,8 +24300,8 @@ defmodule AWS.Connect do
   """
   @spec update_routing_profile_default_outbound_queue(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_routing_profile_default_outbound_queue_request(),
           list()
         ) ::
@@ -24036,8 +24346,8 @@ defmodule AWS.Connect do
   """
   @spec update_routing_profile_name(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_routing_profile_name_request(),
           list()
         ) ::
@@ -24079,8 +24389,8 @@ defmodule AWS.Connect do
   """
   @spec update_routing_profile_queues(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_routing_profile_queues_request(),
           list()
         ) ::
@@ -24124,7 +24434,13 @@ defmodule AWS.Connect do
   to
   code conditions for the rule.
   """
-  @spec update_rule(map(), String.t(), String.t(), update_rule_request(), list()) ::
+  @spec update_rule(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_rule_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -24161,8 +24477,8 @@ defmodule AWS.Connect do
   """
   @spec update_security_profile(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_security_profile_request(),
           list()
         ) ::
@@ -24209,8 +24525,8 @@ defmodule AWS.Connect do
   """
   @spec update_task_template(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_task_template_request(),
           list()
         ) ::
@@ -24271,7 +24587,7 @@ defmodule AWS.Connect do
   """
   @spec update_traffic_distribution(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_traffic_distribution_request(),
           list()
         ) ::
@@ -24305,8 +24621,8 @@ defmodule AWS.Connect do
   """
   @spec update_user_hierarchy(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_user_hierarchy_request(),
           list()
         ) ::
@@ -24342,8 +24658,8 @@ defmodule AWS.Connect do
   """
   @spec update_user_hierarchy_group_name(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_user_hierarchy_group_name_request(),
           list()
         ) ::
@@ -24386,7 +24702,7 @@ defmodule AWS.Connect do
   """
   @spec update_user_hierarchy_structure(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_user_hierarchy_structure_request(),
           list()
         ) ::
@@ -24432,8 +24748,8 @@ defmodule AWS.Connect do
   """
   @spec update_user_identity_info(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_user_identity_info_request(),
           list()
         ) ::
@@ -24469,8 +24785,8 @@ defmodule AWS.Connect do
   """
   @spec update_user_phone_config(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_user_phone_config_request(),
           list()
         ) ::
@@ -24506,8 +24822,8 @@ defmodule AWS.Connect do
   """
   @spec update_user_proficiencies(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_user_proficiencies_request(),
           list()
         ) ::
@@ -24543,8 +24859,8 @@ defmodule AWS.Connect do
   """
   @spec update_user_routing_profile(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_user_routing_profile_request(),
           list()
         ) ::
@@ -24580,8 +24896,8 @@ defmodule AWS.Connect do
   """
   @spec update_user_security_profiles(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_user_security_profiles_request(),
           list()
         ) ::
@@ -24628,7 +24944,13 @@ defmodule AWS.Connect do
   `$SAVED` alias' content will always be updated, but the `$LATEST` alias'
   content will only be updated if `Status` is `PUBLISHED`.
   """
-  @spec update_view_content(map(), String.t(), String.t(), update_view_content_request(), list()) ::
+  @spec update_view_content(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_view_content_request(),
+          list()
+        ) ::
           {:ok, update_view_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -24662,8 +24984,8 @@ defmodule AWS.Connect do
   """
   @spec update_view_metadata(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_view_metadata_request(),
           list()
         ) ::

@@ -27,7 +27,7 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type http_endpoint_request_configuration() :: %{String.t() => any()}
+  @type http_endpoint_request_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -38,7 +38,7 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type database_source_authentication_configuration() :: %{String.t() => any()}
+  @type database_source_authentication_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -49,7 +49,7 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type record() :: %{String.t() => any()}
+  @type record() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -61,7 +61,7 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type encryption_configuration() :: %{String.t() => any()}
+  @type encryption_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -73,31 +73,31 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type http_endpoint_buffering_hints() :: %{String.t() => any()}
+  @type http_endpoint_buffering_hints() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_kms_resource_exception() :: %{
-        "code" => String.t(),
-        "message" => String.t()
+        "code" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_kms_resource_exception() :: %{String.t() => any()}
+  @type invalid_kms_resource_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       failure_description() :: %{
-        "Details" => String.t(),
+        "Details" => String.t() | Atom.t(),
         "Type" => list(any())
       }
       
   """
-  @type failure_description() :: %{String.t() => any()}
+  @type failure_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -108,7 +108,7 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type redshift_retry_options() :: %{String.t() => any()}
+  @type redshift_retry_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -120,7 +120,7 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type amazon_open_search_serverless_buffering_hints() :: %{String.t() => any()}
+  @type amazon_open_search_serverless_buffering_hints() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -131,52 +131,52 @@ defmodule AWS.Firehose do
         "DatabaseSourceAuthenticationConfiguration" => database_source_authentication_configuration(),
         "DatabaseSourceVPCConfiguration" => database_source_vpc_configuration(),
         "Databases" => database_list(),
-        "Endpoint" => String.t(),
+        "Endpoint" => String.t() | Atom.t(),
         "Port" => integer(),
         "SSLMode" => list(any()),
-        "SnapshotWatermarkTable" => String.t(),
-        "SurrogateKeys" => list(String.t()),
+        "SnapshotWatermarkTable" => String.t() | Atom.t(),
+        "SurrogateKeys" => list(String.t() | Atom.t()),
         "Tables" => database_table_list(),
         "Type" => list(any())
       }
       
   """
-  @type database_source_configuration() :: %{String.t() => any()}
+  @type database_source_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       vpc_configuration() :: %{
-        "RoleARN" => String.t(),
-        "SecurityGroupIds" => list(String.t()),
-        "SubnetIds" => list(String.t())
+        "RoleARN" => String.t() | Atom.t(),
+        "SecurityGroupIds" => list(String.t() | Atom.t()),
+        "SubnetIds" => list(String.t() | Atom.t())
       }
       
   """
-  @type vpc_configuration() :: %{String.t() => any()}
+  @type vpc_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       snowflake_vpc_configuration() :: %{
-        "PrivateLinkVpceId" => String.t()
+        "PrivateLinkVpceId" => String.t() | Atom.t()
       }
       
   """
-  @type snowflake_vpc_configuration() :: %{String.t() => any()}
+  @type snowflake_vpc_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       database_source_vpc_configuration() :: %{
-        "VpcEndpointServiceName" => String.t()
+        "VpcEndpointServiceName" => String.t() | Atom.t()
       }
       
   """
-  @type database_source_vpc_configuration() :: %{String.t() => any()}
+  @type database_source_vpc_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -201,11 +201,11 @@ defmodule AWS.Firehose do
   ## Example:
       
       resource_in_use_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_in_use_exception() :: %{String.t() => any()}
+  @type resource_in_use_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -216,32 +216,32 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type direct_put_source_configuration() :: %{String.t() => any()}
+  @type direct_put_source_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       extended_s3_destination_description() :: %{
-        "BucketARN" => String.t(),
+        "BucketARN" => String.t() | Atom.t(),
         "BufferingHints" => buffering_hints(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
         "CompressionFormat" => list(any()),
-        "CustomTimeZone" => String.t(),
+        "CustomTimeZone" => String.t() | Atom.t(),
         "DataFormatConversionConfiguration" => data_format_conversion_configuration(),
         "DynamicPartitioningConfiguration" => dynamic_partitioning_configuration(),
         "EncryptionConfiguration" => encryption_configuration(),
-        "ErrorOutputPrefix" => String.t(),
-        "FileExtension" => String.t(),
-        "Prefix" => String.t(),
+        "ErrorOutputPrefix" => String.t() | Atom.t(),
+        "FileExtension" => String.t() | Atom.t(),
+        "Prefix" => String.t() | Atom.t(),
         "ProcessingConfiguration" => processing_configuration(),
-        "RoleARN" => String.t(),
+        "RoleARN" => String.t() | Atom.t(),
         "S3BackupDescription" => s3_destination_description(),
         "S3BackupMode" => list(any())
       }
       
   """
-  @type extended_s3_destination_description() :: %{String.t() => any()}
+  @type extended_s3_destination_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -253,36 +253,36 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type list_tags_for_delivery_stream_output() :: %{String.t() => any()}
+  @type list_tags_for_delivery_stream_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       snowflake_destination_update() :: %{
-        "AccountUrl" => String.t(),
+        "AccountUrl" => String.t() | Atom.t(),
         "BufferingHints" => snowflake_buffering_hints(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "ContentColumnName" => String.t(),
+        "ContentColumnName" => String.t() | Atom.t(),
         "DataLoadingOption" => list(any()),
-        "Database" => String.t(),
-        "KeyPassphrase" => String.t(),
-        "MetaDataColumnName" => String.t(),
-        "PrivateKey" => String.t(),
+        "Database" => String.t() | Atom.t(),
+        "KeyPassphrase" => String.t() | Atom.t(),
+        "MetaDataColumnName" => String.t() | Atom.t(),
+        "PrivateKey" => String.t() | Atom.t(),
         "ProcessingConfiguration" => processing_configuration(),
         "RetryOptions" => snowflake_retry_options(),
-        "RoleARN" => String.t(),
+        "RoleARN" => String.t() | Atom.t(),
         "S3BackupMode" => list(any()),
         "S3Update" => s3_destination_update(),
-        "Schema" => String.t(),
+        "Schema" => String.t() | Atom.t(),
         "SecretsManagerConfiguration" => secrets_manager_configuration(),
         "SnowflakeRoleConfiguration" => snowflake_role_configuration(),
-        "Table" => String.t(),
-        "User" => String.t()
+        "Table" => String.t() | Atom.t(),
+        "User" => String.t() | Atom.t()
       }
       
   """
-  @type snowflake_destination_update() :: %{String.t() => any()}
+  @type snowflake_destination_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -296,7 +296,7 @@ defmodule AWS.Firehose do
         "DestinationTableConfigurationList" => list(destination_table_configuration()),
         "ProcessingConfiguration" => processing_configuration(),
         "RetryOptions" => retry_options(),
-        "RoleARN" => String.t(),
+        "RoleARN" => String.t() | Atom.t(),
         "S3BackupMode" => list(any()),
         "S3Configuration" => s3_destination_configuration(),
         "SchemaEvolutionConfiguration" => schema_evolution_configuration(),
@@ -304,7 +304,7 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type iceberg_destination_update() :: %{String.t() => any()}
+  @type iceberg_destination_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -312,11 +312,11 @@ defmodule AWS.Firehose do
       
       start_delivery_stream_encryption_input() :: %{
         optional("DeliveryStreamEncryptionConfigurationInput") => delivery_stream_encryption_configuration_input(),
-        required("DeliveryStreamName") => String.t()
+        required("DeliveryStreamName") => String.t() | Atom.t()
       }
       
   """
-  @type start_delivery_stream_encryption_input() :: %{String.t() => any()}
+  @type start_delivery_stream_encryption_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -325,36 +325,39 @@ defmodule AWS.Firehose do
       amazon_open_search_serverless_destination_description() :: %{
         "BufferingHints" => amazon_open_search_serverless_buffering_hints(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "CollectionEndpoint" => String.t(),
-        "IndexName" => String.t(),
+        "CollectionEndpoint" => String.t() | Atom.t(),
+        "IndexName" => String.t() | Atom.t(),
         "ProcessingConfiguration" => processing_configuration(),
         "RetryOptions" => amazon_open_search_serverless_retry_options(),
-        "RoleARN" => String.t(),
+        "RoleARN" => String.t() | Atom.t(),
         "S3BackupMode" => list(any()),
         "S3DestinationDescription" => s3_destination_description(),
         "VpcConfigurationDescription" => vpc_configuration_description()
       }
       
   """
-  @type amazon_open_search_serverless_destination_description() :: %{String.t() => any()}
+  @type amazon_open_search_serverless_destination_description() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       s3_destination_update() :: %{
-        "BucketARN" => String.t(),
+        "BucketARN" => String.t() | Atom.t(),
         "BufferingHints" => buffering_hints(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
         "CompressionFormat" => list(any()),
         "EncryptionConfiguration" => encryption_configuration(),
-        "ErrorOutputPrefix" => String.t(),
-        "Prefix" => String.t(),
-        "RoleARN" => String.t()
+        "ErrorOutputPrefix" => String.t() | Atom.t(),
+        "Prefix" => String.t() | Atom.t(),
+        "RoleARN" => String.t() | Atom.t()
       }
       
   """
-  @type s3_destination_update() :: %{String.t() => any()}
+  @type s3_destination_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -378,25 +381,25 @@ defmodule AWS.Firehose do
         optional("SnowflakeDestinationConfiguration") => snowflake_destination_configuration(),
         optional("SplunkDestinationConfiguration") => splunk_destination_configuration(),
         optional("Tags") => list(tag()),
-        required("DeliveryStreamName") => String.t()
+        required("DeliveryStreamName") => String.t() | Atom.t()
       }
       
   """
-  @type create_delivery_stream_input() :: %{String.t() => any()}
+  @type create_delivery_stream_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       vpc_configuration_description() :: %{
-        "RoleARN" => String.t(),
-        "SecurityGroupIds" => list(String.t()),
-        "SubnetIds" => list(String.t()),
-        "VpcId" => String.t()
+        "RoleARN" => String.t() | Atom.t(),
+        "SecurityGroupIds" => list(String.t() | Atom.t()),
+        "SubnetIds" => list(String.t() | Atom.t()),
+        "VpcId" => String.t() | Atom.t()
       }
       
   """
-  @type vpc_configuration_description() :: %{String.t() => any()}
+  @type vpc_configuration_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -410,20 +413,20 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type source_description() :: %{String.t() => any()}
+  @type source_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       http_endpoint_configuration() :: %{
-        "AccessKey" => String.t(),
-        "Name" => String.t(),
-        "Url" => String.t()
+        "AccessKey" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "Url" => String.t() | Atom.t()
       }
       
   """
-  @type http_endpoint_configuration() :: %{String.t() => any()}
+  @type http_endpoint_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -436,26 +439,26 @@ defmodule AWS.Firehose do
         "ProcessingConfiguration" => processing_configuration(),
         "RequestConfiguration" => http_endpoint_request_configuration(),
         "RetryOptions" => http_endpoint_retry_options(),
-        "RoleARN" => String.t(),
+        "RoleARN" => String.t() | Atom.t(),
         "S3BackupMode" => list(any()),
         "S3DestinationDescription" => s3_destination_description(),
         "SecretsManagerConfiguration" => secrets_manager_configuration()
       }
       
   """
-  @type http_endpoint_destination_description() :: %{String.t() => any()}
+  @type http_endpoint_destination_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_record_batch_input() :: %{
-        required("DeliveryStreamName") => String.t(),
+        required("DeliveryStreamName") => String.t() | Atom.t(),
         required("Records") => list(record())
       }
       
   """
-  @type put_record_batch_input() :: %{String.t() => any()}
+  @type put_record_batch_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -464,13 +467,13 @@ defmodule AWS.Firehose do
       m_s_k_source_description() :: %{
         "AuthenticationConfiguration" => authentication_configuration(),
         "DeliveryStartTimestamp" => non_neg_integer(),
-        "MSKClusterARN" => String.t(),
+        "MSKClusterARN" => String.t() | Atom.t(),
         "ReadFromTimestamp" => non_neg_integer(),
-        "TopicName" => String.t()
+        "TopicName" => String.t() | Atom.t()
       }
       
   """
-  @type m_s_k_source_description() :: %{String.t() => any()}
+  @type m_s_k_source_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -482,7 +485,7 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type processor() :: %{String.t() => any()}
+  @type processor() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -490,13 +493,13 @@ defmodule AWS.Firehose do
       
       m_s_k_source_configuration() :: %{
         "AuthenticationConfiguration" => authentication_configuration(),
-        "MSKClusterARN" => String.t(),
+        "MSKClusterARN" => String.t() | Atom.t(),
         "ReadFromTimestamp" => non_neg_integer(),
-        "TopicName" => String.t()
+        "TopicName" => String.t() | Atom.t()
       }
       
   """
-  @type m_s_k_source_configuration() :: %{String.t() => any()}
+  @type m_s_k_source_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -504,35 +507,35 @@ defmodule AWS.Firehose do
       
       snowflake_role_configuration() :: %{
         "Enabled" => boolean(),
-        "SnowflakeRole" => String.t()
+        "SnowflakeRole" => String.t() | Atom.t()
       }
       
   """
-  @type snowflake_role_configuration() :: %{String.t() => any()}
+  @type snowflake_role_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_delivery_streams_output() :: %{
-        "DeliveryStreamNames" => list(String.t()),
+        "DeliveryStreamNames" => list(String.t() | Atom.t()),
         "HasMoreDeliveryStreams" => boolean()
       }
       
   """
-  @type list_delivery_streams_output() :: %{String.t() => any()}
+  @type list_delivery_streams_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delivery_stream_encryption_configuration_input() :: %{
-        "KeyARN" => String.t(),
+        "KeyARN" => String.t() | Atom.t(),
         "KeyType" => list(any())
       }
       
   """
-  @type delivery_stream_encryption_configuration_input() :: %{String.t() => any()}
+  @type delivery_stream_encryption_configuration_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -541,22 +544,22 @@ defmodule AWS.Firehose do
       elasticsearch_destination_configuration() :: %{
         "BufferingHints" => elasticsearch_buffering_hints(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "ClusterEndpoint" => String.t(),
+        "ClusterEndpoint" => String.t() | Atom.t(),
         "DocumentIdOptions" => document_id_options(),
-        "DomainARN" => String.t(),
-        "IndexName" => String.t(),
+        "DomainARN" => String.t() | Atom.t(),
+        "IndexName" => String.t() | Atom.t(),
         "IndexRotationPeriod" => list(any()),
         "ProcessingConfiguration" => processing_configuration(),
         "RetryOptions" => elasticsearch_retry_options(),
-        "RoleARN" => String.t(),
+        "RoleARN" => String.t() | Atom.t(),
         "S3BackupMode" => list(any()),
         "S3Configuration" => s3_destination_configuration(),
-        "TypeName" => String.t(),
+        "TypeName" => String.t() | Atom.t(),
         "VpcConfiguration" => vpc_configuration()
       }
       
   """
-  @type elasticsearch_destination_configuration() :: %{String.t() => any()}
+  @type elasticsearch_destination_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -568,7 +571,7 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type splunk_buffering_hints() :: %{String.t() => any()}
+  @type splunk_buffering_hints() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -581,14 +584,14 @@ defmodule AWS.Firehose do
         "ProcessingConfiguration" => processing_configuration(),
         "RequestConfiguration" => http_endpoint_request_configuration(),
         "RetryOptions" => http_endpoint_retry_options(),
-        "RoleARN" => String.t(),
+        "RoleARN" => String.t() | Atom.t(),
         "S3BackupMode" => list(any()),
         "S3Configuration" => s3_destination_configuration(),
         "SecretsManagerConfiguration" => secrets_manager_configuration()
       }
       
   """
-  @type http_endpoint_destination_configuration() :: %{String.t() => any()}
+  @type http_endpoint_destination_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -597,7 +600,7 @@ defmodule AWS.Firehose do
       destination_description() :: %{
         "AmazonOpenSearchServerlessDestinationDescription" => amazon_open_search_serverless_destination_description(),
         "AmazonopensearchserviceDestinationDescription" => amazonopensearchservice_destination_description(),
-        "DestinationId" => String.t(),
+        "DestinationId" => String.t() | Atom.t(),
         "ElasticsearchDestinationDescription" => elasticsearch_destination_description(),
         "ExtendedS3DestinationDescription" => extended_s3_destination_description(),
         "HttpEndpointDestinationDescription" => http_endpoint_destination_description(),
@@ -609,35 +612,35 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type destination_description() :: %{String.t() => any()}
+  @type destination_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       snowflake_destination_description() :: %{
-        "AccountUrl" => String.t(),
+        "AccountUrl" => String.t() | Atom.t(),
         "BufferingHints" => snowflake_buffering_hints(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "ContentColumnName" => String.t(),
+        "ContentColumnName" => String.t() | Atom.t(),
         "DataLoadingOption" => list(any()),
-        "Database" => String.t(),
-        "MetaDataColumnName" => String.t(),
+        "Database" => String.t() | Atom.t(),
+        "MetaDataColumnName" => String.t() | Atom.t(),
         "ProcessingConfiguration" => processing_configuration(),
         "RetryOptions" => snowflake_retry_options(),
-        "RoleARN" => String.t(),
+        "RoleARN" => String.t() | Atom.t(),
         "S3BackupMode" => list(any()),
         "S3DestinationDescription" => s3_destination_description(),
-        "Schema" => String.t(),
+        "Schema" => String.t() | Atom.t(),
         "SecretsManagerConfiguration" => secrets_manager_configuration(),
         "SnowflakeRoleConfiguration" => snowflake_role_configuration(),
         "SnowflakeVpcConfiguration" => snowflake_vpc_configuration(),
-        "Table" => String.t(),
-        "User" => String.t()
+        "Table" => String.t() | Atom.t(),
+        "User" => String.t() | Atom.t()
       }
       
   """
-  @type snowflake_destination_description() :: %{String.t() => any()}
+  @type snowflake_destination_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -650,7 +653,7 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type open_x_json_ser_de() :: %{String.t() => any()}
+  @type open_x_json_ser_de() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -662,7 +665,7 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type snowflake_buffering_hints() :: %{String.t() => any()}
+  @type snowflake_buffering_hints() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -679,13 +682,13 @@ defmodule AWS.Firehose do
         optional("S3DestinationUpdate") => s3_destination_update(),
         optional("SnowflakeDestinationUpdate") => snowflake_destination_update(),
         optional("SplunkDestinationUpdate") => splunk_destination_update(),
-        required("CurrentDeliveryStreamVersionId") => String.t(),
-        required("DeliveryStreamName") => String.t(),
-        required("DestinationId") => String.t()
+        required("CurrentDeliveryStreamVersionId") => String.t() | Atom.t(),
+        required("DeliveryStreamName") => String.t() | Atom.t(),
+        required("DestinationId") => String.t() | Atom.t()
       }
       
   """
-  @type update_destination_input() :: %{String.t() => any()}
+  @type update_destination_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -696,7 +699,7 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type elasticsearch_retry_options() :: %{String.t() => any()}
+  @type elasticsearch_retry_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -707,44 +710,44 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type direct_put_source_description() :: %{String.t() => any()}
+  @type direct_put_source_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       database_column_list() :: %{
-        "Exclude" => list(String.t()),
-        "Include" => list(String.t())
+        "Exclude" => list(String.t() | Atom.t()),
+        "Include" => list(String.t() | Atom.t())
       }
       
   """
-  @type database_column_list() :: %{String.t() => any()}
+  @type database_column_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_source_exception() :: %{
-        "code" => String.t(),
-        "message" => String.t()
+        "code" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_source_exception() :: %{String.t() => any()}
+  @type invalid_source_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       copy_command() :: %{
-        "CopyOptions" => String.t(),
-        "DataTableColumns" => String.t(),
-        "DataTableName" => String.t()
+        "CopyOptions" => String.t() | Atom.t(),
+        "DataTableColumns" => String.t() | Atom.t(),
+        "DataTableName" => String.t() | Atom.t()
       }
       
   """
-  @type copy_command() :: %{String.t() => any()}
+  @type copy_command() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -758,7 +761,7 @@ defmodule AWS.Firehose do
         "DestinationTableConfigurationList" => list(destination_table_configuration()),
         "ProcessingConfiguration" => processing_configuration(),
         "RetryOptions" => retry_options(),
-        "RoleARN" => String.t(),
+        "RoleARN" => String.t() | Atom.t(),
         "S3BackupMode" => list(any()),
         "S3Configuration" => s3_destination_configuration(),
         "SchemaEvolutionConfiguration" => schema_evolution_configuration(),
@@ -766,18 +769,18 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type iceberg_destination_configuration() :: %{String.t() => any()}
+  @type iceberg_destination_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -788,22 +791,22 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type amazonopensearchservice_retry_options() :: %{String.t() => any()}
+  @type amazonopensearchservice_retry_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       destination_table_configuration() :: %{
-        "DestinationDatabaseName" => String.t(),
-        "DestinationTableName" => String.t(),
+        "DestinationDatabaseName" => String.t() | Atom.t(),
+        "DestinationTableName" => String.t() | Atom.t(),
         "PartitionSpec" => partition_spec(),
-        "S3ErrorOutputPrefix" => String.t(),
-        "UniqueKeys" => list(String.t())
+        "S3ErrorOutputPrefix" => String.t() | Atom.t(),
+        "UniqueKeys" => list(String.t() | Atom.t())
       }
       
   """
-  @type destination_table_configuration() :: %{String.t() => any()}
+  @type destination_table_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -814,32 +817,32 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type document_id_options() :: %{String.t() => any()}
+  @type document_id_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_delivery_stream_input() :: %{
-        optional("ExclusiveStartTagKey") => String.t(),
+        optional("ExclusiveStartTagKey") => String.t() | Atom.t(),
         optional("Limit") => integer(),
-        required("DeliveryStreamName") => String.t()
+        required("DeliveryStreamName") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_delivery_stream_input() :: %{String.t() => any()}
+  @type list_tags_for_delivery_stream_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -847,45 +850,45 @@ defmodule AWS.Firehose do
       
       database_snapshot_info() :: %{
         "FailureDescription" => failure_description(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "RequestTimestamp" => non_neg_integer(),
         "RequestedBy" => list(any()),
         "Status" => list(any()),
-        "Table" => String.t()
+        "Table" => String.t() | Atom.t()
       }
       
   """
-  @type database_snapshot_info() :: %{String.t() => any()}
+  @type database_snapshot_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       snowflake_destination_configuration() :: %{
-        "AccountUrl" => String.t(),
+        "AccountUrl" => String.t() | Atom.t(),
         "BufferingHints" => snowflake_buffering_hints(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "ContentColumnName" => String.t(),
+        "ContentColumnName" => String.t() | Atom.t(),
         "DataLoadingOption" => list(any()),
-        "Database" => String.t(),
-        "KeyPassphrase" => String.t(),
-        "MetaDataColumnName" => String.t(),
-        "PrivateKey" => String.t(),
+        "Database" => String.t() | Atom.t(),
+        "KeyPassphrase" => String.t() | Atom.t(),
+        "MetaDataColumnName" => String.t() | Atom.t(),
+        "PrivateKey" => String.t() | Atom.t(),
         "ProcessingConfiguration" => processing_configuration(),
         "RetryOptions" => snowflake_retry_options(),
-        "RoleARN" => String.t(),
+        "RoleARN" => String.t() | Atom.t(),
         "S3BackupMode" => list(any()),
         "S3Configuration" => s3_destination_configuration(),
-        "Schema" => String.t(),
+        "Schema" => String.t() | Atom.t(),
         "SecretsManagerConfiguration" => secrets_manager_configuration(),
         "SnowflakeRoleConfiguration" => snowflake_role_configuration(),
         "SnowflakeVpcConfiguration" => snowflake_vpc_configuration(),
-        "Table" => String.t(),
-        "User" => String.t()
+        "Table" => String.t() | Atom.t(),
+        "User" => String.t() | Atom.t()
       }
       
   """
-  @type snowflake_destination_configuration() :: %{String.t() => any()}
+  @type snowflake_destination_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -896,25 +899,25 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type amazon_open_search_serverless_retry_options() :: %{String.t() => any()}
+  @type amazon_open_search_serverless_retry_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_destination_configuration() :: %{
-        "BucketARN" => String.t(),
+        "BucketARN" => String.t() | Atom.t(),
         "BufferingHints" => buffering_hints(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
         "CompressionFormat" => list(any()),
         "EncryptionConfiguration" => encryption_configuration(),
-        "ErrorOutputPrefix" => String.t(),
-        "Prefix" => String.t(),
-        "RoleARN" => String.t()
+        "ErrorOutputPrefix" => String.t() | Atom.t(),
+        "Prefix" => String.t() | Atom.t(),
+        "RoleARN" => String.t() | Atom.t()
       }
       
   """
-  @type s3_destination_configuration() :: %{String.t() => any()}
+  @type s3_destination_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -924,9 +927,9 @@ defmodule AWS.Firehose do
         "BufferingHints" => splunk_buffering_hints(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
         "HECAcknowledgmentTimeoutInSeconds" => integer(),
-        "HECEndpoint" => String.t(),
+        "HECEndpoint" => String.t() | Atom.t(),
         "HECEndpointType" => list(any()),
-        "HECToken" => String.t(),
+        "HECToken" => String.t() | Atom.t(),
         "ProcessingConfiguration" => processing_configuration(),
         "RetryOptions" => splunk_retry_options(),
         "S3BackupMode" => list(any()),
@@ -935,7 +938,7 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type splunk_destination_update() :: %{String.t() => any()}
+  @type splunk_destination_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -943,11 +946,11 @@ defmodule AWS.Firehose do
       
       delete_delivery_stream_input() :: %{
         optional("AllowForceDelete") => boolean(),
-        required("DeliveryStreamName") => String.t()
+        required("DeliveryStreamName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_delivery_stream_input() :: %{String.t() => any()}
+  @type delete_delivery_stream_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -955,13 +958,13 @@ defmodule AWS.Firehose do
       
       delivery_stream_encryption_configuration() :: %{
         "FailureDescription" => failure_description(),
-        "KeyARN" => String.t(),
+        "KeyARN" => String.t() | Atom.t(),
         "KeyType" => list(any()),
         "Status" => list(any())
       }
       
   """
-  @type delivery_stream_encryption_configuration() :: %{String.t() => any()}
+  @type delivery_stream_encryption_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -970,43 +973,46 @@ defmodule AWS.Firehose do
       amazon_open_search_serverless_destination_configuration() :: %{
         "BufferingHints" => amazon_open_search_serverless_buffering_hints(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "CollectionEndpoint" => String.t(),
-        "IndexName" => String.t(),
+        "CollectionEndpoint" => String.t() | Atom.t(),
+        "IndexName" => String.t() | Atom.t(),
         "ProcessingConfiguration" => processing_configuration(),
         "RetryOptions" => amazon_open_search_serverless_retry_options(),
-        "RoleARN" => String.t(),
+        "RoleARN" => String.t() | Atom.t(),
         "S3BackupMode" => list(any()),
         "S3Configuration" => s3_destination_configuration(),
         "VpcConfiguration" => vpc_configuration()
       }
       
   """
-  @type amazon_open_search_serverless_destination_configuration() :: %{String.t() => any()}
+  @type amazon_open_search_serverless_destination_configuration() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       tag_delivery_stream_input() :: %{
-        required("DeliveryStreamName") => String.t(),
+        required("DeliveryStreamName") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_delivery_stream_input() :: %{String.t() => any()}
+  @type tag_delivery_stream_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_record_batch_response_entry() :: %{
-        "ErrorCode" => String.t(),
-        "ErrorMessage" => String.t(),
-        "RecordId" => String.t()
+        "ErrorCode" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | Atom.t(),
+        "RecordId" => String.t() | Atom.t()
       }
       
   """
-  @type put_record_batch_response_entry() :: %{String.t() => any()}
+  @type put_record_batch_response_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1018,18 +1024,18 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type processing_configuration() :: %{String.t() => any()}
+  @type processing_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       service_unavailable_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type service_unavailable_exception() :: %{String.t() => any()}
+  @type service_unavailable_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1046,21 +1052,21 @@ defmodule AWS.Firehose do
       
       redshift_destination_update() :: %{
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "ClusterJDBCURL" => String.t(),
+        "ClusterJDBCURL" => String.t() | Atom.t(),
         "CopyCommand" => copy_command(),
-        "Password" => String.t(),
+        "Password" => String.t() | Atom.t(),
         "ProcessingConfiguration" => processing_configuration(),
         "RetryOptions" => redshift_retry_options(),
-        "RoleARN" => String.t(),
+        "RoleARN" => String.t() | Atom.t(),
         "S3BackupMode" => list(any()),
         "S3BackupUpdate" => s3_destination_update(),
         "S3Update" => s3_destination_update(),
         "SecretsManagerConfiguration" => secrets_manager_configuration(),
-        "Username" => String.t()
+        "Username" => String.t() | Atom.t()
       }
       
   """
-  @type redshift_destination_update() :: %{String.t() => any()}
+  @type redshift_destination_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1072,18 +1078,18 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type buffering_hints() :: %{String.t() => any()}
+  @type buffering_hints() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       hive_json_ser_de() :: %{
-        "TimestampFormats" => list(String.t())
+        "TimestampFormats" => list(String.t() | Atom.t())
       }
       
   """
-  @type hive_json_ser_de() :: %{String.t() => any()}
+  @type hive_json_ser_de() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1096,7 +1102,7 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type put_record_batch_output() :: %{String.t() => any()}
+  @type put_record_batch_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1104,12 +1110,12 @@ defmodule AWS.Firehose do
       
       kinesis_stream_source_description() :: %{
         "DeliveryStartTimestamp" => non_neg_integer(),
-        "KinesisStreamARN" => String.t(),
-        "RoleARN" => String.t()
+        "KinesisStreamARN" => String.t() | Atom.t(),
+        "RoleARN" => String.t() | Atom.t()
       }
       
   """
-  @type kinesis_stream_source_description() :: %{String.t() => any()}
+  @type kinesis_stream_source_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1120,18 +1126,18 @@ defmodule AWS.Firehose do
         "DatabaseSourceAuthenticationConfiguration" => database_source_authentication_configuration(),
         "DatabaseSourceVPCConfiguration" => database_source_vpc_configuration(),
         "Databases" => database_list(),
-        "Endpoint" => String.t(),
+        "Endpoint" => String.t() | Atom.t(),
         "Port" => integer(),
         "SSLMode" => list(any()),
         "SnapshotInfo" => list(database_snapshot_info()),
-        "SnapshotWatermarkTable" => String.t(),
-        "SurrogateKeys" => list(String.t()),
+        "SnapshotWatermarkTable" => String.t() | Atom.t(),
+        "SurrogateKeys" => list(String.t() | Atom.t()),
         "Tables" => database_table_list(),
         "Type" => list(any())
       }
       
   """
-  @type database_source_description() :: %{String.t() => any()}
+  @type database_source_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1142,7 +1148,7 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type http_endpoint_retry_options() :: %{String.t() => any()}
+  @type http_endpoint_retry_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1151,20 +1157,20 @@ defmodule AWS.Firehose do
       elasticsearch_destination_update() :: %{
         "BufferingHints" => elasticsearch_buffering_hints(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "ClusterEndpoint" => String.t(),
+        "ClusterEndpoint" => String.t() | Atom.t(),
         "DocumentIdOptions" => document_id_options(),
-        "DomainARN" => String.t(),
-        "IndexName" => String.t(),
+        "DomainARN" => String.t() | Atom.t(),
+        "IndexName" => String.t() | Atom.t(),
         "IndexRotationPeriod" => list(any()),
         "ProcessingConfiguration" => processing_configuration(),
         "RetryOptions" => elasticsearch_retry_options(),
-        "RoleARN" => String.t(),
+        "RoleARN" => String.t() | Atom.t(),
         "S3Update" => s3_destination_update(),
-        "TypeName" => String.t()
+        "TypeName" => String.t() | Atom.t()
       }
       
   """
-  @type elasticsearch_destination_update() :: %{String.t() => any()}
+  @type elasticsearch_destination_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1174,9 +1180,9 @@ defmodule AWS.Firehose do
         "BufferingHints" => splunk_buffering_hints(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
         "HECAcknowledgmentTimeoutInSeconds" => integer(),
-        "HECEndpoint" => String.t(),
+        "HECEndpoint" => String.t() | Atom.t(),
         "HECEndpointType" => list(any()),
-        "HECToken" => String.t(),
+        "HECToken" => String.t() | Atom.t(),
         "ProcessingConfiguration" => processing_configuration(),
         "RetryOptions" => splunk_retry_options(),
         "S3BackupMode" => list(any()),
@@ -1185,7 +1191,7 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type splunk_destination_configuration() :: %{String.t() => any()}
+  @type splunk_destination_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1194,22 +1200,22 @@ defmodule AWS.Firehose do
       amazonopensearchservice_destination_configuration() :: %{
         "BufferingHints" => amazonopensearchservice_buffering_hints(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "ClusterEndpoint" => String.t(),
+        "ClusterEndpoint" => String.t() | Atom.t(),
         "DocumentIdOptions" => document_id_options(),
-        "DomainARN" => String.t(),
-        "IndexName" => String.t(),
+        "DomainARN" => String.t() | Atom.t(),
+        "IndexName" => String.t() | Atom.t(),
         "IndexRotationPeriod" => list(any()),
         "ProcessingConfiguration" => processing_configuration(),
         "RetryOptions" => amazonopensearchservice_retry_options(),
-        "RoleARN" => String.t(),
+        "RoleARN" => String.t() | Atom.t(),
         "S3BackupMode" => list(any()),
         "S3Configuration" => s3_destination_configuration(),
-        "TypeName" => String.t(),
+        "TypeName" => String.t() | Atom.t(),
         "VpcConfiguration" => vpc_configuration()
       }
       
   """
-  @type amazonopensearchservice_destination_configuration() :: %{String.t() => any()}
+  @type amazonopensearchservice_destination_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1220,31 +1226,31 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type partition_spec() :: %{String.t() => any()}
+  @type partition_spec() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_delivery_stream_encryption_input() :: %{
-        required("DeliveryStreamName") => String.t()
+        required("DeliveryStreamName") => String.t() | Atom.t()
       }
       
   """
-  @type stop_delivery_stream_encryption_input() :: %{String.t() => any()}
+  @type stop_delivery_stream_encryption_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_delivery_stream_input() :: %{
-        optional("ExclusiveStartDestinationId") => String.t(),
+        optional("ExclusiveStartDestinationId") => String.t() | Atom.t(),
         optional("Limit") => integer(),
-        required("DeliveryStreamName") => String.t()
+        required("DeliveryStreamName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_delivery_stream_input() :: %{String.t() => any()}
+  @type describe_delivery_stream_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1253,47 +1259,47 @@ defmodule AWS.Firehose do
       elasticsearch_destination_description() :: %{
         "BufferingHints" => elasticsearch_buffering_hints(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "ClusterEndpoint" => String.t(),
+        "ClusterEndpoint" => String.t() | Atom.t(),
         "DocumentIdOptions" => document_id_options(),
-        "DomainARN" => String.t(),
-        "IndexName" => String.t(),
+        "DomainARN" => String.t() | Atom.t(),
+        "IndexName" => String.t() | Atom.t(),
         "IndexRotationPeriod" => list(any()),
         "ProcessingConfiguration" => processing_configuration(),
         "RetryOptions" => elasticsearch_retry_options(),
-        "RoleARN" => String.t(),
+        "RoleARN" => String.t() | Atom.t(),
         "S3BackupMode" => list(any()),
         "S3DestinationDescription" => s3_destination_description(),
-        "TypeName" => String.t(),
+        "TypeName" => String.t() | Atom.t(),
         "VpcConfigurationDescription" => vpc_configuration_description()
       }
       
   """
-  @type elasticsearch_destination_description() :: %{String.t() => any()}
+  @type elasticsearch_destination_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       extended_s3_destination_configuration() :: %{
-        "BucketARN" => String.t(),
+        "BucketARN" => String.t() | Atom.t(),
         "BufferingHints" => buffering_hints(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
         "CompressionFormat" => list(any()),
-        "CustomTimeZone" => String.t(),
+        "CustomTimeZone" => String.t() | Atom.t(),
         "DataFormatConversionConfiguration" => data_format_conversion_configuration(),
         "DynamicPartitioningConfiguration" => dynamic_partitioning_configuration(),
         "EncryptionConfiguration" => encryption_configuration(),
-        "ErrorOutputPrefix" => String.t(),
-        "FileExtension" => String.t(),
-        "Prefix" => String.t(),
+        "ErrorOutputPrefix" => String.t() | Atom.t(),
+        "FileExtension" => String.t() | Atom.t(),
+        "Prefix" => String.t() | Atom.t(),
         "ProcessingConfiguration" => processing_configuration(),
-        "RoleARN" => String.t(),
+        "RoleARN" => String.t() | Atom.t(),
         "S3BackupConfiguration" => s3_destination_configuration(),
         "S3BackupMode" => list(any())
       }
       
   """
-  @type extended_s3_destination_configuration() :: %{String.t() => any()}
+  @type extended_s3_destination_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1301,11 +1307,11 @@ defmodule AWS.Firehose do
       
       put_record_output() :: %{
         "Encrypted" => boolean(),
-        "RecordId" => String.t()
+        "RecordId" => String.t() | Atom.t()
       }
       
   """
-  @type put_record_output() :: %{String.t() => any()}
+  @type put_record_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1319,7 +1325,7 @@ defmodule AWS.Firehose do
         "DestinationTableConfigurationList" => list(destination_table_configuration()),
         "ProcessingConfiguration" => processing_configuration(),
         "RetryOptions" => retry_options(),
-        "RoleARN" => String.t(),
+        "RoleARN" => String.t() | Atom.t(),
         "S3BackupMode" => list(any()),
         "S3DestinationDescription" => s3_destination_description(),
         "SchemaEvolutionConfiguration" => schema_evolution_configuration(),
@@ -1327,7 +1333,7 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type iceberg_destination_description() :: %{String.t() => any()}
+  @type iceberg_destination_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1335,9 +1341,9 @@ defmodule AWS.Firehose do
       
       delivery_stream_description() :: %{
         "CreateTimestamp" => non_neg_integer(),
-        "DeliveryStreamARN" => String.t(),
+        "DeliveryStreamARN" => String.t() | Atom.t(),
         "DeliveryStreamEncryptionConfiguration" => delivery_stream_encryption_configuration(),
-        "DeliveryStreamName" => String.t(),
+        "DeliveryStreamName" => String.t() | Atom.t(),
         "DeliveryStreamStatus" => list(any()),
         "DeliveryStreamType" => list(any()),
         "Destinations" => list(destination_description()),
@@ -1345,11 +1351,11 @@ defmodule AWS.Firehose do
         "HasMoreDestinations" => boolean(),
         "LastUpdateTimestamp" => non_neg_integer(),
         "Source" => source_description(),
-        "VersionId" => String.t()
+        "VersionId" => String.t() | Atom.t()
       }
       
   """
-  @type delivery_stream_description() :: %{String.t() => any()}
+  @type delivery_stream_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1358,22 +1364,22 @@ defmodule AWS.Firehose do
       amazonopensearchservice_destination_description() :: %{
         "BufferingHints" => amazonopensearchservice_buffering_hints(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "ClusterEndpoint" => String.t(),
+        "ClusterEndpoint" => String.t() | Atom.t(),
         "DocumentIdOptions" => document_id_options(),
-        "DomainARN" => String.t(),
-        "IndexName" => String.t(),
+        "DomainARN" => String.t() | Atom.t(),
+        "IndexName" => String.t() | Atom.t(),
         "IndexRotationPeriod" => list(any()),
         "ProcessingConfiguration" => processing_configuration(),
         "RetryOptions" => amazonopensearchservice_retry_options(),
-        "RoleARN" => String.t(),
+        "RoleARN" => String.t() | Atom.t(),
         "S3BackupMode" => list(any()),
         "S3DestinationDescription" => s3_destination_description(),
-        "TypeName" => String.t(),
+        "TypeName" => String.t() | Atom.t(),
         "VpcConfigurationDescription" => vpc_configuration_description()
       }
       
   """
-  @type amazonopensearchservice_destination_description() :: %{String.t() => any()}
+  @type amazonopensearchservice_destination_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1384,7 +1390,7 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type output_format_configuration() :: %{String.t() => any()}
+  @type output_format_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1395,19 +1401,19 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type snowflake_retry_options() :: %{String.t() => any()}
+  @type snowflake_retry_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       http_endpoint_description() :: %{
-        "Name" => String.t(),
-        "Url" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Url" => String.t() | Atom.t()
       }
       
   """
-  @type http_endpoint_description() :: %{String.t() => any()}
+  @type http_endpoint_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1415,23 +1421,23 @@ defmodule AWS.Firehose do
       
       cloud_watch_logging_options() :: %{
         "Enabled" => boolean(),
-        "LogGroupName" => String.t(),
-        "LogStreamName" => String.t()
+        "LogGroupName" => String.t() | Atom.t(),
+        "LogStreamName" => String.t() | Atom.t()
       }
       
   """
-  @type cloud_watch_logging_options() :: %{String.t() => any()}
+  @type cloud_watch_logging_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_encryption_config() :: %{
-        "AWSKMSKeyARN" => String.t()
+        "AWSKMSKeyARN" => String.t() | Atom.t()
       }
       
   """
-  @type kms_encryption_config() :: %{String.t() => any()}
+  @type kms_encryption_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1448,7 +1454,7 @@ defmodule AWS.Firehose do
       
       orc_ser_de() :: %{
         "BlockSizeBytes" => integer(),
-        "BloomFilterColumns" => list(String.t()),
+        "BloomFilterColumns" => list(String.t() | Atom.t()),
         "BloomFilterFalsePositiveProbability" => float(),
         "Compression" => list(any()),
         "DictionaryKeyThreshold" => float(),
@@ -1460,7 +1466,7 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type orc_ser_de() :: %{String.t() => any()}
+  @type orc_ser_de() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1468,12 +1474,12 @@ defmodule AWS.Firehose do
       
       secrets_manager_configuration() :: %{
         "Enabled" => boolean(),
-        "RoleARN" => String.t(),
-        "SecretARN" => String.t()
+        "RoleARN" => String.t() | Atom.t(),
+        "SecretARN" => String.t() | Atom.t()
       }
       
   """
-  @type secrets_manager_configuration() :: %{String.t() => any()}
+  @type secrets_manager_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1491,32 +1497,32 @@ defmodule AWS.Firehose do
       amazonopensearchservice_destination_update() :: %{
         "BufferingHints" => amazonopensearchservice_buffering_hints(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "ClusterEndpoint" => String.t(),
+        "ClusterEndpoint" => String.t() | Atom.t(),
         "DocumentIdOptions" => document_id_options(),
-        "DomainARN" => String.t(),
-        "IndexName" => String.t(),
+        "DomainARN" => String.t() | Atom.t(),
+        "IndexName" => String.t() | Atom.t(),
         "IndexRotationPeriod" => list(any()),
         "ProcessingConfiguration" => processing_configuration(),
         "RetryOptions" => amazonopensearchservice_retry_options(),
-        "RoleARN" => String.t(),
+        "RoleARN" => String.t() | Atom.t(),
         "S3Update" => s3_destination_update(),
-        "TypeName" => String.t()
+        "TypeName" => String.t() | Atom.t()
       }
       
   """
-  @type amazonopensearchservice_destination_update() :: %{String.t() => any()}
+  @type amazonopensearchservice_destination_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       catalog_configuration() :: %{
-        "CatalogARN" => String.t(),
-        "WarehouseLocation" => String.t()
+        "CatalogARN" => String.t() | Atom.t(),
+        "WarehouseLocation" => String.t() | Atom.t()
       }
       
   """
-  @type catalog_configuration() :: %{String.t() => any()}
+  @type catalog_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1527,18 +1533,18 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type retry_options() :: %{String.t() => any()}
+  @type retry_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_argument_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_argument_exception() :: %{String.t() => any()}
+  @type invalid_argument_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1554,30 +1560,30 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type parquet_ser_de() :: %{String.t() => any()}
+  @type parquet_ser_de() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       concurrent_modification_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type concurrent_modification_exception() :: %{String.t() => any()}
+  @type concurrent_modification_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       http_endpoint_common_attribute() :: %{
-        "AttributeName" => String.t(),
-        "AttributeValue" => String.t()
+        "AttributeName" => String.t() | Atom.t(),
+        "AttributeValue" => String.t() | Atom.t()
       }
       
   """
-  @type http_endpoint_common_attribute() :: %{String.t() => any()}
+  @type http_endpoint_common_attribute() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1585,20 +1591,20 @@ defmodule AWS.Firehose do
       
       redshift_destination_description() :: %{
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "ClusterJDBCURL" => String.t(),
+        "ClusterJDBCURL" => String.t() | Atom.t(),
         "CopyCommand" => copy_command(),
         "ProcessingConfiguration" => processing_configuration(),
         "RetryOptions" => redshift_retry_options(),
-        "RoleARN" => String.t(),
+        "RoleARN" => String.t() | Atom.t(),
         "S3BackupDescription" => s3_destination_description(),
         "S3BackupMode" => list(any()),
         "S3DestinationDescription" => s3_destination_description(),
         "SecretsManagerConfiguration" => secrets_manager_configuration(),
-        "Username" => String.t()
+        "Username" => String.t() | Atom.t()
       }
       
   """
-  @type redshift_destination_description() :: %{String.t() => any()}
+  @type redshift_destination_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1606,21 +1612,21 @@ defmodule AWS.Firehose do
       
       redshift_destination_configuration() :: %{
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "ClusterJDBCURL" => String.t(),
+        "ClusterJDBCURL" => String.t() | Atom.t(),
         "CopyCommand" => copy_command(),
-        "Password" => String.t(),
+        "Password" => String.t() | Atom.t(),
         "ProcessingConfiguration" => processing_configuration(),
         "RetryOptions" => redshift_retry_options(),
-        "RoleARN" => String.t(),
+        "RoleARN" => String.t() | Atom.t(),
         "S3BackupConfiguration" => s3_destination_configuration(),
         "S3BackupMode" => list(any()),
         "S3Configuration" => s3_destination_configuration(),
         "SecretsManagerConfiguration" => secrets_manager_configuration(),
-        "Username" => String.t()
+        "Username" => String.t() | Atom.t()
       }
       
   """
-  @type redshift_destination_configuration() :: %{String.t() => any()}
+  @type redshift_destination_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1631,7 +1637,7 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type input_format_configuration() :: %{String.t() => any()}
+  @type input_format_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1639,28 +1645,28 @@ defmodule AWS.Firehose do
       
       list_delivery_streams_input() :: %{
         optional("DeliveryStreamType") => list(any()),
-        optional("ExclusiveStartDeliveryStreamName") => String.t(),
+        optional("ExclusiveStartDeliveryStreamName") => String.t() | Atom.t(),
         optional("Limit") => integer()
       }
       
   """
-  @type list_delivery_streams_input() :: %{String.t() => any()}
+  @type list_delivery_streams_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       schema_configuration() :: %{
-        "CatalogId" => String.t(),
-        "DatabaseName" => String.t(),
-        "Region" => String.t(),
-        "RoleARN" => String.t(),
-        "TableName" => String.t(),
-        "VersionId" => String.t()
+        "CatalogId" => String.t() | Atom.t(),
+        "DatabaseName" => String.t() | Atom.t(),
+        "Region" => String.t() | Atom.t(),
+        "RoleARN" => String.t() | Atom.t(),
+        "TableName" => String.t() | Atom.t(),
+        "VersionId" => String.t() | Atom.t()
       }
       
   """
-  @type schema_configuration() :: %{String.t() => any()}
+  @type schema_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1674,42 +1680,42 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type data_format_conversion_configuration() :: %{String.t() => any()}
+  @type data_format_conversion_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       database_list() :: %{
-        "Exclude" => list(String.t()),
-        "Include" => list(String.t())
+        "Exclude" => list(String.t() | Atom.t()),
+        "Include" => list(String.t() | Atom.t())
       }
       
   """
-  @type database_list() :: %{String.t() => any()}
+  @type database_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_delivery_stream_input() :: %{
-        required("DeliveryStreamName") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("DeliveryStreamName") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_delivery_stream_input() :: %{String.t() => any()}
+  @type untag_delivery_stream_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1718,34 +1724,34 @@ defmodule AWS.Firehose do
       amazon_open_search_serverless_destination_update() :: %{
         "BufferingHints" => amazon_open_search_serverless_buffering_hints(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "CollectionEndpoint" => String.t(),
-        "IndexName" => String.t(),
+        "CollectionEndpoint" => String.t() | Atom.t(),
+        "IndexName" => String.t() | Atom.t(),
         "ProcessingConfiguration" => processing_configuration(),
         "RetryOptions" => amazon_open_search_serverless_retry_options(),
-        "RoleARN" => String.t(),
+        "RoleARN" => String.t() | Atom.t(),
         "S3Update" => s3_destination_update()
       }
       
   """
-  @type amazon_open_search_serverless_destination_update() :: %{String.t() => any()}
+  @type amazon_open_search_serverless_destination_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_destination_description() :: %{
-        "BucketARN" => String.t(),
+        "BucketARN" => String.t() | Atom.t(),
         "BufferingHints" => buffering_hints(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
         "CompressionFormat" => list(any()),
         "EncryptionConfiguration" => encryption_configuration(),
-        "ErrorOutputPrefix" => String.t(),
-        "Prefix" => String.t(),
-        "RoleARN" => String.t()
+        "ErrorOutputPrefix" => String.t() | Atom.t(),
+        "Prefix" => String.t() | Atom.t(),
+        "RoleARN" => String.t() | Atom.t()
       }
       
   """
-  @type s3_destination_description() :: %{String.t() => any()}
+  @type s3_destination_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1761,23 +1767,23 @@ defmodule AWS.Firehose do
   ## Example:
       
       create_delivery_stream_output() :: %{
-        "DeliveryStreamARN" => String.t()
+        "DeliveryStreamARN" => String.t() | Atom.t()
       }
       
   """
-  @type create_delivery_stream_output() :: %{String.t() => any()}
+  @type create_delivery_stream_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       kinesis_stream_source_configuration() :: %{
-        "KinesisStreamARN" => String.t(),
-        "RoleARN" => String.t()
+        "KinesisStreamARN" => String.t() | Atom.t(),
+        "RoleARN" => String.t() | Atom.t()
       }
       
   """
-  @type kinesis_stream_source_configuration() :: %{String.t() => any()}
+  @type kinesis_stream_source_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1785,11 +1791,11 @@ defmodule AWS.Firehose do
       
       authentication_configuration() :: %{
         "Connectivity" => list(any()),
-        "RoleARN" => String.t()
+        "RoleARN" => String.t() | Atom.t()
       }
       
   """
-  @type authentication_configuration() :: %{String.t() => any()}
+  @type authentication_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1801,56 +1807,56 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type elasticsearch_buffering_hints() :: %{String.t() => any()}
+  @type elasticsearch_buffering_hints() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       extended_s3_destination_update() :: %{
-        "BucketARN" => String.t(),
+        "BucketARN" => String.t() | Atom.t(),
         "BufferingHints" => buffering_hints(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
         "CompressionFormat" => list(any()),
-        "CustomTimeZone" => String.t(),
+        "CustomTimeZone" => String.t() | Atom.t(),
         "DataFormatConversionConfiguration" => data_format_conversion_configuration(),
         "DynamicPartitioningConfiguration" => dynamic_partitioning_configuration(),
         "EncryptionConfiguration" => encryption_configuration(),
-        "ErrorOutputPrefix" => String.t(),
-        "FileExtension" => String.t(),
-        "Prefix" => String.t(),
+        "ErrorOutputPrefix" => String.t() | Atom.t(),
+        "FileExtension" => String.t() | Atom.t(),
+        "Prefix" => String.t() | Atom.t(),
         "ProcessingConfiguration" => processing_configuration(),
-        "RoleARN" => String.t(),
+        "RoleARN" => String.t() | Atom.t(),
         "S3BackupMode" => list(any()),
         "S3BackupUpdate" => s3_destination_update()
       }
       
   """
-  @type extended_s3_destination_update() :: %{String.t() => any()}
+  @type extended_s3_destination_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_record_input() :: %{
-        required("DeliveryStreamName") => String.t(),
+        required("DeliveryStreamName") => String.t() | Atom.t(),
         required("Record") => record()
       }
       
   """
-  @type put_record_input() :: %{String.t() => any()}
+  @type put_record_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       database_table_list() :: %{
-        "Exclude" => list(String.t()),
-        "Include" => list(String.t())
+        "Exclude" => list(String.t() | Atom.t()),
+        "Include" => list(String.t() | Atom.t())
       }
       
   """
-  @type database_table_list() :: %{String.t() => any()}
+  @type database_table_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1862,7 +1868,7 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type deserializer() :: %{String.t() => any()}
+  @type deserializer() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1874,18 +1880,18 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type amazonopensearchservice_buffering_hints() :: %{String.t() => any()}
+  @type amazonopensearchservice_buffering_hints() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       partition_field() :: %{
-        "SourceName" => String.t()
+        "SourceName" => String.t() | Atom.t()
       }
       
   """
-  @type partition_field() :: %{String.t() => any()}
+  @type partition_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1896,7 +1902,7 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type splunk_retry_options() :: %{String.t() => any()}
+  @type splunk_retry_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1908,7 +1914,7 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type dynamic_partitioning_configuration() :: %{String.t() => any()}
+  @type dynamic_partitioning_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1916,11 +1922,11 @@ defmodule AWS.Firehose do
       
       processor_parameter() :: %{
         "ParameterName" => list(any()),
-        "ParameterValue" => String.t()
+        "ParameterValue" => String.t() | Atom.t()
       }
       
   """
-  @type processor_parameter() :: %{String.t() => any()}
+  @type processor_parameter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1931,7 +1937,7 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type schema_evolution_configuration() :: %{String.t() => any()}
+  @type schema_evolution_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1942,7 +1948,7 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type describe_delivery_stream_output() :: %{String.t() => any()}
+  @type describe_delivery_stream_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1952,9 +1958,9 @@ defmodule AWS.Firehose do
         "BufferingHints" => splunk_buffering_hints(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
         "HECAcknowledgmentTimeoutInSeconds" => integer(),
-        "HECEndpoint" => String.t(),
+        "HECEndpoint" => String.t() | Atom.t(),
         "HECEndpointType" => list(any()),
-        "HECToken" => String.t(),
+        "HECToken" => String.t() | Atom.t(),
         "ProcessingConfiguration" => processing_configuration(),
         "RetryOptions" => splunk_retry_options(),
         "S3BackupMode" => list(any()),
@@ -1963,7 +1969,7 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type splunk_destination_description() :: %{String.t() => any()}
+  @type splunk_destination_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1975,7 +1981,7 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type serializer() :: %{String.t() => any()}
+  @type serializer() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1988,14 +1994,14 @@ defmodule AWS.Firehose do
         "ProcessingConfiguration" => processing_configuration(),
         "RequestConfiguration" => http_endpoint_request_configuration(),
         "RetryOptions" => http_endpoint_retry_options(),
-        "RoleARN" => String.t(),
+        "RoleARN" => String.t() | Atom.t(),
         "S3BackupMode" => list(any()),
         "S3Update" => s3_destination_update(),
         "SecretsManagerConfiguration" => secrets_manager_configuration()
       }
       
   """
-  @type http_endpoint_destination_update() :: %{String.t() => any()}
+  @type http_endpoint_destination_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2006,7 +2012,7 @@ defmodule AWS.Firehose do
       }
       
   """
-  @type table_creation_configuration() :: %{String.t() => any()}
+  @type table_creation_configuration() :: %{String.t() | Atom.t() => any()}
 
   @type create_delivery_stream_errors() ::
           limit_exceeded_exception()

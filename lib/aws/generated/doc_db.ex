@@ -19,57 +19,57 @@ defmodule AWS.DocDB do
   ## Example:
       
       restore_db_cluster_from_snapshot_message() :: %{
-        optional("AvailabilityZones") => list(String.t()),
-        optional("DBClusterParameterGroupName") => String.t(),
-        optional("DBSubnetGroupName") => String.t(),
+        optional("AvailabilityZones") => list(String.t() | Atom.t()),
+        optional("DBClusterParameterGroupName") => String.t() | Atom.t(),
+        optional("DBSubnetGroupName") => String.t() | Atom.t(),
         optional("DeletionProtection") => boolean(),
-        optional("EnableCloudwatchLogsExports") => list(String.t()),
-        optional("EngineVersion") => String.t(),
-        optional("KmsKeyId") => String.t(),
+        optional("EnableCloudwatchLogsExports") => list(String.t() | Atom.t()),
+        optional("EngineVersion") => String.t() | Atom.t(),
+        optional("KmsKeyId") => String.t() | Atom.t(),
         optional("Port") => integer(),
-        optional("StorageType") => String.t(),
+        optional("StorageType") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        optional("VpcSecurityGroupIds") => list(String.t()),
-        required("DBClusterIdentifier") => String.t(),
-        required("Engine") => String.t(),
-        required("SnapshotIdentifier") => String.t()
+        optional("VpcSecurityGroupIds") => list(String.t() | Atom.t()),
+        required("DBClusterIdentifier") => String.t() | Atom.t(),
+        required("Engine") => String.t() | Atom.t(),
+        required("SnapshotIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type restore_db_cluster_from_snapshot_message() :: %{String.t() => any()}
+  @type restore_db_cluster_from_snapshot_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_subnet_group_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type db_subnet_group_already_exists_fault() :: %{String.t() => any()}
+  @type db_subnet_group_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_db_cluster_message() :: %{
-        required("DBClusterIdentifier") => String.t()
+        required("DBClusterIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type start_db_cluster_message() :: %{String.t() => any()}
+  @type start_db_cluster_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type db_cluster_quota_exceeded_fault() :: %{String.t() => any()}
+  @type db_cluster_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -77,22 +77,22 @@ defmodule AWS.DocDB do
       
       event_subscriptions_message() :: %{
         "EventSubscriptionsList" => list(event_subscription()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type event_subscriptions_message() :: %{String.t() => any()}
+  @type event_subscriptions_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_fault() :: %{String.t() => any()}
+  @type resource_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -103,86 +103,86 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type delete_db_cluster_snapshot_result() :: %{String.t() => any()}
+  @type delete_db_cluster_snapshot_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       pending_maintenance_action() :: %{
-        "Action" => String.t(),
+        "Action" => String.t() | Atom.t(),
         "AutoAppliedAfterDate" => non_neg_integer(),
         "CurrentApplyDate" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "ForcedApplyDate" => non_neg_integer(),
-        "OptInStatus" => String.t()
+        "OptInStatus" => String.t() | Atom.t()
       }
       
   """
-  @type pending_maintenance_action() :: %{String.t() => any()}
+  @type pending_maintenance_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_parameter_group_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type db_parameter_group_not_found_fault() :: %{String.t() => any()}
+  @type db_parameter_group_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       apply_pending_maintenance_action_message() :: %{
-        required("ApplyAction") => String.t(),
-        required("OptInType") => String.t(),
-        required("ResourceIdentifier") => String.t()
+        required("ApplyAction") => String.t() | Atom.t(),
+        required("OptInType") => String.t() | Atom.t(),
+        required("ResourceIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type apply_pending_maintenance_action_message() :: %{String.t() => any()}
+  @type apply_pending_maintenance_action_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       subnet_already_in_use() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type subnet_already_in_use() :: %{String.t() => any()}
+  @type subnet_already_in_use() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_snapshot() :: %{
-        "AvailabilityZones" => list(String.t()),
+        "AvailabilityZones" => list(String.t() | Atom.t()),
         "ClusterCreateTime" => non_neg_integer(),
-        "DBClusterIdentifier" => String.t(),
-        "DBClusterSnapshotArn" => String.t(),
-        "DBClusterSnapshotIdentifier" => String.t(),
-        "Engine" => String.t(),
-        "EngineVersion" => String.t(),
-        "KmsKeyId" => String.t(),
-        "MasterUsername" => String.t(),
+        "DBClusterIdentifier" => String.t() | Atom.t(),
+        "DBClusterSnapshotArn" => String.t() | Atom.t(),
+        "DBClusterSnapshotIdentifier" => String.t() | Atom.t(),
+        "Engine" => String.t() | Atom.t(),
+        "EngineVersion" => String.t() | Atom.t(),
+        "KmsKeyId" => String.t() | Atom.t(),
+        "MasterUsername" => String.t() | Atom.t(),
         "PercentProgress" => integer(),
         "Port" => integer(),
         "SnapshotCreateTime" => non_neg_integer(),
-        "SnapshotType" => String.t(),
-        "SourceDBClusterSnapshotArn" => String.t(),
-        "Status" => String.t(),
+        "SnapshotType" => String.t() | Atom.t(),
+        "SourceDBClusterSnapshotArn" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t(),
         "StorageEncrypted" => boolean(),
-        "StorageType" => String.t(),
-        "VpcId" => String.t()
+        "StorageType" => String.t() | Atom.t(),
+        "VpcId" => String.t() | Atom.t()
       }
       
   """
-  @type db_cluster_snapshot() :: %{String.t() => any()}
+  @type db_cluster_snapshot() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -193,31 +193,31 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type delete_db_instance_result() :: %{String.t() => any()}
+  @type delete_db_instance_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       snapshot_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type snapshot_quota_exceeded_fault() :: %{String.t() => any()}
+  @type snapshot_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_db_subnet_group_message() :: %{
-        optional("DBSubnetGroupDescription") => String.t(),
-        required("DBSubnetGroupName") => String.t(),
-        required("SubnetIds") => list(String.t())
+        optional("DBSubnetGroupDescription") => String.t() | Atom.t(),
+        required("DBSubnetGroupName") => String.t() | Atom.t(),
+        required("SubnetIds") => list(String.t() | Atom.t())
       }
       
   """
-  @type modify_db_subnet_group_message() :: %{String.t() => any()}
+  @type modify_db_subnet_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -225,11 +225,11 @@ defmodule AWS.DocDB do
       
       db_subnet_group_message() :: %{
         "DBSubnetGroups" => list(db_subnet_group()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type db_subnet_group_message() :: %{String.t() => any()}
+  @type db_subnet_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -237,14 +237,14 @@ defmodule AWS.DocDB do
       
       describe_db_cluster_parameters_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("Source") => String.t(),
-        required("DBClusterParameterGroupName") => String.t()
+        optional("Source") => String.t() | Atom.t(),
+        required("DBClusterParameterGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_db_cluster_parameters_message() :: %{String.t() => any()}
+  @type describe_db_cluster_parameters_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -252,23 +252,23 @@ defmodule AWS.DocDB do
       
       resource_pending_maintenance_actions() :: %{
         "PendingMaintenanceActionDetails" => list(pending_maintenance_action()),
-        "ResourceIdentifier" => String.t()
+        "ResourceIdentifier" => String.t() | Atom.t()
       }
       
   """
-  @type resource_pending_maintenance_actions() :: %{String.t() => any()}
+  @type resource_pending_maintenance_actions() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       event_categories_map() :: %{
-        "EventCategories" => list(String.t()),
-        "SourceType" => String.t()
+        "EventCategories" => list(String.t() | Atom.t()),
+        "SourceType" => String.t() | Atom.t()
       }
       
   """
-  @type event_categories_map() :: %{String.t() => any()}
+  @type event_categories_map() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -279,65 +279,65 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type delete_global_cluster_result() :: %{String.t() => any()}
+  @type delete_global_cluster_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_parameter_group_name_message() :: %{
-        "DBClusterParameterGroupName" => String.t()
+        "DBClusterParameterGroupName" => String.t() | Atom.t()
       }
       
   """
-  @type db_cluster_parameter_group_name_message() :: %{String.t() => any()}
+  @type db_cluster_parameter_group_name_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       availability_zone() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
       
   """
-  @type availability_zone() :: %{String.t() => any()}
+  @type availability_zone() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_snapshot_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type db_snapshot_already_exists_fault() :: %{String.t() => any()}
+  @type db_snapshot_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_db_instances_message() :: %{
-        optional("DBInstanceIdentifier") => String.t(),
+        optional("DBInstanceIdentifier") => String.t() | Atom.t(),
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_db_instances_message() :: %{String.t() => any()}
+  @type describe_db_instances_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       shared_snapshot_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type shared_snapshot_quota_exceeded_fault() :: %{String.t() => any()}
+  @type shared_snapshot_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -345,13 +345,13 @@ defmodule AWS.DocDB do
       
       create_db_cluster_parameter_group_message() :: %{
         optional("Tags") => list(tag()),
-        required("DBClusterParameterGroupName") => String.t(),
-        required("DBParameterGroupFamily") => String.t(),
-        required("Description") => String.t()
+        required("DBClusterParameterGroupName") => String.t() | Atom.t(),
+        required("DBParameterGroupFamily") => String.t() | Atom.t(),
+        required("Description") => String.t() | Atom.t()
       }
       
   """
-  @type create_db_cluster_parameter_group_message() :: %{String.t() => any()}
+  @type create_db_cluster_parameter_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -362,7 +362,7 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type copy_db_cluster_parameter_group_result() :: %{String.t() => any()}
+  @type copy_db_cluster_parameter_group_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -370,14 +370,14 @@ defmodule AWS.DocDB do
       
       modify_event_subscription_message() :: %{
         optional("Enabled") => boolean(),
-        optional("EventCategories") => list(String.t()),
-        optional("SnsTopicArn") => String.t(),
-        optional("SourceType") => String.t(),
-        required("SubscriptionName") => String.t()
+        optional("EventCategories") => list(String.t() | Atom.t()),
+        optional("SnsTopicArn") => String.t() | Atom.t(),
+        optional("SourceType") => String.t() | Atom.t(),
+        required("SubscriptionName") => String.t() | Atom.t()
       }
       
   """
-  @type modify_event_subscription_message() :: %{String.t() => any()}
+  @type modify_event_subscription_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -385,13 +385,13 @@ defmodule AWS.DocDB do
       
       copy_db_cluster_parameter_group_message() :: %{
         optional("Tags") => list(tag()),
-        required("SourceDBClusterParameterGroupIdentifier") => String.t(),
-        required("TargetDBClusterParameterGroupDescription") => String.t(),
-        required("TargetDBClusterParameterGroupIdentifier") => String.t()
+        required("SourceDBClusterParameterGroupIdentifier") => String.t() | Atom.t(),
+        required("TargetDBClusterParameterGroupDescription") => String.t() | Atom.t(),
+        required("TargetDBClusterParameterGroupIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type copy_db_cluster_parameter_group_message() :: %{String.t() => any()}
+  @type copy_db_cluster_parameter_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -399,56 +399,56 @@ defmodule AWS.DocDB do
       
       describe_pending_maintenance_actions_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("ResourceIdentifier") => String.t()
+        optional("ResourceIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type describe_pending_maintenance_actions_message() :: %{String.t() => any()}
+  @type describe_pending_maintenance_actions_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_orderable_db_instance_options_message() :: %{
-        optional("DBInstanceClass") => String.t(),
-        optional("EngineVersion") => String.t(),
+        optional("DBInstanceClass") => String.t() | Atom.t(),
+        optional("EngineVersion") => String.t() | Atom.t(),
         optional("Filters") => list(filter()),
-        optional("LicenseModel") => String.t(),
-        optional("Marker") => String.t(),
+        optional("LicenseModel") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
         optional("Vpc") => boolean(),
-        required("Engine") => String.t()
+        required("Engine") => String.t() | Atom.t()
       }
       
   """
-  @type describe_orderable_db_instance_options_message() :: %{String.t() => any()}
+  @type describe_orderable_db_instance_options_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       pending_cloudwatch_logs_exports() :: %{
-        "LogTypesToDisable" => list(String.t()),
-        "LogTypesToEnable" => list(String.t())
+        "LogTypesToDisable" => list(String.t() | Atom.t()),
+        "LogTypesToEnable" => list(String.t() | Atom.t())
       }
       
   """
-  @type pending_cloudwatch_logs_exports() :: %{String.t() => any()}
+  @type pending_cloudwatch_logs_exports() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       engine_defaults() :: %{
-        "DBParameterGroupFamily" => String.t(),
-        "Marker" => String.t(),
+        "DBParameterGroupFamily" => String.t() | Atom.t(),
+        "Marker" => String.t() | Atom.t(),
         "Parameters" => list(parameter())
       }
       
   """
-  @type engine_defaults() :: %{String.t() => any()}
+  @type engine_defaults() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -459,7 +459,7 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type create_db_subnet_group_result() :: %{String.t() => any()}
+  @type create_db_subnet_group_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -470,53 +470,53 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type switchover_global_cluster_result() :: %{String.t() => any()}
+  @type switchover_global_cluster_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cloudwatch_logs_export_configuration() :: %{
-        "DisableLogTypes" => list(String.t()),
-        "EnableLogTypes" => list(String.t())
+        "DisableLogTypes" => list(String.t() | Atom.t()),
+        "EnableLogTypes" => list(String.t() | Atom.t())
       }
       
   """
-  @type cloudwatch_logs_export_configuration() :: %{String.t() => any()}
+  @type cloudwatch_logs_export_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_instance_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type db_instance_already_exists_fault() :: %{String.t() => any()}
+  @type db_instance_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       insufficient_db_instance_capacity_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type insufficient_db_instance_capacity_fault() :: %{String.t() => any()}
+  @type insufficient_db_instance_capacity_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_role() :: %{
-        "RoleArn" => String.t(),
-        "Status" => String.t()
+        "RoleArn" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type db_cluster_role() :: %{String.t() => any()}
+  @type db_cluster_role() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -527,125 +527,125 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type modify_db_instance_result() :: %{String.t() => any()}
+  @type modify_db_instance_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       event_subscription() :: %{
-        "CustSubscriptionId" => String.t(),
-        "CustomerAwsId" => String.t(),
+        "CustSubscriptionId" => String.t() | Atom.t(),
+        "CustomerAwsId" => String.t() | Atom.t(),
         "Enabled" => boolean(),
-        "EventCategoriesList" => list(String.t()),
-        "EventSubscriptionArn" => String.t(),
-        "SnsTopicArn" => String.t(),
-        "SourceIdsList" => list(String.t()),
-        "SourceType" => String.t(),
-        "Status" => String.t(),
-        "SubscriptionCreationTime" => String.t()
+        "EventCategoriesList" => list(String.t() | Atom.t()),
+        "EventSubscriptionArn" => String.t() | Atom.t(),
+        "SnsTopicArn" => String.t() | Atom.t(),
+        "SourceIdsList" => list(String.t() | Atom.t()),
+        "SourceType" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t(),
+        "SubscriptionCreationTime" => String.t() | Atom.t()
       }
       
   """
-  @type event_subscription() :: %{String.t() => any()}
+  @type event_subscription() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       global_cluster_member() :: %{
-        "DBClusterArn" => String.t(),
+        "DBClusterArn" => String.t() | Atom.t(),
         "IsWriter" => boolean(),
-        "Readers" => list(String.t())
+        "Readers" => list(String.t() | Atom.t())
       }
       
   """
-  @type global_cluster_member() :: %{String.t() => any()}
+  @type global_cluster_member() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_db_cluster_snapshot_attribute_message() :: %{
-        optional("ValuesToAdd") => list(String.t()),
-        optional("ValuesToRemove") => list(String.t()),
-        required("AttributeName") => String.t(),
-        required("DBClusterSnapshotIdentifier") => String.t()
+        optional("ValuesToAdd") => list(String.t() | Atom.t()),
+        optional("ValuesToRemove") => list(String.t() | Atom.t()),
+        required("AttributeName") => String.t() | Atom.t(),
+        required("DBClusterSnapshotIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type modify_db_cluster_snapshot_attribute_message() :: %{String.t() => any()}
+  @type modify_db_cluster_snapshot_attribute_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       add_source_identifier_to_subscription_message() :: %{
-        required("SourceIdentifier") => String.t(),
-        required("SubscriptionName") => String.t()
+        required("SourceIdentifier") => String.t() | Atom.t(),
+        required("SubscriptionName") => String.t() | Atom.t()
       }
       
   """
-  @type add_source_identifier_to_subscription_message() :: %{String.t() => any()}
+  @type add_source_identifier_to_subscription_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_restore_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_restore_fault() :: %{String.t() => any()}
+  @type invalid_restore_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_certificates_message() :: %{
-        optional("CertificateIdentifier") => String.t(),
+        optional("CertificateIdentifier") => String.t() | Atom.t(),
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_certificates_message() :: %{String.t() => any()}
+  @type describe_certificates_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       restore_db_cluster_to_point_in_time_message() :: %{
-        optional("DBSubnetGroupName") => String.t(),
+        optional("DBSubnetGroupName") => String.t() | Atom.t(),
         optional("DeletionProtection") => boolean(),
-        optional("EnableCloudwatchLogsExports") => list(String.t()),
-        optional("KmsKeyId") => String.t(),
+        optional("EnableCloudwatchLogsExports") => list(String.t() | Atom.t()),
+        optional("KmsKeyId") => String.t() | Atom.t(),
         optional("Port") => integer(),
         optional("RestoreToTime") => non_neg_integer(),
-        optional("RestoreType") => String.t(),
-        optional("StorageType") => String.t(),
+        optional("RestoreType") => String.t() | Atom.t(),
+        optional("StorageType") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
         optional("UseLatestRestorableTime") => boolean(),
-        optional("VpcSecurityGroupIds") => list(String.t()),
-        required("DBClusterIdentifier") => String.t(),
-        required("SourceDBClusterIdentifier") => String.t()
+        optional("VpcSecurityGroupIds") => list(String.t() | Atom.t()),
+        required("DBClusterIdentifier") => String.t() | Atom.t(),
+        required("SourceDBClusterIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type restore_db_cluster_to_point_in_time_message() :: %{String.t() => any()}
+  @type restore_db_cluster_to_point_in_time_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_db_subnet_group_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_db_subnet_group_state_fault() :: %{String.t() => any()}
+  @type invalid_db_subnet_group_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -653,24 +653,24 @@ defmodule AWS.DocDB do
       
       subnet() :: %{
         "SubnetAvailabilityZone" => availability_zone(),
-        "SubnetIdentifier" => String.t(),
-        "SubnetStatus" => String.t()
+        "SubnetIdentifier" => String.t() | Atom.t(),
+        "SubnetStatus" => String.t() | Atom.t()
       }
       
   """
-  @type subnet() :: %{String.t() => any()}
+  @type subnet() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_source_identifier_from_subscription_message() :: %{
-        required("SourceIdentifier") => String.t(),
-        required("SubscriptionName") => String.t()
+        required("SourceIdentifier") => String.t() | Atom.t(),
+        required("SubscriptionName") => String.t() | Atom.t()
       }
       
   """
-  @type remove_source_identifier_from_subscription_message() :: %{String.t() => any()}
+  @type remove_source_identifier_from_subscription_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -678,22 +678,22 @@ defmodule AWS.DocDB do
       
       db_cluster_snapshot_message() :: %{
         "DBClusterSnapshots" => list(db_cluster_snapshot()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type db_cluster_snapshot_message() :: %{String.t() => any()}
+  @type db_cluster_snapshot_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_subnet() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_subnet() :: %{String.t() => any()}
+  @type invalid_subnet() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -701,29 +701,29 @@ defmodule AWS.DocDB do
       
       list_tags_for_resource_message() :: %{
         optional("Filters") => list(filter()),
-        required("ResourceName") => String.t()
+        required("ResourceName") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_message() :: %{String.t() => any()}
+  @type list_tags_for_resource_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_db_cluster_snapshots_message() :: %{
-        optional("DBClusterIdentifier") => String.t(),
-        optional("DBClusterSnapshotIdentifier") => String.t(),
+        optional("DBClusterIdentifier") => String.t() | Atom.t(),
+        optional("DBClusterSnapshotIdentifier") => String.t() | Atom.t(),
         optional("Filters") => list(filter()),
         optional("IncludePublic") => boolean(),
         optional("IncludeShared") => boolean(),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("SnapshotType") => String.t()
+        optional("SnapshotType") => String.t() | Atom.t()
       }
       
   """
-  @type describe_db_cluster_snapshots_message() :: %{String.t() => any()}
+  @type describe_db_cluster_snapshots_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -731,22 +731,22 @@ defmodule AWS.DocDB do
       
       create_db_instance_message() :: %{
         optional("AutoMinorVersionUpgrade") => boolean(),
-        optional("AvailabilityZone") => String.t(),
-        optional("CACertificateIdentifier") => String.t(),
+        optional("AvailabilityZone") => String.t() | Atom.t(),
+        optional("CACertificateIdentifier") => String.t() | Atom.t(),
         optional("CopyTagsToSnapshot") => boolean(),
         optional("EnablePerformanceInsights") => boolean(),
-        optional("PerformanceInsightsKMSKeyId") => String.t(),
-        optional("PreferredMaintenanceWindow") => String.t(),
+        optional("PerformanceInsightsKMSKeyId") => String.t() | Atom.t(),
+        optional("PreferredMaintenanceWindow") => String.t() | Atom.t(),
         optional("PromotionTier") => integer(),
         optional("Tags") => list(tag()),
-        required("DBClusterIdentifier") => String.t(),
-        required("DBInstanceClass") => String.t(),
-        required("DBInstanceIdentifier") => String.t(),
-        required("Engine") => String.t()
+        required("DBClusterIdentifier") => String.t() | Atom.t(),
+        required("DBInstanceClass") => String.t() | Atom.t(),
+        required("DBInstanceIdentifier") => String.t() | Atom.t(),
+        required("Engine") => String.t() | Atom.t()
       }
       
   """
-  @type create_db_instance_message() :: %{String.t() => any()}
+  @type create_db_instance_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -757,7 +757,7 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type create_db_cluster_result() :: %{String.t() => any()}
+  @type create_db_cluster_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -768,18 +768,18 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type restore_db_cluster_to_point_in_time_result() :: %{String.t() => any()}
+  @type restore_db_cluster_to_point_in_time_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       storage_type_not_supported_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type storage_type_not_supported_fault() :: %{String.t() => any()}
+  @type storage_type_not_supported_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -790,18 +790,18 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type describe_db_cluster_snapshot_attributes_result() :: %{String.t() => any()}
+  @type describe_db_cluster_snapshot_attributes_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_subnet_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type db_subnet_quota_exceeded_fault() :: %{String.t() => any()}
+  @type db_subnet_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -809,30 +809,30 @@ defmodule AWS.DocDB do
       
       db_instance() :: %{
         "AutoMinorVersionUpgrade" => boolean(),
-        "AvailabilityZone" => String.t(),
+        "AvailabilityZone" => String.t() | Atom.t(),
         "BackupRetentionPeriod" => integer(),
-        "CACertificateIdentifier" => String.t(),
+        "CACertificateIdentifier" => String.t() | Atom.t(),
         "CertificateDetails" => certificate_details(),
         "CopyTagsToSnapshot" => boolean(),
-        "DBClusterIdentifier" => String.t(),
-        "DBInstanceArn" => String.t(),
-        "DBInstanceClass" => String.t(),
-        "DBInstanceIdentifier" => String.t(),
-        "DBInstanceStatus" => String.t(),
+        "DBClusterIdentifier" => String.t() | Atom.t(),
+        "DBInstanceArn" => String.t() | Atom.t(),
+        "DBInstanceClass" => String.t() | Atom.t(),
+        "DBInstanceIdentifier" => String.t() | Atom.t(),
+        "DBInstanceStatus" => String.t() | Atom.t(),
         "DBSubnetGroup" => db_subnet_group(),
-        "DbiResourceId" => String.t(),
-        "EnabledCloudwatchLogsExports" => list(String.t()),
+        "DbiResourceId" => String.t() | Atom.t(),
+        "EnabledCloudwatchLogsExports" => list(String.t() | Atom.t()),
         "Endpoint" => endpoint(),
-        "Engine" => String.t(),
-        "EngineVersion" => String.t(),
+        "Engine" => String.t() | Atom.t(),
+        "EngineVersion" => String.t() | Atom.t(),
         "InstanceCreateTime" => non_neg_integer(),
-        "KmsKeyId" => String.t(),
+        "KmsKeyId" => String.t() | Atom.t(),
         "LatestRestorableTime" => non_neg_integer(),
         "PendingModifiedValues" => pending_modified_values(),
         "PerformanceInsightsEnabled" => boolean(),
-        "PerformanceInsightsKMSKeyId" => String.t(),
-        "PreferredBackupWindow" => String.t(),
-        "PreferredMaintenanceWindow" => String.t(),
+        "PerformanceInsightsKMSKeyId" => String.t() | Atom.t(),
+        "PreferredBackupWindow" => String.t() | Atom.t(),
+        "PreferredMaintenanceWindow" => String.t() | Atom.t(),
         "PromotionTier" => integer(),
         "PubliclyAccessible" => boolean(),
         "StatusInfos" => list(db_instance_status_info()),
@@ -841,7 +841,7 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type db_instance() :: %{String.t() => any()}
+  @type db_instance() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -852,7 +852,7 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type describe_engine_default_cluster_parameters_result() :: %{String.t() => any()}
+  @type describe_engine_default_cluster_parameters_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -863,29 +863,29 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type copy_db_cluster_snapshot_result() :: %{String.t() => any()}
+  @type copy_db_cluster_snapshot_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       subscription_already_exist_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type subscription_already_exist_fault() :: %{String.t() => any()}
+  @type subscription_already_exist_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_parameter_group_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type db_parameter_group_quota_exceeded_fault() :: %{String.t() => any()}
+  @type db_parameter_group_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -893,22 +893,22 @@ defmodule AWS.DocDB do
       
       db_cluster_message() :: %{
         "DBClusters" => list(db_cluster()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type db_cluster_message() :: %{String.t() => any()}
+  @type db_cluster_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_subnet_group_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type db_subnet_group_quota_exceeded_fault() :: %{String.t() => any()}
+  @type db_subnet_group_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -919,50 +919,50 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type failover_global_cluster_result() :: %{String.t() => any()}
+  @type failover_global_cluster_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_global_cluster_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_global_cluster_state_fault() :: %{String.t() => any()}
+  @type invalid_global_cluster_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_db_engine_versions_message() :: %{
-        optional("DBParameterGroupFamily") => String.t(),
+        optional("DBParameterGroupFamily") => String.t() | Atom.t(),
         optional("DefaultOnly") => boolean(),
-        optional("Engine") => String.t(),
-        optional("EngineVersion") => String.t(),
+        optional("Engine") => String.t() | Atom.t(),
+        optional("EngineVersion") => String.t() | Atom.t(),
         optional("Filters") => list(filter()),
         optional("ListSupportedCharacterSets") => boolean(),
         optional("ListSupportedTimezones") => boolean(),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_db_engine_versions_message() :: %{String.t() => any()}
+  @type describe_db_engine_versions_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_db_cluster_message() :: %{
-        optional("FinalDBSnapshotIdentifier") => String.t(),
+        optional("FinalDBSnapshotIdentifier") => String.t() | Atom.t(),
         optional("SkipFinalSnapshot") => boolean(),
-        required("DBClusterIdentifier") => String.t()
+        required("DBClusterIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type delete_db_cluster_message() :: %{String.t() => any()}
+  @type delete_db_cluster_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -973,7 +973,7 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type reboot_db_instance_result() :: %{String.t() => any()}
+  @type reboot_db_instance_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -984,53 +984,53 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type add_source_identifier_to_subscription_result() :: %{String.t() => any()}
+  @type add_source_identifier_to_subscription_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_master_user_secret() :: %{
-        "KmsKeyId" => String.t(),
-        "SecretArn" => String.t(),
-        "SecretStatus" => String.t()
+        "KmsKeyId" => String.t() | Atom.t(),
+        "SecretArn" => String.t() | Atom.t(),
+        "SecretStatus" => String.t() | Atom.t()
       }
       
   """
-  @type cluster_master_user_secret() :: %{String.t() => any()}
+  @type cluster_master_user_secret() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_parameter_group_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type db_parameter_group_already_exists_fault() :: %{String.t() => any()}
+  @type db_parameter_group_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_db_instance_message() :: %{
-        required("DBInstanceIdentifier") => String.t()
+        required("DBInstanceIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type delete_db_instance_message() :: %{String.t() => any()}
+  @type delete_db_instance_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_vpc_network_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_vpc_network_state_fault() :: %{String.t() => any()}
+  @type invalid_vpc_network_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1038,27 +1038,27 @@ defmodule AWS.DocDB do
       
       create_event_subscription_message() :: %{
         optional("Enabled") => boolean(),
-        optional("EventCategories") => list(String.t()),
-        optional("SourceIds") => list(String.t()),
-        optional("SourceType") => String.t(),
+        optional("EventCategories") => list(String.t() | Atom.t()),
+        optional("SourceIds") => list(String.t() | Atom.t()),
+        optional("SourceType") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("SnsTopicArn") => String.t(),
-        required("SubscriptionName") => String.t()
+        required("SnsTopicArn") => String.t() | Atom.t(),
+        required("SubscriptionName") => String.t() | Atom.t()
       }
       
   """
-  @type create_event_subscription_message() :: %{String.t() => any()}
+  @type create_event_subscription_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_security_group_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type db_security_group_not_found_fault() :: %{String.t() => any()}
+  @type db_security_group_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1069,19 +1069,19 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type modify_db_cluster_result() :: %{String.t() => any()}
+  @type modify_db_cluster_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       orderable_db_instance_options_message() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "OrderableDBInstanceOptions" => list(orderable_db_instance_option())
       }
       
   """
-  @type orderable_db_instance_options_message() :: %{String.t() => any()}
+  @type orderable_db_instance_options_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1089,24 +1089,24 @@ defmodule AWS.DocDB do
       
       describe_event_subscriptions_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("SubscriptionName") => String.t()
+        optional("SubscriptionName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_event_subscriptions_message() :: %{String.t() => any()}
+  @type describe_event_subscriptions_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_snapshot_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type db_cluster_snapshot_already_exists_fault() :: %{String.t() => any()}
+  @type db_cluster_snapshot_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1117,30 +1117,30 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type modify_db_cluster_snapshot_attribute_result() :: %{String.t() => any()}
+  @type modify_db_cluster_snapshot_attribute_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_snapshot_attribute() :: %{
-        "AttributeName" => String.t(),
-        "AttributeValues" => list(String.t())
+        "AttributeName" => String.t() | Atom.t(),
+        "AttributeValues" => list(String.t() | Atom.t())
       }
       
   """
-  @type db_cluster_snapshot_attribute() :: %{String.t() => any()}
+  @type db_cluster_snapshot_attribute() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_subnet_group_does_not_cover_enough_a_zs() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type db_subnet_group_does_not_cover_enough_a_zs() :: %{String.t() => any()}
+  @type db_subnet_group_does_not_cover_enough_a_zs() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1149,22 +1149,22 @@ defmodule AWS.DocDB do
       pending_modified_values() :: %{
         "AllocatedStorage" => integer(),
         "BackupRetentionPeriod" => integer(),
-        "CACertificateIdentifier" => String.t(),
-        "DBInstanceClass" => String.t(),
-        "DBInstanceIdentifier" => String.t(),
-        "DBSubnetGroupName" => String.t(),
-        "EngineVersion" => String.t(),
+        "CACertificateIdentifier" => String.t() | Atom.t(),
+        "DBInstanceClass" => String.t() | Atom.t(),
+        "DBInstanceIdentifier" => String.t() | Atom.t(),
+        "DBSubnetGroupName" => String.t() | Atom.t(),
+        "EngineVersion" => String.t() | Atom.t(),
         "Iops" => integer(),
-        "LicenseModel" => String.t(),
-        "MasterUserPassword" => String.t(),
+        "LicenseModel" => String.t() | Atom.t(),
+        "MasterUserPassword" => String.t() | Atom.t(),
         "MultiAZ" => boolean(),
         "PendingCloudwatchLogsExports" => pending_cloudwatch_logs_exports(),
         "Port" => integer(),
-        "StorageType" => String.t()
+        "StorageType" => String.t() | Atom.t()
       }
       
   """
-  @type pending_modified_values() :: %{String.t() => any()}
+  @type pending_modified_values() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1172,16 +1172,16 @@ defmodule AWS.DocDB do
       
       orderable_db_instance_option() :: %{
         "AvailabilityZones" => list(availability_zone()),
-        "DBInstanceClass" => String.t(),
-        "Engine" => String.t(),
-        "EngineVersion" => String.t(),
-        "LicenseModel" => String.t(),
-        "StorageType" => String.t(),
+        "DBInstanceClass" => String.t() | Atom.t(),
+        "Engine" => String.t() | Atom.t(),
+        "EngineVersion" => String.t() | Atom.t(),
+        "LicenseModel" => String.t() | Atom.t(),
+        "StorageType" => String.t() | Atom.t(),
         "Vpc" => boolean()
       }
       
   """
-  @type orderable_db_instance_option() :: %{String.t() => any()}
+  @type orderable_db_instance_option() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1189,58 +1189,58 @@ defmodule AWS.DocDB do
       
       db_cluster_parameter_groups_message() :: %{
         "DBClusterParameterGroups" => list(db_cluster_parameter_group()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type db_cluster_parameter_groups_message() :: %{String.t() => any()}
+  @type db_cluster_parameter_groups_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_db_cluster_parameter_groups_message() :: %{
-        optional("DBClusterParameterGroupName") => String.t(),
+        optional("DBClusterParameterGroupName") => String.t() | Atom.t(),
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_db_cluster_parameter_groups_message() :: %{String.t() => any()}
+  @type describe_db_cluster_parameter_groups_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       authorization_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type authorization_not_found_fault() :: %{String.t() => any()}
+  @type authorization_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_instance_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type db_instance_not_found_fault() :: %{String.t() => any()}
+  @type db_instance_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_db_cluster_snapshot_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_db_cluster_snapshot_state_fault() :: %{String.t() => any()}
+  @type invalid_db_cluster_snapshot_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1248,47 +1248,47 @@ defmodule AWS.DocDB do
       
       copy_db_cluster_snapshot_message() :: %{
         optional("CopyTags") => boolean(),
-        optional("KmsKeyId") => String.t(),
-        optional("PreSignedUrl") => String.t(),
+        optional("KmsKeyId") => String.t() | Atom.t(),
+        optional("PreSignedUrl") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("SourceDBClusterSnapshotIdentifier") => String.t(),
-        required("TargetDBClusterSnapshotIdentifier") => String.t()
+        required("SourceDBClusterSnapshotIdentifier") => String.t() | Atom.t(),
+        required("TargetDBClusterSnapshotIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type copy_db_cluster_snapshot_message() :: %{String.t() => any()}
+  @type copy_db_cluster_snapshot_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       global_cluster() :: %{
-        "DatabaseName" => String.t(),
+        "DatabaseName" => String.t() | Atom.t(),
         "DeletionProtection" => boolean(),
-        "Engine" => String.t(),
-        "EngineVersion" => String.t(),
-        "GlobalClusterArn" => String.t(),
-        "GlobalClusterIdentifier" => String.t(),
+        "Engine" => String.t() | Atom.t(),
+        "EngineVersion" => String.t() | Atom.t(),
+        "GlobalClusterArn" => String.t() | Atom.t(),
+        "GlobalClusterIdentifier" => String.t() | Atom.t(),
         "GlobalClusterMembers" => list(global_cluster_member()),
-        "GlobalClusterResourceId" => String.t(),
-        "Status" => String.t(),
+        "GlobalClusterResourceId" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t(),
         "StorageEncrypted" => boolean()
       }
       
   """
-  @type global_cluster() :: %{String.t() => any()}
+  @type global_cluster() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1299,7 +1299,7 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type create_global_cluster_result() :: %{String.t() => any()}
+  @type create_global_cluster_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1307,22 +1307,22 @@ defmodule AWS.DocDB do
       
       certificate_message() :: %{
         "Certificates" => list(certificate()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type certificate_message() :: %{String.t() => any()}
+  @type certificate_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_upgrade_dependency_failure_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type db_upgrade_dependency_failure_fault() :: %{String.t() => any()}
+  @type db_upgrade_dependency_failure_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1330,22 +1330,22 @@ defmodule AWS.DocDB do
       
       global_clusters_message() :: %{
         "GlobalClusters" => list(global_cluster()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type global_clusters_message() :: %{String.t() => any()}
+  @type global_clusters_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       certificate_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type certificate_not_found_fault() :: %{String.t() => any()}
+  @type certificate_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1356,19 +1356,19 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type modify_global_cluster_result() :: %{String.t() => any()}
+  @type modify_global_cluster_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_from_global_cluster_message() :: %{
-        required("DbClusterIdentifier") => String.t(),
-        required("GlobalClusterIdentifier") => String.t()
+        required("DbClusterIdentifier") => String.t() | Atom.t(),
+        required("GlobalClusterIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type remove_from_global_cluster_message() :: %{String.t() => any()}
+  @type remove_from_global_cluster_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1376,22 +1376,22 @@ defmodule AWS.DocDB do
       
       reboot_db_instance_message() :: %{
         optional("ForceFailover") => boolean(),
-        required("DBInstanceIdentifier") => String.t()
+        required("DBInstanceIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type reboot_db_instance_message() :: %{String.t() => any()}
+  @type reboot_db_instance_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       source_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type source_not_found_fault() :: %{String.t() => any()}
+  @type source_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1399,11 +1399,11 @@ defmodule AWS.DocDB do
       
       db_engine_version_message() :: %{
         "DBEngineVersions" => list(db_engine_version()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type db_engine_version_message() :: %{String.t() => any()}
+  @type db_engine_version_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1411,74 +1411,74 @@ defmodule AWS.DocDB do
       
       modify_global_cluster_message() :: %{
         optional("DeletionProtection") => boolean(),
-        optional("NewGlobalClusterIdentifier") => String.t(),
-        required("GlobalClusterIdentifier") => String.t()
+        optional("NewGlobalClusterIdentifier") => String.t() | Atom.t(),
+        required("GlobalClusterIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type modify_global_cluster_message() :: %{String.t() => any()}
+  @type modify_global_cluster_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_engine_version() :: %{
-        "DBEngineDescription" => String.t(),
-        "DBEngineVersionDescription" => String.t(),
-        "DBParameterGroupFamily" => String.t(),
-        "Engine" => String.t(),
-        "EngineVersion" => String.t(),
-        "ExportableLogTypes" => list(String.t()),
-        "SupportedCACertificateIdentifiers" => list(String.t()),
+        "DBEngineDescription" => String.t() | Atom.t(),
+        "DBEngineVersionDescription" => String.t() | Atom.t(),
+        "DBParameterGroupFamily" => String.t() | Atom.t(),
+        "Engine" => String.t() | Atom.t(),
+        "EngineVersion" => String.t() | Atom.t(),
+        "ExportableLogTypes" => list(String.t() | Atom.t()),
+        "SupportedCACertificateIdentifiers" => list(String.t() | Atom.t()),
         "SupportsCertificateRotationWithoutRestart" => boolean(),
         "SupportsLogExportsToCloudwatchLogs" => boolean(),
         "ValidUpgradeTarget" => list(upgrade_target())
       }
       
   """
-  @type db_engine_version() :: %{String.t() => any()}
+  @type db_engine_version() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       parameter() :: %{
-        "AllowedValues" => String.t(),
+        "AllowedValues" => String.t() | Atom.t(),
         "ApplyMethod" => list(any()),
-        "ApplyType" => String.t(),
-        "DataType" => String.t(),
-        "Description" => String.t(),
+        "ApplyType" => String.t() | Atom.t(),
+        "DataType" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
         "IsModifiable" => boolean(),
-        "MinimumEngineVersion" => String.t(),
-        "ParameterName" => String.t(),
-        "ParameterValue" => String.t(),
-        "Source" => String.t()
+        "MinimumEngineVersion" => String.t() | Atom.t(),
+        "ParameterName" => String.t() | Atom.t(),
+        "ParameterValue" => String.t() | Atom.t(),
+        "Source" => String.t() | Atom.t()
       }
       
   """
-  @type parameter() :: %{String.t() => any()}
+  @type parameter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_subnet_group_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type db_subnet_group_not_found_fault() :: %{String.t() => any()}
+  @type db_subnet_group_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_event_subscription_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_event_subscription_state_fault() :: %{String.t() => any()}
+  @type invalid_event_subscription_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1486,167 +1486,167 @@ defmodule AWS.DocDB do
       
       create_db_cluster_snapshot_message() :: %{
         optional("Tags") => list(tag()),
-        required("DBClusterIdentifier") => String.t(),
-        required("DBClusterSnapshotIdentifier") => String.t()
+        required("DBClusterIdentifier") => String.t() | Atom.t(),
+        required("DBClusterSnapshotIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type create_db_cluster_snapshot_message() :: %{String.t() => any()}
+  @type create_db_cluster_snapshot_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_db_cluster_parameter_group_message() :: %{
-        required("DBClusterParameterGroupName") => String.t()
+        required("DBClusterParameterGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_db_cluster_parameter_group_message() :: %{String.t() => any()}
+  @type delete_db_cluster_parameter_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_db_clusters_message() :: %{
-        optional("DBClusterIdentifier") => String.t(),
+        optional("DBClusterIdentifier") => String.t() | Atom.t(),
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_db_clusters_message() :: %{String.t() => any()}
+  @type describe_db_clusters_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       switchover_global_cluster_message() :: %{
-        required("GlobalClusterIdentifier") => String.t(),
-        required("TargetDbClusterIdentifier") => String.t()
+        required("GlobalClusterIdentifier") => String.t() | Atom.t(),
+        required("TargetDbClusterIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type switchover_global_cluster_message() :: %{String.t() => any()}
+  @type switchover_global_cluster_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_db_cluster_parameter_group_message() :: %{
-        required("DBClusterParameterGroupName") => String.t(),
+        required("DBClusterParameterGroupName") => String.t() | Atom.t(),
         required("Parameters") => list(parameter())
       }
       
   """
-  @type modify_db_cluster_parameter_group_message() :: %{String.t() => any()}
+  @type modify_db_cluster_parameter_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       subscription_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type subscription_not_found_fault() :: %{String.t() => any()}
+  @type subscription_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_db_cluster_message() :: %{
-        optional("AvailabilityZones") => list(String.t()),
+        optional("AvailabilityZones") => list(String.t() | Atom.t()),
         optional("BackupRetentionPeriod") => integer(),
-        optional("DBClusterParameterGroupName") => String.t(),
-        optional("DBSubnetGroupName") => String.t(),
+        optional("DBClusterParameterGroupName") => String.t() | Atom.t(),
+        optional("DBSubnetGroupName") => String.t() | Atom.t(),
         optional("DeletionProtection") => boolean(),
-        optional("EnableCloudwatchLogsExports") => list(String.t()),
-        optional("EngineVersion") => String.t(),
-        optional("GlobalClusterIdentifier") => String.t(),
-        optional("KmsKeyId") => String.t(),
+        optional("EnableCloudwatchLogsExports") => list(String.t() | Atom.t()),
+        optional("EngineVersion") => String.t() | Atom.t(),
+        optional("GlobalClusterIdentifier") => String.t() | Atom.t(),
+        optional("KmsKeyId") => String.t() | Atom.t(),
         optional("ManageMasterUserPassword") => boolean(),
-        optional("MasterUserPassword") => String.t(),
-        optional("MasterUserSecretKmsKeyId") => String.t(),
-        optional("MasterUsername") => String.t(),
+        optional("MasterUserPassword") => String.t() | Atom.t(),
+        optional("MasterUserSecretKmsKeyId") => String.t() | Atom.t(),
+        optional("MasterUsername") => String.t() | Atom.t(),
         optional("Port") => integer(),
-        optional("PreSignedUrl") => String.t(),
-        optional("PreferredBackupWindow") => String.t(),
-        optional("PreferredMaintenanceWindow") => String.t(),
+        optional("PreSignedUrl") => String.t() | Atom.t(),
+        optional("PreferredBackupWindow") => String.t() | Atom.t(),
+        optional("PreferredMaintenanceWindow") => String.t() | Atom.t(),
         optional("StorageEncrypted") => boolean(),
-        optional("StorageType") => String.t(),
+        optional("StorageType") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        optional("VpcSecurityGroupIds") => list(String.t()),
-        required("DBClusterIdentifier") => String.t(),
-        required("Engine") => String.t()
+        optional("VpcSecurityGroupIds") => list(String.t() | Atom.t()),
+        required("DBClusterIdentifier") => String.t() | Atom.t(),
+        required("Engine") => String.t() | Atom.t()
       }
       
   """
-  @type create_db_cluster_message() :: %{String.t() => any()}
+  @type create_db_cluster_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       filter() :: %{
-        "Name" => String.t(),
-        "Values" => list(String.t())
+        "Name" => String.t() | Atom.t(),
+        "Values" => list(String.t() | Atom.t())
       }
       
   """
-  @type filter() :: %{String.t() => any()}
+  @type filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type instance_quota_exceeded_fault() :: %{String.t() => any()}
+  @type instance_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_global_cluster_message() :: %{
-        optional("DatabaseName") => String.t(),
+        optional("DatabaseName") => String.t() | Atom.t(),
         optional("DeletionProtection") => boolean(),
-        optional("Engine") => String.t(),
-        optional("EngineVersion") => String.t(),
-        optional("SourceDBClusterIdentifier") => String.t(),
+        optional("Engine") => String.t() | Atom.t(),
+        optional("EngineVersion") => String.t() | Atom.t(),
+        optional("SourceDBClusterIdentifier") => String.t() | Atom.t(),
         optional("StorageEncrypted") => boolean(),
-        required("GlobalClusterIdentifier") => String.t()
+        required("GlobalClusterIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type create_global_cluster_message() :: %{String.t() => any()}
+  @type create_global_cluster_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       storage_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type storage_quota_exceeded_fault() :: %{String.t() => any()}
+  @type storage_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_db_snapshot_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_db_snapshot_state_fault() :: %{String.t() => any()}
+  @type invalid_db_snapshot_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1657,20 +1657,20 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type create_db_cluster_snapshot_result() :: %{String.t() => any()}
+  @type create_db_cluster_snapshot_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoint() :: %{
-        "Address" => String.t(),
-        "HostedZoneId" => String.t(),
+        "Address" => String.t() | Atom.t(),
+        "HostedZoneId" => String.t() | Atom.t(),
         "Port" => integer()
       }
       
   """
-  @type endpoint() :: %{String.t() => any()}
+  @type endpoint() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1678,33 +1678,33 @@ defmodule AWS.DocDB do
       
       events_message() :: %{
         "Events" => list(event()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type events_message() :: %{String.t() => any()}
+  @type events_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_snapshot_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type db_snapshot_not_found_fault() :: %{String.t() => any()}
+  @type db_snapshot_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_parameter_group_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type db_cluster_parameter_group_not_found_fault() :: %{String.t() => any()}
+  @type db_cluster_parameter_group_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1713,104 +1713,104 @@ defmodule AWS.DocDB do
       reset_db_cluster_parameter_group_message() :: %{
         optional("Parameters") => list(parameter()),
         optional("ResetAllParameters") => boolean(),
-        required("DBClusterParameterGroupName") => String.t()
+        required("DBClusterParameterGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type reset_db_cluster_parameter_group_message() :: %{String.t() => any()}
+  @type reset_db_cluster_parameter_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_global_cluster_message() :: %{
-        required("GlobalClusterIdentifier") => String.t()
+        required("GlobalClusterIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type delete_global_cluster_message() :: %{String.t() => any()}
+  @type delete_global_cluster_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_event_subscription_message() :: %{
-        required("SubscriptionName") => String.t()
+        required("SubscriptionName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_event_subscription_message() :: %{String.t() => any()}
+  @type delete_event_subscription_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       subscription_category_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type subscription_category_not_found_fault() :: %{String.t() => any()}
+  @type subscription_category_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       certificate() :: %{
-        "CertificateArn" => String.t(),
-        "CertificateIdentifier" => String.t(),
-        "CertificateType" => String.t(),
-        "Thumbprint" => String.t(),
+        "CertificateArn" => String.t() | Atom.t(),
+        "CertificateIdentifier" => String.t() | Atom.t(),
+        "CertificateType" => String.t() | Atom.t(),
+        "Thumbprint" => String.t() | Atom.t(),
         "ValidFrom" => non_neg_integer(),
         "ValidTill" => non_neg_integer()
       }
       
   """
-  @type certificate() :: %{String.t() => any()}
+  @type certificate() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_key_not_accessible_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type kms_key_not_accessible_fault() :: %{String.t() => any()}
+  @type kms_key_not_accessible_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_db_parameter_group_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_db_parameter_group_state_fault() :: %{String.t() => any()}
+  @type invalid_db_parameter_group_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       s_n_s_invalid_topic_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type s_n_s_invalid_topic_fault() :: %{String.t() => any()}
+  @type s_n_s_invalid_topic_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_db_cluster_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_db_cluster_state_fault() :: %{String.t() => any()}
+  @type invalid_db_cluster_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1821,7 +1821,7 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type create_db_cluster_parameter_group_result() :: %{String.t() => any()}
+  @type create_db_cluster_parameter_group_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1829,15 +1829,15 @@ defmodule AWS.DocDB do
       
       event() :: %{
         "Date" => non_neg_integer(),
-        "EventCategories" => list(String.t()),
-        "Message" => String.t(),
-        "SourceArn" => String.t(),
-        "SourceIdentifier" => String.t(),
+        "EventCategories" => list(String.t() | Atom.t()),
+        "Message" => String.t() | Atom.t(),
+        "SourceArn" => String.t() | Atom.t(),
+        "SourceIdentifier" => String.t() | Atom.t(),
         "SourceType" => list(any())
       }
       
   """
-  @type event() :: %{String.t() => any()}
+  @type event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1848,7 +1848,7 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type create_event_subscription_result() :: %{String.t() => any()}
+  @type create_event_subscription_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1856,11 +1856,11 @@ defmodule AWS.DocDB do
       
       db_instance_message() :: %{
         "DBInstances" => list(db_instance()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type db_instance_message() :: %{String.t() => any()}
+  @type db_instance_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1868,13 +1868,13 @@ defmodule AWS.DocDB do
       
       describe_engine_default_cluster_parameters_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        required("DBParameterGroupFamily") => String.t()
+        required("DBParameterGroupFamily") => String.t() | Atom.t()
       }
       
   """
-  @type describe_engine_default_cluster_parameters_message() :: %{String.t() => any()}
+  @type describe_engine_default_cluster_parameters_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1885,62 +1885,62 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type tag_list_message() :: %{String.t() => any()}
+  @type tag_list_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster() :: %{
-        "Status" => String.t(),
-        "DBClusterParameterGroup" => String.t(),
+        "Status" => String.t() | Atom.t(),
+        "DBClusterParameterGroup" => String.t() | Atom.t(),
         "LatestRestorableTime" => non_neg_integer(),
         "MasterUserSecret" => cluster_master_user_secret(),
-        "Engine" => String.t(),
+        "Engine" => String.t() | Atom.t(),
         "VpcSecurityGroups" => list(vpc_security_group_membership()),
         "MultiAZ" => boolean(),
         "EarliestRestorableTime" => non_neg_integer(),
-        "PreferredMaintenanceWindow" => String.t(),
-        "CloneGroupId" => String.t(),
-        "PreferredBackupWindow" => String.t(),
+        "PreferredMaintenanceWindow" => String.t() | Atom.t(),
+        "CloneGroupId" => String.t() | Atom.t(),
+        "PreferredBackupWindow" => String.t() | Atom.t(),
         "BackupRetentionPeriod" => integer(),
-        "KmsKeyId" => String.t(),
-        "ReadReplicaIdentifiers" => list(String.t()),
-        "EnabledCloudwatchLogsExports" => list(String.t()),
+        "KmsKeyId" => String.t() | Atom.t(),
+        "ReadReplicaIdentifiers" => list(String.t() | Atom.t()),
+        "EnabledCloudwatchLogsExports" => list(String.t() | Atom.t()),
         "ClusterCreateTime" => non_neg_integer(),
-        "PercentProgress" => String.t(),
-        "ReplicationSourceIdentifier" => String.t(),
+        "PercentProgress" => String.t() | Atom.t(),
+        "ReplicationSourceIdentifier" => String.t() | Atom.t(),
         "Port" => integer(),
-        "DBClusterArn" => String.t(),
-        "AvailabilityZones" => list(String.t()),
-        "MasterUsername" => String.t(),
-        "DbClusterResourceId" => String.t(),
+        "DBClusterArn" => String.t() | Atom.t(),
+        "AvailabilityZones" => list(String.t() | Atom.t()),
+        "MasterUsername" => String.t() | Atom.t(),
+        "DbClusterResourceId" => String.t() | Atom.t(),
         "DBClusterMembers" => list(db_cluster_member()),
-        "ReaderEndpoint" => String.t(),
-        "DBClusterIdentifier" => String.t(),
+        "ReaderEndpoint" => String.t() | Atom.t(),
+        "DBClusterIdentifier" => String.t() | Atom.t(),
         "DeletionProtection" => boolean(),
-        "StorageType" => String.t(),
-        "DBSubnetGroup" => String.t(),
-        "EngineVersion" => String.t(),
-        "HostedZoneId" => String.t(),
+        "StorageType" => String.t() | Atom.t(),
+        "DBSubnetGroup" => String.t() | Atom.t(),
+        "EngineVersion" => String.t() | Atom.t(),
+        "HostedZoneId" => String.t() | Atom.t(),
         "AssociatedRoles" => list(db_cluster_role()),
         "StorageEncrypted" => boolean(),
-        "Endpoint" => String.t()
+        "Endpoint" => String.t() | Atom.t()
       }
       
   """
-  @type db_cluster() :: %{String.t() => any()}
+  @type db_cluster() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       s_n_s_topic_arn_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type s_n_s_topic_arn_not_found_fault() :: %{String.t() => any()}
+  @type s_n_s_topic_arn_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1951,30 +1951,30 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type remove_source_identifier_from_subscription_result() :: %{String.t() => any()}
+  @type remove_source_identifier_from_subscription_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_db_security_group_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_db_security_group_state_fault() :: %{String.t() => any()}
+  @type invalid_db_security_group_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       add_tags_to_resource_message() :: %{
-        required("ResourceName") => String.t(),
+        required("ResourceName") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
       
   """
-  @type add_tags_to_resource_message() :: %{String.t() => any()}
+  @type add_tags_to_resource_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1985,29 +1985,29 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type event_categories_message() :: %{String.t() => any()}
+  @type event_categories_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type db_cluster_already_exists_fault() :: %{String.t() => any()}
+  @type db_cluster_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type db_cluster_not_found_fault() :: %{String.t() => any()}
+  @type db_cluster_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2018,7 +2018,7 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type delete_db_cluster_result() :: %{String.t() => any()}
+  @type delete_db_cluster_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2026,13 +2026,13 @@ defmodule AWS.DocDB do
       
       create_db_subnet_group_message() :: %{
         optional("Tags") => list(tag()),
-        required("DBSubnetGroupDescription") => String.t(),
-        required("DBSubnetGroupName") => String.t(),
-        required("SubnetIds") => list(String.t())
+        required("DBSubnetGroupDescription") => String.t() | Atom.t(),
+        required("DBSubnetGroupName") => String.t() | Atom.t(),
+        required("SubnetIds") => list(String.t() | Atom.t())
       }
       
   """
-  @type create_db_subnet_group_message() :: %{String.t() => any()}
+  @type create_db_subnet_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2043,32 +2043,32 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type restore_db_cluster_from_snapshot_result() :: %{String.t() => any()}
+  @type restore_db_cluster_from_snapshot_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       insufficient_db_cluster_capacity_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type insufficient_db_cluster_capacity_fault() :: %{String.t() => any()}
+  @type insufficient_db_cluster_capacity_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_instance_status_info() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "Normal" => boolean(),
-        "Status" => String.t(),
-        "StatusType" => String.t()
+        "Status" => String.t() | Atom.t(),
+        "StatusType" => String.t() | Atom.t()
       }
       
   """
-  @type db_instance_status_info() :: %{String.t() => any()}
+  @type db_instance_status_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2076,24 +2076,24 @@ defmodule AWS.DocDB do
       
       describe_global_clusters_message() :: %{
         optional("Filters") => list(filter()),
-        optional("GlobalClusterIdentifier") => String.t(),
-        optional("Marker") => String.t(),
+        optional("GlobalClusterIdentifier") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_global_clusters_message() :: %{String.t() => any()}
+  @type describe_global_clusters_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       global_cluster_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type global_cluster_quota_exceeded_fault() :: %{String.t() => any()}
+  @type global_cluster_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2102,28 +2102,28 @@ defmodule AWS.DocDB do
       describe_events_message() :: %{
         optional("Duration") => integer(),
         optional("EndTime") => non_neg_integer(),
-        optional("EventCategories") => list(String.t()),
+        optional("EventCategories") => list(String.t() | Atom.t()),
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer(),
-        optional("SourceIdentifier") => String.t(),
+        optional("SourceIdentifier") => String.t() | Atom.t(),
         optional("SourceType") => list(any()),
         optional("StartTime") => non_neg_integer()
       }
       
   """
-  @type describe_events_message() :: %{String.t() => any()}
+  @type describe_events_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_db_cluster_snapshot_attributes_message() :: %{
-        required("DBClusterSnapshotIdentifier") => String.t()
+        required("DBClusterSnapshotIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type describe_db_cluster_snapshot_attributes_message() :: %{String.t() => any()}
+  @type describe_db_cluster_snapshot_attributes_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2134,18 +2134,18 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type start_db_cluster_result() :: %{String.t() => any()}
+  @type start_db_cluster_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       global_cluster_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type global_cluster_not_found_fault() :: %{String.t() => any()}
+  @type global_cluster_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2153,11 +2153,11 @@ defmodule AWS.DocDB do
       
       db_cluster_snapshot_attributes_result() :: %{
         "DBClusterSnapshotAttributes" => list(db_cluster_snapshot_attribute()),
-        "DBClusterSnapshotIdentifier" => String.t()
+        "DBClusterSnapshotIdentifier" => String.t() | Atom.t()
       }
       
   """
-  @type db_cluster_snapshot_attributes_result() :: %{String.t() => any()}
+  @type db_cluster_snapshot_attributes_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2168,18 +2168,18 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type modify_event_subscription_result() :: %{String.t() => any()}
+  @type modify_event_subscription_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       global_cluster_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type global_cluster_already_exists_fault() :: %{String.t() => any()}
+  @type global_cluster_already_exists_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2190,7 +2190,7 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type apply_pending_maintenance_action_result() :: %{String.t() => any()}
+  @type apply_pending_maintenance_action_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2198,14 +2198,14 @@ defmodule AWS.DocDB do
       
       upgrade_target() :: %{
         "AutoUpgrade" => boolean(),
-        "Description" => String.t(),
-        "Engine" => String.t(),
-        "EngineVersion" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "Engine" => String.t() | Atom.t(),
+        "EngineVersion" => String.t() | Atom.t(),
         "IsMajorVersionUpgrade" => boolean()
       }
       
   """
-  @type upgrade_target() :: %{String.t() => any()}
+  @type upgrade_target() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2216,33 +2216,33 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type delete_event_subscription_result() :: %{String.t() => any()}
+  @type delete_event_subscription_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       certificate_details() :: %{
-        "CAIdentifier" => String.t(),
+        "CAIdentifier" => String.t() | Atom.t(),
         "ValidTill" => non_neg_integer()
       }
       
   """
-  @type certificate_details() :: %{String.t() => any()}
+  @type certificate_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_db_subnet_groups_message() :: %{
-        optional("DBSubnetGroupName") => String.t(),
+        optional("DBSubnetGroupName") => String.t() | Atom.t(),
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_db_subnet_groups_message() :: %{String.t() => any()}
+  @type describe_db_subnet_groups_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2253,57 +2253,57 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type modify_db_subnet_group_result() :: %{String.t() => any()}
+  @type modify_db_subnet_group_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_subnet_group() :: %{
-        "DBSubnetGroupArn" => String.t(),
-        "DBSubnetGroupDescription" => String.t(),
-        "DBSubnetGroupName" => String.t(),
-        "SubnetGroupStatus" => String.t(),
+        "DBSubnetGroupArn" => String.t() | Atom.t(),
+        "DBSubnetGroupDescription" => String.t() | Atom.t(),
+        "DBSubnetGroupName" => String.t() | Atom.t(),
+        "SubnetGroupStatus" => String.t() | Atom.t(),
         "Subnets" => list(subnet()),
-        "VpcId" => String.t()
+        "VpcId" => String.t() | Atom.t()
       }
       
   """
-  @type db_subnet_group() :: %{String.t() => any()}
+  @type db_subnet_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_db_subnet_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_db_subnet_state_fault() :: %{String.t() => any()}
+  @type invalid_db_subnet_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       failover_db_cluster_message() :: %{
-        optional("DBClusterIdentifier") => String.t(),
-        optional("TargetDBInstanceIdentifier") => String.t()
+        optional("DBClusterIdentifier") => String.t() | Atom.t(),
+        optional("TargetDBInstanceIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type failover_db_cluster_message() :: %{String.t() => any()}
+  @type failover_db_cluster_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_db_subnet_group_message() :: %{
-        required("DBSubnetGroupName") => String.t()
+        required("DBSubnetGroupName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_db_subnet_group_message() :: %{String.t() => any()}
+  @type delete_db_subnet_group_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2314,44 +2314,44 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type remove_from_global_cluster_result() :: %{String.t() => any()}
+  @type remove_from_global_cluster_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_member() :: %{
-        "DBClusterParameterGroupStatus" => String.t(),
-        "DBInstanceIdentifier" => String.t(),
+        "DBClusterParameterGroupStatus" => String.t() | Atom.t(),
+        "DBInstanceIdentifier" => String.t() | Atom.t(),
         "IsClusterWriter" => boolean(),
         "PromotionTier" => integer()
       }
       
   """
-  @type db_cluster_member() :: %{String.t() => any()}
+  @type db_cluster_member() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_tags_from_resource_message() :: %{
-        required("ResourceName") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceName") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type remove_tags_from_resource_message() :: %{String.t() => any()}
+  @type remove_tags_from_resource_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       event_subscription_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type event_subscription_quota_exceeded_fault() :: %{String.t() => any()}
+  @type event_subscription_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2362,24 +2362,24 @@ defmodule AWS.DocDB do
         optional("ApplyImmediately") => boolean(),
         optional("BackupRetentionPeriod") => integer(),
         optional("CloudwatchLogsExportConfiguration") => cloudwatch_logs_export_configuration(),
-        optional("DBClusterParameterGroupName") => String.t(),
+        optional("DBClusterParameterGroupName") => String.t() | Atom.t(),
         optional("DeletionProtection") => boolean(),
-        optional("EngineVersion") => String.t(),
+        optional("EngineVersion") => String.t() | Atom.t(),
         optional("ManageMasterUserPassword") => boolean(),
-        optional("MasterUserPassword") => String.t(),
-        optional("MasterUserSecretKmsKeyId") => String.t(),
-        optional("NewDBClusterIdentifier") => String.t(),
+        optional("MasterUserPassword") => String.t() | Atom.t(),
+        optional("MasterUserSecretKmsKeyId") => String.t() | Atom.t(),
+        optional("NewDBClusterIdentifier") => String.t() | Atom.t(),
         optional("Port") => integer(),
-        optional("PreferredBackupWindow") => String.t(),
-        optional("PreferredMaintenanceWindow") => String.t(),
+        optional("PreferredBackupWindow") => String.t() | Atom.t(),
+        optional("PreferredMaintenanceWindow") => String.t() | Atom.t(),
         optional("RotateMasterUserPassword") => boolean(),
-        optional("StorageType") => String.t(),
-        optional("VpcSecurityGroupIds") => list(String.t()),
-        required("DBClusterIdentifier") => String.t()
+        optional("StorageType") => String.t() | Atom.t(),
+        optional("VpcSecurityGroupIds") => list(String.t() | Atom.t()),
+        required("DBClusterIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type modify_db_cluster_message() :: %{String.t() => any()}
+  @type modify_db_cluster_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2387,81 +2387,81 @@ defmodule AWS.DocDB do
       
       describe_event_categories_message() :: %{
         optional("Filters") => list(filter()),
-        optional("SourceType") => String.t()
+        optional("SourceType") => String.t() | Atom.t()
       }
       
   """
-  @type describe_event_categories_message() :: %{String.t() => any()}
+  @type describe_event_categories_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_parameter_group() :: %{
-        "DBClusterParameterGroupArn" => String.t(),
-        "DBClusterParameterGroupName" => String.t(),
-        "DBParameterGroupFamily" => String.t(),
-        "Description" => String.t()
+        "DBClusterParameterGroupArn" => String.t() | Atom.t(),
+        "DBClusterParameterGroupName" => String.t() | Atom.t(),
+        "DBParameterGroupFamily" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t()
       }
       
   """
-  @type db_cluster_parameter_group() :: %{String.t() => any()}
+  @type db_cluster_parameter_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_db_cluster_message() :: %{
-        required("DBClusterIdentifier") => String.t()
+        required("DBClusterIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type stop_db_cluster_message() :: %{String.t() => any()}
+  @type stop_db_cluster_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_snapshot_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type db_cluster_snapshot_not_found_fault() :: %{String.t() => any()}
+  @type db_cluster_snapshot_not_found_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       s_n_s_no_authorization_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type s_n_s_no_authorization_fault() :: %{String.t() => any()}
+  @type s_n_s_no_authorization_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       vpc_security_group_membership() :: %{
-        "Status" => String.t(),
-        "VpcSecurityGroupId" => String.t()
+        "Status" => String.t() | Atom.t(),
+        "VpcSecurityGroupId" => String.t() | Atom.t()
       }
       
   """
-  @type vpc_security_group_membership() :: %{String.t() => any()}
+  @type vpc_security_group_membership() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_db_cluster_snapshot_message() :: %{
-        required("DBClusterSnapshotIdentifier") => String.t()
+        required("DBClusterSnapshotIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type delete_db_cluster_snapshot_message() :: %{String.t() => any()}
+  @type delete_db_cluster_snapshot_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2472,7 +2472,7 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type failover_db_cluster_result() :: %{String.t() => any()}
+  @type failover_db_cluster_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2481,20 +2481,20 @@ defmodule AWS.DocDB do
       modify_db_instance_message() :: %{
         optional("ApplyImmediately") => boolean(),
         optional("AutoMinorVersionUpgrade") => boolean(),
-        optional("CACertificateIdentifier") => String.t(),
+        optional("CACertificateIdentifier") => String.t() | Atom.t(),
         optional("CertificateRotationRestart") => boolean(),
         optional("CopyTagsToSnapshot") => boolean(),
-        optional("DBInstanceClass") => String.t(),
+        optional("DBInstanceClass") => String.t() | Atom.t(),
         optional("EnablePerformanceInsights") => boolean(),
-        optional("NewDBInstanceIdentifier") => String.t(),
-        optional("PerformanceInsightsKMSKeyId") => String.t(),
-        optional("PreferredMaintenanceWindow") => String.t(),
+        optional("NewDBInstanceIdentifier") => String.t() | Atom.t(),
+        optional("PerformanceInsightsKMSKeyId") => String.t() | Atom.t(),
+        optional("PreferredMaintenanceWindow") => String.t() | Atom.t(),
         optional("PromotionTier") => integer(),
-        required("DBInstanceIdentifier") => String.t()
+        required("DBInstanceIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type modify_db_instance_message() :: %{String.t() => any()}
+  @type modify_db_instance_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2505,7 +2505,7 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type create_db_instance_result() :: %{String.t() => any()}
+  @type create_db_instance_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2514,24 +2514,24 @@ defmodule AWS.DocDB do
       failover_global_cluster_message() :: %{
         optional("AllowDataLoss") => boolean(),
         optional("Switchover") => boolean(),
-        required("GlobalClusterIdentifier") => String.t(),
-        required("TargetDbClusterIdentifier") => String.t()
+        required("GlobalClusterIdentifier") => String.t() | Atom.t(),
+        required("TargetDbClusterIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type failover_global_cluster_message() :: %{String.t() => any()}
+  @type failover_global_cluster_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       db_cluster_parameter_group_details() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "Parameters" => list(parameter())
       }
       
   """
-  @type db_cluster_parameter_group_details() :: %{String.t() => any()}
+  @type db_cluster_parameter_group_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2542,41 +2542,41 @@ defmodule AWS.DocDB do
       }
       
   """
-  @type stop_db_cluster_result() :: %{String.t() => any()}
+  @type stop_db_cluster_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       pending_maintenance_actions_message() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "PendingMaintenanceActions" => list(resource_pending_maintenance_actions())
       }
       
   """
-  @type pending_maintenance_actions_message() :: %{String.t() => any()}
+  @type pending_maintenance_actions_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_db_instance_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_db_instance_state_fault() :: %{String.t() => any()}
+  @type invalid_db_instance_state_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       insufficient_storage_cluster_capacity_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type insufficient_storage_cluster_capacity_fault() :: %{String.t() => any()}
+  @type insufficient_storage_cluster_capacity_fault() :: %{String.t() | Atom.t() => any()}
 
   @type add_source_identifier_to_subscription_errors() ::
           subscription_not_found_fault() | source_not_found_fault()

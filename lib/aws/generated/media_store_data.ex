@@ -19,11 +19,11 @@ defmodule AWS.MediaStoreData do
   ## Example:
 
       container_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type container_not_found_exception() :: %{String.t() => any()}
+  @type container_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -57,26 +57,26 @@ defmodule AWS.MediaStoreData do
   ## Example:
 
       describe_object_response() :: %{
-        "CacheControl" => String.t(),
+        "CacheControl" => String.t() | Atom.t(),
         "ContentLength" => float(),
-        "ContentType" => String.t(),
-        "ETag" => String.t(),
+        "ContentType" => String.t() | Atom.t(),
+        "ETag" => String.t() | Atom.t(),
         "LastModified" => non_neg_integer()
       }
 
   """
-  @type describe_object_response() :: %{String.t() => any()}
+  @type describe_object_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_object_request() :: %{
-        optional("Range") => String.t()
+        optional("Range") => String.t() | Atom.t()
       }
 
   """
-  @type get_object_request() :: %{String.t() => any()}
+  @type get_object_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -84,28 +84,28 @@ defmodule AWS.MediaStoreData do
 
       get_object_response() :: %{
         "Body" => binary(),
-        "CacheControl" => String.t(),
+        "CacheControl" => String.t() | Atom.t(),
         "ContentLength" => float(),
-        "ContentRange" => String.t(),
-        "ContentType" => String.t(),
-        "ETag" => String.t(),
+        "ContentRange" => String.t() | Atom.t(),
+        "ContentType" => String.t() | Atom.t(),
+        "ETag" => String.t() | Atom.t(),
         "LastModified" => non_neg_integer(),
         "StatusCode" => integer()
       }
 
   """
-  @type get_object_response() :: %{String.t() => any()}
+  @type get_object_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_error() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_server_error() :: %{String.t() => any()}
+  @type internal_server_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -113,15 +113,15 @@ defmodule AWS.MediaStoreData do
 
       item() :: %{
         "ContentLength" => float(),
-        "ContentType" => String.t(),
-        "ETag" => String.t(),
+        "ContentType" => String.t() | Atom.t(),
+        "ETag" => String.t() | Atom.t(),
         "LastModified" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Type" => list(any())
       }
 
   """
-  @type item() :: %{String.t() => any()}
+  @type item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -129,12 +129,12 @@ defmodule AWS.MediaStoreData do
 
       list_items_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("Path") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("Path") => String.t() | Atom.t()
       }
 
   """
-  @type list_items_request() :: %{String.t() => any()}
+  @type list_items_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -142,61 +142,61 @@ defmodule AWS.MediaStoreData do
 
       list_items_response() :: %{
         "Items" => list(item()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_items_response() :: %{String.t() => any()}
+  @type list_items_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       object_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type object_not_found_exception() :: %{String.t() => any()}
+  @type object_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_object_request() :: %{
-        optional("CacheControl") => String.t(),
-        optional("ContentType") => String.t(),
+        optional("CacheControl") => String.t() | Atom.t(),
+        optional("ContentType") => String.t() | Atom.t(),
         optional("StorageClass") => list(any()),
         optional("UploadAvailability") => list(any()),
         required("Body") => binary()
       }
 
   """
-  @type put_object_request() :: %{String.t() => any()}
+  @type put_object_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_object_response() :: %{
-        "ContentSHA256" => String.t(),
-        "ETag" => String.t(),
+        "ContentSHA256" => String.t() | Atom.t(),
+        "ETag" => String.t() | Atom.t(),
         "StorageClass" => list(any())
       }
 
   """
-  @type put_object_response() :: %{String.t() => any()}
+  @type put_object_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       requested_range_not_satisfiable_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type requested_range_not_satisfiable_exception() :: %{String.t() => any()}
+  @type requested_range_not_satisfiable_exception() :: %{String.t() | Atom.t() => any()}
 
   @type delete_object_errors() ::
           object_not_found_exception() | internal_server_error() | container_not_found_exception()
@@ -233,7 +233,7 @@ defmodule AWS.MediaStoreData do
   @doc """
   Deletes an object at the specified path.
   """
-  @spec delete_object(map(), String.t(), delete_object_request(), list()) ::
+  @spec delete_object(map(), String.t() | Atom.t(), delete_object_request(), list()) ::
           {:ok, delete_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -262,7 +262,7 @@ defmodule AWS.MediaStoreData do
   @doc """
   Gets the headers for an object at the specified path.
   """
-  @spec describe_object(map(), String.t(), describe_object_request(), list()) ::
+  @spec describe_object(map(), String.t() | Atom.t(), describe_object_request(), list()) ::
           {:ok, describe_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -307,7 +307,7 @@ defmodule AWS.MediaStoreData do
   If the object’s upload availability is set to `streaming`, AWS Elemental
   MediaStore downloads the object even if it’s still uploading the object.
   """
-  @spec get_object(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_object(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
           {:ok, get_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -355,7 +355,13 @@ defmodule AWS.MediaStoreData do
   Provides a list of metadata entries about folders and objects in the specified
   folder.
   """
-  @spec list_items(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_items(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_items_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -403,7 +409,7 @@ defmodule AWS.MediaStoreData do
   Object sizes are limited to 25 MB for standard upload availability and 10 MB for
   streaming upload availability.
   """
-  @spec put_object(map(), String.t(), put_object_request(), list()) ::
+  @spec put_object(map(), String.t() | Atom.t(), put_object_request(), list()) ::
           {:ok, put_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

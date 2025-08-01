@@ -10,105 +10,105 @@ defmodule AWS.KinesisVideoMedia do
   ## Example:
 
       client_limit_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type client_limit_exceeded_exception() :: %{String.t() => any()}
+  @type client_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       connection_limit_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type connection_limit_exceeded_exception() :: %{String.t() => any()}
+  @type connection_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_media_input() :: %{
-        optional("StreamARN") => String.t(),
-        optional("StreamName") => String.t(),
+        optional("StreamARN") => String.t() | Atom.t(),
+        optional("StreamName") => String.t() | Atom.t(),
         required("StartSelector") => start_selector()
       }
 
   """
-  @type get_media_input() :: %{String.t() => any()}
+  @type get_media_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_media_output() :: %{
-        "ContentType" => String.t(),
+        "ContentType" => String.t() | Atom.t(),
         "Payload" => binary()
       }
 
   """
-  @type get_media_output() :: %{String.t() => any()}
+  @type get_media_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_argument_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_argument_exception() :: %{String.t() => any()}
+  @type invalid_argument_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_endpoint_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_endpoint_exception() :: %{String.t() => any()}
+  @type invalid_endpoint_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       not_authorized_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type not_authorized_exception() :: %{String.t() => any()}
+  @type not_authorized_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_selector() :: %{
-        "AfterFragmentNumber" => String.t(),
-        "ContinuationToken" => String.t(),
+        "AfterFragmentNumber" => String.t() | Atom.t(),
+        "ContinuationToken" => String.t() | Atom.t(),
         "StartSelectorType" => list(any()),
         "StartTimestamp" => non_neg_integer()
       }
 
   """
-  @type start_selector() :: %{String.t() => any()}
+  @type start_selector() :: %{String.t() | Atom.t() => any()}
 
   @type get_media_errors() ::
           resource_not_found_exception()

@@ -16,15 +16,15 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   ## Example:
 
       stop_product_subscription_request() :: %{
-        optional("Domain") => [String.t()],
+        optional("Domain") => [String.t() | Atom.t()],
         optional("IdentityProvider") => list(),
-        optional("Product") => [String.t()],
-        optional("ProductUserArn") => String.t(),
-        optional("Username") => [String.t()]
+        optional("Product") => [String.t() | Atom.t()],
+        optional("ProductUserArn") => String.t() | Atom.t(),
+        optional("Username") => [String.t() | Atom.t()]
       }
 
   """
-  @type stop_product_subscription_request() :: %{String.t() => any()}
+  @type stop_product_subscription_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -32,11 +32,11 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
       list_license_server_endpoints_response() :: %{
         "LicenseServerEndpoints" => list(license_server_endpoint()),
-        "NextToken" => [String.t()]
+        "NextToken" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_license_server_endpoints_response() :: %{String.t() => any()}
+  @type list_license_server_endpoints_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -47,22 +47,22 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_user_request() :: %{
-        optional("Domain") => [String.t()],
+        optional("Domain") => [String.t() | Atom.t()],
         optional("IdentityProvider") => list(),
-        optional("InstanceId") => [String.t()],
-        optional("InstanceUserArn") => String.t(),
-        optional("Username") => [String.t()]
+        optional("InstanceId") => [String.t() | Atom.t()],
+        optional("InstanceUserArn") => String.t() | Atom.t(),
+        optional("Username") => [String.t() | Atom.t()]
       }
 
   """
-  @type disassociate_user_request() :: %{String.t() => any()}
+  @type disassociate_user_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -71,23 +71,23 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       list_identity_providers_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t()]
+        optional("NextToken") => [String.t() | Atom.t()]
       }
 
   """
-  @type list_identity_providers_request() :: %{String.t() => any()}
+  @type list_identity_providers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_license_server_endpoint_response() :: %{
-        "IdentityProviderArn" => String.t(),
-        "LicenseServerEndpointArn" => String.t()
+        "IdentityProviderArn" => String.t() | Atom.t(),
+        "LicenseServerEndpointArn" => String.t() | Atom.t()
       }
 
   """
-  @type create_license_server_endpoint_response() :: %{String.t() => any()}
+  @type create_license_server_endpoint_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -96,13 +96,13 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       list_product_subscriptions_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t()],
-        optional("Product") => [String.t()],
+        optional("NextToken") => [String.t() | Atom.t()],
+        optional("Product") => [String.t() | Atom.t()],
         required("IdentityProvider") => list()
       }
 
   """
-  @type list_product_subscriptions_request() :: %{String.t() => any()}
+  @type list_product_subscriptions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -118,19 +118,19 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   ## Example:
 
       instance_user_summary() :: %{
-        "AssociationDate" => [String.t()],
-        "DisassociationDate" => [String.t()],
-        "Domain" => [String.t()],
+        "AssociationDate" => [String.t() | Atom.t()],
+        "DisassociationDate" => [String.t() | Atom.t()],
+        "Domain" => [String.t() | Atom.t()],
         "IdentityProvider" => list(),
-        "InstanceId" => [String.t()],
-        "InstanceUserArn" => String.t(),
-        "Status" => [String.t()],
-        "StatusMessage" => [String.t()],
-        "Username" => [String.t()]
+        "InstanceId" => [String.t() | Atom.t()],
+        "InstanceUserArn" => String.t() | Atom.t(),
+        "Status" => [String.t() | Atom.t()],
+        "StatusMessage" => [String.t() | Atom.t()],
+        "Username" => [String.t() | Atom.t()]
       }
 
   """
-  @type instance_user_summary() :: %{String.t() => any()}
+  @type instance_user_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -138,48 +138,48 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
       create_license_server_endpoint_request() :: %{
         optional("Tags") => map(),
-        required("IdentityProviderArn") => String.t(),
+        required("IdentityProviderArn") => String.t() | Atom.t(),
         required("LicenseServerSettings") => license_server_settings()
       }
 
   """
-  @type create_license_server_endpoint_request() :: %{String.t() => any()}
+  @type create_license_server_endpoint_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_license_server_endpoint_request() :: %{
-        required("LicenseServerEndpointArn") => String.t(),
-        required("ServerType") => String.t()
+        required("LicenseServerEndpointArn") => String.t() | Atom.t(),
+        required("ServerType") => String.t() | Atom.t()
       }
 
   """
-  @type delete_license_server_endpoint_request() :: %{String.t() => any()}
+  @type delete_license_server_endpoint_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_settings() :: %{
-        "AddSubnets" => list(String.t()),
-        "RemoveSubnets" => list(String.t()),
-        "SecurityGroupId" => String.t()
+        "AddSubnets" => list(String.t() | Atom.t()),
+        "RemoveSubnets" => list(String.t() | Atom.t()),
+        "SecurityGroupId" => String.t() | Atom.t()
       }
 
   """
-  @type update_settings() :: %{String.t() => any()}
+  @type update_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list([String.t()]())
+        required("TagKeys") => list([String.t() | Atom.t()]())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -187,24 +187,24 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
       active_directory_settings() :: %{
         "DomainCredentialsProvider" => list(),
-        "DomainIpv4List" => list(String.t()),
-        "DomainName" => [String.t()],
+        "DomainIpv4List" => list(String.t() | Atom.t()),
+        "DomainName" => [String.t() | Atom.t()],
         "DomainNetworkSettings" => domain_network_settings()
       }
 
   """
-  @type active_directory_settings() :: %{String.t() => any()}
+  @type active_directory_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       server_endpoint() :: %{
-        "Endpoint" => [String.t()]
+        "Endpoint" => [String.t() | Atom.t()]
       }
 
   """
-  @type server_endpoint() :: %{String.t() => any()}
+  @type server_endpoint() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -212,12 +212,12 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
       deregister_identity_provider_request() :: %{
         optional("IdentityProvider") => list(),
-        optional("IdentityProviderArn") => String.t(),
-        optional("Product") => [String.t()]
+        optional("IdentityProviderArn") => String.t() | Atom.t(),
+        optional("Product") => [String.t() | Atom.t()]
       }
 
   """
-  @type deregister_identity_provider_request() :: %{String.t() => any()}
+  @type deregister_identity_provider_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -225,11 +225,11 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
       list_user_associations_response() :: %{
         "InstanceUserSummaries" => list(instance_user_summary()),
-        "NextToken" => [String.t()]
+        "NextToken" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_user_associations_response() :: %{String.t() => any()}
+  @type list_user_associations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -240,29 +240,29 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       }
 
   """
-  @type update_identity_provider_settings_response() :: %{String.t() => any()}
+  @type update_identity_provider_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -273,30 +273,30 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       }
 
   """
-  @type register_identity_provider_response() :: %{String.t() => any()}
+  @type register_identity_provider_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       settings() :: %{
-        "SecurityGroupId" => String.t(),
-        "Subnets" => list(String.t())
+        "SecurityGroupId" => String.t() | Atom.t(),
+        "Subnets" => list(String.t() | Atom.t())
       }
 
   """
-  @type settings() :: %{String.t() => any()}
+  @type settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -307,7 +307,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       }
 
   """
-  @type stop_product_subscription_response() :: %{String.t() => any()}
+  @type stop_product_subscription_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -318,7 +318,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       }
 
   """
-  @type disassociate_user_response() :: %{String.t() => any()}
+  @type disassociate_user_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -329,18 +329,18 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       }
 
   """
-  @type associate_user_response() :: %{String.t() => any()}
+  @type associate_user_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       secrets_manager_credentials_provider() :: %{
-        "SecretId" => [String.t()]
+        "SecretId" => [String.t() | Atom.t()]
       }
 
   """
-  @type secrets_manager_credentials_provider() :: %{String.t() => any()}
+  @type secrets_manager_credentials_provider() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -351,53 +351,53 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       product_user_summary() :: %{
-        "Domain" => [String.t()],
+        "Domain" => [String.t() | Atom.t()],
         "IdentityProvider" => list(),
-        "Product" => [String.t()],
-        "ProductUserArn" => String.t(),
-        "Status" => [String.t()],
-        "StatusMessage" => [String.t()],
-        "SubscriptionEndDate" => [String.t()],
-        "SubscriptionStartDate" => [String.t()],
-        "Username" => [String.t()]
+        "Product" => [String.t() | Atom.t()],
+        "ProductUserArn" => String.t() | Atom.t(),
+        "Status" => [String.t() | Atom.t()],
+        "StatusMessage" => [String.t() | Atom.t()],
+        "SubscriptionEndDate" => [String.t() | Atom.t()],
+        "SubscriptionStartDate" => [String.t() | Atom.t()],
+        "Username" => [String.t() | Atom.t()]
       }
 
   """
-  @type product_user_summary() :: %{String.t() => any()}
+  @type product_user_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       identity_provider_summary() :: %{
-        "FailureMessage" => [String.t()],
+        "FailureMessage" => [String.t() | Atom.t()],
         "IdentityProvider" => list(),
-        "IdentityProviderArn" => String.t(),
-        "Product" => [String.t()],
+        "IdentityProviderArn" => String.t() | Atom.t(),
+        "Product" => [String.t() | Atom.t()],
         "Settings" => settings(),
-        "Status" => [String.t()]
+        "Status" => [String.t() | Atom.t()]
       }
 
   """
-  @type identity_provider_summary() :: %{String.t() => any()}
+  @type identity_provider_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       domain_network_settings() :: %{
-        "Subnets" => list(String.t())
+        "Subnets" => list(String.t() | Atom.t())
       }
 
   """
-  @type domain_network_settings() :: %{String.t() => any()}
+  @type domain_network_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -406,36 +406,36 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       list_instances_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t()]
+        optional("NextToken") => [String.t() | Atom.t()]
       }
 
   """
-  @type list_instances_request() :: %{String.t() => any()}
+  @type list_instances_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       filter() :: %{
-        "Attribute" => [String.t()],
-        "Operation" => [String.t()],
-        "Value" => [String.t()]
+        "Attribute" => [String.t() | Atom.t()],
+        "Operation" => [String.t() | Atom.t()],
+        "Value" => [String.t() | Atom.t()]
       }
 
   """
-  @type filter() :: %{String.t() => any()}
+  @type filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_product_subscriptions_response() :: %{
-        "NextToken" => [String.t()],
+        "NextToken" => [String.t() | Atom.t()],
         "ProductUserSummaries" => list(product_user_summary())
       }
 
   """
-  @type list_product_subscriptions_response() :: %{String.t() => any()}
+  @type list_product_subscriptions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -443,11 +443,11 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
       list_instances_response() :: %{
         "InstanceSummaries" => list(instance_summary()),
-        "NextToken" => [String.t()]
+        "NextToken" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_instances_response() :: %{String.t() => any()}
+  @type list_instances_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -458,18 +458,18 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       }
 
   """
-  @type delete_license_server_endpoint_response() :: %{String.t() => any()}
+  @type delete_license_server_endpoint_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -478,11 +478,11 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       list_license_server_endpoints_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t()]
+        optional("NextToken") => [String.t() | Atom.t()]
       }
 
   """
-  @type list_license_server_endpoints_request() :: %{String.t() => any()}
+  @type list_license_server_endpoints_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -490,13 +490,13 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
       update_identity_provider_settings_request() :: %{
         optional("IdentityProvider") => list(),
-        optional("IdentityProviderArn") => String.t(),
-        optional("Product") => [String.t()],
+        optional("IdentityProviderArn") => String.t() | Atom.t(),
+        optional("Product") => [String.t() | Atom.t()],
         required("UpdateSettings") => update_settings()
       }
 
   """
-  @type update_identity_provider_settings_request() :: %{String.t() => any()}
+  @type update_identity_provider_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -506,11 +506,11 @@ defmodule AWS.LicenseManagerUserSubscriptions do
         optional("Settings") => settings(),
         optional("Tags") => map(),
         required("IdentityProvider") => list(),
-        required("Product") => [String.t()]
+        required("Product") => [String.t() | Atom.t()]
       }
 
   """
-  @type register_identity_provider_request() :: %{String.t() => any()}
+  @type register_identity_provider_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -521,18 +521,18 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       }
 
   """
-  @type deregister_identity_provider_response() :: %{String.t() => any()}
+  @type deregister_identity_provider_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -540,18 +540,18 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
       license_server_endpoint() :: %{
         "CreationTime" => [non_neg_integer()],
-        "IdentityProviderArn" => [String.t()],
-        "LicenseServerEndpointArn" => String.t(),
-        "LicenseServerEndpointId" => String.t(),
-        "LicenseServerEndpointProvisioningStatus" => String.t(),
+        "IdentityProviderArn" => [String.t() | Atom.t()],
+        "LicenseServerEndpointArn" => String.t() | Atom.t(),
+        "LicenseServerEndpointId" => String.t() | Atom.t(),
+        "LicenseServerEndpointProvisioningStatus" => String.t() | Atom.t(),
         "LicenseServers" => list(license_server()),
         "ServerEndpoint" => server_endpoint(),
-        "ServerType" => String.t(),
-        "StatusMessage" => [String.t()]
+        "ServerType" => String.t() | Atom.t(),
+        "StatusMessage" => [String.t() | Atom.t()]
       }
 
   """
-  @type license_server_endpoint() :: %{String.t() => any()}
+  @type license_server_endpoint() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -567,11 +567,11 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   ## Example:
 
       validation_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -588,37 +588,37 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
       list_identity_providers_response() :: %{
         "IdentityProviderSummaries" => list(identity_provider_summary()),
-        "NextToken" => [String.t()]
+        "NextToken" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_identity_providers_response() :: %{String.t() => any()}
+  @type list_identity_providers_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       instance_summary() :: %{
-        "InstanceId" => [String.t()],
-        "LastStatusCheckDate" => [String.t()],
-        "Products" => list([String.t()]()),
-        "Status" => [String.t()],
-        "StatusMessage" => [String.t()]
+        "InstanceId" => [String.t() | Atom.t()],
+        "LastStatusCheckDate" => [String.t() | Atom.t()],
+        "Products" => list([String.t() | Atom.t()]()),
+        "Status" => [String.t() | Atom.t()],
+        "StatusMessage" => [String.t() | Atom.t()]
       }
 
   """
-  @type instance_summary() :: %{String.t() => any()}
+  @type instance_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -626,26 +626,26 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
       license_server_settings() :: %{
         "ServerSettings" => list(),
-        "ServerType" => String.t()
+        "ServerType" => String.t() | Atom.t()
       }
 
   """
-  @type license_server_settings() :: %{String.t() => any()}
+  @type license_server_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_product_subscription_request() :: %{
-        optional("Domain") => [String.t()],
+        optional("Domain") => [String.t() | Atom.t()],
         optional("Tags") => map(),
         required("IdentityProvider") => list(),
-        required("Product") => [String.t()],
-        required("Username") => [String.t()]
+        required("Product") => [String.t() | Atom.t()],
+        required("Username") => [String.t() | Atom.t()]
       }
 
   """
-  @type start_product_subscription_request() :: %{String.t() => any()}
+  @type start_product_subscription_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -656,35 +656,35 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       }
 
   """
-  @type start_product_subscription_response() :: %{String.t() => any()}
+  @type start_product_subscription_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_user_request() :: %{
-        optional("Domain") => [String.t()],
+        optional("Domain") => [String.t() | Atom.t()],
         optional("Tags") => map(),
         required("IdentityProvider") => list(),
-        required("InstanceId") => [String.t()],
-        required("Username") => [String.t()]
+        required("InstanceId") => [String.t() | Atom.t()],
+        required("Username") => [String.t() | Atom.t()]
       }
 
   """
-  @type associate_user_request() :: %{String.t() => any()}
+  @type associate_user_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       license_server() :: %{
-        "HealthStatus" => String.t(),
-        "Ipv4Address" => [String.t()],
-        "ProvisioningStatus" => String.t()
+        "HealthStatus" => String.t() | Atom.t(),
+        "Ipv4Address" => [String.t() | Atom.t()],
+        "ProvisioningStatus" => String.t() | Atom.t()
       }
 
   """
-  @type license_server() :: %{String.t() => any()}
+  @type license_server() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -693,13 +693,13 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       list_user_associations_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t()],
+        optional("NextToken") => [String.t() | Atom.t()],
         required("IdentityProvider") => list(),
-        required("InstanceId") => [String.t()]
+        required("InstanceId") => [String.t() | Atom.t()]
       }
 
   """
-  @type list_user_associations_request() :: %{String.t() => any()}
+  @type list_user_associations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -707,12 +707,12 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
       active_directory_identity_provider() :: %{
         "ActiveDirectorySettings" => active_directory_settings(),
-        "ActiveDirectoryType" => String.t(),
-        "DirectoryId" => String.t()
+        "ActiveDirectoryType" => String.t() | Atom.t(),
+        "DirectoryId" => String.t() | Atom.t()
       }
 
   """
-  @type active_directory_identity_provider() :: %{String.t() => any()}
+  @type active_directory_identity_provider() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -723,7 +723,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       }
 
   """
-  @type rds_sal_settings() :: %{String.t() => any()}
+  @type rds_sal_settings() :: %{String.t() | Atom.t() => any()}
 
   @type associate_user_errors() ::
           throttling_exception()
@@ -1144,7 +1144,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   @doc """
   Returns the list of tags for the specified resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1286,7 +1286,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   @doc """
   Adds tags to a resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1315,7 +1315,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   @doc """
   Removes tags from a resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

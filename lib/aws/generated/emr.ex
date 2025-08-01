@@ -19,13 +19,13 @@ defmodule AWS.EMR do
   ## Example:
       
       cancel_steps_info() :: %{
-        "Reason" => String.t(),
+        "Reason" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "StepId" => String.t()
+        "StepId" => String.t() | Atom.t()
       }
       
   """
-  @type cancel_steps_info() :: %{String.t() => any()}
+  @type cancel_steps_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -33,34 +33,34 @@ defmodule AWS.EMR do
       
       instance_state_change_reason() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type instance_state_change_reason() :: %{String.t() => any()}
+  @type instance_state_change_reason() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       output_notebook_s3_location_from_input() :: %{
-        "Bucket" => String.t(),
-        "Key" => String.t()
+        "Bucket" => String.t() | Atom.t(),
+        "Key" => String.t() | Atom.t()
       }
       
   """
-  @type output_notebook_s3_location_from_input() :: %{String.t() => any()}
+  @type output_notebook_s3_location_from_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_auto_termination_policy_input() :: %{
-        required("ClusterId") => String.t()
+        required("ClusterId") => String.t() | Atom.t()
       }
       
   """
-  @type get_auto_termination_policy_input() :: %{String.t() => any()}
+  @type get_auto_termination_policy_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -70,12 +70,12 @@ defmodule AWS.EMR do
         optional("EMRContainersConfig") => emr_containers_config(),
         optional("ProfilerType") => list(any()),
         optional("Tags") => list(tag()),
-        optional("XReferer") => String.t(),
-        required("TargetResourceArn") => String.t()
+        optional("XReferer") => String.t() | Atom.t(),
+        required("TargetResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type create_persistent_app_ui_input() :: %{String.t() => any()}
+  @type create_persistent_app_ui_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -86,19 +86,19 @@ defmodule AWS.EMR do
       }
       
   """
-  @type bootstrap_action_detail() :: %{String.t() => any()}
+  @type bootstrap_action_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_bootstrap_actions_input() :: %{
-        optional("Marker") => String.t(),
-        required("ClusterId") => String.t()
+        optional("Marker") => String.t() | Atom.t(),
+        required("ClusterId") => String.t() | Atom.t()
       }
       
   """
-  @type list_bootstrap_actions_input() :: %{String.t() => any()}
+  @type list_bootstrap_actions_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -118,7 +118,7 @@ defmodule AWS.EMR do
       }
       
   """
-  @type auto_termination_policy() :: %{String.t() => any()}
+  @type auto_termination_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -126,12 +126,12 @@ defmodule AWS.EMR do
       
       describe_release_label_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ReleaseLabel") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("ReleaseLabel") => String.t() | Atom.t()
       }
       
   """
-  @type describe_release_label_input() :: %{String.t() => any()}
+  @type describe_release_label_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -142,30 +142,30 @@ defmodule AWS.EMR do
       }
       
   """
-  @type scaling_trigger() :: %{String.t() => any()}
+  @type scaling_trigger() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       bootstrap_action_config() :: %{
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "ScriptBootstrapAction" => script_bootstrap_action_config()
       }
       
   """
-  @type bootstrap_action_config() :: %{String.t() => any()}
+  @type bootstrap_action_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_studio_input() :: %{
-        required("StudioId") => String.t()
+        required("StudioId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_studio_input() :: %{String.t() => any()}
+  @type delete_studio_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -173,12 +173,12 @@ defmodule AWS.EMR do
       
       describe_security_configuration_output() :: %{
         "CreationDateTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "SecurityConfiguration" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "SecurityConfiguration" => String.t() | Atom.t()
       }
       
   """
-  @type describe_security_configuration_output() :: %{String.t() => any()}
+  @type describe_security_configuration_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -186,11 +186,11 @@ defmodule AWS.EMR do
       
       list_instance_groups_output() :: %{
         "InstanceGroups" => list(instance_group()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type list_instance_groups_output() :: %{String.t() => any()}
+  @type list_instance_groups_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -198,23 +198,23 @@ defmodule AWS.EMR do
       
       step_state_change_reason() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type step_state_change_reason() :: %{String.t() => any()}
+  @type step_state_change_reason() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       release_label_filter() :: %{
-        "Application" => String.t(),
-        "Prefix" => String.t()
+        "Application" => String.t() | Atom.t(),
+        "Prefix" => String.t() | Atom.t()
       }
       
   """
-  @type release_label_filter() :: %{String.t() => any()}
+  @type release_label_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -226,7 +226,7 @@ defmodule AWS.EMR do
       }
       
   """
-  @type auto_scaling_policy_status() :: %{String.t() => any()}
+  @type auto_scaling_policy_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -237,46 +237,46 @@ defmodule AWS.EMR do
       }
       
   """
-  @type describe_cluster_output() :: %{String.t() => any()}
+  @type describe_cluster_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_studio_session_mapping_input() :: %{
-        optional("IdentityId") => String.t(),
-        optional("IdentityName") => String.t(),
+        optional("IdentityId") => String.t() | Atom.t(),
+        optional("IdentityName") => String.t() | Atom.t(),
         required("IdentityType") => list(any()),
-        required("SessionPolicyArn") => String.t(),
-        required("StudioId") => String.t()
+        required("SessionPolicyArn") => String.t() | Atom.t(),
+        required("StudioId") => String.t() | Atom.t()
       }
       
   """
-  @type create_studio_session_mapping_input() :: %{String.t() => any()}
+  @type create_studio_session_mapping_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_cluster_session_credentials_input() :: %{
-        optional("ExecutionRoleArn") => String.t(),
-        required("ClusterId") => String.t()
+        optional("ExecutionRoleArn") => String.t() | Atom.t(),
+        required("ClusterId") => String.t() | Atom.t()
       }
       
   """
-  @type get_cluster_session_credentials_input() :: %{String.t() => any()}
+  @type get_cluster_session_credentials_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       simplified_application() :: %{
-        "Name" => String.t(),
-        "Version" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Version" => String.t() | Atom.t()
       }
       
   """
-  @type simplified_application() :: %{String.t() => any()}
+  @type simplified_application() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -287,19 +287,19 @@ defmodule AWS.EMR do
       }
       
   """
-  @type describe_step_output() :: %{String.t() => any()}
+  @type describe_step_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       set_visible_to_all_users_input() :: %{
-        required("JobFlowIds") => list(String.t()),
+        required("JobFlowIds") => list(String.t() | Atom.t()),
         required("VisibleToAllUsers") => boolean()
       }
       
   """
-  @type set_visible_to_all_users_input() :: %{String.t() => any()}
+  @type set_visible_to_all_users_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -310,19 +310,19 @@ defmodule AWS.EMR do
       }
       
   """
-  @type put_block_public_access_configuration_input() :: %{String.t() => any()}
+  @type put_block_public_access_configuration_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       add_instance_fleet_input() :: %{
-        required("ClusterId") => String.t(),
+        required("ClusterId") => String.t() | Atom.t(),
         required("InstanceFleet") => instance_fleet_config()
       }
       
   """
-  @type add_instance_fleet_input() :: %{String.t() => any()}
+  @type add_instance_fleet_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -330,11 +330,11 @@ defmodule AWS.EMR do
       
       list_instance_fleets_output() :: %{
         "InstanceFleets" => list(instance_fleet()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type list_instance_fleets_output() :: %{String.t() => any()}
+  @type list_instance_fleets_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -346,32 +346,32 @@ defmodule AWS.EMR do
       }
       
   """
-  @type step_detail() :: %{String.t() => any()}
+  @type step_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       script_bootstrap_action_config() :: %{
-        "Args" => list(String.t()),
-        "Path" => String.t()
+        "Args" => list(String.t() | Atom.t()),
+        "Path" => String.t() | Atom.t()
       }
       
   """
-  @type script_bootstrap_action_config() :: %{String.t() => any()}
+  @type script_bootstrap_action_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       add_instance_groups_output() :: %{
-        "ClusterArn" => String.t(),
-        "InstanceGroupIds" => list(String.t()),
-        "JobFlowId" => String.t()
+        "ClusterArn" => String.t() | Atom.t(),
+        "InstanceGroupIds" => list(String.t() | Atom.t()),
+        "JobFlowId" => String.t() | Atom.t()
       }
       
   """
-  @type add_instance_groups_output() :: %{String.t() => any()}
+  @type add_instance_groups_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -381,40 +381,40 @@ defmodule AWS.EMR do
         "Iops" => integer(),
         "SizeInGB" => integer(),
         "Throughput" => integer(),
-        "VolumeType" => String.t()
+        "VolumeType" => String.t() | Atom.t()
       }
       
   """
-  @type volume_specification() :: %{String.t() => any()}
+  @type volume_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_persistent_app_ui_presigned_url_input() :: %{
-        optional("ApplicationId") => String.t(),
+        optional("ApplicationId") => String.t() | Atom.t(),
         optional("AuthProxyCall") => boolean(),
-        optional("ExecutionRoleArn") => String.t(),
+        optional("ExecutionRoleArn") => String.t() | Atom.t(),
         optional("PersistentAppUIType") => list(any()),
-        required("PersistentAppUIId") => String.t()
+        required("PersistentAppUIId") => String.t() | Atom.t()
       }
       
   """
-  @type get_persistent_app_ui_presigned_url_input() :: %{String.t() => any()}
+  @type get_persistent_app_ui_presigned_url_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_steps_input() :: %{
-        optional("Marker") => String.t(),
-        optional("StepIds") => list(String.t()),
+        optional("Marker") => String.t() | Atom.t(),
+        optional("StepIds") => list(String.t() | Atom.t()),
         optional("StepStates") => list(list(any())()),
-        required("ClusterId") => String.t()
+        required("ClusterId") => String.t() | Atom.t()
       }
       
   """
-  @type list_steps_input() :: %{String.t() => any()}
+  @type list_steps_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -430,11 +430,11 @@ defmodule AWS.EMR do
   ## Example:
       
       start_notebook_execution_output() :: %{
-        "NotebookExecutionId" => String.t()
+        "NotebookExecutionId" => String.t() | Atom.t()
       }
       
   """
-  @type start_notebook_execution_output() :: %{String.t() => any()}
+  @type start_notebook_execution_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -446,20 +446,20 @@ defmodule AWS.EMR do
       }
       
   """
-  @type spot_resizing_specification() :: %{String.t() => any()}
+  @type spot_resizing_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       configuration() :: %{
-        "Classification" => String.t(),
+        "Classification" => String.t() | Atom.t(),
         "Configurations" => list(configuration()),
         "Properties" => map()
       }
       
   """
-  @type configuration() :: %{String.t() => any()}
+  @type configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -472,30 +472,30 @@ defmodule AWS.EMR do
       }
       
   """
-  @type instance_group_timeline() :: %{String.t() => any()}
+  @type instance_group_timeline() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       supported_product_config() :: %{
-        "Args" => list(String.t()),
-        "Name" => String.t()
+        "Args" => list(String.t() | Atom.t()),
+        "Name" => String.t() | Atom.t()
       }
       
   """
-  @type supported_product_config() :: %{String.t() => any()}
+  @type supported_product_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_security_configurations_input() :: %{
-        optional("Marker") => String.t()
+        optional("Marker") => String.t() | Atom.t()
       }
       
   """
-  @type list_security_configurations_input() :: %{String.t() => any()}
+  @type list_security_configurations_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -507,19 +507,19 @@ defmodule AWS.EMR do
       }
       
   """
-  @type auto_scaling_policy() :: %{String.t() => any()}
+  @type auto_scaling_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_fleet() :: %{
-        "Context" => String.t(),
-        "Id" => String.t(),
+        "Context" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "InstanceFleetType" => list(any()),
         "InstanceTypeSpecifications" => list(instance_type_specification()),
         "LaunchSpecifications" => instance_fleet_provisioning_specifications(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "ProvisionedOnDemandCapacity" => integer(),
         "ProvisionedSpotCapacity" => integer(),
         "ResizeSpecifications" => instance_fleet_resizing_specifications(),
@@ -529,7 +529,7 @@ defmodule AWS.EMR do
       }
       
   """
-  @type instance_fleet() :: %{String.t() => any()}
+  @type instance_fleet() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -538,12 +538,12 @@ defmodule AWS.EMR do
       describe_job_flows_input() :: %{
         optional("CreatedAfter") => non_neg_integer(),
         optional("CreatedBefore") => non_neg_integer(),
-        optional("JobFlowIds") => list(String.t()),
+        optional("JobFlowIds") => list(String.t() | Atom.t()),
         optional("JobFlowStates") => list(list(any())())
       }
       
   """
-  @type describe_job_flows_input() :: %{String.t() => any()}
+  @type describe_job_flows_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -555,45 +555,45 @@ defmodule AWS.EMR do
       }
       
   """
-  @type placement_group_config() :: %{String.t() => any()}
+  @type placement_group_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       add_tags_input() :: %{
-        required("ResourceId") => String.t(),
+        required("ResourceId") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
       
   """
-  @type add_tags_input() :: %{String.t() => any()}
+  @type add_tags_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       hadoop_step_config() :: %{
-        "Args" => list(String.t()),
-        "Jar" => String.t(),
-        "MainClass" => String.t(),
+        "Args" => list(String.t() | Atom.t()),
+        "Jar" => String.t() | Atom.t(),
+        "MainClass" => String.t() | Atom.t(),
         "Properties" => map()
       }
       
   """
-  @type hadoop_step_config() :: %{String.t() => any()}
+  @type hadoop_step_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_supported_instance_types_input() :: %{
-        optional("Marker") => String.t(),
-        required("ReleaseLabel") => String.t()
+        optional("Marker") => String.t() | Atom.t(),
+        required("ReleaseLabel") => String.t() | Atom.t()
       }
       
   """
-  @type list_supported_instance_types_input() :: %{String.t() => any()}
+  @type list_supported_instance_types_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -602,23 +602,23 @@ defmodule AWS.EMR do
       describe_release_label_output() :: %{
         "Applications" => list(simplified_application()),
         "AvailableOSReleases" => list(o_s_release()),
-        "NextToken" => String.t(),
-        "ReleaseLabel" => String.t()
+        "NextToken" => String.t() | Atom.t(),
+        "ReleaseLabel" => String.t() | Atom.t()
       }
       
   """
-  @type describe_release_label_output() :: %{String.t() => any()}
+  @type describe_release_label_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_managed_scaling_policy_input() :: %{
-        required("ClusterId") => String.t()
+        required("ClusterId") => String.t() | Atom.t()
       }
       
   """
-  @type get_managed_scaling_policy_input() :: %{String.t() => any()}
+  @type get_managed_scaling_policy_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -626,47 +626,47 @@ defmodule AWS.EMR do
       
       security_configuration_summary() :: %{
         "CreationDateTime" => non_neg_integer(),
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
       
   """
-  @type security_configuration_summary() :: %{String.t() => any()}
+  @type security_configuration_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       job_flow_detail() :: %{
-        "AmiVersion" => String.t(),
-        "AutoScalingRole" => String.t(),
+        "AmiVersion" => String.t() | Atom.t(),
+        "AutoScalingRole" => String.t() | Atom.t(),
         "BootstrapActions" => list(bootstrap_action_detail()),
         "ExecutionStatusDetail" => job_flow_execution_status_detail(),
         "Instances" => job_flow_instances_detail(),
-        "JobFlowId" => String.t(),
-        "JobFlowRole" => String.t(),
-        "LogEncryptionKmsKeyId" => String.t(),
-        "LogUri" => String.t(),
-        "Name" => String.t(),
+        "JobFlowId" => String.t() | Atom.t(),
+        "JobFlowRole" => String.t() | Atom.t(),
+        "LogEncryptionKmsKeyId" => String.t() | Atom.t(),
+        "LogUri" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "ScaleDownBehavior" => list(any()),
-        "ServiceRole" => String.t(),
+        "ServiceRole" => String.t() | Atom.t(),
         "Steps" => list(step_detail()),
-        "SupportedProducts" => list(String.t()),
+        "SupportedProducts" => list(String.t() | Atom.t()),
         "VisibleToAllUsers" => boolean()
       }
       
   """
-  @type job_flow_detail() :: %{String.t() => any()}
+  @type job_flow_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_auto_termination_policy_input() :: %{
-        required("ClusterId") => String.t()
+        required("ClusterId") => String.t() | Atom.t()
       }
       
   """
-  @type remove_auto_termination_policy_input() :: %{String.t() => any()}
+  @type remove_auto_termination_policy_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -674,24 +674,24 @@ defmodule AWS.EMR do
       
       list_instances_output() :: %{
         "Instances" => list(instance()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type list_instances_output() :: %{String.t() => any()}
+  @type list_instances_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       failure_details() :: %{
-        "LogFile" => String.t(),
-        "Message" => String.t(),
-        "Reason" => String.t()
+        "LogFile" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
+        "Reason" => String.t() | Atom.t()
       }
       
   """
-  @type failure_details() :: %{String.t() => any()}
+  @type failure_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -699,11 +699,11 @@ defmodule AWS.EMR do
       
       list_clusters_output() :: %{
         "Clusters" => list(cluster_summary()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type list_clusters_output() :: %{String.t() => any()}
+  @type list_clusters_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -714,34 +714,34 @@ defmodule AWS.EMR do
       }
       
   """
-  @type get_auto_termination_policy_output() :: %{String.t() => any()}
+  @type get_auto_termination_policy_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       notebook_execution() :: %{
-        "Arn" => String.t(),
-        "EditorId" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "EditorId" => String.t() | Atom.t(),
         "EndTime" => non_neg_integer(),
         "EnvironmentVariables" => map(),
         "ExecutionEngine" => execution_engine_config(),
-        "LastStateChangeReason" => String.t(),
-        "NotebookExecutionId" => String.t(),
-        "NotebookExecutionName" => String.t(),
-        "NotebookInstanceSecurityGroupId" => String.t(),
-        "NotebookParams" => String.t(),
+        "LastStateChangeReason" => String.t() | Atom.t(),
+        "NotebookExecutionId" => String.t() | Atom.t(),
+        "NotebookExecutionName" => String.t() | Atom.t(),
+        "NotebookInstanceSecurityGroupId" => String.t() | Atom.t(),
+        "NotebookParams" => String.t() | Atom.t(),
         "NotebookS3Location" => notebook_s3_location_for_output(),
         "OutputNotebookFormat" => list(any()),
         "OutputNotebookS3Location" => output_notebook_s3_location_for_output(),
-        "OutputNotebookURI" => String.t(),
+        "OutputNotebookURI" => String.t() | Atom.t(),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
         "Tags" => list(tag())
       }
       
   """
-  @type notebook_execution() :: %{String.t() => any()}
+  @type notebook_execution() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -763,31 +763,31 @@ defmodule AWS.EMR do
       }
       
   """
-  @type instance_group_status() :: %{String.t() => any()}
+  @type instance_group_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       notebook_s3_location_from_input() :: %{
-        "Bucket" => String.t(),
-        "Key" => String.t()
+        "Bucket" => String.t() | Atom.t(),
+        "Key" => String.t() | Atom.t()
       }
       
   """
-  @type notebook_s3_location_from_input() :: %{String.t() => any()}
+  @type notebook_s3_location_from_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       block_public_access_configuration_metadata() :: %{
-        "CreatedByArn" => String.t(),
+        "CreatedByArn" => String.t() | Atom.t(),
         "CreationDateTime" => non_neg_integer()
       }
       
   """
-  @type block_public_access_configuration_metadata() :: %{String.t() => any()}
+  @type block_public_access_configuration_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -803,16 +803,16 @@ defmodule AWS.EMR do
   ## Example:
       
       cluster_summary() :: %{
-        "ClusterArn" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "ClusterArn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "NormalizedInstanceHours" => integer(),
-        "OutpostArn" => String.t(),
+        "OutpostArn" => String.t() | Atom.t(),
         "Status" => cluster_status()
       }
       
   """
-  @type cluster_summary() :: %{String.t() => any()}
+  @type cluster_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -820,12 +820,12 @@ defmodule AWS.EMR do
       
       put_auto_scaling_policy_input() :: %{
         required("AutoScalingPolicy") => auto_scaling_policy(),
-        required("ClusterId") => String.t(),
-        required("InstanceGroupId") => String.t()
+        required("ClusterId") => String.t() | Atom.t(),
+        required("InstanceGroupId") => String.t() | Atom.t()
       }
       
   """
-  @type put_auto_scaling_policy_input() :: %{String.t() => any()}
+  @type put_auto_scaling_policy_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -835,8 +835,8 @@ defmodule AWS.EMR do
         "ComparisonOperator" => list(any()),
         "Dimensions" => list(metric_dimension()),
         "EvaluationPeriods" => integer(),
-        "MetricName" => String.t(),
-        "Namespace" => String.t(),
+        "MetricName" => String.t() | Atom.t(),
+        "Namespace" => String.t() | Atom.t(),
         "Period" => integer(),
         "Statistic" => list(any()),
         "Threshold" => float(),
@@ -844,19 +844,19 @@ defmodule AWS.EMR do
       }
       
   """
-  @type cloud_watch_alarm_definition() :: %{String.t() => any()}
+  @type cloud_watch_alarm_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_persistent_app_ui_output() :: %{
-        "PersistentAppUIId" => String.t(),
+        "PersistentAppUIId" => String.t() | Atom.t(),
         "RuntimeRoleEnabledCluster" => boolean()
       }
       
   """
-  @type create_persistent_app_ui_output() :: %{String.t() => any()}
+  @type create_persistent_app_ui_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -867,7 +867,7 @@ defmodule AWS.EMR do
       }
       
   """
-  @type modify_cluster_output() :: %{String.t() => any()}
+  @type modify_cluster_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -881,47 +881,47 @@ defmodule AWS.EMR do
       }
       
   """
-  @type step_status() :: %{String.t() => any()}
+  @type step_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_on_cluster_app_ui_presigned_url_input() :: %{
-        optional("ApplicationId") => String.t(),
+        optional("ApplicationId") => String.t() | Atom.t(),
         optional("DryRun") => boolean(),
-        optional("ExecutionRoleArn") => String.t(),
+        optional("ExecutionRoleArn") => String.t() | Atom.t(),
         optional("OnClusterAppUIType") => list(any()),
-        required("ClusterId") => String.t()
+        required("ClusterId") => String.t() | Atom.t()
       }
       
   """
-  @type get_on_cluster_app_ui_presigned_url_input() :: %{String.t() => any()}
+  @type get_on_cluster_app_ui_presigned_url_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_studio_session_mapping_input() :: %{
-        optional("IdentityId") => String.t(),
-        optional("IdentityName") => String.t(),
+        optional("IdentityId") => String.t() | Atom.t(),
+        optional("IdentityName") => String.t() | Atom.t(),
         required("IdentityType") => list(any()),
-        required("StudioId") => String.t()
+        required("StudioId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_studio_session_mapping_input() :: %{String.t() => any()}
+  @type delete_studio_session_mapping_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_managed_scaling_policy_input() :: %{
-        required("ClusterId") => String.t()
+        required("ClusterId") => String.t() | Atom.t()
       }
       
   """
-  @type remove_managed_scaling_policy_input() :: %{String.t() => any()}
+  @type remove_managed_scaling_policy_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -929,24 +929,24 @@ defmodule AWS.EMR do
       
       on_demand_capacity_reservation_options() :: %{
         "CapacityReservationPreference" => list(any()),
-        "CapacityReservationResourceGroupArn" => String.t(),
+        "CapacityReservationResourceGroupArn" => String.t() | Atom.t(),
         "UsageStrategy" => list(any())
       }
       
   """
-  @type on_demand_capacity_reservation_options() :: %{String.t() => any()}
+  @type on_demand_capacity_reservation_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       set_keep_job_flow_alive_when_no_steps_input() :: %{
-        required("JobFlowIds") => list(String.t()),
+        required("JobFlowIds") => list(String.t() | Atom.t()),
         required("KeepJobFlowAliveWhenNoSteps") => boolean()
       }
       
   """
-  @type set_keep_job_flow_alive_when_no_steps_input() :: %{String.t() => any()}
+  @type set_keep_job_flow_alive_when_no_steps_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -954,22 +954,22 @@ defmodule AWS.EMR do
       
       create_security_configuration_output() :: %{
         "CreationDateTime" => non_neg_integer(),
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
       
   """
-  @type create_security_configuration_output() :: %{String.t() => any()}
+  @type create_security_configuration_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       add_job_flow_steps_output() :: %{
-        "StepIds" => list(String.t())
+        "StepIds" => list(String.t() | Atom.t())
       }
       
   """
-  @type add_job_flow_steps_output() :: %{String.t() => any()}
+  @type add_job_flow_steps_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -977,23 +977,23 @@ defmodule AWS.EMR do
       
       auto_scaling_policy_state_change_reason() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type auto_scaling_policy_state_change_reason() :: %{String.t() => any()}
+  @type auto_scaling_policy_state_change_reason() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_notebook_executions_output() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "NotebookExecutions" => list(notebook_execution_summary())
       }
       
   """
-  @type list_notebook_executions_output() :: %{String.t() => any()}
+  @type list_notebook_executions_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1001,26 +1001,26 @@ defmodule AWS.EMR do
       
       session_mapping_summary() :: %{
         "CreationTime" => non_neg_integer(),
-        "IdentityId" => String.t(),
-        "IdentityName" => String.t(),
+        "IdentityId" => String.t() | Atom.t(),
+        "IdentityName" => String.t() | Atom.t(),
         "IdentityType" => list(any()),
-        "SessionPolicyArn" => String.t(),
-        "StudioId" => String.t()
+        "SessionPolicyArn" => String.t() | Atom.t(),
+        "StudioId" => String.t() | Atom.t()
       }
       
   """
-  @type session_mapping_summary() :: %{String.t() => any()}
+  @type session_mapping_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_studios_input() :: %{
-        optional("Marker") => String.t()
+        optional("Marker") => String.t() | Atom.t()
       }
       
   """
-  @type list_studios_input() :: %{String.t() => any()}
+  @type list_studios_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1028,60 +1028,60 @@ defmodule AWS.EMR do
       
       add_instance_groups_input() :: %{
         required("InstanceGroups") => list(instance_group_config()),
-        required("JobFlowId") => String.t()
+        required("JobFlowId") => String.t() | Atom.t()
       }
       
   """
-  @type add_instance_groups_input() :: %{String.t() => any()}
+  @type add_instance_groups_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_group_detail() :: %{
-        "BidPrice" => String.t(),
+        "BidPrice" => String.t() | Atom.t(),
         "CreationDateTime" => non_neg_integer(),
-        "CustomAmiId" => String.t(),
+        "CustomAmiId" => String.t() | Atom.t(),
         "EndDateTime" => non_neg_integer(),
-        "InstanceGroupId" => String.t(),
+        "InstanceGroupId" => String.t() | Atom.t(),
         "InstanceRequestCount" => integer(),
         "InstanceRole" => list(any()),
         "InstanceRunningCount" => integer(),
-        "InstanceType" => String.t(),
-        "LastStateChangeReason" => String.t(),
+        "InstanceType" => String.t() | Atom.t(),
+        "LastStateChangeReason" => String.t() | Atom.t(),
         "Market" => list(any()),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "ReadyDateTime" => non_neg_integer(),
         "StartDateTime" => non_neg_integer(),
         "State" => list(any())
       }
       
   """
-  @type instance_group_detail() :: %{String.t() => any()}
+  @type instance_group_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_request_exception() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_request_exception() :: %{String.t() => any()}
+  @type invalid_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1089,35 +1089,35 @@ defmodule AWS.EMR do
       
       list_studio_session_mappings_input() :: %{
         optional("IdentityType") => list(any()),
-        optional("Marker") => String.t(),
-        optional("StudioId") => String.t()
+        optional("Marker") => String.t() | Atom.t(),
+        optional("StudioId") => String.t() | Atom.t()
       }
       
   """
-  @type list_studio_session_mappings_input() :: %{String.t() => any()}
+  @type list_studio_session_mappings_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       ebs_volume() :: %{
-        "Device" => String.t(),
-        "VolumeId" => String.t()
+        "Device" => String.t() | Atom.t(),
+        "VolumeId" => String.t() | Atom.t()
       }
       
   """
-  @type ebs_volume() :: %{String.t() => any()}
+  @type ebs_volume() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_security_configuration_input() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type describe_security_configuration_input() :: %{String.t() => any()}
+  @type describe_security_configuration_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1125,26 +1125,26 @@ defmodule AWS.EMR do
       
       cluster() :: %{
         "Status" => cluster_status(),
-        "SecurityConfiguration" => String.t(),
-        "AutoScalingRole" => String.t(),
+        "SecurityConfiguration" => String.t() | Atom.t(),
+        "AutoScalingRole" => String.t() | Atom.t(),
         "TerminationProtected" => boolean(),
-        "ClusterArn" => String.t(),
+        "ClusterArn" => String.t() | Atom.t(),
         "Tags" => list(tag()),
-        "ReleaseLabel" => String.t(),
-        "CustomAmiId" => String.t(),
-        "LogUri" => String.t(),
+        "ReleaseLabel" => String.t() | Atom.t(),
+        "CustomAmiId" => String.t() | Atom.t(),
+        "LogUri" => String.t() | Atom.t(),
         "Configurations" => list(configuration()),
         "Applications" => list(application()),
         "AutoTerminate" => boolean(),
         "StepConcurrencyLevel" => integer(),
-        "MasterPublicDnsName" => String.t(),
-        "OutpostArn" => String.t(),
-        "Id" => String.t(),
+        "MasterPublicDnsName" => String.t() | Atom.t(),
+        "OutpostArn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "KerberosAttributes" => kerberos_attributes(),
         "EbsRootVolumeThroughput" => integer(),
-        "ServiceRole" => String.t(),
+        "ServiceRole" => String.t() | Atom.t(),
         "PlacementGroups" => list(placement_group_config()),
-        "RequestedAmiVersion" => String.t(),
+        "RequestedAmiVersion" => String.t() | Atom.t(),
         "NormalizedInstanceHours" => integer(),
         "EbsRootVolumeIops" => integer(),
         "UnhealthyNodeReplacement" => boolean(),
@@ -1153,15 +1153,15 @@ defmodule AWS.EMR do
         "Ec2InstanceAttributes" => ec2_instance_attributes(),
         "EbsRootVolumeSize" => integer(),
         "RepoUpgradeOnBoot" => list(any()),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "InstanceCollectionType" => list(any()),
-        "LogEncryptionKmsKeyId" => String.t(),
-        "RunningAmiVersion" => String.t(),
-        "OSReleaseLabel" => String.t()
+        "LogEncryptionKmsKeyId" => String.t() | Atom.t(),
+        "RunningAmiVersion" => String.t() | Atom.t(),
+        "OSReleaseLabel" => String.t() | Atom.t()
       }
       
   """
-  @type cluster() :: %{String.t() => any()}
+  @type cluster() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1172,7 +1172,7 @@ defmodule AWS.EMR do
       }
       
   """
-  @type get_studio_session_mapping_output() :: %{String.t() => any()}
+  @type get_studio_session_mapping_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1180,31 +1180,31 @@ defmodule AWS.EMR do
       
       instance_group_config() :: %{
         "AutoScalingPolicy" => auto_scaling_policy(),
-        "BidPrice" => String.t(),
+        "BidPrice" => String.t() | Atom.t(),
         "Configurations" => list(configuration()),
-        "CustomAmiId" => String.t(),
+        "CustomAmiId" => String.t() | Atom.t(),
         "EbsConfiguration" => ebs_configuration(),
         "InstanceCount" => integer(),
         "InstanceRole" => list(any()),
-        "InstanceType" => String.t(),
+        "InstanceType" => String.t() | Atom.t(),
         "Market" => list(any()),
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
       
   """
-  @type instance_group_config() :: %{String.t() => any()}
+  @type instance_group_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_security_configurations_output() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "SecurityConfigurations" => list(security_configuration_summary())
       }
       
   """
-  @type list_security_configurations_output() :: %{String.t() => any()}
+  @type list_security_configurations_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1217,7 +1217,7 @@ defmodule AWS.EMR do
       }
       
   """
-  @type auto_scaling_policy_description() :: %{String.t() => any()}
+  @type auto_scaling_policy_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1228,19 +1228,19 @@ defmodule AWS.EMR do
       }
       
   """
-  @type get_managed_scaling_policy_output() :: %{String.t() => any()}
+  @type get_managed_scaling_policy_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       run_job_flow_output() :: %{
-        "ClusterArn" => String.t(),
-        "JobFlowId" => String.t()
+        "ClusterArn" => String.t() | Atom.t(),
+        "JobFlowId" => String.t() | Atom.t()
       }
       
   """
-  @type run_job_flow_output() :: %{String.t() => any()}
+  @type run_job_flow_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1248,23 +1248,23 @@ defmodule AWS.EMR do
       
       cluster_state_change_reason() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type cluster_state_change_reason() :: %{String.t() => any()}
+  @type cluster_state_change_reason() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_instance_fleets_input() :: %{
-        optional("Marker") => String.t(),
-        required("ClusterId") => String.t()
+        optional("Marker") => String.t() | Atom.t(),
+        required("ClusterId") => String.t() | Atom.t()
       }
       
   """
-  @type list_instance_fleets_input() :: %{String.t() => any()}
+  @type list_instance_fleets_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1274,11 +1274,11 @@ defmodule AWS.EMR do
         optional("ClusterStates") => list(list(any())()),
         optional("CreatedAfter") => non_neg_integer(),
         optional("CreatedBefore") => non_neg_integer(),
-        optional("Marker") => String.t()
+        optional("Marker") => String.t() | Atom.t()
       }
       
   """
-  @type list_clusters_input() :: %{String.t() => any()}
+  @type list_clusters_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1286,36 +1286,36 @@ defmodule AWS.EMR do
       
       put_auto_scaling_policy_output() :: %{
         "AutoScalingPolicy" => auto_scaling_policy_description(),
-        "ClusterArn" => String.t(),
-        "ClusterId" => String.t(),
-        "InstanceGroupId" => String.t()
+        "ClusterArn" => String.t() | Atom.t(),
+        "ClusterId" => String.t() | Atom.t(),
+        "InstanceGroupId" => String.t() | Atom.t()
       }
       
   """
-  @type put_auto_scaling_policy_output() :: %{String.t() => any()}
+  @type put_auto_scaling_policy_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_notebook_execution_input() :: %{
-        required("NotebookExecutionId") => String.t()
+        required("NotebookExecutionId") => String.t() | Atom.t()
       }
       
   """
-  @type stop_notebook_execution_input() :: %{String.t() => any()}
+  @type stop_notebook_execution_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_studio_session_mappings_output() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "SessionMappings" => list(session_mapping_summary())
       }
       
   """
-  @type list_studio_session_mappings_output() :: %{String.t() => any()}
+  @type list_studio_session_mappings_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1336,7 +1336,7 @@ defmodule AWS.EMR do
       }
       
   """
-  @type get_cluster_session_credentials_output() :: %{String.t() => any()}
+  @type get_cluster_session_credentials_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1348,7 +1348,7 @@ defmodule AWS.EMR do
       }
       
   """
-  @type instance_fleet_provisioning_specifications() :: %{String.t() => any()}
+  @type instance_fleet_provisioning_specifications() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1356,13 +1356,13 @@ defmodule AWS.EMR do
       
       application() :: %{
         "AdditionalInfo" => map(),
-        "Args" => list(String.t()),
-        "Name" => String.t(),
-        "Version" => String.t()
+        "Args" => list(String.t() | Atom.t()),
+        "Name" => String.t() | Atom.t(),
+        "Version" => String.t() | Atom.t()
       }
       
   """
-  @type application() :: %{String.t() => any()}
+  @type application() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1378,23 +1378,23 @@ defmodule AWS.EMR do
   ## Example:
       
       describe_studio_input() :: %{
-        required("StudioId") => String.t()
+        required("StudioId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_studio_input() :: %{String.t() => any()}
+  @type describe_studio_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_supported_instance_types_output() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "SupportedInstanceTypes" => list(supported_instance_type())
       }
       
   """
-  @type list_supported_instance_types_output() :: %{String.t() => any()}
+  @type list_supported_instance_types_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1406,46 +1406,46 @@ defmodule AWS.EMR do
       }
       
   """
-  @type instance_fleet_resizing_specifications() :: %{String.t() => any()}
+  @type instance_fleet_resizing_specifications() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_type_config() :: %{
-        "BidPrice" => String.t(),
+        "BidPrice" => String.t() | Atom.t(),
         "BidPriceAsPercentageOfOnDemandPrice" => float(),
         "Configurations" => list(configuration()),
-        "CustomAmiId" => String.t(),
+        "CustomAmiId" => String.t() | Atom.t(),
         "EbsConfiguration" => ebs_configuration(),
-        "InstanceType" => String.t(),
+        "InstanceType" => String.t() | Atom.t(),
         "Priority" => float(),
         "WeightedCapacity" => integer()
       }
       
   """
-  @type instance_type_config() :: %{String.t() => any()}
+  @type instance_type_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       supported_instance_type() :: %{
-        "Architecture" => String.t(),
+        "Architecture" => String.t() | Atom.t(),
         "EbsOptimizedAvailable" => boolean(),
         "EbsOptimizedByDefault" => boolean(),
         "EbsStorageOnly" => boolean(),
-        "InstanceFamilyId" => String.t(),
+        "InstanceFamilyId" => String.t() | Atom.t(),
         "Is64BitsOnly" => boolean(),
         "MemoryGB" => float(),
         "NumberOfDisks" => integer(),
         "StorageGB" => integer(),
-        "Type" => String.t(),
+        "Type" => String.t() | Atom.t(),
         "VCPU" => integer()
       }
       
   """
-  @type supported_instance_type() :: %{String.t() => any()}
+  @type supported_instance_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1456,7 +1456,7 @@ defmodule AWS.EMR do
       }
       
   """
-  @type describe_job_flows_output() :: %{String.t() => any()}
+  @type describe_job_flows_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1469,7 +1469,7 @@ defmodule AWS.EMR do
       }
       
   """
-  @type instance_fleet_status() :: %{String.t() => any()}
+  @type instance_fleet_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1478,24 +1478,24 @@ defmodule AWS.EMR do
       step_config() :: %{
         "ActionOnFailure" => list(any()),
         "HadoopJarStep" => hadoop_jar_step_config(),
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
       
   """
-  @type step_config() :: %{String.t() => any()}
+  @type step_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       add_instance_fleet_output() :: %{
-        "ClusterArn" => String.t(),
-        "ClusterId" => String.t(),
-        "InstanceFleetId" => String.t()
+        "ClusterArn" => String.t() | Atom.t(),
+        "ClusterId" => String.t() | Atom.t(),
+        "InstanceFleetId" => String.t() | Atom.t()
       }
       
   """
-  @type add_instance_fleet_output() :: %{String.t() => any()}
+  @type add_instance_fleet_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1503,11 +1503,11 @@ defmodule AWS.EMR do
       
       list_bootstrap_actions_output() :: %{
         "BootstrapActions" => list(command()),
-        "Marker" => String.t()
+        "Marker" => String.t() | Atom.t()
       }
       
   """
-  @type list_bootstrap_actions_output() :: %{String.t() => any()}
+  @type list_bootstrap_actions_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1515,19 +1515,19 @@ defmodule AWS.EMR do
       
       instance_group() :: %{
         "AutoScalingPolicy" => auto_scaling_policy_description(),
-        "BidPrice" => String.t(),
+        "BidPrice" => String.t() | Atom.t(),
         "Configurations" => list(configuration()),
         "ConfigurationsVersion" => float(),
-        "CustomAmiId" => String.t(),
+        "CustomAmiId" => String.t() | Atom.t(),
         "EbsBlockDevices" => list(ebs_block_device()),
         "EbsOptimized" => boolean(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "InstanceGroupType" => list(any()),
-        "InstanceType" => String.t(),
+        "InstanceType" => String.t() | Atom.t(),
         "LastSuccessfullyAppliedConfigurations" => list(configuration()),
         "LastSuccessfullyAppliedConfigurationsVersion" => float(),
         "Market" => list(any()),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "RequestedInstanceCount" => integer(),
         "RunningInstanceCount" => integer(),
         "ShrinkPolicy" => shrink_policy(),
@@ -1535,7 +1535,7 @@ defmodule AWS.EMR do
       }
       
   """
-  @type instance_group() :: %{String.t() => any()}
+  @type instance_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1548,19 +1548,19 @@ defmodule AWS.EMR do
       }
       
   """
-  @type step_timeline() :: %{String.t() => any()}
+  @type step_timeline() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       ebs_block_device() :: %{
-        "Device" => String.t(),
+        "Device" => String.t() | Atom.t(),
         "VolumeSpecification" => volume_specification()
       }
       
   """
-  @type ebs_block_device() :: %{String.t() => any()}
+  @type ebs_block_device() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1572,23 +1572,23 @@ defmodule AWS.EMR do
       }
       
   """
-  @type ebs_configuration() :: %{String.t() => any()}
+  @type ebs_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_studio_input() :: %{
-        optional("DefaultS3Location") => String.t(),
-        optional("Description") => String.t(),
-        optional("EncryptionKeyArn") => String.t(),
-        optional("Name") => String.t(),
-        optional("SubnetIds") => list(String.t()),
-        required("StudioId") => String.t()
+        optional("DefaultS3Location") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("EncryptionKeyArn") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t(),
+        optional("SubnetIds") => list(String.t() | Atom.t()),
+        required("StudioId") => String.t() | Atom.t()
       }
       
   """
-  @type update_studio_input() :: %{String.t() => any()}
+  @type update_studio_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1596,26 +1596,26 @@ defmodule AWS.EMR do
       
       instance_resize_policy() :: %{
         "InstanceTerminationTimeout" => integer(),
-        "InstancesToProtect" => list(String.t()),
-        "InstancesToTerminate" => list(String.t())
+        "InstancesToProtect" => list(String.t() | Atom.t()),
+        "InstancesToTerminate" => list(String.t() | Atom.t())
       }
       
   """
-  @type instance_resize_policy() :: %{String.t() => any()}
+  @type instance_resize_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_studio_session_mapping_input() :: %{
-        optional("IdentityId") => String.t(),
-        optional("IdentityName") => String.t(),
+        optional("IdentityId") => String.t() | Atom.t(),
+        optional("IdentityName") => String.t() | Atom.t(),
         required("IdentityType") => list(any()),
-        required("StudioId") => String.t()
+        required("StudioId") => String.t() | Atom.t()
       }
       
   """
-  @type get_studio_session_mapping_input() :: %{String.t() => any()}
+  @type get_studio_session_mapping_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1627,19 +1627,19 @@ defmodule AWS.EMR do
       }
       
   """
-  @type get_block_public_access_configuration_output() :: %{String.t() => any()}
+  @type get_block_public_access_configuration_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       metric_dimension() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type metric_dimension() :: %{String.t() => any()}
+  @type metric_dimension() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1655,52 +1655,52 @@ defmodule AWS.EMR do
   ## Example:
       
       remove_auto_scaling_policy_input() :: %{
-        required("ClusterId") => String.t(),
-        required("InstanceGroupId") => String.t()
+        required("ClusterId") => String.t() | Atom.t(),
+        required("InstanceGroupId") => String.t() | Atom.t()
       }
       
   """
-  @type remove_auto_scaling_policy_input() :: %{String.t() => any()}
+  @type remove_auto_scaling_policy_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_studios_output() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "Studios" => list(studio_summary())
       }
       
   """
-  @type list_studios_output() :: %{String.t() => any()}
+  @type list_studios_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       job_flow_instances_config() :: %{
-        "AdditionalMasterSecurityGroups" => list(String.t()),
-        "AdditionalSlaveSecurityGroups" => list(String.t()),
-        "Ec2KeyName" => String.t(),
-        "Ec2SubnetId" => String.t(),
-        "Ec2SubnetIds" => list(String.t()),
-        "EmrManagedMasterSecurityGroup" => String.t(),
-        "EmrManagedSlaveSecurityGroup" => String.t(),
-        "HadoopVersion" => String.t(),
+        "AdditionalMasterSecurityGroups" => list(String.t() | Atom.t()),
+        "AdditionalSlaveSecurityGroups" => list(String.t() | Atom.t()),
+        "Ec2KeyName" => String.t() | Atom.t(),
+        "Ec2SubnetId" => String.t() | Atom.t(),
+        "Ec2SubnetIds" => list(String.t() | Atom.t()),
+        "EmrManagedMasterSecurityGroup" => String.t() | Atom.t(),
+        "EmrManagedSlaveSecurityGroup" => String.t() | Atom.t(),
+        "HadoopVersion" => String.t() | Atom.t(),
         "InstanceCount" => integer(),
         "InstanceFleets" => list(instance_fleet_config()),
         "InstanceGroups" => list(instance_group_config()),
         "KeepJobFlowAliveWhenNoSteps" => boolean(),
-        "MasterInstanceType" => String.t(),
+        "MasterInstanceType" => String.t() | Atom.t(),
         "Placement" => placement_type(),
-        "ServiceAccessSecurityGroup" => String.t(),
-        "SlaveInstanceType" => String.t(),
+        "ServiceAccessSecurityGroup" => String.t() | Atom.t(),
+        "SlaveInstanceType" => String.t() | Atom.t(),
         "TerminationProtected" => boolean(),
         "UnhealthyNodeReplacement" => boolean()
       }
       
   """
-  @type job_flow_instances_config() :: %{String.t() => any()}
+  @type job_flow_instances_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1711,54 +1711,54 @@ defmodule AWS.EMR do
       }
       
   """
-  @type cancel_steps_output() :: %{String.t() => any()}
+  @type cancel_steps_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       execution_engine_config() :: %{
-        "ExecutionRoleArn" => String.t(),
-        "Id" => String.t(),
-        "MasterInstanceSecurityGroupId" => String.t(),
+        "ExecutionRoleArn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "MasterInstanceSecurityGroupId" => String.t() | Atom.t(),
         "Type" => list(any())
       }
       
   """
-  @type execution_engine_config() :: %{String.t() => any()}
+  @type execution_engine_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_notebook_execution_input() :: %{
-        optional("EditorId") => String.t(),
+        optional("EditorId") => String.t() | Atom.t(),
         optional("EnvironmentVariables") => map(),
-        optional("NotebookExecutionName") => String.t(),
-        optional("NotebookInstanceSecurityGroupId") => String.t(),
-        optional("NotebookParams") => String.t(),
+        optional("NotebookExecutionName") => String.t() | Atom.t(),
+        optional("NotebookInstanceSecurityGroupId") => String.t() | Atom.t(),
+        optional("NotebookParams") => String.t() | Atom.t(),
         optional("NotebookS3Location") => notebook_s3_location_from_input(),
         optional("OutputNotebookFormat") => list(any()),
         optional("OutputNotebookS3Location") => output_notebook_s3_location_from_input(),
-        optional("RelativePath") => String.t(),
+        optional("RelativePath") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
         required("ExecutionEngine") => execution_engine_config(),
-        required("ServiceRole") => String.t()
+        required("ServiceRole") => String.t() | Atom.t()
       }
       
   """
-  @type start_notebook_execution_input() :: %{String.t() => any()}
+  @type start_notebook_execution_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       o_s_release() :: %{
-        "Label" => String.t()
+        "Label" => String.t() | Atom.t()
       }
       
   """
-  @type o_s_release() :: %{String.t() => any()}
+  @type o_s_release() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1767,15 +1767,15 @@ defmodule AWS.EMR do
       studio_summary() :: %{
         "AuthMode" => list(any()),
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "Name" => String.t(),
-        "StudioId" => String.t(),
-        "Url" => String.t(),
-        "VpcId" => String.t()
+        "Description" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "StudioId" => String.t() | Atom.t(),
+        "Url" => String.t() | Atom.t(),
+        "VpcId" => String.t() | Atom.t()
       }
       
   """
-  @type studio_summary() :: %{String.t() => any()}
+  @type studio_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1791,11 +1791,11 @@ defmodule AWS.EMR do
   ## Example:
       
       internal_server_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1803,14 +1803,14 @@ defmodule AWS.EMR do
       
       block_public_access_configuration() :: %{
         "BlockPublicSecurityGroupRules" => boolean(),
-        "Classification" => String.t(),
+        "Classification" => String.t() | Atom.t(),
         "Configurations" => list(configuration()),
         "PermittedPublicSecurityGroupRuleRanges" => list(port_range()),
         "Properties" => map()
       }
       
   """
-  @type block_public_access_configuration() :: %{String.t() => any()}
+  @type block_public_access_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1818,15 +1818,15 @@ defmodule AWS.EMR do
       
       instance_group_modify_config() :: %{
         "Configurations" => list(configuration()),
-        "EC2InstanceIdsToTerminate" => list(String.t()),
+        "EC2InstanceIdsToTerminate" => list(String.t() | Atom.t()),
         "InstanceCount" => integer(),
-        "InstanceGroupId" => String.t(),
+        "InstanceGroupId" => String.t() | Atom.t(),
         "ReconfigurationType" => list(any()),
         "ShrinkPolicy" => shrink_policy()
       }
       
   """
-  @type instance_group_modify_config() :: %{String.t() => any()}
+  @type instance_group_modify_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1838,19 +1838,19 @@ defmodule AWS.EMR do
       }
       
   """
-  @type scaling_constraints() :: %{String.t() => any()}
+  @type scaling_constraints() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_step_input() :: %{
-        required("ClusterId") => String.t(),
-        required("StepId") => String.t()
+        required("ClusterId") => String.t() | Atom.t(),
+        required("StepId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_step_input() :: %{String.t() => any()}
+  @type describe_step_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1862,19 +1862,19 @@ defmodule AWS.EMR do
       }
       
   """
-  @type port_range() :: %{String.t() => any()}
+  @type port_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_studio_output() :: %{
-        "StudioId" => String.t(),
-        "Url" => String.t()
+        "StudioId" => String.t() | Atom.t(),
+        "Url" => String.t() | Atom.t()
       }
       
   """
-  @type create_studio_output() :: %{String.t() => any()}
+  @type create_studio_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1886,47 +1886,47 @@ defmodule AWS.EMR do
       }
       
   """
-  @type ebs_block_device_config() :: %{String.t() => any()}
+  @type ebs_block_device_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       notebook_s3_location_for_output() :: %{
-        "Bucket" => String.t(),
-        "Key" => String.t()
+        "Bucket" => String.t() | Atom.t(),
+        "Key" => String.t() | Atom.t()
       }
       
   """
-  @type notebook_s3_location_for_output() :: %{String.t() => any()}
+  @type notebook_s3_location_for_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       error_detail() :: %{
-        "ErrorCode" => String.t(),
+        "ErrorCode" => String.t() | Atom.t(),
         "ErrorData" => list(map()),
-        "ErrorMessage" => String.t()
+        "ErrorMessage" => String.t() | Atom.t()
       }
       
   """
-  @type error_detail() :: %{String.t() => any()}
+  @type error_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       kerberos_attributes() :: %{
-        "ADDomainJoinPassword" => String.t(),
-        "ADDomainJoinUser" => String.t(),
-        "CrossRealmTrustPrincipalPassword" => String.t(),
-        "KdcAdminPassword" => String.t(),
-        "Realm" => String.t()
+        "ADDomainJoinPassword" => String.t() | Atom.t(),
+        "ADDomainJoinUser" => String.t() | Atom.t(),
+        "CrossRealmTrustPrincipalPassword" => String.t() | Atom.t(),
+        "KdcAdminPassword" => String.t() | Atom.t(),
+        "Realm" => String.t() | Atom.t()
       }
       
   """
-  @type kerberos_attributes() :: %{String.t() => any()}
+  @type kerberos_attributes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1939,7 +1939,7 @@ defmodule AWS.EMR do
       }
       
   """
-  @type instance_timeline() :: %{String.t() => any()}
+  @type instance_timeline() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1955,32 +1955,32 @@ defmodule AWS.EMR do
   ## Example:
       
       update_studio_session_mapping_input() :: %{
-        optional("IdentityId") => String.t(),
-        optional("IdentityName") => String.t(),
+        optional("IdentityId") => String.t() | Atom.t(),
+        optional("IdentityName") => String.t() | Atom.t(),
         required("IdentityType") => list(any()),
-        required("SessionPolicyArn") => String.t(),
-        required("StudioId") => String.t()
+        required("SessionPolicyArn") => String.t() | Atom.t(),
+        required("StudioId") => String.t() | Atom.t()
       }
       
   """
-  @type update_studio_session_mapping_input() :: %{String.t() => any()}
+  @type update_studio_session_mapping_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_instances_input() :: %{
-        optional("InstanceFleetId") => String.t(),
+        optional("InstanceFleetId") => String.t() | Atom.t(),
         optional("InstanceFleetType") => list(any()),
-        optional("InstanceGroupId") => String.t(),
+        optional("InstanceGroupId") => String.t() | Atom.t(),
         optional("InstanceGroupTypes") => list(list(any())()),
         optional("InstanceStates") => list(list(any())()),
-        optional("Marker") => String.t(),
-        required("ClusterId") => String.t()
+        optional("Marker") => String.t() | Atom.t(),
+        required("ClusterId") => String.t() | Atom.t()
       }
       
   """
-  @type list_instances_input() :: %{String.t() => any()}
+  @type list_instances_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1988,32 +1988,32 @@ defmodule AWS.EMR do
       
       instance() :: %{
         "EbsVolumes" => list(ebs_volume()),
-        "Ec2InstanceId" => String.t(),
-        "Id" => String.t(),
-        "InstanceFleetId" => String.t(),
-        "InstanceGroupId" => String.t(),
-        "InstanceType" => String.t(),
+        "Ec2InstanceId" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "InstanceFleetId" => String.t() | Atom.t(),
+        "InstanceGroupId" => String.t() | Atom.t(),
+        "InstanceType" => String.t() | Atom.t(),
         "Market" => list(any()),
-        "PrivateDnsName" => String.t(),
-        "PrivateIpAddress" => String.t(),
-        "PublicDnsName" => String.t(),
-        "PublicIpAddress" => String.t(),
+        "PrivateDnsName" => String.t() | Atom.t(),
+        "PrivateIpAddress" => String.t() | Atom.t(),
+        "PublicDnsName" => String.t() | Atom.t(),
+        "PublicIpAddress" => String.t() | Atom.t(),
         "Status" => instance_status()
       }
       
   """
-  @type instance() :: %{String.t() => any()}
+  @type instance() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_persistent_app_ui_input() :: %{
-        required("PersistentAppUIId") => String.t()
+        required("PersistentAppUIId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_persistent_app_ui_input() :: %{String.t() => any()}
+  @type describe_persistent_app_ui_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2021,11 +2021,11 @@ defmodule AWS.EMR do
       
       instance_group_state_change_reason() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type instance_group_state_change_reason() :: %{String.t() => any()}
+  @type instance_group_state_change_reason() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2038,7 +2038,7 @@ defmodule AWS.EMR do
       }
       
   """
-  @type cluster_timeline() :: %{String.t() => any()}
+  @type cluster_timeline() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2054,11 +2054,11 @@ defmodule AWS.EMR do
   ## Example:
       
       describe_notebook_execution_input() :: %{
-        required("NotebookExecutionId") => String.t()
+        required("NotebookExecutionId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_notebook_execution_input() :: %{String.t() => any()}
+  @type describe_notebook_execution_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2066,12 +2066,12 @@ defmodule AWS.EMR do
       
       cancel_steps_input() :: %{
         optional("StepCancellationOption") => list(any()),
-        required("ClusterId") => String.t(),
-        required("StepIds") => list(String.t())
+        required("ClusterId") => String.t() | Atom.t(),
+        required("StepIds") => list(String.t() | Atom.t())
       }
       
   """
-  @type cancel_steps_input() :: %{String.t() => any()}
+  @type cancel_steps_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2084,19 +2084,19 @@ defmodule AWS.EMR do
       }
       
   """
-  @type simple_scaling_policy_configuration() :: %{String.t() => any()}
+  @type simple_scaling_policy_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       username_password() :: %{
-        "Password" => String.t(),
-        "Username" => String.t()
+        "Password" => String.t() | Atom.t(),
+        "Username" => String.t() | Atom.t()
       }
       
   """
-  @type username_password() :: %{String.t() => any()}
+  @type username_password() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2105,11 +2105,11 @@ defmodule AWS.EMR do
       list_release_labels_input() :: %{
         optional("Filters") => release_label_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_release_labels_input() :: %{String.t() => any()}
+  @type list_release_labels_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2117,25 +2117,25 @@ defmodule AWS.EMR do
       
       modify_cluster_input() :: %{
         optional("StepConcurrencyLevel") => integer(),
-        required("ClusterId") => String.t()
+        required("ClusterId") => String.t() | Atom.t()
       }
       
   """
-  @type modify_cluster_input() :: %{String.t() => any()}
+  @type modify_cluster_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       hadoop_jar_step_config() :: %{
-        "Args" => list(String.t()),
-        "Jar" => String.t(),
-        "MainClass" => String.t(),
+        "Args" => list(String.t() | Atom.t()),
+        "Jar" => String.t() | Atom.t(),
+        "MainClass" => String.t() | Atom.t(),
         "Properties" => list(key_value())
       }
       
   """
-  @type hadoop_jar_step_config() :: %{String.t() => any()}
+  @type hadoop_jar_step_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2150,20 +2150,20 @@ defmodule AWS.EMR do
       }
       
   """
-  @type compute_limits() :: %{String.t() => any()}
+  @type compute_limits() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       add_job_flow_steps_input() :: %{
-        optional("ExecutionRoleArn") => String.t(),
-        required("JobFlowId") => String.t(),
+        optional("ExecutionRoleArn") => String.t() | Atom.t(),
+        required("JobFlowId") => String.t() | Atom.t(),
         required("Steps") => list(step_config())
       }
       
   """
-  @type add_job_flow_steps_input() :: %{String.t() => any()}
+  @type add_job_flow_steps_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2177,93 +2177,93 @@ defmodule AWS.EMR do
       }
       
   """
-  @type cluster_status() :: %{String.t() => any()}
+  @type cluster_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_on_cluster_app_ui_presigned_url_output() :: %{
-        "PresignedURL" => String.t(),
+        "PresignedURL" => String.t() | Atom.t(),
         "PresignedURLReady" => boolean()
       }
       
   """
-  @type get_on_cluster_app_ui_presigned_url_output() :: %{String.t() => any()}
+  @type get_on_cluster_app_ui_presigned_url_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       persistent_app_ui() :: %{
-        "AuthorId" => String.t(),
+        "AuthorId" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
         "LastModifiedTime" => non_neg_integer(),
-        "LastStateChangeReason" => String.t(),
-        "PersistentAppUIId" => String.t(),
-        "PersistentAppUIStatus" => String.t(),
+        "LastStateChangeReason" => String.t() | Atom.t(),
+        "PersistentAppUIId" => String.t() | Atom.t(),
+        "PersistentAppUIStatus" => String.t() | Atom.t(),
         "PersistentAppUITypeList" => list(list(any())()),
         "Tags" => list(tag())
       }
       
   """
-  @type persistent_app_ui() :: %{String.t() => any()}
+  @type persistent_app_ui() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       set_unhealthy_node_replacement_input() :: %{
-        required("JobFlowIds") => list(String.t()),
+        required("JobFlowIds") => list(String.t() | Atom.t()),
         required("UnhealthyNodeReplacement") => boolean()
       }
       
   """
-  @type set_unhealthy_node_replacement_input() :: %{String.t() => any()}
+  @type set_unhealthy_node_replacement_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_steps_output() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "Steps" => list(step_summary())
       }
       
   """
-  @type list_steps_output() :: %{String.t() => any()}
+  @type list_steps_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       terminate_job_flows_input() :: %{
-        required("JobFlowIds") => list(String.t())
+        required("JobFlowIds") => list(String.t() | Atom.t())
       }
       
   """
-  @type terminate_job_flows_input() :: %{String.t() => any()}
+  @type terminate_job_flows_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       ec2_instance_attributes() :: %{
-        "AdditionalMasterSecurityGroups" => list(String.t()),
-        "AdditionalSlaveSecurityGroups" => list(String.t()),
-        "Ec2AvailabilityZone" => String.t(),
-        "Ec2KeyName" => String.t(),
-        "Ec2SubnetId" => String.t(),
-        "EmrManagedMasterSecurityGroup" => String.t(),
-        "EmrManagedSlaveSecurityGroup" => String.t(),
-        "IamInstanceProfile" => String.t(),
-        "RequestedEc2AvailabilityZones" => list(String.t()),
-        "RequestedEc2SubnetIds" => list(String.t()),
-        "ServiceAccessSecurityGroup" => String.t()
+        "AdditionalMasterSecurityGroups" => list(String.t() | Atom.t()),
+        "AdditionalSlaveSecurityGroups" => list(String.t() | Atom.t()),
+        "Ec2AvailabilityZone" => String.t() | Atom.t(),
+        "Ec2KeyName" => String.t() | Atom.t(),
+        "Ec2SubnetId" => String.t() | Atom.t(),
+        "EmrManagedMasterSecurityGroup" => String.t() | Atom.t(),
+        "EmrManagedSlaveSecurityGroup" => String.t() | Atom.t(),
+        "IamInstanceProfile" => String.t() | Atom.t(),
+        "RequestedEc2AvailabilityZones" => list(String.t() | Atom.t()),
+        "RequestedEc2SubnetIds" => list(String.t() | Atom.t()),
+        "ServiceAccessSecurityGroup" => String.t() | Atom.t()
       }
       
   """
-  @type ec2_instance_attributes() :: %{String.t() => any()}
+  @type ec2_instance_attributes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2276,34 +2276,34 @@ defmodule AWS.EMR do
       }
       
   """
-  @type on_demand_resizing_specification() :: %{String.t() => any()}
+  @type on_demand_resizing_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_studio_input() :: %{
-        optional("Description") => String.t(),
-        optional("EncryptionKeyArn") => String.t(),
-        optional("IdcInstanceArn") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("EncryptionKeyArn") => String.t() | Atom.t(),
+        optional("IdcInstanceArn") => String.t() | Atom.t(),
         optional("IdcUserAssignment") => list(any()),
-        optional("IdpAuthUrl") => String.t(),
-        optional("IdpRelayStateParameterName") => String.t(),
+        optional("IdpAuthUrl") => String.t() | Atom.t(),
+        optional("IdpRelayStateParameterName") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
         optional("TrustedIdentityPropagationEnabled") => boolean(),
-        optional("UserRole") => String.t(),
+        optional("UserRole") => String.t() | Atom.t(),
         required("AuthMode") => list(any()),
-        required("DefaultS3Location") => String.t(),
-        required("EngineSecurityGroupId") => String.t(),
-        required("Name") => String.t(),
-        required("ServiceRole") => String.t(),
-        required("SubnetIds") => list(String.t()),
-        required("VpcId") => String.t(),
-        required("WorkspaceSecurityGroupId") => String.t()
+        required("DefaultS3Location") => String.t() | Atom.t(),
+        required("EngineSecurityGroupId") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t(),
+        required("ServiceRole") => String.t() | Atom.t(),
+        required("SubnetIds") => list(String.t() | Atom.t()),
+        required("VpcId") => String.t() | Atom.t(),
+        required("WorkspaceSecurityGroupId") => String.t() | Atom.t()
       }
       
   """
-  @type create_studio_input() :: %{String.t() => any()}
+  @type create_studio_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2312,14 +2312,14 @@ defmodule AWS.EMR do
       job_flow_execution_status_detail() :: %{
         "CreationDateTime" => non_neg_integer(),
         "EndDateTime" => non_neg_integer(),
-        "LastStateChangeReason" => String.t(),
+        "LastStateChangeReason" => String.t() | Atom.t(),
         "ReadyDateTime" => non_neg_integer(),
         "StartDateTime" => non_neg_integer(),
         "State" => list(any())
       }
       
   """
-  @type job_flow_execution_status_detail() :: %{String.t() => any()}
+  @type job_flow_execution_status_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2330,7 +2330,7 @@ defmodule AWS.EMR do
       }
       
   """
-  @type describe_studio_output() :: %{String.t() => any()}
+  @type describe_studio_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2338,16 +2338,16 @@ defmodule AWS.EMR do
       
       session_mapping_detail() :: %{
         "CreationTime" => non_neg_integer(),
-        "IdentityId" => String.t(),
-        "IdentityName" => String.t(),
+        "IdentityId" => String.t() | Atom.t(),
+        "IdentityName" => String.t() | Atom.t(),
         "IdentityType" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
-        "SessionPolicyArn" => String.t(),
-        "StudioId" => String.t()
+        "SessionPolicyArn" => String.t() | Atom.t(),
+        "StudioId" => String.t() | Atom.t()
       }
       
   """
-  @type session_mapping_detail() :: %{String.t() => any()}
+  @type session_mapping_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2356,13 +2356,13 @@ defmodule AWS.EMR do
       step_execution_status_detail() :: %{
         "CreationDateTime" => non_neg_integer(),
         "EndDateTime" => non_neg_integer(),
-        "LastStateChangeReason" => String.t(),
+        "LastStateChangeReason" => String.t() | Atom.t(),
         "StartDateTime" => non_neg_integer(),
         "State" => list(any())
       }
       
   """
-  @type step_execution_status_detail() :: %{String.t() => any()}
+  @type step_execution_status_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2370,11 +2370,11 @@ defmodule AWS.EMR do
       
       put_auto_termination_policy_input() :: %{
         optional("AutoTerminationPolicy") => auto_termination_policy(),
-        required("ClusterId") => String.t()
+        required("ClusterId") => String.t() | Atom.t()
       }
       
   """
-  @type put_auto_termination_policy_input() :: %{String.t() => any()}
+  @type put_auto_termination_policy_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2386,59 +2386,59 @@ defmodule AWS.EMR do
       }
       
   """
-  @type scaling_action() :: %{String.t() => any()}
+  @type scaling_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_instance_groups_input() :: %{
-        optional("Marker") => String.t(),
-        required("ClusterId") => String.t()
+        optional("Marker") => String.t() | Atom.t(),
+        required("ClusterId") => String.t() | Atom.t()
       }
       
   """
-  @type list_instance_groups_input() :: %{String.t() => any()}
+  @type list_instance_groups_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_notebook_executions_input() :: %{
-        optional("EditorId") => String.t(),
-        optional("ExecutionEngineId") => String.t(),
+        optional("EditorId") => String.t() | Atom.t(),
+        optional("ExecutionEngineId") => String.t() | Atom.t(),
         optional("From") => non_neg_integer(),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("Status") => list(any()),
         optional("To") => non_neg_integer()
       }
       
   """
-  @type list_notebook_executions_input() :: %{String.t() => any()}
+  @type list_notebook_executions_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       job_flow_instances_detail() :: %{
-        "Ec2KeyName" => String.t(),
-        "Ec2SubnetId" => String.t(),
-        "HadoopVersion" => String.t(),
+        "Ec2KeyName" => String.t() | Atom.t(),
+        "Ec2SubnetId" => String.t() | Atom.t(),
+        "HadoopVersion" => String.t() | Atom.t(),
         "InstanceCount" => integer(),
         "InstanceGroups" => list(instance_group_detail()),
         "KeepJobFlowAliveWhenNoSteps" => boolean(),
-        "MasterInstanceId" => String.t(),
-        "MasterInstanceType" => String.t(),
-        "MasterPublicDnsName" => String.t(),
+        "MasterInstanceId" => String.t() | Atom.t(),
+        "MasterInstanceType" => String.t() | Atom.t(),
+        "MasterPublicDnsName" => String.t() | Atom.t(),
         "NormalizedInstanceHours" => integer(),
         "Placement" => placement_type(),
-        "SlaveInstanceType" => String.t(),
+        "SlaveInstanceType" => String.t() | Atom.t(),
         "TerminationProtected" => boolean(),
         "UnhealthyNodeReplacement" => boolean()
       }
       
   """
-  @type job_flow_instances_detail() :: %{String.t() => any()}
+  @type job_flow_instances_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2450,67 +2450,67 @@ defmodule AWS.EMR do
       }
       
   """
-  @type shrink_policy() :: %{String.t() => any()}
+  @type shrink_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       notebook_execution_summary() :: %{
-        "EditorId" => String.t(),
+        "EditorId" => String.t() | Atom.t(),
         "EndTime" => non_neg_integer(),
-        "ExecutionEngineId" => String.t(),
-        "NotebookExecutionId" => String.t(),
-        "NotebookExecutionName" => String.t(),
+        "ExecutionEngineId" => String.t() | Atom.t(),
+        "NotebookExecutionId" => String.t() | Atom.t(),
+        "NotebookExecutionName" => String.t() | Atom.t(),
         "NotebookS3Location" => notebook_s3_location_for_output(),
         "StartTime" => non_neg_integer(),
         "Status" => list(any())
       }
       
   """
-  @type notebook_execution_summary() :: %{String.t() => any()}
+  @type notebook_execution_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_security_configuration_input() :: %{
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type delete_security_configuration_input() :: %{String.t() => any()}
+  @type delete_security_configuration_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       command() :: %{
-        "Args" => list(String.t()),
-        "Name" => String.t(),
-        "ScriptPath" => String.t()
+        "Args" => list(String.t() | Atom.t()),
+        "Name" => String.t() | Atom.t(),
+        "ScriptPath" => String.t() | Atom.t()
       }
       
   """
-  @type command() :: %{String.t() => any()}
+  @type command() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_fleet_config() :: %{
-        "Context" => String.t(),
+        "Context" => String.t() | Atom.t(),
         "InstanceFleetType" => list(any()),
         "InstanceTypeConfigs" => list(instance_type_config()),
         "LaunchSpecifications" => instance_fleet_provisioning_specifications(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "ResizeSpecifications" => instance_fleet_resizing_specifications(),
         "TargetOnDemandCapacity" => integer(),
         "TargetSpotCapacity" => integer()
       }
       
   """
-  @type instance_fleet_config() :: %{String.t() => any()}
+  @type instance_fleet_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2524,19 +2524,19 @@ defmodule AWS.EMR do
       }
       
   """
-  @type spot_provisioning_specification() :: %{String.t() => any()}
+  @type spot_provisioning_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       key_value() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type key_value() :: %{String.t() => any()}
+  @type key_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2549,15 +2549,15 @@ defmodule AWS.EMR do
       }
       
   """
-  @type instance_status() :: %{String.t() => any()}
+  @type instance_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_fleet_modify_config() :: %{
-        "Context" => String.t(),
-        "InstanceFleetId" => String.t(),
+        "Context" => String.t() | Atom.t(),
+        "InstanceFleetId" => String.t() | Atom.t(),
         "InstanceTypeConfigs" => list(instance_type_config()),
         "ResizeSpecifications" => instance_fleet_resizing_specifications(),
         "TargetOnDemandCapacity" => integer(),
@@ -2565,7 +2565,7 @@ defmodule AWS.EMR do
       }
       
   """
-  @type instance_fleet_modify_config() :: %{String.t() => any()}
+  @type instance_fleet_modify_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2578,90 +2578,90 @@ defmodule AWS.EMR do
       }
       
   """
-  @type managed_scaling_policy() :: %{String.t() => any()}
+  @type managed_scaling_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       placement_type() :: %{
-        "AvailabilityZone" => String.t(),
-        "AvailabilityZones" => list(String.t())
+        "AvailabilityZone" => String.t() | Atom.t(),
+        "AvailabilityZones" => list(String.t() | Atom.t())
       }
       
   """
-  @type placement_type() :: %{String.t() => any()}
+  @type placement_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_persistent_app_ui_presigned_url_output() :: %{
-        "PresignedURL" => String.t(),
+        "PresignedURL" => String.t() | Atom.t(),
         "PresignedURLReady" => boolean()
       }
       
   """
-  @type get_persistent_app_ui_presigned_url_output() :: %{String.t() => any()}
+  @type get_persistent_app_ui_presigned_url_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       set_termination_protection_input() :: %{
-        required("JobFlowIds") => list(String.t()),
+        required("JobFlowIds") => list(String.t() | Atom.t()),
         required("TerminationProtected") => boolean()
       }
       
   """
-  @type set_termination_protection_input() :: %{String.t() => any()}
+  @type set_termination_protection_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       output_notebook_s3_location_for_output() :: %{
-        "Bucket" => String.t(),
-        "Key" => String.t()
+        "Bucket" => String.t() | Atom.t(),
+        "Key" => String.t() | Atom.t()
       }
       
   """
-  @type output_notebook_s3_location_for_output() :: %{String.t() => any()}
+  @type output_notebook_s3_location_for_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_release_labels_output() :: %{
-        "NextToken" => String.t(),
-        "ReleaseLabels" => list(String.t())
+        "NextToken" => String.t() | Atom.t(),
+        "ReleaseLabels" => list(String.t() | Atom.t())
       }
       
   """
-  @type list_release_labels_output() :: %{String.t() => any()}
+  @type list_release_labels_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_cluster_input() :: %{
-        required("ClusterId") => String.t()
+        required("ClusterId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_cluster_input() :: %{String.t() => any()}
+  @type describe_cluster_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_tags_input() :: %{
-        required("ResourceId") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceId") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type remove_tags_input() :: %{String.t() => any()}
+  @type remove_tags_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2670,38 +2670,38 @@ defmodule AWS.EMR do
       step() :: %{
         "ActionOnFailure" => list(any()),
         "Config" => hadoop_step_config(),
-        "ExecutionRoleArn" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "ExecutionRoleArn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "Status" => step_status()
       }
       
   """
-  @type step() :: %{String.t() => any()}
+  @type step() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_instance_groups_input() :: %{
-        optional("ClusterId") => String.t(),
+        optional("ClusterId") => String.t() | Atom.t(),
         optional("InstanceGroups") => list(instance_group_modify_config())
       }
       
   """
-  @type modify_instance_groups_input() :: %{String.t() => any()}
+  @type modify_instance_groups_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_managed_scaling_policy_input() :: %{
-        required("ClusterId") => String.t(),
+        required("ClusterId") => String.t() | Atom.t(),
         required("ManagedScalingPolicy") => managed_scaling_policy()
       }
       
   """
-  @type put_managed_scaling_policy_input() :: %{String.t() => any()}
+  @type put_managed_scaling_policy_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2713,7 +2713,7 @@ defmodule AWS.EMR do
       }
       
   """
-  @type on_demand_provisioning_specification() :: %{String.t() => any()}
+  @type on_demand_provisioning_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2722,13 +2722,13 @@ defmodule AWS.EMR do
       step_summary() :: %{
         "ActionOnFailure" => list(any()),
         "Config" => hadoop_step_config(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "Status" => step_status()
       }
       
   """
-  @type step_summary() :: %{String.t() => any()}
+  @type step_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2736,11 +2736,11 @@ defmodule AWS.EMR do
       
       instance_fleet_state_change_reason() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type instance_fleet_state_change_reason() :: %{String.t() => any()}
+  @type instance_fleet_state_change_reason() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2751,7 +2751,7 @@ defmodule AWS.EMR do
       }
       
   """
-  @type describe_notebook_execution_output() :: %{String.t() => any()}
+  @type describe_notebook_execution_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2764,30 +2764,30 @@ defmodule AWS.EMR do
       }
       
   """
-  @type instance_fleet_timeline() :: %{String.t() => any()}
+  @type instance_fleet_timeline() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       emr_containers_config() :: %{
-        "JobRunId" => String.t()
+        "JobRunId" => String.t() | Atom.t()
       }
       
   """
-  @type emr_containers_config() :: %{String.t() => any()}
+  @type emr_containers_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_instance_fleet_input() :: %{
-        required("ClusterId") => String.t(),
+        required("ClusterId") => String.t() | Atom.t(),
         required("InstanceFleet") => instance_fleet_modify_config()
       }
       
   """
-  @type modify_instance_fleet_input() :: %{String.t() => any()}
+  @type modify_instance_fleet_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2796,29 +2796,29 @@ defmodule AWS.EMR do
       studio() :: %{
         "AuthMode" => list(any()),
         "CreationTime" => non_neg_integer(),
-        "DefaultS3Location" => String.t(),
-        "Description" => String.t(),
-        "EncryptionKeyArn" => String.t(),
-        "EngineSecurityGroupId" => String.t(),
-        "IdcInstanceArn" => String.t(),
+        "DefaultS3Location" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "EncryptionKeyArn" => String.t() | Atom.t(),
+        "EngineSecurityGroupId" => String.t() | Atom.t(),
+        "IdcInstanceArn" => String.t() | Atom.t(),
         "IdcUserAssignment" => list(any()),
-        "IdpAuthUrl" => String.t(),
-        "IdpRelayStateParameterName" => String.t(),
-        "Name" => String.t(),
-        "ServiceRole" => String.t(),
-        "StudioArn" => String.t(),
-        "StudioId" => String.t(),
-        "SubnetIds" => list(String.t()),
+        "IdpAuthUrl" => String.t() | Atom.t(),
+        "IdpRelayStateParameterName" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "ServiceRole" => String.t() | Atom.t(),
+        "StudioArn" => String.t() | Atom.t(),
+        "StudioId" => String.t() | Atom.t(),
+        "SubnetIds" => list(String.t() | Atom.t()),
         "Tags" => list(tag()),
         "TrustedIdentityPropagationEnabled" => boolean(),
-        "Url" => String.t(),
-        "UserRole" => String.t(),
-        "VpcId" => String.t(),
-        "WorkspaceSecurityGroupId" => String.t()
+        "Url" => String.t() | Atom.t(),
+        "UserRole" => String.t() | Atom.t(),
+        "VpcId" => String.t() | Atom.t(),
+        "WorkspaceSecurityGroupId" => String.t() | Atom.t()
       }
       
   """
-  @type studio() :: %{String.t() => any()}
+  @type studio() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2838,79 +2838,79 @@ defmodule AWS.EMR do
       }
       
   """
-  @type describe_persistent_app_ui_output() :: %{String.t() => any()}
+  @type describe_persistent_app_ui_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_type_specification() :: %{
-        "BidPrice" => String.t(),
+        "BidPrice" => String.t() | Atom.t(),
         "BidPriceAsPercentageOfOnDemandPrice" => float(),
         "Configurations" => list(configuration()),
-        "CustomAmiId" => String.t(),
+        "CustomAmiId" => String.t() | Atom.t(),
         "EbsBlockDevices" => list(ebs_block_device()),
         "EbsOptimized" => boolean(),
-        "InstanceType" => String.t(),
+        "InstanceType" => String.t() | Atom.t(),
         "Priority" => float(),
         "WeightedCapacity" => integer()
       }
       
   """
-  @type instance_type_specification() :: %{String.t() => any()}
+  @type instance_type_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       run_job_flow_input() :: %{
-        optional("AdditionalInfo") => String.t(),
-        optional("AmiVersion") => String.t(),
+        optional("AdditionalInfo") => String.t() | Atom.t(),
+        optional("AmiVersion") => String.t() | Atom.t(),
         optional("Applications") => list(application()),
-        optional("AutoScalingRole") => String.t(),
+        optional("AutoScalingRole") => String.t() | Atom.t(),
         optional("AutoTerminationPolicy") => auto_termination_policy(),
         optional("BootstrapActions") => list(bootstrap_action_config()),
         optional("Configurations") => list(configuration()),
-        optional("CustomAmiId") => String.t(),
+        optional("CustomAmiId") => String.t() | Atom.t(),
         optional("EbsRootVolumeIops") => integer(),
         optional("EbsRootVolumeSize") => integer(),
         optional("EbsRootVolumeThroughput") => integer(),
-        optional("JobFlowRole") => String.t(),
+        optional("JobFlowRole") => String.t() | Atom.t(),
         optional("KerberosAttributes") => kerberos_attributes(),
-        optional("LogEncryptionKmsKeyId") => String.t(),
-        optional("LogUri") => String.t(),
+        optional("LogEncryptionKmsKeyId") => String.t() | Atom.t(),
+        optional("LogUri") => String.t() | Atom.t(),
         optional("ManagedScalingPolicy") => managed_scaling_policy(),
         optional("NewSupportedProducts") => list(supported_product_config()),
-        optional("OSReleaseLabel") => String.t(),
+        optional("OSReleaseLabel") => String.t() | Atom.t(),
         optional("PlacementGroupConfigs") => list(placement_group_config()),
-        optional("ReleaseLabel") => String.t(),
+        optional("ReleaseLabel") => String.t() | Atom.t(),
         optional("RepoUpgradeOnBoot") => list(any()),
         optional("ScaleDownBehavior") => list(any()),
-        optional("SecurityConfiguration") => String.t(),
-        optional("ServiceRole") => String.t(),
+        optional("SecurityConfiguration") => String.t() | Atom.t(),
+        optional("ServiceRole") => String.t() | Atom.t(),
         optional("StepConcurrencyLevel") => integer(),
         optional("Steps") => list(step_config()),
-        optional("SupportedProducts") => list(String.t()),
+        optional("SupportedProducts") => list(String.t() | Atom.t()),
         optional("Tags") => list(tag()),
         optional("VisibleToAllUsers") => boolean(),
         required("Instances") => job_flow_instances_config(),
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type run_job_flow_input() :: %{String.t() => any()}
+  @type run_job_flow_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_security_configuration_input() :: %{
-        required("Name") => String.t(),
-        required("SecurityConfiguration") => String.t()
+        required("Name") => String.t() | Atom.t(),
+        required("SecurityConfiguration") => String.t() | Atom.t()
       }
       
   """
-  @type create_security_configuration_input() :: %{String.t() => any()}
+  @type create_security_configuration_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2918,13 +2918,13 @@ defmodule AWS.EMR do
       
       scaling_rule() :: %{
         "Action" => scaling_action(),
-        "Description" => String.t(),
-        "Name" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "Trigger" => scaling_trigger()
       }
       
   """
-  @type scaling_rule() :: %{String.t() => any()}
+  @type scaling_rule() :: %{String.t() | Atom.t() => any()}
 
   @type add_instance_fleet_errors() :: internal_server_exception() | invalid_request_exception()
 

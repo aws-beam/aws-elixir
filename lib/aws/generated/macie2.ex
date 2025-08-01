@@ -15,11 +15,11 @@ defmodule AWS.Macie2 do
 
       list_resource_profile_artifacts_response() :: %{
         "artifacts" => list(resource_profile_artifact()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_resource_profile_artifacts_response() :: %{String.t() => any()}
+  @type list_resource_profile_artifacts_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -35,12 +35,12 @@ defmodule AWS.Macie2 do
   ## Example:
 
       tag_value_pair() :: %{
-        "key" => String.t(),
-        "value" => String.t()
+        "key" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type tag_value_pair() :: %{String.t() => any()}
+  @type tag_value_pair() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -49,12 +49,12 @@ defmodule AWS.Macie2 do
       search_resources_request() :: %{
         optional("bucketCriteria") => search_resources_bucket_criteria(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortCriteria") => search_resources_sort_criteria()
       }
 
   """
-  @type search_resources_request() :: %{String.t() => any()}
+  @type search_resources_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -62,17 +62,17 @@ defmodule AWS.Macie2 do
 
       get_findings_filter_response() :: %{
         "action" => list(any()),
-        "arn" => String.t(),
-        "description" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
         "findingCriteria" => finding_criteria(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "position" => integer(),
         "tags" => map()
       }
 
   """
-  @type get_findings_filter_response() :: %{String.t() => any()}
+  @type get_findings_filter_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -81,12 +81,12 @@ defmodule AWS.Macie2 do
       describe_buckets_request() :: %{
         optional("criteria") => map(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortCriteria") => bucket_sort_criteria()
       }
 
   """
-  @type describe_buckets_request() :: %{String.t() => any()}
+  @type describe_buckets_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -101,7 +101,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type object_count_by_encryption_type() :: %{String.t() => any()}
+  @type object_count_by_encryption_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -113,7 +113,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type session_context() :: %{String.t() => any()}
+  @type session_context() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -127,30 +127,30 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type bucket_statistics_by_sensitivity() :: %{String.t() => any()}
+  @type bucket_statistics_by_sensitivity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       ip_country() :: %{
-        "code" => String.t(),
-        "name" => String.t()
+        "code" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type ip_country() :: %{String.t() => any()}
+  @type ip_country() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_member_response() :: %{
-        "arn" => String.t()
+        "arn" => String.t() | Atom.t()
       }
 
   """
-  @type create_member_response() :: %{String.t() => any()}
+  @type create_member_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -168,25 +168,25 @@ defmodule AWS.Macie2 do
       get_usage_statistics_request() :: %{
         optional("filterBy") => list(usage_statistics_filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortBy") => usage_statistics_sort_by(),
         optional("timeRange") => list(any())
       }
 
   """
-  @type get_usage_statistics_request() :: %{String.t() => any()}
+  @type get_usage_statistics_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       record() :: %{
-        "jsonPath" => String.t(),
+        "jsonPath" => String.t() | Atom.t(),
         "recordIndex" => float()
       }
 
   """
-  @type record() :: %{String.t() => any()}
+  @type record() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -197,28 +197,28 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_classification_job_response() :: %{
-        "allowListIds" => list(String.t()),
-        "clientToken" => String.t(),
+        "allowListIds" => list(String.t() | Atom.t()),
+        "clientToken" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "customDataIdentifierIds" => list(String.t()),
-        "description" => String.t(),
+        "customDataIdentifierIds" => list(String.t() | Atom.t()),
+        "description" => String.t() | Atom.t(),
         "initialRun" => boolean(),
-        "jobArn" => String.t(),
-        "jobId" => String.t(),
+        "jobArn" => String.t() | Atom.t(),
+        "jobId" => String.t() | Atom.t(),
         "jobStatus" => list(any()),
         "jobType" => list(any()),
         "lastRunErrorStatus" => last_run_error_status(),
         "lastRunTime" => non_neg_integer(),
-        "managedDataIdentifierIds" => list(String.t()),
+        "managedDataIdentifierIds" => list(String.t() | Atom.t()),
         "managedDataIdentifierSelector" => list(any()),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "s3JobDefinition" => s3_job_definition(),
         "samplingPercentage" => integer(),
         "scheduleFrequency" => job_schedule_frequency(),
@@ -228,7 +228,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type describe_classification_job_response() :: %{String.t() => any()}
+  @type describe_classification_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -237,11 +237,11 @@ defmodule AWS.Macie2 do
       usage_statistics_filter() :: %{
         "comparator" => list(any()),
         "key" => list(any()),
-        "values" => list(String.t())
+        "values" => list(String.t() | Atom.t())
       }
 
   """
-  @type usage_statistics_filter() :: %{String.t() => any()}
+  @type usage_statistics_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -257,11 +257,11 @@ defmodule AWS.Macie2 do
   ## Example:
 
       ip_city() :: %{
-        "name" => String.t()
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type ip_city() :: %{String.t() => any()}
+  @type ip_city() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -273,7 +273,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type create_member_request() :: %{String.t() => any()}
+  @type create_member_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -286,7 +286,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type range() :: %{String.t() => any()}
+  @type range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -299,7 +299,10 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type bucket_count_policy_allows_unencrypted_object_uploads() :: %{String.t() => any()}
+  @type bucket_count_policy_allows_unencrypted_object_uploads() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -310,32 +313,32 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type decline_invitations_response() :: %{String.t() => any()}
+  @type decline_invitations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       retrieval_configuration() :: %{
-        "externalId" => String.t(),
+        "externalId" => String.t() | Atom.t(),
         "retrievalMode" => list(any()),
-        "roleName" => String.t()
+        "roleName" => String.t() | Atom.t()
       }
 
   """
-  @type retrieval_configuration() :: %{String.t() => any()}
+  @type retrieval_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_bucket_definition_for_job() :: %{
-        "accountId" => String.t(),
-        "buckets" => list(String.t())
+        "accountId" => String.t() | Atom.t(),
+        "buckets" => list(String.t() | Atom.t())
       }
 
   """
-  @type s3_bucket_definition_for_job() :: %{String.t() => any()}
+  @type s3_bucket_definition_for_job() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -362,11 +365,11 @@ defmodule AWS.Macie2 do
       list_jobs_filter_term() :: %{
         "comparator" => list(any()),
         "key" => list(any()),
-        "values" => list(String.t())
+        "values" => list(String.t() | Atom.t())
       }
 
   """
-  @type list_jobs_filter_term() :: %{String.t() => any()}
+  @type list_jobs_filter_term() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -382,12 +385,12 @@ defmodule AWS.Macie2 do
   ## Example:
 
       aws_account() :: %{
-        "accountId" => String.t(),
-        "principalId" => String.t()
+        "accountId" => String.t() | Atom.t(),
+        "principalId" => String.t() | Atom.t()
       }
 
   """
-  @type aws_account() :: %{String.t() => any()}
+  @type aws_account() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -399,18 +402,18 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type get_reveal_configuration_response() :: %{String.t() => any()}
+  @type get_reveal_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_allow_list_request() :: %{
-        optional("ignoreJobChecks") => String.t()
+        optional("ignoreJobChecks") => String.t() | Atom.t()
       }
 
   """
-  @type delete_allow_list_request() :: %{String.t() => any()}
+  @type delete_allow_list_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -422,7 +425,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type resources_affected() :: %{String.t() => any()}
+  @type resources_affected() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -430,12 +433,12 @@ defmodule AWS.Macie2 do
 
       usage_total() :: %{
         "currency" => list(any()),
-        "estimatedCost" => String.t(),
+        "estimatedCost" => String.t() | Atom.t(),
         "type" => list(any())
       }
 
   """
-  @type usage_total() :: %{String.t() => any()}
+  @type usage_total() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -443,49 +446,49 @@ defmodule AWS.Macie2 do
 
       list_sensitivity_inspection_templates_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_sensitivity_inspection_templates_request() :: %{String.t() => any()}
+  @type list_sensitivity_inspection_templates_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       admin_account() :: %{
-        "accountId" => String.t(),
+        "accountId" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type admin_account() :: %{String.t() => any()}
+  @type admin_account() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_classification_scope_exclusion() :: %{
-        "bucketNames" => list(String.t())
+        "bucketNames" => list(String.t() | Atom.t())
       }
 
   """
-  @type s3_classification_scope_exclusion() :: %{String.t() => any()}
+  @type s3_classification_scope_exclusion() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_sensitivity_inspection_template_response() :: %{
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "excludes" => sensitivity_inspection_template_excludes(),
         "includes" => sensitivity_inspection_template_includes(),
-        "name" => String.t(),
-        "sensitivityInspectionTemplateId" => String.t()
+        "name" => String.t() | Atom.t(),
+        "sensitivityInspectionTemplateId" => String.t() | Atom.t()
       }
 
   """
-  @type get_sensitivity_inspection_template_response() :: %{String.t() => any()}
+  @type get_sensitivity_inspection_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -499,7 +502,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type sensitivity_aggregations() :: %{String.t() => any()}
+  @type sensitivity_aggregations() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -508,26 +511,26 @@ defmodule AWS.Macie2 do
       classification_result() :: %{
         "additionalOccurrences" => boolean(),
         "customDataIdentifiers" => custom_data_identifiers(),
-        "mimeType" => String.t(),
+        "mimeType" => String.t() | Atom.t(),
         "sensitiveData" => list(sensitive_data_item()),
         "sizeClassified" => float(),
         "status" => classification_result_status()
       }
 
   """
-  @type classification_result() :: %{String.t() => any()}
+  @type classification_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       classification_result_status() :: %{
-        "code" => String.t(),
-        "reason" => String.t()
+        "code" => String.t() | Atom.t(),
+        "reason" => String.t() | Atom.t()
       }
 
   """
-  @type classification_result_status() :: %{String.t() => any()}
+  @type classification_result_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -550,7 +553,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type bucket_count_by_shared_access_type() :: %{String.t() => any()}
+  @type bucket_count_by_shared_access_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -576,23 +579,23 @@ defmodule AWS.Macie2 do
 
       managed_data_identifier_summary() :: %{
         "category" => list(any()),
-        "id" => String.t()
+        "id" => String.t() | Atom.t()
       }
 
   """
-  @type managed_data_identifier_summary() :: %{String.t() => any()}
+  @type managed_data_identifier_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bucket_sort_criteria() :: %{
-        "attributeName" => String.t(),
+        "attributeName" => String.t() | Atom.t(),
         "orderBy" => list(any())
       }
 
   """
-  @type bucket_sort_criteria() :: %{String.t() => any()}
+  @type bucket_sort_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -603,24 +606,24 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type update_member_session_request() :: %{String.t() => any()}
+  @type update_member_session_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bucket_criteria_additional_properties() :: %{
-        "eq" => list(String.t()),
+        "eq" => list(String.t() | Atom.t()),
         "gt" => float(),
         "gte" => float(),
         "lt" => float(),
         "lte" => float(),
-        "neq" => list(String.t()),
-        "prefix" => String.t()
+        "neq" => list(String.t() | Atom.t()),
+        "prefix" => String.t() | Atom.t()
       }
 
   """
-  @type bucket_criteria_additional_properties() :: %{String.t() => any()}
+  @type bucket_criteria_additional_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -631,7 +634,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type account_level_permissions() :: %{String.t() => any()}
+  @type account_level_permissions() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -656,23 +659,23 @@ defmodule AWS.Macie2 do
   ## Example:
 
       bucket_metadata() :: %{
-        "accountId" => String.t(),
+        "accountId" => String.t() | Atom.t(),
         "allowsUnencryptedObjectUploads" => list(any()),
         "automatedDiscoveryMonitoringStatus" => list(any()),
-        "bucketArn" => String.t(),
+        "bucketArn" => String.t() | Atom.t(),
         "bucketCreatedAt" => non_neg_integer(),
-        "bucketName" => String.t(),
+        "bucketName" => String.t() | Atom.t(),
         "classifiableObjectCount" => float(),
         "classifiableSizeInBytes" => float(),
         "errorCode" => list(any()),
-        "errorMessage" => String.t(),
+        "errorMessage" => String.t() | Atom.t(),
         "jobDetails" => job_details(),
         "lastAutomatedDiscoveryTime" => non_neg_integer(),
         "lastUpdated" => non_neg_integer(),
         "objectCount" => float(),
         "objectCountByEncryptionType" => object_count_by_encryption_type(),
         "publicAccess" => bucket_public_access(),
-        "region" => String.t(),
+        "region" => String.t() | Atom.t(),
         "replicationDetails" => replication_details(),
         "sensitivityScore" => integer(),
         "serverSideEncryption" => bucket_server_side_encryption(),
@@ -686,18 +689,18 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type bucket_metadata() :: %{String.t() => any()}
+  @type bucket_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_get_custom_data_identifiers_request() :: %{
-        optional("ids") => list(String.t())
+        optional("ids") => list(String.t() | Atom.t())
       }
 
   """
-  @type batch_get_custom_data_identifiers_request() :: %{String.t() => any()}
+  @type batch_get_custom_data_identifiers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -705,13 +708,13 @@ defmodule AWS.Macie2 do
 
       tag_scope_term() :: %{
         "comparator" => list(any()),
-        "key" => String.t(),
+        "key" => String.t() | Atom.t(),
         "tagValues" => list(tag_value_pair()),
         "target" => list(any())
       }
 
   """
-  @type tag_scope_term() :: %{String.t() => any()}
+  @type tag_scope_term() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -727,37 +730,37 @@ defmodule AWS.Macie2 do
   ## Example:
 
       suppress_data_identifier() :: %{
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "type" => list(any())
       }
 
   """
-  @type suppress_data_identifier() :: %{String.t() => any()}
+  @type suppress_data_identifier() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_bucket_statistics_request() :: %{
-        optional("accountId") => String.t()
+        optional("accountId") => String.t() | Atom.t()
       }
 
   """
-  @type get_bucket_statistics_request() :: %{String.t() => any()}
+  @type get_bucket_statistics_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invitation() :: %{
-        "accountId" => String.t(),
-        "invitationId" => String.t(),
+        "accountId" => String.t() | Atom.t(),
+        "invitationId" => String.t() | Atom.t(),
         "invitedAt" => non_neg_integer(),
         "relationshipStatus" => list(any())
       }
 
   """
-  @type invitation() :: %{String.t() => any()}
+  @type invitation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -782,12 +785,12 @@ defmodule AWS.Macie2 do
   ## Example:
 
       update_allow_list_response() :: %{
-        "arn" => String.t(),
-        "id" => String.t()
+        "arn" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t()
       }
 
   """
-  @type update_allow_list_response() :: %{String.t() => any()}
+  @type update_allow_list_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -795,13 +798,13 @@ defmodule AWS.Macie2 do
 
       usage_by_account() :: %{
         "currency" => list(any()),
-        "estimatedCost" => String.t(),
+        "estimatedCost" => String.t() | Atom.t(),
         "serviceLimit" => service_limit(),
         "type" => list(any())
       }
 
   """
-  @type usage_by_account() :: %{String.t() => any()}
+  @type usage_by_account() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -809,11 +812,11 @@ defmodule AWS.Macie2 do
 
       list_custom_data_identifiers_response() :: %{
         "items" => list(custom_data_identifier_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_custom_data_identifiers_response() :: %{String.t() => any()}
+  @type list_custom_data_identifiers_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -821,11 +824,11 @@ defmodule AWS.Macie2 do
 
       server_side_encryption() :: %{
         "encryptionType" => list(any()),
-        "kmsMasterKeyId" => String.t()
+        "kmsMasterKeyId" => String.t() | Atom.t()
       }
 
   """
-  @type server_side_encryption() :: %{String.t() => any()}
+  @type server_side_encryption() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -836,52 +839,52 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type batch_update_automated_discovery_accounts_request() :: %{String.t() => any()}
+  @type batch_update_automated_discovery_accounts_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       sensitivity_inspection_template_excludes() :: %{
-        "managedDataIdentifierIds" => list(String.t())
+        "managedDataIdentifierIds" => list(String.t() | Atom.t())
       }
 
   """
-  @type sensitivity_inspection_template_excludes() :: %{String.t() => any()}
+  @type sensitivity_inspection_template_excludes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_object() :: %{
-        "bucketArn" => String.t(),
-        "eTag" => String.t(),
-        "extension" => String.t(),
-        "key" => String.t(),
+        "bucketArn" => String.t() | Atom.t(),
+        "eTag" => String.t() | Atom.t(),
+        "extension" => String.t() | Atom.t(),
+        "key" => String.t() | Atom.t(),
         "lastModified" => non_neg_integer(),
-        "path" => String.t(),
+        "path" => String.t() | Atom.t(),
         "publicAccess" => boolean(),
         "serverSideEncryption" => server_side_encryption(),
         "size" => float(),
         "storageClass" => list(any()),
         "tags" => list(key_value_pair()),
-        "versionId" => String.t()
+        "versionId" => String.t() | Atom.t()
       }
 
   """
-  @type s3_object() :: %{String.t() => any()}
+  @type s3_object() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_findings_response() :: %{
-        "findingIds" => list(String.t()),
-        "nextToken" => String.t()
+        "findingIds" => list(String.t() | Atom.t()),
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_findings_response() :: %{String.t() => any()}
+  @type list_findings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -893,7 +896,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type security_hub_configuration() :: %{String.t() => any()}
+  @type security_hub_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -905,21 +908,21 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type usage_statistics_sort_by() :: %{String.t() => any()}
+  @type usage_statistics_sort_by() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cell() :: %{
-        "cellReference" => String.t(),
+        "cellReference" => String.t() | Atom.t(),
         "column" => float(),
-        "columnName" => String.t(),
+        "columnName" => String.t() | Atom.t(),
         "row" => float()
       }
 
   """
-  @type cell() :: %{String.t() => any()}
+  @type cell() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -936,7 +939,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type user_identity() :: %{String.t() => any()}
+  @type user_identity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -948,19 +951,19 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type list_jobs_sort_criteria() :: %{String.t() => any()}
+  @type list_jobs_sort_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       automated_discovery_account_update() :: %{
-        "accountId" => String.t(),
+        "accountId" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type automated_discovery_account_update() :: %{String.t() => any()}
+  @type automated_discovery_account_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -968,11 +971,11 @@ defmodule AWS.Macie2 do
 
       get_findings_request() :: %{
         optional("sortCriteria") => sort_criteria(),
-        required("findingIds") => list(String.t())
+        required("findingIds") => list(String.t() | Atom.t())
       }
 
   """
-  @type get_findings_request() :: %{String.t() => any()}
+  @type get_findings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -983,7 +986,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type monthly_schedule() :: %{String.t() => any()}
+  @type monthly_schedule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -994,19 +997,19 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type criteria_block_for_job() :: %{String.t() => any()}
+  @type criteria_block_for_job() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       account_detail() :: %{
-        "accountId" => String.t(),
-        "email" => String.t()
+        "accountId" => String.t() | Atom.t(),
+        "email" => String.t() | Atom.t()
       }
 
   """
-  @type account_detail() :: %{String.t() => any()}
+  @type account_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1015,23 +1018,23 @@ defmodule AWS.Macie2 do
       list_classification_jobs_request() :: %{
         optional("filterCriteria") => list_jobs_filter_criteria(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortCriteria") => list_jobs_sort_criteria()
       }
 
   """
-  @type list_classification_jobs_request() :: %{String.t() => any()}
+  @type list_classification_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1039,16 +1042,16 @@ defmodule AWS.Macie2 do
 
       get_automated_discovery_configuration_response() :: %{
         "autoEnableOrganizationMembers" => list(any()),
-        "classificationScopeId" => String.t(),
+        "classificationScopeId" => String.t() | Atom.t(),
         "disabledAt" => non_neg_integer(),
         "firstEnabledAt" => non_neg_integer(),
         "lastUpdatedAt" => non_neg_integer(),
-        "sensitivityInspectionTemplateId" => String.t(),
+        "sensitivityInspectionTemplateId" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type get_automated_discovery_configuration_response() :: %{String.t() => any()}
+  @type get_automated_discovery_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1056,11 +1059,11 @@ defmodule AWS.Macie2 do
 
       list_resource_profile_detections_response() :: %{
         "detections" => list(detection()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_resource_profile_detections_response() :: %{String.t() => any()}
+  @type list_resource_profile_detections_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1072,7 +1075,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type s3_bucket_criteria_for_job() :: %{String.t() => any()}
+  @type s3_bucket_criteria_for_job() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1084,7 +1087,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type bucket_public_access() :: %{String.t() => any()}
+  @type bucket_public_access() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1100,11 +1103,11 @@ defmodule AWS.Macie2 do
   ## Example:
 
       disable_organization_admin_account_request() :: %{
-        required("adminAccountId") => String.t()
+        required("adminAccountId") => String.t() | Atom.t()
       }
 
   """
-  @type disable_organization_admin_account_request() :: %{String.t() => any()}
+  @type disable_organization_admin_account_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1116,21 +1119,21 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type search_resources_sort_criteria() :: %{String.t() => any()}
+  @type search_resources_sort_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       custom_detection() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "count" => float(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "occurrences" => occurrences()
       }
 
   """
-  @type custom_detection() :: %{String.t() => any()}
+  @type custom_detection() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1142,7 +1145,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type scoping() :: %{String.t() => any()}
+  @type scoping() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1150,40 +1153,40 @@ defmodule AWS.Macie2 do
 
       allow_list_status() :: %{
         "code" => list(any()),
-        "description" => String.t()
+        "description" => String.t() | Atom.t()
       }
 
   """
-  @type allow_list_status() :: %{String.t() => any()}
+  @type allow_list_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       iam_user() :: %{
-        "accountId" => String.t(),
-        "arn" => String.t(),
-        "principalId" => String.t(),
-        "userName" => String.t()
+        "accountId" => String.t() | Atom.t(),
+        "arn" => String.t() | Atom.t(),
+        "principalId" => String.t() | Atom.t(),
+        "userName" => String.t() | Atom.t()
       }
 
   """
-  @type iam_user() :: %{String.t() => any()}
+  @type iam_user() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       custom_data_identifier_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
-        "id" => String.t(),
-        "name" => String.t()
+        "description" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type custom_data_identifier_summary() :: %{String.t() => any()}
+  @type custom_data_identifier_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1195,7 +1198,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type finding_statistics_sort_criteria() :: %{String.t() => any()}
+  @type finding_statistics_sort_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1208,7 +1211,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type finding_actor() :: %{String.t() => any()}
+  @type finding_actor() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1220,18 +1223,18 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type session_context_attributes() :: %{String.t() => any()}
+  @type session_context_attributes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_custom_data_identifier_response() :: %{
-        "customDataIdentifierId" => String.t()
+        "customDataIdentifierId" => String.t() | Atom.t()
       }
 
   """
-  @type create_custom_data_identifier_response() :: %{String.t() => any()}
+  @type create_custom_data_identifier_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1243,20 +1246,20 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type severity() :: %{String.t() => any()}
+  @type severity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       enable_macie_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("findingPublishingFrequency") => list(any()),
         optional("status") => list(any())
       }
 
   """
-  @type enable_macie_request() :: %{String.t() => any()}
+  @type enable_macie_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1272,12 +1275,12 @@ defmodule AWS.Macie2 do
   ## Example:
 
       create_allow_list_response() :: %{
-        "arn" => String.t(),
-        "id" => String.t()
+        "arn" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t()
       }
 
   """
-  @type create_allow_list_response() :: %{String.t() => any()}
+  @type create_allow_list_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1288,7 +1291,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type classification_export_configuration() :: %{String.t() => any()}
+  @type classification_export_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1302,7 +1305,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type bucket_count_by_encryption_type() :: %{String.t() => any()}
+  @type bucket_count_by_encryption_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1310,11 +1313,11 @@ defmodule AWS.Macie2 do
 
       search_resources_response() :: %{
         "matchingResources" => list(matching_resource()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type search_resources_response() :: %{String.t() => any()}
+  @type search_resources_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1325,7 +1328,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type update_classification_scope_request() :: %{String.t() => any()}
+  @type update_classification_scope_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1341,14 +1344,14 @@ defmodule AWS.Macie2 do
   ## Example:
 
       api_call_details() :: %{
-        "api" => String.t(),
-        "apiServiceName" => String.t(),
+        "api" => String.t() | Atom.t(),
+        "apiServiceName" => String.t() | Atom.t(),
         "firstSeen" => non_neg_integer(),
         "lastSeen" => non_neg_integer()
       }
 
   """
-  @type api_call_details() :: %{String.t() => any()}
+  @type api_call_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1362,7 +1365,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type get_resource_profile_response() :: %{String.t() => any()}
+  @type get_resource_profile_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1371,26 +1374,26 @@ defmodule AWS.Macie2 do
       simple_scope_term() :: %{
         "comparator" => list(any()),
         "key" => list(any()),
-        "values" => list(String.t())
+        "values" => list(String.t() | Atom.t())
       }
 
   """
-  @type simple_scope_term() :: %{String.t() => any()}
+  @type simple_scope_term() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       test_custom_data_identifier_request() :: %{
-        optional("ignoreWords") => list(String.t()),
-        optional("keywords") => list(String.t()),
+        optional("ignoreWords") => list(String.t() | Atom.t()),
+        optional("keywords") => list(String.t() | Atom.t()),
         optional("maximumMatchDistance") => integer(),
-        required("regex") => String.t(),
-        required("sampleText") => String.t()
+        required("regex") => String.t() | Atom.t(),
+        required("sampleText") => String.t() | Atom.t()
       }
 
   """
-  @type test_custom_data_identifier_request() :: %{String.t() => any()}
+  @type test_custom_data_identifier_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1398,11 +1401,11 @@ defmodule AWS.Macie2 do
 
       list_automated_discovery_accounts_response() :: %{
         "items" => list(automated_discovery_account()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_automated_discovery_accounts_response() :: %{String.t() => any()}
+  @type list_automated_discovery_accounts_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1430,29 +1433,29 @@ defmodule AWS.Macie2 do
         "bucketCriteria" => s3_bucket_criteria_for_job(),
         "bucketDefinitions" => list(s3_bucket_definition_for_job()),
         "createdAt" => non_neg_integer(),
-        "jobId" => String.t(),
+        "jobId" => String.t() | Atom.t(),
         "jobStatus" => list(any()),
         "jobType" => list(any()),
         "lastRunErrorStatus" => last_run_error_status(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "userPausedDetails" => user_paused_details()
       }
 
   """
-  @type job_summary() :: %{String.t() => any()}
+  @type job_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_automated_discovery_accounts_request() :: %{
-        optional("accountIds") => list(String.t()),
+        optional("accountIds") => list(String.t() | Atom.t()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_automated_discovery_accounts_request() :: %{String.t() => any()}
+  @type list_automated_discovery_accounts_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1468,19 +1471,19 @@ defmodule AWS.Macie2 do
   ## Example:
 
       create_custom_data_identifier_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
-        optional("ignoreWords") => list(String.t()),
-        optional("keywords") => list(String.t()),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("ignoreWords") => list(String.t() | Atom.t()),
+        optional("keywords") => list(String.t() | Atom.t()),
         optional("maximumMatchDistance") => integer(),
         optional("severityLevels") => list(severity_level()),
         optional("tags") => map(),
-        required("name") => String.t(),
-        required("regex") => String.t()
+        required("name") => String.t() | Atom.t(),
+        required("regex") => String.t() | Atom.t()
       }
 
   """
-  @type create_custom_data_identifier_request() :: %{String.t() => any()}
+  @type create_custom_data_identifier_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1495,7 +1498,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type occurrences() :: %{String.t() => any()}
+  @type occurrences() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1516,7 +1519,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type job_scope_term() :: %{String.t() => any()}
+  @type job_scope_term() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1528,7 +1531,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type describe_organization_configuration_response() :: %{String.t() => any()}
+  @type describe_organization_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1548,7 +1551,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type s3_classification_scope() :: %{String.t() => any()}
+  @type s3_classification_scope() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1556,11 +1559,11 @@ defmodule AWS.Macie2 do
 
       list_findings_filters_response() :: %{
         "findingsFilterListItems" => list(findings_filter_list_item()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_findings_filters_response() :: %{String.t() => any()}
+  @type list_findings_filters_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1571,52 +1574,52 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type get_classification_export_configuration_response() :: %{String.t() => any()}
+  @type get_classification_export_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_classification_scopes_request() :: %{
-        optional("name") => String.t(),
-        optional("nextToken") => String.t()
+        optional("name") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_classification_scopes_request() :: %{String.t() => any()}
+  @type list_classification_scopes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_managed_data_identifiers_request() :: %{
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_managed_data_identifiers_request() :: %{String.t() => any()}
+  @type list_managed_data_identifiers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1624,15 +1627,15 @@ defmodule AWS.Macie2 do
 
       update_findings_filter_request() :: %{
         optional("action") => list(any()),
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("findingCriteria") => finding_criteria(),
-        optional("name") => String.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("position") => integer()
       }
 
   """
-  @type update_findings_filter_request() :: %{String.t() => any()}
+  @type update_findings_filter_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1657,12 +1660,12 @@ defmodule AWS.Macie2 do
   ## Example:
 
       create_findings_filter_response() :: %{
-        "arn" => String.t(),
-        "id" => String.t()
+        "arn" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t()
       }
 
   """
-  @type create_findings_filter_response() :: %{String.t() => any()}
+  @type create_findings_filter_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1674,7 +1677,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type search_resources_tag_criterion() :: %{String.t() => any()}
+  @type search_resources_tag_criterion() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1691,17 +1694,17 @@ defmodule AWS.Macie2 do
 
       s3_bucket() :: %{
         "allowsUnencryptedObjectUploads" => list(any()),
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
         "defaultServerSideEncryption" => server_side_encryption(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "owner" => s3_bucket_owner(),
         "publicAccess" => bucket_public_access(),
         "tags" => list(key_value_pair())
       }
 
   """
-  @type s3_bucket() :: %{String.t() => any()}
+  @type s3_bucket() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1714,19 +1717,19 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type object_level_statistics() :: %{String.t() => any()}
+  @type object_level_statistics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bucket_server_side_encryption() :: %{
-        "kmsMasterKeyId" => String.t(),
+        "kmsMasterKeyId" => String.t() | Atom.t(),
         "type" => list(any())
       }
 
   """
-  @type bucket_server_side_encryption() :: %{String.t() => any()}
+  @type bucket_server_side_encryption() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1735,52 +1738,52 @@ defmodule AWS.Macie2 do
       get_macie_session_response() :: %{
         "createdAt" => non_neg_integer(),
         "findingPublishingFrequency" => list(any()),
-        "serviceRole" => String.t(),
+        "serviceRole" => String.t() | Atom.t(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type get_macie_session_response() :: %{String.t() => any()}
+  @type get_macie_session_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_service() :: %{
-        "invokedBy" => String.t()
+        "invokedBy" => String.t() | Atom.t()
       }
 
   """
-  @type aws_service() :: %{String.t() => any()}
+  @type aws_service() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       sensitivity_inspection_templates_entry() :: %{
-        "id" => String.t(),
-        "name" => String.t()
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type sensitivity_inspection_templates_entry() :: %{String.t() => any()}
+  @type sensitivity_inspection_templates_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_get_custom_data_identifier_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
         "deleted" => boolean(),
-        "description" => String.t(),
-        "id" => String.t(),
-        "name" => String.t()
+        "description" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type batch_get_custom_data_identifier_summary() :: %{String.t() => any()}
+  @type batch_get_custom_data_identifier_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1792,22 +1795,22 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type search_resources_bucket_criteria() :: %{String.t() => any()}
+  @type search_resources_bucket_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       federated_user() :: %{
-        "accessKeyId" => String.t(),
-        "accountId" => String.t(),
-        "arn" => String.t(),
-        "principalId" => String.t(),
+        "accessKeyId" => String.t() | Atom.t(),
+        "accountId" => String.t() | Atom.t(),
+        "arn" => String.t() | Atom.t(),
+        "principalId" => String.t() | Atom.t(),
         "sessionContext" => session_context()
       }
 
   """
-  @type federated_user() :: %{String.t() => any()}
+  @type federated_user() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1815,11 +1818,11 @@ defmodule AWS.Macie2 do
 
       update_resource_profile_detections_request() :: %{
         optional("suppressDataIdentifiers") => list(suppress_data_identifier()),
-        required("resourceArn") => String.t()
+        required("resourceArn") => String.t() | Atom.t()
       }
 
   """
-  @type update_resource_profile_detections_request() :: %{String.t() => any()}
+  @type update_resource_profile_detections_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1830,19 +1833,19 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type get_findings_response() :: %{String.t() => any()}
+  @type get_findings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_findings_publication_configuration_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("securityHubConfiguration") => security_hub_configuration()
       }
 
   """
-  @type put_findings_publication_configuration_request() :: %{String.t() => any()}
+  @type put_findings_publication_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1854,18 +1857,18 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type bucket_policy() :: %{String.t() => any()}
+  @type bucket_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1873,14 +1876,14 @@ defmodule AWS.Macie2 do
 
       findings_filter_list_item() :: %{
         "action" => list(any()),
-        "arn" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "tags" => map()
       }
 
   """
-  @type findings_filter_list_item() :: %{String.t() => any()}
+  @type findings_filter_list_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1888,24 +1891,24 @@ defmodule AWS.Macie2 do
 
       list_allow_lists_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_allow_lists_request() :: %{String.t() => any()}
+  @type list_allow_lists_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       user_identity_root() :: %{
-        "accountId" => String.t(),
-        "arn" => String.t(),
-        "principalId" => String.t()
+        "accountId" => String.t() | Atom.t(),
+        "arn" => String.t() | Atom.t(),
+        "principalId" => String.t() | Atom.t()
       }
 
   """
-  @type user_identity_root() :: %{String.t() => any()}
+  @type user_identity_root() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1917,73 +1920,73 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type list_jobs_filter_criteria() :: %{String.t() => any()}
+  @type list_jobs_filter_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_findings_filter_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("position") => integer(),
         optional("tags") => map(),
         required("action") => list(any()),
         required("findingCriteria") => finding_criteria(),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_findings_filter_request() :: %{String.t() => any()}
+  @type create_findings_filter_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_sensitive_data_occurrences_response() :: %{
-        "error" => String.t(),
+        "error" => String.t() | Atom.t(),
         "sensitiveDataOccurrences" => map(),
         "status" => list(any())
       }
 
   """
-  @type get_sensitive_data_occurrences_response() :: %{String.t() => any()}
+  @type get_sensitive_data_occurrences_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_findings_filter_response() :: %{
-        "arn" => String.t(),
-        "id" => String.t()
+        "arn" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t()
       }
 
   """
-  @type update_findings_filter_response() :: %{String.t() => any()}
+  @type update_findings_filter_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       search_resources_tag_criterion_pair() :: %{
-        "key" => String.t(),
-        "value" => String.t()
+        "key" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type search_resources_tag_criterion_pair() :: %{String.t() => any()}
+  @type search_resources_tag_criterion_pair() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       automated_discovery_account_update_error() :: %{
-        "accountId" => String.t(),
+        "accountId" => String.t() | Atom.t(),
         "errorCode" => list(any())
       }
 
   """
-  @type automated_discovery_account_update_error() :: %{String.t() => any()}
+  @type automated_discovery_account_update_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1991,70 +1994,70 @@ defmodule AWS.Macie2 do
 
       list_managed_data_identifiers_response() :: %{
         "items" => list(managed_data_identifier_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_managed_data_identifiers_response() :: %{String.t() => any()}
+  @type list_managed_data_identifiers_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       allow_list_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type allow_list_summary() :: %{String.t() => any()}
+  @type allow_list_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       classification_details() :: %{
-        "detailedResultsLocation" => String.t(),
-        "jobArn" => String.t(),
-        "jobId" => String.t(),
+        "detailedResultsLocation" => String.t() | Atom.t(),
+        "jobArn" => String.t() | Atom.t(),
+        "jobId" => String.t() | Atom.t(),
         "originType" => list(any()),
         "result" => classification_result()
       }
 
   """
-  @type classification_details() :: %{String.t() => any()}
+  @type classification_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       finding() :: %{
-        "accountId" => String.t(),
+        "accountId" => String.t() | Atom.t(),
         "archived" => boolean(),
         "category" => list(any()),
         "classificationDetails" => classification_details(),
         "count" => float(),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
-        "id" => String.t(),
-        "partition" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "partition" => String.t() | Atom.t(),
         "policyDetails" => policy_details(),
-        "region" => String.t(),
+        "region" => String.t() | Atom.t(),
         "resourcesAffected" => resources_affected(),
         "sample" => boolean(),
-        "schemaVersion" => String.t(),
+        "schemaVersion" => String.t() | Atom.t(),
         "severity" => severity(),
-        "title" => String.t(),
+        "title" => String.t() | Atom.t(),
         "type" => list(any()),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type finding() :: %{String.t() => any()}
+  @type finding() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2084,7 +2087,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type update_macie_session_request() :: %{String.t() => any()}
+  @type update_macie_session_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2096,20 +2099,20 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type ip_geo_location() :: %{String.t() => any()}
+  @type ip_geo_location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_profile_artifact() :: %{
-        "arn" => String.t(),
-        "classificationResultStatus" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "classificationResultStatus" => String.t() | Atom.t(),
         "sensitive" => boolean()
       }
 
   """
-  @type resource_profile_artifact() :: %{String.t() => any()}
+  @type resource_profile_artifact() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2132,19 +2135,19 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type get_finding_statistics_request() :: %{String.t() => any()}
+  @type get_finding_statistics_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_resource_profile_artifacts_request() :: %{
-        optional("nextToken") => String.t(),
-        required("resourceArn") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("resourceArn") => String.t() | Atom.t()
       }
 
   """
-  @type list_resource_profile_artifacts_request() :: %{String.t() => any()}
+  @type list_resource_profile_artifacts_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2155,7 +2158,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2164,12 +2167,12 @@ defmodule AWS.Macie2 do
       list_findings_request() :: %{
         optional("findingCriteria") => finding_criteria(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortCriteria") => sort_criteria()
       }
 
   """
-  @type list_findings_request() :: %{String.t() => any()}
+  @type list_findings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2177,11 +2180,11 @@ defmodule AWS.Macie2 do
 
       describe_buckets_response() :: %{
         "buckets" => list(bucket_metadata()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type describe_buckets_response() :: %{String.t() => any()}
+  @type describe_buckets_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2189,11 +2192,11 @@ defmodule AWS.Macie2 do
 
       list_custom_data_identifiers_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_custom_data_identifiers_request() :: %{String.t() => any()}
+  @type list_custom_data_identifiers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2201,11 +2204,11 @@ defmodule AWS.Macie2 do
 
       update_retrieval_configuration() :: %{
         "retrievalMode" => list(any()),
-        "roleName" => String.t()
+        "roleName" => String.t() | Atom.t()
       }
 
   """
-  @type update_retrieval_configuration() :: %{String.t() => any()}
+  @type update_retrieval_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2216,7 +2219,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type test_custom_data_identifier_response() :: %{String.t() => any()}
+  @type test_custom_data_identifier_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2241,12 +2244,12 @@ defmodule AWS.Macie2 do
   ## Example:
 
       s3_bucket_owner() :: %{
-        "displayName" => String.t(),
-        "id" => String.t()
+        "displayName" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t()
       }
 
   """
-  @type s3_bucket_owner() :: %{String.t() => any()}
+  @type s3_bucket_owner() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2266,59 +2269,59 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type get_finding_statistics_response() :: %{String.t() => any()}
+  @type get_finding_statistics_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_usage_totals_request() :: %{
-        optional("timeRange") => String.t()
+        optional("timeRange") => String.t() | Atom.t()
       }
 
   """
-  @type get_usage_totals_request() :: %{String.t() => any()}
+  @type get_usage_totals_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       detection() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "count" => float(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "suppressed" => boolean(),
         "type" => list(any())
       }
 
   """
-  @type detection() :: %{String.t() => any()}
+  @type detection() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_classification_scope_exclusion_update() :: %{
-        "bucketNames" => list(String.t()),
+        "bucketNames" => list(String.t() | Atom.t()),
         "operation" => list(any())
       }
 
   """
-  @type s3_classification_scope_exclusion_update() :: %{String.t() => any()}
+  @type s3_classification_scope_exclusion_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_destination() :: %{
-        "bucketName" => String.t(),
-        "keyPrefix" => String.t(),
-        "kmsKeyArn" => String.t()
+        "bucketName" => String.t() | Atom.t(),
+        "keyPrefix" => String.t() | Atom.t(),
+        "kmsKeyArn" => String.t() | Atom.t()
       }
 
   """
-  @type s3_destination() :: %{String.t() => any()}
+  @type s3_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2346,7 +2349,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type resource_statistics() :: %{String.t() => any()}
+  @type resource_statistics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2357,18 +2360,18 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type create_sample_findings_request() :: %{String.t() => any()}
+  @type create_sample_findings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       decline_invitations_request() :: %{
-        required("accountIds") => list(String.t())
+        required("accountIds") => list(String.t() | Atom.t())
       }
 
   """
-  @type decline_invitations_request() :: %{String.t() => any()}
+  @type decline_invitations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2381,7 +2384,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type sensitive_data_item() :: %{String.t() => any()}
+  @type sensitive_data_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2405,7 +2408,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type get_bucket_statistics_response() :: %{String.t() => any()}
+  @type get_bucket_statistics_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2417,7 +2420,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type update_automated_discovery_configuration_request() :: %{String.t() => any()}
+  @type update_automated_discovery_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2428,7 +2431,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type get_master_account_response() :: %{String.t() => any()}
+  @type get_master_account_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2441,7 +2444,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type job_schedule_frequency() :: %{String.t() => any()}
+  @type job_schedule_frequency() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2450,12 +2453,12 @@ defmodule AWS.Macie2 do
       job_details() :: %{
         "isDefinedInJob" => list(any()),
         "isMonitoredByJob" => list(any()),
-        "lastJobId" => String.t(),
+        "lastJobId" => String.t() | Atom.t(),
         "lastJobRunTime" => non_neg_integer()
       }
 
   """
-  @type job_details() :: %{String.t() => any()}
+  @type job_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2466,84 +2469,84 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type put_classification_export_configuration_response() :: %{String.t() => any()}
+  @type put_classification_export_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_classification_job_response() :: %{
-        "jobArn" => String.t(),
-        "jobId" => String.t()
+        "jobArn" => String.t() | Atom.t(),
+        "jobId" => String.t() | Atom.t()
       }
 
   """
-  @type create_classification_job_response() :: %{String.t() => any()}
+  @type create_classification_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       allow_list_criteria() :: %{
-        "regex" => String.t(),
+        "regex" => String.t() | Atom.t(),
         "s3WordsList" => s3_words_list()
       }
 
   """
-  @type allow_list_criteria() :: %{String.t() => any()}
+  @type allow_list_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_invitations_request() :: %{
-        required("accountIds") => list(String.t())
+        required("accountIds") => list(String.t() | Atom.t())
       }
 
   """
-  @type delete_invitations_request() :: %{String.t() => any()}
+  @type delete_invitations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       classification_scope_summary() :: %{
-        "id" => String.t(),
-        "name" => String.t()
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type classification_scope_summary() :: %{String.t() => any()}
+  @type classification_scope_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_member_response() :: %{
-        "accountId" => String.t(),
-        "administratorAccountId" => String.t(),
-        "arn" => String.t(),
-        "email" => String.t(),
+        "accountId" => String.t() | Atom.t(),
+        "administratorAccountId" => String.t() | Atom.t(),
+        "arn" => String.t() | Atom.t(),
+        "email" => String.t() | Atom.t(),
         "invitedAt" => non_neg_integer(),
-        "masterAccountId" => String.t(),
+        "masterAccountId" => String.t() | Atom.t(),
         "relationshipStatus" => list(any()),
         "tags" => map(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type get_member_response() :: %{String.t() => any()}
+  @type get_member_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2555,7 +2558,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type update_reveal_configuration_request() :: %{String.t() => any()}
+  @type update_reveal_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2566,32 +2569,32 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type update_organization_configuration_request() :: %{String.t() => any()}
+  @type update_organization_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       enable_organization_admin_account_request() :: %{
-        optional("clientToken") => String.t(),
-        required("adminAccountId") => String.t()
+        optional("clientToken") => String.t() | Atom.t(),
+        required("adminAccountId") => String.t() | Atom.t()
       }
 
   """
-  @type enable_organization_admin_account_request() :: %{String.t() => any()}
+  @type enable_organization_admin_account_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       sensitivity_inspection_template_includes() :: %{
-        "allowListIds" => list(String.t()),
-        "customDataIdentifierIds" => list(String.t()),
-        "managedDataIdentifierIds" => list(String.t())
+        "allowListIds" => list(String.t() | Atom.t()),
+        "customDataIdentifierIds" => list(String.t() | Atom.t()),
+        "managedDataIdentifierIds" => list(String.t() | Atom.t())
       }
 
   """
-  @type sensitivity_inspection_template_includes() :: %{String.t() => any()}
+  @type sensitivity_inspection_template_includes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2611,7 +2614,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type s3_classification_scope_update() :: %{String.t() => any()}
+  @type s3_classification_scope_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2623,7 +2626,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type search_resources_criteria() :: %{String.t() => any()}
+  @type search_resources_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2634,7 +2637,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type delete_invitations_response() :: %{String.t() => any()}
+  @type delete_invitations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2646,7 +2649,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type update_reveal_configuration_response() :: %{String.t() => any()}
+  @type update_reveal_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2654,11 +2657,11 @@ defmodule AWS.Macie2 do
 
       list_organization_admin_accounts_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_organization_admin_accounts_request() :: %{String.t() => any()}
+  @type list_organization_admin_accounts_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2666,37 +2669,37 @@ defmodule AWS.Macie2 do
 
       batch_get_custom_data_identifiers_response() :: %{
         "customDataIdentifiers" => list(batch_get_custom_data_identifier_summary()),
-        "notFoundIdentifierIds" => list(String.t())
+        "notFoundIdentifierIds" => list(String.t() | Atom.t())
       }
 
   """
-  @type batch_get_custom_data_identifiers_response() :: %{String.t() => any()}
+  @type batch_get_custom_data_identifiers_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       sort_criteria() :: %{
-        "attributeName" => String.t(),
+        "attributeName" => String.t() | Atom.t(),
         "orderBy" => list(any())
       }
 
   """
-  @type sort_criteria() :: %{String.t() => any()}
+  @type sort_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       ip_owner() :: %{
-        "asn" => String.t(),
-        "asnOrg" => String.t(),
-        "isp" => String.t(),
-        "org" => String.t()
+        "asn" => String.t() | Atom.t(),
+        "asnOrg" => String.t() | Atom.t(),
+        "isp" => String.t() | Atom.t(),
+        "org" => String.t() | Atom.t()
       }
 
   """
-  @type ip_owner() :: %{String.t() => any()}
+  @type ip_owner() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2708,7 +2711,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type criteria_for_job() :: %{String.t() => any()}
+  @type criteria_for_job() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2728,18 +2731,18 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type weekly_schedule() :: %{String.t() => any()}
+  @type weekly_schedule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       unprocessable_entity_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type unprocessable_entity_exception() :: %{String.t() => any()}
+  @type unprocessable_entity_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2755,11 +2758,11 @@ defmodule AWS.Macie2 do
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2777,36 +2780,36 @@ defmodule AWS.Macie2 do
       default_detection() :: %{
         "count" => float(),
         "occurrences" => occurrences(),
-        "type" => String.t()
+        "type" => String.t() | Atom.t()
       }
 
   """
-  @type default_detection() :: %{String.t() => any()}
+  @type default_detection() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_words_list() :: %{
-        "bucketName" => String.t(),
-        "objectKey" => String.t()
+        "bucketName" => String.t() | Atom.t(),
+        "objectKey" => String.t() | Atom.t()
       }
 
   """
-  @type s3_words_list() :: %{String.t() => any()}
+  @type s3_words_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       accept_invitation_request() :: %{
-        optional("administratorAccountId") => String.t(),
-        optional("masterAccount") => String.t(),
-        required("invitationId") => String.t()
+        optional("administratorAccountId") => String.t() | Atom.t(),
+        optional("masterAccount") => String.t() | Atom.t(),
+        required("invitationId") => String.t() | Atom.t()
       }
 
   """
-  @type accept_invitation_request() :: %{String.t() => any()}
+  @type accept_invitation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2823,12 +2826,12 @@ defmodule AWS.Macie2 do
 
       list_members_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("onlyAssociated") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("onlyAssociated") => String.t() | Atom.t()
       }
 
   """
-  @type list_members_request() :: %{String.t() => any()}
+  @type list_members_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2836,11 +2839,11 @@ defmodule AWS.Macie2 do
 
       list_members_response() :: %{
         "members" => list(member()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_members_response() :: %{String.t() => any()}
+  @type list_members_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2854,7 +2857,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type block_public_access() :: %{String.t() => any()}
+  @type block_public_access() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2865,7 +2868,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type last_run_error_status() :: %{String.t() => any()}
+  @type last_run_error_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2877,7 +2880,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type statistics() :: %{String.t() => any()}
+  @type statistics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2885,24 +2888,24 @@ defmodule AWS.Macie2 do
 
       list_findings_filters_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_findings_filters_request() :: %{String.t() => any()}
+  @type list_findings_filters_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_sensitivity_inspection_template_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("excludes") => sensitivity_inspection_template_excludes(),
         optional("includes") => sensitivity_inspection_template_includes()
       }
 
   """
-  @type update_sensitivity_inspection_template_request() :: %{String.t() => any()}
+  @type update_sensitivity_inspection_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2913,19 +2916,19 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type search_resources_criteria_block() :: %{String.t() => any()}
+  @type search_resources_criteria_block() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       key_value_pair() :: %{
-        "key" => String.t(),
-        "value" => String.t()
+        "key" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type key_value_pair() :: %{String.t() => any()}
+  @type key_value_pair() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2933,23 +2936,23 @@ defmodule AWS.Macie2 do
 
       list_resource_profile_detections_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("resourceArn") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("resourceArn") => String.t() | Atom.t()
       }
 
   """
-  @type list_resource_profile_detections_request() :: %{String.t() => any()}
+  @type list_resource_profile_detections_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2980,7 +2983,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type s3_job_definition() :: %{String.t() => any()}
+  @type s3_job_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2993,7 +2996,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type service_limit() :: %{String.t() => any()}
+  @type service_limit() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3013,7 +3016,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type get_invitations_count_response() :: %{String.t() => any()}
+  @type get_invitations_count_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3025,7 +3028,10 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type get_sensitive_data_occurrences_availability_response() :: %{String.t() => any()}
+  @type get_sensitive_data_occurrences_availability_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -3041,11 +3047,11 @@ defmodule AWS.Macie2 do
   ## Example:
 
       throttling_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3056,7 +3062,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type get_findings_publication_configuration_response() :: %{String.t() => any()}
+  @type get_findings_publication_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3068,7 +3074,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type severity_level() :: %{String.t() => any()}
+  @type severity_level() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3076,24 +3082,24 @@ defmodule AWS.Macie2 do
 
       list_invitations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_invitations_request() :: %{String.t() => any()}
+  @type list_invitations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_classification_scope_response() :: %{
-        "id" => String.t(),
-        "name" => String.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "s3" => s3_classification_scope()
       }
 
   """
-  @type get_classification_scope_response() :: %{String.t() => any()}
+  @type get_classification_scope_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3104,7 +3110,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type finding_criteria() :: %{String.t() => any()}
+  @type finding_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3113,11 +3119,11 @@ defmodule AWS.Macie2 do
       replication_details() :: %{
         "replicated" => boolean(),
         "replicatedExternally" => boolean(),
-        "replicationAccounts" => list(String.t())
+        "replicationAccounts" => list(String.t() | Atom.t())
       }
 
   """
-  @type replication_details() :: %{String.t() => any()}
+  @type replication_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3134,11 +3140,11 @@ defmodule AWS.Macie2 do
 
       update_resource_profile_request() :: %{
         optional("sensitivityScoreOverride") => integer(),
-        required("resourceArn") => String.t()
+        required("resourceArn") => String.t() | Atom.t()
       }
 
   """
-  @type update_resource_profile_request() :: %{String.t() => any()}
+  @type update_resource_profile_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3150,26 +3156,26 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type get_usage_totals_response() :: %{String.t() => any()}
+  @type get_usage_totals_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       member() :: %{
-        "accountId" => String.t(),
-        "administratorAccountId" => String.t(),
-        "arn" => String.t(),
-        "email" => String.t(),
+        "accountId" => String.t() | Atom.t(),
+        "administratorAccountId" => String.t() | Atom.t(),
+        "arn" => String.t() | Atom.t(),
+        "email" => String.t() | Atom.t(),
         "invitedAt" => non_neg_integer(),
-        "masterAccountId" => String.t(),
+        "masterAccountId" => String.t() | Atom.t(),
         "relationshipStatus" => list(any()),
         "tags" => map(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type member() :: %{String.t() => any()}
+  @type member() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3185,13 +3191,13 @@ defmodule AWS.Macie2 do
   ## Example:
 
       update_allow_list_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         required("criteria") => allow_list_criteria(),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type update_allow_list_request() :: %{String.t() => any()}
+  @type update_allow_list_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3203,14 +3209,14 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type finding_action() :: %{String.t() => any()}
+  @type finding_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       ip_address_details() :: %{
-        "ipAddressV4" => String.t(),
+        "ipAddressV4" => String.t() | Atom.t(),
         "ipCity" => ip_city(),
         "ipCountry" => ip_country(),
         "ipGeoLocation" => ip_geo_location(),
@@ -3218,7 +3224,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type ip_address_details() :: %{String.t() => any()}
+  @type ip_address_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3229,7 +3235,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type put_classification_export_configuration_request() :: %{String.t() => any()}
+  @type put_classification_export_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3238,11 +3244,11 @@ defmodule AWS.Macie2 do
       search_resources_simple_criterion() :: %{
         "comparator" => list(any()),
         "key" => list(any()),
-        "values" => list(String.t())
+        "values" => list(String.t() | Atom.t())
       }
 
   """
-  @type search_resources_simple_criterion() :: %{String.t() => any()}
+  @type search_resources_simple_criterion() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3254,50 +3260,50 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type tag_criterion_for_job() :: %{String.t() => any()}
+  @type tag_criterion_for_job() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       domain_details() :: %{
-        "domainName" => String.t()
+        "domainName" => String.t() | Atom.t()
       }
 
   """
-  @type domain_details() :: %{String.t() => any()}
+  @type domain_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       criterion_additional_properties() :: %{
-        "eq" => list(String.t()),
-        "eqExactMatch" => list(String.t()),
+        "eq" => list(String.t() | Atom.t()),
+        "eqExactMatch" => list(String.t() | Atom.t()),
         "gt" => float(),
         "gte" => float(),
         "lt" => float(),
         "lte" => float(),
-        "neq" => list(String.t())
+        "neq" => list(String.t() | Atom.t())
       }
 
   """
-  @type criterion_additional_properties() :: %{String.t() => any()}
+  @type criterion_additional_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       session_issuer() :: %{
-        "accountId" => String.t(),
-        "arn" => String.t(),
-        "principalId" => String.t(),
-        "type" => String.t(),
-        "userName" => String.t()
+        "accountId" => String.t() | Atom.t(),
+        "arn" => String.t() | Atom.t(),
+        "principalId" => String.t() | Atom.t(),
+        "type" => String.t() | Atom.t(),
+        "userName" => String.t() | Atom.t()
       }
 
   """
-  @type session_issuer() :: %{String.t() => any()}
+  @type session_issuer() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3313,28 +3319,28 @@ defmodule AWS.Macie2 do
   ## Example:
 
       assumed_role() :: %{
-        "accessKeyId" => String.t(),
-        "accountId" => String.t(),
-        "arn" => String.t(),
-        "principalId" => String.t(),
+        "accessKeyId" => String.t() | Atom.t(),
+        "accountId" => String.t() | Atom.t(),
+        "arn" => String.t() | Atom.t(),
+        "principalId" => String.t() | Atom.t(),
         "sessionContext" => session_context()
       }
 
   """
-  @type assumed_role() :: %{String.t() => any()}
+  @type assumed_role() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       unprocessed_account() :: %{
-        "accountId" => String.t(),
+        "accountId" => String.t() | Atom.t(),
         "errorCode" => list(any()),
-        "errorMessage" => String.t()
+        "errorMessage" => String.t() | Atom.t()
       }
 
   """
-  @type unprocessed_account() :: %{String.t() => any()}
+  @type unprocessed_account() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3345,7 +3351,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type batch_update_automated_discovery_accounts_response() :: %{String.t() => any()}
+  @type batch_update_automated_discovery_accounts_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3353,11 +3359,11 @@ defmodule AWS.Macie2 do
 
       list_classification_scopes_response() :: %{
         "classificationScopes" => list(classification_scope_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_classification_scopes_response() :: %{String.t() => any()}
+  @type list_classification_scopes_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3369,7 +3375,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type bucket_permission_configuration() :: %{String.t() => any()}
+  @type bucket_permission_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3377,12 +3383,12 @@ defmodule AWS.Macie2 do
 
       user_paused_details() :: %{
         "jobExpiresAt" => non_neg_integer(),
-        "jobImminentExpirationHealthEventArn" => String.t(),
+        "jobImminentExpirationHealthEventArn" => String.t() | Atom.t(),
         "jobPausedAt" => non_neg_integer()
       }
 
   """
-  @type user_paused_details() :: %{String.t() => any()}
+  @type user_paused_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3393,49 +3399,49 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type create_invitations_response() :: %{String.t() => any()}
+  @type create_invitations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_allow_list_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
         "criteria" => allow_list_criteria(),
-        "description" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "status" => allow_list_status(),
         "tags" => map(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type get_allow_list_response() :: %{String.t() => any()}
+  @type get_allow_list_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       reveal_configuration() :: %{
-        "kmsKeyId" => String.t(),
+        "kmsKeyId" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type reveal_configuration() :: %{String.t() => any()}
+  @type reveal_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_resource_profile_request() :: %{
-        required("resourceArn") => String.t()
+        required("resourceArn") => String.t() | Atom.t()
       }
 
   """
-  @type get_resource_profile_request() :: %{String.t() => any()}
+  @type get_resource_profile_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3457,7 +3463,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type bucket_level_permissions() :: %{String.t() => any()}
+  @type bucket_level_permissions() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3465,11 +3471,11 @@ defmodule AWS.Macie2 do
 
       list_organization_admin_accounts_response() :: %{
         "adminAccounts" => list(admin_account()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_organization_admin_accounts_response() :: %{String.t() => any()}
+  @type list_organization_admin_accounts_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3477,24 +3483,24 @@ defmodule AWS.Macie2 do
 
       list_allow_lists_response() :: %{
         "allowLists" => list(allow_list_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_allow_lists_response() :: %{String.t() => any()}
+  @type list_allow_lists_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       matching_bucket() :: %{
-        "accountId" => String.t(),
+        "accountId" => String.t() | Atom.t(),
         "automatedDiscoveryMonitoringStatus" => list(any()),
-        "bucketName" => String.t(),
+        "bucketName" => String.t() | Atom.t(),
         "classifiableObjectCount" => float(),
         "classifiableSizeInBytes" => float(),
         "errorCode" => list(any()),
-        "errorMessage" => String.t(),
+        "errorMessage" => String.t() | Atom.t(),
         "jobDetails" => job_details(),
         "lastAutomatedDiscoveryTime" => non_neg_integer(),
         "objectCount" => float(),
@@ -3507,7 +3513,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type matching_bucket() :: %{String.t() => any()}
+  @type matching_bucket() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3523,34 +3529,34 @@ defmodule AWS.Macie2 do
   ## Example:
 
       get_custom_data_identifier_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
         "deleted" => boolean(),
-        "description" => String.t(),
-        "id" => String.t(),
-        "ignoreWords" => list(String.t()),
-        "keywords" => list(String.t()),
+        "description" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "ignoreWords" => list(String.t() | Atom.t()),
+        "keywords" => list(String.t() | Atom.t()),
         "maximumMatchDistance" => integer(),
-        "name" => String.t(),
-        "regex" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "regex" => String.t() | Atom.t(),
         "severityLevels" => list(severity_level()),
         "tags" => map()
       }
 
   """
-  @type get_custom_data_identifier_response() :: %{String.t() => any()}
+  @type get_custom_data_identifier_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_sensitivity_inspection_templates_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "sensitivityInspectionTemplates" => list(sensitivity_inspection_templates_entry())
       }
 
   """
-  @type list_sensitivity_inspection_templates_response() :: %{String.t() => any()}
+  @type list_sensitivity_inspection_templates_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3562,7 +3568,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type custom_data_identifiers() :: %{String.t() => any()}
+  @type custom_data_identifiers() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3583,21 +3589,21 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type access_control_list() :: %{String.t() => any()}
+  @type access_control_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       usage_record() :: %{
-        "accountId" => String.t(),
+        "accountId" => String.t() | Atom.t(),
         "automatedDiscoveryFreeTrialStartDate" => non_neg_integer(),
         "freeTrialStartDate" => non_neg_integer(),
         "usage" => list(usage_by_account())
       }
 
   """
-  @type usage_record() :: %{String.t() => any()}
+  @type usage_record() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3608,7 +3614,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type get_administrator_account_response() :: %{String.t() => any()}
+  @type get_administrator_account_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3628,7 +3634,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type job_scoping_block() :: %{String.t() => any()}
+  @type job_scoping_block() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3644,12 +3650,12 @@ defmodule AWS.Macie2 do
   ## Example:
 
       tag_criterion_pair_for_job() :: %{
-        "key" => String.t(),
-        "value" => String.t()
+        "key" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type tag_criterion_pair_for_job() :: %{String.t() => any()}
+  @type tag_criterion_pair_for_job() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3657,11 +3663,11 @@ defmodule AWS.Macie2 do
 
       group_count() :: %{
         "count" => float(),
-        "groupKey" => String.t()
+        "groupKey" => String.t() | Atom.t()
       }
 
   """
-  @type group_count() :: %{String.t() => any()}
+  @type group_count() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3672,7 +3678,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type matching_resource() :: %{String.t() => any()}
+  @type matching_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3685,7 +3691,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type page() :: %{String.t() => any()}
+  @type page() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3697,30 +3703,30 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type policy_details() :: %{String.t() => any()}
+  @type policy_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_classification_job_request() :: %{
-        optional("allowListIds") => list(String.t()),
-        optional("customDataIdentifierIds") => list(String.t()),
-        optional("description") => String.t(),
+        optional("allowListIds") => list(String.t() | Atom.t()),
+        optional("customDataIdentifierIds") => list(String.t() | Atom.t()),
+        optional("description") => String.t() | Atom.t(),
         optional("initialRun") => boolean(),
-        optional("managedDataIdentifierIds") => list(String.t()),
+        optional("managedDataIdentifierIds") => list(String.t() | Atom.t()),
         optional("managedDataIdentifierSelector") => list(any()),
         optional("samplingPercentage") => integer(),
         optional("scheduleFrequency") => job_schedule_frequency(),
         optional("tags") => map(),
-        required("clientToken") => String.t(),
+        required("clientToken") => String.t() | Atom.t(),
         required("jobType") => list(any()),
-        required("name") => String.t(),
+        required("name") => String.t() | Atom.t(),
         required("s3JobDefinition") => s3_job_definition()
       }
 
   """
-  @type create_classification_job_request() :: %{String.t() => any()}
+  @type create_classification_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3734,7 +3740,7 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type bucket_count_by_effective_permission() :: %{String.t() => any()}
+  @type bucket_count_by_effective_permission() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3743,34 +3749,34 @@ defmodule AWS.Macie2 do
       simple_criterion_for_job() :: %{
         "comparator" => list(any()),
         "key" => list(any()),
-        "values" => list(String.t())
+        "values" => list(String.t() | Atom.t())
       }
 
   """
-  @type simple_criterion_for_job() :: %{String.t() => any()}
+  @type simple_criterion_for_job() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       detected_data_details() :: %{
-        "value" => String.t()
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type detected_data_details() :: %{String.t() => any()}
+  @type detected_data_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       automated_discovery_account() :: %{
-        "accountId" => String.t(),
+        "accountId" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type automated_discovery_account() :: %{String.t() => any()}
+  @type automated_discovery_account() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3781,20 +3787,20 @@ defmodule AWS.Macie2 do
       }
 
   """
-  @type update_classification_job_request() :: %{String.t() => any()}
+  @type update_classification_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_usage_statistics_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "records" => list(usage_record()),
         "timeRange" => list(any())
       }
 
   """
-  @type get_usage_statistics_response() :: %{String.t() => any()}
+  @type get_usage_statistics_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3802,27 +3808,27 @@ defmodule AWS.Macie2 do
 
       create_invitations_request() :: %{
         optional("disableEmailNotification") => boolean(),
-        optional("message") => String.t(),
-        required("accountIds") => list(String.t())
+        optional("message") => String.t() | Atom.t(),
+        required("accountIds") => list(String.t() | Atom.t())
       }
 
   """
-  @type create_invitations_request() :: %{String.t() => any()}
+  @type create_invitations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_allow_list_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("tags") => map(),
-        required("clientToken") => String.t(),
+        required("clientToken") => String.t() | Atom.t(),
         required("criteria") => allow_list_criteria(),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_allow_list_request() :: %{String.t() => any()}
+  @type create_allow_list_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3839,11 +3845,11 @@ defmodule AWS.Macie2 do
 
       list_classification_jobs_response() :: %{
         "items" => list(job_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_classification_jobs_response() :: %{String.t() => any()}
+  @type list_classification_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3851,11 +3857,11 @@ defmodule AWS.Macie2 do
 
       list_invitations_response() :: %{
         "invitations" => list(invitation()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_invitations_response() :: %{String.t() => any()}
+  @type list_invitations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4870,7 +4876,7 @@ defmodule AWS.Macie2 do
   @doc """
   Deletes an allow list.
   """
-  @spec delete_allow_list(map(), String.t(), delete_allow_list_request(), list()) ::
+  @spec delete_allow_list(map(), String.t() | Atom.t(), delete_allow_list_request(), list()) ::
           {:ok, delete_allow_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4906,7 +4912,7 @@ defmodule AWS.Macie2 do
   """
   @spec delete_custom_data_identifier(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_custom_data_identifier_request(),
           list()
         ) ::
@@ -4938,7 +4944,12 @@ defmodule AWS.Macie2 do
   @doc """
   Deletes a findings filter.
   """
-  @spec delete_findings_filter(map(), String.t(), delete_findings_filter_request(), list()) ::
+  @spec delete_findings_filter(
+          map(),
+          String.t() | Atom.t(),
+          delete_findings_filter_request(),
+          list()
+        ) ::
           {:ok, delete_findings_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4998,7 +5009,7 @@ defmodule AWS.Macie2 do
   Deletes the association between an Amazon Macie administrator account and an
   account.
   """
-  @spec delete_member(map(), String.t(), delete_member_request(), list()) ::
+  @spec delete_member(map(), String.t() | Atom.t(), delete_member_request(), list()) ::
           {:ok, delete_member_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5057,7 +5068,7 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves the status and settings for a classification job.
   """
-  @spec describe_classification_job(map(), String.t(), list()) ::
+  @spec describe_classification_job(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_classification_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5233,7 +5244,7 @@ defmodule AWS.Macie2 do
   @doc """
   Disassociates an Amazon Macie administrator account from a member account.
   """
-  @spec disassociate_member(map(), String.t(), disassociate_member_request(), list()) ::
+  @spec disassociate_member(map(), String.t() | Atom.t(), disassociate_member_request(), list()) ::
           {:ok, disassociate_member_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5345,7 +5356,7 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves the settings and status of an allow list.
   """
-  @spec get_allow_list(map(), String.t(), list()) ::
+  @spec get_allow_list(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_allow_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5430,7 +5441,7 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves the classification scope settings for an account.
   """
-  @spec get_classification_scope(map(), String.t(), list()) ::
+  @spec get_classification_scope(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_classification_scope_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5448,7 +5459,7 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves the criteria and other settings for a custom data identifier.
   """
-  @spec get_custom_data_identifier(map(), String.t(), list()) ::
+  @spec get_custom_data_identifier(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_custom_data_identifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5524,7 +5535,7 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves the criteria and other settings for a findings filter.
   """
-  @spec get_findings_filter(map(), String.t(), list()) ::
+  @spec get_findings_filter(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_findings_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5619,7 +5630,7 @@ defmodule AWS.Macie2 do
   Retrieves information about an account that's associated with an Amazon Macie
   administrator account.
   """
-  @spec get_member(map(), String.t(), list()) ::
+  @spec get_member(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_member_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5638,7 +5649,7 @@ defmodule AWS.Macie2 do
   Retrieves (queries) sensitive data discovery statistics and the sensitivity
   score for an S3 bucket.
   """
-  @spec get_resource_profile(map(), String.t(), list()) ::
+  @spec get_resource_profile(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_resource_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5682,7 +5693,7 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves occurrences of sensitive data reported by a finding.
   """
-  @spec get_sensitive_data_occurrences(map(), String.t(), list()) ::
+  @spec get_sensitive_data_occurrences(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_sensitive_data_occurrences_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5700,7 +5711,7 @@ defmodule AWS.Macie2 do
   @doc """
   Checks whether occurrences of sensitive data can be retrieved for a finding.
   """
-  @spec get_sensitive_data_occurrences_availability(map(), String.t(), list()) ::
+  @spec get_sensitive_data_occurrences_availability(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_sensitive_data_occurrences_availability_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5718,7 +5729,7 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves the settings for the sensitivity inspection template for an account.
   """
-  @spec get_sensitivity_inspection_template(map(), String.t(), list()) ::
+  @spec get_sensitivity_inspection_template(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_sensitivity_inspection_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5765,7 +5776,7 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves (queries) aggregated usage data for an account.
   """
-  @spec get_usage_totals(map(), String.t() | nil, list()) ::
+  @spec get_usage_totals(map(), String.t() | Atom.t() | nil, list()) ::
           {:ok, get_usage_totals_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5790,7 +5801,7 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves a subset of information about all the allow lists for an account.
   """
-  @spec list_allow_lists(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_allow_lists(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_allow_lists_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5825,9 +5836,9 @@ defmodule AWS.Macie2 do
   """
   @spec list_automated_discovery_accounts(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_automated_discovery_accounts_response(), any()}
@@ -5903,7 +5914,12 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves a subset of information about the classification scope for an account.
   """
-  @spec list_classification_scopes(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_classification_scopes(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_classification_scopes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5999,7 +6015,12 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves a subset of information about all the findings filters for an account.
   """
-  @spec list_findings_filters(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_findings_filters(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_findings_filters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6037,7 +6058,7 @@ defmodule AWS.Macie2 do
   Retrieves information about Amazon Macie membership invitations that were
   received by an account.
   """
-  @spec list_invitations(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_invitations(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6099,7 +6120,13 @@ defmodule AWS.Macie2 do
   Retrieves information about the accounts that are associated with an Amazon
   Macie administrator account.
   """
-  @spec list_members(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_members(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6145,7 +6172,12 @@ defmodule AWS.Macie2 do
   Retrieves information about the delegated Amazon Macie administrator account for
   an organization in Organizations.
   """
-  @spec list_organization_admin_accounts(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_organization_admin_accounts(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_organization_admin_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6183,7 +6215,12 @@ defmodule AWS.Macie2 do
   Retrieves information about objects that Amazon Macie selected from an S3 bucket
   for automated sensitive data discovery.
   """
-  @spec list_resource_profile_artifacts(map(), String.t() | nil, String.t(), list()) ::
+  @spec list_resource_profile_artifacts(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, list_resource_profile_artifacts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6223,9 +6260,9 @@ defmodule AWS.Macie2 do
   """
   @spec list_resource_profile_detections(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
           list()
         ) ::
           {:ok, list_resource_profile_detections_response(), any()}
@@ -6273,7 +6310,12 @@ defmodule AWS.Macie2 do
   Retrieves a subset of information about the sensitivity inspection template for
   an account.
   """
-  @spec list_sensitivity_inspection_templates(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_sensitivity_inspection_templates(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_sensitivity_inspection_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6311,7 +6353,7 @@ defmodule AWS.Macie2 do
   Retrieves the tags (keys and values) that are associated with an Amazon Macie
   resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6426,7 +6468,7 @@ defmodule AWS.Macie2 do
   Adds or updates one or more tags (keys and values) that are associated with an
   Amazon Macie resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6483,7 +6525,7 @@ defmodule AWS.Macie2 do
   @doc """
   Removes one or more tags (keys and values) from an Amazon Macie resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6516,7 +6558,7 @@ defmodule AWS.Macie2 do
   @doc """
   Updates the settings for an allow list.
   """
-  @spec update_allow_list(map(), String.t(), update_allow_list_request(), list()) ::
+  @spec update_allow_list(map(), String.t() | Atom.t(), update_allow_list_request(), list()) ::
           {:ok, update_allow_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6579,7 +6621,12 @@ defmodule AWS.Macie2 do
   @doc """
   Changes the status of a classification job.
   """
-  @spec update_classification_job(map(), String.t(), update_classification_job_request(), list()) ::
+  @spec update_classification_job(
+          map(),
+          String.t() | Atom.t(),
+          update_classification_job_request(),
+          list()
+        ) ::
           {:ok, update_classification_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6610,7 +6657,7 @@ defmodule AWS.Macie2 do
   """
   @spec update_classification_scope(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_classification_scope_request(),
           list()
         ) ::
@@ -6642,7 +6689,12 @@ defmodule AWS.Macie2 do
   @doc """
   Updates the criteria and other settings for a findings filter.
   """
-  @spec update_findings_filter(map(), String.t(), update_findings_filter_request(), list()) ::
+  @spec update_findings_filter(
+          map(),
+          String.t() | Atom.t(),
+          update_findings_filter_request(),
+          list()
+        ) ::
           {:ok, update_findings_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6702,7 +6754,12 @@ defmodule AWS.Macie2 do
   Enables an Amazon Macie administrator to suspend or re-enable Macie for a member
   account.
   """
-  @spec update_member_session(map(), String.t(), update_member_session_request(), list()) ::
+  @spec update_member_session(
+          map(),
+          String.t() | Atom.t(),
+          update_member_session_request(),
+          list()
+        ) ::
           {:ok, update_member_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6869,7 +6926,7 @@ defmodule AWS.Macie2 do
   """
   @spec update_sensitivity_inspection_template(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_sensitivity_inspection_template_request(),
           list()
         ) ::

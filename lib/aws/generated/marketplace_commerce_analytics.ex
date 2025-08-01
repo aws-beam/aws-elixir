@@ -15,38 +15,38 @@ defmodule AWS.MarketplaceCommerceAnalytics do
       
       generate_data_set_request() :: %{
         optional("customerDefinedValues") => map(),
-        optional("destinationS3Prefix") => String.t(),
+        optional("destinationS3Prefix") => String.t() | Atom.t(),
         required("dataSetPublicationDate") => non_neg_integer(),
         required("dataSetType") => list(any()),
-        required("destinationS3BucketName") => String.t(),
-        required("roleNameArn") => String.t(),
-        required("snsTopicArn") => String.t()
+        required("destinationS3BucketName") => String.t() | Atom.t(),
+        required("roleNameArn") => String.t() | Atom.t(),
+        required("snsTopicArn") => String.t() | Atom.t()
       }
       
   """
-  @type generate_data_set_request() :: %{String.t() => any()}
+  @type generate_data_set_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       generate_data_set_result() :: %{
-        "dataSetRequestId" => String.t()
+        "dataSetRequestId" => String.t() | Atom.t()
       }
       
   """
-  @type generate_data_set_result() :: %{String.t() => any()}
+  @type generate_data_set_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       marketplace_commerce_analytics_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type marketplace_commerce_analytics_exception() :: %{String.t() => any()}
+  @type marketplace_commerce_analytics_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -54,27 +54,27 @@ defmodule AWS.MarketplaceCommerceAnalytics do
       
       start_support_data_export_request() :: %{
         optional("customerDefinedValues") => map(),
-        optional("destinationS3Prefix") => String.t(),
+        optional("destinationS3Prefix") => String.t() | Atom.t(),
         required("dataSetType") => list(any()),
-        required("destinationS3BucketName") => String.t(),
+        required("destinationS3BucketName") => String.t() | Atom.t(),
         required("fromDate") => non_neg_integer(),
-        required("roleNameArn") => String.t(),
-        required("snsTopicArn") => String.t()
+        required("roleNameArn") => String.t() | Atom.t(),
+        required("snsTopicArn") => String.t() | Atom.t()
       }
       
   """
-  @type start_support_data_export_request() :: %{String.t() => any()}
+  @type start_support_data_export_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_support_data_export_result() :: %{
-        "dataSetRequestId" => String.t()
+        "dataSetRequestId" => String.t() | Atom.t()
       }
       
   """
-  @type start_support_data_export_result() :: %{String.t() => any()}
+  @type start_support_data_export_result() :: %{String.t() | Atom.t() => any()}
 
   @type generate_data_set_errors() :: marketplace_commerce_analytics_exception()
 

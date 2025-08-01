@@ -16,11 +16,14 @@ defmodule AWS.MediaLive do
       static_image_output_deactivate_schedule_action_settings() :: %{
         "FadeOut" => integer(),
         "Layer" => integer(),
-        "OutputNames" => list(String.t())
+        "OutputNames" => list(String.t() | Atom.t())
       }
 
   """
-  @type static_image_output_deactivate_schedule_action_settings() :: %{String.t() => any()}
+  @type static_image_output_deactivate_schedule_action_settings() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -45,17 +48,17 @@ defmodule AWS.MediaLive do
   ## Example:
 
       create_network_response() :: %{
-        "Arn" => String.t(),
-        "AssociatedClusterIds" => list(String.t()),
-        "Id" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "AssociatedClusterIds" => list(String.t() | Atom.t()),
+        "Id" => String.t() | Atom.t(),
         "IpPools" => list(ip_pool()),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Routes" => list(route()),
         "State" => list(any())
       }
 
   """
-  @type create_network_response() :: %{String.t() => any()}
+  @type create_network_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -66,7 +69,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type archive_s3_settings() :: %{String.t() => any()}
+  @type archive_s3_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -80,7 +83,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type caption_rectangle() :: %{String.t() => any()}
+  @type caption_rectangle() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -93,24 +96,24 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type scte35_time_signal_apos() :: %{String.t() => any()}
+  @type scte35_time_signal_apos() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_cloud_watch_alarm_template_group_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
-        "Id" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "ModifiedAt" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type update_cloud_watch_alarm_template_group_response() :: %{String.t() => any()}
+  @type update_cloud_watch_alarm_template_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -125,7 +128,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type srt_output_settings() :: %{String.t() => any()}
+  @type srt_output_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -142,11 +145,11 @@ defmodule AWS.MediaLive do
 
       list_networks_response() :: %{
         "Networks" => list(describe_network_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_networks_response() :: %{String.t() => any()}
+  @type list_networks_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -162,20 +165,20 @@ defmodule AWS.MediaLive do
   ## Example:
 
       event_bridge_rule_template_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "EventTargetCount" => integer(),
         "EventType" => list(any()),
-        "GroupId" => String.t(),
-        "Id" => String.t(),
+        "GroupId" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "ModifiedAt" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type event_bridge_rule_template_summary() :: %{String.t() => any()}
+  @type event_bridge_rule_template_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -187,18 +190,18 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type frame_capture_group_settings() :: %{String.t() => any()}
+  @type frame_capture_group_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       input_device_settings() :: %{
-        "Id" => String.t()
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type input_device_settings() :: %{String.t() => any()}
+  @type input_device_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -206,25 +209,25 @@ defmodule AWS.MediaLive do
 
       list_input_security_groups_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_input_security_groups_request() :: %{String.t() => any()}
+  @type list_input_security_groups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_event_bridge_rule_templates_request() :: %{
-        optional("GroupIdentifier") => String.t(),
+        optional("GroupIdentifier") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("SignalMapIdentifier") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("SignalMapIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type list_event_bridge_rule_templates_request() :: %{String.t() => any()}
+  @type list_event_bridge_rule_templates_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -232,70 +235,70 @@ defmodule AWS.MediaLive do
 
       stop_timecode() :: %{
         "LastFrameClippingBehavior" => list(any()),
-        "Timecode" => String.t()
+        "Timecode" => String.t() | Atom.t()
       }
 
   """
-  @type stop_timecode() :: %{String.t() => any()}
+  @type stop_timecode() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_channel_placement_group_summary() :: %{
-        "Arn" => String.t(),
-        "Channels" => list(String.t()),
-        "ClusterId" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t(),
-        "Nodes" => list(String.t()),
+        "Arn" => String.t() | Atom.t(),
+        "Channels" => list(String.t() | Atom.t()),
+        "ClusterId" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "Nodes" => list(String.t() | Atom.t()),
         "State" => list(any())
       }
 
   """
-  @type describe_channel_placement_group_summary() :: %{String.t() => any()}
+  @type describe_channel_placement_group_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       input_destination() :: %{
-        "Ip" => String.t(),
-        "Network" => String.t(),
+        "Ip" => String.t() | Atom.t(),
+        "Network" => String.t() | Atom.t(),
         "NetworkRoutes" => list(input_destination_route()),
-        "Port" => String.t(),
-        "Url" => String.t(),
+        "Port" => String.t() | Atom.t(),
+        "Url" => String.t() | Atom.t(),
         "Vpc" => input_destination_vpc()
       }
 
   """
-  @type input_destination() :: %{String.t() => any()}
+  @type input_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_input_device_response() :: %{
-        "Arn" => String.t(),
-        "AvailabilityZone" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "AvailabilityZone" => String.t() | Atom.t(),
         "ConnectionState" => list(any()),
         "DeviceSettingsSyncState" => list(any()),
         "DeviceUpdateStatus" => list(any()),
         "HdDeviceSettings" => input_device_hd_settings(),
-        "Id" => String.t(),
-        "MacAddress" => String.t(),
-        "MedialiveInputArns" => list(String.t()),
-        "Name" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "MacAddress" => String.t() | Atom.t(),
+        "MedialiveInputArns" => list(String.t() | Atom.t()),
+        "Name" => String.t() | Atom.t(),
         "NetworkSettings" => input_device_network_settings(),
         "OutputType" => list(any()),
-        "SerialNumber" => String.t(),
+        "SerialNumber" => String.t() | Atom.t(),
         "Tags" => map(),
         "Type" => list(any()),
         "UhdDeviceSettings" => input_device_uhd_settings()
       }
 
   """
-  @type describe_input_device_response() :: %{String.t() => any()}
+  @type describe_input_device_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -307,7 +310,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type batch_start_response() :: %{String.t() => any()}
+  @type batch_start_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -319,7 +322,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type scte20_source_settings() :: %{String.t() => any()}
+  @type scte20_source_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -335,12 +338,12 @@ defmodule AWS.MediaLive do
   ## Example:
 
       list_signal_maps_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "SignalMaps" => list(signal_map_summary())
       }
 
   """
-  @type list_signal_maps_response() :: %{String.t() => any()}
+  @type list_signal_maps_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -362,20 +365,20 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type input_clipping_settings() :: %{String.t() => any()}
+  @type input_clipping_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       input_source() :: %{
-        "PasswordParam" => String.t(),
-        "Url" => String.t(),
-        "Username" => String.t()
+        "PasswordParam" => String.t() | Atom.t(),
+        "Url" => String.t() | Atom.t(),
+        "Username" => String.t() | Atom.t()
       }
 
   """
-  @type input_source() :: %{String.t() => any()}
+  @type input_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -391,8 +394,8 @@ defmodule AWS.MediaLive do
   ## Example:
 
       output_destination() :: %{
-        "Id" => String.t(),
-        "LogicalInterfaceNames" => list(String.t()),
+        "Id" => String.t() | Atom.t(),
+        "LogicalInterfaceNames" => list(String.t() | Atom.t()),
         "MediaPackageSettings" => list(media_package_output_destination_settings()),
         "MultiplexSettings" => multiplex_program_channel_destination_settings(),
         "Settings" => list(output_destination_settings()),
@@ -400,7 +403,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type output_destination() :: %{String.t() => any()}
+  @type output_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -412,7 +415,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type video_selector_settings() :: %{String.t() => any()}
+  @type video_selector_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -423,7 +426,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type srt_group_settings() :: %{String.t() => any()}
+  @type srt_group_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -435,18 +438,18 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type batch_update_schedule_request() :: %{String.t() => any()}
+  @type batch_update_schedule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       multiplex_summary() :: %{
-        "Arn" => String.t(),
-        "AvailabilityZones" => list(String.t()),
-        "Id" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "AvailabilityZones" => list(String.t() | Atom.t()),
+        "Id" => String.t() | Atom.t(),
         "MultiplexSettings" => multiplex_settings_summary(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "PipelinesRunningCount" => integer(),
         "ProgramCount" => integer(),
         "State" => list(any()),
@@ -454,7 +457,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type multiplex_summary() :: %{String.t() => any()}
+  @type multiplex_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -470,25 +473,25 @@ defmodule AWS.MediaLive do
   ## Example:
 
       delete_tags_request() :: %{
-        required("TagKeys") => list(String.t())
+        required("TagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type delete_tags_request() :: %{String.t() => any()}
+  @type delete_tags_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_input_device_request() :: %{
-        optional("AvailabilityZone") => String.t(),
+        optional("AvailabilityZone") => String.t() | Atom.t(),
         optional("HdDeviceSettings") => input_device_configurable_settings(),
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("UhdDeviceSettings") => input_device_configurable_settings()
       }
 
   """
-  @type update_input_device_request() :: %{String.t() => any()}
+  @type update_input_device_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -496,11 +499,11 @@ defmodule AWS.MediaLive do
 
       list_multiplex_programs_response() :: %{
         "MultiplexPrograms" => list(multiplex_program_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_multiplex_programs_response() :: %{String.t() => any()}
+  @type list_multiplex_programs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -521,7 +524,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type scte27_source_settings() :: %{String.t() => any()}
+  @type scte27_source_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -529,11 +532,11 @@ defmodule AWS.MediaLive do
 
       channel_engine_version_response() :: %{
         "ExpirationDate" => non_neg_integer(),
-        "Version" => String.t()
+        "Version" => String.t() | Atom.t()
       }
 
   """
-  @type channel_engine_version_response() :: %{String.t() => any()}
+  @type channel_engine_version_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -541,30 +544,30 @@ defmodule AWS.MediaLive do
 
       restart_channel_pipelines_response() :: %{
         "AnywhereSettings" => describe_anywhere_settings(),
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
         "ChannelEngineVersion" => channel_engine_version_response(),
         "Destinations" => list(output_destination()),
         "EgressEndpoints" => list(channel_egress_endpoint()),
         "EncoderSettings" => encoder_settings(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
         "LogLevel" => list(any()),
         "Maintenance" => maintenance_status(),
-        "MaintenanceStatus" => String.t(),
-        "Name" => String.t(),
+        "MaintenanceStatus" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "PipelineDetails" => list(pipeline_detail()),
         "PipelinesRunningCount" => integer(),
-        "RoleArn" => String.t(),
+        "RoleArn" => String.t() | Atom.t(),
         "State" => list(any()),
         "Tags" => map(),
         "Vpc" => vpc_output_settings_description()
       }
 
   """
-  @type restart_channel_pipelines_response() :: %{String.t() => any()}
+  @type restart_channel_pipelines_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -575,7 +578,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type update_channel_class_response() :: %{String.t() => any()}
+  @type update_channel_class_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -588,7 +591,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type archive_group_settings() :: %{String.t() => any()}
+  @type archive_group_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -600,12 +603,12 @@ defmodule AWS.MediaLive do
         "HttpTransferMode" => list(any()),
         "NumRetries" => integer(),
         "RestartDelay" => integer(),
-        "Salt" => String.t(),
-        "Token" => String.t()
+        "Salt" => String.t() | Atom.t(),
+        "Token" => String.t() | Atom.t()
       }
 
   """
-  @type hls_akamai_settings() :: %{String.t() => any()}
+  @type hls_akamai_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -623,25 +626,25 @@ defmodule AWS.MediaLive do
       sdi_source_mapping() :: %{
         "CardNumber" => integer(),
         "ChannelNumber" => integer(),
-        "SdiSource" => String.t()
+        "SdiSource" => String.t() | Atom.t()
       }
 
   """
-  @type sdi_source_mapping() :: %{String.t() => any()}
+  @type sdi_source_mapping() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       audio_only_hls_settings() :: %{
-        "AudioGroupId" => String.t(),
+        "AudioGroupId" => String.t() | Atom.t(),
         "AudioOnlyImage" => input_location(),
         "AudioTrackType" => list(any()),
         "SegmentType" => list(any())
       }
 
   """
-  @type audio_only_hls_settings() :: %{String.t() => any()}
+  @type audio_only_hls_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -655,19 +658,19 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type scte35_delivery_restrictions() :: %{String.t() => any()}
+  @type scte35_delivery_restrictions() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       multiplex_program_summary() :: %{
-        "ChannelId" => String.t(),
-        "ProgramName" => String.t()
+        "ChannelId" => String.t() | Atom.t(),
+        "ProgramName" => String.t() | Atom.t()
       }
 
   """
-  @type multiplex_program_summary() :: %{String.t() => any()}
+  @type multiplex_program_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -676,11 +679,11 @@ defmodule AWS.MediaLive do
       update_cloud_watch_alarm_template_request() :: %{
         optional("ComparisonOperator") => list(any()),
         optional("DatapointsToAlarm") => integer(),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("EvaluationPeriods") => integer(),
-        optional("GroupIdentifier") => String.t(),
-        optional("MetricName") => String.t(),
-        optional("Name") => String.t(),
+        optional("GroupIdentifier") => String.t() | Atom.t(),
+        optional("MetricName") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("Period") => integer(),
         optional("Statistic") => list(any()),
         optional("TargetResourceType") => list(any()),
@@ -689,7 +692,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type update_cloud_watch_alarm_template_request() :: %{String.t() => any()}
+  @type update_cloud_watch_alarm_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -697,11 +700,11 @@ defmodule AWS.MediaLive do
 
       srt_caller_decryption_request() :: %{
         "Algorithm" => list(any()),
-        "PassphraseSecretArn" => String.t()
+        "PassphraseSecretArn" => String.t() | Atom.t()
       }
 
   """
-  @type srt_caller_decryption_request() :: %{String.t() => any()}
+  @type srt_caller_decryption_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -712,24 +715,24 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type create_channel_response() :: %{String.t() => any()}
+  @type create_channel_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_channel_placement_group_response() :: %{
-        "Arn" => String.t(),
-        "Channels" => list(String.t()),
-        "ClusterId" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t(),
-        "Nodes" => list(String.t()),
+        "Arn" => String.t() | Atom.t(),
+        "Channels" => list(String.t() | Atom.t()),
+        "ClusterId" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "Nodes" => list(String.t() | Atom.t()),
         "State" => list(any())
       }
 
   """
-  @type describe_channel_placement_group_response() :: %{String.t() => any()}
+  @type describe_channel_placement_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -740,29 +743,29 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type scte35_return_to_network_schedule_action_settings() :: %{String.t() => any()}
+  @type scte35_return_to_network_schedule_action_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       ip_pool_update_request() :: %{
-        "Cidr" => String.t()
+        "Cidr" => String.t() | Atom.t()
       }
 
   """
-  @type ip_pool_update_request() :: %{String.t() => any()}
+  @type ip_pool_update_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       channel_engine_version_request() :: %{
-        "Version" => String.t()
+        "Version" => String.t() | Atom.t()
       }
 
   """
-  @type channel_engine_version_request() :: %{String.t() => any()}
+  @type channel_engine_version_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -782,42 +785,42 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type pause_state_schedule_action_settings() :: %{String.t() => any()}
+  @type pause_state_schedule_action_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_cluster_response() :: %{
-        "Arn" => String.t(),
-        "ChannelIds" => list(String.t()),
+        "Arn" => String.t() | Atom.t(),
+        "ChannelIds" => list(String.t() | Atom.t()),
         "ClusterType" => list(any()),
-        "Id" => String.t(),
-        "InstanceRoleArn" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "InstanceRoleArn" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "NetworkSettings" => cluster_network_settings(),
         "State" => list(any())
       }
 
   """
-  @type describe_cluster_response() :: %{String.t() => any()}
+  @type describe_cluster_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_channel_placement_group_response() :: %{
-        "Arn" => String.t(),
-        "Channels" => list(String.t()),
-        "ClusterId" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t(),
-        "Nodes" => list(String.t()),
+        "Arn" => String.t() | Atom.t(),
+        "Channels" => list(String.t() | Atom.t()),
+        "ClusterId" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "Nodes" => list(String.t() | Atom.t()),
         "State" => list(any())
       }
 
   """
-  @type update_channel_placement_group_response() :: %{String.t() => any()}
+  @type update_channel_placement_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -825,28 +828,28 @@ defmodule AWS.MediaLive do
 
       srt_caller_decryption() :: %{
         "Algorithm" => list(any()),
-        "PassphraseSecretArn" => String.t()
+        "PassphraseSecretArn" => String.t() | Atom.t()
       }
 
   """
-  @type srt_caller_decryption() :: %{String.t() => any()}
+  @type srt_caller_decryption() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_network_response() :: %{
-        "Arn" => String.t(),
-        "AssociatedClusterIds" => list(String.t()),
-        "Id" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "AssociatedClusterIds" => list(String.t() | Atom.t()),
+        "Id" => String.t() | Atom.t(),
         "IpPools" => list(ip_pool()),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Routes" => list(route()),
         "State" => list(any())
       }
 
   """
-  @type describe_network_response() :: %{String.t() => any()}
+  @type describe_network_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -859,7 +862,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type network_input_settings() :: %{String.t() => any()}
+  @type network_input_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -872,7 +875,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type mp2_settings() :: %{String.t() => any()}
+  @type mp2_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -892,34 +895,34 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type multiplex_output_destination() :: %{String.t() => any()}
+  @type multiplex_output_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       monitor_deployment() :: %{
-        "DetailsUri" => String.t(),
-        "ErrorMessage" => String.t(),
+        "DetailsUri" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | Atom.t(),
         "Status" => list(any())
       }
 
   """
-  @type monitor_deployment() :: %{String.t() => any()}
+  @type monitor_deployment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_failed_result_model() :: %{
-        "Arn" => String.t(),
-        "Code" => String.t(),
-        "Id" => String.t(),
-        "Message" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Code" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type batch_failed_result_model() :: %{String.t() => any()}
+  @type batch_failed_result_model() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -930,7 +933,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type multicast_settings() :: %{String.t() => any()}
+  @type multicast_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -938,52 +941,52 @@ defmodule AWS.MediaLive do
 
       delete_channel_response() :: %{
         "AnywhereSettings" => describe_anywhere_settings(),
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
         "ChannelEngineVersion" => channel_engine_version_response(),
         "Destinations" => list(output_destination()),
         "EgressEndpoints" => list(channel_egress_endpoint()),
         "EncoderSettings" => encoder_settings(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
         "LogLevel" => list(any()),
         "Maintenance" => maintenance_status(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "PipelineDetails" => list(pipeline_detail()),
         "PipelinesRunningCount" => integer(),
-        "RoleArn" => String.t(),
+        "RoleArn" => String.t() | Atom.t(),
         "State" => list(any()),
         "Tags" => map(),
         "Vpc" => vpc_output_settings_description()
       }
 
   """
-  @type delete_channel_response() :: %{String.t() => any()}
+  @type delete_channel_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       account_configuration() :: %{
-        "KmsKeyId" => String.t()
+        "KmsKeyId" => String.t() | Atom.t()
       }
 
   """
-  @type account_configuration() :: %{String.t() => any()}
+  @type account_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_channel_placement_group_request() :: %{
-        optional("Name") => String.t(),
-        optional("Nodes") => list(String.t())
+        optional("Name") => String.t() | Atom.t(),
+        optional("Nodes") => list(String.t() | Atom.t())
       }
 
   """
-  @type update_channel_placement_group_request() :: %{String.t() => any()}
+  @type update_channel_placement_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -995,21 +998,21 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type update_input_security_group_request() :: %{String.t() => any()}
+  @type update_input_security_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       thumbnail() :: %{
-        "Body" => String.t(),
-        "ContentType" => String.t(),
+        "Body" => String.t() | Atom.t(),
+        "ContentType" => String.t() | Atom.t(),
         "ThumbnailType" => list(any()),
         "TimeStamp" => non_neg_integer()
       }
 
   """
-  @type thumbnail() :: %{String.t() => any()}
+  @type thumbnail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1023,20 +1026,20 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type udp_output_settings() :: %{String.t() => any()}
+  @type udp_output_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       input_location() :: %{
-        "PasswordParam" => String.t(),
-        "Uri" => String.t(),
-        "Username" => String.t()
+        "PasswordParam" => String.t() | Atom.t(),
+        "Uri" => String.t() | Atom.t(),
+        "Username" => String.t() | Atom.t()
       }
 
   """
-  @type input_location() :: %{String.t() => any()}
+  @type input_location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1052,153 +1055,153 @@ defmodule AWS.MediaLive do
   ## Example:
 
       nielsen_configuration() :: %{
-        "DistributorId" => String.t(),
+        "DistributorId" => String.t() | Atom.t(),
         "NielsenPcmToId3Tagging" => list(any())
       }
 
   """
-  @type nielsen_configuration() :: %{String.t() => any()}
+  @type nielsen_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       caption_selector() :: %{
-        "LanguageCode" => String.t(),
-        "Name" => String.t(),
+        "LanguageCode" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "SelectorSettings" => caption_selector_settings()
       }
 
   """
-  @type caption_selector() :: %{String.t() => any()}
+  @type caption_selector() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_node_request() :: %{
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("NodeInterfaceMappings") => list(node_interface_mapping_create_request()),
-        optional("RequestId") => String.t(),
+        optional("RequestId") => String.t() | Atom.t(),
         optional("Role") => list(any()),
         optional("Tags") => map()
       }
 
   """
-  @type create_node_request() :: %{String.t() => any()}
+  @type create_node_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_cluster_response() :: %{
-        "Arn" => String.t(),
-        "ChannelIds" => list(String.t()),
+        "Arn" => String.t() | Atom.t(),
+        "ChannelIds" => list(String.t() | Atom.t()),
         "ClusterType" => list(any()),
-        "Id" => String.t(),
-        "InstanceRoleArn" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "InstanceRoleArn" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "NetworkSettings" => cluster_network_settings(),
         "State" => list(any())
       }
 
   """
-  @type create_cluster_response() :: %{String.t() => any()}
+  @type create_cluster_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_input_device_response() :: %{
-        "Arn" => String.t(),
-        "AvailabilityZone" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "AvailabilityZone" => String.t() | Atom.t(),
         "ConnectionState" => list(any()),
         "DeviceSettingsSyncState" => list(any()),
         "DeviceUpdateStatus" => list(any()),
         "HdDeviceSettings" => input_device_hd_settings(),
-        "Id" => String.t(),
-        "MacAddress" => String.t(),
-        "MedialiveInputArns" => list(String.t()),
-        "Name" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "MacAddress" => String.t() | Atom.t(),
+        "MedialiveInputArns" => list(String.t() | Atom.t()),
+        "Name" => String.t() | Atom.t(),
         "NetworkSettings" => input_device_network_settings(),
         "OutputType" => list(any()),
-        "SerialNumber" => String.t(),
+        "SerialNumber" => String.t() | Atom.t(),
         "Tags" => map(),
         "Type" => list(any()),
         "UhdDeviceSettings" => input_device_uhd_settings()
       }
 
   """
-  @type update_input_device_response() :: %{String.t() => any()}
+  @type update_input_device_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bad_gateway_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type bad_gateway_exception() :: %{String.t() => any()}
+  @type bad_gateway_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       input_device_request() :: %{
-        "Id" => String.t()
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type input_device_request() :: %{String.t() => any()}
+  @type input_device_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       input_device_network_settings() :: %{
-        "DnsAddresses" => list(String.t()),
-        "Gateway" => String.t(),
-        "IpAddress" => String.t(),
+        "DnsAddresses" => list(String.t() | Atom.t()),
+        "Gateway" => String.t() | Atom.t(),
+        "IpAddress" => String.t() | Atom.t(),
         "IpScheme" => list(any()),
-        "SubnetMask" => String.t()
+        "SubnetMask" => String.t() | Atom.t()
       }
 
   """
-  @type input_device_network_settings() :: %{String.t() => any()}
+  @type input_device_network_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_event_bridge_rule_template_group_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
-        "Id" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "ModifiedAt" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type get_event_bridge_rule_template_group_response() :: %{String.t() => any()}
+  @type get_event_bridge_rule_template_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       multiplex_program() :: %{
-        "ChannelId" => String.t(),
+        "ChannelId" => String.t() | Atom.t(),
         "MultiplexProgramSettings" => multiplex_program_settings(),
         "PacketIdentifiersMap" => multiplex_program_packet_identifiers_map(),
         "PipelineDetails" => list(multiplex_program_pipeline_detail()),
-        "ProgramName" => String.t()
+        "ProgramName" => String.t() | Atom.t()
       }
 
   """
-  @type multiplex_program() :: %{String.t() => any()}
+  @type multiplex_program() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1215,7 +1218,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type caption_selector_settings() :: %{String.t() => any()}
+  @type caption_selector_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1226,7 +1229,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type input_loss_failover_settings() :: %{String.t() => any()}
+  @type input_loss_failover_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1234,12 +1237,12 @@ defmodule AWS.MediaLive do
 
       create_multiplex_program_request() :: %{
         required("MultiplexProgramSettings") => multiplex_program_settings(),
-        required("ProgramName") => String.t(),
-        required("RequestId") => String.t()
+        required("ProgramName") => String.t() | Atom.t(),
+        required("RequestId") => String.t() | Atom.t()
       }
 
   """
-  @type create_multiplex_program_request() :: %{String.t() => any()}
+  @type create_multiplex_program_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1255,31 +1258,31 @@ defmodule AWS.MediaLive do
   ## Example:
 
       forbidden_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type forbidden_exception() :: %{String.t() => any()}
+  @type forbidden_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_reservations_request() :: %{
-        optional("ChannelClass") => String.t(),
-        optional("Codec") => String.t(),
+        optional("ChannelClass") => String.t() | Atom.t(),
+        optional("Codec") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("MaximumBitrate") => String.t(),
-        optional("MaximumFramerate") => String.t(),
-        optional("NextToken") => String.t(),
-        optional("Resolution") => String.t(),
-        optional("ResourceType") => String.t(),
-        optional("SpecialFeature") => String.t(),
-        optional("VideoQuality") => String.t()
+        optional("MaximumBitrate") => String.t() | Atom.t(),
+        optional("MaximumFramerate") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("Resolution") => String.t() | Atom.t(),
+        optional("ResourceType") => String.t() | Atom.t(),
+        optional("SpecialFeature") => String.t() | Atom.t(),
+        optional("VideoQuality") => String.t() | Atom.t()
       }
 
   """
-  @type list_reservations_request() :: %{String.t() => any()}
+  @type list_reservations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1294,25 +1297,25 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type hls_cdn_settings() :: %{String.t() => any()}
+  @type hls_cdn_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       event_bridge_rule_template_group_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
-        "Id" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "ModifiedAt" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Tags" => map(),
         "TemplateCount" => integer()
       }
 
   """
-  @type event_bridge_rule_template_group_summary() :: %{String.t() => any()}
+  @type event_bridge_rule_template_group_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1329,24 +1332,24 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type audio_codec_settings() :: %{String.t() => any()}
+  @type audio_codec_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_cloud_watch_alarm_template_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "ComparisonOperator" => list(any()),
         "CreatedAt" => non_neg_integer(),
         "DatapointsToAlarm" => integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "EvaluationPeriods" => integer(),
-        "GroupId" => String.t(),
-        "Id" => String.t(),
-        "MetricName" => String.t(),
+        "GroupId" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "MetricName" => String.t() | Atom.t(),
         "ModifiedAt" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Period" => integer(),
         "Statistic" => list(any()),
         "Tags" => map(),
@@ -1356,29 +1359,29 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type update_cloud_watch_alarm_template_response() :: %{String.t() => any()}
+  @type update_cloud_watch_alarm_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_offerings_request() :: %{
-        optional("ChannelClass") => String.t(),
-        optional("ChannelConfiguration") => String.t(),
-        optional("Codec") => String.t(),
-        optional("Duration") => String.t(),
+        optional("ChannelClass") => String.t() | Atom.t(),
+        optional("ChannelConfiguration") => String.t() | Atom.t(),
+        optional("Codec") => String.t() | Atom.t(),
+        optional("Duration") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("MaximumBitrate") => String.t(),
-        optional("MaximumFramerate") => String.t(),
-        optional("NextToken") => String.t(),
-        optional("Resolution") => String.t(),
-        optional("ResourceType") => String.t(),
-        optional("SpecialFeature") => String.t(),
-        optional("VideoQuality") => String.t()
+        optional("MaximumBitrate") => String.t() | Atom.t(),
+        optional("MaximumFramerate") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("Resolution") => String.t() | Atom.t(),
+        optional("ResourceType") => String.t() | Atom.t(),
+        optional("SpecialFeature") => String.t() | Atom.t(),
+        optional("VideoQuality") => String.t() | Atom.t()
       }
 
   """
-  @type list_offerings_request() :: %{String.t() => any()}
+  @type list_offerings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1389,24 +1392,24 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type create_sdi_source_response() :: %{String.t() => any()}
+  @type create_sdi_source_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_channel_placement_group_response() :: %{
-        "Arn" => String.t(),
-        "Channels" => list(String.t()),
-        "ClusterId" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t(),
-        "Nodes" => list(String.t()),
+        "Arn" => String.t() | Atom.t(),
+        "Channels" => list(String.t() | Atom.t()),
+        "ClusterId" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "Nodes" => list(String.t() | Atom.t()),
         "State" => list(any())
       }
 
   """
-  @type create_channel_placement_group_response() :: %{String.t() => any()}
+  @type create_channel_placement_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1417,7 +1420,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type describe_account_configuration_response() :: %{String.t() => any()}
+  @type describe_account_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1433,12 +1436,12 @@ defmodule AWS.MediaLive do
   ## Example:
 
       list_offerings_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Offerings" => list(offering())
       }
 
   """
-  @type list_offerings_response() :: %{String.t() => any()}
+  @type list_offerings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1458,41 +1461,41 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type update_input_security_group_response() :: %{String.t() => any()}
+  @type update_input_security_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_event_bridge_rule_template_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "EventTargets" => list(event_bridge_rule_template_target()),
         "EventType" => list(any()),
-        "GroupId" => String.t(),
-        "Id" => String.t(),
+        "GroupId" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "ModifiedAt" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type create_event_bridge_rule_template_response() :: %{String.t() => any()}
+  @type create_event_bridge_rule_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       transferring_input_device_summary() :: %{
-        "Id" => String.t(),
-        "Message" => String.t(),
-        "TargetCustomerId" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
+        "TargetCustomerId" => String.t() | Atom.t(),
         "TransferType" => list(any())
       }
 
   """
-  @type transferring_input_device_summary() :: %{String.t() => any()}
+  @type transferring_input_device_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1511,7 +1514,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type aac_settings() :: %{String.t() => any()}
+  @type aac_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1532,7 +1535,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type input_settings() :: %{String.t() => any()}
+  @type input_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1540,14 +1543,14 @@ defmodule AWS.MediaLive do
 
       create_multiplex_request() :: %{
         optional("Tags") => map(),
-        required("AvailabilityZones") => list(String.t()),
+        required("AvailabilityZones") => list(String.t() | Atom.t()),
         required("MultiplexSettings") => multiplex_settings(),
-        required("Name") => String.t(),
-        required("RequestId") => String.t()
+        required("Name") => String.t() | Atom.t(),
+        required("RequestId") => String.t() | Atom.t()
       }
 
   """
-  @type create_multiplex_request() :: %{String.t() => any()}
+  @type create_multiplex_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1562,7 +1565,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type h265_color_space_settings() :: %{String.t() => any()}
+  @type h265_color_space_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1573,21 +1576,21 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type smpte2110_receiver_group() :: %{String.t() => any()}
+  @type smpte2110_receiver_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_node_summary() :: %{
-        "Arn" => String.t(),
-        "ChannelPlacementGroups" => list(String.t()),
-        "ClusterId" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "ChannelPlacementGroups" => list(String.t() | Atom.t()),
+        "ClusterId" => String.t() | Atom.t(),
         "ConnectionState" => list(any()),
-        "Id" => String.t(),
-        "InstanceArn" => String.t(),
-        "ManagedInstanceId" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "InstanceArn" => String.t() | Atom.t(),
+        "ManagedInstanceId" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "NodeInterfaceMappings" => list(node_interface_mapping()),
         "Role" => list(any()),
         "SdiSourceMappings" => list(sdi_source_mapping()),
@@ -1595,20 +1598,20 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type describe_node_summary() :: %{String.t() => any()}
+  @type describe_node_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_node_state_response() :: %{
-        "Arn" => String.t(),
-        "ChannelPlacementGroups" => list(String.t()),
-        "ClusterId" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "ChannelPlacementGroups" => list(String.t() | Atom.t()),
+        "ClusterId" => String.t() | Atom.t(),
         "ConnectionState" => list(any()),
-        "Id" => String.t(),
-        "InstanceArn" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "InstanceArn" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "NodeInterfaceMappings" => list(node_interface_mapping()),
         "Role" => list(any()),
         "SdiSourceMappings" => list(sdi_source_mapping()),
@@ -1616,7 +1619,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type update_node_state_response() :: %{String.t() => any()}
+  @type update_node_state_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1627,43 +1630,43 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type smpte2110_receiver_group_settings() :: %{String.t() => any()}
+  @type smpte2110_receiver_group_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       multiplex_program_channel_destination_settings() :: %{
-        "MultiplexId" => String.t(),
-        "ProgramName" => String.t()
+        "MultiplexId" => String.t() | Atom.t(),
+        "ProgramName" => String.t() | Atom.t()
       }
 
   """
-  @type multiplex_program_channel_destination_settings() :: %{String.t() => any()}
+  @type multiplex_program_channel_destination_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       node_interface_mapping_create_request() :: %{
-        "LogicalInterfaceName" => String.t(),
+        "LogicalInterfaceName" => String.t() | Atom.t(),
         "NetworkInterfaceMode" => list(any()),
-        "PhysicalInterfaceName" => String.t()
+        "PhysicalInterfaceName" => String.t() | Atom.t()
       }
 
   """
-  @type node_interface_mapping_create_request() :: %{String.t() => any()}
+  @type node_interface_mapping_create_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       frame_capture_output_settings() :: %{
-        "NameModifier" => String.t()
+        "NameModifier" => String.t() | Atom.t()
       }
 
   """
-  @type frame_capture_output_settings() :: %{String.t() => any()}
+  @type frame_capture_output_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1675,19 +1678,19 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type batch_delete_response() :: %{String.t() => any()}
+  @type batch_delete_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       route_update_request() :: %{
-        "Cidr" => String.t(),
-        "Gateway" => String.t()
+        "Cidr" => String.t() | Atom.t(),
+        "Gateway" => String.t() | Atom.t()
       }
 
   """
-  @type route_update_request() :: %{String.t() => any()}
+  @type route_update_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1703,12 +1706,12 @@ defmodule AWS.MediaLive do
   ## Example:
 
       id3_segment_tagging_schedule_action_settings() :: %{
-        "Id3" => String.t(),
-        "Tag" => String.t()
+        "Id3" => String.t() | Atom.t(),
+        "Tag" => String.t() | Atom.t()
       }
 
   """
-  @type id3_segment_tagging_schedule_action_settings() :: %{String.t() => any()}
+  @type id3_segment_tagging_schedule_action_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1719,7 +1722,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type video_selector_pid() :: %{String.t() => any()}
+  @type video_selector_pid() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1730,7 +1733,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type multicast_settings_update_request() :: %{String.t() => any()}
+  @type multicast_settings_update_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1744,7 +1747,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type av1_color_space_settings() :: %{String.t() => any()}
+  @type av1_color_space_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1752,28 +1755,28 @@ defmodule AWS.MediaLive do
 
       m3u8_settings() :: %{
         "AudioFramesPerPes" => integer(),
-        "AudioPids" => String.t(),
-        "EcmPid" => String.t(),
+        "AudioPids" => String.t() | Atom.t(),
+        "EcmPid" => String.t() | Atom.t(),
         "KlvBehavior" => list(any()),
-        "KlvDataPids" => String.t(),
+        "KlvDataPids" => String.t() | Atom.t(),
         "NielsenId3Behavior" => list(any()),
         "PatInterval" => integer(),
         "PcrControl" => list(any()),
         "PcrPeriod" => integer(),
-        "PcrPid" => String.t(),
+        "PcrPid" => String.t() | Atom.t(),
         "PmtInterval" => integer(),
-        "PmtPid" => String.t(),
+        "PmtPid" => String.t() | Atom.t(),
         "ProgramNum" => integer(),
         "Scte35Behavior" => list(any()),
-        "Scte35Pid" => String.t(),
+        "Scte35Pid" => String.t() | Atom.t(),
         "TimedMetadataBehavior" => list(any()),
-        "TimedMetadataPid" => String.t(),
+        "TimedMetadataPid" => String.t() | Atom.t(),
         "TransportStreamId" => integer(),
-        "VideoPid" => String.t()
+        "VideoPid" => String.t() | Atom.t()
       }
 
   """
-  @type m3u8_settings() :: %{String.t() => any()}
+  @type m3u8_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1785,18 +1788,18 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type dvb_sub_source_settings() :: %{String.t() => any()}
+  @type dvb_sub_source_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       media_connect_flow() :: %{
-        "FlowArn" => String.t()
+        "FlowArn" => String.t() | Atom.t()
       }
 
   """
-  @type media_connect_flow() :: %{String.t() => any()}
+  @type media_connect_flow() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1817,7 +1820,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type scte35_splice_insert_schedule_action_settings() :: %{String.t() => any()}
+  @type scte35_splice_insert_schedule_action_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1829,38 +1832,38 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type motion_graphics_configuration() :: %{String.t() => any()}
+  @type motion_graphics_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_event_bridge_rule_template_group_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
-        "Id" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "ModifiedAt" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type update_event_bridge_rule_template_group_response() :: %{String.t() => any()}
+  @type update_event_bridge_rule_template_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_event_bridge_rule_template_group_request() :: %{
-        optional("Description") => String.t(),
-        optional("RequestId") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("RequestId") => String.t() | Atom.t(),
         optional("Tags") => map(),
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
 
   """
-  @type create_event_bridge_rule_template_group_request() :: %{String.t() => any()}
+  @type create_event_bridge_rule_template_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1871,7 +1874,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type udp_container_settings() :: %{String.t() => any()}
+  @type udp_container_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1888,45 +1891,45 @@ defmodule AWS.MediaLive do
 
       maintenance_update_settings() :: %{
         "MaintenanceDay" => list(any()),
-        "MaintenanceScheduledDate" => String.t(),
-        "MaintenanceStartTime" => String.t()
+        "MaintenanceScheduledDate" => String.t() | Atom.t(),
+        "MaintenanceStartTime" => String.t() | Atom.t()
       }
 
   """
-  @type maintenance_update_settings() :: %{String.t() => any()}
+  @type maintenance_update_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       input_security_group() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
-        "Inputs" => list(String.t()),
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "Inputs" => list(String.t() | Atom.t()),
         "State" => list(any()),
         "Tags" => map(),
         "WhitelistRules" => list(input_whitelist_rule())
       }
 
   """
-  @type input_security_group() :: %{String.t() => any()}
+  @type input_security_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_cloud_watch_alarm_template_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "ComparisonOperator" => list(any()),
         "CreatedAt" => non_neg_integer(),
         "DatapointsToAlarm" => integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "EvaluationPeriods" => integer(),
-        "GroupId" => String.t(),
-        "Id" => String.t(),
-        "MetricName" => String.t(),
+        "GroupId" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "MetricName" => String.t() | Atom.t(),
         "ModifiedAt" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Period" => integer(),
         "Statistic" => list(any()),
         "Tags" => map(),
@@ -1936,7 +1939,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type create_cloud_watch_alarm_template_response() :: %{String.t() => any()}
+  @type create_cloud_watch_alarm_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1948,7 +1951,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type input_channel_level() :: %{String.t() => any()}
+  @type input_channel_level() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1956,11 +1959,11 @@ defmodule AWS.MediaLive do
 
       ms_smooth_output_settings() :: %{
         "H265PackagingType" => list(any()),
-        "NameModifier" => String.t()
+        "NameModifier" => String.t() | Atom.t()
       }
 
   """
-  @type ms_smooth_output_settings() :: %{String.t() => any()}
+  @type ms_smooth_output_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1971,7 +1974,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type reboot_input_device_request() :: %{String.t() => any()}
+  @type reboot_input_device_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1988,22 +1991,22 @@ defmodule AWS.MediaLive do
 
       list_cloud_watch_alarm_template_groups_response() :: %{
         "CloudWatchAlarmTemplateGroups" => list(cloud_watch_alarm_template_group_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_cloud_watch_alarm_template_groups_response() :: %{String.t() => any()}
+  @type list_cloud_watch_alarm_template_groups_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_requests_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_requests_exception() :: %{String.t() => any()}
+  @type too_many_requests_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2019,39 +2022,39 @@ defmodule AWS.MediaLive do
   ## Example:
 
       input_whitelist_rule_cidr() :: %{
-        "Cidr" => String.t()
+        "Cidr" => String.t() | Atom.t()
       }
 
   """
-  @type input_whitelist_rule_cidr() :: %{String.t() => any()}
+  @type input_whitelist_rule_cidr() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       timed_metadata_schedule_action_settings() :: %{
-        "Id3" => String.t()
+        "Id3" => String.t() | Atom.t()
       }
 
   """
-  @type timed_metadata_schedule_action_settings() :: %{String.t() => any()}
+  @type timed_metadata_schedule_action_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       sdi_source() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
-        "Inputs" => list(String.t()),
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "Inputs" => list(String.t() | Atom.t()),
         "Mode" => list(any()),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "State" => list(any()),
         "Type" => list(any())
       }
 
   """
-  @type sdi_source() :: %{String.t() => any()}
+  @type sdi_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2070,38 +2073,38 @@ defmodule AWS.MediaLive do
         "AudioChannelPairs" => list(input_device_configurable_audio_channel_pair_config()),
         "Codec" => list(any()),
         "ConfiguredInput" => list(any()),
-        "InputResolution" => String.t(),
+        "InputResolution" => String.t() | Atom.t(),
         "LatencyMs" => integer(),
         "MaxBitrate" => integer(),
         "MediaconnectSettings" => input_device_media_connect_configurable_settings()
       }
 
   """
-  @type input_device_configurable_settings() :: %{String.t() => any()}
+  @type input_device_configurable_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       event_bridge_rule_template_target() :: %{
-        "Arn" => String.t()
+        "Arn" => String.t() | Atom.t()
       }
 
   """
-  @type event_bridge_rule_template_target() :: %{String.t() => any()}
+  @type event_bridge_rule_template_target() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_node_response() :: %{
-        "Arn" => String.t(),
-        "ChannelPlacementGroups" => list(String.t()),
-        "ClusterId" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "ChannelPlacementGroups" => list(String.t() | Atom.t()),
+        "ClusterId" => String.t() | Atom.t(),
         "ConnectionState" => list(any()),
-        "Id" => String.t(),
-        "InstanceArn" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "InstanceArn" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "NodeInterfaceMappings" => list(node_interface_mapping()),
         "Role" => list(any()),
         "SdiSourceMappings" => list(sdi_source_mapping()),
@@ -2109,7 +2112,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type update_node_response() :: %{String.t() => any()}
+  @type update_node_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2127,13 +2130,13 @@ defmodule AWS.MediaLive do
       srt_caller_source() :: %{
         "Decryption" => srt_caller_decryption(),
         "MinimumLatency" => integer(),
-        "SrtListenerAddress" => String.t(),
-        "SrtListenerPort" => String.t(),
-        "StreamId" => String.t()
+        "SrtListenerAddress" => String.t() | Atom.t(),
+        "SrtListenerPort" => String.t() | Atom.t(),
+        "StreamId" => String.t() | Atom.t()
       }
 
   """
-  @type srt_caller_source() :: %{String.t() => any()}
+  @type srt_caller_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2150,12 +2153,12 @@ defmodule AWS.MediaLive do
 
       caption_language_mapping() :: %{
         "CaptionChannel" => integer(),
-        "LanguageCode" => String.t(),
-        "LanguageDescription" => String.t()
+        "LanguageCode" => String.t() | Atom.t(),
+        "LanguageDescription" => String.t() | Atom.t()
       }
 
   """
-  @type caption_language_mapping() :: %{String.t() => any()}
+  @type caption_language_mapping() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2163,24 +2166,24 @@ defmodule AWS.MediaLive do
 
       list_multiplex_programs_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_multiplex_programs_request() :: %{String.t() => any()}
+  @type list_multiplex_programs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_node_response() :: %{
-        "Arn" => String.t(),
-        "ChannelPlacementGroups" => list(String.t()),
-        "ClusterId" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "ChannelPlacementGroups" => list(String.t() | Atom.t()),
+        "ClusterId" => String.t() | Atom.t(),
         "ConnectionState" => list(any()),
-        "Id" => String.t(),
-        "InstanceArn" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "InstanceArn" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "NodeInterfaceMappings" => list(node_interface_mapping()),
         "Role" => list(any()),
         "SdiSourceMappings" => list(sdi_source_mapping()),
@@ -2188,30 +2191,30 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type describe_node_response() :: %{String.t() => any()}
+  @type describe_node_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_node_registration_script_response() :: %{
-        "NodeRegistrationScript" => String.t()
+        "NodeRegistrationScript" => String.t() | Atom.t()
       }
 
   """
-  @type create_node_registration_script_response() :: %{String.t() => any()}
+  @type create_node_registration_script_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_cluster_request() :: %{
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("NetworkSettings") => cluster_network_settings_update_request()
       }
 
   """
-  @type update_cluster_request() :: %{String.t() => any()}
+  @type update_cluster_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2229,7 +2232,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type reservation_resource_specification() :: %{String.t() => any()}
+  @type reservation_resource_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2241,7 +2244,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type create_input_security_group_request() :: %{String.t() => any()}
+  @type create_input_security_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2252,65 +2255,65 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type start_monitor_deployment_request() :: %{String.t() => any()}
+  @type start_monitor_deployment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_network_response() :: %{
-        "Arn" => String.t(),
-        "AssociatedClusterIds" => list(String.t()),
-        "Id" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "AssociatedClusterIds" => list(String.t() | Atom.t()),
+        "Id" => String.t() | Atom.t(),
         "IpPools" => list(ip_pool()),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Routes" => list(route()),
         "State" => list(any())
       }
 
   """
-  @type delete_network_response() :: %{String.t() => any()}
+  @type delete_network_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_delete_request() :: %{
-        optional("ChannelIds") => list(String.t()),
-        optional("InputIds") => list(String.t()),
-        optional("InputSecurityGroupIds") => list(String.t()),
-        optional("MultiplexIds") => list(String.t())
+        optional("ChannelIds") => list(String.t() | Atom.t()),
+        optional("InputIds") => list(String.t() | Atom.t()),
+        optional("InputSecurityGroupIds") => list(String.t() | Atom.t()),
+        optional("MultiplexIds") => list(String.t() | Atom.t())
       }
 
   """
-  @type batch_delete_request() :: %{String.t() => any()}
+  @type batch_delete_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_node_registration_script_request() :: %{
-        optional("Id") => String.t(),
-        optional("Name") => String.t(),
+        optional("Id") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("NodeInterfaceMappings") => list(node_interface_mapping()),
-        optional("RequestId") => String.t(),
+        optional("RequestId") => String.t() | Atom.t(),
         optional("Role") => list(any())
       }
 
   """
-  @type create_node_registration_script_request() :: %{String.t() => any()}
+  @type create_node_registration_script_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       multicast_source_update_request() :: %{
-        "SourceIp" => String.t(),
-        "Url" => String.t()
+        "SourceIp" => String.t() | Atom.t(),
+        "Url" => String.t() | Atom.t()
       }
 
   """
-  @type multicast_source_update_request() :: %{String.t() => any()}
+  @type multicast_source_update_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2318,11 +2321,11 @@ defmodule AWS.MediaLive do
 
       list_input_security_groups_response() :: %{
         "InputSecurityGroups" => list(input_security_group()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_input_security_groups_response() :: %{String.t() => any()}
+  @type list_input_security_groups_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2331,7 +2334,7 @@ defmodule AWS.MediaLive do
       video_description() :: %{
         "CodecSettings" => video_codec_settings(),
         "Height" => integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "RespondToAfd" => list(any()),
         "ScalingBehavior" => list(any()),
         "Sharpness" => integer(),
@@ -2339,7 +2342,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type video_description() :: %{String.t() => any()}
+  @type video_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2359,7 +2362,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type ttml_destination_settings() :: %{String.t() => any()}
+  @type ttml_destination_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2376,14 +2379,14 @@ defmodule AWS.MediaLive do
 
       input_attachment() :: %{
         "AutomaticInputFailoverSettings" => automatic_input_failover_settings(),
-        "InputAttachmentName" => String.t(),
-        "InputId" => String.t(),
+        "InputAttachmentName" => String.t() | Atom.t(),
+        "InputId" => String.t() | Atom.t(),
         "InputSettings" => input_settings(),
-        "LogicalInterfaceNames" => list(String.t())
+        "LogicalInterfaceNames" => list(String.t() | Atom.t())
       }
 
   """
-  @type input_attachment() :: %{String.t() => any()}
+  @type input_attachment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2394,7 +2397,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type cdi_input_specification() :: %{String.t() => any()}
+  @type cdi_input_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2405,7 +2408,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type audio_track() :: %{String.t() => any()}
+  @type audio_track() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2426,7 +2429,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type timecode_config() :: %{String.t() => any()}
+  @type timecode_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2443,11 +2446,11 @@ defmodule AWS.MediaLive do
 
       list_input_devices_response() :: %{
         "InputDevices" => list(input_device_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_input_devices_response() :: %{String.t() => any()}
+  @type list_input_devices_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2460,18 +2463,18 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type input_specification() :: %{String.t() => any()}
+  @type input_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       multicast_input_settings() :: %{
-        "SourceIpAddress" => String.t()
+        "SourceIpAddress" => String.t() | Atom.t()
       }
 
   """
-  @type multicast_input_settings() :: %{String.t() => any()}
+  @type multicast_input_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2487,12 +2490,12 @@ defmodule AWS.MediaLive do
   ## Example:
 
       create_partner_input_request() :: %{
-        optional("RequestId") => String.t(),
+        optional("RequestId") => String.t() | Atom.t(),
         optional("Tags") => map()
       }
 
   """
-  @type create_partner_input_request() :: %{String.t() => any()}
+  @type create_partner_input_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2503,7 +2506,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type batch_schedule_action_create_request() :: %{String.t() => any()}
+  @type batch_schedule_action_create_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2514,7 +2517,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type multicast_settings_create_request() :: %{String.t() => any()}
+  @type multicast_settings_create_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2534,31 +2537,31 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type output_group_settings() :: %{String.t() => any()}
+  @type output_group_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_schedule_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "ScheduleActions" => list(schedule_action())
       }
 
   """
-  @type describe_schedule_response() :: %{String.t() => any()}
+  @type describe_schedule_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       interface_mapping() :: %{
-        "LogicalInterfaceName" => String.t(),
-        "NetworkId" => String.t()
+        "LogicalInterfaceName" => String.t() | Atom.t(),
+        "NetworkId" => String.t() | Atom.t()
       }
 
   """
-  @type interface_mapping() :: %{String.t() => any()}
+  @type interface_mapping() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2571,19 +2574,19 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type h264_color_space_settings() :: %{String.t() => any()}
+  @type h264_color_space_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_reservation_request() :: %{
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("RenewalSettings") => renewal_settings()
       }
 
   """
-  @type update_reservation_request() :: %{String.t() => any()}
+  @type update_reservation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2594,19 +2597,19 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type create_tags_request() :: %{String.t() => any()}
+  @type create_tags_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       stop_multiplex_response() :: %{
-        "Arn" => String.t(),
-        "AvailabilityZones" => list(String.t()),
+        "Arn" => String.t() | Atom.t(),
+        "AvailabilityZones" => list(String.t() | Atom.t()),
         "Destinations" => list(multiplex_output_destination()),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "MultiplexSettings" => multiplex_settings(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "PipelinesRunningCount" => integer(),
         "ProgramCount" => integer(),
         "State" => list(any()),
@@ -2614,7 +2617,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type stop_multiplex_response() :: %{String.t() => any()}
+  @type stop_multiplex_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2625,31 +2628,31 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type create_input_response() :: %{String.t() => any()}
+  @type create_input_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       route_create_request() :: %{
-        "Cidr" => String.t(),
-        "Gateway" => String.t()
+        "Cidr" => String.t() | Atom.t(),
+        "Gateway" => String.t() | Atom.t()
       }
 
   """
-  @type route_create_request() :: %{String.t() => any()}
+  @type route_create_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       multicast_source_create_request() :: %{
-        "SourceIp" => String.t(),
-        "Url" => String.t()
+        "SourceIp" => String.t() | Atom.t(),
+        "Url" => String.t() | Atom.t()
       }
 
   """
-  @type multicast_source_create_request() :: %{String.t() => any()}
+  @type multicast_source_create_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2661,7 +2664,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type input_device_uhd_audio_channel_pair_config() :: %{String.t() => any()}
+  @type input_device_uhd_audio_channel_pair_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2669,11 +2672,11 @@ defmodule AWS.MediaLive do
 
       list_channel_placement_groups_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_channel_placement_groups_request() :: %{String.t() => any()}
+  @type list_channel_placement_groups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2684,19 +2687,19 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type video_selector_program_id() :: %{String.t() => any()}
+  @type video_selector_program_id() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       ms_smooth_group_settings() :: %{
-        "AcquisitionPointId" => String.t(),
+        "AcquisitionPointId" => String.t() | Atom.t(),
         "AudioOnlyTimecodeControl" => list(any()),
         "CertificateMode" => list(any()),
         "ConnectionRetryInterval" => integer(),
         "Destination" => output_location_ref(),
-        "EventId" => String.t(),
+        "EventId" => String.t() | Atom.t(),
         "EventIdMode" => list(any()),
         "EventStopBehavior" => list(any()),
         "FilecacheDuration" => integer(),
@@ -2708,29 +2711,29 @@ defmodule AWS.MediaLive do
         "SendDelayMs" => integer(),
         "SparseTrackType" => list(any()),
         "StreamManifestBehavior" => list(any()),
-        "TimestampOffset" => String.t(),
+        "TimestampOffset" => String.t() | Atom.t(),
         "TimestampOffsetMode" => list(any())
       }
 
   """
-  @type ms_smooth_group_settings() :: %{String.t() => any()}
+  @type ms_smooth_group_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_cloud_watch_alarm_template_group_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
-        "Id" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "ModifiedAt" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type get_cloud_watch_alarm_template_group_response() :: %{String.t() => any()}
+  @type get_cloud_watch_alarm_template_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2740,13 +2743,13 @@ defmodule AWS.MediaLive do
         optional("Destinations") => list(input_destination_request()),
         optional("InputDevices") => list(input_device_settings()),
         optional("InputNetworkLocation") => list(any()),
-        optional("InputSecurityGroups") => list(String.t()),
+        optional("InputSecurityGroups") => list(String.t() | Atom.t()),
         optional("MediaConnectFlows") => list(media_connect_flow_request()),
         optional("MulticastSettings") => multicast_settings_create_request(),
-        optional("Name") => String.t(),
-        optional("RequestId") => String.t(),
-        optional("RoleArn") => String.t(),
-        optional("SdiSources") => list(String.t()),
+        optional("Name") => String.t() | Atom.t(),
+        optional("RequestId") => String.t() | Atom.t(),
+        optional("RoleArn") => String.t() | Atom.t(),
+        optional("SdiSources") => list(String.t() | Atom.t()),
         optional("Smpte2110ReceiverGroupSettings") => smpte2110_receiver_group_settings(),
         optional("Sources") => list(input_source_request()),
         optional("SrtSettings") => srt_settings_request(),
@@ -2756,34 +2759,34 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type create_input_request() :: %{String.t() => any()}
+  @type create_input_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       hls_id3_segment_tagging_schedule_action_settings() :: %{
-        "Id3" => String.t(),
-        "Tag" => String.t()
+        "Id3" => String.t() | Atom.t(),
+        "Tag" => String.t() | Atom.t()
       }
 
   """
-  @type hls_id3_segment_tagging_schedule_action_settings() :: %{String.t() => any()}
+  @type hls_id3_segment_tagging_schedule_action_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_multiplex_program_response() :: %{
-        "ChannelId" => String.t(),
+        "ChannelId" => String.t() | Atom.t(),
         "MultiplexProgramSettings" => multiplex_program_settings(),
         "PacketIdentifiersMap" => multiplex_program_packet_identifiers_map(),
         "PipelineDetails" => list(multiplex_program_pipeline_detail()),
-        "ProgramName" => String.t()
+        "ProgramName" => String.t() | Atom.t()
       }
 
   """
-  @type delete_multiplex_program_response() :: %{String.t() => any()}
+  @type delete_multiplex_program_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2791,20 +2794,20 @@ defmodule AWS.MediaLive do
 
       channel_summary() :: %{
         "AnywhereSettings" => describe_anywhere_settings(),
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
         "ChannelEngineVersion" => channel_engine_version_response(),
         "Destinations" => list(output_destination()),
         "EgressEndpoints" => list(channel_egress_endpoint()),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
         "LogLevel" => list(any()),
         "Maintenance" => maintenance_status(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "PipelinesRunningCount" => integer(),
-        "RoleArn" => String.t(),
+        "RoleArn" => String.t() | Atom.t(),
         "State" => list(any()),
         "Tags" => map(),
         "UsedChannelEngineVersions" => list(channel_engine_version_response()),
@@ -2812,7 +2815,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type channel_summary() :: %{String.t() => any()}
+  @type channel_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2826,7 +2829,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type hls_settings() :: %{String.t() => any()}
+  @type hls_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2838,7 +2841,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type archive_container_settings() :: %{String.t() => any()}
+  @type archive_container_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2846,29 +2849,29 @@ defmodule AWS.MediaLive do
 
       stop_channel_response() :: %{
         "AnywhereSettings" => describe_anywhere_settings(),
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
         "ChannelEngineVersion" => channel_engine_version_response(),
         "Destinations" => list(output_destination()),
         "EgressEndpoints" => list(channel_egress_endpoint()),
         "EncoderSettings" => encoder_settings(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
         "LogLevel" => list(any()),
         "Maintenance" => maintenance_status(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "PipelineDetails" => list(pipeline_detail()),
         "PipelinesRunningCount" => integer(),
-        "RoleArn" => String.t(),
+        "RoleArn" => String.t() | Atom.t(),
         "State" => list(any()),
         "Tags" => map(),
         "Vpc" => vpc_output_settings_description()
       }
 
   """
-  @type stop_channel_response() :: %{String.t() => any()}
+  @type stop_channel_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2889,7 +2892,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type avail_configuration() :: %{String.t() => any()}
+  @type avail_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2897,15 +2900,15 @@ defmodule AWS.MediaLive do
 
       create_cluster_request() :: %{
         optional("ClusterType") => list(any()),
-        optional("InstanceRoleArn") => String.t(),
-        optional("Name") => String.t(),
+        optional("InstanceRoleArn") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("NetworkSettings") => cluster_network_settings_create_request(),
-        optional("RequestId") => String.t(),
+        optional("RequestId") => String.t() | Atom.t(),
         optional("Tags") => map()
       }
 
   """
-  @type create_cluster_request() :: %{String.t() => any()}
+  @type create_cluster_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2916,7 +2919,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type describe_thumbnails_response() :: %{String.t() => any()}
+  @type describe_thumbnails_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2933,7 +2936,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type global_configuration() :: %{String.t() => any()}
+  @type global_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2945,28 +2948,28 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type batch_stop_response() :: %{String.t() => any()}
+  @type batch_stop_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       input() :: %{
-        "Arn" => String.t(),
-        "AttachedChannels" => list(String.t()),
+        "Arn" => String.t() | Atom.t(),
+        "AttachedChannels" => list(String.t() | Atom.t()),
         "Destinations" => list(input_destination()),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "InputClass" => list(any()),
         "InputDevices" => list(input_device_settings()),
         "InputNetworkLocation" => list(any()),
-        "InputPartnerIds" => list(String.t()),
+        "InputPartnerIds" => list(String.t() | Atom.t()),
         "InputSourceType" => list(any()),
         "MediaConnectFlows" => list(media_connect_flow()),
         "MulticastSettings" => multicast_settings(),
-        "Name" => String.t(),
-        "RoleArn" => String.t(),
-        "SdiSources" => list(String.t()),
-        "SecurityGroups" => list(String.t()),
+        "Name" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | Atom.t(),
+        "SdiSources" => list(String.t() | Atom.t()),
+        "SecurityGroups" => list(String.t() | Atom.t()),
         "Smpte2110ReceiverGroupSettings" => smpte2110_receiver_group_settings(),
         "Sources" => list(input_source()),
         "SrtSettings" => srt_settings(),
@@ -2976,7 +2979,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type input() :: %{String.t() => any()}
+  @type input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2986,11 +2989,11 @@ defmodule AWS.MediaLive do
         "ErrorClearTimeMsec" => integer(),
         "FailoverConditions" => list(failover_condition()),
         "InputPreference" => list(any()),
-        "SecondaryInputId" => String.t()
+        "SecondaryInputId" => String.t() | Atom.t()
       }
 
   """
-  @type automatic_input_failover_settings() :: %{String.t() => any()}
+  @type automatic_input_failover_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3006,11 +3009,11 @@ defmodule AWS.MediaLive do
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3028,19 +3031,19 @@ defmodule AWS.MediaLive do
       update_input_request() :: %{
         optional("Destinations") => list(input_destination_request()),
         optional("InputDevices") => list(input_device_request()),
-        optional("InputSecurityGroups") => list(String.t()),
+        optional("InputSecurityGroups") => list(String.t() | Atom.t()),
         optional("MediaConnectFlows") => list(media_connect_flow_request()),
         optional("MulticastSettings") => multicast_settings_update_request(),
-        optional("Name") => String.t(),
-        optional("RoleArn") => String.t(),
-        optional("SdiSources") => list(String.t()),
+        optional("Name") => String.t() | Atom.t(),
+        optional("RoleArn") => String.t() | Atom.t(),
+        optional("SdiSources") => list(String.t() | Atom.t()),
         optional("Smpte2110ReceiverGroupSettings") => smpte2110_receiver_group_settings(),
         optional("Sources") => list(input_source_request()),
         optional("SrtSettings") => srt_settings_request()
       }
 
   """
-  @type update_input_request() :: %{String.t() => any()}
+  @type update_input_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3067,77 +3070,77 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type schedule_action_settings() :: %{String.t() => any()}
+  @type schedule_action_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_network_summary() :: %{
-        "Arn" => String.t(),
-        "AssociatedClusterIds" => list(String.t()),
-        "Id" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "AssociatedClusterIds" => list(String.t() | Atom.t()),
+        "Id" => String.t() | Atom.t(),
         "IpPools" => list(ip_pool()),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Routes" => list(route()),
         "State" => list(any())
       }
 
   """
-  @type describe_network_summary() :: %{String.t() => any()}
+  @type describe_network_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       multiplex_media_connect_output_destination_settings() :: %{
-        "EntitlementArn" => String.t()
+        "EntitlementArn" => String.t() | Atom.t()
       }
 
   """
-  @type multiplex_media_connect_output_destination_settings() :: %{String.t() => any()}
+  @type multiplex_media_connect_output_destination_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_reservation_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "Count" => integer(),
-        "CurrencyCode" => String.t(),
+        "CurrencyCode" => String.t() | Atom.t(),
         "Duration" => integer(),
         "DurationUnits" => list(any()),
-        "End" => String.t(),
+        "End" => String.t() | Atom.t(),
         "FixedPrice" => float(),
-        "Name" => String.t(),
-        "OfferingDescription" => String.t(),
-        "OfferingId" => String.t(),
+        "Name" => String.t() | Atom.t(),
+        "OfferingDescription" => String.t() | Atom.t(),
+        "OfferingId" => String.t() | Atom.t(),
         "OfferingType" => list(any()),
-        "Region" => String.t(),
+        "Region" => String.t() | Atom.t(),
         "RenewalSettings" => renewal_settings(),
-        "ReservationId" => String.t(),
+        "ReservationId" => String.t() | Atom.t(),
         "ResourceSpecification" => reservation_resource_specification(),
-        "Start" => String.t(),
+        "Start" => String.t() | Atom.t(),
         "State" => list(any()),
         "Tags" => map(),
         "UsagePrice" => float()
       }
 
   """
-  @type delete_reservation_response() :: %{String.t() => any()}
+  @type delete_reservation_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       nielsen_naes_ii_nw() :: %{
-        "CheckDigitString" => String.t(),
+        "CheckDigitString" => String.t() | Atom.t(),
         "Sid" => float(),
         "Timezone" => list(any())
       }
 
   """
-  @type nielsen_naes_ii_nw() :: %{String.t() => any()}
+  @type nielsen_naes_ii_nw() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3162,12 +3165,12 @@ defmodule AWS.MediaLive do
   ## Example:
 
       batch_stop_request() :: %{
-        optional("ChannelIds") => list(String.t()),
-        optional("MultiplexIds") => list(String.t())
+        optional("ChannelIds") => list(String.t() | Atom.t()),
+        optional("MultiplexIds") => list(String.t() | Atom.t())
       }
 
   """
-  @type batch_stop_request() :: %{String.t() => any()}
+  @type batch_stop_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3201,31 +3204,31 @@ defmodule AWS.MediaLive do
   ## Example:
 
       describe_cluster_summary() :: %{
-        "Arn" => String.t(),
-        "ChannelIds" => list(String.t()),
+        "Arn" => String.t() | Atom.t(),
+        "ChannelIds" => list(String.t() | Atom.t()),
         "ClusterType" => list(any()),
-        "Id" => String.t(),
-        "InstanceRoleArn" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "InstanceRoleArn" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "NetworkSettings" => cluster_network_settings(),
         "State" => list(any())
       }
 
   """
-  @type describe_cluster_summary() :: %{String.t() => any()}
+  @type describe_cluster_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       output_group() :: %{
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "OutputGroupSettings" => output_group_settings(),
         "Outputs" => list(output())
       }
 
   """
-  @type output_group() :: %{String.t() => any()}
+  @type output_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3239,7 +3242,7 @@ defmodule AWS.MediaLive do
         "DeviceState" => list(any()),
         "Framerate" => float(),
         "Height" => integer(),
-        "InputResolution" => String.t(),
+        "InputResolution" => String.t() | Atom.t(),
         "LatencyMs" => integer(),
         "MaxBitrate" => integer(),
         "MediaconnectSettings" => input_device_media_connect_settings(),
@@ -3248,7 +3251,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type input_device_uhd_settings() :: %{String.t() => any()}
+  @type input_device_uhd_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3265,11 +3268,11 @@ defmodule AWS.MediaLive do
 
       list_inputs_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_inputs_request() :: %{String.t() => any()}
+  @type list_inputs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3285,13 +3288,13 @@ defmodule AWS.MediaLive do
   ## Example:
 
       node_interface_mapping() :: %{
-        "LogicalInterfaceName" => String.t(),
+        "LogicalInterfaceName" => String.t() | Atom.t(),
         "NetworkInterfaceMode" => list(any()),
-        "PhysicalInterfaceName" => String.t()
+        "PhysicalInterfaceName" => String.t() | Atom.t()
       }
 
   """
-  @type node_interface_mapping() :: %{String.t() => any()}
+  @type node_interface_mapping() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3309,21 +3312,21 @@ defmodule AWS.MediaLive do
       audio_description() :: %{
         "AudioDashRoles" => list(list(any())()),
         "AudioNormalizationSettings" => audio_normalization_settings(),
-        "AudioSelectorName" => String.t(),
+        "AudioSelectorName" => String.t() | Atom.t(),
         "AudioType" => list(any()),
         "AudioTypeControl" => list(any()),
         "AudioWatermarkingSettings" => audio_watermark_settings(),
         "CodecSettings" => audio_codec_settings(),
         "DvbDashAccessibility" => list(any()),
-        "LanguageCode" => String.t(),
+        "LanguageCode" => String.t() | Atom.t(),
         "LanguageCodeControl" => list(any()),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "RemixSettings" => remix_settings(),
-        "StreamName" => String.t()
+        "StreamName" => String.t() | Atom.t()
       }
 
   """
-  @type audio_description() :: %{String.t() => any()}
+  @type audio_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3334,7 +3337,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type create_partner_input_response() :: %{String.t() => any()}
+  @type create_partner_input_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3342,12 +3345,12 @@ defmodule AWS.MediaLive do
 
       archive_output_settings() :: %{
         "ContainerSettings" => archive_container_settings(),
-        "Extension" => String.t(),
-        "NameModifier" => String.t()
+        "Extension" => String.t() | Atom.t(),
+        "NameModifier" => String.t() | Atom.t()
       }
 
   """
-  @type archive_output_settings() :: %{String.t() => any()}
+  @type archive_output_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3359,7 +3362,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type update_channel_class_request() :: %{String.t() => any()}
+  @type update_channel_class_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3374,7 +3377,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type video_codec_settings() :: %{String.t() => any()}
+  @type video_codec_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3387,7 +3390,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type udp_group_settings() :: %{String.t() => any()}
+  @type udp_group_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3398,7 +3401,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type create_input_security_group_response() :: %{String.t() => any()}
+  @type create_input_security_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3409,7 +3412,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type srt_settings_request() :: %{String.t() => any()}
+  @type srt_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3417,44 +3420,44 @@ defmodule AWS.MediaLive do
 
       describe_channel_response() :: %{
         "AnywhereSettings" => describe_anywhere_settings(),
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
         "ChannelEngineVersion" => channel_engine_version_response(),
         "Destinations" => list(output_destination()),
         "EgressEndpoints" => list(channel_egress_endpoint()),
         "EncoderSettings" => encoder_settings(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
         "LogLevel" => list(any()),
         "Maintenance" => maintenance_status(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "PipelineDetails" => list(pipeline_detail()),
         "PipelinesRunningCount" => integer(),
-        "RoleArn" => String.t(),
+        "RoleArn" => String.t() | Atom.t(),
         "State" => list(any()),
         "Tags" => map(),
         "Vpc" => vpc_output_settings_description()
       }
 
   """
-  @type describe_channel_response() :: %{String.t() => any()}
+  @type describe_channel_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_multiplex_program_response() :: %{
-        "ChannelId" => String.t(),
+        "ChannelId" => String.t() | Atom.t(),
         "MultiplexProgramSettings" => multiplex_program_settings(),
         "PacketIdentifiersMap" => multiplex_program_packet_identifiers_map(),
         "PipelineDetails" => list(multiplex_program_pipeline_detail()),
-        "ProgramName" => String.t()
+        "ProgramName" => String.t() | Atom.t()
       }
 
   """
-  @type describe_multiplex_program_response() :: %{String.t() => any()}
+  @type describe_multiplex_program_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3472,24 +3475,24 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type rtmp_group_settings() :: %{String.t() => any()}
+  @type rtmp_group_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_cloud_watch_alarm_template_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "ComparisonOperator" => list(any()),
         "CreatedAt" => non_neg_integer(),
         "DatapointsToAlarm" => integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "EvaluationPeriods" => integer(),
-        "GroupId" => String.t(),
-        "Id" => String.t(),
-        "MetricName" => String.t(),
+        "GroupId" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "MetricName" => String.t() | Atom.t(),
         "ModifiedAt" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Period" => integer(),
         "Statistic" => list(any()),
         "Tags" => map(),
@@ -3499,7 +3502,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type get_cloud_watch_alarm_template_response() :: %{String.t() => any()}
+  @type get_cloud_watch_alarm_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3507,14 +3510,14 @@ defmodule AWS.MediaLive do
 
       input_loss_behavior() :: %{
         "BlackFrameMsec" => integer(),
-        "InputLossImageColor" => String.t(),
+        "InputLossImageColor" => String.t() | Atom.t(),
         "InputLossImageSlate" => input_location(),
         "InputLossImageType" => list(any()),
         "RepeatFrameMsec" => integer()
       }
 
   """
-  @type input_loss_behavior() :: %{String.t() => any()}
+  @type input_loss_behavior() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3522,36 +3525,36 @@ defmodule AWS.MediaLive do
 
       update_multiplex_request() :: %{
         optional("MultiplexSettings") => multiplex_settings(),
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("PacketIdentifiersMapping") => map()
       }
 
   """
-  @type update_multiplex_request() :: %{String.t() => any()}
+  @type update_multiplex_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cluster_network_settings() :: %{
-        "DefaultRoute" => String.t(),
+        "DefaultRoute" => String.t() | Atom.t(),
         "InterfaceMappings" => list(interface_mapping())
       }
 
   """
-  @type cluster_network_settings() :: %{String.t() => any()}
+  @type cluster_network_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       interface_mapping_create_request() :: %{
-        "LogicalInterfaceName" => String.t(),
-        "NetworkId" => String.t()
+        "LogicalInterfaceName" => String.t() | Atom.t(),
+        "NetworkId" => String.t() | Atom.t()
       }
 
   """
-  @type interface_mapping_create_request() :: %{String.t() => any()}
+  @type interface_mapping_create_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3581,19 +3584,19 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type eac3_settings() :: %{String.t() => any()}
+  @type eac3_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_thumbnails_request() :: %{
-        required("PipelineId") => String.t(),
-        required("ThumbnailType") => String.t()
+        required("PipelineId") => String.t() | Atom.t(),
+        required("ThumbnailType") => String.t() | Atom.t()
       }
 
   """
-  @type describe_thumbnails_request() :: %{String.t() => any()}
+  @type describe_thumbnails_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3601,11 +3604,11 @@ defmodule AWS.MediaLive do
 
       list_sdi_sources_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_sdi_sources_request() :: %{String.t() => any()}
+  @type list_sdi_sources_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3621,61 +3624,61 @@ defmodule AWS.MediaLive do
   ## Example:
 
       create_signal_map_response() :: %{
-        "Arn" => String.t(),
-        "CloudWatchAlarmTemplateGroupIds" => list(String.t()),
+        "Arn" => String.t() | Atom.t(),
+        "CloudWatchAlarmTemplateGroupIds" => list(String.t() | Atom.t()),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
-        "DiscoveryEntryPointArn" => String.t(),
-        "ErrorMessage" => String.t(),
-        "EventBridgeRuleTemplateGroupIds" => list(String.t()),
+        "Description" => String.t() | Atom.t(),
+        "DiscoveryEntryPointArn" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | Atom.t(),
+        "EventBridgeRuleTemplateGroupIds" => list(String.t() | Atom.t()),
         "FailedMediaResourceMap" => map(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "LastDiscoveredAt" => non_neg_integer(),
         "LastSuccessfulMonitorDeployment" => successful_monitor_deployment(),
         "MediaResourceMap" => map(),
         "ModifiedAt" => non_neg_integer(),
         "MonitorChangesPendingDeployment" => boolean(),
         "MonitorDeployment" => monitor_deployment(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Status" => list(any()),
         "Tags" => map()
       }
 
   """
-  @type create_signal_map_response() :: %{String.t() => any()}
+  @type create_signal_map_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type not_found_exception() :: %{String.t() => any()}
+  @type not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_timecode() :: %{
-        "Timecode" => String.t()
+        "Timecode" => String.t() | Atom.t()
       }
 
   """
-  @type start_timecode() :: %{String.t() => any()}
+  @type start_timecode() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_cloud_watch_alarm_template_group_request() :: %{
-        optional("Description") => String.t()
+        optional("Description") => String.t() | Atom.t()
       }
 
   """
-  @type update_cloud_watch_alarm_template_group_request() :: %{String.t() => any()}
+  @type update_cloud_watch_alarm_template_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3691,11 +3694,11 @@ defmodule AWS.MediaLive do
   ## Example:
 
       ip_pool() :: %{
-        "Cidr" => String.t()
+        "Cidr" => String.t() | Atom.t()
       }
 
   """
-  @type ip_pool() :: %{String.t() => any()}
+  @type ip_pool() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3707,19 +3710,19 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type batch_update_schedule_response() :: %{String.t() => any()}
+  @type batch_update_schedule_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       scte35_input_schedule_action_settings() :: %{
-        "InputAttachmentNameReference" => String.t(),
+        "InputAttachmentNameReference" => String.t() | Atom.t(),
         "Mode" => list(any())
       }
 
   """
-  @type scte35_input_schedule_action_settings() :: %{String.t() => any()}
+  @type scte35_input_schedule_action_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3727,11 +3730,11 @@ defmodule AWS.MediaLive do
 
       list_networks_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_networks_request() :: %{String.t() => any()}
+  @type list_networks_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3754,40 +3757,40 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type caption_destination_settings() :: %{String.t() => any()}
+  @type caption_destination_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       route() :: %{
-        "Cidr" => String.t(),
-        "Gateway" => String.t()
+        "Cidr" => String.t() | Atom.t(),
+        "Gateway" => String.t() | Atom.t()
       }
 
   """
-  @type route() :: %{String.t() => any()}
+  @type route() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_input_response() :: %{
-        "Arn" => String.t(),
-        "AttachedChannels" => list(String.t()),
+        "Arn" => String.t() | Atom.t(),
+        "AttachedChannels" => list(String.t() | Atom.t()),
         "Destinations" => list(input_destination()),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "InputClass" => list(any()),
         "InputDevices" => list(input_device_settings()),
         "InputNetworkLocation" => list(any()),
-        "InputPartnerIds" => list(String.t()),
+        "InputPartnerIds" => list(String.t() | Atom.t()),
         "InputSourceType" => list(any()),
         "MediaConnectFlows" => list(media_connect_flow()),
         "MulticastSettings" => multicast_settings(),
-        "Name" => String.t(),
-        "RoleArn" => String.t(),
-        "SdiSources" => list(String.t()),
-        "SecurityGroups" => list(String.t()),
+        "Name" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | Atom.t(),
+        "SdiSources" => list(String.t() | Atom.t()),
+        "SecurityGroups" => list(String.t() | Atom.t()),
         "Smpte2110ReceiverGroupSettings" => smpte2110_receiver_group_settings(),
         "Sources" => list(input_source()),
         "SrtSettings" => srt_settings(),
@@ -3797,19 +3800,19 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type describe_input_response() :: %{String.t() => any()}
+  @type describe_input_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       media_resource_neighbor() :: %{
-        "Arn" => String.t(),
-        "Name" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type media_resource_neighbor() :: %{String.t() => any()}
+  @type media_resource_neighbor() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3827,16 +3830,16 @@ defmodule AWS.MediaLive do
         optional("InputSpecification") => input_specification(),
         optional("LogLevel") => list(any()),
         optional("Maintenance") => maintenance_create_settings(),
-        optional("Name") => String.t(),
-        optional("RequestId") => String.t(),
-        optional("Reserved") => String.t(),
-        optional("RoleArn") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
+        optional("RequestId") => String.t() | Atom.t(),
+        optional("Reserved") => String.t() | Atom.t(),
+        optional("RoleArn") => String.t() | Atom.t(),
         optional("Tags") => map(),
         optional("Vpc") => vpc_output_settings()
       }
 
   """
-  @type create_channel_request() :: %{String.t() => any()}
+  @type create_channel_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3844,39 +3847,39 @@ defmodule AWS.MediaLive do
 
       list_nodes_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_nodes_request() :: %{String.t() => any()}
+  @type list_nodes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_delete_monitor_deployment_response() :: %{
-        "Arn" => String.t(),
-        "CloudWatchAlarmTemplateGroupIds" => list(String.t()),
+        "Arn" => String.t() | Atom.t(),
+        "CloudWatchAlarmTemplateGroupIds" => list(String.t() | Atom.t()),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
-        "DiscoveryEntryPointArn" => String.t(),
-        "ErrorMessage" => String.t(),
-        "EventBridgeRuleTemplateGroupIds" => list(String.t()),
+        "Description" => String.t() | Atom.t(),
+        "DiscoveryEntryPointArn" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | Atom.t(),
+        "EventBridgeRuleTemplateGroupIds" => list(String.t() | Atom.t()),
         "FailedMediaResourceMap" => map(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "LastDiscoveredAt" => non_neg_integer(),
         "LastSuccessfulMonitorDeployment" => successful_monitor_deployment(),
         "MediaResourceMap" => map(),
         "ModifiedAt" => non_neg_integer(),
         "MonitorChangesPendingDeployment" => boolean(),
         "MonitorDeployment" => monitor_deployment(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Status" => list(any()),
         "Tags" => map()
       }
 
   """
-  @type start_delete_monitor_deployment_response() :: %{String.t() => any()}
+  @type start_delete_monitor_deployment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3887,7 +3890,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type motion_graphics_settings() :: %{String.t() => any()}
+  @type motion_graphics_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3944,7 +3947,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type h265_settings() :: %{String.t() => any()}
+  @type h265_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3956,7 +3959,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type output_locking_settings() :: %{String.t() => any()}
+  @type output_locking_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3985,19 +3988,19 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type create_multiplex_program_response() :: %{String.t() => any()}
+  @type create_multiplex_program_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_multiplex_response() :: %{
-        "Arn" => String.t(),
-        "AvailabilityZones" => list(String.t()),
+        "Arn" => String.t() | Atom.t(),
+        "AvailabilityZones" => list(String.t() | Atom.t()),
         "Destinations" => list(multiplex_output_destination()),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "MultiplexSettings" => multiplex_settings(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "PipelinesRunningCount" => integer(),
         "ProgramCount" => integer(),
         "State" => list(any()),
@@ -4005,7 +4008,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type start_multiplex_response() :: %{String.t() => any()}
+  @type start_multiplex_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4016,44 +4019,44 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_error() :: %{
-        "ElementPath" => String.t(),
-        "ErrorMessage" => String.t()
+        "ElementPath" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | Atom.t()
       }
 
   """
-  @type validation_error() :: %{String.t() => any()}
+  @type validation_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       transfer_input_device_request() :: %{
-        optional("TargetCustomerId") => String.t(),
-        optional("TargetRegion") => String.t(),
-        optional("TransferMessage") => String.t()
+        optional("TargetCustomerId") => String.t() | Atom.t(),
+        optional("TargetRegion") => String.t() | Atom.t(),
+        optional("TransferMessage") => String.t() | Atom.t()
       }
 
   """
-  @type transfer_input_device_request() :: %{String.t() => any()}
+  @type transfer_input_device_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       input_request_destination_route() :: %{
-        "Cidr" => String.t(),
-        "Gateway" => String.t()
+        "Cidr" => String.t() | Atom.t(),
+        "Gateway" => String.t() | Atom.t()
       }
 
   """
-  @type input_request_destination_route() :: %{String.t() => any()}
+  @type input_request_destination_route() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4080,7 +4083,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type multiplex_program_packet_identifiers_map() :: %{String.t() => any()}
+  @type multiplex_program_packet_identifiers_map() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4100,7 +4103,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type update_multiplex_response() :: %{String.t() => any()}
+  @type update_multiplex_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4112,7 +4115,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type feature_activations() :: %{String.t() => any()}
+  @type feature_activations() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4124,36 +4127,36 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type multiplex_output_settings() :: %{String.t() => any()}
+  @type multiplex_output_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       reservation() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "Count" => integer(),
-        "CurrencyCode" => String.t(),
+        "CurrencyCode" => String.t() | Atom.t(),
         "Duration" => integer(),
         "DurationUnits" => list(any()),
-        "End" => String.t(),
+        "End" => String.t() | Atom.t(),
         "FixedPrice" => float(),
-        "Name" => String.t(),
-        "OfferingDescription" => String.t(),
-        "OfferingId" => String.t(),
+        "Name" => String.t() | Atom.t(),
+        "OfferingDescription" => String.t() | Atom.t(),
+        "OfferingId" => String.t() | Atom.t(),
         "OfferingType" => list(any()),
-        "Region" => String.t(),
+        "Region" => String.t() | Atom.t(),
         "RenewalSettings" => renewal_settings(),
-        "ReservationId" => String.t(),
+        "ReservationId" => String.t() | Atom.t(),
         "ResourceSpecification" => reservation_resource_specification(),
-        "Start" => String.t(),
+        "Start" => String.t() | Atom.t(),
         "State" => list(any()),
         "Tags" => map(),
         "UsagePrice" => float()
       }
 
   """
-  @type reservation() :: %{String.t() => any()}
+  @type reservation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4164,32 +4167,32 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type batch_schedule_action_create_result() :: %{String.t() => any()}
+  @type batch_schedule_action_create_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       srt_output_destination_settings() :: %{
-        "EncryptionPassphraseSecretArn" => String.t(),
-        "StreamId" => String.t(),
-        "Url" => String.t()
+        "EncryptionPassphraseSecretArn" => String.t() | Atom.t(),
+        "StreamId" => String.t() | Atom.t(),
+        "Url" => String.t() | Atom.t()
       }
 
   """
-  @type srt_output_destination_settings() :: %{String.t() => any()}
+  @type srt_output_destination_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       multicast_source() :: %{
-        "SourceIp" => String.t(),
-        "Url" => String.t()
+        "SourceIp" => String.t() | Atom.t(),
+        "Url" => String.t() | Atom.t()
       }
 
   """
-  @type multicast_source() :: %{String.t() => any()}
+  @type multicast_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4200,7 +4203,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type archive_cdn_settings() :: %{String.t() => any()}
+  @type archive_cdn_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4211,7 +4214,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type delete_sdi_source_response() :: %{String.t() => any()}
+  @type delete_sdi_source_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4222,7 +4225,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type describe_input_device_thumbnail_request() :: %{String.t() => any()}
+  @type describe_input_device_thumbnail_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4233,24 +4236,24 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type list_versions_response() :: %{String.t() => any()}
+  @type list_versions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_channel_placement_group_response() :: %{
-        "Arn" => String.t(),
-        "Channels" => list(String.t()),
-        "ClusterId" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t(),
-        "Nodes" => list(String.t()),
+        "Arn" => String.t() | Atom.t(),
+        "Channels" => list(String.t() | Atom.t()),
+        "ClusterId" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "Nodes" => list(String.t() | Atom.t()),
         "State" => list(any())
       }
 
   """
-  @type delete_channel_placement_group_response() :: %{String.t() => any()}
+  @type delete_channel_placement_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4258,11 +4261,11 @@ defmodule AWS.MediaLive do
 
       list_inputs_response() :: %{
         "Inputs" => list(input()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_inputs_response() :: %{String.t() => any()}
+  @type list_inputs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4273,7 +4276,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type ancillary_source_settings() :: %{String.t() => any()}
+  @type ancillary_source_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4299,11 +4302,11 @@ defmodule AWS.MediaLive do
 
       list_clusters_response() :: %{
         "Clusters" => list(describe_cluster_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_clusters_response() :: %{String.t() => any()}
+  @type list_clusters_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4315,7 +4318,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type bandwidth_reduction_filter_settings() :: %{String.t() => any()}
+  @type bandwidth_reduction_filter_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4323,11 +4326,11 @@ defmodule AWS.MediaLive do
 
       list_channels_response() :: %{
         "Channels" => list(channel_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_channels_response() :: %{String.t() => any()}
+  @type list_channels_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4343,13 +4346,13 @@ defmodule AWS.MediaLive do
   ## Example:
 
       nielsen_c_b_e_t() :: %{
-        "CbetCheckDigitString" => String.t(),
+        "CbetCheckDigitString" => String.t() | Atom.t(),
         "CbetStepaside" => list(any()),
-        "Csid" => String.t()
+        "Csid" => String.t() | Atom.t()
       }
 
   """
-  @type nielsen_c_b_e_t() :: %{String.t() => any()}
+  @type nielsen_c_b_e_t() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4363,38 +4366,38 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type audio_selector_settings() :: %{String.t() => any()}
+  @type audio_selector_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       input_switch_schedule_action_settings() :: %{
-        "InputAttachmentNameReference" => String.t(),
+        "InputAttachmentNameReference" => String.t() | Atom.t(),
         "InputClippingSettings" => input_clipping_settings(),
-        "UrlPath" => list(String.t())
+        "UrlPath" => list(String.t() | Atom.t())
       }
 
   """
-  @type input_switch_schedule_action_settings() :: %{String.t() => any()}
+  @type input_switch_schedule_action_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_cluster_response() :: %{
-        "Arn" => String.t(),
-        "ChannelIds" => list(String.t()),
+        "Arn" => String.t() | Atom.t(),
+        "ChannelIds" => list(String.t() | Atom.t()),
         "ClusterType" => list(any()),
-        "Id" => String.t(),
-        "InstanceRoleArn" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "InstanceRoleArn" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "NetworkSettings" => cluster_network_settings(),
         "State" => list(any())
       }
 
   """
-  @type delete_cluster_response() :: %{String.t() => any()}
+  @type delete_cluster_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4408,7 +4411,7 @@ defmodule AWS.MediaLive do
         "FontColor" => list(any()),
         "FontOpacity" => integer(),
         "FontResolution" => integer(),
-        "FontSize" => String.t(),
+        "FontSize" => String.t() | Atom.t(),
         "OutlineColor" => list(any()),
         "OutlineSize" => integer(),
         "ShadowColor" => list(any()),
@@ -4421,7 +4424,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type dvb_sub_destination_settings() :: %{String.t() => any()}
+  @type dvb_sub_destination_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4435,19 +4438,19 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type video_selector() :: %{String.t() => any()}
+  @type video_selector() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       audio_language_selection() :: %{
-        "LanguageCode" => String.t(),
+        "LanguageCode" => String.t() | Atom.t(),
         "LanguageSelectionPolicy" => list(any())
       }
 
   """
-  @type audio_language_selection() :: %{String.t() => any()}
+  @type audio_language_selection() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4459,7 +4462,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type audio_channel_mapping() :: %{String.t() => any()}
+  @type audio_channel_mapping() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4468,13 +4471,13 @@ defmodule AWS.MediaLive do
       srt_caller_source_request() :: %{
         "Decryption" => srt_caller_decryption_request(),
         "MinimumLatency" => integer(),
-        "SrtListenerAddress" => String.t(),
-        "SrtListenerPort" => String.t(),
-        "StreamId" => String.t()
+        "SrtListenerAddress" => String.t() | Atom.t(),
+        "SrtListenerPort" => String.t() | Atom.t(),
+        "StreamId" => String.t() | Atom.t()
       }
 
   """
-  @type srt_caller_source_request() :: %{String.t() => any()}
+  @type srt_caller_source_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4495,21 +4498,21 @@ defmodule AWS.MediaLive do
         "SegmentLength" => integer(),
         "CaptionLanguageSetting" => list(any()),
         "HlsCdnSettings" => hls_cdn_settings(),
-        "ConstantIv" => String.t(),
+        "ConstantIv" => String.t() | Atom.t(),
         "DiscontinuityTags" => list(any()),
         "Destination" => output_location_ref(),
-        "BaseUrlManifest" => String.t(),
+        "BaseUrlManifest" => String.t() | Atom.t(),
         "TsFileMode" => list(any()),
         "OutputSelection" => list(any()),
         "CaptionLanguageMappings" => list(caption_language_mapping()),
         "KeepSegments" => integer(),
         "TimedMetadataId3Frame" => list(any()),
         "SegmentsPerSubdirectory" => integer(),
-        "KeyFormatVersions" => String.t(),
+        "KeyFormatVersions" => String.t() | Atom.t(),
         "ManifestCompression" => list(any()),
         "ProgramDateTimePeriod" => integer(),
         "TimedMetadataId3Period" => integer(),
-        "BaseUrlContent1" => String.t(),
+        "BaseUrlContent1" => String.t() | Atom.t(),
         "IvInManifest" => list(any()),
         "MinSegmentLength" => integer(),
         "InputLossAction" => list(any()),
@@ -4519,15 +4522,15 @@ defmodule AWS.MediaLive do
         "ManifestDurationFormat" => list(any()),
         "IFrameOnlyPlaylists" => list(any()),
         "IncompleteSegmentBehavior" => list(any()),
-        "BaseUrlManifest1" => String.t(),
+        "BaseUrlManifest1" => String.t() | Atom.t(),
         "AdMarkers" => list(list(any())()),
-        "BaseUrlContent" => String.t(),
+        "BaseUrlContent" => String.t() | Atom.t(),
         "IvSource" => list(any()),
-        "KeyFormat" => String.t()
+        "KeyFormat" => String.t() | Atom.t()
       }
 
   """
-  @type hls_group_settings() :: %{String.t() => any()}
+  @type hls_group_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4539,7 +4542,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type h264_filter_settings() :: %{String.t() => any()}
+  @type h264_filter_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4559,7 +4562,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type output_settings() :: %{String.t() => any()}
+  @type output_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4576,25 +4579,25 @@ defmodule AWS.MediaLive do
         optional("InputSpecification") => input_specification(),
         optional("LogLevel") => list(any()),
         optional("Maintenance") => maintenance_update_settings(),
-        optional("Name") => String.t(),
-        optional("RoleArn") => String.t()
+        optional("Name") => String.t() | Atom.t(),
+        optional("RoleArn") => String.t() | Atom.t()
       }
 
   """
-  @type update_channel_request() :: %{String.t() => any()}
+  @type update_channel_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       fmp4_hls_settings() :: %{
-        "AudioRenditionSets" => String.t(),
+        "AudioRenditionSets" => String.t() | Atom.t(),
         "NielsenId3Behavior" => list(any()),
         "TimedMetadataBehavior" => list(any())
       }
 
   """
-  @type fmp4_hls_settings() :: %{String.t() => any()}
+  @type fmp4_hls_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4608,19 +4611,19 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type multiplex_settings() :: %{String.t() => any()}
+  @type multiplex_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       audio_selector() :: %{
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "SelectorSettings" => audio_selector_settings()
       }
 
   """
-  @type audio_selector() :: %{String.t() => any()}
+  @type audio_selector() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4632,7 +4635,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type input_device_configurable_audio_channel_pair_config() :: %{String.t() => any()}
+  @type input_device_configurable_audio_channel_pair_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4661,42 +4664,42 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type av1_settings() :: %{String.t() => any()}
+  @type av1_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       multiplex_program_service_descriptor() :: %{
-        "ProviderName" => String.t(),
-        "ServiceName" => String.t()
+        "ProviderName" => String.t() | Atom.t(),
+        "ServiceName" => String.t() | Atom.t()
       }
 
   """
-  @type multiplex_program_service_descriptor() :: %{String.t() => any()}
+  @type multiplex_program_service_descriptor() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       media_connect_flow_request() :: %{
-        "FlowArn" => String.t()
+        "FlowArn" => String.t() | Atom.t()
       }
 
   """
-  @type media_connect_flow_request() :: %{String.t() => any()}
+  @type media_connect_flow_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_multiplex_response() :: %{
-        "Arn" => String.t(),
-        "AvailabilityZones" => list(String.t()),
+        "Arn" => String.t() | Atom.t(),
+        "AvailabilityZones" => list(String.t() | Atom.t()),
         "Destinations" => list(multiplex_output_destination()),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "MultiplexSettings" => multiplex_settings(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "PipelinesRunningCount" => integer(),
         "ProgramCount" => integer(),
         "State" => list(any()),
@@ -4704,46 +4707,46 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type describe_multiplex_response() :: %{String.t() => any()}
+  @type describe_multiplex_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       ip_pool_create_request() :: %{
-        "Cidr" => String.t()
+        "Cidr" => String.t() | Atom.t()
       }
 
   """
-  @type ip_pool_create_request() :: %{String.t() => any()}
+  @type ip_pool_create_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_signal_map_response() :: %{
-        "Arn" => String.t(),
-        "CloudWatchAlarmTemplateGroupIds" => list(String.t()),
+        "Arn" => String.t() | Atom.t(),
+        "CloudWatchAlarmTemplateGroupIds" => list(String.t() | Atom.t()),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
-        "DiscoveryEntryPointArn" => String.t(),
-        "ErrorMessage" => String.t(),
-        "EventBridgeRuleTemplateGroupIds" => list(String.t()),
+        "Description" => String.t() | Atom.t(),
+        "DiscoveryEntryPointArn" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | Atom.t(),
+        "EventBridgeRuleTemplateGroupIds" => list(String.t() | Atom.t()),
         "FailedMediaResourceMap" => map(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "LastDiscoveredAt" => non_neg_integer(),
         "LastSuccessfulMonitorDeployment" => successful_monitor_deployment(),
         "MediaResourceMap" => map(),
         "ModifiedAt" => non_neg_integer(),
         "MonitorChangesPendingDeployment" => boolean(),
         "MonitorDeployment" => monitor_deployment(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Status" => list(any()),
         "Tags" => map()
       }
 
   """
-  @type get_signal_map_response() :: %{String.t() => any()}
+  @type get_signal_map_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4762,12 +4765,12 @@ defmodule AWS.MediaLive do
         "Body" => binary(),
         "ContentLength" => float(),
         "ContentType" => list(any()),
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "LastModified" => non_neg_integer()
       }
 
   """
-  @type describe_input_device_thumbnail_response() :: %{String.t() => any()}
+  @type describe_input_device_thumbnail_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4775,12 +4778,12 @@ defmodule AWS.MediaLive do
 
       update_sdi_source_request() :: %{
         optional("Mode") => list(any()),
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("Type") => list(any())
       }
 
   """
-  @type update_sdi_source_request() :: %{String.t() => any()}
+  @type update_sdi_source_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4788,13 +4791,13 @@ defmodule AWS.MediaLive do
 
       motion_graphics_activate_schedule_action_settings() :: %{
         "Duration" => float(),
-        "PasswordParam" => String.t(),
-        "Url" => String.t(),
-        "Username" => String.t()
+        "PasswordParam" => String.t() | Atom.t(),
+        "Url" => String.t() | Atom.t(),
+        "Username" => String.t() | Atom.t()
       }
 
   """
-  @type motion_graphics_activate_schedule_action_settings() :: %{String.t() => any()}
+  @type motion_graphics_activate_schedule_action_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4807,7 +4810,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type nielsen_watermarks_settings() :: %{String.t() => any()}
+  @type nielsen_watermarks_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4818,7 +4821,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type key_provider_settings() :: %{String.t() => any()}
+  @type key_provider_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4830,7 +4833,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type avail_blanking() :: %{String.t() => any()}
+  @type avail_blanking() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4838,22 +4841,22 @@ defmodule AWS.MediaLive do
 
       list_clusters_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_clusters_request() :: %{String.t() => any()}
+  @type list_clusters_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       output_location_ref() :: %{
-        "DestinationRefId" => String.t()
+        "DestinationRefId" => String.t() | Atom.t()
       }
 
   """
-  @type output_location_ref() :: %{String.t() => any()}
+  @type output_location_ref() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4865,7 +4868,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type temporal_filter_settings() :: %{String.t() => any()}
+  @type temporal_filter_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4876,7 +4879,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type update_multiplex_program_response() :: %{String.t() => any()}
+  @type update_multiplex_program_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4896,7 +4899,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type multiplex_container_settings() :: %{String.t() => any()}
+  @type multiplex_container_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4907,7 +4910,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type frame_capture_s3_settings() :: %{String.t() => any()}
+  @type frame_capture_s3_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4918,7 +4921,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type scte35_time_signal_schedule_action_settings() :: %{String.t() => any()}
+  @type scte35_time_signal_schedule_action_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4934,11 +4937,11 @@ defmodule AWS.MediaLive do
   ## Example:
 
       cmaf_ingest_output_settings() :: %{
-        "NameModifier" => String.t()
+        "NameModifier" => String.t() | Atom.t()
       }
 
   """
-  @type cmaf_ingest_output_settings() :: %{String.t() => any()}
+  @type cmaf_ingest_output_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4946,24 +4949,24 @@ defmodule AWS.MediaLive do
 
       list_channel_placement_groups_response() :: %{
         "ChannelPlacementGroups" => list(describe_channel_placement_group_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_channel_placement_groups_response() :: %{String.t() => any()}
+  @type list_channel_placement_groups_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       schedule_action() :: %{
-        "ActionName" => String.t(),
+        "ActionName" => String.t() | Atom.t(),
         "ScheduleActionSettings" => schedule_action_settings(),
         "ScheduleActionStartSettings" => schedule_action_start_settings()
       }
 
   """
-  @type schedule_action() :: %{String.t() => any()}
+  @type schedule_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4974,19 +4977,19 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type update_multiplex_program_request() :: %{String.t() => any()}
+  @type update_multiplex_program_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       epoch_locking_settings() :: %{
-        "CustomEpoch" => String.t(),
-        "JamSyncTime" => String.t()
+        "CustomEpoch" => String.t() | Atom.t(),
+        "JamSyncTime" => String.t() | Atom.t()
       }
 
   """
-  @type epoch_locking_settings() :: %{String.t() => any()}
+  @type epoch_locking_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4998,7 +5001,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type static_image_deactivate_schedule_action_settings() :: %{String.t() => any()}
+  @type static_image_deactivate_schedule_action_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5018,24 +5021,24 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type media_package_group_settings() :: %{String.t() => any()}
+  @type media_package_group_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_signal_map_request() :: %{
-        optional("CloudWatchAlarmTemplateGroupIdentifiers") => list(String.t()),
-        optional("Description") => String.t(),
-        optional("EventBridgeRuleTemplateGroupIdentifiers") => list(String.t()),
-        optional("RequestId") => String.t(),
+        optional("CloudWatchAlarmTemplateGroupIdentifiers") => list(String.t() | Atom.t()),
+        optional("Description") => String.t() | Atom.t(),
+        optional("EventBridgeRuleTemplateGroupIdentifiers") => list(String.t() | Atom.t()),
+        optional("RequestId") => String.t() | Atom.t(),
         optional("Tags") => map(),
-        required("DiscoveryEntryPointArn") => String.t(),
-        required("Name") => String.t()
+        required("DiscoveryEntryPointArn") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t()
       }
 
   """
-  @type create_signal_map_request() :: %{String.t() => any()}
+  @type create_signal_map_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5052,11 +5055,11 @@ defmodule AWS.MediaLive do
 
       teletext_source_settings() :: %{
         "OutputRectangle" => caption_rectangle(),
-        "PageNumber" => String.t()
+        "PageNumber" => String.t() | Atom.t()
       }
 
   """
-  @type teletext_source_settings() :: %{String.t() => any()}
+  @type teletext_source_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5064,14 +5067,14 @@ defmodule AWS.MediaLive do
 
       create_network_request() :: %{
         optional("IpPools") => list(ip_pool_create_request()),
-        optional("Name") => String.t(),
-        optional("RequestId") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
+        optional("RequestId") => String.t() | Atom.t(),
         optional("Routes") => list(route_create_request()),
         optional("Tags") => map()
       }
 
   """
-  @type create_network_request() :: %{String.t() => any()}
+  @type create_network_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5079,27 +5082,27 @@ defmodule AWS.MediaLive do
 
       maintenance_status() :: %{
         "MaintenanceDay" => list(any()),
-        "MaintenanceDeadline" => String.t(),
-        "MaintenanceScheduledDate" => String.t(),
-        "MaintenanceStartTime" => String.t()
+        "MaintenanceDeadline" => String.t() | Atom.t(),
+        "MaintenanceScheduledDate" => String.t() | Atom.t(),
+        "MaintenanceStartTime" => String.t() | Atom.t()
       }
 
   """
-  @type maintenance_status() :: %{String.t() => any()}
+  @type maintenance_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_channel_placement_group_request() :: %{
-        optional("Name") => String.t(),
-        optional("Nodes") => list(String.t()),
-        optional("RequestId") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
+        optional("Nodes") => list(String.t() | Atom.t()),
+        optional("RequestId") => String.t() | Atom.t(),
         optional("Tags") => map()
       }
 
   """
-  @type create_channel_placement_group_request() :: %{String.t() => any()}
+  @type create_channel_placement_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5124,16 +5127,16 @@ defmodule AWS.MediaLive do
   ## Example:
 
       esam() :: %{
-        "AcquisitionPointId" => String.t(),
+        "AcquisitionPointId" => String.t() | Atom.t(),
         "AdAvailOffset" => integer(),
-        "PasswordParam" => String.t(),
-        "PoisEndpoint" => String.t(),
-        "Username" => String.t(),
-        "ZoneIdentity" => String.t()
+        "PasswordParam" => String.t() | Atom.t(),
+        "PoisEndpoint" => String.t() | Atom.t(),
+        "Username" => String.t() | Atom.t(),
+        "ZoneIdentity" => String.t() | Atom.t()
       }
 
   """
-  @type esam() :: %{String.t() => any()}
+  @type esam() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5149,23 +5152,26 @@ defmodule AWS.MediaLive do
         "ImageY" => integer(),
         "Layer" => integer(),
         "Opacity" => integer(),
-        "OutputNames" => list(String.t()),
+        "OutputNames" => list(String.t() | Atom.t()),
         "Width" => integer()
       }
 
   """
-  @type static_image_output_activate_schedule_action_settings() :: %{String.t() => any()}
+  @type static_image_output_activate_schedule_action_settings() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       input_whitelist_rule() :: %{
-        "Cidr" => String.t()
+        "Cidr" => String.t() | Atom.t()
       }
 
   """
-  @type input_whitelist_rule() :: %{String.t() => any()}
+  @type input_whitelist_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5181,14 +5187,14 @@ defmodule AWS.MediaLive do
   ## Example:
 
       vpc_output_settings_description() :: %{
-        "AvailabilityZones" => list(String.t()),
-        "NetworkInterfaceIds" => list(String.t()),
-        "SecurityGroupIds" => list(String.t()),
-        "SubnetIds" => list(String.t())
+        "AvailabilityZones" => list(String.t() | Atom.t()),
+        "NetworkInterfaceIds" => list(String.t() | Atom.t()),
+        "SecurityGroupIds" => list(String.t() | Atom.t()),
+        "SubnetIds" => list(String.t() | Atom.t())
       }
 
   """
-  @type vpc_output_settings_description() :: %{String.t() => any()}
+  @type vpc_output_settings_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5198,55 +5204,55 @@ defmodule AWS.MediaLive do
         "BlackoutSlateImage" => input_location(),
         "NetworkEndBlackout" => list(any()),
         "NetworkEndBlackoutImage" => input_location(),
-        "NetworkId" => String.t(),
+        "NetworkId" => String.t() | Atom.t(),
         "State" => list(any())
       }
 
   """
-  @type blackout_slate() :: %{String.t() => any()}
+  @type blackout_slate() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       vpc_output_settings() :: %{
-        "PublicAddressAllocationIds" => list(String.t()),
-        "SecurityGroupIds" => list(String.t()),
-        "SubnetIds" => list(String.t())
+        "PublicAddressAllocationIds" => list(String.t() | Atom.t()),
+        "SecurityGroupIds" => list(String.t() | Atom.t()),
+        "SubnetIds" => list(String.t() | Atom.t())
       }
 
   """
-  @type vpc_output_settings() :: %{String.t() => any()}
+  @type vpc_output_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       input_prepare_schedule_action_settings() :: %{
-        "InputAttachmentNameReference" => String.t(),
+        "InputAttachmentNameReference" => String.t() | Atom.t(),
         "InputClippingSettings" => input_clipping_settings(),
-        "UrlPath" => list(String.t())
+        "UrlPath" => list(String.t() | Atom.t())
       }
 
   """
-  @type input_prepare_schedule_action_settings() :: %{String.t() => any()}
+  @type input_prepare_schedule_action_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_event_bridge_rule_template_group_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
-        "Id" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "ModifiedAt" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type create_event_bridge_rule_template_group_response() :: %{String.t() => any()}
+  @type create_event_bridge_rule_template_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5257,22 +5263,22 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type failover_condition() :: %{String.t() => any()}
+  @type failover_condition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_event_bridge_rule_template_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("EventTargets") => list(event_bridge_rule_template_target()),
         optional("EventType") => list(any()),
-        optional("GroupIdentifier") => String.t(),
-        optional("Name") => String.t()
+        optional("GroupIdentifier") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t()
       }
 
   """
-  @type update_event_bridge_rule_template_request() :: %{String.t() => any()}
+  @type update_event_bridge_rule_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5283,7 +5289,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type dvb_tdt_settings() :: %{String.t() => any()}
+  @type dvb_tdt_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5291,35 +5297,35 @@ defmodule AWS.MediaLive do
 
       list_input_devices_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_input_devices_request() :: %{String.t() => any()}
+  @type list_input_devices_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       standard_hls_settings() :: %{
-        "AudioRenditionSets" => String.t(),
+        "AudioRenditionSets" => String.t() | Atom.t(),
         "M3u8Settings" => m3u8_settings()
       }
 
   """
-  @type standard_hls_settings() :: %{String.t() => any()}
+  @type standard_hls_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       unprocessable_entity_exception() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "ValidationErrors" => list(validation_error())
       }
 
   """
-  @type unprocessable_entity_exception() :: %{String.t() => any()}
+  @type unprocessable_entity_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5343,7 +5349,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type encoder_settings() :: %{String.t() => any()}
+  @type encoder_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5363,7 +5369,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type webvtt_destination_settings() :: %{String.t() => any()}
+  @type webvtt_destination_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5376,7 +5382,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type avail_settings() :: %{String.t() => any()}
+  @type avail_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5384,14 +5390,14 @@ defmodule AWS.MediaLive do
 
       create_sdi_source_request() :: %{
         optional("Mode") => list(any()),
-        optional("Name") => String.t(),
-        optional("RequestId") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
+        optional("RequestId") => String.t() | Atom.t(),
         optional("Tags") => map(),
         optional("Type") => list(any())
       }
 
   """
-  @type create_sdi_source_request() :: %{String.t() => any()}
+  @type create_sdi_source_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5407,12 +5413,12 @@ defmodule AWS.MediaLive do
   ## Example:
 
       list_reservations_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Reservations" => list(reservation())
       }
 
   """
-  @type list_reservations_response() :: %{String.t() => any()}
+  @type list_reservations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5433,30 +5439,30 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type h265_filter_settings() :: %{String.t() => any()}
+  @type h265_filter_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       hls_timed_metadata_schedule_action_settings() :: %{
-        "Id3" => String.t()
+        "Id3" => String.t() | Atom.t()
       }
 
   """
-  @type hls_timed_metadata_schedule_action_settings() :: %{String.t() => any()}
+  @type hls_timed_metadata_schedule_action_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       successful_monitor_deployment() :: %{
-        "DetailsUri" => String.t(),
+        "DetailsUri" => String.t() | Atom.t(),
         "Status" => list(any())
       }
 
   """
-  @type successful_monitor_deployment() :: %{String.t() => any()}
+  @type successful_monitor_deployment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5472,17 +5478,17 @@ defmodule AWS.MediaLive do
   ## Example:
 
       update_network_response() :: %{
-        "Arn" => String.t(),
-        "AssociatedClusterIds" => list(String.t()),
-        "Id" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "AssociatedClusterIds" => list(String.t() | Atom.t()),
+        "Id" => String.t() | Atom.t(),
         "IpPools" => list(ip_pool()),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Routes" => list(route()),
         "State" => list(any())
       }
 
   """
-  @type update_network_response() :: %{String.t() => any()}
+  @type update_network_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5493,36 +5499,36 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type thumbnail_configuration() :: %{String.t() => any()}
+  @type thumbnail_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_reservation_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "Count" => integer(),
-        "CurrencyCode" => String.t(),
+        "CurrencyCode" => String.t() | Atom.t(),
         "Duration" => integer(),
         "DurationUnits" => list(any()),
-        "End" => String.t(),
+        "End" => String.t() | Atom.t(),
         "FixedPrice" => float(),
-        "Name" => String.t(),
-        "OfferingDescription" => String.t(),
-        "OfferingId" => String.t(),
+        "Name" => String.t() | Atom.t(),
+        "OfferingDescription" => String.t() | Atom.t(),
+        "OfferingId" => String.t() | Atom.t(),
         "OfferingType" => list(any()),
-        "Region" => String.t(),
+        "Region" => String.t() | Atom.t(),
         "RenewalSettings" => renewal_settings(),
-        "ReservationId" => String.t(),
+        "ReservationId" => String.t() | Atom.t(),
         "ResourceSpecification" => reservation_resource_specification(),
-        "Start" => String.t(),
+        "Start" => String.t() | Atom.t(),
         "State" => list(any()),
         "Tags" => map(),
         "UsagePrice" => float()
       }
 
   """
-  @type describe_reservation_response() :: %{String.t() => any()}
+  @type describe_reservation_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5535,7 +5541,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type remix_settings() :: %{String.t() => any()}
+  @type remix_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5543,23 +5549,23 @@ defmodule AWS.MediaLive do
 
       static_key_settings() :: %{
         "KeyProviderServer" => input_location(),
-        "StaticKeyValue" => String.t()
+        "StaticKeyValue" => String.t() | Atom.t()
       }
 
   """
-  @type static_key_settings() :: %{String.t() => any()}
+  @type static_key_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       thumbnail_detail() :: %{
-        "PipelineId" => String.t(),
+        "PipelineId" => String.t() | Atom.t(),
         "Thumbnails" => list(thumbnail())
       }
 
   """
-  @type thumbnail_detail() :: %{String.t() => any()}
+  @type thumbnail_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5571,7 +5577,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type multiplex_video_settings() :: %{String.t() => any()}
+  @type multiplex_video_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5585,7 +5591,7 @@ defmodule AWS.MediaLive do
         "FontColor" => list(any()),
         "FontOpacity" => integer(),
         "FontResolution" => integer(),
-        "FontSize" => String.t(),
+        "FontSize" => String.t() | Atom.t(),
         "OutlineColor" => list(any()),
         "OutlineSize" => integer(),
         "ShadowColor" => list(any()),
@@ -5598,7 +5604,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type burn_in_destination_settings() :: %{String.t() => any()}
+  @type burn_in_destination_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5625,20 +5631,20 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type mpeg2_settings() :: %{String.t() => any()}
+  @type mpeg2_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_node_response() :: %{
-        "Arn" => String.t(),
-        "ChannelPlacementGroups" => list(String.t()),
-        "ClusterId" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "ChannelPlacementGroups" => list(String.t() | Atom.t()),
+        "ClusterId" => String.t() | Atom.t(),
         "ConnectionState" => list(any()),
-        "Id" => String.t(),
-        "InstanceArn" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "InstanceArn" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "NodeInterfaceMappings" => list(node_interface_mapping()),
         "Role" => list(any()),
         "SdiSourceMappings" => list(sdi_source_mapping()),
@@ -5646,44 +5652,44 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type create_node_response() :: %{String.t() => any()}
+  @type create_node_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_event_bridge_rule_template_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "EventTargets" => list(event_bridge_rule_template_target()),
         "EventType" => list(any()),
-        "GroupId" => String.t(),
-        "Id" => String.t(),
+        "GroupId" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "ModifiedAt" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type update_event_bridge_rule_template_response() :: %{String.t() => any()}
+  @type update_event_bridge_rule_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_cloud_watch_alarm_template_group_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
-        "Id" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "ModifiedAt" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type create_cloud_watch_alarm_template_group_response() :: %{String.t() => any()}
+  @type create_cloud_watch_alarm_template_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5694,19 +5700,19 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type update_sdi_source_response() :: %{String.t() => any()}
+  @type update_sdi_source_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       multiplex() :: %{
-        "Arn" => String.t(),
-        "AvailabilityZones" => list(String.t()),
+        "Arn" => String.t() | Atom.t(),
+        "AvailabilityZones" => list(String.t() | Atom.t()),
         "Destinations" => list(multiplex_output_destination()),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "MultiplexSettings" => multiplex_settings(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "PipelinesRunningCount" => integer(),
         "ProgramCount" => integer(),
         "State" => list(any()),
@@ -5714,7 +5720,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type multiplex() :: %{String.t() => any()}
+  @type multiplex() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5722,11 +5728,11 @@ defmodule AWS.MediaLive do
 
       cmaf_ingest_caption_language_mapping() :: %{
         "CaptionChannel" => integer(),
-        "LanguageCode" => String.t()
+        "LanguageCode" => String.t() | Atom.t()
       }
 
   """
-  @type cmaf_ingest_caption_language_mapping() :: %{String.t() => any()}
+  @type cmaf_ingest_caption_language_mapping() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5748,7 +5754,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type smpte2110_receiver_group_sdp_settings() :: %{String.t() => any()}
+  @type smpte2110_receiver_group_sdp_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5758,12 +5764,12 @@ defmodule AWS.MediaLive do
         "CaptionLanguageMappings" => list(cmaf_ingest_caption_language_mapping()),
         "Destination" => output_location_ref(),
         "Id3Behavior" => list(any()),
-        "Id3NameModifier" => String.t(),
+        "Id3NameModifier" => String.t() | Atom.t(),
         "KlvBehavior" => list(any()),
-        "KlvNameModifier" => String.t(),
+        "KlvNameModifier" => String.t() | Atom.t(),
         "NielsenId3Behavior" => list(any()),
-        "NielsenId3NameModifier" => String.t(),
-        "Scte35NameModifier" => String.t(),
+        "NielsenId3NameModifier" => String.t() | Atom.t(),
+        "Scte35NameModifier" => String.t() | Atom.t(),
         "Scte35Type" => list(any()),
         "SegmentLength" => integer(),
         "SegmentLengthUnits" => list(any()),
@@ -5774,19 +5780,19 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type cmaf_ingest_group_settings() :: %{String.t() => any()}
+  @type cmaf_ingest_group_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       input_vpc_request() :: %{
-        "SecurityGroupIds" => list(String.t()),
-        "SubnetIds" => list(String.t())
+        "SecurityGroupIds" => list(String.t() | Atom.t()),
+        "SubnetIds" => list(String.t() | Atom.t())
       }
 
   """
-  @type input_vpc_request() :: %{String.t() => any()}
+  @type input_vpc_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5795,12 +5801,12 @@ defmodule AWS.MediaLive do
       hls_output_settings() :: %{
         "H265PackagingType" => list(any()),
         "HlsSettings" => hls_settings(),
-        "NameModifier" => String.t(),
-        "SegmentModifier" => String.t()
+        "NameModifier" => String.t() | Atom.t(),
+        "SegmentModifier" => String.t() | Atom.t()
       }
 
   """
-  @type hls_output_settings() :: %{String.t() => any()}
+  @type hls_output_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5816,24 +5822,24 @@ defmodule AWS.MediaLive do
   ## Example:
 
       update_event_bridge_rule_template_group_request() :: %{
-        optional("Description") => String.t()
+        optional("Description") => String.t() | Atom.t()
       }
 
   """
-  @type update_event_bridge_rule_template_group_request() :: %{String.t() => any()}
+  @type update_event_bridge_rule_template_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_node_response() :: %{
-        "Arn" => String.t(),
-        "ChannelPlacementGroups" => list(String.t()),
-        "ClusterId" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "ChannelPlacementGroups" => list(String.t() | Atom.t()),
+        "ClusterId" => String.t() | Atom.t(),
         "ConnectionState" => list(any()),
-        "Id" => String.t(),
-        "InstanceArn" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "InstanceArn" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "NodeInterfaceMappings" => list(node_interface_mapping()),
         "Role" => list(any()),
         "SdiSourceMappings" => list(sdi_source_mapping()),
@@ -5841,33 +5847,33 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type delete_node_response() :: %{String.t() => any()}
+  @type delete_node_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       input_device_summary() :: %{
-        "Arn" => String.t(),
-        "AvailabilityZone" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "AvailabilityZone" => String.t() | Atom.t(),
         "ConnectionState" => list(any()),
         "DeviceSettingsSyncState" => list(any()),
         "DeviceUpdateStatus" => list(any()),
         "HdDeviceSettings" => input_device_hd_settings(),
-        "Id" => String.t(),
-        "MacAddress" => String.t(),
-        "MedialiveInputArns" => list(String.t()),
-        "Name" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "MacAddress" => String.t() | Atom.t(),
+        "MedialiveInputArns" => list(String.t() | Atom.t()),
+        "Name" => String.t() | Atom.t(),
         "NetworkSettings" => input_device_network_settings(),
         "OutputType" => list(any()),
-        "SerialNumber" => String.t(),
+        "SerialNumber" => String.t() | Atom.t(),
         "Tags" => map(),
         "Type" => list(any()),
         "UhdDeviceSettings" => input_device_uhd_settings()
       }
 
   """
-  @type input_device_summary() :: %{String.t() => any()}
+  @type input_device_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5885,7 +5891,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type ac3_settings() :: %{String.t() => any()}
+  @type ac3_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5899,7 +5905,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type multiplex_program_settings() :: %{String.t() => any()}
+  @type multiplex_program_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5910,7 +5916,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type color_correction_settings() :: %{String.t() => any()}
+  @type color_correction_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5926,33 +5932,33 @@ defmodule AWS.MediaLive do
   ## Example:
 
       sdi_source_summary() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
-        "Inputs" => list(String.t()),
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "Inputs" => list(String.t() | Atom.t()),
         "Mode" => list(any()),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "State" => list(any()),
         "Type" => list(any())
       }
 
   """
-  @type sdi_source_summary() :: %{String.t() => any()}
+  @type sdi_source_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_input_security_group_response() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
-        "Inputs" => list(String.t()),
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "Inputs" => list(String.t() | Atom.t()),
         "State" => list(any()),
         "Tags" => map(),
         "WhitelistRules" => list(input_whitelist_rule())
       }
 
   """
-  @type describe_input_security_group_response() :: %{String.t() => any()}
+  @type describe_input_security_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5968,11 +5974,11 @@ defmodule AWS.MediaLive do
   ## Example:
 
       internal_server_error_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_server_error_exception() :: %{String.t() => any()}
+  @type internal_server_error_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5989,11 +5995,11 @@ defmodule AWS.MediaLive do
 
       list_cloud_watch_alarm_templates_response() :: %{
         "CloudWatchAlarmTemplates" => list(cloud_watch_alarm_template_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_cloud_watch_alarm_templates_response() :: %{String.t() => any()}
+  @type list_cloud_watch_alarm_templates_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6001,11 +6007,11 @@ defmodule AWS.MediaLive do
 
       list_event_bridge_rule_template_groups_response() :: %{
         "EventBridgeRuleTemplateGroups" => list(event_bridge_rule_template_group_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_event_bridge_rule_template_groups_response() :: %{String.t() => any()}
+  @type list_event_bridge_rule_template_groups_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6028,7 +6034,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type embedded_source_settings() :: %{String.t() => any()}
+  @type embedded_source_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6039,7 +6045,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type create_multiplex_response() :: %{String.t() => any()}
+  @type create_multiplex_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6047,12 +6053,12 @@ defmodule AWS.MediaLive do
 
       list_event_bridge_rule_template_groups_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("SignalMapIdentifier") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("SignalMapIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type list_event_bridge_rule_template_groups_request() :: %{String.t() => any()}
+  @type list_event_bridge_rule_template_groups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6060,12 +6066,12 @@ defmodule AWS.MediaLive do
 
       media_resource() :: %{
         "Destinations" => list(media_resource_neighbor()),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Sources" => list(media_resource_neighbor())
       }
 
   """
-  @type media_resource() :: %{String.t() => any()}
+  @type media_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6073,14 +6079,14 @@ defmodule AWS.MediaLive do
 
       create_cloud_watch_alarm_template_request() :: %{
         optional("DatapointsToAlarm") => integer(),
-        optional("Description") => String.t(),
-        optional("RequestId") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("RequestId") => String.t() | Atom.t(),
         optional("Tags") => map(),
         required("ComparisonOperator") => list(any()),
         required("EvaluationPeriods") => integer(),
-        required("GroupIdentifier") => String.t(),
-        required("MetricName") => String.t(),
-        required("Name") => String.t(),
+        required("GroupIdentifier") => String.t() | Atom.t(),
+        required("MetricName") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t(),
         required("Period") => integer(),
         required("Statistic") => list(any()),
         required("TargetResourceType") => list(any()),
@@ -6089,7 +6095,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type create_cloud_watch_alarm_template_request() :: %{String.t() => any()}
+  @type create_cloud_watch_alarm_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6097,29 +6103,29 @@ defmodule AWS.MediaLive do
 
       channel() :: %{
         "AnywhereSettings" => describe_anywhere_settings(),
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
         "ChannelEngineVersion" => channel_engine_version_response(),
         "Destinations" => list(output_destination()),
         "EgressEndpoints" => list(channel_egress_endpoint()),
         "EncoderSettings" => encoder_settings(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
         "LogLevel" => list(any()),
         "Maintenance" => maintenance_status(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "PipelineDetails" => list(pipeline_detail()),
         "PipelinesRunningCount" => integer(),
-        "RoleArn" => String.t(),
+        "RoleArn" => String.t() | Atom.t(),
         "State" => list(any()),
         "Tags" => map(),
         "Vpc" => vpc_output_settings_description()
       }
 
   """
-  @type channel() :: %{String.t() => any()}
+  @type channel() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6137,30 +6143,30 @@ defmodule AWS.MediaLive do
       caption_description() :: %{
         "Accessibility" => list(any()),
         "CaptionDashRoles" => list(list(any())()),
-        "CaptionSelectorName" => String.t(),
+        "CaptionSelectorName" => String.t() | Atom.t(),
         "DestinationSettings" => caption_destination_settings(),
         "DvbDashAccessibility" => list(any()),
-        "LanguageCode" => String.t(),
-        "LanguageDescription" => String.t(),
-        "Name" => String.t()
+        "LanguageCode" => String.t() | Atom.t(),
+        "LanguageDescription" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type caption_description() :: %{String.t() => any()}
+  @type caption_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       input_device_media_connect_settings() :: %{
-        "FlowArn" => String.t(),
-        "RoleArn" => String.t(),
-        "SecretArn" => String.t(),
-        "SourceName" => String.t()
+        "FlowArn" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | Atom.t(),
+        "SecretArn" => String.t() | Atom.t(),
+        "SourceName" => String.t() | Atom.t()
       }
 
   """
-  @type input_device_media_connect_settings() :: %{String.t() => any()}
+  @type input_device_media_connect_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6168,29 +6174,29 @@ defmodule AWS.MediaLive do
 
       start_channel_response() :: %{
         "AnywhereSettings" => describe_anywhere_settings(),
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
         "ChannelEngineVersion" => channel_engine_version_response(),
         "Destinations" => list(output_destination()),
         "EgressEndpoints" => list(channel_egress_endpoint()),
         "EncoderSettings" => encoder_settings(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
         "LogLevel" => list(any()),
         "Maintenance" => maintenance_status(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "PipelineDetails" => list(pipeline_detail()),
         "PipelinesRunningCount" => integer(),
-        "RoleArn" => String.t(),
+        "RoleArn" => String.t() | Atom.t(),
         "State" => list(any()),
         "Tags" => map(),
         "Vpc" => vpc_output_settings_description()
       }
 
   """
-  @type start_channel_response() :: %{String.t() => any()}
+  @type start_channel_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6201,7 +6207,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type frame_capture_cdn_settings() :: %{String.t() => any()}
+  @type frame_capture_cdn_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6213,28 +6219,28 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type hdr10_settings() :: %{String.t() => any()}
+  @type hdr10_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       offering() :: %{
-        "Arn" => String.t(),
-        "CurrencyCode" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "CurrencyCode" => String.t() | Atom.t(),
         "Duration" => integer(),
         "DurationUnits" => list(any()),
         "FixedPrice" => float(),
-        "OfferingDescription" => String.t(),
-        "OfferingId" => String.t(),
+        "OfferingDescription" => String.t() | Atom.t(),
+        "OfferingId" => String.t() | Atom.t(),
         "OfferingType" => list(any()),
-        "Region" => String.t(),
+        "Region" => String.t() | Atom.t(),
         "ResourceSpecification" => reservation_resource_specification(),
         "UsagePrice" => float()
       }
 
   """
-  @type offering() :: %{String.t() => any()}
+  @type offering() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6263,7 +6269,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type pipeline_pause_state_settings() :: %{String.t() => any()}
+  @type pipeline_pause_state_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6274,7 +6280,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type video_selector_color_space_settings() :: %{String.t() => any()}
+  @type video_selector_color_space_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6286,7 +6292,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type audio_track_selection() :: %{String.t() => any()}
+  @type audio_track_selection() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6299,19 +6305,19 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type frame_capture_settings() :: %{String.t() => any()}
+  @type frame_capture_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       audio_silence_failover_settings() :: %{
-        "AudioSelectorName" => String.t(),
+        "AudioSelectorName" => String.t() | Atom.t(),
         "AudioSilenceThresholdMsec" => integer()
       }
 
   """
-  @type audio_silence_failover_settings() :: %{String.t() => any()}
+  @type audio_silence_failover_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6327,11 +6333,11 @@ defmodule AWS.MediaLive do
   ## Example:
 
       gateway_timeout_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type gateway_timeout_exception() :: %{String.t() => any()}
+  @type gateway_timeout_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6342,7 +6348,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type srt_settings() :: %{String.t() => any()}
+  @type srt_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6356,31 +6362,31 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type rtmp_output_settings() :: %{String.t() => any()}
+  @type rtmp_output_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       m2ts_settings() :: %{
-        "TimedMetadataPid" => String.t(),
+        "TimedMetadataPid" => String.t() | Atom.t(),
         "Scte35PrerollPullupMilliseconds" => float(),
-        "EtvPlatformPid" => String.t(),
+        "EtvPlatformPid" => String.t() | Atom.t(),
         "NullPacketBitrate" => float(),
-        "PcrPid" => String.t(),
+        "PcrPid" => String.t() | Atom.t(),
         "Klv" => list(any()),
-        "DvbTeletextPid" => String.t(),
+        "DvbTeletextPid" => String.t() | Atom.t(),
         "AudioBufferModel" => list(any()),
         "PcrPeriod" => integer(),
         "DvbSdtSettings" => dvb_sdt_settings(),
-        "AribCaptionsPid" => String.t(),
+        "AribCaptionsPid" => String.t() | Atom.t(),
         "TransportStreamId" => integer(),
         "PatInterval" => integer(),
         "Bitrate" => integer(),
-        "EcmPid" => String.t(),
-        "PmtPid" => String.t(),
+        "EcmPid" => String.t() | Atom.t(),
+        "PmtPid" => String.t() | Atom.t(),
         "EbpPlacement" => list(any()),
-        "Scte35Pid" => String.t(),
+        "Scte35Pid" => String.t() | Atom.t(),
         "AudioStreamType" => list(any()),
         "Ebif" => list(any()),
         "FragmentTime" => float(),
@@ -6391,22 +6397,22 @@ defmodule AWS.MediaLive do
         "SegmentationTime" => float(),
         "PcrControl" => list(any()),
         "EbpLookaheadMs" => integer(),
-        "VideoPid" => String.t(),
+        "VideoPid" => String.t() | Atom.t(),
         "DvbTdtSettings" => dvb_tdt_settings(),
-        "DvbSubPids" => String.t(),
-        "AudioPids" => String.t(),
+        "DvbSubPids" => String.t() | Atom.t(),
+        "AudioPids" => String.t() | Atom.t(),
         "AribCaptionsPidControl" => list(any()),
-        "KlvDataPids" => String.t(),
+        "KlvDataPids" => String.t() | Atom.t(),
         "Arib" => list(any()),
         "AbsentInputAudioBehavior" => list(any()),
-        "EtvSignalPid" => String.t(),
+        "EtvSignalPid" => String.t() | Atom.t(),
         "BufferModel" => list(any()),
         "DvbNitSettings" => dvb_nit_settings(),
         "RateMode" => list(any()),
         "TimedMetadataBehavior" => list(any()),
         "EbpAudioInterval" => list(any()),
         "ProgramNum" => integer(),
-        "Scte27Pids" => String.t(),
+        "Scte27Pids" => String.t() | Atom.t(),
         "EsRateInPes" => list(any()),
         "PmtInterval" => integer(),
         "NielsenId3Behavior" => list(any()),
@@ -6414,7 +6420,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type m2ts_settings() :: %{String.t() => any()}
+  @type m2ts_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6423,26 +6429,26 @@ defmodule AWS.MediaLive do
       dvb_sdt_settings() :: %{
         "OutputSdt" => list(any()),
         "RepInterval" => integer(),
-        "ServiceName" => String.t(),
-        "ServiceProviderName" => String.t()
+        "ServiceName" => String.t() | Atom.t(),
+        "ServiceProviderName" => String.t() | Atom.t()
       }
 
   """
-  @type dvb_sdt_settings() :: %{String.t() => any()}
+  @type dvb_sdt_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       input_destination_request() :: %{
-        "Network" => String.t(),
+        "Network" => String.t() | Atom.t(),
         "NetworkRoutes" => list(input_request_destination_route()),
-        "StaticIpAddress" => String.t(),
-        "StreamName" => String.t()
+        "StaticIpAddress" => String.t() | Atom.t(),
+        "StreamName" => String.t() | Atom.t()
       }
 
   """
-  @type input_destination_request() :: %{String.t() => any()}
+  @type input_destination_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6455,7 +6461,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type schedule_action_start_settings() :: %{String.t() => any()}
+  @type schedule_action_start_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6479,7 +6485,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type multiplex_m2ts_settings() :: %{String.t() => any()}
+  @type multiplex_m2ts_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6490,19 +6496,19 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type update_input_response() :: %{String.t() => any()}
+  @type update_input_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       input_destination_vpc() :: %{
-        "AvailabilityZone" => String.t(),
-        "NetworkInterfaceId" => String.t()
+        "AvailabilityZone" => String.t() | Atom.t(),
+        "NetworkInterfaceId" => String.t() | Atom.t()
       }
 
   """
-  @type input_destination_vpc() :: %{String.t() => any()}
+  @type input_destination_vpc() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6528,23 +6534,23 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type eac3_atmos_settings() :: %{String.t() => any()}
+  @type eac3_atmos_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       pipeline_detail() :: %{
-        "ActiveInputAttachmentName" => String.t(),
-        "ActiveInputSwitchActionName" => String.t(),
-        "ActiveMotionGraphicsActionName" => String.t(),
-        "ActiveMotionGraphicsUri" => String.t(),
+        "ActiveInputAttachmentName" => String.t() | Atom.t(),
+        "ActiveInputSwitchActionName" => String.t() | Atom.t(),
+        "ActiveMotionGraphicsActionName" => String.t() | Atom.t(),
+        "ActiveMotionGraphicsUri" => String.t() | Atom.t(),
         "ChannelEngineVersion" => channel_engine_version_response(),
-        "PipelineId" => String.t()
+        "PipelineId" => String.t() | Atom.t()
       }
 
   """
-  @type pipeline_detail() :: %{String.t() => any()}
+  @type pipeline_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6552,11 +6558,11 @@ defmodule AWS.MediaLive do
 
       list_event_bridge_rule_templates_response() :: %{
         "EventBridgeRuleTemplates" => list(event_bridge_rule_template_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_event_bridge_rule_templates_response() :: %{String.t() => any()}
+  @type list_event_bridge_rule_templates_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6587,7 +6593,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type wav_settings() :: %{String.t() => any()}
+  @type wav_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6600,7 +6606,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type fec_output_settings() :: %{String.t() => any()}
+  @type fec_output_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6615,18 +6621,18 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type hls_input_settings() :: %{String.t() => any()}
+  @type hls_input_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bad_request_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type bad_request_exception() :: %{String.t() => any()}
+  @type bad_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6637,7 +6643,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type batch_schedule_action_delete_result() :: %{String.t() => any()}
+  @type batch_schedule_action_delete_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6662,20 +6668,20 @@ defmodule AWS.MediaLive do
   ## Example:
 
       get_event_bridge_rule_template_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "EventTargets" => list(event_bridge_rule_template_target()),
         "EventType" => list(any()),
-        "GroupId" => String.t(),
-        "Id" => String.t(),
+        "GroupId" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "ModifiedAt" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type get_event_bridge_rule_template_response() :: %{String.t() => any()}
+  @type get_event_bridge_rule_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6684,34 +6690,34 @@ defmodule AWS.MediaLive do
       sdi_source_mapping_update_request() :: %{
         "CardNumber" => integer(),
         "ChannelNumber" => integer(),
-        "SdiSource" => String.t()
+        "SdiSource" => String.t() | Atom.t()
       }
 
   """
-  @type sdi_source_mapping_update_request() :: %{String.t() => any()}
+  @type sdi_source_mapping_update_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_schedule_action_delete_request() :: %{
-        "ActionNames" => list(String.t())
+        "ActionNames" => list(String.t() | Atom.t())
       }
 
   """
-  @type batch_schedule_action_delete_request() :: %{String.t() => any()}
+  @type batch_schedule_action_delete_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_sdi_sources_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "SdiSources" => list(sdi_source_summary())
       }
 
   """
-  @type list_sdi_sources_response() :: %{String.t() => any()}
+  @type list_sdi_sources_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6719,12 +6725,12 @@ defmodule AWS.MediaLive do
 
       list_input_device_transfers_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("TransferType") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("TransferType") => String.t() | Atom.t()
       }
 
   """
-  @type list_input_device_transfers_request() :: %{String.t() => any()}
+  @type list_input_device_transfers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6741,11 +6747,11 @@ defmodule AWS.MediaLive do
 
       maintenance_create_settings() :: %{
         "MaintenanceDay" => list(any()),
-        "MaintenanceStartTime" => String.t()
+        "MaintenanceStartTime" => String.t() | Atom.t()
       }
 
   """
-  @type maintenance_create_settings() :: %{String.t() => any()}
+  @type maintenance_create_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6756,7 +6762,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type restart_channel_pipelines_request() :: %{String.t() => any()}
+  @type restart_channel_pipelines_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6769,60 +6775,60 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type failover_condition_settings() :: %{String.t() => any()}
+  @type failover_condition_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       channel_egress_endpoint() :: %{
-        "SourceIp" => String.t()
+        "SourceIp" => String.t() | Atom.t()
       }
 
   """
-  @type channel_egress_endpoint() :: %{String.t() => any()}
+  @type channel_egress_endpoint() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       input_device_media_connect_configurable_settings() :: %{
-        "FlowArn" => String.t(),
-        "RoleArn" => String.t(),
-        "SecretArn" => String.t(),
-        "SourceName" => String.t()
+        "FlowArn" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | Atom.t(),
+        "SecretArn" => String.t() | Atom.t(),
+        "SourceName" => String.t() | Atom.t()
       }
 
   """
-  @type input_device_media_connect_configurable_settings() :: %{String.t() => any()}
+  @type input_device_media_connect_configurable_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_monitor_deployment_response() :: %{
-        "Arn" => String.t(),
-        "CloudWatchAlarmTemplateGroupIds" => list(String.t()),
+        "Arn" => String.t() | Atom.t(),
+        "CloudWatchAlarmTemplateGroupIds" => list(String.t() | Atom.t()),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
-        "DiscoveryEntryPointArn" => String.t(),
-        "ErrorMessage" => String.t(),
-        "EventBridgeRuleTemplateGroupIds" => list(String.t()),
+        "Description" => String.t() | Atom.t(),
+        "DiscoveryEntryPointArn" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | Atom.t(),
+        "EventBridgeRuleTemplateGroupIds" => list(String.t() | Atom.t()),
         "FailedMediaResourceMap" => map(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "LastDiscoveredAt" => non_neg_integer(),
         "LastSuccessfulMonitorDeployment" => successful_monitor_deployment(),
         "MediaResourceMap" => map(),
         "ModifiedAt" => non_neg_integer(),
         "MonitorChangesPendingDeployment" => boolean(),
         "MonitorDeployment" => monitor_deployment(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Status" => list(any()),
         "Tags" => map()
       }
 
   """
-  @type start_monitor_deployment_response() :: %{String.t() => any()}
+  @type start_monitor_deployment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6830,11 +6836,11 @@ defmodule AWS.MediaLive do
 
       list_multiplexes_response() :: %{
         "Multiplexes" => list(multiplex_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_multiplexes_response() :: %{String.t() => any()}
+  @type list_multiplexes_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6851,11 +6857,11 @@ defmodule AWS.MediaLive do
 
       list_multiplexes_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_multiplexes_request() :: %{String.t() => any()}
+  @type list_multiplexes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6863,13 +6869,13 @@ defmodule AWS.MediaLive do
 
       list_cloud_watch_alarm_template_groups_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("Scope") => String.t(),
-        optional("SignalMapIdentifier") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("Scope") => String.t() | Atom.t(),
+        optional("SignalMapIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type list_cloud_watch_alarm_template_groups_request() :: %{String.t() => any()}
+  @type list_cloud_watch_alarm_template_groups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6880,7 +6886,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type update_channel_response() :: %{String.t() => any()}
+  @type update_channel_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6888,12 +6894,12 @@ defmodule AWS.MediaLive do
 
       update_network_request() :: %{
         optional("IpPools") => list(ip_pool_update_request()),
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("Routes") => list(route_update_request())
       }
 
   """
-  @type update_network_request() :: %{String.t() => any()}
+  @type update_network_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6904,44 +6910,44 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type audio_pid_selection() :: %{String.t() => any()}
+  @type audio_pid_selection() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       input_source_request() :: %{
-        "PasswordParam" => String.t(),
-        "Url" => String.t(),
-        "Username" => String.t()
+        "PasswordParam" => String.t() | Atom.t(),
+        "Url" => String.t() | Atom.t(),
+        "Username" => String.t() | Atom.t()
       }
 
   """
-  @type input_source_request() :: %{String.t() => any()}
+  @type input_source_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cluster_network_settings_update_request() :: %{
-        "DefaultRoute" => String.t(),
+        "DefaultRoute" => String.t() | Atom.t(),
         "InterfaceMappings" => list(interface_mapping_update_request())
       }
 
   """
-  @type cluster_network_settings_update_request() :: %{String.t() => any()}
+  @type cluster_network_settings_update_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_anywhere_settings() :: %{
-        "ChannelPlacementGroupId" => String.t(),
-        "ClusterId" => String.t()
+        "ChannelPlacementGroupId" => String.t() | Atom.t(),
+        "ClusterId" => String.t() | Atom.t()
       }
 
   """
-  @type describe_anywhere_settings() :: %{String.t() => any()}
+  @type describe_anywhere_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6952,7 +6958,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type mpeg2_filter_settings() :: %{String.t() => any()}
+  @type mpeg2_filter_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6963,7 +6969,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type update_node_state_request() :: %{String.t() => any()}
+  @type update_node_state_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6976,7 +6982,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type audio_normalization_settings() :: %{String.t() => any()}
+  @type audio_normalization_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6987,21 +6993,21 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type hls_s3_settings() :: %{String.t() => any()}
+  @type hls_s3_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       output_destination_settings() :: %{
-        "PasswordParam" => String.t(),
-        "StreamName" => String.t(),
-        "Url" => String.t(),
-        "Username" => String.t()
+        "PasswordParam" => String.t() | Atom.t(),
+        "StreamName" => String.t() | Atom.t(),
+        "Url" => String.t() | Atom.t(),
+        "Username" => String.t() | Atom.t()
       }
 
   """
-  @type output_destination_settings() :: %{String.t() => any()}
+  @type output_destination_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7014,7 +7020,7 @@ defmodule AWS.MediaLive do
         "SegmentationDuration" => float(),
         "SegmentationEventId" => float(),
         "SegmentationTypeId" => integer(),
-        "SegmentationUpid" => String.t(),
+        "SegmentationUpid" => String.t() | Atom.t(),
         "SegmentationUpidType" => integer(),
         "SegmentsExpected" => integer(),
         "SubSegmentNum" => integer(),
@@ -7022,19 +7028,19 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type scte35_segmentation_descriptor() :: %{String.t() => any()}
+  @type scte35_segmentation_descriptor() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       anywhere_settings() :: %{
-        "ChannelPlacementGroupId" => String.t(),
-        "ClusterId" => String.t()
+        "ChannelPlacementGroupId" => String.t() | Atom.t(),
+        "ClusterId" => String.t() | Atom.t()
       }
 
   """
-  @type anywhere_settings() :: %{String.t() => any()}
+  @type anywhere_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7043,11 +7049,11 @@ defmodule AWS.MediaLive do
       timecode_burnin_settings() :: %{
         "FontSize" => list(any()),
         "Position" => list(any()),
-        "Prefix" => String.t()
+        "Prefix" => String.t() | Atom.t()
       }
 
   """
-  @type timecode_burnin_settings() :: %{String.t() => any()}
+  @type timecode_burnin_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7059,23 +7065,23 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type renewal_settings() :: %{String.t() => any()}
+  @type renewal_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       ebu_tt_d_destination_settings() :: %{
-        "CopyrightHolder" => String.t(),
+        "CopyrightHolder" => String.t() | Atom.t(),
         "DefaultFontSize" => integer(),
         "DefaultLineHeight" => integer(),
         "FillLineGap" => list(any()),
-        "FontFamily" => String.t(),
+        "FontFamily" => String.t() | Atom.t(),
         "StyleControl" => list(any())
       }
 
   """
-  @type ebu_tt_d_destination_settings() :: %{String.t() => any()}
+  @type ebu_tt_d_destination_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7086,24 +7092,24 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type update_account_configuration_response() :: %{String.t() => any()}
+  @type update_account_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_event_bridge_rule_template_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("EventTargets") => list(event_bridge_rule_template_target()),
-        optional("RequestId") => String.t(),
+        optional("RequestId") => String.t() | Atom.t(),
         optional("Tags") => map(),
         required("EventType") => list(any()),
-        required("GroupIdentifier") => String.t(),
-        required("Name") => String.t()
+        required("GroupIdentifier") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t()
       }
 
   """
-  @type create_event_bridge_rule_template_request() :: %{String.t() => any()}
+  @type create_event_bridge_rule_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7115,19 +7121,19 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type video_black_failover_settings() :: %{String.t() => any()}
+  @type video_black_failover_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       audio_hls_rendition_selection() :: %{
-        "GroupId" => String.t(),
-        "Name" => String.t()
+        "GroupId" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type audio_hls_rendition_selection() :: %{String.t() => any()}
+  @type audio_hls_rendition_selection() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7138,7 +7144,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type multiplex_settings_summary() :: %{String.t() => any()}
+  @type multiplex_settings_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7149,7 +7155,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type audio_dolby_e_decode() :: %{String.t() => any()}
+  @type audio_dolby_e_decode() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7157,11 +7163,11 @@ defmodule AWS.MediaLive do
 
       follow_mode_schedule_action_start_settings() :: %{
         "FollowPoint" => list(any()),
-        "ReferenceActionName" => String.t()
+        "ReferenceActionName" => String.t() | Atom.t()
       }
 
   """
-  @type follow_mode_schedule_action_start_settings() :: %{String.t() => any()}
+  @type follow_mode_schedule_action_start_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7172,7 +7178,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type audio_watermark_settings() :: %{String.t() => any()}
+  @type audio_watermark_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7185,60 +7191,60 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type scte35_splice_insert() :: %{String.t() => any()}
+  @type scte35_splice_insert() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       claim_device_request() :: %{
-        optional("Id") => String.t()
+        optional("Id") => String.t() | Atom.t()
       }
 
   """
-  @type claim_device_request() :: %{String.t() => any()}
+  @type claim_device_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_update_signal_map_response() :: %{
-        "Arn" => String.t(),
-        "CloudWatchAlarmTemplateGroupIds" => list(String.t()),
+        "Arn" => String.t() | Atom.t(),
+        "CloudWatchAlarmTemplateGroupIds" => list(String.t() | Atom.t()),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
-        "DiscoveryEntryPointArn" => String.t(),
-        "ErrorMessage" => String.t(),
-        "EventBridgeRuleTemplateGroupIds" => list(String.t()),
+        "Description" => String.t() | Atom.t(),
+        "DiscoveryEntryPointArn" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | Atom.t(),
+        "EventBridgeRuleTemplateGroupIds" => list(String.t() | Atom.t()),
         "FailedMediaResourceMap" => map(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "LastDiscoveredAt" => non_neg_integer(),
         "LastSuccessfulMonitorDeployment" => successful_monitor_deployment(),
         "MediaResourceMap" => map(),
         "ModifiedAt" => non_neg_integer(),
         "MonitorChangesPendingDeployment" => boolean(),
         "MonitorDeployment" => monitor_deployment(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Status" => list(any()),
         "Tags" => map()
       }
 
   """
-  @type start_update_signal_map_response() :: %{String.t() => any()}
+  @type start_update_signal_map_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_signal_maps_request() :: %{
-        optional("CloudWatchAlarmTemplateGroupIdentifier") => String.t(),
-        optional("EventBridgeRuleTemplateGroupIdentifier") => String.t(),
+        optional("CloudWatchAlarmTemplateGroupIdentifier") => String.t() | Atom.t(),
+        optional("EventBridgeRuleTemplateGroupIdentifier") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_signal_maps_request() :: %{String.t() => any()}
+  @type list_signal_maps_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7257,7 +7263,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type input_device_hd_settings() :: %{String.t() => any()}
+  @type input_device_hd_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7268,7 +7274,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type scte35_descriptor_settings() :: %{String.t() => any()}
+  @type scte35_descriptor_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7285,11 +7291,11 @@ defmodule AWS.MediaLive do
 
       list_channels_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_channels_request() :: %{String.t() => any()}
+  @type list_channels_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7297,11 +7303,11 @@ defmodule AWS.MediaLive do
 
       input_sdp_location() :: %{
         "MediaIndex" => integer(),
-        "SdpUrl" => String.t()
+        "SdpUrl" => String.t() | Atom.t()
       }
 
   """
-  @type input_sdp_location() :: %{String.t() => any()}
+  @type input_sdp_location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7309,12 +7315,12 @@ defmodule AWS.MediaLive do
 
       dvb_nit_settings() :: %{
         "NetworkId" => integer(),
-        "NetworkName" => String.t(),
+        "NetworkName" => String.t() | Atom.t(),
         "RepInterval" => integer()
       }
 
   """
-  @type dvb_nit_settings() :: %{String.t() => any()}
+  @type dvb_nit_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7322,11 +7328,11 @@ defmodule AWS.MediaLive do
 
       describe_schedule_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type describe_schedule_request() :: %{String.t() => any()}
+  @type describe_schedule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7337,24 +7343,24 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type describe_sdi_source_response() :: %{String.t() => any()}
+  @type describe_sdi_source_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cloud_watch_alarm_template_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "ComparisonOperator" => list(any()),
         "CreatedAt" => non_neg_integer(),
         "DatapointsToAlarm" => integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "EvaluationPeriods" => integer(),
-        "GroupId" => String.t(),
-        "Id" => String.t(),
-        "MetricName" => String.t(),
+        "GroupId" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "MetricName" => String.t() | Atom.t(),
         "ModifiedAt" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Period" => integer(),
         "Statistic" => list(any()),
         "Tags" => map(),
@@ -7364,7 +7370,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type cloud_watch_alarm_template_summary() :: %{String.t() => any()}
+  @type cloud_watch_alarm_template_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7380,18 +7386,18 @@ defmodule AWS.MediaLive do
   ## Example:
 
       cloud_watch_alarm_template_group_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
-        "Id" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "ModifiedAt" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Tags" => map(),
         "TemplateCount" => integer()
       }
 
   """
-  @type cloud_watch_alarm_template_group_summary() :: %{String.t() => any()}
+  @type cloud_watch_alarm_template_group_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7402,28 +7408,28 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type update_account_configuration_request() :: %{String.t() => any()}
+  @type update_account_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_offering_response() :: %{
-        "Arn" => String.t(),
-        "CurrencyCode" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "CurrencyCode" => String.t() | Atom.t(),
         "Duration" => integer(),
         "DurationUnits" => list(any()),
         "FixedPrice" => float(),
-        "OfferingDescription" => String.t(),
-        "OfferingId" => String.t(),
+        "OfferingDescription" => String.t() | Atom.t(),
+        "OfferingId" => String.t() | Atom.t(),
         "OfferingType" => list(any()),
-        "Region" => String.t(),
+        "Region" => String.t() | Atom.t(),
         "ResourceSpecification" => reservation_resource_specification(),
         "UsagePrice" => float()
       }
 
   """
-  @type describe_offering_response() :: %{String.t() => any()}
+  @type describe_offering_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7437,67 +7443,67 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type hls_basic_put_settings() :: %{String.t() => any()}
+  @type hls_basic_put_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_node_request() :: %{
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("Role") => list(any()),
         optional("SdiSourceMappings") => list(sdi_source_mapping_update_request())
       }
 
   """
-  @type update_node_request() :: %{String.t() => any()}
+  @type update_node_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       fixed_mode_schedule_action_start_settings() :: %{
-        "Time" => String.t()
+        "Time" => String.t() | Atom.t()
       }
 
   """
-  @type fixed_mode_schedule_action_start_settings() :: %{String.t() => any()}
+  @type fixed_mode_schedule_action_start_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cluster_network_settings_create_request() :: %{
-        "DefaultRoute" => String.t(),
+        "DefaultRoute" => String.t() | Atom.t(),
         "InterfaceMappings" => list(interface_mapping_create_request())
       }
 
   """
-  @type cluster_network_settings_create_request() :: %{String.t() => any()}
+  @type cluster_network_settings_create_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       input_destination_route() :: %{
-        "Cidr" => String.t(),
-        "Gateway" => String.t()
+        "Cidr" => String.t() | Atom.t(),
+        "Gateway" => String.t() | Atom.t()
       }
 
   """
-  @type input_destination_route() :: %{String.t() => any()}
+  @type input_destination_route() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_nodes_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Nodes" => list(describe_node_summary())
       }
 
   """
-  @type list_nodes_response() :: %{String.t() => any()}
+  @type list_nodes_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7505,70 +7511,70 @@ defmodule AWS.MediaLive do
 
       list_input_device_transfers_response() :: %{
         "InputDeviceTransfers" => list(transferring_input_device_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_input_device_transfers_response() :: %{String.t() => any()}
+  @type list_input_device_transfers_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       signal_map_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
-        "Id" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "ModifiedAt" => non_neg_integer(),
         "MonitorDeploymentStatus" => list(any()),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Status" => list(any()),
         "Tags" => map()
       }
 
   """
-  @type signal_map_summary() :: %{String.t() => any()}
+  @type signal_map_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       media_package_output_destination_settings() :: %{
-        "ChannelGroup" => String.t(),
-        "ChannelId" => String.t(),
-        "ChannelName" => String.t()
+        "ChannelGroup" => String.t() | Atom.t(),
+        "ChannelId" => String.t() | Atom.t(),
+        "ChannelName" => String.t() | Atom.t()
       }
 
   """
-  @type media_package_output_destination_settings() :: %{String.t() => any()}
+  @type media_package_output_destination_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_cloud_watch_alarm_template_group_request() :: %{
-        optional("Description") => String.t(),
-        optional("RequestId") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("RequestId") => String.t() | Atom.t(),
         optional("Tags") => map(),
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
 
   """
-  @type create_cloud_watch_alarm_template_group_request() :: %{String.t() => any()}
+  @type create_cloud_watch_alarm_template_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_successful_result_model() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
-        "State" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "State" => String.t() | Atom.t()
       }
 
   """
-  @type batch_successful_result_model() :: %{String.t() => any()}
+  @type batch_successful_result_model() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7584,27 +7590,27 @@ defmodule AWS.MediaLive do
   ## Example:
 
       list_cloud_watch_alarm_templates_request() :: %{
-        optional("GroupIdentifier") => String.t(),
+        optional("GroupIdentifier") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("Scope") => String.t(),
-        optional("SignalMapIdentifier") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("Scope") => String.t() | Atom.t(),
+        optional("SignalMapIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type list_cloud_watch_alarm_templates_request() :: %{String.t() => any()}
+  @type list_cloud_watch_alarm_templates_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_start_request() :: %{
-        optional("ChannelIds") => list(String.t()),
-        optional("MultiplexIds") => list(String.t())
+        optional("ChannelIds") => list(String.t() | Atom.t()),
+        optional("MultiplexIds") => list(String.t() | Atom.t())
       }
 
   """
-  @type batch_start_request() :: %{String.t() => any()}
+  @type batch_start_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7619,7 +7625,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type hls_webdav_settings() :: %{String.t() => any()}
+  @type hls_webdav_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7632,34 +7638,34 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type multiplex_statmux_video_settings() :: %{String.t() => any()}
+  @type multiplex_statmux_video_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       interface_mapping_update_request() :: %{
-        "LogicalInterfaceName" => String.t(),
-        "NetworkId" => String.t()
+        "LogicalInterfaceName" => String.t() | Atom.t(),
+        "NetworkId" => String.t() | Atom.t()
       }
 
   """
-  @type interface_mapping_update_request() :: %{String.t() => any()}
+  @type interface_mapping_update_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       output() :: %{
-        "AudioDescriptionNames" => list(String.t()),
-        "CaptionDescriptionNames" => list(String.t()),
-        "OutputName" => String.t(),
+        "AudioDescriptionNames" => list(String.t() | Atom.t()),
+        "CaptionDescriptionNames" => list(String.t() | Atom.t()),
+        "OutputName" => String.t() | Atom.t(),
         "OutputSettings" => output_settings(),
-        "VideoDescriptionName" => String.t()
+        "VideoDescriptionName" => String.t() | Atom.t()
       }
 
   """
-  @type output() :: %{String.t() => any()}
+  @type output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7670,19 +7676,19 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type purchase_offering_response() :: %{String.t() => any()}
+  @type purchase_offering_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_multiplex_response() :: %{
-        "Arn" => String.t(),
-        "AvailabilityZones" => list(String.t()),
+        "Arn" => String.t() | Atom.t(),
+        "AvailabilityZones" => list(String.t() | Atom.t()),
         "Destinations" => list(multiplex_output_destination()),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "MultiplexSettings" => multiplex_settings(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "PipelinesRunningCount" => integer(),
         "ProgramCount" => integer(),
         "State" => list(any()),
@@ -7690,7 +7696,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type delete_multiplex_response() :: %{String.t() => any()}
+  @type delete_multiplex_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7710,7 +7716,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type static_image_activate_schedule_action_settings() :: %{String.t() => any()}
+  @type static_image_activate_schedule_action_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7730,23 +7736,23 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type scte35_descriptor() :: %{String.t() => any()}
+  @type scte35_descriptor() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       purchase_offering_request() :: %{
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("RenewalSettings") => renewal_settings(),
-        optional("RequestId") => String.t(),
-        optional("Start") => String.t(),
+        optional("RequestId") => String.t() | Atom.t(),
+        optional("Start") => String.t() | Atom.t(),
         optional("Tags") => map(),
         required("Count") => integer()
       }
 
   """
-  @type purchase_offering_request() :: %{String.t() => any()}
+  @type purchase_offering_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7799,19 +7805,19 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type h264_settings() :: %{String.t() => any()}
+  @type h264_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       multiplex_program_pipeline_detail() :: %{
-        "ActiveChannelPipeline" => String.t(),
-        "PipelineId" => String.t()
+        "ActiveChannelPipeline" => String.t() | Atom.t(),
+        "PipelineId" => String.t() | Atom.t()
       }
 
   """
-  @type multiplex_program_pipeline_detail() :: %{String.t() => any()}
+  @type multiplex_program_pipeline_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7820,44 +7826,44 @@ defmodule AWS.MediaLive do
       color_correction() :: %{
         "InputColorSpace" => list(any()),
         "OutputColorSpace" => list(any()),
-        "Uri" => String.t()
+        "Uri" => String.t() | Atom.t()
       }
 
   """
-  @type color_correction() :: %{String.t() => any()}
+  @type color_correction() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_cluster_response() :: %{
-        "Arn" => String.t(),
-        "ChannelIds" => list(String.t()),
+        "Arn" => String.t() | Atom.t(),
+        "ChannelIds" => list(String.t() | Atom.t()),
         "ClusterType" => list(any()),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "NetworkSettings" => cluster_network_settings(),
         "State" => list(any())
       }
 
   """
-  @type update_cluster_response() :: %{String.t() => any()}
+  @type update_cluster_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_update_signal_map_request() :: %{
-        optional("CloudWatchAlarmTemplateGroupIdentifiers") => list(String.t()),
-        optional("Description") => String.t(),
-        optional("DiscoveryEntryPointArn") => String.t(),
-        optional("EventBridgeRuleTemplateGroupIdentifiers") => list(String.t()),
+        optional("CloudWatchAlarmTemplateGroupIdentifiers") => list(String.t() | Atom.t()),
+        optional("Description") => String.t() | Atom.t(),
+        optional("DiscoveryEntryPointArn") => String.t() | Atom.t(),
+        optional("EventBridgeRuleTemplateGroupIdentifiers") => list(String.t() | Atom.t()),
         optional("ForceRediscovery") => boolean(),
-        optional("Name") => String.t()
+        optional("Name") => String.t() | Atom.t()
       }
 
   """
-  @type start_update_signal_map_request() :: %{String.t() => any()}
+  @type start_update_signal_map_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7868,7 +7874,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type update_reservation_response() :: %{String.t() => any()}
+  @type update_reservation_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7883,7 +7889,7 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type hls_media_store_settings() :: %{String.t() => any()}
+  @type hls_media_store_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -8981,7 +8987,7 @@ defmodule AWS.MediaLive do
   """
   @spec accept_input_device_transfer(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           accept_input_device_transfer_request(),
           list()
         ) ::
@@ -9100,7 +9106,12 @@ defmodule AWS.MediaLive do
   @doc """
   Update a channel schedule
   """
-  @spec batch_update_schedule(map(), String.t(), batch_update_schedule_request(), list()) ::
+  @spec batch_update_schedule(
+          map(),
+          String.t() | Atom.t(),
+          batch_update_schedule_request(),
+          list()
+        ) ::
           {:ok, batch_update_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9131,7 +9142,7 @@ defmodule AWS.MediaLive do
   """
   @spec cancel_input_device_transfer(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           cancel_input_device_transfer_request(),
           list()
         ) ::
@@ -9233,7 +9244,7 @@ defmodule AWS.MediaLive do
   """
   @spec create_channel_placement_group(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           create_channel_placement_group_request(),
           list()
         ) ::
@@ -9518,7 +9529,12 @@ defmodule AWS.MediaLive do
   @doc """
   Create a new program in the multiplex.
   """
-  @spec create_multiplex_program(map(), String.t(), create_multiplex_program_request(), list()) ::
+  @spec create_multiplex_program(
+          map(),
+          String.t() | Atom.t(),
+          create_multiplex_program_request(),
+          list()
+        ) ::
           {:ok, create_multiplex_program_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9583,7 +9599,7 @@ defmodule AWS.MediaLive do
   You can also create Nodes using the CreateNodeRegistrationScript. Note that you
   can't move a Node to another Cluster.
   """
-  @spec create_node(map(), String.t(), create_node_request(), list()) ::
+  @spec create_node(map(), String.t() | Atom.t(), create_node_request(), list()) ::
           {:ok, create_node_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9620,7 +9636,7 @@ defmodule AWS.MediaLive do
   """
   @spec create_node_registration_script(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           create_node_registration_script_request(),
           list()
         ) ::
@@ -9652,7 +9668,7 @@ defmodule AWS.MediaLive do
   @doc """
   Create a partner input
   """
-  @spec create_partner_input(map(), String.t(), create_partner_input_request(), list()) ::
+  @spec create_partner_input(map(), String.t() | Atom.t(), create_partner_input_request(), list()) ::
           {:ok, create_partner_input_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9747,7 +9763,7 @@ defmodule AWS.MediaLive do
   @doc """
   Create tags for a resource
   """
-  @spec create_tags(map(), String.t(), create_tags_request(), list()) ::
+  @spec create_tags(map(), String.t() | Atom.t(), create_tags_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9778,7 +9794,7 @@ defmodule AWS.MediaLive do
 
   The associated outputs are also deleted.
   """
-  @spec delete_channel(map(), String.t(), delete_channel_request(), list()) ::
+  @spec delete_channel(map(), String.t() | Atom.t(), delete_channel_request(), list()) ::
           {:ok, delete_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9809,8 +9825,8 @@ defmodule AWS.MediaLive do
   """
   @spec delete_channel_placement_group(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_channel_placement_group_request(),
           list()
         ) ::
@@ -9852,7 +9868,7 @@ defmodule AWS.MediaLive do
   """
   @spec delete_cloud_watch_alarm_template(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_cloud_watch_alarm_template_request(),
           list()
         ) ::
@@ -9889,7 +9905,7 @@ defmodule AWS.MediaLive do
   """
   @spec delete_cloud_watch_alarm_template_group(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_cloud_watch_alarm_template_group_request(),
           list()
         ) ::
@@ -9928,7 +9944,7 @@ defmodule AWS.MediaLive do
 
   The Cluster must be idle.
   """
-  @spec delete_cluster(map(), String.t(), delete_cluster_request(), list()) ::
+  @spec delete_cluster(map(), String.t() | Atom.t(), delete_cluster_request(), list()) ::
           {:ok, delete_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9959,7 +9975,7 @@ defmodule AWS.MediaLive do
   """
   @spec delete_event_bridge_rule_template(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_event_bridge_rule_template_request(),
           list()
         ) ::
@@ -9996,7 +10012,7 @@ defmodule AWS.MediaLive do
   """
   @spec delete_event_bridge_rule_template_group(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_event_bridge_rule_template_group_request(),
           list()
         ) ::
@@ -10033,7 +10049,7 @@ defmodule AWS.MediaLive do
   @doc """
   Deletes the input end point
   """
-  @spec delete_input(map(), String.t(), delete_input_request(), list()) ::
+  @spec delete_input(map(), String.t() | Atom.t(), delete_input_request(), list()) ::
           {:ok, delete_input_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10064,7 +10080,7 @@ defmodule AWS.MediaLive do
   """
   @spec delete_input_security_group(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_input_security_group_request(),
           list()
         ) ::
@@ -10103,7 +10119,7 @@ defmodule AWS.MediaLive do
 
   The multiplex must be idle.
   """
-  @spec delete_multiplex(map(), String.t(), delete_multiplex_request(), list()) ::
+  @spec delete_multiplex(map(), String.t() | Atom.t(), delete_multiplex_request(), list()) ::
           {:ok, delete_multiplex_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10134,8 +10150,8 @@ defmodule AWS.MediaLive do
   """
   @spec delete_multiplex_program(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_multiplex_program_request(),
           list()
         ) ::
@@ -10177,7 +10193,7 @@ defmodule AWS.MediaLive do
 
   The Network must have no resources associated with it.
   """
-  @spec delete_network(map(), String.t(), delete_network_request(), list()) ::
+  @spec delete_network(map(), String.t() | Atom.t(), delete_network_request(), list()) ::
           {:ok, delete_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10208,7 +10224,13 @@ defmodule AWS.MediaLive do
 
   The Node must be IDLE.
   """
-  @spec delete_node(map(), String.t(), String.t(), delete_node_request(), list()) ::
+  @spec delete_node(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_node_request(),
+          list()
+        ) ::
           {:ok, delete_node_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10239,7 +10261,7 @@ defmodule AWS.MediaLive do
   @doc """
   Delete an expired reservation.
   """
-  @spec delete_reservation(map(), String.t(), delete_reservation_request(), list()) ::
+  @spec delete_reservation(map(), String.t() | Atom.t(), delete_reservation_request(), list()) ::
           {:ok, delete_reservation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10268,7 +10290,7 @@ defmodule AWS.MediaLive do
   @doc """
   Delete all schedule actions on a channel.
   """
-  @spec delete_schedule(map(), String.t(), delete_schedule_request(), list()) ::
+  @spec delete_schedule(map(), String.t() | Atom.t(), delete_schedule_request(), list()) ::
           {:ok, delete_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10300,7 +10322,7 @@ defmodule AWS.MediaLive do
   The SdiSource must not be part of any SidSourceMapping and must not be attached
   to any input.
   """
-  @spec delete_sdi_source(map(), String.t(), delete_sdi_source_request(), list()) ::
+  @spec delete_sdi_source(map(), String.t() | Atom.t(), delete_sdi_source_request(), list()) ::
           {:ok, delete_sdi_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10329,7 +10351,7 @@ defmodule AWS.MediaLive do
   @doc """
   Deletes the specified signal map.
   """
-  @spec delete_signal_map(map(), String.t(), delete_signal_map_request(), list()) ::
+  @spec delete_signal_map(map(), String.t() | Atom.t(), delete_signal_map_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10358,7 +10380,7 @@ defmodule AWS.MediaLive do
   @doc """
   Removes tags for a resource
   """
-  @spec delete_tags(map(), String.t(), delete_tags_request(), list()) ::
+  @spec delete_tags(map(), String.t() | Atom.t(), delete_tags_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10410,7 +10432,7 @@ defmodule AWS.MediaLive do
   @doc """
   Gets details about a channel
   """
-  @spec describe_channel(map(), String.t(), list()) ::
+  @spec describe_channel(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10428,7 +10450,12 @@ defmodule AWS.MediaLive do
   @doc """
   Get details about a ChannelPlacementGroup.
   """
-  @spec describe_channel_placement_group(map(), String.t(), String.t(), list()) ::
+  @spec describe_channel_placement_group(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, describe_channel_placement_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10453,7 +10480,7 @@ defmodule AWS.MediaLive do
   @doc """
   Get details about a Cluster.
   """
-  @spec describe_cluster(map(), String.t(), list()) ::
+  @spec describe_cluster(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10471,7 +10498,7 @@ defmodule AWS.MediaLive do
   @doc """
   Produces details about an input
   """
-  @spec describe_input(map(), String.t(), list()) ::
+  @spec describe_input(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_input_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10489,7 +10516,7 @@ defmodule AWS.MediaLive do
   @doc """
   Gets the details for the input device
   """
-  @spec describe_input_device(map(), String.t(), list()) ::
+  @spec describe_input_device(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_input_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10507,7 +10534,12 @@ defmodule AWS.MediaLive do
   @doc """
   Get the latest thumbnail data for the input device.
   """
-  @spec describe_input_device_thumbnail(map(), String.t(), String.t(), list()) ::
+  @spec describe_input_device_thumbnail(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, describe_input_device_thumbnail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10545,7 +10577,7 @@ defmodule AWS.MediaLive do
   @doc """
   Produces a summary of an Input Security Group
   """
-  @spec describe_input_security_group(map(), String.t(), list()) ::
+  @spec describe_input_security_group(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_input_security_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10563,7 +10595,7 @@ defmodule AWS.MediaLive do
   @doc """
   Gets details about a multiplex.
   """
-  @spec describe_multiplex(map(), String.t(), list()) ::
+  @spec describe_multiplex(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_multiplex_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10581,7 +10613,7 @@ defmodule AWS.MediaLive do
   @doc """
   Get the details for a program in a multiplex.
   """
-  @spec describe_multiplex_program(map(), String.t(), String.t(), list()) ::
+  @spec describe_multiplex_program(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, describe_multiplex_program_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10601,7 +10633,7 @@ defmodule AWS.MediaLive do
   @doc """
   Get details about a Network.
   """
-  @spec describe_network(map(), String.t(), list()) ::
+  @spec describe_network(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10619,7 +10651,7 @@ defmodule AWS.MediaLive do
   @doc """
   Get details about a Node in the specified Cluster.
   """
-  @spec describe_node(map(), String.t(), String.t(), list()) ::
+  @spec describe_node(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, describe_node_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10639,7 +10671,7 @@ defmodule AWS.MediaLive do
   @doc """
   Get details for an offering.
   """
-  @spec describe_offering(map(), String.t(), list()) ::
+  @spec describe_offering(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_offering_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10657,7 +10689,7 @@ defmodule AWS.MediaLive do
   @doc """
   Get details for a reservation.
   """
-  @spec describe_reservation(map(), String.t(), list()) ::
+  @spec describe_reservation(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_reservation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10675,7 +10707,13 @@ defmodule AWS.MediaLive do
   @doc """
   Get a channel schedule
   """
-  @spec describe_schedule(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec describe_schedule(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, describe_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10713,7 +10751,7 @@ defmodule AWS.MediaLive do
   @doc """
   Gets details about a SdiSource.
   """
-  @spec describe_sdi_source(map(), String.t(), list()) ::
+  @spec describe_sdi_source(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_sdi_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10731,7 +10769,13 @@ defmodule AWS.MediaLive do
   @doc """
   Describe the latest thumbnails data.
   """
-  @spec describe_thumbnails(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec describe_thumbnails(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, describe_thumbnails_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10769,7 +10813,7 @@ defmodule AWS.MediaLive do
   @doc """
   Retrieves the specified cloudwatch alarm template.
   """
-  @spec get_cloud_watch_alarm_template(map(), String.t(), list()) ::
+  @spec get_cloud_watch_alarm_template(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_cloud_watch_alarm_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10787,7 +10831,7 @@ defmodule AWS.MediaLive do
   @doc """
   Retrieves the specified cloudwatch alarm template group.
   """
-  @spec get_cloud_watch_alarm_template_group(map(), String.t(), list()) ::
+  @spec get_cloud_watch_alarm_template_group(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_cloud_watch_alarm_template_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10805,7 +10849,7 @@ defmodule AWS.MediaLive do
   @doc """
   Retrieves the specified eventbridge rule template.
   """
-  @spec get_event_bridge_rule_template(map(), String.t(), list()) ::
+  @spec get_event_bridge_rule_template(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_event_bridge_rule_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10823,7 +10867,7 @@ defmodule AWS.MediaLive do
   @doc """
   Retrieves the specified eventbridge rule template group.
   """
-  @spec get_event_bridge_rule_template_group(map(), String.t(), list()) ::
+  @spec get_event_bridge_rule_template_group(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_event_bridge_rule_template_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10841,7 +10885,7 @@ defmodule AWS.MediaLive do
   @doc """
   Retrieves the specified signal map.
   """
-  @spec get_signal_map(map(), String.t(), list()) ::
+  @spec get_signal_map(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_signal_map_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10861,9 +10905,9 @@ defmodule AWS.MediaLive do
   """
   @spec list_channel_placement_groups(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_channel_placement_groups_response(), any()}
@@ -10903,7 +10947,7 @@ defmodule AWS.MediaLive do
   @doc """
   Produces list of channels that have been created
   """
-  @spec list_channels(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_channels(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10937,10 +10981,10 @@ defmodule AWS.MediaLive do
   """
   @spec list_cloud_watch_alarm_template_groups(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_cloud_watch_alarm_template_groups_response(), any()}
@@ -10997,11 +11041,11 @@ defmodule AWS.MediaLive do
   """
   @spec list_cloud_watch_alarm_templates(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_cloud_watch_alarm_templates_response(), any()}
@@ -11064,7 +11108,7 @@ defmodule AWS.MediaLive do
   @doc """
   Retrieve the list of Clusters.
   """
-  @spec list_clusters(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_clusters(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_clusters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11098,9 +11142,9 @@ defmodule AWS.MediaLive do
   """
   @spec list_event_bridge_rule_template_groups(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_event_bridge_rule_template_groups_response(), any()}
@@ -11149,10 +11193,10 @@ defmodule AWS.MediaLive do
   """
   @spec list_event_bridge_rule_templates(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_event_bridge_rule_templates_response(), any()}
@@ -11210,7 +11254,13 @@ defmodule AWS.MediaLive do
   List input devices that you are transferring from your AWS account or input
   devices that another AWS account is transferring to you.
   """
-  @spec list_input_device_transfers(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
+  @spec list_input_device_transfers(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, list_input_device_transfers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11255,7 +11305,12 @@ defmodule AWS.MediaLive do
   @doc """
   List input devices
   """
-  @spec list_input_devices(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_input_devices(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_input_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11287,7 +11342,12 @@ defmodule AWS.MediaLive do
   @doc """
   Produces a list of Input Security Groups for an account
   """
-  @spec list_input_security_groups(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_input_security_groups(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_input_security_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11324,7 +11384,7 @@ defmodule AWS.MediaLive do
   @doc """
   Produces list of inputs that have been created
   """
-  @spec list_inputs(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_inputs(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_inputs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11356,7 +11416,13 @@ defmodule AWS.MediaLive do
   @doc """
   List the programs that currently exist for a specific multiplex.
   """
-  @spec list_multiplex_programs(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_multiplex_programs(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_multiplex_programs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11394,7 +11460,7 @@ defmodule AWS.MediaLive do
   @doc """
   Retrieve a list of the existing multiplexes.
   """
-  @spec list_multiplexes(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_multiplexes(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_multiplexes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11426,7 +11492,7 @@ defmodule AWS.MediaLive do
   @doc """
   Retrieve the list of Networks.
   """
-  @spec list_networks(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_networks(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_networks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11458,7 +11524,13 @@ defmodule AWS.MediaLive do
   @doc """
   Retrieve the list of Nodes.
   """
-  @spec list_nodes(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_nodes(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_nodes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11498,18 +11570,18 @@ defmodule AWS.MediaLive do
   """
   @spec list_offerings(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_offerings_response(), any()}
@@ -11630,16 +11702,16 @@ defmodule AWS.MediaLive do
   """
   @spec list_reservations(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_reservations_response(), any()}
@@ -11742,7 +11814,7 @@ defmodule AWS.MediaLive do
   @doc """
   List all the SdiSources in the AWS account.
   """
-  @spec list_sdi_sources(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_sdi_sources(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_sdi_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11776,10 +11848,10 @@ defmodule AWS.MediaLive do
   """
   @spec list_signal_maps(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_signal_maps_response(), any()}
@@ -11840,7 +11912,7 @@ defmodule AWS.MediaLive do
   @doc """
   Produces list of tags that have been created for a resource
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11877,7 +11949,7 @@ defmodule AWS.MediaLive do
   @doc """
   Purchase an offering and create a reservation.
   """
-  @spec purchase_offering(map(), String.t(), purchase_offering_request(), list()) ::
+  @spec purchase_offering(map(), String.t() | Atom.t(), purchase_offering_request(), list()) ::
           {:ok, purchase_offering_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11910,7 +11982,7 @@ defmodule AWS.MediaLive do
   When the reboot is complete, the device’s connection status will change to
   connected.
   """
-  @spec reboot_input_device(map(), String.t(), reboot_input_device_request(), list()) ::
+  @spec reboot_input_device(map(), String.t() | Atom.t(), reboot_input_device_request(), list()) ::
           {:ok, reboot_input_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11941,7 +12013,7 @@ defmodule AWS.MediaLive do
   """
   @spec reject_input_device_transfer(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           reject_input_device_transfer_request(),
           list()
         ) ::
@@ -11973,7 +12045,12 @@ defmodule AWS.MediaLive do
   @doc """
   Restart pipelines in one channel that is currently running.
   """
-  @spec restart_channel_pipelines(map(), String.t(), restart_channel_pipelines_request(), list()) ::
+  @spec restart_channel_pipelines(
+          map(),
+          String.t() | Atom.t(),
+          restart_channel_pipelines_request(),
+          list()
+        ) ::
           {:ok, restart_channel_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12002,7 +12079,7 @@ defmodule AWS.MediaLive do
   @doc """
   Starts an existing channel
   """
-  @spec start_channel(map(), String.t(), start_channel_request(), list()) ::
+  @spec start_channel(map(), String.t() | Atom.t(), start_channel_request(), list()) ::
           {:ok, start_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12033,7 +12110,7 @@ defmodule AWS.MediaLive do
   """
   @spec start_delete_monitor_deployment(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           start_delete_monitor_deployment_request(),
           list()
         ) ::
@@ -12068,7 +12145,7 @@ defmodule AWS.MediaLive do
   (There is no need to start a device that is attached to a MediaLive input;
   MediaLive starts the device when the channel starts.)
   """
-  @spec start_input_device(map(), String.t(), start_input_device_request(), list()) ::
+  @spec start_input_device(map(), String.t() | Atom.t(), start_input_device_request(), list()) ::
           {:ok, start_input_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12107,7 +12184,7 @@ defmodule AWS.MediaLive do
   """
   @spec start_input_device_maintenance_window(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           start_input_device_maintenance_window_request(),
           list()
         ) ::
@@ -12146,7 +12223,12 @@ defmodule AWS.MediaLive do
   @doc """
   Initiates a deployment to deploy the latest monitor of the specified signal map.
   """
-  @spec start_monitor_deployment(map(), String.t(), start_monitor_deployment_request(), list()) ::
+  @spec start_monitor_deployment(
+          map(),
+          String.t() | Atom.t(),
+          start_monitor_deployment_request(),
+          list()
+        ) ::
           {:ok, start_monitor_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12178,7 +12260,7 @@ defmodule AWS.MediaLive do
   Starting the multiplex does not start the channels. You must explicitly start
   each channel.
   """
-  @spec start_multiplex(map(), String.t(), start_multiplex_request(), list()) ::
+  @spec start_multiplex(map(), String.t() | Atom.t(), start_multiplex_request(), list()) ::
           {:ok, start_multiplex_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12209,7 +12291,12 @@ defmodule AWS.MediaLive do
 
   Will discover a new signal map if a changed discoveryEntryPointArn is provided.
   """
-  @spec start_update_signal_map(map(), String.t(), start_update_signal_map_request(), list()) ::
+  @spec start_update_signal_map(
+          map(),
+          String.t() | Atom.t(),
+          start_update_signal_map_request(),
+          list()
+        ) ::
           {:ok, start_update_signal_map_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12238,7 +12325,7 @@ defmodule AWS.MediaLive do
   @doc """
   Stops a running channel
   """
-  @spec stop_channel(map(), String.t(), stop_channel_request(), list()) ::
+  @spec stop_channel(map(), String.t() | Atom.t(), stop_channel_request(), list()) ::
           {:ok, stop_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12270,7 +12357,7 @@ defmodule AWS.MediaLive do
   (There is no need to stop a device that is attached to a MediaLive input;
   MediaLive automatically stops the device when the channel stops.)
   """
-  @spec stop_input_device(map(), String.t(), stop_input_device_request(), list()) ::
+  @spec stop_input_device(map(), String.t() | Atom.t(), stop_input_device_request(), list()) ::
           {:ok, stop_input_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12301,7 +12388,7 @@ defmodule AWS.MediaLive do
 
   If the multiplex isn't running, this action has no effect.
   """
-  @spec stop_multiplex(map(), String.t(), stop_multiplex_request(), list()) ::
+  @spec stop_multiplex(map(), String.t() | Atom.t(), stop_multiplex_request(), list()) ::
           {:ok, stop_multiplex_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12333,7 +12420,12 @@ defmodule AWS.MediaLive do
   After you make the request, the other account must accept or reject the
   transfer.
   """
-  @spec transfer_input_device(map(), String.t(), transfer_input_device_request(), list()) ::
+  @spec transfer_input_device(
+          map(),
+          String.t() | Atom.t(),
+          transfer_input_device_request(),
+          list()
+        ) ::
           {:ok, transfer_input_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12391,7 +12483,7 @@ defmodule AWS.MediaLive do
   @doc """
   Updates a channel.
   """
-  @spec update_channel(map(), String.t(), update_channel_request(), list()) ::
+  @spec update_channel(map(), String.t() | Atom.t(), update_channel_request(), list()) ::
           {:ok, update_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12420,7 +12512,7 @@ defmodule AWS.MediaLive do
   @doc """
   Changes the class of the channel.
   """
-  @spec update_channel_class(map(), String.t(), update_channel_class_request(), list()) ::
+  @spec update_channel_class(map(), String.t() | Atom.t(), update_channel_class_request(), list()) ::
           {:ok, update_channel_class_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12451,8 +12543,8 @@ defmodule AWS.MediaLive do
   """
   @spec update_channel_placement_group(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_channel_placement_group_request(),
           list()
         ) ::
@@ -12494,7 +12586,7 @@ defmodule AWS.MediaLive do
   """
   @spec update_cloud_watch_alarm_template(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_cloud_watch_alarm_template_request(),
           list()
         ) ::
@@ -12528,7 +12620,7 @@ defmodule AWS.MediaLive do
   """
   @spec update_cloud_watch_alarm_template_group(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_cloud_watch_alarm_template_group_request(),
           list()
         ) ::
@@ -12565,7 +12657,7 @@ defmodule AWS.MediaLive do
   @doc """
   Change the settings for a Cluster.
   """
-  @spec update_cluster(map(), String.t(), update_cluster_request(), list()) ::
+  @spec update_cluster(map(), String.t() | Atom.t(), update_cluster_request(), list()) ::
           {:ok, update_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12596,7 +12688,7 @@ defmodule AWS.MediaLive do
   """
   @spec update_event_bridge_rule_template(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_event_bridge_rule_template_request(),
           list()
         ) ::
@@ -12630,7 +12722,7 @@ defmodule AWS.MediaLive do
   """
   @spec update_event_bridge_rule_template_group(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_event_bridge_rule_template_group_request(),
           list()
         ) ::
@@ -12667,7 +12759,7 @@ defmodule AWS.MediaLive do
   @doc """
   Updates an input.
   """
-  @spec update_input(map(), String.t(), update_input_request(), list()) ::
+  @spec update_input(map(), String.t() | Atom.t(), update_input_request(), list()) ::
           {:ok, update_input_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12696,7 +12788,7 @@ defmodule AWS.MediaLive do
   @doc """
   Updates the parameters for the input device.
   """
-  @spec update_input_device(map(), String.t(), update_input_device_request(), list()) ::
+  @spec update_input_device(map(), String.t() | Atom.t(), update_input_device_request(), list()) ::
           {:ok, update_input_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12727,7 +12819,7 @@ defmodule AWS.MediaLive do
   """
   @spec update_input_security_group(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_input_security_group_request(),
           list()
         ) ::
@@ -12764,7 +12856,7 @@ defmodule AWS.MediaLive do
   @doc """
   Updates a multiplex.
   """
-  @spec update_multiplex(map(), String.t(), update_multiplex_request(), list()) ::
+  @spec update_multiplex(map(), String.t() | Atom.t(), update_multiplex_request(), list()) ::
           {:ok, update_multiplex_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12795,8 +12887,8 @@ defmodule AWS.MediaLive do
   """
   @spec update_multiplex_program(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_multiplex_program_request(),
           list()
         ) ::
@@ -12836,7 +12928,7 @@ defmodule AWS.MediaLive do
   @doc """
   Change the settings for a Network.
   """
-  @spec update_network(map(), String.t(), update_network_request(), list()) ::
+  @spec update_network(map(), String.t() | Atom.t(), update_network_request(), list()) ::
           {:ok, update_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12865,7 +12957,13 @@ defmodule AWS.MediaLive do
   @doc """
   Change the settings for a Node.
   """
-  @spec update_node(map(), String.t(), String.t(), update_node_request(), list()) ::
+  @spec update_node(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_node_request(),
+          list()
+        ) ::
           {:ok, update_node_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12896,7 +12994,13 @@ defmodule AWS.MediaLive do
   @doc """
   Update the state of a node.
   """
-  @spec update_node_state(map(), String.t(), String.t(), update_node_state_request(), list()) ::
+  @spec update_node_state(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_node_state_request(),
+          list()
+        ) ::
           {:ok, update_node_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12927,7 +13031,7 @@ defmodule AWS.MediaLive do
   @doc """
   Update reservation.
   """
-  @spec update_reservation(map(), String.t(), update_reservation_request(), list()) ::
+  @spec update_reservation(map(), String.t() | Atom.t(), update_reservation_request(), list()) ::
           {:ok, update_reservation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12956,7 +13060,7 @@ defmodule AWS.MediaLive do
   @doc """
   Change some of the settings in an SdiSource.
   """
-  @spec update_sdi_source(map(), String.t(), update_sdi_source_request(), list()) ::
+  @spec update_sdi_source(map(), String.t() | Atom.t(), update_sdi_source_request(), list()) ::
           {:ok, update_sdi_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

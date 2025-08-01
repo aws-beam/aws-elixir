@@ -41,11 +41,11 @@ defmodule AWS.CognitoSync do
   ## Example:
 
       register_device_response() :: %{
-        "DeviceId" => String.t()
+        "DeviceId" => String.t() | Atom.t()
       }
 
   """
-  @type register_device_response() :: %{String.t() => any()}
+  @type register_device_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -56,15 +56,15 @@ defmodule AWS.CognitoSync do
         "DatasetDeletedAfterRequestedSyncCount" => boolean(),
         "DatasetExists" => boolean(),
         "DatasetSyncCount" => float(),
-        "LastModifiedBy" => String.t(),
-        "MergedDatasetNames" => list(String.t()),
-        "NextToken" => String.t(),
+        "LastModifiedBy" => String.t() | Atom.t(),
+        "MergedDatasetNames" => list(String.t() | Atom.t()),
+        "NextToken" => String.t() | Atom.t(),
         "Records" => list(record()),
-        "SyncSessionToken" => String.t()
+        "SyncSessionToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_records_response() :: %{String.t() => any()}
+  @type list_records_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -81,15 +81,15 @@ defmodule AWS.CognitoSync do
 
       record() :: %{
         "DeviceLastModifiedDate" => non_neg_integer(),
-        "Key" => String.t(),
-        "LastModifiedBy" => String.t(),
+        "Key" => String.t() | Atom.t(),
+        "LastModifiedBy" => String.t() | Atom.t(),
         "LastModifiedDate" => non_neg_integer(),
         "SyncCount" => float(),
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type record() :: %{String.t() => any()}
+  @type record() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -100,7 +100,7 @@ defmodule AWS.CognitoSync do
       }
 
   """
-  @type delete_dataset_response() :: %{String.t() => any()}
+  @type delete_dataset_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -110,11 +110,11 @@ defmodule AWS.CognitoSync do
         "Count" => integer(),
         "IdentityPoolUsages" => list(identity_pool_usage()),
         "MaxResults" => integer(),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_identity_pool_usage_response() :: %{String.t() => any()}
+  @type list_identity_pool_usage_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -130,12 +130,12 @@ defmodule AWS.CognitoSync do
   ## Example:
 
       push_sync() :: %{
-        "ApplicationArns" => list(String.t()),
-        "RoleArn" => String.t()
+        "ApplicationArns" => list(String.t() | Atom.t()),
+        "RoleArn" => String.t() | Atom.t()
       }
 
   """
-  @type push_sync() :: %{String.t() => any()}
+  @type push_sync() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -146,18 +146,18 @@ defmodule AWS.CognitoSync do
       }
 
   """
-  @type describe_identity_usage_response() :: %{String.t() => any()}
+  @type describe_identity_usage_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bulk_publish_response() :: %{
-        "IdentityPoolId" => String.t()
+        "IdentityPoolId" => String.t() | Atom.t()
       }
 
   """
-  @type bulk_publish_response() :: %{String.t() => any()}
+  @type bulk_publish_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -165,11 +165,11 @@ defmodule AWS.CognitoSync do
 
       list_identity_pool_usage_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_identity_pool_usage_request() :: %{String.t() => any()}
+  @type list_identity_pool_usage_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -177,11 +177,11 @@ defmodule AWS.CognitoSync do
 
       list_datasets_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_datasets_request() :: %{String.t() => any()}
+  @type list_datasets_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -189,26 +189,26 @@ defmodule AWS.CognitoSync do
 
       set_identity_pool_configuration_response() :: %{
         "CognitoStreams" => cognito_streams(),
-        "IdentityPoolId" => String.t(),
+        "IdentityPoolId" => String.t() | Atom.t(),
         "PushSync" => push_sync()
       }
 
   """
-  @type set_identity_pool_configuration_response() :: %{String.t() => any()}
+  @type set_identity_pool_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_records_request() :: %{
-        optional("ClientContext") => String.t(),
-        optional("DeviceId") => String.t(),
+        optional("ClientContext") => String.t() | Atom.t(),
+        optional("DeviceId") => String.t() | Atom.t(),
         optional("RecordPatches") => list(record_patch()),
-        required("SyncSessionToken") => String.t()
+        required("SyncSessionToken") => String.t() | Atom.t()
       }
 
   """
-  @type update_records_request() :: %{String.t() => any()}
+  @type update_records_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -224,24 +224,24 @@ defmodule AWS.CognitoSync do
   ## Example:
 
       cognito_streams() :: %{
-        "RoleArn" => String.t(),
-        "StreamName" => String.t(),
+        "RoleArn" => String.t() | Atom.t(),
+        "StreamName" => String.t() | Atom.t(),
         "StreamingStatus" => list(any())
       }
 
   """
-  @type cognito_streams() :: %{String.t() => any()}
+  @type cognito_streams() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_requests_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_requests_exception() :: %{String.t() => any()}
+  @type too_many_requests_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -250,48 +250,48 @@ defmodule AWS.CognitoSync do
       dataset() :: %{
         "CreationDate" => non_neg_integer(),
         "DataStorage" => float(),
-        "DatasetName" => String.t(),
-        "IdentityId" => String.t(),
-        "LastModifiedBy" => String.t(),
+        "DatasetName" => String.t() | Atom.t(),
+        "IdentityId" => String.t() | Atom.t(),
+        "LastModifiedBy" => String.t() | Atom.t(),
         "LastModifiedDate" => non_neg_integer(),
         "NumRecords" => float()
       }
 
   """
-  @type dataset() :: %{String.t() => any()}
+  @type dataset() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_lambda_function_output_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_lambda_function_output_exception() :: %{String.t() => any()}
+  @type invalid_lambda_function_output_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       already_streamed_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type already_streamed_exception() :: %{String.t() => any()}
+  @type already_streamed_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -309,12 +309,12 @@ defmodule AWS.CognitoSync do
       list_records_request() :: %{
         optional("LastSyncCount") => float(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("SyncSessionToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("SyncSessionToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_records_request() :: %{String.t() => any()}
+  @type list_records_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -322,24 +322,24 @@ defmodule AWS.CognitoSync do
 
       identity_pool_usage() :: %{
         "DataStorage" => float(),
-        "IdentityPoolId" => String.t(),
+        "IdentityPoolId" => String.t() | Atom.t(),
         "LastModifiedDate" => non_neg_integer(),
         "SyncSessionsCount" => float()
       }
 
   """
-  @type identity_pool_usage() :: %{String.t() => any()}
+  @type identity_pool_usage() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       duplicate_request_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type duplicate_request_exception() :: %{String.t() => any()}
+  @type duplicate_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -349,12 +349,12 @@ defmodule AWS.CognitoSync do
         "BulkPublishCompleteTime" => non_neg_integer(),
         "BulkPublishStartTime" => non_neg_integer(),
         "BulkPublishStatus" => list(any()),
-        "FailureMessage" => String.t(),
-        "IdentityPoolId" => String.t()
+        "FailureMessage" => String.t() | Atom.t(),
+        "IdentityPoolId" => String.t() | Atom.t()
       }
 
   """
-  @type get_bulk_publish_details_response() :: %{String.t() => any()}
+  @type get_bulk_publish_details_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -379,22 +379,22 @@ defmodule AWS.CognitoSync do
   ## Example:
 
       lambda_throttled_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type lambda_throttled_exception() :: %{String.t() => any()}
+  @type lambda_throttled_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       not_authorized_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type not_authorized_exception() :: %{String.t() => any()}
+  @type not_authorized_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -405,7 +405,7 @@ defmodule AWS.CognitoSync do
       }
 
   """
-  @type set_cognito_events_request() :: %{String.t() => any()}
+  @type set_cognito_events_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -413,45 +413,45 @@ defmodule AWS.CognitoSync do
 
       get_identity_pool_configuration_response() :: %{
         "CognitoStreams" => cognito_streams(),
-        "IdentityPoolId" => String.t(),
+        "IdentityPoolId" => String.t() | Atom.t(),
         "PushSync" => push_sync()
       }
 
   """
-  @type get_identity_pool_configuration_response() :: %{String.t() => any()}
+  @type get_identity_pool_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_configuration_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_configuration_exception() :: %{String.t() => any()}
+  @type invalid_configuration_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_parameter_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_parameter_exception() :: %{String.t() => any()}
+  @type invalid_parameter_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       concurrent_modification_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type concurrent_modification_exception() :: %{String.t() => any()}
+  @type concurrent_modification_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -462,7 +462,7 @@ defmodule AWS.CognitoSync do
       }
 
   """
-  @type describe_dataset_response() :: %{String.t() => any()}
+  @type describe_dataset_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -473,7 +473,7 @@ defmodule AWS.CognitoSync do
       }
 
   """
-  @type update_records_response() :: %{String.t() => any()}
+  @type update_records_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -481,11 +481,11 @@ defmodule AWS.CognitoSync do
 
       register_device_request() :: %{
         required("Platform") => list(any()),
-        required("Token") => String.t()
+        required("Token") => String.t() | Atom.t()
       }
 
   """
-  @type register_device_request() :: %{String.t() => any()}
+  @type register_device_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -493,25 +493,25 @@ defmodule AWS.CognitoSync do
 
       record_patch() :: %{
         "DeviceLastModifiedDate" => non_neg_integer(),
-        "Key" => String.t(),
+        "Key" => String.t() | Atom.t(),
         "Op" => list(any()),
         "SyncCount" => float(),
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type record_patch() :: %{String.t() => any()}
+  @type record_patch() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -523,7 +523,7 @@ defmodule AWS.CognitoSync do
       }
 
   """
-  @type set_identity_pool_configuration_request() :: %{String.t() => any()}
+  @type set_identity_pool_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -534,7 +534,7 @@ defmodule AWS.CognitoSync do
       }
 
   """
-  @type get_cognito_events_response() :: %{String.t() => any()}
+  @type get_cognito_events_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -561,11 +561,11 @@ defmodule AWS.CognitoSync do
       list_datasets_response() :: %{
         "Count" => integer(),
         "Datasets" => list(dataset()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_datasets_response() :: %{String.t() => any()}
+  @type list_datasets_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -574,13 +574,13 @@ defmodule AWS.CognitoSync do
       identity_usage() :: %{
         "DataStorage" => float(),
         "DatasetCount" => integer(),
-        "IdentityId" => String.t(),
-        "IdentityPoolId" => String.t(),
+        "IdentityId" => String.t() | Atom.t(),
+        "IdentityPoolId" => String.t() | Atom.t(),
         "LastModifiedDate" => non_neg_integer()
       }
 
   """
-  @type identity_usage() :: %{String.t() => any()}
+  @type identity_usage() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -605,11 +605,11 @@ defmodule AWS.CognitoSync do
   ## Example:
 
       resource_conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_conflict_exception() :: %{String.t() => any()}
+  @type resource_conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -625,11 +625,11 @@ defmodule AWS.CognitoSync do
   ## Example:
 
       internal_error_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_error_exception() :: %{String.t() => any()}
+  @type internal_error_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -649,7 +649,7 @@ defmodule AWS.CognitoSync do
       }
 
   """
-  @type describe_identity_pool_usage_response() :: %{String.t() => any()}
+  @type describe_identity_pool_usage_response() :: %{String.t() | Atom.t() => any()}
 
   @type bulk_publish_errors() ::
           internal_error_exception()
@@ -803,7 +803,7 @@ defmodule AWS.CognitoSync do
   This API can only be called with developer credentials. You cannot call this API
   with the temporary user credentials provided by Cognito Identity.
   """
-  @spec bulk_publish(map(), String.t(), bulk_publish_request(), list()) ::
+  @spec bulk_publish(map(), String.t() | Atom.t(), bulk_publish_request(), list()) ::
           {:ok, bulk_publish_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -843,9 +843,9 @@ defmodule AWS.CognitoSync do
   """
   @spec delete_dataset(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_dataset_request(),
           list()
         ) ::
@@ -895,7 +895,13 @@ defmodule AWS.CognitoSync do
   Identity or with developer credentials. You should use Cognito Identity
   credentials to make this API call.
   """
-  @spec describe_dataset(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec describe_dataset(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, describe_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -975,7 +981,7 @@ defmodule AWS.CognitoSync do
   </example>
   </examples>
   """
-  @spec describe_identity_pool_usage(map(), String.t(), list()) ::
+  @spec describe_identity_pool_usage(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_identity_pool_usage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1050,7 +1056,7 @@ defmodule AWS.CognitoSync do
   </example>
   </examples>
   """
-  @spec describe_identity_usage(map(), String.t(), String.t(), list()) ::
+  @spec describe_identity_usage(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, describe_identity_usage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1073,7 +1079,12 @@ defmodule AWS.CognitoSync do
   This API can only be called with developer credentials. You cannot call this API
   with the temporary user credentials provided by Cognito Identity.
   """
-  @spec get_bulk_publish_details(map(), String.t(), get_bulk_publish_details_request(), list()) ::
+  @spec get_bulk_publish_details(
+          map(),
+          String.t() | Atom.t(),
+          get_bulk_publish_details_request(),
+          list()
+        ) ::
           {:ok, get_bulk_publish_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1106,7 +1117,7 @@ defmodule AWS.CognitoSync do
   This API can only be called with developer credentials. You cannot call this API
   with the temporary user credentials provided by Cognito Identity.
   """
-  @spec get_cognito_events(map(), String.t(), list()) ::
+  @spec get_cognito_events(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_cognito_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1179,7 +1190,7 @@ defmodule AWS.CognitoSync do
   </example>
   </examples>
   """
-  @spec get_identity_pool_configuration(map(), String.t(), list()) ::
+  @spec get_identity_pool_configuration(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_identity_pool_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1266,7 +1277,14 @@ defmodule AWS.CognitoSync do
   </example>
   </examples>
   """
-  @spec list_datasets(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_datasets(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1372,7 +1390,12 @@ defmodule AWS.CognitoSync do
   </example>
   </examples>
   """
-  @spec list_identity_pool_usage(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_identity_pool_usage(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_identity_pool_usage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1476,13 +1499,13 @@ defmodule AWS.CognitoSync do
   """
   @spec list_records(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_records_response(), any()}
@@ -1594,7 +1617,13 @@ defmodule AWS.CognitoSync do
   </example>
   </examples>
   """
-  @spec register_device(map(), String.t(), String.t(), register_device_request(), list()) ::
+  @spec register_device(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          register_device_request(),
+          list()
+        ) ::
           {:ok, register_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1632,7 +1661,7 @@ defmodule AWS.CognitoSync do
   This API can only be called with developer credentials. You cannot call this API
   with the temporary user credentials provided by Cognito Identity.
   """
-  @spec set_cognito_events(map(), String.t(), set_cognito_events_request(), list()) ::
+  @spec set_cognito_events(map(), String.t() | Atom.t(), set_cognito_events_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1721,7 +1750,7 @@ defmodule AWS.CognitoSync do
   """
   @spec set_identity_pool_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           set_identity_pool_configuration_request(),
           list()
         ) ::
@@ -1807,10 +1836,10 @@ defmodule AWS.CognitoSync do
   """
   @spec subscribe_to_dataset(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           subscribe_to_dataset_request(),
           list()
         ) ::
@@ -1907,10 +1936,10 @@ defmodule AWS.CognitoSync do
   """
   @spec unsubscribe_from_dataset(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           unsubscribe_from_dataset_request(),
           list()
         ) ::
@@ -1969,9 +1998,9 @@ defmodule AWS.CognitoSync do
   """
   @spec update_records(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_records_request(),
           list()
         ) ::

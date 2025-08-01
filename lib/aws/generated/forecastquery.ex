@@ -14,12 +14,12 @@ defmodule AWS.Forecastquery do
   ## Example:
       
       data_point() :: %{
-        "Timestamp" => String.t(),
+        "Timestamp" => String.t() | Atom.t(),
         "Value" => float()
       }
       
   """
-  @type data_point() :: %{String.t() => any()}
+  @type data_point() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -30,55 +30,55 @@ defmodule AWS.Forecastquery do
       }
       
   """
-  @type forecast() :: %{String.t() => any()}
+  @type forecast() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_input_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_input_exception() :: %{String.t() => any()}
+  @type invalid_input_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_next_token_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_next_token_exception() :: %{String.t() => any()}
+  @type invalid_next_token_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       query_forecast_request() :: %{
-        optional("EndDate") => String.t(),
-        optional("NextToken") => String.t(),
-        optional("StartDate") => String.t(),
+        optional("EndDate") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("StartDate") => String.t() | Atom.t(),
         required("Filters") => map(),
-        required("ForecastArn") => String.t()
+        required("ForecastArn") => String.t() | Atom.t()
       }
       
   """
-  @type query_forecast_request() :: %{String.t() => any()}
+  @type query_forecast_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -89,22 +89,22 @@ defmodule AWS.Forecastquery do
       }
       
   """
-  @type query_forecast_response() :: %{String.t() => any()}
+  @type query_forecast_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       query_what_if_forecast_request() :: %{
-        optional("EndDate") => String.t(),
-        optional("NextToken") => String.t(),
-        optional("StartDate") => String.t(),
+        optional("EndDate") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("StartDate") => String.t() | Atom.t(),
         required("Filters") => map(),
-        required("WhatIfForecastArn") => String.t()
+        required("WhatIfForecastArn") => String.t() | Atom.t()
       }
       
   """
-  @type query_what_if_forecast_request() :: %{String.t() => any()}
+  @type query_what_if_forecast_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -115,29 +115,29 @@ defmodule AWS.Forecastquery do
       }
       
   """
-  @type query_what_if_forecast_response() :: %{String.t() => any()}
+  @type query_what_if_forecast_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_in_use_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_in_use_exception() :: %{String.t() => any()}
+  @type resource_in_use_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @type query_forecast_errors() ::
           resource_not_found_exception()

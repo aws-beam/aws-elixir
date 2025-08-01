@@ -39,74 +39,74 @@ defmodule AWS.OAM do
 
       create_sink_input() :: %{
         optional("Tags") => map(),
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
 
   """
-  @type create_sink_input() :: %{String.t() => any()}
+  @type create_sink_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_link_output() :: %{
-        "Arn" => [String.t()],
-        "Id" => [String.t()],
-        "Label" => [String.t()],
-        "LabelTemplate" => [String.t()],
+        "Arn" => [String.t() | Atom.t()],
+        "Id" => [String.t() | Atom.t()],
+        "Label" => [String.t() | Atom.t()],
+        "LabelTemplate" => [String.t() | Atom.t()],
         "LinkConfiguration" => link_configuration(),
-        "ResourceTypes" => list([String.t()]()),
-        "SinkArn" => [String.t()],
+        "ResourceTypes" => list([String.t() | Atom.t()]()),
+        "SinkArn" => [String.t() | Atom.t()],
         "Tags" => map()
       }
 
   """
-  @type get_link_output() :: %{String.t() => any()}
+  @type get_link_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_link_input() :: %{
-        required("Identifier") => String.t()
+        required("Identifier") => String.t() | Atom.t()
       }
 
   """
-  @type delete_link_input() :: %{String.t() => any()}
+  @type delete_link_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       metric_configuration() :: %{
-        "Filter" => String.t()
+        "Filter" => String.t() | Atom.t()
       }
 
   """
-  @type metric_configuration() :: %{String.t() => any()}
+  @type metric_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       log_group_configuration() :: %{
-        "Filter" => String.t()
+        "Filter" => String.t() | Atom.t()
       }
 
   """
-  @type log_group_configuration() :: %{String.t() => any()}
+  @type log_group_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       missing_required_parameter_exception() :: %{
-        "amznErrorType" => [String.t()],
-        "message" => [String.t()]
+        "amznErrorType" => [String.t() | Atom.t()],
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type missing_required_parameter_exception() :: %{String.t() => any()}
+  @type missing_required_parameter_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -123,24 +123,24 @@ defmodule AWS.OAM do
 
       list_links_output() :: %{
         "Items" => list(list_links_item()),
-        "NextToken" => [String.t()]
+        "NextToken" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_links_output() :: %{String.t() => any()}
+  @type list_links_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_sink_policy_output() :: %{
-        "Policy" => [String.t()],
-        "SinkArn" => [String.t()],
-        "SinkId" => [String.t()]
+        "Policy" => [String.t() | Atom.t()],
+        "SinkArn" => [String.t() | Atom.t()],
+        "SinkId" => [String.t() | Atom.t()]
       }
 
   """
-  @type put_sink_policy_output() :: %{String.t() => any()}
+  @type put_sink_policy_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -148,11 +148,11 @@ defmodule AWS.OAM do
 
       list_attached_links_output() :: %{
         "Items" => list(list_attached_links_item()),
-        "NextToken" => [String.t()]
+        "NextToken" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_attached_links_output() :: %{String.t() => any()}
+  @type list_attached_links_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -163,42 +163,42 @@ defmodule AWS.OAM do
       }
 
   """
-  @type list_tags_for_resource_output() :: %{String.t() => any()}
+  @type list_tags_for_resource_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_sink_input() :: %{
-        required("Identifier") => String.t()
+        required("Identifier") => String.t() | Atom.t()
       }
 
   """
-  @type delete_sink_input() :: %{String.t() => any()}
+  @type delete_sink_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_sink_policy_input() :: %{
-        required("SinkIdentifier") => String.t()
+        required("SinkIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type get_sink_policy_input() :: %{String.t() => any()}
+  @type get_sink_policy_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_sink_policy_output() :: %{
-        "Policy" => [String.t()],
-        "SinkArn" => [String.t()],
-        "SinkId" => [String.t()]
+        "Policy" => [String.t() | Atom.t()],
+        "SinkArn" => [String.t() | Atom.t()],
+        "SinkId" => [String.t() | Atom.t()]
       }
 
   """
-  @type get_sink_policy_output() :: %{String.t() => any()}
+  @type get_sink_policy_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -206,12 +206,12 @@ defmodule AWS.OAM do
 
       list_attached_links_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("SinkIdentifier") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("SinkIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type list_attached_links_input() :: %{String.t() => any()}
+  @type list_attached_links_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -220,50 +220,50 @@ defmodule AWS.OAM do
       create_link_input() :: %{
         optional("LinkConfiguration") => link_configuration(),
         optional("Tags") => map(),
-        required("LabelTemplate") => String.t(),
+        required("LabelTemplate") => String.t() | Atom.t(),
         required("ResourceTypes") => list(list(any())()),
-        required("SinkIdentifier") => String.t()
+        required("SinkIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type create_link_input() :: %{String.t() => any()}
+  @type create_link_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => [String.t()],
-        "amznErrorType" => [String.t()]
+        "Message" => [String.t() | Atom.t()],
+        "amznErrorType" => [String.t() | Atom.t()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => [String.t()],
-        "amznErrorType" => [String.t()]
+        "Message" => [String.t() | Atom.t()],
+        "amznErrorType" => [String.t() | Atom.t()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_attached_links_item() :: %{
-        "Label" => [String.t()],
-        "LinkArn" => [String.t()],
-        "ResourceTypes" => list([String.t()]())
+        "Label" => [String.t() | Atom.t()],
+        "LinkArn" => [String.t() | Atom.t()],
+        "ResourceTypes" => list([String.t() | Atom.t()]())
       }
 
   """
-  @type list_attached_links_item() :: %{String.t() => any()}
+  @type list_attached_links_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -271,23 +271,23 @@ defmodule AWS.OAM do
 
       list_links_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_links_input() :: %{String.t() => any()}
+  @type list_links_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "Message" => [String.t()],
-        "amznErrorType" => [String.t()]
+        "Message" => [String.t() | Atom.t()],
+        "amznErrorType" => [String.t() | Atom.t()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -296,26 +296,26 @@ defmodule AWS.OAM do
       update_link_input() :: %{
         optional("IncludeTags") => boolean(),
         optional("LinkConfiguration") => link_configuration(),
-        required("Identifier") => String.t(),
+        required("Identifier") => String.t() | Atom.t(),
         required("ResourceTypes") => list(list(any())())
       }
 
   """
-  @type update_link_input() :: %{String.t() => any()}
+  @type update_link_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_sink_output() :: %{
-        "Arn" => [String.t()],
-        "Id" => [String.t()],
-        "Name" => [String.t()],
+        "Arn" => [String.t() | Atom.t()],
+        "Id" => [String.t() | Atom.t()],
+        "Name" => [String.t() | Atom.t()],
         "Tags" => map()
       }
 
   """
-  @type create_sink_output() :: %{String.t() => any()}
+  @type create_sink_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -323,11 +323,11 @@ defmodule AWS.OAM do
 
       get_sink_input() :: %{
         optional("IncludeTags") => boolean(),
-        required("Identifier") => String.t()
+        required("Identifier") => String.t() | Atom.t()
       }
 
   """
-  @type get_sink_input() :: %{String.t() => any()}
+  @type get_sink_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -338,25 +338,25 @@ defmodule AWS.OAM do
       }
 
   """
-  @type tag_resource_input() :: %{String.t() => any()}
+  @type tag_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_link_output() :: %{
-        "Arn" => [String.t()],
-        "Id" => [String.t()],
-        "Label" => [String.t()],
-        "LabelTemplate" => [String.t()],
+        "Arn" => [String.t() | Atom.t()],
+        "Id" => [String.t() | Atom.t()],
+        "Label" => [String.t() | Atom.t()],
+        "LabelTemplate" => [String.t() | Atom.t()],
         "LinkConfiguration" => link_configuration(),
-        "ResourceTypes" => list([String.t()]()),
-        "SinkArn" => [String.t()],
+        "ResourceTypes" => list([String.t() | Atom.t()]()),
+        "SinkArn" => [String.t() | Atom.t()],
         "Tags" => map()
       }
 
   """
-  @type create_link_output() :: %{String.t() => any()}
+  @type create_link_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -368,7 +368,7 @@ defmodule AWS.OAM do
       }
 
   """
-  @type link_configuration() :: %{String.t() => any()}
+  @type link_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -384,15 +384,15 @@ defmodule AWS.OAM do
   ## Example:
 
       list_links_item() :: %{
-        "Arn" => [String.t()],
-        "Id" => [String.t()],
-        "Label" => [String.t()],
-        "ResourceTypes" => list([String.t()]()),
-        "SinkArn" => [String.t()]
+        "Arn" => [String.t() | Atom.t()],
+        "Id" => [String.t() | Atom.t()],
+        "Label" => [String.t() | Atom.t()],
+        "ResourceTypes" => list([String.t() | Atom.t()]()),
+        "SinkArn" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_links_item() :: %{String.t() => any()}
+  @type list_links_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -400,23 +400,23 @@ defmodule AWS.OAM do
 
       list_sinks_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_sinks_input() :: %{String.t() => any()}
+  @type list_sinks_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_parameter_exception() :: %{
-        "amznErrorType" => [String.t()],
-        "message" => [String.t()]
+        "amznErrorType" => [String.t() | Atom.t()],
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type invalid_parameter_exception() :: %{String.t() => any()}
+  @type invalid_parameter_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -424,33 +424,33 @@ defmodule AWS.OAM do
 
       list_sinks_output() :: %{
         "Items" => list(list_sinks_item()),
-        "NextToken" => [String.t()]
+        "NextToken" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_sinks_output() :: %{String.t() => any()}
+  @type list_sinks_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_input() :: %{
-        required("TagKeys") => list(String.t())
+        required("TagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_input() :: %{String.t() => any()}
+  @type untag_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -476,11 +476,11 @@ defmodule AWS.OAM do
 
       get_link_input() :: %{
         optional("IncludeTags") => boolean(),
-        required("Identifier") => String.t()
+        required("Identifier") => String.t() | Atom.t()
       }
 
   """
-  @type get_link_input() :: %{String.t() => any()}
+  @type get_link_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -496,80 +496,80 @@ defmodule AWS.OAM do
   ## Example:
 
       internal_service_fault() :: %{
-        "Message" => [String.t()],
-        "amznErrorType" => [String.t()]
+        "Message" => [String.t() | Atom.t()],
+        "amznErrorType" => [String.t() | Atom.t()]
       }
 
   """
-  @type internal_service_fault() :: %{String.t() => any()}
+  @type internal_service_fault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_sinks_item() :: %{
-        "Arn" => [String.t()],
-        "Id" => [String.t()],
-        "Name" => [String.t()]
+        "Arn" => [String.t() | Atom.t()],
+        "Id" => [String.t() | Atom.t()],
+        "Name" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_sinks_item() :: %{String.t() => any()}
+  @type list_sinks_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_sink_output() :: %{
-        "Arn" => [String.t()],
-        "Id" => [String.t()],
-        "Name" => [String.t()],
+        "Arn" => [String.t() | Atom.t()],
+        "Id" => [String.t() | Atom.t()],
+        "Name" => [String.t() | Atom.t()],
         "Tags" => map()
       }
 
   """
-  @type get_sink_output() :: %{String.t() => any()}
+  @type get_sink_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_link_output() :: %{
-        "Arn" => [String.t()],
-        "Id" => [String.t()],
-        "Label" => [String.t()],
-        "LabelTemplate" => String.t(),
+        "Arn" => [String.t() | Atom.t()],
+        "Id" => [String.t() | Atom.t()],
+        "Label" => [String.t() | Atom.t()],
+        "LabelTemplate" => String.t() | Atom.t(),
         "LinkConfiguration" => link_configuration(),
-        "ResourceTypes" => list([String.t()]()),
-        "SinkArn" => [String.t()],
+        "ResourceTypes" => list([String.t() | Atom.t()]()),
+        "SinkArn" => [String.t() | Atom.t()],
         "Tags" => map()
       }
 
   """
-  @type update_link_output() :: %{String.t() => any()}
+  @type update_link_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_tags_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
 
   """
-  @type too_many_tags_exception() :: %{String.t() => any()}
+  @type too_many_tags_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_sink_policy_input() :: %{
-        required("Policy") => String.t(),
-        required("SinkIdentifier") => String.t()
+        required("Policy") => String.t() | Atom.t(),
+        required("SinkIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type put_sink_policy_input() :: %{String.t() => any()}
+  @type put_sink_policy_input() :: %{String.t() | Atom.t() => any()}
 
   @type create_link_errors() ::
           internal_service_fault()
@@ -1019,7 +1019,7 @@ defmodule AWS.OAM do
 
   Both sinks and links support tagging.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1115,7 +1115,7 @@ defmodule AWS.OAM do
   `iam:ResourceTag` permission does not allow you to tag and untag links and
   sinks.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1149,7 +1149,7 @@ defmodule AWS.OAM do
   `iam:TagResource` permission does not allow you to tag and untag links and
   sinks.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

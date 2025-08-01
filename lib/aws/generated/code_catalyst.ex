@@ -203,11 +203,11 @@ defmodule AWS.CodeCatalyst do
 
       list_source_repository_branches_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | Atom.t()]
       }
 
   """
-  @type list_source_repository_branches_request() :: %{String.t() => any()}
+  @type list_source_repository_branches_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -223,75 +223,75 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       project_information() :: %{
-        "name" => [String.t()],
-        "projectId" => [String.t()]
+        "name" => [String.t() | Atom.t()],
+        "projectId" => [String.t() | Atom.t()]
       }
 
   """
-  @type project_information() :: %{String.t() => any()}
+  @type project_information() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_access_token_response() :: %{
-        "accessTokenId" => String.t(),
+        "accessTokenId" => String.t() | Atom.t(),
         "expiresTime" => non_neg_integer(),
-        "name" => String.t(),
-        "secret" => String.t()
+        "name" => String.t() | Atom.t(),
+        "secret" => String.t() | Atom.t()
       }
 
   """
-  @type create_access_token_response() :: %{String.t() => any()}
+  @type create_access_token_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       ide_configuration() :: %{
-        "name" => [String.t()],
-        "runtime" => [String.t()]
+        "name" => [String.t() | Atom.t()],
+        "runtime" => [String.t() | Atom.t()]
       }
 
   """
-  @type ide_configuration() :: %{String.t() => any()}
+  @type ide_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_space_response() :: %{
-        "displayName" => [String.t()],
-        "name" => String.t()
+        "displayName" => [String.t() | Atom.t()],
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type delete_space_response() :: %{String.t() => any()}
+  @type delete_space_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_user_details_request() :: %{
-        optional("id") => [String.t()],
-        optional("userName") => [String.t()]
+        optional("id") => [String.t() | Atom.t()],
+        optional("userName") => [String.t() | Atom.t()]
       }
 
   """
-  @type get_user_details_request() :: %{String.t() => any()}
+  @type get_user_details_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       project_summary() :: %{
-        "description" => [String.t()],
-        "displayName" => [String.t()],
-        "name" => [String.t()]
+        "description" => [String.t() | Atom.t()],
+        "displayName" => [String.t() | Atom.t()],
+        "name" => [String.t() | Atom.t()]
       }
 
   """
-  @type project_summary() :: %{String.t() => any()}
+  @type project_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -307,12 +307,12 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       ide() :: %{
-        "name" => [String.t()],
-        "runtime" => [String.t()]
+        "name" => [String.t() | Atom.t()],
+        "runtime" => [String.t() | Atom.t()]
       }
 
   """
-  @type ide() :: %{String.t() => any()}
+  @type ide() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -329,47 +329,47 @@ defmodule AWS.CodeCatalyst do
 
       access_token_summary() :: %{
         "expiresTime" => non_neg_integer(),
-        "id" => String.t(),
-        "name" => String.t()
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type access_token_summary() :: %{String.t() => any()}
+  @type access_token_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_source_repository_request() :: %{
-        optional("description") => String.t()
+        optional("description") => String.t() | Atom.t()
       }
 
   """
-  @type create_source_repository_request() :: %{String.t() => any()}
+  @type create_source_repository_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_dev_environment_response() :: %{
-        "alias" => [String.t()],
-        "creatorId" => [String.t()],
-        "id" => String.t(),
+        "alias" => [String.t() | Atom.t()],
+        "creatorId" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t(),
         "ides" => list(ide()),
         "inactivityTimeoutMinutes" => integer(),
-        "instanceType" => String.t(),
+        "instanceType" => String.t() | Atom.t(),
         "lastUpdatedTime" => non_neg_integer(),
         "persistentStorage" => persistent_storage(),
-        "projectName" => String.t(),
+        "projectName" => String.t() | Atom.t(),
         "repositories" => list(dev_environment_repository_summary()),
-        "spaceName" => String.t(),
-        "status" => String.t(),
-        "statusReason" => String.t(),
-        "vpcConnectionName" => String.t()
+        "spaceName" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t(),
+        "statusReason" => String.t() | Atom.t(),
+        "vpcConnectionName" => String.t() | Atom.t()
       }
 
   """
-  @type get_dev_environment_response() :: %{String.t() => any()}
+  @type get_dev_environment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -385,26 +385,26 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       user_identity() :: %{
-        "awsAccountId" => [String.t()],
-        "principalId" => [String.t()],
-        "userName" => [String.t()],
-        "userType" => String.t()
+        "awsAccountId" => [String.t() | Atom.t()],
+        "principalId" => [String.t() | Atom.t()],
+        "userName" => [String.t() | Atom.t()],
+        "userType" => String.t() | Atom.t()
       }
 
   """
-  @type user_identity() :: %{String.t() => any()}
+  @type user_identity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       dev_environment_access_details() :: %{
-        "streamUrl" => String.t(),
-        "tokenValue" => String.t()
+        "streamUrl" => String.t() | Atom.t(),
+        "tokenValue" => String.t() | Atom.t()
       }
 
   """
-  @type dev_environment_access_details() :: %{String.t() => any()}
+  @type dev_environment_access_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -415,7 +415,7 @@ defmodule AWS.CodeCatalyst do
       }
 
   """
-  @type start_dev_environment_session_request() :: %{String.t() => any()}
+  @type start_dev_environment_session_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -431,89 +431,89 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       get_subscription_response() :: %{
-        "awsAccountName" => String.t(),
+        "awsAccountName" => String.t() | Atom.t(),
         "pendingSubscriptionStartTime" => non_neg_integer(),
-        "pendingSubscriptionType" => [String.t()],
-        "subscriptionType" => [String.t()]
+        "pendingSubscriptionType" => [String.t() | Atom.t()],
+        "subscriptionType" => [String.t() | Atom.t()]
       }
 
   """
-  @type get_subscription_response() :: %{String.t() => any()}
+  @type get_subscription_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_project_response() :: %{
-        "description" => [String.t()],
-        "displayName" => [String.t()],
-        "name" => String.t(),
-        "spaceName" => String.t()
+        "description" => [String.t() | Atom.t()],
+        "displayName" => [String.t() | Atom.t()],
+        "name" => String.t() | Atom.t(),
+        "spaceName" => String.t() | Atom.t()
       }
 
   """
-  @type update_project_response() :: %{String.t() => any()}
+  @type update_project_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_source_repository_branch_request() :: %{
-        optional("headCommitId") => [String.t()]
+        optional("headCommitId") => [String.t() | Atom.t()]
       }
 
   """
-  @type create_source_repository_branch_request() :: %{String.t() => any()}
+  @type create_source_repository_branch_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       email_address() :: %{
-        "email" => [String.t()],
+        "email" => [String.t() | Atom.t()],
         "verified" => [boolean()]
       }
 
   """
-  @type email_address() :: %{String.t() => any()}
+  @type email_address() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       event_log_entry() :: %{
-        "errorCode" => [String.t()],
-        "eventCategory" => [String.t()],
-        "eventName" => [String.t()],
-        "eventSource" => [String.t()],
+        "errorCode" => [String.t() | Atom.t()],
+        "eventCategory" => [String.t() | Atom.t()],
+        "eventName" => [String.t() | Atom.t()],
+        "eventSource" => [String.t() | Atom.t()],
         "eventTime" => non_neg_integer(),
-        "eventType" => [String.t()],
-        "id" => [String.t()],
-        "operationType" => String.t(),
+        "eventType" => [String.t() | Atom.t()],
+        "id" => [String.t() | Atom.t()],
+        "operationType" => String.t() | Atom.t(),
         "projectInformation" => project_information(),
-        "requestId" => [String.t()],
+        "requestId" => [String.t() | Atom.t()],
         "requestPayload" => event_payload(),
         "responsePayload" => event_payload(),
-        "sourceIpAddress" => [String.t()],
-        "userAgent" => [String.t()],
+        "sourceIpAddress" => [String.t() | Atom.t()],
+        "userAgent" => [String.t() | Atom.t()],
         "userIdentity" => user_identity()
       }
 
   """
-  @type event_log_entry() :: %{String.t() => any()}
+  @type event_log_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_source_repository_response() :: %{
-        "name" => String.t(),
-        "projectName" => String.t(),
-        "spaceName" => String.t()
+        "name" => String.t() | Atom.t(),
+        "projectName" => String.t() | Atom.t(),
+        "spaceName" => String.t() | Atom.t()
       }
 
   """
-  @type delete_source_repository_response() :: %{String.t() => any()}
+  @type delete_source_repository_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -529,45 +529,45 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       repository_input() :: %{
-        "branchName" => String.t(),
-        "repositoryName" => String.t()
+        "branchName" => String.t() | Atom.t(),
+        "repositoryName" => String.t() | Atom.t()
       }
 
   """
-  @type repository_input() :: %{String.t() => any()}
+  @type repository_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_user_details_response() :: %{
-        "displayName" => [String.t()],
+        "displayName" => [String.t() | Atom.t()],
         "primaryEmail" => email_address(),
-        "userId" => [String.t()],
-        "userName" => [String.t()],
-        "version" => [String.t()]
+        "userId" => [String.t() | Atom.t()],
+        "userName" => [String.t() | Atom.t()],
+        "version" => [String.t() | Atom.t()]
       }
 
   """
-  @type get_user_details_response() :: %{String.t() => any()}
+  @type get_user_details_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_dev_environment_response() :: %{
-        "alias" => [String.t()],
-        "clientToken" => String.t(),
-        "id" => String.t(),
+        "alias" => [String.t() | Atom.t()],
+        "clientToken" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "ides" => list(ide_configuration()),
         "inactivityTimeoutMinutes" => integer(),
-        "instanceType" => String.t(),
-        "projectName" => String.t(),
-        "spaceName" => String.t()
+        "instanceType" => String.t() | Atom.t(),
+        "projectName" => String.t() | Atom.t(),
+        "spaceName" => String.t() | Atom.t()
       }
 
   """
-  @type update_dev_environment_response() :: %{String.t() => any()}
+  @type update_dev_environment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -575,25 +575,25 @@ defmodule AWS.CodeCatalyst do
 
       list_dev_environment_sessions_response() :: %{
         "items" => list(dev_environment_session_summary()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_dev_environment_sessions_response() :: %{String.t() => any()}
+  @type list_dev_environment_sessions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_dev_environment_response() :: %{
-        "id" => String.t(),
-        "projectName" => String.t(),
-        "spaceName" => String.t(),
-        "status" => String.t()
+        "id" => String.t() | Atom.t(),
+        "projectName" => String.t() | Atom.t(),
+        "spaceName" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
 
   """
-  @type start_dev_environment_response() :: %{String.t() => any()}
+  @type start_dev_environment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -610,47 +610,47 @@ defmodule AWS.CodeCatalyst do
 
       list_access_tokens_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | Atom.t()]
       }
 
   """
-  @type list_access_tokens_request() :: %{String.t() => any()}
+  @type list_access_tokens_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_project_response() :: %{
-        "description" => [String.t()],
-        "displayName" => [String.t()],
-        "name" => String.t(),
-        "spaceName" => String.t()
+        "description" => [String.t() | Atom.t()],
+        "displayName" => [String.t() | Atom.t()],
+        "name" => String.t() | Atom.t(),
+        "spaceName" => String.t() | Atom.t()
       }
 
   """
-  @type create_project_response() :: %{String.t() => any()}
+  @type create_project_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -667,61 +667,61 @@ defmodule AWS.CodeCatalyst do
 
       list_source_repositories_item() :: %{
         "createdTime" => non_neg_integer(),
-        "description" => String.t(),
-        "id" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "lastUpdatedTime" => non_neg_integer(),
-        "name" => String.t()
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type list_source_repositories_item() :: %{String.t() => any()}
+  @type list_source_repositories_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_workflow_run_request() :: %{
-        optional("clientToken") => [String.t()],
-        required("workflowId") => String.t()
+        optional("clientToken") => [String.t() | Atom.t()],
+        required("workflowId") => String.t() | Atom.t()
       }
 
   """
-  @type start_workflow_run_request() :: %{String.t() => any()}
+  @type start_workflow_run_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       dev_environment_summary() :: %{
-        "alias" => [String.t()],
-        "creatorId" => [String.t()],
-        "id" => String.t(),
+        "alias" => [String.t() | Atom.t()],
+        "creatorId" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t(),
         "ides" => list(ide()),
         "inactivityTimeoutMinutes" => integer(),
-        "instanceType" => String.t(),
+        "instanceType" => String.t() | Atom.t(),
         "lastUpdatedTime" => non_neg_integer(),
         "persistentStorage" => persistent_storage(),
-        "projectName" => String.t(),
+        "projectName" => String.t() | Atom.t(),
         "repositories" => list(dev_environment_repository_summary()),
-        "spaceName" => String.t(),
-        "status" => String.t(),
-        "statusReason" => String.t(),
-        "vpcConnectionName" => String.t()
+        "spaceName" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t(),
+        "statusReason" => String.t() | Atom.t(),
+        "vpcConnectionName" => String.t() | Atom.t()
       }
 
   """
-  @type dev_environment_summary() :: %{String.t() => any()}
+  @type dev_environment_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -729,12 +729,12 @@ defmodule AWS.CodeCatalyst do
 
       list_workflows_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()],
+        optional("nextToken") => [String.t() | Atom.t()],
         optional("sortBy") => list(workflow_sort_criteria())
       }
 
   """
-  @type list_workflows_request() :: %{String.t() => any()}
+  @type list_workflows_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -742,114 +742,114 @@ defmodule AWS.CodeCatalyst do
 
       list_projects_response() :: %{
         "items" => list(project_summary()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_projects_response() :: %{String.t() => any()}
+  @type list_projects_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       stop_dev_environment_response() :: %{
-        "id" => String.t(),
-        "projectName" => String.t(),
-        "spaceName" => String.t(),
-        "status" => String.t()
+        "id" => String.t() | Atom.t(),
+        "projectName" => String.t() | Atom.t(),
+        "spaceName" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
 
   """
-  @type stop_dev_environment_response() :: %{String.t() => any()}
+  @type stop_dev_environment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_project_response() :: %{
-        "description" => [String.t()],
-        "displayName" => [String.t()],
-        "name" => [String.t()],
-        "spaceName" => String.t()
+        "description" => [String.t() | Atom.t()],
+        "displayName" => [String.t() | Atom.t()],
+        "name" => [String.t() | Atom.t()],
+        "spaceName" => String.t() | Atom.t()
       }
 
   """
-  @type get_project_response() :: %{String.t() => any()}
+  @type get_project_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_dev_environment_request() :: %{
-        optional("alias") => [String.t()],
-        optional("clientToken") => String.t(),
+        optional("alias") => [String.t() | Atom.t()],
+        optional("clientToken") => String.t() | Atom.t(),
         optional("ides") => list(ide_configuration()),
         optional("inactivityTimeoutMinutes") => integer(),
-        optional("instanceType") => String.t()
+        optional("instanceType") => String.t() | Atom.t()
       }
 
   """
-  @type update_dev_environment_request() :: %{String.t() => any()}
+  @type update_dev_environment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_event_logs_request() :: %{
-        optional("eventName") => [String.t()],
+        optional("eventName") => [String.t() | Atom.t()],
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()],
+        optional("nextToken") => [String.t() | Atom.t()],
         required("endTime") => non_neg_integer(),
         required("startTime") => non_neg_integer()
       }
 
   """
-  @type list_event_logs_request() :: %{String.t() => any()}
+  @type list_event_logs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_dev_environment_request() :: %{
-        optional("alias") => [String.t()],
-        optional("clientToken") => String.t(),
+        optional("alias") => [String.t() | Atom.t()],
+        optional("clientToken") => String.t() | Atom.t(),
         optional("ides") => list(ide_configuration()),
         optional("inactivityTimeoutMinutes") => integer(),
         optional("repositories") => list(repository_input()),
-        optional("vpcConnectionName") => String.t(),
-        required("instanceType") => String.t(),
+        optional("vpcConnectionName") => String.t() | Atom.t(),
+        required("instanceType") => String.t() | Atom.t(),
         required("persistentStorage") => persistent_storage_configuration()
       }
 
   """
-  @type create_dev_environment_request() :: %{String.t() => any()}
+  @type create_dev_environment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_workflow_run_response() :: %{
-        "id" => String.t(),
-        "projectName" => String.t(),
-        "spaceName" => String.t(),
-        "workflowId" => String.t()
+        "id" => String.t() | Atom.t(),
+        "projectName" => String.t() | Atom.t(),
+        "spaceName" => String.t() | Atom.t(),
+        "workflowId" => String.t() | Atom.t()
       }
 
   """
-  @type start_workflow_run_response() :: %{String.t() => any()}
+  @type start_workflow_run_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_space_response() :: %{
-        "description" => [String.t()],
-        "displayName" => [String.t()],
-        "name" => String.t()
+        "description" => [String.t() | Atom.t()],
+        "displayName" => [String.t() | Atom.t()],
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type update_space_response() :: %{String.t() => any()}
+  @type update_space_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -857,11 +857,11 @@ defmodule AWS.CodeCatalyst do
 
       list_dev_environment_sessions_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | Atom.t()]
       }
 
   """
-  @type list_dev_environment_sessions_request() :: %{String.t() => any()}
+  @type list_dev_environment_sessions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -887,24 +887,24 @@ defmodule AWS.CodeCatalyst do
 
       list_source_repository_branches_response() :: %{
         "items" => list(list_source_repository_branches_item()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_source_repository_branches_response() :: %{String.t() => any()}
+  @type list_source_repository_branches_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       filter() :: %{
-        "comparisonOperator" => [String.t()],
-        "key" => [String.t()],
-        "values" => list([String.t()]())
+        "comparisonOperator" => [String.t() | Atom.t()],
+        "key" => [String.t() | Atom.t()],
+        "values" => list([String.t() | Atom.t()]())
       }
 
   """
-  @type filter() :: %{String.t() => any()}
+  @type filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -912,13 +912,13 @@ defmodule AWS.CodeCatalyst do
 
       list_workflow_runs_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()],
+        optional("nextToken") => [String.t() | Atom.t()],
         optional("sortBy") => list(workflow_run_sort_criteria()),
-        optional("workflowId") => String.t()
+        optional("workflowId") => String.t() | Atom.t()
       }
 
   """
-  @type list_workflow_runs_request() :: %{String.t() => any()}
+  @type list_workflow_runs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -936,17 +936,17 @@ defmodule AWS.CodeCatalyst do
       workflow_summary() :: %{
         "createdTime" => non_neg_integer(),
         "definition" => workflow_definition_summary(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "lastUpdatedTime" => non_neg_integer(),
-        "name" => [String.t()],
-        "runMode" => String.t(),
-        "sourceBranchName" => String.t(),
-        "sourceRepositoryName" => String.t(),
-        "status" => String.t()
+        "name" => [String.t() | Atom.t()],
+        "runMode" => String.t() | Atom.t(),
+        "sourceBranchName" => String.t() | Atom.t(),
+        "sourceRepositoryName" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
 
   """
-  @type workflow_summary() :: %{String.t() => any()}
+  @type workflow_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -955,11 +955,11 @@ defmodule AWS.CodeCatalyst do
       start_dev_environment_request() :: %{
         optional("ides") => list(ide_configuration()),
         optional("inactivityTimeoutMinutes") => integer(),
-        optional("instanceType") => String.t()
+        optional("instanceType") => String.t() | Atom.t()
       }
 
   """
-  @type start_dev_environment_request() :: %{String.t() => any()}
+  @type start_dev_environment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -985,38 +985,38 @@ defmodule AWS.CodeCatalyst do
 
       start_dev_environment_session_response() :: %{
         "accessDetails" => dev_environment_access_details(),
-        "id" => String.t(),
-        "projectName" => String.t(),
-        "sessionId" => [String.t()],
-        "spaceName" => String.t()
+        "id" => String.t() | Atom.t(),
+        "projectName" => String.t() | Atom.t(),
+        "sessionId" => [String.t() | Atom.t()],
+        "spaceName" => String.t() | Atom.t()
       }
 
   """
-  @type start_dev_environment_session_response() :: %{String.t() => any()}
+  @type start_dev_environment_session_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       workflow_definition_summary() :: %{
-        "path" => [String.t()]
+        "path" => [String.t() | Atom.t()]
       }
 
   """
-  @type workflow_definition_summary() :: %{String.t() => any()}
+  @type workflow_definition_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_project_response() :: %{
-        "displayName" => [String.t()],
-        "name" => String.t(),
-        "spaceName" => String.t()
+        "displayName" => [String.t() | Atom.t()],
+        "name" => String.t() | Atom.t(),
+        "spaceName" => String.t() | Atom.t()
       }
 
   """
-  @type delete_project_response() :: %{String.t() => any()}
+  @type delete_project_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1027,33 +1027,33 @@ defmodule AWS.CodeCatalyst do
       }
 
   """
-  @type persistent_storage_configuration() :: %{String.t() => any()}
+  @type persistent_storage_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_project_request() :: %{
-        optional("description") => String.t()
+        optional("description") => String.t() | Atom.t()
       }
 
   """
-  @type update_project_request() :: %{String.t() => any()}
+  @type update_project_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       dev_environment_session_summary() :: %{
-        "devEnvironmentId" => String.t(),
-        "id" => [String.t()],
-        "projectName" => String.t(),
-        "spaceName" => String.t(),
+        "devEnvironmentId" => String.t() | Atom.t(),
+        "id" => [String.t() | Atom.t()],
+        "projectName" => String.t() | Atom.t(),
+        "spaceName" => String.t() | Atom.t(),
         "startedTime" => non_neg_integer()
       }
 
   """
-  @type dev_environment_session_summary() :: %{String.t() => any()}
+  @type dev_environment_session_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1061,15 +1061,15 @@ defmodule AWS.CodeCatalyst do
 
       get_source_repository_response() :: %{
         "createdTime" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "lastUpdatedTime" => non_neg_integer(),
-        "name" => String.t(),
-        "projectName" => String.t(),
-        "spaceName" => String.t()
+        "name" => String.t() | Atom.t(),
+        "projectName" => String.t() | Atom.t(),
+        "spaceName" => String.t() | Atom.t()
       }
 
   """
-  @type get_source_repository_response() :: %{String.t() => any()}
+  @type get_source_repository_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1078,61 +1078,61 @@ defmodule AWS.CodeCatalyst do
       list_dev_environments_request() :: %{
         optional("filters") => list(filter()),
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()],
-        optional("projectName") => String.t()
+        optional("nextToken") => [String.t() | Atom.t()],
+        optional("projectName") => String.t() | Atom.t()
       }
 
   """
-  @type list_dev_environments_request() :: %{String.t() => any()}
+  @type list_dev_environments_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       project_list_filter() :: %{
-        "comparisonOperator" => String.t(),
-        "key" => String.t(),
-        "values" => list([String.t()]())
+        "comparisonOperator" => String.t() | Atom.t(),
+        "key" => String.t() | Atom.t(),
+        "values" => list([String.t() | Atom.t()]())
       }
 
   """
-  @type project_list_filter() :: %{String.t() => any()}
+  @type project_list_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       stop_dev_environment_session_response() :: %{
-        "id" => String.t(),
-        "projectName" => String.t(),
-        "sessionId" => [String.t()],
-        "spaceName" => String.t()
+        "id" => String.t() | Atom.t(),
+        "projectName" => String.t() | Atom.t(),
+        "sessionId" => [String.t() | Atom.t()],
+        "spaceName" => String.t() | Atom.t()
       }
 
   """
-  @type stop_dev_environment_session_response() :: %{String.t() => any()}
+  @type stop_dev_environment_session_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_space_request() :: %{
-        optional("description") => String.t()
+        optional("description") => String.t() | Atom.t()
       }
 
   """
-  @type update_space_request() :: %{String.t() => any()}
+  @type update_space_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1140,25 +1140,25 @@ defmodule AWS.CodeCatalyst do
 
       list_workflow_runs_response() :: %{
         "items" => list(workflow_run_summary()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_workflow_runs_response() :: %{String.t() => any()}
+  @type list_workflow_runs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_dev_environment_response() :: %{
-        "id" => String.t(),
-        "projectName" => String.t(),
-        "spaceName" => String.t(),
-        "vpcConnectionName" => String.t()
+        "id" => String.t() | Atom.t(),
+        "projectName" => String.t() | Atom.t(),
+        "spaceName" => String.t() | Atom.t(),
+        "vpcConnectionName" => String.t() | Atom.t()
       }
 
   """
-  @type create_dev_environment_response() :: %{String.t() => any()}
+  @type create_dev_environment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1175,22 +1175,22 @@ defmodule AWS.CodeCatalyst do
 
       list_event_logs_response() :: %{
         "items" => list(event_log_entry()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_event_logs_response() :: %{String.t() => any()}
+  @type list_event_logs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       verify_session_response() :: %{
-        "identity" => [String.t()]
+        "identity" => [String.t() | Atom.t()]
       }
 
   """
-  @type verify_session_response() :: %{String.t() => any()}
+  @type verify_session_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1201,7 +1201,7 @@ defmodule AWS.CodeCatalyst do
       }
 
   """
-  @type persistent_storage() :: %{String.t() => any()}
+  @type persistent_storage() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1209,11 +1209,11 @@ defmodule AWS.CodeCatalyst do
 
       create_access_token_request() :: %{
         optional("expiresTime") => non_neg_integer(),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_access_token_request() :: %{String.t() => any()}
+  @type create_access_token_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1221,57 +1221,57 @@ defmodule AWS.CodeCatalyst do
 
       list_spaces_response() :: %{
         "items" => list(space_summary()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_spaces_response() :: %{String.t() => any()}
+  @type list_spaces_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       dev_environment_repository_summary() :: %{
-        "branchName" => String.t(),
-        "repositoryName" => String.t()
+        "branchName" => String.t() | Atom.t(),
+        "repositoryName" => String.t() | Atom.t()
       }
 
   """
-  @type dev_environment_repository_summary() :: %{String.t() => any()}
+  @type dev_environment_repository_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_project_request() :: %{
-        optional("description") => String.t(),
-        required("displayName") => String.t()
+        optional("description") => String.t() | Atom.t(),
+        required("displayName") => String.t() | Atom.t()
       }
 
   """
-  @type create_project_request() :: %{String.t() => any()}
+  @type create_project_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1279,25 +1279,25 @@ defmodule AWS.CodeCatalyst do
 
       list_dev_environments_response() :: %{
         "items" => list(dev_environment_summary()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_dev_environments_response() :: %{String.t() => any()}
+  @type list_dev_environments_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_space_response() :: %{
-        "description" => [String.t()],
-        "displayName" => [String.t()],
-        "name" => String.t(),
-        "regionName" => String.t()
+        "description" => [String.t() | Atom.t()],
+        "displayName" => [String.t() | Atom.t()],
+        "name" => String.t() | Atom.t(),
+        "regionName" => String.t() | Atom.t()
       }
 
   """
-  @type get_space_response() :: %{String.t() => any()}
+  @type get_space_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1306,25 +1306,25 @@ defmodule AWS.CodeCatalyst do
       list_projects_request() :: %{
         optional("filters") => list(project_list_filter()),
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | Atom.t()]
       }
 
   """
-  @type list_projects_request() :: %{String.t() => any()}
+  @type list_projects_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_source_repository_branches_item() :: %{
-        "headCommitId" => [String.t()],
+        "headCommitId" => [String.t() | Atom.t()],
         "lastUpdatedTime" => non_neg_integer(),
-        "name" => String.t(),
-        "ref" => String.t()
+        "name" => String.t() | Atom.t(),
+        "ref" => String.t() | Atom.t()
       }
 
   """
-  @type list_source_repository_branches_item() :: %{String.t() => any()}
+  @type list_source_repository_branches_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1358,36 +1358,36 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       execute_command_session_configuration() :: %{
-        "arguments" => list([String.t()]()),
-        "command" => [String.t()]
+        "arguments" => list([String.t() | Atom.t()]()),
+        "command" => [String.t() | Atom.t()]
       }
 
   """
-  @type execute_command_session_configuration() :: %{String.t() => any()}
+  @type execute_command_session_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_dev_environment_response() :: %{
-        "id" => String.t(),
-        "projectName" => String.t(),
-        "spaceName" => String.t()
+        "id" => String.t() | Atom.t(),
+        "projectName" => String.t() | Atom.t(),
+        "spaceName" => String.t() | Atom.t()
       }
 
   """
-  @type delete_dev_environment_response() :: %{String.t() => any()}
+  @type delete_dev_environment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       workflow_definition() :: %{
-        "path" => [String.t()]
+        "path" => [String.t() | Atom.t()]
       }
 
   """
-  @type workflow_definition() :: %{String.t() => any()}
+  @type workflow_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1404,25 +1404,25 @@ defmodule AWS.CodeCatalyst do
 
       list_source_repositories_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | Atom.t()]
       }
 
   """
-  @type list_source_repositories_request() :: %{String.t() => any()}
+  @type list_source_repositories_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_source_repository_response() :: %{
-        "description" => String.t(),
-        "name" => String.t(),
-        "projectName" => String.t(),
-        "spaceName" => String.t()
+        "description" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "projectName" => String.t() | Atom.t(),
+        "spaceName" => String.t() | Atom.t()
       }
 
   """
-  @type create_source_repository_response() :: %{String.t() => any()}
+  @type create_source_repository_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1430,11 +1430,11 @@ defmodule AWS.CodeCatalyst do
 
       list_workflows_response() :: %{
         "items" => list(workflow_summary()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_workflows_response() :: %{String.t() => any()}
+  @type list_workflows_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1442,18 +1442,18 @@ defmodule AWS.CodeCatalyst do
 
       get_workflow_run_response() :: %{
         "endTime" => non_neg_integer(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "lastUpdatedTime" => non_neg_integer(),
-        "projectName" => String.t(),
-        "spaceName" => String.t(),
+        "projectName" => String.t() | Atom.t(),
+        "spaceName" => String.t() | Atom.t(),
         "startTime" => non_neg_integer(),
-        "status" => String.t(),
+        "status" => String.t() | Atom.t(),
         "statusReasons" => list(workflow_run_status_reason()),
-        "workflowId" => String.t()
+        "workflowId" => String.t() | Atom.t()
       }
 
   """
-  @type get_workflow_run_response() :: %{String.t() => any()}
+  @type get_workflow_run_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1470,11 +1470,11 @@ defmodule AWS.CodeCatalyst do
 
       list_source_repositories_response() :: %{
         "items" => list(list_source_repositories_item()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_source_repositories_response() :: %{String.t() => any()}
+  @type list_source_repositories_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1482,17 +1482,17 @@ defmodule AWS.CodeCatalyst do
 
       workflow_run_summary() :: %{
         "endTime" => non_neg_integer(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "lastUpdatedTime" => non_neg_integer(),
         "startTime" => non_neg_integer(),
-        "status" => String.t(),
+        "status" => String.t() | Atom.t(),
         "statusReasons" => list(workflow_run_status_reason()),
-        "workflowId" => String.t(),
-        "workflowName" => [String.t()]
+        "workflowId" => String.t() | Atom.t(),
+        "workflowName" => [String.t() | Atom.t()]
       }
 
   """
-  @type workflow_run_summary() :: %{String.t() => any()}
+  @type workflow_run_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1500,11 +1500,11 @@ defmodule AWS.CodeCatalyst do
 
       dev_environment_session_configuration() :: %{
         "executeCommandSessionConfiguration" => execute_command_session_configuration(),
-        "sessionType" => String.t()
+        "sessionType" => String.t() | Atom.t()
       }
 
   """
-  @type dev_environment_session_configuration() :: %{String.t() => any()}
+  @type dev_environment_session_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1512,59 +1512,59 @@ defmodule AWS.CodeCatalyst do
 
       list_access_tokens_response() :: %{
         "items" => list(access_token_summary()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_access_tokens_response() :: %{String.t() => any()}
+  @type list_access_tokens_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       space_summary() :: %{
-        "description" => [String.t()],
-        "displayName" => [String.t()],
-        "name" => String.t(),
-        "regionName" => String.t()
+        "description" => [String.t() | Atom.t()],
+        "displayName" => [String.t() | Atom.t()],
+        "name" => String.t() | Atom.t(),
+        "regionName" => String.t() | Atom.t()
       }
 
   """
-  @type space_summary() :: %{String.t() => any()}
+  @type space_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_source_repository_clone_urls_response() :: %{
-        "https" => [String.t()]
+        "https" => [String.t() | Atom.t()]
       }
 
   """
-  @type get_source_repository_clone_urls_response() :: %{String.t() => any()}
+  @type get_source_repository_clone_urls_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_spaces_request() :: %{
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | Atom.t()]
       }
 
   """
-  @type list_spaces_request() :: %{String.t() => any()}
+  @type list_spaces_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       event_payload() :: %{
-        "contentType" => [String.t()],
-        "data" => [String.t()]
+        "contentType" => [String.t() | Atom.t()],
+        "data" => [String.t() | Atom.t()]
       }
 
   """
-  @type event_payload() :: %{String.t() => any()}
+  @type event_payload() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1573,33 +1573,33 @@ defmodule AWS.CodeCatalyst do
       get_workflow_response() :: %{
         "createdTime" => non_neg_integer(),
         "definition" => workflow_definition(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "lastUpdatedTime" => non_neg_integer(),
-        "name" => [String.t()],
-        "projectName" => String.t(),
-        "runMode" => String.t(),
-        "sourceBranchName" => String.t(),
-        "sourceRepositoryName" => String.t(),
-        "spaceName" => String.t(),
-        "status" => String.t()
+        "name" => [String.t() | Atom.t()],
+        "projectName" => String.t() | Atom.t(),
+        "runMode" => String.t() | Atom.t(),
+        "sourceBranchName" => String.t() | Atom.t(),
+        "sourceRepositoryName" => String.t() | Atom.t(),
+        "spaceName" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
 
   """
-  @type get_workflow_response() :: %{String.t() => any()}
+  @type get_workflow_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_source_repository_branch_response() :: %{
-        "headCommitId" => [String.t()],
+        "headCommitId" => [String.t() | Atom.t()],
         "lastUpdatedTime" => non_neg_integer(),
-        "name" => String.t(),
-        "ref" => String.t()
+        "name" => String.t() | Atom.t(),
+        "ref" => String.t() | Atom.t()
       }
 
   """
-  @type create_source_repository_branch_response() :: %{String.t() => any()}
+  @type create_source_repository_branch_response() :: %{String.t() | Atom.t() => any()}
 
   def metadata do
     %{
@@ -1666,8 +1666,8 @@ defmodule AWS.CodeCatalyst do
   """
   @spec create_dev_environment(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           create_dev_environment_request(),
           list()
         ) ::
@@ -1700,7 +1700,7 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Creates a project in a specified space.
   """
-  @spec create_project(map(), String.t(), create_project_request(), list()) ::
+  @spec create_project(map(), String.t() | Atom.t(), create_project_request(), list()) ::
           {:ok, create_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1733,9 +1733,9 @@ defmodule AWS.CodeCatalyst do
   """
   @spec create_source_repository(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           create_source_repository_request(),
           list()
         ) ::
@@ -1780,10 +1780,10 @@ defmodule AWS.CodeCatalyst do
   """
   @spec create_source_repository_branch(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           create_source_repository_branch_request(),
           list()
         ) ::
@@ -1826,7 +1826,7 @@ defmodule AWS.CodeCatalyst do
 
   A personal access token can only be deleted by the user who created it.
   """
-  @spec delete_access_token(map(), String.t(), delete_access_token_request(), list()) ::
+  @spec delete_access_token(map(), String.t() | Atom.t(), delete_access_token_request(), list()) ::
           {:ok, delete_access_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1856,9 +1856,9 @@ defmodule AWS.CodeCatalyst do
   """
   @spec delete_dev_environment(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_dev_environment_request(),
           list()
         ) ::
@@ -1898,7 +1898,13 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Deletes a project in a space.
   """
-  @spec delete_project(map(), String.t(), String.t(), delete_project_request(), list()) ::
+  @spec delete_project(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_project_request(),
+          list()
+        ) ::
           {:ok, delete_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1933,9 +1939,9 @@ defmodule AWS.CodeCatalyst do
   """
   @spec delete_source_repository(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_source_repository_request(),
           list()
         ) ::
@@ -1978,7 +1984,7 @@ defmodule AWS.CodeCatalyst do
   Deleting a space cannot be undone. Additionally, since space names must be
   unique across Amazon CodeCatalyst, you cannot reuse names of deleted spaces.
   """
-  @spec delete_space(map(), String.t(), delete_space_request(), list()) ::
+  @spec delete_space(map(), String.t() | Atom.t(), delete_space_request(), list()) ::
           {:ok, delete_space_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2009,7 +2015,13 @@ defmodule AWS.CodeCatalyst do
 
   Dev Environments are specific to the user who creates them.
   """
-  @spec get_dev_environment(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_dev_environment(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_dev_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2028,7 +2040,7 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Returns information about a project.
   """
-  @spec get_project(map(), String.t(), String.t(), list()) ::
+  @spec get_project(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2047,7 +2059,13 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Returns information about a source repository.
   """
-  @spec get_source_repository(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_source_repository(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_source_repository_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2068,7 +2086,13 @@ defmodule AWS.CodeCatalyst do
   source
   repository.
   """
-  @spec get_source_repository_clone_urls(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_source_repository_clone_urls(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_source_repository_clone_urls_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2093,7 +2117,7 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Returns information about an space.
   """
-  @spec get_space(map(), String.t(), list()) ::
+  @spec get_space(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_space_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2112,7 +2136,7 @@ defmodule AWS.CodeCatalyst do
   purposes
   and the billing plan for the space.
   """
-  @spec get_subscription(map(), String.t(), list()) ::
+  @spec get_subscription(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2129,7 +2153,7 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Returns information about a user.
   """
-  @spec get_user_details(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_user_details(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, get_user_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2160,7 +2184,13 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Returns information about a workflow.
   """
-  @spec get_workflow(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_workflow(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2179,7 +2209,13 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Returns information about a specified run of a workflow.
   """
-  @spec get_workflow_run(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_workflow_run(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_workflow_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2231,9 +2267,9 @@ defmodule AWS.CodeCatalyst do
   """
   @spec list_dev_environment_sessions(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           list_dev_environment_sessions_request(),
           list()
         ) ::
@@ -2273,7 +2309,12 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Retrieves a list of Dev Environments in a project.
   """
-  @spec list_dev_environments(map(), String.t(), list_dev_environments_request(), list()) ::
+  @spec list_dev_environments(
+          map(),
+          String.t() | Atom.t(),
+          list_dev_environments_request(),
+          list()
+        ) ::
           {:ok, list_dev_environments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2317,7 +2358,7 @@ defmodule AWS.CodeCatalyst do
   and [Working with CloudTrail
   trails](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-getting-started.html).
   """
-  @spec list_event_logs(map(), String.t(), list_event_logs_request(), list()) ::
+  @spec list_event_logs(map(), String.t() | Atom.t(), list_event_logs_request(), list()) ::
           {:ok, list_event_logs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2345,7 +2386,7 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Retrieves a list of projects.
   """
-  @spec list_projects(map(), String.t(), list_projects_request(), list()) ::
+  @spec list_projects(map(), String.t() | Atom.t(), list_projects_request(), list()) ::
           {:ok, list_projects_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2375,8 +2416,8 @@ defmodule AWS.CodeCatalyst do
   """
   @spec list_source_repositories(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           list_source_repositories_request(),
           list()
         ) ::
@@ -2411,9 +2452,9 @@ defmodule AWS.CodeCatalyst do
   """
   @spec list_source_repository_branches(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           list_source_repository_branches_request(),
           list()
         ) ::
@@ -2481,7 +2522,13 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Retrieves a list of workflow runs of a specified workflow.
   """
-  @spec list_workflow_runs(map(), String.t(), String.t(), list_workflow_runs_request(), list()) ::
+  @spec list_workflow_runs(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list_workflow_runs_request(),
+          list()
+        ) ::
           {:ok, list_workflow_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2518,7 +2565,13 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Retrieves a list of workflows in a specified project.
   """
-  @spec list_workflows(map(), String.t(), String.t(), list_workflows_request(), list()) ::
+  @spec list_workflows(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list_workflows_request(),
+          list()
+        ) ::
           {:ok, list_workflows_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2556,9 +2609,9 @@ defmodule AWS.CodeCatalyst do
   """
   @spec start_dev_environment(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           start_dev_environment_request(),
           list()
         ) ::
@@ -2600,9 +2653,9 @@ defmodule AWS.CodeCatalyst do
   """
   @spec start_dev_environment_session(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           start_dev_environment_session_request(),
           list()
         ) ::
@@ -2642,7 +2695,13 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Begins a run of a specified workflow.
   """
-  @spec start_workflow_run(map(), String.t(), String.t(), start_workflow_run_request(), list()) ::
+  @spec start_workflow_run(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          start_workflow_run_request(),
+          list()
+        ) ::
           {:ok, start_workflow_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2681,9 +2740,9 @@ defmodule AWS.CodeCatalyst do
   """
   @spec stop_dev_environment(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           stop_dev_environment_request(),
           list()
         ) ::
@@ -2718,10 +2777,10 @@ defmodule AWS.CodeCatalyst do
   """
   @spec stop_dev_environment_session(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           stop_dev_environment_session_request(),
           list()
         ) ::
@@ -2766,9 +2825,9 @@ defmodule AWS.CodeCatalyst do
   """
   @spec update_dev_environment(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_dev_environment_request(),
           list()
         ) ::
@@ -2808,7 +2867,13 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Changes one or more values for a project.
   """
-  @spec update_project(map(), String.t(), String.t(), update_project_request(), list()) ::
+  @spec update_project(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_project_request(),
+          list()
+        ) ::
           {:ok, update_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2838,7 +2903,7 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Changes one or more values for a space.
   """
-  @spec update_space(map(), String.t(), update_space_request(), list()) ::
+  @spec update_space(map(), String.t() | Atom.t(), update_space_request(), list()) ::
           {:ok, update_space_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

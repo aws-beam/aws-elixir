@@ -16,20 +16,20 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       delete_object_input() :: %{
-        "ETag" => String.t(),
-        "PartitionValues" => list(String.t()),
-        "Uri" => String.t()
+        "ETag" => String.t() | Atom.t(),
+        "PartitionValues" => list(String.t() | Atom.t()),
+        "Uri" => String.t() | Atom.t()
       }
 
   """
-  @type delete_object_input() :: %{String.t() => any()}
+  @type delete_object_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       grant_permissions_request() :: %{
-        optional("CatalogId") => String.t(),
+        optional("CatalogId") => String.t() | Atom.t(),
         optional("Condition") => condition(),
         optional("PermissionsWithGrantOption") => list(list(any())()),
         required("Permissions") => list(list(any())()),
@@ -38,7 +38,7 @@ defmodule AWS.LakeFormation do
       }
 
   """
-  @type grant_permissions_request() :: %{String.t() => any()}
+  @type grant_permissions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -54,50 +54,53 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       list_permissions_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "PrincipalResourcePermissions" => list(principal_resource_permissions())
       }
 
   """
-  @type list_permissions_response() :: %{String.t() => any()}
+  @type list_permissions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       search_databases_by_l_f_tags_request() :: %{
-        optional("CatalogId") => String.t(),
+        optional("CatalogId") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         required("Expression") => list(l_f_tag())
       }
 
   """
-  @type search_databases_by_l_f_tags_request() :: %{String.t() => any()}
+  @type search_databases_by_l_f_tags_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_lake_formation_identity_center_configuration_response() :: %{
-        "ApplicationArn" => String.t()
+        "ApplicationArn" => String.t() | Atom.t()
       }
 
   """
-  @type create_lake_formation_identity_center_configuration_response() :: %{String.t() => any()}
+  @type create_lake_formation_identity_center_configuration_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       l_f_tag_key_resource() :: %{
-        "CatalogId" => String.t(),
-        "TagKey" => String.t(),
-        "TagValues" => list(String.t())
+        "CatalogId" => String.t() | Atom.t(),
+        "TagKey" => String.t() | Atom.t(),
+        "TagValues" => list(String.t() | Atom.t())
       }
 
   """
-  @type l_f_tag_key_resource() :: %{String.t() => any()}
+  @type l_f_tag_key_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -109,55 +112,55 @@ defmodule AWS.LakeFormation do
       }
 
   """
-  @type principal_permissions() :: %{String.t() => any()}
+  @type principal_permissions() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       entity_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type entity_not_found_exception() :: %{String.t() => any()}
+  @type entity_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       operation_timeout_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type operation_timeout_exception() :: %{String.t() => any()}
+  @type operation_timeout_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_resources_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "ResourceInfoList" => list(resource_info())
       }
 
   """
-  @type list_resources_response() :: %{String.t() => any()}
+  @type list_resources_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       l_f_tag_expression() :: %{
-        "CatalogId" => String.t(),
-        "Description" => String.t(),
+        "CatalogId" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
         "Expression" => list(l_f_tag()),
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type l_f_tag_expression() :: %{String.t() => any()}
+  @type l_f_tag_expression() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -168,7 +171,7 @@ defmodule AWS.LakeFormation do
       }
 
   """
-  @type describe_resource_response() :: %{String.t() => any()}
+  @type describe_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -177,25 +180,25 @@ defmodule AWS.LakeFormation do
       filter_condition() :: %{
         "ComparisonOperator" => list(any()),
         "Field" => list(any()),
-        "StringValueList" => list(String.t())
+        "StringValueList" => list(String.t() | Atom.t())
       }
 
   """
-  @type filter_condition() :: %{String.t() => any()}
+  @type filter_condition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_l_f_tag_request() :: %{
-        optional("CatalogId") => String.t(),
-        optional("TagValuesToAdd") => list(String.t()),
-        optional("TagValuesToDelete") => list(String.t()),
-        required("TagKey") => String.t()
+        optional("CatalogId") => String.t() | Atom.t(),
+        optional("TagValuesToAdd") => list(String.t() | Atom.t()),
+        optional("TagValuesToDelete") => list(String.t() | Atom.t()),
+        required("TagKey") => String.t() | Atom.t()
       }
 
   """
-  @type update_l_f_tag_request() :: %{String.t() => any()}
+  @type update_l_f_tag_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -203,37 +206,37 @@ defmodule AWS.LakeFormation do
 
       query_session_context() :: %{
         "AdditionalContext" => map(),
-        "ClusterId" => String.t(),
-        "QueryAuthorizationId" => String.t(),
-        "QueryId" => String.t(),
+        "ClusterId" => String.t() | Atom.t(),
+        "QueryAuthorizationId" => String.t() | Atom.t(),
+        "QueryId" => String.t() | Atom.t(),
         "QueryStartTime" => non_neg_integer()
       }
 
   """
-  @type query_session_context() :: %{String.t() => any()}
+  @type query_session_context() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       l_f_tag() :: %{
-        "TagKey" => String.t(),
-        "TagValues" => list(String.t())
+        "TagKey" => String.t() | Atom.t(),
+        "TagValues" => list(String.t() | Atom.t())
       }
 
   """
-  @type l_f_tag() :: %{String.t() => any()}
+  @type l_f_tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       expired_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type expired_exception() :: %{String.t() => any()}
+  @type expired_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -242,49 +245,49 @@ defmodule AWS.LakeFormation do
       update_resource_request() :: %{
         optional("HybridAccessEnabled") => boolean(),
         optional("WithFederation") => boolean(),
-        required("ResourceArn") => String.t(),
-        required("RoleArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t(),
+        required("RoleArn") => String.t() | Atom.t()
       }
 
   """
-  @type update_resource_request() :: %{String.t() => any()}
+  @type update_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_table_storage_optimizer_request() :: %{
-        optional("CatalogId") => String.t(),
-        required("DatabaseName") => String.t(),
+        optional("CatalogId") => String.t() | Atom.t(),
+        required("DatabaseName") => String.t() | Atom.t(),
         required("StorageOptimizerConfig") => map(),
-        required("TableName") => String.t()
+        required("TableName") => String.t() | Atom.t()
       }
 
   """
-  @type update_table_storage_optimizer_request() :: %{String.t() => any()}
+  @type update_table_storage_optimizer_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       commit_transaction_request() :: %{
-        required("TransactionId") => String.t()
+        required("TransactionId") => String.t() | Atom.t()
       }
 
   """
-  @type commit_transaction_request() :: %{String.t() => any()}
+  @type commit_transaction_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_l_f_tag_request() :: %{
-        optional("CatalogId") => String.t(),
-        required("TagKey") => String.t()
+        optional("CatalogId") => String.t() | Atom.t(),
+        required("TagKey") => String.t() | Atom.t()
       }
 
   """
-  @type get_l_f_tag_request() :: %{String.t() => any()}
+  @type get_l_f_tag_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -297,18 +300,18 @@ defmodule AWS.LakeFormation do
       }
 
   """
-  @type get_resource_l_f_tags_response() :: %{String.t() => any()}
+  @type get_resource_l_f_tags_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_transaction_request() :: %{
-        required("TransactionId") => String.t()
+        required("TransactionId") => String.t() | Atom.t()
       }
 
   """
-  @type cancel_transaction_request() :: %{String.t() => any()}
+  @type cancel_transaction_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -319,35 +322,35 @@ defmodule AWS.LakeFormation do
       }
 
   """
-  @type describe_transaction_response() :: %{String.t() => any()}
+  @type describe_transaction_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       l_f_tag_policy_resource() :: %{
-        "CatalogId" => String.t(),
+        "CatalogId" => String.t() | Atom.t(),
         "Expression" => list(l_f_tag()),
-        "ExpressionName" => String.t(),
+        "ExpressionName" => String.t() | Atom.t(),
         "ResourceType" => list(any())
       }
 
   """
-  @type l_f_tag_policy_resource() :: %{String.t() => any()}
+  @type l_f_tag_policy_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       table_resource() :: %{
-        "CatalogId" => String.t(),
-        "DatabaseName" => String.t(),
-        "Name" => String.t(),
+        "CatalogId" => String.t() | Atom.t(),
+        "DatabaseName" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "TableWildcard" => table_wildcard()
       }
 
   """
-  @type table_resource() :: %{String.t() => any()}
+  @type table_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -359,7 +362,7 @@ defmodule AWS.LakeFormation do
       }
 
   """
-  @type l_f_tag_error() :: %{String.t() => any()}
+  @type l_f_tag_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -373,18 +376,18 @@ defmodule AWS.LakeFormation do
       }
 
   """
-  @type planning_statistics() :: %{String.t() => any()}
+  @type planning_statistics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       already_exists_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type already_exists_exception() :: %{String.t() => any()}
+  @type already_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -392,13 +395,16 @@ defmodule AWS.LakeFormation do
 
       update_lake_formation_identity_center_configuration_request() :: %{
         optional("ApplicationStatus") => list(any()),
-        optional("CatalogId") => String.t(),
+        optional("CatalogId") => String.t() | Atom.t(),
         optional("ExternalFiltering") => external_filtering_configuration(),
         optional("ShareRecipients") => list(data_lake_principal())
       }
 
   """
-  @type update_lake_formation_identity_center_configuration_request() :: %{String.t() => any()}
+  @type update_lake_formation_identity_center_configuration_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -414,65 +420,68 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       list_l_f_tag_expressions_request() :: %{
-        optional("CatalogId") => String.t(),
+        optional("CatalogId") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_l_f_tag_expressions_request() :: %{String.t() => any()}
+  @type list_l_f_tag_expressions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_lake_formation_identity_center_configuration_request() :: %{
-        optional("CatalogId") => String.t(),
+        optional("CatalogId") => String.t() | Atom.t(),
         optional("ExternalFiltering") => external_filtering_configuration(),
-        optional("InstanceArn") => String.t(),
+        optional("InstanceArn") => String.t() | Atom.t(),
         optional("ShareRecipients") => list(data_lake_principal())
       }
 
   """
-  @type create_lake_formation_identity_center_configuration_request() :: %{String.t() => any()}
+  @type create_lake_formation_identity_center_configuration_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       list_transactions_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Transactions" => list(transaction_description())
       }
 
   """
-  @type list_transactions_response() :: %{String.t() => any()}
+  @type list_transactions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_temporary_glue_partition_credentials_response() :: %{
-        "AccessKeyId" => String.t(),
+        "AccessKeyId" => String.t() | Atom.t(),
         "Expiration" => non_neg_integer(),
-        "SecretAccessKey" => String.t(),
-        "SessionToken" => String.t()
+        "SecretAccessKey" => String.t() | Atom.t(),
+        "SessionToken" => String.t() | Atom.t()
       }
 
   """
-  @type get_temporary_glue_partition_credentials_response() :: %{String.t() => any()}
+  @type get_temporary_glue_partition_credentials_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       database_resource() :: %{
-        "CatalogId" => String.t(),
-        "Name" => String.t()
+        "CatalogId" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type database_resource() :: %{String.t() => any()}
+  @type database_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -485,7 +494,7 @@ defmodule AWS.LakeFormation do
       }
 
   """
-  @type delete_lake_formation_opt_in_request() :: %{String.t() => any()}
+  @type delete_lake_formation_opt_in_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -501,14 +510,14 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       create_l_f_tag_expression_request() :: %{
-        optional("CatalogId") => String.t(),
-        optional("Description") => String.t(),
+        optional("CatalogId") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
         required("Expression") => list(l_f_tag()),
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
 
   """
-  @type create_l_f_tag_expression_request() :: %{String.t() => any()}
+  @type create_l_f_tag_expression_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -522,7 +531,7 @@ defmodule AWS.LakeFormation do
       }
 
   """
-  @type tagged_table() :: %{String.t() => any()}
+  @type tagged_table() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -532,7 +541,7 @@ defmodule AWS.LakeFormation do
         "AdditionalDetails" => details_map(),
         "Condition" => condition(),
         "LastUpdated" => non_neg_integer(),
-        "LastUpdatedBy" => String.t(),
+        "LastUpdatedBy" => String.t() | Atom.t(),
         "Permissions" => list(list(any())()),
         "PermissionsWithGrantOption" => list(list(any())()),
         "Principal" => data_lake_principal(),
@@ -540,58 +549,58 @@ defmodule AWS.LakeFormation do
       }
 
   """
-  @type principal_resource_permissions() :: %{String.t() => any()}
+  @type principal_resource_permissions() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_table_storage_optimizers_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "StorageOptimizerList" => list(storage_optimizer())
       }
 
   """
-  @type list_table_storage_optimizers_response() :: %{String.t() => any()}
+  @type list_table_storage_optimizers_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       search_tables_by_l_f_tags_request() :: %{
-        optional("CatalogId") => String.t(),
+        optional("CatalogId") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         required("Expression") => list(l_f_tag())
       }
 
   """
-  @type search_tables_by_l_f_tags_request() :: %{String.t() => any()}
+  @type search_tables_by_l_f_tags_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_l_f_tag_expression_request() :: %{
-        optional("CatalogId") => String.t(),
-        optional("Description") => String.t(),
+        optional("CatalogId") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
         required("Expression") => list(l_f_tag()),
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
 
   """
-  @type update_l_f_tag_expression_request() :: %{String.t() => any()}
+  @type update_l_f_tag_expression_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       transaction_canceled_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type transaction_canceled_exception() :: %{String.t() => any()}
+  @type transaction_canceled_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -599,46 +608,46 @@ defmodule AWS.LakeFormation do
 
       partition_objects() :: %{
         "Objects" => list(table_object()),
-        "PartitionValues" => list(String.t())
+        "PartitionValues" => list(String.t() | Atom.t())
       }
 
   """
-  @type partition_objects() :: %{String.t() => any()}
+  @type partition_objects() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_query_state_request() :: %{
-        required("QueryId") => String.t()
+        required("QueryId") => String.t() | Atom.t()
       }
 
   """
-  @type get_query_state_request() :: %{String.t() => any()}
+  @type get_query_state_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_service_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_service_exception() :: %{String.t() => any()}
+  @type internal_service_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_l_f_tag_response() :: %{
-        "CatalogId" => String.t(),
-        "TagKey" => String.t(),
-        "TagValues" => list(String.t())
+        "CatalogId" => String.t() | Atom.t(),
+        "TagKey" => String.t() | Atom.t(),
+        "TagValues" => list(String.t() | Atom.t())
       }
 
   """
-  @type get_l_f_tag_response() :: %{String.t() => any()}
+  @type get_l_f_tag_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -654,13 +663,13 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       create_l_f_tag_request() :: %{
-        optional("CatalogId") => String.t(),
-        required("TagKey") => String.t(),
-        required("TagValues") => list(String.t())
+        optional("CatalogId") => String.t() | Atom.t(),
+        required("TagKey") => String.t() | Atom.t(),
+        required("TagValues") => list(String.t() | Atom.t())
       }
 
   """
-  @type create_l_f_tag_request() :: %{String.t() => any()}
+  @type create_l_f_tag_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -668,11 +677,11 @@ defmodule AWS.LakeFormation do
 
       list_lake_formation_opt_ins_response() :: %{
         "LakeFormationOptInsInfoList" => list(lake_formation_opt_ins_info()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_lake_formation_opt_ins_response() :: %{String.t() => any()}
+  @type list_lake_formation_opt_ins_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -680,35 +689,35 @@ defmodule AWS.LakeFormation do
 
       list_data_cells_filter_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("Table") => table_resource()
       }
 
   """
-  @type list_data_cells_filter_request() :: %{String.t() => any()}
+  @type list_data_cells_filter_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_number_limit_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_number_limit_exceeded_exception() :: %{String.t() => any()}
+  @type resource_number_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       virtual_object() :: %{
-        "ETag" => String.t(),
-        "Uri" => String.t()
+        "ETag" => String.t() | Atom.t(),
+        "Uri" => String.t() | Atom.t()
       }
 
   """
-  @type virtual_object() :: %{String.t() => any()}
+  @type virtual_object() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -719,18 +728,18 @@ defmodule AWS.LakeFormation do
       }
 
   """
-  @type start_transaction_request() :: %{String.t() => any()}
+  @type start_transaction_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       transaction_commit_in_progress_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type transaction_commit_in_progress_exception() :: %{String.t() => any()}
+  @type transaction_commit_in_progress_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -738,25 +747,25 @@ defmodule AWS.LakeFormation do
 
       list_l_f_tag_expressions_response() :: %{
         "LFTagExpressions" => list(l_f_tag_expression()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_l_f_tag_expressions_response() :: %{String.t() => any()}
+  @type list_l_f_tag_expressions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_transactions_request() :: %{
-        optional("CatalogId") => String.t(),
+        optional("CatalogId") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("StatusFilter") => list(any())
       }
 
   """
-  @type list_transactions_request() :: %{String.t() => any()}
+  @type list_transactions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -772,15 +781,15 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       query_planning_context() :: %{
-        "CatalogId" => String.t(),
-        "DatabaseName" => String.t(),
+        "CatalogId" => String.t() | Atom.t(),
+        "DatabaseName" => String.t() | Atom.t(),
         "QueryAsOfTime" => non_neg_integer(),
         "QueryParameters" => map(),
-        "TransactionId" => String.t()
+        "TransactionId" => String.t() | Atom.t()
       }
 
   """
-  @type query_planning_context() :: %{String.t() => any()}
+  @type query_planning_context() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -793,25 +802,25 @@ defmodule AWS.LakeFormation do
       }
 
   """
-  @type create_lake_formation_opt_in_request() :: %{String.t() => any()}
+  @type create_lake_formation_opt_in_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_table_objects_request() :: %{
-        optional("CatalogId") => String.t(),
+        optional("CatalogId") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("PartitionPredicate") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("PartitionPredicate") => String.t() | Atom.t(),
         optional("QueryAsOfTime") => non_neg_integer(),
-        optional("TransactionId") => String.t(),
-        required("DatabaseName") => String.t(),
-        required("TableName") => String.t()
+        optional("TransactionId") => String.t() | Atom.t(),
+        required("DatabaseName") => String.t() | Atom.t(),
+        required("TableName") => String.t() | Atom.t()
       }
 
   """
-  @type get_table_objects_request() :: %{String.t() => any()}
+  @type get_table_objects_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -819,22 +828,22 @@ defmodule AWS.LakeFormation do
 
       start_query_planning_request() :: %{
         required("QueryPlanningContext") => query_planning_context(),
-        required("QueryString") => String.t()
+        required("QueryString") => String.t() | Atom.t()
       }
 
   """
-  @type start_query_planning_request() :: %{String.t() => any()}
+  @type start_query_planning_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       data_lake_principal() :: %{
-        "DataLakePrincipalIdentifier" => String.t()
+        "DataLakePrincipalIdentifier" => String.t() | Atom.t()
       }
 
   """
-  @type data_lake_principal() :: %{String.t() => any()}
+  @type data_lake_principal() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -845,48 +854,48 @@ defmodule AWS.LakeFormation do
       }
 
   """
-  @type add_l_f_tags_to_resource_response() :: %{String.t() => any()}
+  @type add_l_f_tags_to_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       data_cells_filter() :: %{
-        "ColumnNames" => list(String.t()),
+        "ColumnNames" => list(String.t() | Atom.t()),
         "ColumnWildcard" => column_wildcard(),
-        "DatabaseName" => String.t(),
-        "Name" => String.t(),
+        "DatabaseName" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "RowFilter" => row_filter(),
-        "TableCatalogId" => String.t(),
-        "TableName" => String.t(),
-        "VersionId" => String.t()
+        "TableCatalogId" => String.t() | Atom.t(),
+        "TableName" => String.t() | Atom.t(),
+        "VersionId" => String.t() | Atom.t()
       }
 
   """
-  @type data_cells_filter() :: %{String.t() => any()}
+  @type data_cells_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_l_f_tag_expression_request() :: %{
-        optional("CatalogId") => String.t(),
-        required("Name") => String.t()
+        optional("CatalogId") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t()
       }
 
   """
-  @type delete_l_f_tag_expression_request() :: %{String.t() => any()}
+  @type delete_l_f_tag_expression_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       throttled_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type throttled_exception() :: %{String.t() => any()}
+  @type throttled_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -894,26 +903,26 @@ defmodule AWS.LakeFormation do
 
       storage_optimizer() :: %{
         "Config" => map(),
-        "ErrorMessage" => String.t(),
-        "LastRunDetails" => String.t(),
+        "ErrorMessage" => String.t() | Atom.t(),
+        "LastRunDetails" => String.t() | Atom.t(),
         "StorageOptimizerType" => list(any()),
-        "Warnings" => String.t()
+        "Warnings" => String.t() | Atom.t()
       }
 
   """
-  @type storage_optimizer() :: %{String.t() => any()}
+  @type storage_optimizer() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       data_location_resource() :: %{
-        "CatalogId" => String.t(),
-        "ResourceArn" => String.t()
+        "CatalogId" => String.t() | Atom.t(),
+        "ResourceArn" => String.t() | Atom.t()
       }
 
   """
-  @type data_location_resource() :: %{String.t() => any()}
+  @type data_location_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -947,24 +956,24 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       partition_value_list() :: %{
-        "Values" => list(String.t())
+        "Values" => list(String.t() | Atom.t())
       }
 
   """
-  @type partition_value_list() :: %{String.t() => any()}
+  @type partition_value_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_work_unit_results_request() :: %{
-        required("QueryId") => String.t(),
+        required("QueryId") => String.t() | Atom.t(),
         required("WorkUnitId") => float(),
-        required("WorkUnitToken") => String.t()
+        required("WorkUnitToken") => String.t() | Atom.t()
       }
 
   """
-  @type get_work_unit_results_request() :: %{String.t() => any()}
+  @type get_work_unit_results_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -972,11 +981,11 @@ defmodule AWS.LakeFormation do
 
       search_databases_by_l_f_tags_response() :: %{
         "DatabaseList" => list(tagged_database()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type search_databases_by_l_f_tags_response() :: %{String.t() => any()}
+  @type search_databases_by_l_f_tags_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -992,11 +1001,11 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       get_data_lake_settings_request() :: %{
-        optional("CatalogId") => String.t()
+        optional("CatalogId") => String.t() | Atom.t()
       }
 
   """
-  @type get_data_lake_settings_request() :: %{String.t() => any()}
+  @type get_data_lake_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1008,11 +1017,11 @@ defmodule AWS.LakeFormation do
         optional("Permissions") => list(list(any())()),
         optional("SupportedPermissionTypes") => list(list(any())()),
         required("Partition") => partition_value_list(),
-        required("TableArn") => String.t()
+        required("TableArn") => String.t() | Atom.t()
       }
 
   """
-  @type get_temporary_glue_partition_credentials_request() :: %{String.t() => any()}
+  @type get_temporary_glue_partition_credentials_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1028,22 +1037,22 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       transaction_committed_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type transaction_committed_exception() :: %{String.t() => any()}
+  @type transaction_committed_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       column_wildcard() :: %{
-        "ExcludedColumnNames" => list(String.t())
+        "ExcludedColumnNames" => list(String.t() | Atom.t())
       }
 
   """
-  @type column_wildcard() :: %{String.t() => any()}
+  @type column_wildcard() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1051,7 +1060,7 @@ defmodule AWS.LakeFormation do
 
       batch_permissions_request_entry() :: %{
         "Condition" => condition(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "Permissions" => list(list(any())()),
         "PermissionsWithGrantOption" => list(list(any())()),
         "Principal" => data_lake_principal(),
@@ -1059,7 +1068,7 @@ defmodule AWS.LakeFormation do
       }
 
   """
-  @type batch_permissions_request_entry() :: %{String.t() => any()}
+  @type batch_permissions_request_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1079,7 +1088,7 @@ defmodule AWS.LakeFormation do
       }
 
   """
-  @type commit_transaction_response() :: %{String.t() => any()}
+  @type commit_transaction_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1095,11 +1104,11 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       catalog_resource() :: %{
-        "Id" => String.t()
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type catalog_resource() :: %{String.t() => any()}
+  @type catalog_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1115,24 +1124,24 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       table_object() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "Size" => float(),
-        "Uri" => String.t()
+        "Uri" => String.t() | Atom.t()
       }
 
   """
-  @type table_object() :: %{String.t() => any()}
+  @type table_object() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_transaction_request() :: %{
-        required("TransactionId") => String.t()
+        required("TransactionId") => String.t() | Atom.t()
       }
 
   """
-  @type describe_transaction_request() :: %{String.t() => any()}
+  @type describe_transaction_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1141,13 +1150,13 @@ defmodule AWS.LakeFormation do
       lake_formation_opt_ins_info() :: %{
         "Condition" => condition(),
         "LastModified" => non_neg_integer(),
-        "LastUpdatedBy" => String.t(),
+        "LastUpdatedBy" => String.t() | Atom.t(),
         "Principal" => data_lake_principal(),
         "Resource" => resource()
       }
 
   """
-  @type lake_formation_opt_ins_info() :: %{String.t() => any()}
+  @type lake_formation_opt_ins_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1158,69 +1167,69 @@ defmodule AWS.LakeFormation do
       }
 
   """
-  @type remove_l_f_tags_from_resource_response() :: %{String.t() => any()}
+  @type remove_l_f_tags_from_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       details_map() :: %{
-        "ResourceShare" => list(String.t())
+        "ResourceShare" => list(String.t() | Atom.t())
       }
 
   """
-  @type details_map() :: %{String.t() => any()}
+  @type details_map() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_work_units_request() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("PageSize") => [integer()],
-        required("QueryId") => String.t()
+        required("QueryId") => String.t() | Atom.t()
       }
 
   """
-  @type get_work_units_request() :: %{String.t() => any()}
+  @type get_work_units_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       search_tables_by_l_f_tags_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "TableList" => list(tagged_table())
       }
 
   """
-  @type search_tables_by_l_f_tags_response() :: %{String.t() => any()}
+  @type search_tables_by_l_f_tags_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       add_object_input() :: %{
-        "ETag" => String.t(),
-        "PartitionValues" => list(String.t()),
+        "ETag" => String.t() | Atom.t(),
+        "PartitionValues" => list(String.t() | Atom.t()),
         "Size" => float(),
-        "Uri" => String.t()
+        "Uri" => String.t() | Atom.t()
       }
 
   """
-  @type add_object_input() :: %{String.t() => any()}
+  @type add_object_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       l_f_tag_expression_resource() :: %{
-        "CatalogId" => String.t(),
-        "Name" => String.t()
+        "CatalogId" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type l_f_tag_expression_resource() :: %{String.t() => any()}
+  @type l_f_tag_expression_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1228,40 +1237,40 @@ defmodule AWS.LakeFormation do
 
       transaction_description() :: %{
         "TransactionEndTime" => non_neg_integer(),
-        "TransactionId" => String.t(),
+        "TransactionId" => String.t() | Atom.t(),
         "TransactionStartTime" => non_neg_integer(),
         "TransactionStatus" => list(any())
       }
 
   """
-  @type transaction_description() :: %{String.t() => any()}
+  @type transaction_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_resource_l_f_tags_request() :: %{
-        optional("CatalogId") => String.t(),
+        optional("CatalogId") => String.t() | Atom.t(),
         optional("ShowAssignedLFTags") => boolean(),
         required("Resource") => resource()
       }
 
   """
-  @type get_resource_l_f_tags_request() :: %{String.t() => any()}
+  @type get_resource_l_f_tags_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_l_f_tag_expression_response() :: %{
-        "CatalogId" => String.t(),
-        "Description" => String.t(),
+        "CatalogId" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
         "Expression" => list(l_f_tag()),
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type get_l_f_tag_expression_response() :: %{String.t() => any()}
+  @type get_l_f_tag_expression_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1269,22 +1278,22 @@ defmodule AWS.LakeFormation do
 
       row_filter() :: %{
         "AllRowsWildcard" => all_rows_wildcard(),
-        "FilterExpression" => String.t()
+        "FilterExpression" => String.t() | Atom.t()
       }
 
   """
-  @type row_filter() :: %{String.t() => any()}
+  @type row_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_input_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_input_exception() :: %{String.t() => any()}
+  @type invalid_input_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1304,7 +1313,7 @@ defmodule AWS.LakeFormation do
       }
 
   """
-  @type get_data_lake_settings_response() :: %{String.t() => any()}
+  @type get_data_lake_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1315,7 +1324,7 @@ defmodule AWS.LakeFormation do
       }
 
   """
-  @type update_data_cells_filter_request() :: %{String.t() => any()}
+  @type update_data_cells_filter_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1327,86 +1336,89 @@ defmodule AWS.LakeFormation do
       }
 
   """
-  @type write_operation() :: %{String.t() => any()}
+  @type write_operation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_temporary_glue_table_credentials_response() :: %{
-        "AccessKeyId" => String.t(),
+        "AccessKeyId" => String.t() | Atom.t(),
         "Expiration" => non_neg_integer(),
-        "SecretAccessKey" => String.t(),
-        "SessionToken" => String.t(),
-        "VendedS3Path" => list(String.t())
+        "SecretAccessKey" => String.t() | Atom.t(),
+        "SessionToken" => String.t() | Atom.t(),
+        "VendedS3Path" => list(String.t() | Atom.t())
       }
 
   """
-  @type get_temporary_glue_table_credentials_response() :: %{String.t() => any()}
+  @type get_temporary_glue_table_credentials_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_lake_formation_identity_center_configuration_response() :: %{
-        "ApplicationArn" => String.t(),
-        "CatalogId" => String.t(),
+        "ApplicationArn" => String.t() | Atom.t(),
+        "CatalogId" => String.t() | Atom.t(),
         "ExternalFiltering" => external_filtering_configuration(),
-        "InstanceArn" => String.t(),
-        "ResourceShare" => String.t(),
+        "InstanceArn" => String.t() | Atom.t(),
+        "ResourceShare" => String.t() | Atom.t(),
         "ShareRecipients" => list(data_lake_principal())
       }
 
   """
-  @type describe_lake_formation_identity_center_configuration_response() :: %{String.t() => any()}
+  @type describe_lake_formation_identity_center_configuration_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       get_query_state_response() :: %{
-        "Error" => String.t(),
+        "Error" => String.t() | Atom.t(),
         "State" => list(any())
       }
 
   """
-  @type get_query_state_response() :: %{String.t() => any()}
+  @type get_query_state_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       condition() :: %{
-        "Expression" => String.t()
+        "Expression" => String.t() | Atom.t()
       }
 
   """
-  @type condition() :: %{String.t() => any()}
+  @type condition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       l_f_tag_pair() :: %{
-        "CatalogId" => String.t(),
-        "TagKey" => String.t(),
-        "TagValues" => list(String.t())
+        "CatalogId" => String.t() | Atom.t(),
+        "TagKey" => String.t() | Atom.t(),
+        "TagValues" => list(String.t() | Atom.t())
       }
 
   """
-  @type l_f_tag_pair() :: %{String.t() => any()}
+  @type l_f_tag_pair() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_l_f_tag_request() :: %{
-        optional("CatalogId") => String.t(),
-        required("TagKey") => String.t()
+        optional("CatalogId") => String.t() | Atom.t(),
+        required("TagKey") => String.t() | Atom.t()
       }
 
   """
-  @type delete_l_f_tag_request() :: %{String.t() => any()}
+  @type delete_l_f_tag_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1414,24 +1426,27 @@ defmodule AWS.LakeFormation do
 
       list_lake_formation_opt_ins_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("Principal") => data_lake_principal(),
         optional("Resource") => resource()
       }
 
   """
-  @type list_lake_formation_opt_ins_request() :: %{String.t() => any()}
+  @type list_lake_formation_opt_ins_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_lake_formation_identity_center_configuration_request() :: %{
-        optional("CatalogId") => String.t()
+        optional("CatalogId") => String.t() | Atom.t()
       }
 
   """
-  @type describe_lake_formation_identity_center_configuration_request() :: %{String.t() => any()}
+  @type describe_lake_formation_identity_center_configuration_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1456,17 +1471,17 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       list_permissions_request() :: %{
-        optional("CatalogId") => String.t(),
-        optional("IncludeRelated") => String.t(),
+        optional("CatalogId") => String.t() | Atom.t(),
+        optional("IncludeRelated") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("Principal") => data_lake_principal(),
         optional("Resource") => resource(),
         optional("ResourceType") => list(any())
       }
 
   """
-  @type list_permissions_request() :: %{String.t() => any()}
+  @type list_permissions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1477,22 +1492,22 @@ defmodule AWS.LakeFormation do
       }
 
   """
-  @type batch_revoke_permissions_response() :: %{String.t() => any()}
+  @type batch_revoke_permissions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_table_objects_request() :: %{
-        optional("CatalogId") => String.t(),
-        optional("TransactionId") => String.t(),
-        required("DatabaseName") => String.t(),
-        required("TableName") => String.t(),
+        optional("CatalogId") => String.t() | Atom.t(),
+        optional("TransactionId") => String.t() | Atom.t(),
+        required("DatabaseName") => String.t() | Atom.t(),
+        required("TableName") => String.t() | Atom.t(),
         required("WriteOperations") => list(write_operation())
       }
 
   """
-  @type update_table_objects_request() :: %{String.t() => any()}
+  @type update_table_objects_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1509,11 +1524,11 @@ defmodule AWS.LakeFormation do
 
       list_data_cells_filter_response() :: %{
         "DataCellsFilters" => list(data_cells_filter()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_data_cells_filter_response() :: %{String.t() => any()}
+  @type list_data_cells_filter_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1525,56 +1540,56 @@ defmodule AWS.LakeFormation do
       }
 
   """
-  @type batch_permissions_failure_entry() :: %{String.t() => any()}
+  @type batch_permissions_failure_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_effective_permissions_for_path_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Permissions" => list(principal_resource_permissions())
       }
 
   """
-  @type get_effective_permissions_for_path_response() :: %{String.t() => any()}
+  @type get_effective_permissions_for_path_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_grant_permissions_request() :: %{
-        optional("CatalogId") => String.t(),
+        optional("CatalogId") => String.t() | Atom.t(),
         required("Entries") => list(batch_permissions_request_entry())
       }
 
   """
-  @type batch_grant_permissions_request() :: %{String.t() => any()}
+  @type batch_grant_permissions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_table_storage_optimizer_response() :: %{
-        "Result" => String.t()
+        "Result" => String.t() | Atom.t()
       }
 
   """
-  @type update_table_storage_optimizer_response() :: %{String.t() => any()}
+  @type update_table_storage_optimizer_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_l_f_tags_request() :: %{
-        optional("CatalogId") => String.t(),
+        optional("CatalogId") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("ResourceShareType") => list(any())
       }
 
   """
-  @type list_l_f_tags_request() :: %{String.t() => any()}
+  @type list_l_f_tags_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1594,7 +1609,7 @@ defmodule AWS.LakeFormation do
       }
 
   """
-  @type get_work_unit_results_response() :: %{String.t() => any()}
+  @type get_work_unit_results_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1602,42 +1617,42 @@ defmodule AWS.LakeFormation do
 
       register_resource_request() :: %{
         optional("HybridAccessEnabled") => boolean(),
-        optional("RoleArn") => String.t(),
+        optional("RoleArn") => String.t() | Atom.t(),
         optional("UseServiceLinkedRole") => boolean(),
         optional("WithFederation") => boolean(),
         optional("WithPrivilegedAccess") => boolean(),
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
 
   """
-  @type register_resource_request() :: %{String.t() => any()}
+  @type register_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_objects_on_cancel_request() :: %{
-        optional("CatalogId") => String.t(),
-        required("DatabaseName") => String.t(),
+        optional("CatalogId") => String.t() | Atom.t(),
+        required("DatabaseName") => String.t() | Atom.t(),
         required("Objects") => list(virtual_object()),
-        required("TableName") => String.t(),
-        required("TransactionId") => String.t()
+        required("TableName") => String.t() | Atom.t(),
+        required("TransactionId") => String.t() | Atom.t()
       }
 
   """
-  @type delete_objects_on_cancel_request() :: %{String.t() => any()}
+  @type delete_objects_on_cancel_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       error_detail() :: %{
-        "ErrorCode" => String.t(),
-        "ErrorMessage" => String.t()
+        "ErrorCode" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | Atom.t()
       }
 
   """
-  @type error_detail() :: %{String.t() => any()}
+  @type error_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1655,40 +1670,40 @@ defmodule AWS.LakeFormation do
       data_lake_settings() :: %{
         "AllowExternalDataFiltering" => boolean(),
         "AllowFullTableExternalDataAccess" => boolean(),
-        "AuthorizedSessionTagValueList" => list(String.t()),
+        "AuthorizedSessionTagValueList" => list(String.t() | Atom.t()),
         "CreateDatabaseDefaultPermissions" => list(principal_permissions()),
         "CreateTableDefaultPermissions" => list(principal_permissions()),
         "DataLakeAdmins" => list(data_lake_principal()),
         "ExternalDataFilteringAllowList" => list(data_lake_principal()),
         "Parameters" => map(),
         "ReadOnlyAdmins" => list(data_lake_principal()),
-        "TrustedResourceOwners" => list(String.t())
+        "TrustedResourceOwners" => list(String.t() | Atom.t())
       }
 
   """
-  @type data_lake_settings() :: %{String.t() => any()}
+  @type data_lake_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       statistics_not_ready_yet_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type statistics_not_ready_yet_exception() :: %{String.t() => any()}
+  @type statistics_not_ready_yet_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1696,13 +1711,13 @@ defmodule AWS.LakeFormation do
 
       assume_decorated_role_with_saml_request() :: %{
         optional("DurationSeconds") => integer(),
-        required("PrincipalArn") => String.t(),
-        required("RoleArn") => String.t(),
-        required("SAMLAssertion") => String.t()
+        required("PrincipalArn") => String.t() | Atom.t(),
+        required("RoleArn") => String.t() | Atom.t(),
+        required("SAMLAssertion") => String.t() | Atom.t()
       }
 
   """
-  @type assume_decorated_role_with_saml_request() :: %{String.t() => any()}
+  @type assume_decorated_role_with_saml_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1713,19 +1728,19 @@ defmodule AWS.LakeFormation do
       }
 
   """
-  @type batch_grant_permissions_response() :: %{String.t() => any()}
+  @type batch_grant_permissions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       external_filtering_configuration() :: %{
-        "AuthorizedTargets" => list(String.t()),
+        "AuthorizedTargets" => list(String.t() | Atom.t()),
         "Status" => list(any())
       }
 
   """
-  @type external_filtering_configuration() :: %{String.t() => any()}
+  @type external_filtering_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1741,71 +1756,71 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       data_cells_filter_resource() :: %{
-        "DatabaseName" => String.t(),
-        "Name" => String.t(),
-        "TableCatalogId" => String.t(),
-        "TableName" => String.t()
+        "DatabaseName" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "TableCatalogId" => String.t() | Atom.t(),
+        "TableName" => String.t() | Atom.t()
       }
 
   """
-  @type data_cells_filter_resource() :: %{String.t() => any()}
+  @type data_cells_filter_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       concurrent_modification_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type concurrent_modification_exception() :: %{String.t() => any()}
+  @type concurrent_modification_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_query_statistics_request() :: %{
-        required("QueryId") => String.t()
+        required("QueryId") => String.t() | Atom.t()
       }
 
   """
-  @type get_query_statistics_request() :: %{String.t() => any()}
+  @type get_query_statistics_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       work_units_not_ready_yet_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type work_units_not_ready_yet_exception() :: %{String.t() => any()}
+  @type work_units_not_ready_yet_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       audit_context() :: %{
-        "AdditionalAuditContext" => String.t()
+        "AdditionalAuditContext" => String.t() | Atom.t()
       }
 
   """
-  @type audit_context() :: %{String.t() => any()}
+  @type audit_context() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_work_units_response() :: %{
-        "NextToken" => String.t(),
-        "QueryId" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
+        "QueryId" => String.t() | Atom.t(),
         "WorkUnitRanges" => list(work_unit_range())
       }
 
   """
-  @type get_work_units_response() :: %{String.t() => any()}
+  @type get_work_units_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1817,19 +1832,19 @@ defmodule AWS.LakeFormation do
       }
 
   """
-  @type tagged_database() :: %{String.t() => any()}
+  @type tagged_database() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_data_lake_settings_request() :: %{
-        optional("CatalogId") => String.t(),
+        optional("CatalogId") => String.t() | Atom.t(),
         required("DataLakeSettings") => data_lake_settings()
       }
 
   """
-  @type put_data_lake_settings_request() :: %{String.t() => any()}
+  @type put_data_lake_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1845,12 +1860,12 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       batch_revoke_permissions_request() :: %{
-        optional("CatalogId") => String.t(),
+        optional("CatalogId") => String.t() | Atom.t(),
         required("Entries") => list(batch_permissions_request_entry())
       }
 
   """
-  @type batch_revoke_permissions_request() :: %{String.t() => any()}
+  @type batch_revoke_permissions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1861,18 +1876,18 @@ defmodule AWS.LakeFormation do
       }
 
   """
-  @type create_data_cells_filter_request() :: %{String.t() => any()}
+  @type create_data_cells_filter_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       permission_type_mismatch_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type permission_type_mismatch_exception() :: %{String.t() => any()}
+  @type permission_type_mismatch_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1885,7 +1900,7 @@ defmodule AWS.LakeFormation do
       }
 
   """
-  @type execution_statistics() :: %{String.t() => any()}
+  @type execution_statistics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1898,7 +1913,7 @@ defmodule AWS.LakeFormation do
       }
 
   """
-  @type get_query_statistics_response() :: %{String.t() => any()}
+  @type get_query_statistics_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1907,63 +1922,63 @@ defmodule AWS.LakeFormation do
       resource_info() :: %{
         "HybridAccessEnabled" => boolean(),
         "LastModified" => non_neg_integer(),
-        "ResourceArn" => String.t(),
-        "RoleArn" => String.t(),
+        "ResourceArn" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | Atom.t(),
         "WithFederation" => boolean(),
         "WithPrivilegedAccess" => boolean()
       }
 
   """
-  @type resource_info() :: %{String.t() => any()}
+  @type resource_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_resource_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
 
   """
-  @type describe_resource_request() :: %{String.t() => any()}
+  @type describe_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_table_objects_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Objects" => list(partition_objects())
       }
 
   """
-  @type get_table_objects_response() :: %{String.t() => any()}
+  @type get_table_objects_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       extend_transaction_request() :: %{
-        optional("TransactionId") => String.t()
+        optional("TransactionId") => String.t() | Atom.t()
       }
 
   """
-  @type extend_transaction_request() :: %{String.t() => any()}
+  @type extend_transaction_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       table_with_columns_resource() :: %{
-        "CatalogId" => String.t(),
-        "ColumnNames" => list(String.t()),
+        "CatalogId" => String.t() | Atom.t(),
+        "ColumnNames" => list(String.t() | Atom.t()),
         "ColumnWildcard" => column_wildcard(),
-        "DatabaseName" => String.t(),
-        "Name" => String.t()
+        "DatabaseName" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type table_with_columns_resource() :: %{String.t() => any()}
+  @type table_with_columns_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1972,11 +1987,11 @@ defmodule AWS.LakeFormation do
       list_resources_request() :: %{
         optional("FilterConditionList") => list(filter_condition()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_resources_request() :: %{String.t() => any()}
+  @type list_resources_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1984,18 +1999,18 @@ defmodule AWS.LakeFormation do
 
       list_l_f_tags_response() :: %{
         "LFTags" => list(l_f_tag_pair()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_l_f_tags_response() :: %{String.t() => any()}
+  @type list_l_f_tags_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       revoke_permissions_request() :: %{
-        optional("CatalogId") => String.t(),
+        optional("CatalogId") => String.t() | Atom.t(),
         optional("Condition") => condition(),
         optional("PermissionsWithGrantOption") => list(list(any())()),
         required("Permissions") => list(list(any())()),
@@ -2004,32 +2019,35 @@ defmodule AWS.LakeFormation do
       }
 
   """
-  @type revoke_permissions_request() :: %{String.t() => any()}
+  @type revoke_permissions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_data_cells_filter_request() :: %{
-        optional("DatabaseName") => String.t(),
-        optional("Name") => String.t(),
-        optional("TableCatalogId") => String.t(),
-        optional("TableName") => String.t()
+        optional("DatabaseName") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t(),
+        optional("TableCatalogId") => String.t() | Atom.t(),
+        optional("TableName") => String.t() | Atom.t()
       }
 
   """
-  @type delete_data_cells_filter_request() :: %{String.t() => any()}
+  @type delete_data_cells_filter_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_lake_formation_identity_center_configuration_request() :: %{
-        optional("CatalogId") => String.t()
+        optional("CatalogId") => String.t() | Atom.t()
       }
 
   """
-  @type delete_lake_formation_identity_center_configuration_request() :: %{String.t() => any()}
+  @type delete_lake_formation_identity_center_configuration_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -2045,14 +2063,14 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       get_data_cells_filter_request() :: %{
-        required("DatabaseName") => String.t(),
-        required("Name") => String.t(),
-        required("TableCatalogId") => String.t(),
-        required("TableName") => String.t()
+        required("DatabaseName") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t(),
+        required("TableCatalogId") => String.t() | Atom.t(),
+        required("TableName") => String.t() | Atom.t()
       }
 
   """
-  @type get_data_cells_filter_request() :: %{String.t() => any()}
+  @type get_data_cells_filter_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2063,63 +2081,63 @@ defmodule AWS.LakeFormation do
         optional("DurationSeconds") => integer(),
         optional("Permissions") => list(list(any())()),
         optional("QuerySessionContext") => query_session_context(),
-        optional("S3Path") => String.t(),
+        optional("S3Path") => String.t() | Atom.t(),
         optional("SupportedPermissionTypes") => list(list(any())()),
-        required("TableArn") => String.t()
+        required("TableArn") => String.t() | Atom.t()
       }
 
   """
-  @type get_temporary_glue_table_credentials_request() :: %{String.t() => any()}
+  @type get_temporary_glue_table_credentials_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       glue_encryption_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type glue_encryption_exception() :: %{String.t() => any()}
+  @type glue_encryption_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_l_f_tag_expression_request() :: %{
-        optional("CatalogId") => String.t(),
-        required("Name") => String.t()
+        optional("CatalogId") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t()
       }
 
   """
-  @type get_l_f_tag_expression_request() :: %{String.t() => any()}
+  @type get_l_f_tag_expression_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       remove_l_f_tags_from_resource_request() :: %{
-        optional("CatalogId") => String.t(),
+        optional("CatalogId") => String.t() | Atom.t(),
         required("LFTags") => list(l_f_tag_pair()),
         required("Resource") => resource()
       }
 
   """
-  @type remove_l_f_tags_from_resource_request() :: %{String.t() => any()}
+  @type remove_l_f_tags_from_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_effective_permissions_for_path_request() :: %{
-        optional("CatalogId") => String.t(),
+        optional("CatalogId") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ResourceArn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ResourceArn") => String.t() | Atom.t()
       }
 
   """
-  @type get_effective_permissions_for_path_request() :: %{String.t() => any()}
+  @type get_effective_permissions_for_path_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2128,22 +2146,22 @@ defmodule AWS.LakeFormation do
       work_unit_range() :: %{
         "WorkUnitIdMax" => float(),
         "WorkUnitIdMin" => float(),
-        "WorkUnitToken" => String.t()
+        "WorkUnitToken" => String.t() | Atom.t()
       }
 
   """
-  @type work_unit_range() :: %{String.t() => any()}
+  @type work_unit_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_data_lake_principal_response() :: %{
-        "Identity" => String.t()
+        "Identity" => String.t() | Atom.t()
       }
 
   """
-  @type get_data_lake_principal_response() :: %{String.t() => any()}
+  @type get_data_lake_principal_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2154,43 +2172,43 @@ defmodule AWS.LakeFormation do
       }
 
   """
-  @type get_data_cells_filter_response() :: %{String.t() => any()}
+  @type get_data_cells_filter_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_ready_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_ready_exception() :: %{String.t() => any()}
+  @type resource_not_ready_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       assume_decorated_role_with_saml_response() :: %{
-        "AccessKeyId" => String.t(),
+        "AccessKeyId" => String.t() | Atom.t(),
         "Expiration" => non_neg_integer(),
-        "SecretAccessKey" => String.t(),
-        "SessionToken" => String.t()
+        "SecretAccessKey" => String.t() | Atom.t(),
+        "SessionToken" => String.t() | Atom.t()
       }
 
   """
-  @type assume_decorated_role_with_saml_response() :: %{String.t() => any()}
+  @type assume_decorated_role_with_saml_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       deregister_resource_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
 
   """
-  @type deregister_resource_request() :: %{String.t() => any()}
+  @type deregister_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2206,27 +2224,27 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       list_table_storage_optimizers_request() :: %{
-        optional("CatalogId") => String.t(),
+        optional("CatalogId") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("StorageOptimizerType") => list(any()),
-        required("DatabaseName") => String.t(),
-        required("TableName") => String.t()
+        required("DatabaseName") => String.t() | Atom.t(),
+        required("TableName") => String.t() | Atom.t()
       }
 
   """
-  @type list_table_storage_optimizers_request() :: %{String.t() => any()}
+  @type list_table_storage_optimizers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_transaction_response() :: %{
-        "TransactionId" => String.t()
+        "TransactionId" => String.t() | Atom.t()
       }
 
   """
-  @type start_transaction_response() :: %{String.t() => any()}
+  @type start_transaction_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2260,24 +2278,24 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       add_l_f_tags_to_resource_request() :: %{
-        optional("CatalogId") => String.t(),
+        optional("CatalogId") => String.t() | Atom.t(),
         required("LFTags") => list(l_f_tag_pair()),
         required("Resource") => resource()
       }
 
   """
-  @type add_l_f_tags_to_resource_request() :: %{String.t() => any()}
+  @type add_l_f_tags_to_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_query_planning_response() :: %{
-        "QueryId" => String.t()
+        "QueryId" => String.t() | Atom.t()
       }
 
   """
-  @type start_query_planning_response() :: %{String.t() => any()}
+  @type start_query_planning_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2285,11 +2303,11 @@ defmodule AWS.LakeFormation do
 
       column_l_f_tag() :: %{
         "LFTags" => list(l_f_tag_pair()),
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type column_l_f_tag() :: %{String.t() => any()}
+  @type column_l_f_tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2308,7 +2326,7 @@ defmodule AWS.LakeFormation do
       }
 
   """
-  @type resource() :: %{String.t() => any()}
+  @type resource() :: %{String.t() | Atom.t() => any()}
 
   @type add_l_f_tags_to_resource_errors() ::
           concurrent_modification_exception()

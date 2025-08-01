@@ -38,11 +38,11 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       create_connect_client_add_in_result() :: %{
-        "AddInId" => String.t()
+        "AddInId" => String.t() | Atom.t()
       }
       
   """
-  @type create_connect_client_add_in_result() :: %{String.t() => any()}
+  @type create_connect_client_add_in_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -50,11 +50,11 @@ defmodule AWS.WorkSpaces do
       
       association_state_reason() :: %{
         "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t()
+        "ErrorMessage" => String.t() | Atom.t()
       }
       
   """
-  @type association_state_reason() :: %{String.t() => any()}
+  @type association_state_reason() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -62,11 +62,11 @@ defmodule AWS.WorkSpaces do
       
       describe_account_modifications_result() :: %{
         "AccountModifications" => list(account_modification()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_account_modifications_result() :: %{String.t() => any()}
+  @type describe_account_modifications_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -95,7 +95,7 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type start_workspaces_result() :: %{String.t() => any()}
+  @type start_workspaces_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -106,7 +106,7 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type start_workspaces_request() :: %{String.t() => any()}
+  @type start_workspaces_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -117,7 +117,7 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type delete_account_link_invitation_result() :: %{String.t() => any()}
+  @type delete_account_link_invitation_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -134,76 +134,76 @@ defmodule AWS.WorkSpaces do
       
       describe_image_associations_request() :: %{
         required("AssociatedResourceTypes") => list(list(any())()),
-        required("ImageId") => String.t()
+        required("ImageId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_image_associations_request() :: %{String.t() => any()}
+  @type describe_image_associations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_account_request() :: %{
-        optional("DedicatedTenancyManagementCidrRange") => String.t(),
+        optional("DedicatedTenancyManagementCidrRange") => String.t() | Atom.t(),
         optional("DedicatedTenancySupport") => list(any())
       }
       
   """
-  @type modify_account_request() :: %{String.t() => any()}
+  @type modify_account_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_workspace_state_request() :: %{
-        required("WorkspaceId") => String.t(),
+        required("WorkspaceId") => String.t() | Atom.t(),
         required("WorkspaceState") => list(any())
       }
       
   """
-  @type modify_workspace_state_request() :: %{String.t() => any()}
+  @type modify_workspace_state_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       register_workspace_directory_result() :: %{
-        "DirectoryId" => String.t(),
+        "DirectoryId" => String.t() | Atom.t(),
         "State" => list(any())
       }
       
   """
-  @type register_workspace_directory_result() :: %{String.t() => any()}
+  @type register_workspace_directory_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_tags_request() :: %{
-        required("ResourceId") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceId") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type delete_tags_request() :: %{String.t() => any()}
+  @type delete_tags_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_workspaces_request() :: %{
-        optional("BundleId") => String.t(),
-        optional("DirectoryId") => String.t(),
+        optional("BundleId") => String.t() | Atom.t(),
+        optional("DirectoryId") => String.t() | Atom.t(),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t(),
-        optional("UserName") => String.t(),
-        optional("WorkspaceIds") => list(String.t()),
-        optional("WorkspaceName") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("UserName") => String.t() | Atom.t(),
+        optional("WorkspaceIds") => list(String.t() | Atom.t()),
+        optional("WorkspaceName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_workspaces_request() :: %{String.t() => any()}
+  @type describe_workspaces_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -219,22 +219,22 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       workspace_bundle() :: %{
-        "BundleId" => String.t(),
+        "BundleId" => String.t() | Atom.t(),
         "BundleType" => list(any()),
         "ComputeType" => compute_type(),
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "ImageId" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "ImageId" => String.t() | Atom.t(),
         "LastUpdatedTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "Owner" => String.t(),
+        "Name" => String.t() | Atom.t(),
+        "Owner" => String.t() | Atom.t(),
         "RootStorage" => root_storage(),
         "State" => list(any()),
         "UserStorage" => user_storage()
       }
       
   """
-  @type workspace_bundle() :: %{String.t() => any()}
+  @type workspace_bundle() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -243,11 +243,11 @@ defmodule AWS.WorkSpaces do
       standby_workspaces_properties() :: %{
         "DataReplication" => list(any()),
         "RecoverySnapshotTime" => non_neg_integer(),
-        "StandbyWorkspaceId" => String.t()
+        "StandbyWorkspaceId" => String.t() | Atom.t()
       }
       
   """
-  @type standby_workspaces_properties() :: %{String.t() => any()}
+  @type standby_workspaces_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -259,7 +259,7 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type modification_state() :: %{String.t() => any()}
+  @type modification_state() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -267,12 +267,12 @@ defmodule AWS.WorkSpaces do
       
       describe_connection_alias_permissions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("AliasId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("AliasId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_connection_alias_permissions_request() :: %{String.t() => any()}
+  @type describe_connection_alias_permissions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -280,11 +280,11 @@ defmodule AWS.WorkSpaces do
       
       describe_workspace_directories_filter() :: %{
         "Name" => list(any()),
-        "Values" => list(String.t())
+        "Values" => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_workspace_directories_filter() :: %{String.t() => any()}
+  @type describe_workspace_directories_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -292,21 +292,21 @@ defmodule AWS.WorkSpaces do
       
       workspace_image() :: %{
         "Created" => non_neg_integer(),
-        "Description" => String.t(),
-        "ErrorCode" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "ErrorCode" => String.t() | Atom.t(),
         "ErrorDetails" => list(error_details()),
-        "ErrorMessage" => String.t(),
-        "ImageId" => String.t(),
-        "Name" => String.t(),
+        "ErrorMessage" => String.t() | Atom.t(),
+        "ImageId" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "OperatingSystem" => operating_system(),
-        "OwnerAccountId" => String.t(),
+        "OwnerAccountId" => String.t() | Atom.t(),
         "RequiredTenancy" => list(any()),
         "State" => list(any()),
         "Updates" => update_result()
       }
       
   """
-  @type workspace_image() :: %{String.t() => any()}
+  @type workspace_image() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -314,23 +314,23 @@ defmodule AWS.WorkSpaces do
       
       describe_workspace_associations_request() :: %{
         required("AssociatedResourceTypes") => list(list(any())()),
-        required("WorkspaceId") => String.t()
+        required("WorkspaceId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_workspace_associations_request() :: %{String.t() => any()}
+  @type describe_workspace_associations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_in_use_exception() :: %{
-        "ResourceId" => String.t(),
-        "message" => String.t()
+        "ResourceId" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_in_use_exception() :: %{String.t() => any()}
+  @type resource_in_use_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -355,11 +355,11 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       delete_workspace_bundle_request() :: %{
-        optional("BundleId") => String.t()
+        optional("BundleId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_workspace_bundle_request() :: %{String.t() => any()}
+  @type delete_workspace_bundle_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -376,48 +376,48 @@ defmodule AWS.WorkSpaces do
       
       modify_client_properties_request() :: %{
         required("ClientProperties") => client_properties(),
-        required("ResourceId") => String.t()
+        required("ResourceId") => String.t() | Atom.t()
       }
       
   """
-  @type modify_client_properties_request() :: %{String.t() => any()}
+  @type modify_client_properties_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_result() :: %{
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "UpdateAvailable" => boolean()
       }
       
   """
-  @type update_result() :: %{String.t() => any()}
+  @type update_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_workspace_application_request() :: %{
-        required("ApplicationId") => String.t(),
-        required("WorkspaceId") => String.t()
+        required("ApplicationId") => String.t() | Atom.t(),
+        required("WorkspaceId") => String.t() | Atom.t()
       }
       
   """
-  @type associate_workspace_application_request() :: %{String.t() => any()}
+  @type associate_workspace_application_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       saml_properties() :: %{
-        "RelayStateParameterName" => String.t(),
+        "RelayStateParameterName" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "UserAccessUrl" => String.t()
+        "UserAccessUrl" => String.t() | Atom.t()
       }
       
   """
-  @type saml_properties() :: %{String.t() => any()}
+  @type saml_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -428,19 +428,19 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type rebuild_workspaces_request() :: %{String.t() => any()}
+  @type rebuild_workspaces_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       network_access_configuration() :: %{
-        "EniId" => String.t(),
-        "EniPrivateIpAddress" => String.t()
+        "EniId" => String.t() | Atom.t(),
+        "EniPrivateIpAddress" => String.t() | Atom.t()
       }
       
   """
-  @type network_access_configuration() :: %{String.t() => any()}
+  @type network_access_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -451,71 +451,71 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type accept_account_link_invitation_result() :: %{String.t() => any()}
+  @type accept_account_link_invitation_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_unavailable_exception() :: %{
-        "ResourceId" => String.t(),
-        "message" => String.t()
+        "ResourceId" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_unavailable_exception() :: %{String.t() => any()}
+  @type resource_unavailable_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_workspace_images_request() :: %{
-        optional("ImageIds") => list(String.t()),
+        optional("ImageIds") => list(String.t() | Atom.t()),
         optional("ImageType") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type describe_workspace_images_request() :: %{String.t() => any()}
+  @type describe_workspace_images_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       copy_workspace_image_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("Name") => String.t(),
-        required("SourceImageId") => String.t(),
-        required("SourceRegion") => String.t()
+        required("Name") => String.t() | Atom.t(),
+        required("SourceImageId") => String.t() | Atom.t(),
+        required("SourceRegion") => String.t() | Atom.t()
       }
       
   """
-  @type copy_workspace_image_request() :: %{String.t() => any()}
+  @type copy_workspace_image_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       revoke_ip_rules_request() :: %{
-        required("GroupId") => String.t(),
-        required("UserRules") => list(String.t())
+        required("GroupId") => String.t() | Atom.t(),
+        required("UserRules") => list(String.t() | Atom.t())
       }
       
   """
-  @type revoke_ip_rules_request() :: %{String.t() => any()}
+  @type revoke_ip_rules_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reboot_request() :: %{
-        "WorkspaceId" => String.t()
+        "WorkspaceId" => String.t() | Atom.t()
       }
       
   """
-  @type reboot_request() :: %{String.t() => any()}
+  @type reboot_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -526,20 +526,20 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type reboot_workspaces_request() :: %{String.t() => any()}
+  @type reboot_workspaces_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       failed_create_standby_workspaces_request() :: %{
-        "ErrorCode" => String.t(),
-        "ErrorMessage" => String.t(),
+        "ErrorCode" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | Atom.t(),
         "StandbyWorkspaceRequest" => standby_workspace()
       }
       
   """
-  @type failed_create_standby_workspaces_request() :: %{String.t() => any()}
+  @type failed_create_standby_workspaces_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -547,11 +547,11 @@ defmodule AWS.WorkSpaces do
       
       describe_connection_aliases_result() :: %{
         "ConnectionAliases" => list(connection_alias()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_connection_aliases_result() :: %{String.t() => any()}
+  @type describe_connection_aliases_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -563,20 +563,20 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type access_endpoint_config() :: %{String.t() => any()}
+  @type access_endpoint_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_workspace_image_permissions_result() :: %{
-        "ImageId" => String.t(),
+        "ImageId" => String.t() | Atom.t(),
         "ImagePermissions" => list(image_permission()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_workspace_image_permissions_result() :: %{String.t() => any()}
+  @type describe_workspace_image_permissions_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -592,34 +592,34 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       ios_client_branding_attributes() :: %{
-        "ForgotPasswordLink" => String.t(),
+        "ForgotPasswordLink" => String.t() | Atom.t(),
         "LoginMessage" => map(),
-        "Logo2xUrl" => String.t(),
-        "Logo3xUrl" => String.t(),
-        "LogoUrl" => String.t(),
-        "SupportEmail" => String.t(),
-        "SupportLink" => String.t()
+        "Logo2xUrl" => String.t() | Atom.t(),
+        "Logo3xUrl" => String.t() | Atom.t(),
+        "LogoUrl" => String.t() | Atom.t(),
+        "SupportEmail" => String.t() | Atom.t(),
+        "SupportLink" => String.t() | Atom.t()
       }
       
   """
-  @type ios_client_branding_attributes() :: %{String.t() => any()}
+  @type ios_client_branding_attributes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       image_resource_association() :: %{
-        "AssociatedResourceId" => String.t(),
+        "AssociatedResourceId" => String.t() | Atom.t(),
         "AssociatedResourceType" => list(any()),
         "Created" => non_neg_integer(),
-        "ImageId" => String.t(),
+        "ImageId" => String.t() | Atom.t(),
         "LastUpdatedTime" => non_neg_integer(),
         "State" => list(any()),
         "StateReason" => association_state_reason()
       }
       
   """
-  @type image_resource_association() :: %{String.t() => any()}
+  @type image_resource_association() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -630,18 +630,18 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type operating_system() :: %{String.t() => any()}
+  @type operating_system() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_workspaces_pool_request() :: %{
-        required("PoolId") => String.t()
+        required("PoolId") => String.t() | Atom.t()
       }
       
   """
-  @type start_workspaces_pool_request() :: %{String.t() => any()}
+  @type start_workspaces_pool_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -649,13 +649,13 @@ defmodule AWS.WorkSpaces do
       
       describe_application_associations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ApplicationId") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ApplicationId") => String.t() | Atom.t(),
         required("AssociatedResourceTypes") => list(list(any())())
       }
       
   """
-  @type describe_application_associations_request() :: %{String.t() => any()}
+  @type describe_application_associations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -664,57 +664,57 @@ defmodule AWS.WorkSpaces do
       create_workspace_bundle_request() :: %{
         optional("RootStorage") => root_storage(),
         optional("Tags") => list(tag()),
-        required("BundleDescription") => String.t(),
-        required("BundleName") => String.t(),
+        required("BundleDescription") => String.t() | Atom.t(),
+        required("BundleName") => String.t() | Atom.t(),
         required("ComputeType") => compute_type(),
-        required("ImageId") => String.t(),
+        required("ImageId") => String.t() | Atom.t(),
         required("UserStorage") => user_storage()
       }
       
   """
-  @type create_workspace_bundle_request() :: %{String.t() => any()}
+  @type create_workspace_bundle_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       related_workspace_properties() :: %{
-        "Region" => String.t(),
+        "Region" => String.t() | Atom.t(),
         "State" => list(any()),
         "Type" => list(any()),
-        "WorkspaceId" => String.t()
+        "WorkspaceId" => String.t() | Atom.t()
       }
       
   """
-  @type related_workspace_properties() :: %{String.t() => any()}
+  @type related_workspace_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       workspace_resource_association() :: %{
-        "AssociatedResourceId" => String.t(),
+        "AssociatedResourceId" => String.t() | Atom.t(),
         "AssociatedResourceType" => list(any()),
         "Created" => non_neg_integer(),
         "LastUpdatedTime" => non_neg_integer(),
         "State" => list(any()),
         "StateReason" => association_state_reason(),
-        "WorkspaceId" => String.t()
+        "WorkspaceId" => String.t() | Atom.t()
       }
       
   """
-  @type workspace_resource_association() :: %{String.t() => any()}
+  @type workspace_resource_association() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_connection_alias_request() :: %{
-        required("AliasId") => String.t()
+        required("AliasId") => String.t() | Atom.t()
       }
       
   """
-  @type disassociate_connection_alias_request() :: %{String.t() => any()}
+  @type disassociate_connection_alias_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -731,11 +731,11 @@ defmodule AWS.WorkSpaces do
       
       access_endpoint() :: %{
         "AccessEndpointType" => list(any()),
-        "VpcEndpointId" => String.t()
+        "VpcEndpointId" => String.t() | Atom.t()
       }
       
   """
-  @type access_endpoint() :: %{String.t() => any()}
+  @type access_endpoint() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -746,7 +746,7 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type capacity() :: %{String.t() => any()}
+  @type capacity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -762,18 +762,18 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type describe_client_branding_result() :: %{String.t() => any()}
+  @type describe_client_branding_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_workspace_image_request() :: %{
-        required("ImageId") => String.t()
+        required("ImageId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_workspace_image_request() :: %{String.t() => any()}
+  @type delete_workspace_image_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -781,12 +781,12 @@ defmodule AWS.WorkSpaces do
       
       list_available_management_cidr_ranges_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ManagementCidrRangeConstraint") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ManagementCidrRangeConstraint") => String.t() | Atom.t()
       }
       
   """
-  @type list_available_management_cidr_ranges_request() :: %{String.t() => any()}
+  @type list_available_management_cidr_ranges_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -797,7 +797,7 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type create_account_link_invitation_result() :: %{String.t() => any()}
+  @type create_account_link_invitation_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -809,7 +809,7 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type client_properties() :: %{String.t() => any()}
+  @type client_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -827,53 +827,53 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type workspace_properties() :: %{String.t() => any()}
+  @type workspace_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameter_combination_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_parameter_combination_exception() :: %{String.t() => any()}
+  @type invalid_parameter_combination_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_account_link_invitation_request() :: %{
-        optional("ClientToken") => String.t(),
-        required("TargetAccountId") => String.t()
+        optional("ClientToken") => String.t() | Atom.t(),
+        required("TargetAccountId") => String.t() | Atom.t()
       }
       
   """
-  @type create_account_link_invitation_request() :: %{String.t() => any()}
+  @type create_account_link_invitation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_ip_groups_request() :: %{
-        required("DirectoryId") => String.t(),
-        required("GroupIds") => list(String.t())
+        required("DirectoryId") => String.t() | Atom.t(),
+        required("GroupIds") => list(String.t() | Atom.t())
       }
       
   """
-  @type associate_ip_groups_request() :: %{String.t() => any()}
+  @type associate_ip_groups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_account_modifications_request() :: %{
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type describe_account_modifications_request() :: %{String.t() => any()}
+  @type describe_account_modifications_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -889,23 +889,23 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       unsupported_network_configuration_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type unsupported_network_configuration_exception() :: %{String.t() => any()}
+  @type unsupported_network_configuration_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_account_link_invitation_request() :: %{
-        optional("ClientToken") => String.t(),
-        required("LinkId") => String.t()
+        optional("ClientToken") => String.t() | Atom.t(),
+        required("LinkId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_account_link_invitation_request() :: %{String.t() => any()}
+  @type delete_account_link_invitation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -916,7 +916,7 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type rebuild_workspaces_result() :: %{String.t() => any()}
+  @type rebuild_workspaces_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -927,7 +927,7 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type create_workspace_bundle_result() :: %{String.t() => any()}
+  @type create_workspace_bundle_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -936,11 +936,11 @@ defmodule AWS.WorkSpaces do
       list_account_links_request() :: %{
         optional("LinkStatusFilter") => list(list(any())()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_account_links_request() :: %{String.t() => any()}
+  @type list_account_links_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -951,32 +951,32 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type update_workspaces_pool_result() :: %{String.t() => any()}
+  @type update_workspaces_pool_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       failed_workspace_change_request() :: %{
-        "ErrorCode" => String.t(),
-        "ErrorMessage" => String.t(),
-        "WorkspaceId" => String.t()
+        "ErrorCode" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | Atom.t(),
+        "WorkspaceId" => String.t() | Atom.t()
       }
       
   """
-  @type failed_workspace_change_request() :: %{String.t() => any()}
+  @type failed_workspace_change_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_available_management_cidr_ranges_result() :: %{
-        "ManagementCidrRanges" => list(String.t()),
-        "NextToken" => String.t()
+        "ManagementCidrRanges" => list(String.t() | Atom.t()),
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_available_management_cidr_ranges_result() :: %{String.t() => any()}
+  @type list_available_management_cidr_ranges_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -992,12 +992,12 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       describe_workspaces_pool_sessions_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Sessions" => list(workspaces_pool_session())
       }
       
   """
-  @type describe_workspaces_pool_sessions_result() :: %{String.t() => any()}
+  @type describe_workspaces_pool_sessions_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1013,12 +1013,12 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       create_tags_request() :: %{
-        required("ResourceId") => String.t(),
+        required("ResourceId") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
       
   """
-  @type create_tags_request() :: %{String.t() => any()}
+  @type create_tags_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1029,7 +1029,7 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type terminate_workspaces_result() :: %{String.t() => any()}
+  @type terminate_workspaces_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1040,7 +1040,7 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type create_workspaces_request() :: %{String.t() => any()}
+  @type create_workspaces_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1048,11 +1048,11 @@ defmodule AWS.WorkSpaces do
       
       connection_alias_permission() :: %{
         "AllowAssociation" => boolean(),
-        "SharedAccountId" => String.t()
+        "SharedAccountId" => String.t() | Atom.t()
       }
       
   """
-  @type connection_alias_permission() :: %{String.t() => any()}
+  @type connection_alias_permission() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1060,126 +1060,126 @@ defmodule AWS.WorkSpaces do
       
       modify_streaming_properties_request() :: %{
         optional("StreamingProperties") => streaming_properties(),
-        required("ResourceId") => String.t()
+        required("ResourceId") => String.t() | Atom.t()
       }
       
   """
-  @type modify_streaming_properties_request() :: %{String.t() => any()}
+  @type modify_streaming_properties_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_account_link_request() :: %{
-        optional("LinkId") => String.t(),
-        optional("LinkedAccountId") => String.t()
+        optional("LinkId") => String.t() | Atom.t(),
+        optional("LinkedAccountId") => String.t() | Atom.t()
       }
       
   """
-  @type get_account_link_request() :: %{String.t() => any()}
+  @type get_account_link_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_standby_workspaces_request() :: %{
-        required("PrimaryRegion") => String.t(),
+        required("PrimaryRegion") => String.t() | Atom.t(),
         required("StandbyWorkspaces") => list(standby_workspace())
       }
       
   """
-  @type create_standby_workspaces_request() :: %{String.t() => any()}
+  @type create_standby_workspaces_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       pending_create_standby_workspaces_request() :: %{
-        "DirectoryId" => String.t(),
+        "DirectoryId" => String.t() | Atom.t(),
         "State" => list(any()),
-        "UserName" => String.t(),
-        "WorkspaceId" => String.t()
+        "UserName" => String.t() | Atom.t(),
+        "WorkspaceId" => String.t() | Atom.t()
       }
       
   """
-  @type pending_create_standby_workspaces_request() :: %{String.t() => any()}
+  @type pending_create_standby_workspaces_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       account_modification() :: %{
-        "DedicatedTenancyManagementCidrRange" => String.t(),
+        "DedicatedTenancyManagementCidrRange" => String.t() | Atom.t(),
         "DedicatedTenancySupport" => list(any()),
-        "ErrorCode" => String.t(),
-        "ErrorMessage" => String.t(),
+        "ErrorCode" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | Atom.t(),
         "ModificationState" => list(any()),
         "StartTime" => non_neg_integer()
       }
       
   """
-  @type account_modification() :: %{String.t() => any()}
+  @type account_modification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       certificate_based_auth_properties() :: %{
-        "CertificateAuthorityArn" => String.t(),
+        "CertificateAuthorityArn" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type certificate_based_auth_properties() :: %{String.t() => any()}
+  @type certificate_based_auth_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       workspaces_ip_group() :: %{
-        "groupDesc" => String.t(),
-        "groupId" => String.t(),
-        "groupName" => String.t(),
+        "groupDesc" => String.t() | Atom.t(),
+        "groupId" => String.t() | Atom.t(),
+        "groupName" => String.t() | Atom.t(),
         "userRules" => list(ip_rule_item())
       }
       
   """
-  @type workspaces_ip_group() :: %{String.t() => any()}
+  @type workspaces_ip_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "ResourceId" => String.t(),
-        "message" => String.t()
+        "ResourceId" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       accept_account_link_invitation_request() :: %{
-        optional("ClientToken") => String.t(),
-        required("LinkId") => String.t()
+        optional("ClientToken") => String.t() | Atom.t(),
+        required("LinkId") => String.t() | Atom.t()
       }
       
   """
-  @type accept_account_link_invitation_request() :: %{String.t() => any()}
+  @type accept_account_link_invitation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1190,18 +1190,18 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type disassociate_workspace_application_result() :: %{String.t() => any()}
+  @type disassociate_workspace_application_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       root_storage() :: %{
-        "Capacity" => String.t()
+        "Capacity" => String.t() | Atom.t()
       }
       
   """
-  @type root_storage() :: %{String.t() => any()}
+  @type root_storage() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1214,18 +1214,18 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type timeout_settings() :: %{String.t() => any()}
+  @type timeout_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_ip_group_request() :: %{
-        required("GroupId") => String.t()
+        required("GroupId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_ip_group_request() :: %{String.t() => any()}
+  @type delete_ip_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1233,36 +1233,36 @@ defmodule AWS.WorkSpaces do
       
       workspaces_pool_error() :: %{
         "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t()
+        "ErrorMessage" => String.t() | Atom.t()
       }
       
   """
-  @type workspaces_pool_error() :: %{String.t() => any()}
+  @type workspaces_pool_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       default_workspace_creation_properties() :: %{
-        "CustomSecurityGroupId" => String.t(),
-        "DefaultOu" => String.t(),
+        "CustomSecurityGroupId" => String.t() | Atom.t(),
+        "DefaultOu" => String.t() | Atom.t(),
         "EnableInternetAccess" => boolean(),
         "EnableMaintenanceMode" => boolean(),
-        "InstanceIamRoleArn" => String.t(),
+        "InstanceIamRoleArn" => String.t() | Atom.t(),
         "UserEnabledAsLocalAdministrator" => boolean()
       }
       
   """
-  @type default_workspace_creation_properties() :: %{String.t() => any()}
+  @type default_workspace_creation_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       bundle_resource_association() :: %{
-        "AssociatedResourceId" => String.t(),
+        "AssociatedResourceId" => String.t() | Atom.t(),
         "AssociatedResourceType" => list(any()),
-        "BundleId" => String.t(),
+        "BundleId" => String.t() | Atom.t(),
         "Created" => non_neg_integer(),
         "LastUpdatedTime" => non_neg_integer(),
         "State" => list(any()),
@@ -1270,33 +1270,33 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type bundle_resource_association() :: %{String.t() => any()}
+  @type bundle_resource_association() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       connect_client_add_in() :: %{
-        "AddInId" => String.t(),
-        "Name" => String.t(),
-        "ResourceId" => String.t(),
-        "URL" => String.t()
+        "AddInId" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | Atom.t(),
+        "URL" => String.t() | Atom.t()
       }
       
   """
-  @type connect_client_add_in() :: %{String.t() => any()}
+  @type connect_client_add_in() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1304,33 +1304,33 @@ defmodule AWS.WorkSpaces do
       
       describe_bundle_associations_request() :: %{
         required("AssociatedResourceTypes") => list(list(any())()),
-        required("BundleId") => String.t()
+        required("BundleId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_bundle_associations_request() :: %{String.t() => any()}
+  @type describe_bundle_associations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       operation_in_progress_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type operation_in_progress_exception() :: %{String.t() => any()}
+  @type operation_in_progress_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       import_workspace_image_result() :: %{
-        "ImageId" => String.t()
+        "ImageId" => String.t() | Atom.t()
       }
       
   """
-  @type import_workspace_image_result() :: %{String.t() => any()}
+  @type import_workspace_image_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1341,7 +1341,7 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type create_workspaces_pool_result() :: %{String.t() => any()}
+  @type create_workspaces_pool_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1352,19 +1352,19 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type terminate_workspaces_request() :: %{String.t() => any()}
+  @type terminate_workspaces_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_rules_of_ip_group_request() :: %{
-        required("GroupId") => String.t(),
+        required("GroupId") => String.t() | Atom.t(),
         required("UserRules") => list(ip_rule_item())
       }
       
   """
-  @type update_rules_of_ip_group_request() :: %{String.t() => any()}
+  @type update_rules_of_ip_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1372,11 +1372,11 @@ defmodule AWS.WorkSpaces do
       
       deploy_workspace_applications_request() :: %{
         optional("Force") => boolean(),
-        required("WorkspaceId") => String.t()
+        required("WorkspaceId") => String.t() | Atom.t()
       }
       
   """
-  @type deploy_workspace_applications_request() :: %{String.t() => any()}
+  @type deploy_workspace_applications_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1392,24 +1392,24 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       describe_workspace_bundles_request() :: %{
-        optional("BundleIds") => list(String.t()),
-        optional("NextToken") => String.t(),
-        optional("Owner") => String.t()
+        optional("BundleIds") => list(String.t() | Atom.t()),
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("Owner") => String.t() | Atom.t()
       }
       
   """
-  @type describe_workspace_bundles_request() :: %{String.t() => any()}
+  @type describe_workspace_bundles_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_request() :: %{
-        "WorkspaceId" => String.t()
+        "WorkspaceId" => String.t() | Atom.t()
       }
       
   """
-  @type stop_request() :: %{String.t() => any()}
+  @type stop_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1421,58 +1421,58 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type global_accelerator_for_work_space() :: %{String.t() => any()}
+  @type global_accelerator_for_work_space() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_connection_aliases_request() :: %{
-        optional("AliasIds") => list(String.t()),
+        optional("AliasIds") => list(String.t() | Atom.t()),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ResourceId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("ResourceId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_connection_aliases_request() :: %{String.t() => any()}
+  @type describe_connection_aliases_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_workspace_bundle_request() :: %{
-        optional("BundleId") => String.t(),
-        optional("ImageId") => String.t()
+        optional("BundleId") => String.t() | Atom.t(),
+        optional("ImageId") => String.t() | Atom.t()
       }
       
   """
-  @type update_workspace_bundle_request() :: %{String.t() => any()}
+  @type update_workspace_bundle_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       account_link() :: %{
-        "AccountLinkId" => String.t(),
+        "AccountLinkId" => String.t() | Atom.t(),
         "AccountLinkStatus" => list(any()),
-        "SourceAccountId" => String.t(),
-        "TargetAccountId" => String.t()
+        "SourceAccountId" => String.t() | Atom.t(),
+        "TargetAccountId" => String.t() | Atom.t()
       }
       
   """
-  @type account_link() :: %{String.t() => any()}
+  @type account_link() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_limit_exceeded_exception() :: %{String.t() => any()}
+  @type resource_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1488,25 +1488,25 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       authorize_ip_rules_request() :: %{
-        required("GroupId") => String.t(),
+        required("GroupId") => String.t() | Atom.t(),
         required("UserRules") => list(ip_rule_item())
       }
       
   """
-  @type authorize_ip_rules_request() :: %{String.t() => any()}
+  @type authorize_ip_rules_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_connection_alias_permissions_result() :: %{
-        "AliasId" => String.t(),
+        "AliasId" => String.t() | Atom.t(),
         "ConnectionAliasPermissions" => list(connection_alias_permission()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_connection_alias_permissions_result() :: %{String.t() => any()}
+  @type describe_connection_alias_permissions_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1519,19 +1519,19 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type user_setting() :: %{String.t() => any()}
+  @type user_setting() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reject_account_link_invitation_request() :: %{
-        optional("ClientToken") => String.t(),
-        required("LinkId") => String.t()
+        optional("ClientToken") => String.t() | Atom.t(),
+        required("LinkId") => String.t() | Atom.t()
       }
       
   """
-  @type reject_account_link_invitation_request() :: %{String.t() => any()}
+  @type reject_account_link_invitation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1542,7 +1542,7 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type deploy_workspace_applications_result() :: %{String.t() => any()}
+  @type deploy_workspace_applications_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1562,31 +1562,31 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type describe_workspace_associations_result() :: %{String.t() => any()}
+  @type describe_workspace_associations_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       microsoft_entra_config() :: %{
-        "ApplicationConfigSecretArn" => String.t(),
-        "TenantId" => String.t()
+        "ApplicationConfigSecretArn" => String.t() | Atom.t(),
+        "TenantId" => String.t() | Atom.t()
       }
       
   """
-  @type microsoft_entra_config() :: %{String.t() => any()}
+  @type microsoft_entra_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_workspace_creation_properties_request() :: %{
-        required("ResourceId") => String.t(),
+        required("ResourceId") => String.t() | Atom.t(),
         required("WorkspaceCreationProperties") => workspace_creation_properties()
       }
       
   """
-  @type modify_workspace_creation_properties_request() :: %{String.t() => any()}
+  @type modify_workspace_creation_properties_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1598,34 +1598,34 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type storage_connector() :: %{String.t() => any()}
+  @type storage_connector() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       image_permission() :: %{
-        "SharedAccountId" => String.t()
+        "SharedAccountId" => String.t() | Atom.t()
       }
       
   """
-  @type image_permission() :: %{String.t() => any()}
+  @type image_permission() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       workspace_creation_properties() :: %{
-        "CustomSecurityGroupId" => String.t(),
-        "DefaultOu" => String.t(),
+        "CustomSecurityGroupId" => String.t() | Atom.t(),
+        "DefaultOu" => String.t() | Atom.t(),
         "EnableInternetAccess" => boolean(),
         "EnableMaintenanceMode" => boolean(),
-        "InstanceIamRoleArn" => String.t(),
+        "InstanceIamRoleArn" => String.t() | Atom.t(),
         "UserEnabledAsLocalAdministrator" => boolean()
       }
       
   """
-  @type workspace_creation_properties() :: %{String.t() => any()}
+  @type workspace_creation_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1633,28 +1633,28 @@ defmodule AWS.WorkSpaces do
       
       error_details() :: %{
         "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t()
+        "ErrorMessage" => String.t() | Atom.t()
       }
       
   """
-  @type error_details() :: %{String.t() => any()}
+  @type error_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_applications_request() :: %{
-        optional("ApplicationIds") => list(String.t()),
+        optional("ApplicationIds") => list(String.t() | Atom.t()),
         optional("ComputeTypeNames") => list(list(any())()),
         optional("LicenseType") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("OperatingSystemNames") => list(list(any())()),
-        optional("Owner") => String.t()
+        optional("Owner") => String.t() | Atom.t()
       }
       
   """
-  @type describe_applications_request() :: %{String.t() => any()}
+  @type describe_applications_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1665,7 +1665,7 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type get_account_link_result() :: %{String.t() => any()}
+  @type get_account_link_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1682,11 +1682,11 @@ defmodule AWS.WorkSpaces do
       
       describe_application_associations_result() :: %{
         "Associations" => list(application_resource_association()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_application_associations_result() :: %{String.t() => any()}
+  @type describe_application_associations_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1694,30 +1694,30 @@ defmodule AWS.WorkSpaces do
       
       create_updated_workspace_image_request() :: %{
         optional("Tags") => list(tag()),
-        required("Description") => String.t(),
-        required("Name") => String.t(),
-        required("SourceImageId") => String.t()
+        required("Description") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t(),
+        required("SourceImageId") => String.t() | Atom.t()
       }
       
   """
-  @type create_updated_workspace_image_request() :: %{String.t() => any()}
+  @type create_updated_workspace_image_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       ios_import_client_branding_attributes() :: %{
-        "ForgotPasswordLink" => String.t(),
+        "ForgotPasswordLink" => String.t() | Atom.t(),
         "LoginMessage" => map(),
         "Logo" => binary(),
         "Logo2x" => binary(),
         "Logo3x" => binary(),
-        "SupportEmail" => String.t(),
-        "SupportLink" => String.t()
+        "SupportEmail" => String.t() | Atom.t(),
+        "SupportLink" => String.t() | Atom.t()
       }
       
   """
-  @type ios_import_client_branding_attributes() :: %{String.t() => any()}
+  @type ios_import_client_branding_attributes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1725,17 +1725,17 @@ defmodule AWS.WorkSpaces do
       
       create_workspace_image_result() :: %{
         "Created" => non_neg_integer(),
-        "Description" => String.t(),
-        "ImageId" => String.t(),
-        "Name" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "ImageId" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "OperatingSystem" => operating_system(),
-        "OwnerAccountId" => String.t(),
+        "OwnerAccountId" => String.t() | Atom.t(),
         "RequiredTenancy" => list(any()),
         "State" => list(any())
       }
       
   """
-  @type create_workspace_image_result() :: %{String.t() => any()}
+  @type create_workspace_image_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1755,7 +1755,7 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type workspace_access_properties() :: %{String.t() => any()}
+  @type workspace_access_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1763,26 +1763,26 @@ defmodule AWS.WorkSpaces do
       
       list_account_links_result() :: %{
         "AccountLinks" => list(account_link()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_account_links_result() :: %{String.t() => any()}
+  @type list_account_links_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_workspace_directories_request() :: %{
-        optional("DirectoryIds") => list(String.t()),
+        optional("DirectoryIds") => list(String.t() | Atom.t()),
         optional("Filters") => list(describe_workspace_directories_filter()),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t(),
-        optional("WorkspaceDirectoryNames") => list(String.t())
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("WorkspaceDirectoryNames") => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_workspace_directories_request() :: %{String.t() => any()}
+  @type describe_workspace_directories_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1802,38 +1802,38 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type describe_image_associations_result() :: %{String.t() => any()}
+  @type describe_image_associations_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_workspaces_connection_status_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "WorkspacesConnectionStatus" => list(workspace_connection_status())
       }
       
   """
-  @type describe_workspaces_connection_status_result() :: %{String.t() => any()}
+  @type describe_workspaces_connection_status_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       work_space_application() :: %{
-        "ApplicationId" => String.t(),
+        "ApplicationId" => String.t() | Atom.t(),
         "Created" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "LicenseType" => list(any()),
-        "Name" => String.t(),
-        "Owner" => String.t(),
+        "Name" => String.t() | Atom.t(),
+        "Owner" => String.t() | Atom.t(),
         "State" => list(any()),
         "SupportedComputeTypeNames" => list(list(any())()),
         "SupportedOperatingSystemNames" => list(list(any())())
       }
       
   """
-  @type work_space_application() :: %{String.t() => any()}
+  @type work_space_application() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1849,38 +1849,38 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       default_import_client_branding_attributes() :: %{
-        "ForgotPasswordLink" => String.t(),
+        "ForgotPasswordLink" => String.t() | Atom.t(),
         "LoginMessage" => map(),
         "Logo" => binary(),
-        "SupportEmail" => String.t(),
-        "SupportLink" => String.t()
+        "SupportEmail" => String.t() | Atom.t(),
+        "SupportLink" => String.t() | Atom.t()
       }
       
   """
-  @type default_import_client_branding_attributes() :: %{String.t() => any()}
+  @type default_import_client_branding_attributes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_endpoint_encryption_mode_request() :: %{
-        required("DirectoryId") => String.t(),
+        required("DirectoryId") => String.t() | Atom.t(),
         required("EndpointEncryptionMode") => list(any())
       }
       
   """
-  @type modify_endpoint_encryption_mode_request() :: %{String.t() => any()}
+  @type modify_endpoint_encryption_mode_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_connection_alias_result() :: %{
-        "AliasId" => String.t()
+        "AliasId" => String.t() | Atom.t()
       }
       
   """
-  @type create_connection_alias_result() :: %{String.t() => any()}
+  @type create_connection_alias_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1889,23 +1889,23 @@ defmodule AWS.WorkSpaces do
       modify_saml_properties_request() :: %{
         optional("PropertiesToDelete") => list(list(any())()),
         optional("SamlProperties") => saml_properties(),
-        required("ResourceId") => String.t()
+        required("ResourceId") => String.t() | Atom.t()
       }
       
   """
-  @type modify_saml_properties_request() :: %{String.t() => any()}
+  @type modify_saml_properties_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       ip_rule_item() :: %{
-        "ipRule" => String.t(),
-        "ruleDesc" => String.t()
+        "ipRule" => String.t() | Atom.t(),
+        "ruleDesc" => String.t() | Atom.t()
       }
       
   """
-  @type ip_rule_item() :: %{String.t() => any()}
+  @type ip_rule_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1913,68 +1913,68 @@ defmodule AWS.WorkSpaces do
       
       describe_workspace_images_result() :: %{
         "Images" => list(workspace_image()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_workspace_images_result() :: %{String.t() => any()}
+  @type describe_workspace_images_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       restore_workspace_request() :: %{
-        required("WorkspaceId") => String.t()
+        required("WorkspaceId") => String.t() | Atom.t()
       }
       
   """
-  @type restore_workspace_request() :: %{String.t() => any()}
+  @type restore_workspace_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_resource_state_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_resource_state_exception() :: %{String.t() => any()}
+  @type invalid_resource_state_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_creation_failed_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_creation_failed_exception() :: %{String.t() => any()}
+  @type resource_creation_failed_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_updated_workspace_image_result() :: %{
-        "ImageId" => String.t()
+        "ImageId" => String.t() | Atom.t()
       }
       
   """
-  @type create_updated_workspace_image_result() :: %{String.t() => any()}
+  @type create_updated_workspace_image_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_connect_client_add_in_request() :: %{
-        required("Name") => String.t(),
-        required("ResourceId") => String.t(),
-        required("URL") => String.t()
+        required("Name") => String.t() | Atom.t(),
+        required("ResourceId") => String.t() | Atom.t(),
+        required("URL") => String.t() | Atom.t()
       }
       
   """
-  @type create_connect_client_add_in_request() :: %{String.t() => any()}
+  @type create_connect_client_add_in_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1990,8 +1990,8 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       application_resource_association() :: %{
-        "ApplicationId" => String.t(),
-        "AssociatedResourceId" => String.t(),
+        "ApplicationId" => String.t() | Atom.t(),
+        "AssociatedResourceId" => String.t() | Atom.t(),
         "AssociatedResourceType" => list(any()),
         "Created" => non_neg_integer(),
         "LastUpdatedTime" => non_neg_integer(),
@@ -2000,7 +2000,7 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type application_resource_association() :: %{String.t() => any()}
+  @type application_resource_association() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2008,13 +2008,13 @@ defmodule AWS.WorkSpaces do
       
       describe_workspaces_pool_sessions_request() :: %{
         optional("Limit") => integer(),
-        optional("NextToken") => String.t(),
-        optional("UserId") => String.t(),
-        required("PoolId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("UserId") => String.t() | Atom.t(),
+        required("PoolId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_workspaces_pool_sessions_request() :: %{String.t() => any()}
+  @type describe_workspaces_pool_sessions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2022,11 +2022,11 @@ defmodule AWS.WorkSpaces do
       
       delete_client_branding_request() :: %{
         required("Platforms") => list(list(any())()),
-        required("ResourceId") => String.t()
+        required("ResourceId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_client_branding_request() :: %{String.t() => any()}
+  @type delete_client_branding_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2047,19 +2047,19 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type data_replication_settings() :: %{String.t() => any()}
+  @type data_replication_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_workspaces_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Workspaces" => list(workspace())
       }
       
   """
-  @type describe_workspaces_result() :: %{String.t() => any()}
+  @type describe_workspaces_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2071,57 +2071,57 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type create_workspaces_result() :: %{String.t() => any()}
+  @type create_workspaces_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameter_values_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_parameter_values_exception() :: %{String.t() => any()}
+  @type invalid_parameter_values_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       default_client_branding_attributes() :: %{
-        "ForgotPasswordLink" => String.t(),
+        "ForgotPasswordLink" => String.t() | Atom.t(),
         "LoginMessage" => map(),
-        "LogoUrl" => String.t(),
-        "SupportEmail" => String.t(),
-        "SupportLink" => String.t()
+        "LogoUrl" => String.t() | Atom.t(),
+        "SupportEmail" => String.t() | Atom.t(),
+        "SupportLink" => String.t() | Atom.t()
       }
       
   """
-  @type default_client_branding_attributes() :: %{String.t() => any()}
+  @type default_client_branding_attributes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       active_directory_config() :: %{
-        "DomainName" => String.t(),
-        "ServiceAccountSecretArn" => String.t()
+        "DomainName" => String.t() | Atom.t(),
+        "ServiceAccountSecretArn" => String.t() | Atom.t()
       }
       
   """
-  @type active_directory_config() :: %{String.t() => any()}
+  @type active_directory_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_workspace_application_request() :: %{
-        required("ApplicationId") => String.t(),
-        required("WorkspaceId") => String.t()
+        required("ApplicationId") => String.t() | Atom.t(),
+        required("WorkspaceId") => String.t() | Atom.t()
       }
       
   """
-  @type disassociate_workspace_application_request() :: %{String.t() => any()}
+  @type disassociate_workspace_application_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2130,11 +2130,11 @@ defmodule AWS.WorkSpaces do
       modify_workspace_properties_request() :: %{
         optional("DataReplication") => list(any()),
         optional("WorkspaceProperties") => workspace_properties(),
-        required("WorkspaceId") => String.t()
+        required("WorkspaceId") => String.t() | Atom.t()
       }
       
   """
-  @type modify_workspace_properties_request() :: %{String.t() => any()}
+  @type modify_workspace_properties_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2150,40 +2150,40 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       internal_server_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       workspace() :: %{
-        "BundleId" => String.t(),
-        "ComputerName" => String.t(),
+        "BundleId" => String.t() | Atom.t(),
+        "ComputerName" => String.t() | Atom.t(),
         "DataReplicationSettings" => data_replication_settings(),
-        "DirectoryId" => String.t(),
-        "ErrorCode" => String.t(),
-        "ErrorMessage" => String.t(),
-        "IpAddress" => String.t(),
+        "DirectoryId" => String.t() | Atom.t(),
+        "ErrorCode" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | Atom.t(),
+        "IpAddress" => String.t() | Atom.t(),
         "ModificationStates" => list(modification_state()),
         "RelatedWorkspaces" => list(related_workspace_properties()),
         "RootVolumeEncryptionEnabled" => boolean(),
         "StandbyWorkspacesProperties" => list(standby_workspaces_properties()),
         "State" => list(any()),
-        "SubnetId" => String.t(),
-        "UserName" => String.t(),
+        "SubnetId" => String.t() | Atom.t(),
+        "UserName" => String.t() | Atom.t(),
         "UserVolumeEncryptionEnabled" => boolean(),
-        "VolumeEncryptionKey" => String.t(),
-        "WorkspaceId" => String.t(),
-        "WorkspaceName" => String.t(),
+        "VolumeEncryptionKey" => String.t() | Atom.t(),
+        "WorkspaceId" => String.t() | Atom.t(),
+        "WorkspaceName" => String.t() | Atom.t(),
         "WorkspaceProperties" => workspace_properties()
       }
       
   """
-  @type workspace() :: %{String.t() => any()}
+  @type workspace() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2198,18 +2198,18 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type selfservice_permissions() :: %{String.t() => any()}
+  @type selfservice_permissions() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       workspaces_default_role_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type workspaces_default_role_not_found_exception() :: %{String.t() => any()}
+  @type workspaces_default_role_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2220,30 +2220,30 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type describe_client_properties_result() :: %{String.t() => any()}
+  @type describe_client_properties_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       terminate_workspaces_pool_request() :: %{
-        required("PoolId") => String.t()
+        required("PoolId") => String.t() | Atom.t()
       }
       
   """
-  @type terminate_workspaces_pool_request() :: %{String.t() => any()}
+  @type terminate_workspaces_pool_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_connection_alias_permission_request() :: %{
-        required("AliasId") => String.t(),
+        required("AliasId") => String.t() | Atom.t(),
         required("ConnectionAliasPermission") => connection_alias_permission()
       }
       
   """
-  @type update_connection_alias_permission_request() :: %{String.t() => any()}
+  @type update_connection_alias_permission_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2255,19 +2255,19 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type describe_workspace_snapshots_result() :: %{String.t() => any()}
+  @type describe_workspace_snapshots_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_ip_groups_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Result" => list(workspaces_ip_group())
       }
       
   """
-  @type describe_ip_groups_result() :: %{String.t() => any()}
+  @type describe_ip_groups_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2276,14 +2276,14 @@ defmodule AWS.WorkSpaces do
       import_workspace_image_request() :: %{
         optional("Applications") => list(list(any())()),
         optional("Tags") => list(tag()),
-        required("Ec2ImageId") => String.t(),
-        required("ImageDescription") => String.t(),
-        required("ImageName") => String.t(),
+        required("Ec2ImageId") => String.t() | Atom.t(),
+        required("ImageDescription") => String.t() | Atom.t(),
+        required("ImageName") => String.t() | Atom.t(),
         required("IngestionProcess") => list(any())
       }
       
   """
-  @type import_workspace_image_request() :: %{String.t() => any()}
+  @type import_workspace_image_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2291,11 +2291,11 @@ defmodule AWS.WorkSpaces do
       
       create_connection_alias_request() :: %{
         optional("Tags") => list(tag()),
-        required("ConnectionString") => String.t()
+        required("ConnectionString") => String.t() | Atom.t()
       }
       
   """
-  @type create_connection_alias_request() :: %{String.t() => any()}
+  @type create_connection_alias_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2315,7 +2315,7 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type snapshot() :: %{String.t() => any()}
+  @type snapshot() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2324,11 +2324,11 @@ defmodule AWS.WorkSpaces do
       describe_workspaces_pools_filter() :: %{
         "Name" => list(any()),
         "Operator" => list(any()),
-        "Values" => list(String.t())
+        "Values" => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_workspaces_pools_filter() :: %{String.t() => any()}
+  @type describe_workspaces_pools_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2344,21 +2344,21 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type import_client_branding_result() :: %{String.t() => any()}
+  @type import_client_branding_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_ip_group_request() :: %{
-        optional("GroupDesc") => String.t(),
+        optional("GroupDesc") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
         optional("UserRules") => list(ip_rule_item()),
-        required("GroupName") => String.t()
+        required("GroupName") => String.t() | Atom.t()
       }
       
   """
-  @type create_ip_group_request() :: %{String.t() => any()}
+  @type create_ip_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2368,11 +2368,11 @@ defmodule AWS.WorkSpaces do
         "ConnectionState" => list(any()),
         "ConnectionStateCheckTimestamp" => non_neg_integer(),
         "LastKnownUserConnectionTimestamp" => non_neg_integer(),
-        "WorkspaceId" => String.t()
+        "WorkspaceId" => String.t() | Atom.t()
       }
       
   """
-  @type workspace_connection_status() :: %{String.t() => any()}
+  @type workspace_connection_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2389,21 +2389,21 @@ defmodule AWS.WorkSpaces do
       
       register_workspace_directory_request() :: %{
         optional("ActiveDirectoryConfig") => active_directory_config(),
-        optional("DirectoryId") => String.t(),
+        optional("DirectoryId") => String.t() | Atom.t(),
         optional("EnableSelfService") => boolean(),
-        optional("IdcInstanceArn") => String.t(),
+        optional("IdcInstanceArn") => String.t() | Atom.t(),
         optional("MicrosoftEntraConfig") => microsoft_entra_config(),
-        optional("SubnetIds") => list(String.t()),
+        optional("SubnetIds") => list(String.t() | Atom.t()),
         optional("Tags") => list(tag()),
         optional("Tenancy") => list(any()),
         optional("UserIdentityType") => list(any()),
-        optional("WorkspaceDirectoryDescription") => String.t(),
-        optional("WorkspaceDirectoryName") => String.t(),
+        optional("WorkspaceDirectoryDescription") => String.t() | Atom.t(),
+        optional("WorkspaceDirectoryName") => String.t() | Atom.t(),
         optional("WorkspaceType") => list(any())
       }
       
   """
-  @type register_workspace_directory_request() :: %{String.t() => any()}
+  @type register_workspace_directory_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2414,7 +2414,7 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type compute_type() :: %{String.t() => any()}
+  @type compute_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2422,23 +2422,23 @@ defmodule AWS.WorkSpaces do
       
       update_workspace_image_permission_request() :: %{
         required("AllowCopyImage") => boolean(),
-        required("ImageId") => String.t(),
-        required("SharedAccountId") => String.t()
+        required("ImageId") => String.t() | Atom.t(),
+        required("SharedAccountId") => String.t() | Atom.t()
       }
       
   """
-  @type update_workspace_image_permission_request() :: %{String.t() => any()}
+  @type update_workspace_image_permission_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2455,13 +2455,13 @@ defmodule AWS.WorkSpaces do
       
       create_workspace_image_request() :: %{
         optional("Tags") => list(tag()),
-        required("Description") => String.t(),
-        required("Name") => String.t(),
-        required("WorkspaceId") => String.t()
+        required("Description") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t(),
+        required("WorkspaceId") => String.t() | Atom.t()
       }
       
   """
-  @type create_workspace_image_request() :: %{String.t() => any()}
+  @type create_workspace_image_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2477,58 +2477,58 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       application_settings_request() :: %{
-        "SettingsGroup" => String.t(),
+        "SettingsGroup" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type application_settings_request() :: %{String.t() => any()}
+  @type application_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       copy_workspace_image_result() :: %{
-        "ImageId" => String.t()
+        "ImageId" => String.t() | Atom.t()
       }
       
   """
-  @type copy_workspace_image_result() :: %{String.t() => any()}
+  @type copy_workspace_image_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_workspace_access_properties_request() :: %{
-        required("ResourceId") => String.t(),
+        required("ResourceId") => String.t() | Atom.t(),
         required("WorkspaceAccessProperties") => workspace_access_properties()
       }
       
   """
-  @type modify_workspace_access_properties_request() :: %{String.t() => any()}
+  @type modify_workspace_access_properties_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       user_storage() :: %{
-        "Capacity" => String.t()
+        "Capacity" => String.t() | Atom.t()
       }
       
   """
-  @type user_storage() :: %{String.t() => any()}
+  @type user_storage() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       migrate_workspace_request() :: %{
-        required("BundleId") => String.t(),
-        required("SourceWorkspaceId") => String.t()
+        required("BundleId") => String.t() | Atom.t(),
+        required("SourceWorkspaceId") => String.t() | Atom.t()
       }
       
   """
-  @type migrate_workspace_request() :: %{String.t() => any()}
+  @type migrate_workspace_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2542,7 +2542,7 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type capacity_status() :: %{String.t() => any()}
+  @type capacity_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2553,7 +2553,7 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type associate_workspace_application_result() :: %{String.t() => any()}
+  @type associate_workspace_application_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2569,22 +2569,22 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       resource_associated_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_associated_exception() :: %{String.t() => any()}
+  @type resource_associated_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2592,17 +2592,17 @@ defmodule AWS.WorkSpaces do
       
       update_workspaces_pool_request() :: %{
         optional("ApplicationSettings") => application_settings_request(),
-        optional("BundleId") => String.t(),
+        optional("BundleId") => String.t() | Atom.t(),
         optional("Capacity") => capacity(),
-        optional("Description") => String.t(),
-        optional("DirectoryId") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("DirectoryId") => String.t() | Atom.t(),
         optional("RunningMode") => list(any()),
         optional("TimeoutSettings") => timeout_settings(),
-        required("PoolId") => String.t()
+        required("PoolId") => String.t() | Atom.t()
       }
       
   """
-  @type update_workspaces_pool_request() :: %{String.t() => any()}
+  @type update_workspaces_pool_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2619,49 +2619,49 @@ defmodule AWS.WorkSpaces do
       
       workspace_directory() :: %{
         "ActiveDirectoryConfig" => active_directory_config(),
-        "Alias" => String.t(),
+        "Alias" => String.t() | Atom.t(),
         "CertificateBasedAuthProperties" => certificate_based_auth_properties(),
-        "CustomerUserName" => String.t(),
-        "DirectoryId" => String.t(),
-        "DirectoryName" => String.t(),
+        "CustomerUserName" => String.t() | Atom.t(),
+        "DirectoryId" => String.t() | Atom.t(),
+        "DirectoryName" => String.t() | Atom.t(),
         "DirectoryType" => list(any()),
-        "DnsIpAddresses" => list(String.t()),
+        "DnsIpAddresses" => list(String.t() | Atom.t()),
         "EndpointEncryptionMode" => list(any()),
-        "ErrorMessage" => String.t(),
+        "ErrorMessage" => String.t() | Atom.t(),
         "IDCConfig" => id_c_config(),
-        "IamRoleId" => String.t(),
+        "IamRoleId" => String.t() | Atom.t(),
         "MicrosoftEntraConfig" => microsoft_entra_config(),
-        "RegistrationCode" => String.t(),
+        "RegistrationCode" => String.t() | Atom.t(),
         "SamlProperties" => saml_properties(),
         "SelfservicePermissions" => selfservice_permissions(),
         "State" => list(any()),
         "StreamingProperties" => streaming_properties(),
-        "SubnetIds" => list(String.t()),
+        "SubnetIds" => list(String.t() | Atom.t()),
         "Tenancy" => list(any()),
         "UserIdentityType" => list(any()),
         "WorkspaceAccessProperties" => workspace_access_properties(),
         "WorkspaceCreationProperties" => default_workspace_creation_properties(),
-        "WorkspaceDirectoryDescription" => String.t(),
-        "WorkspaceDirectoryName" => String.t(),
-        "WorkspaceSecurityGroupId" => String.t(),
+        "WorkspaceDirectoryDescription" => String.t() | Atom.t(),
+        "WorkspaceDirectoryName" => String.t() | Atom.t(),
+        "WorkspaceSecurityGroupId" => String.t() | Atom.t(),
         "WorkspaceType" => list(any()),
-        "ipGroupIds" => list(String.t())
+        "ipGroupIds" => list(String.t() | Atom.t())
       }
       
   """
-  @type workspace_directory() :: %{String.t() => any()}
+  @type workspace_directory() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       id_c_config() :: %{
-        "ApplicationArn" => String.t(),
-        "InstanceArn" => String.t()
+        "ApplicationArn" => String.t() | Atom.t(),
+        "InstanceArn" => String.t() | Atom.t()
       }
       
   """
-  @type id_c_config() :: %{String.t() => any()}
+  @type id_c_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2672,7 +2672,7 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type stop_workspaces_result() :: %{String.t() => any()}
+  @type stop_workspaces_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2689,14 +2689,14 @@ defmodule AWS.WorkSpaces do
       
       standby_workspace() :: %{
         "DataReplication" => list(any()),
-        "DirectoryId" => String.t(),
-        "PrimaryWorkspaceId" => String.t(),
+        "DirectoryId" => String.t() | Atom.t(),
+        "PrimaryWorkspaceId" => String.t() | Atom.t(),
         "Tags" => list(tag()),
-        "VolumeEncryptionKey" => String.t()
+        "VolumeEncryptionKey" => String.t() | Atom.t()
       }
       
   """
-  @type standby_workspace() :: %{String.t() => any()}
+  @type standby_workspace() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2708,7 +2708,7 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type create_standby_workspaces_result() :: %{String.t() => any()}
+  @type create_standby_workspaces_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2716,23 +2716,23 @@ defmodule AWS.WorkSpaces do
       
       describe_account_result() :: %{
         "DedicatedTenancyAccountType" => list(any()),
-        "DedicatedTenancyManagementCidrRange" => String.t(),
+        "DedicatedTenancyManagementCidrRange" => String.t() | Atom.t(),
         "DedicatedTenancySupport" => list(any())
       }
       
   """
-  @type describe_account_result() :: %{String.t() => any()}
+  @type describe_account_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_connection_alias_result() :: %{
-        "ConnectionIdentifier" => String.t()
+        "ConnectionIdentifier" => String.t() | Atom.t()
       }
       
   """
-  @type associate_connection_alias_result() :: %{String.t() => any()}
+  @type associate_connection_alias_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2757,12 +2757,12 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       delete_connect_client_add_in_request() :: %{
-        required("AddInId") => String.t(),
-        required("ResourceId") => String.t()
+        required("AddInId") => String.t() | Atom.t(),
+        required("ResourceId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_connect_client_add_in_request() :: %{String.t() => any()}
+  @type delete_connect_client_add_in_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2771,11 +2771,11 @@ defmodule AWS.WorkSpaces do
       modify_certificate_based_auth_properties_request() :: %{
         optional("CertificateBasedAuthProperties") => certificate_based_auth_properties(),
         optional("PropertiesToDelete") => list(list(any())()),
-        required("ResourceId") => String.t()
+        required("ResourceId") => String.t() | Atom.t()
       }
       
   """
-  @type modify_certificate_based_auth_properties_request() :: %{String.t() => any()}
+  @type modify_certificate_based_auth_properties_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2786,21 +2786,21 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type describe_bundle_associations_result() :: %{String.t() => any()}
+  @type describe_bundle_associations_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_connect_client_add_in_request() :: %{
-        optional("Name") => String.t(),
-        optional("URL") => String.t(),
-        required("AddInId") => String.t(),
-        required("ResourceId") => String.t()
+        optional("Name") => String.t() | Atom.t(),
+        optional("URL") => String.t() | Atom.t(),
+        required("AddInId") => String.t() | Atom.t(),
+        required("ResourceId") => String.t() | Atom.t()
       }
       
   """
-  @type update_connect_client_add_in_request() :: %{String.t() => any()}
+  @type update_connect_client_add_in_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2808,22 +2808,22 @@ defmodule AWS.WorkSpaces do
       
       workspaces_pool() :: %{
         "ApplicationSettings" => application_settings_response(),
-        "BundleId" => String.t(),
+        "BundleId" => String.t() | Atom.t(),
         "CapacityStatus" => capacity_status(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
-        "DirectoryId" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "DirectoryId" => String.t() | Atom.t(),
         "Errors" => list(workspaces_pool_error()),
-        "PoolArn" => String.t(),
-        "PoolId" => String.t(),
-        "PoolName" => String.t(),
+        "PoolArn" => String.t() | Atom.t(),
+        "PoolId" => String.t() | Atom.t(),
+        "PoolName" => String.t() | Atom.t(),
         "RunningMode" => list(any()),
         "State" => list(any()),
         "TimeoutSettings" => timeout_settings()
       }
       
   """
-  @type workspaces_pool() :: %{String.t() => any()}
+  @type workspaces_pool() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2837,7 +2837,7 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type streaming_properties() :: %{String.t() => any()}
+  @type streaming_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2853,11 +2853,11 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       terminate_request() :: %{
-        "WorkspaceId" => String.t()
+        "WorkspaceId" => String.t() | Atom.t()
       }
       
   """
-  @type terminate_request() :: %{String.t() => any()}
+  @type terminate_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2868,15 +2868,15 @@ defmodule AWS.WorkSpaces do
         optional("RunningMode") => list(any()),
         optional("Tags") => list(tag()),
         optional("TimeoutSettings") => timeout_settings(),
-        required("BundleId") => String.t(),
+        required("BundleId") => String.t() | Atom.t(),
         required("Capacity") => capacity(),
-        required("Description") => String.t(),
-        required("DirectoryId") => String.t(),
-        required("PoolName") => String.t()
+        required("Description") => String.t() | Atom.t(),
+        required("DirectoryId") => String.t() | Atom.t(),
+        required("PoolName") => String.t() | Atom.t()
       }
       
   """
-  @type create_workspaces_pool_request() :: %{String.t() => any()}
+  @type create_workspaces_pool_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2892,33 +2892,33 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       rebuild_request() :: %{
-        "WorkspaceId" => String.t()
+        "WorkspaceId" => String.t() | Atom.t()
       }
       
   """
-  @type rebuild_request() :: %{String.t() => any()}
+  @type rebuild_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_client_properties_request() :: %{
-        required("ResourceIds") => list(String.t())
+        required("ResourceIds") => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_client_properties_request() :: %{String.t() => any()}
+  @type describe_client_properties_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       deregister_workspace_directory_request() :: %{
-        required("DirectoryId") => String.t()
+        required("DirectoryId") => String.t() | Atom.t()
       }
       
   """
-  @type deregister_workspace_directory_request() :: %{String.t() => any()}
+  @type deregister_workspace_directory_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2947,19 +2947,19 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type describe_tags_result() :: %{String.t() => any()}
+  @type describe_tags_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_selfservice_permissions_request() :: %{
-        required("ResourceId") => String.t(),
+        required("ResourceId") => String.t() | Atom.t(),
         required("SelfservicePermissions") => selfservice_permissions()
       }
       
   """
-  @type modify_selfservice_permissions_request() :: %{String.t() => any()}
+  @type modify_selfservice_permissions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2976,35 +2976,35 @@ defmodule AWS.WorkSpaces do
       
       describe_workspace_bundles_result() :: %{
         "Bundles" => list(workspace_bundle()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_workspace_bundles_result() :: %{String.t() => any()}
+  @type describe_workspace_bundles_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_request() :: %{
-        "WorkspaceId" => String.t()
+        "WorkspaceId" => String.t() | Atom.t()
       }
       
   """
-  @type start_request() :: %{String.t() => any()}
+  @type start_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_ip_groups_request() :: %{
-        optional("GroupIds") => list(String.t()),
+        optional("GroupIds") => list(String.t() | Atom.t()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type describe_ip_groups_request() :: %{String.t() => any()}
+  @type describe_ip_groups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3024,18 +3024,18 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type work_space_application_deployment() :: %{String.t() => any()}
+  @type work_space_application_deployment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       unsupported_workspace_configuration_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type unsupported_workspace_configuration_exception() :: %{String.t() => any()}
+  @type unsupported_workspace_configuration_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3060,11 +3060,11 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       describe_tags_request() :: %{
-        required("ResourceId") => String.t()
+        required("ResourceId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_tags_request() :: %{String.t() => any()}
+  @type describe_tags_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3074,16 +3074,16 @@ defmodule AWS.WorkSpaces do
         "AuthenticationType" => list(any()),
         "ConnectionState" => list(any()),
         "ExpirationTime" => non_neg_integer(),
-        "InstanceId" => String.t(),
+        "InstanceId" => String.t() | Atom.t(),
         "NetworkAccessConfiguration" => network_access_configuration(),
-        "PoolId" => String.t(),
-        "SessionId" => String.t(),
+        "PoolId" => String.t() | Atom.t(),
+        "SessionId" => String.t() | Atom.t(),
         "StartTime" => non_neg_integer(),
-        "UserId" => String.t()
+        "UserId" => String.t() | Atom.t()
       }
       
   """
-  @type workspaces_pool_session() :: %{String.t() => any()}
+  @type workspaces_pool_session() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3094,56 +3094,56 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type reboot_workspaces_result() :: %{String.t() => any()}
+  @type reboot_workspaces_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_already_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_already_exists_exception() :: %{String.t() => any()}
+  @type resource_already_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       operation_not_supported_exception() :: %{
-        "message" => String.t(),
-        "reason" => String.t()
+        "message" => String.t() | Atom.t(),
+        "reason" => String.t() | Atom.t()
       }
       
   """
-  @type operation_not_supported_exception() :: %{String.t() => any()}
+  @type operation_not_supported_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_ip_groups_request() :: %{
-        required("DirectoryId") => String.t(),
-        required("GroupIds") => list(String.t())
+        required("DirectoryId") => String.t() | Atom.t(),
+        required("GroupIds") => list(String.t() | Atom.t())
       }
       
   """
-  @type disassociate_ip_groups_request() :: %{String.t() => any()}
+  @type disassociate_ip_groups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       connection_alias_association() :: %{
-        "AssociatedAccountId" => String.t(),
+        "AssociatedAccountId" => String.t() | Atom.t(),
         "AssociationStatus" => list(any()),
-        "ConnectionIdentifier" => String.t(),
-        "ResourceId" => String.t()
+        "ConnectionIdentifier" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | Atom.t()
       }
       
   """
-  @type connection_alias_association() :: %{String.t() => any()}
+  @type connection_alias_association() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3151,12 +3151,12 @@ defmodule AWS.WorkSpaces do
       
       describe_workspace_image_permissions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ImageId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ImageId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_workspace_image_permissions_request() :: %{String.t() => any()}
+  @type describe_workspace_image_permissions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3168,20 +3168,20 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type global_accelerator_for_directory() :: %{String.t() => any()}
+  @type global_accelerator_for_directory() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       failed_create_workspace_request() :: %{
-        "ErrorCode" => String.t(),
-        "ErrorMessage" => String.t(),
+        "ErrorCode" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | Atom.t(),
         "WorkspaceRequest" => workspace_request()
       }
       
   """
-  @type failed_create_workspace_request() :: %{String.t() => any()}
+  @type failed_create_workspace_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3197,91 +3197,91 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       describe_workspaces_pools_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "WorkspacesPools" => list(workspaces_pool())
       }
       
   """
-  @type describe_workspaces_pools_result() :: %{String.t() => any()}
+  @type describe_workspaces_pools_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       connection_alias() :: %{
-        "AliasId" => String.t(),
+        "AliasId" => String.t() | Atom.t(),
         "Associations" => list(connection_alias_association()),
-        "ConnectionString" => String.t(),
-        "OwnerAccountId" => String.t(),
+        "ConnectionString" => String.t() | Atom.t(),
+        "OwnerAccountId" => String.t() | Atom.t(),
         "State" => list(any())
       }
       
   """
-  @type connection_alias() :: %{String.t() => any()}
+  @type connection_alias() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_workspaces_pool_request() :: %{
-        required("PoolId") => String.t()
+        required("PoolId") => String.t() | Atom.t()
       }
       
   """
-  @type stop_workspaces_pool_request() :: %{String.t() => any()}
+  @type stop_workspaces_pool_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       workspace_request() :: %{
-        "BundleId" => String.t(),
-        "DirectoryId" => String.t(),
+        "BundleId" => String.t() | Atom.t(),
+        "DirectoryId" => String.t() | Atom.t(),
         "RootVolumeEncryptionEnabled" => boolean(),
         "Tags" => list(tag()),
-        "UserName" => String.t(),
+        "UserName" => String.t() | Atom.t(),
         "UserVolumeEncryptionEnabled" => boolean(),
-        "VolumeEncryptionKey" => String.t(),
-        "WorkspaceName" => String.t(),
+        "VolumeEncryptionKey" => String.t() | Atom.t(),
+        "WorkspaceName" => String.t() | Atom.t(),
         "WorkspaceProperties" => workspace_properties()
       }
       
   """
-  @type workspace_request() :: %{String.t() => any()}
+  @type workspace_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_workspaces_connection_status_request() :: %{
-        optional("NextToken") => String.t(),
-        optional("WorkspaceIds") => list(String.t())
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("WorkspaceIds") => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_workspaces_connection_status_request() :: %{String.t() => any()}
+  @type describe_workspaces_connection_status_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_connection_alias_request() :: %{
-        required("AliasId") => String.t()
+        required("AliasId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_connection_alias_request() :: %{String.t() => any()}
+  @type delete_connection_alias_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       terminate_workspaces_pool_session_request() :: %{
-        required("SessionId") => String.t()
+        required("SessionId") => String.t() | Atom.t()
       }
       
   """
-  @type terminate_workspaces_pool_session_request() :: %{String.t() => any()}
+  @type terminate_workspaces_pool_session_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3289,24 +3289,24 @@ defmodule AWS.WorkSpaces do
       
       describe_connect_client_add_ins_result() :: %{
         "AddIns" => list(connect_client_add_in()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_connect_client_add_ins_result() :: %{String.t() => any()}
+  @type describe_connect_client_add_ins_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       application_settings_response() :: %{
-        "S3BucketName" => String.t(),
-        "SettingsGroup" => String.t(),
+        "S3BucketName" => String.t() | Atom.t(),
+        "SettingsGroup" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type application_settings_response() :: %{String.t() => any()}
+  @type application_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3314,22 +3314,22 @@ defmodule AWS.WorkSpaces do
       
       describe_workspace_directories_result() :: %{
         "Directories" => list(workspace_directory()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_workspace_directories_result() :: %{String.t() => any()}
+  @type describe_workspace_directories_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_client_branding_request() :: %{
-        required("ResourceId") => String.t()
+        required("ResourceId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_client_branding_request() :: %{String.t() => any()}
+  @type describe_client_branding_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3337,11 +3337,11 @@ defmodule AWS.WorkSpaces do
       
       client_properties_result() :: %{
         "ClientProperties" => client_properties(),
-        "ResourceId" => String.t()
+        "ResourceId" => String.t() | Atom.t()
       }
       
   """
-  @type client_properties_result() :: %{String.t() => any()}
+  @type client_properties_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3352,7 +3352,7 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type reject_account_link_invitation_result() :: %{String.t() => any()}
+  @type reject_account_link_invitation_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3360,22 +3360,22 @@ defmodule AWS.WorkSpaces do
       
       describe_applications_result() :: %{
         "Applications" => list(work_space_application()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_applications_result() :: %{String.t() => any()}
+  @type describe_applications_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_workspace_snapshots_request() :: %{
-        required("WorkspaceId") => String.t()
+        required("WorkspaceId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_workspace_snapshots_request() :: %{String.t() => any()}
+  @type describe_workspace_snapshots_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3395,7 +3395,7 @@ defmodule AWS.WorkSpaces do
       }
       
   """
-  @type stop_workspaces_request() :: %{String.t() => any()}
+  @type stop_workspaces_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3403,12 +3403,12 @@ defmodule AWS.WorkSpaces do
       
       describe_connect_client_add_ins_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ResourceId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ResourceId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_connect_client_add_ins_request() :: %{String.t() => any()}
+  @type describe_connect_client_add_ins_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3417,12 +3417,12 @@ defmodule AWS.WorkSpaces do
       describe_workspaces_pools_request() :: %{
         optional("Filters") => list(describe_workspaces_pools_filter()),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t(),
-        optional("PoolIds") => list(String.t())
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("PoolIds") => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_workspaces_pools_request() :: %{String.t() => any()}
+  @type describe_workspaces_pools_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3435,46 +3435,46 @@ defmodule AWS.WorkSpaces do
         optional("DeviceTypeOsx") => default_import_client_branding_attributes(),
         optional("DeviceTypeWeb") => default_import_client_branding_attributes(),
         optional("DeviceTypeWindows") => default_import_client_branding_attributes(),
-        required("ResourceId") => String.t()
+        required("ResourceId") => String.t() | Atom.t()
       }
       
   """
-  @type import_client_branding_request() :: %{String.t() => any()}
+  @type import_client_branding_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_connection_alias_request() :: %{
-        required("AliasId") => String.t(),
-        required("ResourceId") => String.t()
+        required("AliasId") => String.t() | Atom.t(),
+        required("ResourceId") => String.t() | Atom.t()
       }
       
   """
-  @type associate_connection_alias_request() :: %{String.t() => any()}
+  @type associate_connection_alias_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_ip_group_result() :: %{
-        "GroupId" => String.t()
+        "GroupId" => String.t() | Atom.t()
       }
       
   """
-  @type create_ip_group_result() :: %{String.t() => any()}
+  @type create_ip_group_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       migrate_workspace_result() :: %{
-        "SourceWorkspaceId" => String.t(),
-        "TargetWorkspaceId" => String.t()
+        "SourceWorkspaceId" => String.t() | Atom.t(),
+        "TargetWorkspaceId" => String.t() | Atom.t()
       }
       
   """
-  @type migrate_workspace_result() :: %{String.t() => any()}
+  @type migrate_workspace_result() :: %{String.t() | Atom.t() => any()}
 
   @type accept_account_link_invitation_errors() ::
           validation_exception()

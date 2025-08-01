@@ -138,11 +138,11 @@ defmodule AWS.KMS do
   ## Example:
       
       invalid_grant_id_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_grant_id_exception() :: %{String.t() => any()}
+  @type invalid_grant_id_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -150,81 +150,81 @@ defmodule AWS.KMS do
       
       list_aliases_response() :: %{
         "Aliases" => list(alias_list_entry()),
-        "NextMarker" => String.t(),
+        "NextMarker" => String.t() | Atom.t(),
         "Truncated" => boolean()
       }
       
   """
-  @type list_aliases_response() :: %{String.t() => any()}
+  @type list_aliases_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       incorrect_key_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type incorrect_key_exception() :: %{String.t() => any()}
+  @type incorrect_key_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type tag_exception() :: %{String.t() => any()}
+  @type tag_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_aliases_request() :: %{
-        optional("KeyId") => String.t(),
+        optional("KeyId") => String.t() | Atom.t(),
         optional("Limit") => integer(),
-        optional("Marker") => String.t()
+        optional("Marker") => String.t() | Atom.t()
       }
       
   """
-  @type list_aliases_request() :: %{String.t() => any()}
+  @type list_aliases_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_grant_token_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_grant_token_exception() :: %{String.t() => any()}
+  @type invalid_grant_token_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("KeyId") => String.t(),
+        required("KeyId") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       xks_proxy_vpc_endpoint_service_in_use_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type xks_proxy_vpc_endpoint_service_in_use_exception() :: %{String.t() => any()}
+  @type xks_proxy_vpc_endpoint_service_in_use_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -236,18 +236,18 @@ defmodule AWS.KMS do
       }
       
   """
-  @type grant_constraints() :: %{String.t() => any()}
+  @type grant_constraints() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       xks_proxy_vpc_endpoint_service_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type xks_proxy_vpc_endpoint_service_not_found_exception() :: %{String.t() => any()}
+  @type xks_proxy_vpc_endpoint_service_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -255,68 +255,68 @@ defmodule AWS.KMS do
       
       list_retirable_grants_request() :: %{
         optional("Limit") => integer(),
-        optional("Marker") => String.t(),
-        required("RetiringPrincipal") => String.t()
+        optional("Marker") => String.t() | Atom.t(),
+        required("RetiringPrincipal") => String.t() | Atom.t()
       }
       
   """
-  @type list_retirable_grants_request() :: %{String.t() => any()}
+  @type list_retirable_grants_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       unsupported_operation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type unsupported_operation_exception() :: %{String.t() => any()}
+  @type unsupported_operation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       dry_run_operation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type dry_run_operation_exception() :: %{String.t() => any()}
+  @type dry_run_operation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       custom_key_store_name_in_use_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type custom_key_store_name_in_use_exception() :: %{String.t() => any()}
+  @type custom_key_store_name_in_use_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       xks_key_configuration_type() :: %{
-        "Id" => String.t()
+        "Id" => String.t() | Atom.t()
       }
       
   """
-  @type xks_key_configuration_type() :: %{String.t() => any()}
+  @type xks_key_configuration_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_alias_request() :: %{
-        required("AliasName") => String.t(),
-        required("TargetKeyId") => String.t()
+        required("AliasName") => String.t() | Atom.t(),
+        required("TargetKeyId") => String.t() | Atom.t()
       }
       
   """
-  @type update_alias_request() :: %{String.t() => any()}
+  @type update_alias_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -324,20 +324,20 @@ defmodule AWS.KMS do
       
       create_key_request() :: %{
         optional("BypassPolicyLockoutSafetyCheck") => boolean(),
-        optional("CustomKeyStoreId") => String.t(),
+        optional("CustomKeyStoreId") => String.t() | Atom.t(),
         optional("CustomerMasterKeySpec") => list(any()),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("KeySpec") => list(any()),
         optional("KeyUsage") => list(any()),
         optional("MultiRegion") => boolean(),
         optional("Origin") => list(any()),
-        optional("Policy") => String.t(),
+        optional("Policy") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        optional("XksKeyId") => String.t()
+        optional("XksKeyId") => String.t() | Atom.t()
       }
       
   """
-  @type create_key_request() :: %{String.t() => any()}
+  @type create_key_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -345,45 +345,45 @@ defmodule AWS.KMS do
       
       describe_custom_key_stores_response() :: %{
         "CustomKeyStores" => list(custom_key_stores_list_entry()),
-        "NextMarker" => String.t(),
+        "NextMarker" => String.t() | Atom.t(),
         "Truncated" => boolean()
       }
       
   """
-  @type describe_custom_key_stores_response() :: %{String.t() => any()}
+  @type describe_custom_key_stores_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       xks_proxy_uri_endpoint_in_use_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type xks_proxy_uri_endpoint_in_use_exception() :: %{String.t() => any()}
+  @type xks_proxy_uri_endpoint_in_use_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       rotate_key_on_demand_response() :: %{
-        "KeyId" => String.t()
+        "KeyId" => String.t() | Atom.t()
       }
       
   """
-  @type rotate_key_on_demand_response() :: %{String.t() => any()}
+  @type rotate_key_on_demand_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_alias_name_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_alias_name_exception() :: %{String.t() => any()}
+  @type invalid_alias_name_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -392,26 +392,26 @@ defmodule AWS.KMS do
       generate_data_key_without_plaintext_request() :: %{
         optional("DryRun") => boolean(),
         optional("EncryptionContext") => map(),
-        optional("GrantTokens") => list(String.t()),
+        optional("GrantTokens") => list(String.t() | Atom.t()),
         optional("KeySpec") => list(any()),
         optional("NumberOfBytes") => integer(),
-        required("KeyId") => String.t()
+        required("KeyId") => String.t() | Atom.t()
       }
       
   """
-  @type generate_data_key_without_plaintext_request() :: %{String.t() => any()}
+  @type generate_data_key_without_plaintext_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_alias_request() :: %{
-        required("AliasName") => String.t(),
-        required("TargetKeyId") => String.t()
+        required("AliasName") => String.t() | Atom.t(),
+        required("TargetKeyId") => String.t() | Atom.t()
       }
       
   """
-  @type create_alias_request() :: %{String.t() => any()}
+  @type create_alias_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -419,13 +419,13 @@ defmodule AWS.KMS do
       
       schedule_key_deletion_response() :: %{
         "DeletionDate" => non_neg_integer(),
-        "KeyId" => String.t(),
+        "KeyId" => String.t() | Atom.t(),
         "KeyState" => list(any()),
         "PendingWindowInDays" => integer()
       }
       
   """
-  @type schedule_key_deletion_response() :: %{String.t() => any()}
+  @type schedule_key_deletion_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -433,11 +433,11 @@ defmodule AWS.KMS do
       
       schedule_key_deletion_request() :: %{
         optional("PendingWindowInDays") => integer(),
-        required("KeyId") => String.t()
+        required("KeyId") => String.t() | Atom.t()
       }
       
   """
-  @type schedule_key_deletion_request() :: %{String.t() => any()}
+  @type schedule_key_deletion_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -446,11 +446,11 @@ defmodule AWS.KMS do
       encrypt_response() :: %{
         "CiphertextBlob" => binary(),
         "EncryptionAlgorithm" => list(any()),
-        "KeyId" => String.t()
+        "KeyId" => String.t() | Atom.t()
       }
       
   """
-  @type encrypt_response() :: %{String.t() => any()}
+  @type encrypt_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -458,34 +458,34 @@ defmodule AWS.KMS do
       
       list_keys_response() :: %{
         "Keys" => list(key_list_entry()),
-        "NextMarker" => String.t(),
+        "NextMarker" => String.t() | Atom.t(),
         "Truncated" => boolean()
       }
       
   """
-  @type list_keys_response() :: %{String.t() => any()}
+  @type list_keys_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       already_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type already_exists_exception() :: %{String.t() => any()}
+  @type already_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       xks_key_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type xks_key_not_found_exception() :: %{String.t() => any()}
+  @type xks_key_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -495,14 +495,14 @@ defmodule AWS.KMS do
         optional("DryRun") => boolean(),
         optional("EncryptionAlgorithm") => list(any()),
         optional("EncryptionContext") => map(),
-        optional("GrantTokens") => list(String.t()),
-        optional("KeyId") => String.t(),
+        optional("GrantTokens") => list(String.t() | Atom.t()),
+        optional("KeyId") => String.t() | Atom.t(),
         optional("Recipient") => recipient_info(),
         required("CiphertextBlob") => binary()
       }
       
   """
-  @type decrypt_request() :: %{String.t() => any()}
+  @type decrypt_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -510,24 +510,24 @@ defmodule AWS.KMS do
       
       revoke_grant_request() :: %{
         optional("DryRun") => boolean(),
-        required("GrantId") => String.t(),
-        required("KeyId") => String.t()
+        required("GrantId") => String.t() | Atom.t(),
+        required("KeyId") => String.t() | Atom.t()
       }
       
   """
-  @type revoke_grant_request() :: %{String.t() => any()}
+  @type revoke_grant_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_imported_key_material_response() :: %{
-        "KeyId" => String.t(),
-        "KeyMaterialId" => String.t()
+        "KeyId" => String.t() | Atom.t(),
+        "KeyMaterialId" => String.t() | Atom.t()
       }
       
   """
-  @type delete_imported_key_material_response() :: %{String.t() => any()}
+  @type delete_imported_key_material_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -537,28 +537,28 @@ defmodule AWS.KMS do
         optional("DryRun") => boolean(),
         optional("EncryptionAlgorithm") => list(any()),
         optional("EncryptionContext") => map(),
-        optional("GrantTokens") => list(String.t()),
-        required("KeyId") => String.t(),
+        optional("GrantTokens") => list(String.t() | Atom.t()),
+        required("KeyId") => String.t() | Atom.t(),
         required("Plaintext") => binary()
       }
       
   """
-  @type encrypt_request() :: %{String.t() => any()}
+  @type encrypt_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_grants_request() :: %{
-        optional("GrantId") => String.t(),
-        optional("GranteePrincipal") => String.t(),
+        optional("GrantId") => String.t() | Atom.t(),
+        optional("GranteePrincipal") => String.t() | Atom.t(),
         optional("Limit") => integer(),
-        optional("Marker") => String.t(),
-        required("KeyId") => String.t()
+        optional("Marker") => String.t() | Atom.t(),
+        required("KeyId") => String.t() | Atom.t()
       }
       
   """
-  @type list_grants_request() :: %{String.t() => any()}
+  @type list_grants_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -566,37 +566,37 @@ defmodule AWS.KMS do
       
       derive_shared_secret_request() :: %{
         optional("DryRun") => boolean(),
-        optional("GrantTokens") => list(String.t()),
+        optional("GrantTokens") => list(String.t() | Atom.t()),
         optional("Recipient") => recipient_info(),
         required("KeyAgreementAlgorithm") => list(any()),
-        required("KeyId") => String.t(),
+        required("KeyId") => String.t() | Atom.t(),
         required("PublicKey") => binary()
       }
       
   """
-  @type derive_shared_secret_request() :: %{String.t() => any()}
+  @type derive_shared_secret_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disconnect_custom_key_store_request() :: %{
-        required("CustomKeyStoreId") => String.t()
+        required("CustomKeyStoreId") => String.t() | Atom.t()
       }
       
   """
-  @type disconnect_custom_key_store_request() :: %{String.t() => any()}
+  @type disconnect_custom_key_store_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_key_deletion_request() :: %{
-        required("KeyId") => String.t()
+        required("KeyId") => String.t() | Atom.t()
       }
       
   """
-  @type cancel_key_deletion_request() :: %{String.t() => any()}
+  @type cancel_key_deletion_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -608,18 +608,18 @@ defmodule AWS.KMS do
       }
       
   """
-  @type generate_random_response() :: %{String.t() => any()}
+  @type generate_random_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       enable_key_request() :: %{
-        required("KeyId") => String.t()
+        required("KeyId") => String.t() | Atom.t()
       }
       
   """
-  @type enable_key_request() :: %{String.t() => any()}
+  @type enable_key_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -628,126 +628,126 @@ defmodule AWS.KMS do
       generate_data_key_pair_without_plaintext_request() :: %{
         optional("DryRun") => boolean(),
         optional("EncryptionContext") => map(),
-        optional("GrantTokens") => list(String.t()),
-        required("KeyId") => String.t(),
+        optional("GrantTokens") => list(String.t() | Atom.t()),
+        required("KeyId") => String.t() | Atom.t(),
         required("KeyPairSpec") => list(any())
       }
       
   """
-  @type generate_data_key_pair_without_plaintext_request() :: %{String.t() => any()}
+  @type generate_data_key_pair_without_plaintext_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("KeyId") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("KeyId") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_key_policies_response() :: %{
-        "NextMarker" => String.t(),
-        "PolicyNames" => list(String.t()),
+        "NextMarker" => String.t() | Atom.t(),
+        "PolicyNames" => list(String.t() | Atom.t()),
         "Truncated" => boolean()
       }
       
   """
-  @type list_key_policies_response() :: %{String.t() => any()}
+  @type list_key_policies_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_resource_tags_response() :: %{
-        "NextMarker" => String.t(),
+        "NextMarker" => String.t() | Atom.t(),
         "Tags" => list(tag()),
         "Truncated" => boolean()
       }
       
   """
-  @type list_resource_tags_response() :: %{String.t() => any()}
+  @type list_resource_tags_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_key_description_request() :: %{
-        required("Description") => String.t(),
-        required("KeyId") => String.t()
+        required("Description") => String.t() | Atom.t(),
+        required("KeyId") => String.t() | Atom.t()
       }
       
   """
-  @type update_key_description_request() :: %{String.t() => any()}
+  @type update_key_description_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       dependency_timeout_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type dependency_timeout_exception() :: %{String.t() => any()}
+  @type dependency_timeout_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       custom_key_store_has_cm_ks_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type custom_key_store_has_cm_ks_exception() :: %{String.t() => any()}
+  @type custom_key_store_has_cm_ks_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_arn_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_arn_exception() :: %{String.t() => any()}
+  @type invalid_arn_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_custom_key_store_response() :: %{
-        "CustomKeyStoreId" => String.t()
+        "CustomKeyStoreId" => String.t() | Atom.t()
       }
       
   """
-  @type create_custom_key_store_response() :: %{String.t() => any()}
+  @type create_custom_key_store_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       custom_key_stores_list_entry() :: %{
-        "CloudHsmClusterId" => String.t(),
+        "CloudHsmClusterId" => String.t() | Atom.t(),
         "ConnectionErrorCode" => list(any()),
         "ConnectionState" => list(any()),
         "CreationDate" => non_neg_integer(),
-        "CustomKeyStoreId" => String.t(),
-        "CustomKeyStoreName" => String.t(),
+        "CustomKeyStoreId" => String.t() | Atom.t(),
+        "CustomKeyStoreName" => String.t() | Atom.t(),
         "CustomKeyStoreType" => list(any()),
-        "TrustAnchorCertificate" => String.t(),
+        "TrustAnchorCertificate" => String.t() | Atom.t(),
         "XksProxyConfiguration" => xks_proxy_configuration_type()
       }
       
   """
-  @type custom_key_stores_list_entry() :: %{String.t() => any()}
+  @type custom_key_stores_list_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -760,50 +760,50 @@ defmodule AWS.KMS do
       }
       
   """
-  @type multi_region_configuration() :: %{String.t() => any()}
+  @type multi_region_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_key_policy_response() :: %{
-        "Policy" => String.t(),
-        "PolicyName" => String.t()
+        "Policy" => String.t() | Atom.t(),
+        "PolicyName" => String.t() | Atom.t()
       }
       
   """
-  @type get_key_policy_response() :: %{String.t() => any()}
+  @type get_key_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_custom_key_store_request() :: %{
-        optional("CloudHsmClusterId") => String.t(),
+        optional("CloudHsmClusterId") => String.t() | Atom.t(),
         optional("CustomKeyStoreType") => list(any()),
-        optional("KeyStorePassword") => String.t(),
-        optional("TrustAnchorCertificate") => String.t(),
+        optional("KeyStorePassword") => String.t() | Atom.t(),
+        optional("TrustAnchorCertificate") => String.t() | Atom.t(),
         optional("XksProxyAuthenticationCredential") => xks_proxy_authentication_credential_type(),
         optional("XksProxyConnectivity") => list(any()),
-        optional("XksProxyUriEndpoint") => String.t(),
-        optional("XksProxyUriPath") => String.t(),
-        optional("XksProxyVpcEndpointServiceName") => String.t(),
-        required("CustomKeyStoreName") => String.t()
+        optional("XksProxyUriEndpoint") => String.t() | Atom.t(),
+        optional("XksProxyUriPath") => String.t() | Atom.t(),
+        optional("XksProxyVpcEndpointServiceName") => String.t() | Atom.t(),
+        required("CustomKeyStoreName") => String.t() | Atom.t()
       }
       
   """
-  @type create_custom_key_store_request() :: %{String.t() => any()}
+  @type create_custom_key_store_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       expired_import_token_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type expired_import_token_exception() :: %{String.t() => any()}
+  @type expired_import_token_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -811,27 +811,27 @@ defmodule AWS.KMS do
       
       retire_grant_request() :: %{
         optional("DryRun") => boolean(),
-        optional("GrantId") => String.t(),
-        optional("GrantToken") => String.t(),
-        optional("KeyId") => String.t()
+        optional("GrantId") => String.t() | Atom.t(),
+        optional("GrantToken") => String.t() | Atom.t(),
+        optional("KeyId") => String.t() | Atom.t()
       }
       
   """
-  @type retire_grant_request() :: %{String.t() => any()}
+  @type retire_grant_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_custom_key_stores_request() :: %{
-        optional("CustomKeyStoreId") => String.t(),
-        optional("CustomKeyStoreName") => String.t(),
+        optional("CustomKeyStoreId") => String.t() | Atom.t(),
+        optional("CustomKeyStoreName") => String.t() | Atom.t(),
         optional("Limit") => integer(),
-        optional("Marker") => String.t()
+        optional("Marker") => String.t() | Atom.t()
       }
       
   """
-  @type describe_custom_key_stores_request() :: %{String.t() => any()}
+  @type describe_custom_key_stores_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -839,11 +839,11 @@ defmodule AWS.KMS do
       
       list_keys_request() :: %{
         optional("Limit") => integer(),
-        optional("Marker") => String.t()
+        optional("Marker") => String.t() | Atom.t()
       }
       
   """
-  @type list_keys_request() :: %{String.t() => any()}
+  @type list_keys_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -851,13 +851,13 @@ defmodule AWS.KMS do
       
       get_parameters_for_import_response() :: %{
         "ImportToken" => binary(),
-        "KeyId" => String.t(),
+        "KeyId" => String.t() | Atom.t(),
         "ParametersValidTo" => non_neg_integer(),
         "PublicKey" => binary()
       }
       
   """
-  @type get_parameters_for_import_response() :: %{String.t() => any()}
+  @type get_parameters_for_import_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -865,8 +865,8 @@ defmodule AWS.KMS do
       
       generate_data_key_pair_response() :: %{
         "CiphertextForRecipient" => binary(),
-        "KeyId" => String.t(),
-        "KeyMaterialId" => String.t(),
+        "KeyId" => String.t() | Atom.t(),
+        "KeyMaterialId" => String.t() | Atom.t(),
         "KeyPairSpec" => list(any()),
         "PrivateKeyCiphertextBlob" => binary(),
         "PrivateKeyPlaintext" => binary(),
@@ -874,52 +874,52 @@ defmodule AWS.KMS do
       }
       
   """
-  @type generate_data_key_pair_response() :: %{String.t() => any()}
+  @type generate_data_key_pair_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_key_request() :: %{
-        optional("GrantTokens") => list(String.t()),
-        required("KeyId") => String.t()
+        optional("GrantTokens") => list(String.t() | Atom.t()),
+        required("KeyId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_key_request() :: %{String.t() => any()}
+  @type describe_key_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_ciphertext_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_ciphertext_exception() :: %{String.t() => any()}
+  @type invalid_ciphertext_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       xks_proxy_uri_unreachable_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type xks_proxy_uri_unreachable_exception() :: %{String.t() => any()}
+  @type xks_proxy_uri_unreachable_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -927,12 +927,12 @@ defmodule AWS.KMS do
       
       list_grants_response() :: %{
         optional("Grants") => list(grant_list_entry()),
-        optional("NextMarker") => String.t(),
+        optional("NextMarker") => String.t() | Atom.t(),
         optional("Truncated") => boolean()
       }
       
   """
-  @type list_grants_response() :: %{String.t() => any()}
+  @type list_grants_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -940,15 +940,15 @@ defmodule AWS.KMS do
       
       verify_mac_request() :: %{
         optional("DryRun") => boolean(),
-        optional("GrantTokens") => list(String.t()),
-        required("KeyId") => String.t(),
+        optional("GrantTokens") => list(String.t() | Atom.t()),
+        required("KeyId") => String.t() | Atom.t(),
         required("Mac") => binary(),
         required("MacAlgorithm") => list(any()),
         required("Message") => binary()
       }
       
   """
-  @type verify_mac_request() :: %{String.t() => any()}
+  @type verify_mac_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -958,73 +958,73 @@ defmodule AWS.KMS do
         optional("DestinationEncryptionAlgorithm") => list(any()),
         optional("DestinationEncryptionContext") => map(),
         optional("DryRun") => boolean(),
-        optional("GrantTokens") => list(String.t()),
+        optional("GrantTokens") => list(String.t() | Atom.t()),
         optional("SourceEncryptionAlgorithm") => list(any()),
         optional("SourceEncryptionContext") => map(),
-        optional("SourceKeyId") => String.t(),
+        optional("SourceKeyId") => String.t() | Atom.t(),
         required("CiphertextBlob") => binary(),
-        required("DestinationKeyId") => String.t()
+        required("DestinationKeyId") => String.t() | Atom.t()
       }
       
   """
-  @type re_encrypt_request() :: %{String.t() => any()}
+  @type re_encrypt_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "TagKey" => String.t(),
-        "TagValue" => String.t()
+        "TagKey" => String.t() | Atom.t(),
+        "TagValue" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       xks_proxy_uri_in_use_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type xks_proxy_uri_in_use_exception() :: %{String.t() => any()}
+  @type xks_proxy_uri_in_use_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_custom_key_store_request() :: %{
-        required("CustomKeyStoreId") => String.t()
+        required("CustomKeyStoreId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_custom_key_store_request() :: %{String.t() => any()}
+  @type delete_custom_key_store_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_key_policy_request() :: %{
-        optional("PolicyName") => String.t(),
-        required("KeyId") => String.t()
+        optional("PolicyName") => String.t() | Atom.t(),
+        required("KeyId") => String.t() | Atom.t()
       }
       
   """
-  @type get_key_policy_request() :: %{String.t() => any()}
+  @type get_key_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_key_rotation_status_request() :: %{
-        required("KeyId") => String.t()
+        required("KeyId") => String.t() | Atom.t()
       }
       
   """
-  @type get_key_rotation_status_request() :: %{String.t() => any()}
+  @type get_key_rotation_status_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1033,16 +1033,16 @@ defmodule AWS.KMS do
       create_grant_request() :: %{
         optional("Constraints") => grant_constraints(),
         optional("DryRun") => boolean(),
-        optional("GrantTokens") => list(String.t()),
-        optional("Name") => String.t(),
-        optional("RetiringPrincipal") => String.t(),
-        required("GranteePrincipal") => String.t(),
-        required("KeyId") => String.t(),
+        optional("GrantTokens") => list(String.t() | Atom.t()),
+        optional("Name") => String.t() | Atom.t(),
+        optional("RetiringPrincipal") => String.t() | Atom.t(),
+        required("GranteePrincipal") => String.t() | Atom.t(),
+        required("KeyId") => String.t() | Atom.t(),
         required("Operations") => list(list(any())())
       }
       
   """
-  @type create_grant_request() :: %{String.t() => any()}
+  @type create_grant_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1051,27 +1051,27 @@ defmodule AWS.KMS do
       import_key_material_request() :: %{
         optional("ExpirationModel") => list(any()),
         optional("ImportType") => list(any()),
-        optional("KeyMaterialDescription") => String.t(),
-        optional("KeyMaterialId") => String.t(),
+        optional("KeyMaterialDescription") => String.t() | Atom.t(),
+        optional("KeyMaterialId") => String.t() | Atom.t(),
         optional("ValidTo") => non_neg_integer(),
         required("EncryptedKeyMaterial") => binary(),
         required("ImportToken") => binary(),
-        required("KeyId") => String.t()
+        required("KeyId") => String.t() | Atom.t()
       }
       
   """
-  @type import_key_material_request() :: %{String.t() => any()}
+  @type import_key_material_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cloud_hsm_cluster_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cloud_hsm_cluster_not_found_exception() :: %{String.t() => any()}
+  @type cloud_hsm_cluster_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1079,23 +1079,23 @@ defmodule AWS.KMS do
       
       generate_data_key_without_plaintext_response() :: %{
         "CiphertextBlob" => binary(),
-        "KeyId" => String.t(),
-        "KeyMaterialId" => String.t()
+        "KeyId" => String.t() | Atom.t(),
+        "KeyMaterialId" => String.t() | Atom.t()
       }
       
   """
-  @type generate_data_key_without_plaintext_response() :: %{String.t() => any()}
+  @type generate_data_key_without_plaintext_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type not_found_exception() :: %{String.t() => any()}
+  @type not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1111,45 +1111,45 @@ defmodule AWS.KMS do
   ## Example:
       
       update_custom_key_store_request() :: %{
-        optional("CloudHsmClusterId") => String.t(),
-        optional("KeyStorePassword") => String.t(),
-        optional("NewCustomKeyStoreName") => String.t(),
+        optional("CloudHsmClusterId") => String.t() | Atom.t(),
+        optional("KeyStorePassword") => String.t() | Atom.t(),
+        optional("NewCustomKeyStoreName") => String.t() | Atom.t(),
         optional("XksProxyAuthenticationCredential") => xks_proxy_authentication_credential_type(),
         optional("XksProxyConnectivity") => list(any()),
-        optional("XksProxyUriEndpoint") => String.t(),
-        optional("XksProxyUriPath") => String.t(),
-        optional("XksProxyVpcEndpointServiceName") => String.t(),
-        required("CustomKeyStoreId") => String.t()
+        optional("XksProxyUriEndpoint") => String.t() | Atom.t(),
+        optional("XksProxyUriPath") => String.t() | Atom.t(),
+        optional("XksProxyVpcEndpointServiceName") => String.t() | Atom.t(),
+        required("CustomKeyStoreId") => String.t() | Atom.t()
       }
       
   """
-  @type update_custom_key_store_request() :: %{String.t() => any()}
+  @type update_custom_key_store_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       generate_data_key_pair_without_plaintext_response() :: %{
-        "KeyId" => String.t(),
-        "KeyMaterialId" => String.t(),
+        "KeyId" => String.t() | Atom.t(),
+        "KeyMaterialId" => String.t() | Atom.t(),
         "KeyPairSpec" => list(any()),
         "PrivateKeyCiphertextBlob" => binary(),
         "PublicKey" => binary()
       }
       
   """
-  @type generate_data_key_pair_without_plaintext_response() :: %{String.t() => any()}
+  @type generate_data_key_pair_without_plaintext_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cloud_hsm_cluster_not_related_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cloud_hsm_cluster_not_related_exception() :: %{String.t() => any()}
+  @type cloud_hsm_cluster_not_related_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1158,19 +1158,19 @@ defmodule AWS.KMS do
       list_key_rotations_request() :: %{
         optional("IncludeKeyMaterial") => list(any()),
         optional("Limit") => integer(),
-        optional("Marker") => String.t(),
-        required("KeyId") => String.t()
+        optional("Marker") => String.t() | Atom.t(),
+        required("KeyId") => String.t() | Atom.t()
       }
       
   """
-  @type list_key_rotations_request() :: %{String.t() => any()}
+  @type list_key_rotations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_key_rotation_status_response() :: %{
-        "KeyId" => String.t(),
+        "KeyId" => String.t() | Atom.t(),
         "KeyRotationEnabled" => boolean(),
         "NextRotationDate" => non_neg_integer(),
         "OnDemandRotationStartDate" => non_neg_integer(),
@@ -1178,29 +1178,29 @@ defmodule AWS.KMS do
       }
       
   """
-  @type get_key_rotation_status_response() :: %{String.t() => any()}
+  @type get_key_rotation_status_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       xks_key_already_in_use_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type xks_key_already_in_use_exception() :: %{String.t() => any()}
+  @type xks_key_already_in_use_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cloud_hsm_cluster_invalid_configuration_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cloud_hsm_cluster_invalid_configuration_exception() :: %{String.t() => any()}
+  @type cloud_hsm_cluster_invalid_configuration_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1209,72 +1209,72 @@ defmodule AWS.KMS do
       generate_data_key_response() :: %{
         "CiphertextBlob" => binary(),
         "CiphertextForRecipient" => binary(),
-        "KeyId" => String.t(),
-        "KeyMaterialId" => String.t(),
+        "KeyId" => String.t() | Atom.t(),
+        "KeyMaterialId" => String.t() | Atom.t(),
         "Plaintext" => binary()
       }
       
   """
-  @type generate_data_key_response() :: %{String.t() => any()}
+  @type generate_data_key_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       xks_proxy_invalid_response_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type xks_proxy_invalid_response_exception() :: %{String.t() => any()}
+  @type xks_proxy_invalid_response_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       import_key_material_response() :: %{
-        "KeyId" => String.t(),
-        "KeyMaterialId" => String.t()
+        "KeyId" => String.t() | Atom.t(),
+        "KeyMaterialId" => String.t() | Atom.t()
       }
       
   """
-  @type import_key_material_response() :: %{String.t() => any()}
+  @type import_key_material_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_import_token_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_import_token_exception() :: %{String.t() => any()}
+  @type invalid_import_token_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       verify_mac_response() :: %{
-        "KeyId" => String.t(),
+        "KeyId" => String.t() | Atom.t(),
         "MacAlgorithm" => list(any()),
         "MacValid" => boolean()
       }
       
   """
-  @type verify_mac_response() :: %{String.t() => any()}
+  @type verify_mac_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       key_list_entry() :: %{
-        "KeyArn" => String.t(),
-        "KeyId" => String.t()
+        "KeyArn" => String.t() | Atom.t(),
+        "KeyId" => String.t() | Atom.t()
       }
       
   """
-  @type key_list_entry() :: %{String.t() => any()}
+  @type key_list_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1286,64 +1286,64 @@ defmodule AWS.KMS do
       }
       
   """
-  @type recipient_info() :: %{String.t() => any()}
+  @type recipient_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       key_unavailable_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type key_unavailable_exception() :: %{String.t() => any()}
+  @type key_unavailable_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       xks_key_invalid_configuration_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type xks_key_invalid_configuration_exception() :: %{String.t() => any()}
+  @type xks_key_invalid_configuration_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cloud_hsm_cluster_not_active_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cloud_hsm_cluster_not_active_exception() :: %{String.t() => any()}
+  @type cloud_hsm_cluster_not_active_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_parameters_for_import_request() :: %{
-        required("KeyId") => String.t(),
+        required("KeyId") => String.t() | Atom.t(),
         required("WrappingAlgorithm") => list(any()),
         required("WrappingKeySpec") => list(any())
       }
       
   """
-  @type get_parameters_for_import_request() :: %{String.t() => any()}
+  @type get_parameters_for_import_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_marker_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_marker_exception() :: %{String.t() => any()}
+  @type invalid_marker_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1351,36 +1351,36 @@ defmodule AWS.KMS do
       
       verify_request() :: %{
         optional("DryRun") => boolean(),
-        optional("GrantTokens") => list(String.t()),
+        optional("GrantTokens") => list(String.t() | Atom.t()),
         optional("MessageType") => list(any()),
-        required("KeyId") => String.t(),
+        required("KeyId") => String.t() | Atom.t(),
         required("Message") => binary(),
         required("Signature") => binary(),
         required("SigningAlgorithm") => list(any())
       }
       
   """
-  @type verify_request() :: %{String.t() => any()}
+  @type verify_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       key_metadata() :: %{
-        "AWSAccountId" => String.t(),
-        "Arn" => String.t(),
-        "CloudHsmClusterId" => String.t(),
+        "AWSAccountId" => String.t() | Atom.t(),
+        "Arn" => String.t() | Atom.t(),
+        "CloudHsmClusterId" => String.t() | Atom.t(),
         "CreationDate" => non_neg_integer(),
-        "CurrentKeyMaterialId" => String.t(),
-        "CustomKeyStoreId" => String.t(),
+        "CurrentKeyMaterialId" => String.t() | Atom.t(),
+        "CustomKeyStoreId" => String.t() | Atom.t(),
         "CustomerMasterKeySpec" => list(any()),
         "DeletionDate" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "Enabled" => boolean(),
         "EncryptionAlgorithms" => list(list(any())()),
         "ExpirationModel" => list(any()),
         "KeyAgreementAlgorithms" => list(list(any())()),
-        "KeyId" => String.t(),
+        "KeyId" => String.t() | Atom.t(),
         "KeyManager" => list(any()),
         "KeySpec" => list(any()),
         "KeyState" => list(any()),
@@ -1396,7 +1396,7 @@ defmodule AWS.KMS do
       }
       
   """
-  @type key_metadata() :: %{String.t() => any()}
+  @type key_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1413,26 +1413,26 @@ defmodule AWS.KMS do
       
       replicate_key_request() :: %{
         optional("BypassPolicyLockoutSafetyCheck") => boolean(),
-        optional("Description") => String.t(),
-        optional("Policy") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("Policy") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("KeyId") => String.t(),
-        required("ReplicaRegion") => String.t()
+        required("KeyId") => String.t() | Atom.t(),
+        required("ReplicaRegion") => String.t() | Atom.t()
       }
       
   """
-  @type replicate_key_request() :: %{String.t() => any()}
+  @type replicate_key_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disable_key_rotation_request() :: %{
-        required("KeyId") => String.t()
+        required("KeyId") => String.t() | Atom.t()
       }
       
   """
-  @type disable_key_rotation_request() :: %{String.t() => any()}
+  @type disable_key_rotation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1448,23 +1448,23 @@ defmodule AWS.KMS do
   ## Example:
       
       kms_internal_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type kms_internal_exception() :: %{String.t() => any()}
+  @type kms_internal_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_public_key_request() :: %{
-        optional("GrantTokens") => list(String.t()),
-        required("KeyId") => String.t()
+        optional("GrantTokens") => list(String.t() | Atom.t()),
+        required("KeyId") => String.t() | Atom.t()
       }
       
   """
-  @type get_public_key_request() :: %{String.t() => any()}
+  @type get_public_key_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1473,17 +1473,17 @@ defmodule AWS.KMS do
       grant_list_entry() :: %{
         "Constraints" => grant_constraints(),
         "CreationDate" => non_neg_integer(),
-        "GrantId" => String.t(),
-        "GranteePrincipal" => String.t(),
-        "IssuingAccount" => String.t(),
-        "KeyId" => String.t(),
-        "Name" => String.t(),
+        "GrantId" => String.t() | Atom.t(),
+        "GranteePrincipal" => String.t() | Atom.t(),
+        "IssuingAccount" => String.t() | Atom.t(),
+        "KeyId" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "Operations" => list(list(any())()),
-        "RetiringPrincipal" => String.t()
+        "RetiringPrincipal" => String.t() | Atom.t()
       }
       
   """
-  @type grant_list_entry() :: %{String.t() => any()}
+  @type grant_list_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1491,14 +1491,14 @@ defmodule AWS.KMS do
       
       generate_mac_request() :: %{
         optional("DryRun") => boolean(),
-        optional("GrantTokens") => list(String.t()),
-        required("KeyId") => String.t(),
+        optional("GrantTokens") => list(String.t() | Atom.t()),
+        required("KeyId") => String.t() | Atom.t(),
         required("MacAlgorithm") => list(any()),
         required("Message") => binary()
       }
       
   """
-  @type generate_mac_request() :: %{String.t() => any()}
+  @type generate_mac_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1508,7 +1508,7 @@ defmodule AWS.KMS do
         "CustomerMasterKeySpec" => list(any()),
         "EncryptionAlgorithms" => list(list(any())()),
         "KeyAgreementAlgorithms" => list(list(any())()),
-        "KeyId" => String.t(),
+        "KeyId" => String.t() | Atom.t(),
         "KeySpec" => list(any()),
         "KeyUsage" => list(any()),
         "PublicKey" => binary(),
@@ -1516,53 +1516,53 @@ defmodule AWS.KMS do
       }
       
   """
-  @type get_public_key_response() :: %{String.t() => any()}
+  @type get_public_key_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_key_usage_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_key_usage_exception() :: %{String.t() => any()}
+  @type invalid_key_usage_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       sign_response() :: %{
-        "KeyId" => String.t(),
+        "KeyId" => String.t() | Atom.t(),
         "Signature" => binary(),
         "SigningAlgorithm" => list(any())
       }
       
   """
-  @type sign_response() :: %{String.t() => any()}
+  @type sign_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       custom_key_store_invalid_state_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type custom_key_store_invalid_state_exception() :: %{String.t() => any()}
+  @type custom_key_store_invalid_state_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_key_deletion_response() :: %{
-        "KeyId" => String.t()
+        "KeyId" => String.t() | Atom.t()
       }
       
   """
-  @type cancel_key_deletion_response() :: %{String.t() => any()}
+  @type cancel_key_deletion_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1571,62 +1571,62 @@ defmodule AWS.KMS do
       derive_shared_secret_response() :: %{
         "CiphertextForRecipient" => binary(),
         "KeyAgreementAlgorithm" => list(any()),
-        "KeyId" => String.t(),
+        "KeyId" => String.t() | Atom.t(),
         "KeyOrigin" => list(any()),
         "SharedSecret" => binary()
       }
       
   """
-  @type derive_shared_secret_response() :: %{String.t() => any()}
+  @type derive_shared_secret_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       xks_proxy_authentication_credential_type() :: %{
-        "AccessKeyId" => String.t(),
-        "RawSecretAccessKey" => String.t()
+        "AccessKeyId" => String.t() | Atom.t(),
+        "RawSecretAccessKey" => String.t() | Atom.t()
       }
       
   """
-  @type xks_proxy_authentication_credential_type() :: %{String.t() => any()}
+  @type xks_proxy_authentication_credential_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       alias_list_entry() :: %{
-        "AliasArn" => String.t(),
-        "AliasName" => String.t(),
+        "AliasArn" => String.t() | Atom.t(),
+        "AliasName" => String.t() | Atom.t(),
         "CreationDate" => non_neg_integer(),
         "LastUpdatedDate" => non_neg_integer(),
-        "TargetKeyId" => String.t()
+        "TargetKeyId" => String.t() | Atom.t()
       }
       
   """
-  @type alias_list_entry() :: %{String.t() => any()}
+  @type alias_list_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       connect_custom_key_store_request() :: %{
-        required("CustomKeyStoreId") => String.t()
+        required("CustomKeyStoreId") => String.t() | Atom.t()
       }
       
   """
-  @type connect_custom_key_store_request() :: %{String.t() => any()}
+  @type connect_custom_key_store_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cloud_hsm_cluster_in_use_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cloud_hsm_cluster_in_use_exception() :: %{String.t() => any()}
+  @type cloud_hsm_cluster_in_use_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1643,13 +1643,13 @@ defmodule AWS.KMS do
       
       put_key_policy_request() :: %{
         optional("BypassPolicyLockoutSafetyCheck") => boolean(),
-        optional("PolicyName") => String.t(),
-        required("KeyId") => String.t(),
-        required("Policy") => String.t()
+        optional("PolicyName") => String.t() | Atom.t(),
+        required("KeyId") => String.t() | Atom.t(),
+        required("Policy") => String.t() | Atom.t()
       }
       
   """
-  @type put_key_policy_request() :: %{String.t() => any()}
+  @type put_key_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1657,12 +1657,12 @@ defmodule AWS.KMS do
       
       replicate_key_response() :: %{
         "ReplicaKeyMetadata" => key_metadata(),
-        "ReplicaPolicy" => String.t(),
+        "ReplicaPolicy" => String.t() | Atom.t(),
         "ReplicaTags" => list(tag())
       }
       
   """
-  @type replicate_key_response() :: %{String.t() => any()}
+  @type replicate_key_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1671,37 +1671,37 @@ defmodule AWS.KMS do
       re_encrypt_response() :: %{
         "CiphertextBlob" => binary(),
         "DestinationEncryptionAlgorithm" => list(any()),
-        "DestinationKeyMaterialId" => String.t(),
-        "KeyId" => String.t(),
+        "DestinationKeyMaterialId" => String.t() | Atom.t(),
+        "KeyId" => String.t() | Atom.t(),
         "SourceEncryptionAlgorithm" => list(any()),
-        "SourceKeyId" => String.t(),
-        "SourceKeyMaterialId" => String.t()
+        "SourceKeyId" => String.t() | Atom.t(),
+        "SourceKeyMaterialId" => String.t() | Atom.t()
       }
       
   """
-  @type re_encrypt_response() :: %{String.t() => any()}
+  @type re_encrypt_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disable_key_request() :: %{
-        required("KeyId") => String.t()
+        required("KeyId") => String.t() | Atom.t()
       }
       
   """
-  @type disable_key_request() :: %{String.t() => any()}
+  @type disable_key_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       malformed_policy_document_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type malformed_policy_document_exception() :: %{String.t() => any()}
+  @type malformed_policy_document_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1712,7 +1712,7 @@ defmodule AWS.KMS do
       }
       
   """
-  @type describe_key_response() :: %{String.t() => any()}
+  @type describe_key_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1720,34 +1720,34 @@ defmodule AWS.KMS do
       
       enable_key_rotation_request() :: %{
         optional("RotationPeriodInDays") => integer(),
-        required("KeyId") => String.t()
+        required("KeyId") => String.t() | Atom.t()
       }
       
   """
-  @type enable_key_rotation_request() :: %{String.t() => any()}
+  @type enable_key_rotation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disabled_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type disabled_exception() :: %{String.t() => any()}
+  @type disabled_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       multi_region_key() :: %{
-        "Arn" => String.t(),
-        "Region" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Region" => String.t() | Atom.t()
       }
       
   """
-  @type multi_region_key() :: %{String.t() => any()}
+  @type multi_region_key() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1755,69 +1755,72 @@ defmodule AWS.KMS do
       
       list_key_policies_request() :: %{
         optional("Limit") => integer(),
-        optional("Marker") => String.t(),
-        required("KeyId") => String.t()
+        optional("Marker") => String.t() | Atom.t(),
+        required("KeyId") => String.t() | Atom.t()
       }
       
   """
-  @type list_key_policies_request() :: %{String.t() => any()}
+  @type list_key_policies_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_imported_key_material_request() :: %{
-        optional("KeyMaterialId") => String.t(),
-        required("KeyId") => String.t()
+        optional("KeyMaterialId") => String.t() | Atom.t(),
+        required("KeyId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_imported_key_material_request() :: %{String.t() => any()}
+  @type delete_imported_key_material_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       xks_proxy_vpc_endpoint_service_invalid_configuration_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type xks_proxy_vpc_endpoint_service_invalid_configuration_exception() :: %{String.t() => any()}
+  @type xks_proxy_vpc_endpoint_service_invalid_configuration_exception() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       kms_invalid_mac_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type kms_invalid_mac_exception() :: %{String.t() => any()}
+  @type kms_invalid_mac_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_primary_region_request() :: %{
-        required("KeyId") => String.t(),
-        required("PrimaryRegion") => String.t()
+        required("KeyId") => String.t() | Atom.t(),
+        required("PrimaryRegion") => String.t() | Atom.t()
       }
       
   """
-  @type update_primary_region_request() :: %{String.t() => any()}
+  @type update_primary_region_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1825,28 +1828,28 @@ defmodule AWS.KMS do
       
       sign_request() :: %{
         optional("DryRun") => boolean(),
-        optional("GrantTokens") => list(String.t()),
+        optional("GrantTokens") => list(String.t() | Atom.t()),
         optional("MessageType") => list(any()),
-        required("KeyId") => String.t(),
+        required("KeyId") => String.t() | Atom.t(),
         required("Message") => binary(),
         required("SigningAlgorithm") => list(any())
       }
       
   """
-  @type sign_request() :: %{String.t() => any()}
+  @type sign_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       verify_response() :: %{
-        "KeyId" => String.t(),
+        "KeyId" => String.t() | Atom.t(),
         "SignatureValid" => boolean(),
         "SigningAlgorithm" => list(any())
       }
       
   """
-  @type verify_response() :: %{String.t() => any()}
+  @type verify_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1855,25 +1858,25 @@ defmodule AWS.KMS do
       generate_data_key_pair_request() :: %{
         optional("DryRun") => boolean(),
         optional("EncryptionContext") => map(),
-        optional("GrantTokens") => list(String.t()),
+        optional("GrantTokens") => list(String.t() | Atom.t()),
         optional("Recipient") => recipient_info(),
-        required("KeyId") => String.t(),
+        required("KeyId") => String.t() | Atom.t(),
         required("KeyPairSpec") => list(any())
       }
       
   """
-  @type generate_data_key_pair_request() :: %{String.t() => any()}
+  @type generate_data_key_pair_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_invalid_signature_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type kms_invalid_signature_exception() :: %{String.t() => any()}
+  @type kms_invalid_signature_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1882,46 +1885,49 @@ defmodule AWS.KMS do
       decrypt_response() :: %{
         "CiphertextForRecipient" => binary(),
         "EncryptionAlgorithm" => list(any()),
-        "KeyId" => String.t(),
-        "KeyMaterialId" => String.t(),
+        "KeyId" => String.t() | Atom.t(),
+        "KeyMaterialId" => String.t() | Atom.t(),
         "Plaintext" => binary()
       }
       
   """
-  @type decrypt_response() :: %{String.t() => any()}
+  @type decrypt_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       xks_proxy_invalid_configuration_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type xks_proxy_invalid_configuration_exception() :: %{String.t() => any()}
+  @type xks_proxy_invalid_configuration_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       xks_proxy_incorrect_authentication_credential_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type xks_proxy_incorrect_authentication_credential_exception() :: %{String.t() => any()}
+  @type xks_proxy_incorrect_authentication_credential_exception() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       kms_invalid_state_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type kms_invalid_state_exception() :: %{String.t() => any()}
+  @type kms_invalid_state_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1930,9 +1936,9 @@ defmodule AWS.KMS do
       rotations_list_entry() :: %{
         "ExpirationModel" => list(any()),
         "ImportState" => list(any()),
-        "KeyId" => String.t(),
-        "KeyMaterialDescription" => String.t(),
-        "KeyMaterialId" => String.t(),
+        "KeyId" => String.t() | Atom.t(),
+        "KeyMaterialDescription" => String.t() | Atom.t(),
+        "KeyMaterialId" => String.t() | Atom.t(),
         "KeyMaterialState" => list(any()),
         "RotationDate" => non_neg_integer(),
         "RotationType" => list(any()),
@@ -1940,7 +1946,7 @@ defmodule AWS.KMS do
       }
       
   """
-  @type rotations_list_entry() :: %{String.t() => any()}
+  @type rotations_list_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1949,15 +1955,15 @@ defmodule AWS.KMS do
       generate_data_key_request() :: %{
         optional("DryRun") => boolean(),
         optional("EncryptionContext") => map(),
-        optional("GrantTokens") => list(String.t()),
+        optional("GrantTokens") => list(String.t() | Atom.t()),
         optional("KeySpec") => list(any()),
         optional("NumberOfBytes") => integer(),
         optional("Recipient") => recipient_info(),
-        required("KeyId") => String.t()
+        required("KeyId") => String.t() | Atom.t()
       }
       
   """
-  @type generate_data_key_request() :: %{String.t() => any()}
+  @type generate_data_key_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1965,46 +1971,46 @@ defmodule AWS.KMS do
       
       list_resource_tags_request() :: %{
         optional("Limit") => integer(),
-        optional("Marker") => String.t(),
-        required("KeyId") => String.t()
+        optional("Marker") => String.t() | Atom.t(),
+        required("KeyId") => String.t() | Atom.t()
       }
       
   """
-  @type list_resource_tags_request() :: %{String.t() => any()}
+  @type list_resource_tags_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       incorrect_trust_anchor_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type incorrect_trust_anchor_exception() :: %{String.t() => any()}
+  @type incorrect_trust_anchor_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_grant_response() :: %{
-        "GrantId" => String.t(),
-        "GrantToken" => String.t()
+        "GrantId" => String.t() | Atom.t(),
+        "GrantToken" => String.t() | Atom.t()
       }
       
   """
-  @type create_grant_response() :: %{String.t() => any()}
+  @type create_grant_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       incorrect_key_material_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type incorrect_key_material_exception() :: %{String.t() => any()}
+  @type incorrect_key_material_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2015,94 +2021,94 @@ defmodule AWS.KMS do
       }
       
   """
-  @type create_key_response() :: %{String.t() => any()}
+  @type create_key_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_alias_request() :: %{
-        required("AliasName") => String.t()
+        required("AliasName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_alias_request() :: %{String.t() => any()}
+  @type delete_alias_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       generate_mac_response() :: %{
-        "KeyId" => String.t(),
+        "KeyId" => String.t() | Atom.t(),
         "Mac" => binary(),
         "MacAlgorithm" => list(any())
       }
       
   """
-  @type generate_mac_response() :: %{String.t() => any()}
+  @type generate_mac_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       custom_key_store_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type custom_key_store_not_found_exception() :: %{String.t() => any()}
+  @type custom_key_store_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       generate_random_request() :: %{
-        optional("CustomKeyStoreId") => String.t(),
+        optional("CustomKeyStoreId") => String.t() | Atom.t(),
         optional("NumberOfBytes") => integer(),
         optional("Recipient") => recipient_info()
       }
       
   """
-  @type generate_random_request() :: %{String.t() => any()}
+  @type generate_random_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_key_rotations_response() :: %{
-        "NextMarker" => String.t(),
+        "NextMarker" => String.t() | Atom.t(),
         "Rotations" => list(rotations_list_entry()),
         "Truncated" => boolean()
       }
       
   """
-  @type list_key_rotations_response() :: %{String.t() => any()}
+  @type list_key_rotations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       rotate_key_on_demand_request() :: %{
-        required("KeyId") => String.t()
+        required("KeyId") => String.t() | Atom.t()
       }
       
   """
-  @type rotate_key_on_demand_request() :: %{String.t() => any()}
+  @type rotate_key_on_demand_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       xks_proxy_configuration_type() :: %{
-        "AccessKeyId" => String.t(),
+        "AccessKeyId" => String.t() | Atom.t(),
         "Connectivity" => list(any()),
-        "UriEndpoint" => String.t(),
-        "UriPath" => String.t(),
-        "VpcEndpointServiceName" => String.t()
+        "UriEndpoint" => String.t() | Atom.t(),
+        "UriPath" => String.t() | Atom.t(),
+        "VpcEndpointServiceName" => String.t() | Atom.t()
       }
       
   """
-  @type xks_proxy_configuration_type() :: %{String.t() => any()}
+  @type xks_proxy_configuration_type() :: %{String.t() | Atom.t() => any()}
 
   @type cancel_key_deletion_errors() ::
           kms_invalid_state_exception()

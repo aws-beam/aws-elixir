@@ -10,15 +10,15 @@ defmodule AWS.PersonalizeRuntime do
   ## Example:
 
       get_action_recommendations_request() :: %{
-        optional("campaignArn") => String.t(),
-        optional("filterArn") => String.t(),
+        optional("campaignArn") => String.t() | Atom.t(),
+        optional("filterArn") => String.t() | Atom.t(),
         optional("filterValues") => map(),
         optional("numResults") => integer(),
-        optional("userId") => String.t()
+        optional("userId") => String.t() | Atom.t()
       }
 
   """
-  @type get_action_recommendations_request() :: %{String.t() => any()}
+  @type get_action_recommendations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -26,11 +26,11 @@ defmodule AWS.PersonalizeRuntime do
 
       get_action_recommendations_response() :: %{
         "actionList" => list(predicted_action()),
-        "recommendationId" => String.t()
+        "recommendationId" => String.t() | Atom.t()
       }
 
   """
-  @type get_action_recommendations_response() :: %{String.t() => any()}
+  @type get_action_recommendations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -38,16 +38,16 @@ defmodule AWS.PersonalizeRuntime do
 
       get_personalized_ranking_request() :: %{
         optional("context") => map(),
-        optional("filterArn") => String.t(),
+        optional("filterArn") => String.t() | Atom.t(),
         optional("filterValues") => map(),
         optional("metadataColumns") => map(),
-        required("campaignArn") => String.t(),
-        required("inputList") => list(String.t()),
-        required("userId") => String.t()
+        required("campaignArn") => String.t() | Atom.t(),
+        required("inputList") => list(String.t() | Atom.t()),
+        required("userId") => String.t() | Atom.t()
       }
 
   """
-  @type get_personalized_ranking_request() :: %{String.t() => any()}
+  @type get_personalized_ranking_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -55,31 +55,31 @@ defmodule AWS.PersonalizeRuntime do
 
       get_personalized_ranking_response() :: %{
         "personalizedRanking" => list(predicted_item()),
-        "recommendationId" => String.t()
+        "recommendationId" => String.t() | Atom.t()
       }
 
   """
-  @type get_personalized_ranking_response() :: %{String.t() => any()}
+  @type get_personalized_ranking_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_recommendations_request() :: %{
-        optional("campaignArn") => String.t(),
+        optional("campaignArn") => String.t() | Atom.t(),
         optional("context") => map(),
-        optional("filterArn") => String.t(),
+        optional("filterArn") => String.t() | Atom.t(),
         optional("filterValues") => map(),
-        optional("itemId") => String.t(),
+        optional("itemId") => String.t() | Atom.t(),
         optional("metadataColumns") => map(),
         optional("numResults") => integer(),
         optional("promotions") => list(promotion()),
-        optional("recommenderArn") => String.t(),
-        optional("userId") => String.t()
+        optional("recommenderArn") => String.t() | Atom.t(),
+        optional("userId") => String.t() | Atom.t()
       }
 
   """
-  @type get_recommendations_request() :: %{String.t() => any()}
+  @type get_recommendations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -87,74 +87,74 @@ defmodule AWS.PersonalizeRuntime do
 
       get_recommendations_response() :: %{
         "itemList" => list(predicted_item()),
-        "recommendationId" => String.t()
+        "recommendationId" => String.t() | Atom.t()
       }
 
   """
-  @type get_recommendations_response() :: %{String.t() => any()}
+  @type get_recommendations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_input_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_input_exception() :: %{String.t() => any()}
+  @type invalid_input_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       predicted_action() :: %{
-        "actionId" => String.t(),
+        "actionId" => String.t() | Atom.t(),
         "score" => float()
       }
 
   """
-  @type predicted_action() :: %{String.t() => any()}
+  @type predicted_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       predicted_item() :: %{
-        "itemId" => String.t(),
+        "itemId" => String.t() | Atom.t(),
         "metadata" => map(),
-        "promotionName" => String.t(),
-        "reason" => list(String.t()),
+        "promotionName" => String.t() | Atom.t(),
+        "reason" => list(String.t() | Atom.t()),
         "score" => float()
       }
 
   """
-  @type predicted_item() :: %{String.t() => any()}
+  @type predicted_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       promotion() :: %{
-        "filterArn" => String.t(),
+        "filterArn" => String.t() | Atom.t(),
         "filterValues" => map(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "percentPromotedItems" => integer()
       }
 
   """
-  @type promotion() :: %{String.t() => any()}
+  @type promotion() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @type get_action_recommendations_errors() ::
           resource_not_found_exception() | invalid_input_exception()

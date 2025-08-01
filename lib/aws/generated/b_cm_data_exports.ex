@@ -22,12 +22,12 @@ defmodule AWS.BCMDataExports do
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
+        required("ResourceArn") => String.t() | Atom.t(),
         required("ResourceTags") => list(resource_tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -42,7 +42,7 @@ defmodule AWS.BCMDataExports do
       }
       
   """
-  @type export_status() :: %{String.t() => any()}
+  @type export_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -63,20 +63,20 @@ defmodule AWS.BCMDataExports do
       }
       
   """
-  @type create_export_request() :: %{String.t() => any()}
+  @type create_export_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       column() :: %{
-        "Description" => String.t(),
-        "Name" => String.t(),
-        "Type" => String.t()
+        "Description" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "Type" => String.t() | Atom.t()
       }
       
   """
-  @type column() :: %{String.t() => any()}
+  @type column() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -84,48 +84,48 @@ defmodule AWS.BCMDataExports do
       
       get_table_request() :: %{
         optional("TableProperties") => map(),
-        required("TableName") => String.t()
+        required("TableName") => String.t() | Atom.t()
       }
       
   """
-  @type get_table_request() :: %{String.t() => any()}
+  @type get_table_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_table_response() :: %{
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "Schema" => list(column()),
-        "TableName" => String.t(),
+        "TableName" => String.t() | Atom.t(),
         "TableProperties" => map()
       }
       
   """
-  @type get_table_response() :: %{String.t() => any()}
+  @type get_table_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_export_request() :: %{
-        required("ExportArn") => String.t()
+        required("ExportArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_export_request() :: %{String.t() => any()}
+  @type delete_export_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
-        required("ResourceTagKeys") => list(String.t())
+        required("ResourceArn") => String.t() | Atom.t(),
+        required("ResourceTagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -140,7 +140,7 @@ defmodule AWS.BCMDataExports do
       }
       
   """
-  @type execution_status() :: %{String.t() => any()}
+  @type execution_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -148,11 +148,11 @@ defmodule AWS.BCMDataExports do
       
       list_exports_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_exports_request() :: %{String.t() => any()}
+  @type list_exports_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -163,32 +163,32 @@ defmodule AWS.BCMDataExports do
       }
       
   """
-  @type refresh_cadence() :: %{String.t() => any()}
+  @type refresh_cadence() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t(),
-        "ResourceId" => String.t(),
-        "ResourceType" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tables_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Tables" => list(table())
       }
       
   """
-  @type list_tables_response() :: %{String.t() => any()}
+  @type list_tables_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -196,111 +196,111 @@ defmodule AWS.BCMDataExports do
       
       list_executions_response() :: %{
         "Executions" => list(execution_reference()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_executions_response() :: %{String.t() => any()}
+  @type list_executions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t(),
-        "QuotaCode" => String.t(),
-        "ResourceId" => String.t(),
-        "ResourceType" => String.t(),
-        "ServiceCode" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "QuotaCode" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t(),
+        "ServiceCode" => String.t() | Atom.t()
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       export_reference() :: %{
-        "ExportArn" => String.t(),
-        "ExportName" => String.t(),
+        "ExportArn" => String.t() | Atom.t(),
+        "ExportName" => String.t() | Atom.t(),
         "ExportStatus" => export_status()
       }
       
   """
-  @type export_reference() :: %{String.t() => any()}
+  @type export_reference() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "ResourceTags" => list(resource_tag())
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_export_response() :: %{
-        "ExportArn" => String.t()
+        "ExportArn" => String.t() | Atom.t()
       }
       
   """
-  @type delete_export_response() :: %{String.t() => any()}
+  @type delete_export_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception_field() :: %{
-        "Message" => String.t(),
-        "Name" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
       
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       data_query() :: %{
-        "QueryStatement" => String.t(),
+        "QueryStatement" => String.t() | Atom.t(),
         "TableConfigurations" => map()
       }
       
   """
-  @type data_query() :: %{String.t() => any()}
+  @type data_query() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_destination() :: %{
-        "S3Bucket" => String.t(),
+        "S3Bucket" => String.t() | Atom.t(),
         "S3OutputConfigurations" => s3_output_configurations(),
-        "S3Prefix" => String.t(),
-        "S3Region" => String.t()
+        "S3Prefix" => String.t() | Atom.t(),
+        "S3Region" => String.t() | Atom.t()
       }
       
   """
-  @type s3_destination() :: %{String.t() => any()}
+  @type s3_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -311,54 +311,54 @@ defmodule AWS.BCMDataExports do
       }
       
   """
-  @type destination_configurations() :: %{String.t() => any()}
+  @type destination_configurations() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type resource_tag() :: %{String.t() => any()}
+  @type resource_tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_export_request() :: %{
-        required("ExportArn") => String.t()
+        required("ExportArn") => String.t() | Atom.t()
       }
       
   """
-  @type get_export_request() :: %{String.t() => any()}
+  @type get_export_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_execution_response() :: %{
-        "ExecutionId" => String.t(),
+        "ExecutionId" => String.t() | Atom.t(),
         "ExecutionStatus" => execution_status(),
         "Export" => export()
       }
       
   """
-  @type get_execution_response() :: %{String.t() => any()}
+  @type get_execution_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_export_response() :: %{
-        "ExportArn" => String.t()
+        "ExportArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_export_response() :: %{String.t() => any()}
+  @type create_export_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -375,12 +375,12 @@ defmodule AWS.BCMDataExports do
       
       validation_exception() :: %{
         "Fields" => list(validation_exception_field()),
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "Reason" => list(any())
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -388,12 +388,12 @@ defmodule AWS.BCMDataExports do
       
       list_tags_for_resource_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ResourceArn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -407,34 +407,34 @@ defmodule AWS.BCMDataExports do
       }
       
   """
-  @type s3_output_configurations() :: %{String.t() => any()}
+  @type s3_output_configurations() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       table_property_description() :: %{
-        "DefaultValue" => String.t(),
-        "Description" => String.t(),
-        "Name" => String.t(),
-        "ValidValues" => list(String.t())
+        "DefaultValue" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "ValidValues" => list(String.t() | Atom.t())
       }
       
   """
-  @type table_property_description() :: %{String.t() => any()}
+  @type table_property_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "Message" => String.t(),
-        "QuotaCode" => String.t(),
-        "ServiceCode" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "QuotaCode" => String.t() | Atom.t(),
+        "ServiceCode" => String.t() | Atom.t()
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -446,42 +446,42 @@ defmodule AWS.BCMDataExports do
       }
       
   """
-  @type get_export_response() :: %{String.t() => any()}
+  @type get_export_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       execution_reference() :: %{
-        "ExecutionId" => String.t(),
+        "ExecutionId" => String.t() | Atom.t(),
         "ExecutionStatus" => execution_status()
       }
       
   """
-  @type execution_reference() :: %{String.t() => any()}
+  @type execution_reference() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_execution_request() :: %{
-        required("ExecutionId") => String.t(),
-        required("ExportArn") => String.t()
+        required("ExecutionId") => String.t() | Atom.t(),
+        required("ExportArn") => String.t() | Atom.t()
       }
       
   """
-  @type get_execution_request() :: %{String.t() => any()}
+  @type get_execution_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_export_response() :: %{
-        "ExportArn" => String.t()
+        "ExportArn" => String.t() | Atom.t()
       }
       
   """
-  @type update_export_response() :: %{String.t() => any()}
+  @type update_export_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -489,24 +489,24 @@ defmodule AWS.BCMDataExports do
       
       update_export_request() :: %{
         required("Export") => export(),
-        required("ExportArn") => String.t()
+        required("ExportArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_export_request() :: %{String.t() => any()}
+  @type update_export_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       table() :: %{
-        "Description" => String.t(),
-        "TableName" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "TableName" => String.t() | Atom.t(),
         "TableProperties" => list(table_property_description())
       }
       
   """
-  @type table() :: %{String.t() => any()}
+  @type table() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -514,15 +514,15 @@ defmodule AWS.BCMDataExports do
       
       export() :: %{
         "DataQuery" => data_query(),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "DestinationConfigurations" => destination_configurations(),
-        "ExportArn" => String.t(),
-        "Name" => String.t(),
+        "ExportArn" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "RefreshCadence" => refresh_cadence()
       }
       
   """
-  @type export() :: %{String.t() => any()}
+  @type export() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -530,12 +530,12 @@ defmodule AWS.BCMDataExports do
       
       list_executions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ExportArn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ExportArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_executions_request() :: %{String.t() => any()}
+  @type list_executions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -543,11 +543,11 @@ defmodule AWS.BCMDataExports do
       
       list_tables_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_tables_request() :: %{String.t() => any()}
+  @type list_tables_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -555,11 +555,11 @@ defmodule AWS.BCMDataExports do
       
       list_exports_response() :: %{
         "Exports" => list(export_reference()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_exports_response() :: %{String.t() => any()}
+  @type list_exports_response() :: %{String.t() | Atom.t() => any()}
 
   @type create_export_errors() ::
           throttling_exception()

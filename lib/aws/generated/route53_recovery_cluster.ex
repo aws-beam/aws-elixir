@@ -76,177 +76,177 @@ defmodule AWS.Route53RecoveryCluster do
   ## Example:
       
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "message" => String.t(),
-        "resourceId" => String.t(),
-        "resourceType" => String.t()
+        "message" => String.t() | Atom.t(),
+        "resourceId" => String.t() | Atom.t(),
+        "resourceType" => String.t() | Atom.t()
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoint_temporarily_unavailable_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type endpoint_temporarily_unavailable_exception() :: %{String.t() => any()}
+  @type endpoint_temporarily_unavailable_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_routing_control_state_request() :: %{
-        required("RoutingControlArn") => String.t()
+        required("RoutingControlArn") => String.t() | Atom.t()
       }
       
   """
-  @type get_routing_control_state_request() :: %{String.t() => any()}
+  @type get_routing_control_state_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_routing_control_state_response() :: %{
-        "RoutingControlArn" => String.t(),
-        "RoutingControlName" => String.t(),
+        "RoutingControlArn" => String.t() | Atom.t(),
+        "RoutingControlName" => String.t() | Atom.t(),
         "RoutingControlState" => list(any())
       }
       
   """
-  @type get_routing_control_state_response() :: %{String.t() => any()}
+  @type get_routing_control_state_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "message" => String.t(),
+        "message" => String.t() | Atom.t(),
         "retryAfterSeconds" => integer()
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_routing_controls_request() :: %{
-        optional("ControlPanelArn") => String.t(),
+        optional("ControlPanelArn") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_routing_controls_request() :: %{String.t() => any()}
+  @type list_routing_controls_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_routing_controls_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "RoutingControls" => list(routing_control())
       }
       
   """
-  @type list_routing_controls_response() :: %{String.t() => any()}
+  @type list_routing_controls_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => String.t(),
-        "resourceId" => String.t(),
-        "resourceType" => String.t()
+        "message" => String.t() | Atom.t(),
+        "resourceId" => String.t() | Atom.t(),
+        "resourceType" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       routing_control() :: %{
-        "ControlPanelArn" => String.t(),
-        "ControlPanelName" => String.t(),
-        "Owner" => String.t(),
-        "RoutingControlArn" => String.t(),
-        "RoutingControlName" => String.t(),
+        "ControlPanelArn" => String.t() | Atom.t(),
+        "ControlPanelName" => String.t() | Atom.t(),
+        "Owner" => String.t() | Atom.t(),
+        "RoutingControlArn" => String.t() | Atom.t(),
+        "RoutingControlName" => String.t() | Atom.t(),
         "RoutingControlState" => list(any())
       }
       
   """
-  @type routing_control() :: %{String.t() => any()}
+  @type routing_control() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       service_limit_exceeded_exception() :: %{
-        "limitCode" => String.t(),
-        "message" => String.t(),
-        "resourceId" => String.t(),
-        "resourceType" => String.t(),
-        "serviceCode" => String.t()
+        "limitCode" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t(),
+        "resourceId" => String.t() | Atom.t(),
+        "resourceType" => String.t() | Atom.t(),
+        "serviceCode" => String.t() | Atom.t()
       }
       
   """
-  @type service_limit_exceeded_exception() :: %{String.t() => any()}
+  @type service_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "message" => String.t(),
+        "message" => String.t() | Atom.t(),
         "retryAfterSeconds" => integer()
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_routing_control_state_entry() :: %{
-        "RoutingControlArn" => String.t(),
+        "RoutingControlArn" => String.t() | Atom.t(),
         "RoutingControlState" => list(any())
       }
       
   """
-  @type update_routing_control_state_entry() :: %{String.t() => any()}
+  @type update_routing_control_state_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_routing_control_state_request() :: %{
-        optional("SafetyRulesToOverride") => list(String.t()),
-        required("RoutingControlArn") => String.t(),
+        optional("SafetyRulesToOverride") => list(String.t() | Atom.t()),
+        required("RoutingControlArn") => String.t() | Atom.t(),
         required("RoutingControlState") => list(any())
       }
       
   """
-  @type update_routing_control_state_request() :: %{String.t() => any()}
+  @type update_routing_control_state_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -262,12 +262,12 @@ defmodule AWS.Route53RecoveryCluster do
   ## Example:
       
       update_routing_control_states_request() :: %{
-        optional("SafetyRulesToOverride") => list(String.t()),
+        optional("SafetyRulesToOverride") => list(String.t() | Atom.t()),
         required("UpdateRoutingControlStateEntries") => list(update_routing_control_state_entry())
       }
       
   """
-  @type update_routing_control_states_request() :: %{String.t() => any()}
+  @type update_routing_control_states_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -284,24 +284,24 @@ defmodule AWS.Route53RecoveryCluster do
       
       validation_exception() :: %{
         "fields" => list(validation_exception_field()),
-        "message" => String.t(),
+        "message" => String.t() | Atom.t(),
         "reason" => list(any())
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception_field() :: %{
-        "message" => String.t(),
-        "name" => String.t()
+        "message" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
       
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
 
   @type get_routing_control_state_errors() ::
           validation_exception()

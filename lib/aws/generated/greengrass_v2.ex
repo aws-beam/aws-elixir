@@ -37,14 +37,14 @@ defmodule AWS.GreengrassV2 do
       lambda_function_recipe_source() :: %{
         "componentDependencies" => map(),
         "componentLambdaParameters" => lambda_execution_parameters(),
-        "componentName" => String.t(),
+        "componentName" => String.t() | Atom.t(),
         "componentPlatforms" => list(component_platform()),
-        "componentVersion" => String.t(),
-        "lambdaArn" => String.t()
+        "componentVersion" => String.t() | Atom.t(),
+        "lambdaArn" => String.t() | Atom.t()
       }
 
   """
-  @type lambda_function_recipe_source() :: %{String.t() => any()}
+  @type lambda_function_recipe_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -56,33 +56,33 @@ defmodule AWS.GreengrassV2 do
       }
 
   """
-  @type deployment_component_update_policy() :: %{String.t() => any()}
+  @type deployment_component_update_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_service_role_from_account_response() :: %{
-        "disassociatedAt" => String.t()
+        "disassociatedAt" => String.t() | Atom.t()
       }
 
   """
-  @type disassociate_service_role_from_account_response() :: %{String.t() => any()}
+  @type disassociate_service_role_from_account_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_component_version_response() :: %{
-        "arn" => String.t(),
-        "componentName" => String.t(),
-        "componentVersion" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "componentName" => String.t() | Atom.t(),
+        "componentVersion" => String.t() | Atom.t(),
         "creationTimestamp" => non_neg_integer(),
         "status" => cloud_component_status()
       }
 
   """
-  @type create_component_version_response() :: %{String.t() => any()}
+  @type create_component_version_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -93,7 +93,7 @@ defmodule AWS.GreengrassV2 do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -102,25 +102,25 @@ defmodule AWS.GreengrassV2 do
       list_deployments_request() :: %{
         optional("historyFilter") => list(any()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("parentTargetArn") => String.t(),
-        optional("targetArn") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("parentTargetArn") => String.t() | Atom.t(),
+        optional("targetArn") => String.t() | Atom.t()
       }
 
   """
-  @type list_deployments_request() :: %{String.t() => any()}
+  @type list_deployments_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_connectivity_info_response() :: %{
-        "message" => String.t(),
-        "version" => String.t()
+        "message" => String.t() | Atom.t(),
+        "version" => String.t() | Atom.t()
       }
 
   """
-  @type update_connectivity_info_response() :: %{String.t() => any()}
+  @type update_connectivity_info_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -128,11 +128,11 @@ defmodule AWS.GreengrassV2 do
 
       list_component_versions_response() :: %{
         "componentVersions" => list(component_version_list_item()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_component_versions_response() :: %{String.t() => any()}
+  @type list_component_versions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -144,18 +144,18 @@ defmodule AWS.GreengrassV2 do
       }
 
   """
-  @type get_component_version_artifact_request() :: %{String.t() => any()}
+  @type get_component_version_artifact_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_client_device_from_core_device_entry() :: %{
-        "thingName" => String.t()
+        "thingName" => String.t() | Atom.t()
       }
 
   """
-  @type disassociate_client_device_from_core_device_entry() :: %{String.t() => any()}
+  @type disassociate_client_device_from_core_device_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -163,17 +163,17 @@ defmodule AWS.GreengrassV2 do
 
       deployment() :: %{
         "creationTimestamp" => non_neg_integer(),
-        "deploymentId" => String.t(),
-        "deploymentName" => String.t(),
+        "deploymentId" => String.t() | Atom.t(),
+        "deploymentName" => String.t() | Atom.t(),
         "deploymentStatus" => list(any()),
         "isLatestForTarget" => boolean(),
-        "parentTargetArn" => String.t(),
-        "revisionId" => String.t(),
-        "targetArn" => String.t()
+        "parentTargetArn" => String.t() | Atom.t(),
+        "revisionId" => String.t() | Atom.t(),
+        "targetArn" => String.t() | Atom.t()
       }
 
   """
-  @type deployment() :: %{String.t() => any()}
+  @type deployment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -181,11 +181,11 @@ defmodule AWS.GreengrassV2 do
 
       component_dependency_requirement() :: %{
         "dependencyType" => list(any()),
-        "versionRequirement" => String.t()
+        "versionRequirement" => String.t() | Atom.t()
       }
 
   """
-  @type component_dependency_requirement() :: %{String.t() => any()}
+  @type component_dependency_requirement() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -203,7 +203,7 @@ defmodule AWS.GreengrassV2 do
       lambda_execution_parameters() :: %{
         "environmentVariables" => map(),
         "eventSources" => list(lambda_event_source()),
-        "execArgs" => list(String.t()),
+        "execArgs" => list(String.t() | Atom.t()),
         "inputPayloadEncodingType" => list(any()),
         "linuxProcessParams" => lambda_linux_process_params(),
         "maxIdleTimeInSeconds" => integer(),
@@ -215,7 +215,7 @@ defmodule AWS.GreengrassV2 do
       }
 
   """
-  @type lambda_execution_parameters() :: %{String.t() => any()}
+  @type lambda_execution_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -223,11 +223,11 @@ defmodule AWS.GreengrassV2 do
 
       list_deployments_response() :: %{
         "deployments" => list(deployment()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_deployments_response() :: %{String.t() => any()}
+  @type list_deployments_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -235,14 +235,14 @@ defmodule AWS.GreengrassV2 do
 
       list_core_devices_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("runtime") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("runtime") => String.t() | Atom.t(),
         optional("status") => list(any()),
-        optional("thingGroupArn") => String.t()
+        optional("thingGroupArn") => String.t() | Atom.t()
       }
 
   """
-  @type list_core_devices_request() :: %{String.t() => any()}
+  @type list_core_devices_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -250,49 +250,49 @@ defmodule AWS.GreengrassV2 do
 
       lambda_volume_mount() :: %{
         "addGroupOwner" => boolean(),
-        "destinationPath" => String.t(),
+        "destinationPath" => String.t() | Atom.t(),
         "permission" => list(any()),
-        "sourcePath" => String.t()
+        "sourcePath" => String.t() | Atom.t()
       }
 
   """
-  @type lambda_volume_mount() :: %{String.t() => any()}
+  @type lambda_volume_mount() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_deployment_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("components") => map(),
-        optional("deploymentName") => String.t(),
+        optional("deploymentName") => String.t() | Atom.t(),
         optional("deploymentPolicies") => deployment_policies(),
         optional("iotJobConfiguration") => deployment_io_t_job_configuration(),
-        optional("parentTargetArn") => String.t(),
+        optional("parentTargetArn") => String.t() | Atom.t(),
         optional("tags") => map(),
-        required("targetArn") => String.t()
+        required("targetArn") => String.t() | Atom.t()
       }
 
   """
-  @type create_deployment_request() :: %{String.t() => any()}
+  @type create_deployment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_core_device_response() :: %{
-        "architecture" => String.t(),
-        "coreDeviceThingName" => String.t(),
-        "coreVersion" => String.t(),
+        "architecture" => String.t() | Atom.t(),
+        "coreDeviceThingName" => String.t() | Atom.t(),
+        "coreVersion" => String.t() | Atom.t(),
         "lastStatusUpdateTimestamp" => non_neg_integer(),
-        "platform" => String.t(),
-        "runtime" => String.t(),
+        "platform" => String.t() | Atom.t(),
+        "runtime" => String.t() | Atom.t(),
         "status" => list(any()),
         "tags" => map()
       }
 
   """
-  @type get_core_device_response() :: %{String.t() => any()}
+  @type get_core_device_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -300,11 +300,11 @@ defmodule AWS.GreengrassV2 do
 
       list_core_devices_response() :: %{
         "coreDevices" => list(core_device()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_core_devices_response() :: %{String.t() => any()}
+  @type list_core_devices_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -329,12 +329,12 @@ defmodule AWS.GreengrassV2 do
   ## Example:
 
       lambda_event_source() :: %{
-        "topic" => String.t(),
+        "topic" => String.t() | Atom.t(),
         "type" => list(any())
       }
 
   """
-  @type lambda_event_source() :: %{String.t() => any()}
+  @type lambda_event_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -347,7 +347,7 @@ defmodule AWS.GreengrassV2 do
       }
 
   """
-  @type get_component_response() :: %{String.t() => any()}
+  @type get_component_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -359,7 +359,7 @@ defmodule AWS.GreengrassV2 do
       }
 
   """
-  @type system_resource_limits() :: %{String.t() => any()}
+  @type system_resource_limits() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -367,11 +367,11 @@ defmodule AWS.GreengrassV2 do
 
       list_installed_components_response() :: %{
         "installedComponents" => list(installed_component()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_installed_components_response() :: %{String.t() => any()}
+  @type list_installed_components_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -383,47 +383,47 @@ defmodule AWS.GreengrassV2 do
       }
 
   """
-  @type io_t_job_executions_rollout_config() :: %{String.t() => any()}
+  @type io_t_job_executions_rollout_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       core_device() :: %{
-        "architecture" => String.t(),
-        "coreDeviceThingName" => String.t(),
+        "architecture" => String.t() | Atom.t(),
+        "coreDeviceThingName" => String.t() | Atom.t(),
         "lastStatusUpdateTimestamp" => non_neg_integer(),
-        "platform" => String.t(),
-        "runtime" => String.t(),
+        "platform" => String.t() | Atom.t(),
+        "runtime" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type core_device() :: %{String.t() => any()}
+  @type core_device() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_deployment_response() :: %{
-        "deploymentId" => String.t(),
-        "iotJobArn" => String.t(),
-        "iotJobId" => String.t()
+        "deploymentId" => String.t() | Atom.t(),
+        "iotJobArn" => String.t() | Atom.t(),
+        "iotJobId" => String.t() | Atom.t()
       }
 
   """
-  @type create_deployment_response() :: %{String.t() => any()}
+  @type create_deployment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -436,7 +436,7 @@ defmodule AWS.GreengrassV2 do
       }
 
   """
-  @type io_t_job_exponential_rollout_rate() :: %{String.t() => any()}
+  @type io_t_job_exponential_rollout_rate() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -452,13 +452,16 @@ defmodule AWS.GreengrassV2 do
   ## Example:
 
       associate_client_device_with_core_device_error_entry() :: %{
-        "code" => String.t(),
-        "message" => String.t(),
-        "thingName" => String.t()
+        "code" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t(),
+        "thingName" => String.t() | Atom.t()
       }
 
   """
-  @type associate_client_device_with_core_device_error_entry() :: %{String.t() => any()}
+  @type associate_client_device_with_core_device_error_entry() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -469,7 +472,7 @@ defmodule AWS.GreengrassV2 do
       }
 
   """
-  @type update_connectivity_info_request() :: %{String.t() => any()}
+  @type update_connectivity_info_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -489,7 +492,7 @@ defmodule AWS.GreengrassV2 do
       }
 
   """
-  @type deployment_configuration_validation_policy() :: %{String.t() => any()}
+  @type deployment_configuration_validation_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -497,11 +500,11 @@ defmodule AWS.GreengrassV2 do
 
       list_component_versions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_component_versions_request() :: %{String.t() => any()}
+  @type list_component_versions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -510,30 +513,30 @@ defmodule AWS.GreengrassV2 do
       effective_deployment() :: %{
         "coreDeviceExecutionStatus" => list(any()),
         "creationTimestamp" => non_neg_integer(),
-        "deploymentId" => String.t(),
-        "deploymentName" => String.t(),
-        "description" => String.t(),
-        "iotJobArn" => String.t(),
-        "iotJobId" => String.t(),
+        "deploymentId" => String.t() | Atom.t(),
+        "deploymentName" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "iotJobArn" => String.t() | Atom.t(),
+        "iotJobId" => String.t() | Atom.t(),
         "modifiedTimestamp" => non_neg_integer(),
-        "reason" => String.t(),
+        "reason" => String.t() | Atom.t(),
         "statusDetails" => effective_deployment_status_details(),
-        "targetArn" => String.t()
+        "targetArn" => String.t() | Atom.t()
       }
 
   """
-  @type effective_deployment() :: %{String.t() => any()}
+  @type effective_deployment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       request_already_in_progress_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type request_already_in_progress_exception() :: %{String.t() => any()}
+  @type request_already_in_progress_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -549,14 +552,14 @@ defmodule AWS.GreengrassV2 do
   ## Example:
 
       connectivity_info() :: %{
-        "hostAddress" => String.t(),
-        "id" => String.t(),
-        "metadata" => String.t(),
+        "hostAddress" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "metadata" => String.t() | Atom.t(),
         "portNumber" => integer()
       }
 
   """
-  @type connectivity_info() :: %{String.t() => any()}
+  @type connectivity_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -564,70 +567,70 @@ defmodule AWS.GreengrassV2 do
 
       get_connectivity_info_response() :: %{
         "connectivityInfo" => list(connectivity_info()),
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type get_connectivity_info_response() :: %{String.t() => any()}
+  @type get_connectivity_info_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       installed_component() :: %{
-        "componentName" => String.t(),
-        "componentVersion" => String.t(),
+        "componentName" => String.t() | Atom.t(),
+        "componentVersion" => String.t() | Atom.t(),
         "isRoot" => boolean(),
-        "lastInstallationSource" => String.t(),
+        "lastInstallationSource" => String.t() | Atom.t(),
         "lastReportedTimestamp" => non_neg_integer(),
         "lastStatusChangeTimestamp" => non_neg_integer(),
         "lifecycleState" => list(any()),
-        "lifecycleStateDetails" => String.t(),
-        "lifecycleStatusCodes" => list(String.t())
+        "lifecycleStateDetails" => String.t() | Atom.t(),
+        "lifecycleStatusCodes" => list(String.t() | Atom.t())
       }
 
   """
-  @type installed_component() :: %{String.t() => any()}
+  @type installed_component() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_component_version_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("inlineRecipe") => binary(),
         optional("lambdaFunction") => lambda_function_recipe_source(),
         optional("tags") => map()
       }
 
   """
-  @type create_component_version_request() :: %{String.t() => any()}
+  @type create_component_version_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t(),
-        "resourceId" => String.t(),
-        "resourceType" => String.t()
+        "message" => String.t() | Atom.t(),
+        "resourceId" => String.t() | Atom.t(),
+        "resourceType" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t(),
-        "resourceId" => String.t(),
-        "resourceType" => String.t()
+        "message" => String.t() | Atom.t(),
+        "resourceId" => String.t() | Atom.t(),
+        "resourceType" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -635,12 +638,12 @@ defmodule AWS.GreengrassV2 do
 
       list_components_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("scope") => list(any())
       }
 
   """
-  @type list_components_request() :: %{String.t() => any()}
+  @type list_components_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -651,38 +654,41 @@ defmodule AWS.GreengrassV2 do
       }
 
   """
-  @type batch_disassociate_client_device_from_core_device_response() :: %{String.t() => any()}
+  @type batch_disassociate_client_device_from_core_device_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => String.t(),
-        "quotaCode" => String.t(),
-        "resourceId" => String.t(),
-        "resourceType" => String.t(),
-        "serviceCode" => String.t()
+        "message" => String.t() | Atom.t(),
+        "quotaCode" => String.t() | Atom.t(),
+        "resourceId" => String.t() | Atom.t(),
+        "resourceType" => String.t() | Atom.t(),
+        "serviceCode" => String.t() | Atom.t()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       component_latest_version() :: %{
-        "arn" => String.t(),
-        "componentVersion" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "componentVersion" => String.t() | Atom.t(),
         "creationTimestamp" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "platforms" => list(component_platform()),
-        "publisher" => String.t()
+        "publisher" => String.t() | Atom.t()
       }
 
   """
-  @type component_latest_version() :: %{String.t() => any()}
+  @type component_latest_version() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -695,20 +701,20 @@ defmodule AWS.GreengrassV2 do
       }
 
   """
-  @type deployment_io_t_job_configuration() :: %{String.t() => any()}
+  @type deployment_io_t_job_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       component() :: %{
-        "arn" => String.t(),
-        "componentName" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "componentName" => String.t() | Atom.t(),
         "latestVersion" => component_latest_version()
       }
 
   """
-  @type component() :: %{String.t() => any()}
+  @type component() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -724,16 +730,16 @@ defmodule AWS.GreengrassV2 do
   ## Example:
 
       resolved_component_version() :: %{
-        "arn" => String.t(),
-        "componentName" => String.t(),
-        "componentVersion" => String.t(),
-        "message" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "componentName" => String.t() | Atom.t(),
+        "componentVersion" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t(),
         "recipe" => binary(),
         "vendorGuidance" => list(any())
       }
 
   """
-  @type resolved_component_version() :: %{String.t() => any()}
+  @type resolved_component_version() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -741,11 +747,11 @@ defmodule AWS.GreengrassV2 do
 
       component_platform() :: %{
         "attributes" => map(),
-        "name" => String.t()
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type component_platform() :: %{String.t() => any()}
+  @type component_platform() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -757,7 +763,7 @@ defmodule AWS.GreengrassV2 do
       }
 
   """
-  @type io_t_job_rate_increase_criteria() :: %{String.t() => any()}
+  @type io_t_job_rate_increase_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -766,26 +772,26 @@ defmodule AWS.GreengrassV2 do
       cloud_component_status() :: %{
         "componentState" => list(any()),
         "errors" => map(),
-        "message" => String.t(),
+        "message" => String.t() | Atom.t(),
         "vendorGuidance" => list(any()),
-        "vendorGuidanceMessage" => String.t()
+        "vendorGuidanceMessage" => String.t() | Atom.t()
       }
 
   """
-  @type cloud_component_status() :: %{String.t() => any()}
+  @type cloud_component_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       component_run_with() :: %{
-        "posixUser" => String.t(),
+        "posixUser" => String.t() | Atom.t(),
         "systemResourceLimits" => system_resource_limits(),
-        "windowsUser" => String.t()
+        "windowsUser" => String.t() | Atom.t()
       }
 
   """
-  @type component_run_with() :: %{String.t() => any()}
+  @type component_run_with() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -796,44 +802,44 @@ defmodule AWS.GreengrassV2 do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       effective_deployment_status_details() :: %{
-        "errorStack" => list(String.t()),
-        "errorTypes" => list(String.t())
+        "errorStack" => list(String.t() | Atom.t()),
+        "errorTypes" => list(String.t() | Atom.t())
       }
 
   """
-  @type effective_deployment_status_details() :: %{String.t() => any()}
+  @type effective_deployment_status_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "message" => String.t(),
-        "name" => String.t()
+        "message" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       component_deployment_specification() :: %{
-        "componentVersion" => String.t(),
+        "componentVersion" => String.t() | Atom.t(),
         "configurationUpdate" => component_configuration_update(),
         "runWith" => component_run_with()
       }
 
   """
-  @type component_deployment_specification() :: %{String.t() => any()}
+  @type component_deployment_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -841,11 +847,14 @@ defmodule AWS.GreengrassV2 do
 
       list_client_devices_associated_with_core_device_response() :: %{
         "associatedClientDevices" => list(associated_client_device()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_client_devices_associated_with_core_device_response() :: %{String.t() => any()}
+  @type list_client_devices_associated_with_core_device_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -861,11 +870,11 @@ defmodule AWS.GreengrassV2 do
   ## Example:
 
       associate_service_role_to_account_request() :: %{
-        required("roleArn") => String.t()
+        required("roleArn") => String.t() | Atom.t()
       }
 
   """
-  @type associate_service_role_to_account_request() :: %{String.t() => any()}
+  @type associate_service_role_to_account_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -878,7 +887,7 @@ defmodule AWS.GreengrassV2 do
       }
 
   """
-  @type deployment_policies() :: %{String.t() => any()}
+  @type deployment_policies() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -894,35 +903,35 @@ defmodule AWS.GreengrassV2 do
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => String.t(),
+        "message" => String.t() | Atom.t(),
         "retryAfterSeconds" => integer()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       component_configuration_update() :: %{
-        "merge" => String.t(),
-        "reset" => list(String.t())
+        "merge" => String.t() | Atom.t(),
+        "reset" => list(String.t() | Atom.t())
       }
 
   """
-  @type component_configuration_update() :: %{String.t() => any()}
+  @type component_configuration_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_client_device_with_core_device_entry() :: %{
-        "thingName" => String.t()
+        "thingName" => String.t() | Atom.t()
       }
 
   """
-  @type associate_client_device_with_core_device_entry() :: %{String.t() => any()}
+  @type associate_client_device_with_core_device_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -933,7 +942,7 @@ defmodule AWS.GreengrassV2 do
       }
 
   """
-  @type io_t_job_timeout_config() :: %{String.t() => any()}
+  @type io_t_job_timeout_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -944,20 +953,23 @@ defmodule AWS.GreengrassV2 do
       }
 
   """
-  @type resolve_component_candidates_response() :: %{String.t() => any()}
+  @type resolve_component_candidates_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_client_device_from_core_device_error_entry() :: %{
-        "code" => String.t(),
-        "message" => String.t(),
-        "thingName" => String.t()
+        "code" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t(),
+        "thingName" => String.t() | Atom.t()
       }
 
   """
-  @type disassociate_client_device_from_core_device_error_entry() :: %{String.t() => any()}
+  @type disassociate_client_device_from_core_device_error_entry() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -968,18 +980,21 @@ defmodule AWS.GreengrassV2 do
       }
 
   """
-  @type batch_disassociate_client_device_from_core_device_request() :: %{String.t() => any()}
+  @type batch_disassociate_client_device_from_core_device_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -999,20 +1014,20 @@ defmodule AWS.GreengrassV2 do
       }
 
   """
-  @type io_t_job_abort_config() :: %{String.t() => any()}
+  @type io_t_job_abort_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       component_version_list_item() :: %{
-        "arn" => String.t(),
-        "componentName" => String.t(),
-        "componentVersion" => String.t()
+        "arn" => String.t() | Atom.t(),
+        "componentName" => String.t() | Atom.t(),
+        "componentVersion" => String.t() | Atom.t()
       }
 
   """
-  @type component_version_list_item() :: %{String.t() => any()}
+  @type component_version_list_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1026,7 +1041,7 @@ defmodule AWS.GreengrassV2 do
       }
 
   """
-  @type lambda_container_params() :: %{String.t() => any()}
+  @type lambda_container_params() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1034,12 +1049,12 @@ defmodule AWS.GreengrassV2 do
 
       validation_exception() :: %{
         "fields" => list(validation_exception_field()),
-        "message" => String.t(),
+        "message" => String.t() | Atom.t(),
         "reason" => list(any())
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1055,11 +1070,11 @@ defmodule AWS.GreengrassV2 do
   ## Example:
 
       cancel_deployment_response() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type cancel_deployment_response() :: %{String.t() => any()}
+  @type cancel_deployment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1068,55 +1083,55 @@ defmodule AWS.GreengrassV2 do
       get_deployment_response() :: %{
         "components" => map(),
         "creationTimestamp" => non_neg_integer(),
-        "deploymentId" => String.t(),
-        "deploymentName" => String.t(),
+        "deploymentId" => String.t() | Atom.t(),
+        "deploymentName" => String.t() | Atom.t(),
         "deploymentPolicies" => deployment_policies(),
         "deploymentStatus" => list(any()),
-        "iotJobArn" => String.t(),
+        "iotJobArn" => String.t() | Atom.t(),
         "iotJobConfiguration" => deployment_io_t_job_configuration(),
-        "iotJobId" => String.t(),
+        "iotJobId" => String.t() | Atom.t(),
         "isLatestForTarget" => boolean(),
-        "parentTargetArn" => String.t(),
-        "revisionId" => String.t(),
+        "parentTargetArn" => String.t() | Atom.t(),
+        "revisionId" => String.t() | Atom.t(),
         "tags" => map(),
-        "targetArn" => String.t()
+        "targetArn" => String.t() | Atom.t()
       }
 
   """
-  @type get_deployment_response() :: %{String.t() => any()}
+  @type get_deployment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => String.t(),
-        "quotaCode" => String.t(),
+        "message" => String.t() | Atom.t(),
+        "quotaCode" => String.t() | Atom.t(),
         "retryAfterSeconds" => integer(),
-        "serviceCode" => String.t()
+        "serviceCode" => String.t() | Atom.t()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_component_response() :: %{
-        "arn" => String.t(),
-        "componentName" => String.t(),
-        "componentVersion" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "componentName" => String.t() | Atom.t(),
+        "componentVersion" => String.t() | Atom.t(),
         "creationTimestamp" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "platforms" => list(component_platform()),
-        "publisher" => String.t(),
+        "publisher" => String.t() | Atom.t(),
         "status" => cloud_component_status(),
         "tags" => map()
       }
 
   """
-  @type describe_component_response() :: %{String.t() => any()}
+  @type describe_component_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1124,11 +1139,11 @@ defmodule AWS.GreengrassV2 do
 
       list_effective_deployments_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_effective_deployments_request() :: %{String.t() => any()}
+  @type list_effective_deployments_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1136,22 +1151,22 @@ defmodule AWS.GreengrassV2 do
 
       list_components_response() :: %{
         "components" => list(component()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_components_response() :: %{String.t() => any()}
+  @type list_components_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_component_version_artifact_response() :: %{
-        "preSignedUrl" => String.t()
+        "preSignedUrl" => String.t() | Atom.t()
       }
 
   """
-  @type get_component_version_artifact_response() :: %{String.t() => any()}
+  @type get_component_version_artifact_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1159,12 +1174,12 @@ defmodule AWS.GreengrassV2 do
 
       list_installed_components_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("topologyFilter") => list(any())
       }
 
   """
-  @type list_installed_components_request() :: %{String.t() => any()}
+  @type list_installed_components_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1175,7 +1190,10 @@ defmodule AWS.GreengrassV2 do
       }
 
   """
-  @type batch_associate_client_device_with_core_device_response() :: %{String.t() => any()}
+  @type batch_associate_client_device_with_core_device_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1183,11 +1201,14 @@ defmodule AWS.GreengrassV2 do
 
       list_client_devices_associated_with_core_device_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_client_devices_associated_with_core_device_request() :: %{String.t() => any()}
+  @type list_client_devices_associated_with_core_device_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1195,11 +1216,11 @@ defmodule AWS.GreengrassV2 do
 
       associated_client_device() :: %{
         "associationTimestamp" => non_neg_integer(),
-        "thingName" => String.t()
+        "thingName" => String.t() | Atom.t()
       }
 
   """
-  @type associated_client_device() :: %{String.t() => any()}
+  @type associated_client_device() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1215,13 +1236,13 @@ defmodule AWS.GreengrassV2 do
   ## Example:
 
       component_candidate() :: %{
-        "componentName" => String.t(),
-        "componentVersion" => String.t(),
+        "componentName" => String.t() | Atom.t(),
+        "componentVersion" => String.t() | Atom.t(),
         "versionRequirements" => map()
       }
 
   """
-  @type component_candidate() :: %{String.t() => any()}
+  @type component_candidate() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1229,11 +1250,11 @@ defmodule AWS.GreengrassV2 do
 
       list_effective_deployments_response() :: %{
         "effectiveDeployments" => list(effective_deployment()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_effective_deployments_response() :: %{String.t() => any()}
+  @type list_effective_deployments_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1245,19 +1266,19 @@ defmodule AWS.GreengrassV2 do
       }
 
   """
-  @type lambda_linux_process_params() :: %{String.t() => any()}
+  @type lambda_linux_process_params() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_service_role_for_account_response() :: %{
-        "associatedAt" => String.t(),
-        "roleArn" => String.t()
+        "associatedAt" => String.t() | Atom.t(),
+        "roleArn" => String.t() | Atom.t()
       }
 
   """
-  @type get_service_role_for_account_response() :: %{String.t() => any()}
+  @type get_service_role_for_account_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1268,7 +1289,10 @@ defmodule AWS.GreengrassV2 do
       }
 
   """
-  @type batch_associate_client_device_with_core_device_request() :: %{String.t() => any()}
+  @type batch_associate_client_device_with_core_device_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1282,18 +1306,18 @@ defmodule AWS.GreengrassV2 do
       }
 
   """
-  @type io_t_job_abort_criteria() :: %{String.t() => any()}
+  @type io_t_job_abort_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_service_role_to_account_response() :: %{
-        "associatedAt" => String.t()
+        "associatedAt" => String.t() | Atom.t()
       }
 
   """
-  @type associate_service_role_to_account_response() :: %{String.t() => any()}
+  @type associate_service_role_to_account_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1313,7 +1337,7 @@ defmodule AWS.GreengrassV2 do
       }
 
   """
-  @type get_component_request() :: %{String.t() => any()}
+  @type get_component_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1325,7 +1349,7 @@ defmodule AWS.GreengrassV2 do
       }
 
   """
-  @type resolve_component_candidates_request() :: %{String.t() => any()}
+  @type resolve_component_candidates_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1333,12 +1357,12 @@ defmodule AWS.GreengrassV2 do
 
       lambda_device_mount() :: %{
         "addGroupOwner" => boolean(),
-        "path" => String.t(),
+        "path" => String.t() | Atom.t(),
         "permission" => list(any())
       }
 
   """
-  @type lambda_device_mount() :: %{String.t() => any()}
+  @type lambda_device_mount() :: %{String.t() | Atom.t() => any()}
 
   @type associate_service_role_to_account_errors() ::
           validation_exception() | internal_server_exception()
@@ -1598,7 +1622,7 @@ defmodule AWS.GreengrassV2 do
   """
   @spec batch_associate_client_device_with_core_device(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           batch_associate_client_device_with_core_device_request(),
           list()
         ) ::
@@ -1644,7 +1668,7 @@ defmodule AWS.GreengrassV2 do
   """
   @spec batch_disassociate_client_device_from_core_device(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           batch_disassociate_client_device_from_core_device_request(),
           list()
         ) ::
@@ -1688,7 +1712,7 @@ defmodule AWS.GreengrassV2 do
   change
   anything for that device.
   """
-  @spec cancel_deployment(map(), String.t(), cancel_deployment_request(), list()) ::
+  @spec cancel_deployment(map(), String.t() | Atom.t(), cancel_deployment_request(), list()) ::
           {:ok, cancel_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1846,7 +1870,7 @@ defmodule AWS.GreengrassV2 do
   the deployment
   to use a valid version.
   """
-  @spec delete_component(map(), String.t(), delete_component_request(), list()) ::
+  @spec delete_component(map(), String.t() | Atom.t(), delete_component_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1883,7 +1907,7 @@ defmodule AWS.GreengrassV2 do
   in the
   *IoT API Reference*.
   """
-  @spec delete_core_device(map(), String.t(), delete_core_device_request(), list()) ::
+  @spec delete_core_device(map(), String.t() | Atom.t(), delete_core_device_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1922,7 +1946,7 @@ defmodule AWS.GreengrassV2 do
   devices can
   roll back to a previous deployment that has been deleted.
   """
-  @spec delete_deployment(map(), String.t(), delete_deployment_request(), list()) ::
+  @spec delete_deployment(map(), String.t() | Atom.t(), delete_deployment_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1951,7 +1975,7 @@ defmodule AWS.GreengrassV2 do
   @doc """
   Retrieves metadata for a version of a component.
   """
-  @spec describe_component(map(), String.t(), list()) ::
+  @spec describe_component(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2009,7 +2033,7 @@ defmodule AWS.GreengrassV2 do
   @doc """
   Gets the recipe for a version of a component.
   """
-  @spec get_component(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_component(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
           {:ok, get_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2041,10 +2065,10 @@ defmodule AWS.GreengrassV2 do
   """
   @spec get_component_version_artifact(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, get_component_version_artifact_response(), any()}
@@ -2097,7 +2121,7 @@ defmodule AWS.GreengrassV2 do
   devices](https://docs.aws.amazon.com/greengrass/v2/developerguide/connect-client-devices.html)
   in the *IoT Greengrass Version 2 Developer Guide*.
   """
-  @spec get_connectivity_info(map(), String.t(), list()) ::
+  @spec get_connectivity_info(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_connectivity_info_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2144,7 +2168,7 @@ defmodule AWS.GreengrassV2 do
   deployment and
   cloud deployment
   """
-  @spec get_core_device(map(), String.t(), list()) ::
+  @spec get_core_device(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_core_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2164,7 +2188,7 @@ defmodule AWS.GreengrassV2 do
 
   Deployments define the components that run on Greengrass core devices.
   """
-  @spec get_deployment(map(), String.t(), list()) ::
+  @spec get_deployment(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2210,9 +2234,9 @@ defmodule AWS.GreengrassV2 do
   """
   @spec list_client_devices_associated_with_core_device(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_client_devices_associated_with_core_device_response(), any()}
@@ -2257,7 +2281,13 @@ defmodule AWS.GreengrassV2 do
   Greater versions are listed
   first.
   """
-  @spec list_component_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_component_versions(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_component_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2298,7 +2328,13 @@ defmodule AWS.GreengrassV2 do
   This list includes components that you
   have permission to view.
   """
-  @spec list_components(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_components(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2382,11 +2418,11 @@ defmodule AWS.GreengrassV2 do
   """
   @spec list_core_devices(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_core_devices_response(), any()}
@@ -2451,11 +2487,11 @@ defmodule AWS.GreengrassV2 do
   """
   @spec list_deployments(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_deployments_response(), any()}
@@ -2519,7 +2555,13 @@ defmodule AWS.GreengrassV2 do
   Retrieves a paginated list of deployment jobs that IoT Greengrass sends to
   Greengrass core devices.
   """
-  @spec list_effective_deployments(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_effective_deployments(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_effective_deployments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2596,10 +2638,10 @@ defmodule AWS.GreengrassV2 do
   """
   @spec list_installed_components(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_installed_components_response(), any()}
@@ -2649,7 +2691,7 @@ defmodule AWS.GreengrassV2 do
   @doc """
   Retrieves the list of tags for an IoT Greengrass resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2722,7 +2764,7 @@ defmodule AWS.GreengrassV2 do
   If a tag already exists for the resource, this operation
   updates the tag's value.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2751,7 +2793,7 @@ defmodule AWS.GreengrassV2 do
   @doc """
   Removes a tag from an IoT Greengrass resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2794,7 +2836,12 @@ defmodule AWS.GreengrassV2 do
   devices](https://docs.aws.amazon.com/greengrass/v2/developerguide/connect-client-devices.html)
   in the *IoT Greengrass Version 2 Developer Guide*.
   """
-  @spec update_connectivity_info(map(), String.t(), update_connectivity_info_request(), list()) ::
+  @spec update_connectivity_info(
+          map(),
+          String.t() | Atom.t(),
+          update_connectivity_info_request(),
+          list()
+        ) ::
           {:ok, update_connectivity_info_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

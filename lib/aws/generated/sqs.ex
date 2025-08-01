@@ -74,45 +74,45 @@ defmodule AWS.SQS do
   ## Example:
       
       list_queue_tags_request() :: %{
-        required("QueueUrl") => String.t()
+        required("QueueUrl") => String.t() | Atom.t()
       }
       
   """
-  @type list_queue_tags_request() :: %{String.t() => any()}
+  @type list_queue_tags_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_access_denied() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type kms_access_denied() :: %{String.t() => any()}
+  @type kms_access_denied() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_queue_request() :: %{
-        required("QueueUrl") => String.t(),
+        required("QueueUrl") => String.t() | Atom.t(),
         required("Tags") => map()
       }
       
   """
-  @type tag_queue_request() :: %{String.t() => any()}
+  @type tag_queue_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       queue_name_exists() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type queue_name_exists() :: %{String.t() => any()}
+  @type queue_name_exists() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -120,12 +120,12 @@ defmodule AWS.SQS do
       
       list_queues_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("QueueNamePrefix") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("QueueNamePrefix") => String.t() | Atom.t()
       }
       
   """
-  @type list_queues_request() :: %{String.t() => any()}
+  @type list_queues_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -133,66 +133,66 @@ defmodule AWS.SQS do
       
       set_queue_attributes_request() :: %{
         required("Attributes") => map(),
-        required("QueueUrl") => String.t()
+        required("QueueUrl") => String.t() | Atom.t()
       }
       
   """
-  @type set_queue_attributes_request() :: %{String.t() => any()}
+  @type set_queue_attributes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_message_contents() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_message_contents() :: %{String.t() => any()}
+  @type invalid_message_contents() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_opt_in_required() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type kms_opt_in_required() :: %{String.t() => any()}
+  @type kms_opt_in_required() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       purge_queue_in_progress() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type purge_queue_in_progress() :: %{String.t() => any()}
+  @type purge_queue_in_progress() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_attribute_name() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_attribute_name() :: %{String.t() => any()}
+  @type invalid_attribute_name() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       queue_does_not_exist() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type queue_does_not_exist() :: %{String.t() => any()}
+  @type queue_does_not_exist() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -203,29 +203,29 @@ defmodule AWS.SQS do
       }
       
   """
-  @type receive_message_result() :: %{String.t() => any()}
+  @type receive_message_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       purge_queue_request() :: %{
-        required("QueueUrl") => String.t()
+        required("QueueUrl") => String.t() | Atom.t()
       }
       
   """
-  @type purge_queue_request() :: %{String.t() => any()}
+  @type purge_queue_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_security() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_security() :: %{String.t() => any()}
+  @type invalid_security() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -233,11 +233,11 @@ defmodule AWS.SQS do
       
       send_message_batch_request() :: %{
         required("Entries") => list(send_message_batch_request_entry()),
-        required("QueueUrl") => String.t()
+        required("QueueUrl") => String.t() | Atom.t()
       }
       
   """
-  @type send_message_batch_request() :: %{String.t() => any()}
+  @type send_message_batch_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -245,68 +245,68 @@ defmodule AWS.SQS do
       
       delete_message_batch_request() :: %{
         required("Entries") => list(delete_message_batch_request_entry()),
-        required("QueueUrl") => String.t()
+        required("QueueUrl") => String.t() | Atom.t()
       }
       
   """
-  @type delete_message_batch_request() :: %{String.t() => any()}
+  @type delete_message_batch_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_entries_in_batch_request() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type too_many_entries_in_batch_request() :: %{String.t() => any()}
+  @type too_many_entries_in_batch_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_message_request() :: %{
-        required("QueueUrl") => String.t(),
-        required("ReceiptHandle") => String.t()
+        required("QueueUrl") => String.t() | Atom.t(),
+        required("ReceiptHandle") => String.t() | Atom.t()
       }
       
   """
-  @type delete_message_request() :: %{String.t() => any()}
+  @type delete_message_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_queue_url_request() :: %{
-        optional("QueueOwnerAWSAccountId") => String.t(),
-        required("QueueName") => String.t()
+        optional("QueueOwnerAWSAccountId") => String.t() | Atom.t(),
+        required("QueueName") => String.t() | Atom.t()
       }
       
   """
-  @type get_queue_url_request() :: %{String.t() => any()}
+  @type get_queue_url_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_throttled() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type kms_throttled() :: %{String.t() => any()}
+  @type kms_throttled() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_message_move_task_request() :: %{
-        required("TaskHandle") => String.t()
+        required("TaskHandle") => String.t() | Atom.t()
       }
       
   """
-  @type cancel_message_move_task_request() :: %{String.t() => any()}
+  @type cancel_message_move_task_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -315,13 +315,13 @@ defmodule AWS.SQS do
       message_attribute_value() :: %{
         "BinaryListValues" => list(binary()),
         "BinaryValue" => binary(),
-        "DataType" => String.t(),
-        "StringListValues" => list(String.t()),
-        "StringValue" => String.t()
+        "DataType" => String.t() | Atom.t(),
+        "StringListValues" => list(String.t() | Atom.t()),
+        "StringValue" => String.t() | Atom.t()
       }
       
   """
-  @type message_attribute_value() :: %{String.t() => any()}
+  @type message_attribute_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -332,55 +332,55 @@ defmodule AWS.SQS do
       }
       
   """
-  @type list_message_move_tasks_result() :: %{String.t() => any()}
+  @type list_message_move_tasks_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_disabled() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type kms_disabled() :: %{String.t() => any()}
+  @type kms_disabled() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_queues_result() :: %{
-        "NextToken" => String.t(),
-        "QueueUrls" => list(String.t())
+        "NextToken" => String.t() | Atom.t(),
+        "QueueUrls" => list(String.t() | Atom.t())
       }
       
   """
-  @type list_queues_result() :: %{String.t() => any()}
+  @type list_queues_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_result_error_entry() :: %{
-        "Code" => String.t(),
-        "Id" => String.t(),
-        "Message" => String.t(),
+        "Code" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
         "SenderFault" => boolean()
       }
       
   """
-  @type batch_result_error_entry() :: %{String.t() => any()}
+  @type batch_result_error_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       change_message_visibility_batch_result_entry() :: %{
-        "Id" => String.t()
+        "Id" => String.t() | Atom.t()
       }
       
   """
-  @type change_message_visibility_batch_result_entry() :: %{String.t() => any()}
+  @type change_message_visibility_batch_result_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -392,7 +392,7 @@ defmodule AWS.SQS do
       }
       
   """
-  @type delete_message_batch_result() :: %{String.t() => any()}
+  @type delete_message_batch_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -401,28 +401,28 @@ defmodule AWS.SQS do
       list_message_move_tasks_result_entry() :: %{
         "ApproximateNumberOfMessagesMoved" => float(),
         "ApproximateNumberOfMessagesToMove" => float(),
-        "DestinationArn" => String.t(),
-        "FailureReason" => String.t(),
+        "DestinationArn" => String.t() | Atom.t(),
+        "FailureReason" => String.t() | Atom.t(),
         "MaxNumberOfMessagesPerSecond" => integer(),
-        "SourceArn" => String.t(),
+        "SourceArn" => String.t() | Atom.t(),
         "StartedTimestamp" => float(),
-        "Status" => String.t(),
-        "TaskHandle" => String.t()
+        "Status" => String.t() | Atom.t(),
+        "TaskHandle" => String.t() | Atom.t()
       }
       
   """
-  @type list_message_move_tasks_result_entry() :: %{String.t() => any()}
+  @type list_message_move_tasks_result_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       unsupported_operation() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type unsupported_operation() :: %{String.t() => any()}
+  @type unsupported_operation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -434,30 +434,30 @@ defmodule AWS.SQS do
       }
       
   """
-  @type send_message_batch_result() :: %{String.t() => any()}
+  @type send_message_batch_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_queue_request() :: %{
-        required("QueueUrl") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("QueueUrl") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_queue_request() :: %{String.t() => any()}
+  @type untag_queue_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_attribute_value() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_attribute_value() :: %{String.t() => any()}
+  @type invalid_attribute_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -465,11 +465,11 @@ defmodule AWS.SQS do
       
       list_message_move_tasks_request() :: %{
         optional("MaxResults") => integer(),
-        required("SourceArn") => String.t()
+        required("SourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_message_move_tasks_request() :: %{String.t() => any()}
+  @type list_message_move_tasks_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -480,67 +480,67 @@ defmodule AWS.SQS do
       }
       
   """
-  @type cancel_message_move_task_result() :: %{String.t() => any()}
+  @type cancel_message_move_task_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       send_message_batch_result_entry() :: %{
-        "Id" => String.t(),
-        "MD5OfMessageAttributes" => String.t(),
-        "MD5OfMessageBody" => String.t(),
-        "MD5OfMessageSystemAttributes" => String.t(),
-        "MessageId" => String.t(),
-        "SequenceNumber" => String.t()
+        "Id" => String.t() | Atom.t(),
+        "MD5OfMessageAttributes" => String.t() | Atom.t(),
+        "MD5OfMessageBody" => String.t() | Atom.t(),
+        "MD5OfMessageSystemAttributes" => String.t() | Atom.t(),
+        "MessageId" => String.t() | Atom.t(),
+        "SequenceNumber" => String.t() | Atom.t()
       }
       
   """
-  @type send_message_batch_result_entry() :: %{String.t() => any()}
+  @type send_message_batch_result_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       empty_batch_request() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type empty_batch_request() :: %{String.t() => any()}
+  @type empty_batch_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       request_throttled() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type request_throttled() :: %{String.t() => any()}
+  @type request_throttled() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_queue_result() :: %{
-        "QueueUrl" => String.t()
+        "QueueUrl" => String.t() | Atom.t()
       }
       
   """
-  @type create_queue_result() :: %{String.t() => any()}
+  @type create_queue_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -548,11 +548,11 @@ defmodule AWS.SQS do
       
       change_message_visibility_batch_request() :: %{
         required("Entries") => list(change_message_visibility_batch_request_entry()),
-        required("QueueUrl") => String.t()
+        required("QueueUrl") => String.t() | Atom.t()
       }
       
   """
-  @type change_message_visibility_batch_request() :: %{String.t() => any()}
+  @type change_message_visibility_batch_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -560,56 +560,56 @@ defmodule AWS.SQS do
       
       send_message_batch_request_entry() :: %{
         "DelaySeconds" => integer(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "MessageAttributes" => map(),
-        "MessageBody" => String.t(),
-        "MessageDeduplicationId" => String.t(),
-        "MessageGroupId" => String.t(),
+        "MessageBody" => String.t() | Atom.t(),
+        "MessageDeduplicationId" => String.t() | Atom.t(),
+        "MessageGroupId" => String.t() | Atom.t(),
         "MessageSystemAttributes" => map()
       }
       
   """
-  @type send_message_batch_request_entry() :: %{String.t() => any()}
+  @type send_message_batch_request_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_permission_request() :: %{
-        required("Label") => String.t(),
-        required("QueueUrl") => String.t()
+        required("Label") => String.t() | Atom.t(),
+        required("QueueUrl") => String.t() | Atom.t()
       }
       
   """
-  @type remove_permission_request() :: %{String.t() => any()}
+  @type remove_permission_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       change_message_visibility_request() :: %{
-        required("QueueUrl") => String.t(),
-        required("ReceiptHandle") => String.t(),
+        required("QueueUrl") => String.t() | Atom.t(),
+        required("ReceiptHandle") => String.t() | Atom.t(),
         required("VisibilityTimeout") => integer()
       }
       
   """
-  @type change_message_visibility_request() :: %{String.t() => any()}
+  @type change_message_visibility_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       send_message_result() :: %{
-        "MD5OfMessageAttributes" => String.t(),
-        "MD5OfMessageBody" => String.t(),
-        "MD5OfMessageSystemAttributes" => String.t(),
-        "MessageId" => String.t(),
-        "SequenceNumber" => String.t()
+        "MD5OfMessageAttributes" => String.t() | Atom.t(),
+        "MD5OfMessageBody" => String.t() | Atom.t(),
+        "MD5OfMessageSystemAttributes" => String.t() | Atom.t(),
+        "MessageId" => String.t() | Atom.t(),
+        "SequenceNumber" => String.t() | Atom.t()
       }
       
   """
-  @type send_message_result() :: %{String.t() => any()}
+  @type send_message_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -618,11 +618,11 @@ defmodule AWS.SQS do
       create_queue_request() :: %{
         optional("Attributes") => map(),
         optional("tags") => map(),
-        required("QueueName") => String.t()
+        required("QueueName") => String.t() | Atom.t()
       }
       
   """
-  @type create_queue_request() :: %{String.t() => any()}
+  @type create_queue_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -633,44 +633,44 @@ defmodule AWS.SQS do
       }
       
   """
-  @type list_queue_tags_result() :: %{String.t() => any()}
+  @type list_queue_tags_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_not_found() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type kms_not_found() :: %{String.t() => any()}
+  @type kms_not_found() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       change_message_visibility_batch_request_entry() :: %{
-        "Id" => String.t(),
-        "ReceiptHandle" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "ReceiptHandle" => String.t() | Atom.t(),
         "VisibilityTimeout" => integer()
       }
       
   """
-  @type change_message_visibility_batch_request_entry() :: %{String.t() => any()}
+  @type change_message_visibility_batch_request_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_message_move_task_request() :: %{
-        optional("DestinationArn") => String.t(),
+        optional("DestinationArn") => String.t() | Atom.t(),
         optional("MaxNumberOfMessagesPerSecond") => integer(),
-        required("SourceArn") => String.t()
+        required("SourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type start_message_move_task_request() :: %{String.t() => any()}
+  @type start_message_move_task_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -678,22 +678,22 @@ defmodule AWS.SQS do
       
       get_queue_attributes_request() :: %{
         optional("AttributeNames") => list(list(any())()),
-        required("QueueUrl") => String.t()
+        required("QueueUrl") => String.t() | Atom.t()
       }
       
   """
-  @type get_queue_attributes_request() :: %{String.t() => any()}
+  @type get_queue_attributes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_invalid_state() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type kms_invalid_state() :: %{String.t() => any()}
+  @type kms_invalid_state() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -711,27 +711,27 @@ defmodule AWS.SQS do
       receive_message_request() :: %{
         optional("AttributeNames") => list(list(any())()),
         optional("MaxNumberOfMessages") => integer(),
-        optional("MessageAttributeNames") => list(String.t()),
+        optional("MessageAttributeNames") => list(String.t() | Atom.t()),
         optional("MessageSystemAttributeNames") => list(list(any())()),
-        optional("ReceiveRequestAttemptId") => String.t(),
+        optional("ReceiveRequestAttemptId") => String.t() | Atom.t(),
         optional("VisibilityTimeout") => integer(),
         optional("WaitTimeSeconds") => integer(),
-        required("QueueUrl") => String.t()
+        required("QueueUrl") => String.t() | Atom.t()
       }
       
   """
-  @type receive_message_request() :: %{String.t() => any()}
+  @type receive_message_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_message_batch_result_entry() :: %{
-        "Id" => String.t()
+        "Id" => String.t() | Atom.t()
       }
       
   """
-  @type delete_message_batch_result_entry() :: %{String.t() => any()}
+  @type delete_message_batch_result_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -740,80 +740,80 @@ defmodule AWS.SQS do
       message_system_attribute_value() :: %{
         "BinaryListValues" => list(binary()),
         "BinaryValue" => binary(),
-        "DataType" => String.t(),
-        "StringListValues" => list(String.t()),
-        "StringValue" => String.t()
+        "DataType" => String.t() | Atom.t(),
+        "StringListValues" => list(String.t() | Atom.t()),
+        "StringValue" => String.t() | Atom.t()
       }
       
   """
-  @type message_system_attribute_value() :: %{String.t() => any()}
+  @type message_system_attribute_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       queue_deleted_recently() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type queue_deleted_recently() :: %{String.t() => any()}
+  @type queue_deleted_recently() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_message_move_task_result() :: %{
-        "TaskHandle" => String.t()
+        "TaskHandle" => String.t() | Atom.t()
       }
       
   """
-  @type start_message_move_task_result() :: %{String.t() => any()}
+  @type start_message_move_task_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_dead_letter_source_queues_result() :: %{
-        "NextToken" => String.t(),
-        "queueUrls" => list(String.t())
+        "NextToken" => String.t() | Atom.t(),
+        "queueUrls" => list(String.t() | Atom.t())
       }
       
   """
-  @type list_dead_letter_source_queues_result() :: %{String.t() => any()}
+  @type list_dead_letter_source_queues_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_batch_entry_id() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_batch_entry_id() :: %{String.t() => any()}
+  @type invalid_batch_entry_id() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_entry_ids_not_distinct() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type batch_entry_ids_not_distinct() :: %{String.t() => any()}
+  @type batch_entry_ids_not_distinct() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_invalid_key_usage() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type kms_invalid_key_usage() :: %{String.t() => any()}
+  @type kms_invalid_key_usage() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -822,26 +822,26 @@ defmodule AWS.SQS do
       send_message_request() :: %{
         optional("DelaySeconds") => integer(),
         optional("MessageAttributes") => map(),
-        optional("MessageDeduplicationId") => String.t(),
-        optional("MessageGroupId") => String.t(),
+        optional("MessageDeduplicationId") => String.t() | Atom.t(),
+        optional("MessageGroupId") => String.t() | Atom.t(),
         optional("MessageSystemAttributes") => map(),
-        required("MessageBody") => String.t(),
-        required("QueueUrl") => String.t()
+        required("MessageBody") => String.t() | Atom.t(),
+        required("QueueUrl") => String.t() | Atom.t()
       }
       
   """
-  @type send_message_request() :: %{String.t() => any()}
+  @type send_message_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_queue_request() :: %{
-        required("QueueUrl") => String.t()
+        required("QueueUrl") => String.t() | Atom.t()
       }
       
   """
-  @type delete_queue_request() :: %{String.t() => any()}
+  @type delete_queue_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -857,33 +857,33 @@ defmodule AWS.SQS do
   ## Example:
       
       over_limit() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type over_limit() :: %{String.t() => any()}
+  @type over_limit() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_queue_url_result() :: %{
-        "QueueUrl" => String.t()
+        "QueueUrl" => String.t() | Atom.t()
       }
       
   """
-  @type get_queue_url_result() :: %{String.t() => any()}
+  @type get_queue_url_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_request_too_long() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type batch_request_too_long() :: %{String.t() => any()}
+  @type batch_request_too_long() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -895,18 +895,18 @@ defmodule AWS.SQS do
       }
       
   """
-  @type change_message_visibility_batch_result() :: %{String.t() => any()}
+  @type change_message_visibility_batch_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_address() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_address() :: %{String.t() => any()}
+  @type invalid_address() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -914,24 +914,24 @@ defmodule AWS.SQS do
       
       list_dead_letter_source_queues_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("QueueUrl") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("QueueUrl") => String.t() | Atom.t()
       }
       
   """
-  @type list_dead_letter_source_queues_request() :: %{String.t() => any()}
+  @type list_dead_letter_source_queues_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_message_batch_request_entry() :: %{
-        "Id" => String.t(),
-        "ReceiptHandle" => String.t()
+        "Id" => String.t() | Atom.t(),
+        "ReceiptHandle" => String.t() | Atom.t()
       }
       
   """
-  @type delete_message_batch_request_entry() :: %{String.t() => any()}
+  @type delete_message_batch_request_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -942,32 +942,32 @@ defmodule AWS.SQS do
       }
       
   """
-  @type get_queue_attributes_result() :: %{String.t() => any()}
+  @type get_queue_attributes_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       receipt_handle_is_invalid() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type receipt_handle_is_invalid() :: %{String.t() => any()}
+  @type receipt_handle_is_invalid() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       add_permission_request() :: %{
-        required("AWSAccountIds") => list(String.t()),
-        required("Actions") => list(String.t()),
-        required("Label") => String.t(),
-        required("QueueUrl") => String.t()
+        required("AWSAccountIds") => list(String.t() | Atom.t()),
+        required("Actions") => list(String.t() | Atom.t()),
+        required("Label") => String.t() | Atom.t(),
+        required("QueueUrl") => String.t() | Atom.t()
       }
       
   """
-  @type add_permission_request() :: %{String.t() => any()}
+  @type add_permission_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -975,16 +975,16 @@ defmodule AWS.SQS do
       
       message() :: %{
         "Attributes" => map(),
-        "Body" => String.t(),
-        "MD5OfBody" => String.t(),
-        "MD5OfMessageAttributes" => String.t(),
+        "Body" => String.t() | Atom.t(),
+        "MD5OfBody" => String.t() | Atom.t(),
+        "MD5OfMessageAttributes" => String.t() | Atom.t(),
         "MessageAttributes" => map(),
-        "MessageId" => String.t(),
-        "ReceiptHandle" => String.t()
+        "MessageId" => String.t() | Atom.t(),
+        "ReceiptHandle" => String.t() | Atom.t()
       }
       
   """
-  @type message() :: %{String.t() => any()}
+  @type message() :: %{String.t() | Atom.t() => any()}
 
   @type add_permission_errors() ::
           invalid_address()

@@ -18,62 +18,65 @@ defmodule AWS.Mgn do
       }
 
   """
-  @type start_cutover_response() :: %{String.t() => any()}
+  @type start_cutover_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_job_log_items_request() :: %{
-        optional("accountID") => String.t(),
+        optional("accountID") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("jobID") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("jobID") => String.t() | Atom.t()
       }
 
   """
-  @type describe_job_log_items_request() :: %{String.t() => any()}
+  @type describe_job_log_items_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       change_server_life_cycle_state_source_server_lifecycle() :: %{
-        "state" => String.t()
+        "state" => String.t() | Atom.t()
       }
 
   """
-  @type change_server_life_cycle_state_source_server_lifecycle() :: %{String.t() => any()}
+  @type change_server_life_cycle_state_source_server_lifecycle() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       connector() :: %{
-        "arn" => String.t(),
-        "connectorID" => String.t(),
-        "name" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "connectorID" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "ssmCommandConfig" => connector_ssm_command_config(),
-        "ssmInstanceID" => String.t(),
+        "ssmInstanceID" => String.t() | Atom.t(),
         "tags" => map()
       }
 
   """
-  @type connector() :: %{String.t() => any()}
+  @type connector() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_source_servers_request() :: %{
-        optional("accountID") => String.t(),
+        optional("accountID") => String.t() | Atom.t(),
         optional("filters") => describe_source_servers_request_filters(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type describe_source_servers_request() :: %{String.t() => any()}
+  @type describe_source_servers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -81,11 +84,11 @@ defmodule AWS.Mgn do
 
       describe_vcenter_clients_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type describe_vcenter_clients_request() :: %{String.t() => any()}
+  @type describe_vcenter_clients_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -96,47 +99,47 @@ defmodule AWS.Mgn do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       life_cycle() :: %{
-        "addedToServiceDateTime" => String.t(),
-        "elapsedReplicationDuration" => String.t(),
-        "firstByteDateTime" => String.t(),
+        "addedToServiceDateTime" => String.t() | Atom.t(),
+        "elapsedReplicationDuration" => String.t() | Atom.t(),
+        "firstByteDateTime" => String.t() | Atom.t(),
         "lastCutover" => life_cycle_last_cutover(),
-        "lastSeenByServiceDateTime" => String.t(),
+        "lastSeenByServiceDateTime" => String.t() | Atom.t(),
         "lastTest" => life_cycle_last_test(),
-        "state" => String.t()
+        "state" => String.t() | Atom.t()
       }
 
   """
-  @type life_cycle() :: %{String.t() => any()}
+  @type life_cycle() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_exports_request_filters() :: %{
-        "exportIDs" => list(String.t())
+        "exportIDs" => list(String.t() | Atom.t())
       }
 
   """
-  @type list_exports_request_filters() :: %{String.t() => any()}
+  @type list_exports_request_filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       unarchive_application_request() :: %{
-        optional("accountID") => String.t(),
-        required("applicationID") => String.t()
+        optional("accountID") => String.t() | Atom.t(),
+        required("applicationID") => String.t() | Atom.t()
       }
 
   """
-  @type unarchive_application_request() :: %{String.t() => any()}
+  @type unarchive_application_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -144,11 +147,11 @@ defmodule AWS.Mgn do
 
       list_connectors_response() :: %{
         "items" => list(connector()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_connectors_response() :: %{String.t() => any()}
+  @type list_connectors_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -156,49 +159,49 @@ defmodule AWS.Mgn do
 
       list_waves_request_filters() :: %{
         "isArchived" => [boolean()],
-        "waveIDs" => list(String.t())
+        "waveIDs" => list(String.t() | Atom.t())
       }
 
   """
-  @type list_waves_request_filters() :: %{String.t() => any()}
+  @type list_waves_request_filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_source_server_request() :: %{
-        optional("accountID") => String.t(),
+        optional("accountID") => String.t() | Atom.t(),
         optional("connectorAction") => source_server_connector_action(),
-        required("sourceServerID") => String.t()
+        required("sourceServerID") => String.t() | Atom.t()
       }
 
   """
-  @type update_source_server_request() :: %{String.t() => any()}
+  @type update_source_server_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       archive_wave_request() :: %{
-        optional("accountID") => String.t(),
-        required("waveID") => String.t()
+        optional("accountID") => String.t() | Atom.t(),
+        required("waveID") => String.t() | Atom.t()
       }
 
   """
-  @type archive_wave_request() :: %{String.t() => any()}
+  @type archive_wave_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_launch_configuration_templates_request() :: %{
-        optional("launchConfigurationTemplateIDs") => list(String.t()),
+        optional("launchConfigurationTemplateIDs") => list(String.t() | Atom.t()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type describe_launch_configuration_templates_request() :: %{String.t() => any()}
+  @type describe_launch_configuration_templates_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -214,118 +217,118 @@ defmodule AWS.Mgn do
   ## Example:
 
       delete_source_server_request() :: %{
-        optional("accountID") => String.t(),
-        required("sourceServerID") => String.t()
+        optional("accountID") => String.t() | Atom.t(),
+        required("sourceServerID") => String.t() | Atom.t()
       }
 
   """
-  @type delete_source_server_request() :: %{String.t() => any()}
+  @type delete_source_server_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       application_aggregated_status() :: %{
-        "healthStatus" => String.t(),
-        "lastUpdateDateTime" => String.t(),
-        "progressStatus" => String.t(),
+        "healthStatus" => String.t() | Atom.t(),
+        "lastUpdateDateTime" => String.t() | Atom.t(),
+        "progressStatus" => String.t() | Atom.t(),
         "totalSourceServers" => float()
       }
 
   """
-  @type application_aggregated_status() :: %{String.t() => any()}
+  @type application_aggregated_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       replication_configuration_template() :: %{
-        optional("arn") => String.t(),
+        optional("arn") => String.t() | Atom.t(),
         optional("associateDefaultSecurityGroup") => [boolean()],
         optional("bandwidthThrottling") => float(),
         optional("createPublicIP") => [boolean()],
-        optional("dataPlaneRouting") => String.t(),
-        optional("defaultLargeStagingDiskType") => String.t(),
-        optional("ebsEncryption") => String.t(),
-        optional("ebsEncryptionKeyArn") => String.t(),
-        optional("replicationServerInstanceType") => String.t(),
-        optional("replicationServersSecurityGroupsIDs") => list(String.t()),
-        optional("stagingAreaSubnetId") => String.t(),
+        optional("dataPlaneRouting") => String.t() | Atom.t(),
+        optional("defaultLargeStagingDiskType") => String.t() | Atom.t(),
+        optional("ebsEncryption") => String.t() | Atom.t(),
+        optional("ebsEncryptionKeyArn") => String.t() | Atom.t(),
+        optional("replicationServerInstanceType") => String.t() | Atom.t(),
+        optional("replicationServersSecurityGroupsIDs") => list(String.t() | Atom.t()),
+        optional("stagingAreaSubnetId") => String.t() | Atom.t(),
         optional("stagingAreaTags") => map(),
         optional("tags") => map(),
         optional("useDedicatedReplicationServer") => [boolean()],
         optional("useFipsEndpoint") => [boolean()],
-        required("replicationConfigurationTemplateID") => String.t()
+        required("replicationConfigurationTemplateID") => String.t() | Atom.t()
       }
 
   """
-  @type replication_configuration_template() :: %{String.t() => any()}
+  @type replication_configuration_template() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resume_replication_request() :: %{
-        optional("accountID") => String.t(),
-        required("sourceServerID") => String.t()
+        optional("accountID") => String.t() | Atom.t(),
+        required("sourceServerID") => String.t() | Atom.t()
       }
 
   """
-  @type resume_replication_request() :: %{String.t() => any()}
+  @type resume_replication_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_waves_request() :: %{
-        optional("accountID") => String.t(),
+        optional("accountID") => String.t() | Atom.t(),
         optional("filters") => list_waves_request_filters(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_waves_request() :: %{String.t() => any()}
+  @type list_waves_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_replication_configuration_template_request() :: %{
-        optional("arn") => String.t(),
+        optional("arn") => String.t() | Atom.t(),
         optional("associateDefaultSecurityGroup") => [boolean()],
         optional("bandwidthThrottling") => float(),
         optional("createPublicIP") => [boolean()],
-        optional("dataPlaneRouting") => String.t(),
-        optional("defaultLargeStagingDiskType") => String.t(),
-        optional("ebsEncryption") => String.t(),
-        optional("ebsEncryptionKeyArn") => String.t(),
-        optional("replicationServerInstanceType") => String.t(),
-        optional("replicationServersSecurityGroupsIDs") => list(String.t()),
-        optional("stagingAreaSubnetId") => String.t(),
+        optional("dataPlaneRouting") => String.t() | Atom.t(),
+        optional("defaultLargeStagingDiskType") => String.t() | Atom.t(),
+        optional("ebsEncryption") => String.t() | Atom.t(),
+        optional("ebsEncryptionKeyArn") => String.t() | Atom.t(),
+        optional("replicationServerInstanceType") => String.t() | Atom.t(),
+        optional("replicationServersSecurityGroupsIDs") => list(String.t() | Atom.t()),
+        optional("stagingAreaSubnetId") => String.t() | Atom.t(),
         optional("stagingAreaTags") => map(),
         optional("useDedicatedReplicationServer") => [boolean()],
         optional("useFipsEndpoint") => [boolean()],
-        required("replicationConfigurationTemplateID") => String.t()
+        required("replicationConfigurationTemplateID") => String.t() | Atom.t()
       }
 
   """
-  @type update_replication_configuration_template_request() :: %{String.t() => any()}
+  @type update_replication_configuration_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       replication_configuration_replicated_disk() :: %{
-        "deviceName" => String.t(),
+        "deviceName" => String.t() | Atom.t(),
         "iops" => float(),
         "isBootDisk" => [boolean()],
-        "stagingDiskType" => String.t(),
+        "stagingDiskType" => String.t() | Atom.t(),
         "throughput" => float()
       }
 
   """
-  @type replication_configuration_replicated_disk() :: %{String.t() => any()}
+  @type replication_configuration_replicated_disk() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -341,73 +344,73 @@ defmodule AWS.Mgn do
   ## Example:
 
       update_connector_request() :: %{
-        optional("name") => String.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("ssmCommandConfig") => connector_ssm_command_config(),
-        required("connectorID") => String.t()
+        required("connectorID") => String.t() | Atom.t()
       }
 
   """
-  @type update_connector_request() :: %{String.t() => any()}
+  @type update_connector_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       pause_replication_request() :: %{
-        optional("accountID") => String.t(),
-        required("sourceServerID") => String.t()
+        optional("accountID") => String.t() | Atom.t(),
+        required("sourceServerID") => String.t() | Atom.t()
       }
 
   """
-  @type pause_replication_request() :: %{String.t() => any()}
+  @type pause_replication_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       network_interface() :: %{
-        "ips" => list(String.t()),
+        "ips" => list(String.t() | Atom.t()),
         "isPrimary" => [boolean()],
-        "macAddress" => String.t()
+        "macAddress" => String.t() | Atom.t()
       }
 
   """
-  @type network_interface() :: %{String.t() => any()}
+  @type network_interface() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       life_cycle_last_test_finalized() :: %{
-        "apiCallDateTime" => String.t()
+        "apiCallDateTime" => String.t() | Atom.t()
       }
 
   """
-  @type life_cycle_last_test_finalized() :: %{String.t() => any()}
+  @type life_cycle_last_test_finalized() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_replication_configuration_template_request() :: %{
-        optional("ebsEncryptionKeyArn") => String.t(),
+        optional("ebsEncryptionKeyArn") => String.t() | Atom.t(),
         optional("tags") => map(),
         optional("useFipsEndpoint") => [boolean()],
         required("associateDefaultSecurityGroup") => [boolean()],
         required("bandwidthThrottling") => float(),
         required("createPublicIP") => [boolean()],
-        required("dataPlaneRouting") => String.t(),
-        required("defaultLargeStagingDiskType") => String.t(),
-        required("ebsEncryption") => String.t(),
-        required("replicationServerInstanceType") => String.t(),
-        required("replicationServersSecurityGroupsIDs") => list(String.t()),
-        required("stagingAreaSubnetId") => String.t(),
+        required("dataPlaneRouting") => String.t() | Atom.t(),
+        required("defaultLargeStagingDiskType") => String.t() | Atom.t(),
+        required("ebsEncryption") => String.t() | Atom.t(),
+        required("replicationServerInstanceType") => String.t() | Atom.t(),
+        required("replicationServersSecurityGroupsIDs") => list(String.t() | Atom.t()),
+        required("stagingAreaSubnetId") => String.t() | Atom.t(),
         required("stagingAreaTags") => map(),
         required("useDedicatedReplicationServer") => [boolean()]
       }
 
   """
-  @type create_replication_configuration_template_request() :: %{String.t() => any()}
+  @type create_replication_configuration_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -423,65 +426,65 @@ defmodule AWS.Mgn do
   ## Example:
 
       remove_source_server_action_request() :: %{
-        optional("accountID") => String.t(),
-        required("actionID") => String.t(),
-        required("sourceServerID") => String.t()
+        optional("accountID") => String.t() | Atom.t(),
+        required("actionID") => String.t() | Atom.t(),
+        required("sourceServerID") => String.t() | Atom.t()
       }
 
   """
-  @type remove_source_server_action_request() :: %{String.t() => any()}
+  @type remove_source_server_action_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_applications_request() :: %{
-        optional("accountID") => String.t(),
-        required("applicationIDs") => list(String.t()),
-        required("waveID") => String.t()
+        optional("accountID") => String.t() | Atom.t(),
+        required("applicationIDs") => list(String.t() | Atom.t()),
+        required("waveID") => String.t() | Atom.t()
       }
 
   """
-  @type associate_applications_request() :: %{String.t() => any()}
+  @type associate_applications_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       source_server_connector_action() :: %{
-        "connectorArn" => String.t(),
-        "credentialsSecretArn" => String.t()
+        "connectorArn" => String.t() | Atom.t(),
+        "credentialsSecretArn" => String.t() | Atom.t()
       }
 
   """
-  @type source_server_connector_action() :: %{String.t() => any()}
+  @type source_server_connector_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_applications_request_filters() :: %{
-        "applicationIDs" => list(String.t()),
+        "applicationIDs" => list(String.t() | Atom.t()),
         "isArchived" => [boolean()],
-        "waveIDs" => list(String.t())
+        "waveIDs" => list(String.t() | Atom.t())
       }
 
   """
-  @type list_applications_request_filters() :: %{String.t() => any()}
+  @type list_applications_request_filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       connector_ssm_command_config() :: %{
-        "cloudWatchLogGroupName" => String.t(),
+        "cloudWatchLogGroupName" => String.t() | Atom.t(),
         "cloudWatchOutputEnabled" => [boolean()],
-        "outputS3BucketName" => String.t(),
+        "outputS3BucketName" => String.t() | Atom.t(),
         "s3OutputEnabled" => [boolean()]
       }
 
   """
-  @type connector_ssm_command_config() :: %{String.t() => any()}
+  @type connector_ssm_command_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -489,38 +492,38 @@ defmodule AWS.Mgn do
 
       import_task_error() :: %{
         "errorData" => import_error_data(),
-        "errorDateTime" => String.t(),
-        "errorType" => String.t()
+        "errorDateTime" => String.t() | Atom.t(),
+        "errorType" => String.t() | Atom.t()
       }
 
   """
-  @type import_task_error() :: %{String.t() => any()}
+  @type import_task_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       launched_instance() :: %{
-        "ec2InstanceID" => String.t(),
-        "firstBoot" => String.t(),
-        "jobID" => String.t()
+        "ec2InstanceID" => String.t() | Atom.t(),
+        "firstBoot" => String.t() | Atom.t(),
+        "jobID" => String.t() | Atom.t()
       }
 
   """
-  @type launched_instance() :: %{String.t() => any()}
+  @type launched_instance() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_test_request() :: %{
-        optional("accountID") => String.t(),
+        optional("accountID") => String.t() | Atom.t(),
         optional("tags") => map(),
-        required("sourceServerIDs") => list(String.t())
+        required("sourceServerIDs") => list(String.t() | Atom.t())
       }
 
   """
-  @type start_test_request() :: %{String.t() => any()}
+  @type start_test_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -529,92 +532,92 @@ defmodule AWS.Mgn do
       list_connectors_request() :: %{
         optional("filters") => list_connectors_request_filters(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_connectors_request() :: %{String.t() => any()}
+  @type list_connectors_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       template_action_document() :: %{
-        optional("actionID") => String.t(),
-        optional("actionName") => String.t(),
+        optional("actionID") => String.t() | Atom.t(),
+        optional("actionName") => String.t() | Atom.t(),
         optional("active") => [boolean()],
-        optional("category") => String.t(),
-        optional("description") => String.t(),
-        optional("documentIdentifier") => String.t(),
-        optional("documentVersion") => String.t(),
+        optional("category") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("documentIdentifier") => String.t() | Atom.t(),
+        optional("documentVersion") => String.t() | Atom.t(),
         optional("externalParameters") => map(),
         optional("mustSucceedForCutover") => [boolean()],
-        optional("operatingSystem") => String.t(),
+        optional("operatingSystem") => String.t() | Atom.t(),
         optional("order") => integer(),
         optional("parameters") => map(),
         optional("timeoutSeconds") => integer()
       }
 
   """
-  @type template_action_document() :: %{String.t() => any()}
+  @type template_action_document() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       retry_data_replication_request() :: %{
-        optional("accountID") => String.t(),
-        required("sourceServerID") => String.t()
+        optional("accountID") => String.t() | Atom.t(),
+        required("sourceServerID") => String.t() | Atom.t()
       }
 
   """
-  @type retry_data_replication_request() :: %{String.t() => any()}
+  @type retry_data_replication_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_replication_configuration_request() :: %{
-        optional("accountID") => String.t(),
-        required("sourceServerID") => String.t()
+        optional("accountID") => String.t() | Atom.t(),
+        required("sourceServerID") => String.t() | Atom.t()
       }
 
   """
-  @type get_replication_configuration_request() :: %{String.t() => any()}
+  @type get_replication_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_replication_request() :: %{
-        optional("accountID") => String.t(),
-        required("sourceServerID") => String.t()
+        optional("accountID") => String.t() | Atom.t(),
+        required("sourceServerID") => String.t() | Atom.t()
       }
 
   """
-  @type start_replication_request() :: %{String.t() => any()}
+  @type start_replication_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       life_cycle_last_test_reverted() :: %{
-        "apiCallDateTime" => String.t()
+        "apiCallDateTime" => String.t() | Atom.t()
       }
 
   """
-  @type life_cycle_last_test_reverted() :: %{String.t() => any()}
+  @type life_cycle_last_test_reverted() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -622,41 +625,41 @@ defmodule AWS.Mgn do
 
       list_template_actions_response() :: %{
         optional("items") => list(template_action_document()),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_template_actions_response() :: %{String.t() => any()}
+  @type list_template_actions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       vcenter_client() :: %{
-        "arn" => String.t(),
-        "datacenterName" => String.t(),
-        "hostname" => String.t(),
-        "lastSeenDatetime" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "datacenterName" => String.t() | Atom.t(),
+        "hostname" => String.t() | Atom.t(),
+        "lastSeenDatetime" => String.t() | Atom.t(),
         "sourceServerTags" => map(),
         "tags" => map(),
-        "vcenterClientID" => String.t(),
-        "vcenterUUID" => String.t()
+        "vcenterClientID" => String.t() | Atom.t(),
+        "vcenterUUID" => String.t() | Atom.t()
       }
 
   """
-  @type vcenter_client() :: %{String.t() => any()}
+  @type vcenter_client() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       stop_replication_request() :: %{
-        optional("accountID") => String.t(),
-        required("sourceServerID") => String.t()
+        optional("accountID") => String.t() | Atom.t(),
+        required("sourceServerID") => String.t() | Atom.t()
       }
 
   """
-  @type stop_replication_request() :: %{String.t() => any()}
+  @type stop_replication_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -665,11 +668,11 @@ defmodule AWS.Mgn do
       list_exports_request() :: %{
         "filters" => list_exports_request_filters(),
         "maxResults" => integer(),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_exports_request() :: %{String.t() => any()}
+  @type list_exports_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -677,65 +680,65 @@ defmodule AWS.Mgn do
 
       list_source_server_actions_response() :: %{
         optional("items") => list(source_server_action_document()),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_source_server_actions_response() :: %{String.t() => any()}
+  @type list_source_server_actions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       unarchive_wave_request() :: %{
-        optional("accountID") => String.t(),
-        required("waveID") => String.t()
+        optional("accountID") => String.t() | Atom.t(),
+        required("waveID") => String.t() | Atom.t()
       }
 
   """
-  @type unarchive_wave_request() :: %{String.t() => any()}
+  @type unarchive_wave_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_source_server_actions_request() :: %{
-        optional("accountID") => String.t(),
+        optional("accountID") => String.t() | Atom.t(),
         optional("filters") => source_server_actions_request_filters(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("sourceServerID") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("sourceServerID") => String.t() | Atom.t()
       }
 
   """
-  @type list_source_server_actions_request() :: %{String.t() => any()}
+  @type list_source_server_actions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       launch_configuration_template() :: %{
-        optional("arn") => String.t(),
+        optional("arn") => String.t() | Atom.t(),
         optional("associatePublicIpAddress") => [boolean()],
-        optional("bootMode") => String.t(),
+        optional("bootMode") => String.t() | Atom.t(),
         optional("copyPrivateIp") => [boolean()],
         optional("copyTags") => [boolean()],
-        optional("ec2LaunchTemplateID") => String.t(),
+        optional("ec2LaunchTemplateID") => String.t() | Atom.t(),
         optional("enableMapAutoTagging") => [boolean()],
         optional("largeVolumeConf") => launch_template_disk_conf(),
-        optional("launchDisposition") => String.t(),
+        optional("launchDisposition") => String.t() | Atom.t(),
         optional("licensing") => licensing(),
-        optional("mapAutoTaggingMpeID") => String.t(),
+        optional("mapAutoTaggingMpeID") => String.t() | Atom.t(),
         optional("postLaunchActions") => post_launch_actions(),
         optional("smallVolumeConf") => launch_template_disk_conf(),
         optional("smallVolumeMaxSize") => float(),
         optional("tags") => map(),
-        optional("targetInstanceTypeRightSizingMethod") => String.t(),
-        required("launchConfigurationTemplateID") => String.t()
+        optional("targetInstanceTypeRightSizingMethod") => String.t() | Atom.t(),
+        required("launchConfigurationTemplateID") => String.t() | Atom.t()
       }
 
   """
-  @type launch_configuration_template() :: %{String.t() => any()}
+  @type launch_configuration_template() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -746,7 +749,7 @@ defmodule AWS.Mgn do
       }
 
   """
-  @type licensing() :: %{String.t() => any()}
+  @type licensing() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -757,7 +760,7 @@ defmodule AWS.Mgn do
       }
 
   """
-  @type start_export_response() :: %{String.t() => any()}
+  @type start_export_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -770,7 +773,7 @@ defmodule AWS.Mgn do
       }
 
   """
-  @type export_task_summary() :: %{String.t() => any()}
+  @type export_task_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -778,37 +781,37 @@ defmodule AWS.Mgn do
 
       list_imports_response() :: %{
         "items" => list(import_task()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_imports_response() :: %{String.t() => any()}
+  @type list_imports_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       identification_hints() :: %{
-        "awsInstanceID" => String.t(),
-        "fqdn" => String.t(),
-        "hostname" => String.t(),
-        "vmPath" => String.t(),
-        "vmWareUuid" => String.t()
+        "awsInstanceID" => String.t() | Atom.t(),
+        "fqdn" => String.t() | Atom.t(),
+        "hostname" => String.t() | Atom.t(),
+        "vmPath" => String.t() | Atom.t(),
+        "vmWareUuid" => String.t() | Atom.t()
       }
 
   """
-  @type identification_hints() :: %{String.t() => any()}
+  @type identification_hints() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       source_server_actions_request_filters() :: %{
-        "actionIDs" => list(String.t())
+        "actionIDs" => list(String.t() | Atom.t())
       }
 
   """
-  @type source_server_actions_request_filters() :: %{String.t() => any()}
+  @type source_server_actions_request_filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -821,7 +824,7 @@ defmodule AWS.Mgn do
       }
 
   """
-  @type life_cycle_last_cutover() :: %{String.t() => any()}
+  @type life_cycle_last_cutover() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -831,15 +834,15 @@ defmodule AWS.Mgn do
         "cpus" => list(c_p_u()),
         "disks" => list(disk()),
         "identificationHints" => identification_hints(),
-        "lastUpdatedDateTime" => String.t(),
+        "lastUpdatedDateTime" => String.t() | Atom.t(),
         "networkInterfaces" => list(network_interface()),
         "os" => o_s(),
         "ramBytes" => float(),
-        "recommendedInstanceType" => String.t()
+        "recommendedInstanceType" => String.t() | Atom.t()
       }
 
   """
-  @type source_properties() :: %{String.t() => any()}
+  @type source_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -847,11 +850,11 @@ defmodule AWS.Mgn do
 
       describe_source_servers_response() :: %{
         optional("items") => list(source_server()),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type describe_source_servers_response() :: %{String.t() => any()}
+  @type describe_source_servers_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -859,22 +862,25 @@ defmodule AWS.Mgn do
 
       describe_replication_configuration_templates_response() :: %{
         optional("items") => list(replication_configuration_template()),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type describe_replication_configuration_templates_response() :: %{String.t() => any()}
+  @type describe_replication_configuration_templates_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       life_cycle_last_cutover_reverted() :: %{
-        "apiCallDateTime" => String.t()
+        "apiCallDateTime" => String.t() | Atom.t()
       }
 
   """
-  @type life_cycle_last_cutover_reverted() :: %{String.t() => any()}
+  @type life_cycle_last_cutover_reverted() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -908,36 +914,36 @@ defmodule AWS.Mgn do
   ## Example:
 
       life_cycle_last_test_initiated() :: %{
-        "apiCallDateTime" => String.t(),
-        "jobID" => String.t()
+        "apiCallDateTime" => String.t() | Atom.t(),
+        "jobID" => String.t() | Atom.t()
       }
 
   """
-  @type life_cycle_last_test_initiated() :: %{String.t() => any()}
+  @type life_cycle_last_test_initiated() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_source_server_action_request() :: %{
-        optional("accountID") => String.t(),
+        optional("accountID") => String.t() | Atom.t(),
         optional("active") => [boolean()],
-        optional("category") => String.t(),
-        optional("description") => String.t(),
-        optional("documentVersion") => String.t(),
+        optional("category") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("documentVersion") => String.t() | Atom.t(),
         optional("externalParameters") => map(),
         optional("mustSucceedForCutover") => [boolean()],
         optional("parameters") => map(),
         optional("timeoutSeconds") => integer(),
-        required("actionID") => String.t(),
-        required("actionName") => String.t(),
-        required("documentIdentifier") => String.t(),
+        required("actionID") => String.t() | Atom.t(),
+        required("actionName") => String.t() | Atom.t(),
+        required("documentIdentifier") => String.t() | Atom.t(),
         required("order") => integer(),
-        required("sourceServerID") => String.t()
+        required("sourceServerID") => String.t() | Atom.t()
       }
 
   """
-  @type put_source_server_action_request() :: %{String.t() => any()}
+  @type put_source_server_action_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -947,77 +953,77 @@ defmodule AWS.Mgn do
         optional("associateDefaultSecurityGroup") => [boolean()],
         optional("bandwidthThrottling") => float(),
         optional("createPublicIP") => [boolean()],
-        optional("dataPlaneRouting") => String.t(),
-        optional("defaultLargeStagingDiskType") => String.t(),
-        optional("ebsEncryption") => String.t(),
-        optional("ebsEncryptionKeyArn") => String.t(),
-        optional("name") => String.t(),
+        optional("dataPlaneRouting") => String.t() | Atom.t(),
+        optional("defaultLargeStagingDiskType") => String.t() | Atom.t(),
+        optional("ebsEncryption") => String.t() | Atom.t(),
+        optional("ebsEncryptionKeyArn") => String.t() | Atom.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("replicatedDisks") => list(replication_configuration_replicated_disk()),
-        optional("replicationServerInstanceType") => String.t(),
-        optional("replicationServersSecurityGroupsIDs") => list(String.t()),
-        optional("sourceServerID") => String.t(),
-        optional("stagingAreaSubnetId") => String.t(),
+        optional("replicationServerInstanceType") => String.t() | Atom.t(),
+        optional("replicationServersSecurityGroupsIDs") => list(String.t() | Atom.t()),
+        optional("sourceServerID") => String.t() | Atom.t(),
+        optional("stagingAreaSubnetId") => String.t() | Atom.t(),
         optional("stagingAreaTags") => map(),
         optional("useDedicatedReplicationServer") => [boolean()],
         optional("useFipsEndpoint") => [boolean()]
       }
 
   """
-  @type replication_configuration() :: %{String.t() => any()}
+  @type replication_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "code" => String.t(),
+        "code" => String.t() | Atom.t(),
         "errors" => list(error_details()),
-        "message" => String.t(),
-        "resourceId" => String.t(),
-        "resourceType" => String.t()
+        "message" => String.t() | Atom.t(),
+        "resourceId" => String.t() | Atom.t(),
+        "resourceType" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "code" => String.t(),
-        "message" => String.t(),
-        "resourceId" => String.t(),
-        "resourceType" => String.t()
+        "code" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t(),
+        "resourceId" => String.t() | Atom.t(),
+        "resourceType" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       data_replication_error() :: %{
-        "error" => String.t(),
-        "rawError" => String.t()
+        "error" => String.t() | Atom.t(),
+        "rawError" => String.t() | Atom.t()
       }
 
   """
-  @type data_replication_error() :: %{String.t() => any()}
+  @type data_replication_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_applications_request() :: %{
-        optional("accountID") => String.t(),
-        required("applicationIDs") => list(String.t()),
-        required("waveID") => String.t()
+        optional("accountID") => String.t() | Atom.t(),
+        required("applicationIDs") => list(String.t() | Atom.t()),
+        required("waveID") => String.t() | Atom.t()
       }
 
   """
-  @type disassociate_applications_request() :: %{String.t() => any()}
+  @type disassociate_applications_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1025,68 +1031,68 @@ defmodule AWS.Mgn do
 
       export_task_error() :: %{
         "errorData" => export_error_data(),
-        "errorDateTime" => String.t()
+        "errorDateTime" => String.t() | Atom.t()
       }
 
   """
-  @type export_task_error() :: %{String.t() => any()}
+  @type export_task_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_source_server_replication_type_request() :: %{
-        optional("accountID") => String.t(),
-        required("replicationType") => String.t(),
-        required("sourceServerID") => String.t()
+        optional("accountID") => String.t() | Atom.t(),
+        required("replicationType") => String.t() | Atom.t(),
+        required("sourceServerID") => String.t() | Atom.t()
       }
 
   """
-  @type update_source_server_replication_type_request() :: %{String.t() => any()}
+  @type update_source_server_replication_type_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       post_launch_actions() :: %{
-        "cloudWatchLogGroupName" => String.t(),
-        "deployment" => String.t(),
-        "s3LogBucket" => String.t(),
-        "s3OutputKeyPrefix" => String.t(),
+        "cloudWatchLogGroupName" => String.t() | Atom.t(),
+        "deployment" => String.t() | Atom.t(),
+        "s3LogBucket" => String.t() | Atom.t(),
+        "s3OutputKeyPrefix" => String.t() | Atom.t(),
         "ssmDocuments" => list(ssm_document())
       }
 
   """
-  @type post_launch_actions() :: %{String.t() => any()}
+  @type post_launch_actions() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_wave_request() :: %{
-        optional("accountID") => String.t(),
-        required("waveID") => String.t()
+        optional("accountID") => String.t() | Atom.t(),
+        required("waveID") => String.t() | Atom.t()
       }
 
   """
-  @type delete_wave_request() :: %{String.t() => any()}
+  @type delete_wave_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "code" => String.t(),
-        "message" => String.t(),
-        "quotaCode" => String.t(),
+        "code" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t(),
+        "quotaCode" => String.t() | Atom.t(),
         "quotaValue" => integer(),
-        "resourceId" => String.t(),
-        "resourceType" => String.t(),
-        "serviceCode" => String.t()
+        "resourceId" => String.t() | Atom.t(),
+        "resourceType" => String.t() | Atom.t(),
+        "serviceCode" => String.t() | Atom.t()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1094,39 +1100,39 @@ defmodule AWS.Mgn do
 
       post_launch_actions_status() :: %{
         "postLaunchActionsLaunchStatusList" => list(job_post_launch_actions_launch_status()),
-        "ssmAgentDiscoveryDatetime" => String.t()
+        "ssmAgentDiscoveryDatetime" => String.t() | Atom.t()
       }
 
   """
-  @type post_launch_actions_status() :: %{String.t() => any()}
+  @type post_launch_actions_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_wave_request() :: %{
-        optional("accountID") => String.t(),
-        optional("description") => String.t(),
+        optional("accountID") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("tags") => map(),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_wave_request() :: %{String.t() => any()}
+  @type create_wave_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_wave_request() :: %{
-        optional("accountID") => String.t(),
-        optional("description") => String.t(),
-        optional("name") => String.t(),
-        required("waveID") => String.t()
+        optional("accountID") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("name") => String.t() | Atom.t(),
+        required("waveID") => String.t() | Atom.t()
       }
 
   """
-  @type update_wave_request() :: %{String.t() => any()}
+  @type update_wave_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1143,23 +1149,23 @@ defmodule AWS.Mgn do
 
       c_p_u() :: %{
         "cores" => float(),
-        "modelName" => String.t()
+        "modelName" => String.t() | Atom.t()
       }
 
   """
-  @type c_p_u() :: %{String.t() => any()}
+  @type c_p_u() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       uninitialized_account_exception() :: %{
-        "code" => String.t(),
-        "message" => String.t()
+        "code" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type uninitialized_account_exception() :: %{String.t() => any()}
+  @type uninitialized_account_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1167,19 +1173,19 @@ defmodule AWS.Mgn do
 
       application() :: %{
         "applicationAggregatedStatus" => application_aggregated_status(),
-        "applicationID" => String.t(),
-        "arn" => String.t(),
-        "creationDateTime" => String.t(),
-        "description" => String.t(),
+        "applicationID" => String.t() | Atom.t(),
+        "arn" => String.t() | Atom.t(),
+        "creationDateTime" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
         "isArchived" => [boolean()],
-        "lastModifiedDateTime" => String.t(),
-        "name" => String.t(),
+        "lastModifiedDateTime" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "tags" => map(),
-        "waveID" => String.t()
+        "waveID" => String.t() | Atom.t()
       }
 
   """
-  @type application() :: %{String.t() => any()}
+  @type application() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1196,37 +1202,37 @@ defmodule AWS.Mgn do
 
       create_launch_configuration_template_request() :: %{
         optional("associatePublicIpAddress") => [boolean()],
-        optional("bootMode") => String.t(),
+        optional("bootMode") => String.t() | Atom.t(),
         optional("copyPrivateIp") => [boolean()],
         optional("copyTags") => [boolean()],
         optional("enableMapAutoTagging") => [boolean()],
         optional("largeVolumeConf") => launch_template_disk_conf(),
-        optional("launchDisposition") => String.t(),
+        optional("launchDisposition") => String.t() | Atom.t(),
         optional("licensing") => licensing(),
-        optional("mapAutoTaggingMpeID") => String.t(),
+        optional("mapAutoTaggingMpeID") => String.t() | Atom.t(),
         optional("postLaunchActions") => post_launch_actions(),
         optional("smallVolumeConf") => launch_template_disk_conf(),
         optional("smallVolumeMaxSize") => float(),
         optional("tags") => map(),
-        optional("targetInstanceTypeRightSizingMethod") => String.t()
+        optional("targetInstanceTypeRightSizingMethod") => String.t() | Atom.t()
       }
 
   """
-  @type create_launch_configuration_template_request() :: %{String.t() => any()}
+  @type create_launch_configuration_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       error_details() :: %{
-        "code" => String.t(),
-        "message" => String.t(),
-        "resourceId" => String.t(),
-        "resourceType" => String.t()
+        "code" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t(),
+        "resourceId" => String.t() | Atom.t(),
+        "resourceType" => String.t() | Atom.t()
       }
 
   """
-  @type error_details() :: %{String.t() => any()}
+  @type error_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1237,32 +1243,32 @@ defmodule AWS.Mgn do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_application_request() :: %{
-        optional("accountID") => String.t(),
-        optional("description") => String.t(),
+        optional("accountID") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("tags") => map(),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_application_request() :: %{String.t() => any()}
+  @type create_application_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       managed_account() :: %{
-        "accountId" => String.t()
+        "accountId" => String.t() | Atom.t()
       }
 
   """
-  @type managed_account() :: %{String.t() => any()}
+  @type managed_account() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1271,12 +1277,12 @@ defmodule AWS.Mgn do
       list_template_actions_request() :: %{
         optional("filters") => template_actions_request_filters(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("launchConfigurationTemplateID") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("launchConfigurationTemplateID") => String.t() | Atom.t()
       }
 
   """
-  @type list_template_actions_request() :: %{String.t() => any()}
+  @type list_template_actions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1285,79 +1291,79 @@ defmodule AWS.Mgn do
       data_replication_info() :: %{
         "dataReplicationError" => data_replication_error(),
         "dataReplicationInitiation" => data_replication_initiation(),
-        "dataReplicationState" => String.t(),
-        "etaDateTime" => String.t(),
-        "lagDuration" => String.t(),
-        "lastSnapshotDateTime" => String.t(),
+        "dataReplicationState" => String.t() | Atom.t(),
+        "etaDateTime" => String.t() | Atom.t(),
+        "lagDuration" => String.t() | Atom.t(),
+        "lastSnapshotDateTime" => String.t() | Atom.t(),
         "replicatedDisks" => list(data_replication_info_replicated_disk())
       }
 
   """
-  @type data_replication_info() :: %{String.t() => any()}
+  @type data_replication_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "message" => String.t(),
-        "name" => String.t()
+        "message" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_source_servers_request_filters() :: %{
-        "applicationIDs" => list(String.t()),
+        "applicationIDs" => list(String.t() | Atom.t()),
         "isArchived" => [boolean()],
-        "lifeCycleStates" => list(String.t()),
-        "replicationTypes" => list(String.t()),
-        "sourceServerIDs" => list(String.t())
+        "lifeCycleStates" => list(String.t() | Atom.t()),
+        "replicationTypes" => list(String.t() | Atom.t()),
+        "sourceServerIDs" => list(String.t() | Atom.t())
       }
 
   """
-  @type describe_source_servers_request_filters() :: %{String.t() => any()}
+  @type describe_source_servers_request_filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_source_servers_request() :: %{
-        optional("accountID") => String.t(),
-        required("applicationID") => String.t(),
-        required("sourceServerIDs") => list(String.t())
+        optional("accountID") => String.t() | Atom.t(),
+        required("applicationID") => String.t() | Atom.t(),
+        required("sourceServerIDs") => list(String.t() | Atom.t())
       }
 
   """
-  @type associate_source_servers_request() :: %{String.t() => any()}
+  @type associate_source_servers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_vcenter_client_request() :: %{
-        required("vcenterClientID") => String.t()
+        required("vcenterClientID") => String.t() | Atom.t()
       }
 
   """
-  @type delete_vcenter_client_request() :: %{String.t() => any()}
+  @type delete_vcenter_client_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       terminate_target_instances_request() :: %{
-        optional("accountID") => String.t(),
+        optional("accountID") => String.t() | Atom.t(),
         optional("tags") => map(),
-        required("sourceServerIDs") => list(String.t())
+        required("sourceServerIDs") => list(String.t() | Atom.t())
       }
 
   """
-  @type terminate_target_instances_request() :: %{String.t() => any()}
+  @type terminate_target_instances_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1365,31 +1371,31 @@ defmodule AWS.Mgn do
 
       data_replication_info_replicated_disk() :: %{
         "backloggedStorageBytes" => float(),
-        "deviceName" => String.t(),
+        "deviceName" => String.t() | Atom.t(),
         "replicatedStorageBytes" => float(),
         "rescannedStorageBytes" => float(),
         "totalStorageBytes" => float()
       }
 
   """
-  @type data_replication_info_replicated_disk() :: %{String.t() => any()}
+  @type data_replication_info_replicated_disk() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       import_task() :: %{
-        "creationDateTime" => String.t(),
-        "endDateTime" => String.t(),
-        "importID" => String.t(),
+        "creationDateTime" => String.t() | Atom.t(),
+        "endDateTime" => String.t() | Atom.t(),
+        "importID" => String.t() | Atom.t(),
         "progressPercentage" => [float()],
         "s3BucketSource" => s3_bucket_source(),
-        "status" => String.t(),
+        "status" => String.t() | Atom.t(),
         "summary" => import_task_summary()
       }
 
   """
-  @type import_task() :: %{String.t() => any()}
+  @type import_task() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1420,19 +1426,19 @@ defmodule AWS.Mgn do
       }
 
   """
-  @type import_task_summary() :: %{String.t() => any()}
+  @type import_task_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       mark_as_archived_request() :: %{
-        optional("accountID") => String.t(),
-        required("sourceServerID") => String.t()
+        optional("accountID") => String.t() | Atom.t(),
+        required("sourceServerID") => String.t() | Atom.t()
       }
 
   """
-  @type mark_as_archived_request() :: %{String.t() => any()}
+  @type mark_as_archived_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1449,56 +1455,56 @@ defmodule AWS.Mgn do
 
       describe_vcenter_clients_response() :: %{
         optional("items") => list(vcenter_client()),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type describe_vcenter_clients_response() :: %{String.t() => any()}
+  @type describe_vcenter_clients_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       wave() :: %{
-        "arn" => String.t(),
-        "creationDateTime" => String.t(),
-        "description" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "creationDateTime" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
         "isArchived" => [boolean()],
-        "lastModifiedDateTime" => String.t(),
-        "name" => String.t(),
+        "lastModifiedDateTime" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "tags" => map(),
         "waveAggregatedStatus" => wave_aggregated_status(),
-        "waveID" => String.t()
+        "waveID" => String.t() | Atom.t()
       }
 
   """
-  @type wave() :: %{String.t() => any()}
+  @type wave() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_jobs_request_filters() :: %{
-        "fromDate" => String.t(),
-        "jobIDs" => list(String.t()),
-        "toDate" => String.t()
+        "fromDate" => String.t() | Atom.t(),
+        "jobIDs" => list(String.t() | Atom.t()),
+        "toDate" => String.t() | Atom.t()
       }
 
   """
-  @type describe_jobs_request_filters() :: %{String.t() => any()}
+  @type describe_jobs_request_filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       data_replication_initiation() :: %{
-        "nextAttemptDateTime" => String.t(),
-        "startDateTime" => String.t(),
+        "nextAttemptDateTime" => String.t() | Atom.t(),
+        "startDateTime" => String.t() | Atom.t(),
         "steps" => list(data_replication_initiation_step())
       }
 
   """
-  @type data_replication_initiation() :: %{String.t() => any()}
+  @type data_replication_initiation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1506,30 +1512,30 @@ defmodule AWS.Mgn do
 
       list_managed_accounts_response() :: %{
         "items" => list(managed_account()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_managed_accounts_response() :: %{String.t() => any()}
+  @type list_managed_accounts_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       export_task() :: %{
-        "creationDateTime" => String.t(),
-        "endDateTime" => String.t(),
-        "exportID" => String.t(),
+        "creationDateTime" => String.t() | Atom.t(),
+        "endDateTime" => String.t() | Atom.t(),
+        "exportID" => String.t() | Atom.t(),
         "progressPercentage" => [float()],
-        "s3Bucket" => String.t(),
-        "s3BucketOwner" => String.t(),
-        "s3Key" => String.t(),
-        "status" => String.t(),
+        "s3Bucket" => String.t() | Atom.t(),
+        "s3BucketOwner" => String.t() | Atom.t(),
+        "s3Key" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t(),
         "summary" => export_task_summary()
       }
 
   """
-  @type export_task() :: %{String.t() => any()}
+  @type export_task() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1537,112 +1543,112 @@ defmodule AWS.Mgn do
 
       describe_launch_configuration_templates_response() :: %{
         optional("items") => list(launch_configuration_template()),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type describe_launch_configuration_templates_response() :: %{String.t() => any()}
+  @type describe_launch_configuration_templates_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_application_request() :: %{
-        optional("accountID") => String.t(),
-        optional("description") => String.t(),
-        optional("name") => String.t(),
-        required("applicationID") => String.t()
+        optional("accountID") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("name") => String.t() | Atom.t(),
+        required("applicationID") => String.t() | Atom.t()
       }
 
   """
-  @type update_application_request() :: %{String.t() => any()}
+  @type update_application_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_launch_configuration_request() :: %{
-        optional("accountID") => String.t(),
-        required("sourceServerID") => String.t()
+        optional("accountID") => String.t() | Atom.t(),
+        required("sourceServerID") => String.t() | Atom.t()
       }
 
   """
-  @type get_launch_configuration_request() :: %{String.t() => any()}
+  @type get_launch_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       life_cycle_last_cutover_finalized() :: %{
-        "apiCallDateTime" => String.t()
+        "apiCallDateTime" => String.t() | Atom.t()
       }
 
   """
-  @type life_cycle_last_cutover_finalized() :: %{String.t() => any()}
+  @type life_cycle_last_cutover_finalized() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => String.t(),
+        "message" => String.t() | Atom.t(),
         "retryAfterSeconds" => float()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       participating_server() :: %{
-        "launchStatus" => String.t(),
-        "launchedEc2InstanceID" => String.t(),
+        "launchStatus" => String.t() | Atom.t(),
+        "launchedEc2InstanceID" => String.t() | Atom.t(),
         "postLaunchActionsStatus" => post_launch_actions_status(),
-        "sourceServerID" => String.t()
+        "sourceServerID" => String.t() | Atom.t()
       }
 
   """
-  @type participating_server() :: %{String.t() => any()}
+  @type participating_server() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_import_errors_request() :: %{
-        "importID" => String.t(),
+        "importID" => String.t() | Atom.t(),
         "maxResults" => integer(),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_import_errors_request() :: %{String.t() => any()}
+  @type list_import_errors_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       data_replication_initiation_step() :: %{
-        "name" => String.t(),
-        "status" => String.t()
+        "name" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
 
   """
-  @type data_replication_initiation_step() :: %{String.t() => any()}
+  @type data_replication_initiation_step() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_export_request() :: %{
-        "s3Bucket" => String.t(),
-        "s3BucketOwner" => String.t(),
-        "s3Key" => String.t()
+        "s3Bucket" => String.t() | Atom.t(),
+        "s3BucketOwner" => String.t() | Atom.t(),
+        "s3Key" => String.t() | Atom.t()
       }
 
   """
-  @type start_export_request() :: %{String.t() => any()}
+  @type start_export_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1654,19 +1660,19 @@ defmodule AWS.Mgn do
       }
 
   """
-  @type import_task_summary_applications() :: %{String.t() => any()}
+  @type import_task_summary_applications() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disconnect_from_service_request() :: %{
-        optional("accountID") => String.t(),
-        required("sourceServerID") => String.t()
+        optional("accountID") => String.t() | Atom.t(),
+        required("sourceServerID") => String.t() | Atom.t()
       }
 
   """
-  @type disconnect_from_service_request() :: %{String.t() => any()}
+  @type disconnect_from_service_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1679,7 +1685,7 @@ defmodule AWS.Mgn do
       }
 
   """
-  @type life_cycle_last_test() :: %{String.t() => any()}
+  @type life_cycle_last_test() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1691,46 +1697,46 @@ defmodule AWS.Mgn do
       }
 
   """
-  @type import_task_summary_waves() :: %{String.t() => any()}
+  @type import_task_summary_waves() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_applications_request() :: %{
-        optional("accountID") => String.t(),
+        optional("accountID") => String.t() | Atom.t(),
         optional("filters") => list_applications_request_filters(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_applications_request() :: %{String.t() => any()}
+  @type list_applications_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_export_errors_request() :: %{
-        "exportID" => String.t(),
+        "exportID" => String.t() | Atom.t(),
         "maxResults" => integer(),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_export_errors_request() :: %{String.t() => any()}
+  @type list_export_errors_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "code" => String.t(),
-        "message" => String.t()
+        "code" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1739,35 +1745,35 @@ defmodule AWS.Mgn do
       create_connector_request() :: %{
         optional("ssmCommandConfig") => connector_ssm_command_config(),
         optional("tags") => map(),
-        required("name") => String.t(),
-        required("ssmInstanceID") => String.t()
+        required("name") => String.t() | Atom.t(),
+        required("ssmInstanceID") => String.t() | Atom.t()
       }
 
   """
-  @type create_connector_request() :: %{String.t() => any()}
+  @type create_connector_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       remove_template_action_request() :: %{
-        required("actionID") => String.t(),
-        required("launchConfigurationTemplateID") => String.t()
+        required("actionID") => String.t() | Atom.t(),
+        required("launchConfigurationTemplateID") => String.t() | Atom.t()
       }
 
   """
-  @type remove_template_action_request() :: %{String.t() => any()}
+  @type remove_template_action_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       export_error_data() :: %{
-        "rawError" => String.t()
+        "rawError" => String.t() | Atom.t()
       }
 
   """
-  @type export_error_data() :: %{String.t() => any()}
+  @type export_error_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1775,48 +1781,48 @@ defmodule AWS.Mgn do
 
       list_export_errors_response() :: %{
         "items" => list(export_task_error()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_export_errors_response() :: %{String.t() => any()}
+  @type list_export_errors_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       change_server_life_cycle_state_request() :: %{
-        optional("accountID") => String.t(),
+        optional("accountID") => String.t() | Atom.t(),
         required("lifeCycle") => change_server_life_cycle_state_source_server_lifecycle(),
-        required("sourceServerID") => String.t()
+        required("sourceServerID") => String.t() | Atom.t()
       }
 
   """
-  @type change_server_life_cycle_state_request() :: %{String.t() => any()}
+  @type change_server_life_cycle_state_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       archive_application_request() :: %{
-        optional("accountID") => String.t(),
-        required("applicationID") => String.t()
+        optional("accountID") => String.t() | Atom.t(),
+        required("applicationID") => String.t() | Atom.t()
       }
 
   """
-  @type archive_application_request() :: %{String.t() => any()}
+  @type archive_application_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_job_request() :: %{
-        optional("accountID") => String.t(),
-        required("jobID") => String.t()
+        optional("accountID") => String.t() | Atom.t(),
+        required("jobID") => String.t() | Atom.t()
       }
 
   """
-  @type delete_job_request() :: %{String.t() => any()}
+  @type delete_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1827,19 +1833,19 @@ defmodule AWS.Mgn do
       }
 
   """
-  @type start_test_response() :: %{String.t() => any()}
+  @type start_test_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       ssm_parameter_store_parameter() :: %{
-        "parameterName" => String.t(),
-        "parameterType" => String.t()
+        "parameterName" => String.t() | Atom.t(),
+        "parameterType" => String.t() | Atom.t()
       }
 
   """
-  @type ssm_parameter_store_parameter() :: %{String.t() => any()}
+  @type ssm_parameter_store_parameter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1847,11 +1853,11 @@ defmodule AWS.Mgn do
 
       describe_jobs_response() :: %{
         optional("items") => list(job()),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type describe_jobs_response() :: %{String.t() => any()}
+  @type describe_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1859,47 +1865,47 @@ defmodule AWS.Mgn do
 
       disk() :: %{
         "bytes" => float(),
-        "deviceName" => String.t()
+        "deviceName" => String.t() | Atom.t()
       }
 
   """
-  @type disk() :: %{String.t() => any()}
+  @type disk() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_launch_configuration_request() :: %{
-        optional("accountID") => String.t(),
-        optional("bootMode") => String.t(),
+        optional("accountID") => String.t() | Atom.t(),
+        optional("bootMode") => String.t() | Atom.t(),
         optional("copyPrivateIp") => [boolean()],
         optional("copyTags") => [boolean()],
         optional("enableMapAutoTagging") => [boolean()],
-        optional("launchDisposition") => String.t(),
+        optional("launchDisposition") => String.t() | Atom.t(),
         optional("licensing") => licensing(),
-        optional("mapAutoTaggingMpeID") => String.t(),
-        optional("name") => String.t(),
+        optional("mapAutoTaggingMpeID") => String.t() | Atom.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("postLaunchActions") => post_launch_actions(),
-        optional("targetInstanceTypeRightSizingMethod") => String.t(),
-        required("sourceServerID") => String.t()
+        optional("targetInstanceTypeRightSizingMethod") => String.t() | Atom.t(),
+        required("sourceServerID") => String.t() | Atom.t()
       }
 
   """
-  @type update_launch_configuration_request() :: %{String.t() => any()}
+  @type update_launch_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "code" => String.t(),
+        "code" => String.t() | Atom.t(),
         "fieldList" => list(validation_exception_field()),
-        "message" => String.t(),
-        "reason" => String.t()
+        "message" => String.t() | Atom.t(),
+        "reason" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1915,30 +1921,30 @@ defmodule AWS.Mgn do
   ## Example:
 
       delete_replication_configuration_template_request() :: %{
-        required("replicationConfigurationTemplateID") => String.t()
+        required("replicationConfigurationTemplateID") => String.t() | Atom.t()
       }
 
   """
-  @type delete_replication_configuration_template_request() :: %{String.t() => any()}
+  @type delete_replication_configuration_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       job() :: %{
-        "arn" => String.t(),
-        "creationDateTime" => String.t(),
-        "endDateTime" => String.t(),
-        "initiatedBy" => String.t(),
-        "jobID" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "creationDateTime" => String.t() | Atom.t(),
+        "endDateTime" => String.t() | Atom.t(),
+        "initiatedBy" => String.t() | Atom.t(),
+        "jobID" => String.t() | Atom.t(),
         "participatingServers" => list(participating_server()),
-        "status" => String.t(),
+        "status" => String.t() | Atom.t(),
         "tags" => map(),
-        "type" => String.t()
+        "type" => String.t() | Atom.t()
       }
 
   """
-  @type job() :: %{String.t() => any()}
+  @type job() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1947,11 +1953,11 @@ defmodule AWS.Mgn do
       launch_template_disk_conf() :: %{
         "iops" => float(),
         "throughput" => float(),
-        "volumeType" => String.t()
+        "volumeType" => String.t() | Atom.t()
       }
 
   """
-  @type launch_template_disk_conf() :: %{String.t() => any()}
+  @type launch_template_disk_conf() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1963,37 +1969,37 @@ defmodule AWS.Mgn do
       }
 
   """
-  @type import_task_summary_servers() :: %{String.t() => any()}
+  @type import_task_summary_servers() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => String.t(),
-        "quotaCode" => String.t(),
-        "retryAfterSeconds" => String.t(),
-        "serviceCode" => String.t()
+        "message" => String.t() | Atom.t(),
+        "quotaCode" => String.t() | Atom.t(),
+        "retryAfterSeconds" => String.t() | Atom.t(),
+        "serviceCode" => String.t() | Atom.t()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       ssm_document() :: %{
-        "actionName" => String.t(),
+        "actionName" => String.t() | Atom.t(),
         "externalParameters" => map(),
         "mustSucceedForCutover" => [boolean()],
         "parameters" => map(),
-        "ssmDocumentName" => String.t(),
+        "ssmDocumentName" => String.t() | Atom.t(),
         "timeoutSeconds" => integer()
       }
 
   """
-  @type ssm_document() :: %{String.t() => any()}
+  @type ssm_document() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2001,23 +2007,23 @@ defmodule AWS.Mgn do
 
       put_template_action_request() :: %{
         optional("active") => [boolean()],
-        optional("category") => String.t(),
-        optional("description") => String.t(),
-        optional("documentVersion") => String.t(),
+        optional("category") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("documentVersion") => String.t() | Atom.t(),
         optional("externalParameters") => map(),
         optional("mustSucceedForCutover") => [boolean()],
-        optional("operatingSystem") => String.t(),
+        optional("operatingSystem") => String.t() | Atom.t(),
         optional("parameters") => map(),
         optional("timeoutSeconds") => integer(),
-        required("actionID") => String.t(),
-        required("actionName") => String.t(),
-        required("documentIdentifier") => String.t(),
-        required("launchConfigurationTemplateID") => String.t(),
+        required("actionID") => String.t() | Atom.t(),
+        required("actionName") => String.t() | Atom.t(),
+        required("documentIdentifier") => String.t() | Atom.t(),
+        required("launchConfigurationTemplateID") => String.t() | Atom.t(),
         required("order") => integer()
       }
 
   """
-  @type put_template_action_request() :: %{String.t() => any()}
+  @type put_template_action_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2026,22 +2032,22 @@ defmodule AWS.Mgn do
       list_imports_request() :: %{
         "filters" => list_imports_request_filters(),
         "maxResults" => integer(),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_imports_request() :: %{String.t() => any()}
+  @type list_imports_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_imports_request_filters() :: %{
-        "importIDs" => list(String.t())
+        "importIDs" => list(String.t() | Atom.t())
       }
 
   """
-  @type list_imports_request_filters() :: %{String.t() => any()}
+  @type list_imports_request_filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2049,61 +2055,61 @@ defmodule AWS.Mgn do
 
       list_managed_accounts_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_managed_accounts_request() :: %{String.t() => any()}
+  @type list_managed_accounts_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       job_log_event_data() :: %{
-        "conversionServerID" => String.t(),
-        "rawError" => String.t(),
-        "sourceServerID" => String.t(),
-        "targetInstanceID" => String.t()
+        "conversionServerID" => String.t() | Atom.t(),
+        "rawError" => String.t() | Atom.t(),
+        "sourceServerID" => String.t() | Atom.t(),
+        "targetInstanceID" => String.t() | Atom.t()
       }
 
   """
-  @type job_log_event_data() :: %{String.t() => any()}
+  @type job_log_event_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_jobs_request() :: %{
-        optional("accountID") => String.t(),
+        optional("accountID") => String.t() | Atom.t(),
         optional("filters") => describe_jobs_request_filters(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type describe_jobs_request() :: %{String.t() => any()}
+  @type describe_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       launch_configuration() :: %{
-        optional("bootMode") => String.t(),
+        optional("bootMode") => String.t() | Atom.t(),
         optional("copyPrivateIp") => [boolean()],
         optional("copyTags") => [boolean()],
-        optional("ec2LaunchTemplateID") => String.t(),
+        optional("ec2LaunchTemplateID") => String.t() | Atom.t(),
         optional("enableMapAutoTagging") => [boolean()],
-        optional("launchDisposition") => String.t(),
+        optional("launchDisposition") => String.t() | Atom.t(),
         optional("licensing") => licensing(),
-        optional("mapAutoTaggingMpeID") => String.t(),
-        optional("name") => String.t(),
+        optional("mapAutoTaggingMpeID") => String.t() | Atom.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("postLaunchActions") => post_launch_actions(),
-        optional("sourceServerID") => String.t(),
-        optional("targetInstanceTypeRightSizingMethod") => String.t()
+        optional("sourceServerID") => String.t() | Atom.t(),
+        optional("targetInstanceTypeRightSizingMethod") => String.t() | Atom.t()
       }
 
   """
-  @type launch_configuration() :: %{String.t() => any()}
+  @type launch_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2111,120 +2117,120 @@ defmodule AWS.Mgn do
 
       list_applications_response() :: %{
         optional("items") => list(application()),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_applications_response() :: %{String.t() => any()}
+  @type list_applications_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       job_post_launch_actions_launch_status() :: %{
-        "executionID" => String.t(),
-        "executionStatus" => String.t(),
-        "failureReason" => String.t(),
+        "executionID" => String.t() | Atom.t(),
+        "executionStatus" => String.t() | Atom.t(),
+        "failureReason" => String.t() | Atom.t(),
         "ssmDocument" => ssm_document(),
-        "ssmDocumentType" => String.t()
+        "ssmDocumentType" => String.t() | Atom.t()
       }
 
   """
-  @type job_post_launch_actions_launch_status() :: %{String.t() => any()}
+  @type job_post_launch_actions_launch_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       import_error_data() :: %{
-        "accountID" => String.t(),
-        "applicationID" => String.t(),
-        "ec2LaunchTemplateID" => String.t(),
-        "rawError" => String.t(),
+        "accountID" => String.t() | Atom.t(),
+        "applicationID" => String.t() | Atom.t(),
+        "ec2LaunchTemplateID" => String.t() | Atom.t(),
+        "rawError" => String.t() | Atom.t(),
         "rowNumber" => float(),
-        "sourceServerID" => String.t(),
-        "waveID" => String.t()
+        "sourceServerID" => String.t() | Atom.t(),
+        "waveID" => String.t() | Atom.t()
       }
 
   """
-  @type import_error_data() :: %{String.t() => any()}
+  @type import_error_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_replication_configuration_request() :: %{
-        optional("accountID") => String.t(),
+        optional("accountID") => String.t() | Atom.t(),
         optional("associateDefaultSecurityGroup") => [boolean()],
         optional("bandwidthThrottling") => float(),
         optional("createPublicIP") => [boolean()],
-        optional("dataPlaneRouting") => String.t(),
-        optional("defaultLargeStagingDiskType") => String.t(),
-        optional("ebsEncryption") => String.t(),
-        optional("ebsEncryptionKeyArn") => String.t(),
-        optional("name") => String.t(),
+        optional("dataPlaneRouting") => String.t() | Atom.t(),
+        optional("defaultLargeStagingDiskType") => String.t() | Atom.t(),
+        optional("ebsEncryption") => String.t() | Atom.t(),
+        optional("ebsEncryptionKeyArn") => String.t() | Atom.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("replicatedDisks") => list(replication_configuration_replicated_disk()),
-        optional("replicationServerInstanceType") => String.t(),
-        optional("replicationServersSecurityGroupsIDs") => list(String.t()),
-        optional("stagingAreaSubnetId") => String.t(),
+        optional("replicationServerInstanceType") => String.t() | Atom.t(),
+        optional("replicationServersSecurityGroupsIDs") => list(String.t() | Atom.t()),
+        optional("stagingAreaSubnetId") => String.t() | Atom.t(),
         optional("stagingAreaTags") => map(),
         optional("useDedicatedReplicationServer") => [boolean()],
         optional("useFipsEndpoint") => [boolean()],
-        required("sourceServerID") => String.t()
+        required("sourceServerID") => String.t() | Atom.t()
       }
 
   """
-  @type update_replication_configuration_request() :: %{String.t() => any()}
+  @type update_replication_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_connector_request() :: %{
-        required("connectorID") => String.t()
+        required("connectorID") => String.t() | Atom.t()
       }
 
   """
-  @type delete_connector_request() :: %{String.t() => any()}
+  @type delete_connector_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       source_server() :: %{
-        "applicationID" => String.t(),
-        "arn" => String.t(),
+        "applicationID" => String.t() | Atom.t(),
+        "arn" => String.t() | Atom.t(),
         "connectorAction" => source_server_connector_action(),
         "dataReplicationInfo" => data_replication_info(),
-        "fqdnForActionFramework" => String.t(),
+        "fqdnForActionFramework" => String.t() | Atom.t(),
         "isArchived" => [boolean()],
         "launchedInstance" => launched_instance(),
         "lifeCycle" => life_cycle(),
-        "replicationType" => String.t(),
+        "replicationType" => String.t() | Atom.t(),
         "sourceProperties" => source_properties(),
-        "sourceServerID" => String.t(),
+        "sourceServerID" => String.t() | Atom.t(),
         "tags" => map(),
-        "userProvidedID" => String.t(),
-        "vcenterClientID" => String.t()
+        "userProvidedID" => String.t() | Atom.t(),
+        "vcenterClientID" => String.t() | Atom.t()
       }
 
   """
-  @type source_server() :: %{String.t() => any()}
+  @type source_server() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       wave_aggregated_status() :: %{
-        "healthStatus" => String.t(),
-        "lastUpdateDateTime" => String.t(),
-        "progressStatus" => String.t(),
-        "replicationStartedDateTime" => String.t(),
+        "healthStatus" => String.t() | Atom.t(),
+        "lastUpdateDateTime" => String.t() | Atom.t(),
+        "progressStatus" => String.t() | Atom.t(),
+        "replicationStartedDateTime" => String.t() | Atom.t(),
         "totalApplications" => float()
       }
 
   """
-  @type wave_aggregated_status() :: %{String.t() => any()}
+  @type wave_aggregated_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2232,11 +2238,11 @@ defmodule AWS.Mgn do
 
       list_import_errors_response() :: %{
         "items" => list(import_task_error()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_import_errors_response() :: %{String.t() => any()}
+  @type list_import_errors_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2244,24 +2250,24 @@ defmodule AWS.Mgn do
 
       list_waves_response() :: %{
         optional("items") => list(wave()),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_waves_response() :: %{String.t() => any()}
+  @type list_waves_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       source_server_action_document() :: %{
-        optional("actionID") => String.t(),
-        optional("actionName") => String.t(),
+        optional("actionID") => String.t() | Atom.t(),
+        optional("actionName") => String.t() | Atom.t(),
         optional("active") => [boolean()],
-        optional("category") => String.t(),
-        optional("description") => String.t(),
-        optional("documentIdentifier") => String.t(),
-        optional("documentVersion") => String.t(),
+        optional("category") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("documentIdentifier") => String.t() | Atom.t(),
+        optional("documentVersion") => String.t() | Atom.t(),
         optional("externalParameters") => map(),
         optional("mustSucceedForCutover") => [boolean()],
         optional("order") => integer(),
@@ -2270,19 +2276,19 @@ defmodule AWS.Mgn do
       }
 
   """
-  @type source_server_action_document() :: %{String.t() => any()}
+  @type source_server_action_document() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       finalize_cutover_request() :: %{
-        optional("accountID") => String.t(),
-        required("sourceServerID") => String.t()
+        optional("accountID") => String.t() | Atom.t(),
+        required("sourceServerID") => String.t() | Atom.t()
       }
 
   """
-  @type finalize_cutover_request() :: %{String.t() => any()}
+  @type finalize_cutover_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2298,12 +2304,12 @@ defmodule AWS.Mgn do
   ## Example:
 
       life_cycle_last_cutover_initiated() :: %{
-        "apiCallDateTime" => String.t(),
-        "jobID" => String.t()
+        "apiCallDateTime" => String.t() | Atom.t(),
+        "jobID" => String.t() | Atom.t()
       }
 
   """
-  @type life_cycle_last_cutover_initiated() :: %{String.t() => any()}
+  @type life_cycle_last_cutover_initiated() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2328,13 +2334,13 @@ defmodule AWS.Mgn do
   ## Example:
 
       disassociate_source_servers_request() :: %{
-        optional("accountID") => String.t(),
-        required("applicationID") => String.t(),
-        required("sourceServerIDs") => list(String.t())
+        optional("accountID") => String.t() | Atom.t(),
+        required("applicationID") => String.t() | Atom.t(),
+        required("sourceServerIDs") => list(String.t() | Atom.t())
       }
 
   """
-  @type disassociate_source_servers_request() :: %{String.t() => any()}
+  @type disassociate_source_servers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2342,34 +2348,37 @@ defmodule AWS.Mgn do
 
       describe_replication_configuration_templates_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("replicationConfigurationTemplateIDs") => list(String.t())
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("replicationConfigurationTemplateIDs") => list(String.t() | Atom.t())
       }
 
   """
-  @type describe_replication_configuration_templates_request() :: %{String.t() => any()}
+  @type describe_replication_configuration_templates_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       o_s() :: %{
-        "fullString" => String.t()
+        "fullString" => String.t() | Atom.t()
       }
 
   """
-  @type o_s() :: %{String.t() => any()}
+  @type o_s() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_connectors_request_filters() :: %{
-        "connectorIDs" => list(String.t())
+        "connectorIDs" => list(String.t() | Atom.t())
       }
 
   """
-  @type list_connectors_request_filters() :: %{String.t() => any()}
+  @type list_connectors_request_filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2377,11 +2386,11 @@ defmodule AWS.Mgn do
 
       describe_job_log_items_response() :: %{
         optional("items") => list(job_log()),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type describe_job_log_items_response() :: %{String.t() => any()}
+  @type describe_job_log_items_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2392,19 +2401,19 @@ defmodule AWS.Mgn do
       }
 
   """
-  @type terminate_target_instances_response() :: %{String.t() => any()}
+  @type terminate_target_instances_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_import_request() :: %{
-        "clientToken" => String.t(),
+        "clientToken" => String.t() | Atom.t(),
         "s3BucketSource" => s3_bucket_source()
       }
 
   """
-  @type start_import_request() :: %{String.t() => any()}
+  @type start_import_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2412,36 +2421,36 @@ defmodule AWS.Mgn do
 
       update_launch_configuration_template_request() :: %{
         optional("associatePublicIpAddress") => [boolean()],
-        optional("bootMode") => String.t(),
+        optional("bootMode") => String.t() | Atom.t(),
         optional("copyPrivateIp") => [boolean()],
         optional("copyTags") => [boolean()],
         optional("enableMapAutoTagging") => [boolean()],
         optional("largeVolumeConf") => launch_template_disk_conf(),
-        optional("launchDisposition") => String.t(),
+        optional("launchDisposition") => String.t() | Atom.t(),
         optional("licensing") => licensing(),
-        optional("mapAutoTaggingMpeID") => String.t(),
+        optional("mapAutoTaggingMpeID") => String.t() | Atom.t(),
         optional("postLaunchActions") => post_launch_actions(),
         optional("smallVolumeConf") => launch_template_disk_conf(),
         optional("smallVolumeMaxSize") => float(),
-        optional("targetInstanceTypeRightSizingMethod") => String.t(),
-        required("launchConfigurationTemplateID") => String.t()
+        optional("targetInstanceTypeRightSizingMethod") => String.t() | Atom.t(),
+        required("launchConfigurationTemplateID") => String.t() | Atom.t()
       }
 
   """
-  @type update_launch_configuration_template_request() :: %{String.t() => any()}
+  @type update_launch_configuration_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_bucket_source() :: %{
-        "s3Bucket" => String.t(),
-        "s3BucketOwner" => String.t(),
-        "s3Key" => String.t()
+        "s3Bucket" => String.t() | Atom.t(),
+        "s3BucketOwner" => String.t() | Atom.t(),
+        "s3Key" => String.t() | Atom.t()
       }
 
   """
-  @type s3_bucket_source() :: %{String.t() => any()}
+  @type s3_bucket_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2452,56 +2461,56 @@ defmodule AWS.Mgn do
       }
 
   """
-  @type start_import_response() :: %{String.t() => any()}
+  @type start_import_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_cutover_request() :: %{
-        optional("accountID") => String.t(),
+        optional("accountID") => String.t() | Atom.t(),
         optional("tags") => map(),
-        required("sourceServerIDs") => list(String.t())
+        required("sourceServerIDs") => list(String.t() | Atom.t())
       }
 
   """
-  @type start_cutover_request() :: %{String.t() => any()}
+  @type start_cutover_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       job_log() :: %{
-        "event" => String.t(),
+        "event" => String.t() | Atom.t(),
         "eventData" => job_log_event_data(),
-        "logDateTime" => String.t()
+        "logDateTime" => String.t() | Atom.t()
       }
 
   """
-  @type job_log() :: %{String.t() => any()}
+  @type job_log() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       template_actions_request_filters() :: %{
-        "actionIDs" => list(String.t())
+        "actionIDs" => list(String.t() | Atom.t())
       }
 
   """
-  @type template_actions_request_filters() :: %{String.t() => any()}
+  @type template_actions_request_filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_application_request() :: %{
-        optional("accountID") => String.t(),
-        required("applicationID") => String.t()
+        optional("accountID") => String.t() | Atom.t(),
+        required("applicationID") => String.t() | Atom.t()
       }
 
   """
-  @type delete_application_request() :: %{String.t() => any()}
+  @type delete_application_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2509,22 +2518,22 @@ defmodule AWS.Mgn do
 
       list_exports_response() :: %{
         "items" => list(export_task()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_exports_response() :: %{String.t() => any()}
+  @type list_exports_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_launch_configuration_template_request() :: %{
-        required("launchConfigurationTemplateID") => String.t()
+        required("launchConfigurationTemplateID") => String.t() | Atom.t()
       }
 
   """
-  @type delete_launch_configuration_template_request() :: %{String.t() => any()}
+  @type delete_launch_configuration_template_request() :: %{String.t() | Atom.t() => any()}
 
   @type archive_application_errors() ::
           uninitialized_account_exception()
@@ -3574,7 +3583,12 @@ defmodule AWS.Mgn do
   @doc """
   Returns a list of the installed vCenter clients.
   """
-  @spec describe_vcenter_clients(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec describe_vcenter_clients(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, describe_vcenter_clients_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4070,7 +4084,7 @@ defmodule AWS.Mgn do
   @doc """
   List all tags for your Application Migration Service resources.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4572,7 +4586,7 @@ defmodule AWS.Mgn do
   value. Each resource can have a maximum of 50 tags. Each tag consists of a key
   and optional value.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4692,7 +4706,7 @@ defmodule AWS.Mgn do
   Deletes the specified set of tags from the specified set of Application
   Migration Service resources.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

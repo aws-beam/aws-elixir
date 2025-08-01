@@ -25,11 +25,11 @@ defmodule AWS.Deadline do
 
       list_fleet_members_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_fleet_members_request() :: %{String.t() => any()}
+  @type list_fleet_members_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -45,12 +45,12 @@ defmodule AWS.Deadline do
   ## Example:
 
       host_configuration() :: %{
-        "scriptBody" => String.t(),
+        "scriptBody" => String.t() | Atom.t(),
         "scriptTimeoutSeconds" => integer()
       }
 
   """
-  @type host_configuration() :: %{String.t() => any()}
+  @type host_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -58,34 +58,34 @@ defmodule AWS.Deadline do
 
       list_steps_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_steps_request() :: %{String.t() => any()}
+  @type list_steps_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       windows_user() :: %{
-        "passwordArn" => String.t(),
-        "user" => String.t()
+        "passwordArn" => String.t() | Atom.t(),
+        "user" => String.t() | Atom.t()
       }
 
   """
-  @type windows_user() :: %{String.t() => any()}
+  @type windows_user() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_sessions_statistics_aggregation_response() :: %{
-        "aggregationId" => String.t()
+        "aggregationId" => String.t() | Atom.t()
       }
 
   """
-  @type start_sessions_statistics_aggregation_response() :: %{String.t() => any()}
+  @type start_sessions_statistics_aggregation_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -101,12 +101,12 @@ defmodule AWS.Deadline do
   ## Example:
 
       fleet_attribute_capability() :: %{
-        "name" => String.t(),
-        "values" => list(String.t())
+        "name" => String.t() | Atom.t(),
+        "values" => list(String.t() | Atom.t())
       }
 
   """
-  @type fleet_attribute_capability() :: %{String.t() => any()}
+  @type fleet_attribute_capability() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -114,23 +114,23 @@ defmodule AWS.Deadline do
 
       job_details_error() :: %{
         "code" => list(any()),
-        "jobId" => String.t(),
-        "message" => String.t()
+        "jobId" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type job_details_error() :: %{String.t() => any()}
+  @type job_details_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_queue_environment_response() :: %{
-        "queueEnvironmentId" => String.t()
+        "queueEnvironmentId" => String.t() | Atom.t()
       }
 
   """
-  @type create_queue_environment_response() :: %{String.t() => any()}
+  @type create_queue_environment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -138,11 +138,11 @@ defmodule AWS.Deadline do
 
       list_queue_environments_response() :: %{
         "environments" => list(queue_environment_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_queue_environments_response() :: %{String.t() => any()}
+  @type list_queue_environments_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -154,44 +154,47 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type fixed_budget_schedule() :: %{String.t() => any()}
+  @type fixed_budget_schedule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       assigned_sync_input_job_attachments_session_action_definition() :: %{
-        "stepId" => String.t()
+        "stepId" => String.t() | Atom.t()
       }
 
   """
-  @type assigned_sync_input_job_attachments_session_action_definition() :: %{String.t() => any()}
+  @type assigned_sync_input_job_attachments_session_action_definition() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       get_queue_response() :: %{
-        "allowedStorageProfileIds" => list(String.t()),
+        "allowedStorageProfileIds" => list(String.t() | Atom.t()),
         "blockedReason" => list(any()),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
         "defaultBudgetAction" => list(any()),
-        "description" => String.t(),
-        "displayName" => String.t(),
-        "farmId" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "displayName" => String.t() | Atom.t(),
+        "farmId" => String.t() | Atom.t(),
         "jobAttachmentSettings" => job_attachment_settings(),
         "jobRunAsUser" => job_run_as_user(),
-        "queueId" => String.t(),
-        "requiredFileSystemLocationNames" => list(String.t()),
-        "roleArn" => String.t(),
+        "queueId" => String.t() | Atom.t(),
+        "requiredFileSystemLocationNames" => list(String.t() | Atom.t()),
+        "roleArn" => String.t() | Atom.t(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type get_queue_response() :: %{String.t() => any()}
+  @type get_queue_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -202,7 +205,7 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -210,43 +213,43 @@ defmodule AWS.Deadline do
 
       get_task_response() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
         "endedAt" => non_neg_integer(),
         "failureRetryCount" => integer(),
-        "latestSessionActionId" => String.t(),
+        "latestSessionActionId" => String.t() | Atom.t(),
         "parameters" => map(),
         "runStatus" => list(any()),
         "startedAt" => non_neg_integer(),
         "targetRunStatus" => list(any()),
-        "taskId" => String.t(),
+        "taskId" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type get_task_response() :: %{String.t() => any()}
+  @type get_task_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_fleet_request() :: %{
-        optional("clientToken") => String.t()
+        optional("clientToken") => String.t() | Atom.t()
       }
 
   """
-  @type delete_fleet_request() :: %{String.t() => any()}
+  @type delete_fleet_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       environment_enter_session_action_definition_summary() :: %{
-        "environmentId" => String.t()
+        "environmentId" => String.t() | Atom.t()
       }
 
   """
-  @type environment_enter_session_action_definition_summary() :: %{String.t() => any()}
+  @type environment_enter_session_action_definition_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -254,13 +257,13 @@ defmodule AWS.Deadline do
 
       list_queues_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("principalId") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("principalId") => String.t() | Atom.t(),
         optional("status") => list(any())
       }
 
   """
-  @type list_queues_request() :: %{String.t() => any()}
+  @type list_queues_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -281,7 +284,7 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type budget_action_to_remove() :: %{String.t() => any()}
+  @type budget_action_to_remove() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -289,12 +292,12 @@ defmodule AWS.Deadline do
 
       task_run_session_action_definition_summary() :: %{
         "parameters" => map(),
-        "stepId" => String.t(),
-        "taskId" => String.t()
+        "stepId" => String.t() | Atom.t(),
+        "taskId" => String.t() | Atom.t()
       }
 
   """
-  @type task_run_session_action_definition_summary() :: %{String.t() => any()}
+  @type task_run_session_action_definition_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -302,18 +305,18 @@ defmodule AWS.Deadline do
 
       session_summary() :: %{
         "endedAt" => non_neg_integer(),
-        "fleetId" => String.t(),
+        "fleetId" => String.t() | Atom.t(),
         "lifecycleStatus" => list(any()),
-        "sessionId" => String.t(),
+        "sessionId" => String.t() | Atom.t(),
         "startedAt" => non_neg_integer(),
         "targetLifecycleStatus" => list(any()),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t(),
-        "workerId" => String.t()
+        "updatedBy" => String.t() | Atom.t(),
+        "workerId" => String.t() | Atom.t()
       }
 
   """
-  @type session_summary() :: %{String.t() => any()}
+  @type session_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -339,15 +342,15 @@ defmodule AWS.Deadline do
 
       search_tasks_request() :: %{
         optional("filterExpressions") => search_grouped_filter_expressions(),
-        optional("jobId") => String.t(),
+        optional("jobId") => String.t() | Atom.t(),
         optional("pageSize") => integer(),
         optional("sortExpressions") => list(list()),
         required("itemOffset") => integer(),
-        required("queueIds") => list(String.t())
+        required("queueIds") => list(String.t() | Atom.t())
       }
 
   """
-  @type search_tasks_request() :: %{String.t() => any()}
+  @type search_tasks_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -355,21 +358,21 @@ defmodule AWS.Deadline do
 
       get_session_response() :: %{
         "endedAt" => non_neg_integer(),
-        "fleetId" => String.t(),
+        "fleetId" => String.t() | Atom.t(),
         "hostProperties" => host_properties_response(),
         "lifecycleStatus" => list(any()),
         "log" => log_configuration(),
-        "sessionId" => String.t(),
+        "sessionId" => String.t() | Atom.t(),
         "startedAt" => non_neg_integer(),
         "targetLifecycleStatus" => list(any()),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t(),
-        "workerId" => String.t(),
+        "updatedBy" => String.t() | Atom.t(),
+        "workerId" => String.t() | Atom.t(),
         "workerLog" => log_configuration()
       }
 
   """
-  @type get_session_response() :: %{String.t() => any()}
+  @type get_session_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -386,11 +389,11 @@ defmodule AWS.Deadline do
 
       list_monitors_response() :: %{
         "monitors" => list(monitor_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_monitors_response() :: %{String.t() => any()}
+  @type list_monitors_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -401,18 +404,18 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type update_queue_limit_association_request() :: %{String.t() => any()}
+  @type update_queue_limit_association_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_job_response() :: %{
-        "jobId" => String.t()
+        "jobId" => String.t() | Atom.t()
       }
 
   """
-  @type create_job_response() :: %{String.t() => any()}
+  @type create_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -423,19 +426,19 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type batch_get_job_entity_request() :: %{String.t() => any()}
+  @type batch_get_job_entity_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_step_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         required("targetTaskRunStatus") => list(any())
       }
 
   """
-  @type update_step_request() :: %{String.t() => any()}
+  @type update_step_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -443,13 +446,13 @@ defmodule AWS.Deadline do
 
       list_session_actions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("sessionId") => String.t(),
-        optional("taskId") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("sessionId") => String.t() | Atom.t(),
+        optional("taskId") => String.t() | Atom.t()
       }
 
   """
-  @type list_session_actions_request() :: %{String.t() => any()}
+  @type list_session_actions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -470,18 +473,18 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type batch_get_job_entity_response() :: %{String.t() => any()}
+  @type batch_get_job_entity_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_budget_response() :: %{
-        "budgetId" => String.t()
+        "budgetId" => String.t() | Atom.t()
       }
 
   """
-  @type create_budget_response() :: %{String.t() => any()}
+  @type create_budget_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -492,14 +495,14 @@ defmodule AWS.Deadline do
         "endedAt" => non_neg_integer(),
         "manifests" => list(task_run_manifest_properties_request()),
         "processExitCode" => integer(),
-        "progressMessage" => String.t(),
+        "progressMessage" => String.t() | Atom.t(),
         "progressPercent" => float(),
         "startedAt" => non_neg_integer(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type updated_session_action_info() :: %{String.t() => any()}
+  @type updated_session_action_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -524,12 +527,12 @@ defmodule AWS.Deadline do
   ## Example:
 
       list_queue_fleet_associations_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "queueFleetAssociations" => list(queue_fleet_association_summary())
       }
 
   """
-  @type list_queue_fleet_associations_response() :: %{String.t() => any()}
+  @type list_queue_fleet_associations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -537,11 +540,11 @@ defmodule AWS.Deadline do
 
       list_sessions_for_worker_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_sessions_for_worker_request() :: %{String.t() => any()}
+  @type list_sessions_for_worker_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -567,30 +570,30 @@ defmodule AWS.Deadline do
 
       list_available_metered_products_response() :: %{
         "meteredProducts" => list(metered_product_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_available_metered_products_response() :: %{String.t() => any()}
+  @type list_available_metered_products_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_fleet_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("hostConfiguration") => host_configuration(),
         optional("minWorkerCount") => integer(),
         optional("tags") => map(),
         required("configuration") => list(),
-        required("displayName") => String.t(),
+        required("displayName") => String.t() | Atom.t(),
         required("maxWorkerCount") => integer(),
-        required("roleArn") => String.t()
+        required("roleArn") => String.t() | Atom.t()
       }
 
   """
-  @type create_fleet_request() :: %{String.t() => any()}
+  @type create_fleet_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -601,7 +604,7 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type service_managed_ec2_instance_market_options() :: %{String.t() => any()}
+  @type service_managed_ec2_instance_market_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -613,7 +616,7 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type fleet_capabilities() :: %{String.t() => any()}
+  @type fleet_capabilities() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -625,7 +628,7 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type step_required_capabilities() :: %{String.t() => any()}
+  @type step_required_capabilities() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -633,12 +636,12 @@ defmodule AWS.Deadline do
 
       list_jobs_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("principalId") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("principalId") => String.t() | Atom.t()
       }
 
   """
-  @type list_jobs_request() :: %{String.t() => any()}
+  @type list_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -646,31 +649,31 @@ defmodule AWS.Deadline do
 
       queue_limit_association_summary() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "limitId" => String.t(),
-        "queueId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "limitId" => String.t() | Atom.t(),
+        "queueId" => String.t() | Atom.t(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type queue_limit_association_summary() :: %{String.t() => any()}
+  @type queue_limit_association_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_storage_profile_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("displayName") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("displayName") => String.t() | Atom.t(),
         optional("fileSystemLocationsToAdd") => list(file_system_location()),
         optional("fileSystemLocationsToRemove") => list(file_system_location()),
         optional("osFamily") => list(any())
       }
 
   """
-  @type update_storage_profile_request() :: %{String.t() => any()}
+  @type update_storage_profile_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -682,7 +685,7 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type v_cpu_count_range() :: %{String.t() => any()}
+  @type v_cpu_count_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -707,12 +710,12 @@ defmodule AWS.Deadline do
   ## Example:
 
       task_run_manifest_properties_request() :: %{
-        "outputManifestHash" => String.t(),
-        "outputManifestPath" => String.t()
+        "outputManifestHash" => String.t() | Atom.t(),
+        "outputManifestPath" => String.t() | Atom.t()
       }
 
   """
-  @type task_run_manifest_properties_request() :: %{String.t() => any()}
+  @type task_run_manifest_properties_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -747,20 +750,20 @@ defmodule AWS.Deadline do
 
       budget_summary() :: %{
         "approximateDollarLimit" => float(),
-        "budgetId" => String.t(),
+        "budgetId" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "description" => String.t(),
-        "displayName" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "displayName" => String.t() | Atom.t(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t(),
+        "updatedBy" => String.t() | Atom.t(),
         "usageTrackingResource" => list(),
         "usages" => consumed_usages()
       }
 
   """
-  @type budget_summary() :: %{String.t() => any()}
+  @type budget_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -773,7 +776,7 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type update_worker_request() :: %{String.t() => any()}
+  @type update_worker_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -783,12 +786,12 @@ defmodule AWS.Deadline do
         optional("filterExpressions") => search_grouped_filter_expressions(),
         optional("pageSize") => integer(),
         optional("sortExpressions") => list(list()),
-        required("fleetIds") => list(String.t()),
+        required("fleetIds") => list(String.t() | Atom.t()),
         required("itemOffset") => integer()
       }
 
   """
-  @type search_workers_request() :: %{String.t() => any()}
+  @type search_workers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -796,11 +799,11 @@ defmodule AWS.Deadline do
 
       search_term_filter_expression() :: %{
         "matchType" => list(any()),
-        "searchTerm" => String.t()
+        "searchTerm" => String.t() | Atom.t()
       }
 
   """
-  @type search_term_filter_expression() :: %{String.t() => any()}
+  @type search_term_filter_expression() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -808,13 +811,13 @@ defmodule AWS.Deadline do
 
       customer_managed_fleet_configuration() :: %{
         "mode" => list(any()),
-        "storageProfileId" => String.t(),
+        "storageProfileId" => String.t() | Atom.t(),
         "tagPropagationMode" => list(any()),
         "workerCapabilities" => customer_managed_worker_capabilities()
       }
 
   """
-  @type customer_managed_fleet_configuration() :: %{String.t() => any()}
+  @type customer_managed_fleet_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -822,11 +825,11 @@ defmodule AWS.Deadline do
 
       list_license_endpoints_response() :: %{
         "licenseEndpoints" => list(license_endpoint_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_license_endpoints_response() :: %{String.t() => any()}
+  @type list_license_endpoints_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -835,36 +838,36 @@ defmodule AWS.Deadline do
       service_managed_ec2_fleet_configuration() :: %{
         "instanceCapabilities" => service_managed_ec2_instance_capabilities(),
         "instanceMarketOptions" => service_managed_ec2_instance_market_options(),
-        "storageProfileId" => String.t()
+        "storageProfileId" => String.t() | Atom.t()
       }
 
   """
-  @type service_managed_ec2_fleet_configuration() :: %{String.t() => any()}
+  @type service_managed_ec2_fleet_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       string_filter_expression() :: %{
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "operator" => list(any()),
-        "value" => String.t()
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type string_filter_expression() :: %{String.t() => any()}
+  @type string_filter_expression() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       task_run_manifest_properties_response() :: %{
-        "outputManifestHash" => String.t(),
-        "outputManifestPath" => String.t()
+        "outputManifestHash" => String.t() | Atom.t(),
+        "outputManifestPath" => String.t() | Atom.t()
       }
 
   """
-  @type task_run_manifest_properties_response() :: %{String.t() => any()}
+  @type task_run_manifest_properties_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -872,19 +875,19 @@ defmodule AWS.Deadline do
 
       worker_summary() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "farmId" => String.t(),
-        "fleetId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "farmId" => String.t() | Atom.t(),
+        "fleetId" => String.t() | Atom.t(),
         "hostProperties" => host_properties_response(),
         "log" => log_configuration(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t(),
-        "workerId" => String.t()
+        "updatedBy" => String.t() | Atom.t(),
+        "workerId" => String.t() | Atom.t()
       }
 
   """
-  @type worker_summary() :: %{String.t() => any()}
+  @type worker_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -896,50 +899,50 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type memory_mi_b_range() :: %{String.t() => any()}
+  @type memory_mi_b_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       manifest_properties() :: %{
-        "fileSystemLocationName" => String.t(),
-        "inputManifestHash" => String.t(),
-        "inputManifestPath" => String.t(),
-        "outputRelativeDirectories" => list(String.t()),
-        "rootPath" => String.t(),
+        "fileSystemLocationName" => String.t() | Atom.t(),
+        "inputManifestHash" => String.t() | Atom.t(),
+        "inputManifestPath" => String.t() | Atom.t(),
+        "outputRelativeDirectories" => list(String.t() | Atom.t()),
+        "rootPath" => String.t() | Atom.t(),
         "rootPathFormat" => list(any())
       }
 
   """
-  @type manifest_properties() :: %{String.t() => any()}
+  @type manifest_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_sessions_for_worker_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "sessions" => list(worker_session_summary())
       }
 
   """
-  @type list_sessions_for_worker_response() :: %{String.t() => any()}
+  @type list_sessions_for_worker_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_fleets_request() :: %{
-        optional("displayName") => String.t(),
+        optional("displayName") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("principalId") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("principalId") => String.t() | Atom.t(),
         optional("status") => list(any())
       }
 
   """
-  @type list_fleets_request() :: %{String.t() => any()}
+  @type list_fleets_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -947,35 +950,35 @@ defmodule AWS.Deadline do
 
       list_budgets_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("status") => list(any())
       }
 
   """
-  @type list_budgets_request() :: %{String.t() => any()}
+  @type list_budgets_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       worker_attribute_capability() :: %{
-        "name" => String.t(),
-        "values" => list(String.t())
+        "name" => String.t() | Atom.t(),
+        "values" => list(String.t() | Atom.t())
       }
 
   """
-  @type worker_attribute_capability() :: %{String.t() => any()}
+  @type worker_attribute_capability() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       environment_exit_session_action_definition() :: %{
-        "environmentId" => String.t()
+        "environmentId" => String.t() | Atom.t()
       }
 
   """
-  @type environment_exit_session_action_definition() :: %{String.t() => any()}
+  @type environment_exit_session_action_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -983,21 +986,21 @@ defmodule AWS.Deadline do
 
       task_summary() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
         "endedAt" => non_neg_integer(),
         "failureRetryCount" => integer(),
-        "latestSessionActionId" => String.t(),
+        "latestSessionActionId" => String.t() | Atom.t(),
         "parameters" => map(),
         "runStatus" => list(any()),
         "startedAt" => non_neg_integer(),
         "targetRunStatus" => list(any()),
-        "taskId" => String.t(),
+        "taskId" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type task_summary() :: %{String.t() => any()}
+  @type task_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1011,7 +1014,7 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type dependency_counts() :: %{String.t() => any()}
+  @type dependency_counts() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1020,14 +1023,14 @@ defmodule AWS.Deadline do
       step_search_summary() :: %{
         "createdAt" => non_neg_integer(),
         "endedAt" => non_neg_integer(),
-        "jobId" => String.t(),
+        "jobId" => String.t() | Atom.t(),
         "lifecycleStatus" => list(any()),
-        "lifecycleStatusMessage" => String.t(),
-        "name" => String.t(),
+        "lifecycleStatusMessage" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "parameterSpace" => parameter_space(),
-        "queueId" => String.t(),
+        "queueId" => String.t() | Atom.t(),
         "startedAt" => non_neg_integer(),
-        "stepId" => String.t(),
+        "stepId" => String.t() | Atom.t(),
         "targetTaskRunStatus" => list(any()),
         "taskFailureRetryCount" => integer(),
         "taskRunStatus" => list(any()),
@@ -1035,7 +1038,7 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type step_search_summary() :: %{String.t() => any()}
+  @type step_search_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1048,7 +1051,7 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type search_steps_response() :: %{String.t() => any()}
+  @type search_steps_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1075,12 +1078,12 @@ defmodule AWS.Deadline do
       step_amount_capability() :: %{
         "max" => float(),
         "min" => float(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "value" => float()
       }
 
   """
-  @type step_amount_capability() :: %{String.t() => any()}
+  @type step_amount_capability() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1091,7 +1094,7 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type assume_queue_role_for_worker_response() :: %{String.t() => any()}
+  @type assume_queue_role_for_worker_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1108,12 +1111,12 @@ defmodule AWS.Deadline do
 
       date_time_filter_expression() :: %{
         "dateTime" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "operator" => list(any())
       }
 
   """
-  @type date_time_filter_expression() :: %{String.t() => any()}
+  @type date_time_filter_expression() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1121,11 +1124,11 @@ defmodule AWS.Deadline do
 
       list_workers_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_workers_request() :: %{String.t() => any()}
+  @type list_workers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1133,11 +1136,11 @@ defmodule AWS.Deadline do
 
       list_jobs_response() :: %{
         "jobs" => list(job_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_jobs_response() :: %{String.t() => any()}
+  @type list_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1145,21 +1148,21 @@ defmodule AWS.Deadline do
 
       create_job_request() :: %{
         optional("attachments") => attachments(),
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("maxFailedTasksCount") => integer(),
         optional("maxRetriesPerTask") => integer(),
         optional("maxWorkerCount") => integer(),
         optional("parameters") => map(),
-        optional("sourceJobId") => String.t(),
-        optional("storageProfileId") => String.t(),
+        optional("sourceJobId") => String.t() | Atom.t(),
+        optional("storageProfileId") => String.t() | Atom.t(),
         optional("targetTaskRunStatus") => list(any()),
-        optional("template") => String.t(),
+        optional("template") => String.t() | Atom.t(),
         optional("templateType") => list(any()),
         required("priority") => integer()
       }
 
   """
-  @type create_job_request() :: %{String.t() => any()}
+  @type create_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1167,11 +1170,11 @@ defmodule AWS.Deadline do
 
       list_limits_response() :: %{
         "limits" => list(limit_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_limits_response() :: %{String.t() => any()}
+  @type list_limits_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1179,11 +1182,11 @@ defmodule AWS.Deadline do
 
       list_monitors_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_monitors_request() :: %{String.t() => any()}
+  @type list_monitors_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1191,11 +1194,11 @@ defmodule AWS.Deadline do
 
       list_step_dependencies_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_step_dependencies_request() :: %{String.t() => any()}
+  @type list_step_dependencies_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1212,36 +1215,36 @@ defmodule AWS.Deadline do
 
       list_fleets_response() :: %{
         "fleets" => list(fleet_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_fleets_response() :: %{String.t() => any()}
+  @type list_fleets_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       license_endpoint_summary() :: %{
-        "licenseEndpointId" => String.t(),
+        "licenseEndpointId" => String.t() | Atom.t(),
         "status" => list(any()),
-        "statusMessage" => String.t(),
-        "vpcId" => String.t()
+        "statusMessage" => String.t() | Atom.t(),
+        "vpcId" => String.t() | Atom.t()
       }
 
   """
-  @type license_endpoint_summary() :: %{String.t() => any()}
+  @type license_endpoint_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1254,28 +1257,28 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type ec2_ebs_volume() :: %{String.t() => any()}
+  @type ec2_ebs_volume() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_queue_request() :: %{
-        optional("allowedStorageProfileIdsToAdd") => list(String.t()),
-        optional("allowedStorageProfileIdsToRemove") => list(String.t()),
-        optional("clientToken") => String.t(),
+        optional("allowedStorageProfileIdsToAdd") => list(String.t() | Atom.t()),
+        optional("allowedStorageProfileIdsToRemove") => list(String.t() | Atom.t()),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("defaultBudgetAction") => list(any()),
-        optional("description") => String.t(),
-        optional("displayName") => String.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("displayName") => String.t() | Atom.t(),
         optional("jobAttachmentSettings") => job_attachment_settings(),
         optional("jobRunAsUser") => job_run_as_user(),
-        optional("requiredFileSystemLocationNamesToAdd") => list(String.t()),
-        optional("requiredFileSystemLocationNamesToRemove") => list(String.t()),
-        optional("roleArn") => String.t()
+        optional("requiredFileSystemLocationNamesToAdd") => list(String.t() | Atom.t()),
+        optional("requiredFileSystemLocationNamesToRemove") => list(String.t() | Atom.t()),
+        optional("roleArn") => String.t() | Atom.t()
       }
 
   """
-  @type update_queue_request() :: %{String.t() => any()}
+  @type update_queue_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1286,7 +1289,7 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type update_worker_schedule_request() :: %{String.t() => any()}
+  @type update_worker_schedule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1294,23 +1297,23 @@ defmodule AWS.Deadline do
 
       list_job_members_response() :: %{
         "members" => list(job_member()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_job_members_response() :: %{String.t() => any()}
+  @type list_job_members_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_queue_limit_association_request() :: %{
-        required("limitId") => String.t(),
-        required("queueId") => String.t()
+        required("limitId") => String.t() | Atom.t(),
+        required("queueId") => String.t() | Atom.t()
       }
 
   """
-  @type create_queue_limit_association_request() :: %{String.t() => any()}
+  @type create_queue_limit_association_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1326,25 +1329,25 @@ defmodule AWS.Deadline do
   ## Example:
 
       storage_profile_summary() :: %{
-        "displayName" => String.t(),
+        "displayName" => String.t() | Atom.t(),
         "osFamily" => list(any()),
-        "storageProfileId" => String.t()
+        "storageProfileId" => String.t() | Atom.t()
       }
 
   """
-  @type storage_profile_summary() :: %{String.t() => any()}
+  @type storage_profile_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_monitor_response() :: %{
-        "identityCenterApplicationArn" => String.t(),
-        "monitorId" => String.t()
+        "identityCenterApplicationArn" => String.t() | Atom.t(),
+        "monitorId" => String.t() | Atom.t()
       }
 
   """
-  @type create_monitor_response() :: %{String.t() => any()}
+  @type create_monitor_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1379,17 +1382,17 @@ defmodule AWS.Deadline do
 
       get_storage_profile_response() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "displayName" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "displayName" => String.t() | Atom.t(),
         "fileSystemLocations" => list(file_system_location()),
         "osFamily" => list(any()),
-        "storageProfileId" => String.t(),
+        "storageProfileId" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type get_storage_profile_response() :: %{String.t() => any()}
+  @type get_storage_profile_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1397,11 +1400,11 @@ defmodule AWS.Deadline do
 
       service_managed_ec2_instance_capabilities() :: %{
         "acceleratorCapabilities" => accelerator_capabilities(),
-        "allowedInstanceTypes" => list(String.t()),
+        "allowedInstanceTypes" => list(String.t() | Atom.t()),
         "cpuArchitectureType" => list(any()),
         "customAmounts" => list(fleet_amount_capability()),
         "customAttributes" => list(fleet_attribute_capability()),
-        "excludedInstanceTypes" => list(String.t()),
+        "excludedInstanceTypes" => list(String.t() | Atom.t()),
         "memoryMiB" => memory_mi_b_range(),
         "osFamily" => list(any()),
         "rootEbsVolume" => ec2_ebs_volume(),
@@ -1409,7 +1412,7 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type service_managed_ec2_instance_capabilities() :: %{String.t() => any()}
+  @type service_managed_ec2_instance_capabilities() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1418,43 +1421,43 @@ defmodule AWS.Deadline do
       task_search_summary() :: %{
         "endedAt" => non_neg_integer(),
         "failureRetryCount" => integer(),
-        "jobId" => String.t(),
+        "jobId" => String.t() | Atom.t(),
         "parameters" => map(),
-        "queueId" => String.t(),
+        "queueId" => String.t() | Atom.t(),
         "runStatus" => list(any()),
         "startedAt" => non_neg_integer(),
-        "stepId" => String.t(),
+        "stepId" => String.t() | Atom.t(),
         "targetRunStatus" => list(any()),
-        "taskId" => String.t()
+        "taskId" => String.t() | Atom.t()
       }
 
   """
-  @type task_search_summary() :: %{String.t() => any()}
+  @type task_search_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_session_actions_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "sessionActions" => list(session_action_summary())
       }
 
   """
-  @type list_session_actions_response() :: %{String.t() => any()}
+  @type list_session_actions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       response_budget_action() :: %{
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "thresholdPercentage" => float(),
         "type" => list(any())
       }
 
   """
-  @type response_budget_action() :: %{String.t() => any()}
+  @type response_budget_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1464,28 +1467,28 @@ defmodule AWS.Deadline do
         optional("actionsToAdd") => list(budget_action_to_add()),
         optional("actionsToRemove") => list(budget_action_to_remove()),
         optional("approximateDollarLimit") => float(),
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
-        optional("displayName") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("displayName") => String.t() | Atom.t(),
         optional("schedule") => list(),
         optional("status") => list(any())
       }
 
   """
-  @type update_budget_request() :: %{String.t() => any()}
+  @type update_budget_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       step_attribute_capability() :: %{
-        "allOf" => list(String.t()),
-        "anyOf" => list(String.t()),
-        "name" => String.t()
+        "allOf" => list(String.t() | Atom.t()),
+        "anyOf" => list(String.t() | Atom.t()),
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type step_attribute_capability() :: %{String.t() => any()}
+  @type step_attribute_capability() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1493,31 +1496,31 @@ defmodule AWS.Deadline do
 
       get_queue_limit_association_response() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "limitId" => String.t(),
-        "queueId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "limitId" => String.t() | Atom.t(),
+        "queueId" => String.t() | Atom.t(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type get_queue_limit_association_response() :: %{String.t() => any()}
+  @type get_queue_limit_association_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       step_details_entity() :: %{
-        "dependencies" => list(String.t()),
-        "jobId" => String.t(),
-        "schemaVersion" => String.t(),
-        "stepId" => String.t(),
+        "dependencies" => list(String.t() | Atom.t()),
+        "jobId" => String.t() | Atom.t(),
+        "schemaVersion" => String.t() | Atom.t(),
+        "stepId" => String.t() | Atom.t(),
         "template" => any()
       }
 
   """
-  @type step_details_entity() :: %{String.t() => any()}
+  @type step_details_entity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1525,27 +1528,27 @@ defmodule AWS.Deadline do
 
       get_step_response() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
         "dependencyCounts" => dependency_counts(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "endedAt" => non_neg_integer(),
         "lifecycleStatus" => list(any()),
-        "lifecycleStatusMessage" => String.t(),
-        "name" => String.t(),
+        "lifecycleStatusMessage" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "parameterSpace" => parameter_space(),
         "requiredCapabilities" => step_required_capabilities(),
         "startedAt" => non_neg_integer(),
-        "stepId" => String.t(),
+        "stepId" => String.t() | Atom.t(),
         "targetTaskRunStatus" => list(any()),
         "taskFailureRetryCount" => integer(),
         "taskRunStatus" => list(any()),
         "taskRunStatusCounts" => map(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type get_step_response() :: %{String.t() => any()}
+  @type get_step_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1554,18 +1557,18 @@ defmodule AWS.Deadline do
       queue_summary() :: %{
         "blockedReason" => list(any()),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
         "defaultBudgetAction" => list(any()),
-        "displayName" => String.t(),
-        "farmId" => String.t(),
-        "queueId" => String.t(),
+        "displayName" => String.t() | Atom.t(),
+        "farmId" => String.t() | Atom.t(),
+        "queueId" => String.t() | Atom.t(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type queue_summary() :: %{String.t() => any()}
+  @type queue_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1590,14 +1593,14 @@ defmodule AWS.Deadline do
   ## Example:
 
       list_queue_limit_associations_request() :: %{
-        optional("limitId") => String.t(),
+        optional("limitId") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("queueId") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("queueId") => String.t() | Atom.t()
       }
 
   """
-  @type list_queue_limit_associations_request() :: %{String.t() => any()}
+  @type list_queue_limit_associations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1611,7 +1614,7 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type update_worker_schedule_response() :: %{String.t() => any()}
+  @type update_worker_schedule_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1619,12 +1622,12 @@ defmodule AWS.Deadline do
 
       assigned_task_run_session_action_definition() :: %{
         "parameters" => map(),
-        "stepId" => String.t(),
-        "taskId" => String.t()
+        "stepId" => String.t() | Atom.t(),
+        "taskId" => String.t() | Atom.t()
       }
 
   """
-  @type assigned_task_run_session_action_definition() :: %{String.t() => any()}
+  @type assigned_task_run_session_action_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1649,32 +1652,32 @@ defmodule AWS.Deadline do
   ## Example:
 
       job_member() :: %{
-        "farmId" => String.t(),
-        "identityStoreId" => String.t(),
-        "jobId" => String.t(),
+        "farmId" => String.t() | Atom.t(),
+        "identityStoreId" => String.t() | Atom.t(),
+        "jobId" => String.t() | Atom.t(),
         "membershipLevel" => list(any()),
-        "principalId" => String.t(),
+        "principalId" => String.t() | Atom.t(),
         "principalType" => list(any()),
-        "queueId" => String.t()
+        "queueId" => String.t() | Atom.t()
       }
 
   """
-  @type job_member() :: %{String.t() => any()}
+  @type job_member() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_license_endpoint_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("tags") => map(),
-        required("securityGroupIds") => list(String.t()),
-        required("subnetIds") => list(String.t()),
-        required("vpcId") => String.t()
+        required("securityGroupIds") => list(String.t() | Atom.t()),
+        required("subnetIds") => list(String.t() | Atom.t()),
+        required("vpcId") => String.t() | Atom.t()
       }
 
   """
-  @type create_license_endpoint_request() :: %{String.t() => any()}
+  @type create_license_endpoint_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1695,7 +1698,7 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type search_grouped_filter_expressions() :: %{String.t() => any()}
+  @type search_grouped_filter_expressions() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1712,40 +1715,40 @@ defmodule AWS.Deadline do
 
       job_summary() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
         "endedAt" => non_neg_integer(),
-        "jobId" => String.t(),
+        "jobId" => String.t() | Atom.t(),
         "lifecycleStatus" => list(any()),
-        "lifecycleStatusMessage" => String.t(),
+        "lifecycleStatusMessage" => String.t() | Atom.t(),
         "maxFailedTasksCount" => integer(),
         "maxRetriesPerTask" => integer(),
         "maxWorkerCount" => integer(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "priority" => integer(),
-        "sourceJobId" => String.t(),
+        "sourceJobId" => String.t() | Atom.t(),
         "startedAt" => non_neg_integer(),
         "targetTaskRunStatus" => list(any()),
         "taskFailureRetryCount" => integer(),
         "taskRunStatus" => list(any()),
         "taskRunStatusCounts" => map(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type job_summary() :: %{String.t() => any()}
+  @type job_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_farm_request() :: %{
-        optional("description") => String.t(),
-        optional("displayName") => String.t()
+        optional("description") => String.t() | Atom.t(),
+        optional("displayName") => String.t() | Atom.t()
       }
 
   """
-  @type update_farm_request() :: %{String.t() => any()}
+  @type update_farm_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1753,11 +1756,11 @@ defmodule AWS.Deadline do
 
       list_job_parameter_definitions_response() :: %{
         "jobParameterDefinitions" => list(any()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_job_parameter_definitions_response() :: %{String.t() => any()}
+  @type list_job_parameter_definitions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1768,34 +1771,34 @@ defmodule AWS.Deadline do
         optional("pageSize") => integer(),
         optional("sortExpressions") => list(list()),
         required("itemOffset") => integer(),
-        required("queueIds") => list(String.t())
+        required("queueIds") => list(String.t() | Atom.t())
       }
 
   """
-  @type search_jobs_request() :: %{String.t() => any()}
+  @type search_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_storage_profile_response() :: %{
-        "storageProfileId" => String.t()
+        "storageProfileId" => String.t() | Atom.t()
       }
 
   """
-  @type create_storage_profile_response() :: %{String.t() => any()}
+  @type create_storage_profile_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_sessions_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "sessions" => list(session_summary())
       }
 
   """
-  @type list_sessions_response() :: %{String.t() => any()}
+  @type list_sessions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1803,17 +1806,17 @@ defmodule AWS.Deadline do
 
       job_details_entity() :: %{
         "jobAttachmentSettings" => job_attachment_settings(),
-        "jobId" => String.t(),
+        "jobId" => String.t() | Atom.t(),
         "jobRunAsUser" => job_run_as_user(),
-        "logGroupName" => String.t(),
+        "logGroupName" => String.t() | Atom.t(),
         "parameters" => map(),
         "pathMappingRules" => list(path_mapping_rule()),
-        "queueRoleArn" => String.t(),
-        "schemaVersion" => String.t()
+        "queueRoleArn" => String.t() | Atom.t(),
+        "schemaVersion" => String.t() | Atom.t()
       }
 
   """
-  @type job_details_entity() :: %{String.t() => any()}
+  @type job_details_entity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1829,34 +1832,37 @@ defmodule AWS.Deadline do
   ## Example:
 
       list_storage_profiles_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "storageProfiles" => list(storage_profile_summary())
       }
 
   """
-  @type list_storage_profiles_response() :: %{String.t() => any()}
+  @type list_storage_profiles_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_worker_response() :: %{
-        "workerId" => String.t()
+        "workerId" => String.t() | Atom.t()
       }
 
   """
-  @type create_worker_response() :: %{String.t() => any()}
+  @type create_worker_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       assigned_environment_enter_session_action_definition() :: %{
-        "environmentId" => String.t()
+        "environmentId" => String.t() | Atom.t()
       }
 
   """
-  @type assigned_environment_enter_session_action_definition() :: %{String.t() => any()}
+  @type assigned_environment_enter_session_action_definition() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1864,14 +1870,14 @@ defmodule AWS.Deadline do
 
       conflict_exception() :: %{
         "context" => map(),
-        "message" => String.t(),
+        "message" => String.t() | Atom.t(),
         "reason" => list(any()),
-        "resourceId" => String.t(),
-        "resourceType" => String.t()
+        "resourceId" => String.t() | Atom.t(),
+        "resourceType" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1888,13 +1894,13 @@ defmodule AWS.Deadline do
 
       resource_not_found_exception() :: %{
         "context" => map(),
-        "message" => String.t(),
-        "resourceId" => String.t(),
-        "resourceType" => String.t()
+        "message" => String.t() | Atom.t(),
+        "resourceId" => String.t() | Atom.t(),
+        "resourceType" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1906,33 +1912,33 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type accelerator_capabilities() :: %{String.t() => any()}
+  @type accelerator_capabilities() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       posix_user() :: %{
-        "group" => String.t(),
-        "user" => String.t()
+        "group" => String.t() | Atom.t(),
+        "user" => String.t() | Atom.t()
       }
 
   """
-  @type posix_user() :: %{String.t() => any()}
+  @type posix_user() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       environment_details_entity() :: %{
-        "environmentId" => String.t(),
-        "jobId" => String.t(),
-        "schemaVersion" => String.t(),
+        "environmentId" => String.t() | Atom.t(),
+        "jobId" => String.t() | Atom.t(),
+        "schemaVersion" => String.t() | Atom.t(),
         "template" => any()
       }
 
   """
-  @type environment_details_entity() :: %{String.t() => any()}
+  @type environment_details_entity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1948,21 +1954,21 @@ defmodule AWS.Deadline do
   ## Example:
 
       host_properties_response() :: %{
-        "ec2InstanceArn" => String.t(),
-        "ec2InstanceType" => String.t(),
-        "hostName" => String.t(),
+        "ec2InstanceArn" => String.t() | Atom.t(),
+        "ec2InstanceType" => String.t() | Atom.t(),
+        "hostName" => String.t() | Atom.t(),
         "ipAddresses" => ip_addresses()
       }
 
   """
-  @type host_properties_response() :: %{String.t() => any()}
+  @type host_properties_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_job_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("lifecycleStatus") => list(any()),
         optional("maxFailedTasksCount") => integer(),
         optional("maxRetriesPerTask") => integer(),
@@ -1972,7 +1978,7 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type update_job_request() :: %{String.t() => any()}
+  @type update_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1983,19 +1989,19 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type consumed_usages() :: %{String.t() => any()}
+  @type consumed_usages() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_storage_profiles_for_queue_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "storageProfiles" => list(storage_profile_summary())
       }
 
   """
-  @type list_storage_profiles_for_queue_response() :: %{String.t() => any()}
+  @type list_storage_profiles_for_queue_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2007,17 +2013,17 @@ defmodule AWS.Deadline do
         "endedAt" => non_neg_integer(),
         "manifests" => list(task_run_manifest_properties_response()),
         "processExitCode" => integer(),
-        "progressMessage" => String.t(),
+        "progressMessage" => String.t() | Atom.t(),
         "progressPercent" => float(),
-        "sessionActionId" => String.t(),
-        "sessionId" => String.t(),
+        "sessionActionId" => String.t() | Atom.t(),
+        "sessionId" => String.t() | Atom.t(),
         "startedAt" => non_neg_integer(),
         "status" => list(any()),
         "workerUpdatedAt" => non_neg_integer()
       }
 
   """
-  @type get_session_action_response() :: %{String.t() => any()}
+  @type get_session_action_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2033,32 +2039,32 @@ defmodule AWS.Deadline do
   ## Example:
 
       get_sessions_statistics_aggregation_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "statistics" => list(statistics()),
         "status" => list(any()),
-        "statusMessage" => String.t()
+        "statusMessage" => String.t() | Atom.t()
       }
 
   """
-  @type get_sessions_statistics_aggregation_response() :: %{String.t() => any()}
+  @type get_sessions_statistics_aggregation_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_fleet_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("configuration") => list(),
-        optional("description") => String.t(),
-        optional("displayName") => String.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("displayName") => String.t() | Atom.t(),
         optional("hostConfiguration") => host_configuration(),
         optional("maxWorkerCount") => integer(),
         optional("minWorkerCount") => integer(),
-        optional("roleArn") => String.t()
+        optional("roleArn") => String.t() | Atom.t()
       }
 
   """
-  @type update_fleet_request() :: %{String.t() => any()}
+  @type update_fleet_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2066,11 +2072,11 @@ defmodule AWS.Deadline do
 
       list_metered_products_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_metered_products_request() :: %{String.t() => any()}
+  @type list_metered_products_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2092,7 +2098,7 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type search_workers_response() :: %{String.t() => any()}
+  @type search_workers_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2100,27 +2106,27 @@ defmodule AWS.Deadline do
 
       service_quota_exceeded_exception() :: %{
         "context" => map(),
-        "message" => String.t(),
-        "quotaCode" => String.t(),
+        "message" => String.t() | Atom.t(),
+        "quotaCode" => String.t() | Atom.t(),
         "reason" => list(any()),
-        "resourceId" => String.t(),
-        "resourceType" => String.t(),
-        "serviceCode" => String.t()
+        "resourceId" => String.t() | Atom.t(),
+        "resourceType" => String.t() | Atom.t(),
+        "serviceCode" => String.t() | Atom.t()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       job_details_identifiers() :: %{
-        "jobId" => String.t()
+        "jobId" => String.t() | Atom.t()
       }
 
   """
-  @type job_details_identifiers() :: %{String.t() => any()}
+  @type job_details_identifiers() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2128,29 +2134,29 @@ defmodule AWS.Deadline do
 
       get_farm_response() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "description" => String.t(),
-        "displayName" => String.t(),
-        "farmId" => String.t(),
-        "kmsKeyArn" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "displayName" => String.t() | Atom.t(),
+        "farmId" => String.t() | Atom.t(),
+        "kmsKeyArn" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type get_farm_response() :: %{String.t() => any()}
+  @type get_farm_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       step_parameter() :: %{
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "type" => list(any())
       }
 
   """
-  @type step_parameter() :: %{String.t() => any()}
+  @type step_parameter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2158,11 +2164,11 @@ defmodule AWS.Deadline do
 
       job_attachment_details_entity() :: %{
         "attachments" => attachments(),
-        "jobId" => String.t()
+        "jobId" => String.t() | Atom.t()
       }
 
   """
-  @type job_attachment_details_entity() :: %{String.t() => any()}
+  @type job_attachment_details_entity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2173,14 +2179,14 @@ defmodule AWS.Deadline do
         "endedAt" => non_neg_integer(),
         "manifests" => list(task_run_manifest_properties_response()),
         "progressPercent" => float(),
-        "sessionActionId" => String.t(),
+        "sessionActionId" => String.t() | Atom.t(),
         "startedAt" => non_neg_integer(),
         "status" => list(any()),
         "workerUpdatedAt" => non_neg_integer()
       }
 
   """
-  @type session_action_summary() :: %{String.t() => any()}
+  @type session_action_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2212,64 +2218,64 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type stats() :: %{String.t() => any()}
+  @type stats() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_license_endpoint_response() :: %{
-        "licenseEndpointId" => String.t()
+        "licenseEndpointId" => String.t() | Atom.t()
       }
 
   """
-  @type create_license_endpoint_response() :: %{String.t() => any()}
+  @type create_license_endpoint_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_limit_response() :: %{
-        "amountRequirementName" => String.t(),
+        "amountRequirementName" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
         "currentCount" => integer(),
-        "description" => String.t(),
-        "displayName" => String.t(),
-        "farmId" => String.t(),
-        "limitId" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "displayName" => String.t() | Atom.t(),
+        "farmId" => String.t() | Atom.t(),
+        "limitId" => String.t() | Atom.t(),
         "maxCount" => integer(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type get_limit_response() :: %{String.t() => any()}
+  @type get_limit_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       assume_queue_role_for_worker_request() :: %{
-        required("queueId") => String.t()
+        required("queueId") => String.t() | Atom.t()
       }
 
   """
-  @type assume_queue_role_for_worker_request() :: %{String.t() => any()}
+  @type assume_queue_role_for_worker_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_queue_environment_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("priority") => integer(),
-        optional("template") => String.t(),
+        optional("template") => String.t() | Atom.t(),
         optional("templateType") => list(any())
       }
 
   """
-  @type update_queue_environment_request() :: %{String.t() => any()}
+  @type update_queue_environment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2279,21 +2285,21 @@ defmodule AWS.Deadline do
         "autoScalingStatus" => list(any()),
         "configuration" => list(),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "displayName" => String.t(),
-        "farmId" => String.t(),
-        "fleetId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "displayName" => String.t() | Atom.t(),
+        "farmId" => String.t() | Atom.t(),
+        "fleetId" => String.t() | Atom.t(),
         "maxWorkerCount" => integer(),
         "minWorkerCount" => integer(),
         "status" => list(any()),
         "targetWorkerCount" => integer(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t(),
+        "updatedBy" => String.t() | Atom.t(),
         "workerCount" => integer()
       }
 
   """
-  @type fleet_summary() :: %{String.t() => any()}
+  @type fleet_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2301,35 +2307,35 @@ defmodule AWS.Deadline do
 
       list_job_members_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_job_members_request() :: %{String.t() => any()}
+  @type list_job_members_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_session_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         required("targetLifecycleStatus") => list(any())
       }
 
   """
-  @type update_session_request() :: %{String.t() => any()}
+  @type update_session_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_queue_limit_associations_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "queueLimitAssociations" => list(queue_limit_association_summary())
       }
 
   """
-  @type list_queue_limit_associations_response() :: %{String.t() => any()}
+  @type list_queue_limit_associations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2340,7 +2346,7 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type assume_queue_role_for_read_response() :: %{String.t() => any()}
+  @type assume_queue_role_for_read_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2369,19 +2375,19 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type assume_queue_role_for_user_response() :: %{String.t() => any()}
+  @type assume_queue_role_for_user_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       field_sort_expression() :: %{
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "sortOrder" => list(any())
       }
 
   """
-  @type field_sort_expression() :: %{String.t() => any()}
+  @type field_sort_expression() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2392,32 +2398,32 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_member_to_job_request() :: %{
-        required("identityStoreId") => String.t(),
+        required("identityStoreId") => String.t() | Atom.t(),
         required("membershipLevel") => list(any()),
         required("principalType") => list(any())
       }
 
   """
-  @type associate_member_to_job_request() :: %{String.t() => any()}
+  @type associate_member_to_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       parameter_space() :: %{
-        "combination" => String.t(),
+        "combination" => String.t() | Atom.t(),
         "parameters" => list(step_parameter())
       }
 
   """
-  @type parameter_space() :: %{String.t() => any()}
+  @type parameter_space() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2425,11 +2431,11 @@ defmodule AWS.Deadline do
 
       list_metered_products_response() :: %{
         "meteredProducts" => list(metered_product_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_metered_products_response() :: %{String.t() => any()}
+  @type list_metered_products_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2437,11 +2443,11 @@ defmodule AWS.Deadline do
 
       list_sessions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_sessions_request() :: %{String.t() => any()}
+  @type list_sessions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2452,33 +2458,33 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type assume_fleet_role_for_read_response() :: %{String.t() => any()}
+  @type assume_fleet_role_for_read_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       assigned_session() :: %{
-        "jobId" => String.t(),
+        "jobId" => String.t() | Atom.t(),
         "logConfiguration" => log_configuration(),
-        "queueId" => String.t(),
+        "queueId" => String.t() | Atom.t(),
         "sessionActions" => list(assigned_session_action())
       }
 
   """
-  @type assigned_session() :: %{String.t() => any()}
+  @type assigned_session() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "message" => String.t(),
-        "name" => String.t()
+        "message" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2491,50 +2497,50 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type search_jobs_response() :: %{String.t() => any()}
+  @type search_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       limit_summary() :: %{
-        "amountRequirementName" => String.t(),
+        "amountRequirementName" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
         "currentCount" => integer(),
-        "displayName" => String.t(),
-        "farmId" => String.t(),
-        "limitId" => String.t(),
+        "displayName" => String.t() | Atom.t(),
+        "farmId" => String.t() | Atom.t(),
+        "limitId" => String.t() | Atom.t(),
         "maxCount" => integer(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type limit_summary() :: %{String.t() => any()}
+  @type limit_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       environment_exit_session_action_definition_summary() :: %{
-        "environmentId" => String.t()
+        "environmentId" => String.t() | Atom.t()
       }
 
   """
-  @type environment_exit_session_action_definition_summary() :: %{String.t() => any()}
+  @type environment_exit_session_action_definition_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_task_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         required("targetRunStatus") => list(any())
       }
 
   """
-  @type update_task_request() :: %{String.t() => any()}
+  @type update_task_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2542,43 +2548,43 @@ defmodule AWS.Deadline do
 
       acquired_limit() :: %{
         "count" => integer(),
-        "limitId" => String.t()
+        "limitId" => String.t() | Atom.t()
       }
 
   """
-  @type acquired_limit() :: %{String.t() => any()}
+  @type acquired_limit() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_queue_request() :: %{
-        optional("allowedStorageProfileIds") => list(String.t()),
-        optional("clientToken") => String.t(),
+        optional("allowedStorageProfileIds") => list(String.t() | Atom.t()),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("defaultBudgetAction") => list(any()),
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("jobAttachmentSettings") => job_attachment_settings(),
         optional("jobRunAsUser") => job_run_as_user(),
-        optional("requiredFileSystemLocationNames") => list(String.t()),
-        optional("roleArn") => String.t(),
+        optional("requiredFileSystemLocationNames") => list(String.t() | Atom.t()),
+        optional("roleArn") => String.t() | Atom.t(),
         optional("tags") => map(),
-        required("displayName") => String.t()
+        required("displayName") => String.t() | Atom.t()
       }
 
   """
-  @type create_queue_request() :: %{String.t() => any()}
+  @type create_queue_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_location() :: %{
-        "bucketName" => String.t(),
-        "key" => String.t()
+        "bucketName" => String.t() | Atom.t(),
+        "key" => String.t() | Atom.t()
       }
 
   """
-  @type s3_location() :: %{String.t() => any()}
+  @type s3_location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2586,22 +2592,25 @@ defmodule AWS.Deadline do
 
       list_storage_profiles_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_storage_profiles_request() :: %{String.t() => any()}
+  @type list_storage_profiles_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       sync_input_job_attachments_session_action_definition() :: %{
-        "stepId" => String.t()
+        "stepId" => String.t() | Atom.t()
       }
 
   """
-  @type sync_input_job_attachments_session_action_definition() :: %{String.t() => any()}
+  @type sync_input_job_attachments_session_action_definition() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -2609,11 +2618,11 @@ defmodule AWS.Deadline do
 
       list_queue_members_response() :: %{
         "members" => list(queue_member()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_queue_members_response() :: %{String.t() => any()}
+  @type list_queue_members_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2621,31 +2630,31 @@ defmodule AWS.Deadline do
 
       get_queue_environment_response() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "name" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "priority" => integer(),
-        "queueEnvironmentId" => String.t(),
-        "template" => String.t(),
+        "queueEnvironmentId" => String.t() | Atom.t(),
+        "template" => String.t() | Atom.t(),
         "templateType" => list(any()),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type get_queue_environment_response() :: %{String.t() => any()}
+  @type get_queue_environment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_monitor_request() :: %{
-        optional("displayName") => String.t(),
-        optional("roleArn") => String.t(),
-        optional("subdomain") => String.t()
+        optional("displayName") => String.t() | Atom.t(),
+        optional("roleArn") => String.t() | Atom.t(),
+        optional("subdomain") => String.t() | Atom.t()
       }
 
   """
-  @type update_monitor_request() :: %{String.t() => any()}
+  @type update_monitor_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2661,27 +2670,27 @@ defmodule AWS.Deadline do
   ## Example:
 
       create_queue_environment_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         required("priority") => integer(),
-        required("template") => String.t(),
+        required("template") => String.t() | Atom.t(),
         required("templateType") => list(any())
       }
 
   """
-  @type create_queue_environment_request() :: %{String.t() => any()}
+  @type create_queue_environment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       queue_environment_summary() :: %{
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "priority" => integer(),
-        "queueEnvironmentId" => String.t()
+        "queueEnvironmentId" => String.t() | Atom.t()
       }
 
   """
-  @type queue_environment_summary() :: %{String.t() => any()}
+  @type queue_environment_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2689,11 +2698,11 @@ defmodule AWS.Deadline do
 
       list_farm_members_response() :: %{
         "members" => list(farm_member()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_farm_members_response() :: %{String.t() => any()}
+  @type list_farm_members_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2710,24 +2719,24 @@ defmodule AWS.Deadline do
 
       step_details_error() :: %{
         "code" => list(any()),
-        "jobId" => String.t(),
-        "message" => String.t(),
-        "stepId" => String.t()
+        "jobId" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t(),
+        "stepId" => String.t() | Atom.t()
       }
 
   """
-  @type step_details_error() :: %{String.t() => any()}
+  @type step_details_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       environment_enter_session_action_definition() :: %{
-        "environmentId" => String.t()
+        "environmentId" => String.t() | Atom.t()
       }
 
   """
-  @type environment_enter_session_action_definition() :: %{String.t() => any()}
+  @type environment_enter_session_action_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2735,15 +2744,15 @@ defmodule AWS.Deadline do
 
       search_steps_request() :: %{
         optional("filterExpressions") => search_grouped_filter_expressions(),
-        optional("jobId") => String.t(),
+        optional("jobId") => String.t() | Atom.t(),
         optional("pageSize") => integer(),
         optional("sortExpressions") => list(list()),
         required("itemOffset") => integer(),
-        required("queueIds") => list(String.t())
+        required("queueIds") => list(String.t() | Atom.t())
       }
 
   """
-  @type search_steps_request() :: %{String.t() => any()}
+  @type search_steps_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2768,28 +2777,28 @@ defmodule AWS.Deadline do
   ## Example:
 
       get_license_endpoint_response() :: %{
-        "dnsName" => String.t(),
-        "licenseEndpointId" => String.t(),
-        "securityGroupIds" => list(String.t()),
+        "dnsName" => String.t() | Atom.t(),
+        "licenseEndpointId" => String.t() | Atom.t(),
+        "securityGroupIds" => list(String.t() | Atom.t()),
         "status" => list(any()),
-        "statusMessage" => String.t(),
-        "subnetIds" => list(String.t()),
-        "vpcId" => String.t()
+        "statusMessage" => String.t() | Atom.t(),
+        "subnetIds" => list(String.t() | Atom.t()),
+        "vpcId" => String.t() | Atom.t()
       }
 
   """
-  @type get_license_endpoint_response() :: %{String.t() => any()}
+  @type get_license_endpoint_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_farm_response() :: %{
-        "farmId" => String.t()
+        "farmId" => String.t() | Atom.t()
       }
 
   """
-  @type create_farm_response() :: %{String.t() => any()}
+  @type create_farm_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2797,19 +2806,19 @@ defmodule AWS.Deadline do
 
       get_worker_response() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "farmId" => String.t(),
-        "fleetId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "farmId" => String.t() | Atom.t(),
+        "fleetId" => String.t() | Atom.t(),
         "hostProperties" => host_properties_response(),
         "log" => log_configuration(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t(),
-        "workerId" => String.t()
+        "updatedBy" => String.t() | Atom.t(),
+        "workerId" => String.t() | Atom.t()
       }
 
   """
-  @type get_worker_response() :: %{String.t() => any()}
+  @type get_worker_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2822,19 +2831,19 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type job_run_as_user() :: %{String.t() => any()}
+  @type job_run_as_user() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_queue_fleet_association_request() :: %{
-        required("fleetId") => String.t(),
-        required("queueId") => String.t()
+        required("fleetId") => String.t() | Atom.t(),
+        required("queueId") => String.t() | Atom.t()
       }
 
   """
-  @type create_queue_fleet_association_request() :: %{String.t() => any()}
+  @type create_queue_fleet_association_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2846,7 +2855,7 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type attachments() :: %{String.t() => any()}
+  @type attachments() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2854,12 +2863,12 @@ defmodule AWS.Deadline do
 
       task_run_session_action_definition() :: %{
         "parameters" => map(),
-        "stepId" => String.t(),
-        "taskId" => String.t()
+        "stepId" => String.t() | Atom.t(),
+        "taskId" => String.t() | Atom.t()
       }
 
   """
-  @type task_run_session_action_definition() :: %{String.t() => any()}
+  @type task_run_session_action_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2871,7 +2880,7 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type accelerator_total_memory_mi_b_range() :: %{String.t() => any()}
+  @type accelerator_total_memory_mi_b_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2897,35 +2906,35 @@ defmodule AWS.Deadline do
 
       step_dependency() :: %{
         "status" => list(any()),
-        "stepId" => String.t()
+        "stepId" => String.t() | Atom.t()
       }
 
   """
-  @type step_dependency() :: %{String.t() => any()}
+  @type step_dependency() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_member_to_fleet_request() :: %{
-        required("identityStoreId") => String.t(),
+        required("identityStoreId") => String.t() | Atom.t(),
         required("membershipLevel") => list(any()),
         required("principalType") => list(any())
       }
 
   """
-  @type associate_member_to_fleet_request() :: %{String.t() => any()}
+  @type associate_member_to_fleet_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       user_jobs_first() :: %{
-        "userIdentityId" => String.t()
+        "userIdentityId" => String.t() | Atom.t()
       }
 
   """
-  @type user_jobs_first() :: %{String.t() => any()}
+  @type user_jobs_first() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2941,24 +2950,24 @@ defmodule AWS.Deadline do
   ## Example:
 
       list_steps_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "steps" => list(step_summary())
       }
 
   """
-  @type list_steps_response() :: %{String.t() => any()}
+  @type list_steps_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_workers_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "workers" => list(worker_summary())
       }
 
   """
-  @type list_workers_response() :: %{String.t() => any()}
+  @type list_workers_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2966,7 +2975,7 @@ defmodule AWS.Deadline do
 
       start_sessions_statistics_aggregation_request() :: %{
         optional("period") => list(any()),
-        optional("timezone") => String.t(),
+        optional("timezone") => String.t() | Atom.t(),
         required("endTime") => non_neg_integer(),
         required("groupBy") => list(list(any())()),
         required("resourceIds") => list(),
@@ -2975,7 +2984,7 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type start_sessions_statistics_aggregation_request() :: %{String.t() => any()}
+  @type start_sessions_statistics_aggregation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2983,11 +2992,11 @@ defmodule AWS.Deadline do
 
       list_farm_members_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_farm_members_request() :: %{String.t() => any()}
+  @type list_farm_members_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2995,13 +3004,13 @@ defmodule AWS.Deadline do
 
       environment_details_error() :: %{
         "code" => list(any()),
-        "environmentId" => String.t(),
-        "jobId" => String.t(),
-        "message" => String.t()
+        "environmentId" => String.t() | Atom.t(),
+        "jobId" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type environment_details_error() :: %{String.t() => any()}
+  @type environment_details_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3009,38 +3018,38 @@ defmodule AWS.Deadline do
 
       list_step_consumers_response() :: %{
         "consumers" => list(step_consumer()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_step_consumers_response() :: %{String.t() => any()}
+  @type list_step_consumers_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_member_to_queue_request() :: %{
-        required("identityStoreId") => String.t(),
+        required("identityStoreId") => String.t() | Atom.t(),
         required("membershipLevel") => list(any()),
         required("principalType") => list(any())
       }
 
   """
-  @type associate_member_to_queue_request() :: %{String.t() => any()}
+  @type associate_member_to_queue_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_storage_profile_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("fileSystemLocations") => list(file_system_location()),
-        required("displayName") => String.t(),
+        required("displayName") => String.t() | Atom.t(),
         required("osFamily") => list(any())
       }
 
   """
-  @type create_storage_profile_request() :: %{String.t() => any()}
+  @type create_storage_profile_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3053,19 +3062,19 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type search_tasks_response() :: %{String.t() => any()}
+  @type search_tasks_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       worker_amount_capability() :: %{
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "value" => [float()]
       }
 
   """
-  @type worker_amount_capability() :: %{String.t() => any()}
+  @type worker_amount_capability() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3084,7 +3093,7 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type customer_managed_worker_capabilities() :: %{String.t() => any()}
+  @type customer_managed_worker_capabilities() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3092,34 +3101,34 @@ defmodule AWS.Deadline do
 
       access_denied_exception() :: %{
         "context" => map(),
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       assigned_environment_exit_session_action_definition() :: %{
-        "environmentId" => String.t()
+        "environmentId" => String.t() | Atom.t()
       }
 
   """
-  @type assigned_environment_exit_session_action_definition() :: %{String.t() => any()}
+  @type assigned_environment_exit_session_action_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       ip_addresses() :: %{
-        "ipV4Addresses" => list(String.t()),
-        "ipV6Addresses" => list(String.t())
+        "ipV4Addresses" => list(String.t() | Atom.t()),
+        "ipV6Addresses" => list(String.t() | Atom.t())
       }
 
   """
-  @type ip_addresses() :: %{String.t() => any()}
+  @type ip_addresses() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3127,12 +3136,12 @@ defmodule AWS.Deadline do
 
       get_sessions_statistics_aggregation_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("aggregationId") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("aggregationId") => String.t() | Atom.t()
       }
 
   """
-  @type get_sessions_statistics_aggregation_request() :: %{String.t() => any()}
+  @type get_sessions_statistics_aggregation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3152,21 +3161,21 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type copy_job_template_response() :: %{String.t() => any()}
+  @type copy_job_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_credentials() :: %{
-        "accessKeyId" => String.t(),
+        "accessKeyId" => String.t() | Atom.t(),
         "expiration" => non_neg_integer(),
-        "secretAccessKey" => String.t(),
-        "sessionToken" => String.t()
+        "secretAccessKey" => String.t() | Atom.t(),
+        "sessionToken" => String.t() | Atom.t()
       }
 
   """
-  @type aws_credentials() :: %{String.t() => any()}
+  @type aws_credentials() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3175,11 +3184,11 @@ defmodule AWS.Deadline do
       fleet_amount_capability() :: %{
         "max" => [float()],
         "min" => [float()],
-        "name" => String.t()
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type fleet_amount_capability() :: %{String.t() => any()}
+  @type fleet_amount_capability() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3187,33 +3196,33 @@ defmodule AWS.Deadline do
 
       get_queue_fleet_association_response() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "fleetId" => String.t(),
-        "queueId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "fleetId" => String.t() | Atom.t(),
+        "queueId" => String.t() | Atom.t(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type get_queue_fleet_association_response() :: %{String.t() => any()}
+  @type get_queue_fleet_association_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_budget_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
         required("actions") => list(budget_action_to_add()),
         required("approximateDollarLimit") => float(),
-        required("displayName") => String.t(),
+        required("displayName") => String.t() | Atom.t(),
         required("schedule") => list(),
         required("usageTrackingResource") => list()
       }
 
   """
-  @type create_budget_request() :: %{String.t() => any()}
+  @type create_budget_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3221,11 +3230,11 @@ defmodule AWS.Deadline do
 
       list_budgets_response() :: %{
         "budgets" => list(budget_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_budgets_response() :: %{String.t() => any()}
+  @type list_budgets_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3245,19 +3254,19 @@ defmodule AWS.Deadline do
         "aggregationStartTime" => non_neg_integer(),
         "costInUsd" => stats(),
         "count" => integer(),
-        "fleetId" => String.t(),
-        "instanceType" => String.t(),
-        "jobId" => String.t(),
-        "jobName" => String.t(),
-        "licenseProduct" => String.t(),
-        "queueId" => String.t(),
+        "fleetId" => String.t() | Atom.t(),
+        "instanceType" => String.t() | Atom.t(),
+        "jobId" => String.t() | Atom.t(),
+        "jobName" => String.t() | Atom.t(),
+        "licenseProduct" => String.t() | Atom.t(),
+        "queueId" => String.t() | Atom.t(),
         "runtimeInSeconds" => stats(),
         "usageType" => list(any()),
-        "userId" => String.t()
+        "userId" => String.t() | Atom.t()
       }
 
   """
-  @type statistics() :: %{String.t() => any()}
+  @type statistics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3266,31 +3275,31 @@ defmodule AWS.Deadline do
       get_job_response() :: %{
         "attachments" => attachments(),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "description" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
         "endedAt" => non_neg_integer(),
-        "jobId" => String.t(),
+        "jobId" => String.t() | Atom.t(),
         "lifecycleStatus" => list(any()),
-        "lifecycleStatusMessage" => String.t(),
+        "lifecycleStatusMessage" => String.t() | Atom.t(),
         "maxFailedTasksCount" => integer(),
         "maxRetriesPerTask" => integer(),
         "maxWorkerCount" => integer(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "parameters" => map(),
         "priority" => integer(),
-        "sourceJobId" => String.t(),
+        "sourceJobId" => String.t() | Atom.t(),
         "startedAt" => non_neg_integer(),
-        "storageProfileId" => String.t(),
+        "storageProfileId" => String.t() | Atom.t(),
         "targetTaskRunStatus" => list(any()),
         "taskFailureRetryCount" => integer(),
         "taskRunStatus" => list(any()),
         "taskRunStatusCounts" => map(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type get_job_response() :: %{String.t() => any()}
+  @type get_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3306,15 +3315,15 @@ defmodule AWS.Deadline do
   ## Example:
 
       create_limit_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
-        required("amountRequirementName") => String.t(),
-        required("displayName") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
+        required("amountRequirementName") => String.t() | Atom.t(),
+        required("displayName") => String.t() | Atom.t(),
         required("maxCount") => integer()
       }
 
   """
-  @type create_limit_request() :: %{String.t() => any()}
+  @type create_limit_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3331,16 +3340,16 @@ defmodule AWS.Deadline do
 
       queue_fleet_association_summary() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "fleetId" => String.t(),
-        "queueId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "fleetId" => String.t() | Atom.t(),
+        "queueId" => String.t() | Atom.t(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type queue_fleet_association_summary() :: %{String.t() => any()}
+  @type queue_fleet_association_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3358,12 +3367,12 @@ defmodule AWS.Deadline do
       validation_exception() :: %{
         "context" => map(),
         "fieldList" => list(validation_exception_field()),
-        "message" => String.t(),
+        "message" => String.t() | Atom.t(),
         "reason" => list(any())
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3406,24 +3415,24 @@ defmodule AWS.Deadline do
   ## Example:
 
       internal_server_error_exception() :: %{
-        "message" => String.t(),
+        "message" => String.t() | Atom.t(),
         "retryAfterSeconds" => integer()
       }
 
   """
-  @type internal_server_error_exception() :: %{String.t() => any()}
+  @type internal_server_error_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       environment_details_identifiers() :: %{
-        "environmentId" => String.t(),
-        "jobId" => String.t()
+        "environmentId" => String.t() | Atom.t(),
+        "jobId" => String.t() | Atom.t()
       }
 
   """
-  @type environment_details_identifiers() :: %{String.t() => any()}
+  @type environment_details_identifiers() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3449,14 +3458,14 @@ defmodule AWS.Deadline do
 
       throttling_exception() :: %{
         "context" => map(),
-        "message" => String.t(),
-        "quotaCode" => String.t(),
+        "message" => String.t() | Atom.t(),
+        "quotaCode" => String.t() | Atom.t(),
         "retryAfterSeconds" => integer(),
-        "serviceCode" => String.t()
+        "serviceCode" => String.t() | Atom.t()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3467,7 +3476,7 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type assume_fleet_role_for_worker_response() :: %{String.t() => any()}
+  @type assume_fleet_role_for_worker_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3475,12 +3484,12 @@ defmodule AWS.Deadline do
 
       job_attachment_details_error() :: %{
         "code" => list(any()),
-        "jobId" => String.t(),
-        "message" => String.t()
+        "jobId" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type job_attachment_details_error() :: %{String.t() => any()}
+  @type job_attachment_details_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3515,11 +3524,11 @@ defmodule AWS.Deadline do
 
       list_queue_environments_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_queue_environments_request() :: %{String.t() => any()}
+  @type list_queue_environments_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3527,20 +3536,20 @@ defmodule AWS.Deadline do
 
       get_monitor_response() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "displayName" => String.t(),
-        "identityCenterApplicationArn" => String.t(),
-        "identityCenterInstanceArn" => String.t(),
-        "monitorId" => String.t(),
-        "roleArn" => String.t(),
-        "subdomain" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "displayName" => String.t() | Atom.t(),
+        "identityCenterApplicationArn" => String.t() | Atom.t(),
+        "identityCenterInstanceArn" => String.t() | Atom.t(),
+        "monitorId" => String.t() | Atom.t(),
+        "roleArn" => String.t() | Atom.t(),
+        "subdomain" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t(),
-        "url" => String.t()
+        "updatedBy" => String.t() | Atom.t(),
+        "url" => String.t() | Atom.t()
       }
 
   """
-  @type get_monitor_response() :: %{String.t() => any()}
+  @type get_monitor_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3548,23 +3557,23 @@ defmodule AWS.Deadline do
 
       assigned_session_action() :: %{
         "definition" => list(),
-        "sessionActionId" => String.t()
+        "sessionActionId" => String.t() | Atom.t()
       }
 
   """
-  @type assigned_session_action() :: %{String.t() => any()}
+  @type assigned_session_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       parameter_sort_expression() :: %{
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "sortOrder" => list(any())
       }
 
   """
-  @type parameter_sort_expression() :: %{String.t() => any()}
+  @type parameter_sort_expression() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3572,11 +3581,11 @@ defmodule AWS.Deadline do
 
       list_available_metered_products_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_available_metered_products_request() :: %{String.t() => any()}
+  @type list_available_metered_products_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3593,11 +3602,11 @@ defmodule AWS.Deadline do
 
       list_tasks_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_tasks_request() :: %{String.t() => any()}
+  @type list_tasks_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3605,23 +3614,23 @@ defmodule AWS.Deadline do
 
       accelerator_selection() :: %{
         "name" => list(any()),
-        "runtime" => String.t()
+        "runtime" => String.t() | Atom.t()
       }
 
   """
-  @type accelerator_selection() :: %{String.t() => any()}
+  @type accelerator_selection() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_queues_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "queues" => list(queue_summary())
       }
 
   """
-  @type list_queues_response() :: %{String.t() => any()}
+  @type list_queues_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3638,38 +3647,38 @@ defmodule AWS.Deadline do
 
       list_license_endpoints_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_license_endpoints_request() :: %{String.t() => any()}
+  @type list_license_endpoints_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_queue_fleet_associations_request() :: %{
-        optional("fleetId") => String.t(),
+        optional("fleetId") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("queueId") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("queueId") => String.t() | Atom.t()
       }
 
   """
-  @type list_queue_fleet_associations_request() :: %{String.t() => any()}
+  @type list_queue_fleet_associations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_limit_request() :: %{
-        optional("description") => String.t(),
-        optional("displayName") => String.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("displayName") => String.t() | Atom.t(),
         optional("maxCount") => integer()
       }
 
   """
-  @type update_limit_request() :: %{String.t() => any()}
+  @type update_limit_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3680,21 +3689,21 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type update_queue_fleet_association_request() :: %{String.t() => any()}
+  @type update_queue_fleet_association_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       metered_product_summary() :: %{
-        "family" => String.t(),
+        "family" => String.t() | Atom.t(),
         "port" => integer(),
-        "productId" => String.t(),
-        "vendor" => String.t()
+        "productId" => String.t() | Atom.t(),
+        "vendor" => String.t() | Atom.t()
       }
 
   """
-  @type metered_product_summary() :: %{String.t() => any()}
+  @type metered_product_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3710,16 +3719,16 @@ defmodule AWS.Deadline do
   ## Example:
 
       queue_member() :: %{
-        "farmId" => String.t(),
-        "identityStoreId" => String.t(),
+        "farmId" => String.t() | Atom.t(),
+        "identityStoreId" => String.t() | Atom.t(),
         "membershipLevel" => list(any()),
-        "principalId" => String.t(),
+        "principalId" => String.t() | Atom.t(),
         "principalType" => list(any()),
-        "queueId" => String.t()
+        "queueId" => String.t() | Atom.t()
       }
 
   """
-  @type queue_member() :: %{String.t() => any()}
+  @type queue_member() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3758,29 +3767,32 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type update_worker_response() :: %{String.t() => any()}
+  @type update_worker_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       sync_input_job_attachments_session_action_definition_summary() :: %{
-        "stepId" => String.t()
+        "stepId" => String.t() | Atom.t()
       }
 
   """
-  @type sync_input_job_attachments_session_action_definition_summary() :: %{String.t() => any()}
+  @type sync_input_job_attachments_session_action_definition_summary() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       create_limit_response() :: %{
-        "limitId" => String.t()
+        "limitId" => String.t() | Atom.t()
       }
 
   """
-  @type create_limit_response() :: %{String.t() => any()}
+  @type create_limit_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3788,19 +3800,19 @@ defmodule AWS.Deadline do
 
       job_search_summary() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
         "endedAt" => non_neg_integer(),
-        "jobId" => String.t(),
+        "jobId" => String.t() | Atom.t(),
         "jobParameters" => map(),
         "lifecycleStatus" => list(any()),
-        "lifecycleStatusMessage" => String.t(),
+        "lifecycleStatusMessage" => String.t() | Atom.t(),
         "maxFailedTasksCount" => integer(),
         "maxRetriesPerTask" => integer(),
         "maxWorkerCount" => integer(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "priority" => integer(),
-        "queueId" => String.t(),
-        "sourceJobId" => String.t(),
+        "queueId" => String.t() | Atom.t(),
+        "sourceJobId" => String.t() | Atom.t(),
         "startedAt" => non_neg_integer(),
         "targetTaskRunStatus" => list(any()),
         "taskFailureRetryCount" => integer(),
@@ -3809,7 +3821,7 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type job_search_summary() :: %{String.t() => any()}
+  @type job_search_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3829,33 +3841,33 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type copy_job_template_request() :: %{String.t() => any()}
+  @type copy_job_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       path_mapping_rule() :: %{
-        "destinationPath" => String.t(),
-        "sourcePath" => String.t(),
+        "destinationPath" => String.t() | Atom.t(),
+        "sourcePath" => String.t() | Atom.t(),
         "sourcePathFormat" => list(any())
       }
 
   """
-  @type path_mapping_rule() :: %{String.t() => any()}
+  @type path_mapping_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_worker_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("hostProperties") => host_properties_request(),
         optional("tags") => map()
       }
 
   """
-  @type create_worker_request() :: %{String.t() => any()}
+  @type create_worker_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3871,11 +3883,11 @@ defmodule AWS.Deadline do
   ## Example:
 
       job_attachment_details_identifiers() :: %{
-        "jobId" => String.t()
+        "jobId" => String.t() | Atom.t()
       }
 
   """
-  @type job_attachment_details_identifiers() :: %{String.t() => any()}
+  @type job_attachment_details_identifiers() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3900,28 +3912,28 @@ defmodule AWS.Deadline do
   ## Example:
 
       budget_action_to_add() :: %{
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "thresholdPercentage" => float(),
         "type" => list(any())
       }
 
   """
-  @type budget_action_to_add() :: %{String.t() => any()}
+  @type budget_action_to_add() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_monitor_request() :: %{
-        optional("clientToken") => String.t(),
-        required("displayName") => String.t(),
-        required("identityCenterInstanceArn") => String.t(),
-        required("roleArn") => String.t(),
-        required("subdomain") => String.t()
+        optional("clientToken") => String.t() | Atom.t(),
+        required("displayName") => String.t() | Atom.t(),
+        required("identityCenterInstanceArn") => String.t() | Atom.t(),
+        required("roleArn") => String.t() | Atom.t(),
+        required("subdomain") => String.t() | Atom.t()
       }
 
   """
-  @type create_monitor_request() :: %{String.t() => any()}
+  @type create_monitor_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3937,12 +3949,12 @@ defmodule AWS.Deadline do
   ## Example:
 
       list_tasks_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "tasks" => list(task_summary())
       }
 
   """
-  @type list_tasks_response() :: %{String.t() => any()}
+  @type list_tasks_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3951,35 +3963,35 @@ defmodule AWS.Deadline do
       get_budget_response() :: %{
         "actions" => list(response_budget_action()),
         "approximateDollarLimit" => float(),
-        "budgetId" => String.t(),
+        "budgetId" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "description" => String.t(),
-        "displayName" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "displayName" => String.t() | Atom.t(),
         "queueStoppedAt" => non_neg_integer(),
         "schedule" => list(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t(),
+        "updatedBy" => String.t() | Atom.t(),
         "usageTrackingResource" => list(),
         "usages" => consumed_usages()
       }
 
   """
-  @type get_budget_response() :: %{String.t() => any()}
+  @type get_budget_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_member_to_farm_request() :: %{
-        required("identityStoreId") => String.t(),
+        required("identityStoreId") => String.t() | Atom.t(),
         required("membershipLevel") => list(any()),
         required("principalType") => list(any())
       }
 
   """
-  @type associate_member_to_farm_request() :: %{String.t() => any()}
+  @type associate_member_to_farm_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3987,65 +3999,65 @@ defmodule AWS.Deadline do
 
       step_summary() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
         "dependencyCounts" => dependency_counts(),
         "endedAt" => non_neg_integer(),
         "lifecycleStatus" => list(any()),
-        "lifecycleStatusMessage" => String.t(),
-        "name" => String.t(),
+        "lifecycleStatusMessage" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "startedAt" => non_neg_integer(),
-        "stepId" => String.t(),
+        "stepId" => String.t() | Atom.t(),
         "targetTaskRunStatus" => list(any()),
         "taskFailureRetryCount" => integer(),
         "taskRunStatus" => list(any()),
         "taskRunStatusCounts" => map(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type step_summary() :: %{String.t() => any()}
+  @type step_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_farm_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
-        optional("kmsKeyArn") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("kmsKeyArn") => String.t() | Atom.t(),
         optional("tags") => map(),
-        required("displayName") => String.t()
+        required("displayName") => String.t() | Atom.t()
       }
 
   """
-  @type create_farm_request() :: %{String.t() => any()}
+  @type create_farm_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       host_properties_request() :: %{
-        "hostName" => String.t(),
+        "hostName" => String.t() | Atom.t(),
         "ipAddresses" => ip_addresses()
       }
 
   """
-  @type host_properties_request() :: %{String.t() => any()}
+  @type host_properties_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       log_configuration() :: %{
-        "error" => String.t(),
-        "logDriver" => String.t(),
+        "error" => String.t() | Atom.t(),
+        "logDriver" => String.t() | Atom.t(),
         "options" => map(),
         "parameters" => map()
       }
 
   """
-  @type log_configuration() :: %{String.t() => any()}
+  @type log_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4062,24 +4074,24 @@ defmodule AWS.Deadline do
 
       list_fleet_members_response() :: %{
         "members" => list(fleet_member()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_fleet_members_response() :: %{String.t() => any()}
+  @type list_fleet_members_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       file_system_location() :: %{
-        "name" => String.t(),
-        "path" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "path" => String.t() | Atom.t(),
         "type" => list(any())
       }
 
   """
-  @type file_system_location() :: %{String.t() => any()}
+  @type file_system_location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4096,22 +4108,22 @@ defmodule AWS.Deadline do
 
       list_limits_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_limits_request() :: %{String.t() => any()}
+  @type list_limits_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_fleet_response() :: %{
-        "fleetId" => String.t()
+        "fleetId" => String.t() | Atom.t()
       }
 
   """
-  @type create_fleet_response() :: %{String.t() => any()}
+  @type create_fleet_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4128,16 +4140,16 @@ defmodule AWS.Deadline do
 
       worker_session_summary() :: %{
         "endedAt" => non_neg_integer(),
-        "jobId" => String.t(),
+        "jobId" => String.t() | Atom.t(),
         "lifecycleStatus" => list(any()),
-        "queueId" => String.t(),
-        "sessionId" => String.t(),
+        "queueId" => String.t() | Atom.t(),
+        "sessionId" => String.t() | Atom.t(),
         "startedAt" => non_neg_integer(),
         "targetLifecycleStatus" => list(any())
       }
 
   """
-  @type worker_session_summary() :: %{String.t() => any()}
+  @type worker_session_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4145,11 +4157,11 @@ defmodule AWS.Deadline do
 
       list_job_parameter_definitions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_job_parameter_definitions_request() :: %{String.t() => any()}
+  @type list_job_parameter_definitions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4157,11 +4169,11 @@ defmodule AWS.Deadline do
 
       step_consumer() :: %{
         "status" => list(any()),
-        "stepId" => String.t()
+        "stepId" => String.t() | Atom.t()
       }
 
   """
-  @type step_consumer() :: %{String.t() => any()}
+  @type step_consumer() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4169,11 +4181,11 @@ defmodule AWS.Deadline do
 
       list_storage_profiles_for_queue_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_storage_profiles_for_queue_request() :: %{String.t() => any()}
+  @type list_storage_profiles_for_queue_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4184,24 +4196,24 @@ defmodule AWS.Deadline do
         "capabilities" => fleet_capabilities(),
         "configuration" => list(),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "description" => String.t(),
-        "displayName" => String.t(),
-        "farmId" => String.t(),
-        "fleetId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "displayName" => String.t() | Atom.t(),
+        "farmId" => String.t() | Atom.t(),
+        "fleetId" => String.t() | Atom.t(),
         "hostConfiguration" => host_configuration(),
         "maxWorkerCount" => integer(),
         "minWorkerCount" => integer(),
-        "roleArn" => String.t(),
+        "roleArn" => String.t() | Atom.t(),
         "status" => list(any()),
         "targetWorkerCount" => integer(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t(),
+        "updatedBy" => String.t() | Atom.t(),
         "workerCount" => integer()
       }
 
   """
-  @type get_fleet_response() :: %{String.t() => any()}
+  @type get_fleet_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4218,11 +4230,11 @@ defmodule AWS.Deadline do
 
       list_queue_members_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_queue_members_request() :: %{String.t() => any()}
+  @type list_queue_members_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4248,16 +4260,16 @@ defmodule AWS.Deadline do
 
       farm_summary() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "displayName" => String.t(),
-        "farmId" => String.t(),
-        "kmsKeyArn" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "displayName" => String.t() | Atom.t(),
+        "farmId" => String.t() | Atom.t(),
+        "kmsKeyArn" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type farm_summary() :: %{String.t() => any()}
+  @type farm_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4265,20 +4277,20 @@ defmodule AWS.Deadline do
 
       monitor_summary() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "displayName" => String.t(),
-        "identityCenterApplicationArn" => String.t(),
-        "identityCenterInstanceArn" => String.t(),
-        "monitorId" => String.t(),
-        "roleArn" => String.t(),
-        "subdomain" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "displayName" => String.t() | Atom.t(),
+        "identityCenterApplicationArn" => String.t() | Atom.t(),
+        "identityCenterInstanceArn" => String.t() | Atom.t(),
+        "monitorId" => String.t() | Atom.t(),
+        "roleArn" => String.t() | Atom.t(),
+        "subdomain" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t(),
-        "url" => String.t()
+        "updatedBy" => String.t() | Atom.t(),
+        "url" => String.t() | Atom.t()
       }
 
   """
-  @type monitor_summary() :: %{String.t() => any()}
+  @type monitor_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4303,13 +4315,13 @@ defmodule AWS.Deadline do
   ## Example:
 
       parameter_filter_expression() :: %{
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "operator" => list(any()),
-        "value" => String.t()
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type parameter_filter_expression() :: %{String.t() => any()}
+  @type parameter_filter_expression() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4317,12 +4329,12 @@ defmodule AWS.Deadline do
 
       list_farms_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("principalId") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("principalId") => String.t() | Atom.t()
       }
 
   """
-  @type list_farms_request() :: %{String.t() => any()}
+  @type list_farms_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4334,7 +4346,7 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type accelerator_count_range() :: %{String.t() => any()}
+  @type accelerator_count_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4342,23 +4354,23 @@ defmodule AWS.Deadline do
 
       list_step_consumers_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_step_consumers_request() :: %{String.t() => any()}
+  @type list_step_consumers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       step_details_identifiers() :: %{
-        "jobId" => String.t(),
-        "stepId" => String.t()
+        "jobId" => String.t() | Atom.t(),
+        "stepId" => String.t() | Atom.t()
       }
 
   """
-  @type step_details_identifiers() :: %{String.t() => any()}
+  @type step_details_identifiers() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4374,26 +4386,26 @@ defmodule AWS.Deadline do
   ## Example:
 
       farm_member() :: %{
-        "farmId" => String.t(),
-        "identityStoreId" => String.t(),
+        "farmId" => String.t() | Atom.t(),
+        "identityStoreId" => String.t() | Atom.t(),
         "membershipLevel" => list(any()),
-        "principalId" => String.t(),
+        "principalId" => String.t() | Atom.t(),
         "principalType" => list(any())
       }
 
   """
-  @type farm_member() :: %{String.t() => any()}
+  @type farm_member() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_queue_response() :: %{
-        "queueId" => String.t()
+        "queueId" => String.t() | Atom.t()
       }
 
   """
-  @type create_queue_response() :: %{String.t() => any()}
+  @type create_queue_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4405,7 +4417,7 @@ defmodule AWS.Deadline do
       }
 
   """
-  @type worker_capabilities() :: %{String.t() => any()}
+  @type worker_capabilities() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4413,17 +4425,17 @@ defmodule AWS.Deadline do
 
       worker_search_summary() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "fleetId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "fleetId" => String.t() | Atom.t(),
         "hostProperties" => host_properties_response(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t(),
-        "workerId" => String.t()
+        "updatedBy" => String.t() | Atom.t(),
+        "workerId" => String.t() | Atom.t()
       }
 
   """
-  @type worker_search_summary() :: %{String.t() => any()}
+  @type worker_search_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4431,11 +4443,11 @@ defmodule AWS.Deadline do
 
       list_farms_response() :: %{
         "farms" => list(farm_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_farms_response() :: %{String.t() => any()}
+  @type list_farms_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4443,53 +4455,53 @@ defmodule AWS.Deadline do
 
       list_step_dependencies_response() :: %{
         "dependencies" => list(step_dependency()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_step_dependencies_response() :: %{String.t() => any()}
+  @type list_step_dependencies_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       job_attachment_settings() :: %{
-        "rootPrefix" => String.t(),
-        "s3BucketName" => String.t()
+        "rootPrefix" => String.t() | Atom.t(),
+        "s3BucketName" => String.t() | Atom.t()
       }
 
   """
-  @type job_attachment_settings() :: %{String.t() => any()}
+  @type job_attachment_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_storage_profile_for_queue_response() :: %{
-        "displayName" => String.t(),
+        "displayName" => String.t() | Atom.t(),
         "fileSystemLocations" => list(file_system_location()),
         "osFamily" => list(any()),
-        "storageProfileId" => String.t()
+        "storageProfileId" => String.t() | Atom.t()
       }
 
   """
-  @type get_storage_profile_for_queue_response() :: %{String.t() => any()}
+  @type get_storage_profile_for_queue_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       fleet_member() :: %{
-        "farmId" => String.t(),
-        "fleetId" => String.t(),
-        "identityStoreId" => String.t(),
+        "farmId" => String.t() | Atom.t(),
+        "fleetId" => String.t() | Atom.t(),
+        "identityStoreId" => String.t() | Atom.t(),
         "membershipLevel" => list(any()),
-        "principalId" => String.t(),
+        "principalId" => String.t() | Atom.t(),
         "principalType" => list(any())
       }
 
   """
-  @type fleet_member() :: %{String.t() => any()}
+  @type fleet_member() :: %{String.t() | Atom.t() => any()}
 
   @type associate_member_to_farm_errors() ::
           throttling_exception()
@@ -5325,8 +5337,8 @@ defmodule AWS.Deadline do
   """
   @spec associate_member_to_farm(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           associate_member_to_farm_request(),
           list()
         ) ::
@@ -5362,9 +5374,9 @@ defmodule AWS.Deadline do
   """
   @spec associate_member_to_fleet(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           associate_member_to_fleet_request(),
           list()
         ) ::
@@ -5407,10 +5419,10 @@ defmodule AWS.Deadline do
   """
   @spec associate_member_to_job(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           associate_member_to_job_request(),
           list()
         ) ::
@@ -5454,9 +5466,9 @@ defmodule AWS.Deadline do
   """
   @spec associate_member_to_queue(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           associate_member_to_queue_request(),
           list()
         ) ::
@@ -5499,7 +5511,7 @@ defmodule AWS.Deadline do
 
   The IAM permissions of the credentials are scoped down to have read-only access.
   """
-  @spec assume_fleet_role_for_read(map(), String.t(), String.t(), list()) ::
+  @spec assume_fleet_role_for_read(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, assume_fleet_role_for_read_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5519,7 +5531,13 @@ defmodule AWS.Deadline do
   @doc """
   Get credentials from the fleet role for a worker.
   """
-  @spec assume_fleet_role_for_worker(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec assume_fleet_role_for_worker(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, assume_fleet_role_for_worker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5547,7 +5565,7 @@ defmodule AWS.Deadline do
 
   The IAM permissions of the credentials are scoped down to have read-only access.
   """
-  @spec assume_queue_role_for_read(map(), String.t(), String.t(), list()) ::
+  @spec assume_queue_role_for_read(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, assume_queue_role_for_read_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5567,7 +5585,7 @@ defmodule AWS.Deadline do
   @doc """
   Allows a user to assume a role for a queue.
   """
-  @spec assume_queue_role_for_user(map(), String.t(), String.t(), list()) ::
+  @spec assume_queue_role_for_user(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, assume_queue_role_for_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5589,10 +5607,10 @@ defmodule AWS.Deadline do
   """
   @spec assume_queue_role_for_worker(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           list()
         ) ::
           {:ok, assume_queue_role_for_worker_response(), any()}
@@ -5630,9 +5648,9 @@ defmodule AWS.Deadline do
   """
   @spec batch_get_job_entity(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           batch_get_job_entity_request(),
           list()
         ) ::
@@ -5668,9 +5686,9 @@ defmodule AWS.Deadline do
   """
   @spec copy_job_template(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           copy_job_template_request(),
           list()
         ) ::
@@ -5704,7 +5722,7 @@ defmodule AWS.Deadline do
   @doc """
   Creates a budget to set spending thresholds for your rendering activity.
   """
-  @spec create_budget(map(), String.t(), create_budget_request(), list()) ::
+  @spec create_budget(map(), String.t() | Atom.t(), create_budget_request(), list()) ::
           {:ok, create_budget_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5782,7 +5800,7 @@ defmodule AWS.Deadline do
   your farms. You can choose to manage your own capacity or opt to have fleets
   fully managed by Deadline Cloud.
   """
-  @spec create_fleet(map(), String.t(), create_fleet_request(), list()) ::
+  @spec create_fleet(map(), String.t() | Atom.t(), create_fleet_request(), list()) ::
           {:ok, create_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5820,7 +5838,13 @@ defmodule AWS.Deadline do
   A job is a set of instructions that Deadline Cloud uses to schedule and run work
   on available workers. For more information, see [Deadline Cloud jobs](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/deadline-cloud-jobs.html).
   """
-  @spec create_job(map(), String.t(), String.t(), create_job_request(), list()) ::
+  @spec create_job(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          create_job_request(),
+          list()
+        ) ::
           {:ok, create_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5900,7 +5924,7 @@ defmodule AWS.Deadline do
   You must add the `amountRequirementName` to a step in a job template to declare
   the limit requirement.
   """
-  @spec create_limit(map(), String.t(), create_limit_request(), list()) ::
+  @spec create_limit(map(), String.t() | Atom.t(), create_limit_request(), list()) ::
           {:ok, create_limit_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5977,7 +6001,7 @@ defmodule AWS.Deadline do
   A queue can also specify where to pull resources and indicate where to output
   completed jobs.
   """
-  @spec create_queue(map(), String.t(), create_queue_request(), list()) ::
+  @spec create_queue(map(), String.t() | Atom.t(), create_queue_request(), list()) ::
           {:ok, create_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6014,8 +6038,8 @@ defmodule AWS.Deadline do
   """
   @spec create_queue_environment(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           create_queue_environment_request(),
           list()
         ) ::
@@ -6056,7 +6080,7 @@ defmodule AWS.Deadline do
   """
   @spec create_queue_fleet_association(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           create_queue_fleet_association_request(),
           list()
         ) ::
@@ -6094,7 +6118,7 @@ defmodule AWS.Deadline do
   """
   @spec create_queue_limit_association(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           create_queue_limit_association_request(),
           list()
         ) ::
@@ -6127,7 +6151,12 @@ defmodule AWS.Deadline do
   Creates a storage profile that specifies the operating system, file type, and
   file location of resources used on a farm.
   """
-  @spec create_storage_profile(map(), String.t(), create_storage_profile_request(), list()) ::
+  @spec create_storage_profile(
+          map(),
+          String.t() | Atom.t(),
+          create_storage_profile_request(),
+          list()
+        ) ::
           {:ok, create_storage_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6175,7 +6204,13 @@ defmodule AWS.Deadline do
   `CreateWorker` calls might successfully create 2 workers instead of 1, resulting
   in 11 total workers.
   """
-  @spec create_worker(map(), String.t(), String.t(), create_worker_request(), list()) ::
+  @spec create_worker(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          create_worker_request(),
+          list()
+        ) ::
           {:ok, create_worker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6211,7 +6246,13 @@ defmodule AWS.Deadline do
   @doc """
   Deletes a budget.
   """
-  @spec delete_budget(map(), String.t(), String.t(), delete_budget_request(), list()) ::
+  @spec delete_budget(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_budget_request(),
+          list()
+        ) ::
           {:ok, delete_budget_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6242,7 +6283,7 @@ defmodule AWS.Deadline do
   @doc """
   Deletes a farm.
   """
-  @spec delete_farm(map(), String.t(), delete_farm_request(), list()) ::
+  @spec delete_farm(map(), String.t() | Atom.t(), delete_farm_request(), list()) ::
           {:ok, delete_farm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6271,7 +6312,13 @@ defmodule AWS.Deadline do
   @doc """
   Deletes a fleet.
   """
-  @spec delete_fleet(map(), String.t(), String.t(), delete_fleet_request(), list()) ::
+  @spec delete_fleet(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_fleet_request(),
+          list()
+        ) ::
           {:ok, delete_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6307,7 +6354,12 @@ defmodule AWS.Deadline do
   @doc """
   Deletes a license endpoint.
   """
-  @spec delete_license_endpoint(map(), String.t(), delete_license_endpoint_request(), list()) ::
+  @spec delete_license_endpoint(
+          map(),
+          String.t() | Atom.t(),
+          delete_license_endpoint_request(),
+          list()
+        ) ::
           {:ok, delete_license_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6339,7 +6391,13 @@ defmodule AWS.Deadline do
   Before you delete a limit you must use the `DeleteQueueLimitAssociation`
   operation to remove the association with any queues.
   """
-  @spec delete_limit(map(), String.t(), String.t(), delete_limit_request(), list()) ::
+  @spec delete_limit(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_limit_request(),
+          list()
+        ) ::
           {:ok, delete_limit_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6372,8 +6430,8 @@ defmodule AWS.Deadline do
   """
   @spec delete_metered_product(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_metered_product_request(),
           list()
         ) ::
@@ -6416,7 +6474,7 @@ defmodule AWS.Deadline do
   After you delete a monitor, you can create a new one and attach farms to the
   monitor.
   """
-  @spec delete_monitor(map(), String.t(), delete_monitor_request(), list()) ::
+  @spec delete_monitor(map(), String.t() | Atom.t(), delete_monitor_request(), list()) ::
           {:ok, delete_monitor_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6448,7 +6506,13 @@ defmodule AWS.Deadline do
   You can't recover the jobs in a queue if you delete the queue. Deleting the
   queue also deletes the jobs in that queue.
   """
-  @spec delete_queue(map(), String.t(), String.t(), delete_queue_request(), list()) ::
+  @spec delete_queue(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_queue_request(),
+          list()
+        ) ::
           {:ok, delete_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6481,9 +6545,9 @@ defmodule AWS.Deadline do
   """
   @spec delete_queue_environment(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_queue_environment_request(),
           list()
         ) ::
@@ -6526,9 +6590,9 @@ defmodule AWS.Deadline do
   """
   @spec delete_queue_fleet_association(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_queue_fleet_association_request(),
           list()
         ) ::
@@ -6577,9 +6641,9 @@ defmodule AWS.Deadline do
   """
   @spec delete_queue_limit_association(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_queue_limit_association_request(),
           list()
         ) ::
@@ -6622,8 +6686,8 @@ defmodule AWS.Deadline do
   """
   @spec delete_storage_profile(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_storage_profile_request(),
           list()
         ) ::
@@ -6663,7 +6727,14 @@ defmodule AWS.Deadline do
   @doc """
   Deletes a worker.
   """
-  @spec delete_worker(map(), String.t(), String.t(), String.t(), delete_worker_request(), list()) ::
+  @spec delete_worker(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_worker_request(),
+          list()
+        ) ::
           {:ok, delete_worker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6696,8 +6767,8 @@ defmodule AWS.Deadline do
   """
   @spec disassociate_member_from_farm(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           disassociate_member_from_farm_request(),
           list()
         ) ::
@@ -6739,9 +6810,9 @@ defmodule AWS.Deadline do
   """
   @spec disassociate_member_from_fleet(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           disassociate_member_from_fleet_request(),
           list()
         ) ::
@@ -6784,10 +6855,10 @@ defmodule AWS.Deadline do
   """
   @spec disassociate_member_from_job(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           disassociate_member_from_job_request(),
           list()
         ) ::
@@ -6831,9 +6902,9 @@ defmodule AWS.Deadline do
   """
   @spec disassociate_member_from_queue(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           disassociate_member_from_queue_request(),
           list()
         ) ::
@@ -6874,7 +6945,7 @@ defmodule AWS.Deadline do
   @doc """
   Get a budget.
   """
-  @spec get_budget(map(), String.t(), String.t(), list()) ::
+  @spec get_budget(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_budget_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6894,7 +6965,7 @@ defmodule AWS.Deadline do
   @doc """
   Get a farm.
   """
-  @spec get_farm(map(), String.t(), list()) ::
+  @spec get_farm(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_farm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6912,7 +6983,7 @@ defmodule AWS.Deadline do
   @doc """
   Get a fleet.
   """
-  @spec get_fleet(map(), String.t(), String.t(), list()) ::
+  @spec get_fleet(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6932,7 +7003,13 @@ defmodule AWS.Deadline do
   @doc """
   Gets a Deadline Cloud job.
   """
-  @spec get_job(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_job(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6952,7 +7029,7 @@ defmodule AWS.Deadline do
   @doc """
   Gets a licence endpoint.
   """
-  @spec get_license_endpoint(map(), String.t(), list()) ::
+  @spec get_license_endpoint(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_license_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6970,7 +7047,7 @@ defmodule AWS.Deadline do
   @doc """
   Gets information about a specific limit.
   """
-  @spec get_limit(map(), String.t(), String.t(), list()) ::
+  @spec get_limit(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_limit_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6990,7 +7067,7 @@ defmodule AWS.Deadline do
   @doc """
   Gets information about the specified monitor.
   """
-  @spec get_monitor(map(), String.t(), list()) ::
+  @spec get_monitor(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_monitor_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7008,7 +7085,7 @@ defmodule AWS.Deadline do
   @doc """
   Gets a queue.
   """
-  @spec get_queue(map(), String.t(), String.t(), list()) ::
+  @spec get_queue(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7028,7 +7105,13 @@ defmodule AWS.Deadline do
   @doc """
   Gets a queue environment.
   """
-  @spec get_queue_environment(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_queue_environment(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_queue_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7054,7 +7137,13 @@ defmodule AWS.Deadline do
   @doc """
   Gets a queue-fleet association.
   """
-  @spec get_queue_fleet_association(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_queue_fleet_association(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_queue_fleet_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7074,7 +7163,13 @@ defmodule AWS.Deadline do
   @doc """
   Gets information about a specific association between a queue and a limit.
   """
-  @spec get_queue_limit_association(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_queue_limit_association(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_queue_limit_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7094,7 +7189,14 @@ defmodule AWS.Deadline do
   @doc """
   Gets a session.
   """
-  @spec get_session(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_session(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7114,7 +7216,14 @@ defmodule AWS.Deadline do
   @doc """
   Gets a session action for the job.
   """
-  @spec get_session_action(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_session_action(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_session_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7148,10 +7257,10 @@ defmodule AWS.Deadline do
   """
   @spec get_sessions_statistics_aggregation(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, get_sessions_statistics_aggregation_response(), any()}
@@ -7199,7 +7308,14 @@ defmodule AWS.Deadline do
   @doc """
   Gets a step.
   """
-  @spec get_step(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_step(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7219,7 +7335,7 @@ defmodule AWS.Deadline do
   @doc """
   Gets a storage profile.
   """
-  @spec get_storage_profile(map(), String.t(), String.t(), list()) ::
+  @spec get_storage_profile(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_storage_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7239,7 +7355,13 @@ defmodule AWS.Deadline do
   @doc """
   Gets a storage profile for a queue.
   """
-  @spec get_storage_profile_for_queue(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_storage_profile_for_queue(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_storage_profile_for_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7265,7 +7387,15 @@ defmodule AWS.Deadline do
   @doc """
   Gets a task.
   """
-  @spec get_task(map(), String.t(), String.t(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_task(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7285,7 +7415,13 @@ defmodule AWS.Deadline do
   @doc """
   Gets a worker.
   """
-  @spec get_worker(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_worker(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_worker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7305,7 +7441,12 @@ defmodule AWS.Deadline do
   @doc """
   A list of the available metered products.
   """
-  @spec list_available_metered_products(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_available_metered_products(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_available_metered_products_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7344,10 +7485,10 @@ defmodule AWS.Deadline do
   """
   @spec list_budgets(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_budgets_response(), any()}
@@ -7395,7 +7536,13 @@ defmodule AWS.Deadline do
   @doc """
   Lists the members of a farm.
   """
-  @spec list_farm_members(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_farm_members(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_farm_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7433,7 +7580,13 @@ defmodule AWS.Deadline do
   @doc """
   Lists farms.
   """
-  @spec list_farms(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_farms(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_farms_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7480,10 +7633,10 @@ defmodule AWS.Deadline do
   """
   @spec list_fleet_members(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_fleet_members_response(), any()}
@@ -7528,12 +7681,12 @@ defmodule AWS.Deadline do
   """
   @spec list_fleets(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_fleets_response(), any()}
@@ -7599,11 +7752,11 @@ defmodule AWS.Deadline do
   """
   @spec list_job_members(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_job_members_response(), any()}
@@ -7649,11 +7802,11 @@ defmodule AWS.Deadline do
   """
   @spec list_job_parameter_definitions(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_job_parameter_definitions_response(), any()}
@@ -7699,11 +7852,11 @@ defmodule AWS.Deadline do
   """
   @spec list_jobs(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_jobs_response(), any()}
@@ -7754,7 +7907,12 @@ defmodule AWS.Deadline do
   @doc """
   Lists license endpoints.
   """
-  @spec list_license_endpoints(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_license_endpoints(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_license_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7791,7 +7949,13 @@ defmodule AWS.Deadline do
   @doc """
   Gets a list of limits defined in the specified farm.
   """
-  @spec list_limits(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_limits(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_limits_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7829,7 +7993,13 @@ defmodule AWS.Deadline do
   @doc """
   Lists metered products.
   """
-  @spec list_metered_products(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_metered_products(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_metered_products_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7869,7 +8039,7 @@ defmodule AWS.Deadline do
   @doc """
   Gets a list of your monitors in Deadline Cloud.
   """
-  @spec list_monitors(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_monitors(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_monitors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7903,10 +8073,10 @@ defmodule AWS.Deadline do
   """
   @spec list_queue_environments(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_queue_environments_response(), any()}
@@ -7951,11 +8121,11 @@ defmodule AWS.Deadline do
   """
   @spec list_queue_fleet_associations(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_queue_fleet_associations_response(), any()}
@@ -8013,11 +8183,11 @@ defmodule AWS.Deadline do
   """
   @spec list_queue_limit_associations(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_queue_limit_associations_response(), any()}
@@ -8075,10 +8245,10 @@ defmodule AWS.Deadline do
   """
   @spec list_queue_members(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_queue_members_response(), any()}
@@ -8123,11 +8293,11 @@ defmodule AWS.Deadline do
   """
   @spec list_queues(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_queues_response(), any()}
@@ -8185,13 +8355,13 @@ defmodule AWS.Deadline do
   """
   @spec list_session_actions(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_session_actions_response(), any()}
@@ -8253,11 +8423,11 @@ defmodule AWS.Deadline do
   """
   @spec list_sessions(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_sessions_response(), any()}
@@ -8303,11 +8473,11 @@ defmodule AWS.Deadline do
   """
   @spec list_sessions_for_worker(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_sessions_for_worker_response(), any()}
@@ -8353,12 +8523,12 @@ defmodule AWS.Deadline do
   """
   @spec list_step_consumers(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_step_consumers_response(), any()}
@@ -8405,12 +8575,12 @@ defmodule AWS.Deadline do
   """
   @spec list_step_dependencies(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_step_dependencies_response(), any()}
@@ -8457,11 +8627,11 @@ defmodule AWS.Deadline do
   """
   @spec list_steps(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_steps_response(), any()}
@@ -8505,7 +8675,13 @@ defmodule AWS.Deadline do
   @doc """
   Lists storage profiles.
   """
-  @spec list_storage_profiles(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_storage_profiles(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_storage_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8545,10 +8721,10 @@ defmodule AWS.Deadline do
   """
   @spec list_storage_profiles_for_queue(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_storage_profiles_for_queue_response(), any()}
@@ -8591,7 +8767,7 @@ defmodule AWS.Deadline do
   @doc """
   Lists tags for a resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8611,12 +8787,12 @@ defmodule AWS.Deadline do
   """
   @spec list_tasks(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_tasks_response(), any()}
@@ -8661,7 +8837,14 @@ defmodule AWS.Deadline do
   @doc """
   Lists workers.
   """
-  @spec list_workers(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_workers(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_workers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8702,7 +8885,13 @@ defmodule AWS.Deadline do
   @doc """
   Adds a metered product.
   """
-  @spec put_metered_product(map(), String.t(), String.t(), put_metered_product_request(), list()) ::
+  @spec put_metered_product(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          put_metered_product_request(),
+          list()
+        ) ::
           {:ok, put_metered_product_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8739,7 +8928,7 @@ defmodule AWS.Deadline do
   @doc """
   Searches for jobs.
   """
-  @spec search_jobs(map(), String.t(), search_jobs_request(), list()) ::
+  @spec search_jobs(map(), String.t() | Atom.t(), search_jobs_request(), list()) ::
           {:ok, search_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8768,7 +8957,7 @@ defmodule AWS.Deadline do
   @doc """
   Searches for steps.
   """
-  @spec search_steps(map(), String.t(), search_steps_request(), list()) ::
+  @spec search_steps(map(), String.t() | Atom.t(), search_steps_request(), list()) ::
           {:ok, search_steps_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8797,7 +8986,7 @@ defmodule AWS.Deadline do
   @doc """
   Searches for tasks.
   """
-  @spec search_tasks(map(), String.t(), search_tasks_request(), list()) ::
+  @spec search_tasks(map(), String.t() | Atom.t(), search_tasks_request(), list()) ::
           {:ok, search_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8826,7 +9015,7 @@ defmodule AWS.Deadline do
   @doc """
   Searches for workers.
   """
-  @spec search_workers(map(), String.t(), search_workers_request(), list()) ::
+  @spec search_workers(map(), String.t() | Atom.t(), search_workers_request(), list()) ::
           {:ok, search_workers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8864,7 +9053,7 @@ defmodule AWS.Deadline do
   """
   @spec start_sessions_statistics_aggregation(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           start_sessions_statistics_aggregation_request(),
           list()
         ) ::
@@ -8896,7 +9085,7 @@ defmodule AWS.Deadline do
   @doc """
   Tags a resource using the resource's ARN and desired tags.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8925,7 +9114,7 @@ defmodule AWS.Deadline do
   @doc """
   Removes a tag from a resource using the resource's ARN and tag to remove.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8959,7 +9148,13 @@ defmodule AWS.Deadline do
   @doc """
   Updates a budget that sets spending thresholds for rendering activity.
   """
-  @spec update_budget(map(), String.t(), String.t(), update_budget_request(), list()) ::
+  @spec update_budget(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_budget_request(),
+          list()
+        ) ::
           {:ok, update_budget_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8995,7 +9190,7 @@ defmodule AWS.Deadline do
   @doc """
   Updates a farm.
   """
-  @spec update_farm(map(), String.t(), update_farm_request(), list()) ::
+  @spec update_farm(map(), String.t() | Atom.t(), update_farm_request(), list()) ::
           {:ok, update_farm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9024,7 +9219,13 @@ defmodule AWS.Deadline do
   @doc """
   Updates a fleet.
   """
-  @spec update_fleet(map(), String.t(), String.t(), update_fleet_request(), list()) ::
+  @spec update_fleet(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_fleet_request(),
+          list()
+        ) ::
           {:ok, update_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9066,7 +9267,14 @@ defmodule AWS.Deadline do
   An archived jobs and its steps and tasks are deleted after 120 days. The job
   can't be recovered.
   """
-  @spec update_job(map(), String.t(), String.t(), String.t(), update_job_request(), list()) ::
+  @spec update_job(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_job_request(),
+          list()
+        ) ::
           {:ok, update_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9102,7 +9310,13 @@ defmodule AWS.Deadline do
   @doc """
   Updates the properties of the specified limit.
   """
-  @spec update_limit(map(), String.t(), String.t(), update_limit_request(), list()) ::
+  @spec update_limit(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_limit_request(),
+          list()
+        ) ::
           {:ok, update_limit_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9135,7 +9349,7 @@ defmodule AWS.Deadline do
 
   You can modify one or all of the settings when you call `UpdateMonitor`.
   """
-  @spec update_monitor(map(), String.t(), update_monitor_request(), list()) ::
+  @spec update_monitor(map(), String.t() | Atom.t(), update_monitor_request(), list()) ::
           {:ok, update_monitor_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9164,7 +9378,13 @@ defmodule AWS.Deadline do
   @doc """
   Updates a queue.
   """
-  @spec update_queue(map(), String.t(), String.t(), update_queue_request(), list()) ::
+  @spec update_queue(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_queue_request(),
+          list()
+        ) ::
           {:ok, update_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9202,9 +9422,9 @@ defmodule AWS.Deadline do
   """
   @spec update_queue_environment(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_queue_environment_request(),
           list()
         ) ::
@@ -9252,9 +9472,9 @@ defmodule AWS.Deadline do
   """
   @spec update_queue_fleet_association(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_queue_fleet_association_request(),
           list()
         ) ::
@@ -9300,9 +9520,9 @@ defmodule AWS.Deadline do
   """
   @spec update_queue_limit_association(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_queue_limit_association_request(),
           list()
         ) ::
@@ -9345,10 +9565,10 @@ defmodule AWS.Deadline do
   """
   @spec update_session(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_session_request(),
           list()
         ) ::
@@ -9397,10 +9617,10 @@ defmodule AWS.Deadline do
   """
   @spec update_step(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_step_request(),
           list()
         ) ::
@@ -9441,8 +9661,8 @@ defmodule AWS.Deadline do
   """
   @spec update_storage_profile(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_storage_profile_request(),
           list()
         ) ::
@@ -9489,11 +9709,11 @@ defmodule AWS.Deadline do
   """
   @spec update_task(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_task_request(),
           list()
         ) ::
@@ -9541,7 +9761,14 @@ defmodule AWS.Deadline do
   @doc """
   Updates a worker.
   """
-  @spec update_worker(map(), String.t(), String.t(), String.t(), update_worker_request(), list()) ::
+  @spec update_worker(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_worker_request(),
+          list()
+        ) ::
           {:ok, update_worker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9574,9 +9801,9 @@ defmodule AWS.Deadline do
   """
   @spec update_worker_schedule(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_worker_schedule_request(),
           list()
         ) ::

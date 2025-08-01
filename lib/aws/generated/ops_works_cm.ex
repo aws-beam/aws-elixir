@@ -122,7 +122,7 @@ defmodule AWS.OpsWorksCM do
       }
       
   """
-  @type describe_node_association_status_response() :: %{String.t() => any()}
+  @type describe_node_association_status_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -130,34 +130,34 @@ defmodule AWS.OpsWorksCM do
       
       export_server_engine_attribute_response() :: %{
         "EngineAttribute" => engine_attribute(),
-        "ServerName" => String.t()
+        "ServerName" => String.t() | Atom.t()
       }
       
   """
-  @type export_server_engine_attribute_response() :: %{String.t() => any()}
+  @type export_server_engine_attribute_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_node_response() :: %{
-        "NodeAssociationStatusToken" => String.t()
+        "NodeAssociationStatusToken" => String.t() | Atom.t()
       }
       
   """
-  @type associate_node_response() :: %{String.t() => any()}
+  @type associate_node_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
+        required("ResourceArn") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -168,7 +168,7 @@ defmodule AWS.OpsWorksCM do
       }
       
   """
-  @type update_server_response() :: %{String.t() => any()}
+  @type update_server_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -177,13 +177,13 @@ defmodule AWS.OpsWorksCM do
       update_server_request() :: %{
         optional("BackupRetentionCount") => integer(),
         optional("DisableAutomatedBackup") => boolean(),
-        optional("PreferredBackupWindow") => String.t(),
-        optional("PreferredMaintenanceWindow") => String.t(),
-        required("ServerName") => String.t()
+        optional("PreferredBackupWindow") => String.t() | Atom.t(),
+        optional("PreferredMaintenanceWindow") => String.t() | Atom.t(),
+        required("ServerName") => String.t() | Atom.t()
       }
       
   """
-  @type update_server_request() :: %{String.t() => any()}
+  @type update_server_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -191,11 +191,11 @@ defmodule AWS.OpsWorksCM do
       
       start_maintenance_request() :: %{
         optional("EngineAttributes") => list(engine_attribute()),
-        required("ServerName") => String.t()
+        required("ServerName") => String.t() | Atom.t()
       }
       
   """
-  @type start_maintenance_request() :: %{String.t() => any()}
+  @type start_maintenance_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -211,13 +211,13 @@ defmodule AWS.OpsWorksCM do
   ## Example:
       
       update_server_engine_attributes_request() :: %{
-        optional("AttributeValue") => String.t(),
-        required("AttributeName") => String.t(),
-        required("ServerName") => String.t()
+        optional("AttributeValue") => String.t() | Atom.t(),
+        required("AttributeName") => String.t() | Atom.t(),
+        required("ServerName") => String.t() | Atom.t()
       }
       
   """
-  @type update_server_engine_attributes_request() :: %{String.t() => any()}
+  @type update_server_engine_attributes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -228,30 +228,30 @@ defmodule AWS.OpsWorksCM do
       }
       
   """
-  @type restore_server_response() :: %{String.t() => any()}
+  @type restore_server_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceArn") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_state_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_state_exception() :: %{String.t() => any()}
+  @type invalid_state_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -259,93 +259,93 @@ defmodule AWS.OpsWorksCM do
       
       create_server_request() :: %{
         optional("AssociatePublicIpAddress") => boolean(),
-        optional("BackupId") => String.t(),
+        optional("BackupId") => String.t() | Atom.t(),
         optional("BackupRetentionCount") => integer(),
-        optional("CustomCertificate") => String.t(),
-        optional("CustomDomain") => String.t(),
-        optional("CustomPrivateKey") => String.t(),
+        optional("CustomCertificate") => String.t() | Atom.t(),
+        optional("CustomDomain") => String.t() | Atom.t(),
+        optional("CustomPrivateKey") => String.t() | Atom.t(),
         optional("DisableAutomatedBackup") => boolean(),
         optional("EngineAttributes") => list(engine_attribute()),
-        optional("EngineModel") => String.t(),
-        optional("EngineVersion") => String.t(),
-        optional("KeyPair") => String.t(),
-        optional("PreferredBackupWindow") => String.t(),
-        optional("PreferredMaintenanceWindow") => String.t(),
-        optional("SecurityGroupIds") => list(String.t()),
-        optional("SubnetIds") => list(String.t()),
+        optional("EngineModel") => String.t() | Atom.t(),
+        optional("EngineVersion") => String.t() | Atom.t(),
+        optional("KeyPair") => String.t() | Atom.t(),
+        optional("PreferredBackupWindow") => String.t() | Atom.t(),
+        optional("PreferredMaintenanceWindow") => String.t() | Atom.t(),
+        optional("SecurityGroupIds") => list(String.t() | Atom.t()),
+        optional("SubnetIds") => list(String.t() | Atom.t()),
         optional("Tags") => list(tag()),
-        required("Engine") => String.t(),
-        required("InstanceProfileArn") => String.t(),
-        required("InstanceType") => String.t(),
-        required("ServerName") => String.t(),
-        required("ServiceRoleArn") => String.t()
+        required("Engine") => String.t() | Atom.t(),
+        required("InstanceProfileArn") => String.t() | Atom.t(),
+        required("InstanceType") => String.t() | Atom.t(),
+        required("ServerName") => String.t() | Atom.t(),
+        required("ServiceRoleArn") => String.t() | Atom.t()
       }
       
   """
-  @type create_server_request() :: %{String.t() => any()}
+  @type create_server_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       restore_server_request() :: %{
-        optional("InstanceType") => String.t(),
-        optional("KeyPair") => String.t(),
-        required("BackupId") => String.t(),
-        required("ServerName") => String.t()
+        optional("InstanceType") => String.t() | Atom.t(),
+        optional("KeyPair") => String.t() | Atom.t(),
+        required("BackupId") => String.t() | Atom.t(),
+        required("ServerName") => String.t() | Atom.t()
       }
       
   """
-  @type restore_server_request() :: %{String.t() => any()}
+  @type restore_server_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       engine_attribute() :: %{
-        "Name" => String.t(),
-        "Value" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type engine_attribute() :: %{String.t() => any()}
+  @type engine_attribute() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_backups_request() :: %{
-        optional("BackupId") => String.t(),
+        optional("BackupId") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ServerName") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("ServerName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_backups_request() :: %{String.t() => any()}
+  @type describe_backups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -356,18 +356,18 @@ defmodule AWS.OpsWorksCM do
       }
       
   """
-  @type create_server_response() :: %{String.t() => any()}
+  @type create_server_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_next_token_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_next_token_exception() :: %{String.t() => any()}
+  @type invalid_next_token_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -383,24 +383,24 @@ defmodule AWS.OpsWorksCM do
   ## Example:
       
       describe_node_association_status_request() :: %{
-        required("NodeAssociationStatusToken") => String.t(),
-        required("ServerName") => String.t()
+        required("NodeAssociationStatusToken") => String.t() | Atom.t(),
+        required("ServerName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_node_association_status_request() :: %{String.t() => any()}
+  @type describe_node_association_status_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Tags" => list(tag())
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -411,7 +411,7 @@ defmodule AWS.OpsWorksCM do
       }
       
   """
-  @type describe_account_attributes_response() :: %{String.t() => any()}
+  @type describe_account_attributes_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -419,46 +419,46 @@ defmodule AWS.OpsWorksCM do
       
       export_server_engine_attribute_request() :: %{
         optional("InputAttributes") => list(engine_attribute()),
-        required("ExportAttributeName") => String.t(),
-        required("ServerName") => String.t()
+        required("ExportAttributeName") => String.t() | Atom.t(),
+        required("ServerName") => String.t() | Atom.t()
       }
       
   """
-  @type export_server_engine_attribute_request() :: %{String.t() => any()}
+  @type export_server_engine_attribute_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       backup() :: %{
-        "BackupArn" => String.t(),
-        "BackupId" => String.t(),
+        "BackupArn" => String.t() | Atom.t(),
+        "BackupId" => String.t() | Atom.t(),
         "BackupType" => list(any()),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
-        "Engine" => String.t(),
-        "EngineModel" => String.t(),
-        "EngineVersion" => String.t(),
-        "InstanceProfileArn" => String.t(),
-        "InstanceType" => String.t(),
-        "KeyPair" => String.t(),
-        "PreferredBackupWindow" => String.t(),
-        "PreferredMaintenanceWindow" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "Engine" => String.t() | Atom.t(),
+        "EngineModel" => String.t() | Atom.t(),
+        "EngineVersion" => String.t() | Atom.t(),
+        "InstanceProfileArn" => String.t() | Atom.t(),
+        "InstanceType" => String.t() | Atom.t(),
+        "KeyPair" => String.t() | Atom.t(),
+        "PreferredBackupWindow" => String.t() | Atom.t(),
+        "PreferredMaintenanceWindow" => String.t() | Atom.t(),
         "S3DataSize" => integer(),
-        "S3DataUrl" => String.t(),
-        "S3LogUrl" => String.t(),
-        "SecurityGroupIds" => list(String.t()),
-        "ServerName" => String.t(),
-        "ServiceRoleArn" => String.t(),
+        "S3DataUrl" => String.t() | Atom.t(),
+        "S3LogUrl" => String.t() | Atom.t(),
+        "SecurityGroupIds" => list(String.t() | Atom.t()),
+        "ServerName" => String.t() | Atom.t(),
+        "ServiceRoleArn" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "StatusDescription" => String.t(),
-        "SubnetIds" => list(String.t()),
-        "ToolsVersion" => String.t(),
-        "UserArn" => String.t()
+        "StatusDescription" => String.t() | Atom.t(),
+        "SubnetIds" => list(String.t() | Atom.t()),
+        "ToolsVersion" => String.t() | Atom.t(),
+        "UserArn" => String.t() | Atom.t()
       }
       
   """
-  @type backup() :: %{String.t() => any()}
+  @type backup() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -466,12 +466,12 @@ defmodule AWS.OpsWorksCM do
       
       describe_events_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ServerName") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ServerName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_events_request() :: %{String.t() => any()}
+  @type describe_events_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -479,12 +479,12 @@ defmodule AWS.OpsWorksCM do
       
       disassociate_node_request() :: %{
         optional("EngineAttributes") => list(engine_attribute()),
-        required("NodeName") => String.t(),
-        required("ServerName") => String.t()
+        required("NodeName") => String.t() | Atom.t(),
+        required("ServerName") => String.t() | Atom.t()
       }
       
   """
-  @type disassociate_node_request() :: %{String.t() => any()}
+  @type disassociate_node_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -504,7 +504,7 @@ defmodule AWS.OpsWorksCM do
       }
       
   """
-  @type update_server_engine_attributes_response() :: %{String.t() => any()}
+  @type update_server_engine_attributes_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -522,32 +522,32 @@ defmodule AWS.OpsWorksCM do
       server() :: %{
         "AssociatePublicIpAddress" => boolean(),
         "BackupRetentionCount" => integer(),
-        "CloudFormationStackArn" => String.t(),
+        "CloudFormationStackArn" => String.t() | Atom.t(),
         "CreatedAt" => non_neg_integer(),
-        "CustomDomain" => String.t(),
+        "CustomDomain" => String.t() | Atom.t(),
         "DisableAutomatedBackup" => boolean(),
-        "Endpoint" => String.t(),
-        "Engine" => String.t(),
+        "Endpoint" => String.t() | Atom.t(),
+        "Engine" => String.t() | Atom.t(),
         "EngineAttributes" => list(engine_attribute()),
-        "EngineModel" => String.t(),
-        "EngineVersion" => String.t(),
-        "InstanceProfileArn" => String.t(),
-        "InstanceType" => String.t(),
-        "KeyPair" => String.t(),
+        "EngineModel" => String.t() | Atom.t(),
+        "EngineVersion" => String.t() | Atom.t(),
+        "InstanceProfileArn" => String.t() | Atom.t(),
+        "InstanceType" => String.t() | Atom.t(),
+        "KeyPair" => String.t() | Atom.t(),
         "MaintenanceStatus" => list(any()),
-        "PreferredBackupWindow" => String.t(),
-        "PreferredMaintenanceWindow" => String.t(),
-        "SecurityGroupIds" => list(String.t()),
-        "ServerArn" => String.t(),
-        "ServerName" => String.t(),
-        "ServiceRoleArn" => String.t(),
+        "PreferredBackupWindow" => String.t() | Atom.t(),
+        "PreferredMaintenanceWindow" => String.t() | Atom.t(),
+        "SecurityGroupIds" => list(String.t() | Atom.t()),
+        "ServerArn" => String.t() | Atom.t(),
+        "ServerName" => String.t() | Atom.t(),
+        "ServiceRoleArn" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "StatusReason" => String.t(),
-        "SubnetIds" => list(String.t())
+        "StatusReason" => String.t() | Atom.t(),
+        "SubnetIds" => list(String.t() | Atom.t())
       }
       
   """
-  @type server() :: %{String.t() => any()}
+  @type server() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -555,12 +555,12 @@ defmodule AWS.OpsWorksCM do
       
       describe_servers_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ServerName") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("ServerName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_servers_request() :: %{String.t() => any()}
+  @type describe_servers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -568,35 +568,35 @@ defmodule AWS.OpsWorksCM do
       
       associate_node_request() :: %{
         required("EngineAttributes") => list(engine_attribute()),
-        required("NodeName") => String.t(),
-        required("ServerName") => String.t()
+        required("NodeName") => String.t() | Atom.t(),
+        required("ServerName") => String.t() | Atom.t()
       }
       
   """
-  @type associate_node_request() :: %{String.t() => any()}
+  @type associate_node_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_servers_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Servers" => list(server())
       }
       
   """
-  @type describe_servers_response() :: %{String.t() => any()}
+  @type describe_servers_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -604,12 +604,12 @@ defmodule AWS.OpsWorksCM do
       
       list_tags_for_resource_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ResourceArn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -620,7 +620,7 @@ defmodule AWS.OpsWorksCM do
       }
       
   """
-  @type start_maintenance_response() :: %{String.t() => any()}
+  @type start_maintenance_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -628,23 +628,23 @@ defmodule AWS.OpsWorksCM do
       
       account_attribute() :: %{
         "Maximum" => integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Used" => integer()
       }
       
   """
-  @type account_attribute() :: %{String.t() => any()}
+  @type account_attribute() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -652,57 +652,57 @@ defmodule AWS.OpsWorksCM do
       
       describe_backups_response() :: %{
         "Backups" => list(backup()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_backups_response() :: %{String.t() => any()}
+  @type describe_backups_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_backup_request() :: %{
-        required("BackupId") => String.t()
+        required("BackupId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_backup_request() :: %{String.t() => any()}
+  @type delete_backup_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_backup_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("ServerName") => String.t()
+        required("ServerName") => String.t() | Atom.t()
       }
       
   """
-  @type create_backup_request() :: %{String.t() => any()}
+  @type create_backup_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_node_response() :: %{
-        "NodeAssociationStatusToken" => String.t()
+        "NodeAssociationStatusToken" => String.t() | Atom.t()
       }
       
   """
-  @type disassociate_node_response() :: %{String.t() => any()}
+  @type disassociate_node_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_already_exists_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_already_exists_exception() :: %{String.t() => any()}
+  @type resource_already_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -710,13 +710,13 @@ defmodule AWS.OpsWorksCM do
       
       server_event() :: %{
         "CreatedAt" => non_neg_integer(),
-        "LogUrl" => String.t(),
-        "Message" => String.t(),
-        "ServerName" => String.t()
+        "LogUrl" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
+        "ServerName" => String.t() | Atom.t()
       }
       
   """
-  @type server_event() :: %{String.t() => any()}
+  @type server_event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -736,30 +736,30 @@ defmodule AWS.OpsWorksCM do
       }
       
   """
-  @type create_backup_response() :: %{String.t() => any()}
+  @type create_backup_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_events_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "ServerEvents" => list(server_event())
       }
       
   """
-  @type describe_events_response() :: %{String.t() => any()}
+  @type describe_events_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_server_request() :: %{
-        required("ServerName") => String.t()
+        required("ServerName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_server_request() :: %{String.t() => any()}
+  @type delete_server_request() :: %{String.t() | Atom.t() => any()}
 
   @type associate_node_errors() ::
           validation_exception() | resource_not_found_exception() | invalid_state_exception()

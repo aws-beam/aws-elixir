@@ -38,38 +38,38 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   ## Example:
 
       access_forbidden() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type access_forbidden() :: %{String.t() => any()}
+  @type access_forbidden() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_get_record_error() :: %{
-        "ErrorCode" => String.t(),
-        "ErrorMessage" => String.t(),
-        "FeatureGroupName" => String.t(),
-        "RecordIdentifierValueAsString" => String.t()
+        "ErrorCode" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | Atom.t(),
+        "FeatureGroupName" => String.t() | Atom.t(),
+        "RecordIdentifierValueAsString" => String.t() | Atom.t()
       }
 
   """
-  @type batch_get_record_error() :: %{String.t() => any()}
+  @type batch_get_record_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_get_record_identifier() :: %{
-        "FeatureGroupName" => String.t(),
-        "FeatureNames" => list(String.t()),
-        "RecordIdentifiersValueAsString" => list(String.t())
+        "FeatureGroupName" => String.t() | Atom.t(),
+        "FeatureNames" => list(String.t() | Atom.t()),
+        "RecordIdentifiersValueAsString" => list(String.t() | Atom.t())
       }
 
   """
-  @type batch_get_record_identifier() :: %{String.t() => any()}
+  @type batch_get_record_identifier() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -81,7 +81,7 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
       }
 
   """
-  @type batch_get_record_request() :: %{String.t() => any()}
+  @type batch_get_record_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -94,21 +94,21 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
       }
 
   """
-  @type batch_get_record_response() :: %{String.t() => any()}
+  @type batch_get_record_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_get_record_result_detail() :: %{
-        "ExpiresAt" => String.t(),
-        "FeatureGroupName" => String.t(),
+        "ExpiresAt" => String.t() | Atom.t(),
+        "FeatureGroupName" => String.t() | Atom.t(),
         "Record" => list(feature_value()),
-        "RecordIdentifierValueAsString" => String.t()
+        "RecordIdentifierValueAsString" => String.t() | Atom.t()
       }
 
   """
-  @type batch_get_record_result_detail() :: %{String.t() => any()}
+  @type batch_get_record_result_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -117,25 +117,25 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
       delete_record_request() :: %{
         optional("DeletionMode") => list(any()),
         optional("TargetStores") => list(list(any())()),
-        required("EventTime") => String.t(),
-        required("RecordIdentifierValueAsString") => String.t()
+        required("EventTime") => String.t() | Atom.t(),
+        required("RecordIdentifierValueAsString") => String.t() | Atom.t()
       }
 
   """
-  @type delete_record_request() :: %{String.t() => any()}
+  @type delete_record_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       feature_value() :: %{
-        "FeatureName" => String.t(),
-        "ValueAsString" => String.t(),
-        "ValueAsStringList" => list(String.t())
+        "FeatureName" => String.t() | Atom.t(),
+        "ValueAsString" => String.t() | Atom.t(),
+        "ValueAsStringList" => list(String.t() | Atom.t())
       }
 
   """
-  @type feature_value() :: %{String.t() => any()}
+  @type feature_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -143,35 +143,35 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
 
       get_record_request() :: %{
         optional("ExpirationTimeResponse") => list(any()),
-        optional("FeatureNames") => list(String.t()),
-        required("RecordIdentifierValueAsString") => String.t()
+        optional("FeatureNames") => list(String.t() | Atom.t()),
+        required("RecordIdentifierValueAsString") => String.t() | Atom.t()
       }
 
   """
-  @type get_record_request() :: %{String.t() => any()}
+  @type get_record_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_record_response() :: %{
-        "ExpiresAt" => String.t(),
+        "ExpiresAt" => String.t() | Atom.t(),
         "Record" => list(feature_value())
       }
 
   """
-  @type get_record_response() :: %{String.t() => any()}
+  @type get_record_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_failure() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_failure() :: %{String.t() => any()}
+  @type internal_failure() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -184,29 +184,29 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
       }
 
   """
-  @type put_record_request() :: %{String.t() => any()}
+  @type put_record_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found() :: %{String.t() => any()}
+  @type resource_not_found() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_unavailable() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type service_unavailable() :: %{String.t() => any()}
+  @type service_unavailable() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -218,18 +218,18 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
       }
 
   """
-  @type ttl_duration() :: %{String.t() => any()}
+  @type ttl_duration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_error() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type validation_error() :: %{String.t() => any()}
+  @type validation_error() :: %{String.t() | Atom.t() => any()}
 
   @type batch_get_record_errors() ::
           validation_error() | service_unavailable() | internal_failure() | access_forbidden()
@@ -336,7 +336,7 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   hard delete a record from the `OfflineStore` with the Iceberg table format
   enabled, see [Delete records from the offline store](https://docs.aws.amazon.com/sagemaker/latest/dg/feature-store-delete-records-offline-store.html#feature-store-delete-records-offline-store).
   """
-  @spec delete_record(map(), String.t(), delete_record_request(), list()) ::
+  @spec delete_record(map(), String.t() | Atom.t(), delete_record_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -377,7 +377,14 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   latest records stored in the `OnlineStore` can be retrieved. If no Record with
   `RecordIdentifierValue` is found, then an empty result is returned.
   """
-  @spec get_record(map(), String.t(), String.t() | nil, String.t() | nil, String.t(), list()) ::
+  @spec get_record(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_record_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -442,7 +449,7 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   group level `TtlDuration`. A record level `TtlDuration` supersedes
   the group level `TtlDuration`.
   """
-  @spec put_record(map(), String.t(), put_record_request(), list()) ::
+  @spec put_record(map(), String.t() | Atom.t(), put_record_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

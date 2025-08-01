@@ -43,79 +43,79 @@ defmodule AWS.SSMGuiConnect do
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       connection_recording_preferences() :: %{
-        "KMSKeyArn" => [String.t()],
+        "KMSKeyArn" => [String.t() | Atom.t()],
         "RecordingDestinations" => recording_destinations()
       }
 
   """
-  @type connection_recording_preferences() :: %{String.t() => any()}
+  @type connection_recording_preferences() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_connection_recording_preferences_request() :: %{
-        optional("ClientToken") => String.t()
+        optional("ClientToken") => String.t() | Atom.t()
       }
 
   """
-  @type delete_connection_recording_preferences_request() :: %{String.t() => any()}
+  @type delete_connection_recording_preferences_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_connection_recording_preferences_response() :: %{
-        "ClientToken" => String.t()
+        "ClientToken" => String.t() | Atom.t()
       }
 
   """
-  @type delete_connection_recording_preferences_response() :: %{String.t() => any()}
+  @type delete_connection_recording_preferences_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_connection_recording_preferences_response() :: %{
-        "ClientToken" => String.t(),
+        "ClientToken" => String.t() | Atom.t(),
         "ConnectionRecordingPreferences" => connection_recording_preferences()
       }
 
   """
-  @type get_connection_recording_preferences_response() :: %{String.t() => any()}
+  @type get_connection_recording_preferences_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -126,87 +126,87 @@ defmodule AWS.SSMGuiConnect do
       }
 
   """
-  @type recording_destinations() :: %{String.t() => any()}
+  @type recording_destinations() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_bucket() :: %{
-        "BucketName" => String.t(),
-        "BucketOwner" => String.t()
+        "BucketName" => String.t() | Atom.t(),
+        "BucketOwner" => String.t() | Atom.t()
       }
 
   """
-  @type s3_bucket() :: %{String.t() => any()}
+  @type s3_bucket() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_connection_recording_preferences_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
         required("ConnectionRecordingPreferences") => connection_recording_preferences()
       }
 
   """
-  @type update_connection_recording_preferences_request() :: %{String.t() => any()}
+  @type update_connection_recording_preferences_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_connection_recording_preferences_response() :: %{
-        "ClientToken" => String.t(),
+        "ClientToken" => String.t() | Atom.t(),
         "ConnectionRecordingPreferences" => connection_recording_preferences()
       }
 
   """
-  @type update_connection_recording_preferences_response() :: %{String.t() => any()}
+  @type update_connection_recording_preferences_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @type delete_connection_recording_preferences_errors() ::
           validation_exception()

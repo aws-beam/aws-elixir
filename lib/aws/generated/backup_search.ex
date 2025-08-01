@@ -31,7 +31,7 @@ defmodule AWS.BackupSearch do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -44,7 +44,7 @@ defmodule AWS.BackupSearch do
       }
 
   """
-  @type current_search_progress() :: %{String.t() => any()}
+  @type current_search_progress() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -67,31 +67,31 @@ defmodule AWS.BackupSearch do
       }
 
   """
-  @type ebs_item_filter() :: %{String.t() => any()}
+  @type ebs_item_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_search_job_backups_output() :: %{
-        "NextToken" => [String.t()],
+        "NextToken" => [String.t() | Atom.t()],
         "Results" => list(search_job_backups_result())
       }
 
   """
-  @type list_search_job_backups_output() :: %{String.t() => any()}
+  @type list_search_job_backups_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_search_job_results_output() :: %{
-        "NextToken" => [String.t()],
+        "NextToken" => [String.t() | Atom.t()],
         "Results" => list(list())
       }
 
   """
-  @type list_search_job_results_output() :: %{String.t() => any()}
+  @type list_search_job_results_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -100,11 +100,11 @@ defmodule AWS.BackupSearch do
       list_search_jobs_input() :: %{
         optional("ByStatus") => list(any()),
         optional("MaxResults") => [integer()],
-        optional("NextToken") => [String.t()]
+        optional("NextToken") => [String.t() | Atom.t()]
       }
 
   """
-  @type list_search_jobs_input() :: %{String.t() => any()}
+  @type list_search_jobs_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -112,12 +112,12 @@ defmodule AWS.BackupSearch do
 
       start_search_job_output() :: %{
         "CreationTime" => [non_neg_integer()],
-        "SearchJobArn" => String.t(),
-        "SearchJobIdentifier" => String.t()
+        "SearchJobArn" => String.t() | Atom.t(),
+        "SearchJobIdentifier" => String.t() | Atom.t()
       }
 
   """
-  @type start_search_job_output() :: %{String.t() => any()}
+  @type start_search_job_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -134,13 +134,13 @@ defmodule AWS.BackupSearch do
 
       list_search_result_export_jobs_input() :: %{
         optional("MaxResults") => [integer()],
-        optional("NextToken") => [String.t()],
-        optional("SearchJobIdentifier") => String.t(),
+        optional("NextToken") => [String.t() | Atom.t()],
+        optional("SearchJobIdentifier") => String.t() | Atom.t(),
         optional("Status") => list(any())
       }
 
   """
-  @type list_search_result_export_jobs_input() :: %{String.t() => any()}
+  @type list_search_result_export_jobs_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -161,30 +161,30 @@ defmodule AWS.BackupSearch do
       }
 
   """
-  @type search_scope_summary() :: %{String.t() => any()}
+  @type search_scope_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list([String.t()]())
+        required("TagKeys") => list([String.t() | Atom.t()]())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_search_jobs_output() :: %{
-        "NextToken" => [String.t()],
+        "NextToken" => [String.t() | Atom.t()],
         "SearchJobs" => list(search_job_summary())
       }
 
   """
-  @type list_search_jobs_output() :: %{String.t() => any()}
+  @type list_search_jobs_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -199,25 +199,25 @@ defmodule AWS.BackupSearch do
       }
 
   """
-  @type s3_item_filter() :: %{String.t() => any()}
+  @type s3_item_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_result_item() :: %{
-        "BackupResourceArn" => [String.t()],
-        "BackupVaultName" => [String.t()],
+        "BackupResourceArn" => [String.t() | Atom.t()],
+        "BackupVaultName" => [String.t() | Atom.t()],
         "CreationTime" => [non_neg_integer()],
-        "ETag" => [String.t()],
-        "ObjectKey" => String.t(),
+        "ETag" => [String.t() | Atom.t()],
+        "ObjectKey" => String.t() | Atom.t(),
         "ObjectSize" => [float()],
-        "SourceResourceArn" => [String.t()],
-        "VersionId" => [String.t()]
+        "SourceResourceArn" => [String.t() | Atom.t()],
+        "VersionId" => [String.t() | Atom.t()]
       }
 
   """
-  @type s3_result_item() :: %{String.t() => any()}
+  @type s3_result_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -229,7 +229,7 @@ defmodule AWS.BackupSearch do
       }
 
   """
-  @type backup_creation_time_filter() :: %{String.t() => any()}
+  @type backup_creation_time_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -241,7 +241,7 @@ defmodule AWS.BackupSearch do
       }
 
   """
-  @type time_condition() :: %{String.t() => any()}
+  @type time_condition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -251,45 +251,45 @@ defmodule AWS.BackupSearch do
         "CompletionTime" => [non_neg_integer()],
         "CreationTime" => [non_neg_integer()],
         "CurrentSearchProgress" => current_search_progress(),
-        "EncryptionKeyArn" => String.t(),
+        "EncryptionKeyArn" => String.t() | Atom.t(),
         "ItemFilters" => item_filters(),
-        "Name" => [String.t()],
-        "SearchJobArn" => String.t(),
-        "SearchJobIdentifier" => String.t(),
+        "Name" => [String.t() | Atom.t()],
+        "SearchJobArn" => String.t() | Atom.t(),
+        "SearchJobIdentifier" => String.t() | Atom.t(),
         "SearchScope" => search_scope(),
         "SearchScopeSummary" => search_scope_summary(),
         "Status" => list(any()),
-        "StatusMessage" => [String.t()]
+        "StatusMessage" => [String.t() | Atom.t()]
       }
 
   """
-  @type get_search_job_output() :: %{String.t() => any()}
+  @type get_search_job_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "resourceId" => [String.t() | Atom.t()],
+        "resourceType" => [String.t() | Atom.t()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "resourceId" => [String.t() | Atom.t()],
+        "resourceType" => [String.t() | Atom.t()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -307,16 +307,16 @@ defmodule AWS.BackupSearch do
       search_job_summary() :: %{
         "CompletionTime" => [non_neg_integer()],
         "CreationTime" => [non_neg_integer()],
-        "Name" => [String.t()],
-        "SearchJobArn" => String.t(),
-        "SearchJobIdentifier" => String.t(),
+        "Name" => [String.t() | Atom.t()],
+        "SearchJobArn" => String.t() | Atom.t(),
+        "SearchJobIdentifier" => String.t() | Atom.t(),
         "SearchScopeSummary" => search_scope_summary(),
         "Status" => list(any()),
-        "StatusMessage" => [String.t()]
+        "StatusMessage" => [String.t() | Atom.t()]
       }
 
   """
-  @type search_job_summary() :: %{String.t() => any()}
+  @type search_job_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -324,31 +324,31 @@ defmodule AWS.BackupSearch do
 
       search_job_backups_result() :: %{
         "BackupCreationTime" => [non_neg_integer()],
-        "BackupResourceArn" => [String.t()],
+        "BackupResourceArn" => [String.t() | Atom.t()],
         "IndexCreationTime" => [non_neg_integer()],
         "ResourceType" => list(any()),
-        "SourceResourceArn" => [String.t()],
+        "SourceResourceArn" => [String.t() | Atom.t()],
         "Status" => list(any()),
-        "StatusMessage" => [String.t()]
+        "StatusMessage" => [String.t() | Atom.t()]
       }
 
   """
-  @type search_job_backups_result() :: %{String.t() => any()}
+  @type search_job_backups_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t()],
-        "quotaCode" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()],
-        "serviceCode" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "quotaCode" => [String.t() | Atom.t()],
+        "resourceId" => [String.t() | Atom.t()],
+        "resourceType" => [String.t() | Atom.t()],
+        "serviceCode" => [String.t() | Atom.t()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -356,11 +356,11 @@ defmodule AWS.BackupSearch do
 
       list_search_job_results_input() :: %{
         optional("MaxResults") => [integer()],
-        optional("NextToken") => [String.t()]
+        optional("NextToken") => [String.t() | Atom.t()]
       }
 
   """
-  @type list_search_job_results_input() :: %{String.t() => any()}
+  @type list_search_job_results_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -368,11 +368,11 @@ defmodule AWS.BackupSearch do
 
       list_search_result_export_jobs_output() :: %{
         "ExportJobs" => list(export_job_summary()),
-        "NextToken" => [String.t()]
+        "NextToken" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_search_result_export_jobs_output() :: %{String.t() => any()}
+  @type list_search_result_export_jobs_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -383,7 +383,7 @@ defmodule AWS.BackupSearch do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -392,16 +392,16 @@ defmodule AWS.BackupSearch do
       get_search_result_export_job_output() :: %{
         "CompletionTime" => [non_neg_integer()],
         "CreationTime" => [non_neg_integer()],
-        "ExportJobArn" => String.t(),
-        "ExportJobIdentifier" => String.t(),
+        "ExportJobArn" => String.t() | Atom.t(),
+        "ExportJobIdentifier" => String.t() | Atom.t(),
         "ExportSpecification" => list(),
-        "SearchJobArn" => String.t(),
+        "SearchJobArn" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "StatusMessage" => [String.t()]
+        "StatusMessage" => [String.t() | Atom.t()]
       }
 
   """
-  @type get_search_result_export_job_output() :: %{String.t() => any()}
+  @type get_search_result_export_job_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -410,43 +410,43 @@ defmodule AWS.BackupSearch do
       export_job_summary() :: %{
         "CompletionTime" => [non_neg_integer()],
         "CreationTime" => [non_neg_integer()],
-        "ExportJobArn" => String.t(),
-        "ExportJobIdentifier" => String.t(),
-        "SearchJobArn" => String.t(),
+        "ExportJobArn" => String.t() | Atom.t(),
+        "ExportJobIdentifier" => String.t() | Atom.t(),
+        "SearchJobArn" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "StatusMessage" => [String.t()]
+        "StatusMessage" => [String.t() | Atom.t()]
       }
 
   """
-  @type export_job_summary() :: %{String.t() => any()}
+  @type export_job_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_search_job_input() :: %{
-        optional("ClientToken") => [String.t()],
-        optional("EncryptionKeyArn") => String.t(),
+        optional("ClientToken") => [String.t() | Atom.t()],
+        optional("EncryptionKeyArn") => String.t() | Atom.t(),
         optional("ItemFilters") => item_filters(),
-        optional("Name") => [String.t()],
+        optional("Name") => [String.t() | Atom.t()],
         optional("Tags") => map(),
         required("SearchScope") => search_scope()
       }
 
   """
-  @type start_search_job_input() :: %{String.t() => any()}
+  @type start_search_job_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t()],
+        "message" => [String.t() | Atom.t()],
         "retryAfterSeconds" => [integer()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -454,23 +454,23 @@ defmodule AWS.BackupSearch do
 
       string_condition() :: %{
         "Operator" => list(any()),
-        "Value" => [String.t()]
+        "Value" => [String.t() | Atom.t()]
       }
 
   """
-  @type string_condition() :: %{String.t() => any()}
+  @type string_condition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_export_specification() :: %{
-        "DestinationBucket" => [String.t()],
-        "DestinationPrefix" => [String.t()]
+        "DestinationBucket" => [String.t() | Atom.t()],
+        "DestinationPrefix" => [String.t() | Atom.t()]
       }
 
   """
-  @type s3_export_specification() :: %{String.t() => any()}
+  @type s3_export_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -478,34 +478,34 @@ defmodule AWS.BackupSearch do
 
       list_search_job_backups_input() :: %{
         optional("MaxResults") => [integer()],
-        optional("NextToken") => [String.t()]
+        optional("NextToken") => [String.t() | Atom.t()]
       }
 
   """
-  @type list_search_job_backups_input() :: %{String.t() => any()}
+  @type list_search_job_backups_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_search_result_export_job_output() :: %{
-        "ExportJobArn" => String.t(),
-        "ExportJobIdentifier" => String.t()
+        "ExportJobArn" => String.t() | Atom.t(),
+        "ExportJobIdentifier" => String.t() | Atom.t()
       }
 
   """
-  @type start_search_result_export_job_output() :: %{String.t() => any()}
+  @type start_search_result_export_job_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -521,11 +521,11 @@ defmodule AWS.BackupSearch do
   ## Example:
 
       validation_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -541,47 +541,47 @@ defmodule AWS.BackupSearch do
   ## Example:
 
       search_scope() :: %{
-        "BackupResourceArns" => list(String.t()),
+        "BackupResourceArns" => list(String.t() | Atom.t()),
         "BackupResourceCreationTime" => backup_creation_time_filter(),
         "BackupResourceTags" => map(),
         "BackupResourceTypes" => list(list(any())()),
-        "SourceResourceArns" => list([String.t()]())
+        "SourceResourceArns" => list([String.t() | Atom.t()]())
       }
 
   """
-  @type search_scope() :: %{String.t() => any()}
+  @type search_scope() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t()],
-        "quotaCode" => [String.t()],
+        "message" => [String.t() | Atom.t()],
+        "quotaCode" => [String.t() | Atom.t()],
         "retryAfterSeconds" => [integer()],
-        "serviceCode" => [String.t()]
+        "serviceCode" => [String.t() | Atom.t()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       ebs_result_item() :: %{
-        "BackupResourceArn" => [String.t()],
-        "BackupVaultName" => [String.t()],
+        "BackupResourceArn" => [String.t() | Atom.t()],
+        "BackupVaultName" => [String.t() | Atom.t()],
         "CreationTime" => [non_neg_integer()],
-        "FilePath" => String.t(),
+        "FilePath" => String.t() | Atom.t(),
         "FileSize" => [float()],
-        "FileSystemIdentifier" => [String.t()],
+        "FileSystemIdentifier" => [String.t() | Atom.t()],
         "LastModifiedTime" => [non_neg_integer()],
-        "SourceResourceArn" => [String.t()]
+        "SourceResourceArn" => [String.t() | Atom.t()]
       }
 
   """
-  @type ebs_result_item() :: %{String.t() => any()}
+  @type ebs_result_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -602,22 +602,22 @@ defmodule AWS.BackupSearch do
       }
 
   """
-  @type item_filters() :: %{String.t() => any()}
+  @type item_filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_search_result_export_job_input() :: %{
-        optional("ClientToken") => [String.t()],
-        optional("RoleArn") => String.t(),
+        optional("ClientToken") => [String.t() | Atom.t()],
+        optional("RoleArn") => String.t() | Atom.t(),
         optional("Tags") => map(),
         required("ExportSpecification") => list(),
-        required("SearchJobIdentifier") => String.t()
+        required("SearchJobIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type start_search_result_export_job_input() :: %{String.t() => any()}
+  @type start_search_result_export_job_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -629,7 +629,7 @@ defmodule AWS.BackupSearch do
       }
 
   """
-  @type long_condition() :: %{String.t() => any()}
+  @type long_condition() :: %{String.t() | Atom.t() => any()}
 
   @type get_search_job_errors() :: resource_not_found_exception()
 
@@ -677,7 +677,7 @@ defmodule AWS.BackupSearch do
   This operation retrieves metadata of a search job,
   including its progress.
   """
-  @spec get_search_job(map(), String.t(), list()) ::
+  @spec get_search_job(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_search_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -702,7 +702,7 @@ defmodule AWS.BackupSearch do
   An export job allows you to retain results of a search
   beyond the search job's scheduled retention of 7 days.
   """
-  @spec get_search_result_export_job(map(), String.t(), list()) ::
+  @spec get_search_result_export_job(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_search_result_export_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -734,7 +734,13 @@ defmodule AWS.BackupSearch do
   If the index has any other status, its status will be
   displayed along with a status message.
   """
-  @spec list_search_job_backups(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_search_job_backups(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_search_job_backups_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -772,7 +778,13 @@ defmodule AWS.BackupSearch do
   @doc """
   This operation returns a list of a specified search job.
   """
-  @spec list_search_job_results(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_search_job_results(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_search_job_results_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -811,7 +823,13 @@ defmodule AWS.BackupSearch do
   This operation returns a list of search jobs belonging
   to an account.
   """
-  @spec list_search_jobs(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_search_jobs(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_search_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -858,10 +876,10 @@ defmodule AWS.BackupSearch do
   """
   @spec list_search_result_export_jobs(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_search_result_export_jobs_output(), any()}
@@ -916,7 +934,7 @@ defmodule AWS.BackupSearch do
   @doc """
   This operation returns the tags for a resource type.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1001,7 +1019,7 @@ defmodule AWS.BackupSearch do
   Only a search job with a status of `RUNNING`
   can be stopped.
   """
-  @spec stop_search_job(map(), String.t(), stop_search_job_input(), list()) ::
+  @spec stop_search_job(map(), String.t() | Atom.t(), stop_search_job_input(), list()) ::
           {:ok, stop_search_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1030,7 +1048,7 @@ defmodule AWS.BackupSearch do
   @doc """
   This operation puts tags on the resource you indicate.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1059,7 +1077,7 @@ defmodule AWS.BackupSearch do
   @doc """
   This operation removes tags from the specified resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

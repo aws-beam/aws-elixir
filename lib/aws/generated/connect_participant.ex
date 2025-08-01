@@ -37,38 +37,38 @@ defmodule AWS.ConnectParticipant do
   ## Example:
 
       cancel_participant_authentication_request() :: %{
-        required("ConnectionToken") => String.t(),
-        required("SessionId") => String.t()
+        required("ConnectionToken") => String.t() | Atom.t(),
+        required("SessionId") => String.t() | Atom.t()
       }
 
   """
-  @type cancel_participant_authentication_request() :: %{String.t() => any()}
+  @type cancel_participant_authentication_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       view() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "Content" => view_content(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "Version" => integer()
       }
 
   """
-  @type view() :: %{String.t() => any()}
+  @type view() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_authentication_url_response() :: %{
-        "AuthenticationUrl" => String.t()
+        "AuthenticationUrl" => String.t() | Atom.t()
       }
 
   """
-  @type get_authentication_url_response() :: %{String.t() => any()}
+  @type get_authentication_url_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -84,65 +84,65 @@ defmodule AWS.ConnectParticipant do
   ## Example:
 
       receipt() :: %{
-        "DeliveredTimestamp" => String.t(),
-        "ReadTimestamp" => String.t(),
-        "RecipientParticipantId" => String.t()
+        "DeliveredTimestamp" => String.t() | Atom.t(),
+        "ReadTimestamp" => String.t() | Atom.t(),
+        "RecipientParticipantId" => String.t() | Atom.t()
       }
 
   """
-  @type receipt() :: %{String.t() => any()}
+  @type receipt() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_position() :: %{
-        "AbsoluteTime" => String.t(),
-        "Id" => String.t(),
+        "AbsoluteTime" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "MostRecent" => integer()
       }
 
   """
-  @type start_position() :: %{String.t() => any()}
+  @type start_position() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       websocket() :: %{
-        "ConnectionExpiry" => String.t(),
-        "Url" => String.t()
+        "ConnectionExpiry" => String.t() | Atom.t(),
+        "Url" => String.t() | Atom.t()
       }
 
   """
-  @type websocket() :: %{String.t() => any()}
+  @type websocket() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       complete_attachment_upload_request() :: %{
-        required("AttachmentIds") => list(String.t()),
-        required("ClientToken") => String.t(),
-        required("ConnectionToken") => String.t()
+        required("AttachmentIds") => list(String.t() | Atom.t()),
+        required("ClientToken") => String.t() | Atom.t(),
+        required("ConnectionToken") => String.t() | Atom.t()
       }
 
   """
-  @type complete_attachment_upload_request() :: %{String.t() => any()}
+  @type complete_attachment_upload_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       send_event_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("Content") => String.t(),
-        required("ConnectionToken") => String.t(),
-        required("ContentType") => String.t()
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("Content") => String.t() | Atom.t(),
+        required("ConnectionToken") => String.t() | Atom.t(),
+        required("ContentType") => String.t() | Atom.t()
       }
 
   """
-  @type send_event_request() :: %{String.t() => any()}
+  @type send_event_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -153,54 +153,54 @@ defmodule AWS.ConnectParticipant do
       }
 
   """
-  @type describe_view_response() :: %{String.t() => any()}
+  @type describe_view_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       item() :: %{
-        "AbsoluteTime" => String.t(),
+        "AbsoluteTime" => String.t() | Atom.t(),
         "Attachments" => list(attachment_item()),
-        "ContactId" => String.t(),
-        "Content" => String.t(),
-        "ContentType" => String.t(),
-        "DisplayName" => String.t(),
-        "Id" => String.t(),
+        "ContactId" => String.t() | Atom.t(),
+        "Content" => String.t() | Atom.t(),
+        "ContentType" => String.t() | Atom.t(),
+        "DisplayName" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "MessageMetadata" => message_metadata(),
-        "ParticipantId" => String.t(),
+        "ParticipantId" => String.t() | Atom.t(),
         "ParticipantRole" => list(any()),
-        "RelatedContactId" => String.t(),
+        "RelatedContactId" => String.t() | Atom.t(),
         "Type" => list(any())
       }
 
   """
-  @type item() :: %{String.t() => any()}
+  @type item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disconnect_participant_request() :: %{
-        optional("ClientToken") => String.t(),
-        required("ConnectionToken") => String.t()
+        optional("ClientToken") => String.t() | Atom.t(),
+        required("ConnectionToken") => String.t() | Atom.t()
       }
 
   """
-  @type disconnect_participant_request() :: %{String.t() => any()}
+  @type disconnect_participant_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       view_content() :: %{
-        "Actions" => list(String.t()),
-        "InputSchema" => String.t(),
-        "Template" => String.t()
+        "Actions" => list(String.t() | Atom.t()),
+        "InputSchema" => String.t() | Atom.t(),
+        "Template" => String.t() | Atom.t()
       }
 
   """
-  @type view_content() :: %{String.t() => any()}
+  @type view_content() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -209,96 +209,96 @@ defmodule AWS.ConnectParticipant do
       create_participant_connection_request() :: %{
         optional("ConnectParticipant") => boolean(),
         optional("Type") => list(list(any())()),
-        required("ParticipantToken") => String.t()
+        required("ParticipantToken") => String.t() | Atom.t()
       }
 
   """
-  @type create_participant_connection_request() :: %{String.t() => any()}
+  @type create_participant_connection_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t(),
-        "ResourceId" => String.t(),
+        "Message" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | Atom.t(),
         "ResourceType" => list(any())
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       send_event_response() :: %{
-        "AbsoluteTime" => String.t(),
-        "Id" => String.t()
+        "AbsoluteTime" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type send_event_response() :: %{String.t() => any()}
+  @type send_event_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       attachment_item() :: %{
-        "AttachmentId" => String.t(),
-        "AttachmentName" => String.t(),
-        "ContentType" => String.t(),
+        "AttachmentId" => String.t() | Atom.t(),
+        "AttachmentName" => String.t() | Atom.t(),
+        "ContentType" => String.t() | Atom.t(),
         "Status" => list(any())
       }
 
   """
-  @type attachment_item() :: %{String.t() => any()}
+  @type attachment_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_authentication_url_request() :: %{
-        required("ConnectionToken") => String.t(),
-        required("RedirectUri") => String.t(),
-        required("SessionId") => String.t()
+        required("ConnectionToken") => String.t() | Atom.t(),
+        required("RedirectUri") => String.t() | Atom.t(),
+        required("SessionId") => String.t() | Atom.t()
       }
 
   """
-  @type get_authentication_url_request() :: %{String.t() => any()}
+  @type get_authentication_url_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_view_request() :: %{
-        required("ConnectionToken") => String.t()
+        required("ConnectionToken") => String.t() | Atom.t()
       }
 
   """
-  @type describe_view_request() :: %{String.t() => any()}
+  @type describe_view_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -306,53 +306,53 @@ defmodule AWS.ConnectParticipant do
 
       get_attachment_response() :: %{
         "AttachmentSizeInBytes" => float(),
-        "Url" => String.t(),
-        "UrlExpiry" => String.t()
+        "Url" => String.t() | Atom.t(),
+        "UrlExpiry" => String.t() | Atom.t()
       }
 
   """
-  @type get_attachment_response() :: %{String.t() => any()}
+  @type get_attachment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       message_metadata() :: %{
-        "MessageId" => String.t(),
+        "MessageId" => String.t() | Atom.t(),
         "Receipts" => list(receipt())
       }
 
   """
-  @type message_metadata() :: %{String.t() => any()}
+  @type message_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_attachment_upload_response() :: %{
-        "AttachmentId" => String.t(),
+        "AttachmentId" => String.t() | Atom.t(),
         "UploadMetadata" => upload_metadata()
       }
 
   """
-  @type start_attachment_upload_response() :: %{String.t() => any()}
+  @type start_attachment_upload_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_transcript_request() :: %{
-        optional("ContactId") => String.t(),
+        optional("ContactId") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("ScanDirection") => list(any()),
         optional("SortOrder") => list(any()),
         optional("StartPosition") => start_position(),
-        required("ConnectionToken") => String.t()
+        required("ConnectionToken") => String.t() | Atom.t()
       }
 
   """
-  @type get_transcript_request() :: %{String.t() => any()}
+  @type get_transcript_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -360,61 +360,61 @@ defmodule AWS.ConnectParticipant do
 
       get_attachment_request() :: %{
         optional("UrlExpiryInSeconds") => integer(),
-        required("AttachmentId") => String.t(),
-        required("ConnectionToken") => String.t()
+        required("AttachmentId") => String.t() | Atom.t(),
+        required("ConnectionToken") => String.t() | Atom.t()
       }
 
   """
-  @type get_attachment_request() :: %{String.t() => any()}
+  @type get_attachment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       connection_credentials() :: %{
-        "ConnectionToken" => String.t(),
-        "Expiry" => String.t()
+        "ConnectionToken" => String.t() | Atom.t(),
+        "Expiry" => String.t() | Atom.t()
       }
 
   """
-  @type connection_credentials() :: %{String.t() => any()}
+  @type connection_credentials() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_attachment_upload_request() :: %{
-        required("AttachmentName") => String.t(),
+        required("AttachmentName") => String.t() | Atom.t(),
         required("AttachmentSizeInBytes") => float(),
-        required("ClientToken") => String.t(),
-        required("ConnectionToken") => String.t(),
-        required("ContentType") => String.t()
+        required("ClientToken") => String.t() | Atom.t(),
+        required("ConnectionToken") => String.t() | Atom.t(),
+        required("ContentType") => String.t() | Atom.t()
       }
 
   """
-  @type start_attachment_upload_request() :: %{String.t() => any()}
+  @type start_attachment_upload_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -430,49 +430,49 @@ defmodule AWS.ConnectParticipant do
   ## Example:
 
       validation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_transcript_response() :: %{
-        "InitialContactId" => String.t(),
-        "NextToken" => String.t(),
+        "InitialContactId" => String.t() | Atom.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Transcript" => list(item())
       }
 
   """
-  @type get_transcript_response() :: %{String.t() => any()}
+  @type get_transcript_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       send_message_request() :: %{
-        optional("ClientToken") => String.t(),
-        required("ConnectionToken") => String.t(),
-        required("Content") => String.t(),
-        required("ContentType") => String.t()
+        optional("ClientToken") => String.t() | Atom.t(),
+        required("ConnectionToken") => String.t() | Atom.t(),
+        required("Content") => String.t() | Atom.t(),
+        required("ContentType") => String.t() | Atom.t()
       }
 
   """
-  @type send_message_request() :: %{String.t() => any()}
+  @type send_message_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -488,12 +488,12 @@ defmodule AWS.ConnectParticipant do
   ## Example:
 
       send_message_response() :: %{
-        "AbsoluteTime" => String.t(),
-        "Id" => String.t()
+        "AbsoluteTime" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type send_message_response() :: %{String.t() => any()}
+  @type send_message_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -501,12 +501,12 @@ defmodule AWS.ConnectParticipant do
 
       upload_metadata() :: %{
         "HeadersToInclude" => map(),
-        "Url" => String.t(),
-        "UrlExpiry" => String.t()
+        "Url" => String.t() | Atom.t(),
+        "UrlExpiry" => String.t() | Atom.t()
       }
 
   """
-  @type upload_metadata() :: %{String.t() => any()}
+  @type upload_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -518,7 +518,7 @@ defmodule AWS.ConnectParticipant do
       }
 
   """
-  @type create_participant_connection_response() :: %{String.t() => any()}
+  @type create_participant_connection_response() :: %{String.t() | Atom.t() => any()}
 
   @type cancel_participant_authentication_errors() ::
           throttling_exception()
@@ -782,7 +782,7 @@ defmodule AWS.ConnectParticipant do
 
   For security recommendations, see [Amazon Connect Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
   """
-  @spec describe_view(map(), String.t(), String.t(), list()) ::
+  @spec describe_view(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, describe_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

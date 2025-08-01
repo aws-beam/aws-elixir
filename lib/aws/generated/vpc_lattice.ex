@@ -23,42 +23,42 @@ defmodule AWS.VPCLattice do
 
       http_match() :: %{
         "headerMatches" => list(header_match()),
-        "method" => String.t(),
+        "method" => String.t() | Atom.t(),
         "pathMatch" => path_match()
       }
 
   """
-  @type http_match() :: %{String.t() => any()}
+  @type http_match() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_access_log_subscription_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("serviceNetworkLogType") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("serviceNetworkLogType") => String.t() | Atom.t(),
         optional("tags") => map(),
-        required("destinationArn") => String.t(),
-        required("resourceIdentifier") => String.t()
+        required("destinationArn") => String.t() | Atom.t(),
+        required("resourceIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type create_access_log_subscription_request() :: %{String.t() => any()}
+  @type create_access_log_subscription_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_service_network_vpc_association_response() :: %{
-        optional("arn") => String.t(),
-        optional("createdBy") => String.t(),
-        optional("id") => String.t(),
-        optional("securityGroupIds") => list(String.t()),
-        optional("status") => String.t()
+        optional("arn") => String.t() | Atom.t(),
+        optional("createdBy") => String.t() | Atom.t(),
+        optional("id") => String.t() | Atom.t(),
+        optional("securityGroupIds") => list(String.t() | Atom.t()),
+        optional("status") => String.t() | Atom.t()
       }
 
   """
-  @type update_service_network_vpc_association_response() :: %{String.t() => any()}
+  @type update_service_network_vpc_association_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -75,31 +75,31 @@ defmodule AWS.VPCLattice do
 
       rule_update_success() :: %{
         "action" => list(),
-        "arn" => String.t(),
-        "id" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "isDefault" => boolean(),
         "match" => list(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "priority" => integer()
       }
 
   """
-  @type rule_update_success() :: %{String.t() => any()}
+  @type rule_update_success() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_service_network_vpc_association_response() :: %{
-        optional("arn") => String.t(),
-        optional("createdBy") => String.t(),
-        optional("id") => String.t(),
-        optional("securityGroupIds") => list(String.t()),
-        optional("status") => String.t()
+        optional("arn") => String.t() | Atom.t(),
+        optional("createdBy") => String.t() | Atom.t(),
+        optional("id") => String.t() | Atom.t(),
+        optional("securityGroupIds") => list(String.t() | Atom.t()),
+        optional("status") => String.t() | Atom.t()
       }
 
   """
-  @type create_service_network_vpc_association_response() :: %{String.t() => any()}
+  @type create_service_network_vpc_association_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -117,55 +117,55 @@ defmodule AWS.VPCLattice do
       get_resource_configuration_response() :: %{
         "allowAssociationToShareableServiceNetwork" => boolean(),
         "amazonManaged" => boolean(),
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "customDomainName" => String.t(),
-        "failureReason" => [String.t()],
-        "id" => String.t(),
+        "customDomainName" => String.t() | Atom.t(),
+        "failureReason" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t(),
-        "portRanges" => list(String.t()),
-        "protocol" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "portRanges" => list(String.t() | Atom.t()),
+        "protocol" => String.t() | Atom.t(),
         "resourceConfigurationDefinition" => list(),
-        "resourceConfigurationGroupId" => String.t(),
-        "resourceGatewayId" => String.t(),
-        "status" => String.t(),
-        "type" => String.t()
+        "resourceConfigurationGroupId" => String.t() | Atom.t(),
+        "resourceGatewayId" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t(),
+        "type" => String.t() | Atom.t()
       }
 
   """
-  @type get_resource_configuration_response() :: %{String.t() => any()}
+  @type get_resource_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_rule_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("tags") => map(),
         required("action") => list(),
         required("match") => list(),
-        required("name") => String.t(),
+        required("name") => String.t() | Atom.t(),
         required("priority") => integer()
       }
 
   """
-  @type create_rule_request() :: %{String.t() => any()}
+  @type create_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_target_group_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("config") => target_group_config(),
         optional("tags") => map(),
-        required("name") => String.t(),
-        required("type") => String.t()
+        required("name") => String.t() | Atom.t(),
+        required("type") => String.t() | Atom.t()
       }
 
   """
-  @type create_target_group_request() :: %{String.t() => any()}
+  @type create_target_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -185,28 +185,28 @@ defmodule AWS.VPCLattice do
       }
 
   """
-  @type batch_update_rule_request() :: %{String.t() => any()}
+  @type batch_update_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_target_group_response() :: %{
-        optional("arn") => String.t(),
+        optional("arn") => String.t() | Atom.t(),
         optional("config") => target_group_config(),
         optional("createdAt") => non_neg_integer(),
-        optional("failureCode") => [String.t()],
-        optional("failureMessage") => [String.t()],
-        optional("id") => String.t(),
+        optional("failureCode") => [String.t() | Atom.t()],
+        optional("failureMessage") => [String.t() | Atom.t()],
+        optional("id") => String.t() | Atom.t(),
         optional("lastUpdatedAt") => non_neg_integer(),
-        optional("name") => String.t(),
-        optional("serviceArns") => list(String.t()),
-        optional("status") => String.t(),
-        optional("type") => String.t()
+        optional("name") => String.t() | Atom.t(),
+        optional("serviceArns") => list(String.t() | Atom.t()),
+        optional("status") => String.t() | Atom.t(),
+        optional("type") => String.t() | Atom.t()
       }
 
   """
-  @type get_target_group_response() :: %{String.t() => any()}
+  @type get_target_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -217,21 +217,24 @@ defmodule AWS.VPCLattice do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_service_network_resource_association_response() :: %{
-        "arn" => String.t(),
-        "createdBy" => String.t(),
-        "id" => String.t(),
-        "status" => String.t()
+        "arn" => String.t() | Atom.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
 
   """
-  @type create_service_network_resource_association_response() :: %{String.t() => any()}
+  @type create_service_network_resource_association_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -260,25 +263,25 @@ defmodule AWS.VPCLattice do
       }
 
   """
-  @type deregister_targets_request() :: %{String.t() => any()}
+  @type deregister_targets_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_listener_response() :: %{
-        optional("arn") => String.t(),
+        optional("arn") => String.t() | Atom.t(),
         optional("defaultAction") => list(),
-        optional("id") => String.t(),
-        optional("name") => String.t(),
+        optional("id") => String.t() | Atom.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("port") => integer(),
-        optional("protocol") => String.t(),
-        optional("serviceArn") => String.t(),
-        optional("serviceId") => String.t()
+        optional("protocol") => String.t() | Atom.t(),
+        optional("serviceArn") => String.t() | Atom.t(),
+        optional("serviceId") => String.t() | Atom.t()
       }
 
   """
-  @type create_listener_response() :: %{String.t() => any()}
+  @type create_listener_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -303,42 +306,42 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       get_resource_gateway_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "id" => String.t(),
-        "ipAddressType" => String.t(),
+        "id" => String.t() | Atom.t(),
+        "ipAddressType" => String.t() | Atom.t(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t(),
-        "securityGroupIds" => list(String.t()),
-        "status" => String.t(),
-        "subnetIds" => list(String.t()),
-        "vpcId" => String.t()
+        "name" => String.t() | Atom.t(),
+        "securityGroupIds" => list(String.t() | Atom.t()),
+        "status" => String.t() | Atom.t(),
+        "subnetIds" => list(String.t() | Atom.t()),
+        "vpcId" => String.t() | Atom.t()
       }
 
   """
-  @type get_resource_gateway_response() :: %{String.t() => any()}
+  @type get_resource_gateway_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_service_response() :: %{
-        optional("arn") => String.t(),
-        optional("authType") => String.t(),
-        optional("certificateArn") => String.t(),
+        optional("arn") => String.t() | Atom.t(),
+        optional("authType") => String.t() | Atom.t(),
+        optional("certificateArn") => String.t() | Atom.t(),
         optional("createdAt") => non_neg_integer(),
-        optional("customDomainName") => String.t(),
+        optional("customDomainName") => String.t() | Atom.t(),
         optional("dnsEntry") => dns_entry(),
-        optional("failureCode") => String.t(),
-        optional("failureMessage") => String.t(),
-        optional("id") => String.t(),
+        optional("failureCode") => String.t() | Atom.t(),
+        optional("failureMessage") => String.t() | Atom.t(),
+        optional("id") => String.t() | Atom.t(),
         optional("lastUpdatedAt") => non_neg_integer(),
-        optional("name") => String.t(),
-        optional("status") => String.t()
+        optional("name") => String.t() | Atom.t(),
+        optional("status") => String.t() | Atom.t()
       }
 
   """
-  @type get_service_response() :: %{String.t() => any()}
+  @type get_service_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -349,56 +352,56 @@ defmodule AWS.VPCLattice do
       }
 
   """
-  @type forward_action() :: %{String.t() => any()}
+  @type forward_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_service_network_request() :: %{
-        optional("authType") => String.t(),
-        optional("clientToken") => String.t(),
+        optional("authType") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("sharingConfig") => sharing_config(),
         optional("tags") => map(),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_service_network_request() :: %{String.t() => any()}
+  @type create_service_network_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_network_service_association_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "customDomainName" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "customDomainName" => String.t() | Atom.t(),
         "dnsEntry" => dns_entry(),
-        "id" => String.t(),
-        "serviceArn" => String.t(),
-        "serviceId" => String.t(),
-        "serviceName" => String.t(),
-        "serviceNetworkArn" => String.t(),
-        "serviceNetworkId" => String.t(),
-        "serviceNetworkName" => String.t(),
-        "status" => String.t()
+        "id" => String.t() | Atom.t(),
+        "serviceArn" => String.t() | Atom.t(),
+        "serviceId" => String.t() | Atom.t(),
+        "serviceName" => String.t() | Atom.t(),
+        "serviceNetworkArn" => String.t() | Atom.t(),
+        "serviceNetworkId" => String.t() | Atom.t(),
+        "serviceNetworkName" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
 
   """
-  @type service_network_service_association_summary() :: %{String.t() => any()}
+  @type service_network_service_association_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       arn_resource() :: %{
-        "arn" => String.t()
+        "arn" => String.t() | Atom.t()
       }
 
   """
-  @type arn_resource() :: %{String.t() => any()}
+  @type arn_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -414,33 +417,33 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       get_service_network_response() :: %{
-        optional("arn") => String.t(),
-        optional("authType") => String.t(),
+        optional("arn") => String.t() | Atom.t(),
+        optional("authType") => String.t() | Atom.t(),
         optional("createdAt") => non_neg_integer(),
-        optional("id") => String.t(),
+        optional("id") => String.t() | Atom.t(),
         optional("lastUpdatedAt") => non_neg_integer(),
-        optional("name") => String.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("numberOfAssociatedServices") => [float()],
         optional("numberOfAssociatedVPCs") => [float()],
         optional("sharingConfig") => sharing_config()
       }
 
   """
-  @type get_service_network_response() :: %{String.t() => any()}
+  @type get_service_network_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_service_network_response() :: %{
-        optional("arn") => String.t(),
-        optional("authType") => String.t(),
-        optional("id") => String.t(),
-        optional("name") => String.t()
+        optional("arn") => String.t() | Atom.t(),
+        optional("authType") => String.t() | Atom.t(),
+        optional("id") => String.t() | Atom.t(),
+        optional("name") => String.t() | Atom.t()
       }
 
   """
-  @type update_service_network_response() :: %{String.t() => any()}
+  @type update_service_network_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -448,66 +451,66 @@ defmodule AWS.VPCLattice do
 
       update_resource_configuration_response() :: %{
         "allowAssociationToShareableServiceNetwork" => boolean(),
-        "arn" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
-        "portRanges" => list(String.t()),
-        "protocol" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "portRanges" => list(String.t() | Atom.t()),
+        "protocol" => String.t() | Atom.t(),
         "resourceConfigurationDefinition" => list(),
-        "resourceConfigurationGroupId" => String.t(),
-        "resourceGatewayId" => String.t(),
-        "status" => String.t(),
-        "type" => String.t()
+        "resourceConfigurationGroupId" => String.t() | Atom.t(),
+        "resourceGatewayId" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t(),
+        "type" => String.t() | Atom.t()
       }
 
   """
-  @type update_resource_configuration_response() :: %{String.t() => any()}
+  @type update_resource_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_resource_endpoint_association_response() :: %{
-        "arn" => String.t(),
-        "id" => String.t(),
-        "resourceConfigurationArn" => String.t(),
-        "resourceConfigurationId" => String.t(),
-        "vpcEndpointId" => String.t()
+        "arn" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "resourceConfigurationArn" => String.t() | Atom.t(),
+        "resourceConfigurationId" => String.t() | Atom.t(),
+        "vpcEndpointId" => String.t() | Atom.t()
       }
 
   """
-  @type delete_resource_endpoint_association_response() :: %{String.t() => any()}
+  @type delete_resource_endpoint_association_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_service_network_service_association_response() :: %{
-        optional("arn") => String.t(),
-        optional("createdBy") => String.t(),
-        optional("customDomainName") => String.t(),
+        optional("arn") => String.t() | Atom.t(),
+        optional("createdBy") => String.t() | Atom.t(),
+        optional("customDomainName") => String.t() | Atom.t(),
         optional("dnsEntry") => dns_entry(),
-        optional("id") => String.t(),
-        optional("status") => String.t()
+        optional("id") => String.t() | Atom.t(),
+        optional("status") => String.t() | Atom.t()
       }
 
   """
-  @type create_service_network_service_association_response() :: %{String.t() => any()}
+  @type create_service_network_service_association_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_service_network_response() :: %{
-        optional("arn") => String.t(),
-        optional("authType") => String.t(),
-        optional("id") => String.t(),
-        optional("name") => String.t(),
+        optional("arn") => String.t() | Atom.t(),
+        optional("authType") => String.t() | Atom.t(),
+        optional("id") => String.t() | Atom.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("sharingConfig") => sharing_config()
       }
 
   """
-  @type create_service_network_response() :: %{String.t() => any()}
+  @type create_service_network_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -515,23 +518,26 @@ defmodule AWS.VPCLattice do
 
       list_service_network_vpc_endpoint_associations_response() :: %{
         "items" => list(service_network_endpoint_association()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_service_network_vpc_endpoint_associations_response() :: %{String.t() => any()}
+  @type list_service_network_vpc_endpoint_associations_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       list_service_network_vpc_associations_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("items") => list(service_network_vpc_association_summary())
       }
 
   """
-  @type list_service_network_vpc_associations_response() :: %{String.t() => any()}
+  @type list_service_network_vpc_associations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -547,11 +553,11 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       ip_resource() :: %{
-        "ipAddress" => String.t()
+        "ipAddress" => String.t() | Atom.t()
       }
 
   """
-  @type ip_resource() :: %{String.t() => any()}
+  @type ip_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -567,35 +573,35 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       service_network_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "numberOfAssociatedResourceConfigurations" => [float()],
         "numberOfAssociatedServices" => [float()],
         "numberOfAssociatedVPCs" => [float()]
       }
 
   """
-  @type service_network_summary() :: %{String.t() => any()}
+  @type service_network_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_resource_gateway_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("ipAddressType") => String.t(),
-        optional("securityGroupIds") => list(String.t()),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("ipAddressType") => String.t() | Atom.t(),
+        optional("securityGroupIds") => list(String.t() | Atom.t()),
         optional("tags") => map(),
-        required("name") => String.t(),
-        required("subnetIds") => list(String.t()),
-        required("vpcIdentifier") => String.t()
+        required("name") => String.t() | Atom.t(),
+        required("subnetIds") => list(String.t() | Atom.t()),
+        required("vpcIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type create_resource_gateway_request() :: %{String.t() => any()}
+  @type create_resource_gateway_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -608,18 +614,18 @@ defmodule AWS.VPCLattice do
       }
 
   """
-  @type update_rule_request() :: %{String.t() => any()}
+  @type update_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_resource_policy_response() :: %{
-        optional("policy") => String.t()
+        optional("policy") => String.t() | Atom.t()
       }
 
   """
-  @type get_resource_policy_response() :: %{String.t() => any()}
+  @type get_resource_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -635,23 +641,23 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       get_service_network_vpc_association_response() :: %{
-        optional("arn") => String.t(),
+        optional("arn") => String.t() | Atom.t(),
         optional("createdAt") => non_neg_integer(),
-        optional("createdBy") => String.t(),
-        optional("failureCode") => [String.t()],
-        optional("failureMessage") => [String.t()],
-        optional("id") => String.t(),
+        optional("createdBy") => String.t() | Atom.t(),
+        optional("failureCode") => [String.t() | Atom.t()],
+        optional("failureMessage") => [String.t() | Atom.t()],
+        optional("id") => String.t() | Atom.t(),
         optional("lastUpdatedAt") => non_neg_integer(),
-        optional("securityGroupIds") => list(String.t()),
-        optional("serviceNetworkArn") => String.t(),
-        optional("serviceNetworkId") => String.t(),
-        optional("serviceNetworkName") => String.t(),
-        optional("status") => String.t(),
-        optional("vpcId") => String.t()
+        optional("securityGroupIds") => list(String.t() | Atom.t()),
+        optional("serviceNetworkArn") => String.t() | Atom.t(),
+        optional("serviceNetworkId") => String.t() | Atom.t(),
+        optional("serviceNetworkName") => String.t() | Atom.t(),
+        optional("status") => String.t() | Atom.t(),
+        optional("vpcId") => String.t() | Atom.t()
       }
 
   """
-  @type get_service_network_vpc_association_response() :: %{String.t() => any()}
+  @type get_service_network_vpc_association_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -667,39 +673,39 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       list_access_log_subscriptions_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("items") => list(access_log_subscription_summary())
       }
 
   """
-  @type list_access_log_subscriptions_response() :: %{String.t() => any()}
+  @type list_access_log_subscriptions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_access_log_subscription_response() :: %{
-        optional("serviceNetworkLogType") => String.t(),
-        required("arn") => String.t(),
-        required("destinationArn") => String.t(),
-        required("id") => String.t(),
-        required("resourceArn") => String.t(),
-        required("resourceId") => String.t()
+        optional("serviceNetworkLogType") => String.t() | Atom.t(),
+        required("arn") => String.t() | Atom.t(),
+        required("destinationArn") => String.t() | Atom.t(),
+        required("id") => String.t() | Atom.t(),
+        required("resourceArn") => String.t() | Atom.t(),
+        required("resourceId") => String.t() | Atom.t()
       }
 
   """
-  @type create_access_log_subscription_response() :: %{String.t() => any()}
+  @type create_access_log_subscription_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -707,34 +713,34 @@ defmodule AWS.VPCLattice do
 
       list_rules_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_rules_request() :: %{String.t() => any()}
+  @type list_rules_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       target_group_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "id" => String.t(),
-        "ipAddressType" => String.t(),
-        "lambdaEventStructureVersion" => String.t(),
+        "id" => String.t() | Atom.t(),
+        "ipAddressType" => String.t() | Atom.t(),
+        "lambdaEventStructureVersion" => String.t() | Atom.t(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "port" => integer(),
-        "protocol" => String.t(),
-        "serviceArns" => list(String.t()),
-        "status" => String.t(),
-        "type" => String.t(),
-        "vpcIdentifier" => String.t()
+        "protocol" => String.t() | Atom.t(),
+        "serviceArns" => list(String.t() | Atom.t()),
+        "status" => String.t() | Atom.t(),
+        "type" => String.t() | Atom.t(),
+        "vpcIdentifier" => String.t() | Atom.t()
       }
 
   """
-  @type target_group_summary() :: %{String.t() => any()}
+  @type target_group_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -742,13 +748,13 @@ defmodule AWS.VPCLattice do
 
       list_service_network_service_associations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("serviceIdentifier") => String.t(),
-        optional("serviceNetworkIdentifier") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("serviceIdentifier") => String.t() | Atom.t(),
+        optional("serviceNetworkIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type list_service_network_service_associations_request() :: %{String.t() => any()}
+  @type list_service_network_service_associations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -764,38 +770,38 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       update_resource_gateway_response() :: %{
-        "arn" => String.t(),
-        "id" => String.t(),
-        "ipAddressType" => String.t(),
-        "name" => String.t(),
-        "securityGroupIds" => list(String.t()),
-        "status" => String.t(),
-        "subnetIds" => list(String.t()),
-        "vpcId" => String.t()
+        "arn" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "ipAddressType" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "securityGroupIds" => list(String.t() | Atom.t()),
+        "status" => String.t() | Atom.t(),
+        "subnetIds" => list(String.t() | Atom.t()),
+        "vpcId" => String.t() | Atom.t()
       }
 
   """
-  @type update_resource_gateway_response() :: %{String.t() => any()}
+  @type update_resource_gateway_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_listener_response() :: %{
-        optional("arn") => String.t(),
+        optional("arn") => String.t() | Atom.t(),
         optional("createdAt") => non_neg_integer(),
         optional("defaultAction") => list(),
-        optional("id") => String.t(),
+        optional("id") => String.t() | Atom.t(),
         optional("lastUpdatedAt") => non_neg_integer(),
-        optional("name") => String.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("port") => integer(),
-        optional("protocol") => String.t(),
-        optional("serviceArn") => String.t(),
-        optional("serviceId") => String.t()
+        optional("protocol") => String.t() | Atom.t(),
+        optional("serviceArn") => String.t() | Atom.t(),
+        optional("serviceId") => String.t() | Atom.t()
       }
 
   """
-  @type get_listener_response() :: %{String.t() => any()}
+  @type get_listener_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -804,30 +810,30 @@ defmodule AWS.VPCLattice do
       get_auth_policy_response() :: %{
         optional("createdAt") => non_neg_integer(),
         optional("lastUpdatedAt") => non_neg_integer(),
-        optional("policy") => String.t(),
-        optional("state") => String.t()
+        optional("policy") => String.t() | Atom.t(),
+        optional("state") => String.t() | Atom.t()
       }
 
   """
-  @type get_auth_policy_response() :: %{String.t() => any()}
+  @type get_auth_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_resource_gateway_response() :: %{
-        "arn" => String.t(),
-        "id" => String.t(),
-        "ipAddressType" => String.t(),
-        "name" => String.t(),
-        "securityGroupIds" => list(String.t()),
-        "status" => String.t(),
-        "subnetIds" => list(String.t()),
-        "vpcIdentifier" => String.t()
+        "arn" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "ipAddressType" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "securityGroupIds" => list(String.t() | Atom.t()),
+        "status" => String.t() | Atom.t(),
+        "subnetIds" => list(String.t() | Atom.t()),
+        "vpcIdentifier" => String.t() | Atom.t()
       }
 
   """
-  @type create_resource_gateway_response() :: %{String.t() => any()}
+  @type create_resource_gateway_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -838,7 +844,7 @@ defmodule AWS.VPCLattice do
       }
 
   """
-  @type update_target_group_request() :: %{String.t() => any()}
+  @type update_target_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -846,11 +852,11 @@ defmodule AWS.VPCLattice do
 
       list_services_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_services_request() :: %{String.t() => any()}
+  @type list_services_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -866,16 +872,16 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       update_target_group_response() :: %{
-        optional("arn") => String.t(),
+        optional("arn") => String.t() | Atom.t(),
         optional("config") => target_group_config(),
-        optional("id") => String.t(),
-        optional("name") => String.t(),
-        optional("status") => String.t(),
-        optional("type") => String.t()
+        optional("id") => String.t() | Atom.t(),
+        optional("name") => String.t() | Atom.t(),
+        optional("status") => String.t() | Atom.t(),
+        optional("type") => String.t() | Atom.t()
       }
 
   """
-  @type update_target_group_response() :: %{String.t() => any()}
+  @type update_target_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -892,39 +898,39 @@ defmodule AWS.VPCLattice do
 
       resource_configuration_summary() :: %{
         "amazonManaged" => boolean(),
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t(),
-        "resourceConfigurationGroupId" => String.t(),
-        "resourceGatewayId" => String.t(),
-        "status" => String.t(),
-        "type" => String.t()
+        "name" => String.t() | Atom.t(),
+        "resourceConfigurationGroupId" => String.t() | Atom.t(),
+        "resourceGatewayId" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t(),
+        "type" => String.t() | Atom.t()
       }
 
   """
-  @type resource_configuration_summary() :: %{String.t() => any()}
+  @type resource_configuration_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_network_vpc_association_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "id" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "lastUpdatedAt" => non_neg_integer(),
-        "serviceNetworkArn" => String.t(),
-        "serviceNetworkId" => String.t(),
-        "serviceNetworkName" => String.t(),
-        "status" => String.t(),
-        "vpcId" => String.t()
+        "serviceNetworkArn" => String.t() | Atom.t(),
+        "serviceNetworkId" => String.t() | Atom.t(),
+        "serviceNetworkName" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t(),
+        "vpcId" => String.t() | Atom.t()
       }
 
   """
-  @type service_network_vpc_association_summary() :: %{String.t() => any()}
+  @type service_network_vpc_association_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -940,12 +946,12 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       target() :: %{
-        "id" => [String.t()],
+        "id" => [String.t() | Atom.t()],
         "port" => integer()
       }
 
   """
-  @type target() :: %{String.t() => any()}
+  @type target() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -953,16 +959,16 @@ defmodule AWS.VPCLattice do
 
       service_network_endpoint_association() :: %{
         "createdAt" => non_neg_integer(),
-        "id" => [String.t()],
-        "serviceNetworkArn" => String.t(),
-        "state" => [String.t()],
-        "vpcEndpointId" => [String.t()],
-        "vpcEndpointOwnerId" => [String.t()],
-        "vpcId" => [String.t()]
+        "id" => [String.t() | Atom.t()],
+        "serviceNetworkArn" => String.t() | Atom.t(),
+        "state" => [String.t() | Atom.t()],
+        "vpcEndpointId" => [String.t() | Atom.t()],
+        "vpcEndpointOwnerId" => [String.t() | Atom.t()],
+        "vpcId" => [String.t() | Atom.t()]
       }
 
   """
-  @type service_network_endpoint_association() :: %{String.t() => any()}
+  @type service_network_endpoint_association() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -970,11 +976,11 @@ defmodule AWS.VPCLattice do
 
       list_service_networks_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_service_networks_request() :: %{String.t() => any()}
+  @type list_service_networks_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -991,42 +997,42 @@ defmodule AWS.VPCLattice do
 
       update_rule_response() :: %{
         optional("action") => list(),
-        optional("arn") => String.t(),
-        optional("id") => String.t(),
+        optional("arn") => String.t() | Atom.t(),
+        optional("id") => String.t() | Atom.t(),
         optional("isDefault") => boolean(),
         optional("match") => list(),
-        optional("name") => String.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("priority") => integer()
       }
 
   """
-  @type update_rule_response() :: %{String.t() => any()}
+  @type update_rule_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "resourceId" => [String.t() | Atom.t()],
+        "resourceType" => [String.t() | Atom.t()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "resourceId" => [String.t() | Atom.t()],
+        "resourceType" => [String.t() | Atom.t()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1034,35 +1040,35 @@ defmodule AWS.VPCLattice do
 
       list_resource_endpoint_associations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("resourceEndpointAssociationIdentifier") => String.t(),
-        optional("vpcEndpointId") => String.t(),
-        optional("vpcEndpointOwner") => String.t(),
-        required("resourceConfigurationIdentifier") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("resourceEndpointAssociationIdentifier") => String.t() | Atom.t(),
+        optional("vpcEndpointId") => String.t() | Atom.t(),
+        optional("vpcEndpointOwner") => String.t() | Atom.t(),
+        required("resourceConfigurationIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type list_resource_endpoint_associations_request() :: %{String.t() => any()}
+  @type list_resource_endpoint_associations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_gateway_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "id" => String.t(),
-        "ipAddressType" => String.t(),
+        "id" => String.t() | Atom.t(),
+        "ipAddressType" => String.t() | Atom.t(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t(),
-        "securityGroupIds" => list(String.t()),
-        "status" => String.t(),
-        "subnetIds" => list(String.t()),
-        "vpcIdentifier" => String.t()
+        "name" => String.t() | Atom.t(),
+        "securityGroupIds" => list(String.t() | Atom.t()),
+        "status" => String.t() | Atom.t(),
+        "subnetIds" => list(String.t() | Atom.t()),
+        "vpcIdentifier" => String.t() | Atom.t()
       }
 
   """
-  @type resource_gateway_summary() :: %{String.t() => any()}
+  @type resource_gateway_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1070,23 +1076,23 @@ defmodule AWS.VPCLattice do
 
       list_listeners_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_listeners_request() :: %{String.t() => any()}
+  @type list_listeners_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       dns_resource() :: %{
-        "domainName" => String.t(),
-        "ipAddressType" => String.t()
+        "domainName" => String.t() | Atom.t(),
+        "ipAddressType" => String.t() | Atom.t()
       }
 
   """
-  @type dns_resource() :: %{String.t() => any()}
+  @type dns_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1094,86 +1100,86 @@ defmodule AWS.VPCLattice do
 
       list_services_response() :: %{
         optional("items") => list(service_summary()),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_services_response() :: %{String.t() => any()}
+  @type list_services_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_target_group_response() :: %{
-        optional("arn") => String.t(),
+        optional("arn") => String.t() | Atom.t(),
         optional("config") => target_group_config(),
-        optional("id") => String.t(),
-        optional("name") => String.t(),
-        optional("status") => String.t(),
-        optional("type") => String.t()
+        optional("id") => String.t() | Atom.t(),
+        optional("name") => String.t() | Atom.t(),
+        optional("status") => String.t() | Atom.t(),
+        optional("type") => String.t() | Atom.t()
       }
 
   """
-  @type create_target_group_response() :: %{String.t() => any()}
+  @type create_target_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t()],
-        "quotaCode" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()],
-        "serviceCode" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "quotaCode" => [String.t() | Atom.t()],
+        "resourceId" => [String.t() | Atom.t()],
+        "resourceType" => [String.t() | Atom.t()],
+        "serviceCode" => [String.t() | Atom.t()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       target_summary() :: %{
-        "id" => [String.t()],
+        "id" => [String.t() | Atom.t()],
         "port" => integer(),
-        "reasonCode" => [String.t()],
-        "status" => String.t()
+        "reasonCode" => [String.t() | Atom.t()],
+        "status" => String.t() | Atom.t()
       }
 
   """
-  @type target_summary() :: %{String.t() => any()}
+  @type target_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       weighted_target_group() :: %{
-        "targetGroupIdentifier" => String.t(),
+        "targetGroupIdentifier" => String.t() | Atom.t(),
         "weight" => integer()
       }
 
   """
-  @type weighted_target_group() :: %{String.t() => any()}
+  @type weighted_target_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "customDomainName" => String.t(),
+        "customDomainName" => String.t() | Atom.t(),
         "dnsEntry" => dns_entry(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t(),
-        "status" => String.t()
+        "name" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
 
   """
-  @type service_summary() :: %{String.t() => any()}
+  @type service_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1181,11 +1187,11 @@ defmodule AWS.VPCLattice do
 
       list_resource_gateways_response() :: %{
         "items" => list(resource_gateway_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_resource_gateways_response() :: %{String.t() => any()}
+  @type list_resource_gateways_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1201,16 +1207,16 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       create_service_request() :: %{
-        optional("authType") => String.t(),
-        optional("certificateArn") => String.t(),
-        optional("clientToken") => String.t(),
-        optional("customDomainName") => String.t(),
+        optional("authType") => String.t() | Atom.t(),
+        optional("certificateArn") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("customDomainName") => String.t() | Atom.t(),
         optional("tags") => map(),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_service_request() :: %{String.t() => any()}
+  @type create_service_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1231,20 +1237,20 @@ defmodule AWS.VPCLattice do
       }
 
   """
-  @type path_match() :: %{String.t() => any()}
+  @type path_match() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_target_group_response() :: %{
-        optional("arn") => String.t(),
-        optional("id") => String.t(),
-        optional("status") => String.t()
+        optional("arn") => String.t() | Atom.t(),
+        optional("id") => String.t() | Atom.t(),
+        optional("status") => String.t() | Atom.t()
       }
 
   """
-  @type delete_target_group_response() :: %{String.t() => any()}
+  @type delete_target_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1253,11 +1259,11 @@ defmodule AWS.VPCLattice do
       header_match() :: %{
         "caseSensitive" => boolean(),
         "match" => list(),
-        "name" => String.t()
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type header_match() :: %{String.t() => any()}
+  @type header_match() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1268,7 +1274,7 @@ defmodule AWS.VPCLattice do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1285,43 +1291,43 @@ defmodule AWS.VPCLattice do
 
       get_rule_response() :: %{
         optional("action") => list(),
-        optional("arn") => String.t(),
+        optional("arn") => String.t() | Atom.t(),
         optional("createdAt") => non_neg_integer(),
-        optional("id") => String.t(),
+        optional("id") => String.t() | Atom.t(),
         optional("isDefault") => boolean(),
         optional("lastUpdatedAt") => non_neg_integer(),
         optional("match") => list(),
-        optional("name") => String.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("priority") => integer()
       }
 
   """
-  @type get_rule_response() :: %{String.t() => any()}
+  @type get_rule_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "message" => [String.t()],
-        "name" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "name" => [String.t() | Atom.t()]
       }
 
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_service_network_service_association_response() :: %{
-        optional("arn") => String.t(),
-        optional("id") => String.t(),
-        optional("status") => String.t()
+        optional("arn") => String.t() | Atom.t(),
+        optional("id") => String.t() | Atom.t(),
+        optional("status") => String.t() | Atom.t()
       }
 
   """
-  @type delete_service_network_service_association_response() :: %{String.t() => any()}
+  @type delete_service_network_service_association_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1329,15 +1335,15 @@ defmodule AWS.VPCLattice do
 
       create_rule_response() :: %{
         optional("action") => list(),
-        optional("arn") => String.t(),
-        optional("id") => String.t(),
+        optional("arn") => String.t() | Atom.t(),
+        optional("id") => String.t() | Atom.t(),
         optional("match") => list(),
-        optional("name") => String.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("priority") => integer()
       }
 
   """
-  @type create_rule_response() :: %{String.t() => any()}
+  @type create_rule_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1354,22 +1360,22 @@ defmodule AWS.VPCLattice do
 
       list_service_network_resource_associations_response() :: %{
         "items" => list(service_network_resource_association_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_service_network_resource_associations_response() :: %{String.t() => any()}
+  @type list_service_network_resource_associations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_auth_policy_request() :: %{
-        required("policy") => String.t()
+        required("policy") => String.t() | Atom.t()
       }
 
   """
-  @type put_auth_policy_request() :: %{String.t() => any()}
+  @type put_auth_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1385,25 +1391,25 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       delete_service_network_vpc_association_response() :: %{
-        optional("arn") => String.t(),
-        optional("id") => String.t(),
-        optional("status") => String.t()
+        optional("arn") => String.t() | Atom.t(),
+        optional("id") => String.t() | Atom.t(),
+        optional("status") => String.t() | Atom.t()
       }
 
   """
-  @type delete_service_network_vpc_association_response() :: %{String.t() => any()}
+  @type delete_service_network_vpc_association_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_listeners_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("items") => list(listener_summary())
       }
 
   """
-  @type list_listeners_response() :: %{String.t() => any()}
+  @type list_listeners_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1411,26 +1417,26 @@ defmodule AWS.VPCLattice do
 
       list_target_groups_response() :: %{
         optional("items") => list(target_group_summary()),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_target_groups_response() :: %{String.t() => any()}
+  @type list_target_groups_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_access_log_subscription_response() :: %{
-        required("arn") => String.t(),
-        required("destinationArn") => String.t(),
-        required("id") => String.t(),
-        required("resourceArn") => String.t(),
-        required("resourceId") => String.t()
+        required("arn") => String.t() | Atom.t(),
+        required("destinationArn") => String.t() | Atom.t(),
+        required("id") => String.t() | Atom.t(),
+        required("resourceArn") => String.t() | Atom.t(),
+        required("resourceId") => String.t() | Atom.t()
       }
 
   """
-  @type update_access_log_subscription_response() :: %{String.t() => any()}
+  @type update_access_log_subscription_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1446,12 +1452,12 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       update_service_request() :: %{
-        optional("authType") => String.t(),
-        optional("certificateArn") => String.t()
+        optional("authType") => String.t() | Atom.t(),
+        optional("certificateArn") => String.t() | Atom.t()
       }
 
   """
-  @type update_service_request() :: %{String.t() => any()}
+  @type update_service_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1459,11 +1465,11 @@ defmodule AWS.VPCLattice do
 
       list_resource_configurations_response() :: %{
         "items" => list(resource_configuration_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_resource_configurations_response() :: %{String.t() => any()}
+  @type list_resource_configurations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1479,29 +1485,29 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       rule_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "isDefault" => boolean(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "priority" => integer()
       }
 
   """
-  @type rule_summary() :: %{String.t() => any()}
+  @type rule_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t()],
+        "message" => [String.t() | Atom.t()],
         "retryAfterSeconds" => [integer()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1509,13 +1515,13 @@ defmodule AWS.VPCLattice do
 
       list_resource_configurations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("resourceConfigurationGroupIdentifier") => String.t(),
-        optional("resourceGatewayIdentifier") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("resourceConfigurationGroupIdentifier") => String.t() | Atom.t(),
+        optional("resourceGatewayIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type list_resource_configurations_request() :: %{String.t() => any()}
+  @type list_resource_configurations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1526,21 +1532,21 @@ defmodule AWS.VPCLattice do
       }
 
   """
-  @type register_targets_request() :: %{String.t() => any()}
+  @type register_targets_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_service_network_resource_association_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("tags") => map(),
-        required("resourceConfigurationIdentifier") => String.t(),
-        required("serviceNetworkIdentifier") => String.t()
+        required("resourceConfigurationIdentifier") => String.t() | Atom.t(),
+        required("serviceNetworkIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type create_service_network_resource_association_request() :: %{String.t() => any()}
+  @type create_service_network_resource_association_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1548,88 +1554,88 @@ defmodule AWS.VPCLattice do
 
       list_targets_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("targets") => list(target())
       }
 
   """
-  @type list_targets_request() :: %{String.t() => any()}
+  @type list_targets_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_access_log_subscription_request() :: %{
-        required("destinationArn") => String.t()
+        required("destinationArn") => String.t() | Atom.t()
       }
 
   """
-  @type update_access_log_subscription_request() :: %{String.t() => any()}
+  @type update_access_log_subscription_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_log_subscription_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "destinationArn" => String.t(),
-        "id" => String.t(),
+        "destinationArn" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "lastUpdatedAt" => non_neg_integer(),
-        "resourceArn" => String.t(),
-        "resourceId" => String.t(),
-        "serviceNetworkLogType" => String.t()
+        "resourceArn" => String.t() | Atom.t(),
+        "resourceId" => String.t() | Atom.t(),
+        "serviceNetworkLogType" => String.t() | Atom.t()
       }
 
   """
-  @type access_log_subscription_summary() :: %{String.t() => any()}
+  @type access_log_subscription_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_service_network_service_association_response() :: %{
-        optional("arn") => String.t(),
+        optional("arn") => String.t() | Atom.t(),
         optional("createdAt") => non_neg_integer(),
-        optional("createdBy") => String.t(),
-        optional("customDomainName") => String.t(),
+        optional("createdBy") => String.t() | Atom.t(),
+        optional("customDomainName") => String.t() | Atom.t(),
         optional("dnsEntry") => dns_entry(),
-        optional("failureCode") => [String.t()],
-        optional("failureMessage") => [String.t()],
-        optional("id") => String.t(),
-        optional("serviceArn") => String.t(),
-        optional("serviceId") => String.t(),
-        optional("serviceName") => String.t(),
-        optional("serviceNetworkArn") => String.t(),
-        optional("serviceNetworkId") => String.t(),
-        optional("serviceNetworkName") => String.t(),
-        optional("status") => String.t()
+        optional("failureCode") => [String.t() | Atom.t()],
+        optional("failureMessage") => [String.t() | Atom.t()],
+        optional("id") => String.t() | Atom.t(),
+        optional("serviceArn") => String.t() | Atom.t(),
+        optional("serviceId") => String.t() | Atom.t(),
+        optional("serviceName") => String.t() | Atom.t(),
+        optional("serviceNetworkArn") => String.t() | Atom.t(),
+        optional("serviceNetworkId") => String.t() | Atom.t(),
+        optional("serviceNetworkName") => String.t() | Atom.t(),
+        optional("status") => String.t() | Atom.t()
       }
 
   """
-  @type get_service_network_service_association_response() :: %{String.t() => any()}
+  @type get_service_network_service_association_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_resource_policy_request() :: %{
-        required("policy") => String.t()
+        required("policy") => String.t() | Atom.t()
       }
 
   """
-  @type put_resource_policy_request() :: %{String.t() => any()}
+  @type put_resource_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1640,48 +1646,48 @@ defmodule AWS.VPCLattice do
       }
 
   """
-  @type update_listener_request() :: %{String.t() => any()}
+  @type update_listener_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_listener_response() :: %{
-        optional("arn") => String.t(),
+        optional("arn") => String.t() | Atom.t(),
         optional("defaultAction") => list(),
-        optional("id") => String.t(),
-        optional("name") => String.t(),
+        optional("id") => String.t() | Atom.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("port") => integer(),
-        optional("protocol") => String.t(),
-        optional("serviceArn") => String.t(),
-        optional("serviceId") => String.t()
+        optional("protocol") => String.t() | Atom.t(),
+        optional("serviceArn") => String.t() | Atom.t(),
+        optional("serviceId") => String.t() | Atom.t()
       }
 
   """
-  @type update_listener_response() :: %{String.t() => any()}
+  @type update_listener_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_rules_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("items") => list(rule_summary())
       }
 
   """
-  @type list_rules_response() :: %{String.t() => any()}
+  @type list_rules_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_resource_gateway_request() :: %{
-        optional("securityGroupIds") => list(String.t())
+        optional("securityGroupIds") => list(String.t() | Atom.t())
       }
 
   """
-  @type update_resource_gateway_request() :: %{String.t() => any()}
+  @type update_resource_gateway_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1689,30 +1695,30 @@ defmodule AWS.VPCLattice do
 
       list_target_groups_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("targetGroupType") => String.t(),
-        optional("vpcIdentifier") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("targetGroupType") => String.t() | Atom.t(),
+        optional("vpcIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type list_target_groups_request() :: %{String.t() => any()}
+  @type list_target_groups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       listener_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "port" => integer(),
-        "protocol" => String.t()
+        "protocol" => String.t() | Atom.t()
       }
 
   """
-  @type listener_summary() :: %{String.t() => any()}
+  @type listener_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1729,11 +1735,11 @@ defmodule AWS.VPCLattice do
 
       list_resource_endpoint_associations_response() :: %{
         "items" => list(resource_endpoint_association_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_resource_endpoint_associations_response() :: %{String.t() => any()}
+  @type list_resource_endpoint_associations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1741,12 +1747,12 @@ defmodule AWS.VPCLattice do
 
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
-        "message" => [String.t()],
-        "reason" => String.t()
+        "message" => [String.t() | Atom.t()],
+        "reason" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1776,42 +1782,45 @@ defmodule AWS.VPCLattice do
         "healthCheckTimeoutSeconds" => integer(),
         "healthyThresholdCount" => integer(),
         "matcher" => list(),
-        "path" => String.t(),
+        "path" => String.t() | Atom.t(),
         "port" => integer(),
-        "protocol" => String.t(),
-        "protocolVersion" => String.t(),
+        "protocol" => String.t() | Atom.t(),
+        "protocolVersion" => String.t() | Atom.t(),
         "unhealthyThresholdCount" => integer()
       }
 
   """
-  @type health_check_config() :: %{String.t() => any()}
+  @type health_check_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_service_network_resource_association_response() :: %{
-        "arn" => String.t(),
-        "id" => String.t(),
-        "status" => String.t()
+        "arn" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
 
   """
-  @type delete_service_network_resource_association_response() :: %{String.t() => any()}
+  @type delete_service_network_resource_association_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t()],
-        "quotaCode" => [String.t()],
+        "message" => [String.t() | Atom.t()],
+        "quotaCode" => [String.t() | Atom.t()],
         "retryAfterSeconds" => [integer()],
-        "serviceCode" => [String.t()]
+        "serviceCode" => [String.t() | Atom.t()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1831,7 +1840,7 @@ defmodule AWS.VPCLattice do
       }
 
   """
-  @type fixed_response_action() :: %{String.t() => any()}
+  @type fixed_response_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1839,38 +1848,38 @@ defmodule AWS.VPCLattice do
 
       create_resource_configuration_request() :: %{
         optional("allowAssociationToShareableServiceNetwork") => boolean(),
-        optional("clientToken") => String.t(),
-        optional("portRanges") => list(String.t()),
-        optional("protocol") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("portRanges") => list(String.t() | Atom.t()),
+        optional("protocol") => String.t() | Atom.t(),
         optional("resourceConfigurationDefinition") => list(),
-        optional("resourceConfigurationGroupIdentifier") => String.t(),
-        optional("resourceGatewayIdentifier") => String.t(),
+        optional("resourceConfigurationGroupIdentifier") => String.t() | Atom.t(),
+        optional("resourceGatewayIdentifier") => String.t() | Atom.t(),
         optional("tags") => map(),
-        required("name") => String.t(),
-        required("type") => String.t()
+        required("name") => String.t() | Atom.t(),
+        required("type") => String.t() | Atom.t()
       }
 
   """
-  @type create_resource_configuration_request() :: %{String.t() => any()}
+  @type create_resource_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_endpoint_association_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "id" => String.t(),
-        "resourceConfigurationArn" => String.t(),
-        "resourceConfigurationId" => String.t(),
-        "resourceConfigurationName" => String.t(),
-        "vpcEndpointId" => String.t(),
-        "vpcEndpointOwner" => String.t()
+        "createdBy" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "resourceConfigurationArn" => String.t() | Atom.t(),
+        "resourceConfigurationId" => String.t() | Atom.t(),
+        "resourceConfigurationName" => String.t() | Atom.t(),
+        "vpcEndpointId" => String.t() | Atom.t(),
+        "vpcEndpointOwner" => String.t() | Atom.t()
       }
 
   """
-  @type resource_endpoint_association_summary() :: %{String.t() => any()}
+  @type resource_endpoint_association_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1878,13 +1887,13 @@ defmodule AWS.VPCLattice do
 
       list_service_network_vpc_associations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("serviceNetworkIdentifier") => String.t(),
-        optional("vpcIdentifier") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("serviceNetworkIdentifier") => String.t() | Atom.t(),
+        optional("vpcIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type list_service_network_vpc_associations_request() :: %{String.t() => any()}
+  @type list_service_network_vpc_associations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1900,12 +1909,12 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       put_auth_policy_response() :: %{
-        optional("policy") => String.t(),
-        optional("state") => String.t()
+        optional("policy") => String.t() | Atom.t(),
+        optional("state") => String.t() | Atom.t()
       }
 
   """
-  @type put_auth_policy_response() :: %{String.t() => any()}
+  @type put_auth_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1922,39 +1931,39 @@ defmodule AWS.VPCLattice do
 
       list_resource_gateways_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_resource_gateways_request() :: %{String.t() => any()}
+  @type list_resource_gateways_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_resource_gateway_response() :: %{
-        "arn" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
-        "status" => String.t()
+        "arn" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
 
   """
-  @type delete_resource_gateway_response() :: %{String.t() => any()}
+  @type delete_resource_gateway_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       target_failure() :: %{
-        "failureCode" => [String.t()],
-        "failureMessage" => [String.t()],
-        "id" => [String.t()],
+        "failureCode" => [String.t() | Atom.t()],
+        "failureMessage" => [String.t() | Atom.t()],
+        "id" => [String.t() | Atom.t()],
         "port" => integer()
       }
 
   """
-  @type target_failure() :: %{String.t() => any()}
+  @type target_failure() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1979,27 +1988,27 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       get_service_network_resource_association_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
         "dnsEntry" => dns_entry(),
-        "failureCode" => [String.t()],
-        "failureReason" => [String.t()],
-        "id" => String.t(),
+        "failureCode" => [String.t() | Atom.t()],
+        "failureReason" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t(),
         "isManagedAssociation" => boolean(),
         "lastUpdatedAt" => non_neg_integer(),
         "privateDnsEntry" => dns_entry(),
-        "resourceConfigurationArn" => String.t(),
-        "resourceConfigurationId" => String.t(),
-        "resourceConfigurationName" => String.t(),
-        "serviceNetworkArn" => String.t(),
-        "serviceNetworkId" => String.t(),
-        "serviceNetworkName" => String.t(),
-        "status" => String.t()
+        "resourceConfigurationArn" => String.t() | Atom.t(),
+        "resourceConfigurationId" => String.t() | Atom.t(),
+        "resourceConfigurationName" => String.t() | Atom.t(),
+        "serviceNetworkArn" => String.t() | Atom.t(),
+        "serviceNetworkId" => String.t() | Atom.t(),
+        "serviceNetworkName" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
 
   """
-  @type get_service_network_resource_association_response() :: %{String.t() => any()}
+  @type get_service_network_resource_association_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2011,32 +2020,32 @@ defmodule AWS.VPCLattice do
       }
 
   """
-  @type register_targets_response() :: %{String.t() => any()}
+  @type register_targets_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_network_resource_association_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
         "dnsEntry" => dns_entry(),
-        "failureCode" => [String.t()],
-        "id" => String.t(),
+        "failureCode" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t(),
         "isManagedAssociation" => boolean(),
         "privateDnsEntry" => dns_entry(),
-        "resourceConfigurationArn" => String.t(),
-        "resourceConfigurationId" => String.t(),
-        "resourceConfigurationName" => String.t(),
-        "serviceNetworkArn" => String.t(),
-        "serviceNetworkId" => String.t(),
-        "serviceNetworkName" => String.t(),
-        "status" => String.t()
+        "resourceConfigurationArn" => String.t() | Atom.t(),
+        "resourceConfigurationId" => String.t() | Atom.t(),
+        "resourceConfigurationName" => String.t() | Atom.t(),
+        "serviceNetworkArn" => String.t() | Atom.t(),
+        "serviceNetworkId" => String.t() | Atom.t(),
+        "serviceNetworkName" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
 
   """
-  @type service_network_resource_association_summary() :: %{String.t() => any()}
+  @type service_network_resource_association_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2046,23 +2055,23 @@ defmodule AWS.VPCLattice do
         "action" => list(),
         "match" => list(),
         "priority" => integer(),
-        "ruleIdentifier" => String.t()
+        "ruleIdentifier" => String.t() | Atom.t()
       }
 
   """
-  @type rule_update() :: %{String.t() => any()}
+  @type rule_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       dns_entry() :: %{
-        "domainName" => [String.t()],
-        "hostedZoneId" => [String.t()]
+        "domainName" => [String.t() | Atom.t()],
+        "hostedZoneId" => [String.t() | Atom.t()]
       }
 
   """
-  @type dns_entry() :: %{String.t() => any()}
+  @type dns_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2070,54 +2079,54 @@ defmodule AWS.VPCLattice do
 
       list_service_network_resource_associations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("resourceConfigurationIdentifier") => String.t(),
-        optional("serviceNetworkIdentifier") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("resourceConfigurationIdentifier") => String.t() | Atom.t(),
+        optional("serviceNetworkIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type list_service_network_resource_associations_request() :: %{String.t() => any()}
+  @type list_service_network_resource_associations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_service_response() :: %{
-        optional("arn") => String.t(),
-        optional("authType") => String.t(),
-        optional("certificateArn") => String.t(),
-        optional("customDomainName") => String.t(),
-        optional("id") => String.t(),
-        optional("name") => String.t()
+        optional("arn") => String.t() | Atom.t(),
+        optional("authType") => String.t() | Atom.t(),
+        optional("certificateArn") => String.t() | Atom.t(),
+        optional("customDomainName") => String.t() | Atom.t(),
+        optional("id") => String.t() | Atom.t(),
+        optional("name") => String.t() | Atom.t()
       }
 
   """
-  @type update_service_response() :: %{String.t() => any()}
+  @type update_service_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_service_response() :: %{
-        optional("arn") => String.t(),
-        optional("id") => String.t(),
-        optional("name") => String.t(),
-        optional("status") => String.t()
+        optional("arn") => String.t() | Atom.t(),
+        optional("id") => String.t() | Atom.t(),
+        optional("name") => String.t() | Atom.t(),
+        optional("status") => String.t() | Atom.t()
       }
 
   """
-  @type delete_service_response() :: %{String.t() => any()}
+  @type delete_service_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_service_network_vpc_association_request() :: %{
-        required("securityGroupIds") => list(String.t())
+        required("securityGroupIds") => list(String.t() | Atom.t())
       }
 
   """
-  @type update_service_network_vpc_association_request() :: %{String.t() => any()}
+  @type update_service_network_vpc_association_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2125,12 +2134,15 @@ defmodule AWS.VPCLattice do
 
       list_service_network_vpc_endpoint_associations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("serviceNetworkIdentifier") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("serviceNetworkIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type list_service_network_vpc_endpoint_associations_request() :: %{String.t() => any()}
+  @type list_service_network_vpc_endpoint_associations_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -2142,18 +2154,18 @@ defmodule AWS.VPCLattice do
       }
 
   """
-  @type deregister_targets_response() :: %{String.t() => any()}
+  @type deregister_targets_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_service_network_request() :: %{
-        required("authType") => String.t()
+        required("authType") => String.t() | Atom.t()
       }
 
   """
-  @type update_service_network_request() :: %{String.t() => any()}
+  @type update_service_network_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2169,18 +2181,18 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       create_service_response() :: %{
-        optional("arn") => String.t(),
-        optional("authType") => String.t(),
-        optional("certificateArn") => String.t(),
-        optional("customDomainName") => String.t(),
+        optional("arn") => String.t() | Atom.t(),
+        optional("authType") => String.t() | Atom.t(),
+        optional("certificateArn") => String.t() | Atom.t(),
+        optional("customDomainName") => String.t() | Atom.t(),
         optional("dnsEntry") => dns_entry(),
-        optional("id") => String.t(),
-        optional("name") => String.t(),
-        optional("status") => String.t()
+        optional("id") => String.t() | Atom.t(),
+        optional("name") => String.t() | Atom.t(),
+        optional("status") => String.t() | Atom.t()
       }
 
   """
-  @type create_service_response() :: %{String.t() => any()}
+  @type create_service_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2192,7 +2204,7 @@ defmodule AWS.VPCLattice do
       }
 
   """
-  @type batch_update_rule_response() :: %{String.t() => any()}
+  @type batch_update_rule_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2217,12 +2229,12 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       list_targets_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("items") => list(target_summary())
       }
 
   """
-  @type list_targets_response() :: %{String.t() => any()}
+  @type list_targets_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2230,30 +2242,30 @@ defmodule AWS.VPCLattice do
 
       update_resource_configuration_request() :: %{
         optional("allowAssociationToShareableServiceNetwork") => boolean(),
-        optional("portRanges") => list(String.t()),
+        optional("portRanges") => list(String.t() | Atom.t()),
         optional("resourceConfigurationDefinition") => list()
       }
 
   """
-  @type update_resource_configuration_request() :: %{String.t() => any()}
+  @type update_resource_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_access_log_subscription_response() :: %{
-        optional("serviceNetworkLogType") => String.t(),
-        required("arn") => String.t(),
+        optional("serviceNetworkLogType") => String.t() | Atom.t(),
+        required("arn") => String.t() | Atom.t(),
         required("createdAt") => non_neg_integer(),
-        required("destinationArn") => String.t(),
-        required("id") => String.t(),
+        required("destinationArn") => String.t() | Atom.t(),
+        required("id") => String.t() | Atom.t(),
         required("lastUpdatedAt") => non_neg_integer(),
-        required("resourceArn") => String.t(),
-        required("resourceId") => String.t()
+        required("resourceArn") => String.t() | Atom.t(),
+        required("resourceId") => String.t() | Atom.t()
       }
 
   """
-  @type get_access_log_subscription_response() :: %{String.t() => any()}
+  @type get_access_log_subscription_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2261,31 +2273,31 @@ defmodule AWS.VPCLattice do
 
       target_group_config() :: %{
         "healthCheck" => health_check_config(),
-        "ipAddressType" => String.t(),
-        "lambdaEventStructureVersion" => String.t(),
+        "ipAddressType" => String.t() | Atom.t(),
+        "lambdaEventStructureVersion" => String.t() | Atom.t(),
         "port" => integer(),
-        "protocol" => String.t(),
-        "protocolVersion" => String.t(),
-        "vpcIdentifier" => String.t()
+        "protocol" => String.t() | Atom.t(),
+        "protocolVersion" => String.t() | Atom.t(),
+        "vpcIdentifier" => String.t() | Atom.t()
       }
 
   """
-  @type target_group_config() :: %{String.t() => any()}
+  @type target_group_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_service_network_vpc_association_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("securityGroupIds") => list(String.t()),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("securityGroupIds") => list(String.t() | Atom.t()),
         optional("tags") => map(),
-        required("serviceNetworkIdentifier") => String.t(),
-        required("vpcIdentifier") => String.t()
+        required("serviceNetworkIdentifier") => String.t() | Atom.t(),
+        required("vpcIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type create_service_network_vpc_association_request() :: %{String.t() => any()}
+  @type create_service_network_vpc_association_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2293,12 +2305,12 @@ defmodule AWS.VPCLattice do
 
       list_access_log_subscriptions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("resourceIdentifier") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("resourceIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type list_access_log_subscriptions_request() :: %{String.t() => any()}
+  @type list_access_log_subscriptions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2314,25 +2326,25 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       rule_update_failure() :: %{
-        "failureCode" => String.t(),
-        "failureMessage" => String.t(),
-        "ruleIdentifier" => String.t()
+        "failureCode" => String.t() | Atom.t(),
+        "failureMessage" => String.t() | Atom.t(),
+        "ruleIdentifier" => String.t() | Atom.t()
       }
 
   """
-  @type rule_update_failure() :: %{String.t() => any()}
+  @type rule_update_failure() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_service_networks_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("items") => list(service_network_summary())
       }
 
   """
-  @type list_service_networks_response() :: %{String.t() => any()}
+  @type list_service_networks_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2343,19 +2355,19 @@ defmodule AWS.VPCLattice do
       }
 
   """
-  @type sharing_config() :: %{String.t() => any()}
+  @type sharing_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_service_network_service_associations_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("items") => list(service_network_service_association_summary())
       }
 
   """
-  @type list_service_network_service_associations_response() :: %{String.t() => any()}
+  @type list_service_network_service_associations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2371,30 +2383,30 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       create_listener_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("port") => integer(),
         optional("tags") => map(),
         required("defaultAction") => list(),
-        required("name") => String.t(),
-        required("protocol") => String.t()
+        required("name") => String.t() | Atom.t(),
+        required("protocol") => String.t() | Atom.t()
       }
 
   """
-  @type create_listener_request() :: %{String.t() => any()}
+  @type create_listener_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_service_network_service_association_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("tags") => map(),
-        required("serviceIdentifier") => String.t(),
-        required("serviceNetworkIdentifier") => String.t()
+        required("serviceIdentifier") => String.t() | Atom.t(),
+        required("serviceNetworkIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type create_service_network_service_association_request() :: %{String.t() => any()}
+  @type create_service_network_service_association_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2411,22 +2423,22 @@ defmodule AWS.VPCLattice do
 
       create_resource_configuration_response() :: %{
         "allowAssociationToShareableServiceNetwork" => boolean(),
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "failureReason" => [String.t()],
-        "id" => String.t(),
-        "name" => String.t(),
-        "portRanges" => list(String.t()),
-        "protocol" => String.t(),
+        "failureReason" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "portRanges" => list(String.t() | Atom.t()),
+        "protocol" => String.t() | Atom.t(),
         "resourceConfigurationDefinition" => list(),
-        "resourceConfigurationGroupId" => String.t(),
-        "resourceGatewayId" => String.t(),
-        "status" => String.t(),
-        "type" => String.t()
+        "resourceConfigurationGroupId" => String.t() | Atom.t(),
+        "resourceGatewayId" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t(),
+        "type" => String.t() | Atom.t()
       }
 
   """
-  @type create_resource_configuration_response() :: %{String.t() => any()}
+  @type create_resource_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @type batch_update_rule_errors() ::
           throttling_exception()
@@ -2972,7 +2984,13 @@ defmodule AWS.VPCLattice do
   For more information, see [How Amazon VPC Lattice works with IAM](https://docs.aws.amazon.com/vpc-lattice/latest/ug/security_iam_service-with-iam.html)
   in the *Amazon VPC Lattice User Guide*.
   """
-  @spec batch_update_rule(map(), String.t(), String.t(), batch_update_rule_request(), list()) ::
+  @spec batch_update_rule(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          batch_update_rule_request(),
+          list()
+        ) ::
           {:ok, batch_update_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3058,7 +3076,7 @@ defmodule AWS.VPCLattice do
   the
   *Amazon VPC Lattice User Guide*.
   """
-  @spec create_listener(map(), String.t(), create_listener_request(), list()) ::
+  @spec create_listener(map(), String.t() | Atom.t(), create_listener_request(), list()) ::
           {:ok, create_listener_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3155,7 +3173,13 @@ defmodule AWS.VPCLattice do
   in the
   *Amazon VPC Lattice User Guide*.
   """
-  @spec create_rule(map(), String.t(), String.t(), create_rule_request(), list()) ::
+  @spec create_rule(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          create_rule_request(),
+          list()
+        ) ::
           {:ok, create_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3449,7 +3473,7 @@ defmodule AWS.VPCLattice do
   """
   @spec delete_access_log_subscription(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_access_log_subscription_request(),
           list()
         ) ::
@@ -3495,7 +3519,7 @@ defmodule AWS.VPCLattice do
   resource,
   but no auth policy is set, all requests are denied.
   """
-  @spec delete_auth_policy(map(), String.t(), delete_auth_policy_request(), list()) ::
+  @spec delete_auth_policy(map(), String.t() | Atom.t(), delete_auth_policy_request(), list()) ::
           {:ok, delete_auth_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3524,7 +3548,13 @@ defmodule AWS.VPCLattice do
   @doc """
   Deletes the specified listener.
   """
-  @spec delete_listener(map(), String.t(), String.t(), delete_listener_request(), list()) ::
+  @spec delete_listener(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_listener_request(),
+          list()
+        ) ::
           {:ok, delete_listener_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3563,7 +3593,7 @@ defmodule AWS.VPCLattice do
   """
   @spec delete_resource_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_resource_configuration_request(),
           list()
         ) ::
@@ -3602,7 +3632,7 @@ defmodule AWS.VPCLattice do
   """
   @spec delete_resource_endpoint_association(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_resource_endpoint_association_request(),
           list()
         ) ::
@@ -3641,7 +3671,12 @@ defmodule AWS.VPCLattice do
   @doc """
   Deletes the specified resource gateway.
   """
-  @spec delete_resource_gateway(map(), String.t(), delete_resource_gateway_request(), list()) ::
+  @spec delete_resource_gateway(
+          map(),
+          String.t() | Atom.t(),
+          delete_resource_gateway_request(),
+          list()
+        ) ::
           {:ok, delete_resource_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3675,7 +3710,12 @@ defmodule AWS.VPCLattice do
   @doc """
   Deletes the specified resource policy.
   """
-  @spec delete_resource_policy(map(), String.t(), delete_resource_policy_request(), list()) ::
+  @spec delete_resource_policy(
+          map(),
+          String.t() | Atom.t(),
+          delete_resource_policy_request(),
+          list()
+        ) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3715,7 +3755,14 @@ defmodule AWS.VPCLattice do
   in the
   *Amazon VPC Lattice User Guide*.
   """
-  @spec delete_rule(map(), String.t(), String.t(), String.t(), delete_rule_request(), list()) ::
+  @spec delete_rule(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_rule_request(),
+          list()
+        ) ::
           {:ok, delete_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3762,7 +3809,7 @@ defmodule AWS.VPCLattice do
   in the
   *Amazon VPC Lattice User Guide*.
   """
-  @spec delete_service(map(), String.t(), delete_service_request(), list()) ::
+  @spec delete_service(map(), String.t() | Atom.t(), delete_service_request(), list()) ::
           {:ok, delete_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3799,7 +3846,12 @@ defmodule AWS.VPCLattice do
   deleted. For more information, see [Delete a service network](https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-networks.html#delete-service-network)
   in the *Amazon VPC Lattice User Guide*.
   """
-  @spec delete_service_network(map(), String.t(), delete_service_network_request(), list()) ::
+  @spec delete_service_network(
+          map(),
+          String.t() | Atom.t(),
+          delete_service_network_request(),
+          list()
+        ) ::
           {:ok, delete_service_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3830,7 +3882,7 @@ defmodule AWS.VPCLattice do
   """
   @spec delete_service_network_resource_association(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_service_network_resource_association_request(),
           list()
         ) ::
@@ -3874,7 +3926,7 @@ defmodule AWS.VPCLattice do
   """
   @spec delete_service_network_service_association(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_service_network_service_association_request(),
           list()
         ) ::
@@ -3918,7 +3970,7 @@ defmodule AWS.VPCLattice do
   """
   @spec delete_service_network_vpc_association(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_service_network_vpc_association_request(),
           list()
         ) ::
@@ -3960,7 +4012,7 @@ defmodule AWS.VPCLattice do
   You can't delete a target group if it is used in a listener rule or
   if the target group creation is in progress.
   """
-  @spec delete_target_group(map(), String.t(), delete_target_group_request(), list()) ::
+  @spec delete_target_group(map(), String.t() | Atom.t(), delete_target_group_request(), list()) ::
           {:ok, delete_target_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3989,7 +4041,7 @@ defmodule AWS.VPCLattice do
   @doc """
   Deregisters the specified targets from the specified target group.
   """
-  @spec deregister_targets(map(), String.t(), deregister_targets_request(), list()) ::
+  @spec deregister_targets(map(), String.t() | Atom.t(), deregister_targets_request(), list()) ::
           {:ok, deregister_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4018,7 +4070,7 @@ defmodule AWS.VPCLattice do
   @doc """
   Retrieves information about the specified access log subscription.
   """
-  @spec get_access_log_subscription(map(), String.t(), list()) ::
+  @spec get_access_log_subscription(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_access_log_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4043,7 +4095,7 @@ defmodule AWS.VPCLattice do
   Retrieves information about the auth policy for the specified service or service
   network.
   """
-  @spec get_auth_policy(map(), String.t(), list()) ::
+  @spec get_auth_policy(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_auth_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4061,7 +4113,7 @@ defmodule AWS.VPCLattice do
   @doc """
   Retrieves information about the specified listener for the specified service.
   """
-  @spec get_listener(map(), String.t(), String.t(), list()) ::
+  @spec get_listener(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_listener_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4081,7 +4133,7 @@ defmodule AWS.VPCLattice do
   @doc """
   Retrieves information about the specified resource configuration.
   """
-  @spec get_resource_configuration(map(), String.t(), list()) ::
+  @spec get_resource_configuration(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_resource_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4103,7 +4155,7 @@ defmodule AWS.VPCLattice do
   @doc """
   Retrieves information about the specified resource gateway.
   """
-  @spec get_resource_gateway(map(), String.t(), list()) ::
+  @spec get_resource_gateway(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_resource_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4124,7 +4176,7 @@ defmodule AWS.VPCLattice do
   The resource policy is an IAM policy
   created on behalf of the resource owner when they share a resource.
   """
-  @spec get_resource_policy(map(), String.t(), list()) ::
+  @spec get_resource_policy(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4147,7 +4199,13 @@ defmodule AWS.VPCLattice do
   in the
   *Amazon VPC Lattice User Guide*.
   """
-  @spec get_rule(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_rule(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4173,7 +4231,7 @@ defmodule AWS.VPCLattice do
   @doc """
   Retrieves information about the specified service.
   """
-  @spec get_service(map(), String.t(), list()) ::
+  @spec get_service(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4191,7 +4249,7 @@ defmodule AWS.VPCLattice do
   @doc """
   Retrieves information about the specified service network.
   """
-  @spec get_service_network(map(), String.t(), list()) ::
+  @spec get_service_network(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_service_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4210,7 +4268,7 @@ defmodule AWS.VPCLattice do
   Retrieves information about the specified association between a service network
   and a resource configuration.
   """
-  @spec get_service_network_resource_association(map(), String.t(), list()) ::
+  @spec get_service_network_resource_association(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_service_network_resource_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4235,7 +4293,7 @@ defmodule AWS.VPCLattice do
   Retrieves information about the specified association between a service network
   and a service.
   """
-  @spec get_service_network_service_association(map(), String.t(), list()) ::
+  @spec get_service_network_service_association(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_service_network_service_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4260,7 +4318,7 @@ defmodule AWS.VPCLattice do
   Retrieves information about the specified association between a service network
   and a VPC.
   """
-  @spec get_service_network_vpc_association(map(), String.t(), list()) ::
+  @spec get_service_network_vpc_association(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_service_network_vpc_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4284,7 +4342,7 @@ defmodule AWS.VPCLattice do
   @doc """
   Retrieves information about the specified target group.
   """
-  @spec get_target_group(map(), String.t(), list()) ::
+  @spec get_target_group(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_target_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4304,9 +4362,9 @@ defmodule AWS.VPCLattice do
   """
   @spec list_access_log_subscriptions(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
           list()
         ) ::
           {:ok, list_access_log_subscriptions_response(), any()}
@@ -4353,7 +4411,13 @@ defmodule AWS.VPCLattice do
   @doc """
   Lists the listeners for the specified service.
   """
-  @spec list_listeners(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_listeners(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_listeners_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4393,10 +4457,10 @@ defmodule AWS.VPCLattice do
   """
   @spec list_resource_configurations(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_resource_configurations_response(), any()}
@@ -4456,12 +4520,12 @@ defmodule AWS.VPCLattice do
   """
   @spec list_resource_endpoint_associations(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_resource_endpoint_associations_response(), any()}
@@ -4535,7 +4599,12 @@ defmodule AWS.VPCLattice do
   @doc """
   Lists the resource gateways that you own or that were shared with you.
   """
-  @spec list_resource_gateways(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_resource_gateways(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_resource_gateways_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4572,7 +4641,14 @@ defmodule AWS.VPCLattice do
   @doc """
   Lists the rules for the specified listener.
   """
-  @spec list_rules(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_rules(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4615,10 +4691,10 @@ defmodule AWS.VPCLattice do
   """
   @spec list_service_network_resource_associations(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_service_network_resource_associations_response(), any()}
@@ -4688,10 +4764,10 @@ defmodule AWS.VPCLattice do
   """
   @spec list_service_network_service_associations(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_service_network_service_associations_response(), any()}
@@ -4752,10 +4828,10 @@ defmodule AWS.VPCLattice do
   """
   @spec list_service_network_vpc_associations(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_service_network_vpc_associations_response(), any()}
@@ -4812,9 +4888,9 @@ defmodule AWS.VPCLattice do
   """
   @spec list_service_network_vpc_endpoint_associations(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
           list()
         ) ::
           {:ok, list_service_network_vpc_endpoint_associations_response(), any()}
@@ -4864,7 +4940,12 @@ defmodule AWS.VPCLattice do
   The account ID in the ARN
   shows which account owns the service network.
   """
-  @spec list_service_networks(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_service_networks(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_service_networks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4902,7 +4983,7 @@ defmodule AWS.VPCLattice do
   Lists the services owned by the caller account or shared with the caller
   account.
   """
-  @spec list_services(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_services(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_services_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4934,7 +5015,7 @@ defmodule AWS.VPCLattice do
   @doc """
   Lists the tags for the specified resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4957,10 +5038,10 @@ defmodule AWS.VPCLattice do
   """
   @spec list_target_groups(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_target_groups_response(), any()}
@@ -5019,7 +5100,7 @@ defmodule AWS.VPCLattice do
   this API to check the health status of targets. You can also ﬁlter the results
   by target.
   """
-  @spec list_targets(map(), String.t(), list_targets_request(), list()) ::
+  @spec list_targets(map(), String.t() | Atom.t(), list_targets_request(), list()) ::
           {:ok, list_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5061,7 +5142,7 @@ defmodule AWS.VPCLattice do
   in the *Amazon VPC
   Lattice User Guide*.
   """
-  @spec put_auth_policy(map(), String.t(), put_auth_policy_request(), list()) ::
+  @spec put_auth_policy(map(), String.t() | Atom.t(), put_auth_policy_request(), list()) ::
           {:ok, put_auth_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5095,7 +5176,7 @@ defmodule AWS.VPCLattice do
   Resource Access
   Manager permission for sharing services and service networks.
   """
-  @spec put_resource_policy(map(), String.t(), put_resource_policy_request(), list()) ::
+  @spec put_resource_policy(map(), String.t() | Atom.t(), put_resource_policy_request(), list()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5127,7 +5208,7 @@ defmodule AWS.VPCLattice do
   If it's a Lambda target, you can only have one
   target in a target group.
   """
-  @spec register_targets(map(), String.t(), register_targets_request(), list()) ::
+  @spec register_targets(map(), String.t() | Atom.t(), register_targets_request(), list()) ::
           {:ok, register_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5156,7 +5237,7 @@ defmodule AWS.VPCLattice do
   @doc """
   Adds the specified tags to the specified resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5185,7 +5266,7 @@ defmodule AWS.VPCLattice do
   @doc """
   Removes the specified tags from the specified resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5221,7 +5302,7 @@ defmodule AWS.VPCLattice do
   """
   @spec update_access_log_subscription(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_access_log_subscription_request(),
           list()
         ) ::
@@ -5260,7 +5341,13 @@ defmodule AWS.VPCLattice do
   @doc """
   Updates the specified listener for the specified service.
   """
-  @spec update_listener(map(), String.t(), String.t(), update_listener_request(), list()) ::
+  @spec update_listener(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_listener_request(),
+          list()
+        ) ::
           {:ok, update_listener_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5299,7 +5386,7 @@ defmodule AWS.VPCLattice do
   """
   @spec update_resource_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_resource_configuration_request(),
           list()
         ) ::
@@ -5336,7 +5423,12 @@ defmodule AWS.VPCLattice do
   @doc """
   Updates the specified resource gateway.
   """
-  @spec update_resource_gateway(map(), String.t(), update_resource_gateway_request(), list()) ::
+  @spec update_resource_gateway(
+          map(),
+          String.t() | Atom.t(),
+          update_resource_gateway_request(),
+          list()
+        ) ::
           {:ok, update_resource_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5373,7 +5465,14 @@ defmodule AWS.VPCLattice do
   You can't modify a default listener rule. To modify a
   default listener rule, use `UpdateListener`.
   """
-  @spec update_rule(map(), String.t(), String.t(), String.t(), update_rule_request(), list()) ::
+  @spec update_rule(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_rule_request(),
+          list()
+        ) ::
           {:ok, update_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5411,7 +5510,7 @@ defmodule AWS.VPCLattice do
   @doc """
   Updates the specified service.
   """
-  @spec update_service(map(), String.t(), update_service_request(), list()) ::
+  @spec update_service(map(), String.t() | Atom.t(), update_service_request(), list()) ::
           {:ok, update_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5440,7 +5539,12 @@ defmodule AWS.VPCLattice do
   @doc """
   Updates the specified service network.
   """
-  @spec update_service_network(map(), String.t(), update_service_network_request(), list()) ::
+  @spec update_service_network(
+          map(),
+          String.t() | Atom.t(),
+          update_service_network_request(),
+          list()
+        ) ::
           {:ok, update_service_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5479,7 +5583,7 @@ defmodule AWS.VPCLattice do
   """
   @spec update_service_network_vpc_association(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_service_network_vpc_association_request(),
           list()
         ) ::
@@ -5518,7 +5622,7 @@ defmodule AWS.VPCLattice do
   @doc """
   Updates the specified target group.
   """
-  @spec update_target_group(map(), String.t(), update_target_group_request(), list()) ::
+  @spec update_target_group(map(), String.t() | Atom.t(), update_target_group_request(), list()) ::
           {:ok, update_target_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

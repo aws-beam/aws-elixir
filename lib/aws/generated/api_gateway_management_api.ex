@@ -53,7 +53,7 @@ defmodule AWS.ApiGatewayManagementApi do
       }
 
   """
-  @type get_connection_response() :: %{String.t() => any()}
+  @type get_connection_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -69,12 +69,12 @@ defmodule AWS.ApiGatewayManagementApi do
   ## Example:
 
       identity() :: %{
-        required("SourceIp") => String.t(),
-        required("UserAgent") => String.t()
+        required("SourceIp") => String.t() | Atom.t(),
+        required("UserAgent") => String.t() | Atom.t()
       }
 
   """
-  @type identity() :: %{String.t() => any()}
+  @type identity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -90,11 +90,11 @@ defmodule AWS.ApiGatewayManagementApi do
   ## Example:
 
       payload_too_large_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type payload_too_large_exception() :: %{String.t() => any()}
+  @type payload_too_large_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -105,7 +105,7 @@ defmodule AWS.ApiGatewayManagementApi do
       }
 
   """
-  @type post_to_connection_request() :: %{String.t() => any()}
+  @type post_to_connection_request() :: %{String.t() | Atom.t() => any()}
 
   @type delete_connection_errors() ::
           limit_exceeded_exception() | gone_exception() | forbidden_exception()
@@ -138,7 +138,13 @@ defmodule AWS.ApiGatewayManagementApi do
   @doc """
   Delete the connection with the provided id.
   """
-  @spec delete_connection(map(), String.t(), String.t(), delete_connection_request(), list()) ::
+  @spec delete_connection(
+          map(),
+          String.t() | Atom.t(),
+          String.t(),
+          delete_connection_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -167,7 +173,7 @@ defmodule AWS.ApiGatewayManagementApi do
   @doc """
   Get information about the connection with the provided id.
   """
-  @spec get_connection(map(), String.t(), String.t(), list()) ::
+  @spec get_connection(map(), String.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -185,7 +191,13 @@ defmodule AWS.ApiGatewayManagementApi do
   @doc """
   Sends the provided data to the specified connection.
   """
-  @spec post_to_connection(map(), String.t(), String.t(), post_to_connection_request(), list()) ::
+  @spec post_to_connection(
+          map(),
+          String.t() | Atom.t(),
+          String.t(),
+          post_to_connection_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

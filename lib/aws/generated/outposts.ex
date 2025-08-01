@@ -33,14 +33,14 @@ defmodule AWS.Outposts do
   ## Example:
 
       get_outpost_supported_instance_types_input() :: %{
-        optional("AssetId") => String.t(),
+        optional("AssetId") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("OrderId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("OrderId") => String.t() | Atom.t()
       }
 
   """
-  @type get_outpost_supported_instance_types_input() :: %{String.t() => any()}
+  @type get_outpost_supported_instance_types_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -48,36 +48,36 @@ defmodule AWS.Outposts do
 
       get_outpost_instance_types_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type get_outpost_instance_types_input() :: %{String.t() => any()}
+  @type get_outpost_instance_types_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       instance_type_item() :: %{
-        "InstanceType" => String.t(),
+        "InstanceType" => String.t() | Atom.t(),
         "VCPUs" => integer()
       }
 
   """
-  @type instance_type_item() :: %{String.t() => any()}
+  @type instance_type_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       blocking_instance() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | Atom.t(),
         "AwsServiceName" => list(any()),
-        "InstanceId" => String.t()
+        "InstanceId" => String.t() | Atom.t()
       }
 
   """
-  @type blocking_instance() :: %{String.t() => any()}
+  @type blocking_instance() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -88,49 +88,49 @@ defmodule AWS.Outposts do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_connection_response() :: %{
-        "ConnectionId" => String.t(),
-        "UnderlayIpAddress" => String.t()
+        "ConnectionId" => String.t() | Atom.t(),
+        "UnderlayIpAddress" => String.t() | Atom.t()
       }
 
   """
-  @type start_connection_response() :: %{String.t() => any()}
+  @type start_connection_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_assets_input() :: %{
-        optional("HostIdFilter") => list(String.t()),
+        optional("HostIdFilter") => list(String.t() | Atom.t()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("StatusFilter") => list(list(any())())
       }
 
   """
-  @type list_assets_input() :: %{String.t() => any()}
+  @type list_assets_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_asset_instances_input() :: %{
-        optional("AccountIdFilter") => list(String.t()),
-        optional("AssetIdFilter") => list(String.t()),
+        optional("AccountIdFilter") => list(String.t() | Atom.t()),
+        optional("AssetIdFilter") => list(String.t() | Atom.t()),
         optional("AwsServiceFilter") => list(list(any())()),
-        optional("InstanceTypeFilter") => list(String.t()),
+        optional("InstanceTypeFilter") => list(String.t() | Atom.t()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_asset_instances_input() :: %{String.t() => any()}
+  @type list_asset_instances_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -141,7 +141,7 @@ defmodule AWS.Outposts do
       }
 
   """
-  @type asset_location() :: %{String.t() => any()}
+  @type asset_location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -167,11 +167,11 @@ defmodule AWS.Outposts do
 
       list_capacity_tasks_output() :: %{
         "CapacityTasks" => list(capacity_task_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_capacity_tasks_output() :: %{String.t() => any()}
+  @type list_capacity_tasks_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -179,11 +179,11 @@ defmodule AWS.Outposts do
 
       get_connection_response() :: %{
         "ConnectionDetails" => connection_details(),
-        "ConnectionId" => String.t()
+        "ConnectionId" => String.t() | Atom.t()
       }
 
   """
-  @type get_connection_response() :: %{String.t() => any()}
+  @type get_connection_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -191,49 +191,49 @@ defmodule AWS.Outposts do
 
       get_outpost_supported_instance_types_output() :: %{
         "InstanceTypes" => list(instance_type_item()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type get_outpost_supported_instance_types_output() :: %{String.t() => any()}
+  @type get_outpost_supported_instance_types_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       line_item_asset_information() :: %{
-        "AssetId" => String.t(),
-        "MacAddressList" => list(String.t())
+        "AssetId" => String.t() | Atom.t(),
+        "MacAddressList" => list(String.t() | Atom.t())
       }
 
   """
-  @type line_item_asset_information() :: %{String.t() => any()}
+  @type line_item_asset_information() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_orders_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Orders" => list(order_summary())
       }
 
   """
-  @type list_orders_output() :: %{String.t() => any()}
+  @type list_orders_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_connection_request() :: %{
-        optional("DeviceSerialNumber") => String.t(),
-        required("AssetId") => String.t(),
-        required("ClientPublicKey") => String.t(),
+        optional("DeviceSerialNumber") => String.t() | Atom.t(),
+        required("AssetId") => String.t() | Atom.t(),
+        required("ClientPublicKey") => String.t() | Atom.t(),
         required("NetworkInterfaceDeviceIndex") => integer()
       }
 
   """
-  @type start_connection_request() :: %{String.t() => any()}
+  @type start_connection_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -244,57 +244,57 @@ defmodule AWS.Outposts do
       }
 
   """
-  @type get_site_output() :: %{String.t() => any()}
+  @type get_site_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_site_input() :: %{
-        optional("Description") => String.t(),
-        optional("Notes") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("Notes") => String.t() | Atom.t(),
         optional("OperatingAddress") => address(),
         optional("RackPhysicalProperties") => rack_physical_properties(),
         optional("ShippingAddress") => address(),
         optional("Tags") => map(),
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
 
   """
-  @type create_site_input() :: %{String.t() => any()}
+  @type create_site_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_outposts_input() :: %{
-        optional("AvailabilityZoneFilter") => list(String.t()),
-        optional("AvailabilityZoneIdFilter") => list(String.t()),
-        optional("LifeCycleStatusFilter") => list(String.t()),
+        optional("AvailabilityZoneFilter") => list(String.t() | Atom.t()),
+        optional("AvailabilityZoneIdFilter") => list(String.t() | Atom.t()),
+        optional("LifeCycleStatusFilter") => list(String.t() | Atom.t()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_outposts_input() :: %{String.t() => any()}
+  @type list_outposts_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t())
+        required("TagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       catalog_item() :: %{
-        "CatalogItemId" => String.t(),
+        "CatalogItemId" => String.t() | Atom.t(),
         "EC2Capacities" => list(ec2_capacity()),
         "ItemStatus" => list(any()),
         "PowerKva" => float(),
@@ -304,7 +304,7 @@ defmodule AWS.Outposts do
       }
 
   """
-  @type catalog_item() :: %{String.t() => any()}
+  @type catalog_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -315,7 +315,7 @@ defmodule AWS.Outposts do
       }
 
   """
-  @type get_site_address_input() :: %{String.t() => any()}
+  @type get_site_address_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -326,7 +326,7 @@ defmodule AWS.Outposts do
       }
 
   """
-  @type create_site_output() :: %{String.t() => any()}
+  @type create_site_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -338,20 +338,20 @@ defmodule AWS.Outposts do
       }
 
   """
-  @type update_site_address_input() :: %{String.t() => any()}
+  @type update_site_address_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_outpost_input() :: %{
-        optional("Description") => String.t(),
-        optional("Name") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("SupportedHardwareType") => list(any())
       }
 
   """
-  @type update_outpost_input() :: %{String.t() => any()}
+  @type update_outpost_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -370,7 +370,7 @@ defmodule AWS.Outposts do
       }
 
   """
-  @type rack_physical_properties() :: %{String.t() => any()}
+  @type rack_physical_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -389,7 +389,7 @@ defmodule AWS.Outposts do
       }
 
   """
-  @type update_site_rack_physical_properties_input() :: %{String.t() => any()}
+  @type update_site_rack_physical_properties_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -401,7 +401,7 @@ defmodule AWS.Outposts do
       }
 
   """
-  @type update_site_address_output() :: %{String.t() => any()}
+  @type update_site_address_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -409,12 +409,12 @@ defmodule AWS.Outposts do
 
       list_orders_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("OutpostIdentifierFilter") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("OutpostIdentifierFilter") => String.t() | Atom.t()
       }
 
   """
-  @type list_orders_input() :: %{String.t() => any()}
+  @type list_orders_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -431,24 +431,24 @@ defmodule AWS.Outposts do
 
       list_asset_instances_output() :: %{
         "AssetInstances" => list(asset_instance()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_asset_instances_output() :: %{String.t() => any()}
+  @type list_asset_instances_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => String.t(),
-        "ResourceId" => String.t(),
+        "Message" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | Atom.t(),
         "ResourceType" => list(any())
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -456,11 +456,11 @@ defmodule AWS.Outposts do
 
       asset_instance_type_capacity() :: %{
         "Count" => integer(),
-        "InstanceType" => String.t()
+        "InstanceType" => String.t() | Atom.t()
       }
 
   """
-  @type asset_instance_type_capacity() :: %{String.t() => any()}
+  @type asset_instance_type_capacity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -480,7 +480,7 @@ defmodule AWS.Outposts do
       }
 
   """
-  @type create_order_output() :: %{String.t() => any()}
+  @type create_order_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -496,22 +496,22 @@ defmodule AWS.Outposts do
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type not_found_exception() :: %{String.t() => any()}
+  @type not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -522,28 +522,28 @@ defmodule AWS.Outposts do
       }
 
   """
-  @type update_site_output() :: %{String.t() => any()}
+  @type update_site_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       site() :: %{
-        "AccountId" => String.t(),
-        "Description" => String.t(),
-        "Name" => String.t(),
-        "Notes" => String.t(),
-        "OperatingAddressCity" => String.t(),
-        "OperatingAddressCountryCode" => String.t(),
-        "OperatingAddressStateOrRegion" => String.t(),
+        "AccountId" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "Notes" => String.t() | Atom.t(),
+        "OperatingAddressCity" => String.t() | Atom.t(),
+        "OperatingAddressCountryCode" => String.t() | Atom.t(),
+        "OperatingAddressStateOrRegion" => String.t() | Atom.t(),
         "RackPhysicalProperties" => rack_physical_properties(),
-        "SiteArn" => String.t(),
-        "SiteId" => String.t(),
+        "SiteArn" => String.t() | Atom.t(),
+        "SiteId" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type site() :: %{String.t() => any()}
+  @type site() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -551,14 +551,14 @@ defmodule AWS.Outposts do
 
       list_sites_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("OperatingAddressCityFilter") => list(String.t()),
-        optional("OperatingAddressCountryCodeFilter") => list(String.t()),
-        optional("OperatingAddressStateOrRegionFilter") => list(String.t())
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("OperatingAddressCityFilter") => list(String.t() | Atom.t()),
+        optional("OperatingAddressCountryCodeFilter") => list(String.t() | Atom.t()),
+        optional("OperatingAddressStateOrRegionFilter") => list(String.t() | Atom.t())
       }
 
   """
-  @type list_sites_input() :: %{String.t() => any()}
+  @type list_sites_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -566,11 +566,11 @@ defmodule AWS.Outposts do
 
       list_blocking_instances_for_capacity_task_output() :: %{
         "BlockingInstances" => list(blocking_instance()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_blocking_instances_for_capacity_task_output() :: %{String.t() => any()}
+  @type list_blocking_instances_for_capacity_task_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -578,11 +578,11 @@ defmodule AWS.Outposts do
 
       instance_type_capacity() :: %{
         "Count" => integer(),
-        "InstanceType" => String.t()
+        "InstanceType" => String.t() | Atom.t()
       }
 
   """
-  @type instance_type_capacity() :: %{String.t() => any()}
+  @type instance_type_capacity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -593,7 +593,7 @@ defmodule AWS.Outposts do
       }
 
   """
-  @type get_outpost_output() :: %{String.t() => any()}
+  @type get_outpost_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -604,7 +604,7 @@ defmodule AWS.Outposts do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -615,7 +615,7 @@ defmodule AWS.Outposts do
       }
 
   """
-  @type get_order_output() :: %{String.t() => any()}
+  @type get_order_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -624,12 +624,12 @@ defmodule AWS.Outposts do
       create_order_input() :: %{
         optional("PaymentTerm") => list(any()),
         required("LineItems") => list(line_item_request()),
-        required("OutpostIdentifier") => String.t(),
+        required("OutpostIdentifier") => String.t() | Atom.t(),
         required("PaymentOption") => list(any())
       }
 
   """
-  @type create_order_input() :: %{String.t() => any()}
+  @type create_order_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -640,7 +640,7 @@ defmodule AWS.Outposts do
       }
 
   """
-  @type get_catalog_item_output() :: %{String.t() => any()}
+  @type get_catalog_item_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -656,21 +656,21 @@ defmodule AWS.Outposts do
   ## Example:
 
       ec2_capacity() :: %{
-        "Family" => String.t(),
-        "MaxSize" => String.t(),
-        "Quantity" => String.t()
+        "Family" => String.t() | Atom.t(),
+        "MaxSize" => String.t() | Atom.t(),
+        "Quantity" => String.t() | Atom.t()
       }
 
   """
-  @type ec2_capacity() :: %{String.t() => any()}
+  @type ec2_capacity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_capacity_task_output() :: %{
-        "AssetId" => String.t(),
-        "CapacityTaskId" => String.t(),
+        "AssetId" => String.t() | Atom.t(),
+        "CapacityTaskId" => String.t() | Atom.t(),
         "CapacityTaskStatus" => list(any()),
         "CompletionDate" => non_neg_integer(),
         "CreationDate" => non_neg_integer(),
@@ -678,42 +678,42 @@ defmodule AWS.Outposts do
         "Failed" => capacity_task_failure(),
         "InstancesToExclude" => instances_to_exclude(),
         "LastModifiedDate" => non_neg_integer(),
-        "OrderId" => String.t(),
-        "OutpostId" => String.t(),
+        "OrderId" => String.t() | Atom.t(),
+        "OutpostId" => String.t() | Atom.t(),
         "RequestedInstancePools" => list(instance_type_capacity()),
         "TaskActionOnBlockingInstances" => list(any())
       }
 
   """
-  @type start_capacity_task_output() :: %{String.t() => any()}
+  @type start_capacity_task_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_sites_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Sites" => list(site())
       }
 
   """
-  @type list_sites_output() :: %{String.t() => any()}
+  @type list_sites_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_capacity_task_input() :: %{
-        optional("AssetId") => String.t(),
+        optional("AssetId") => String.t() | Atom.t(),
         optional("DryRun") => boolean(),
         optional("InstancesToExclude") => instances_to_exclude(),
-        optional("OrderId") => String.t(),
+        optional("OrderId") => String.t() | Atom.t(),
         optional("TaskActionOnBlockingInstances") => list(any()),
         required("InstancePools") => list(instance_type_capacity())
       }
 
   """
-  @type start_capacity_task_input() :: %{String.t() => any()}
+  @type start_capacity_task_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -722,17 +722,17 @@ defmodule AWS.Outposts do
       order() :: %{
         "LineItems" => list(line_item()),
         "OrderFulfilledDate" => non_neg_integer(),
-        "OrderId" => String.t(),
+        "OrderId" => String.t() | Atom.t(),
         "OrderSubmissionDate" => non_neg_integer(),
         "OrderType" => list(any()),
-        "OutpostId" => String.t(),
+        "OutpostId" => String.t() | Atom.t(),
         "PaymentOption" => list(any()),
         "PaymentTerm" => list(any()),
         "Status" => list(any())
       }
 
   """
-  @type order() :: %{String.t() => any()}
+  @type order() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -748,27 +748,27 @@ defmodule AWS.Outposts do
   ## Example:
 
       capacity_task_failure() :: %{
-        "Reason" => String.t(),
+        "Reason" => String.t() | Atom.t(),
         "Type" => list(any())
       }
 
   """
-  @type capacity_task_failure() :: %{String.t() => any()}
+  @type capacity_task_failure() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       compute_attributes() :: %{
-        "HostId" => String.t(),
-        "InstanceFamilies" => list(String.t()),
+        "HostId" => String.t() | Atom.t(),
+        "InstanceFamilies" => list(String.t() | Atom.t()),
         "InstanceTypeCapacities" => list(asset_instance_type_capacity()),
         "MaxVcpus" => integer(),
         "State" => list(any())
       }
 
   """
-  @type compute_attributes() :: %{String.t() => any()}
+  @type compute_attributes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -776,22 +776,22 @@ defmodule AWS.Outposts do
 
       list_assets_output() :: %{
         "Assets" => list(asset_info()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_assets_output() :: %{String.t() => any()}
+  @type list_assets_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -826,37 +826,37 @@ defmodule AWS.Outposts do
 
       get_outpost_instance_types_output() :: %{
         "InstanceTypes" => list(instance_type_item()),
-        "NextToken" => String.t(),
-        "OutpostArn" => String.t(),
-        "OutpostId" => String.t()
+        "NextToken" => String.t() | Atom.t(),
+        "OutpostArn" => String.t() | Atom.t(),
+        "OutpostId" => String.t() | Atom.t()
       }
 
   """
-  @type get_outpost_instance_types_output() :: %{String.t() => any()}
+  @type get_outpost_instance_types_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       instances_to_exclude() :: %{
-        "AccountIds" => list(String.t()),
-        "Instances" => list(String.t()),
+        "AccountIds" => list(String.t() | Atom.t()),
+        "Instances" => list(String.t() | Atom.t()),
         "Services" => list(list(any())())
       }
 
   """
-  @type instances_to_exclude() :: %{String.t() => any()}
+  @type instances_to_exclude() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -881,13 +881,13 @@ defmodule AWS.Outposts do
   ## Example:
 
       update_site_input() :: %{
-        optional("Description") => String.t(),
-        optional("Name") => String.t(),
-        optional("Notes") => String.t()
+        optional("Description") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t(),
+        optional("Notes") => String.t() | Atom.t()
       }
 
   """
-  @type update_site_input() :: %{String.t() => any()}
+  @type update_site_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -903,12 +903,12 @@ defmodule AWS.Outposts do
   ## Example:
 
       list_outposts_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Outposts" => list(outpost())
       }
 
   """
-  @type list_outposts_output() :: %{String.t() => any()}
+  @type list_outposts_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -924,11 +924,11 @@ defmodule AWS.Outposts do
   ## Example:
 
       validation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -946,15 +946,15 @@ defmodule AWS.Outposts do
       order_summary() :: %{
         "LineItemCountsByStatus" => map(),
         "OrderFulfilledDate" => non_neg_integer(),
-        "OrderId" => String.t(),
+        "OrderId" => String.t() | Atom.t(),
         "OrderSubmissionDate" => non_neg_integer(),
         "OrderType" => list(any()),
-        "OutpostId" => String.t(),
+        "OutpostId" => String.t() | Atom.t(),
         "Status" => list(any())
       }
 
   """
-  @type order_summary() :: %{String.t() => any()}
+  @type order_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -963,12 +963,12 @@ defmodule AWS.Outposts do
       list_capacity_tasks_input() :: %{
         optional("CapacityTaskStatusFilter") => list(list(any())()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("OutpostIdentifierFilter") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("OutpostIdentifierFilter") => String.t() | Atom.t()
       }
 
   """
-  @type list_capacity_tasks_input() :: %{String.t() => any()}
+  @type list_capacity_tasks_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -976,11 +976,11 @@ defmodule AWS.Outposts do
 
       list_blocking_instances_for_capacity_task_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_blocking_instances_for_capacity_task_input() :: %{String.t() => any()}
+  @type list_blocking_instances_for_capacity_task_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -991,7 +991,7 @@ defmodule AWS.Outposts do
       }
 
   """
-  @type create_outpost_output() :: %{String.t() => any()}
+  @type create_outpost_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1000,41 +1000,41 @@ defmodule AWS.Outposts do
       get_site_address_output() :: %{
         "Address" => address(),
         "AddressType" => list(any()),
-        "SiteId" => String.t()
+        "SiteId" => String.t() | Atom.t()
       }
 
   """
-  @type get_site_address_output() :: %{String.t() => any()}
+  @type get_site_address_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_info() :: %{
-        "AssetId" => String.t(),
+        "AssetId" => String.t() | Atom.t(),
         "AssetLocation" => asset_location(),
         "AssetType" => list(any()),
         "ComputeAttributes" => compute_attributes(),
-        "RackId" => String.t()
+        "RackId" => String.t() | Atom.t()
       }
 
   """
-  @type asset_info() :: %{String.t() => any()}
+  @type asset_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_catalog_items_input() :: %{
-        optional("EC2FamilyFilter") => list(String.t()),
+        optional("EC2FamilyFilter") => list(String.t() | Atom.t()),
         optional("ItemClassFilter") => list(list(any())()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("SupportedStorageFilter") => list(list(any())())
       }
 
   """
-  @type list_catalog_items_input() :: %{String.t() => any()}
+  @type list_catalog_items_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1045,96 +1045,96 @@ defmodule AWS.Outposts do
       }
 
   """
-  @type update_outpost_output() :: %{String.t() => any()}
+  @type update_outpost_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       line_item_request() :: %{
-        "CatalogItemId" => String.t(),
+        "CatalogItemId" => String.t() | Atom.t(),
         "Quantity" => integer()
       }
 
   """
-  @type line_item_request() :: %{String.t() => any()}
+  @type line_item_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       connection_details() :: %{
-        "AllowedIps" => list(String.t()),
-        "ClientPublicKey" => String.t(),
-        "ClientTunnelAddress" => String.t(),
-        "ServerEndpoint" => String.t(),
-        "ServerPublicKey" => String.t(),
-        "ServerTunnelAddress" => String.t()
+        "AllowedIps" => list(String.t() | Atom.t()),
+        "ClientPublicKey" => String.t() | Atom.t(),
+        "ClientTunnelAddress" => String.t() | Atom.t(),
+        "ServerEndpoint" => String.t() | Atom.t(),
+        "ServerPublicKey" => String.t() | Atom.t(),
+        "ServerTunnelAddress" => String.t() | Atom.t()
       }
 
   """
-  @type connection_details() :: %{String.t() => any()}
+  @type connection_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       outpost() :: %{
-        "AvailabilityZone" => String.t(),
-        "AvailabilityZoneId" => String.t(),
-        "Description" => String.t(),
-        "LifeCycleStatus" => String.t(),
-        "Name" => String.t(),
-        "OutpostArn" => String.t(),
-        "OutpostId" => String.t(),
-        "OwnerId" => String.t(),
-        "SiteArn" => String.t(),
-        "SiteId" => String.t(),
+        "AvailabilityZone" => String.t() | Atom.t(),
+        "AvailabilityZoneId" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "LifeCycleStatus" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "OutpostArn" => String.t() | Atom.t(),
+        "OutpostId" => String.t() | Atom.t(),
+        "OwnerId" => String.t() | Atom.t(),
+        "SiteArn" => String.t() | Atom.t(),
+        "SiteId" => String.t() | Atom.t(),
         "SupportedHardwareType" => list(any()),
         "Tags" => map()
       }
 
   """
-  @type outpost() :: %{String.t() => any()}
+  @type outpost() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       address() :: %{
-        "AddressLine1" => String.t(),
-        "AddressLine2" => String.t(),
-        "AddressLine3" => String.t(),
-        "City" => String.t(),
-        "ContactName" => String.t(),
-        "ContactPhoneNumber" => String.t(),
-        "CountryCode" => String.t(),
-        "DistrictOrCounty" => String.t(),
-        "Municipality" => String.t(),
-        "PostalCode" => String.t(),
-        "StateOrRegion" => String.t()
+        "AddressLine1" => String.t() | Atom.t(),
+        "AddressLine2" => String.t() | Atom.t(),
+        "AddressLine3" => String.t() | Atom.t(),
+        "City" => String.t() | Atom.t(),
+        "ContactName" => String.t() | Atom.t(),
+        "ContactPhoneNumber" => String.t() | Atom.t(),
+        "CountryCode" => String.t() | Atom.t(),
+        "DistrictOrCounty" => String.t() | Atom.t(),
+        "Municipality" => String.t() | Atom.t(),
+        "PostalCode" => String.t() | Atom.t(),
+        "StateOrRegion" => String.t() | Atom.t()
       }
 
   """
-  @type address() :: %{String.t() => any()}
+  @type address() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       capacity_task_summary() :: %{
-        "AssetId" => String.t(),
-        "CapacityTaskId" => String.t(),
+        "AssetId" => String.t() | Atom.t(),
+        "CapacityTaskId" => String.t() | Atom.t(),
         "CapacityTaskStatus" => list(any()),
         "CompletionDate" => non_neg_integer(),
         "CreationDate" => non_neg_integer(),
         "LastModifiedDate" => non_neg_integer(),
-        "OrderId" => String.t(),
-        "OutpostId" => String.t()
+        "OrderId" => String.t() | Atom.t(),
+        "OutpostId" => String.t() | Atom.t()
       }
 
   """
-  @type capacity_task_summary() :: %{String.t() => any()}
+  @type capacity_task_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1142,26 +1142,26 @@ defmodule AWS.Outposts do
 
       list_catalog_items_output() :: %{
         "CatalogItems" => list(catalog_item()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_catalog_items_output() :: %{String.t() => any()}
+  @type list_catalog_items_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_instance() :: %{
-        "AccountId" => String.t(),
-        "AssetId" => String.t(),
+        "AccountId" => String.t() | Atom.t(),
+        "AssetId" => String.t() | Atom.t(),
         "AwsServiceName" => list(any()),
-        "InstanceId" => String.t(),
-        "InstanceType" => String.t()
+        "InstanceId" => String.t() | Atom.t(),
+        "InstanceType" => String.t() | Atom.t()
       }
 
   """
-  @type asset_instance() :: %{String.t() => any()}
+  @type asset_instance() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1172,7 +1172,7 @@ defmodule AWS.Outposts do
       }
 
   """
-  @type update_site_rack_physical_properties_output() :: %{String.t() => any()}
+  @type update_site_rack_physical_properties_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1180,17 +1180,17 @@ defmodule AWS.Outposts do
 
       line_item() :: %{
         "AssetInformationList" => list(line_item_asset_information()),
-        "CatalogItemId" => String.t(),
-        "LineItemId" => String.t(),
-        "PreviousLineItemId" => String.t(),
-        "PreviousOrderId" => String.t(),
+        "CatalogItemId" => String.t() | Atom.t(),
+        "LineItemId" => String.t() | Atom.t(),
+        "PreviousLineItemId" => String.t() | Atom.t(),
+        "PreviousOrderId" => String.t() | Atom.t(),
         "Quantity" => integer(),
         "ShipmentInformation" => shipment_information(),
         "Status" => list(any())
       }
 
   """
-  @type line_item() :: %{String.t() => any()}
+  @type line_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1207,19 +1207,19 @@ defmodule AWS.Outposts do
 
       shipment_information() :: %{
         "ShipmentCarrier" => list(any()),
-        "ShipmentTrackingNumber" => String.t()
+        "ShipmentTrackingNumber" => String.t() | Atom.t()
       }
 
   """
-  @type shipment_information() :: %{String.t() => any()}
+  @type shipment_information() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_capacity_task_output() :: %{
-        "AssetId" => String.t(),
-        "CapacityTaskId" => String.t(),
+        "AssetId" => String.t() | Atom.t(),
+        "CapacityTaskId" => String.t() | Atom.t(),
         "CapacityTaskStatus" => list(any()),
         "CompletionDate" => non_neg_integer(),
         "CreationDate" => non_neg_integer(),
@@ -1227,31 +1227,31 @@ defmodule AWS.Outposts do
         "Failed" => capacity_task_failure(),
         "InstancesToExclude" => instances_to_exclude(),
         "LastModifiedDate" => non_neg_integer(),
-        "OrderId" => String.t(),
-        "OutpostId" => String.t(),
+        "OrderId" => String.t() | Atom.t(),
+        "OutpostId" => String.t() | Atom.t(),
         "RequestedInstancePools" => list(instance_type_capacity()),
         "TaskActionOnBlockingInstances" => list(any())
       }
 
   """
-  @type get_capacity_task_output() :: %{String.t() => any()}
+  @type get_capacity_task_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_outpost_input() :: %{
-        optional("AvailabilityZone") => String.t(),
-        optional("AvailabilityZoneId") => String.t(),
-        optional("Description") => String.t(),
+        optional("AvailabilityZone") => String.t() | Atom.t(),
+        optional("AvailabilityZoneId") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("SupportedHardwareType") => list(any()),
         optional("Tags") => map(),
-        required("Name") => String.t(),
-        required("SiteId") => String.t()
+        required("Name") => String.t() | Atom.t(),
+        required("SiteId") => String.t() | Atom.t()
       }
 
   """
-  @type create_outpost_input() :: %{String.t() => any()}
+  @type create_outpost_input() :: %{String.t() | Atom.t() => any()}
 
   @type cancel_capacity_task_errors() ::
           validation_exception()
@@ -1460,7 +1460,13 @@ defmodule AWS.Outposts do
   @doc """
   Cancels the capacity task.
   """
-  @spec cancel_capacity_task(map(), String.t(), String.t(), cancel_capacity_task_input(), list()) ::
+  @spec cancel_capacity_task(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          cancel_capacity_task_input(),
+          list()
+        ) ::
           {:ok, cancel_capacity_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1497,7 +1503,7 @@ defmodule AWS.Outposts do
   @doc """
   Cancels the specified order for an Outpost.
   """
-  @spec cancel_order(map(), String.t(), cancel_order_input(), list()) ::
+  @spec cancel_order(map(), String.t() | Atom.t(), cancel_order_input(), list()) ::
           {:ok, cancel_order_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1615,7 +1621,7 @@ defmodule AWS.Outposts do
   @doc """
   Deletes the specified Outpost.
   """
-  @spec delete_outpost(map(), String.t(), delete_outpost_input(), list()) ::
+  @spec delete_outpost(map(), String.t() | Atom.t(), delete_outpost_input(), list()) ::
           {:ok, delete_outpost_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1644,7 +1650,7 @@ defmodule AWS.Outposts do
   @doc """
   Deletes the specified site.
   """
-  @spec delete_site(map(), String.t(), delete_site_input(), list()) ::
+  @spec delete_site(map(), String.t() | Atom.t(), delete_site_input(), list()) ::
           {:ok, delete_site_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1673,7 +1679,7 @@ defmodule AWS.Outposts do
   @doc """
   Gets details of the specified capacity task.
   """
-  @spec get_capacity_task(map(), String.t(), String.t(), list()) ::
+  @spec get_capacity_task(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_capacity_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1693,7 +1699,7 @@ defmodule AWS.Outposts do
   @doc """
   Gets information about the specified catalog item.
   """
-  @spec get_catalog_item(map(), String.t(), list()) ::
+  @spec get_catalog_item(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_catalog_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1725,7 +1731,7 @@ defmodule AWS.Outposts do
   CloudTrail](https://docs.aws.amazon.com/outposts/latest/userguide/logging-using-cloudtrail.html)
   in the *Amazon Web Services Outposts User Guide*.
   """
-  @spec get_connection(map(), String.t(), list()) ::
+  @spec get_connection(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1743,7 +1749,7 @@ defmodule AWS.Outposts do
   @doc """
   Gets information about the specified order.
   """
-  @spec get_order(map(), String.t(), list()) ::
+  @spec get_order(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_order_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1761,7 +1767,7 @@ defmodule AWS.Outposts do
   @doc """
   Gets information about the specified Outpost.
   """
-  @spec get_outpost(map(), String.t(), list()) ::
+  @spec get_outpost(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_outpost_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1779,7 +1785,13 @@ defmodule AWS.Outposts do
   @doc """
   Gets the instance types for the specified Outpost.
   """
-  @spec get_outpost_instance_types(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_outpost_instance_types(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, get_outpost_instance_types_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1823,11 +1835,11 @@ defmodule AWS.Outposts do
   """
   @spec get_outpost_supported_instance_types(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, get_outpost_supported_instance_types_output(), any()}
@@ -1883,7 +1895,7 @@ defmodule AWS.Outposts do
   @doc """
   Gets information about the specified Outpost site.
   """
-  @spec get_site(map(), String.t(), list()) ::
+  @spec get_site(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_site_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1901,7 +1913,7 @@ defmodule AWS.Outposts do
   @doc """
   Gets the site address of the specified site.
   """
-  @spec get_site_address(map(), String.t(), String.t(), list()) ::
+  @spec get_site_address(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_site_address_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1931,13 +1943,13 @@ defmodule AWS.Outposts do
   """
   @spec list_asset_instances(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_asset_instances_output(), any()}
@@ -2017,11 +2029,11 @@ defmodule AWS.Outposts do
   """
   @spec list_assets(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_assets_output(), any()}
@@ -2084,10 +2096,10 @@ defmodule AWS.Outposts do
   """
   @spec list_blocking_instances_for_capacity_task(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_blocking_instances_for_capacity_task_output(), any()}
@@ -2138,10 +2150,10 @@ defmodule AWS.Outposts do
   """
   @spec list_capacity_tasks(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_capacity_tasks_output(), any()}
@@ -2204,11 +2216,11 @@ defmodule AWS.Outposts do
   """
   @spec list_catalog_items(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_catalog_items_output(), any()}
@@ -2271,7 +2283,13 @@ defmodule AWS.Outposts do
   @doc """
   Lists the Outpost orders for your Amazon Web Services account.
   """
-  @spec list_orders(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_orders(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_orders_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2324,11 +2342,11 @@ defmodule AWS.Outposts do
   """
   @spec list_outposts(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_outposts_output(), any()}
@@ -2402,11 +2420,11 @@ defmodule AWS.Outposts do
   """
   @spec list_sites(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_sites_output(), any()}
@@ -2475,7 +2493,7 @@ defmodule AWS.Outposts do
   @doc """
   Lists the tags for the specified resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2495,7 +2513,7 @@ defmodule AWS.Outposts do
 
   You can have one active capacity task for each order and each Outpost.
   """
-  @spec start_capacity_task(map(), String.t(), start_capacity_task_input(), list()) ::
+  @spec start_capacity_task(map(), String.t() | Atom.t(), start_capacity_task_input(), list()) ::
           {:ok, start_capacity_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2567,7 +2585,7 @@ defmodule AWS.Outposts do
   @doc """
   Adds tags to the specified resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2596,7 +2614,7 @@ defmodule AWS.Outposts do
   @doc """
   Removes tags from the specified resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2630,7 +2648,7 @@ defmodule AWS.Outposts do
   @doc """
   Updates an Outpost.
   """
-  @spec update_outpost(map(), String.t(), update_outpost_input(), list()) ::
+  @spec update_outpost(map(), String.t() | Atom.t(), update_outpost_input(), list()) ::
           {:ok, update_outpost_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2659,7 +2677,7 @@ defmodule AWS.Outposts do
   @doc """
   Updates the specified site.
   """
-  @spec update_site(map(), String.t(), update_site_input(), list()) ::
+  @spec update_site(map(), String.t() | Atom.t(), update_site_input(), list()) ::
           {:ok, update_site_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2696,7 +2714,7 @@ defmodule AWS.Outposts do
   after all
   Outposts that belong to the site have been deactivated.
   """
-  @spec update_site_address(map(), String.t(), update_site_address_input(), list()) ::
+  @spec update_site_address(map(), String.t() | Atom.t(), update_site_address_input(), list()) ::
           {:ok, update_site_address_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2735,7 +2753,7 @@ defmodule AWS.Outposts do
   """
   @spec update_site_rack_physical_properties(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_site_rack_physical_properties_input(),
           list()
         ) ::

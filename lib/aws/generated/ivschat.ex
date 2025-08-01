@@ -150,41 +150,41 @@ defmodule AWS.Ivschat do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_room_request() :: %{
-        required("identifier") => String.t()
+        required("identifier") => String.t() | Atom.t()
       }
 
   """
-  @type delete_room_request() :: %{String.t() => any()}
+  @type delete_room_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_message_response() :: %{
-        optional("id") => String.t()
+        optional("id") => String.t() | Atom.t()
       }
 
   """
-  @type delete_message_response() :: %{String.t() => any()}
+  @type delete_message_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_rooms_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("rooms") => list(room_summary())
       }
 
   """
-  @type list_rooms_response() :: %{String.t() => any()}
+  @type list_rooms_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -210,40 +210,40 @@ defmodule AWS.Ivschat do
 
       create_chat_token_request() :: %{
         optional("attributes") => map(),
-        optional("capabilities") => list(String.t()),
+        optional("capabilities") => list(String.t() | Atom.t()),
         optional("sessionDurationInMinutes") => integer(),
-        required("roomIdentifier") => String.t(),
-        required("userId") => String.t()
+        required("roomIdentifier") => String.t() | Atom.t(),
+        required("userId") => String.t() | Atom.t()
       }
 
   """
-  @type create_chat_token_request() :: %{String.t() => any()}
+  @type create_chat_token_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_message_request() :: %{
-        optional("reason") => String.t(),
-        required("id") => String.t(),
-        required("roomIdentifier") => String.t()
+        optional("reason") => String.t() | Atom.t(),
+        required("id") => String.t() | Atom.t(),
+        required("roomIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type delete_message_request() :: %{String.t() => any()}
+  @type delete_message_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disconnect_user_request() :: %{
-        optional("reason") => String.t(),
-        required("roomIdentifier") => String.t(),
-        required("userId") => String.t()
+        optional("reason") => String.t() | Atom.t(),
+        required("roomIdentifier") => String.t() | Atom.t(),
+        required("userId") => String.t() | Atom.t()
       }
 
   """
-  @type disconnect_user_request() :: %{String.t() => any()}
+  @type disconnect_user_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -251,56 +251,56 @@ defmodule AWS.Ivschat do
 
       update_logging_configuration_request() :: %{
         optional("destinationConfiguration") => list(),
-        optional("name") => String.t(),
-        required("identifier") => String.t()
+        optional("name") => String.t() | Atom.t(),
+        required("identifier") => String.t() | Atom.t()
       }
 
   """
-  @type update_logging_configuration_request() :: %{String.t() => any()}
+  @type update_logging_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_room_response() :: %{
-        optional("arn") => String.t(),
+        optional("arn") => String.t() | Atom.t(),
         optional("createTime") => non_neg_integer(),
-        optional("id") => String.t(),
-        optional("loggingConfigurationIdentifiers") => list(String.t()),
+        optional("id") => String.t() | Atom.t(),
+        optional("loggingConfigurationIdentifiers") => list(String.t() | Atom.t()),
         optional("maximumMessageLength") => integer(),
         optional("maximumMessageRatePerSecond") => integer(),
         optional("messageReviewHandler") => message_review_handler(),
-        optional("name") => String.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("tags") => map(),
         optional("updateTime") => non_neg_integer()
       }
 
   """
-  @type update_room_response() :: %{String.t() => any()}
+  @type update_room_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_logging_configuration_request() :: %{
-        optional("name") => String.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("tags") => map(),
         required("destinationConfiguration") => list()
       }
 
   """
-  @type create_logging_configuration_request() :: %{String.t() => any()}
+  @type create_logging_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -308,67 +308,67 @@ defmodule AWS.Ivschat do
 
       send_event_request() :: %{
         optional("attributes") => map(),
-        required("eventName") => String.t(),
-        required("roomIdentifier") => String.t()
+        required("eventName") => String.t() | Atom.t(),
+        required("roomIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type send_event_request() :: %{String.t() => any()}
+  @type send_event_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t(),
-        "resourceId" => String.t(),
-        "resourceType" => String.t()
+        "message" => String.t() | Atom.t(),
+        "resourceId" => String.t() | Atom.t(),
+        "resourceType" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_logging_configuration_response() :: %{
-        optional("arn") => String.t(),
+        optional("arn") => String.t() | Atom.t(),
         optional("createTime") => non_neg_integer(),
         optional("destinationConfiguration") => list(),
-        optional("id") => String.t(),
-        optional("name") => String.t(),
-        optional("state") => String.t(),
+        optional("id") => String.t() | Atom.t(),
+        optional("name") => String.t() | Atom.t(),
+        optional("state") => String.t() | Atom.t(),
         optional("tags") => map(),
         optional("updateTime") => non_neg_integer()
       }
 
   """
-  @type create_logging_configuration_response() :: %{String.t() => any()}
+  @type create_logging_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t(),
-        "resourceId" => String.t(),
-        "resourceType" => String.t()
+        "message" => String.t() | Atom.t(),
+        "resourceId" => String.t() | Atom.t(),
+        "resourceType" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       send_event_response() :: %{
-        optional("id") => String.t()
+        optional("id") => String.t() | Atom.t()
       }
 
   """
-  @type send_event_response() :: %{String.t() => any()}
+  @type send_event_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -376,42 +376,42 @@ defmodule AWS.Ivschat do
 
       service_quota_exceeded_exception() :: %{
         "limit" => integer(),
-        "message" => String.t(),
-        "resourceId" => String.t(),
-        "resourceType" => String.t()
+        "message" => String.t() | Atom.t(),
+        "resourceId" => String.t() | Atom.t(),
+        "resourceType" => String.t() | Atom.t()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_logging_configuration_response() :: %{
-        optional("arn") => String.t(),
+        optional("arn") => String.t() | Atom.t(),
         optional("createTime") => non_neg_integer(),
         optional("destinationConfiguration") => list(),
-        optional("id") => String.t(),
-        optional("name") => String.t(),
-        optional("state") => String.t(),
+        optional("id") => String.t() | Atom.t(),
+        optional("name") => String.t() | Atom.t(),
+        optional("state") => String.t() | Atom.t(),
         optional("tags") => map(),
         optional("updateTime") => non_neg_integer()
       }
 
   """
-  @type get_logging_configuration_response() :: %{String.t() => any()}
+  @type get_logging_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_destination_configuration() :: %{
-        "bucketName" => String.t()
+        "bucketName" => String.t() | Atom.t()
       }
 
   """
-  @type s3_destination_configuration() :: %{String.t() => any()}
+  @type s3_destination_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -422,7 +422,7 @@ defmodule AWS.Ivschat do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -430,100 +430,100 @@ defmodule AWS.Ivschat do
 
       create_chat_token_response() :: %{
         optional("sessionExpirationTime") => non_neg_integer(),
-        optional("token") => String.t(),
+        optional("token") => String.t() | Atom.t(),
         optional("tokenExpirationTime") => non_neg_integer()
       }
 
   """
-  @type create_chat_token_response() :: %{String.t() => any()}
+  @type create_chat_token_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "message" => String.t(),
-        "name" => String.t()
+        "message" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_logging_configuration_request() :: %{
-        required("identifier") => String.t()
+        required("identifier") => String.t() | Atom.t()
       }
 
   """
-  @type get_logging_configuration_request() :: %{String.t() => any()}
+  @type get_logging_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_room_request() :: %{
-        required("identifier") => String.t()
+        required("identifier") => String.t() | Atom.t()
       }
 
   """
-  @type get_room_request() :: %{String.t() => any()}
+  @type get_room_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_logging_configurations_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("loggingConfigurations") => list(logging_configuration_summary())
       }
 
   """
-  @type list_logging_configurations_response() :: %{String.t() => any()}
+  @type list_logging_configurations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_room_response() :: %{
-        optional("arn") => String.t(),
+        optional("arn") => String.t() | Atom.t(),
         optional("createTime") => non_neg_integer(),
-        optional("id") => String.t(),
-        optional("loggingConfigurationIdentifiers") => list(String.t()),
+        optional("id") => String.t() | Atom.t(),
+        optional("loggingConfigurationIdentifiers") => list(String.t() | Atom.t()),
         optional("maximumMessageLength") => integer(),
         optional("maximumMessageRatePerSecond") => integer(),
         optional("messageReviewHandler") => message_review_handler(),
-        optional("name") => String.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("tags") => map(),
         optional("updateTime") => non_neg_integer()
       }
 
   """
-  @type get_room_response() :: %{String.t() => any()}
+  @type get_room_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -540,12 +540,12 @@ defmodule AWS.Ivschat do
 
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
-        "message" => String.t(),
-        "reason" => String.t()
+        "message" => String.t() | Atom.t(),
+        "reason" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -561,16 +561,16 @@ defmodule AWS.Ivschat do
   ## Example:
 
       create_room_request() :: %{
-        optional("loggingConfigurationIdentifiers") => list(String.t()),
+        optional("loggingConfigurationIdentifiers") => list(String.t() | Atom.t()),
         optional("maximumMessageLength") => integer(),
         optional("maximumMessageRatePerSecond") => integer(),
         optional("messageReviewHandler") => message_review_handler(),
-        optional("name") => String.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("tags") => map()
       }
 
   """
-  @type create_room_request() :: %{String.t() => any()}
+  @type create_room_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -578,28 +578,28 @@ defmodule AWS.Ivschat do
 
       throttling_exception() :: %{
         "limit" => integer(),
-        "message" => String.t(),
-        "resourceId" => String.t(),
-        "resourceType" => String.t()
+        "message" => String.t() | Atom.t(),
+        "resourceId" => String.t() | Atom.t(),
+        "resourceType" => String.t() | Atom.t()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_rooms_request() :: %{
-        optional("loggingConfigurationIdentifier") => String.t(),
+        optional("loggingConfigurationIdentifier") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("messageReviewHandlerUri") => String.t(),
-        optional("name") => String.t(),
-        optional("nextToken") => String.t()
+        optional("messageReviewHandlerUri") => String.t() | Atom.t(),
+        optional("name") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_rooms_request() :: %{String.t() => any()}
+  @type list_rooms_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -607,157 +607,157 @@ defmodule AWS.Ivschat do
 
       list_logging_configurations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_logging_configurations_request() :: %{String.t() => any()}
+  @type list_logging_configurations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cloud_watch_logs_destination_configuration() :: %{
-        "logGroupName" => String.t()
+        "logGroupName" => String.t() | Atom.t()
       }
 
   """
-  @type cloud_watch_logs_destination_configuration() :: %{String.t() => any()}
+  @type cloud_watch_logs_destination_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       firehose_destination_configuration() :: %{
-        "deliveryStreamName" => String.t()
+        "deliveryStreamName" => String.t() | Atom.t()
       }
 
   """
-  @type firehose_destination_configuration() :: %{String.t() => any()}
+  @type firehose_destination_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_logging_configuration_request() :: %{
-        required("identifier") => String.t()
+        required("identifier") => String.t() | Atom.t()
       }
 
   """
-  @type delete_logging_configuration_request() :: %{String.t() => any()}
+  @type delete_logging_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       room_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createTime" => non_neg_integer(),
-        "id" => String.t(),
-        "loggingConfigurationIdentifiers" => list(String.t()),
+        "id" => String.t() | Atom.t(),
+        "loggingConfigurationIdentifiers" => list(String.t() | Atom.t()),
         "messageReviewHandler" => message_review_handler(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "tags" => map(),
         "updateTime" => non_neg_integer()
       }
 
   """
-  @type room_summary() :: %{String.t() => any()}
+  @type room_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_logging_configuration_response() :: %{
-        optional("arn") => String.t(),
+        optional("arn") => String.t() | Atom.t(),
         optional("createTime") => non_neg_integer(),
         optional("destinationConfiguration") => list(),
-        optional("id") => String.t(),
-        optional("name") => String.t(),
-        optional("state") => String.t(),
+        optional("id") => String.t() | Atom.t(),
+        optional("name") => String.t() | Atom.t(),
+        optional("state") => String.t() | Atom.t(),
         optional("tags") => map(),
         optional("updateTime") => non_neg_integer()
       }
 
   """
-  @type update_logging_configuration_response() :: %{String.t() => any()}
+  @type update_logging_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       logging_configuration_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createTime" => non_neg_integer(),
         "destinationConfiguration" => list(),
-        "id" => String.t(),
-        "name" => String.t(),
-        "state" => String.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "state" => String.t() | Atom.t(),
         "tags" => map(),
         "updateTime" => non_neg_integer()
       }
 
   """
-  @type logging_configuration_summary() :: %{String.t() => any()}
+  @type logging_configuration_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_room_request() :: %{
-        optional("loggingConfigurationIdentifiers") => list(String.t()),
+        optional("loggingConfigurationIdentifiers") => list(String.t() | Atom.t()),
         optional("maximumMessageLength") => integer(),
         optional("maximumMessageRatePerSecond") => integer(),
         optional("messageReviewHandler") => message_review_handler(),
-        optional("name") => String.t(),
-        required("identifier") => String.t()
+        optional("name") => String.t() | Atom.t(),
+        required("identifier") => String.t() | Atom.t()
       }
 
   """
-  @type update_room_request() :: %{String.t() => any()}
+  @type update_room_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_room_response() :: %{
-        optional("arn") => String.t(),
+        optional("arn") => String.t() | Atom.t(),
         optional("createTime") => non_neg_integer(),
-        optional("id") => String.t(),
-        optional("loggingConfigurationIdentifiers") => list(String.t()),
+        optional("id") => String.t() | Atom.t(),
+        optional("loggingConfigurationIdentifiers") => list(String.t() | Atom.t()),
         optional("maximumMessageLength") => integer(),
         optional("maximumMessageRatePerSecond") => integer(),
         optional("messageReviewHandler") => message_review_handler(),
-        optional("name") => String.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("tags") => map(),
         optional("updateTime") => non_neg_integer()
       }
 
   """
-  @type create_room_response() :: %{String.t() => any()}
+  @type create_room_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       pending_verification() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type pending_verification() :: %{String.t() => any()}
+  @type pending_verification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       message_review_handler() :: %{
-        "fallbackResult" => String.t(),
-        "uri" => String.t()
+        "fallbackResult" => String.t() | Atom.t(),
+        "uri" => String.t() | Atom.t()
       }
 
   """
-  @type message_review_handler() :: %{String.t() => any()}
+  @type message_review_handler() :: %{String.t() | Atom.t() => any()}
 
   @type create_chat_token_errors() ::
           pending_verification()
@@ -1226,7 +1226,7 @@ defmodule AWS.Ivschat do
   @doc """
   Gets information about AWS tags for the specified ARN.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1278,7 +1278,7 @@ defmodule AWS.Ivschat do
   @doc """
   Adds or updates tags for the AWS resource with the specified ARN.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1307,7 +1307,7 @@ defmodule AWS.Ivschat do
   @doc """
   Removes tags from the resource with the specified ARN.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

@@ -56,52 +56,52 @@ defmodule AWS.ServerlessApplicationRepository do
 
       list_application_dependencies_response() :: %{
         "Dependencies" => list(application_dependency_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_application_dependencies_response() :: %{String.t() => any()}
+  @type list_application_dependencies_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_cloud_formation_template_response() :: %{
-        "ApplicationId" => String.t(),
-        "CreationTime" => String.t(),
-        "ExpirationTime" => String.t(),
-        "SemanticVersion" => String.t(),
+        "ApplicationId" => String.t() | Atom.t(),
+        "CreationTime" => String.t() | Atom.t(),
+        "ExpirationTime" => String.t() | Atom.t(),
+        "SemanticVersion" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "TemplateId" => String.t(),
-        "TemplateUrl" => String.t()
+        "TemplateId" => String.t() | Atom.t(),
+        "TemplateUrl" => String.t() | Atom.t()
       }
 
   """
-  @type get_cloud_formation_template_response() :: %{String.t() => any()}
+  @type get_cloud_formation_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       application_dependency_summary() :: %{
-        "ApplicationId" => String.t(),
-        "SemanticVersion" => String.t()
+        "ApplicationId" => String.t() | Atom.t(),
+        "SemanticVersion" => String.t() | Atom.t()
       }
 
   """
-  @type application_dependency_summary() :: %{String.t() => any()}
+  @type application_dependency_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       forbidden_exception() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type forbidden_exception() :: %{String.t() => any()}
+  @type forbidden_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -117,56 +117,56 @@ defmodule AWS.ServerlessApplicationRepository do
   ## Example:
 
       parameter_definition() :: %{
-        "AllowedPattern" => String.t(),
-        "AllowedValues" => list(String.t()),
-        "ConstraintDescription" => String.t(),
-        "DefaultValue" => String.t(),
-        "Description" => String.t(),
+        "AllowedPattern" => String.t() | Atom.t(),
+        "AllowedValues" => list(String.t() | Atom.t()),
+        "ConstraintDescription" => String.t() | Atom.t(),
+        "DefaultValue" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
         "MaxLength" => integer(),
         "MaxValue" => integer(),
         "MinLength" => integer(),
         "MinValue" => integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "NoEcho" => boolean(),
-        "ReferencedByResources" => list(String.t()),
-        "Type" => String.t()
+        "ReferencedByResources" => list(String.t() | Atom.t()),
+        "Type" => String.t() | Atom.t()
       }
 
   """
-  @type parameter_definition() :: %{String.t() => any()}
+  @type parameter_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_application_version_request() :: %{
-        optional("SourceCodeArchiveUrl") => String.t(),
-        optional("SourceCodeUrl") => String.t(),
-        optional("TemplateBody") => String.t(),
-        optional("TemplateUrl") => String.t()
+        optional("SourceCodeArchiveUrl") => String.t() | Atom.t(),
+        optional("SourceCodeUrl") => String.t() | Atom.t(),
+        optional("TemplateBody") => String.t() | Atom.t(),
+        optional("TemplateUrl") => String.t() | Atom.t()
       }
 
   """
-  @type create_application_version_request() :: %{String.t() => any()}
+  @type create_application_version_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_application_version_response() :: %{
-        "ApplicationId" => String.t(),
-        "CreationTime" => String.t(),
+        "ApplicationId" => String.t() | Atom.t(),
+        "CreationTime" => String.t() | Atom.t(),
         "ParameterDefinitions" => list(parameter_definition()),
         "RequiredCapabilities" => list(list(any())()),
         "ResourcesSupported" => boolean(),
-        "SemanticVersion" => String.t(),
-        "SourceCodeArchiveUrl" => String.t(),
-        "SourceCodeUrl" => String.t(),
-        "TemplateUrl" => String.t()
+        "SemanticVersion" => String.t() | Atom.t(),
+        "SourceCodeArchiveUrl" => String.t() | Atom.t(),
+        "SourceCodeUrl" => String.t() | Atom.t(),
+        "TemplateUrl" => String.t() | Atom.t()
       }
 
   """
-  @type create_application_version_response() :: %{String.t() => any()}
+  @type create_application_version_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -177,69 +177,69 @@ defmodule AWS.ServerlessApplicationRepository do
       }
 
   """
-  @type get_application_policy_response() :: %{String.t() => any()}
+  @type get_application_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_requests_exception() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_requests_exception() :: %{String.t() => any()}
+  @type too_many_requests_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       version_summary() :: %{
-        "ApplicationId" => String.t(),
-        "CreationTime" => String.t(),
-        "SemanticVersion" => String.t(),
-        "SourceCodeUrl" => String.t()
+        "ApplicationId" => String.t() | Atom.t(),
+        "CreationTime" => String.t() | Atom.t(),
+        "SemanticVersion" => String.t() | Atom.t(),
+        "SourceCodeUrl" => String.t() | Atom.t()
       }
 
   """
-  @type version_summary() :: %{String.t() => any()}
+  @type version_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       parameter_value() :: %{
-        "Name" => String.t(),
-        "Value" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type parameter_value() :: %{String.t() => any()}
+  @type parameter_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -250,84 +250,84 @@ defmodule AWS.ServerlessApplicationRepository do
       }
 
   """
-  @type put_application_policy_request() :: %{String.t() => any()}
+  @type put_application_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       not_found_exception() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type not_found_exception() :: %{String.t() => any()}
+  @type not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_application_request() :: %{
-        optional("HomePageUrl") => String.t(),
-        optional("Labels") => list(String.t()),
-        optional("LicenseBody") => String.t(),
-        optional("LicenseUrl") => String.t(),
-        optional("ReadmeBody") => String.t(),
-        optional("ReadmeUrl") => String.t(),
-        optional("SemanticVersion") => String.t(),
-        optional("SourceCodeArchiveUrl") => String.t(),
-        optional("SourceCodeUrl") => String.t(),
-        optional("SpdxLicenseId") => String.t(),
-        optional("TemplateBody") => String.t(),
-        optional("TemplateUrl") => String.t(),
-        required("Author") => String.t(),
-        required("Description") => String.t(),
-        required("Name") => String.t()
+        optional("HomePageUrl") => String.t() | Atom.t(),
+        optional("Labels") => list(String.t() | Atom.t()),
+        optional("LicenseBody") => String.t() | Atom.t(),
+        optional("LicenseUrl") => String.t() | Atom.t(),
+        optional("ReadmeBody") => String.t() | Atom.t(),
+        optional("ReadmeUrl") => String.t() | Atom.t(),
+        optional("SemanticVersion") => String.t() | Atom.t(),
+        optional("SourceCodeArchiveUrl") => String.t() | Atom.t(),
+        optional("SourceCodeUrl") => String.t() | Atom.t(),
+        optional("SpdxLicenseId") => String.t() | Atom.t(),
+        optional("TemplateBody") => String.t() | Atom.t(),
+        optional("TemplateUrl") => String.t() | Atom.t(),
+        required("Author") => String.t() | Atom.t(),
+        required("Description") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t()
       }
 
   """
-  @type create_application_request() :: %{String.t() => any()}
+  @type create_application_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_cloud_formation_template_response() :: %{
-        "ApplicationId" => String.t(),
-        "CreationTime" => String.t(),
-        "ExpirationTime" => String.t(),
-        "SemanticVersion" => String.t(),
+        "ApplicationId" => String.t() | Atom.t(),
+        "CreationTime" => String.t() | Atom.t(),
+        "ExpirationTime" => String.t() | Atom.t(),
+        "SemanticVersion" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "TemplateId" => String.t(),
-        "TemplateUrl" => String.t()
+        "TemplateId" => String.t() | Atom.t(),
+        "TemplateUrl" => String.t() | Atom.t()
       }
 
   """
-  @type create_cloud_formation_template_response() :: %{String.t() => any()}
+  @type create_cloud_formation_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_application_response() :: %{
-        "ApplicationId" => String.t(),
-        "Author" => String.t(),
-        "CreationTime" => String.t(),
-        "Description" => String.t(),
-        "HomePageUrl" => String.t(),
+        "ApplicationId" => String.t() | Atom.t(),
+        "Author" => String.t() | Atom.t(),
+        "CreationTime" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "HomePageUrl" => String.t() | Atom.t(),
         "IsVerifiedAuthor" => boolean(),
-        "Labels" => list(String.t()),
-        "LicenseUrl" => String.t(),
-        "Name" => String.t(),
-        "ReadmeUrl" => String.t(),
-        "SpdxLicenseId" => String.t(),
-        "VerifiedAuthorUrl" => String.t(),
+        "Labels" => list(String.t() | Atom.t()),
+        "LicenseUrl" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "ReadmeUrl" => String.t() | Atom.t(),
+        "SpdxLicenseId" => String.t() | Atom.t(),
+        "VerifiedAuthorUrl" => String.t() | Atom.t(),
         "Version" => version()
       }
 
   """
-  @type create_application_response() :: %{String.t() => any()}
+  @type create_application_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -335,93 +335,93 @@ defmodule AWS.ServerlessApplicationRepository do
 
       list_application_dependencies_request() :: %{
         optional("MaxItems") => integer(),
-        optional("NextToken") => String.t(),
-        optional("SemanticVersion") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("SemanticVersion") => String.t() | Atom.t()
       }
 
   """
-  @type list_application_dependencies_request() :: %{String.t() => any()}
+  @type list_application_dependencies_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       version() :: %{
-        "ApplicationId" => String.t(),
-        "CreationTime" => String.t(),
+        "ApplicationId" => String.t() | Atom.t(),
+        "CreationTime" => String.t() | Atom.t(),
         "ParameterDefinitions" => list(parameter_definition()),
         "RequiredCapabilities" => list(list(any())()),
         "ResourcesSupported" => boolean(),
-        "SemanticVersion" => String.t(),
-        "SourceCodeArchiveUrl" => String.t(),
-        "SourceCodeUrl" => String.t(),
-        "TemplateUrl" => String.t()
+        "SemanticVersion" => String.t() | Atom.t(),
+        "SourceCodeArchiveUrl" => String.t() | Atom.t(),
+        "SourceCodeUrl" => String.t() | Atom.t(),
+        "TemplateUrl" => String.t() | Atom.t()
       }
 
   """
-  @type version() :: %{String.t() => any()}
+  @type version() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_application_request() :: %{
-        optional("Author") => String.t(),
-        optional("Description") => String.t(),
-        optional("HomePageUrl") => String.t(),
-        optional("Labels") => list(String.t()),
-        optional("ReadmeBody") => String.t(),
-        optional("ReadmeUrl") => String.t()
+        optional("Author") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("HomePageUrl") => String.t() | Atom.t(),
+        optional("Labels") => list(String.t() | Atom.t()),
+        optional("ReadmeBody") => String.t() | Atom.t(),
+        optional("ReadmeUrl") => String.t() | Atom.t()
       }
 
   """
-  @type update_application_request() :: %{String.t() => any()}
+  @type update_application_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_application_response() :: %{
-        "ApplicationId" => String.t(),
-        "Author" => String.t(),
-        "CreationTime" => String.t(),
-        "Description" => String.t(),
-        "HomePageUrl" => String.t(),
+        "ApplicationId" => String.t() | Atom.t(),
+        "Author" => String.t() | Atom.t(),
+        "CreationTime" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "HomePageUrl" => String.t() | Atom.t(),
         "IsVerifiedAuthor" => boolean(),
-        "Labels" => list(String.t()),
-        "LicenseUrl" => String.t(),
-        "Name" => String.t(),
-        "ReadmeUrl" => String.t(),
-        "SpdxLicenseId" => String.t(),
-        "VerifiedAuthorUrl" => String.t(),
+        "Labels" => list(String.t() | Atom.t()),
+        "LicenseUrl" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "ReadmeUrl" => String.t() | Atom.t(),
+        "SpdxLicenseId" => String.t() | Atom.t(),
+        "VerifiedAuthorUrl" => String.t() | Atom.t(),
         "Version" => version()
       }
 
   """
-  @type update_application_response() :: %{String.t() => any()}
+  @type update_application_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_application_response() :: %{
-        "ApplicationId" => String.t(),
-        "Author" => String.t(),
-        "CreationTime" => String.t(),
-        "Description" => String.t(),
-        "HomePageUrl" => String.t(),
+        "ApplicationId" => String.t() | Atom.t(),
+        "Author" => String.t() | Atom.t(),
+        "CreationTime" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "HomePageUrl" => String.t() | Atom.t(),
         "IsVerifiedAuthor" => boolean(),
-        "Labels" => list(String.t()),
-        "LicenseUrl" => String.t(),
-        "Name" => String.t(),
-        "ReadmeUrl" => String.t(),
-        "SpdxLicenseId" => String.t(),
-        "VerifiedAuthorUrl" => String.t(),
+        "Labels" => list(String.t() | Atom.t()),
+        "LicenseUrl" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "ReadmeUrl" => String.t() | Atom.t(),
+        "SpdxLicenseId" => String.t() | Atom.t(),
+        "VerifiedAuthorUrl" => String.t() | Atom.t(),
         "Version" => version()
       }
 
   """
-  @type get_application_response() :: %{String.t() => any()}
+  @type get_application_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -429,11 +429,11 @@ defmodule AWS.ServerlessApplicationRepository do
 
       list_applications_request() :: %{
         optional("MaxItems") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_applications_request() :: %{String.t() => any()}
+  @type list_applications_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -449,48 +449,48 @@ defmodule AWS.ServerlessApplicationRepository do
   ## Example:
 
       create_cloud_formation_change_set_request() :: %{
-        optional("Capabilities") => list(String.t()),
-        optional("ChangeSetName") => String.t(),
-        optional("ClientToken") => String.t(),
-        optional("Description") => String.t(),
-        optional("NotificationArns") => list(String.t()),
+        optional("Capabilities") => list(String.t() | Atom.t()),
+        optional("ChangeSetName") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("NotificationArns") => list(String.t() | Atom.t()),
         optional("ParameterOverrides") => list(parameter_value()),
-        optional("ResourceTypes") => list(String.t()),
+        optional("ResourceTypes") => list(String.t() | Atom.t()),
         optional("RollbackConfiguration") => rollback_configuration(),
-        optional("SemanticVersion") => String.t(),
+        optional("SemanticVersion") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        optional("TemplateId") => String.t(),
-        required("StackName") => String.t()
+        optional("TemplateId") => String.t() | Atom.t(),
+        required("StackName") => String.t() | Atom.t()
       }
 
   """
-  @type create_cloud_formation_change_set_request() :: %{String.t() => any()}
+  @type create_cloud_formation_change_set_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_error_exception() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_server_error_exception() :: %{String.t() => any()}
+  @type internal_server_error_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       application_policy_statement() :: %{
-        "Actions" => list(String.t()),
-        "PrincipalOrgIDs" => list(String.t()),
-        "Principals" => list(String.t()),
-        "StatementId" => String.t()
+        "Actions" => list(String.t() | Atom.t()),
+        "PrincipalOrgIDs" => list(String.t() | Atom.t()),
+        "Principals" => list(String.t() | Atom.t()),
+        "StatementId" => String.t() | Atom.t()
       }
 
   """
-  @type application_policy_statement() :: %{String.t() => any()}
+  @type application_policy_statement() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -498,40 +498,40 @@ defmodule AWS.ServerlessApplicationRepository do
 
       list_application_versions_request() :: %{
         optional("MaxItems") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_application_versions_request() :: %{String.t() => any()}
+  @type list_application_versions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       application_summary() :: %{
-        "ApplicationId" => String.t(),
-        "Author" => String.t(),
-        "CreationTime" => String.t(),
-        "Description" => String.t(),
-        "HomePageUrl" => String.t(),
-        "Labels" => list(String.t()),
-        "Name" => String.t(),
-        "SpdxLicenseId" => String.t()
+        "ApplicationId" => String.t() | Atom.t(),
+        "Author" => String.t() | Atom.t(),
+        "CreationTime" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "HomePageUrl" => String.t() | Atom.t(),
+        "Labels" => list(String.t() | Atom.t()),
+        "Name" => String.t() | Atom.t(),
+        "SpdxLicenseId" => String.t() | Atom.t()
       }
 
   """
-  @type application_summary() :: %{String.t() => any()}
+  @type application_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       unshare_application_request() :: %{
-        required("OrganizationId") => String.t()
+        required("OrganizationId") => String.t() | Atom.t()
       }
 
   """
-  @type unshare_application_request() :: %{String.t() => any()}
+  @type unshare_application_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -539,35 +539,35 @@ defmodule AWS.ServerlessApplicationRepository do
 
       list_applications_response() :: %{
         "Applications" => list(application_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_applications_response() :: %{String.t() => any()}
+  @type list_applications_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_application_versions_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Versions" => list(version_summary())
       }
 
   """
-  @type list_application_versions_response() :: %{String.t() => any()}
+  @type list_application_versions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bad_request_exception() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type bad_request_exception() :: %{String.t() => any()}
+  @type bad_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -579,19 +579,19 @@ defmodule AWS.ServerlessApplicationRepository do
       }
 
   """
-  @type rollback_configuration() :: %{String.t() => any()}
+  @type rollback_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       rollback_trigger() :: %{
-        "Arn" => String.t(),
-        "Type" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Type" => String.t() | Atom.t()
       }
 
   """
-  @type rollback_trigger() :: %{String.t() => any()}
+  @type rollback_trigger() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -602,29 +602,29 @@ defmodule AWS.ServerlessApplicationRepository do
       }
 
   """
-  @type put_application_policy_response() :: %{String.t() => any()}
+  @type put_application_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_application_request() :: %{
-        optional("SemanticVersion") => String.t()
+        optional("SemanticVersion") => String.t() | Atom.t()
       }
 
   """
-  @type get_application_request() :: %{String.t() => any()}
+  @type get_application_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_cloud_formation_template_request() :: %{
-        optional("SemanticVersion") => String.t()
+        optional("SemanticVersion") => String.t() | Atom.t()
       }
 
   """
-  @type create_cloud_formation_template_request() :: %{String.t() => any()}
+  @type create_cloud_formation_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -640,14 +640,14 @@ defmodule AWS.ServerlessApplicationRepository do
   ## Example:
 
       create_cloud_formation_change_set_response() :: %{
-        "ApplicationId" => String.t(),
-        "ChangeSetId" => String.t(),
-        "SemanticVersion" => String.t(),
-        "StackId" => String.t()
+        "ApplicationId" => String.t() | Atom.t(),
+        "ChangeSetId" => String.t() | Atom.t(),
+        "SemanticVersion" => String.t() | Atom.t(),
+        "StackId" => String.t() | Atom.t()
       }
 
   """
-  @type create_cloud_formation_change_set_response() :: %{String.t() => any()}
+  @type create_cloud_formation_change_set_response() :: %{String.t() | Atom.t() => any()}
 
   @type create_application_errors() ::
           bad_request_exception()
@@ -798,8 +798,8 @@ defmodule AWS.ServerlessApplicationRepository do
   """
   @spec create_application_version(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           create_application_version_request(),
           list()
         ) ::
@@ -841,7 +841,7 @@ defmodule AWS.ServerlessApplicationRepository do
   """
   @spec create_cloud_formation_change_set(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           create_cloud_formation_change_set_request(),
           list()
         ) ::
@@ -875,7 +875,7 @@ defmodule AWS.ServerlessApplicationRepository do
   """
   @spec create_cloud_formation_template(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           create_cloud_formation_template_request(),
           list()
         ) ::
@@ -907,7 +907,7 @@ defmodule AWS.ServerlessApplicationRepository do
   @doc """
   Deletes the specified application.
   """
-  @spec delete_application(map(), String.t(), delete_application_request(), list()) ::
+  @spec delete_application(map(), String.t() | Atom.t(), delete_application_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -936,7 +936,7 @@ defmodule AWS.ServerlessApplicationRepository do
   @doc """
   Gets the specified application.
   """
-  @spec get_application(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_application(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
           {:ok, get_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -961,7 +961,7 @@ defmodule AWS.ServerlessApplicationRepository do
   @doc """
   Retrieves the policy for the application.
   """
-  @spec get_application_policy(map(), String.t(), list()) ::
+  @spec get_application_policy(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_application_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -979,7 +979,7 @@ defmodule AWS.ServerlessApplicationRepository do
   @doc """
   Gets the specified AWS CloudFormation template.
   """
-  @spec get_cloud_formation_template(map(), String.t(), String.t(), list()) ::
+  @spec get_cloud_formation_template(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_cloud_formation_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1001,10 +1001,10 @@ defmodule AWS.ServerlessApplicationRepository do
   """
   @spec list_application_dependencies(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_application_dependencies_response(), any()}
@@ -1052,7 +1052,13 @@ defmodule AWS.ServerlessApplicationRepository do
   @doc """
   Lists versions for the specified application.
   """
-  @spec list_application_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_application_versions(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_application_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1090,7 +1096,7 @@ defmodule AWS.ServerlessApplicationRepository do
   @doc """
   Lists applications owned by the requester.
   """
-  @spec list_applications(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_applications(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1127,7 +1133,12 @@ defmodule AWS.ServerlessApplicationRepository do
 
   .
   """
-  @spec put_application_policy(map(), String.t(), put_application_policy_request(), list()) ::
+  @spec put_application_policy(
+          map(),
+          String.t() | Atom.t(),
+          put_application_policy_request(),
+          list()
+        ) ::
           {:ok, put_application_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1158,7 +1169,7 @@ defmodule AWS.ServerlessApplicationRepository do
 
   This operation can be called only from the organization's master account.
   """
-  @spec unshare_application(map(), String.t(), unshare_application_request(), list()) ::
+  @spec unshare_application(map(), String.t() | Atom.t(), unshare_application_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1187,7 +1198,7 @@ defmodule AWS.ServerlessApplicationRepository do
   @doc """
   Updates the specified application.
   """
-  @spec update_application(map(), String.t(), update_application_request(), list()) ::
+  @spec update_application(map(), String.t() | Atom.t(), update_application_request(), list()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

@@ -15,34 +15,34 @@ defmodule AWS.ResourceGroupsTaggingAPI do
       
       compliance_details() :: %{
         "ComplianceStatus" => boolean(),
-        "KeysWithNoncompliantValues" => list(String.t()),
-        "NoncompliantKeys" => list(String.t())
+        "KeysWithNoncompliantValues" => list(String.t() | Atom.t()),
+        "NoncompliantKeys" => list(String.t() | Atom.t())
       }
       
   """
-  @type compliance_details() :: %{String.t() => any()}
+  @type compliance_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       concurrent_modification_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type concurrent_modification_exception() :: %{String.t() => any()}
+  @type concurrent_modification_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       constraint_violation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type constraint_violation_exception() :: %{String.t() => any()}
+  @type constraint_violation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -58,14 +58,14 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   ## Example:
       
       describe_report_creation_output() :: %{
-        "ErrorMessage" => String.t(),
-        "S3Location" => String.t(),
-        "StartDate" => String.t(),
-        "Status" => String.t()
+        "ErrorMessage" => String.t() | Atom.t(),
+        "S3Location" => String.t() | Atom.t(),
+        "StartDate" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type describe_report_creation_output() :: %{String.t() => any()}
+  @type describe_report_creation_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -73,12 +73,12 @@ defmodule AWS.ResourceGroupsTaggingAPI do
       
       failure_info() :: %{
         "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t(),
+        "ErrorMessage" => String.t() | Atom.t(),
         "StatusCode" => integer()
       }
       
   """
-  @type failure_info() :: %{String.t() => any()}
+  @type failure_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -87,27 +87,27 @@ defmodule AWS.ResourceGroupsTaggingAPI do
       get_compliance_summary_input() :: %{
         optional("GroupBy") => list(list(any())()),
         optional("MaxResults") => integer(),
-        optional("PaginationToken") => String.t(),
-        optional("RegionFilters") => list(String.t()),
-        optional("ResourceTypeFilters") => list(String.t()),
-        optional("TagKeyFilters") => list(String.t()),
-        optional("TargetIdFilters") => list(String.t())
+        optional("PaginationToken") => String.t() | Atom.t(),
+        optional("RegionFilters") => list(String.t() | Atom.t()),
+        optional("ResourceTypeFilters") => list(String.t() | Atom.t()),
+        optional("TagKeyFilters") => list(String.t() | Atom.t()),
+        optional("TargetIdFilters") => list(String.t() | Atom.t())
       }
       
   """
-  @type get_compliance_summary_input() :: %{String.t() => any()}
+  @type get_compliance_summary_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_compliance_summary_output() :: %{
-        "PaginationToken" => String.t(),
+        "PaginationToken" => String.t() | Atom.t(),
         "SummaryList" => list(summary())
       }
       
   """
-  @type get_compliance_summary_output() :: %{String.t() => any()}
+  @type get_compliance_summary_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -116,108 +116,108 @@ defmodule AWS.ResourceGroupsTaggingAPI do
       get_resources_input() :: %{
         optional("ExcludeCompliantResources") => boolean(),
         optional("IncludeComplianceDetails") => boolean(),
-        optional("PaginationToken") => String.t(),
-        optional("ResourceARNList") => list(String.t()),
-        optional("ResourceTypeFilters") => list(String.t()),
+        optional("PaginationToken") => String.t() | Atom.t(),
+        optional("ResourceARNList") => list(String.t() | Atom.t()),
+        optional("ResourceTypeFilters") => list(String.t() | Atom.t()),
         optional("ResourcesPerPage") => integer(),
         optional("TagFilters") => list(tag_filter()),
         optional("TagsPerPage") => integer()
       }
       
   """
-  @type get_resources_input() :: %{String.t() => any()}
+  @type get_resources_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_resources_output() :: %{
-        "PaginationToken" => String.t(),
+        "PaginationToken" => String.t() | Atom.t(),
         "ResourceTagMappingList" => list(resource_tag_mapping())
       }
       
   """
-  @type get_resources_output() :: %{String.t() => any()}
+  @type get_resources_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_tag_keys_input() :: %{
-        optional("PaginationToken") => String.t()
+        optional("PaginationToken") => String.t() | Atom.t()
       }
       
   """
-  @type get_tag_keys_input() :: %{String.t() => any()}
+  @type get_tag_keys_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_tag_keys_output() :: %{
-        "PaginationToken" => String.t(),
-        "TagKeys" => list(String.t())
+        "PaginationToken" => String.t() | Atom.t(),
+        "TagKeys" => list(String.t() | Atom.t())
       }
       
   """
-  @type get_tag_keys_output() :: %{String.t() => any()}
+  @type get_tag_keys_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_tag_values_input() :: %{
-        optional("PaginationToken") => String.t(),
-        required("Key") => String.t()
+        optional("PaginationToken") => String.t() | Atom.t(),
+        required("Key") => String.t() | Atom.t()
       }
       
   """
-  @type get_tag_values_input() :: %{String.t() => any()}
+  @type get_tag_values_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_tag_values_output() :: %{
-        "PaginationToken" => String.t(),
-        "TagValues" => list(String.t())
+        "PaginationToken" => String.t() | Atom.t(),
+        "TagValues" => list(String.t() | Atom.t())
       }
       
   """
-  @type get_tag_values_output() :: %{String.t() => any()}
+  @type get_tag_values_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_service_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type internal_service_exception() :: %{String.t() => any()}
+  @type internal_service_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameter_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_parameter_exception() :: %{String.t() => any()}
+  @type invalid_parameter_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       pagination_token_expired_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type pagination_token_expired_exception() :: %{String.t() => any()}
+  @type pagination_token_expired_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -225,23 +225,23 @@ defmodule AWS.ResourceGroupsTaggingAPI do
       
       resource_tag_mapping() :: %{
         "ComplianceDetails" => compliance_details(),
-        "ResourceARN" => String.t(),
+        "ResourceARN" => String.t() | Atom.t(),
         "Tags" => list(tag())
       }
       
   """
-  @type resource_tag_mapping() :: %{String.t() => any()}
+  @type resource_tag_mapping() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_report_creation_input() :: %{
-        required("S3Bucket") => String.t()
+        required("S3Bucket") => String.t() | Atom.t()
       }
       
   """
-  @type start_report_creation_input() :: %{String.t() => any()}
+  @type start_report_creation_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -257,52 +257,52 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   ## Example:
       
       summary() :: %{
-        "LastUpdated" => String.t(),
+        "LastUpdated" => String.t() | Atom.t(),
         "NonCompliantResources" => float(),
-        "Region" => String.t(),
-        "ResourceType" => String.t(),
-        "TargetId" => String.t(),
+        "Region" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t(),
+        "TargetId" => String.t() | Atom.t(),
         "TargetIdType" => list(any())
       }
       
   """
-  @type summary() :: %{String.t() => any()}
+  @type summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_filter() :: %{
-        "Key" => String.t(),
-        "Values" => list(String.t())
+        "Key" => String.t() | Atom.t(),
+        "Values" => list(String.t() | Atom.t())
       }
       
   """
-  @type tag_filter() :: %{String.t() => any()}
+  @type tag_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resources_input() :: %{
-        required("ResourceARNList") => list(String.t()),
+        required("ResourceARNList") => list(String.t() | Atom.t()),
         required("Tags") => map()
       }
       
   """
-  @type tag_resources_input() :: %{String.t() => any()}
+  @type tag_resources_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -313,30 +313,30 @@ defmodule AWS.ResourceGroupsTaggingAPI do
       }
       
   """
-  @type tag_resources_output() :: %{String.t() => any()}
+  @type tag_resources_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       throttled_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type throttled_exception() :: %{String.t() => any()}
+  @type throttled_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resources_input() :: %{
-        required("ResourceARNList") => list(String.t()),
-        required("TagKeys") => list(String.t())
+        required("ResourceARNList") => list(String.t() | Atom.t()),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resources_input() :: %{String.t() => any()}
+  @type untag_resources_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -347,7 +347,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
       }
       
   """
-  @type untag_resources_output() :: %{String.t() => any()}
+  @type untag_resources_output() :: %{String.t() | Atom.t() => any()}
 
   @type describe_report_creation_errors() ::
           throttled_exception()

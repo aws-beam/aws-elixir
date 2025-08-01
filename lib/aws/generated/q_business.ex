@@ -42,47 +42,47 @@ defmodule AWS.QBusiness do
 
       source_attribution() :: %{
         "citationNumber" => integer(),
-        "snippet" => String.t(),
+        "snippet" => String.t() | Atom.t(),
         "textMessageSegments" => list(text_segment()),
-        "title" => String.t(),
+        "title" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer(),
-        "url" => String.t()
+        "url" => String.t() | Atom.t()
       }
 
   """
-  @type source_attribution() :: %{String.t() => any()}
+  @type source_attribution() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       action_summary() :: %{
-        "actionIdentifier" => String.t(),
-        "description" => String.t(),
-        "displayName" => String.t(),
-        "instructionExample" => String.t()
+        "actionIdentifier" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "displayName" => String.t() | Atom.t(),
+        "instructionExample" => String.t() | Atom.t()
       }
 
   """
-  @type action_summary() :: %{String.t() => any()}
+  @type action_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       instruction_collection() :: %{
-        "customInstructions" => String.t(),
-        "examples" => String.t(),
-        "identity" => String.t(),
-        "outputStyle" => String.t(),
-        "perspective" => String.t(),
-        "responseLength" => String.t(),
-        "targetAudience" => String.t(),
-        "tone" => String.t()
+        "customInstructions" => String.t() | Atom.t(),
+        "examples" => String.t() | Atom.t(),
+        "identity" => String.t() | Atom.t(),
+        "outputStyle" => String.t() | Atom.t(),
+        "perspective" => String.t() | Atom.t(),
+        "responseLength" => String.t() | Atom.t(),
+        "targetAudience" => String.t() | Atom.t(),
+        "tone" => String.t() | Atom.t()
       }
 
   """
-  @type instruction_collection() :: %{String.t() => any()}
+  @type instruction_collection() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -93,20 +93,20 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type applied_attachments_configuration() :: %{String.t() => any()}
+  @type applied_attachments_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_subscription_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         required("principal") => list(),
         required("type") => list(any())
       }
 
   """
-  @type create_subscription_request() :: %{String.t() => any()}
+  @type create_subscription_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -115,11 +115,11 @@ defmodule AWS.QBusiness do
       put_feedback_request() :: %{
         optional("messageCopiedAt") => non_neg_integer(),
         optional("messageUsefulness") => message_usefulness_feedback(),
-        optional("userId") => String.t()
+        optional("userId") => String.t() | Atom.t()
       }
 
   """
-  @type put_feedback_request() :: %{String.t() => any()}
+  @type put_feedback_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -127,12 +127,12 @@ defmodule AWS.QBusiness do
 
       update_data_accessor_request() :: %{
         optional("authenticationDetail") => data_accessor_authentication_detail(),
-        optional("displayName") => String.t(),
+        optional("displayName") => String.t() | Atom.t(),
         required("actionConfigurations") => list(action_configuration())
       }
 
   """
-  @type update_data_accessor_request() :: %{String.t() => any()}
+  @type update_data_accessor_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -145,29 +145,29 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type media_extraction_configuration() :: %{String.t() => any()}
+  @type media_extraction_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       encryption_configuration() :: %{
-        "kmsKeyId" => String.t()
+        "kmsKeyId" => String.t() | Atom.t()
       }
 
   """
-  @type encryption_configuration() :: %{String.t() => any()}
+  @type encryption_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       media_too_large_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type media_too_large_exception() :: %{String.t() => any()}
+  @type media_too_large_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -178,19 +178,19 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_web_experience_response() :: %{
-        "webExperienceArn" => String.t(),
-        "webExperienceId" => String.t()
+        "webExperienceArn" => String.t() | Atom.t(),
+        "webExperienceId" => String.t() | Atom.t()
       }
 
   """
-  @type create_web_experience_response() :: %{String.t() => any()}
+  @type create_web_experience_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -201,19 +201,19 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type auth_challenge_response_event() :: %{String.t() => any()}
+  @type auth_challenge_response_event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       data_source_vpc_configuration() :: %{
-        "securityGroupIds" => list(String.t()),
-        "subnetIds" => list(String.t())
+        "securityGroupIds" => list(String.t() | Atom.t()),
+        "subnetIds" => list(String.t() | Atom.t())
       }
 
   """
-  @type data_source_vpc_configuration() :: %{String.t() => any()}
+  @type data_source_vpc_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -221,23 +221,23 @@ defmodule AWS.QBusiness do
 
       list_data_accessors_response() :: %{
         "dataAccessors" => list(data_accessor()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_data_accessors_response() :: %{String.t() => any()}
+  @type list_data_accessors_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_retriever_response() :: %{
-        "retrieverArn" => String.t(),
-        "retrieverId" => String.t()
+        "retrieverArn" => String.t() | Atom.t(),
+        "retrieverId" => String.t() | Atom.t()
       }
 
   """
-  @type create_retriever_response() :: %{String.t() => any()}
+  @type create_retriever_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -245,11 +245,11 @@ defmodule AWS.QBusiness do
 
       list_web_experiences_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_web_experiences_request() :: %{String.t() => any()}
+  @type list_web_experiences_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -260,7 +260,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type applied_orchestration_configuration() :: %{String.t() => any()}
+  @type applied_orchestration_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -271,7 +271,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type index_capacity_configuration() :: %{String.t() => any()}
+  @type index_capacity_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -287,12 +287,12 @@ defmodule AWS.QBusiness do
   ## Example:
 
       document_attribute() :: %{
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "value" => list()
       }
 
   """
-  @type document_attribute() :: %{String.t() => any()}
+  @type document_attribute() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -301,16 +301,16 @@ defmodule AWS.QBusiness do
       plugin() :: %{
         "buildStatus" => list(any()),
         "createdAt" => non_neg_integer(),
-        "displayName" => String.t(),
-        "pluginId" => String.t(),
-        "serverUrl" => String.t(),
+        "displayName" => String.t() | Atom.t(),
+        "pluginId" => String.t() | Atom.t(),
+        "serverUrl" => String.t() | Atom.t(),
         "state" => list(any()),
         "type" => list(any()),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type plugin() :: %{String.t() => any()}
+  @type plugin() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -321,7 +321,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type string_list_attribute_boosting_configuration() :: %{String.t() => any()}
+  @type string_list_attribute_boosting_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -334,44 +334,44 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type update_user_response() :: %{String.t() => any()}
+  @type update_user_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_data_source_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("documentEnrichmentConfiguration") => document_enrichment_configuration(),
         optional("mediaExtractionConfiguration") => media_extraction_configuration(),
-        optional("roleArn") => String.t(),
-        optional("syncSchedule") => String.t(),
+        optional("roleArn") => String.t() | Atom.t(),
+        optional("syncSchedule") => String.t() | Atom.t(),
         optional("tags") => list(tag()),
         optional("vpcConfiguration") => data_source_vpc_configuration(),
         required("configuration") => any(),
-        required("displayName") => String.t()
+        required("displayName") => String.t() | Atom.t()
       }
 
   """
-  @type create_data_source_request() :: %{String.t() => any()}
+  @type create_data_source_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       action_review_event() :: %{
-        "conversationId" => String.t(),
+        "conversationId" => String.t() | Atom.t(),
         "payload" => map(),
-        "payloadFieldNameSeparator" => String.t(),
-        "pluginId" => String.t(),
+        "payloadFieldNameSeparator" => String.t() | Atom.t(),
+        "pluginId" => String.t() | Atom.t(),
         "pluginType" => list(any()),
-        "systemMessageId" => String.t(),
-        "userMessageId" => String.t()
+        "systemMessageId" => String.t() | Atom.t(),
+        "userMessageId" => String.t() | Atom.t()
       }
 
   """
-  @type action_review_event() :: %{String.t() => any()}
+  @type action_review_event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -379,58 +379,58 @@ defmodule AWS.QBusiness do
 
       get_data_accessor_response() :: %{
         "actionConfigurations" => list(action_configuration()),
-        "applicationId" => String.t(),
+        "applicationId" => String.t() | Atom.t(),
         "authenticationDetail" => data_accessor_authentication_detail(),
         "createdAt" => non_neg_integer(),
-        "dataAccessorArn" => String.t(),
-        "dataAccessorId" => String.t(),
-        "displayName" => String.t(),
-        "idcApplicationArn" => String.t(),
-        "principal" => String.t(),
+        "dataAccessorArn" => String.t() | Atom.t(),
+        "dataAccessorId" => String.t() | Atom.t(),
+        "displayName" => String.t() | Atom.t(),
+        "idcApplicationArn" => String.t() | Atom.t(),
+        "principal" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type get_data_accessor_response() :: %{String.t() => any()}
+  @type get_data_accessor_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       idc_auth_configuration() :: %{
-        "idcApplicationArn" => String.t(),
-        "roleArn" => String.t()
+        "idcApplicationArn" => String.t() | Atom.t(),
+        "roleArn" => String.t() | Atom.t()
       }
 
   """
-  @type idc_auth_configuration() :: %{String.t() => any()}
+  @type idc_auth_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       text_output_event() :: %{
-        "conversationId" => String.t(),
-        "systemMessage" => String.t(),
-        "systemMessageId" => String.t(),
+        "conversationId" => String.t() | Atom.t(),
+        "systemMessage" => String.t() | Atom.t(),
+        "systemMessageId" => String.t() | Atom.t(),
         "systemMessageType" => list(any()),
-        "userMessageId" => String.t()
+        "userMessageId" => String.t() | Atom.t()
       }
 
   """
-  @type text_output_event() :: %{String.t() => any()}
+  @type text_output_event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conversation_source() :: %{
-        "attachmentId" => String.t(),
-        "conversationId" => String.t()
+        "attachmentId" => String.t() | Atom.t(),
+        "conversationId" => String.t() | Atom.t()
       }
 
   """
-  @type conversation_source() :: %{String.t() => any()}
+  @type conversation_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -442,7 +442,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type document_acl() :: %{String.t() => any()}
+  @type document_acl() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -458,60 +458,60 @@ defmodule AWS.QBusiness do
   ## Example:
 
       get_retriever_response() :: %{
-        "applicationId" => String.t(),
+        "applicationId" => String.t() | Atom.t(),
         "configuration" => list(),
         "createdAt" => non_neg_integer(),
-        "displayName" => String.t(),
-        "retrieverArn" => String.t(),
-        "retrieverId" => String.t(),
-        "roleArn" => String.t(),
+        "displayName" => String.t() | Atom.t(),
+        "retrieverArn" => String.t() | Atom.t(),
+        "retrieverId" => String.t() | Atom.t(),
+        "roleArn" => String.t() | Atom.t(),
         "status" => list(any()),
         "type" => list(any()),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type get_retriever_response() :: %{String.t() => any()}
+  @type get_retriever_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       o_auth2_client_credential_configuration() :: %{
-        "authorizationUrl" => String.t(),
-        "roleArn" => String.t(),
-        "secretArn" => String.t(),
-        "tokenUrl" => String.t()
+        "authorizationUrl" => String.t() | Atom.t(),
+        "roleArn" => String.t() | Atom.t(),
+        "secretArn" => String.t() | Atom.t(),
+        "tokenUrl" => String.t() | Atom.t()
       }
 
   """
-  @type o_auth2_client_credential_configuration() :: %{String.t() => any()}
+  @type o_auth2_client_credential_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       customization_configuration() :: %{
-        "customCSSUrl" => String.t(),
-        "faviconUrl" => String.t(),
-        "fontUrl" => String.t(),
-        "logoUrl" => String.t()
+        "customCSSUrl" => String.t() | Atom.t(),
+        "faviconUrl" => String.t() | Atom.t(),
+        "fontUrl" => String.t() | Atom.t(),
+        "logoUrl" => String.t() | Atom.t()
       }
 
   """
-  @type customization_configuration() :: %{String.t() => any()}
+  @type customization_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       member_group() :: %{
-        "groupName" => String.t(),
+        "groupName" => String.t() | Atom.t(),
         "type" => list(any())
       }
 
   """
-  @type member_group() :: %{String.t() => any()}
+  @type member_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -536,22 +536,22 @@ defmodule AWS.QBusiness do
   ## Example:
 
       plugin_configuration() :: %{
-        "pluginId" => String.t()
+        "pluginId" => String.t() | Atom.t()
       }
 
   """
-  @type plugin_configuration() :: %{String.t() => any()}
+  @type plugin_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       content_blocker_rule() :: %{
-        "systemMessageOverride" => String.t()
+        "systemMessageOverride" => String.t() | Atom.t()
       }
 
   """
-  @type content_blocker_rule() :: %{String.t() => any()}
+  @type content_blocker_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -568,11 +568,11 @@ defmodule AWS.QBusiness do
 
       list_plugin_type_metadata_response() :: %{
         "items" => list(plugin_type_metadata_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_plugin_type_metadata_response() :: %{String.t() => any()}
+  @type list_plugin_type_metadata_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -580,13 +580,13 @@ defmodule AWS.QBusiness do
 
       failed_attachment_event() :: %{
         "attachment" => attachment_output(),
-        "conversationId" => String.t(),
-        "systemMessageId" => String.t(),
-        "userMessageId" => String.t()
+        "conversationId" => String.t() | Atom.t(),
+        "systemMessageId" => String.t() | Atom.t(),
+        "userMessageId" => String.t() | Atom.t()
       }
 
   """
-  @type failed_attachment_event() :: %{String.t() => any()}
+  @type failed_attachment_event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -594,47 +594,47 @@ defmodule AWS.QBusiness do
 
       principal_user() :: %{
         "access" => list(any()),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "membershipType" => list(any())
       }
 
   """
-  @type principal_user() :: %{String.t() => any()}
+  @type principal_user() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_data_accessor_response() :: %{
-        "dataAccessorArn" => String.t(),
-        "dataAccessorId" => String.t(),
-        "idcApplicationArn" => String.t()
+        "dataAccessorArn" => String.t() | Atom.t(),
+        "dataAccessorId" => String.t() | Atom.t(),
+        "idcApplicationArn" => String.t() | Atom.t()
       }
 
   """
-  @type create_data_accessor_response() :: %{String.t() => any()}
+  @type create_data_accessor_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_document() :: %{
-        "documentId" => String.t()
+        "documentId" => String.t() | Atom.t()
       }
 
   """
-  @type delete_document() :: %{String.t() => any()}
+  @type delete_document() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       auth_challenge_request_event() :: %{
-        "authorizationUrl" => String.t()
+        "authorizationUrl" => String.t() | Atom.t()
       }
 
   """
-  @type auth_challenge_request_event() :: %{String.t() => any()}
+  @type auth_challenge_request_event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -642,12 +642,12 @@ defmodule AWS.QBusiness do
 
       document_attribute_target() :: %{
         "attributeValueOperator" => list(any()),
-        "key" => String.t(),
+        "key" => String.t() | Atom.t(),
         "value" => list()
       }
 
   """
-  @type document_attribute_target() :: %{String.t() => any()}
+  @type document_attribute_target() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -655,26 +655,26 @@ defmodule AWS.QBusiness do
 
       list_messages_response() :: %{
         "messages" => list(message()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_messages_response() :: %{String.t() => any()}
+  @type list_messages_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       data_source_sync_job_metrics() :: %{
-        "documentsAdded" => String.t(),
-        "documentsDeleted" => String.t(),
-        "documentsFailed" => String.t(),
-        "documentsModified" => String.t(),
-        "documentsScanned" => String.t()
+        "documentsAdded" => String.t() | Atom.t(),
+        "documentsDeleted" => String.t() | Atom.t(),
+        "documentsFailed" => String.t() | Atom.t(),
+        "documentsModified" => String.t() | Atom.t(),
+        "documentsScanned" => String.t() | Atom.t()
       }
 
   """
-  @type data_source_sync_job_metrics() :: %{String.t() => any()}
+  @type data_source_sync_job_metrics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -682,26 +682,26 @@ defmodule AWS.QBusiness do
 
       create_data_accessor_request() :: %{
         optional("authenticationDetail") => data_accessor_authentication_detail(),
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("tags") => list(tag()),
         required("actionConfigurations") => list(action_configuration()),
-        required("displayName") => String.t(),
-        required("principal") => String.t()
+        required("displayName") => String.t() | Atom.t(),
+        required("principal") => String.t() | Atom.t()
       }
 
   """
-  @type create_data_accessor_request() :: %{String.t() => any()}
+  @type create_data_accessor_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       license_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type license_not_found_exception() :: %{String.t() => any()}
+  @type license_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -718,12 +718,12 @@ defmodule AWS.QBusiness do
 
       create_plugin_response() :: %{
         "buildStatus" => list(any()),
-        "pluginArn" => String.t(),
-        "pluginId" => String.t()
+        "pluginArn" => String.t() | Atom.t(),
+        "pluginId" => String.t() | Atom.t()
       }
 
   """
-  @type create_plugin_response() :: %{String.t() => any()}
+  @type create_plugin_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -734,34 +734,34 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type get_user_response() :: %{String.t() => any()}
+  @type get_user_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_conversation_request() :: %{
-        optional("userId") => String.t()
+        optional("userId") => String.t() | Atom.t()
       }
 
   """
-  @type delete_conversation_request() :: %{String.t() => any()}
+  @type delete_conversation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_retriever_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("roleArn") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("roleArn") => String.t() | Atom.t(),
         optional("tags") => list(tag()),
         required("configuration") => list(),
-        required("displayName") => String.t(),
+        required("displayName") => String.t() | Atom.t(),
         required("type") => list(any())
       }
 
   """
-  @type create_retriever_request() :: %{String.t() => any()}
+  @type create_retriever_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -786,32 +786,32 @@ defmodule AWS.QBusiness do
   ## Example:
 
       attachment() :: %{
-        "attachmentId" => String.t(),
-        "conversationId" => String.t(),
+        "attachmentId" => String.t() | Atom.t(),
+        "conversationId" => String.t() | Atom.t(),
         "copyFrom" => list(),
         "createdAt" => non_neg_integer(),
         "error" => error_detail(),
         "fileSize" => integer(),
-        "fileType" => String.t(),
-        "md5chksum" => String.t(),
-        "name" => String.t(),
+        "fileType" => String.t() | Atom.t(),
+        "md5chksum" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type attachment() :: %{String.t() => any()}
+  @type attachment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_web_experiences_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "webExperiences" => list(web_experience())
       }
 
   """
-  @type list_web_experiences_response() :: %{String.t() => any()}
+  @type list_web_experiences_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -822,7 +822,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type video_extraction_configuration() :: %{String.t() => any()}
+  @type video_extraction_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -830,11 +830,11 @@ defmodule AWS.QBusiness do
 
       list_chat_response_configurations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_chat_response_configurations_request() :: %{String.t() => any()}
+  @type list_chat_response_configurations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -851,11 +851,11 @@ defmodule AWS.QBusiness do
 
       list_plugin_actions_response() :: %{
         "items" => list(action_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_plugin_actions_response() :: %{String.t() => any()}
+  @type list_plugin_actions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -863,13 +863,13 @@ defmodule AWS.QBusiness do
 
       action_review() :: %{
         "payload" => map(),
-        "payloadFieldNameSeparator" => String.t(),
-        "pluginId" => String.t(),
+        "payloadFieldNameSeparator" => String.t() | Atom.t(),
+        "pluginId" => String.t() | Atom.t(),
         "pluginType" => list(any())
       }
 
   """
-  @type action_review() :: %{String.t() => any()}
+  @type action_review() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -880,7 +880,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type subscription_details() :: %{String.t() => any()}
+  @type subscription_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -896,25 +896,25 @@ defmodule AWS.QBusiness do
   ## Example:
 
       topic_configuration() :: %{
-        "description" => String.t(),
-        "exampleChatMessages" => list(String.t()),
-        "name" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "exampleChatMessages" => list(String.t() | Atom.t()),
+        "name" => String.t() | Atom.t(),
         "rules" => list(rule())
       }
 
   """
-  @type topic_configuration() :: %{String.t() => any()}
+  @type topic_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -928,7 +928,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type check_document_access_response() :: %{String.t() => any()}
+  @type check_document_access_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -936,23 +936,23 @@ defmodule AWS.QBusiness do
 
       update_retriever_request() :: %{
         optional("configuration") => list(),
-        optional("displayName") => String.t(),
-        optional("roleArn") => String.t()
+        optional("displayName") => String.t() | Atom.t(),
+        optional("roleArn") => String.t() | Atom.t()
       }
 
   """
-  @type update_retriever_request() :: %{String.t() => any()}
+  @type update_retriever_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       text_input_event() :: %{
-        "userMessage" => String.t()
+        "userMessage" => String.t() | Atom.t()
       }
 
   """
-  @type text_input_event() :: %{String.t() => any()}
+  @type text_input_event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -968,38 +968,38 @@ defmodule AWS.QBusiness do
   ## Example:
 
       user_alias() :: %{
-        "dataSourceId" => String.t(),
-        "indexId" => String.t(),
-        "userId" => String.t()
+        "dataSourceId" => String.t() | Atom.t(),
+        "indexId" => String.t() | Atom.t(),
+        "userId" => String.t() | Atom.t()
       }
 
   """
-  @type user_alias() :: %{String.t() => any()}
+  @type user_alias() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       basic_auth_configuration() :: %{
-        "roleArn" => String.t(),
-        "secretArn" => String.t()
+        "roleArn" => String.t() | Atom.t(),
+        "secretArn" => String.t() | Atom.t()
       }
 
   """
-  @type basic_auth_configuration() :: %{String.t() => any()}
+  @type basic_auth_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       document_attribute_condition() :: %{
-        "key" => String.t(),
+        "key" => String.t() | Atom.t(),
         "operator" => list(any()),
         "value" => list()
       }
 
   """
-  @type document_attribute_condition() :: %{String.t() => any()}
+  @type document_attribute_condition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1007,11 +1007,11 @@ defmodule AWS.QBusiness do
 
       list_indices_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_indices_request() :: %{String.t() => any()}
+  @type list_indices_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1032,7 +1032,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type document_acl_membership() :: %{String.t() => any()}
+  @type document_acl_membership() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1040,11 +1040,11 @@ defmodule AWS.QBusiness do
 
       list_documents_response() :: %{
         "documentDetailList" => list(document_details()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_documents_response() :: %{String.t() => any()}
+  @type list_documents_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1060,32 +1060,32 @@ defmodule AWS.QBusiness do
   ## Example:
 
       create_plugin_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("customPluginConfiguration") => custom_plugin_configuration(),
-        optional("serverUrl") => String.t(),
+        optional("serverUrl") => String.t() | Atom.t(),
         optional("tags") => list(tag()),
         required("authConfiguration") => list(),
-        required("displayName") => String.t(),
+        required("displayName") => String.t() | Atom.t(),
         required("type") => list(any())
       }
 
   """
-  @type create_plugin_request() :: %{String.t() => any()}
+  @type create_plugin_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       metadata_event() :: %{
-        "conversationId" => String.t(),
-        "finalTextMessage" => String.t(),
+        "conversationId" => String.t() | Atom.t(),
+        "finalTextMessage" => String.t() | Atom.t(),
         "sourceAttributions" => list(source_attribution()),
-        "systemMessageId" => String.t(),
-        "userMessageId" => String.t()
+        "systemMessageId" => String.t() | Atom.t(),
+        "userMessageId" => String.t() | Atom.t()
       }
 
   """
-  @type metadata_event() :: %{String.t() => any()}
+  @type metadata_event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1096,7 +1096,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type image_extraction_configuration() :: %{String.t() => any()}
+  @type image_extraction_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1104,12 +1104,12 @@ defmodule AWS.QBusiness do
 
       plugin_type_metadata_summary() :: %{
         "category" => list(any()),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "type" => list(any())
       }
 
   """
-  @type plugin_type_metadata_summary() :: %{String.t() => any()}
+  @type plugin_type_metadata_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1117,23 +1117,23 @@ defmodule AWS.QBusiness do
 
       list_plugin_type_actions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_plugin_type_actions_request() :: %{String.t() => any()}
+  @type list_plugin_type_actions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_chat_response_configuration_response() :: %{
-        "chatResponseConfigurationArn" => String.t(),
-        "chatResponseConfigurationId" => String.t()
+        "chatResponseConfigurationArn" => String.t() | Atom.t(),
+        "chatResponseConfigurationId" => String.t() | Atom.t()
       }
 
   """
-  @type create_chat_response_configuration_response() :: %{String.t() => any()}
+  @type create_chat_response_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1142,16 +1142,16 @@ defmodule AWS.QBusiness do
       chat_sync_output() :: %{
         "actionReview" => action_review(),
         "authChallengeRequest" => auth_challenge_request(),
-        "conversationId" => String.t(),
+        "conversationId" => String.t() | Atom.t(),
         "failedAttachments" => list(attachment_output()),
         "sourceAttributions" => list(source_attribution()),
-        "systemMessage" => String.t(),
-        "systemMessageId" => String.t(),
-        "userMessageId" => String.t()
+        "systemMessage" => String.t() | Atom.t(),
+        "systemMessageId" => String.t() | Atom.t(),
+        "userMessageId" => String.t() | Atom.t()
       }
 
   """
-  @type chat_sync_output() :: %{String.t() => any()}
+  @type chat_sync_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1160,11 +1160,11 @@ defmodule AWS.QBusiness do
       cancel_subscription_response() :: %{
         "currentSubscription" => subscription_details(),
         "nextSubscription" => subscription_details(),
-        "subscriptionArn" => String.t()
+        "subscriptionArn" => String.t() | Atom.t()
       }
 
   """
-  @type cancel_subscription_response() :: %{String.t() => any()}
+  @type cancel_subscription_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1190,11 +1190,11 @@ defmodule AWS.QBusiness do
 
       list_data_sources_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_data_sources_request() :: %{String.t() => any()}
+  @type list_data_sources_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1220,14 +1220,14 @@ defmodule AWS.QBusiness do
 
       index() :: %{
         "createdAt" => non_neg_integer(),
-        "displayName" => String.t(),
-        "indexId" => String.t(),
+        "displayName" => String.t() | Atom.t(),
+        "indexId" => String.t() | Atom.t(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type index() :: %{String.t() => any()}
+  @type index() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1238,20 +1238,20 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type audio_extraction_configuration() :: %{String.t() => any()}
+  @type audio_extraction_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       document_attribute_configuration() :: %{
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "search" => list(any()),
         "type" => list(any())
       }
 
   """
-  @type document_attribute_configuration() :: %{String.t() => any()}
+  @type document_attribute_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1268,20 +1268,20 @@ defmodule AWS.QBusiness do
 
       create_web_experience_request() :: %{
         optional("browserExtensionConfiguration") => browser_extension_configuration(),
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("customizationConfiguration") => customization_configuration(),
         optional("identityProviderConfiguration") => list(),
-        optional("origins") => list(String.t()),
-        optional("roleArn") => String.t(),
+        optional("origins") => list(String.t() | Atom.t()),
+        optional("roleArn") => String.t() | Atom.t(),
         optional("samplePromptsControlMode") => list(any()),
-        optional("subtitle") => String.t(),
+        optional("subtitle") => String.t() | Atom.t(),
         optional("tags") => list(tag()),
-        optional("title") => String.t(),
-        optional("welcomeMessage") => String.t()
+        optional("title") => String.t() | Atom.t(),
+        optional("welcomeMessage") => String.t() | Atom.t()
       }
 
   """
-  @type create_web_experience_request() :: %{String.t() => any()}
+  @type create_web_experience_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1289,27 +1289,27 @@ defmodule AWS.QBusiness do
 
       web_experience() :: %{
         "createdAt" => non_neg_integer(),
-        "defaultEndpoint" => String.t(),
+        "defaultEndpoint" => String.t() | Atom.t(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer(),
-        "webExperienceId" => String.t()
+        "webExperienceId" => String.t() | Atom.t()
       }
 
   """
-  @type web_experience() :: %{String.t() => any()}
+  @type web_experience() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t(),
-        "resourceId" => String.t(),
-        "resourceType" => String.t()
+        "message" => String.t() | Atom.t(),
+        "resourceId" => String.t() | Atom.t(),
+        "resourceType" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1325,13 +1325,13 @@ defmodule AWS.QBusiness do
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t(),
-        "resourceId" => String.t(),
-        "resourceType" => String.t()
+        "message" => String.t() | Atom.t(),
+        "resourceId" => String.t() | Atom.t(),
+        "resourceType" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1353,19 +1353,19 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type inline_document_enrichment_configuration() :: %{String.t() => any()}
+  @type inline_document_enrichment_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associated_user() :: %{
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "type" => list(any())
       }
 
   """
-  @type associated_user() :: %{String.t() => any()}
+  @type associated_user() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1381,51 +1381,51 @@ defmodule AWS.QBusiness do
   ## Example:
 
       start_data_source_sync_job_response() :: %{
-        "executionId" => String.t()
+        "executionId" => String.t() | Atom.t()
       }
 
   """
-  @type start_data_source_sync_job_response() :: %{String.t() => any()}
+  @type start_data_source_sync_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "key" => String.t(),
-        "value" => String.t()
+        "key" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_web_experience_response() :: %{
-        "applicationId" => String.t(),
+        "applicationId" => String.t() | Atom.t(),
         "authenticationConfiguration" => list(),
         "browserExtensionConfiguration" => browser_extension_configuration(),
         "createdAt" => non_neg_integer(),
         "customizationConfiguration" => customization_configuration(),
-        "defaultEndpoint" => String.t(),
+        "defaultEndpoint" => String.t() | Atom.t(),
         "error" => error_detail(),
         "identityProviderConfiguration" => list(),
-        "origins" => list(String.t()),
-        "roleArn" => String.t(),
+        "origins" => list(String.t() | Atom.t()),
+        "roleArn" => String.t() | Atom.t(),
         "samplePromptsControlMode" => list(any()),
         "status" => list(any()),
-        "subtitle" => String.t(),
-        "title" => String.t(),
+        "subtitle" => String.t() | Atom.t(),
+        "title" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer(),
-        "webExperienceArn" => String.t(),
-        "webExperienceId" => String.t(),
-        "welcomeMessage" => String.t()
+        "webExperienceArn" => String.t() | Atom.t(),
+        "webExperienceId" => String.t() | Atom.t(),
+        "welcomeMessage" => String.t() | Atom.t()
       }
 
   """
-  @type get_web_experience_response() :: %{String.t() => any()}
+  @type get_web_experience_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1433,23 +1433,23 @@ defmodule AWS.QBusiness do
 
       list_retrievers_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_retrievers_request() :: %{String.t() => any()}
+  @type list_retrievers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_retrievers_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "retrievers" => list(retriever())
       }
 
   """
-  @type list_retrievers_response() :: %{String.t() => any()}
+  @type list_retrievers_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1460,7 +1460,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type batch_delete_document_response() :: %{String.t() => any()}
+  @type batch_delete_document_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1473,16 +1473,16 @@ defmodule AWS.QBusiness do
         optional("authChallengeResponse") => auth_challenge_response(),
         optional("chatMode") => list(any()),
         optional("chatModeConfiguration") => list(),
-        optional("clientToken") => String.t(),
-        optional("conversationId") => String.t(),
-        optional("parentMessageId") => String.t(),
-        optional("userGroups") => list(String.t()),
-        optional("userId") => String.t(),
-        optional("userMessage") => String.t()
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("conversationId") => String.t() | Atom.t(),
+        optional("parentMessageId") => String.t() | Atom.t(),
+        optional("userGroups") => list(String.t() | Atom.t()),
+        optional("userId") => String.t() | Atom.t(),
+        optional("userMessage") => String.t() | Atom.t()
       }
 
   """
-  @type chat_sync_input() :: %{String.t() => any()}
+  @type chat_sync_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1493,7 +1493,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type applied_creator_mode_configuration() :: %{String.t() => any()}
+  @type applied_creator_mode_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1501,12 +1501,12 @@ defmodule AWS.QBusiness do
 
       action_execution() :: %{
         "payload" => map(),
-        "payloadFieldNameSeparator" => String.t(),
-        "pluginId" => String.t()
+        "payloadFieldNameSeparator" => String.t() | Atom.t(),
+        "pluginId" => String.t() | Atom.t()
       }
 
   """
-  @type action_execution() :: %{String.t() => any()}
+  @type action_execution() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1514,22 +1514,22 @@ defmodule AWS.QBusiness do
 
       member_user() :: %{
         "type" => list(any()),
-        "userId" => String.t()
+        "userId" => String.t() | Atom.t()
       }
 
   """
-  @type member_user() :: %{String.t() => any()}
+  @type member_user() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       kendra_index_configuration() :: %{
-        "indexId" => String.t()
+        "indexId" => String.t() | Atom.t()
       }
 
   """
-  @type kendra_index_configuration() :: %{String.t() => any()}
+  @type kendra_index_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1546,38 +1546,38 @@ defmodule AWS.QBusiness do
 
       chat_response_configuration_detail() :: %{
         "error" => error_detail(),
-        "responseConfigurationSummary" => String.t(),
+        "responseConfigurationSummary" => String.t() | Atom.t(),
         "responseConfigurations" => map(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type chat_response_configuration_detail() :: %{String.t() => any()}
+  @type chat_response_configuration_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_attachment_request() :: %{
-        optional("userId") => String.t()
+        optional("userId") => String.t() | Atom.t()
       }
 
   """
-  @type delete_attachment_request() :: %{String.t() => any()}
+  @type delete_attachment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => String.t(),
-        "resourceId" => String.t(),
-        "resourceType" => String.t()
+        "message" => String.t() | Atom.t(),
+        "resourceId" => String.t() | Atom.t(),
+        "resourceType" => String.t() | Atom.t()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1589,7 +1589,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type access_control() :: %{String.t() => any()}
+  @type access_control() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1598,11 +1598,11 @@ defmodule AWS.QBusiness do
       custom_plugin_configuration() :: %{
         "apiSchema" => list(),
         "apiSchemaType" => list(any()),
-        "description" => String.t()
+        "description" => String.t() | Atom.t()
       }
 
   """
-  @type custom_plugin_configuration() :: %{String.t() => any()}
+  @type custom_plugin_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1613,25 +1613,25 @@ defmodule AWS.QBusiness do
         optional("browserExtensionConfiguration") => browser_extension_configuration(),
         optional("customizationConfiguration") => customization_configuration(),
         optional("identityProviderConfiguration") => list(),
-        optional("origins") => list(String.t()),
-        optional("roleArn") => String.t(),
+        optional("origins") => list(String.t() | Atom.t()),
+        optional("roleArn") => String.t() | Atom.t(),
         optional("samplePromptsControlMode") => list(any()),
-        optional("subtitle") => String.t(),
-        optional("title") => String.t(),
-        optional("welcomeMessage") => String.t()
+        optional("subtitle") => String.t() | Atom.t(),
+        optional("title") => String.t() | Atom.t(),
+        optional("welcomeMessage") => String.t() | Atom.t()
       }
 
   """
-  @type update_web_experience_request() :: %{String.t() => any()}
+  @type update_web_experience_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       application() :: %{
-        "applicationId" => String.t(),
+        "applicationId" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "displayName" => String.t(),
+        "displayName" => String.t() | Atom.t(),
         "identityType" => list(any()),
         "quickSightConfiguration" => quick_sight_configuration(),
         "status" => list(any()),
@@ -1639,7 +1639,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type application() :: %{String.t() => any()}
+  @type application() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1651,7 +1651,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type number_attribute_boosting_configuration() :: %{String.t() => any()}
+  @type number_attribute_boosting_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1667,12 +1667,12 @@ defmodule AWS.QBusiness do
   ## Example:
 
       associated_group() :: %{
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "type" => list(any())
       }
 
   """
-  @type associated_group() :: %{String.t() => any()}
+  @type associated_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1684,7 +1684,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type string_attribute_boosting_configuration() :: %{String.t() => any()}
+  @type string_attribute_boosting_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1692,12 +1692,12 @@ defmodule AWS.QBusiness do
 
       list_conversations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("userId") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("userId") => String.t() | Atom.t()
       }
 
   """
-  @type list_conversations_request() :: %{String.t() => any()}
+  @type list_conversations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1705,11 +1705,11 @@ defmodule AWS.QBusiness do
 
       list_data_sources_response() :: %{
         "dataSources" => list(data_source()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_data_sources_response() :: %{String.t() => any()}
+  @type list_data_sources_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1738,7 +1738,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type personalization_configuration() :: %{String.t() => any()}
+  @type personalization_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1747,11 +1747,11 @@ defmodule AWS.QBusiness do
       attachment_input() :: %{
         "copyFrom" => list(),
         "data" => binary(),
-        "name" => String.t()
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type attachment_input() :: %{String.t() => any()}
+  @type attachment_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1764,7 +1764,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type group_status_detail() :: %{String.t() => any()}
+  @type group_status_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1784,7 +1784,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1796,7 +1796,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type auto_subscription_configuration() :: %{String.t() => any()}
+  @type auto_subscription_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1804,23 +1804,23 @@ defmodule AWS.QBusiness do
 
       create_application_request() :: %{
         optional("attachmentsConfiguration") => attachments_configuration(),
-        optional("clientIdsForOIDC") => list(String.t()),
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
+        optional("clientIdsForOIDC") => list(String.t() | Atom.t()),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("encryptionConfiguration") => encryption_configuration(),
-        optional("iamIdentityProviderArn") => String.t(),
-        optional("identityCenterInstanceArn") => String.t(),
+        optional("iamIdentityProviderArn") => String.t() | Atom.t(),
+        optional("identityCenterInstanceArn") => String.t() | Atom.t(),
         optional("identityType") => list(any()),
         optional("personalizationConfiguration") => personalization_configuration(),
         optional("qAppsConfiguration") => q_apps_configuration(),
         optional("quickSightConfiguration") => quick_sight_configuration(),
-        optional("roleArn") => String.t(),
+        optional("roleArn") => String.t() | Atom.t(),
         optional("tags") => list(tag()),
-        required("displayName") => String.t()
+        required("displayName") => String.t() | Atom.t()
       }
 
   """
-  @type create_application_request() :: %{String.t() => any()}
+  @type create_application_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1829,36 +1829,36 @@ defmodule AWS.QBusiness do
       text_segment() :: %{
         "beginOffset" => integer(),
         "endOffset" => integer(),
-        "mediaId" => String.t(),
-        "mediaMimeType" => String.t(),
+        "mediaId" => String.t() | Atom.t(),
+        "mediaMimeType" => String.t() | Atom.t(),
         "snippetExcerpt" => snippet_excerpt(),
         "sourceDetails" => list()
       }
 
   """
-  @type text_segment() :: %{String.t() => any()}
+  @type text_segment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_plugin_response() :: %{
-        "applicationId" => String.t(),
+        "applicationId" => String.t() | Atom.t(),
         "authConfiguration" => list(),
         "buildStatus" => list(any()),
         "createdAt" => non_neg_integer(),
         "customPluginConfiguration" => custom_plugin_configuration(),
-        "displayName" => String.t(),
-        "pluginArn" => String.t(),
-        "pluginId" => String.t(),
-        "serverUrl" => String.t(),
+        "displayName" => String.t() | Atom.t(),
+        "pluginArn" => String.t() | Atom.t(),
+        "pluginId" => String.t() | Atom.t(),
+        "serverUrl" => String.t() | Atom.t(),
         "state" => list(any()),
         "type" => list(any()),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type get_plugin_response() :: %{String.t() => any()}
+  @type get_plugin_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1866,13 +1866,13 @@ defmodule AWS.QBusiness do
 
       hook_configuration() :: %{
         "invocationCondition" => document_attribute_condition(),
-        "lambdaArn" => String.t(),
-        "roleArn" => String.t(),
-        "s3BucketName" => String.t()
+        "lambdaArn" => String.t() | Atom.t(),
+        "roleArn" => String.t() | Atom.t(),
+        "s3BucketName" => String.t() | Atom.t()
       }
 
   """
-  @type hook_configuration() :: %{String.t() => any()}
+  @type hook_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1881,73 +1881,73 @@ defmodule AWS.QBusiness do
       update_subscription_response() :: %{
         "currentSubscription" => subscription_details(),
         "nextSubscription" => subscription_details(),
-        "subscriptionArn" => String.t()
+        "subscriptionArn" => String.t() | Atom.t()
       }
 
   """
-  @type update_subscription_response() :: %{String.t() => any()}
+  @type update_subscription_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "message" => String.t(),
-        "name" => String.t()
+        "message" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conversation() :: %{
-        "conversationId" => String.t(),
+        "conversationId" => String.t() | Atom.t(),
         "startTime" => non_neg_integer(),
-        "title" => String.t()
+        "title" => String.t() | Atom.t()
       }
 
   """
-  @type conversation() :: %{String.t() => any()}
+  @type conversation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_plugins_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "plugins" => list(plugin())
       }
 
   """
-  @type list_plugins_response() :: %{String.t() => any()}
+  @type list_plugins_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_application_response() :: %{
-        "applicationArn" => String.t(),
-        "applicationId" => String.t()
+        "applicationArn" => String.t() | Atom.t(),
+        "applicationId" => String.t() | Atom.t()
       }
 
   """
-  @type create_application_response() :: %{String.t() => any()}
+  @type create_application_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_documents_request() :: %{
-        optional("dataSourceIds") => list(String.t()),
+        optional("dataSourceIds") => list(String.t() | Atom.t()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_documents_request() :: %{String.t() => any()}
+  @type list_documents_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1958,19 +1958,19 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type chat_output() :: %{String.t() => any()}
+  @type chat_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       blocked_phrases_configuration() :: %{
-        "blockedPhrases" => list(String.t()),
-        "systemMessageOverride" => String.t()
+        "blockedPhrases" => list(String.t() | Atom.t()),
+        "systemMessageOverride" => String.t() | Atom.t()
       }
 
   """
-  @type blocked_phrases_configuration() :: %{String.t() => any()}
+  @type blocked_phrases_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1978,42 +1978,42 @@ defmodule AWS.QBusiness do
 
       list_indices_response() :: %{
         "indices" => list(index()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_indices_response() :: %{String.t() => any()}
+  @type list_indices_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       data_source_sync_job() :: %{
-        "dataSourceErrorCode" => String.t(),
+        "dataSourceErrorCode" => String.t() | Atom.t(),
         "endTime" => non_neg_integer(),
         "error" => error_detail(),
-        "executionId" => String.t(),
+        "executionId" => String.t() | Atom.t(),
         "metrics" => data_source_sync_job_metrics(),
         "startTime" => non_neg_integer(),
         "status" => list(any())
       }
 
   """
-  @type data_source_sync_job() :: %{String.t() => any()}
+  @type data_source_sync_job() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_attachments_request() :: %{
-        optional("conversationId") => String.t(),
+        optional("conversationId") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("userId") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("userId") => String.t() | Atom.t()
       }
 
   """
-  @type list_attachments_request() :: %{String.t() => any()}
+  @type list_attachments_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2031,12 +2031,12 @@ defmodule AWS.QBusiness do
       create_subscription_response() :: %{
         "currentSubscription" => subscription_details(),
         "nextSubscription" => subscription_details(),
-        "subscriptionArn" => String.t(),
-        "subscriptionId" => String.t()
+        "subscriptionArn" => String.t() | Atom.t(),
+        "subscriptionId" => String.t() | Atom.t()
       }
 
   """
-  @type create_subscription_response() :: %{String.t() => any()}
+  @type create_subscription_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2050,7 +2050,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type rule() :: %{String.t() => any()}
+  @type rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2058,11 +2058,11 @@ defmodule AWS.QBusiness do
 
       list_plugins_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_plugins_request() :: %{String.t() => any()}
+  @type list_plugins_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2109,7 +2109,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type score_attributes() :: %{String.t() => any()}
+  @type score_attributes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2126,22 +2126,22 @@ defmodule AWS.QBusiness do
 
       get_media_response() :: %{
         "mediaBytes" => binary(),
-        "mediaMimeType" => String.t()
+        "mediaMimeType" => String.t() | Atom.t()
       }
 
   """
-  @type get_media_response() :: %{String.t() => any()}
+  @type get_media_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_policy_response() :: %{
-        "policy" => String.t()
+        "policy" => String.t() | Atom.t()
       }
 
   """
-  @type get_policy_response() :: %{String.t() => any()}
+  @type get_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2154,20 +2154,20 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type document_acl_condition() :: %{String.t() => any()}
+  @type document_acl_condition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       blocked_phrases_configuration_update() :: %{
-        "blockedPhrasesToCreateOrUpdate" => list(String.t()),
-        "blockedPhrasesToDelete" => list(String.t()),
-        "systemMessageOverride" => String.t()
+        "blockedPhrasesToCreateOrUpdate" => list(String.t() | Atom.t()),
+        "blockedPhrasesToDelete" => list(String.t() | Atom.t()),
+        "systemMessageOverride" => String.t() | Atom.t()
       }
 
   """
-  @type blocked_phrases_configuration_update() :: %{String.t() => any()}
+  @type blocked_phrases_configuration_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2175,11 +2175,11 @@ defmodule AWS.QBusiness do
 
       list_plugin_type_actions_response() :: %{
         "items" => list(action_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_plugin_type_actions_response() :: %{String.t() => any()}
+  @type list_plugin_type_actions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2187,25 +2187,25 @@ defmodule AWS.QBusiness do
 
       list_plugin_actions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_plugin_actions_request() :: %{String.t() => any()}
+  @type list_plugin_actions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       message_usefulness_feedback() :: %{
-        "comment" => String.t(),
+        "comment" => String.t() | Atom.t(),
         "reason" => list(any()),
         "submittedAt" => non_neg_integer(),
         "usefulness" => list(any())
       }
 
   """
-  @type message_usefulness_feedback() :: %{String.t() => any()}
+  @type message_usefulness_feedback() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2213,12 +2213,12 @@ defmodule AWS.QBusiness do
 
       action_execution_event() :: %{
         "payload" => map(),
-        "payloadFieldNameSeparator" => String.t(),
-        "pluginId" => String.t()
+        "payloadFieldNameSeparator" => String.t() | Atom.t(),
+        "pluginId" => String.t() | Atom.t()
       }
 
   """
-  @type action_execution_event() :: %{String.t() => any()}
+  @type action_execution_event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2227,16 +2227,16 @@ defmodule AWS.QBusiness do
       update_application_request() :: %{
         optional("attachmentsConfiguration") => attachments_configuration(),
         optional("autoSubscriptionConfiguration") => auto_subscription_configuration(),
-        optional("description") => String.t(),
-        optional("displayName") => String.t(),
-        optional("identityCenterInstanceArn") => String.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("displayName") => String.t() | Atom.t(),
+        optional("identityCenterInstanceArn") => String.t() | Atom.t(),
         optional("personalizationConfiguration") => personalization_configuration(),
         optional("qAppsConfiguration") => q_apps_configuration(),
-        optional("roleArn") => String.t()
+        optional("roleArn") => String.t() | Atom.t()
       }
 
   """
-  @type update_application_request() :: %{String.t() => any()}
+  @type update_application_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2261,11 +2261,11 @@ defmodule AWS.QBusiness do
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2281,47 +2281,47 @@ defmodule AWS.QBusiness do
   ## Example:
 
       search_relevant_content_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "relevantContent" => list(relevant_content())
       }
 
   """
-  @type search_relevant_content_response() :: %{String.t() => any()}
+  @type search_relevant_content_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_anonymous_web_experience_url_response() :: %{
-        "anonymousUrl" => String.t()
+        "anonymousUrl" => String.t() | Atom.t()
       }
 
   """
-  @type create_anonymous_web_experience_url_response() :: %{String.t() => any()}
+  @type create_anonymous_web_experience_url_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       image_source_details() :: %{
-        "mediaId" => String.t(),
-        "mediaMimeType" => String.t()
+        "mediaId" => String.t() | Atom.t(),
+        "mediaMimeType" => String.t() | Atom.t()
       }
 
   """
-  @type image_source_details() :: %{String.t() => any()}
+  @type image_source_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_data_source_response() :: %{
-        "dataSourceArn" => String.t(),
-        "dataSourceId" => String.t()
+        "dataSourceArn" => String.t() | Atom.t(),
+        "dataSourceId" => String.t() | Atom.t()
       }
 
   """
-  @type create_data_source_response() :: %{String.t() => any()}
+  @type create_data_source_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2329,14 +2329,14 @@ defmodule AWS.QBusiness do
 
       document_details() :: %{
         "createdAt" => non_neg_integer(),
-        "documentId" => String.t(),
+        "documentId" => String.t() | Atom.t(),
         "error" => error_detail(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type document_details() :: %{String.t() => any()}
+  @type document_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2344,11 +2344,11 @@ defmodule AWS.QBusiness do
 
       list_plugin_type_metadata_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_plugin_type_metadata_request() :: %{String.t() => any()}
+  @type list_plugin_type_metadata_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2364,41 +2364,41 @@ defmodule AWS.QBusiness do
   ## Example:
 
       get_application_response() :: %{
-        "applicationArn" => String.t(),
-        "applicationId" => String.t(),
+        "applicationArn" => String.t() | Atom.t(),
+        "applicationId" => String.t() | Atom.t(),
         "attachmentsConfiguration" => applied_attachments_configuration(),
         "autoSubscriptionConfiguration" => auto_subscription_configuration(),
-        "clientIdsForOIDC" => list(String.t()),
+        "clientIdsForOIDC" => list(String.t() | Atom.t()),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
-        "displayName" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "displayName" => String.t() | Atom.t(),
         "encryptionConfiguration" => encryption_configuration(),
         "error" => error_detail(),
-        "iamIdentityProviderArn" => String.t(),
-        "identityCenterApplicationArn" => String.t(),
+        "iamIdentityProviderArn" => String.t() | Atom.t(),
+        "identityCenterApplicationArn" => String.t() | Atom.t(),
         "identityType" => list(any()),
         "personalizationConfiguration" => personalization_configuration(),
         "qAppsConfiguration" => q_apps_configuration(),
         "quickSightConfiguration" => quick_sight_configuration(),
-        "roleArn" => String.t(),
+        "roleArn" => String.t() | Atom.t(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type get_application_response() :: %{String.t() => any()}
+  @type get_application_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_delete_document_request() :: %{
-        optional("dataSourceSyncId") => String.t(),
+        optional("dataSourceSyncId") => String.t() | Atom.t(),
         required("documents") => list(delete_document())
       }
 
   """
-  @type batch_delete_document_request() :: %{String.t() => any()}
+  @type batch_delete_document_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2409,18 +2409,18 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type action_execution_payload_field() :: %{String.t() => any()}
+  @type action_execution_payload_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       auth_challenge_request() :: %{
-        "authorizationUrl" => String.t()
+        "authorizationUrl" => String.t() | Atom.t()
       }
 
   """
-  @type auth_challenge_request() :: %{String.t() => any()}
+  @type auth_challenge_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2431,7 +2431,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type hallucination_reduction_configuration() :: %{String.t() => any()}
+  @type hallucination_reduction_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2460,18 +2460,18 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type batch_put_document_response() :: %{String.t() => any()}
+  @type batch_put_document_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       saml_provider_configuration() :: %{
-        "authenticationUrl" => String.t()
+        "authenticationUrl" => String.t() | Atom.t()
       }
 
   """
-  @type saml_provider_configuration() :: %{String.t() => any()}
+  @type saml_provider_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2479,11 +2479,11 @@ defmodule AWS.QBusiness do
 
       list_applications_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_applications_request() :: %{String.t() => any()}
+  @type list_applications_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2491,15 +2491,15 @@ defmodule AWS.QBusiness do
 
       create_index_request() :: %{
         optional("capacityConfiguration") => index_capacity_configuration(),
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("tags") => list(tag()),
         optional("type") => list(any()),
-        required("displayName") => String.t()
+        required("displayName") => String.t() | Atom.t()
       }
 
   """
-  @type create_index_request() :: %{String.t() => any()}
+  @type create_index_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2508,13 +2508,13 @@ defmodule AWS.QBusiness do
       update_plugin_request() :: %{
         optional("authConfiguration") => list(),
         optional("customPluginConfiguration") => custom_plugin_configuration(),
-        optional("displayName") => String.t(),
-        optional("serverUrl") => String.t(),
+        optional("displayName") => String.t() | Atom.t(),
+        optional("serverUrl") => String.t() | Atom.t(),
         optional("state") => list(any())
       }
 
   """
-  @type update_plugin_request() :: %{String.t() => any()}
+  @type update_plugin_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2522,29 +2522,29 @@ defmodule AWS.QBusiness do
 
       update_index_request() :: %{
         optional("capacityConfiguration") => index_capacity_configuration(),
-        optional("description") => String.t(),
-        optional("displayName") => String.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("displayName") => String.t() | Atom.t(),
         optional("documentAttributeConfigurations") => list(document_attribute_configuration())
       }
 
   """
-  @type update_index_request() :: %{String.t() => any()}
+  @type update_index_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_chat_response_configuration_response() :: %{
-        "chatResponseConfigurationArn" => String.t(),
-        "chatResponseConfigurationId" => String.t(),
+        "chatResponseConfigurationArn" => String.t() | Atom.t(),
+        "chatResponseConfigurationId" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "displayName" => String.t(),
+        "displayName" => String.t() | Atom.t(),
         "inUseConfiguration" => chat_response_configuration_detail(),
         "lastUpdateConfiguration" => chat_response_configuration_detail()
       }
 
   """
-  @type get_chat_response_configuration_response() :: %{String.t() => any()}
+  @type get_chat_response_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2552,38 +2552,41 @@ defmodule AWS.QBusiness do
 
       error_detail() :: %{
         "errorCode" => list(any()),
-        "errorMessage" => String.t()
+        "errorMessage" => String.t() | Atom.t()
       }
 
   """
-  @type error_detail() :: %{String.t() => any()}
+  @type error_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       relevant_content() :: %{
-        "content" => String.t(),
+        "content" => String.t() | Atom.t(),
         "documentAttributes" => list(document_attribute()),
-        "documentId" => String.t(),
-        "documentTitle" => String.t(),
-        "documentUri" => String.t(),
+        "documentId" => String.t() | Atom.t(),
+        "documentTitle" => String.t() | Atom.t(),
+        "documentUri" => String.t() | Atom.t(),
         "scoreAttributes" => score_attributes()
       }
 
   """
-  @type relevant_content() :: %{String.t() => any()}
+  @type relevant_content() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       data_accessor_idc_trusted_token_issuer_configuration() :: %{
-        "idcTrustedTokenIssuerArn" => String.t()
+        "idcTrustedTokenIssuerArn" => String.t() | Atom.t()
       }
 
   """
-  @type data_accessor_idc_trusted_token_issuer_configuration() :: %{String.t() => any()}
+  @type data_accessor_idc_trusted_token_issuer_configuration() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -2594,7 +2597,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type orchestration_configuration() :: %{String.t() => any()}
+  @type orchestration_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2610,11 +2613,11 @@ defmodule AWS.QBusiness do
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2627,7 +2630,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type configuration_event() :: %{String.t() => any()}
+  @type configuration_event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2638,19 +2641,19 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type auth_challenge_response() :: %{String.t() => any()}
+  @type auth_challenge_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s3() :: %{
-        "bucket" => String.t(),
-        "key" => String.t()
+        "bucket" => String.t() | Atom.t(),
+        "key" => String.t() | Atom.t()
       }
 
   """
-  @type s3() :: %{String.t() => any()}
+  @type s3() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2686,13 +2689,13 @@ defmodule AWS.QBusiness do
       search_relevant_content_request() :: %{
         optional("attributeFilter") => attribute_filter(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("contentSource") => list(),
-        required("queryText") => String.t()
+        required("queryText") => String.t() | Atom.t()
       }
 
   """
-  @type search_relevant_content_request() :: %{String.t() => any()}
+  @type search_relevant_content_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2700,14 +2703,14 @@ defmodule AWS.QBusiness do
 
       video_source_details() :: %{
         "endTimeMilliseconds" => float(),
-        "mediaId" => String.t(),
-        "mediaMimeType" => String.t(),
+        "mediaId" => String.t() | Atom.t(),
+        "mediaMimeType" => String.t() | Atom.t(),
         "startTimeMilliseconds" => float(),
         "videoExtractionType" => list(any())
       }
 
   """
-  @type video_source_details() :: %{String.t() => any()}
+  @type video_source_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2715,11 +2718,11 @@ defmodule AWS.QBusiness do
 
       list_conversations_response() :: %{
         "conversations" => list(conversation()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_conversations_response() :: %{String.t() => any()}
+  @type list_conversations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2740,23 +2743,23 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type update_user_request() :: %{String.t() => any()}
+  @type update_user_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       chat_input() :: %{
-        optional("clientToken") => String.t(),
-        optional("conversationId") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("conversationId") => String.t() | Atom.t(),
         optional("inputStream") => list(),
-        optional("parentMessageId") => String.t(),
-        optional("userGroups") => list(String.t()),
-        optional("userId") => String.t()
+        optional("parentMessageId") => String.t() | Atom.t(),
+        optional("userGroups") => list(String.t() | Atom.t()),
+        optional("userId") => String.t() | Atom.t()
       }
 
   """
-  @type chat_input() :: %{String.t() => any()}
+  @type chat_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2764,7 +2767,7 @@ defmodule AWS.QBusiness do
 
       update_chat_controls_configuration_request() :: %{
         optional("blockedPhrasesConfigurationUpdate") => blocked_phrases_configuration_update(),
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("creatorModeConfiguration") => creator_mode_configuration(),
         optional("hallucinationReductionConfiguration") => hallucination_reduction_configuration(),
         optional("orchestrationConfiguration") => orchestration_configuration(),
@@ -2774,7 +2777,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type update_chat_controls_configuration_request() :: %{String.t() => any()}
+  @type update_chat_controls_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2791,12 +2794,12 @@ defmodule AWS.QBusiness do
 
       validation_exception() :: %{
         "fields" => list(validation_exception_field()),
-        "message" => String.t(),
+        "message" => String.t() | Atom.t(),
         "reason" => list(any())
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2813,22 +2816,22 @@ defmodule AWS.QBusiness do
 
       list_data_accessors_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_data_accessors_request() :: %{String.t() => any()}
+  @type list_data_accessors_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       action_review_payload_field() :: %{
-        "allowedFormat" => String.t(),
+        "allowedFormat" => String.t() | Atom.t(),
         "allowedValues" => list(action_review_payload_field_allowed_value()),
         "arrayItemJsonSchema" => any(),
-        "displayDescription" => String.t(),
-        "displayName" => String.t(),
+        "displayDescription" => String.t() | Atom.t(),
+        "displayName" => String.t() | Atom.t(),
         "displayOrder" => integer(),
         "required" => [boolean()],
         "type" => list(any()),
@@ -2836,7 +2839,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type action_review_payload_field() :: %{String.t() => any()}
+  @type action_review_payload_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2844,41 +2847,41 @@ defmodule AWS.QBusiness do
 
       update_data_source_request() :: %{
         optional("configuration") => any(),
-        optional("description") => String.t(),
-        optional("displayName") => String.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("displayName") => String.t() | Atom.t(),
         optional("documentEnrichmentConfiguration") => document_enrichment_configuration(),
         optional("mediaExtractionConfiguration") => media_extraction_configuration(),
-        optional("roleArn") => String.t(),
-        optional("syncSchedule") => String.t(),
+        optional("roleArn") => String.t() | Atom.t(),
+        optional("syncSchedule") => String.t() | Atom.t(),
         optional("vpcConfiguration") => data_source_vpc_configuration()
       }
 
   """
-  @type update_data_source_request() :: %{String.t() => any()}
+  @type update_data_source_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_put_document_request() :: %{
-        optional("dataSourceSyncId") => String.t(),
-        optional("roleArn") => String.t(),
+        optional("dataSourceSyncId") => String.t() | Atom.t(),
+        optional("roleArn") => String.t() | Atom.t(),
         required("documents") => list(document())
       }
 
   """
-  @type batch_put_document_request() :: %{String.t() => any()}
+  @type batch_put_document_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2889,7 +2892,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type update_subscription_request() :: %{String.t() => any()}
+  @type update_subscription_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2901,7 +2904,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type action_review_payload_field_allowed_value() :: %{String.t() => any()}
+  @type action_review_payload_field_allowed_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2913,7 +2916,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type get_group_response() :: %{String.t() => any()}
+  @type get_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2923,12 +2926,12 @@ defmodule AWS.QBusiness do
         "currentSubscription" => subscription_details(),
         "nextSubscription" => subscription_details(),
         "principal" => list(),
-        "subscriptionArn" => String.t(),
-        "subscriptionId" => String.t()
+        "subscriptionArn" => String.t() | Atom.t(),
+        "subscriptionId" => String.t() | Atom.t()
       }
 
   """
-  @type subscription() :: %{String.t() => any()}
+  @type subscription() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2936,12 +2939,12 @@ defmodule AWS.QBusiness do
 
       native_index_configuration() :: %{
         "boostingOverride" => map(),
-        "indexId" => String.t(),
+        "indexId" => String.t() | Atom.t(),
         "version" => float()
       }
 
   """
-  @type native_index_configuration() :: %{String.t() => any()}
+  @type native_index_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2954,30 +2957,30 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type group_members() :: %{String.t() => any()}
+  @type group_members() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       quick_sight_configuration() :: %{
-        "clientNamespace" => String.t()
+        "clientNamespace" => String.t() | Atom.t()
       }
 
   """
-  @type quick_sight_configuration() :: %{String.t() => any()}
+  @type quick_sight_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_subscriptions_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "subscriptions" => list(subscription())
       }
 
   """
-  @type list_subscriptions_response() :: %{String.t() => any()}
+  @type list_subscriptions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2990,7 +2993,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type document_enrichment_configuration() :: %{String.t() => any()}
+  @type document_enrichment_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2998,22 +3001,22 @@ defmodule AWS.QBusiness do
 
       list_data_source_sync_jobs_response() :: %{
         "history" => list(data_source_sync_job()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_data_source_sync_jobs_response() :: %{String.t() => any()}
+  @type list_data_source_sync_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       browser_extension_configuration() :: %{
-        "enabledBrowserExtensions" => list(String.t())
+        "enabledBrowserExtensions" => list(String.t() | Atom.t())
       }
 
   """
-  @type browser_extension_configuration() :: %{String.t() => any()}
+  @type browser_extension_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3024,18 +3027,18 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type response_configuration() :: %{String.t() => any()}
+  @type response_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_group_request() :: %{
-        optional("dataSourceId") => String.t()
+        optional("dataSourceId") => String.t() | Atom.t()
       }
 
   """
-  @type delete_group_request() :: %{String.t() => any()}
+  @type delete_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3044,13 +3047,13 @@ defmodule AWS.QBusiness do
       audio_source_details() :: %{
         "audioExtractionType" => list(any()),
         "endTimeMilliseconds" => float(),
-        "mediaId" => String.t(),
-        "mediaMimeType" => String.t(),
+        "mediaId" => String.t() | Atom.t(),
+        "mediaMimeType" => String.t() | Atom.t(),
         "startTimeMilliseconds" => float()
       }
 
   """
-  @type audio_source_details() :: %{String.t() => any()}
+  @type audio_source_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3058,13 +3061,13 @@ defmodule AWS.QBusiness do
 
       associate_permission_request() :: %{
         optional("conditions") => list(permission_condition()),
-        required("actions") => list(String.t()),
-        required("principal") => String.t(),
-        required("statementId") => String.t()
+        required("actions") => list(String.t() | Atom.t()),
+        required("principal") => String.t() | Atom.t(),
+        required("statementId") => String.t() | Atom.t()
       }
 
   """
-  @type associate_permission_request() :: %{String.t() => any()}
+  @type associate_permission_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3075,19 +3078,19 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type content_retrieval_rule() :: %{String.t() => any()}
+  @type content_retrieval_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       open_id_connect_provider_configuration() :: %{
-        "secretsArn" => String.t(),
-        "secretsRole" => String.t()
+        "secretsArn" => String.t() | Atom.t(),
+        "secretsRole" => String.t() | Atom.t()
       }
 
   """
-  @type open_id_connect_provider_configuration() :: %{String.t() => any()}
+  @type open_id_connect_provider_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3095,11 +3098,11 @@ defmodule AWS.QBusiness do
 
       get_chat_controls_configuration_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type get_chat_controls_configuration_request() :: %{String.t() => any()}
+  @type get_chat_controls_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3107,42 +3110,42 @@ defmodule AWS.QBusiness do
 
       list_chat_response_configurations_response() :: %{
         "chatResponseConfigurations" => list(chat_response_configuration()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_chat_response_configurations_response() :: %{String.t() => any()}
+  @type list_chat_response_configurations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       chat_response_configuration() :: %{
-        "chatResponseConfigurationArn" => String.t(),
-        "chatResponseConfigurationId" => String.t(),
+        "chatResponseConfigurationArn" => String.t() | Atom.t(),
+        "chatResponseConfigurationId" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "displayName" => String.t(),
-        "responseConfigurationSummary" => String.t(),
+        "displayName" => String.t() | Atom.t(),
+        "responseConfigurationSummary" => String.t() | Atom.t(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type chat_response_configuration() :: %{String.t() => any()}
+  @type chat_response_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_chat_response_configuration_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("tags") => list(tag()),
-        required("displayName") => String.t(),
+        required("displayName") => String.t() | Atom.t(),
         required("responseConfigurations") => map()
       }
 
   """
-  @type create_chat_response_configuration_request() :: %{String.t() => any()}
+  @type create_chat_response_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3162,7 +3165,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type attribute_filter() :: %{String.t() => any()}
+  @type attribute_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3171,13 +3174,13 @@ defmodule AWS.QBusiness do
       list_data_source_sync_jobs_request() :: %{
         optional("endTime") => non_neg_integer(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("startTime") => non_neg_integer(),
         optional("statusFilter") => list(any())
       }
 
   """
-  @type list_data_source_sync_jobs_request() :: %{String.t() => any()}
+  @type list_data_source_sync_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3185,11 +3188,11 @@ defmodule AWS.QBusiness do
 
       list_applications_response() :: %{
         "applications" => list(application()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_applications_response() :: %{String.t() => any()}
+  @type list_applications_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3198,11 +3201,11 @@ defmodule AWS.QBusiness do
       data_accessor_authentication_detail() :: %{
         "authenticationConfiguration" => list(),
         "authenticationType" => list(any()),
-        "externalIds" => list(String.t())
+        "externalIds" => list(String.t() | Atom.t())
       }
 
   """
-  @type data_accessor_authentication_detail() :: %{String.t() => any()}
+  @type data_accessor_authentication_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3211,34 +3214,34 @@ defmodule AWS.QBusiness do
       principal_group() :: %{
         "access" => list(any()),
         "membershipType" => list(any()),
-        "name" => String.t()
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type principal_group() :: %{String.t() => any()}
+  @type principal_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       external_resource_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type external_resource_exception() :: %{String.t() => any()}
+  @type external_resource_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       action_configuration() :: %{
-        "action" => String.t(),
+        "action" => String.t() | Atom.t(),
         "filterConfiguration" => action_filter_configuration()
       }
 
   """
-  @type action_configuration() :: %{String.t() => any()}
+  @type action_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3248,25 +3251,25 @@ defmodule AWS.QBusiness do
         "blockedPhrases" => blocked_phrases_configuration(),
         "creatorModeConfiguration" => applied_creator_mode_configuration(),
         "hallucinationReductionConfiguration" => hallucination_reduction_configuration(),
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "orchestrationConfiguration" => applied_orchestration_configuration(),
         "responseScope" => list(any()),
         "topicConfigurations" => list(topic_configuration())
       }
 
   """
-  @type get_chat_controls_configuration_response() :: %{String.t() => any()}
+  @type get_chat_controls_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       group_summary() :: %{
-        "groupName" => String.t()
+        "groupName" => String.t() | Atom.t()
       }
 
   """
-  @type group_summary() :: %{String.t() => any()}
+  @type group_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3277,7 +3280,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type create_anonymous_web_experience_url_request() :: %{String.t() => any()}
+  @type create_anonymous_web_experience_url_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3288,7 +3291,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type attachment_input_event() :: %{String.t() => any()}
+  @type attachment_input_event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3304,75 +3307,75 @@ defmodule AWS.QBusiness do
   ## Example:
 
       create_index_response() :: %{
-        "indexArn" => String.t(),
-        "indexId" => String.t()
+        "indexArn" => String.t() | Atom.t(),
+        "indexId" => String.t() | Atom.t()
       }
 
   """
-  @type create_index_response() :: %{String.t() => any()}
+  @type create_index_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       snippet_excerpt() :: %{
-        "text" => String.t()
+        "text" => String.t() | Atom.t()
       }
 
   """
-  @type snippet_excerpt() :: %{String.t() => any()}
+  @type snippet_excerpt() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       check_document_access_request() :: %{
-        optional("dataSourceId") => String.t()
+        optional("dataSourceId") => String.t() | Atom.t()
       }
 
   """
-  @type check_document_access_request() :: %{String.t() => any()}
+  @type check_document_access_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       permission_condition() :: %{
-        "conditionKey" => String.t(),
+        "conditionKey" => String.t() | Atom.t(),
         "conditionOperator" => list(any()),
-        "conditionValues" => list(String.t())
+        "conditionValues" => list(String.t() | Atom.t())
       }
 
   """
-  @type permission_condition() :: %{String.t() => any()}
+  @type permission_condition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       retriever() :: %{
-        "applicationId" => String.t(),
-        "displayName" => String.t(),
-        "retrieverId" => String.t(),
+        "applicationId" => String.t() | Atom.t(),
+        "displayName" => String.t() | Atom.t(),
+        "retrieverId" => String.t() | Atom.t(),
         "status" => list(any()),
         "type" => list(any())
       }
 
   """
-  @type retriever() :: %{String.t() => any()}
+  @type retriever() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       failed_document() :: %{
-        "dataSourceId" => String.t(),
+        "dataSourceId" => String.t() | Atom.t(),
         "error" => error_detail(),
-        "id" => String.t()
+        "id" => String.t() | Atom.t()
       }
 
   """
-  @type failed_document() :: %{String.t() => any()}
+  @type failed_document() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3380,15 +3383,15 @@ defmodule AWS.QBusiness do
 
       data_source() :: %{
         "createdAt" => non_neg_integer(),
-        "dataSourceId" => String.t(),
-        "displayName" => String.t(),
+        "dataSourceId" => String.t() | Atom.t(),
+        "displayName" => String.t() | Atom.t(),
         "status" => list(any()),
-        "type" => String.t(),
+        "type" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type data_source() :: %{String.t() => any()}
+  @type data_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3399,7 +3402,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type q_apps_configuration() :: %{String.t() => any()}
+  @type q_apps_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3407,22 +3410,22 @@ defmodule AWS.QBusiness do
 
       list_groups_response() :: %{
         "items" => list(group_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_groups_response() :: %{String.t() => any()}
+  @type list_groups_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_group_request() :: %{
-        optional("dataSourceId") => String.t()
+        optional("dataSourceId") => String.t() | Atom.t()
       }
 
   """
-  @type get_group_request() :: %{String.t() => any()}
+  @type get_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3434,7 +3437,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type access_configuration() :: %{String.t() => any()}
+  @type access_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3455,7 +3458,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type text_document_statistics() :: %{String.t() => any()}
+  @type text_document_statistics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3464,16 +3467,16 @@ defmodule AWS.QBusiness do
       data_accessor() :: %{
         "authenticationDetail" => data_accessor_authentication_detail(),
         "createdAt" => non_neg_integer(),
-        "dataAccessorArn" => String.t(),
-        "dataAccessorId" => String.t(),
-        "displayName" => String.t(),
-        "idcApplicationArn" => String.t(),
-        "principal" => String.t(),
+        "dataAccessorArn" => String.t() | Atom.t(),
+        "dataAccessorId" => String.t() | Atom.t(),
+        "displayName" => String.t() | Atom.t(),
+        "idcApplicationArn" => String.t() | Atom.t(),
+        "principal" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type data_accessor() :: %{String.t() => any()}
+  @type data_accessor() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3489,40 +3492,40 @@ defmodule AWS.QBusiness do
   ## Example:
 
       update_chat_response_configuration_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("displayName") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("displayName") => String.t() | Atom.t(),
         required("responseConfigurations") => map()
       }
 
   """
-  @type update_chat_response_configuration_request() :: %{String.t() => any()}
+  @type update_chat_response_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       attachment_output() :: %{
-        "attachmentId" => String.t(),
-        "conversationId" => String.t(),
+        "attachmentId" => String.t() | Atom.t(),
+        "conversationId" => String.t() | Atom.t(),
         "error" => error_detail(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type attachment_output() :: %{String.t() => any()}
+  @type attachment_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       users_and_groups() :: %{
-        "userGroups" => list(String.t()),
-        "userIds" => list(String.t())
+        "userGroups" => list(String.t() | Atom.t()),
+        "userIds" => list(String.t() | Atom.t())
       }
 
   """
-  @type users_and_groups() :: %{String.t() => any()}
+  @type users_and_groups() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3538,53 +3541,53 @@ defmodule AWS.QBusiness do
   ## Example:
 
       list_groups_request() :: %{
-        optional("dataSourceId") => String.t(),
+        optional("dataSourceId") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("updatedEarlierThan") => non_neg_integer()
       }
 
   """
-  @type list_groups_request() :: %{String.t() => any()}
+  @type list_groups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_data_source_response() :: %{
-        "applicationId" => String.t(),
+        "applicationId" => String.t() | Atom.t(),
         "configuration" => any(),
         "createdAt" => non_neg_integer(),
-        "dataSourceArn" => String.t(),
-        "dataSourceId" => String.t(),
-        "description" => String.t(),
-        "displayName" => String.t(),
+        "dataSourceArn" => String.t() | Atom.t(),
+        "dataSourceId" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "displayName" => String.t() | Atom.t(),
         "documentEnrichmentConfiguration" => document_enrichment_configuration(),
         "error" => error_detail(),
-        "indexId" => String.t(),
+        "indexId" => String.t() | Atom.t(),
         "mediaExtractionConfiguration" => media_extraction_configuration(),
-        "roleArn" => String.t(),
+        "roleArn" => String.t() | Atom.t(),
         "status" => list(any()),
-        "syncSchedule" => String.t(),
-        "type" => String.t(),
+        "syncSchedule" => String.t() | Atom.t(),
+        "type" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer(),
         "vpcConfiguration" => data_source_vpc_configuration()
       }
 
   """
-  @type get_data_source_response() :: %{String.t() => any()}
+  @type get_data_source_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       document_acl_group() :: %{
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "type" => list(any())
       }
 
   """
-  @type document_acl_group() :: %{String.t() => any()}
+  @type document_acl_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3605,7 +3608,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type date_attribute_boosting_configuration() :: %{String.t() => any()}
+  @type date_attribute_boosting_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3616,7 +3619,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type action_filter_configuration() :: %{String.t() => any()}
+  @type action_filter_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3632,12 +3635,12 @@ defmodule AWS.QBusiness do
   ## Example:
 
       eligible_data_source() :: %{
-        "dataSourceId" => String.t(),
-        "indexId" => String.t()
+        "dataSourceId" => String.t() | Atom.t(),
+        "indexId" => String.t() | Atom.t()
       }
 
   """
-  @type eligible_data_source() :: %{String.t() => any()}
+  @type eligible_data_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3653,11 +3656,11 @@ defmodule AWS.QBusiness do
   ## Example:
 
       retriever_content_source() :: %{
-        "retrieverId" => String.t()
+        "retrieverId" => String.t() | Atom.t()
       }
 
   """
-  @type retriever_content_source() :: %{String.t() => any()}
+  @type retriever_content_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3674,23 +3677,23 @@ defmodule AWS.QBusiness do
 
       list_subscriptions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_subscriptions_request() :: %{String.t() => any()}
+  @type list_subscriptions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       document_acl_user() :: %{
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "type" => list(any())
       }
 
   """
-  @type document_acl_user() :: %{String.t() => any()}
+  @type document_acl_user() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3702,13 +3705,13 @@ defmodule AWS.QBusiness do
         "content" => list(),
         "contentType" => list(any()),
         "documentEnrichmentConfiguration" => document_enrichment_configuration(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "mediaExtractionConfiguration" => media_extraction_configuration(),
-        "title" => String.t()
+        "title" => String.t() | Atom.t()
       }
 
   """
-  @type document() :: %{String.t() => any()}
+  @type document() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3716,11 +3719,11 @@ defmodule AWS.QBusiness do
 
       list_attachments_response() :: %{
         "attachments" => list(attachment()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_attachments_response() :: %{String.t() => any()}
+  @type list_attachments_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3745,14 +3748,14 @@ defmodule AWS.QBusiness do
   ## Example:
 
       saml_configuration() :: %{
-        "metadataXML" => String.t(),
-        "roleArn" => String.t(),
-        "userGroupAttribute" => String.t(),
-        "userIdAttribute" => String.t()
+        "metadataXML" => String.t() | Atom.t(),
+        "roleArn" => String.t() | Atom.t(),
+        "userGroupAttribute" => String.t() | Atom.t(),
+        "userIdAttribute" => String.t() | Atom.t()
       }
 
   """
-  @type saml_configuration() :: %{String.t() => any()}
+  @type saml_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3763,7 +3766,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type creator_mode_configuration() :: %{String.t() => any()}
+  @type creator_mode_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3774,7 +3777,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type attachments_configuration() :: %{String.t() => any()}
+  @type attachments_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3785,18 +3788,18 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type index_statistics() :: %{String.t() => any()}
+  @type index_statistics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_permission_response() :: %{
-        "statement" => String.t()
+        "statement" => String.t() | Atom.t()
       }
 
   """
-  @type associate_permission_response() :: %{String.t() => any()}
+  @type associate_permission_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3804,12 +3807,12 @@ defmodule AWS.QBusiness do
 
       list_messages_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("userId") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("userId") => String.t() | Atom.t()
       }
 
   """
-  @type list_messages_request() :: %{String.t() => any()}
+  @type list_messages_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3825,43 +3828,43 @@ defmodule AWS.QBusiness do
   ## Example:
 
       put_group_request() :: %{
-        optional("dataSourceId") => String.t(),
-        optional("roleArn") => String.t(),
+        optional("dataSourceId") => String.t() | Atom.t(),
+        optional("roleArn") => String.t() | Atom.t(),
         required("groupMembers") => group_members(),
-        required("groupName") => String.t(),
+        required("groupName") => String.t() | Atom.t(),
         required("type") => list(any())
       }
 
   """
-  @type put_group_request() :: %{String.t() => any()}
+  @type put_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_user_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("userAliases") => list(user_alias()),
-        required("userId") => String.t()
+        required("userId") => String.t() | Atom.t()
       }
 
   """
-  @type create_user_request() :: %{String.t() => any()}
+  @type create_user_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_index_response() :: %{
-        "applicationId" => String.t(),
+        "applicationId" => String.t() | Atom.t(),
         "capacityConfiguration" => index_capacity_configuration(),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
-        "displayName" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "displayName" => String.t() | Atom.t(),
         "documentAttributeConfigurations" => list(document_attribute_configuration()),
         "error" => error_detail(),
-        "indexArn" => String.t(),
-        "indexId" => String.t(),
+        "indexArn" => String.t() | Atom.t(),
+        "indexId" => String.t() | Atom.t(),
         "indexStatistics" => index_statistics(),
         "status" => list(any()),
         "type" => list(any()),
@@ -3869,7 +3872,7 @@ defmodule AWS.QBusiness do
       }
 
   """
-  @type get_index_response() :: %{String.t() => any()}
+  @type get_index_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3879,15 +3882,15 @@ defmodule AWS.QBusiness do
         "actionExecution" => action_execution(),
         "actionReview" => action_review(),
         "attachments" => list(attachment_output()),
-        "body" => String.t(),
-        "messageId" => String.t(),
+        "body" => String.t() | Atom.t(),
+        "messageId" => String.t() | Atom.t(),
         "sourceAttribution" => list(source_attribution()),
         "time" => non_neg_integer(),
         "type" => list(any())
       }
 
   """
-  @type message() :: %{String.t() => any()}
+  @type message() :: %{String.t() | Atom.t() => any()}
 
   @type associate_permission_errors() ::
           throttling_exception()
@@ -4561,7 +4564,7 @@ defmodule AWS.QBusiness do
   Business application. The policy statement defines the IAM actions that the ISV
   is allowed to perform on the Amazon Q Business application's resources.
   """
-  @spec associate_permission(map(), String.t(), associate_permission_request(), list()) ::
+  @spec associate_permission(map(), String.t() | Atom.t(), associate_permission_request(), list()) ::
           {:ok, associate_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4596,8 +4599,8 @@ defmodule AWS.QBusiness do
   """
   @spec batch_delete_document(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           batch_delete_document_request(),
           list()
         ) ::
@@ -4644,7 +4647,13 @@ defmodule AWS.QBusiness do
   You can see the progress of the deletion, and any error messages related to the
   process, by using CloudWatch.
   """
-  @spec batch_put_document(map(), String.t(), String.t(), batch_put_document_request(), list()) ::
+  @spec batch_put_document(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          batch_put_document_request(),
+          list()
+        ) ::
           {:ok, batch_put_document_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4679,7 +4688,13 @@ defmodule AWS.QBusiness do
   An unsubscribed user or group loses all Amazon Q Business feature access at the
   start of next month.
   """
-  @spec cancel_subscription(map(), String.t(), String.t(), cancel_subscription_request(), list()) ::
+  @spec cancel_subscription(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          cancel_subscription_request(),
+          list()
+        ) ::
           {:ok, cancel_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4716,7 +4731,7 @@ defmodule AWS.QBusiness do
   @doc """
   Starts or continues a streaming Amazon Q Business conversation.
   """
-  @spec chat(map(), String.t(), chat_input(), list()) ::
+  @spec chat(map(), String.t() | Atom.t(), chat_input(), list()) ::
           {:ok, chat_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4754,7 +4769,7 @@ defmodule AWS.QBusiness do
   @doc """
   Starts or continues a non-streaming Amazon Q Business conversation.
   """
-  @spec chat_sync(map(), String.t(), chat_sync_input(), list()) ::
+  @spec chat_sync(map(), String.t() | Atom.t(), chat_sync_input(), list()) ::
           {:ok, chat_sync_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4795,11 +4810,11 @@ defmodule AWS.QBusiness do
   """
   @spec check_document_access(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, check_document_access_response(), any()}
@@ -4841,8 +4856,8 @@ defmodule AWS.QBusiness do
   """
   @spec create_anonymous_web_experience_url(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           create_anonymous_web_experience_url_request(),
           list()
         ) ::
@@ -4931,7 +4946,7 @@ defmodule AWS.QBusiness do
   """
   @spec create_chat_response_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           create_chat_response_configuration_request(),
           list()
         ) ::
@@ -4972,7 +4987,7 @@ defmodule AWS.QBusiness do
   manage the ISV's identity and authentication for accessing the Amazon Q Business
   application.
   """
-  @spec create_data_accessor(map(), String.t(), create_data_accessor_request(), list()) ::
+  @spec create_data_accessor(map(), String.t() | Atom.t(), create_data_accessor_request(), list()) ::
           {:ok, create_data_accessor_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5004,7 +5019,13 @@ defmodule AWS.QBusiness do
   `CreateDataSource` is a synchronous operation. The operation returns 200 if the
   data source was successfully created. Otherwise, an exception is raised.
   """
-  @spec create_data_source(map(), String.t(), String.t(), create_data_source_request(), list()) ::
+  @spec create_data_source(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          create_data_source_request(),
+          list()
+        ) ::
           {:ok, create_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5046,7 +5067,7 @@ defmodule AWS.QBusiness do
   ](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateDataSource.html)
   API.
   """
-  @spec create_index(map(), String.t(), create_index_request(), list()) ::
+  @spec create_index(map(), String.t() | Atom.t(), create_index_request(), list()) ::
           {:ok, create_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5075,7 +5096,7 @@ defmodule AWS.QBusiness do
   @doc """
   Creates an Amazon Q Business plugin.
   """
-  @spec create_plugin(map(), String.t(), create_plugin_request(), list()) ::
+  @spec create_plugin(map(), String.t() | Atom.t(), create_plugin_request(), list()) ::
           {:ok, create_plugin_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5104,7 +5125,7 @@ defmodule AWS.QBusiness do
   @doc """
   Adds a retriever to your Amazon Q Business application.
   """
-  @spec create_retriever(map(), String.t(), create_retriever_request(), list()) ::
+  @spec create_retriever(map(), String.t() | Atom.t(), create_retriever_request(), list()) ::
           {:ok, create_retriever_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5138,7 +5159,7 @@ defmodule AWS.QBusiness do
   Subscription tier determines feature access for the user. For more information
   on subscriptions and pricing tiers, see [Amazon Q Business pricing](https://aws.amazon.com/q/business/pricing/).
   """
-  @spec create_subscription(map(), String.t(), create_subscription_request(), list()) ::
+  @spec create_subscription(map(), String.t() | Atom.t(), create_subscription_request(), list()) ::
           {:ok, create_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5168,7 +5189,7 @@ defmodule AWS.QBusiness do
   Creates a universally unique identifier (UUID) mapped to a list of local user
   ids within an application.
   """
-  @spec create_user(map(), String.t(), create_user_request(), list()) ::
+  @spec create_user(map(), String.t() | Atom.t(), create_user_request(), list()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5197,7 +5218,12 @@ defmodule AWS.QBusiness do
   @doc """
   Creates an Amazon Q Business web experience.
   """
-  @spec create_web_experience(map(), String.t(), create_web_experience_request(), list()) ::
+  @spec create_web_experience(
+          map(),
+          String.t() | Atom.t(),
+          create_web_experience_request(),
+          list()
+        ) ::
           {:ok, create_web_experience_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5226,7 +5252,7 @@ defmodule AWS.QBusiness do
   @doc """
   Deletes an Amazon Q Business application.
   """
-  @spec delete_application(map(), String.t(), delete_application_request(), list()) ::
+  @spec delete_application(map(), String.t() | Atom.t(), delete_application_request(), list()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5257,9 +5283,9 @@ defmodule AWS.QBusiness do
   """
   @spec delete_attachment(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_attachment_request(),
           list()
         ) ::
@@ -5307,7 +5333,7 @@ defmodule AWS.QBusiness do
   """
   @spec delete_chat_controls_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_chat_controls_configuration_request(),
           list()
         ) ::
@@ -5342,8 +5368,8 @@ defmodule AWS.QBusiness do
   """
   @spec delete_chat_response_configuration(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_chat_response_configuration_request(),
           list()
         ) ::
@@ -5383,7 +5409,13 @@ defmodule AWS.QBusiness do
   @doc """
   Deletes an Amazon Q Business web experience conversation.
   """
-  @spec delete_conversation(map(), String.t(), String.t(), delete_conversation_request(), list()) ::
+  @spec delete_conversation(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_conversation_request(),
+          list()
+        ) ::
           {:ok, delete_conversation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5431,8 +5463,8 @@ defmodule AWS.QBusiness do
   """
   @spec delete_data_accessor(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_data_accessor_request(),
           list()
         ) ::
@@ -5477,9 +5509,9 @@ defmodule AWS.QBusiness do
   """
   @spec delete_data_source(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_data_source_request(),
           list()
         ) ::
@@ -5530,7 +5562,14 @@ defmodule AWS.QBusiness do
   you provide an updated list of users or sub groups that belong to the
   "Engineering" group when calling `PutGroup`.
   """
-  @spec delete_group(map(), String.t(), String.t(), String.t(), delete_group_request(), list()) ::
+  @spec delete_group(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_group_request(),
+          list()
+        ) ::
           {:ok, delete_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5566,7 +5605,13 @@ defmodule AWS.QBusiness do
   @doc """
   Deletes an Amazon Q Business index.
   """
-  @spec delete_index(map(), String.t(), String.t(), delete_index_request(), list()) ::
+  @spec delete_index(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_index_request(),
+          list()
+        ) ::
           {:ok, delete_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5597,7 +5642,13 @@ defmodule AWS.QBusiness do
   @doc """
   Deletes an Amazon Q Business plugin.
   """
-  @spec delete_plugin(map(), String.t(), String.t(), delete_plugin_request(), list()) ::
+  @spec delete_plugin(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_plugin_request(),
+          list()
+        ) ::
           {:ok, delete_plugin_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5628,7 +5679,13 @@ defmodule AWS.QBusiness do
   @doc """
   Deletes the retriever used by an Amazon Q Business application.
   """
-  @spec delete_retriever(map(), String.t(), String.t(), delete_retriever_request(), list()) ::
+  @spec delete_retriever(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_retriever_request(),
+          list()
+        ) ::
           {:ok, delete_retriever_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5659,7 +5716,13 @@ defmodule AWS.QBusiness do
   @doc """
   Deletes a user by email id.
   """
-  @spec delete_user(map(), String.t(), String.t(), delete_user_request(), list()) ::
+  @spec delete_user(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_user_request(),
+          list()
+        ) ::
           {:ok, delete_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5692,8 +5755,8 @@ defmodule AWS.QBusiness do
   """
   @spec delete_web_experience(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_web_experience_request(),
           list()
         ) ::
@@ -5739,8 +5802,8 @@ defmodule AWS.QBusiness do
   """
   @spec disassociate_permission(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           disassociate_permission_request(),
           list()
         ) ::
@@ -5780,7 +5843,7 @@ defmodule AWS.QBusiness do
   @doc """
   Gets information about an existing Amazon Q Business application.
   """
-  @spec get_application(map(), String.t(), list()) ::
+  @spec get_application(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5801,9 +5864,9 @@ defmodule AWS.QBusiness do
   """
   @spec get_chat_controls_configuration(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, get_chat_controls_configuration_response(), any()}
@@ -5846,7 +5909,12 @@ defmodule AWS.QBusiness do
 
   This operation returns the complete configuration settings and metadata.
   """
-  @spec get_chat_response_configuration(map(), String.t(), String.t(), list()) ::
+  @spec get_chat_response_configuration(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_chat_response_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5877,7 +5945,7 @@ defmodule AWS.QBusiness do
   ISV, the action configurations, and the timestamps for when the data accessor
   was created and last updated.
   """
-  @spec get_data_accessor(map(), String.t(), String.t(), list()) ::
+  @spec get_data_accessor(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_data_accessor_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5897,7 +5965,13 @@ defmodule AWS.QBusiness do
   @doc """
   Gets information about an existing Amazon Q Business data source connector.
   """
-  @spec get_data_source(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_data_source(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5917,7 +5991,14 @@ defmodule AWS.QBusiness do
   @doc """
   Describes a group by group name.
   """
-  @spec get_group(map(), String.t(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_group(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, get_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5951,7 +6032,7 @@ defmodule AWS.QBusiness do
   @doc """
   Gets information about an existing Amazon Q Business index.
   """
-  @spec get_index(map(), String.t(), String.t(), list()) ::
+  @spec get_index(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5978,7 +6059,14 @@ defmodule AWS.QBusiness do
 
   For more information, see [Extracting semantic meaning from images and visuals](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/extracting-meaning-from-images.html).
   """
-  @spec get_media(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_media(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_media_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6005,7 +6093,7 @@ defmodule AWS.QBusiness do
   @doc """
   Gets information about an existing Amazon Q Business plugin.
   """
-  @spec get_plugin(map(), String.t(), String.t(), list()) ::
+  @spec get_plugin(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_plugin_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6028,7 +6116,7 @@ defmodule AWS.QBusiness do
   The policy is returned as a JSON-formatted string and defines the IAM actions
   that are allowed or denied for the application's resources.
   """
-  @spec get_policy(map(), String.t(), list()) ::
+  @spec get_policy(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6047,7 +6135,7 @@ defmodule AWS.QBusiness do
   Gets information about an existing retriever used by an Amazon Q Business
   application.
   """
-  @spec get_retriever(map(), String.t(), String.t(), list()) ::
+  @spec get_retriever(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_retriever_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6068,7 +6156,7 @@ defmodule AWS.QBusiness do
   Describes the universally unique identifier (UUID) associated with a local user
   in a data source.
   """
-  @spec get_user(map(), String.t(), String.t(), list()) ::
+  @spec get_user(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6088,7 +6176,7 @@ defmodule AWS.QBusiness do
   @doc """
   Gets information about an existing Amazon Q Business web experience.
   """
-  @spec get_web_experience(map(), String.t(), String.t(), list()) ::
+  @spec get_web_experience(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_web_experience_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6112,7 +6200,7 @@ defmodule AWS.QBusiness do
   Amazon Web Services Regions within your geography. For more information, see
   [Cross region inference in Amazon Q Business](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cross-region-inference.html).
   """
-  @spec list_applications(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_applications(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6148,11 +6236,11 @@ defmodule AWS.QBusiness do
   """
   @spec list_attachments(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_attachments_response(), any()}
@@ -6214,9 +6302,9 @@ defmodule AWS.QBusiness do
   """
   @spec list_chat_response_configurations(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_chat_response_configurations_response(), any()}
@@ -6258,10 +6346,10 @@ defmodule AWS.QBusiness do
   """
   @spec list_conversations(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_conversations_response(), any()}
@@ -6313,7 +6401,13 @@ defmodule AWS.QBusiness do
   the friendly name, unique identifier, ARN, associated IAM role, and
   creation/update timestamps for each data accessor.
   """
-  @spec list_data_accessors(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_data_accessors(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_data_accessors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6354,14 +6448,14 @@ defmodule AWS.QBusiness do
   """
   @spec list_data_source_sync_jobs(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_data_source_sync_jobs_response(), any()}
@@ -6431,10 +6525,10 @@ defmodule AWS.QBusiness do
   """
   @spec list_data_sources(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_data_sources_response(), any()}
@@ -6479,11 +6573,11 @@ defmodule AWS.QBusiness do
   """
   @spec list_documents(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_documents_response(), any()}
@@ -6536,12 +6630,12 @@ defmodule AWS.QBusiness do
   """
   @spec list_groups(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
           list()
         ) ::
           {:ok, list_groups_response(), any()}
@@ -6600,7 +6694,13 @@ defmodule AWS.QBusiness do
   @doc """
   Lists the Amazon Q Business indices you have created.
   """
-  @spec list_indices(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_indices(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_indices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6640,11 +6740,11 @@ defmodule AWS.QBusiness do
   """
   @spec list_messages(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_messages_response(), any()}
@@ -6698,10 +6798,10 @@ defmodule AWS.QBusiness do
   """
   @spec list_plugin_actions(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_plugin_actions_response(), any()}
@@ -6745,7 +6845,13 @@ defmodule AWS.QBusiness do
   Lists configured Amazon Q Business actions for any plugin type—both built-in and
   custom.
   """
-  @spec list_plugin_type_actions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_plugin_type_actions(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_plugin_type_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6783,7 +6889,12 @@ defmodule AWS.QBusiness do
   @doc """
   Lists metadata for all Amazon Q Business plugin types.
   """
-  @spec list_plugin_type_metadata(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_plugin_type_metadata(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_plugin_type_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6820,7 +6931,13 @@ defmodule AWS.QBusiness do
   @doc """
   Lists configured Amazon Q Business plugins.
   """
-  @spec list_plugins(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_plugins(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_plugins_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6858,7 +6975,13 @@ defmodule AWS.QBusiness do
   @doc """
   Lists the retriever used by an Amazon Q Business application.
   """
-  @spec list_retrievers(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_retrievers(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_retrievers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6896,7 +7019,13 @@ defmodule AWS.QBusiness do
   @doc """
   Lists all subscriptions created in an Amazon Q Business application.
   """
-  @spec list_subscriptions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_subscriptions(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_subscriptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6937,7 +7066,7 @@ defmodule AWS.QBusiness do
   Amazon Q Business applications and data sources can have tags associated with
   them.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6955,7 +7084,13 @@ defmodule AWS.QBusiness do
   @doc """
   Lists one or more Amazon Q Business Web Experiences.
   """
-  @spec list_web_experiences(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_web_experiences(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_web_experiences_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6994,7 +7129,14 @@ defmodule AWS.QBusiness do
   Enables your end user to provide feedback on their Amazon Q Business generated
   chat responses.
   """
-  @spec put_feedback(map(), String.t(), String.t(), String.t(), put_feedback_request(), list()) ::
+  @spec put_feedback(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          put_feedback_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7051,7 +7193,13 @@ defmodule AWS.QBusiness do
   provide both an S3 file and a `RoleArn` for Amazon Q Buisness to access the
   file.
   """
-  @spec put_group(map(), String.t(), String.t(), put_group_request(), list()) ::
+  @spec put_group(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          put_group_request(),
+          list()
+        ) ::
           {:ok, put_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7090,7 +7238,12 @@ defmodule AWS.QBusiness do
   URI, any relevant document attributes, and score attributes indicating the
   confidence level of the relevance.
   """
-  @spec search_relevant_content(map(), String.t(), search_relevant_content_request(), list()) ::
+  @spec search_relevant_content(
+          map(),
+          String.t() | Atom.t(),
+          search_relevant_content_request(),
+          list()
+        ) ::
           {:ok, search_relevant_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7124,9 +7277,9 @@ defmodule AWS.QBusiness do
   """
   @spec start_data_source_sync_job(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           start_data_source_sync_job_request(),
           list()
         ) ::
@@ -7170,9 +7323,9 @@ defmodule AWS.QBusiness do
   """
   @spec stop_data_source_sync_job(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           stop_data_source_sync_job_request(),
           list()
         ) ::
@@ -7216,7 +7369,7 @@ defmodule AWS.QBusiness do
 
   If the tag already exists, the existing value is replaced with the new value.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7245,7 +7398,7 @@ defmodule AWS.QBusiness do
   @doc """
   Removes a tag from an Amazon Q Business application or a data source.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7287,7 +7440,7 @@ defmodule AWS.QBusiness do
   Amazon Web Services account when `QAppsConfiguration` is enabled in the request.
   For more information, see [Using service-linked roles for Q Apps](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles-qapps.html).
   """
-  @spec update_application(map(), String.t(), update_application_request(), list()) ::
+  @spec update_application(map(), String.t() | Atom.t(), update_application_request(), list()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7319,7 +7472,7 @@ defmodule AWS.QBusiness do
   """
   @spec update_chat_controls_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_chat_controls_configuration_request(),
           list()
         ) ::
@@ -7357,8 +7510,8 @@ defmodule AWS.QBusiness do
   """
   @spec update_chat_response_configuration(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_chat_response_configuration_request(),
           list()
         ) ::
@@ -7405,8 +7558,8 @@ defmodule AWS.QBusiness do
   """
   @spec update_data_accessor(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_data_accessor_request(),
           list()
         ) ::
@@ -7448,9 +7601,9 @@ defmodule AWS.QBusiness do
   """
   @spec update_data_source(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_data_source_request(),
           list()
         ) ::
@@ -7491,7 +7644,13 @@ defmodule AWS.QBusiness do
   @doc """
   Updates an Amazon Q Business index.
   """
-  @spec update_index(map(), String.t(), String.t(), update_index_request(), list()) ::
+  @spec update_index(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_index_request(),
+          list()
+        ) ::
           {:ok, update_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7522,7 +7681,13 @@ defmodule AWS.QBusiness do
   @doc """
   Updates an Amazon Q Business plugin.
   """
-  @spec update_plugin(map(), String.t(), String.t(), update_plugin_request(), list()) ::
+  @spec update_plugin(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_plugin_request(),
+          list()
+        ) ::
           {:ok, update_plugin_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7553,7 +7718,13 @@ defmodule AWS.QBusiness do
   @doc """
   Updates the retriever used for your Amazon Q Business application.
   """
-  @spec update_retriever(map(), String.t(), String.t(), update_retriever_request(), list()) ::
+  @spec update_retriever(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_retriever_request(),
+          list()
+        ) ::
           {:ok, update_retriever_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7588,7 +7759,13 @@ defmodule AWS.QBusiness do
   Subscription tier determines feature access for the user. For more information
   on subscriptions and pricing tiers, see [Amazon Q Business pricing](https://aws.amazon.com/q/business/pricing/).
   """
-  @spec update_subscription(map(), String.t(), String.t(), update_subscription_request(), list()) ::
+  @spec update_subscription(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_subscription_request(),
+          list()
+        ) ::
           {:ok, update_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7625,7 +7802,13 @@ defmodule AWS.QBusiness do
   @doc """
   Updates a information associated with a user id.
   """
-  @spec update_user(map(), String.t(), String.t(), update_user_request(), list()) ::
+  @spec update_user(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_user_request(),
+          list()
+        ) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7658,8 +7841,8 @@ defmodule AWS.QBusiness do
   """
   @spec update_web_experience(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_web_experience_request(),
           list()
         ) ::

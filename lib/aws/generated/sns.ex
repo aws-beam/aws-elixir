@@ -47,47 +47,47 @@ defmodule AWS.SNS do
       
       create_platform_endpoint_input() :: %{
         optional("Attributes") => map(),
-        optional("CustomUserData") => String.t(),
-        required("PlatformApplicationArn") => String.t(),
-        required("Token") => String.t()
+        optional("CustomUserData") => String.t() | Atom.t(),
+        required("PlatformApplicationArn") => String.t() | Atom.t(),
+        required("Token") => String.t() | Atom.t()
       }
       
   """
-  @type create_platform_endpoint_input() :: %{String.t() => any()}
+  @type create_platform_endpoint_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_disabled_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type kms_disabled_exception() :: %{String.t() => any()}
+  @type kms_disabled_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       confirm_subscription_response() :: %{
-        "SubscriptionArn" => String.t()
+        "SubscriptionArn" => String.t() | Atom.t()
       }
       
   """
-  @type confirm_subscription_response() :: %{String.t() => any()}
+  @type confirm_subscription_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_origination_numbers_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "PhoneNumbers" => list(phone_number_information())
       }
       
   """
-  @type list_origination_numbers_result() :: %{String.t() => any()}
+  @type list_origination_numbers_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -95,49 +95,49 @@ defmodule AWS.SNS do
       
       phone_number_information() :: %{
         "CreatedAt" => non_neg_integer(),
-        "Iso2CountryCode" => String.t(),
+        "Iso2CountryCode" => String.t() | Atom.t(),
         "NumberCapabilities" => list(list(any())()),
-        "PhoneNumber" => String.t(),
+        "PhoneNumber" => String.t() | Atom.t(),
         "RouteType" => list(any()),
-        "Status" => String.t()
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type phone_number_information() :: %{String.t() => any()}
+  @type phone_number_information() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
+        required("ResourceArn") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       platform_application_disabled_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type platform_application_disabled_exception() :: %{String.t() => any()}
+  @type platform_application_disabled_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       unsubscribe_input() :: %{
-        required("SubscriptionArn") => String.t()
+        required("SubscriptionArn") => String.t() | Atom.t()
       }
       
   """
-  @type unsubscribe_input() :: %{String.t() => any()}
+  @type unsubscribe_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -145,46 +145,46 @@ defmodule AWS.SNS do
       
       create_topic_input() :: %{
         optional("Attributes") => map(),
-        optional("DataProtectionPolicy") => String.t(),
+        optional("DataProtectionPolicy") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type create_topic_input() :: %{String.t() => any()}
+  @type create_topic_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_opt_in_required() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type kms_opt_in_required() :: %{String.t() => any()}
+  @type kms_opt_in_required() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_sms_sandbox_phone_number_input() :: %{
-        required("PhoneNumber") => String.t()
+        required("PhoneNumber") => String.t() | Atom.t()
       }
       
   """
-  @type delete_sms_sandbox_phone_number_input() :: %{String.t() => any()}
+  @type delete_sms_sandbox_phone_number_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_platform_applications_input() :: %{
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_platform_applications_input() :: %{String.t() => any()}
+  @type list_platform_applications_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -195,29 +195,29 @@ defmodule AWS.SNS do
       }
       
   """
-  @type get_subscription_attributes_response() :: %{String.t() => any()}
+  @type get_subscription_attributes_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_topic_input() :: %{
-        required("TopicArn") => String.t()
+        required("TopicArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_topic_input() :: %{String.t() => any()}
+  @type delete_topic_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_topic_attributes_input() :: %{
-        required("TopicArn") => String.t()
+        required("TopicArn") => String.t() | Atom.t()
       }
       
   """
-  @type get_topic_attributes_input() :: %{String.t() => any()}
+  @type get_topic_attributes_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -225,11 +225,11 @@ defmodule AWS.SNS do
       
       platform_application() :: %{
         "Attributes" => map(),
-        "PlatformApplicationArn" => String.t()
+        "PlatformApplicationArn" => String.t() | Atom.t()
       }
       
   """
-  @type platform_application() :: %{String.t() => any()}
+  @type platform_application() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -245,56 +245,56 @@ defmodule AWS.SNS do
   ## Example:
       
       create_platform_application_response() :: %{
-        "PlatformApplicationArn" => String.t()
+        "PlatformApplicationArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_platform_application_response() :: %{String.t() => any()}
+  @type create_platform_application_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_throttling_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type kms_throttling_exception() :: %{String.t() => any()}
+  @type kms_throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_endpoint_attributes_input() :: %{
-        required("EndpointArn") => String.t()
+        required("EndpointArn") => String.t() | Atom.t()
       }
       
   """
-  @type get_endpoint_attributes_input() :: %{String.t() => any()}
+  @type get_endpoint_attributes_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_batch_entry_id_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_batch_entry_id_exception() :: %{String.t() => any()}
+  @type invalid_batch_entry_id_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_subscriptions_by_topic_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Subscriptions" => list(subscription())
       }
       
   """
-  @type list_subscriptions_by_topic_response() :: %{String.t() => any()}
+  @type list_subscriptions_by_topic_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -302,46 +302,46 @@ defmodule AWS.SNS do
       
       message_attribute_value() :: %{
         "BinaryValue" => binary(),
-        "DataType" => String.t(),
-        "StringValue" => String.t()
+        "DataType" => String.t() | Atom.t(),
+        "StringValue" => String.t() | Atom.t()
       }
       
   """
-  @type message_attribute_value() :: %{String.t() => any()}
+  @type message_attribute_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       check_if_phone_number_is_opted_out_input() :: %{
-        required("phoneNumber") => String.t()
+        required("phoneNumber") => String.t() | Atom.t()
       }
       
   """
-  @type check_if_phone_number_is_opted_out_input() :: %{String.t() => any()}
+  @type check_if_phone_number_is_opted_out_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       replay_limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type replay_limit_exceeded_exception() :: %{String.t() => any()}
+  @type replay_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_phone_numbers_opted_out_response() :: %{
-        "nextToken" => String.t(),
-        "phoneNumbers" => list(String.t())
+        "nextToken" => String.t() | Atom.t(),
+        "phoneNumbers" => list(String.t() | Atom.t())
       }
       
   """
-  @type list_phone_numbers_opted_out_response() :: %{String.t() => any()}
+  @type list_phone_numbers_opted_out_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -358,11 +358,11 @@ defmodule AWS.SNS do
       
       create_sms_sandbox_phone_number_input() :: %{
         optional("LanguageCode") => list(any()),
-        required("PhoneNumber") => String.t()
+        required("PhoneNumber") => String.t() | Atom.t()
       }
       
   """
-  @type create_sms_sandbox_phone_number_input() :: %{String.t() => any()}
+  @type create_sms_sandbox_phone_number_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -378,92 +378,92 @@ defmodule AWS.SNS do
   ## Example:
       
       user_error_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type user_error_exception() :: %{String.t() => any()}
+  @type user_error_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_subscriptions_input() :: %{
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_subscriptions_input() :: %{String.t() => any()}
+  @type list_subscriptions_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       set_topic_attributes_input() :: %{
-        optional("AttributeValue") => String.t(),
-        required("AttributeName") => String.t(),
-        required("TopicArn") => String.t()
+        optional("AttributeValue") => String.t() | Atom.t(),
+        required("AttributeName") => String.t() | Atom.t(),
+        required("TopicArn") => String.t() | Atom.t()
       }
       
   """
-  @type set_topic_attributes_input() :: %{String.t() => any()}
+  @type set_topic_attributes_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_policy_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type tag_policy_exception() :: %{String.t() => any()}
+  @type tag_policy_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_platform_application_attributes_input() :: %{
-        required("PlatformApplicationArn") => String.t()
+        required("PlatformApplicationArn") => String.t() | Atom.t()
       }
       
   """
-  @type get_platform_application_attributes_input() :: %{String.t() => any()}
+  @type get_platform_application_attributes_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_sms_sandbox_phone_numbers_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "PhoneNumbers" => list(sms_sandbox_phone_number())
       }
       
   """
-  @type list_sms_sandbox_phone_numbers_result() :: %{String.t() => any()}
+  @type list_sms_sandbox_phone_numbers_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceArn") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_state_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_state_exception() :: %{String.t() => any()}
+  @type invalid_state_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -471,25 +471,25 @@ defmodule AWS.SNS do
       
       set_platform_application_attributes_input() :: %{
         required("Attributes") => map(),
-        required("PlatformApplicationArn") => String.t()
+        required("PlatformApplicationArn") => String.t() | Atom.t()
       }
       
   """
-  @type set_platform_application_attributes_input() :: %{String.t() => any()}
+  @type set_platform_application_attributes_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_result_error_entry() :: %{
-        "Code" => String.t(),
-        "Id" => String.t(),
-        "Message" => String.t(),
+        "Code" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
         "SenderFault" => boolean()
       }
       
   """
-  @type batch_result_error_entry() :: %{String.t() => any()}
+  @type batch_result_error_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -501,82 +501,82 @@ defmodule AWS.SNS do
       }
       
   """
-  @type publish_batch_response() :: %{String.t() => any()}
+  @type publish_batch_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       verify_sms_sandbox_phone_number_input() :: %{
-        required("OneTimePassword") => String.t(),
-        required("PhoneNumber") => String.t()
+        required("OneTimePassword") => String.t() | Atom.t(),
+        required("PhoneNumber") => String.t() | Atom.t()
       }
       
   """
-  @type verify_sms_sandbox_phone_number_input() :: %{String.t() => any()}
+  @type verify_sms_sandbox_phone_number_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       publish_batch_request_entry() :: %{
-        "Id" => String.t(),
-        "Message" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
         "MessageAttributes" => map(),
-        "MessageDeduplicationId" => String.t(),
-        "MessageGroupId" => String.t(),
-        "MessageStructure" => String.t(),
-        "Subject" => String.t()
+        "MessageDeduplicationId" => String.t() | Atom.t(),
+        "MessageGroupId" => String.t() | Atom.t(),
+        "MessageStructure" => String.t() | Atom.t(),
+        "Subject" => String.t() | Atom.t()
       }
       
   """
-  @type publish_batch_request_entry() :: %{String.t() => any()}
+  @type publish_batch_request_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_topic_response() :: %{
-        "TopicArn" => String.t()
+        "TopicArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_topic_response() :: %{String.t() => any()}
+  @type create_topic_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       topic_limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type topic_limit_exceeded_exception() :: %{String.t() => any()}
+  @type topic_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_security_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_security_exception() :: %{String.t() => any()}
+  @type invalid_security_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       confirm_subscription_input() :: %{
-        optional("AuthenticateOnUnsubscribe") => String.t(),
-        required("Token") => String.t(),
-        required("TopicArn") => String.t()
+        optional("AuthenticateOnUnsubscribe") => String.t() | Atom.t(),
+        required("Token") => String.t() | Atom.t(),
+        required("TopicArn") => String.t() | Atom.t()
       }
       
   """
-  @type confirm_subscription_input() :: %{String.t() => any()}
+  @type confirm_subscription_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -584,45 +584,45 @@ defmodule AWS.SNS do
       
       create_platform_application_input() :: %{
         required("Attributes") => map(),
-        required("Name") => String.t(),
-        required("Platform") => String.t()
+        required("Name") => String.t() | Atom.t(),
+        required("Platform") => String.t() | Atom.t()
       }
       
   """
-  @type create_platform_application_input() :: %{String.t() => any()}
+  @type create_platform_application_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       throttled_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type throttled_exception() :: %{String.t() => any()}
+  @type throttled_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_subscription_attributes_input() :: %{
-        required("SubscriptionArn") => String.t()
+        required("SubscriptionArn") => String.t() | Atom.t()
       }
       
   """
-  @type get_subscription_attributes_input() :: %{String.t() => any()}
+  @type get_subscription_attributes_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -630,61 +630,61 @@ defmodule AWS.SNS do
       
       subscribe_input() :: %{
         optional("Attributes") => map(),
-        optional("Endpoint") => String.t(),
+        optional("Endpoint") => String.t() | Atom.t(),
         optional("ReturnSubscriptionArn") => boolean(),
-        required("Protocol") => String.t(),
-        required("TopicArn") => String.t()
+        required("Protocol") => String.t() | Atom.t(),
+        required("TopicArn") => String.t() | Atom.t()
       }
       
   """
-  @type subscribe_input() :: %{String.t() => any()}
+  @type subscribe_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       opted_out_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type opted_out_exception() :: %{String.t() => any()}
+  @type opted_out_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       sms_sandbox_phone_number() :: %{
-        "PhoneNumber" => String.t(),
+        "PhoneNumber" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type sms_sandbox_phone_number() :: %{String.t() => any()}
+  @type sms_sandbox_phone_number() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_subscriptions_by_topic_input() :: %{
-        optional("NextToken") => String.t(),
-        required("TopicArn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("TopicArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_subscriptions_by_topic_input() :: %{String.t() => any()}
+  @type list_subscriptions_by_topic_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -692,55 +692,55 @@ defmodule AWS.SNS do
       
       list_sms_sandbox_phone_numbers_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_sms_sandbox_phone_numbers_input() :: %{String.t() => any()}
+  @type list_sms_sandbox_phone_numbers_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       topic() :: %{
-        "TopicArn" => String.t()
+        "TopicArn" => String.t() | Atom.t()
       }
       
   """
-  @type topic() :: %{String.t() => any()}
+  @type topic() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameter_value_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_parameter_value_exception() :: %{String.t() => any()}
+  @type invalid_parameter_value_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type not_found_exception() :: %{String.t() => any()}
+  @type not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type tag_limit_exceeded_exception() :: %{String.t() => any()}
+  @type tag_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -751,7 +751,7 @@ defmodule AWS.SNS do
       }
       
   """
-  @type get_endpoint_attributes_response() :: %{String.t() => any()}
+  @type get_endpoint_attributes_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -762,78 +762,78 @@ defmodule AWS.SNS do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_sms_attributes_input() :: %{
-        optional("attributes") => list(String.t())
+        optional("attributes") => list(String.t() | Atom.t())
       }
       
   """
-  @type get_sms_attributes_input() :: %{String.t() => any()}
+  @type get_sms_attributes_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_topics_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Topics" => list(topic())
       }
       
   """
-  @type list_topics_response() :: %{String.t() => any()}
+  @type list_topics_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       verification_exception() :: %{
-        "Message" => String.t(),
-        "Status" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type verification_exception() :: %{String.t() => any()}
+  @type verification_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoint_disabled_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type endpoint_disabled_exception() :: %{String.t() => any()}
+  @type endpoint_disabled_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_permission_input() :: %{
-        required("Label") => String.t(),
-        required("TopicArn") => String.t()
+        required("Label") => String.t() | Atom.t(),
+        required("TopicArn") => String.t() | Atom.t()
       }
       
   """
-  @type remove_permission_input() :: %{String.t() => any()}
+  @type remove_permission_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       publish_batch_result_entry() :: %{
-        "Id" => String.t(),
-        "MessageId" => String.t(),
-        "SequenceNumber" => String.t()
+        "Id" => String.t() | Atom.t(),
+        "MessageId" => String.t() | Atom.t(),
+        "SequenceNumber" => String.t() | Atom.t()
       }
       
   """
-  @type publish_batch_result_entry() :: %{String.t() => any()}
+  @type publish_batch_result_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -844,18 +844,18 @@ defmodule AWS.SNS do
       }
       
   """
-  @type get_sms_sandbox_account_status_result() :: %{String.t() => any()}
+  @type get_sms_sandbox_account_status_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       empty_batch_request_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type empty_batch_request_exception() :: %{String.t() => any()}
+  @type empty_batch_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -863,22 +863,22 @@ defmodule AWS.SNS do
       
       endpoint() :: %{
         "Attributes" => map(),
-        "EndpointArn" => String.t()
+        "EndpointArn" => String.t() | Atom.t()
       }
       
   """
-  @type endpoint() :: %{String.t() => any()}
+  @type endpoint() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type kms_access_denied_exception() :: %{String.t() => any()}
+  @type kms_access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -894,33 +894,33 @@ defmodule AWS.SNS do
   ## Example:
       
       kms_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type kms_not_found_exception() :: %{String.t() => any()}
+  @type kms_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameter_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_parameter_exception() :: %{String.t() => any()}
+  @type invalid_parameter_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_entry_ids_not_distinct_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type batch_entry_ids_not_distinct_exception() :: %{String.t() => any()}
+  @type batch_entry_ids_not_distinct_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -931,19 +931,19 @@ defmodule AWS.SNS do
       }
       
   """
-  @type set_sms_attributes_input() :: %{String.t() => any()}
+  @type set_sms_attributes_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_platform_applications_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "PlatformApplications" => list(platform_application())
       }
       
   """
-  @type list_platform_applications_response() :: %{String.t() => any()}
+  @type list_platform_applications_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -959,118 +959,118 @@ defmodule AWS.SNS do
   ## Example:
       
       set_subscription_attributes_input() :: %{
-        optional("AttributeValue") => String.t(),
-        required("AttributeName") => String.t(),
-        required("SubscriptionArn") => String.t()
+        optional("AttributeValue") => String.t() | Atom.t(),
+        required("AttributeName") => String.t() | Atom.t(),
+        required("SubscriptionArn") => String.t() | Atom.t()
       }
       
   """
-  @type set_subscription_attributes_input() :: %{String.t() => any()}
+  @type set_subscription_attributes_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_endpoint_input() :: %{
-        required("EndpointArn") => String.t()
+        required("EndpointArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_endpoint_input() :: %{String.t() => any()}
+  @type delete_endpoint_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       subscribe_response() :: %{
-        "SubscriptionArn" => String.t()
+        "SubscriptionArn" => String.t() | Atom.t()
       }
       
   """
-  @type subscribe_response() :: %{String.t() => any()}
+  @type subscribe_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       subscription() :: %{
-        "Endpoint" => String.t(),
-        "Owner" => String.t(),
-        "Protocol" => String.t(),
-        "SubscriptionArn" => String.t(),
-        "TopicArn" => String.t()
+        "Endpoint" => String.t() | Atom.t(),
+        "Owner" => String.t() | Atom.t(),
+        "Protocol" => String.t() | Atom.t(),
+        "SubscriptionArn" => String.t() | Atom.t(),
+        "TopicArn" => String.t() | Atom.t()
       }
       
   """
-  @type subscription() :: %{String.t() => any()}
+  @type subscription() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_phone_numbers_opted_out_input() :: %{
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_phone_numbers_opted_out_input() :: %{String.t() => any()}
+  @type list_phone_numbers_opted_out_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_subscriptions_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Subscriptions" => list(subscription())
       }
       
   """
-  @type list_subscriptions_response() :: %{String.t() => any()}
+  @type list_subscriptions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       publish_response() :: %{
-        "MessageId" => String.t(),
-        "SequenceNumber" => String.t()
+        "MessageId" => String.t() | Atom.t(),
+        "SequenceNumber" => String.t() | Atom.t()
       }
       
   """
-  @type publish_response() :: %{String.t() => any()}
+  @type publish_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       authorization_error_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type authorization_error_exception() :: %{String.t() => any()}
+  @type authorization_error_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1081,43 +1081,43 @@ defmodule AWS.SNS do
       }
       
   """
-  @type check_if_phone_number_is_opted_out_response() :: %{String.t() => any()}
+  @type check_if_phone_number_is_opted_out_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       concurrent_access_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type concurrent_access_exception() :: %{String.t() => any()}
+  @type concurrent_access_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       add_permission_input() :: %{
-        required("AWSAccountId") => list(String.t()),
-        required("ActionName") => list(String.t()),
-        required("Label") => String.t(),
-        required("TopicArn") => String.t()
+        required("AWSAccountId") => list(String.t() | Atom.t()),
+        required("ActionName") => list(String.t() | Atom.t()),
+        required("Label") => String.t() | Atom.t(),
+        required("TopicArn") => String.t() | Atom.t()
       }
       
   """
-  @type add_permission_input() :: %{String.t() => any()}
+  @type add_permission_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_data_protection_policy_response() :: %{
-        "DataProtectionPolicy" => String.t()
+        "DataProtectionPolicy" => String.t() | Atom.t()
       }
       
   """
-  @type get_data_protection_policy_response() :: %{String.t() => any()}
+  @type get_data_protection_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1125,11 +1125,11 @@ defmodule AWS.SNS do
       
       list_origination_numbers_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_origination_numbers_request() :: %{String.t() => any()}
+  @type list_origination_numbers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1137,11 +1137,11 @@ defmodule AWS.SNS do
       
       set_endpoint_attributes_input() :: %{
         required("Attributes") => map(),
-        required("EndpointArn") => String.t()
+        required("EndpointArn") => String.t() | Atom.t()
       }
       
   """
-  @type set_endpoint_attributes_input() :: %{String.t() => any()}
+  @type set_endpoint_attributes_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1149,40 +1149,40 @@ defmodule AWS.SNS do
       
       publish_input() :: %{
         optional("MessageAttributes") => map(),
-        optional("MessageDeduplicationId") => String.t(),
-        optional("MessageGroupId") => String.t(),
-        optional("MessageStructure") => String.t(),
-        optional("PhoneNumber") => String.t(),
-        optional("Subject") => String.t(),
-        optional("TargetArn") => String.t(),
-        optional("TopicArn") => String.t(),
-        required("Message") => String.t()
+        optional("MessageDeduplicationId") => String.t() | Atom.t(),
+        optional("MessageGroupId") => String.t() | Atom.t(),
+        optional("MessageStructure") => String.t() | Atom.t(),
+        optional("PhoneNumber") => String.t() | Atom.t(),
+        optional("Subject") => String.t() | Atom.t(),
+        optional("TargetArn") => String.t() | Atom.t(),
+        optional("TopicArn") => String.t() | Atom.t(),
+        required("Message") => String.t() | Atom.t()
       }
       
   """
-  @type publish_input() :: %{String.t() => any()}
+  @type publish_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       filter_policy_limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type filter_policy_limit_exceeded_exception() :: %{String.t() => any()}
+  @type filter_policy_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_endpoint_response() :: %{
-        "EndpointArn" => String.t()
+        "EndpointArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_endpoint_response() :: %{String.t() => any()}
+  @type create_endpoint_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1190,11 +1190,11 @@ defmodule AWS.SNS do
       
       list_endpoints_by_platform_application_response() :: %{
         "Endpoints" => list(endpoint()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_endpoints_by_platform_application_response() :: %{String.t() => any()}
+  @type list_endpoints_by_platform_application_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1205,41 +1205,41 @@ defmodule AWS.SNS do
       }
       
   """
-  @type get_topic_attributes_response() :: %{String.t() => any()}
+  @type get_topic_attributes_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_topics_input() :: %{
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_topics_input() :: %{String.t() => any()}
+  @type list_topics_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_data_protection_policy_input() :: %{
-        required("DataProtectionPolicy") => String.t(),
-        required("ResourceArn") => String.t()
+        required("DataProtectionPolicy") => String.t() | Atom.t(),
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type put_data_protection_policy_input() :: %{String.t() => any()}
+  @type put_data_protection_policy_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       subscription_limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type subscription_limit_exceeded_exception() :: %{String.t() => any()}
+  @type subscription_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1259,7 +1259,7 @@ defmodule AWS.SNS do
       }
       
   """
-  @type get_sms_attributes_response() :: %{String.t() => any()}
+  @type get_sms_attributes_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1275,45 +1275,45 @@ defmodule AWS.SNS do
   ## Example:
       
       stale_tag_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type stale_tag_exception() :: %{String.t() => any()}
+  @type stale_tag_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_invalid_state_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type kms_invalid_state_exception() :: %{String.t() => any()}
+  @type kms_invalid_state_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_endpoints_by_platform_application_input() :: %{
-        optional("NextToken") => String.t(),
-        required("PlatformApplicationArn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("PlatformApplicationArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_endpoints_by_platform_application_input() :: %{String.t() => any()}
+  @type list_endpoints_by_platform_application_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       opt_in_phone_number_input() :: %{
-        required("phoneNumber") => String.t()
+        required("phoneNumber") => String.t() | Atom.t()
       }
       
   """
-  @type opt_in_phone_number_input() :: %{String.t() => any()}
+  @type opt_in_phone_number_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1324,40 +1324,40 @@ defmodule AWS.SNS do
       }
       
   """
-  @type get_platform_application_attributes_response() :: %{String.t() => any()}
+  @type get_platform_application_attributes_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_entries_in_batch_request_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type too_many_entries_in_batch_request_exception() :: %{String.t() => any()}
+  @type too_many_entries_in_batch_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_error_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type internal_error_exception() :: %{String.t() => any()}
+  @type internal_error_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_request_too_long_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type batch_request_too_long_exception() :: %{String.t() => any()}
+  @type batch_request_too_long_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1365,33 +1365,33 @@ defmodule AWS.SNS do
       
       publish_batch_input() :: %{
         required("PublishBatchRequestEntries") => list(publish_batch_request_entry()),
-        required("TopicArn") => String.t()
+        required("TopicArn") => String.t() | Atom.t()
       }
       
   """
-  @type publish_batch_input() :: %{String.t() => any()}
+  @type publish_batch_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_data_protection_policy_input() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type get_data_protection_policy_input() :: %{String.t() => any()}
+  @type get_data_protection_policy_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_platform_application_input() :: %{
-        required("PlatformApplicationArn") => String.t()
+        required("PlatformApplicationArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_platform_application_input() :: %{String.t() => any()}
+  @type delete_platform_application_input() :: %{String.t() | Atom.t() => any()}
 
   @type add_permission_errors() ::
           internal_error_exception()

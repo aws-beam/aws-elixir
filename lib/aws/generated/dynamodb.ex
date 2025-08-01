@@ -49,12 +49,12 @@ defmodule AWS.DynamoDB do
         "CreationDateTime" => non_neg_integer(),
         "DeletionProtectionEnabled" => boolean(),
         "GlobalSecondaryIndexes" => list(global_secondary_index_description()),
-        "GlobalTableVersion" => String.t(),
+        "GlobalTableVersion" => String.t() | Atom.t(),
         "GlobalTableWitnesses" => list(global_table_witness_description()),
         "ItemCount" => float(),
         "KeySchema" => list(key_schema_element()),
-        "LatestStreamArn" => String.t(),
-        "LatestStreamLabel" => String.t(),
+        "LatestStreamArn" => String.t() | Atom.t(),
+        "LatestStreamLabel" => String.t() | Atom.t(),
         "LocalSecondaryIndexes" => list(local_secondary_index_description()),
         "MultiRegionConsistency" => list(any()),
         "OnDemandThroughput" => on_demand_throughput(),
@@ -63,17 +63,17 @@ defmodule AWS.DynamoDB do
         "RestoreSummary" => restore_summary(),
         "SSEDescription" => sse_description(),
         "StreamSpecification" => stream_specification(),
-        "TableArn" => String.t(),
+        "TableArn" => String.t() | Atom.t(),
         "TableClassSummary" => table_class_summary(),
-        "TableId" => String.t(),
-        "TableName" => String.t(),
+        "TableId" => String.t() | Atom.t(),
+        "TableName" => String.t() | Atom.t(),
         "TableSizeBytes" => float(),
         "TableStatus" => list(any()),
         "WarmThroughput" => table_warm_throughput_description()
       }
       
   """
-  @type table_description() :: %{String.t() => any()}
+  @type table_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -85,14 +85,14 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type transact_write_items_output() :: %{String.t() => any()}
+  @type transact_write_items_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       replica_settings_description() :: %{
-        "RegionName" => String.t(),
+        "RegionName" => String.t() | Atom.t(),
         "ReplicaBillingModeSummary" => billing_mode_summary(),
         "ReplicaGlobalSecondaryIndexSettings" => list(replica_global_secondary_index_settings_description()),
         "ReplicaProvisionedReadCapacityAutoScalingSettings" => auto_scaling_settings_description(),
@@ -104,7 +104,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type replica_settings_description() :: %{String.t() => any()}
+  @type replica_settings_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -112,53 +112,53 @@ defmodule AWS.DynamoDB do
       
       sse_description() :: %{
         "InaccessibleEncryptionDateTime" => non_neg_integer(),
-        "KMSMasterKeyArn" => String.t(),
+        "KMSMasterKeyArn" => String.t() | Atom.t(),
         "SSEType" => list(any()),
         "Status" => list(any())
       }
       
   """
-  @type sse_description() :: %{String.t() => any()}
+  @type sse_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       global_table_global_secondary_index_settings_update() :: %{
-        "IndexName" => String.t(),
+        "IndexName" => String.t() | Atom.t(),
         "ProvisionedWriteCapacityAutoScalingSettingsUpdate" => auto_scaling_settings_update(),
         "ProvisionedWriteCapacityUnits" => float()
       }
       
   """
-  @type global_table_global_secondary_index_settings_update() :: %{String.t() => any()}
+  @type global_table_global_secondary_index_settings_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       transact_write_items_input() :: %{
-        optional("ClientRequestToken") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
         optional("ReturnConsumedCapacity") => list(any()),
         optional("ReturnItemCollectionMetrics") => list(any()),
         required("TransactItems") => list(transact_write_item())
       }
       
   """
-  @type transact_write_items_input() :: %{String.t() => any()}
+  @type transact_write_items_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       local_secondary_index() :: %{
-        "IndexName" => String.t(),
+        "IndexName" => String.t() | Atom.t(),
         "KeySchema" => list(key_schema_element()),
         "Projection" => projection()
       }
       
   """
-  @type local_secondary_index() :: %{String.t() => any()}
+  @type local_secondary_index() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -169,20 +169,20 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type create_table_output() :: %{String.t() => any()}
+  @type create_table_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       local_secondary_index_info() :: %{
-        "IndexName" => String.t(),
+        "IndexName" => String.t() | Atom.t(),
         "KeySchema" => list(key_schema_element()),
         "Projection" => projection()
       }
       
   """
-  @type local_secondary_index_info() :: %{String.t() => any()}
+  @type local_secondary_index_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -196,7 +196,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type transact_write_item() :: %{String.t() => any()}
+  @type transact_write_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -210,19 +210,19 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type describe_limits_output() :: %{String.t() => any()}
+  @type describe_limits_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       time_to_live_specification() :: %{
-        "AttributeName" => String.t(),
+        "AttributeName" => String.t() | Atom.t(),
         "Enabled" => boolean()
       }
       
   """
-  @type time_to_live_specification() :: %{String.t() => any()}
+  @type time_to_live_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -236,22 +236,22 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type expected_attribute_value() :: %{String.t() => any()}
+  @type expected_attribute_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       keys_and_attributes() :: %{
-        "AttributesToGet" => list(String.t()),
+        "AttributesToGet" => list(String.t() | Atom.t()),
         "ConsistentRead" => boolean(),
         "ExpressionAttributeNames" => map(),
         "Keys" => list(map()),
-        "ProjectionExpression" => String.t()
+        "ProjectionExpression" => String.t() | Atom.t()
       }
       
   """
-  @type keys_and_attributes() :: %{String.t() => any()}
+  @type keys_and_attributes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -265,7 +265,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type point_in_time_recovery_description() :: %{String.t() => any()}
+  @type point_in_time_recovery_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -277,7 +277,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type batch_execute_statement_output() :: %{String.t() => any()}
+  @type batch_execute_statement_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -288,30 +288,30 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type describe_export_output() :: %{String.t() => any()}
+  @type describe_export_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       item_collection_size_limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type item_collection_size_limit_exceeded_exception() :: %{String.t() => any()}
+  @type item_collection_size_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       attribute_definition() :: %{
-        "AttributeName" => String.t(),
+        "AttributeName" => String.t() | Atom.t(),
         "AttributeType" => list(any())
       }
       
   """
-  @type attribute_definition() :: %{String.t() => any()}
+  @type attribute_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -322,7 +322,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type update_time_to_live_output() :: %{String.t() => any()}
+  @type update_time_to_live_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -330,51 +330,51 @@ defmodule AWS.DynamoDB do
       
       create_replication_group_member_action() :: %{
         "GlobalSecondaryIndexes" => list(replica_global_secondary_index()),
-        "KMSMasterKeyId" => String.t(),
+        "KMSMasterKeyId" => String.t() | Atom.t(),
         "OnDemandThroughputOverride" => on_demand_throughput_override(),
         "ProvisionedThroughputOverride" => provisioned_throughput_override(),
-        "RegionName" => String.t(),
+        "RegionName" => String.t() | Atom.t(),
         "TableClassOverride" => list(any())
       }
       
   """
-  @type create_replication_group_member_action() :: %{String.t() => any()}
+  @type create_replication_group_member_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       table_already_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type table_already_exists_exception() :: %{String.t() => any()}
+  @type table_already_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_imports_input() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("PageSize") => integer(),
-        optional("TableArn") => String.t()
+        optional("TableArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_imports_input() :: %{String.t() => any()}
+  @type list_imports_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_resource_policy_output() :: %{
-        "Policy" => String.t(),
-        "RevisionId" => String.t()
+        "Policy" => String.t() | Atom.t(),
+        "RevisionId" => String.t() | Atom.t()
       }
       
   """
-  @type get_resource_policy_output() :: %{String.t() => any()}
+  @type get_resource_policy_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -386,18 +386,18 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type on_demand_throughput() :: %{String.t() => any()}
+  @type on_demand_throughput() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       point_in_time_recovery_unavailable_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type point_in_time_recovery_unavailable_exception() :: %{String.t() => any()}
+  @type point_in_time_recovery_unavailable_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -409,19 +409,19 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type get_item_output() :: %{String.t() => any()}
+  @type get_item_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_global_table_input() :: %{
-        required("GlobalTableName") => String.t(),
+        required("GlobalTableName") => String.t() | Atom.t(),
         required("ReplicationGroup") => list(replica())
       }
       
   """
-  @type create_global_table_input() :: %{String.t() => any()}
+  @type create_global_table_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -433,7 +433,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type batch_get_item_input() :: %{String.t() => any()}
+  @type batch_get_item_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -442,25 +442,25 @@ defmodule AWS.DynamoDB do
       kinesis_data_stream_destination() :: %{
         "ApproximateCreationDateTimePrecision" => list(any()),
         "DestinationStatus" => list(any()),
-        "DestinationStatusDescription" => String.t(),
-        "StreamArn" => String.t()
+        "DestinationStatusDescription" => String.t() | Atom.t(),
+        "StreamArn" => String.t() | Atom.t()
       }
       
   """
-  @type kinesis_data_stream_destination() :: %{String.t() => any()}
+  @type kinesis_data_stream_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       execute_transaction_input() :: %{
-        optional("ClientRequestToken") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
         optional("ReturnConsumedCapacity") => list(any()),
         required("TransactStatements") => list(parameterized_statement())
       }
       
   """
-  @type execute_transaction_input() :: %{String.t() => any()}
+  @type execute_transaction_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -468,38 +468,38 @@ defmodule AWS.DynamoDB do
       
       list_global_tables_output() :: %{
         "GlobalTables" => list(global_table()),
-        "LastEvaluatedGlobalTableName" => String.t()
+        "LastEvaluatedGlobalTableName" => String.t() | Atom.t()
       }
       
   """
-  @type list_global_tables_output() :: %{String.t() => any()}
+  @type list_global_tables_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_replica_action() :: %{
-        "RegionName" => String.t()
+        "RegionName" => String.t() | Atom.t()
       }
       
   """
-  @type delete_replica_action() :: %{String.t() => any()}
+  @type delete_replica_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete() :: %{
-        "ConditionExpression" => String.t(),
+        "ConditionExpression" => String.t() | Atom.t(),
         "ExpressionAttributeNames" => map(),
         "ExpressionAttributeValues" => map(),
         "Key" => map(),
         "ReturnValuesOnConditionCheckFailure" => list(any()),
-        "TableName" => String.t()
+        "TableName" => String.t() | Atom.t()
       }
       
   """
-  @type delete() :: %{String.t() => any()}
+  @type delete() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -510,7 +510,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type update_continuous_backups_output() :: %{String.t() => any()}
+  @type update_continuous_backups_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -522,18 +522,18 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type billing_mode_summary() :: %{String.t() => any()}
+  @type billing_mode_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_in_use_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_in_use_exception() :: %{String.t() => any()}
+  @type resource_in_use_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -541,27 +541,27 @@ defmodule AWS.DynamoDB do
       
       list_backups_input() :: %{
         optional("BackupType") => list(any()),
-        optional("ExclusiveStartBackupArn") => String.t(),
+        optional("ExclusiveStartBackupArn") => String.t() | Atom.t(),
         optional("Limit") => integer(),
-        optional("TableName") => String.t(),
+        optional("TableName") => String.t() | Atom.t(),
         optional("TimeRangeLowerBound") => non_neg_integer(),
         optional("TimeRangeUpperBound") => non_neg_integer()
       }
       
   """
-  @type list_backups_input() :: %{String.t() => any()}
+  @type list_backups_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       replica_global_secondary_index_auto_scaling_update() :: %{
-        "IndexName" => String.t(),
+        "IndexName" => String.t() | Atom.t(),
         "ProvisionedReadCapacityAutoScalingUpdate" => auto_scaling_settings_update()
       }
       
   """
-  @type replica_global_secondary_index_auto_scaling_update() :: %{String.t() => any()}
+  @type replica_global_secondary_index_auto_scaling_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -569,21 +569,21 @@ defmodule AWS.DynamoDB do
       
       replica_auto_scaling_description() :: %{
         "GlobalSecondaryIndexes" => list(replica_global_secondary_index_auto_scaling_description()),
-        "RegionName" => String.t(),
+        "RegionName" => String.t() | Atom.t(),
         "ReplicaProvisionedReadCapacityAutoScalingSettings" => auto_scaling_settings_description(),
         "ReplicaProvisionedWriteCapacityAutoScalingSettings" => auto_scaling_settings_description(),
         "ReplicaStatus" => list(any())
       }
       
   """
-  @type replica_auto_scaling_description() :: %{String.t() => any()}
+  @type replica_auto_scaling_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       replica_settings_update() :: %{
-        "RegionName" => String.t(),
+        "RegionName" => String.t() | Atom.t(),
         "ReplicaGlobalSecondaryIndexSettingsUpdate" => list(replica_global_secondary_index_settings_update()),
         "ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate" => auto_scaling_settings_update(),
         "ReplicaProvisionedReadCapacityUnits" => float(),
@@ -591,19 +591,19 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type replica_settings_update() :: %{String.t() => any()}
+  @type replica_settings_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       global_table() :: %{
-        "GlobalTableName" => String.t(),
+        "GlobalTableName" => String.t() | Atom.t(),
         "ReplicationGroup" => list(replica())
       }
       
   """
-  @type global_table() :: %{String.t() => any()}
+  @type global_table() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -616,7 +616,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type batch_write_item_output() :: %{String.t() => any()}
+  @type batch_write_item_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -629,7 +629,7 @@ defmodule AWS.DynamoDB do
         optional("LocalSecondaryIndexes") => list(local_secondary_index()),
         optional("OnDemandThroughput") => on_demand_throughput(),
         optional("ProvisionedThroughput") => provisioned_throughput(),
-        optional("ResourcePolicy") => String.t(),
+        optional("ResourcePolicy") => String.t() | Atom.t(),
         optional("SSESpecification") => sse_specification(),
         optional("StreamSpecification") => stream_specification(),
         optional("TableClass") => list(any()),
@@ -637,11 +637,11 @@ defmodule AWS.DynamoDB do
         optional("WarmThroughput") => warm_throughput(),
         required("AttributeDefinitions") => list(attribute_definition()),
         required("KeySchema") => list(key_schema_element()),
-        required("TableName") => String.t()
+        required("TableName") => String.t() | Atom.t()
       }
       
   """
-  @type create_table_input() :: %{String.t() => any()}
+  @type create_table_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -653,7 +653,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type write_request() :: %{String.t() => any()}
+  @type write_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -662,12 +662,12 @@ defmodule AWS.DynamoDB do
       restore_summary() :: %{
         "RestoreDateTime" => non_neg_integer(),
         "RestoreInProgress" => boolean(),
-        "SourceBackupArn" => String.t(),
-        "SourceTableArn" => String.t()
+        "SourceBackupArn" => String.t() | Atom.t(),
+        "SourceTableArn" => String.t() | Atom.t()
       }
       
   """
-  @type restore_summary() :: %{String.t() => any()}
+  @type restore_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -678,18 +678,18 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type enable_kinesis_streaming_configuration() :: %{String.t() => any()}
+  @type enable_kinesis_streaming_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_endpoint_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_endpoint_exception() :: %{String.t() => any()}
+  @type invalid_endpoint_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -700,7 +700,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type describe_global_table_output() :: %{String.t() => any()}
+  @type describe_global_table_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -714,22 +714,22 @@ defmodule AWS.DynamoDB do
         "OnDemandThroughput" => on_demand_throughput(),
         "ProvisionedThroughput" => provisioned_throughput(),
         "SSESpecification" => sse_specification(),
-        "TableName" => String.t()
+        "TableName" => String.t() | Atom.t()
       }
       
   """
-  @type table_creation_parameters() :: %{String.t() => any()}
+  @type table_creation_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       replicated_write_conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type replicated_write_conflict_exception() :: %{String.t() => any()}
+  @type replicated_write_conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -739,11 +739,11 @@ defmodule AWS.DynamoDB do
         "ConsumedCapacity" => consumed_capacity(),
         "Items" => list(map()),
         "LastEvaluatedKey" => map(),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type execute_statement_output() :: %{String.t() => any()}
+  @type execute_statement_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -754,38 +754,38 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type describe_endpoints_response() :: %{String.t() => any()}
+  @type describe_endpoints_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       backup_summary() :: %{
-        "BackupArn" => String.t(),
+        "BackupArn" => String.t() | Atom.t(),
         "BackupCreationDateTime" => non_neg_integer(),
         "BackupExpiryDateTime" => non_neg_integer(),
-        "BackupName" => String.t(),
+        "BackupName" => String.t() | Atom.t(),
         "BackupSizeBytes" => float(),
         "BackupStatus" => list(any()),
         "BackupType" => list(any()),
-        "TableArn" => String.t(),
-        "TableId" => String.t(),
-        "TableName" => String.t()
+        "TableArn" => String.t() | Atom.t(),
+        "TableId" => String.t() | Atom.t(),
+        "TableName" => String.t() | Atom.t()
       }
       
   """
-  @type backup_summary() :: %{String.t() => any()}
+  @type backup_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_kinesis_streaming_destination_input() :: %{
-        required("TableName") => String.t()
+        required("TableName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_kinesis_streaming_destination_input() :: %{String.t() => any()}
+  @type describe_kinesis_streaming_destination_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -793,14 +793,14 @@ defmodule AWS.DynamoDB do
       
       auto_scaling_settings_description() :: %{
         "AutoScalingDisabled" => boolean(),
-        "AutoScalingRoleArn" => String.t(),
+        "AutoScalingRoleArn" => String.t() | Atom.t(),
         "MaximumUnits" => float(),
         "MinimumUnits" => float(),
         "ScalingPolicies" => list(auto_scaling_policy_description())
       }
       
   """
-  @type auto_scaling_settings_description() :: %{String.t() => any()}
+  @type auto_scaling_settings_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -808,23 +808,23 @@ defmodule AWS.DynamoDB do
       
       update_contributor_insights_output() :: %{
         "ContributorInsightsStatus" => list(any()),
-        "IndexName" => String.t(),
-        "TableName" => String.t()
+        "IndexName" => String.t() | Atom.t(),
+        "TableName" => String.t() | Atom.t()
       }
       
   """
-  @type update_contributor_insights_output() :: %{String.t() => any()}
+  @type update_contributor_insights_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_resource_policy_output() :: %{
-        "RevisionId" => String.t()
+        "RevisionId" => String.t() | Atom.t()
       }
       
   """
-  @type put_resource_policy_output() :: %{String.t() => any()}
+  @type put_resource_policy_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -836,55 +836,55 @@ defmodule AWS.DynamoDB do
         optional("GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate") => auto_scaling_settings_update(),
         optional("GlobalTableProvisionedWriteCapacityUnits") => float(),
         optional("ReplicaSettingsUpdate") => list(replica_settings_update()),
-        required("GlobalTableName") => String.t()
+        required("GlobalTableName") => String.t() | Atom.t()
       }
       
   """
-  @type update_global_table_settings_input() :: %{String.t() => any()}
+  @type update_global_table_settings_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       scan_input() :: %{
-        optional("AttributesToGet") => list(String.t()),
+        optional("AttributesToGet") => list(String.t() | Atom.t()),
         optional("ConditionalOperator") => list(any()),
         optional("ConsistentRead") => boolean(),
         optional("ExclusiveStartKey") => map(),
         optional("ExpressionAttributeNames") => map(),
         optional("ExpressionAttributeValues") => map(),
-        optional("FilterExpression") => String.t(),
-        optional("IndexName") => String.t(),
+        optional("FilterExpression") => String.t() | Atom.t(),
+        optional("IndexName") => String.t() | Atom.t(),
         optional("Limit") => integer(),
-        optional("ProjectionExpression") => String.t(),
+        optional("ProjectionExpression") => String.t() | Atom.t(),
         optional("ReturnConsumedCapacity") => list(any()),
         optional("ScanFilter") => map(),
         optional("Segment") => integer(),
         optional("Select") => list(any()),
         optional("TotalSegments") => integer(),
-        required("TableName") => String.t()
+        required("TableName") => String.t() | Atom.t()
       }
       
   """
-  @type scan_input() :: %{String.t() => any()}
+  @type scan_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       import_summary() :: %{
-        "CloudWatchLogGroupArn" => String.t(),
+        "CloudWatchLogGroupArn" => String.t() | Atom.t(),
         "EndTime" => non_neg_integer(),
-        "ImportArn" => String.t(),
+        "ImportArn" => String.t() | Atom.t(),
         "ImportStatus" => list(any()),
         "InputFormat" => list(any()),
         "S3BucketSource" => s3_bucket_source(),
         "StartTime" => non_neg_integer(),
-        "TableArn" => String.t()
+        "TableArn" => String.t() | Atom.t()
       }
       
   """
-  @type import_summary() :: %{String.t() => any()}
+  @type import_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -896,7 +896,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type table_class_summary() :: %{String.t() => any()}
+  @type table_class_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -907,19 +907,19 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type describe_table_output() :: %{String.t() => any()}
+  @type describe_table_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       key_schema_element() :: %{
-        "AttributeName" => String.t(),
+        "AttributeName" => String.t() | Atom.t(),
         "KeyType" => list(any())
       }
       
   """
-  @type key_schema_element() :: %{String.t() => any()}
+  @type key_schema_element() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -927,11 +927,11 @@ defmodule AWS.DynamoDB do
       
       transaction_canceled_exception() :: %{
         "CancellationReasons" => list(cancellation_reason()),
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type transaction_canceled_exception() :: %{String.t() => any()}
+  @type transaction_canceled_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -942,7 +942,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type on_demand_throughput_override() :: %{String.t() => any()}
+  @type on_demand_throughput_override() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -953,7 +953,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type update_table_replica_auto_scaling_output() :: %{String.t() => any()}
+  @type update_table_replica_auto_scaling_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -964,30 +964,30 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type describe_import_output() :: %{String.t() => any()}
+  @type describe_import_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_resource_policy_input() :: %{
-        optional("ExpectedRevisionId") => String.t(),
-        required("ResourceArn") => String.t()
+        optional("ExpectedRevisionId") => String.t() | Atom.t(),
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_resource_policy_input() :: %{String.t() => any()}
+  @type delete_resource_policy_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_replica_action() :: %{
-        "RegionName" => String.t()
+        "RegionName" => String.t() | Atom.t()
       }
       
   """
-  @type create_replica_action() :: %{String.t() => any()}
+  @type create_replica_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -996,23 +996,23 @@ defmodule AWS.DynamoDB do
       parameterized_statement() :: %{
         "Parameters" => list(list()),
         "ReturnValuesOnConditionCheckFailure" => list(any()),
-        "Statement" => String.t()
+        "Statement" => String.t() | Atom.t()
       }
       
   """
-  @type parameterized_statement() :: %{String.t() => any()}
+  @type parameterized_statement() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_of_resource_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Tags" => list(tag())
       }
       
   """
-  @type list_tags_of_resource_output() :: %{String.t() => any()}
+  @type list_tags_of_resource_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1027,7 +1027,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type query_output() :: %{String.t() => any()}
+  @type query_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1040,7 +1040,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type capacity() :: %{String.t() => any()}
+  @type capacity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1053,7 +1053,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type batch_write_item_input() :: %{String.t() => any()}
+  @type batch_write_item_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1061,25 +1061,25 @@ defmodule AWS.DynamoDB do
       
       update_kinesis_streaming_destination_output() :: %{
         "DestinationStatus" => list(any()),
-        "StreamArn" => String.t(),
-        "TableName" => String.t(),
+        "StreamArn" => String.t() | Atom.t(),
+        "TableName" => String.t() | Atom.t(),
         "UpdateKinesisStreamingConfiguration" => update_kinesis_streaming_configuration()
       }
       
   """
-  @type update_kinesis_streaming_destination_output() :: %{String.t() => any()}
+  @type update_kinesis_streaming_destination_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_global_table_input() :: %{
-        required("GlobalTableName") => String.t(),
+        required("GlobalTableName") => String.t() | Atom.t(),
         required("ReplicaUpdates") => list(replica_update())
       }
       
   """
-  @type update_global_table_input() :: %{String.t() => any()}
+  @type update_global_table_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1088,15 +1088,15 @@ defmodule AWS.DynamoDB do
       execute_statement_input() :: %{
         optional("ConsistentRead") => boolean(),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("Parameters") => list(list()),
         optional("ReturnConsumedCapacity") => list(any()),
         optional("ReturnValuesOnConditionCheckFailure") => list(any()),
-        required("Statement") => String.t()
+        required("Statement") => String.t() | Atom.t()
       }
       
   """
-  @type execute_statement_input() :: %{String.t() => any()}
+  @type execute_statement_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1109,30 +1109,30 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type table_warm_throughput_description() :: %{String.t() => any()}
+  @type table_warm_throughput_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tables_input() :: %{
-        optional("ExclusiveStartTableName") => String.t(),
+        optional("ExclusiveStartTableName") => String.t() | Atom.t(),
         optional("Limit") => integer()
       }
       
   """
-  @type list_tables_input() :: %{String.t() => any()}
+  @type list_tables_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_global_table_settings_input() :: %{
-        required("GlobalTableName") => String.t()
+        required("GlobalTableName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_global_table_settings_input() :: %{String.t() => any()}
+  @type describe_global_table_settings_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1144,7 +1144,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type batch_execute_statement_input() :: %{String.t() => any()}
+  @type batch_execute_statement_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1154,11 +1154,11 @@ defmodule AWS.DynamoDB do
         optional("GlobalSecondaryIndexUpdates") => list(global_secondary_index_auto_scaling_update()),
         optional("ProvisionedWriteCapacityAutoScalingUpdate") => auto_scaling_settings_update(),
         optional("ReplicaUpdates") => list(replica_auto_scaling_update()),
-        required("TableName") => String.t()
+        required("TableName") => String.t() | Atom.t()
       }
       
   """
-  @type update_table_replica_auto_scaling_input() :: %{String.t() => any()}
+  @type update_table_replica_auto_scaling_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1166,58 +1166,58 @@ defmodule AWS.DynamoDB do
       
       kinesis_streaming_destination_input() :: %{
         optional("EnableKinesisStreamingConfiguration") => enable_kinesis_streaming_configuration(),
-        required("StreamArn") => String.t(),
-        required("TableName") => String.t()
+        required("StreamArn") => String.t() | Atom.t(),
+        required("TableName") => String.t() | Atom.t()
       }
       
   """
-  @type kinesis_streaming_destination_input() :: %{String.t() => any()}
+  @type kinesis_streaming_destination_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       policy_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type policy_not_found_exception() :: %{String.t() => any()}
+  @type policy_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_import_input() :: %{
-        required("ImportArn") => String.t()
+        required("ImportArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_import_input() :: %{String.t() => any()}
+  @type describe_import_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       replica_auto_scaling_update() :: %{
-        "RegionName" => String.t(),
+        "RegionName" => String.t() | Atom.t(),
         "ReplicaGlobalSecondaryIndexUpdates" => list(replica_global_secondary_index_auto_scaling_update()),
         "ReplicaProvisionedReadCapacityAutoScalingUpdate" => auto_scaling_settings_update()
       }
       
   """
-  @type replica_auto_scaling_update() :: %{String.t() => any()}
+  @type replica_auto_scaling_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       replica_already_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type replica_already_exists_exception() :: %{String.t() => any()}
+  @type replica_already_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1228,55 +1228,55 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type restore_table_to_point_in_time_output() :: %{String.t() => any()}
+  @type restore_table_to_point_in_time_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       csv_options() :: %{
-        "Delimiter" => String.t(),
-        "HeaderList" => list(String.t())
+        "Delimiter" => String.t() | Atom.t(),
+        "HeaderList" => list(String.t() | Atom.t())
       }
       
   """
-  @type csv_options() :: %{String.t() => any()}
+  @type csv_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       projection() :: %{
-        "NonKeyAttributes" => list(String.t()),
+        "NonKeyAttributes" => list(String.t() | Atom.t()),
         "ProjectionType" => list(any())
       }
       
   """
-  @type projection() :: %{String.t() => any()}
+  @type projection() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       replica_global_secondary_index() :: %{
-        "IndexName" => String.t(),
+        "IndexName" => String.t() | Atom.t(),
         "OnDemandThroughputOverride" => on_demand_throughput_override(),
         "ProvisionedThroughputOverride" => provisioned_throughput_override()
       }
       
   """
-  @type replica_global_secondary_index() :: %{String.t() => any()}
+  @type replica_global_secondary_index() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       provisioned_throughput_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type provisioned_throughput_exceeded_exception() :: %{String.t() => any()}
+  @type provisioned_throughput_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1289,18 +1289,18 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type batch_get_item_output() :: %{String.t() => any()}
+  @type batch_get_item_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_backup_input() :: %{
-        required("BackupArn") => String.t()
+        required("BackupArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_backup_input() :: %{String.t() => any()}
+  @type describe_backup_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1312,60 +1312,60 @@ defmodule AWS.DynamoDB do
         "KeySchema" => list(key_schema_element()),
         "OnDemandThroughput" => on_demand_throughput(),
         "ProvisionedThroughput" => provisioned_throughput(),
-        "TableArn" => String.t(),
+        "TableArn" => String.t() | Atom.t(),
         "TableCreationDateTime" => non_neg_integer(),
-        "TableId" => String.t(),
-        "TableName" => String.t(),
+        "TableId" => String.t() | Atom.t(),
+        "TableName" => String.t() | Atom.t(),
         "TableSizeBytes" => float()
       }
       
   """
-  @type source_table_details() :: %{String.t() => any()}
+  @type source_table_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       global_secondary_index_auto_scaling_update() :: %{
-        "IndexName" => String.t(),
+        "IndexName" => String.t() | Atom.t(),
         "ProvisionedWriteCapacityAutoScalingUpdate" => auto_scaling_settings_update()
       }
       
   """
-  @type global_secondary_index_auto_scaling_update() :: %{String.t() => any()}
+  @type global_secondary_index_auto_scaling_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update() :: %{
-        "ConditionExpression" => String.t(),
+        "ConditionExpression" => String.t() | Atom.t(),
         "ExpressionAttributeNames" => map(),
         "ExpressionAttributeValues" => map(),
         "Key" => map(),
         "ReturnValuesOnConditionCheckFailure" => list(any()),
-        "TableName" => String.t(),
-        "UpdateExpression" => String.t()
+        "TableName" => String.t() | Atom.t(),
+        "UpdateExpression" => String.t() | Atom.t()
       }
       
   """
-  @type update() :: %{String.t() => any()}
+  @type update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_contributor_insights_output() :: %{
-        "ContributorInsightsRuleList" => list(String.t()),
+        "ContributorInsightsRuleList" => list(String.t() | Atom.t()),
         "ContributorInsightsStatus" => list(any()),
         "FailureException" => failure_exception(),
-        "IndexName" => String.t(),
+        "IndexName" => String.t() | Atom.t(),
         "LastUpdateDateTime" => non_neg_integer(),
-        "TableName" => String.t()
+        "TableName" => String.t() | Atom.t()
       }
       
   """
-  @type describe_contributor_insights_output() :: %{String.t() => any()}
+  @type describe_contributor_insights_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1381,33 +1381,33 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_table_input() :: %{
-        required("TableName") => String.t()
+        required("TableName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_table_input() :: %{String.t() => any()}
+  @type describe_table_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_backup_input() :: %{
-        required("BackupArn") => String.t()
+        required("BackupArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_backup_input() :: %{String.t() => any()}
+  @type delete_backup_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1419,46 +1419,46 @@ defmodule AWS.DynamoDB do
         "LocalSecondaryIndexes" => map(),
         "ReadCapacityUnits" => float(),
         "Table" => capacity(),
-        "TableName" => String.t(),
+        "TableName" => String.t() | Atom.t(),
         "WriteCapacityUnits" => float()
       }
       
   """
-  @type consumed_capacity() :: %{String.t() => any()}
+  @type consumed_capacity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       backup_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type backup_not_found_exception() :: %{String.t() => any()}
+  @type backup_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_table_input() :: %{
-        required("TableName") => String.t()
+        required("TableName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_table_input() :: %{String.t() => any()}
+  @type delete_table_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1469,14 +1469,14 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type describe_backup_output() :: %{String.t() => any()}
+  @type describe_backup_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_global_secondary_index_action() :: %{
-        "IndexName" => String.t(),
+        "IndexName" => String.t() | Atom.t(),
         "KeySchema" => list(key_schema_element()),
         "OnDemandThroughput" => on_demand_throughput(),
         "Projection" => projection(),
@@ -1485,15 +1485,15 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type create_global_secondary_index_action() :: %{String.t() => any()}
+  @type create_global_secondary_index_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       local_secondary_index_description() :: %{
-        "IndexArn" => String.t(),
-        "IndexName" => String.t(),
+        "IndexArn" => String.t() | Atom.t(),
+        "IndexName" => String.t() | Atom.t(),
         "IndexSizeBytes" => float(),
         "ItemCount" => float(),
         "KeySchema" => list(key_schema_element()),
@@ -1501,7 +1501,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type local_secondary_index_description() :: %{String.t() => any()}
+  @type local_secondary_index_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1514,14 +1514,14 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type delete_item_output() :: %{String.t() => any()}
+  @type delete_item_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       replica_global_secondary_index_settings_description() :: %{
-        "IndexName" => String.t(),
+        "IndexName" => String.t() | Atom.t(),
         "IndexStatus" => list(any()),
         "ProvisionedReadCapacityAutoScalingSettings" => auto_scaling_settings_description(),
         "ProvisionedReadCapacityUnits" => float(),
@@ -1530,18 +1530,18 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type replica_global_secondary_index_settings_description() :: %{String.t() => any()}
+  @type replica_global_secondary_index_settings_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       continuous_backups_unavailable_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type continuous_backups_unavailable_exception() :: %{String.t() => any()}
+  @type continuous_backups_unavailable_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1549,13 +1549,13 @@ defmodule AWS.DynamoDB do
       
       put_resource_policy_input() :: %{
         optional("ConfirmRemoveSelfResourceAccess") => boolean(),
-        optional("ExpectedRevisionId") => String.t(),
-        required("Policy") => String.t(),
-        required("ResourceArn") => String.t()
+        optional("ExpectedRevisionId") => String.t() | Atom.t(),
+        required("Policy") => String.t() | Atom.t(),
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type put_resource_policy_input() :: %{String.t() => any()}
+  @type put_resource_policy_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1567,18 +1567,18 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type replica_update() :: %{String.t() => any()}
+  @type replica_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       global_table_already_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type global_table_already_exists_exception() :: %{String.t() => any()}
+  @type global_table_already_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1587,23 +1587,23 @@ defmodule AWS.DynamoDB do
       batch_statement_error() :: %{
         "Code" => list(any()),
         "Item" => map(),
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type batch_statement_error() :: %{String.t() => any()}
+  @type batch_statement_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       auto_scaling_policy_description() :: %{
-        "PolicyName" => String.t(),
+        "PolicyName" => String.t() | Atom.t(),
         "TargetTrackingScalingPolicyConfiguration" => auto_scaling_target_tracking_scaling_policy_configuration_description()
       }
       
   """
-  @type auto_scaling_policy_description() :: %{String.t() => any()}
+  @type auto_scaling_policy_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1614,18 +1614,18 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type delete_request() :: %{String.t() => any()}
+  @type delete_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_continuous_backups_input() :: %{
-        required("TableName") => String.t()
+        required("TableName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_continuous_backups_input() :: %{String.t() => any()}
+  @type describe_continuous_backups_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1634,47 +1634,47 @@ defmodule AWS.DynamoDB do
       batch_statement_response() :: %{
         "Error" => batch_statement_error(),
         "Item" => map(),
-        "TableName" => String.t()
+        "TableName" => String.t() | Atom.t()
       }
       
   """
-  @type batch_statement_response() :: %{String.t() => any()}
+  @type batch_statement_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       idempotent_parameter_mismatch_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type idempotent_parameter_mismatch_exception() :: %{String.t() => any()}
+  @type idempotent_parameter_mismatch_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       auto_scaling_policy_update() :: %{
-        "PolicyName" => String.t(),
+        "PolicyName" => String.t() | Atom.t(),
         "TargetTrackingScalingPolicyConfiguration" => auto_scaling_target_tracking_scaling_policy_configuration_update()
       }
       
   """
-  @type auto_scaling_policy_update() :: %{String.t() => any()}
+  @type auto_scaling_policy_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       export_summary() :: %{
-        "ExportArn" => String.t(),
+        "ExportArn" => String.t() | Atom.t(),
         "ExportStatus" => list(any()),
         "ExportType" => list(any())
       }
       
   """
-  @type export_summary() :: %{String.t() => any()}
+  @type export_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1686,7 +1686,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type warm_throughput() :: %{String.t() => any()}
+  @type warm_throughput() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1699,7 +1699,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type global_secondary_index_warm_throughput_description() :: %{String.t() => any()}
+  @type global_secondary_index_warm_throughput_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1711,19 +1711,19 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type item_collection_metrics() :: %{String.t() => any()}
+  @type item_collection_metrics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_global_table_settings_output() :: %{
-        "GlobalTableName" => String.t(),
+        "GlobalTableName" => String.t() | Atom.t(),
         "ReplicaSettings" => list(replica_settings_description())
       }
       
   """
-  @type describe_global_table_settings_output() :: %{String.t() => any()}
+  @type describe_global_table_settings_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1731,15 +1731,15 @@ defmodule AWS.DynamoDB do
       
       update_replication_group_member_action() :: %{
         "GlobalSecondaryIndexes" => list(replica_global_secondary_index()),
-        "KMSMasterKeyId" => String.t(),
+        "KMSMasterKeyId" => String.t() | Atom.t(),
         "OnDemandThroughputOverride" => on_demand_throughput_override(),
         "ProvisionedThroughputOverride" => provisioned_throughput_override(),
-        "RegionName" => String.t(),
+        "RegionName" => String.t() | Atom.t(),
         "TableClassOverride" => list(any())
       }
       
   """
-  @type update_replication_group_member_action() :: %{String.t() => any()}
+  @type update_replication_group_member_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1751,18 +1751,18 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type stream_specification() :: %{String.t() => any()}
+  @type stream_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_export_input() :: %{
-        required("ExportArn") => String.t()
+        required("ExportArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_export_input() :: %{String.t() => any()}
+  @type describe_export_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1777,30 +1777,30 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type provisioned_throughput_description() :: %{String.t() => any()}
+  @type provisioned_throughput_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_backup_input() :: %{
-        required("BackupName") => String.t(),
-        required("TableName") => String.t()
+        required("BackupName") => String.t() | Atom.t(),
+        required("TableName") => String.t() | Atom.t()
       }
       
   """
-  @type create_backup_input() :: %{String.t() => any()}
+  @type create_backup_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       duplicate_item_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type duplicate_item_exception() :: %{String.t() => any()}
+  @type duplicate_item_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1812,7 +1812,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type transact_get_items_output() :: %{String.t() => any()}
+  @type transact_get_items_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1823,7 +1823,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type describe_time_to_live_output() :: %{String.t() => any()}
+  @type describe_time_to_live_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1831,12 +1831,12 @@ defmodule AWS.DynamoDB do
       
       list_contributor_insights_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("TableName") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("TableName") => String.t() | Atom.t()
       }
       
   """
-  @type list_contributor_insights_input() :: %{String.t() => any()}
+  @type list_contributor_insights_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1848,33 +1848,36 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type point_in_time_recovery_specification() :: %{String.t() => any()}
+  @type point_in_time_recovery_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       time_to_live_description() :: %{
-        "AttributeName" => String.t(),
+        "AttributeName" => String.t() | Atom.t(),
         "TimeToLiveStatus" => list(any())
       }
       
   """
-  @type time_to_live_description() :: %{String.t() => any()}
+  @type time_to_live_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       replica_global_secondary_index_auto_scaling_description() :: %{
-        "IndexName" => String.t(),
+        "IndexName" => String.t() | Atom.t(),
         "IndexStatus" => list(any()),
         "ProvisionedReadCapacityAutoScalingSettings" => auto_scaling_settings_description(),
         "ProvisionedWriteCapacityAutoScalingSettings" => auto_scaling_settings_description()
       }
       
   """
-  @type replica_global_secondary_index_auto_scaling_description() :: %{String.t() => any()}
+  @type replica_global_secondary_index_auto_scaling_description() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1883,12 +1886,12 @@ defmodule AWS.DynamoDB do
       kinesis_streaming_destination_output() :: %{
         optional("DestinationStatus") => list(any()),
         optional("EnableKinesisStreamingConfiguration") => enable_kinesis_streaming_configuration(),
-        optional("StreamArn") => String.t(),
-        optional("TableName") => String.t()
+        optional("StreamArn") => String.t() | Atom.t(),
+        optional("TableName") => String.t() | Atom.t()
       }
       
   """
-  @type kinesis_streaming_destination_output() :: %{String.t() => any()}
+  @type kinesis_streaming_destination_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1900,7 +1903,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type condition() :: %{String.t() => any()}
+  @type condition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1912,14 +1915,14 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type transact_get_items_input() :: %{String.t() => any()}
+  @type transact_get_items_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       import_table_input() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
         optional("InputCompressionType") => list(any()),
         optional("InputFormatOptions") => input_format_options(),
         required("InputFormat") => list(any()),
@@ -1928,49 +1931,49 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type import_table_input() :: %{String.t() => any()}
+  @type import_table_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       transaction_conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type transaction_conflict_exception() :: %{String.t() => any()}
+  @type transaction_conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_global_table_input() :: %{
-        required("GlobalTableName") => String.t()
+        required("GlobalTableName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_global_table_input() :: %{String.t() => any()}
+  @type describe_global_table_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       replica_global_secondary_index_settings_update() :: %{
-        "IndexName" => String.t(),
+        "IndexName" => String.t() | Atom.t(),
         "ProvisionedReadCapacityAutoScalingSettingsUpdate" => auto_scaling_settings_update(),
         "ProvisionedReadCapacityUnits" => float()
       }
       
   """
-  @type replica_global_secondary_index_settings_update() :: %{String.t() => any()}
+  @type replica_global_secondary_index_settings_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_item_input() :: %{
-        optional("ConditionExpression") => String.t(),
+        optional("ConditionExpression") => String.t() | Atom.t(),
         optional("ConditionalOperator") => list(any()),
         optional("Expected") => map(),
         optional("ExpressionAttributeNames") => map(),
@@ -1980,67 +1983,67 @@ defmodule AWS.DynamoDB do
         optional("ReturnValues") => list(any()),
         optional("ReturnValuesOnConditionCheckFailure") => list(any()),
         required("Item") => map(),
-        required("TableName") => String.t()
+        required("TableName") => String.t() | Atom.t()
       }
       
   """
-  @type put_item_input() :: %{String.t() => any()}
+  @type put_item_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_of_resource_input() :: %{
-        optional("NextToken") => String.t(),
-        required("ResourceArn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_of_resource_input() :: %{String.t() => any()}
+  @type list_tags_of_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_input() :: %{
-        required("ResourceArn") => String.t(),
+        required("ResourceArn") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_input() :: %{String.t() => any()}
+  @type tag_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_table_replica_auto_scaling_input() :: %{
-        required("TableName") => String.t()
+        required("TableName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_table_replica_auto_scaling_input() :: %{String.t() => any()}
+  @type describe_table_replica_auto_scaling_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       export_table_to_point_in_time_input() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
         optional("ExportFormat") => list(any()),
         optional("ExportTime") => non_neg_integer(),
         optional("ExportType") => list(any()),
         optional("IncrementalExportSpecification") => incremental_export_specification(),
-        optional("S3BucketOwner") => String.t(),
-        optional("S3Prefix") => String.t(),
+        optional("S3BucketOwner") => String.t() | Atom.t(),
+        optional("S3Prefix") => String.t() | Atom.t(),
         optional("S3SseAlgorithm") => list(any()),
-        optional("S3SseKmsKeyId") => String.t(),
-        required("S3Bucket") => String.t(),
-        required("TableArn") => String.t()
+        optional("S3SseKmsKeyId") => String.t() | Atom.t(),
+        required("S3Bucket") => String.t() | Atom.t(),
+        required("TableArn") => String.t() | Atom.t()
       }
       
   """
-  @type export_table_to_point_in_time_input() :: %{String.t() => any()}
+  @type export_table_to_point_in_time_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2052,7 +2055,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type execute_transaction_output() :: %{String.t() => any()}
+  @type execute_transaction_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2063,41 +2066,41 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type transact_get_item() :: %{String.t() => any()}
+  @type transact_get_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       global_table_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type global_table_not_found_exception() :: %{String.t() => any()}
+  @type global_table_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoint() :: %{
-        "Address" => String.t(),
+        "Address" => String.t() | Atom.t(),
         "CachePeriodInMinutes" => float()
       }
       
   """
-  @type endpoint() :: %{String.t() => any()}
+  @type endpoint() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_global_table_witness_group_member_action() :: %{
-        "RegionName" => String.t()
+        "RegionName" => String.t() | Atom.t()
       }
       
   """
-  @type create_global_table_witness_group_member_action() :: %{String.t() => any()}
+  @type create_global_table_witness_group_member_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2110,19 +2113,19 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type update_item_output() :: %{String.t() => any()}
+  @type update_item_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_contributor_insights_input() :: %{
-        optional("IndexName") => String.t(),
-        required("TableName") => String.t()
+        optional("IndexName") => String.t() | Atom.t(),
+        required("TableName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_contributor_insights_input() :: %{String.t() => any()}
+  @type describe_contributor_insights_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2135,7 +2138,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type backup_description() :: %{String.t() => any()}
+  @type backup_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2143,22 +2146,22 @@ defmodule AWS.DynamoDB do
       
       describe_kinesis_streaming_destination_output() :: %{
         "KinesisDataStreamDestinations" => list(kinesis_data_stream_destination()),
-        "TableName" => String.t()
+        "TableName" => String.t() | Atom.t()
       }
       
   """
-  @type describe_kinesis_streaming_destination_output() :: %{String.t() => any()}
+  @type describe_kinesis_streaming_destination_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       backup_in_use_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type backup_in_use_exception() :: %{String.t() => any()}
+  @type backup_in_use_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2166,11 +2169,11 @@ defmodule AWS.DynamoDB do
       
       conditional_check_failed_exception() :: %{
         "Item" => map(),
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type conditional_check_failed_exception() :: %{String.t() => any()}
+  @type conditional_check_failed_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2192,19 +2195,19 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type global_secondary_index_update() :: %{String.t() => any()}
+  @type global_secondary_index_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       global_table_witness_description() :: %{
-        "RegionName" => String.t(),
+        "RegionName" => String.t() | Atom.t(),
         "WitnessStatus" => list(any())
       }
       
   """
-  @type global_table_witness_description() :: %{String.t() => any()}
+  @type global_table_witness_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2215,7 +2218,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type create_backup_output() :: %{String.t() => any()}
+  @type create_backup_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2223,29 +2226,29 @@ defmodule AWS.DynamoDB do
       
       list_exports_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("TableArn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("TableArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_exports_input() :: %{String.t() => any()}
+  @type list_exports_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       backup_details() :: %{
-        "BackupArn" => String.t(),
+        "BackupArn" => String.t() | Atom.t(),
         "BackupCreationDateTime" => non_neg_integer(),
         "BackupExpiryDateTime" => non_neg_integer(),
-        "BackupName" => String.t(),
+        "BackupName" => String.t() | Atom.t(),
         "BackupSizeBytes" => float(),
         "BackupStatus" => list(any()),
         "BackupType" => list(any())
       }
       
   """
-  @type backup_details() :: %{String.t() => any()}
+  @type backup_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2256,18 +2259,18 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type input_format_options() :: %{String.t() => any()}
+  @type input_format_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       import_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type import_not_found_exception() :: %{String.t() => any()}
+  @type import_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2275,22 +2278,22 @@ defmodule AWS.DynamoDB do
       
       list_exports_output() :: %{
         "ExportSummaries" => list(export_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_exports_output() :: %{String.t() => any()}
+  @type list_exports_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_resource_policy_output() :: %{
-        "RevisionId" => String.t()
+        "RevisionId" => String.t() | Atom.t()
       }
       
   """
-  @type delete_resource_policy_output() :: %{String.t() => any()}
+  @type delete_resource_policy_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2298,14 +2301,14 @@ defmodule AWS.DynamoDB do
       
       auto_scaling_settings_update() :: %{
         "AutoScalingDisabled" => boolean(),
-        "AutoScalingRoleArn" => String.t(),
+        "AutoScalingRoleArn" => String.t() | Atom.t(),
         "MaximumUnits" => float(),
         "MinimumUnits" => float(),
         "ScalingPolicyUpdate" => auto_scaling_policy_update()
       }
       
   """
-  @type auto_scaling_settings_update() :: %{String.t() => any()}
+  @type auto_scaling_settings_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2316,20 +2319,20 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type create_global_table_output() :: %{String.t() => any()}
+  @type create_global_table_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_global_tables_input() :: %{
-        optional("ExclusiveStartGlobalTableName") => String.t(),
+        optional("ExclusiveStartGlobalTableName") => String.t() | Atom.t(),
         optional("Limit") => integer(),
-        optional("RegionName") => String.t()
+        optional("RegionName") => String.t() | Atom.t()
       }
       
   """
-  @type list_global_tables_input() :: %{String.t() => any()}
+  @type list_global_tables_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2341,7 +2344,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type provisioned_throughput() :: %{String.t() => any()}
+  @type provisioned_throughput() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2349,8 +2352,8 @@ defmodule AWS.DynamoDB do
       
       global_secondary_index_description() :: %{
         "Backfilling" => boolean(),
-        "IndexArn" => String.t(),
-        "IndexName" => String.t(),
+        "IndexArn" => String.t() | Atom.t(),
+        "IndexName" => String.t() | Atom.t(),
         "IndexSizeBytes" => float(),
         "IndexStatus" => list(any()),
         "ItemCount" => float(),
@@ -2362,14 +2365,14 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type global_secondary_index_description() :: %{String.t() => any()}
+  @type global_secondary_index_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       global_secondary_index_info() :: %{
-        "IndexName" => String.t(),
+        "IndexName" => String.t() | Atom.t(),
         "KeySchema" => list(key_schema_element()),
         "OnDemandThroughput" => on_demand_throughput(),
         "Projection" => projection(),
@@ -2377,7 +2380,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type global_secondary_index_info() :: %{String.t() => any()}
+  @type global_secondary_index_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2388,14 +2391,14 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type put_request() :: %{String.t() => any()}
+  @type put_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_item_input() :: %{
-        optional("ConditionExpression") => String.t(),
+        optional("ConditionExpression") => String.t() | Atom.t(),
         optional("ConditionalOperator") => list(any()),
         optional("Expected") => map(),
         optional("ExpressionAttributeNames") => map(),
@@ -2405,36 +2408,36 @@ defmodule AWS.DynamoDB do
         optional("ReturnValues") => list(any()),
         optional("ReturnValuesOnConditionCheckFailure") => list(any()),
         required("Key") => map(),
-        required("TableName") => String.t()
+        required("TableName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_item_input() :: %{String.t() => any()}
+  @type delete_item_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       replica_global_secondary_index_description() :: %{
-        "IndexName" => String.t(),
+        "IndexName" => String.t() | Atom.t(),
         "OnDemandThroughputOverride" => on_demand_throughput_override(),
         "ProvisionedThroughputOverride" => provisioned_throughput_override(),
         "WarmThroughput" => global_secondary_index_warm_throughput_description()
       }
       
   """
-  @type replica_global_secondary_index_description() :: %{String.t() => any()}
+  @type replica_global_secondary_index_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_error() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type internal_server_error() :: %{String.t() => any()}
+  @type internal_server_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2449,7 +2452,8 @@ defmodule AWS.DynamoDB do
       
   """
   @type auto_scaling_target_tracking_scaling_policy_configuration_description() :: %{
-          String.t() => any()
+          String.t()
+          | Atom.t() => any()
         }
 
   @typedoc """
@@ -2457,27 +2461,27 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       query_input() :: %{
-        optional("AttributesToGet") => list(String.t()),
+        optional("AttributesToGet") => list(String.t() | Atom.t()),
         optional("ConditionalOperator") => list(any()),
         optional("ConsistentRead") => boolean(),
         optional("ExclusiveStartKey") => map(),
         optional("ExpressionAttributeNames") => map(),
         optional("ExpressionAttributeValues") => map(),
-        optional("FilterExpression") => String.t(),
-        optional("IndexName") => String.t(),
-        optional("KeyConditionExpression") => String.t(),
+        optional("FilterExpression") => String.t() | Atom.t(),
+        optional("IndexName") => String.t() | Atom.t(),
+        optional("KeyConditionExpression") => String.t() | Atom.t(),
         optional("KeyConditions") => map(),
         optional("Limit") => integer(),
-        optional("ProjectionExpression") => String.t(),
+        optional("ProjectionExpression") => String.t() | Atom.t(),
         optional("QueryFilter") => map(),
         optional("ReturnConsumedCapacity") => list(any()),
         optional("ScanIndexForward") => boolean(),
         optional("Select") => list(any()),
-        required("TableName") => String.t()
+        required("TableName") => String.t() | Atom.t()
       }
       
   """
-  @type query_input() :: %{String.t() => any()}
+  @type query_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2488,18 +2492,18 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type update_global_table_output() :: %{String.t() => any()}
+  @type update_global_table_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_restore_time_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_restore_time_exception() :: %{String.t() => any()}
+  @type invalid_restore_time_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2507,12 +2511,12 @@ defmodule AWS.DynamoDB do
       
       sse_specification() :: %{
         "Enabled" => boolean(),
-        "KMSMasterKeyId" => String.t(),
+        "KMSMasterKeyId" => String.t() | Atom.t(),
         "SSEType" => list(any())
       }
       
   """
-  @type sse_specification() :: %{String.t() => any()}
+  @type sse_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2523,19 +2527,19 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type describe_continuous_backups_output() :: %{String.t() => any()}
+  @type describe_continuous_backups_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_input() :: %{
-        required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceArn") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_input() :: %{String.t() => any()}
+  @type untag_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2543,7 +2547,7 @@ defmodule AWS.DynamoDB do
       
       update_item_input() :: %{
         optional("AttributeUpdates") => map(),
-        optional("ConditionExpression") => String.t(),
+        optional("ConditionExpression") => String.t() | Atom.t(),
         optional("ConditionalOperator") => list(any()),
         optional("Expected") => map(),
         optional("ExpressionAttributeNames") => map(),
@@ -2552,24 +2556,24 @@ defmodule AWS.DynamoDB do
         optional("ReturnItemCollectionMetrics") => list(any()),
         optional("ReturnValues") => list(any()),
         optional("ReturnValuesOnConditionCheckFailure") => list(any()),
-        optional("UpdateExpression") => String.t(),
+        optional("UpdateExpression") => String.t() | Atom.t(),
         required("Key") => map(),
-        required("TableName") => String.t()
+        required("TableName") => String.t() | Atom.t()
       }
       
   """
-  @type update_item_input() :: %{String.t() => any()}
+  @type update_item_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_resource_policy_input() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type get_resource_policy_input() :: %{String.t() => any()}
+  @type get_resource_policy_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2577,14 +2581,14 @@ defmodule AWS.DynamoDB do
       
       global_table_description() :: %{
         "CreationDateTime" => non_neg_integer(),
-        "GlobalTableArn" => String.t(),
-        "GlobalTableName" => String.t(),
+        "GlobalTableArn" => String.t() | Atom.t(),
+        "GlobalTableName" => String.t() | Atom.t(),
         "GlobalTableStatus" => list(any()),
         "ReplicationGroup" => list(replica_description())
       }
       
   """
-  @type global_table_description() :: %{String.t() => any()}
+  @type global_table_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2596,14 +2600,14 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type continuous_backups_description() :: %{String.t() => any()}
+  @type continuous_backups_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       global_secondary_index() :: %{
-        "IndexName" => String.t(),
+        "IndexName" => String.t() | Atom.t(),
         "KeySchema" => list(key_schema_element()),
         "OnDemandThroughput" => on_demand_throughput(),
         "Projection" => projection(),
@@ -2612,7 +2616,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type global_secondary_index() :: %{String.t() => any()}
+  @type global_secondary_index() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2626,25 +2630,25 @@ defmodule AWS.DynamoDB do
         optional("ProvisionedThroughputOverride") => provisioned_throughput(),
         optional("RestoreDateTime") => non_neg_integer(),
         optional("SSESpecificationOverride") => sse_specification(),
-        optional("SourceTableArn") => String.t(),
-        optional("SourceTableName") => String.t(),
+        optional("SourceTableArn") => String.t() | Atom.t(),
+        optional("SourceTableName") => String.t() | Atom.t(),
         optional("UseLatestRestorableTime") => boolean(),
-        required("TargetTableName") => String.t()
+        required("TargetTableName") => String.t() | Atom.t()
       }
       
   """
-  @type restore_table_to_point_in_time_input() :: %{String.t() => any()}
+  @type restore_table_to_point_in_time_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       request_limit_exceeded() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type request_limit_exceeded() :: %{String.t() => any()}
+  @type request_limit_exceeded() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2657,25 +2661,25 @@ defmodule AWS.DynamoDB do
         optional("OnDemandThroughputOverride") => on_demand_throughput(),
         optional("ProvisionedThroughputOverride") => provisioned_throughput(),
         optional("SSESpecificationOverride") => sse_specification(),
-        required("BackupArn") => String.t(),
-        required("TargetTableName") => String.t()
+        required("BackupArn") => String.t() | Atom.t(),
+        required("TargetTableName") => String.t() | Atom.t()
       }
       
   """
-  @type restore_table_from_backup_input() :: %{String.t() => any()}
+  @type restore_table_from_backup_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cancellation_reason() :: %{
-        "Code" => String.t(),
+        "Code" => String.t() | Atom.t(),
         "Item" => map(),
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type cancellation_reason() :: %{String.t() => any()}
+  @type cancellation_reason() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2690,18 +2694,18 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type source_table_feature_details() :: %{String.t() => any()}
+  @type source_table_feature_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       import_conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type import_conflict_exception() :: %{String.t() => any()}
+  @type import_conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2712,7 +2716,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type item_response() :: %{String.t() => any()}
+  @type item_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2723,19 +2727,19 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type restore_table_from_backup_output() :: %{String.t() => any()}
+  @type restore_table_from_backup_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       failure_exception() :: %{
-        "ExceptionDescription" => String.t(),
-        "ExceptionName" => String.t()
+        "ExceptionDescription" => String.t() | Atom.t(),
+        "ExceptionName" => String.t() | Atom.t()
       }
       
   """
-  @type failure_exception() :: %{String.t() => any()}
+  @type failure_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2743,20 +2747,20 @@ defmodule AWS.DynamoDB do
       
       replica_description() :: %{
         "GlobalSecondaryIndexes" => list(replica_global_secondary_index_description()),
-        "KMSMasterKeyId" => String.t(),
+        "KMSMasterKeyId" => String.t() | Atom.t(),
         "OnDemandThroughputOverride" => on_demand_throughput_override(),
         "ProvisionedThroughputOverride" => provisioned_throughput_override(),
-        "RegionName" => String.t(),
+        "RegionName" => String.t() | Atom.t(),
         "ReplicaInaccessibleDateTime" => non_neg_integer(),
         "ReplicaStatus" => list(any()),
-        "ReplicaStatusDescription" => String.t(),
-        "ReplicaStatusPercentProgress" => String.t(),
+        "ReplicaStatusDescription" => String.t() | Atom.t(),
+        "ReplicaStatusPercentProgress" => String.t() | Atom.t(),
         "ReplicaTableClassSummary" => table_class_summary(),
         "WarmThroughput" => table_warm_throughput_description()
       }
       
   """
-  @type replica_description() :: %{String.t() => any()}
+  @type replica_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2771,18 +2775,18 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type scan_output() :: %{String.t() => any()}
+  @type scan_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_replication_group_member_action() :: %{
-        "RegionName" => String.t()
+        "RegionName" => String.t() | Atom.t()
       }
       
   """
-  @type delete_replication_group_member_action() :: %{String.t() => any()}
+  @type delete_replication_group_member_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2795,18 +2799,18 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type replication_group_update() :: %{String.t() => any()}
+  @type replication_group_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       transaction_in_progress_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type transaction_in_progress_exception() :: %{String.t() => any()}
+  @type transaction_in_progress_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2814,11 +2818,11 @@ defmodule AWS.DynamoDB do
       
       list_contributor_insights_output() :: %{
         "ContributorInsightsSummaries" => list(contributor_insights_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_contributor_insights_output() :: %{String.t() => any()}
+  @type list_contributor_insights_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2826,55 +2830,55 @@ defmodule AWS.DynamoDB do
       
       export_description() :: %{
         "BilledSizeBytes" => float(),
-        "ClientToken" => String.t(),
+        "ClientToken" => String.t() | Atom.t(),
         "EndTime" => non_neg_integer(),
-        "ExportArn" => String.t(),
+        "ExportArn" => String.t() | Atom.t(),
         "ExportFormat" => list(any()),
-        "ExportManifest" => String.t(),
+        "ExportManifest" => String.t() | Atom.t(),
         "ExportStatus" => list(any()),
         "ExportTime" => non_neg_integer(),
         "ExportType" => list(any()),
-        "FailureCode" => String.t(),
-        "FailureMessage" => String.t(),
+        "FailureCode" => String.t() | Atom.t(),
+        "FailureMessage" => String.t() | Atom.t(),
         "IncrementalExportSpecification" => incremental_export_specification(),
         "ItemCount" => float(),
-        "S3Bucket" => String.t(),
-        "S3BucketOwner" => String.t(),
-        "S3Prefix" => String.t(),
+        "S3Bucket" => String.t() | Atom.t(),
+        "S3BucketOwner" => String.t() | Atom.t(),
+        "S3Prefix" => String.t() | Atom.t(),
         "S3SseAlgorithm" => list(any()),
-        "S3SseKmsKeyId" => String.t(),
+        "S3SseKmsKeyId" => String.t() | Atom.t(),
         "StartTime" => non_neg_integer(),
-        "TableArn" => String.t(),
-        "TableId" => String.t()
+        "TableArn" => String.t() | Atom.t(),
+        "TableId" => String.t() | Atom.t()
       }
       
   """
-  @type export_description() :: %{String.t() => any()}
+  @type export_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_global_secondary_index_action() :: %{
-        "IndexName" => String.t(),
+        "IndexName" => String.t() | Atom.t(),
         "OnDemandThroughput" => on_demand_throughput(),
         "ProvisionedThroughput" => provisioned_throughput(),
         "WarmThroughput" => warm_throughput()
       }
       
   """
-  @type update_global_secondary_index_action() :: %{String.t() => any()}
+  @type update_global_secondary_index_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       replica() :: %{
-        "RegionName" => String.t()
+        "RegionName" => String.t() | Atom.t()
       }
       
   """
-  @type replica() :: %{String.t() => any()}
+  @type replica() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2882,51 +2886,51 @@ defmodule AWS.DynamoDB do
       
       contributor_insights_summary() :: %{
         "ContributorInsightsStatus" => list(any()),
-        "IndexName" => String.t(),
-        "TableName" => String.t()
+        "IndexName" => String.t() | Atom.t(),
+        "TableName" => String.t() | Atom.t()
       }
       
   """
-  @type contributor_insights_summary() :: %{String.t() => any()}
+  @type contributor_insights_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_item_input() :: %{
-        optional("AttributesToGet") => list(String.t()),
+        optional("AttributesToGet") => list(String.t() | Atom.t()),
         optional("ConsistentRead") => boolean(),
         optional("ExpressionAttributeNames") => map(),
-        optional("ProjectionExpression") => String.t(),
+        optional("ProjectionExpression") => String.t() | Atom.t(),
         optional("ReturnConsumedCapacity") => list(any()),
         required("Key") => map(),
-        required("TableName") => String.t()
+        required("TableName") => String.t() | Atom.t()
       }
       
   """
-  @type get_item_input() :: %{String.t() => any()}
+  @type get_item_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_time_to_live_input() :: %{
-        required("TableName") => String.t()
+        required("TableName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_time_to_live_input() :: %{String.t() => any()}
+  @type describe_time_to_live_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2941,7 +2945,8 @@ defmodule AWS.DynamoDB do
       
   """
   @type auto_scaling_target_tracking_scaling_policy_configuration_update() :: %{
-          String.t() => any()
+          String.t()
+          | Atom.t() => any()
         }
 
   @typedoc """
@@ -2950,58 +2955,58 @@ defmodule AWS.DynamoDB do
       
       update_continuous_backups_input() :: %{
         required("PointInTimeRecoverySpecification") => point_in_time_recovery_specification(),
-        required("TableName") => String.t()
+        required("TableName") => String.t() | Atom.t()
       }
       
   """
-  @type update_continuous_backups_input() :: %{String.t() => any()}
+  @type update_continuous_backups_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       archival_summary() :: %{
-        "ArchivalBackupArn" => String.t(),
+        "ArchivalBackupArn" => String.t() | Atom.t(),
         "ArchivalDateTime" => non_neg_integer(),
-        "ArchivalReason" => String.t()
+        "ArchivalReason" => String.t() | Atom.t()
       }
       
   """
-  @type archival_summary() :: %{String.t() => any()}
+  @type archival_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tables_output() :: %{
-        "LastEvaluatedTableName" => String.t(),
-        "TableNames" => list(String.t())
+        "LastEvaluatedTableName" => String.t() | Atom.t(),
+        "TableNames" => list(String.t() | Atom.t())
       }
       
   """
-  @type list_tables_output() :: %{String.t() => any()}
+  @type list_tables_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_global_table_witness_group_member_action() :: %{
-        "RegionName" => String.t()
+        "RegionName" => String.t() | Atom.t()
       }
       
   """
-  @type delete_global_table_witness_group_member_action() :: %{String.t() => any()}
+  @type delete_global_table_witness_group_member_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_export_time_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_export_time_exception() :: %{String.t() => any()}
+  @type invalid_export_time_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3013,7 +3018,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type attribute_value_update() :: %{String.t() => any()}
+  @type attribute_value_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3024,7 +3029,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type import_table_output() :: %{String.t() => any()}
+  @type import_table_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3037,30 +3042,30 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type put_item_output() :: %{String.t() => any()}
+  @type put_item_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_global_table_settings_output() :: %{
-        "GlobalTableName" => String.t(),
+        "GlobalTableName" => String.t() | Atom.t(),
         "ReplicaSettings" => list(replica_settings_description())
       }
       
   """
-  @type update_global_table_settings_output() :: %{String.t() => any()}
+  @type update_global_table_settings_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       table_in_use_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type table_in_use_exception() :: %{String.t() => any()}
+  @type table_in_use_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3073,20 +3078,20 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type incremental_export_specification() :: %{String.t() => any()}
+  @type incremental_export_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       import_table_description() :: %{
-        "ClientToken" => String.t(),
-        "CloudWatchLogGroupArn" => String.t(),
+        "ClientToken" => String.t() | Atom.t(),
+        "CloudWatchLogGroupArn" => String.t() | Atom.t(),
         "EndTime" => non_neg_integer(),
         "ErrorCount" => float(),
-        "FailureCode" => String.t(),
-        "FailureMessage" => String.t(),
-        "ImportArn" => String.t(),
+        "FailureCode" => String.t() | Atom.t(),
+        "FailureMessage" => String.t() | Atom.t(),
+        "ImportArn" => String.t() | Atom.t(),
         "ImportStatus" => list(any()),
         "ImportedItemCount" => float(),
         "InputCompressionType" => list(any()),
@@ -3096,13 +3101,13 @@ defmodule AWS.DynamoDB do
         "ProcessedSizeBytes" => float(),
         "S3BucketSource" => s3_bucket_source(),
         "StartTime" => non_neg_integer(),
-        "TableArn" => String.t(),
+        "TableArn" => String.t() | Atom.t(),
         "TableCreationParameters" => table_creation_parameters(),
-        "TableId" => String.t()
+        "TableId" => String.t() | Atom.t()
       }
       
   """
-  @type import_table_description() :: %{String.t() => any()}
+  @type import_table_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3113,18 +3118,18 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type delete_table_output() :: %{String.t() => any()}
+  @type delete_table_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       index_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type index_not_found_exception() :: %{String.t() => any()}
+  @type index_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3144,27 +3149,27 @@ defmodule AWS.DynamoDB do
         optional("StreamSpecification") => stream_specification(),
         optional("TableClass") => list(any()),
         optional("WarmThroughput") => warm_throughput(),
-        required("TableName") => String.t()
+        required("TableName") => String.t() | Atom.t()
       }
       
   """
-  @type update_table_input() :: %{String.t() => any()}
+  @type update_table_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put() :: %{
-        "ConditionExpression" => String.t(),
+        "ConditionExpression" => String.t() | Atom.t(),
         "ExpressionAttributeNames" => map(),
         "ExpressionAttributeValues" => map(),
         "Item" => map(),
         "ReturnValuesOnConditionCheckFailure" => list(any()),
-        "TableName" => String.t()
+        "TableName" => String.t() | Atom.t()
       }
       
   """
-  @type put() :: %{String.t() => any()}
+  @type put() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3174,11 +3179,11 @@ defmodule AWS.DynamoDB do
         "ConsistentRead" => boolean(),
         "Parameters" => list(list()),
         "ReturnValuesOnConditionCheckFailure" => list(any()),
-        "Statement" => String.t()
+        "Statement" => String.t() | Atom.t()
       }
       
   """
-  @type batch_statement_request() :: %{String.t() => any()}
+  @type batch_statement_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3190,18 +3195,18 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type global_table_witness_group_update() :: %{String.t() => any()}
+  @type global_table_witness_group_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       replica_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type replica_not_found_exception() :: %{String.t() => any()}
+  @type replica_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3212,7 +3217,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type delete_backup_output() :: %{String.t() => any()}
+  @type delete_backup_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3223,7 +3228,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type update_kinesis_streaming_configuration() :: %{String.t() => any()}
+  @type update_kinesis_streaming_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3234,20 +3239,20 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type update_table_output() :: %{String.t() => any()}
+  @type update_table_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_bucket_source() :: %{
-        "S3Bucket" => String.t(),
-        "S3BucketOwner" => String.t(),
-        "S3KeyPrefix" => String.t()
+        "S3Bucket" => String.t() | Atom.t(),
+        "S3BucketOwner" => String.t() | Atom.t(),
+        "S3KeyPrefix" => String.t() | Atom.t()
       }
       
   """
-  @type s3_bucket_source() :: %{String.t() => any()}
+  @type s3_bucket_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3255,24 +3260,24 @@ defmodule AWS.DynamoDB do
       
       list_backups_output() :: %{
         "BackupSummaries" => list(backup_summary()),
-        "LastEvaluatedBackupArn" => String.t()
+        "LastEvaluatedBackupArn" => String.t() | Atom.t()
       }
       
   """
-  @type list_backups_output() :: %{String.t() => any()}
+  @type list_backups_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_contributor_insights_input() :: %{
-        optional("IndexName") => String.t(),
+        optional("IndexName") => String.t() | Atom.t(),
         required("ContributorInsightsAction") => list(any()),
-        required("TableName") => String.t()
+        required("TableName") => String.t() | Atom.t()
       }
       
   """
-  @type update_contributor_insights_input() :: %{String.t() => any()}
+  @type update_contributor_insights_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3283,30 +3288,30 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type describe_table_replica_auto_scaling_output() :: %{String.t() => any()}
+  @type describe_table_replica_auto_scaling_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       export_conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type export_conflict_exception() :: %{String.t() => any()}
+  @type export_conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_time_to_live_input() :: %{
-        required("TableName") => String.t(),
+        required("TableName") => String.t() | Atom.t(),
         required("TimeToLiveSpecification") => time_to_live_specification()
       }
       
   """
-  @type update_time_to_live_input() :: %{String.t() => any()}
+  @type update_time_to_live_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3315,12 +3320,12 @@ defmodule AWS.DynamoDB do
       get() :: %{
         "ExpressionAttributeNames" => map(),
         "Key" => map(),
-        "ProjectionExpression" => String.t(),
-        "TableName" => String.t()
+        "ProjectionExpression" => String.t() | Atom.t(),
+        "TableName" => String.t() | Atom.t()
       }
       
   """
-  @type get() :: %{String.t() => any()}
+  @type get() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3331,7 +3336,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type export_table_to_point_in_time_output() :: %{String.t() => any()}
+  @type export_table_to_point_in_time_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3339,34 +3344,34 @@ defmodule AWS.DynamoDB do
       
       update_kinesis_streaming_destination_input() :: %{
         optional("UpdateKinesisStreamingConfiguration") => update_kinesis_streaming_configuration(),
-        required("StreamArn") => String.t(),
-        required("TableName") => String.t()
+        required("StreamArn") => String.t() | Atom.t(),
+        required("TableName") => String.t() | Atom.t()
       }
       
   """
-  @type update_kinesis_streaming_destination_input() :: %{String.t() => any()}
+  @type update_kinesis_streaming_destination_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       export_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type export_not_found_exception() :: %{String.t() => any()}
+  @type export_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_global_secondary_index_action() :: %{
-        "IndexName" => String.t()
+        "IndexName" => String.t() | Atom.t()
       }
       
   """
-  @type delete_global_secondary_index_action() :: %{String.t() => any()}
+  @type delete_global_secondary_index_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3377,7 +3382,7 @@ defmodule AWS.DynamoDB do
       }
       
   """
-  @type provisioned_throughput_override() :: %{String.t() => any()}
+  @type provisioned_throughput_override() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3385,12 +3390,12 @@ defmodule AWS.DynamoDB do
       
       table_auto_scaling_description() :: %{
         "Replicas" => list(replica_auto_scaling_description()),
-        "TableName" => String.t(),
+        "TableName" => String.t() | Atom.t(),
         "TableStatus" => list(any())
       }
       
   """
-  @type table_auto_scaling_description() :: %{String.t() => any()}
+  @type table_auto_scaling_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3398,38 +3403,38 @@ defmodule AWS.DynamoDB do
       
       list_imports_output() :: %{
         "ImportSummaryList" => list(import_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_imports_output() :: %{String.t() => any()}
+  @type list_imports_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       table_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type table_not_found_exception() :: %{String.t() => any()}
+  @type table_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       condition_check() :: %{
-        "ConditionExpression" => String.t(),
+        "ConditionExpression" => String.t() | Atom.t(),
         "ExpressionAttributeNames" => map(),
         "ExpressionAttributeValues" => map(),
         "Key" => map(),
         "ReturnValuesOnConditionCheckFailure" => list(any()),
-        "TableName" => String.t()
+        "TableName" => String.t() | Atom.t()
       }
       
   """
-  @type condition_check() :: %{String.t() => any()}
+  @type condition_check() :: %{String.t() | Atom.t() => any()}
 
   @type batch_execute_statement_errors() :: request_limit_exceeded() | internal_server_error()
 

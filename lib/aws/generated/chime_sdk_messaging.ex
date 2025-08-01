@@ -25,7 +25,7 @@ defmodule AWS.ChimeSDKMessaging do
       }
 
   """
-  @type get_messaging_streaming_configurations_response() :: %{String.t() => any()}
+  @type get_messaging_streaming_configurations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -33,12 +33,12 @@ defmodule AWS.ChimeSDKMessaging do
 
       list_channel_flows_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("AppInstanceArn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("AppInstanceArn") => String.t() | Atom.t()
       }
 
   """
-  @type list_channel_flows_request() :: %{String.t() => any()}
+  @type list_channel_flows_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -46,36 +46,39 @@ defmodule AWS.ChimeSDKMessaging do
 
       streaming_configuration() :: %{
         "DataType" => list(any()),
-        "ResourceArn" => String.t()
+        "ResourceArn" => String.t() | Atom.t()
       }
 
   """
-  @type streaming_configuration() :: %{String.t() => any()}
+  @type streaming_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_channel_memberships_for_app_instance_user_request() :: %{
-        optional("AppInstanceUserArn") => String.t(),
+        optional("AppInstanceUserArn") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ChimeBearer") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ChimeBearer") => String.t() | Atom.t()
       }
 
   """
-  @type list_channel_memberships_for_app_instance_user_request() :: %{String.t() => any()}
+  @type list_channel_memberships_for_app_instance_user_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       delete_channel_request() :: %{
-        required("ChimeBearer") => String.t()
+        required("ChimeBearer") => String.t() | Atom.t()
       }
 
   """
-  @type delete_channel_request() :: %{String.t() => any()}
+  @type delete_channel_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -83,11 +86,11 @@ defmodule AWS.ChimeSDKMessaging do
 
       sub_channel_summary() :: %{
         "MembershipCount" => integer(),
-        "SubChannelId" => String.t()
+        "SubChannelId" => String.t() | Atom.t()
       }
 
   """
-  @type sub_channel_summary() :: %{String.t() => any()}
+  @type sub_channel_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -95,24 +98,27 @@ defmodule AWS.ChimeSDKMessaging do
 
       list_channel_bans_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ChimeBearer") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ChimeBearer") => String.t() | Atom.t()
       }
 
   """
-  @type list_channel_bans_request() :: %{String.t() => any()}
+  @type list_channel_bans_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_channel_moderated_by_app_instance_user_request() :: %{
-        required("AppInstanceUserArn") => String.t(),
-        required("ChimeBearer") => String.t()
+        required("AppInstanceUserArn") => String.t() | Atom.t(),
+        required("ChimeBearer") => String.t() | Atom.t()
       }
 
   """
-  @type describe_channel_moderated_by_app_instance_user_request() :: %{String.t() => any()}
+  @type describe_channel_moderated_by_app_instance_user_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -123,66 +129,66 @@ defmodule AWS.ChimeSDKMessaging do
       }
 
   """
-  @type describe_channel_moderator_response() :: %{String.t() => any()}
+  @type describe_channel_moderator_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
+        required("ResourceARN") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       redact_channel_message_response() :: %{
-        "ChannelArn" => String.t(),
-        "MessageId" => String.t(),
-        "SubChannelId" => String.t()
+        "ChannelArn" => String.t() | Atom.t(),
+        "MessageId" => String.t() | Atom.t(),
+        "SubChannelId" => String.t() | Atom.t()
       }
 
   """
-  @type redact_channel_message_response() :: %{String.t() => any()}
+  @type redact_channel_message_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_channel_moderator_response() :: %{
-        "ChannelArn" => String.t(),
+        "ChannelArn" => String.t() | Atom.t(),
         "ChannelModerator" => identity()
       }
 
   """
-  @type create_channel_moderator_response() :: %{String.t() => any()}
+  @type create_channel_moderator_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_channel_moderator_request() :: %{
-        required("ChimeBearer") => String.t()
+        required("ChimeBearer") => String.t() | Atom.t()
       }
 
   """
-  @type delete_channel_moderator_request() :: %{String.t() => any()}
+  @type delete_channel_moderator_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_channel_response() :: %{
-        "ChannelArn" => String.t()
+        "ChannelArn" => String.t() | Atom.t()
       }
 
   """
-  @type create_channel_response() :: %{String.t() => any()}
+  @type create_channel_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -194,7 +200,7 @@ defmodule AWS.ChimeSDKMessaging do
       }
 
   """
-  @type channel_membership_for_app_instance_user_summary() :: %{String.t() => any()}
+  @type channel_membership_for_app_instance_user_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -202,11 +208,11 @@ defmodule AWS.ChimeSDKMessaging do
 
       list_channel_flows_response() :: %{
         "ChannelFlows" => list(channel_flow_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_channel_flows_response() :: %{String.t() => any()}
+  @type list_channel_flows_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -217,21 +223,21 @@ defmodule AWS.ChimeSDKMessaging do
       }
 
   """
-  @type describe_channel_flow_response() :: %{String.t() => any()}
+  @type describe_channel_flow_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_channel_messages_response() :: %{
-        "ChannelArn" => String.t(),
+        "ChannelArn" => String.t() | Atom.t(),
         "ChannelMessages" => list(channel_message_summary()),
-        "NextToken" => String.t(),
-        "SubChannelId" => String.t()
+        "NextToken" => String.t() | Atom.t(),
+        "SubChannelId" => String.t() | Atom.t()
       }
 
   """
-  @type list_channel_messages_response() :: %{String.t() => any()}
+  @type list_channel_messages_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -243,19 +249,19 @@ defmodule AWS.ChimeSDKMessaging do
       }
 
   """
-  @type batch_create_channel_membership_response() :: %{String.t() => any()}
+  @type batch_create_channel_membership_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_channel_expiration_settings_response() :: %{
-        "ChannelArn" => String.t(),
+        "ChannelArn" => String.t() | Atom.t(),
         "ExpirationSettings" => expiration_settings()
       }
 
   """
-  @type put_channel_expiration_settings_response() :: %{String.t() => any()}
+  @type put_channel_expiration_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -263,23 +269,23 @@ defmodule AWS.ChimeSDKMessaging do
 
       service_failure_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type service_failure_exception() :: %{String.t() => any()}
+  @type service_failure_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       identity() :: %{
-        "Arn" => String.t(),
-        "Name" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type identity() :: %{String.t() => any()}
+  @type identity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -287,22 +293,22 @@ defmodule AWS.ChimeSDKMessaging do
 
       forbidden_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type forbidden_exception() :: %{String.t() => any()}
+  @type forbidden_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_channel_flow_response() :: %{
-        "ChannelFlowArn" => String.t()
+        "ChannelFlowArn" => String.t() | Atom.t()
       }
 
   """
-  @type update_channel_flow_response() :: %{String.t() => any()}
+  @type update_channel_flow_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -313,35 +319,38 @@ defmodule AWS.ChimeSDKMessaging do
       }
 
   """
-  @type describe_channel_moderated_by_app_instance_user_response() :: %{String.t() => any()}
+  @type describe_channel_moderated_by_app_instance_user_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       channel_membership() :: %{
-        "ChannelArn" => String.t(),
+        "ChannelArn" => String.t() | Atom.t(),
         "CreatedTimestamp" => non_neg_integer(),
         "InvitedBy" => identity(),
         "LastUpdatedTimestamp" => non_neg_integer(),
         "Member" => identity(),
-        "SubChannelId" => String.t(),
+        "SubChannelId" => String.t() | Atom.t(),
         "Type" => list(any())
       }
 
   """
-  @type channel_membership() :: %{String.t() => any()}
+  @type channel_membership() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       message_attribute_value() :: %{
-        "StringValues" => list(String.t())
+        "StringValues" => list(String.t() | Atom.t())
       }
 
   """
-  @type message_attribute_value() :: %{String.t() => any()}
+  @type message_attribute_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -349,64 +358,64 @@ defmodule AWS.ChimeSDKMessaging do
 
       unauthorized_client_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type unauthorized_client_exception() :: %{String.t() => any()}
+  @type unauthorized_client_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       redact_channel_message_request() :: %{
-        optional("SubChannelId") => String.t(),
-        required("ChimeBearer") => String.t()
+        optional("SubChannelId") => String.t() | Atom.t(),
+        required("ChimeBearer") => String.t() | Atom.t()
       }
 
   """
-  @type redact_channel_message_request() :: %{String.t() => any()}
+  @type redact_channel_message_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       search_channels_request() :: %{
-        optional("ChimeBearer") => String.t(),
+        optional("ChimeBearer") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         required("Fields") => list(search_field())
       }
 
   """
-  @type search_channels_request() :: %{String.t() => any()}
+  @type search_channels_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_channel_message_request() :: %{
-        optional("ContentType") => String.t(),
-        optional("Metadata") => String.t(),
-        optional("SubChannelId") => String.t(),
-        required("ChimeBearer") => String.t(),
-        required("Content") => String.t()
+        optional("ContentType") => String.t() | Atom.t(),
+        optional("Metadata") => String.t() | Atom.t(),
+        optional("SubChannelId") => String.t() | Atom.t(),
+        required("ChimeBearer") => String.t() | Atom.t(),
+        required("Content") => String.t() | Atom.t()
       }
 
   """
-  @type update_channel_message_request() :: %{String.t() => any()}
+  @type update_channel_message_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_channel_moderator_request() :: %{
-        required("ChannelModeratorArn") => String.t(),
-        required("ChimeBearer") => String.t()
+        required("ChannelModeratorArn") => String.t() | Atom.t(),
+        required("ChimeBearer") => String.t() | Atom.t()
       }
 
   """
-  @type create_channel_moderator_request() :: %{String.t() => any()}
+  @type create_channel_moderator_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -414,11 +423,11 @@ defmodule AWS.ChimeSDKMessaging do
 
       throttled_client_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type throttled_client_exception() :: %{String.t() => any()}
+  @type throttled_client_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -426,11 +435,11 @@ defmodule AWS.ChimeSDKMessaging do
 
       list_channels_associated_with_channel_flow_response() :: %{
         "Channels" => list(channel_associated_with_flow_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_channels_associated_with_channel_flow_response() :: %{String.t() => any()}
+  @type list_channels_associated_with_channel_flow_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -441,19 +450,19 @@ defmodule AWS.ChimeSDKMessaging do
       }
 
   """
-  @type describe_channel_membership_response() :: %{String.t() => any()}
+  @type describe_channel_membership_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_channel_ban_request() :: %{
-        required("ChimeBearer") => String.t(),
-        required("MemberArn") => String.t()
+        required("ChimeBearer") => String.t() | Atom.t(),
+        required("MemberArn") => String.t() | Atom.t()
       }
 
   """
-  @type create_channel_ban_request() :: %{String.t() => any()}
+  @type create_channel_ban_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -470,26 +479,26 @@ defmodule AWS.ChimeSDKMessaging do
 
       app_instance_user_membership_summary() :: %{
         "ReadMarkerTimestamp" => non_neg_integer(),
-        "SubChannelId" => String.t(),
+        "SubChannelId" => String.t() | Atom.t(),
         "Type" => list(any())
       }
 
   """
-  @type app_instance_user_membership_summary() :: %{String.t() => any()}
+  @type app_instance_user_membership_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       send_channel_message_response() :: %{
-        "ChannelArn" => String.t(),
-        "MessageId" => String.t(),
+        "ChannelArn" => String.t() | Atom.t(),
+        "MessageId" => String.t() | Atom.t(),
         "Status" => channel_message_status_structure(),
-        "SubChannelId" => String.t()
+        "SubChannelId" => String.t() | Atom.t()
       }
 
   """
-  @type send_channel_message_response() :: %{String.t() => any()}
+  @type send_channel_message_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -499,11 +508,11 @@ defmodule AWS.ChimeSDKMessaging do
         "Configuration" => processor_configuration(),
         "ExecutionOrder" => integer(),
         "FallbackAction" => list(any()),
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type processor() :: %{String.t() => any()}
+  @type processor() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -515,60 +524,60 @@ defmodule AWS.ChimeSDKMessaging do
       }
 
   """
-  @type expiration_settings() :: %{String.t() => any()}
+  @type expiration_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceARN") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       channel_message_callback() :: %{
-        "Content" => String.t(),
-        "ContentType" => String.t(),
+        "Content" => String.t() | Atom.t(),
+        "ContentType" => String.t() | Atom.t(),
         "MessageAttributes" => map(),
-        "MessageId" => String.t(),
-        "Metadata" => String.t(),
+        "MessageId" => String.t() | Atom.t(),
+        "Metadata" => String.t() | Atom.t(),
         "PushNotification" => push_notification_configuration(),
-        "SubChannelId" => String.t()
+        "SubChannelId" => String.t() | Atom.t()
       }
 
   """
-  @type channel_message_callback() :: %{String.t() => any()}
+  @type channel_message_callback() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_sub_channels_response() :: %{
-        "ChannelArn" => String.t(),
-        "NextToken" => String.t(),
+        "ChannelArn" => String.t() | Atom.t(),
+        "NextToken" => String.t() | Atom.t(),
         "SubChannels" => list(sub_channel_summary())
       }
 
   """
-  @type list_sub_channels_response() :: %{String.t() => any()}
+  @type list_sub_channels_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_channel_membership_preferences_request() :: %{
-        required("ChimeBearer") => String.t()
+        required("ChimeBearer") => String.t() | Atom.t()
       }
 
   """
-  @type get_channel_membership_preferences_request() :: %{String.t() => any()}
+  @type get_channel_membership_preferences_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -576,90 +585,96 @@ defmodule AWS.ChimeSDKMessaging do
 
       list_channels_moderated_by_app_instance_user_response() :: %{
         "Channels" => list(channel_moderated_by_app_instance_user_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_channels_moderated_by_app_instance_user_response() :: %{String.t() => any()}
+  @type list_channels_moderated_by_app_instance_user_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       put_channel_membership_preferences_request() :: %{
-        required("ChimeBearer") => String.t(),
+        required("ChimeBearer") => String.t() | Atom.t(),
         required("Preferences") => channel_membership_preferences()
       }
 
   """
-  @type put_channel_membership_preferences_request() :: %{String.t() => any()}
+  @type put_channel_membership_preferences_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_channels_moderated_by_app_instance_user_request() :: %{
-        optional("AppInstanceUserArn") => String.t(),
+        optional("AppInstanceUserArn") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ChimeBearer") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ChimeBearer") => String.t() | Atom.t()
       }
 
   """
-  @type list_channels_moderated_by_app_instance_user_request() :: %{String.t() => any()}
+  @type list_channels_moderated_by_app_instance_user_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       target() :: %{
-        "MemberArn" => String.t()
+        "MemberArn" => String.t() | Atom.t()
       }
 
   """
-  @type target() :: %{String.t() => any()}
+  @type target() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_channel_moderator_request() :: %{
-        required("ChimeBearer") => String.t()
+        required("ChimeBearer") => String.t() | Atom.t()
       }
 
   """
-  @type describe_channel_moderator_request() :: %{String.t() => any()}
+  @type describe_channel_moderator_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       channel_flow() :: %{
-        "ChannelFlowArn" => String.t(),
+        "ChannelFlowArn" => String.t() | Atom.t(),
         "CreatedTimestamp" => non_neg_integer(),
         "LastUpdatedTimestamp" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Processors" => list(processor())
       }
 
   """
-  @type channel_flow() :: %{String.t() => any()}
+  @type channel_flow() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       channel_summary() :: %{
-        "ChannelArn" => String.t(),
+        "ChannelArn" => String.t() | Atom.t(),
         "LastMessageTimestamp" => non_neg_integer(),
-        "Metadata" => String.t(),
+        "Metadata" => String.t() | Atom.t(),
         "Mode" => list(any()),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Privacy" => list(any())
       }
 
   """
-  @type channel_summary() :: %{String.t() => any()}
+  @type channel_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -667,12 +682,12 @@ defmodule AWS.ChimeSDKMessaging do
 
       channel_flow_callback_request() :: %{
         optional("DeleteResource") => boolean(),
-        required("CallbackId") => String.t(),
+        required("CallbackId") => String.t() | Atom.t(),
         required("ChannelMessage") => channel_message_callback()
       }
 
   """
-  @type channel_flow_callback_request() :: %{String.t() => any()}
+  @type channel_flow_callback_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -683,7 +698,7 @@ defmodule AWS.ChimeSDKMessaging do
       }
 
   """
-  @type get_channel_message_response() :: %{String.t() => any()}
+  @type get_channel_message_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -691,23 +706,23 @@ defmodule AWS.ChimeSDKMessaging do
 
       conflict_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_channel_membership_request() :: %{
-        optional("SubChannelId") => String.t(),
-        required("ChimeBearer") => String.t()
+        optional("SubChannelId") => String.t() | Atom.t(),
+        required("ChimeBearer") => String.t() | Atom.t()
       }
 
   """
-  @type describe_channel_membership_request() :: %{String.t() => any()}
+  @type describe_channel_membership_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -718,42 +733,42 @@ defmodule AWS.ChimeSDKMessaging do
       }
 
   """
-  @type put_messaging_streaming_configurations_response() :: %{String.t() => any()}
+  @type put_messaging_streaming_configurations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_channel_flow_request() :: %{
-        required("Name") => String.t(),
+        required("Name") => String.t() | Atom.t(),
         required("Processors") => list(processor())
       }
 
   """
-  @type update_channel_flow_request() :: %{String.t() => any()}
+  @type update_channel_flow_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_channel_flow_request() :: %{
-        required("ChimeBearer") => String.t()
+        required("ChimeBearer") => String.t() | Atom.t()
       }
 
   """
-  @type disassociate_channel_flow_request() :: %{String.t() => any()}
+  @type disassociate_channel_flow_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -764,7 +779,7 @@ defmodule AWS.ChimeSDKMessaging do
       }
 
   """
-  @type channel_membership_preferences() :: %{String.t() => any()}
+  @type channel_membership_preferences() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -775,7 +790,7 @@ defmodule AWS.ChimeSDKMessaging do
       }
 
   """
-  @type channel_ban_summary() :: %{String.t() => any()}
+  @type channel_ban_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -786,18 +801,18 @@ defmodule AWS.ChimeSDKMessaging do
       }
 
   """
-  @type describe_channel_response() :: %{String.t() => any()}
+  @type describe_channel_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_channel_ban_request() :: %{
-        required("ChimeBearer") => String.t()
+        required("ChimeBearer") => String.t() | Atom.t()
       }
 
   """
-  @type delete_channel_ban_request() :: %{String.t() => any()}
+  @type delete_channel_ban_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -805,24 +820,24 @@ defmodule AWS.ChimeSDKMessaging do
 
       resource_limit_exceeded_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_limit_exceeded_exception() :: %{String.t() => any()}
+  @type resource_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_channel_bans_response() :: %{
-        "ChannelArn" => String.t(),
+        "ChannelArn" => String.t() | Atom.t(),
         "ChannelBans" => list(channel_ban_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_channel_bans_response() :: %{String.t() => any()}
+  @type list_channel_bans_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -830,22 +845,22 @@ defmodule AWS.ChimeSDKMessaging do
 
       not_found_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type not_found_exception() :: %{String.t() => any()}
+  @type not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_channel_request() :: %{
-        required("ChimeBearer") => String.t()
+        required("ChimeBearer") => String.t() | Atom.t()
       }
 
   """
-  @type describe_channel_request() :: %{String.t() => any()}
+  @type describe_channel_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -853,14 +868,14 @@ defmodule AWS.ChimeSDKMessaging do
 
       list_channel_memberships_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("SubChannelId") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("SubChannelId") => String.t() | Atom.t(),
         optional("Type") => list(any()),
-        required("ChimeBearer") => String.t()
+        required("ChimeBearer") => String.t() | Atom.t()
       }
 
   """
-  @type list_channel_memberships_request() :: %{String.t() => any()}
+  @type list_channel_memberships_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -871,30 +886,30 @@ defmodule AWS.ChimeSDKMessaging do
       }
 
   """
-  @type channel_membership_summary() :: %{String.t() => any()}
+  @type channel_membership_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_channel_request() :: %{
-        optional("ChannelId") => String.t(),
+        optional("ChannelId") => String.t() | Atom.t(),
         optional("ElasticChannelConfiguration") => elastic_channel_configuration(),
         optional("ExpirationSettings") => expiration_settings(),
-        optional("MemberArns") => list(String.t()),
-        optional("Metadata") => String.t(),
+        optional("MemberArns") => list(String.t() | Atom.t()),
+        optional("Metadata") => String.t() | Atom.t(),
         optional("Mode") => list(any()),
-        optional("ModeratorArns") => list(String.t()),
+        optional("ModeratorArns") => list(String.t() | Atom.t()),
         optional("Privacy") => list(any()),
         optional("Tags") => list(tag()),
-        required("AppInstanceArn") => String.t(),
-        required("ChimeBearer") => String.t(),
-        required("ClientRequestToken") => String.t(),
-        required("Name") => String.t()
+        required("AppInstanceArn") => String.t() | Atom.t(),
+        required("ChimeBearer") => String.t() | Atom.t(),
+        required("ClientRequestToken") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t()
       }
 
   """
-  @type create_channel_request() :: %{String.t() => any()}
+  @type create_channel_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -914,7 +929,7 @@ defmodule AWS.ChimeSDKMessaging do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -925,7 +940,7 @@ defmodule AWS.ChimeSDKMessaging do
       }
 
   """
-  @type put_messaging_streaming_configurations_request() :: %{String.t() => any()}
+  @type put_messaging_streaming_configurations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -933,11 +948,11 @@ defmodule AWS.ChimeSDKMessaging do
 
       service_unavailable_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type service_unavailable_exception() :: %{String.t() => any()}
+  @type service_unavailable_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -945,11 +960,14 @@ defmodule AWS.ChimeSDKMessaging do
 
       list_channel_memberships_for_app_instance_user_response() :: %{
         "ChannelMemberships" => list(channel_membership_for_app_instance_user_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_channel_memberships_for_app_instance_user_response() :: %{String.t() => any()}
+  @type list_channel_memberships_for_app_instance_user_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -957,25 +975,25 @@ defmodule AWS.ChimeSDKMessaging do
 
       list_channels_response() :: %{
         "Channels" => list(channel_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_channels_response() :: %{String.t() => any()}
+  @type list_channels_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_channel_membership_request() :: %{
-        optional("SubChannelId") => String.t(),
-        required("ChimeBearer") => String.t(),
-        required("MemberArn") => String.t(),
+        optional("SubChannelId") => String.t() | Atom.t(),
+        required("ChimeBearer") => String.t() | Atom.t(),
+        required("MemberArn") => String.t() | Atom.t(),
         required("Type") => list(any())
       }
 
   """
-  @type create_channel_membership_request() :: %{String.t() => any()}
+  @type create_channel_membership_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -983,11 +1001,11 @@ defmodule AWS.ChimeSDKMessaging do
 
       push_notification_preferences() :: %{
         "AllowNotifications" => list(any()),
-        "FilterRule" => String.t()
+        "FilterRule" => String.t() | Atom.t()
       }
 
   """
-  @type push_notification_preferences() :: %{String.t() => any()}
+  @type push_notification_preferences() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -998,34 +1016,34 @@ defmodule AWS.ChimeSDKMessaging do
       }
 
   """
-  @type get_messaging_session_endpoint_response() :: %{String.t() => any()}
+  @type get_messaging_session_endpoint_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_channel_request() :: %{
-        optional("Metadata") => String.t(),
+        optional("Metadata") => String.t() | Atom.t(),
         optional("Mode") => list(any()),
-        optional("Name") => String.t(),
-        required("ChimeBearer") => String.t()
+        optional("Name") => String.t() | Atom.t(),
+        required("ChimeBearer") => String.t() | Atom.t()
       }
 
   """
-  @type update_channel_request() :: %{String.t() => any()}
+  @type update_channel_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_channel_membership_preferences_response() :: %{
-        "ChannelArn" => String.t(),
+        "ChannelArn" => String.t() | Atom.t(),
         "Member" => identity(),
         "Preferences" => channel_membership_preferences()
       }
 
   """
-  @type put_channel_membership_preferences_response() :: %{String.t() => any()}
+  @type put_channel_membership_preferences_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1033,25 +1051,25 @@ defmodule AWS.ChimeSDKMessaging do
 
       create_channel_flow_request() :: %{
         optional("Tags") => list(tag()),
-        required("AppInstanceArn") => String.t(),
-        required("ClientRequestToken") => String.t(),
-        required("Name") => String.t(),
+        required("AppInstanceArn") => String.t() | Atom.t(),
+        required("ClientRequestToken") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t(),
         required("Processors") => list(processor())
       }
 
   """
-  @type create_channel_flow_request() :: %{String.t() => any()}
+  @type create_channel_flow_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_channel_read_marker_request() :: %{
-        required("ChimeBearer") => String.t()
+        required("ChimeBearer") => String.t() | Atom.t()
       }
 
   """
-  @type update_channel_read_marker_request() :: %{String.t() => any()}
+  @type update_channel_read_marker_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1062,85 +1080,85 @@ defmodule AWS.ChimeSDKMessaging do
       }
 
   """
-  @type channel_moderated_by_app_instance_user_summary() :: %{String.t() => any()}
+  @type channel_moderated_by_app_instance_user_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       channel_message() :: %{
-        "ChannelArn" => String.t(),
-        "Content" => String.t(),
-        "ContentType" => String.t(),
+        "ChannelArn" => String.t() | Atom.t(),
+        "Content" => String.t() | Atom.t(),
+        "ContentType" => String.t() | Atom.t(),
         "CreatedTimestamp" => non_neg_integer(),
         "LastEditedTimestamp" => non_neg_integer(),
         "LastUpdatedTimestamp" => non_neg_integer(),
         "MessageAttributes" => map(),
-        "MessageId" => String.t(),
-        "Metadata" => String.t(),
+        "MessageId" => String.t() | Atom.t(),
+        "Metadata" => String.t() | Atom.t(),
         "Persistence" => list(any()),
         "Redacted" => boolean(),
         "Sender" => identity(),
         "Status" => channel_message_status_structure(),
-        "SubChannelId" => String.t(),
+        "SubChannelId" => String.t() | Atom.t(),
         "Target" => list(target()),
         "Type" => list(any())
       }
 
   """
-  @type channel_message() :: %{String.t() => any()}
+  @type channel_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       messaging_session_endpoint() :: %{
-        "Url" => String.t()
+        "Url" => String.t() | Atom.t()
       }
 
   """
-  @type messaging_session_endpoint() :: %{String.t() => any()}
+  @type messaging_session_endpoint() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_channel_message_response() :: %{
-        "ChannelArn" => String.t(),
-        "MessageId" => String.t(),
+        "ChannelArn" => String.t() | Atom.t(),
+        "MessageId" => String.t() | Atom.t(),
         "Status" => channel_message_status_structure(),
-        "SubChannelId" => String.t()
+        "SubChannelId" => String.t() | Atom.t()
       }
 
   """
-  @type update_channel_message_response() :: %{String.t() => any()}
+  @type update_channel_message_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       channel_associated_with_flow_summary() :: %{
-        "ChannelArn" => String.t(),
-        "Metadata" => String.t(),
+        "ChannelArn" => String.t() | Atom.t(),
+        "Metadata" => String.t() | Atom.t(),
         "Mode" => list(any()),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Privacy" => list(any())
       }
 
   """
-  @type channel_associated_with_flow_summary() :: %{String.t() => any()}
+  @type channel_associated_with_flow_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_channel_message_request() :: %{
-        optional("SubChannelId") => String.t(),
-        required("ChimeBearer") => String.t()
+        optional("SubChannelId") => String.t() | Atom.t(),
+        required("ChimeBearer") => String.t() | Atom.t()
       }
 
   """
-  @type delete_channel_message_request() :: %{String.t() => any()}
+  @type delete_channel_message_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1149,11 +1167,11 @@ defmodule AWS.ChimeSDKMessaging do
       search_field() :: %{
         "Key" => list(any()),
         "Operator" => list(any()),
-        "Values" => list(String.t())
+        "Values" => list(String.t() | Atom.t())
       }
 
   """
-  @type search_field() :: %{String.t() => any()}
+  @type search_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1170,12 +1188,12 @@ defmodule AWS.ChimeSDKMessaging do
 
       list_channel_moderators_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ChimeBearer") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ChimeBearer") => String.t() | Atom.t()
       }
 
   """
-  @type list_channel_moderators_request() :: %{String.t() => any()}
+  @type list_channel_moderators_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1183,11 +1201,11 @@ defmodule AWS.ChimeSDKMessaging do
 
       lambda_configuration() :: %{
         "InvocationType" => list(any()),
-        "ResourceArn" => String.t()
+        "ResourceArn" => String.t() | Atom.t()
       }
 
   """
-  @type lambda_configuration() :: %{String.t() => any()}
+  @type lambda_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1195,50 +1213,53 @@ defmodule AWS.ChimeSDKMessaging do
 
       list_channels_associated_with_channel_flow_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ChannelFlowArn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ChannelFlowArn") => String.t() | Atom.t()
       }
 
   """
-  @type list_channels_associated_with_channel_flow_request() :: %{String.t() => any()}
+  @type list_channels_associated_with_channel_flow_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_create_channel_membership_request() :: %{
-        optional("SubChannelId") => String.t(),
+        optional("SubChannelId") => String.t() | Atom.t(),
         optional("Type") => list(any()),
-        required("ChimeBearer") => String.t(),
-        required("MemberArns") => list(String.t())
+        required("ChimeBearer") => String.t() | Atom.t(),
+        required("MemberArns") => list(String.t() | Atom.t())
       }
 
   """
-  @type batch_create_channel_membership_request() :: %{String.t() => any()}
+  @type batch_create_channel_membership_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_channel_membership_for_app_instance_user_request() :: %{
-        required("AppInstanceUserArn") => String.t(),
-        required("ChimeBearer") => String.t()
+        required("AppInstanceUserArn") => String.t() | Atom.t(),
+        required("ChimeBearer") => String.t() | Atom.t()
       }
 
   """
-  @type describe_channel_membership_for_app_instance_user_request() :: %{String.t() => any()}
+  @type describe_channel_membership_for_app_instance_user_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       delete_channel_membership_request() :: %{
-        optional("SubChannelId") => String.t(),
-        required("ChimeBearer") => String.t()
+        optional("SubChannelId") => String.t() | Atom.t(),
+        required("ChimeBearer") => String.t() | Atom.t()
       }
 
   """
-  @type delete_channel_membership_request() :: %{String.t() => any()}
+  @type delete_channel_membership_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1246,48 +1267,48 @@ defmodule AWS.ChimeSDKMessaging do
 
       list_channel_messages_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("NotAfter") => non_neg_integer(),
         optional("NotBefore") => non_neg_integer(),
         optional("SortOrder") => list(any()),
-        optional("SubChannelId") => String.t(),
-        required("ChimeBearer") => String.t()
+        optional("SubChannelId") => String.t() | Atom.t(),
+        required("ChimeBearer") => String.t() | Atom.t()
       }
 
   """
-  @type list_channel_messages_request() :: %{String.t() => any()}
+  @type list_channel_messages_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       send_channel_message_request() :: %{
-        optional("ContentType") => String.t(),
+        optional("ContentType") => String.t() | Atom.t(),
         optional("MessageAttributes") => map(),
-        optional("Metadata") => String.t(),
+        optional("Metadata") => String.t() | Atom.t(),
         optional("PushNotification") => push_notification_configuration(),
-        optional("SubChannelId") => String.t(),
+        optional("SubChannelId") => String.t() | Atom.t(),
         optional("Target") => list(target()),
-        required("ChimeBearer") => String.t(),
-        required("ClientRequestToken") => String.t(),
-        required("Content") => String.t(),
+        required("ChimeBearer") => String.t() | Atom.t(),
+        required("ClientRequestToken") => String.t() | Atom.t(),
+        required("Content") => String.t() | Atom.t(),
         required("Persistence") => list(any()),
         required("Type") => list(any())
       }
 
   """
-  @type send_channel_message_request() :: %{String.t() => any()}
+  @type send_channel_message_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t()
+        required("ResourceARN") => String.t() | Atom.t()
       }
 
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1307,7 +1328,7 @@ defmodule AWS.ChimeSDKMessaging do
       }
 
   """
-  @type get_channel_message_status_response() :: %{String.t() => any()}
+  @type get_channel_message_status_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1318,32 +1339,32 @@ defmodule AWS.ChimeSDKMessaging do
       }
 
   """
-  @type processor_configuration() :: %{String.t() => any()}
+  @type processor_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_channel_moderators_response() :: %{
-        "ChannelArn" => String.t(),
+        "ChannelArn" => String.t() | Atom.t(),
         "ChannelModerators" => list(channel_moderator_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_channel_moderators_response() :: %{String.t() => any()}
+  @type list_channel_moderators_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_channel_message_request() :: %{
-        optional("SubChannelId") => String.t(),
-        required("ChimeBearer") => String.t()
+        optional("SubChannelId") => String.t() | Atom.t(),
+        required("ChimeBearer") => String.t() | Atom.t()
       }
 
   """
-  @type get_channel_message_request() :: %{String.t() => any()}
+  @type get_channel_message_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1354,18 +1375,18 @@ defmodule AWS.ChimeSDKMessaging do
       }
 
   """
-  @type describe_channel_ban_response() :: %{String.t() => any()}
+  @type describe_channel_ban_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_channel_flow_response() :: %{
-        "ChannelFlowArn" => String.t()
+        "ChannelFlowArn" => String.t() | Atom.t()
       }
 
   """
-  @type create_channel_flow_response() :: %{String.t() => any()}
+  @type create_channel_flow_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1373,136 +1394,136 @@ defmodule AWS.ChimeSDKMessaging do
 
       list_sub_channels_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ChimeBearer") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ChimeBearer") => String.t() | Atom.t()
       }
 
   """
-  @type list_sub_channels_request() :: %{String.t() => any()}
+  @type list_sub_channels_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       channel_ban() :: %{
-        "ChannelArn" => String.t(),
+        "ChannelArn" => String.t() | Atom.t(),
         "CreatedBy" => identity(),
         "CreatedTimestamp" => non_neg_integer(),
         "Member" => identity()
       }
 
   """
-  @type channel_ban() :: %{String.t() => any()}
+  @type channel_ban() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       push_notification_configuration() :: %{
-        "Body" => String.t(),
-        "Title" => String.t(),
+        "Body" => String.t() | Atom.t(),
+        "Title" => String.t() | Atom.t(),
         "Type" => list(any())
       }
 
   """
-  @type push_notification_configuration() :: %{String.t() => any()}
+  @type push_notification_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_channel_flow_request() :: %{
-        required("ChannelFlowArn") => String.t(),
-        required("ChimeBearer") => String.t()
+        required("ChannelFlowArn") => String.t() | Atom.t(),
+        required("ChimeBearer") => String.t() | Atom.t()
       }
 
   """
-  @type associate_channel_flow_request() :: %{String.t() => any()}
+  @type associate_channel_flow_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       channel() :: %{
-        "ChannelArn" => String.t(),
-        "ChannelFlowArn" => String.t(),
+        "ChannelArn" => String.t() | Atom.t(),
+        "ChannelFlowArn" => String.t() | Atom.t(),
         "CreatedBy" => identity(),
         "CreatedTimestamp" => non_neg_integer(),
         "ElasticChannelConfiguration" => elastic_channel_configuration(),
         "ExpirationSettings" => expiration_settings(),
         "LastMessageTimestamp" => non_neg_integer(),
         "LastUpdatedTimestamp" => non_neg_integer(),
-        "Metadata" => String.t(),
+        "Metadata" => String.t() | Atom.t(),
         "Mode" => list(any()),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Privacy" => list(any())
       }
 
   """
-  @type channel() :: %{String.t() => any()}
+  @type channel() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_channel_memberships_response() :: %{
-        "ChannelArn" => String.t(),
+        "ChannelArn" => String.t() | Atom.t(),
         "ChannelMemberships" => list(channel_membership_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_channel_memberships_response() :: %{String.t() => any()}
+  @type list_channel_memberships_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       channel_moderator() :: %{
-        "ChannelArn" => String.t(),
+        "ChannelArn" => String.t() | Atom.t(),
         "CreatedBy" => identity(),
         "CreatedTimestamp" => non_neg_integer(),
         "Moderator" => identity()
       }
 
   """
-  @type channel_moderator() :: %{String.t() => any()}
+  @type channel_moderator() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       channel_message_status_structure() :: %{
-        "Detail" => String.t(),
+        "Detail" => String.t() | Atom.t(),
         "Value" => list(any())
       }
 
   """
-  @type channel_message_status_structure() :: %{String.t() => any()}
+  @type channel_message_status_structure() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_channel_expiration_settings_request() :: %{
-        optional("ChimeBearer") => String.t(),
+        optional("ChimeBearer") => String.t() | Atom.t(),
         optional("ExpirationSettings") => expiration_settings()
       }
 
   """
-  @type put_channel_expiration_settings_request() :: %{String.t() => any()}
+  @type put_channel_expiration_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_channel_ban_response() :: %{
-        "ChannelArn" => String.t(),
+        "ChannelArn" => String.t() | Atom.t(),
         "Member" => identity()
       }
 
   """
-  @type create_channel_ban_response() :: %{String.t() => any()}
+  @type create_channel_ban_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1510,25 +1531,25 @@ defmodule AWS.ChimeSDKMessaging do
 
       batch_create_channel_membership_error() :: %{
         "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t(),
-        "MemberArn" => String.t()
+        "ErrorMessage" => String.t() | Atom.t(),
+        "MemberArn" => String.t() | Atom.t()
       }
 
   """
-  @type batch_create_channel_membership_error() :: %{String.t() => any()}
+  @type batch_create_channel_membership_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       channel_flow_summary() :: %{
-        "ChannelFlowArn" => String.t(),
-        "Name" => String.t(),
+        "ChannelFlowArn" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "Processors" => list(processor())
       }
 
   """
-  @type channel_flow_summary() :: %{String.t() => any()}
+  @type channel_flow_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1536,35 +1557,35 @@ defmodule AWS.ChimeSDKMessaging do
 
       bad_request_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type bad_request_exception() :: %{String.t() => any()}
+  @type bad_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_channel_read_marker_response() :: %{
-        "ChannelArn" => String.t()
+        "ChannelArn" => String.t() | Atom.t()
       }
 
   """
-  @type update_channel_read_marker_response() :: %{String.t() => any()}
+  @type update_channel_read_marker_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_channel_membership_preferences_response() :: %{
-        "ChannelArn" => String.t(),
+        "ChannelArn" => String.t() | Atom.t(),
         "Member" => identity(),
         "Preferences" => channel_membership_preferences()
       }
 
   """
-  @type get_channel_membership_preferences_response() :: %{String.t() => any()}
+  @type get_channel_membership_preferences_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1575,44 +1596,44 @@ defmodule AWS.ChimeSDKMessaging do
       }
 
   """
-  @type channel_moderator_summary() :: %{String.t() => any()}
+  @type channel_moderator_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_channel_memberships() :: %{
-        "ChannelArn" => String.t(),
+        "ChannelArn" => String.t() | Atom.t(),
         "InvitedBy" => identity(),
         "Members" => list(identity()),
-        "SubChannelId" => String.t(),
+        "SubChannelId" => String.t() | Atom.t(),
         "Type" => list(any())
       }
 
   """
-  @type batch_channel_memberships() :: %{String.t() => any()}
+  @type batch_channel_memberships() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_channel_response() :: %{
-        "ChannelArn" => String.t()
+        "ChannelArn" => String.t() | Atom.t()
       }
 
   """
-  @type update_channel_response() :: %{String.t() => any()}
+  @type update_channel_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_channel_ban_request() :: %{
-        required("ChimeBearer") => String.t()
+        required("ChimeBearer") => String.t() | Atom.t()
       }
 
   """
-  @type describe_channel_ban_request() :: %{String.t() => any()}
+  @type describe_channel_ban_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1623,19 +1644,22 @@ defmodule AWS.ChimeSDKMessaging do
       }
 
   """
-  @type describe_channel_membership_for_app_instance_user_response() :: %{String.t() => any()}
+  @type describe_channel_membership_for_app_instance_user_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       channel_flow_callback_response() :: %{
-        "CallbackId" => String.t(),
-        "ChannelArn" => String.t()
+        "CallbackId" => String.t() | Atom.t(),
+        "ChannelArn" => String.t() | Atom.t()
       }
 
   """
-  @type channel_flow_callback_response() :: %{String.t() => any()}
+  @type channel_flow_callback_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1643,14 +1667,14 @@ defmodule AWS.ChimeSDKMessaging do
 
       list_channels_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("Privacy") => list(any()),
-        required("AppInstanceArn") => String.t(),
-        required("ChimeBearer") => String.t()
+        required("AppInstanceArn") => String.t() | Atom.t(),
+        required("ChimeBearer") => String.t() | Atom.t()
       }
 
   """
-  @type list_channels_request() :: %{String.t() => any()}
+  @type list_channels_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1663,21 +1687,21 @@ defmodule AWS.ChimeSDKMessaging do
       }
 
   """
-  @type elastic_channel_configuration() :: %{String.t() => any()}
+  @type elastic_channel_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       channel_message_summary() :: %{
-        "Content" => String.t(),
-        "ContentType" => String.t(),
+        "Content" => String.t() | Atom.t(),
+        "ContentType" => String.t() | Atom.t(),
         "CreatedTimestamp" => non_neg_integer(),
         "LastEditedTimestamp" => non_neg_integer(),
         "LastUpdatedTimestamp" => non_neg_integer(),
         "MessageAttributes" => map(),
-        "MessageId" => String.t(),
-        "Metadata" => String.t(),
+        "MessageId" => String.t() | Atom.t(),
+        "Metadata" => String.t() | Atom.t(),
         "Redacted" => boolean(),
         "Sender" => identity(),
         "Status" => channel_message_status_structure(),
@@ -1686,19 +1710,19 @@ defmodule AWS.ChimeSDKMessaging do
       }
 
   """
-  @type channel_message_summary() :: %{String.t() => any()}
+  @type channel_message_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_channel_message_status_request() :: %{
-        optional("SubChannelId") => String.t(),
-        required("ChimeBearer") => String.t()
+        optional("SubChannelId") => String.t() | Atom.t(),
+        required("ChimeBearer") => String.t() | Atom.t()
       }
 
   """
-  @type get_channel_message_status_request() :: %{String.t() => any()}
+  @type get_channel_message_status_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1715,24 +1739,24 @@ defmodule AWS.ChimeSDKMessaging do
 
       search_channels_response() :: %{
         "Channels" => list(channel_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type search_channels_response() :: %{String.t() => any()}
+  @type search_channels_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_channel_membership_response() :: %{
-        "ChannelArn" => String.t(),
+        "ChannelArn" => String.t() | Atom.t(),
         "Member" => identity(),
-        "SubChannelId" => String.t()
+        "SubChannelId" => String.t() | Atom.t()
       }
 
   """
-  @type create_channel_membership_response() :: %{String.t() => any()}
+  @type create_channel_membership_response() :: %{String.t() | Atom.t() => any()}
 
   @type associate_channel_flow_errors() ::
           bad_request_exception()
@@ -2206,7 +2230,12 @@ defmodule AWS.ChimeSDKMessaging do
   `AppInstanceUser` or `AppInstanceBot`
   that makes the API call as the value in the header.
   """
-  @spec associate_channel_flow(map(), String.t(), associate_channel_flow_request(), list()) ::
+  @spec associate_channel_flow(
+          map(),
+          String.t() | Atom.t(),
+          associate_channel_flow_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2243,7 +2272,7 @@ defmodule AWS.ChimeSDKMessaging do
   """
   @spec batch_create_channel_membership(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           batch_create_channel_membership_request(),
           list()
         ) ::
@@ -2294,7 +2323,12 @@ defmodule AWS.ChimeSDKMessaging do
     *
   Make no changes to the message
   """
-  @spec channel_flow_callback(map(), String.t(), channel_flow_callback_request(), list()) ::
+  @spec channel_flow_callback(
+          map(),
+          String.t() | Atom.t(),
+          channel_flow_callback_request(),
+          list()
+        ) ::
           {:ok, channel_flow_callback_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2380,7 +2414,7 @@ defmodule AWS.ChimeSDKMessaging do
   value in
   the header.
   """
-  @spec create_channel_ban(map(), String.t(), create_channel_ban_request(), list()) ::
+  @spec create_channel_ban(map(), String.t() | Atom.t(), create_channel_ban_request(), list()) ::
           {:ok, create_channel_ban_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2499,7 +2533,12 @@ defmodule AWS.ChimeSDKMessaging do
   ARN of the `AppInstanceUserArn` or `AppInstanceBot` that makes the API call
   as the value in the header.
   """
-  @spec create_channel_membership(map(), String.t(), create_channel_membership_request(), list()) ::
+  @spec create_channel_membership(
+          map(),
+          String.t() | Atom.t(),
+          create_channel_membership_request(),
+          list()
+        ) ::
           {:ok, create_channel_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2556,7 +2595,12 @@ defmodule AWS.ChimeSDKMessaging do
   call as the value in
   the header.
   """
-  @spec create_channel_moderator(map(), String.t(), create_channel_moderator_request(), list()) ::
+  @spec create_channel_moderator(
+          map(),
+          String.t() | Atom.t(),
+          create_channel_moderator_request(),
+          list()
+        ) ::
           {:ok, create_channel_moderator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2599,7 +2643,7 @@ defmodule AWS.ChimeSDKMessaging do
   the value in
   the header.
   """
-  @spec delete_channel(map(), String.t(), delete_channel_request(), list()) ::
+  @spec delete_channel(map(), String.t() | Atom.t(), delete_channel_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2639,7 +2683,13 @@ defmodule AWS.ChimeSDKMessaging do
   value in
   the header.
   """
-  @spec delete_channel_ban(map(), String.t(), String.t(), delete_channel_ban_request(), list()) ::
+  @spec delete_channel_ban(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_channel_ban_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2682,7 +2732,7 @@ defmodule AWS.ChimeSDKMessaging do
   `ListChannelsAssociatedWithChannelFlow` API. Use the `DisassociateChannelFlow`
   API to disassociate a channel flow from all channels.
   """
-  @spec delete_channel_flow(map(), String.t(), delete_channel_flow_request(), list()) ::
+  @spec delete_channel_flow(map(), String.t() | Atom.t(), delete_channel_flow_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2717,8 +2767,8 @@ defmodule AWS.ChimeSDKMessaging do
   """
   @spec delete_channel_membership(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_channel_membership_request(),
           list()
         ) ::
@@ -2773,8 +2823,8 @@ defmodule AWS.ChimeSDKMessaging do
   """
   @spec delete_channel_message(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_channel_message_request(),
           list()
         ) ::
@@ -2825,8 +2875,8 @@ defmodule AWS.ChimeSDKMessaging do
   """
   @spec delete_channel_moderator(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_channel_moderator_request(),
           list()
         ) ::
@@ -2877,7 +2927,7 @@ defmodule AWS.ChimeSDKMessaging do
   """
   @spec delete_messaging_streaming_configurations(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_messaging_streaming_configurations_request(),
           list()
         ) ::
@@ -2920,7 +2970,7 @@ defmodule AWS.ChimeSDKMessaging do
   value in
   the header.
   """
-  @spec describe_channel(map(), String.t(), String.t(), list()) ::
+  @spec describe_channel(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, describe_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2951,7 +3001,13 @@ defmodule AWS.ChimeSDKMessaging do
   value in
   the header.
   """
-  @spec describe_channel_ban(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec describe_channel_ban(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, describe_channel_ban_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2987,7 +3043,7 @@ defmodule AWS.ChimeSDKMessaging do
 
   This is a developer API.
   """
-  @spec describe_channel_flow(map(), String.t(), list()) ::
+  @spec describe_channel_flow(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_channel_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3012,10 +3068,10 @@ defmodule AWS.ChimeSDKMessaging do
   """
   @spec describe_channel_membership(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
           list()
         ) ::
           {:ok, describe_channel_membership_response(), any()}
@@ -3067,9 +3123,9 @@ defmodule AWS.ChimeSDKMessaging do
   """
   @spec describe_channel_membership_for_app_instance_user(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           list()
         ) ::
           {:ok, describe_channel_membership_for_app_instance_user_response(), any()}
@@ -3118,9 +3174,9 @@ defmodule AWS.ChimeSDKMessaging do
   """
   @spec describe_channel_moderated_by_app_instance_user(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           list()
         ) ::
           {:ok, describe_channel_moderated_by_app_instance_user_response(), any()}
@@ -3167,7 +3223,13 @@ defmodule AWS.ChimeSDKMessaging do
   `AppInstanceUserArn` of the user that makes the API call as the value in
   the header.
   """
-  @spec describe_channel_moderator(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec describe_channel_moderator(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, describe_channel_moderator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3213,8 +3275,8 @@ defmodule AWS.ChimeSDKMessaging do
   """
   @spec disassociate_channel_flow(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           disassociate_channel_flow_request(),
           list()
         ) ::
@@ -3272,7 +3334,13 @@ defmodule AWS.ChimeSDKMessaging do
   value in
   the header.
   """
-  @spec get_channel_membership_preferences(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_channel_membership_preferences(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_channel_membership_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3311,7 +3379,14 @@ defmodule AWS.ChimeSDKMessaging do
   value in
   the header.
   """
-  @spec get_channel_message(map(), String.t(), String.t(), String.t() | nil, String.t(), list()) ::
+  @spec get_channel_message(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_channel_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3393,10 +3468,10 @@ defmodule AWS.ChimeSDKMessaging do
   """
   @spec get_channel_message_status(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
           list()
         ) ::
           {:ok, get_channel_message_status_response(), any()}
@@ -3462,7 +3537,7 @@ defmodule AWS.ChimeSDKMessaging do
   [Streaming messaging data](https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html) in
   the *Amazon Chime SDK Developer Guide*.
   """
-  @spec get_messaging_streaming_configurations(map(), String.t(), list()) ::
+  @spec get_messaging_streaming_configurations(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_messaging_streaming_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3487,10 +3562,10 @@ defmodule AWS.ChimeSDKMessaging do
   """
   @spec list_channel_bans(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
           list()
         ) ::
           {:ok, list_channel_bans_response(), any()}
@@ -3541,7 +3616,13 @@ defmodule AWS.ChimeSDKMessaging do
 
   This is a developer API.
   """
-  @spec list_channel_flows(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_channel_flows(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_channel_flows_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3598,12 +3679,12 @@ defmodule AWS.ChimeSDKMessaging do
   """
   @spec list_channel_memberships(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
           list()
         ) ::
           {:ok, list_channel_memberships_response(), any()}
@@ -3678,10 +3759,10 @@ defmodule AWS.ChimeSDKMessaging do
   """
   @spec list_channel_memberships_for_app_instance_user(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
           list()
         ) ::
           {:ok, list_channel_memberships_for_app_instance_user_response(), any()}
@@ -3754,14 +3835,14 @@ defmodule AWS.ChimeSDKMessaging do
   """
   @spec list_channel_messages(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
           list()
         ) ::
           {:ok, list_channel_messages_response(), any()}
@@ -3849,10 +3930,10 @@ defmodule AWS.ChimeSDKMessaging do
   """
   @spec list_channel_moderators(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
           list()
         ) ::
           {:ok, list_channel_moderators_response(), any()}
@@ -3921,11 +4002,11 @@ defmodule AWS.ChimeSDKMessaging do
   """
   @spec list_channels(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
           list()
         ) ::
           {:ok, list_channels_response(), any()}
@@ -3994,9 +4075,9 @@ defmodule AWS.ChimeSDKMessaging do
   """
   @spec list_channels_associated_with_channel_flow(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_channels_associated_with_channel_flow_response(), any()}
@@ -4050,10 +4131,10 @@ defmodule AWS.ChimeSDKMessaging do
   """
   @spec list_channels_moderated_by_app_instance_user(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
           list()
         ) ::
           {:ok, list_channels_moderated_by_app_instance_user_response(), any()}
@@ -4114,10 +4195,10 @@ defmodule AWS.ChimeSDKMessaging do
   """
   @spec list_sub_channels(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
           list()
         ) ::
           {:ok, list_sub_channels_response(), any()}
@@ -4166,7 +4247,7 @@ defmodule AWS.ChimeSDKMessaging do
   @doc """
   Lists the tags applied to an Amazon Chime SDK messaging resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4208,7 +4289,7 @@ defmodule AWS.ChimeSDKMessaging do
   """
   @spec put_channel_expiration_settings(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_channel_expiration_settings_request(),
           list()
         ) ::
@@ -4262,8 +4343,8 @@ defmodule AWS.ChimeSDKMessaging do
   """
   @spec put_channel_membership_preferences(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           put_channel_membership_preferences_request(),
           list()
         ) ::
@@ -4314,7 +4395,7 @@ defmodule AWS.ChimeSDKMessaging do
   """
   @spec put_messaging_streaming_configurations(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_messaging_streaming_configurations_request(),
           list()
         ) ::
@@ -4361,8 +4442,8 @@ defmodule AWS.ChimeSDKMessaging do
   """
   @spec redact_channel_message(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           redact_channel_message_request(),
           list()
         ) ::
@@ -4464,7 +4545,7 @@ defmodule AWS.ChimeSDKMessaging do
 
   `CONTROL` messages are limited to 30 bytes and do not contain metadata.
   """
-  @spec send_channel_message(map(), String.t(), send_channel_message_request(), list()) ::
+  @spec send_channel_message(map(), String.t() | Atom.t(), send_channel_message_request(), list()) ::
           {:ok, send_channel_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4565,7 +4646,7 @@ defmodule AWS.ChimeSDKMessaging do
   value in
   the header.
   """
-  @spec update_channel(map(), String.t(), update_channel_request(), list()) ::
+  @spec update_channel(map(), String.t() | Atom.t(), update_channel_request(), list()) ::
           {:ok, update_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4602,7 +4683,7 @@ defmodule AWS.ChimeSDKMessaging do
 
   This is a developer API.
   """
-  @spec update_channel_flow(map(), String.t(), update_channel_flow_request(), list()) ::
+  @spec update_channel_flow(map(), String.t() | Atom.t(), update_channel_flow_request(), list()) ::
           {:ok, update_channel_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4638,8 +4719,8 @@ defmodule AWS.ChimeSDKMessaging do
   """
   @spec update_channel_message(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_channel_message_request(),
           list()
         ) ::
@@ -4685,7 +4766,7 @@ defmodule AWS.ChimeSDKMessaging do
   """
   @spec update_channel_read_marker(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_channel_read_marker_request(),
           list()
         ) ::

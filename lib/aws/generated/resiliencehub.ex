@@ -24,20 +24,20 @@ defmodule AWS.Resiliencehub do
   ## Example:
 
       app() :: %{
-        "appArn" => String.t(),
+        "appArn" => String.t() | Atom.t(),
         "assessmentSchedule" => list(any()),
-        "awsApplicationArn" => String.t(),
+        "awsApplicationArn" => String.t() | Atom.t(),
         "complianceStatus" => list(any()),
         "creationTime" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "driftStatus" => list(any()),
         "eventSubscriptions" => list(event_subscription()),
         "lastAppComplianceEvaluationTime" => non_neg_integer(),
         "lastDriftEvaluationTime" => non_neg_integer(),
         "lastResiliencyScoreEvaluationTime" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "permissionModel" => permission_model(),
-        "policyArn" => String.t(),
+        "policyArn" => String.t() | Atom.t(),
         "resiliencyScore" => float(),
         "rpoInSecs" => integer(),
         "rtoInSecs" => integer(),
@@ -46,69 +46,75 @@ defmodule AWS.Resiliencehub do
       }
 
   """
-  @type app() :: %{String.t() => any()}
+  @type app() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_update_recommendation_status_request() :: %{
-        required("appArn") => String.t(),
+        required("appArn") => String.t() | Atom.t(),
         required("requestEntries") => list(update_recommendation_status_request_entry())
       }
 
   """
-  @type batch_update_recommendation_status_request() :: %{String.t() => any()}
+  @type batch_update_recommendation_status_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_app_component_compliances_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("componentCompliances") => list(app_component_compliance())
       }
 
   """
-  @type list_app_component_compliances_response() :: %{String.t() => any()}
+  @type list_app_component_compliances_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_app_version_resources_resolution_status_request() :: %{
-        optional("resolutionId") => String.t(),
-        required("appArn") => String.t(),
-        required("appVersion") => String.t()
+        optional("resolutionId") => String.t() | Atom.t(),
+        required("appArn") => String.t() | Atom.t(),
+        required("appVersion") => String.t() | Atom.t()
       }
 
   """
-  @type describe_app_version_resources_resolution_status_request() :: %{String.t() => any()}
+  @type describe_app_version_resources_resolution_status_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       list_apps_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("appSummaries") => list(app_summary())
       }
 
   """
-  @type list_apps_response() :: %{String.t() => any()}
+  @type list_apps_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_resource_grouping_recommendation_task_response() :: %{
-        "errorMessage" => String.t(),
-        "groupingId" => String.t(),
+        "errorMessage" => String.t() | Atom.t(),
+        "groupingId" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type describe_resource_grouping_recommendation_task_response() :: %{String.t() => any()}
+  @type describe_resource_grouping_recommendation_task_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -119,50 +125,50 @@ defmodule AWS.Resiliencehub do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_app_component_recommendations_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("componentRecommendations") => list(component_recommendation())
       }
 
   """
-  @type list_app_component_recommendations_response() :: %{String.t() => any()}
+  @type list_app_component_recommendations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_app_version_resource_request() :: %{
-        optional("awsAccountId") => String.t(),
-        optional("awsRegion") => String.t(),
+        optional("awsAccountId") => String.t() | Atom.t(),
+        optional("awsRegion") => String.t() | Atom.t(),
         optional("logicalResourceId") => logical_resource_id(),
-        optional("physicalResourceId") => String.t(),
-        optional("resourceName") => String.t(),
-        required("appArn") => String.t(),
-        required("appVersion") => String.t()
+        optional("physicalResourceId") => String.t() | Atom.t(),
+        optional("resourceName") => String.t() | Atom.t(),
+        required("appArn") => String.t() | Atom.t(),
+        required("appVersion") => String.t() | Atom.t()
       }
 
   """
-  @type describe_app_version_resource_request() :: %{String.t() => any()}
+  @type describe_app_version_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_metrics_export_response() :: %{
-        "errorMessage" => String.t(),
+        "errorMessage" => String.t() | Atom.t(),
         "exportLocation" => s3_location(),
-        "metricsExportId" => String.t(),
+        "metricsExportId" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type describe_metrics_export_response() :: %{String.t() => any()}
+  @type describe_metrics_export_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -170,25 +176,25 @@ defmodule AWS.Resiliencehub do
 
       list_app_component_recommendations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("assessmentArn") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("assessmentArn") => String.t() | Atom.t()
       }
 
   """
-  @type list_app_component_recommendations_request() :: %{String.t() => any()}
+  @type list_app_component_recommendations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       add_draft_app_version_resource_mappings_response() :: %{
-        required("appArn") => String.t(),
-        required("appVersion") => String.t(),
+        required("appArn") => String.t() | Atom.t(),
+        required("appVersion") => String.t() | Atom.t(),
         required("resourceMappings") => list(resource_mapping())
       }
 
   """
-  @type add_draft_app_version_resource_mappings_response() :: %{String.t() => any()}
+  @type add_draft_app_version_resource_mappings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -196,42 +202,42 @@ defmodule AWS.Resiliencehub do
 
       create_app_request() :: %{
         optional("assessmentSchedule") => list(any()),
-        optional("awsApplicationArn") => String.t(),
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
+        optional("awsApplicationArn") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("eventSubscriptions") => list(event_subscription()),
         optional("permissionModel") => permission_model(),
-        optional("policyArn") => String.t(),
+        optional("policyArn") => String.t() | Atom.t(),
         optional("tags") => map(),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_app_request() :: %{String.t() => any()}
+  @type create_app_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_app_version_resources_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("physicalResources") => list(physical_resource()),
-        required("resolutionId") => String.t()
+        required("resolutionId") => String.t() | Atom.t()
       }
 
   """
-  @type list_app_version_resources_response() :: %{String.t() => any()}
+  @type list_app_version_resources_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_app_response() :: %{
-        required("appArn") => String.t()
+        required("appArn") => String.t() | Atom.t()
       }
 
   """
-  @type delete_app_response() :: %{String.t() => any()}
+  @type delete_app_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -239,66 +245,66 @@ defmodule AWS.Resiliencehub do
 
       create_app_version_app_component_response() :: %{
         optional("appComponent") => app_component(),
-        required("appArn") => String.t(),
-        required("appVersion") => String.t()
+        required("appArn") => String.t() | Atom.t(),
+        required("appVersion") => String.t() | Atom.t()
       }
 
   """
-  @type create_app_version_app_component_response() :: %{String.t() => any()}
+  @type create_app_version_app_component_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_app_assessments_request() :: %{
-        optional("appArn") => String.t(),
-        optional("assessmentName") => String.t(),
+        optional("appArn") => String.t() | Atom.t(),
+        optional("assessmentName") => String.t() | Atom.t(),
         optional("assessmentStatus") => list(list(any())()),
         optional("complianceStatus") => list(any()),
         optional("invoker") => list(any()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("reverseOrder") => boolean()
       }
 
   """
-  @type list_app_assessments_request() :: %{String.t() => any()}
+  @type list_app_assessments_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_app_versions_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("appVersions") => list(app_version_summary())
       }
 
   """
-  @type list_app_versions_response() :: %{String.t() => any()}
+  @type list_app_versions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       remove_draft_app_version_resource_mappings_response() :: %{
-        optional("appArn") => String.t(),
-        optional("appVersion") => String.t()
+        optional("appArn") => String.t() | Atom.t(),
+        optional("appVersion") => String.t() | Atom.t()
       }
 
   """
-  @type remove_draft_app_version_resource_mappings_response() :: %{String.t() => any()}
+  @type remove_draft_app_version_resource_mappings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resolve_app_version_resources_request() :: %{
-        required("appArn") => String.t(),
-        required("appVersion") => String.t()
+        required("appArn") => String.t() | Atom.t(),
+        required("appVersion") => String.t() | Atom.t()
       }
 
   """
-  @type resolve_app_version_resources_request() :: %{String.t() => any()}
+  @type resolve_app_version_resources_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -315,57 +321,57 @@ defmodule AWS.Resiliencehub do
 
       update_app_version_app_component_request() :: %{
         optional("additionalInfo") => map(),
-        optional("name") => String.t(),
-        optional("type") => String.t(),
-        required("appArn") => String.t(),
-        required("id") => String.t()
+        optional("name") => String.t() | Atom.t(),
+        optional("type") => String.t() | Atom.t(),
+        required("appArn") => String.t() | Atom.t(),
+        required("id") => String.t() | Atom.t()
       }
 
   """
-  @type update_app_version_app_component_request() :: %{String.t() => any()}
+  @type update_app_version_app_component_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_draft_app_version_template_request() :: %{
-        required("appArn") => String.t(),
-        required("appTemplateBody") => String.t()
+        required("appArn") => String.t() | Atom.t(),
+        required("appTemplateBody") => String.t() | Atom.t()
       }
 
   """
-  @type put_draft_app_version_template_request() :: %{String.t() => any()}
+  @type put_draft_app_version_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_mapping() :: %{
-        "appRegistryAppName" => String.t(),
-        "eksSourceName" => String.t(),
-        "logicalStackName" => String.t(),
+        "appRegistryAppName" => String.t() | Atom.t(),
+        "eksSourceName" => String.t() | Atom.t(),
+        "logicalStackName" => String.t() | Atom.t(),
         "mappingType" => list(any()),
         "physicalResourceId" => physical_resource_id(),
-        "resourceGroupName" => String.t(),
-        "resourceName" => String.t(),
-        "terraformSourceName" => String.t()
+        "resourceGroupName" => String.t() | Atom.t(),
+        "resourceName" => String.t() | Atom.t(),
+        "terraformSourceName" => String.t() | Atom.t()
       }
 
   """
-  @type resource_mapping() :: %{String.t() => any()}
+  @type resource_mapping() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_unsupported_app_version_resources_response() :: %{
-        optional("nextToken") => String.t(),
-        required("resolutionId") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
+        required("resolutionId") => String.t() | Atom.t(),
         required("unsupportedResources") => list(unsupported_resource())
       }
 
   """
-  @type list_unsupported_app_version_resources_response() :: %{String.t() => any()}
+  @type list_unsupported_app_version_resources_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -378,7 +384,7 @@ defmodule AWS.Resiliencehub do
       }
 
   """
-  @type resiliency_score() :: %{String.t() => any()}
+  @type resiliency_score() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -387,12 +393,12 @@ defmodule AWS.Resiliencehub do
       unsupported_resource() :: %{
         "logicalResourceId" => logical_resource_id(),
         "physicalResourceId" => physical_resource_id(),
-        "resourceType" => String.t(),
-        "unsupportedResourceStatus" => String.t()
+        "resourceType" => String.t() | Atom.t(),
+        "unsupportedResourceStatus" => String.t() | Atom.t()
       }
 
   """
-  @type unsupported_resource() :: %{String.t() => any()}
+  @type unsupported_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -400,63 +406,66 @@ defmodule AWS.Resiliencehub do
 
       create_app_version_resource_request() :: %{
         optional("additionalInfo") => map(),
-        optional("awsAccountId") => String.t(),
-        optional("awsRegion") => String.t(),
-        optional("clientToken") => String.t(),
-        optional("resourceName") => String.t(),
-        required("appArn") => String.t(),
-        required("appComponents") => list(String.t()),
+        optional("awsAccountId") => String.t() | Atom.t(),
+        optional("awsRegion") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("resourceName") => String.t() | Atom.t(),
+        required("appArn") => String.t() | Atom.t(),
+        required("appComponents") => list(String.t() | Atom.t()),
         required("logicalResourceId") => logical_resource_id(),
-        required("physicalResourceId") => String.t(),
-        required("resourceType") => String.t()
+        required("physicalResourceId") => String.t() | Atom.t(),
+        required("resourceType") => String.t() | Atom.t()
       }
 
   """
-  @type create_app_version_resource_request() :: %{String.t() => any()}
+  @type create_app_version_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_resource_grouping_recommendation_task_request() :: %{
-        optional("groupingId") => String.t(),
-        required("appArn") => String.t()
+        optional("groupingId") => String.t() | Atom.t(),
+        required("appArn") => String.t() | Atom.t()
       }
 
   """
-  @type describe_resource_grouping_recommendation_task_request() :: %{String.t() => any()}
+  @type describe_resource_grouping_recommendation_task_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       alarm() :: %{
-        "alarmArn" => String.t(),
-        "source" => String.t()
+        "alarmArn" => String.t() | Atom.t(),
+        "source" => String.t() | Atom.t()
       }
 
   """
-  @type alarm() :: %{String.t() => any()}
+  @type alarm() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       config_recommendation() :: %{
-        "appComponentName" => String.t(),
+        "appComponentName" => String.t() | Atom.t(),
         "compliance" => map(),
         "cost" => cost(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "haArchitecture" => list(any()),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "optimizationType" => list(any()),
         "recommendationCompliance" => map(),
-        "referenceId" => String.t(),
-        "suggestedChanges" => list(String.t())
+        "referenceId" => String.t() | Atom.t(),
+        "suggestedChanges" => list(String.t() | Atom.t())
       }
 
   """
-  @type config_recommendation() :: %{String.t() => any()}
+  @type config_recommendation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -464,38 +473,41 @@ defmodule AWS.Resiliencehub do
 
       event_subscription() :: %{
         "eventType" => list(any()),
-        "name" => String.t(),
-        "snsTopicArn" => String.t()
+        "name" => String.t() | Atom.t(),
+        "snsTopicArn" => String.t() | Atom.t()
       }
 
   """
-  @type event_subscription() :: %{String.t() => any()}
+  @type event_subscription() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_app_version_template_request() :: %{
-        required("appArn") => String.t(),
-        required("appVersion") => String.t()
+        required("appArn") => String.t() | Atom.t(),
+        required("appVersion") => String.t() | Atom.t()
       }
 
   """
-  @type describe_app_version_template_request() :: %{String.t() => any()}
+  @type describe_app_version_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_resource_grouping_recommendation_task_response() :: %{
-        "appArn" => String.t(),
-        "errorMessage" => String.t(),
-        "groupingId" => String.t(),
+        "appArn" => String.t() | Atom.t(),
+        "errorMessage" => String.t() | Atom.t(),
+        "groupingId" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type start_resource_grouping_recommendation_task_response() :: %{String.t() => any()}
+  @type start_resource_grouping_recommendation_task_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -504,40 +516,40 @@ defmodule AWS.Resiliencehub do
       import_resources_to_draft_app_version_request() :: %{
         optional("eksSources") => list(eks_source()),
         optional("importStrategy") => list(any()),
-        optional("sourceArns") => list(String.t()),
+        optional("sourceArns") => list(String.t() | Atom.t()),
         optional("terraformSources") => list(terraform_source()),
-        required("appArn") => String.t()
+        required("appArn") => String.t() | Atom.t()
       }
 
   """
-  @type import_resources_to_draft_app_version_request() :: %{String.t() => any()}
+  @type import_resources_to_draft_app_version_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_app_input_source_response() :: %{
-        optional("appArn") => String.t(),
+        optional("appArn") => String.t() | Atom.t(),
         optional("appInputSource") => app_input_source()
       }
 
   """
-  @type delete_app_input_source_response() :: %{String.t() => any()}
+  @type delete_app_input_source_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_app_assessment_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("tags") => map(),
-        required("appArn") => String.t(),
-        required("appVersion") => String.t(),
-        required("assessmentName") => String.t()
+        required("appArn") => String.t() | Atom.t(),
+        required("appVersion") => String.t() | Atom.t(),
+        required("assessmentName") => String.t() | Atom.t()
       }
 
   """
-  @type start_app_assessment_request() :: %{String.t() => any()}
+  @type start_app_assessment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -545,26 +557,26 @@ defmodule AWS.Resiliencehub do
 
       list_app_version_app_components_response() :: %{
         optional("appComponents") => list(app_component()),
-        optional("nextToken") => String.t(),
-        required("appArn") => String.t(),
-        required("appVersion") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("appArn") => String.t() | Atom.t(),
+        required("appVersion") => String.t() | Atom.t()
       }
 
   """
-  @type list_app_version_app_components_response() :: %{String.t() => any()}
+  @type list_app_version_app_components_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_update_recommendation_status_response() :: %{
-        "appArn" => String.t(),
+        "appArn" => String.t() | Atom.t(),
         "failedEntries" => list(batch_update_recommendation_status_failed_entry()),
         "successfulEntries" => list(batch_update_recommendation_status_successful_entry())
       }
 
   """
-  @type batch_update_recommendation_status_response() :: %{String.t() => any()}
+  @type batch_update_recommendation_status_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -572,14 +584,14 @@ defmodule AWS.Resiliencehub do
 
       list_unsupported_app_version_resources_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("resolutionId") => String.t(),
-        required("appArn") => String.t(),
-        required("appVersion") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("resolutionId") => String.t() | Atom.t(),
+        required("appArn") => String.t() | Atom.t(),
+        required("appVersion") => String.t() | Atom.t()
       }
 
   """
-  @type list_unsupported_app_version_resources_request() :: %{String.t() => any()}
+  @type list_unsupported_app_version_resources_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -587,13 +599,13 @@ defmodule AWS.Resiliencehub do
 
       list_app_input_sources_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("appArn") => String.t(),
-        required("appVersion") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("appArn") => String.t() | Atom.t(),
+        required("appVersion") => String.t() | Atom.t()
       }
 
   """
-  @type list_app_input_sources_request() :: %{String.t() => any()}
+  @type list_app_input_sources_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -601,12 +613,12 @@ defmodule AWS.Resiliencehub do
 
       list_test_recommendations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("assessmentArn") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("assessmentArn") => String.t() | Atom.t()
       }
 
   """
-  @type list_test_recommendations_request() :: %{String.t() => any()}
+  @type list_test_recommendations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -618,7 +630,7 @@ defmodule AWS.Resiliencehub do
       }
 
   """
-  @type failure_policy() :: %{String.t() => any()}
+  @type failure_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -629,7 +641,7 @@ defmodule AWS.Resiliencehub do
       }
 
   """
-  @type create_recommendation_template_response() :: %{String.t() => any()}
+  @type create_recommendation_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -640,7 +652,7 @@ defmodule AWS.Resiliencehub do
       }
 
   """
-  @type describe_app_response() :: %{String.t() => any()}
+  @type describe_app_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -652,26 +664,26 @@ defmodule AWS.Resiliencehub do
         "complianceStatus" => list(any()),
         "currentRpoInSecs" => integer(),
         "currentRtoInSecs" => integer(),
-        "message" => String.t(),
-        "rpoDescription" => String.t(),
-        "rpoReferenceId" => String.t(),
-        "rtoDescription" => String.t(),
-        "rtoReferenceId" => String.t()
+        "message" => String.t() | Atom.t(),
+        "rpoDescription" => String.t() | Atom.t(),
+        "rpoReferenceId" => String.t() | Atom.t(),
+        "rtoDescription" => String.t() | Atom.t(),
+        "rtoReferenceId" => String.t() | Atom.t()
       }
 
   """
-  @type disruption_compliance() :: %{String.t() => any()}
+  @type disruption_compliance() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -679,39 +691,39 @@ defmodule AWS.Resiliencehub do
 
       list_resiliency_policies_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("policyName") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("policyName") => String.t() | Atom.t()
       }
 
   """
-  @type list_resiliency_policies_request() :: %{String.t() => any()}
+  @type list_resiliency_policies_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_recommendation_status_request_entry() :: %{
-        "appComponentId" => String.t(),
-        "entryId" => String.t(),
+        "appComponentId" => String.t() | Atom.t(),
+        "entryId" => String.t() | Atom.t(),
         "excludeReason" => list(any()),
         "excluded" => boolean(),
         "item" => update_recommendation_status_item(),
-        "referenceId" => String.t()
+        "referenceId" => String.t() | Atom.t()
       }
 
   """
-  @type update_recommendation_status_request_entry() :: %{String.t() => any()}
+  @type update_recommendation_status_request_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       terraform_source() :: %{
-        "s3StateFileUrl" => String.t()
+        "s3StateFileUrl" => String.t() | Atom.t()
       }
 
   """
-  @type terraform_source() :: %{String.t() => any()}
+  @type terraform_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -719,14 +731,14 @@ defmodule AWS.Resiliencehub do
 
       list_app_version_resources_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("resolutionId") => String.t(),
-        required("appArn") => String.t(),
-        required("appVersion") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("resolutionId") => String.t() | Atom.t(),
+        required("appArn") => String.t() | Atom.t(),
+        required("appVersion") => String.t() | Atom.t()
       }
 
   """
-  @type list_app_version_resources_request() :: %{String.t() => any()}
+  @type list_app_version_resources_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -738,33 +750,33 @@ defmodule AWS.Resiliencehub do
       }
 
   """
-  @type resource_errors_details() :: %{String.t() => any()}
+  @type resource_errors_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       component_recommendation() :: %{
-        "appComponentName" => String.t(),
+        "appComponentName" => String.t() | Atom.t(),
         "configRecommendations" => list(config_recommendation()),
         "recommendationStatus" => list(any())
       }
 
   """
-  @type component_recommendation() :: %{String.t() => any()}
+  @type component_recommendation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       assessment_risk_recommendation() :: %{
-        "appComponents" => list(String.t()),
-        "recommendation" => String.t(),
-        "risk" => String.t()
+        "appComponents" => list(String.t() | Atom.t()),
+        "recommendation" => String.t() | Atom.t(),
+        "risk" => String.t() | Atom.t()
       }
 
   """
-  @type assessment_risk_recommendation() :: %{String.t() => any()}
+  @type assessment_risk_recommendation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -772,27 +784,27 @@ defmodule AWS.Resiliencehub do
 
       create_app_version_resource_response() :: %{
         optional("physicalResource") => physical_resource(),
-        required("appArn") => String.t(),
-        required("appVersion") => String.t()
+        required("appArn") => String.t() | Atom.t(),
+        required("appVersion") => String.t() | Atom.t()
       }
 
   """
-  @type create_app_version_resource_response() :: %{String.t() => any()}
+  @type create_app_version_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       logical_resource_id() :: %{
-        "eksSourceName" => String.t(),
-        "identifier" => String.t(),
-        "logicalStackName" => String.t(),
-        "resourceGroupName" => String.t(),
-        "terraformSourceName" => String.t()
+        "eksSourceName" => String.t() | Atom.t(),
+        "identifier" => String.t() | Atom.t(),
+        "logicalStackName" => String.t() | Atom.t(),
+        "resourceGroupName" => String.t() | Atom.t(),
+        "terraformSourceName" => String.t() | Atom.t()
       }
 
   """
-  @type logical_resource_id() :: %{String.t() => any()}
+  @type logical_resource_id() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -800,23 +812,23 @@ defmodule AWS.Resiliencehub do
 
       delete_app_version_resource_response() :: %{
         optional("physicalResource") => physical_resource(),
-        required("appArn") => String.t(),
-        required("appVersion") => String.t()
+        required("appArn") => String.t() | Atom.t(),
+        required("appVersion") => String.t() | Atom.t()
       }
 
   """
-  @type delete_app_version_resource_response() :: %{String.t() => any()}
+  @type delete_app_version_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_app_assessment_request() :: %{
-        required("assessmentArn") => String.t()
+        required("assessmentArn") => String.t() | Atom.t()
       }
 
   """
-  @type describe_app_assessment_request() :: %{String.t() => any()}
+  @type describe_app_assessment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -828,25 +840,25 @@ defmodule AWS.Resiliencehub do
         "excludeReason" => list(any()),
         "excluded" => boolean(),
         "latestDiscoveredExperiment" => experiment(),
-        "resourceId" => String.t(),
-        "targetAccountId" => String.t(),
-        "targetRegion" => String.t()
+        "resourceId" => String.t() | Atom.t(),
+        "targetAccountId" => String.t() | Atom.t(),
+        "targetRegion" => String.t() | Atom.t()
       }
 
   """
-  @type recommendation_item() :: %{String.t() => any()}
+  @type recommendation_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_app_version_resource_mappings_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("resourceMappings") => list(resource_mapping())
       }
 
   """
-  @type list_app_version_resource_mappings_response() :: %{String.t() => any()}
+  @type list_app_version_resource_mappings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -854,50 +866,50 @@ defmodule AWS.Resiliencehub do
 
       describe_app_version_resource_response() :: %{
         optional("physicalResource") => physical_resource(),
-        required("appArn") => String.t(),
-        required("appVersion") => String.t()
+        required("appArn") => String.t() | Atom.t(),
+        required("appVersion") => String.t() | Atom.t()
       }
 
   """
-  @type describe_app_version_resource_response() :: %{String.t() => any()}
+  @type describe_app_version_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_draft_app_version_template_response() :: %{
-        optional("appArn") => String.t(),
-        optional("appVersion") => String.t()
+        optional("appArn") => String.t() | Atom.t(),
+        optional("appVersion") => String.t() | Atom.t()
       }
 
   """
-  @type put_draft_app_version_template_response() :: %{String.t() => any()}
+  @type put_draft_app_version_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t(),
-        "resourceId" => String.t(),
-        "resourceType" => String.t()
+        "message" => String.t() | Atom.t(),
+        "resourceId" => String.t() | Atom.t(),
+        "resourceType" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t(),
-        "resourceId" => String.t(),
-        "resourceType" => String.t()
+        "message" => String.t() | Atom.t(),
+        "resourceId" => String.t() | Atom.t(),
+        "resourceType" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -905,27 +917,27 @@ defmodule AWS.Resiliencehub do
 
       list_app_assessment_compliance_drifts_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("assessmentArn") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("assessmentArn") => String.t() | Atom.t()
       }
 
   """
-  @type list_app_assessment_compliance_drifts_request() :: %{String.t() => any()}
+  @type list_app_assessment_compliance_drifts_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_app_input_source_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("eksSourceClusterNamespace") => eks_source_cluster_namespace(),
-        optional("sourceArn") => String.t(),
+        optional("sourceArn") => String.t() | Atom.t(),
         optional("terraformSource") => terraform_source(),
-        required("appArn") => String.t()
+        required("appArn") => String.t() | Atom.t()
       }
 
   """
-  @type delete_app_input_source_request() :: %{String.t() => any()}
+  @type delete_app_input_source_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -933,67 +945,67 @@ defmodule AWS.Resiliencehub do
 
       list_suggested_resiliency_policies_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_suggested_resiliency_policies_request() :: %{String.t() => any()}
+  @type list_suggested_resiliency_policies_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_update_recommendation_status_failed_entry() :: %{
-        "entryId" => String.t(),
-        "errorMessage" => String.t()
+        "entryId" => String.t() | Atom.t(),
+        "errorMessage" => String.t() | Atom.t()
       }
 
   """
-  @type batch_update_recommendation_status_failed_entry() :: %{String.t() => any()}
+  @type batch_update_recommendation_status_failed_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       alarm_recommendation() :: %{
-        "appComponentName" => String.t(),
-        "appComponentNames" => list(String.t()),
-        "description" => String.t(),
+        "appComponentName" => String.t() | Atom.t(),
+        "appComponentNames" => list(String.t() | Atom.t()),
+        "description" => String.t() | Atom.t(),
         "items" => list(recommendation_item()),
-        "name" => String.t(),
-        "prerequisite" => String.t(),
-        "recommendationId" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "prerequisite" => String.t() | Atom.t(),
+        "recommendationId" => String.t() | Atom.t(),
         "recommendationStatus" => list(any()),
-        "referenceId" => String.t(),
+        "referenceId" => String.t() | Atom.t(),
         "type" => list(any())
       }
 
   """
-  @type alarm_recommendation() :: %{String.t() => any()}
+  @type alarm_recommendation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_recommendation_templates_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("recommendationTemplates") => list(recommendation_template())
       }
 
   """
-  @type list_recommendation_templates_response() :: %{String.t() => any()}
+  @type list_recommendation_templates_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_metrics_export_response() :: %{
-        "metricsExportId" => String.t(),
+        "metricsExportId" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type start_metrics_export_response() :: %{String.t() => any()}
+  @type start_metrics_export_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1007,7 +1019,7 @@ defmodule AWS.Resiliencehub do
       }
 
   """
-  @type scoring_component_resiliency_score() :: %{String.t() => any()}
+  @type scoring_component_resiliency_score() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1015,63 +1027,63 @@ defmodule AWS.Resiliencehub do
 
       resource_identifier() :: %{
         "logicalResourceId" => logical_resource_id(),
-        "resourceType" => String.t()
+        "resourceType" => String.t() | Atom.t()
       }
 
   """
-  @type resource_identifier() :: %{String.t() => any()}
+  @type resource_identifier() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       accept_resource_grouping_recommendations_response() :: %{
-        "appArn" => String.t(),
+        "appArn" => String.t() | Atom.t(),
         "failedEntries" => list(failed_grouping_recommendation_entry())
       }
 
   """
-  @type accept_resource_grouping_recommendations_response() :: %{String.t() => any()}
+  @type accept_resource_grouping_recommendations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_resiliency_policy_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("dataLocationConstraint") => list(any()),
-        optional("policyDescription") => String.t(),
+        optional("policyDescription") => String.t() | Atom.t(),
         optional("tags") => map(),
         required("policy") => map(),
-        required("policyName") => String.t(),
+        required("policyName") => String.t() | Atom.t(),
         required("tier") => list(any())
       }
 
   """
-  @type create_resiliency_policy_request() :: %{String.t() => any()}
+  @type create_resiliency_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_app_assessments_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("assessmentSummaries") => list(app_assessment_summary())
       }
 
   """
-  @type list_app_assessments_response() :: %{String.t() => any()}
+  @type list_app_assessments_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1079,24 +1091,24 @@ defmodule AWS.Resiliencehub do
 
       list_sop_recommendations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("assessmentArn") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("assessmentArn") => String.t() | Atom.t()
       }
 
   """
-  @type list_sop_recommendations_request() :: %{String.t() => any()}
+  @type list_sop_recommendations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       accept_resource_grouping_recommendations_request() :: %{
-        required("appArn") => String.t(),
+        required("appArn") => String.t() | Atom.t(),
         required("entries") => list(accept_grouping_recommendation_entry())
       }
 
   """
-  @type accept_resource_grouping_recommendations_request() :: %{String.t() => any()}
+  @type accept_resource_grouping_recommendations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1104,49 +1116,49 @@ defmodule AWS.Resiliencehub do
 
       list_app_version_resource_mappings_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("appArn") => String.t(),
-        required("appVersion") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("appArn") => String.t() | Atom.t(),
+        required("appVersion") => String.t() | Atom.t()
       }
 
   """
-  @type list_app_version_resource_mappings_request() :: %{String.t() => any()}
+  @type list_app_version_resource_mappings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       add_draft_app_version_resource_mappings_request() :: %{
-        required("appArn") => String.t(),
+        required("appArn") => String.t() | Atom.t(),
         required("resourceMappings") => list(resource_mapping())
       }
 
   """
-  @type add_draft_app_version_resource_mappings_request() :: %{String.t() => any()}
+  @type add_draft_app_version_resource_mappings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_metrics_export_request() :: %{
-        required("metricsExportId") => String.t()
+        required("metricsExportId") => String.t() | Atom.t()
       }
 
   """
-  @type describe_metrics_export_request() :: %{String.t() => any()}
+  @type describe_metrics_export_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_app_version_app_component_request() :: %{
-        required("appArn") => String.t(),
-        required("appVersion") => String.t(),
-        required("id") => String.t()
+        required("appArn") => String.t() | Atom.t(),
+        required("appVersion") => String.t() | Atom.t(),
+        required("id") => String.t() | Atom.t()
       }
 
   """
-  @type describe_app_version_app_component_request() :: %{String.t() => any()}
+  @type describe_app_version_app_component_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1157,21 +1169,21 @@ defmodule AWS.Resiliencehub do
       }
 
   """
-  @type update_resiliency_policy_response() :: %{String.t() => any()}
+  @type update_resiliency_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       publish_app_version_response() :: %{
-        optional("appVersion") => String.t(),
+        optional("appVersion") => String.t() | Atom.t(),
         optional("identifier") => float(),
-        optional("versionName") => String.t(),
-        required("appArn") => String.t()
+        optional("versionName") => String.t() | Atom.t(),
+        required("appArn") => String.t() | Atom.t()
       }
 
   """
-  @type publish_app_version_response() :: %{String.t() => any()}
+  @type publish_app_version_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1179,28 +1191,28 @@ defmodule AWS.Resiliencehub do
 
       update_app_version_resource_response() :: %{
         optional("physicalResource") => physical_resource(),
-        required("appArn") => String.t(),
-        required("appVersion") => String.t()
+        required("appArn") => String.t() | Atom.t(),
+        required("appVersion") => String.t() | Atom.t()
       }
 
   """
-  @type update_app_version_resource_response() :: %{String.t() => any()}
+  @type update_app_version_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_update_recommendation_status_successful_entry() :: %{
-        "appComponentId" => String.t(),
-        "entryId" => String.t(),
+        "appComponentId" => String.t() | Atom.t(),
+        "entryId" => String.t() | Atom.t(),
         "excludeReason" => list(any()),
         "excluded" => boolean(),
         "item" => update_recommendation_status_item(),
-        "referenceId" => String.t()
+        "referenceId" => String.t() | Atom.t()
       }
 
   """
-  @type batch_update_recommendation_status_successful_entry() :: %{String.t() => any()}
+  @type batch_update_recommendation_status_successful_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1211,7 +1223,7 @@ defmodule AWS.Resiliencehub do
       }
 
   """
-  @type create_resiliency_policy_response() :: %{String.t() => any()}
+  @type create_resiliency_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1219,12 +1231,12 @@ defmodule AWS.Resiliencehub do
 
       update_app_version_response() :: %{
         optional("additionalInfo") => map(),
-        required("appArn") => String.t(),
-        required("appVersion") => String.t()
+        required("appArn") => String.t() | Atom.t(),
+        required("appVersion") => String.t() | Atom.t()
       }
 
   """
-  @type update_app_version_response() :: %{String.t() => any()}
+  @type update_app_version_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1232,47 +1244,47 @@ defmodule AWS.Resiliencehub do
 
       field() :: %{
         "aggregation" => list(any()),
-        "name" => String.t()
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type field() :: %{String.t() => any()}
+  @type field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       reject_grouping_recommendation_entry() :: %{
-        "groupingRecommendationId" => String.t(),
+        "groupingRecommendationId" => String.t() | Atom.t(),
         "rejectionReason" => list(any())
       }
 
   """
-  @type reject_grouping_recommendation_entry() :: %{String.t() => any()}
+  @type reject_grouping_recommendation_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_metrics_response() :: %{
-        "nextToken" => String.t(),
-        "rows" => list(list(String.t())())
+        "nextToken" => String.t() | Atom.t(),
+        "rows" => list(list(String.t() | Atom.t())())
       }
 
   """
-  @type list_metrics_response() :: %{String.t() => any()}
+  @type list_metrics_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_alarm_recommendations_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("alarmRecommendations") => list(alarm_recommendation())
       }
 
   """
-  @type list_alarm_recommendations_response() :: %{String.t() => any()}
+  @type list_alarm_recommendations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1283,43 +1295,46 @@ defmodule AWS.Resiliencehub do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       eks_source_cluster_namespace() :: %{
-        "eksClusterArn" => String.t(),
-        "namespace" => String.t()
+        "eksClusterArn" => String.t() | Atom.t(),
+        "namespace" => String.t() | Atom.t()
       }
 
   """
-  @type eks_source_cluster_namespace() :: %{String.t() => any()}
+  @type eks_source_cluster_namespace() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_draft_app_version_resources_import_status_request() :: %{
-        required("appArn") => String.t()
+        required("appArn") => String.t() | Atom.t()
       }
 
   """
-  @type describe_draft_app_version_resources_import_status_request() :: %{String.t() => any()}
+  @type describe_draft_app_version_resources_import_status_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       describe_app_version_template_response() :: %{
-        required("appArn") => String.t(),
-        required("appTemplateBody") => String.t(),
-        required("appVersion") => String.t()
+        required("appArn") => String.t() | Atom.t(),
+        required("appTemplateBody") => String.t() | Atom.t(),
+        required("appVersion") => String.t() | Atom.t()
       }
 
   """
-  @type describe_app_version_template_response() :: %{String.t() => any()}
+  @type describe_app_version_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1330,7 +1345,7 @@ defmodule AWS.Resiliencehub do
       }
 
   """
-  @type describe_resiliency_policy_response() :: %{String.t() => any()}
+  @type describe_resiliency_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1338,13 +1353,13 @@ defmodule AWS.Resiliencehub do
 
       app_component() :: %{
         "additionalInfo" => map(),
-        "id" => String.t(),
-        "name" => String.t(),
-        "type" => String.t()
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "type" => String.t() | Atom.t()
       }
 
   """
-  @type app_component() :: %{String.t() => any()}
+  @type app_component() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1352,89 +1367,89 @@ defmodule AWS.Resiliencehub do
 
       recommendation_disruption_compliance() :: %{
         "expectedComplianceStatus" => list(any()),
-        "expectedRpoDescription" => String.t(),
+        "expectedRpoDescription" => String.t() | Atom.t(),
         "expectedRpoInSecs" => integer(),
-        "expectedRtoDescription" => String.t(),
+        "expectedRtoDescription" => String.t() | Atom.t(),
         "expectedRtoInSecs" => integer()
       }
 
   """
-  @type recommendation_disruption_compliance() :: %{String.t() => any()}
+  @type recommendation_disruption_compliance() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_suggested_resiliency_policies_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("resiliencyPolicies") => list(resiliency_policy())
       }
 
   """
-  @type list_suggested_resiliency_policies_response() :: %{String.t() => any()}
+  @type list_suggested_resiliency_policies_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_error() :: %{
-        "logicalResourceId" => String.t(),
-        "physicalResourceId" => String.t(),
-        "reason" => String.t()
+        "logicalResourceId" => String.t() | Atom.t(),
+        "physicalResourceId" => String.t() | Atom.t(),
+        "reason" => String.t() | Atom.t()
       }
 
   """
-  @type resource_error() :: %{String.t() => any()}
+  @type resource_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       accept_grouping_recommendation_entry() :: %{
-        "groupingRecommendationId" => String.t()
+        "groupingRecommendationId" => String.t() | Atom.t()
       }
 
   """
-  @type accept_grouping_recommendation_entry() :: %{String.t() => any()}
+  @type accept_grouping_recommendation_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       condition() :: %{
-        "field" => String.t(),
+        "field" => String.t() | Atom.t(),
         "operator" => list(any()),
-        "value" => String.t()
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type condition() :: %{String.t() => any()}
+  @type condition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_location() :: %{
-        "bucket" => String.t(),
-        "prefix" => String.t()
+        "bucket" => String.t() | Atom.t(),
+        "prefix" => String.t() | Atom.t()
       }
 
   """
-  @type s3_location() :: %{String.t() => any()}
+  @type s3_location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resolve_app_version_resources_response() :: %{
-        required("appArn") => String.t(),
-        required("appVersion") => String.t(),
-        required("resolutionId") => String.t(),
+        required("appArn") => String.t() | Atom.t(),
+        required("appVersion") => String.t() | Atom.t(),
+        required("resolutionId") => String.t() | Atom.t(),
         required("status") => list(any())
       }
 
   """
-  @type resolve_app_version_resources_response() :: %{String.t() => any()}
+  @type resolve_app_version_resources_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1444,25 +1459,25 @@ defmodule AWS.Resiliencehub do
         "eksSourceClusterNamespace" => eks_source_cluster_namespace(),
         "importType" => list(any()),
         "resourceCount" => integer(),
-        "sourceArn" => String.t(),
-        "sourceName" => String.t(),
+        "sourceArn" => String.t() | Atom.t(),
+        "sourceName" => String.t() | Atom.t(),
         "terraformSource" => terraform_source()
       }
 
   """
-  @type app_input_source() :: %{String.t() => any()}
+  @type app_input_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_recommendation_template_response() :: %{
-        required("recommendationTemplateArn") => String.t(),
+        required("recommendationTemplateArn") => String.t() | Atom.t(),
         required("status") => list(any())
       }
 
   """
-  @type delete_recommendation_template_response() :: %{String.t() => any()}
+  @type delete_recommendation_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1473,15 +1488,15 @@ defmodule AWS.Resiliencehub do
         "appComponents" => list(app_component()),
         "excluded" => boolean(),
         "logicalResourceId" => logical_resource_id(),
-        "parentResourceName" => String.t(),
+        "parentResourceName" => String.t() | Atom.t(),
         "physicalResourceId" => physical_resource_id(),
-        "resourceName" => String.t(),
-        "resourceType" => String.t(),
+        "resourceName" => String.t() | Atom.t(),
+        "resourceType" => String.t() | Atom.t(),
         "sourceType" => list(any())
       }
 
   """
-  @type physical_resource() :: %{String.t() => any()}
+  @type physical_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1489,26 +1504,26 @@ defmodule AWS.Resiliencehub do
 
       sort() :: %{
         "ascending" => boolean(),
-        "field" => String.t()
+        "field" => String.t() | Atom.t()
       }
 
   """
-  @type sort() :: %{String.t() => any()}
+  @type sort() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       app_summary() :: %{
-        "appArn" => String.t(),
+        "appArn" => String.t() | Atom.t(),
         "assessmentSchedule" => list(any()),
-        "awsApplicationArn" => String.t(),
+        "awsApplicationArn" => String.t() | Atom.t(),
         "complianceStatus" => list(any()),
         "creationTime" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "driftStatus" => list(any()),
         "lastAppComplianceEvaluationTime" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "resiliencyScore" => float(),
         "rpoInSecs" => integer(),
         "rtoInSecs" => integer(),
@@ -1516,31 +1531,31 @@ defmodule AWS.Resiliencehub do
       }
 
   """
-  @type app_summary() :: %{String.t() => any()}
+  @type app_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       reject_resource_grouping_recommendations_request() :: %{
-        required("appArn") => String.t(),
+        required("appArn") => String.t() | Atom.t(),
         required("entries") => list(reject_grouping_recommendation_entry())
       }
 
   """
-  @type reject_resource_grouping_recommendations_request() :: %{String.t() => any()}
+  @type reject_resource_grouping_recommendations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_test_recommendations_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("testRecommendations") => list(test_recommendation())
       }
 
   """
-  @type list_test_recommendations_response() :: %{String.t() => any()}
+  @type list_test_recommendations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1551,94 +1566,94 @@ defmodule AWS.Resiliencehub do
       }
 
   """
-  @type update_app_response() :: %{String.t() => any()}
+  @type update_app_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_drift() :: %{
-        "appArn" => String.t(),
-        "appVersion" => String.t(),
+        "appArn" => String.t() | Atom.t(),
+        "appVersion" => String.t() | Atom.t(),
         "diffType" => list(any()),
-        "referenceId" => String.t(),
+        "referenceId" => String.t() | Atom.t(),
         "resourceIdentifier" => resource_identifier()
       }
 
   """
-  @type resource_drift() :: %{String.t() => any()}
+  @type resource_drift() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       app_assessment_summary() :: %{
-        "appArn" => String.t(),
-        "appVersion" => String.t(),
-        "assessmentArn" => String.t(),
-        "assessmentName" => String.t(),
+        "appArn" => String.t() | Atom.t(),
+        "appVersion" => String.t() | Atom.t(),
+        "assessmentArn" => String.t() | Atom.t(),
+        "assessmentName" => String.t() | Atom.t(),
         "assessmentStatus" => list(any()),
         "complianceStatus" => list(any()),
         "cost" => cost(),
         "driftStatus" => list(any()),
         "endTime" => non_neg_integer(),
         "invoker" => list(any()),
-        "message" => String.t(),
+        "message" => String.t() | Atom.t(),
         "resiliencyScore" => float(),
         "startTime" => non_neg_integer(),
-        "versionName" => String.t()
+        "versionName" => String.t() | Atom.t()
       }
 
   """
-  @type app_assessment_summary() :: %{String.t() => any()}
+  @type app_assessment_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       eks_source() :: %{
-        "eksClusterArn" => String.t(),
-        "namespaces" => list(String.t())
+        "eksClusterArn" => String.t() | Atom.t(),
+        "namespaces" => list(String.t() | Atom.t())
       }
 
   """
-  @type eks_source() :: %{String.t() => any()}
+  @type eks_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_app_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("forceDelete") => boolean(),
-        required("appArn") => String.t()
+        required("appArn") => String.t() | Atom.t()
       }
 
   """
-  @type delete_app_request() :: %{String.t() => any()}
+  @type delete_app_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_app_assessment_resource_drifts_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "resourceDrifts" => list(resource_drift())
       }
 
   """
-  @type list_app_assessment_resource_drifts_response() :: %{String.t() => any()}
+  @type list_app_assessment_resource_drifts_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1646,53 +1661,53 @@ defmodule AWS.Resiliencehub do
 
       update_app_version_resource_request() :: %{
         optional("additionalInfo") => map(),
-        optional("appComponents") => list(String.t()),
-        optional("awsAccountId") => String.t(),
-        optional("awsRegion") => String.t(),
+        optional("appComponents") => list(String.t() | Atom.t()),
+        optional("awsAccountId") => String.t() | Atom.t(),
+        optional("awsRegion") => String.t() | Atom.t(),
         optional("excluded") => boolean(),
         optional("logicalResourceId") => logical_resource_id(),
-        optional("physicalResourceId") => String.t(),
-        optional("resourceName") => String.t(),
-        optional("resourceType") => String.t(),
-        required("appArn") => String.t()
+        optional("physicalResourceId") => String.t() | Atom.t(),
+        optional("resourceName") => String.t() | Atom.t(),
+        optional("resourceType") => String.t() | Atom.t(),
+        required("appArn") => String.t() | Atom.t()
       }
 
   """
-  @type update_app_version_resource_request() :: %{String.t() => any()}
+  @type update_app_version_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       publish_app_version_request() :: %{
-        optional("versionName") => String.t(),
-        required("appArn") => String.t()
+        optional("versionName") => String.t() | Atom.t(),
+        required("appArn") => String.t() | Atom.t()
       }
 
   """
-  @type publish_app_version_request() :: %{String.t() => any()}
+  @type publish_app_version_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_app_request() :: %{
-        required("appArn") => String.t()
+        required("appArn") => String.t() | Atom.t()
       }
 
   """
-  @type describe_app_request() :: %{String.t() => any()}
+  @type describe_app_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       error_detail() :: %{
-        "errorMessage" => String.t()
+        "errorMessage" => String.t() | Atom.t()
       }
 
   """
-  @type error_detail() :: %{String.t() => any()}
+  @type error_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1700,34 +1715,34 @@ defmodule AWS.Resiliencehub do
 
       list_resource_grouping_recommendations_response() :: %{
         "groupingRecommendations" => list(grouping_recommendation()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_resource_grouping_recommendations_response() :: %{String.t() => any()}
+  @type list_resource_grouping_recommendations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_resiliency_policy_request() :: %{
-        optional("clientToken") => String.t(),
-        required("policyArn") => String.t()
+        optional("clientToken") => String.t() | Atom.t(),
+        required("policyArn") => String.t() | Atom.t()
       }
 
   """
-  @type delete_resiliency_policy_request() :: %{String.t() => any()}
+  @type delete_resiliency_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1735,11 +1750,11 @@ defmodule AWS.Resiliencehub do
 
       list_app_assessment_compliance_drifts_response() :: %{
         "complianceDrifts" => list(compliance_drift()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_app_assessment_compliance_drifts_response() :: %{String.t() => any()}
+  @type list_app_assessment_compliance_drifts_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1747,12 +1762,12 @@ defmodule AWS.Resiliencehub do
 
       delete_app_version_app_component_response() :: %{
         optional("appComponent") => app_component(),
-        required("appArn") => String.t(),
-        required("appVersion") => String.t()
+        required("appArn") => String.t() | Atom.t(),
+        required("appVersion") => String.t() | Atom.t()
       }
 
   """
-  @type delete_app_version_app_component_response() :: %{String.t() => any()}
+  @type delete_app_version_app_component_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1768,13 +1783,13 @@ defmodule AWS.Resiliencehub do
   ## Example:
 
       delete_app_version_app_component_request() :: %{
-        optional("clientToken") => String.t(),
-        required("appArn") => String.t(),
-        required("id") => String.t()
+        optional("clientToken") => String.t() | Atom.t(),
+        required("appArn") => String.t() | Atom.t(),
+        required("id") => String.t() | Atom.t()
       }
 
   """
-  @type delete_app_version_app_component_request() :: %{String.t() => any()}
+  @type delete_app_version_app_component_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1782,29 +1797,29 @@ defmodule AWS.Resiliencehub do
 
       import_resources_to_draft_app_version_response() :: %{
         optional("eksSources") => list(eks_source()),
-        optional("sourceArns") => list(String.t()),
+        optional("sourceArns") => list(String.t() | Atom.t()),
         optional("terraformSources") => list(terraform_source()),
-        required("appArn") => String.t(),
-        required("appVersion") => String.t(),
+        required("appArn") => String.t() | Atom.t(),
+        required("appVersion") => String.t() | Atom.t(),
         required("status") => list(any())
       }
 
   """
-  @type import_resources_to_draft_app_version_response() :: %{String.t() => any()}
+  @type import_resources_to_draft_app_version_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       app_version_summary() :: %{
-        "appVersion" => String.t(),
+        "appVersion" => String.t() | Atom.t(),
         "creationTime" => non_neg_integer(),
         "identifier" => float(),
-        "versionName" => String.t()
+        "versionName" => String.t() | Atom.t()
       }
 
   """
-  @type app_version_summary() :: %{String.t() => any()}
+  @type app_version_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1812,26 +1827,26 @@ defmodule AWS.Resiliencehub do
 
       list_app_version_app_components_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("appArn") => String.t(),
-        required("appVersion") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("appArn") => String.t() | Atom.t(),
+        required("appVersion") => String.t() | Atom.t()
       }
 
   """
-  @type list_app_version_app_components_request() :: %{String.t() => any()}
+  @type list_app_version_app_components_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       permission_model() :: %{
-        "crossAccountRoleArns" => list(String.t()),
-        "invokerRoleName" => String.t(),
+        "crossAccountRoleArns" => list(String.t() | Atom.t()),
+        "invokerRoleName" => String.t() | Atom.t(),
         "type" => list(any())
       }
 
   """
-  @type permission_model() :: %{String.t() => any()}
+  @type permission_model() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1840,37 +1855,37 @@ defmodule AWS.Resiliencehub do
       update_resiliency_policy_request() :: %{
         optional("dataLocationConstraint") => list(any()),
         optional("policy") => map(),
-        optional("policyDescription") => String.t(),
-        optional("policyName") => String.t(),
+        optional("policyDescription") => String.t() | Atom.t(),
+        optional("policyName") => String.t() | Atom.t(),
         optional("tier") => list(any()),
-        required("policyArn") => String.t()
+        required("policyArn") => String.t() | Atom.t()
       }
 
   """
-  @type update_resiliency_policy_request() :: %{String.t() => any()}
+  @type update_resiliency_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_app_input_sources_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("appInputSources") => list(app_input_source())
       }
 
   """
-  @type list_app_input_sources_response() :: %{String.t() => any()}
+  @type list_app_input_sources_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1890,15 +1905,15 @@ defmodule AWS.Resiliencehub do
         "dataLocationConstraint" => list(any()),
         "estimatedCostTier" => list(any()),
         "policy" => map(),
-        "policyArn" => String.t(),
-        "policyDescription" => String.t(),
-        "policyName" => String.t(),
+        "policyArn" => String.t() | Atom.t(),
+        "policyDescription" => String.t() | Atom.t(),
+        "policyName" => String.t() | Atom.t(),
         "tags" => map(),
         "tier" => list(any())
       }
 
   """
-  @type resiliency_policy() :: %{String.t() => any()}
+  @type resiliency_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1907,25 +1922,25 @@ defmodule AWS.Resiliencehub do
       update_app_request() :: %{
         optional("assessmentSchedule") => list(any()),
         optional("clearResiliencyPolicyArn") => boolean(),
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("eventSubscriptions") => list(event_subscription()),
         optional("permissionModel") => permission_model(),
-        optional("policyArn") => String.t(),
-        required("appArn") => String.t()
+        optional("policyArn") => String.t() | Atom.t(),
+        required("appArn") => String.t() | Atom.t()
       }
 
   """
-  @type update_app_request() :: %{String.t() => any()}
+  @type update_app_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       app_assessment() :: %{
-        "appArn" => String.t(),
-        "appVersion" => String.t(),
-        "assessmentArn" => String.t(),
-        "assessmentName" => String.t(),
+        "appArn" => String.t() | Atom.t(),
+        "appVersion" => String.t() | Atom.t(),
+        "assessmentArn" => String.t() | Atom.t(),
+        "assessmentName" => String.t() | Atom.t(),
         "assessmentStatus" => list(any()),
         "compliance" => map(),
         "complianceStatus" => list(any()),
@@ -1933,70 +1948,70 @@ defmodule AWS.Resiliencehub do
         "driftStatus" => list(any()),
         "endTime" => non_neg_integer(),
         "invoker" => list(any()),
-        "message" => String.t(),
+        "message" => String.t() | Atom.t(),
         "policy" => resiliency_policy(),
         "resiliencyScore" => resiliency_score(),
         "resourceErrorsDetails" => resource_errors_details(),
         "startTime" => non_neg_integer(),
         "summary" => assessment_summary(),
         "tags" => map(),
-        "versionName" => String.t()
+        "versionName" => String.t() | Atom.t()
       }
 
   """
-  @type app_assessment() :: %{String.t() => any()}
+  @type app_assessment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       test_recommendation() :: %{
-        "appComponentId" => String.t(),
-        "appComponentName" => String.t(),
-        "dependsOnAlarms" => list(String.t()),
-        "description" => String.t(),
-        "intent" => String.t(),
+        "appComponentId" => String.t() | Atom.t(),
+        "appComponentName" => String.t() | Atom.t(),
+        "dependsOnAlarms" => list(String.t() | Atom.t()),
+        "description" => String.t() | Atom.t(),
+        "intent" => String.t() | Atom.t(),
         "items" => list(recommendation_item()),
-        "name" => String.t(),
-        "prerequisite" => String.t(),
-        "recommendationId" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "prerequisite" => String.t() | Atom.t(),
+        "recommendationId" => String.t() | Atom.t(),
         "recommendationStatus" => list(any()),
-        "referenceId" => String.t(),
+        "referenceId" => String.t() | Atom.t(),
         "risk" => list(any()),
         "type" => list(any())
       }
 
   """
-  @type test_recommendation() :: %{String.t() => any()}
+  @type test_recommendation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_recommendation_templates_request() :: %{
-        optional("assessmentArn") => String.t(),
+        optional("assessmentArn") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("name") => String.t(),
-        optional("nextToken") => String.t(),
-        optional("recommendationTemplateArn") => String.t(),
+        optional("name") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("recommendationTemplateArn") => String.t() | Atom.t(),
         optional("reverseOrder") => boolean(),
         optional("status") => list(list(any())())
       }
 
   """
-  @type list_recommendation_templates_request() :: %{String.t() => any()}
+  @type list_recommendation_templates_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => String.t(),
+        "message" => String.t() | Atom.t(),
         "retryAfterSeconds" => integer()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2007,20 +2022,20 @@ defmodule AWS.Resiliencehub do
       }
 
   """
-  @type start_app_assessment_response() :: %{String.t() => any()}
+  @type start_app_assessment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_recommendation_status_item() :: %{
-        "resourceId" => String.t(),
-        "targetAccountId" => String.t(),
-        "targetRegion" => String.t()
+        "resourceId" => String.t() | Atom.t(),
+        "targetAccountId" => String.t() | Atom.t(),
+        "targetRegion" => String.t() | Atom.t()
       }
 
   """
-  @type update_recommendation_status_item() :: %{String.t() => any()}
+  @type update_recommendation_status_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2028,23 +2043,23 @@ defmodule AWS.Resiliencehub do
 
       list_alarm_recommendations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("assessmentArn") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("assessmentArn") => String.t() | Atom.t()
       }
 
   """
-  @type list_alarm_recommendations_request() :: %{String.t() => any()}
+  @type list_alarm_recommendations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_resource_grouping_recommendation_task_request() :: %{
-        required("appArn") => String.t()
+        required("appArn") => String.t() | Atom.t()
       }
 
   """
-  @type start_resource_grouping_recommendation_task_request() :: %{String.t() => any()}
+  @type start_resource_grouping_recommendation_task_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2052,22 +2067,22 @@ defmodule AWS.Resiliencehub do
 
       update_app_version_request() :: %{
         optional("additionalInfo") => map(),
-        required("appArn") => String.t()
+        required("appArn") => String.t() | Atom.t()
       }
 
   """
-  @type update_app_version_request() :: %{String.t() => any()}
+  @type update_app_version_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_resiliency_policy_request() :: %{
-        required("policyArn") => String.t()
+        required("policyArn") => String.t() | Atom.t()
       }
 
   """
-  @type describe_resiliency_policy_request() :: %{String.t() => any()}
+  @type describe_resiliency_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2078,7 +2093,7 @@ defmodule AWS.Resiliencehub do
       }
 
   """
-  @type describe_app_assessment_response() :: %{String.t() => any()}
+  @type describe_app_assessment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2086,30 +2101,30 @@ defmodule AWS.Resiliencehub do
 
       describe_app_version_app_component_response() :: %{
         optional("appComponent") => app_component(),
-        required("appArn") => String.t(),
-        required("appVersion") => String.t()
+        required("appArn") => String.t() | Atom.t(),
+        required("appVersion") => String.t() | Atom.t()
       }
 
   """
-  @type describe_app_version_app_component_response() :: %{String.t() => any()}
+  @type describe_app_version_app_component_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_apps_request() :: %{
-        optional("appArn") => String.t(),
-        optional("awsApplicationArn") => String.t(),
+        optional("appArn") => String.t() | Atom.t(),
+        optional("awsApplicationArn") => String.t() | Atom.t(),
         optional("fromLastAssessmentTime") => non_neg_integer(),
         optional("maxResults") => integer(),
-        optional("name") => String.t(),
-        optional("nextToken") => String.t(),
+        optional("name") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("reverseOrder") => boolean(),
         optional("toLastAssessmentTime") => non_neg_integer()
       }
 
   """
-  @type list_apps_request() :: %{String.t() => any()}
+  @type list_apps_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2117,27 +2132,27 @@ defmodule AWS.Resiliencehub do
 
       update_app_version_app_component_response() :: %{
         optional("appComponent") => app_component(),
-        required("appArn") => String.t(),
-        required("appVersion") => String.t()
+        required("appArn") => String.t() | Atom.t(),
+        required("appVersion") => String.t() | Atom.t()
       }
 
   """
-  @type update_app_version_app_component_response() :: %{String.t() => any()}
+  @type update_app_version_app_component_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       recommendation_template() :: %{
-        "appArn" => String.t(),
-        "assessmentArn" => String.t(),
+        "appArn" => String.t() | Atom.t(),
+        "assessmentArn" => String.t() | Atom.t(),
         "endTime" => non_neg_integer(),
         "format" => list(any()),
-        "message" => String.t(),
-        "name" => String.t(),
+        "message" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "needsReplacements" => boolean(),
-        "recommendationIds" => list(String.t()),
-        "recommendationTemplateArn" => String.t(),
+        "recommendationIds" => list(String.t() | Atom.t()),
+        "recommendationTemplateArn" => String.t() | Atom.t(),
         "recommendationTypes" => list(list(any())()),
         "startTime" => non_neg_integer(),
         "status" => list(any()),
@@ -2146,7 +2161,7 @@ defmodule AWS.Resiliencehub do
       }
 
   """
-  @type recommendation_template() :: %{String.t() => any()}
+  @type recommendation_template() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2154,93 +2169,93 @@ defmodule AWS.Resiliencehub do
 
       list_metrics_request() :: %{
         optional("conditions") => list(condition()),
-        optional("dataSource") => String.t(),
+        optional("dataSource") => String.t() | Atom.t(),
         optional("fields") => list(field()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sorts") => list(sort())
       }
 
   """
-  @type list_metrics_request() :: %{String.t() => any()}
+  @type list_metrics_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_resiliency_policy_response() :: %{
-        required("policyArn") => String.t()
+        required("policyArn") => String.t() | Atom.t()
       }
 
   """
-  @type delete_resiliency_policy_response() :: %{String.t() => any()}
+  @type delete_resiliency_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_app_version_resource_request() :: %{
-        optional("awsAccountId") => String.t(),
-        optional("awsRegion") => String.t(),
-        optional("clientToken") => String.t(),
+        optional("awsAccountId") => String.t() | Atom.t(),
+        optional("awsRegion") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("logicalResourceId") => logical_resource_id(),
-        optional("physicalResourceId") => String.t(),
-        optional("resourceName") => String.t(),
-        required("appArn") => String.t()
+        optional("physicalResourceId") => String.t() | Atom.t(),
+        optional("resourceName") => String.t() | Atom.t(),
+        required("appArn") => String.t() | Atom.t()
       }
 
   """
-  @type delete_app_version_resource_request() :: %{String.t() => any()}
+  @type delete_app_version_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_sop_recommendations_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("sopRecommendations") => list(sop_recommendation())
       }
 
   """
-  @type list_sop_recommendations_response() :: %{String.t() => any()}
+  @type list_sop_recommendations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_app_assessment_response() :: %{
-        required("assessmentArn") => String.t(),
+        required("assessmentArn") => String.t() | Atom.t(),
         required("assessmentStatus") => list(any())
       }
 
   """
-  @type delete_app_assessment_response() :: %{String.t() => any()}
+  @type delete_app_assessment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       physical_resource_id() :: %{
-        "awsAccountId" => String.t(),
-        "awsRegion" => String.t(),
-        "identifier" => String.t(),
+        "awsAccountId" => String.t() | Atom.t(),
+        "awsRegion" => String.t() | Atom.t(),
+        "identifier" => String.t() | Atom.t(),
         "type" => list(any())
       }
 
   """
-  @type physical_resource_id() :: %{String.t() => any()}
+  @type physical_resource_id() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       experiment() :: %{
-        "experimentArn" => String.t(),
-        "experimentTemplateId" => String.t()
+        "experimentArn" => String.t() | Atom.t(),
+        "experimentTemplateId" => String.t() | Atom.t()
       }
 
   """
-  @type experiment() :: %{String.t() => any()}
+  @type experiment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2251,7 +2266,7 @@ defmodule AWS.Resiliencehub do
       }
 
   """
-  @type create_app_response() :: %{String.t() => any()}
+  @type create_app_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2259,12 +2274,12 @@ defmodule AWS.Resiliencehub do
 
       list_app_component_compliances_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("assessmentArn") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("assessmentArn") => String.t() | Atom.t()
       }
 
   """
-  @type list_app_component_compliances_request() :: %{String.t() => any()}
+  @type list_app_component_compliances_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2273,33 +2288,33 @@ defmodule AWS.Resiliencehub do
       list_app_versions_request() :: %{
         optional("endTime") => non_neg_integer(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("startTime") => non_neg_integer(),
-        required("appArn") => String.t()
+        required("appArn") => String.t() | Atom.t()
       }
 
   """
-  @type list_app_versions_request() :: %{String.t() => any()}
+  @type list_app_versions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       compliance_drift() :: %{
-        "actualReferenceId" => String.t(),
+        "actualReferenceId" => String.t() | Atom.t(),
         "actualValue" => map(),
-        "appId" => String.t(),
-        "appVersion" => String.t(),
+        "appId" => String.t() | Atom.t(),
+        "appVersion" => String.t() | Atom.t(),
         "diffType" => list(any()),
         "driftType" => list(any()),
-        "entityId" => String.t(),
-        "entityType" => String.t(),
-        "expectedReferenceId" => String.t(),
+        "entityId" => String.t() | Atom.t(),
+        "entityType" => String.t() | Atom.t(),
+        "expectedReferenceId" => String.t() | Atom.t(),
         "expectedValue" => map()
       }
 
   """
-  @type compliance_drift() :: %{String.t() => any()}
+  @type compliance_drift() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2307,40 +2322,40 @@ defmodule AWS.Resiliencehub do
 
       create_app_version_app_component_request() :: %{
         optional("additionalInfo") => map(),
-        optional("clientToken") => String.t(),
-        optional("id") => String.t(),
-        required("appArn") => String.t(),
-        required("name") => String.t(),
-        required("type") => String.t()
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("id") => String.t() | Atom.t(),
+        required("appArn") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t(),
+        required("type") => String.t() | Atom.t()
       }
 
   """
-  @type create_app_version_app_component_request() :: %{String.t() => any()}
+  @type create_app_version_app_component_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       grouping_app_component() :: %{
-        "appComponentId" => String.t(),
-        "appComponentName" => String.t(),
-        "appComponentType" => String.t()
+        "appComponentId" => String.t() | Atom.t(),
+        "appComponentName" => String.t() | Atom.t(),
+        "appComponentType" => String.t() | Atom.t()
       }
 
   """
-  @type grouping_app_component() :: %{String.t() => any()}
+  @type grouping_app_component() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_recommendation_template_request() :: %{
-        optional("clientToken") => String.t(),
-        required("recommendationTemplateArn") => String.t()
+        optional("clientToken") => String.t() | Atom.t(),
+        required("recommendationTemplateArn") => String.t() | Atom.t()
       }
 
   """
-  @type delete_recommendation_template_request() :: %{String.t() => any()}
+  @type delete_recommendation_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2348,25 +2363,25 @@ defmodule AWS.Resiliencehub do
 
       list_app_assessment_resource_drifts_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("assessmentArn") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("assessmentArn") => String.t() | Atom.t()
       }
 
   """
-  @type list_app_assessment_resource_drifts_request() :: %{String.t() => any()}
+  @type list_app_assessment_resource_drifts_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_resource_grouping_recommendations_request() :: %{
-        optional("appArn") => String.t(),
+        optional("appArn") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_resource_grouping_recommendations_request() :: %{String.t() => any()}
+  @type list_resource_grouping_recommendations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2374,39 +2389,42 @@ defmodule AWS.Resiliencehub do
 
       cost() :: %{
         "amount" => float(),
-        "currency" => String.t(),
+        "currency" => String.t() | Atom.t(),
         "frequency" => list(any())
       }
 
   """
-  @type cost() :: %{String.t() => any()}
+  @type cost() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_app_version_resources_resolution_status_response() :: %{
-        optional("errorMessage") => String.t(),
-        required("appArn") => String.t(),
-        required("appVersion") => String.t(),
-        required("resolutionId") => String.t(),
+        optional("errorMessage") => String.t() | Atom.t(),
+        required("appArn") => String.t() | Atom.t(),
+        required("appVersion") => String.t() | Atom.t(),
+        required("resolutionId") => String.t() | Atom.t(),
         required("status") => list(any())
       }
 
   """
-  @type describe_app_version_resources_resolution_status_response() :: %{String.t() => any()}
+  @type describe_app_version_resources_resolution_status_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       list_resiliency_policies_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("resiliencyPolicies") => list(resiliency_policy())
       }
 
   """
-  @type list_resiliency_policies_response() :: %{String.t() => any()}
+  @type list_resiliency_policies_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2414,40 +2432,40 @@ defmodule AWS.Resiliencehub do
 
       assessment_summary() :: %{
         "riskRecommendations" => list(assessment_risk_recommendation()),
-        "summary" => String.t()
+        "summary" => String.t() | Atom.t()
       }
 
   """
-  @type assessment_summary() :: %{String.t() => any()}
+  @type assessment_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       reject_resource_grouping_recommendations_response() :: %{
-        "appArn" => String.t(),
+        "appArn" => String.t() | Atom.t(),
         "failedEntries" => list(failed_grouping_recommendation_entry())
       }
 
   """
-  @type reject_resource_grouping_recommendations_response() :: %{String.t() => any()}
+  @type reject_resource_grouping_recommendations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       remove_draft_app_version_resource_mappings_request() :: %{
-        optional("appRegistryAppNames") => list(String.t()),
-        optional("eksSourceNames") => list(String.t()),
-        optional("logicalStackNames") => list(String.t()),
-        optional("resourceGroupNames") => list(String.t()),
-        optional("resourceNames") => list(String.t()),
-        optional("terraformSourceNames") => list(String.t()),
-        required("appArn") => String.t()
+        optional("appRegistryAppNames") => list(String.t() | Atom.t()),
+        optional("eksSourceNames") => list(String.t() | Atom.t()),
+        optional("logicalStackNames") => list(String.t() | Atom.t()),
+        optional("resourceGroupNames") => list(String.t() | Atom.t()),
+        optional("resourceNames") => list(String.t() | Atom.t()),
+        optional("terraformSourceNames") => list(String.t() | Atom.t()),
+        required("appArn") => String.t() | Atom.t()
       }
 
   """
-  @type remove_draft_app_version_resource_mappings_request() :: %{String.t() => any()}
+  @type remove_draft_app_version_resource_mappings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2456,114 +2474,114 @@ defmodule AWS.Resiliencehub do
       grouping_resource() :: %{
         "logicalResourceId" => logical_resource_id(),
         "physicalResourceId" => physical_resource_id(),
-        "resourceName" => String.t(),
-        "resourceType" => String.t(),
-        "sourceAppComponentIds" => list(String.t())
+        "resourceName" => String.t() | Atom.t(),
+        "resourceType" => String.t() | Atom.t(),
+        "sourceAppComponentIds" => list(String.t() | Atom.t())
       }
 
   """
-  @type grouping_resource() :: %{String.t() => any()}
+  @type grouping_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       failed_grouping_recommendation_entry() :: %{
-        "errorMessage" => String.t(),
-        "groupingRecommendationId" => String.t()
+        "errorMessage" => String.t() | Atom.t(),
+        "groupingRecommendationId" => String.t() | Atom.t()
       }
 
   """
-  @type failed_grouping_recommendation_entry() :: %{String.t() => any()}
+  @type failed_grouping_recommendation_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_metrics_export_request() :: %{
-        optional("bucketName") => String.t(),
-        optional("clientToken") => String.t()
+        optional("bucketName") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | Atom.t()
       }
 
   """
-  @type start_metrics_export_request() :: %{String.t() => any()}
+  @type start_metrics_export_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       sop_recommendation() :: %{
-        "appComponentName" => String.t(),
-        "description" => String.t(),
+        "appComponentName" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
         "items" => list(recommendation_item()),
-        "name" => String.t(),
-        "prerequisite" => String.t(),
-        "recommendationId" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "prerequisite" => String.t() | Atom.t(),
+        "recommendationId" => String.t() | Atom.t(),
         "recommendationStatus" => list(any()),
-        "referenceId" => String.t(),
+        "referenceId" => String.t() | Atom.t(),
         "serviceType" => list(any())
       }
 
   """
-  @type sop_recommendation() :: %{String.t() => any()}
+  @type sop_recommendation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       app_component_compliance() :: %{
-        "appComponentName" => String.t(),
+        "appComponentName" => String.t() | Atom.t(),
         "compliance" => map(),
         "cost" => cost(),
-        "message" => String.t(),
+        "message" => String.t() | Atom.t(),
         "resiliencyScore" => resiliency_score(),
         "status" => list(any())
       }
 
   """
-  @type app_component_compliance() :: %{String.t() => any()}
+  @type app_component_compliance() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_app_assessment_request() :: %{
-        optional("clientToken") => String.t(),
-        required("assessmentArn") => String.t()
+        optional("clientToken") => String.t() | Atom.t(),
+        required("assessmentArn") => String.t() | Atom.t()
       }
 
   """
-  @type delete_app_assessment_request() :: %{String.t() => any()}
+  @type delete_app_assessment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_recommendation_template_request() :: %{
-        optional("bucketName") => String.t(),
-        optional("clientToken") => String.t(),
+        optional("bucketName") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("format") => list(any()),
-        optional("recommendationIds") => list(String.t()),
+        optional("recommendationIds") => list(String.t() | Atom.t()),
         optional("recommendationTypes") => list(list(any())()),
         optional("tags") => map(),
-        required("assessmentArn") => String.t(),
-        required("name") => String.t()
+        required("assessmentArn") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_recommendation_template_request() :: %{String.t() => any()}
+  @type create_recommendation_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_app_version_request() :: %{
-        required("appArn") => String.t(),
-        required("appVersion") => String.t()
+        required("appArn") => String.t() | Atom.t(),
+        required("appVersion") => String.t() | Atom.t()
       }
 
   """
-  @type describe_app_version_request() :: %{String.t() => any()}
+  @type describe_app_version_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2573,8 +2591,8 @@ defmodule AWS.Resiliencehub do
         "confidenceLevel" => list(any()),
         "creationTime" => non_neg_integer(),
         "groupingAppComponent" => grouping_app_component(),
-        "groupingRecommendationId" => String.t(),
-        "recommendationReasons" => list(String.t()),
+        "groupingRecommendationId" => String.t() | Atom.t(),
+        "recommendationReasons" => list(String.t() | Atom.t()),
         "rejectionReason" => list(any()),
         "resources" => list(grouping_resource()),
         "score" => float(),
@@ -2582,7 +2600,7 @@ defmodule AWS.Resiliencehub do
       }
 
   """
-  @type grouping_recommendation() :: %{String.t() => any()}
+  @type grouping_recommendation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2590,15 +2608,18 @@ defmodule AWS.Resiliencehub do
 
       describe_draft_app_version_resources_import_status_response() :: %{
         optional("errorDetails") => list(error_detail()),
-        optional("errorMessage") => String.t(),
-        required("appArn") => String.t(),
-        required("appVersion") => String.t(),
+        optional("errorMessage") => String.t() | Atom.t(),
+        required("appArn") => String.t() | Atom.t(),
+        required("appVersion") => String.t() | Atom.t(),
         required("status") => list(any()),
         required("statusChangeTime") => non_neg_integer()
       }
 
   """
-  @type describe_draft_app_version_resources_import_status_response() :: %{String.t() => any()}
+  @type describe_draft_app_version_resources_import_status_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -2606,12 +2627,12 @@ defmodule AWS.Resiliencehub do
 
       describe_app_version_response() :: %{
         optional("additionalInfo") => map(),
-        required("appArn") => String.t(),
-        required("appVersion") => String.t()
+        required("appArn") => String.t() | Atom.t(),
+        required("appVersion") => String.t() | Atom.t()
       }
 
   """
-  @type describe_app_version_response() :: %{String.t() => any()}
+  @type describe_app_version_response() :: %{String.t() | Atom.t() => any()}
 
   @type accept_resource_grouping_recommendations_errors() ::
           throttling_exception()
@@ -4169,14 +4190,14 @@ defmodule AWS.Resiliencehub do
   """
   @spec list_app_assessments(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_app_assessments_response(), any()}
@@ -4497,14 +4518,14 @@ defmodule AWS.Resiliencehub do
   """
   @spec list_apps(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_apps_response(), any()}
@@ -4622,13 +4643,13 @@ defmodule AWS.Resiliencehub do
   """
   @spec list_recommendation_templates(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_recommendation_templates_response(), any()}
@@ -4709,9 +4730,9 @@ defmodule AWS.Resiliencehub do
   """
   @spec list_resiliency_policies(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_resiliency_policies_response(), any()}
@@ -4761,9 +4782,9 @@ defmodule AWS.Resiliencehub do
   """
   @spec list_resource_grouping_recommendations(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_resource_grouping_recommendations_response(), any()}
@@ -4841,7 +4862,12 @@ defmodule AWS.Resiliencehub do
   Lists the suggested resiliency policies for the Resilience Hub
   applications.
   """
-  @spec list_suggested_resiliency_policies(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_suggested_resiliency_policies(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_suggested_resiliency_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4878,7 +4904,7 @@ defmodule AWS.Resiliencehub do
   @doc """
   Lists the tags for your resources in your Resilience Hub applications.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5208,7 +5234,7 @@ defmodule AWS.Resiliencehub do
   @doc """
   Applies one or more tags to a resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5237,7 +5263,7 @@ defmodule AWS.Resiliencehub do
   @doc """
   Removes one or more tags from a resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

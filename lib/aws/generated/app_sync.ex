@@ -15,12 +15,12 @@ defmodule AWS.AppSync do
   ## Example:
 
       data_source_introspection_model_index() :: %{
-        "fields" => list(String.t()),
-        "name" => String.t()
+        "fields" => list(String.t() | Atom.t()),
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type data_source_introspection_model_index() :: %{String.t() => any()}
+  @type data_source_introspection_model_index() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -40,7 +40,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type get_type_request() :: %{String.t() => any()}
+  @type get_type_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -51,7 +51,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type associate_merged_graphql_api_response() :: %{String.t() => any()}
+  @type associate_merged_graphql_api_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -59,11 +59,11 @@ defmodule AWS.AppSync do
 
       list_domain_names_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_domain_names_request() :: %{String.t() => any()}
+  @type list_domain_names_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -71,14 +71,14 @@ defmodule AWS.AppSync do
 
       evaluate_code_response() :: %{
         "error" => evaluate_code_error_detail(),
-        "evaluationResult" => String.t(),
-        "logs" => list(String.t()),
-        "outErrors" => String.t(),
-        "stash" => String.t()
+        "evaluationResult" => String.t() | Atom.t(),
+        "logs" => list(String.t() | Atom.t()),
+        "outErrors" => String.t() | Atom.t(),
+        "stash" => String.t() | Atom.t()
       }
 
   """
-  @type evaluate_code_response() :: %{String.t() => any()}
+  @type evaluate_code_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -91,7 +91,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type code_error_location() :: %{String.t() => any()}
+  @type code_error_location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -108,11 +108,11 @@ defmodule AWS.AppSync do
 
       list_resolvers_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_resolvers_request() :: %{String.t() => any()}
+  @type list_resolvers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -132,7 +132,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -148,11 +148,11 @@ defmodule AWS.AppSync do
   ## Example:
 
       internal_failure_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_failure_exception() :: %{String.t() => any()}
+  @type internal_failure_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -169,22 +169,22 @@ defmodule AWS.AppSync do
 
       list_api_keys_response() :: %{
         "apiKeys" => list(api_key()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_api_keys_response() :: %{String.t() => any()}
+  @type list_api_keys_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       lambda_conflict_handler_config() :: %{
-        "lambdaConflictHandlerArn" => String.t()
+        "lambdaConflictHandlerArn" => String.t() | Atom.t()
       }
 
   """
-  @type lambda_conflict_handler_config() :: %{String.t() => any()}
+  @type lambda_conflict_handler_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -192,34 +192,34 @@ defmodule AWS.AppSync do
 
       evaluate_code_error_detail() :: %{
         "codeErrors" => list(code_error()),
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type evaluate_code_error_detail() :: %{String.t() => any()}
+  @type evaluate_code_error_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       unauthorized_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type unauthorized_exception() :: %{String.t() => any()}
+  @type unauthorized_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_source_api_associations_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "sourceApiAssociationSummaries" => list(source_api_association_summary())
       }
 
   """
-  @type list_source_api_associations_response() :: %{String.t() => any()}
+  @type list_source_api_associations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -227,34 +227,34 @@ defmodule AWS.AppSync do
 
       list_functions_response() :: %{
         "functions" => list(function_configuration()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_functions_response() :: %{String.t() => any()}
+  @type list_functions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_types_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "types" => list(type())
       }
 
   """
-  @type list_types_response() :: %{String.t() => any()}
+  @type list_types_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       api_limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type api_limit_exceeded_exception() :: %{String.t() => any()}
+  @type api_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -265,14 +265,14 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type update_resolver_response() :: %{String.t() => any()}
+  @type update_resolver_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_data_source_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("dynamodbConfig") => dynamodb_data_source_config(),
         optional("elasticsearchConfig") => elasticsearch_data_source_config(),
         optional("eventBridgeConfig") => event_bridge_data_source_config(),
@@ -281,13 +281,13 @@ defmodule AWS.AppSync do
         optional("metricsConfig") => list(any()),
         optional("openSearchServiceConfig") => open_search_service_data_source_config(),
         optional("relationalDatabaseConfig") => relational_database_data_source_config(),
-        optional("serviceRoleArn") => String.t(),
-        required("name") => String.t(),
+        optional("serviceRoleArn") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t(),
         required("type") => list(any())
       }
 
   """
-  @type create_data_source_request() :: %{String.t() => any()}
+  @type create_data_source_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -295,24 +295,24 @@ defmodule AWS.AppSync do
 
       data_source_introspection_model_field() :: %{
         "length" => float(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "type" => data_source_introspection_model_field_type()
       }
 
   """
-  @type data_source_introspection_model_field() :: %{String.t() => any()}
+  @type data_source_introspection_model_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       integration() :: %{
-        "dataSourceName" => String.t(),
+        "dataSourceName" => String.t() | Atom.t(),
         "lambdaConfig" => lambda_config()
       }
 
   """
-  @type integration() :: %{String.t() => any()}
+  @type integration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -320,12 +320,12 @@ defmodule AWS.AppSync do
 
       lambda_authorizer_config() :: %{
         "authorizerResultTtlInSeconds" => integer(),
-        "authorizerUri" => String.t(),
-        "identityValidationExpression" => String.t()
+        "authorizerUri" => String.t() | Atom.t(),
+        "identityValidationExpression" => String.t() | Atom.t()
       }
 
   """
-  @type lambda_authorizer_config() :: %{String.t() => any()}
+  @type lambda_authorizer_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -351,11 +351,11 @@ defmodule AWS.AppSync do
 
       list_graphql_apis_response() :: %{
         "graphqlApis" => list(graphql_api()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_graphql_apis_response() :: %{String.t() => any()}
+  @type list_graphql_apis_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -387,7 +387,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type additional_authentication_provider() :: %{String.t() => any()}
+  @type additional_authentication_provider() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -395,11 +395,11 @@ defmodule AWS.AppSync do
 
       list_source_api_associations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_source_api_associations_request() :: %{String.t() => any()}
+  @type list_source_api_associations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -410,7 +410,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type get_source_api_association_response() :: %{String.t() => any()}
+  @type get_source_api_association_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -418,23 +418,23 @@ defmodule AWS.AppSync do
 
       list_resolvers_by_function_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_resolvers_by_function_request() :: %{String.t() => any()}
+  @type list_resolvers_by_function_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_api_key_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("expires") => float()
       }
 
   """
-  @type update_api_key_request() :: %{String.t() => any()}
+  @type update_api_key_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -445,7 +445,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type create_api_response() :: %{String.t() => any()}
+  @type create_api_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -453,74 +453,74 @@ defmodule AWS.AppSync do
 
       list_channel_namespaces_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_channel_namespaces_request() :: %{String.t() => any()}
+  @type list_channel_namespaces_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_schema_creation_status_response() :: %{
-        "details" => String.t(),
+        "details" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type get_schema_creation_status_response() :: %{String.t() => any()}
+  @type get_schema_creation_status_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cognito_user_pool_config() :: %{
-        "appIdClientRegex" => String.t(),
-        "awsRegion" => String.t(),
-        "userPoolId" => String.t()
+        "appIdClientRegex" => String.t() | Atom.t(),
+        "awsRegion" => String.t() | Atom.t(),
+        "userPoolId" => String.t() | Atom.t()
       }
 
   """
-  @type cognito_user_pool_config() :: %{String.t() => any()}
+  @type cognito_user_pool_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       api_key_limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type api_key_limit_exceeded_exception() :: %{String.t() => any()}
+  @type api_key_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cognito_config() :: %{
-        "appIdClientRegex" => String.t(),
-        "awsRegion" => String.t(),
-        "userPoolId" => String.t()
+        "appIdClientRegex" => String.t() | Atom.t(),
+        "awsRegion" => String.t() | Atom.t(),
+        "userPoolId" => String.t() | Atom.t()
       }
 
   """
-  @type cognito_config() :: %{String.t() => any()}
+  @type cognito_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_domain_name_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("tags") => map(),
-        required("certificateArn") => String.t(),
-        required("domainName") => String.t()
+        required("certificateArn") => String.t() | Atom.t(),
+        required("domainName") => String.t() | Atom.t()
       }
 
   """
-  @type create_domain_name_request() :: %{String.t() => any()}
+  @type create_domain_name_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -529,12 +529,12 @@ defmodule AWS.AppSync do
       list_graphql_apis_request() :: %{
         optional("apiType") => list(any()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("owner") => list(any())
       }
 
   """
-  @type list_graphql_apis_request() :: %{String.t() => any()}
+  @type list_graphql_apis_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -545,7 +545,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type get_api_association_response() :: %{String.t() => any()}
+  @type get_api_association_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -556,7 +556,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type create_api_cache_response() :: %{String.t() => any()}
+  @type create_api_cache_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -564,12 +564,12 @@ defmodule AWS.AppSync do
 
       list_types_by_association_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("format") => list(any())
       }
 
   """
-  @type list_types_by_association_request() :: %{String.t() => any()}
+  @type list_types_by_association_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -580,7 +580,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type get_function_response() :: %{String.t() => any()}
+  @type get_function_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -591,7 +591,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type update_data_source_response() :: %{String.t() => any()}
+  @type update_data_source_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -602,71 +602,71 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type put_graphql_api_environment_variables_response() :: %{String.t() => any()}
+  @type put_graphql_api_environment_variables_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_channel_namespace_request() :: %{
-        optional("codeHandlers") => String.t(),
+        optional("codeHandlers") => String.t() | Atom.t(),
         optional("handlerConfigs") => handler_configs(),
         optional("publishAuthModes") => list(auth_mode()),
         optional("subscribeAuthModes") => list(auth_mode())
       }
 
   """
-  @type update_channel_namespace_request() :: %{String.t() => any()}
+  @type update_channel_namespace_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_type_request() :: %{
-        required("definition") => String.t(),
+        required("definition") => String.t() | Atom.t(),
         required("format") => list(any())
       }
 
   """
-  @type create_type_request() :: %{String.t() => any()}
+  @type create_type_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       event_log_config() :: %{
-        "cloudWatchLogsRoleArn" => String.t(),
+        "cloudWatchLogsRoleArn" => String.t() | Atom.t(),
         "logLevel" => list(any())
       }
 
   """
-  @type event_log_config() :: %{String.t() => any()}
+  @type event_log_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       rds_http_endpoint_config() :: %{
-        "awsRegion" => String.t(),
-        "awsSecretStoreArn" => String.t(),
-        "databaseName" => String.t(),
-        "dbClusterIdentifier" => String.t(),
-        "schema" => String.t()
+        "awsRegion" => String.t() | Atom.t(),
+        "awsSecretStoreArn" => String.t() | Atom.t(),
+        "databaseName" => String.t() | Atom.t(),
+        "dbClusterIdentifier" => String.t() | Atom.t(),
+        "schema" => String.t() | Atom.t()
       }
 
   """
-  @type rds_http_endpoint_config() :: %{String.t() => any()}
+  @type rds_http_endpoint_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -678,7 +678,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type handler_configs() :: %{String.t() => any()}
+  @type handler_configs() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -686,23 +686,23 @@ defmodule AWS.AppSync do
 
       list_apis_response() :: %{
         "apis" => list(api()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_apis_response() :: %{String.t() => any()}
+  @type list_apis_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       evaluate_mapping_template_request() :: %{
-        required("context") => String.t(),
-        required("template") => String.t()
+        required("context") => String.t() | Atom.t(),
+        required("template") => String.t() | Atom.t()
       }
 
   """
-  @type evaluate_mapping_template_request() :: %{String.t() => any()}
+  @type evaluate_mapping_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -710,13 +710,13 @@ defmodule AWS.AppSync do
 
       open_id_connect_config() :: %{
         "authTTL" => float(),
-        "clientId" => String.t(),
+        "clientId" => String.t() | Atom.t(),
         "iatTTL" => float(),
-        "issuer" => String.t()
+        "issuer" => String.t() | Atom.t()
       }
 
   """
-  @type open_id_connect_config() :: %{String.t() => any()}
+  @type open_id_connect_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -724,26 +724,26 @@ defmodule AWS.AppSync do
 
       evaluate_mapping_template_response() :: %{
         "error" => error_detail(),
-        "evaluationResult" => String.t(),
-        "logs" => list(String.t()),
-        "outErrors" => String.t(),
-        "stash" => String.t()
+        "evaluationResult" => String.t() | Atom.t(),
+        "logs" => list(String.t() | Atom.t()),
+        "outErrors" => String.t() | Atom.t(),
+        "stash" => String.t() | Atom.t()
       }
 
   """
-  @type evaluate_mapping_template_response() :: %{String.t() => any()}
+  @type evaluate_mapping_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_resolvers_by_function_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "resolvers" => list(resolver())
       }
 
   """
-  @type list_resolvers_by_function_response() :: %{String.t() => any()}
+  @type list_resolvers_by_function_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -754,7 +754,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type update_function_response() :: %{String.t() => any()}
+  @type update_function_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -774,7 +774,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type auth_mode() :: %{String.t() => any()}
+  @type auth_mode() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -785,7 +785,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type update_graphql_api_response() :: %{String.t() => any()}
+  @type update_graphql_api_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -801,7 +801,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type create_api_cache_request() :: %{String.t() => any()}
+  @type create_api_cache_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -812,7 +812,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type update_api_key_response() :: %{String.t() => any()}
+  @type update_api_key_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -820,32 +820,32 @@ defmodule AWS.AppSync do
 
       graphql_api() :: %{
         "additionalAuthenticationProviders" => list(additional_authentication_provider()),
-        "apiId" => String.t(),
+        "apiId" => String.t() | Atom.t(),
         "apiType" => list(any()),
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "authenticationType" => list(any()),
         "dns" => map(),
         "enhancedMetricsConfig" => enhanced_metrics_config(),
         "introspectionConfig" => list(any()),
         "lambdaAuthorizerConfig" => lambda_authorizer_config(),
         "logConfig" => log_config(),
-        "mergedApiExecutionRoleArn" => String.t(),
-        "name" => String.t(),
+        "mergedApiExecutionRoleArn" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "openIDConnectConfig" => open_id_connect_config(),
-        "owner" => String.t(),
-        "ownerContact" => String.t(),
+        "owner" => String.t() | Atom.t(),
+        "ownerContact" => String.t() | Atom.t(),
         "queryDepthLimit" => integer(),
         "resolverCountLimit" => integer(),
         "tags" => map(),
         "uris" => map(),
         "userPoolConfig" => user_pool_config(),
         "visibility" => list(any()),
-        "wafWebAclArn" => String.t(),
+        "wafWebAclArn" => String.t() | Atom.t(),
         "xrayEnabled" => boolean()
       }
 
   """
-  @type graphql_api() :: %{String.t() => any()}
+  @type graphql_api() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -879,12 +879,12 @@ defmodule AWS.AppSync do
   ## Example:
 
       caching_config() :: %{
-        "cachingKeys" => list(String.t()),
+        "cachingKeys" => list(String.t() | Atom.t()),
         "ttl" => float()
       }
 
   """
-  @type caching_config() :: %{String.t() => any()}
+  @type caching_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -896,7 +896,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type authorization_config() :: %{String.t() => any()}
+  @type authorization_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -907,7 +907,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type get_type_response() :: %{String.t() => any()}
+  @type get_type_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -915,11 +915,11 @@ defmodule AWS.AppSync do
 
       list_data_sources_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_data_sources_request() :: %{String.t() => any()}
+  @type list_data_sources_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -930,23 +930,23 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type get_introspection_schema_response() :: %{String.t() => any()}
+  @type get_introspection_schema_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_channel_namespace_request() :: %{
-        optional("codeHandlers") => String.t(),
+        optional("codeHandlers") => String.t() | Atom.t(),
         optional("handlerConfigs") => handler_configs(),
         optional("publishAuthModes") => list(auth_mode()),
         optional("subscribeAuthModes") => list(auth_mode()),
         optional("tags") => map(),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_channel_namespace_request() :: %{String.t() => any()}
+  @type create_channel_namespace_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -963,12 +963,12 @@ defmodule AWS.AppSync do
 
       delta_sync_config() :: %{
         "baseTableTTL" => float(),
-        "deltaSyncTableName" => String.t(),
+        "deltaSyncTableName" => String.t() | Atom.t(),
         "deltaSyncTableTTL" => float()
       }
 
   """
-  @type delta_sync_config() :: %{String.t() => any()}
+  @type delta_sync_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -976,11 +976,11 @@ defmodule AWS.AppSync do
 
       app_sync_runtime() :: %{
         "name" => list(any()),
-        "runtimeVersion" => String.t()
+        "runtimeVersion" => String.t() | Atom.t()
       }
 
   """
-  @type app_sync_runtime() :: %{String.t() => any()}
+  @type app_sync_runtime() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -991,7 +991,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type associate_api_response() :: %{String.t() => any()}
+  @type associate_api_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1007,11 +1007,11 @@ defmodule AWS.AppSync do
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1019,34 +1019,34 @@ defmodule AWS.AppSync do
 
       update_resolver_request() :: %{
         optional("cachingConfig") => caching_config(),
-        optional("code") => String.t(),
-        optional("dataSourceName") => String.t(),
+        optional("code") => String.t() | Atom.t(),
+        optional("dataSourceName") => String.t() | Atom.t(),
         optional("kind") => list(any()),
         optional("maxBatchSize") => integer(),
         optional("metricsConfig") => list(any()),
         optional("pipelineConfig") => pipeline_config(),
-        optional("requestMappingTemplate") => String.t(),
-        optional("responseMappingTemplate") => String.t(),
+        optional("requestMappingTemplate") => String.t() | Atom.t(),
+        optional("responseMappingTemplate") => String.t() | Atom.t(),
         optional("runtime") => app_sync_runtime(),
         optional("syncConfig") => sync_config()
       }
 
   """
-  @type update_resolver_request() :: %{String.t() => any()}
+  @type update_resolver_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       user_pool_config() :: %{
-        "appIdClientRegex" => String.t(),
-        "awsRegion" => String.t(),
+        "appIdClientRegex" => String.t() | Atom.t(),
+        "awsRegion" => String.t() | Atom.t(),
         "defaultAction" => list(any()),
-        "userPoolId" => String.t()
+        "userPoolId" => String.t() | Atom.t()
       }
 
   """
-  @type user_pool_config() :: %{String.t() => any()}
+  @type user_pool_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1057,7 +1057,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type get_api_response() :: %{String.t() => any()}
+  @type get_api_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1068,7 +1068,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type get_channel_namespace_response() :: %{String.t() => any()}
+  @type get_channel_namespace_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1079,7 +1079,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type put_graphql_api_environment_variables_request() :: %{String.t() => any()}
+  @type put_graphql_api_environment_variables_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1087,34 +1087,34 @@ defmodule AWS.AppSync do
 
       create_resolver_request() :: %{
         optional("cachingConfig") => caching_config(),
-        optional("code") => String.t(),
-        optional("dataSourceName") => String.t(),
+        optional("code") => String.t() | Atom.t(),
+        optional("dataSourceName") => String.t() | Atom.t(),
         optional("kind") => list(any()),
         optional("maxBatchSize") => integer(),
         optional("metricsConfig") => list(any()),
         optional("pipelineConfig") => pipeline_config(),
-        optional("requestMappingTemplate") => String.t(),
-        optional("responseMappingTemplate") => String.t(),
+        optional("requestMappingTemplate") => String.t() | Atom.t(),
+        optional("responseMappingTemplate") => String.t() | Atom.t(),
         optional("runtime") => app_sync_runtime(),
         optional("syncConfig") => sync_config(),
-        required("fieldName") => String.t()
+        required("fieldName") => String.t() | Atom.t()
       }
 
   """
-  @type create_resolver_request() :: %{String.t() => any()}
+  @type create_resolver_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       code_error() :: %{
-        "errorType" => String.t(),
+        "errorType" => String.t() | Atom.t(),
         "location" => code_error_location(),
-        "value" => String.t()
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type code_error() :: %{String.t() => any()}
+  @type code_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1130,13 +1130,13 @@ defmodule AWS.AppSync do
   ## Example:
 
       log_config() :: %{
-        "cloudWatchLogsRoleArn" => String.t(),
+        "cloudWatchLogsRoleArn" => String.t() | Atom.t(),
         "excludeVerboseContent" => boolean(),
         "fieldLogLevel" => list(any())
       }
 
   """
-  @type log_config() :: %{String.t() => any()}
+  @type log_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1152,12 +1152,12 @@ defmodule AWS.AppSync do
   ## Example:
 
       list_resolvers_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "resolvers" => list(resolver())
       }
 
   """
-  @type list_resolvers_response() :: %{String.t() => any()}
+  @type list_resolvers_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1168,18 +1168,18 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type update_api_response() :: %{String.t() => any()}
+  @type update_api_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1190,7 +1190,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type get_api_cache_response() :: %{String.t() => any()}
+  @type get_api_cache_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1201,7 +1201,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type disassociate_merged_graphql_api_response() :: %{String.t() => any()}
+  @type disassociate_merged_graphql_api_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1221,18 +1221,18 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type create_type_response() :: %{String.t() => any()}
+  @type create_type_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type not_found_exception() :: %{String.t() => any()}
+  @type not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1243,7 +1243,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type get_graphql_api_environment_variables_response() :: %{String.t() => any()}
+  @type get_graphql_api_environment_variables_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1254,7 +1254,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type create_function_response() :: %{String.t() => any()}
+  @type create_function_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1267,7 +1267,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type enhanced_metrics_config() :: %{String.t() => any()}
+  @type enhanced_metrics_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1284,11 +1284,11 @@ defmodule AWS.AppSync do
 
       list_data_sources_response() :: %{
         "dataSources" => list(data_source()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_data_sources_response() :: %{String.t() => any()}
+  @type list_data_sources_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1323,7 +1323,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type api_cache() :: %{String.t() => any()}
+  @type api_cache() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1334,7 +1334,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type update_domain_name_response() :: %{String.t() => any()}
+  @type update_domain_name_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1350,14 +1350,14 @@ defmodule AWS.AppSync do
   ## Example:
 
       get_data_source_introspection_response() :: %{
-        "introspectionId" => String.t(),
+        "introspectionId" => String.t() | Atom.t(),
         "introspectionResult" => data_source_introspection_result(),
         "introspectionStatus" => list(any()),
-        "introspectionStatusDetail" => String.t()
+        "introspectionStatusDetail" => String.t() | Atom.t()
       }
 
   """
-  @type get_data_source_introspection_response() :: %{String.t() => any()}
+  @type get_data_source_introspection_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1368,7 +1368,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1384,13 +1384,13 @@ defmodule AWS.AppSync do
   ## Example:
 
       start_data_source_introspection_response() :: %{
-        "introspectionId" => String.t(),
+        "introspectionId" => String.t() | Atom.t(),
         "introspectionStatus" => list(any()),
-        "introspectionStatusDetail" => String.t()
+        "introspectionStatusDetail" => String.t() | Atom.t()
       }
 
   """
-  @type start_data_source_introspection_response() :: %{String.t() => any()}
+  @type start_data_source_introspection_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1402,7 +1402,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type handler_config() :: %{String.t() => any()}
+  @type handler_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1410,23 +1410,23 @@ defmodule AWS.AppSync do
 
       resolver() :: %{
         "cachingConfig" => caching_config(),
-        "code" => String.t(),
-        "dataSourceName" => String.t(),
-        "fieldName" => String.t(),
+        "code" => String.t() | Atom.t(),
+        "dataSourceName" => String.t() | Atom.t(),
+        "fieldName" => String.t() | Atom.t(),
         "kind" => list(any()),
         "maxBatchSize" => integer(),
         "metricsConfig" => list(any()),
         "pipelineConfig" => pipeline_config(),
-        "requestMappingTemplate" => String.t(),
-        "resolverArn" => String.t(),
-        "responseMappingTemplate" => String.t(),
+        "requestMappingTemplate" => String.t() | Atom.t(),
+        "resolverArn" => String.t() | Atom.t(),
+        "responseMappingTemplate" => String.t() | Atom.t(),
         "runtime" => app_sync_runtime(),
         "syncConfig" => sync_config(),
-        "typeName" => String.t()
+        "typeName" => String.t() | Atom.t()
       }
 
   """
-  @type resolver() :: %{String.t() => any()}
+  @type resolver() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1434,11 +1434,11 @@ defmodule AWS.AppSync do
 
       list_domain_names_response() :: %{
         "domainNameConfigs" => list(domain_name_config()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_domain_names_response() :: %{String.t() => any()}
+  @type list_domain_names_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1449,64 +1449,64 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type create_api_key_response() :: %{String.t() => any()}
+  @type create_api_key_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_type_request() :: %{
-        optional("definition") => String.t(),
+        optional("definition") => String.t() | Atom.t(),
         required("format") => list(any())
       }
 
   """
-  @type update_type_request() :: %{String.t() => any()}
+  @type update_type_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       pipeline_config() :: %{
-        "functions" => list(String.t())
+        "functions" => list(String.t() | Atom.t())
       }
 
   """
-  @type pipeline_config() :: %{String.t() => any()}
+  @type pipeline_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_domain_name_request() :: %{
-        optional("description") => String.t()
+        optional("description") => String.t() | Atom.t()
       }
 
   """
-  @type update_domain_name_request() :: %{String.t() => any()}
+  @type update_domain_name_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_api_key_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("expires") => float()
       }
 
   """
-  @type create_api_key_request() :: %{String.t() => any()}
+  @type create_api_key_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       lambda_data_source_config() :: %{
-        "lambdaFunctionArn" => String.t()
+        "lambdaFunctionArn" => String.t() | Atom.t()
       }
 
   """
-  @type lambda_data_source_config() :: %{String.t() => any()}
+  @type lambda_data_source_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1520,7 +1520,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type update_api_cache_request() :: %{String.t() => any()}
+  @type update_api_cache_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1535,7 +1535,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type event_config() :: %{String.t() => any()}
+  @type event_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1543,25 +1543,25 @@ defmodule AWS.AppSync do
 
       list_functions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_functions_request() :: %{String.t() => any()}
+  @type list_functions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       api_association() :: %{
-        "apiId" => String.t(),
+        "apiId" => String.t() | Atom.t(),
         "associationStatus" => list(any()),
-        "deploymentDetail" => String.t(),
-        "domainName" => String.t()
+        "deploymentDetail" => String.t() | Atom.t(),
+        "domainName" => String.t() | Atom.t()
       }
 
   """
-  @type api_association() :: %{String.t() => any()}
+  @type api_association() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1569,11 +1569,11 @@ defmodule AWS.AppSync do
 
       http_data_source_config() :: %{
         "authorizationConfig" => authorization_config(),
-        "endpoint" => String.t()
+        "endpoint" => String.t() | Atom.t()
       }
 
   """
-  @type http_data_source_config() :: %{String.t() => any()}
+  @type http_data_source_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1584,7 +1584,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type create_data_source_response() :: %{String.t() => any()}
+  @type create_data_source_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1595,7 +1595,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type start_schema_merge_response() :: %{String.t() => any()}
+  @type start_schema_merge_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1615,7 +1615,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type create_channel_namespace_response() :: %{String.t() => any()}
+  @type create_channel_namespace_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1631,13 +1631,13 @@ defmodule AWS.AppSync do
   ## Example:
 
       rds_data_api_config() :: %{
-        "databaseName" => String.t(),
-        "resourceArn" => String.t(),
-        "secretArn" => String.t()
+        "databaseName" => String.t() | Atom.t(),
+        "resourceArn" => String.t() | Atom.t(),
+        "secretArn" => String.t() | Atom.t()
       }
 
   """
-  @type rds_data_api_config() :: %{String.t() => any()}
+  @type rds_data_api_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1654,11 +1654,11 @@ defmodule AWS.AppSync do
 
       list_apis_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_apis_request() :: %{String.t() => any()}
+  @type list_apis_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1672,19 +1672,19 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type auth_provider() :: %{String.t() => any()}
+  @type auth_provider() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_iam_config() :: %{
-        "signingRegion" => String.t(),
-        "signingServiceName" => String.t()
+        "signingRegion" => String.t() | Atom.t(),
+        "signingServiceName" => String.t() | Atom.t()
       }
 
   """
-  @type aws_iam_config() :: %{String.t() => any()}
+  @type aws_iam_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1700,31 +1700,31 @@ defmodule AWS.AppSync do
   ## Example:
 
       error_detail() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type error_detail() :: %{String.t() => any()}
+  @type error_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       channel_namespace() :: %{
-        "apiId" => String.t(),
-        "channelNamespaceArn" => String.t(),
-        "codeHandlers" => String.t(),
+        "apiId" => String.t() | Atom.t(),
+        "channelNamespaceArn" => String.t() | Atom.t(),
+        "codeHandlers" => String.t() | Atom.t(),
         "created" => non_neg_integer(),
         "handlerConfigs" => handler_configs(),
         "lastModified" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "publishAuthModes" => list(auth_mode()),
         "subscribeAuthModes" => list(auth_mode()),
         "tags" => map()
       }
 
   """
-  @type channel_namespace() :: %{String.t() => any()}
+  @type channel_namespace() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1735,7 +1735,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type disassociate_source_graphql_api_response() :: %{String.t() => any()}
+  @type disassociate_source_graphql_api_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1746,39 +1746,39 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type get_resolver_response() :: %{String.t() => any()}
+  @type get_resolver_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       source_api_association() :: %{
-        "associationArn" => String.t(),
-        "associationId" => String.t(),
-        "description" => String.t(),
+        "associationArn" => String.t() | Atom.t(),
+        "associationId" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
         "lastSuccessfulMergeDate" => non_neg_integer(),
-        "mergedApiArn" => String.t(),
-        "mergedApiId" => String.t(),
-        "sourceApiArn" => String.t(),
+        "mergedApiArn" => String.t() | Atom.t(),
+        "mergedApiId" => String.t() | Atom.t(),
+        "sourceApiArn" => String.t() | Atom.t(),
         "sourceApiAssociationConfig" => source_api_association_config(),
         "sourceApiAssociationStatus" => list(any()),
-        "sourceApiAssociationStatusDetail" => String.t(),
-        "sourceApiId" => String.t()
+        "sourceApiAssociationStatusDetail" => String.t() | Atom.t(),
+        "sourceApiId" => String.t() | Atom.t()
       }
 
   """
-  @type source_api_association() :: %{String.t() => any()}
+  @type source_api_association() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1803,11 +1803,11 @@ defmodule AWS.AppSync do
   ## Example:
 
       associate_api_request() :: %{
-        required("apiId") => String.t()
+        required("apiId") => String.t() | Atom.t()
       }
 
   """
-  @type associate_api_request() :: %{String.t() => any()}
+  @type associate_api_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1818,7 +1818,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type get_graphql_api_response() :: %{String.t() => any()}
+  @type get_graphql_api_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1843,17 +1843,17 @@ defmodule AWS.AppSync do
   ## Example:
 
       source_api_association_summary() :: %{
-        "associationArn" => String.t(),
-        "associationId" => String.t(),
-        "description" => String.t(),
-        "mergedApiArn" => String.t(),
-        "mergedApiId" => String.t(),
-        "sourceApiArn" => String.t(),
-        "sourceApiId" => String.t()
+        "associationArn" => String.t() | Atom.t(),
+        "associationId" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "mergedApiArn" => String.t() | Atom.t(),
+        "mergedApiId" => String.t() | Atom.t(),
+        "sourceApiArn" => String.t() | Atom.t(),
+        "sourceApiId" => String.t() | Atom.t()
       }
 
   """
-  @type source_api_association_summary() :: %{String.t() => any()}
+  @type source_api_association_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1861,52 +1861,52 @@ defmodule AWS.AppSync do
 
       update_api_request() :: %{
         optional("eventConfig") => event_config(),
-        optional("ownerContact") => String.t(),
-        required("name") => String.t()
+        optional("ownerContact") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type update_api_request() :: %{String.t() => any()}
+  @type update_api_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       domain_name_config() :: %{
-        "appsyncDomainName" => String.t(),
-        "certificateArn" => String.t(),
-        "description" => String.t(),
-        "domainName" => String.t(),
-        "domainNameArn" => String.t(),
-        "hostedZoneId" => String.t(),
+        "appsyncDomainName" => String.t() | Atom.t(),
+        "certificateArn" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "domainName" => String.t() | Atom.t(),
+        "domainNameArn" => String.t() | Atom.t(),
+        "hostedZoneId" => String.t() | Atom.t(),
         "tags" => map()
       }
 
   """
-  @type domain_name_config() :: %{String.t() => any()}
+  @type domain_name_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       concurrent_modification_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type concurrent_modification_exception() :: %{String.t() => any()}
+  @type concurrent_modification_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_types_by_association_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "types" => list(type())
       }
 
   """
-  @type list_types_by_association_response() :: %{String.t() => any()}
+  @type list_types_by_association_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1917,7 +1917,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type start_schema_creation_response() :: %{String.t() => any()}
+  @type start_schema_creation_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1937,7 +1937,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type start_schema_creation_request() :: %{String.t() => any()}
+  @type start_schema_creation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1945,11 +1945,11 @@ defmodule AWS.AppSync do
 
       list_channel_namespaces_response() :: %{
         "channelNamespaces" => list(channel_namespace()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_channel_namespaces_response() :: %{String.t() => any()}
+  @type list_channel_namespaces_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1965,45 +1965,45 @@ defmodule AWS.AppSync do
   ## Example:
 
       api_key_validity_out_of_bounds_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type api_key_validity_out_of_bounds_exception() :: %{String.t() => any()}
+  @type api_key_validity_out_of_bounds_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       function_configuration() :: %{
-        "code" => String.t(),
-        "dataSourceName" => String.t(),
-        "description" => String.t(),
-        "functionArn" => String.t(),
-        "functionId" => String.t(),
-        "functionVersion" => String.t(),
+        "code" => String.t() | Atom.t(),
+        "dataSourceName" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "functionArn" => String.t() | Atom.t(),
+        "functionId" => String.t() | Atom.t(),
+        "functionVersion" => String.t() | Atom.t(),
         "maxBatchSize" => integer(),
-        "name" => String.t(),
-        "requestMappingTemplate" => String.t(),
-        "responseMappingTemplate" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "requestMappingTemplate" => String.t() | Atom.t(),
+        "responseMappingTemplate" => String.t() | Atom.t(),
         "runtime" => app_sync_runtime(),
         "syncConfig" => sync_config()
       }
 
   """
-  @type function_configuration() :: %{String.t() => any()}
+  @type function_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       elasticsearch_data_source_config() :: %{
-        "awsRegion" => String.t(),
-        "endpoint" => String.t()
+        "awsRegion" => String.t() | Atom.t(),
+        "endpoint" => String.t() | Atom.t()
       }
 
   """
-  @type elasticsearch_data_source_config() :: %{String.t() => any()}
+  @type elasticsearch_data_source_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2014,7 +2014,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type lambda_config() :: %{String.t() => any()}
+  @type lambda_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2022,11 +2022,11 @@ defmodule AWS.AppSync do
 
       list_api_keys_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_api_keys_request() :: %{String.t() => any()}
+  @type list_api_keys_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2038,26 +2038,26 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type relational_database_data_source_config() :: %{String.t() => any()}
+  @type relational_database_data_source_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       open_search_service_data_source_config() :: %{
-        "awsRegion" => String.t(),
-        "endpoint" => String.t()
+        "awsRegion" => String.t() | Atom.t(),
+        "endpoint" => String.t() | Atom.t()
       }
 
   """
-  @type open_search_service_data_source_config() :: %{String.t() => any()}
+  @type open_search_service_data_source_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_data_source_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("dynamodbConfig") => dynamodb_data_source_config(),
         optional("elasticsearchConfig") => elasticsearch_data_source_config(),
         optional("eventBridgeConfig") => event_bridge_data_source_config(),
@@ -2066,12 +2066,12 @@ defmodule AWS.AppSync do
         optional("metricsConfig") => list(any()),
         optional("openSearchServiceConfig") => open_search_service_data_source_config(),
         optional("relationalDatabaseConfig") => relational_database_data_source_config(),
-        optional("serviceRoleArn") => String.t(),
+        optional("serviceRoleArn") => String.t() | Atom.t(),
         required("type") => list(any())
       }
 
   """
-  @type update_data_source_request() :: %{String.t() => any()}
+  @type update_data_source_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2088,13 +2088,13 @@ defmodule AWS.AppSync do
 
       create_api_request() :: %{
         optional("eventConfig") => event_config(),
-        optional("ownerContact") => String.t(),
+        optional("ownerContact") => String.t() | Atom.t(),
         optional("tags") => map(),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_api_request() :: %{String.t() => any()}
+  @type create_api_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2110,28 +2110,28 @@ defmodule AWS.AppSync do
   ## Example:
 
       associate_source_graphql_api_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("sourceApiAssociationConfig") => source_api_association_config(),
-        required("sourceApiIdentifier") => String.t()
+        required("sourceApiIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type associate_source_graphql_api_request() :: %{String.t() => any()}
+  @type associate_source_graphql_api_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       type() :: %{
-        "arn" => String.t(),
-        "definition" => String.t(),
-        "description" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "definition" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
         "format" => list(any()),
-        "name" => String.t()
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type type() :: %{String.t() => any()}
+  @type type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2140,33 +2140,33 @@ defmodule AWS.AppSync do
       data_source_introspection_model() :: %{
         "fields" => list(data_source_introspection_model_field()),
         "indexes" => list(data_source_introspection_model_index()),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "primaryKey" => data_source_introspection_model_index(),
-        "sdl" => String.t()
+        "sdl" => String.t() | Atom.t()
       }
 
   """
-  @type data_source_introspection_model() :: %{String.t() => any()}
+  @type data_source_introspection_model() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       api() :: %{
-        "apiArn" => String.t(),
-        "apiId" => String.t(),
+        "apiArn" => String.t() | Atom.t(),
+        "apiId" => String.t() | Atom.t(),
         "created" => non_neg_integer(),
         "dns" => map(),
         "eventConfig" => event_config(),
-        "name" => String.t(),
-        "ownerContact" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "ownerContact" => String.t() | Atom.t(),
         "tags" => map(),
-        "wafWebAclArn" => String.t(),
+        "wafWebAclArn" => String.t() | Atom.t(),
         "xrayEnabled" => boolean()
       }
 
   """
-  @type api() :: %{String.t() => any()}
+  @type api() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2177,7 +2177,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type update_channel_namespace_response() :: %{String.t() => any()}
+  @type update_channel_namespace_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2188,7 +2188,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type create_graphql_api_response() :: %{String.t() => any()}
+  @type create_graphql_api_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2196,36 +2196,36 @@ defmodule AWS.AppSync do
 
       data_source_introspection_result() :: %{
         "models" => list(data_source_introspection_model()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type data_source_introspection_result() :: %{String.t() => any()}
+  @type data_source_introspection_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       evaluate_code_request() :: %{
-        optional("function") => String.t(),
-        required("code") => String.t(),
-        required("context") => String.t(),
+        optional("function") => String.t() | Atom.t(),
+        required("code") => String.t() | Atom.t(),
+        required("context") => String.t() | Atom.t(),
         required("runtime") => app_sync_runtime()
       }
 
   """
-  @type evaluate_code_request() :: %{String.t() => any()}
+  @type evaluate_code_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2236,7 +2236,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type associate_source_graphql_api_response() :: %{String.t() => any()}
+  @type associate_source_graphql_api_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2256,18 +2256,18 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type source_api_association_config() :: %{String.t() => any()}
+  @type source_api_association_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       event_bridge_data_source_config() :: %{
-        "eventBusArn" => String.t()
+        "eventBusArn" => String.t() | Atom.t()
       }
 
   """
-  @type event_bridge_data_source_config() :: %{String.t() => any()}
+  @type event_bridge_data_source_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2278,7 +2278,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type update_type_response() :: %{String.t() => any()}
+  @type update_type_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2289,7 +2289,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type create_domain_name_response() :: %{String.t() => any()}
+  @type create_domain_name_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2300,27 +2300,27 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type update_source_api_association_response() :: %{String.t() => any()}
+  @type update_source_api_association_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_function_request() :: %{
-        optional("code") => String.t(),
-        optional("description") => String.t(),
-        optional("functionVersion") => String.t(),
+        optional("code") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("functionVersion") => String.t() | Atom.t(),
         optional("maxBatchSize") => integer(),
-        optional("requestMappingTemplate") => String.t(),
-        optional("responseMappingTemplate") => String.t(),
+        optional("requestMappingTemplate") => String.t() | Atom.t(),
+        optional("responseMappingTemplate") => String.t() | Atom.t(),
         optional("runtime") => app_sync_runtime(),
         optional("syncConfig") => sync_config(),
-        required("dataSourceName") => String.t(),
-        required("name") => String.t()
+        required("dataSourceName") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type update_function_request() :: %{String.t() => any()}
+  @type update_function_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2328,12 +2328,12 @@ defmodule AWS.AppSync do
 
       bad_request_exception() :: %{
         "detail" => bad_request_detail(),
-        "message" => String.t(),
+        "message" => String.t() | Atom.t(),
         "reason" => list(any())
       }
 
   """
-  @type bad_request_exception() :: %{String.t() => any()}
+  @type bad_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2345,19 +2345,19 @@ defmodule AWS.AppSync do
         optional("introspectionConfig") => list(any()),
         optional("lambdaAuthorizerConfig") => lambda_authorizer_config(),
         optional("logConfig") => log_config(),
-        optional("mergedApiExecutionRoleArn") => String.t(),
+        optional("mergedApiExecutionRoleArn") => String.t() | Atom.t(),
         optional("openIDConnectConfig") => open_id_connect_config(),
-        optional("ownerContact") => String.t(),
+        optional("ownerContact") => String.t() | Atom.t(),
         optional("queryDepthLimit") => integer(),
         optional("resolverCountLimit") => integer(),
         optional("userPoolConfig") => user_pool_config(),
         optional("xrayEnabled") => boolean(),
         required("authenticationType") => list(any()),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type update_graphql_api_request() :: %{String.t() => any()}
+  @type update_graphql_api_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2368,7 +2368,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type update_api_cache_response() :: %{String.t() => any()}
+  @type update_api_cache_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2379,7 +2379,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type create_resolver_response() :: %{String.t() => any()}
+  @type create_resolver_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2391,27 +2391,27 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type get_introspection_schema_request() :: %{String.t() => any()}
+  @type get_introspection_schema_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_function_request() :: %{
-        optional("code") => String.t(),
-        optional("description") => String.t(),
-        optional("functionVersion") => String.t(),
+        optional("code") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("functionVersion") => String.t() | Atom.t(),
         optional("maxBatchSize") => integer(),
-        optional("requestMappingTemplate") => String.t(),
-        optional("responseMappingTemplate") => String.t(),
+        optional("requestMappingTemplate") => String.t() | Atom.t(),
+        optional("responseMappingTemplate") => String.t() | Atom.t(),
         optional("runtime") => app_sync_runtime(),
         optional("syncConfig") => sync_config(),
-        required("dataSourceName") => String.t(),
-        required("name") => String.t()
+        required("dataSourceName") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_function_request() :: %{String.t() => any()}
+  @type create_function_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2422,7 +2422,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type bad_request_detail() :: %{String.t() => any()}
+  @type bad_request_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2438,12 +2438,12 @@ defmodule AWS.AppSync do
   ## Example:
 
       update_source_api_association_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("sourceApiAssociationConfig") => source_api_association_config()
       }
 
   """
-  @type update_source_api_association_request() :: %{String.t() => any()}
+  @type update_source_api_association_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2468,23 +2468,23 @@ defmodule AWS.AppSync do
   ## Example:
 
       data_source() :: %{
-        "dataSourceArn" => String.t(),
-        "description" => String.t(),
+        "dataSourceArn" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
         "dynamodbConfig" => dynamodb_data_source_config(),
         "elasticsearchConfig" => elasticsearch_data_source_config(),
         "eventBridgeConfig" => event_bridge_data_source_config(),
         "httpConfig" => http_data_source_config(),
         "lambdaConfig" => lambda_data_source_config(),
         "metricsConfig" => list(any()),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "openSearchServiceConfig" => open_search_service_data_source_config(),
         "relationalDatabaseConfig" => relational_database_data_source_config(),
-        "serviceRoleArn" => String.t(),
+        "serviceRoleArn" => String.t() | Atom.t(),
         "type" => list(any())
       }
 
   """
-  @type data_source() :: %{String.t() => any()}
+  @type data_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2497,21 +2497,21 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type sync_config() :: %{String.t() => any()}
+  @type sync_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       data_source_introspection_model_field_type() :: %{
-        "kind" => String.t(),
-        "name" => String.t(),
+        "kind" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "type" => data_source_introspection_model_field_type(),
-        "values" => list(String.t())
+        "values" => list(String.t() | Atom.t())
       }
 
   """
-  @type data_source_introspection_model_field_type() :: %{String.t() => any()}
+  @type data_source_introspection_model_field_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2524,9 +2524,9 @@ defmodule AWS.AppSync do
         optional("introspectionConfig") => list(any()),
         optional("lambdaAuthorizerConfig") => lambda_authorizer_config(),
         optional("logConfig") => log_config(),
-        optional("mergedApiExecutionRoleArn") => String.t(),
+        optional("mergedApiExecutionRoleArn") => String.t() | Atom.t(),
         optional("openIDConnectConfig") => open_id_connect_config(),
-        optional("ownerContact") => String.t(),
+        optional("ownerContact") => String.t() | Atom.t(),
         optional("queryDepthLimit") => integer(),
         optional("resolverCountLimit") => integer(),
         optional("tags") => map(),
@@ -2534,11 +2534,11 @@ defmodule AWS.AppSync do
         optional("visibility") => list(any()),
         optional("xrayEnabled") => boolean(),
         required("authenticationType") => list(any()),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_graphql_api_request() :: %{String.t() => any()}
+  @type create_graphql_api_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2546,13 +2546,13 @@ defmodule AWS.AppSync do
 
       api_key() :: %{
         "deletes" => float(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "expires" => float(),
-        "id" => String.t()
+        "id" => String.t() | Atom.t()
       }
 
   """
-  @type api_key() :: %{String.t() => any()}
+  @type api_key() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2563,7 +2563,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type start_data_source_introspection_request() :: %{String.t() => any()}
+  @type start_data_source_introspection_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2574,22 +2574,22 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type get_data_source_response() :: %{String.t() => any()}
+  @type get_data_source_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       dynamodb_data_source_config() :: %{
-        "awsRegion" => String.t(),
+        "awsRegion" => String.t() | Atom.t(),
         "deltaSyncConfig" => delta_sync_config(),
-        "tableName" => String.t(),
+        "tableName" => String.t() | Atom.t(),
         "useCallerCredentials" => boolean(),
         "versioned" => boolean()
       }
 
   """
-  @type dynamodb_data_source_config() :: %{String.t() => any()}
+  @type dynamodb_data_source_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2597,12 +2597,12 @@ defmodule AWS.AppSync do
 
       list_types_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("format") => list(any())
       }
 
   """
-  @type list_types_request() :: %{String.t() => any()}
+  @type list_types_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2618,11 +2618,11 @@ defmodule AWS.AppSync do
   ## Example:
 
       graph_q_l_schema_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type graph_q_l_schema_exception() :: %{String.t() => any()}
+  @type graph_q_l_schema_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2633,7 +2633,7 @@ defmodule AWS.AppSync do
       }
 
   """
-  @type get_domain_name_response() :: %{String.t() => any()}
+  @type get_domain_name_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2642,24 +2642,24 @@ defmodule AWS.AppSync do
       get_data_source_introspection_request() :: %{
         optional("includeModelsSDL") => boolean(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type get_data_source_introspection_request() :: %{String.t() => any()}
+  @type get_data_source_introspection_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_merged_graphql_api_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("sourceApiAssociationConfig") => source_api_association_config(),
-        required("mergedApiIdentifier") => String.t()
+        required("mergedApiIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type associate_merged_graphql_api_request() :: %{String.t() => any()}
+  @type associate_merged_graphql_api_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3183,7 +3183,7 @@ defmodule AWS.AppSync do
   @doc """
   Maps an endpoint to your custom domain.
   """
-  @spec associate_api(map(), String.t(), associate_api_request(), list()) ::
+  @spec associate_api(map(), String.t() | Atom.t(), associate_api_request(), list()) ::
           {:ok, associate_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3216,7 +3216,7 @@ defmodule AWS.AppSync do
   """
   @spec associate_merged_graphql_api(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           associate_merged_graphql_api_request(),
           list()
         ) ::
@@ -3259,7 +3259,7 @@ defmodule AWS.AppSync do
   """
   @spec associate_source_graphql_api(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           associate_source_graphql_api_request(),
           list()
         ) ::
@@ -3332,7 +3332,7 @@ defmodule AWS.AppSync do
   @doc """
   Creates a cache for the GraphQL API.
   """
-  @spec create_api_cache(map(), String.t(), create_api_cache_request(), list()) ::
+  @spec create_api_cache(map(), String.t() | Atom.t(), create_api_cache_request(), list()) ::
           {:ok, create_api_cache_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3361,7 +3361,7 @@ defmodule AWS.AppSync do
   @doc """
   Creates a unique key that you can distribute to clients who invoke your API.
   """
-  @spec create_api_key(map(), String.t(), create_api_key_request(), list()) ::
+  @spec create_api_key(map(), String.t() | Atom.t(), create_api_key_request(), list()) ::
           {:ok, create_api_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3390,7 +3390,12 @@ defmodule AWS.AppSync do
   @doc """
   Creates a `ChannelNamespace` for an `Api`.
   """
-  @spec create_channel_namespace(map(), String.t(), create_channel_namespace_request(), list()) ::
+  @spec create_channel_namespace(
+          map(),
+          String.t() | Atom.t(),
+          create_channel_namespace_request(),
+          list()
+        ) ::
           {:ok, create_channel_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3419,7 +3424,7 @@ defmodule AWS.AppSync do
   @doc """
   Creates a `DataSource` object.
   """
-  @spec create_data_source(map(), String.t(), create_data_source_request(), list()) ::
+  @spec create_data_source(map(), String.t() | Atom.t(), create_data_source_request(), list()) ::
           {:ok, create_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3481,7 +3486,7 @@ defmodule AWS.AppSync do
   resolver
   logic.
   """
-  @spec create_function(map(), String.t(), create_function_request(), list()) ::
+  @spec create_function(map(), String.t() | Atom.t(), create_function_request(), list()) ::
           {:ok, create_function_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3543,7 +3548,13 @@ defmodule AWS.AppSync do
   understand,
   and converts the data source's responses into GraphQL.
   """
-  @spec create_resolver(map(), String.t(), String.t(), create_resolver_request(), list()) ::
+  @spec create_resolver(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          create_resolver_request(),
+          list()
+        ) ::
           {:ok, create_resolver_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3574,7 +3585,7 @@ defmodule AWS.AppSync do
   @doc """
   Creates a `Type` object.
   """
-  @spec create_type(map(), String.t(), create_type_request(), list()) ::
+  @spec create_type(map(), String.t() | Atom.t(), create_type_request(), list()) ::
           {:ok, create_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3603,7 +3614,7 @@ defmodule AWS.AppSync do
   @doc """
   Deletes an `Api` object
   """
-  @spec delete_api(map(), String.t(), delete_api_request(), list()) ::
+  @spec delete_api(map(), String.t() | Atom.t(), delete_api_request(), list()) ::
           {:ok, delete_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3632,7 +3643,7 @@ defmodule AWS.AppSync do
   @doc """
   Deletes an `ApiCache` object.
   """
-  @spec delete_api_cache(map(), String.t(), delete_api_cache_request(), list()) ::
+  @spec delete_api_cache(map(), String.t() | Atom.t(), delete_api_cache_request(), list()) ::
           {:ok, delete_api_cache_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3661,7 +3672,13 @@ defmodule AWS.AppSync do
   @doc """
   Deletes an API key.
   """
-  @spec delete_api_key(map(), String.t(), String.t(), delete_api_key_request(), list()) ::
+  @spec delete_api_key(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_api_key_request(),
+          list()
+        ) ::
           {:ok, delete_api_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3692,8 +3709,8 @@ defmodule AWS.AppSync do
   """
   @spec delete_channel_namespace(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_channel_namespace_request(),
           list()
         ) ::
@@ -3727,7 +3744,13 @@ defmodule AWS.AppSync do
   @doc """
   Deletes a `DataSource` object.
   """
-  @spec delete_data_source(map(), String.t(), String.t(), delete_data_source_request(), list()) ::
+  @spec delete_data_source(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_data_source_request(),
+          list()
+        ) ::
           {:ok, delete_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3756,7 +3779,7 @@ defmodule AWS.AppSync do
   @doc """
   Deletes a custom `DomainName` object.
   """
-  @spec delete_domain_name(map(), String.t(), delete_domain_name_request(), list()) ::
+  @spec delete_domain_name(map(), String.t() | Atom.t(), delete_domain_name_request(), list()) ::
           {:ok, delete_domain_name_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3785,7 +3808,13 @@ defmodule AWS.AppSync do
   @doc """
   Deletes a `Function`.
   """
-  @spec delete_function(map(), String.t(), String.t(), delete_function_request(), list()) ::
+  @spec delete_function(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_function_request(),
+          list()
+        ) ::
           {:ok, delete_function_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3816,7 +3845,7 @@ defmodule AWS.AppSync do
   @doc """
   Deletes a `GraphqlApi` object.
   """
-  @spec delete_graphql_api(map(), String.t(), delete_graphql_api_request(), list()) ::
+  @spec delete_graphql_api(map(), String.t() | Atom.t(), delete_graphql_api_request(), list()) ::
           {:ok, delete_graphql_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3847,9 +3876,9 @@ defmodule AWS.AppSync do
   """
   @spec delete_resolver(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_resolver_request(),
           list()
         ) ::
@@ -3883,7 +3912,13 @@ defmodule AWS.AppSync do
   @doc """
   Deletes a `Type` object.
   """
-  @spec delete_type(map(), String.t(), String.t(), delete_type_request(), list()) ::
+  @spec delete_type(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_type_request(),
+          list()
+        ) ::
           {:ok, delete_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3912,7 +3947,7 @@ defmodule AWS.AppSync do
   @doc """
   Removes an `ApiAssociation` object from a custom domain.
   """
-  @spec disassociate_api(map(), String.t(), disassociate_api_request(), list()) ::
+  @spec disassociate_api(map(), String.t() | Atom.t(), disassociate_api_request(), list()) ::
           {:ok, disassociate_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3945,8 +3980,8 @@ defmodule AWS.AppSync do
   """
   @spec disassociate_merged_graphql_api(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           disassociate_merged_graphql_api_request(),
           list()
         ) ::
@@ -3990,8 +4025,8 @@ defmodule AWS.AppSync do
   """
   @spec disassociate_source_graphql_api(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           disassociate_source_graphql_api_request(),
           list()
         ) ::
@@ -4112,7 +4147,7 @@ defmodule AWS.AppSync do
   @doc """
   Flushes an `ApiCache` object.
   """
-  @spec flush_api_cache(map(), String.t(), flush_api_cache_request(), list()) ::
+  @spec flush_api_cache(map(), String.t() | Atom.t(), flush_api_cache_request(), list()) ::
           {:ok, flush_api_cache_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4141,7 +4176,7 @@ defmodule AWS.AppSync do
   @doc """
   Retrieves an `Api` object.
   """
-  @spec get_api(map(), String.t(), list()) ::
+  @spec get_api(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4159,7 +4194,7 @@ defmodule AWS.AppSync do
   @doc """
   Retrieves an `ApiAssociation` object.
   """
-  @spec get_api_association(map(), String.t(), list()) ::
+  @spec get_api_association(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_api_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4177,7 +4212,7 @@ defmodule AWS.AppSync do
   @doc """
   Retrieves an `ApiCache` object.
   """
-  @spec get_api_cache(map(), String.t(), list()) ::
+  @spec get_api_cache(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_api_cache_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4195,7 +4230,7 @@ defmodule AWS.AppSync do
   @doc """
   Retrieves the channel namespace for a specified `Api`.
   """
-  @spec get_channel_namespace(map(), String.t(), String.t(), list()) ::
+  @spec get_channel_namespace(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_channel_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4215,7 +4250,7 @@ defmodule AWS.AppSync do
   @doc """
   Retrieves a `DataSource` object.
   """
-  @spec get_data_source(map(), String.t(), String.t(), list()) ::
+  @spec get_data_source(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4240,10 +4275,10 @@ defmodule AWS.AppSync do
   """
   @spec get_data_source_introspection(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, get_data_source_introspection_response(), any()}
@@ -4291,7 +4326,7 @@ defmodule AWS.AppSync do
   @doc """
   Retrieves a custom `DomainName` object.
   """
-  @spec get_domain_name(map(), String.t(), list()) ::
+  @spec get_domain_name(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_domain_name_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4309,7 +4344,7 @@ defmodule AWS.AppSync do
   @doc """
   Get a `Function`.
   """
-  @spec get_function(map(), String.t(), String.t(), list()) ::
+  @spec get_function(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_function_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4329,7 +4364,7 @@ defmodule AWS.AppSync do
   @doc """
   Retrieves a `GraphqlApi` object.
   """
-  @spec get_graphql_api(map(), String.t(), list()) ::
+  @spec get_graphql_api(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_graphql_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4349,7 +4384,7 @@ defmodule AWS.AppSync do
   API by
   its ID value.
   """
-  @spec get_graphql_api_environment_variables(map(), String.t(), list()) ::
+  @spec get_graphql_api_environment_variables(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_graphql_api_environment_variables_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4367,7 +4402,13 @@ defmodule AWS.AppSync do
   @doc """
   Retrieves the introspection schema for a GraphQL API.
   """
-  @spec get_introspection_schema(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_introspection_schema(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, get_introspection_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4405,7 +4446,13 @@ defmodule AWS.AppSync do
   @doc """
   Retrieves a `Resolver` object.
   """
-  @spec get_resolver(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_resolver(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_resolver_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4425,7 +4472,7 @@ defmodule AWS.AppSync do
   @doc """
   Retrieves the current status of a schema creation operation.
   """
-  @spec get_schema_creation_status(map(), String.t(), list()) ::
+  @spec get_schema_creation_status(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_schema_creation_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4443,7 +4490,7 @@ defmodule AWS.AppSync do
   @doc """
   Retrieves a `SourceApiAssociation` object.
   """
-  @spec get_source_api_association(map(), String.t(), String.t(), list()) ::
+  @spec get_source_api_association(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_source_api_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4468,7 +4515,13 @@ defmodule AWS.AppSync do
   @doc """
   Retrieves a `Type` object.
   """
-  @spec get_type(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_type(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4500,7 +4553,13 @@ defmodule AWS.AppSync do
   `DeleteApiKey` to manually delete a key before it's automatically
   deleted.
   """
-  @spec list_api_keys(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_api_keys(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_api_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4541,7 +4600,7 @@ defmodule AWS.AppSync do
   `ListApis` returns only the high level API details. For more detailed
   information about an API, use `GetApi`.
   """
-  @spec list_apis(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_apis(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_apis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4576,7 +4635,13 @@ defmodule AWS.AppSync do
   `ListChannelNamespaces` returns only high level details for the channel
   namespace. To retrieve code handlers, use `GetChannelNamespace`.
   """
-  @spec list_channel_namespaces(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_channel_namespaces(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_channel_namespaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4614,7 +4679,13 @@ defmodule AWS.AppSync do
   @doc """
   Lists the data sources for a given API.
   """
-  @spec list_data_sources(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_data_sources(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_data_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4652,7 +4723,7 @@ defmodule AWS.AppSync do
   @doc """
   Lists multiple custom domain names.
   """
-  @spec list_domain_names(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_domain_names(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_domain_names_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4684,7 +4755,13 @@ defmodule AWS.AppSync do
   @doc """
   List multiple functions.
   """
-  @spec list_functions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_functions(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_functions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4724,10 +4801,10 @@ defmodule AWS.AppSync do
   """
   @spec list_graphql_apis(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_graphql_apis_response(), any()}
@@ -4782,7 +4859,14 @@ defmodule AWS.AppSync do
   @doc """
   Lists the resolvers for a given API and type.
   """
-  @spec list_resolvers(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_resolvers(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_resolvers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4825,10 +4909,10 @@ defmodule AWS.AppSync do
   """
   @spec list_resolvers_by_function(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_resolvers_by_function_response(), any()}
@@ -4873,9 +4957,9 @@ defmodule AWS.AppSync do
   """
   @spec list_source_api_associations(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_source_api_associations_response(), any()}
@@ -4915,7 +4999,7 @@ defmodule AWS.AppSync do
   @doc """
   Lists the tags for a resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4933,7 +5017,14 @@ defmodule AWS.AppSync do
   @doc """
   Lists the types for a given API.
   """
-  @spec list_types(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_types(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4981,11 +5072,11 @@ defmodule AWS.AppSync do
   """
   @spec list_types_by_association(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_types_by_association_response(), any()}
@@ -5087,7 +5178,7 @@ defmodule AWS.AppSync do
   """
   @spec put_graphql_api_environment_variables(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_graphql_api_environment_variables_request(),
           list()
         ) ::
@@ -5154,7 +5245,12 @@ defmodule AWS.AppSync do
   This operation is asynchronous. Use to
   determine when it has completed.
   """
-  @spec start_schema_creation(map(), String.t(), start_schema_creation_request(), list()) ::
+  @spec start_schema_creation(
+          map(),
+          String.t() | Atom.t(),
+          start_schema_creation_request(),
+          list()
+        ) ::
           {:ok, start_schema_creation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5186,7 +5282,13 @@ defmodule AWS.AppSync do
   Returns a status that shows the result of the merge
   operation.
   """
-  @spec start_schema_merge(map(), String.t(), String.t(), start_schema_merge_request(), list()) ::
+  @spec start_schema_merge(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          start_schema_merge_request(),
+          list()
+        ) ::
           {:ok, start_schema_merge_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5223,7 +5325,7 @@ defmodule AWS.AppSync do
   @doc """
   Tags a resource with user-supplied tags.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5252,7 +5354,7 @@ defmodule AWS.AppSync do
   @doc """
   Untags a resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5286,7 +5388,7 @@ defmodule AWS.AppSync do
   @doc """
   Updates an `Api`.
   """
-  @spec update_api(map(), String.t(), update_api_request(), list()) ::
+  @spec update_api(map(), String.t() | Atom.t(), update_api_request(), list()) ::
           {:ok, update_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5315,7 +5417,7 @@ defmodule AWS.AppSync do
   @doc """
   Updates the cache for the GraphQL API.
   """
-  @spec update_api_cache(map(), String.t(), update_api_cache_request(), list()) ::
+  @spec update_api_cache(map(), String.t() | Atom.t(), update_api_cache_request(), list()) ::
           {:ok, update_api_cache_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5346,7 +5448,13 @@ defmodule AWS.AppSync do
 
   You can update the key as long as it's not deleted.
   """
-  @spec update_api_key(map(), String.t(), String.t(), update_api_key_request(), list()) ::
+  @spec update_api_key(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_api_key_request(),
+          list()
+        ) ::
           {:ok, update_api_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5377,8 +5485,8 @@ defmodule AWS.AppSync do
   """
   @spec update_channel_namespace(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_channel_namespace_request(),
           list()
         ) ::
@@ -5412,7 +5520,13 @@ defmodule AWS.AppSync do
   @doc """
   Updates a `DataSource` object.
   """
-  @spec update_data_source(map(), String.t(), String.t(), update_data_source_request(), list()) ::
+  @spec update_data_source(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_data_source_request(),
+          list()
+        ) ::
           {:ok, update_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5441,7 +5555,7 @@ defmodule AWS.AppSync do
   @doc """
   Updates a custom `DomainName` object.
   """
-  @spec update_domain_name(map(), String.t(), update_domain_name_request(), list()) ::
+  @spec update_domain_name(map(), String.t() | Atom.t(), update_domain_name_request(), list()) ::
           {:ok, update_domain_name_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5470,7 +5584,13 @@ defmodule AWS.AppSync do
   @doc """
   Updates a `Function` object.
   """
-  @spec update_function(map(), String.t(), String.t(), update_function_request(), list()) ::
+  @spec update_function(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_function_request(),
+          list()
+        ) ::
           {:ok, update_function_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5501,7 +5621,7 @@ defmodule AWS.AppSync do
   @doc """
   Updates a `GraphqlApi` object.
   """
-  @spec update_graphql_api(map(), String.t(), update_graphql_api_request(), list()) ::
+  @spec update_graphql_api(map(), String.t() | Atom.t(), update_graphql_api_request(), list()) ::
           {:ok, update_graphql_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5532,9 +5652,9 @@ defmodule AWS.AppSync do
   """
   @spec update_resolver(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_resolver_request(),
           list()
         ) ::
@@ -5571,8 +5691,8 @@ defmodule AWS.AppSync do
   """
   @spec update_source_api_association(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_source_api_association_request(),
           list()
         ) ::
@@ -5612,7 +5732,13 @@ defmodule AWS.AppSync do
   @doc """
   Updates a `Type` object.
   """
-  @spec update_type(map(), String.t(), String.t(), update_type_request(), list()) ::
+  @spec update_type(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_type_request(),
+          list()
+        ) ::
           {:ok, update_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

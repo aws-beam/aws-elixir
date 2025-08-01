@@ -18,62 +18,62 @@ defmodule AWS.HealthLake do
       identity_provider_configuration() :: %{
         "AuthorizationStrategy" => list(any()),
         "FineGrainedAuthorizationEnabled" => boolean(),
-        "IdpLambdaArn" => String.t(),
-        "Metadata" => String.t()
+        "IdpLambdaArn" => String.t() | Atom.t(),
+        "Metadata" => String.t() | Atom.t()
       }
       
   """
-  @type identity_provider_configuration() :: %{String.t() => any()}
+  @type identity_provider_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
+        required("ResourceARN") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_fhir_import_job_request() :: %{
-        required("DatastoreId") => String.t(),
-        required("JobId") => String.t()
+        required("DatastoreId") => String.t() | Atom.t(),
+        required("JobId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_fhir_import_job_request() :: %{String.t() => any()}
+  @type describe_fhir_import_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_fhir_datastore_response() :: %{
-        "DatastoreArn" => String.t(),
-        "DatastoreEndpoint" => String.t(),
-        "DatastoreId" => String.t(),
+        "DatastoreArn" => String.t() | Atom.t(),
+        "DatastoreEndpoint" => String.t() | Atom.t(),
+        "DatastoreId" => String.t() | Atom.t(),
         "DatastoreStatus" => list(any())
       }
       
   """
-  @type create_fhir_datastore_response() :: %{String.t() => any()}
+  @type create_fhir_datastore_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_fhir_export_job_request() :: %{
-        required("DatastoreId") => String.t(),
-        required("JobId") => String.t()
+        required("DatastoreId") => String.t() | Atom.t(),
+        required("JobId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_fhir_export_job_request() :: %{String.t() => any()}
+  @type describe_fhir_export_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -89,68 +89,68 @@ defmodule AWS.HealthLake do
   ## Example:
       
       start_fhir_import_job_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("JobName") => String.t(),
-        required("DataAccessRoleArn") => String.t(),
-        required("DatastoreId") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("JobName") => String.t() | Atom.t(),
+        required("DataAccessRoleArn") => String.t() | Atom.t(),
+        required("DatastoreId") => String.t() | Atom.t(),
         required("InputDataConfig") => list(),
         required("JobOutputDataConfig") => list()
       }
       
   """
-  @type start_fhir_import_job_request() :: %{String.t() => any()}
+  @type start_fhir_import_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       export_job_properties() :: %{
-        "DataAccessRoleArn" => String.t(),
-        "DatastoreId" => String.t(),
+        "DataAccessRoleArn" => String.t() | Atom.t(),
+        "DatastoreId" => String.t() | Atom.t(),
         "EndTime" => non_neg_integer(),
-        "JobId" => String.t(),
-        "JobName" => String.t(),
+        "JobId" => String.t() | Atom.t(),
+        "JobName" => String.t() | Atom.t(),
         "JobStatus" => list(any()),
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "OutputDataConfig" => list(),
         "SubmitTime" => non_neg_integer()
       }
       
   """
-  @type export_job_properties() :: %{String.t() => any()}
+  @type export_job_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceARN") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       import_job_properties() :: %{
-        "DataAccessRoleArn" => String.t(),
-        "DatastoreId" => String.t(),
+        "DataAccessRoleArn" => String.t() | Atom.t(),
+        "DatastoreId" => String.t() | Atom.t(),
         "EndTime" => non_neg_integer(),
         "InputDataConfig" => list(),
-        "JobId" => String.t(),
-        "JobName" => String.t(),
+        "JobId" => String.t() | Atom.t(),
+        "JobName" => String.t() | Atom.t(),
         "JobOutputDataConfig" => list(),
         "JobProgressReport" => job_progress_report(),
         "JobStatus" => list(any()),
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "SubmitTime" => non_neg_integer()
       }
       
   """
-  @type import_job_properties() :: %{String.t() => any()}
+  @type import_job_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -161,7 +161,7 @@ defmodule AWS.HealthLake do
       }
       
   """
-  @type preload_data_config() :: %{String.t() => any()}
+  @type preload_data_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -170,12 +170,12 @@ defmodule AWS.HealthLake do
       datastore_filter() :: %{
         "CreatedAfter" => non_neg_integer(),
         "CreatedBefore" => non_neg_integer(),
-        "DatastoreName" => String.t(),
+        "DatastoreName" => String.t() | Atom.t(),
         "DatastoreStatus" => list(any())
       }
       
   """
-  @type datastore_filter() :: %{String.t() => any()}
+  @type datastore_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -183,11 +183,11 @@ defmodule AWS.HealthLake do
       
       list_fhir_datastores_response() :: %{
         "DatastorePropertiesList" => list(datastore_properties()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_fhir_datastores_response() :: %{String.t() => any()}
+  @type list_fhir_datastores_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -198,20 +198,20 @@ defmodule AWS.HealthLake do
       }
       
   """
-  @type describe_fhir_export_job_response() :: %{String.t() => any()}
+  @type describe_fhir_export_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_fhir_import_job_response() :: %{
-        "DatastoreId" => String.t(),
-        "JobId" => String.t(),
+        "DatastoreId" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
         "JobStatus" => list(any())
       }
       
   """
-  @type start_fhir_import_job_response() :: %{String.t() => any()}
+  @type start_fhir_import_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -219,11 +219,11 @@ defmodule AWS.HealthLake do
       
       list_fhir_export_jobs_response() :: %{
         "ExportJobPropertiesList" => list(export_job_properties()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_fhir_export_jobs_response() :: %{String.t() => any()}
+  @type list_fhir_export_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -231,87 +231,87 @@ defmodule AWS.HealthLake do
       
       error_cause() :: %{
         "ErrorCategory" => list(any()),
-        "ErrorMessage" => String.t()
+        "ErrorMessage" => String.t() | Atom.t()
       }
       
   """
-  @type error_cause() :: %{String.t() => any()}
+  @type error_cause() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_fhir_export_jobs_request() :: %{
-        optional("JobName") => String.t(),
+        optional("JobName") => String.t() | Atom.t(),
         optional("JobStatus") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("SubmittedAfter") => non_neg_integer(),
         optional("SubmittedBefore") => non_neg_integer(),
-        required("DatastoreId") => String.t()
+        required("DatastoreId") => String.t() | Atom.t()
       }
       
   """
-  @type list_fhir_export_jobs_request() :: %{String.t() => any()}
+  @type list_fhir_export_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_fhir_datastore_request() :: %{
-        required("DatastoreId") => String.t()
+        required("DatastoreId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_fhir_datastore_request() :: %{String.t() => any()}
+  @type delete_fhir_datastore_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_fhir_datastore_response() :: %{
-        "DatastoreArn" => String.t(),
-        "DatastoreEndpoint" => String.t(),
-        "DatastoreId" => String.t(),
+        "DatastoreArn" => String.t() | Atom.t(),
+        "DatastoreEndpoint" => String.t() | Atom.t(),
+        "DatastoreId" => String.t() | Atom.t(),
         "DatastoreStatus" => list(any())
       }
       
   """
-  @type delete_fhir_datastore_response() :: %{String.t() => any()}
+  @type delete_fhir_datastore_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -322,7 +322,7 @@ defmodule AWS.HealthLake do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -330,10 +330,10 @@ defmodule AWS.HealthLake do
       
       datastore_properties() :: %{
         "CreatedAt" => non_neg_integer(),
-        "DatastoreArn" => String.t(),
-        "DatastoreEndpoint" => String.t(),
-        "DatastoreId" => String.t(),
-        "DatastoreName" => String.t(),
+        "DatastoreArn" => String.t() | Atom.t(),
+        "DatastoreEndpoint" => String.t() | Atom.t(),
+        "DatastoreId" => String.t() | Atom.t(),
+        "DatastoreName" => String.t() | Atom.t(),
         "DatastoreStatus" => list(any()),
         "DatastoreTypeVersion" => list(any()),
         "ErrorCause" => error_cause(),
@@ -343,7 +343,7 @@ defmodule AWS.HealthLake do
       }
       
   """
-  @type datastore_properties() :: %{String.t() => any()}
+  @type datastore_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -354,7 +354,7 @@ defmodule AWS.HealthLake do
       }
       
   """
-  @type sse_configuration() :: %{String.t() => any()}
+  @type sse_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -363,22 +363,22 @@ defmodule AWS.HealthLake do
       list_fhir_datastores_request() :: %{
         optional("Filter") => datastore_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_fhir_datastores_request() :: %{String.t() => any()}
+  @type list_fhir_datastores_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -386,33 +386,33 @@ defmodule AWS.HealthLake do
       
       kms_encryption_config() :: %{
         "CmkType" => list(any()),
-        "KmsKeyId" => String.t()
+        "KmsKeyId" => String.t() | Atom.t()
       }
       
   """
-  @type kms_encryption_config() :: %{String.t() => any()}
+  @type kms_encryption_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_fhir_datastore_request() :: %{
-        required("DatastoreId") => String.t()
+        required("DatastoreId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_fhir_datastore_request() :: %{String.t() => any()}
+  @type describe_fhir_datastore_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -429,33 +429,33 @@ defmodule AWS.HealthLake do
       
       list_fhir_import_jobs_response() :: %{
         "ImportJobPropertiesList" => list(import_job_properties()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_fhir_import_jobs_response() :: %{String.t() => any()}
+  @type list_fhir_import_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t()
+        required("ResourceARN") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -473,30 +473,30 @@ defmodule AWS.HealthLake do
       }
       
   """
-  @type job_progress_report() :: %{String.t() => any()}
+  @type job_progress_report() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_configuration() :: %{
-        "KmsKeyId" => String.t(),
-        "S3Uri" => String.t()
+        "KmsKeyId" => String.t() | Atom.t(),
+        "S3Uri" => String.t() | Atom.t()
       }
       
   """
-  @type s3_configuration() :: %{String.t() => any()}
+  @type s3_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -507,32 +507,32 @@ defmodule AWS.HealthLake do
       }
       
   """
-  @type describe_fhir_import_job_response() :: %{String.t() => any()}
+  @type describe_fhir_import_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_fhir_import_jobs_request() :: %{
-        optional("JobName") => String.t(),
+        optional("JobName") => String.t() | Atom.t(),
         optional("JobStatus") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("SubmittedAfter") => non_neg_integer(),
         optional("SubmittedBefore") => non_neg_integer(),
-        required("DatastoreId") => String.t()
+        required("DatastoreId") => String.t() | Atom.t()
       }
       
   """
-  @type list_fhir_import_jobs_request() :: %{String.t() => any()}
+  @type list_fhir_import_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_fhir_datastore_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("DatastoreName") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("DatastoreName") => String.t() | Atom.t(),
         optional("IdentityProviderConfiguration") => identity_provider_configuration(),
         optional("PreloadDataConfig") => preload_data_config(),
         optional("SseConfiguration") => sse_configuration(),
@@ -541,35 +541,35 @@ defmodule AWS.HealthLake do
       }
       
   """
-  @type create_fhir_datastore_request() :: %{String.t() => any()}
+  @type create_fhir_datastore_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_fhir_export_job_response() :: %{
-        "DatastoreId" => String.t(),
-        "JobId" => String.t(),
+        "DatastoreId" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
         "JobStatus" => list(any())
       }
       
   """
-  @type start_fhir_export_job_response() :: %{String.t() => any()}
+  @type start_fhir_export_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_fhir_export_job_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("JobName") => String.t(),
-        required("DataAccessRoleArn") => String.t(),
-        required("DatastoreId") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("JobName") => String.t() | Atom.t(),
+        required("DataAccessRoleArn") => String.t() | Atom.t(),
+        required("DatastoreId") => String.t() | Atom.t(),
         required("OutputDataConfig") => list()
       }
       
   """
-  @type start_fhir_export_job_request() :: %{String.t() => any()}
+  @type start_fhir_export_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -580,7 +580,7 @@ defmodule AWS.HealthLake do
       }
       
   """
-  @type describe_fhir_datastore_response() :: %{String.t() => any()}
+  @type describe_fhir_datastore_response() :: %{String.t() | Atom.t() => any()}
 
   @type create_fhir_datastore_errors() ::
           throttling_exception()

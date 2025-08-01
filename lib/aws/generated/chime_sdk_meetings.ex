@@ -24,32 +24,32 @@ defmodule AWS.ChimeSDKMeetings do
       }
 
   """
-  @type update_attendee_capabilities_response() :: %{String.t() => any()}
+  @type update_attendee_capabilities_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       notifications_configuration() :: %{
-        "LambdaFunctionArn" => String.t(),
-        "SnsTopicArn" => String.t(),
-        "SqsQueueArn" => String.t()
+        "LambdaFunctionArn" => String.t() | Atom.t(),
+        "SnsTopicArn" => String.t() | Atom.t(),
+        "SqsQueueArn" => String.t() | Atom.t()
       }
 
   """
-  @type notifications_configuration() :: %{String.t() => any()}
+  @type notifications_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
+        required("ResourceARN") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -60,20 +60,20 @@ defmodule AWS.ChimeSDKMeetings do
       }
 
   """
-  @type get_attendee_response() :: %{String.t() => any()}
+  @type get_attendee_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       unauthorized_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
 
   """
-  @type unauthorized_exception() :: %{String.t() => any()}
+  @type unauthorized_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -90,64 +90,64 @@ defmodule AWS.ChimeSDKMeetings do
 
       create_meeting_with_attendees_request() :: %{
         optional("MeetingFeatures") => meeting_features_configuration(),
-        optional("MeetingHostId") => String.t(),
+        optional("MeetingHostId") => String.t() | Atom.t(),
         optional("NotificationsConfiguration") => notifications_configuration(),
-        optional("PrimaryMeetingId") => String.t(),
+        optional("PrimaryMeetingId") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        optional("TenantIds") => list(String.t()),
+        optional("TenantIds") => list(String.t() | Atom.t()),
         required("Attendees") => list(create_attendee_request_item()),
-        required("ClientRequestToken") => String.t(),
-        required("ExternalMeetingId") => String.t(),
-        required("MediaRegion") => String.t()
+        required("ClientRequestToken") => String.t() | Atom.t(),
+        required("ExternalMeetingId") => String.t() | Atom.t(),
+        required("MediaRegion") => String.t() | Atom.t()
       }
 
   """
-  @type create_meeting_with_attendees_request() :: %{String.t() => any()}
+  @type create_meeting_with_attendees_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_failure_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
 
   """
-  @type service_failure_exception() :: %{String.t() => any()}
+  @type service_failure_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       forbidden_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
 
   """
-  @type forbidden_exception() :: %{String.t() => any()}
+  @type forbidden_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       meeting() :: %{
-        "ExternalMeetingId" => String.t(),
+        "ExternalMeetingId" => String.t() | Atom.t(),
         "MediaPlacement" => media_placement(),
-        "MediaRegion" => String.t(),
-        "MeetingArn" => String.t(),
+        "MediaRegion" => String.t() | Atom.t(),
+        "MeetingArn" => String.t() | Atom.t(),
         "MeetingFeatures" => meeting_features_configuration(),
-        "MeetingHostId" => String.t(),
-        "MeetingId" => String.t(),
-        "PrimaryMeetingId" => String.t(),
-        "TenantIds" => list(String.t())
+        "MeetingHostId" => String.t() | Atom.t(),
+        "MeetingId" => String.t() | Atom.t(),
+        "PrimaryMeetingId" => String.t() | Atom.t(),
+        "TenantIds" => list(String.t() | Atom.t())
       }
 
   """
-  @type meeting() :: %{String.t() => any()}
+  @type meeting() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -158,7 +158,7 @@ defmodule AWS.ChimeSDKMeetings do
       }
 
   """
-  @type create_meeting_response() :: %{String.t() => any()}
+  @type create_meeting_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -169,19 +169,19 @@ defmodule AWS.ChimeSDKMeetings do
       }
 
   """
-  @type get_meeting_response() :: %{String.t() => any()}
+  @type get_meeting_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceARN") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -201,7 +201,7 @@ defmodule AWS.ChimeSDKMeetings do
       }
 
   """
-  @type attendee_features() :: %{String.t() => any()}
+  @type attendee_features() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -213,21 +213,21 @@ defmodule AWS.ChimeSDKMeetings do
         "EnablePartialResultsStabilization" => boolean(),
         "IdentifyLanguage" => boolean(),
         "LanguageCode" => list(any()),
-        "LanguageModelName" => String.t(),
-        "LanguageOptions" => String.t(),
+        "LanguageModelName" => String.t() | Atom.t(),
+        "LanguageOptions" => String.t() | Atom.t(),
         "PartialResultsStability" => list(any()),
-        "PiiEntityTypes" => String.t(),
+        "PiiEntityTypes" => String.t() | Atom.t(),
         "PreferredLanguage" => list(any()),
         "Region" => list(any()),
         "VocabularyFilterMethod" => list(any()),
-        "VocabularyFilterName" => String.t(),
-        "VocabularyFilterNames" => String.t(),
-        "VocabularyName" => String.t(),
-        "VocabularyNames" => String.t()
+        "VocabularyFilterName" => String.t() | Atom.t(),
+        "VocabularyFilterNames" => String.t() | Atom.t(),
+        "VocabularyName" => String.t() | Atom.t(),
+        "VocabularyNames" => String.t() | Atom.t()
       }
 
   """
-  @type engine_transcribe_settings() :: %{String.t() => any()}
+  @type engine_transcribe_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -235,11 +235,11 @@ defmodule AWS.ChimeSDKMeetings do
 
       list_attendees_response() :: %{
         "Attendees" => list(attendee()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_attendees_response() :: %{String.t() => any()}
+  @type list_attendees_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -252,7 +252,7 @@ defmodule AWS.ChimeSDKMeetings do
       }
 
   """
-  @type create_meeting_with_attendees_response() :: %{String.t() => any()}
+  @type create_meeting_with_attendees_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -264,20 +264,20 @@ defmodule AWS.ChimeSDKMeetings do
       }
 
   """
-  @type transcription_configuration() :: %{String.t() => any()}
+  @type transcription_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -293,26 +293,26 @@ defmodule AWS.ChimeSDKMeetings do
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t(),
-        "RequestId" => String.t(),
-        "ResourceName" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t(),
+        "ResourceName" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -323,7 +323,7 @@ defmodule AWS.ChimeSDKMeetings do
       }
 
   """
-  @type audio_features() :: %{String.t() => any()}
+  @type audio_features() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -335,11 +335,11 @@ defmodule AWS.ChimeSDKMeetings do
         "Region" => list(any()),
         "Specialty" => list(any()),
         "Type" => list(any()),
-        "VocabularyName" => String.t()
+        "VocabularyName" => String.t() | Atom.t()
       }
 
   """
-  @type engine_transcribe_medical_settings() :: %{String.t() => any()}
+  @type engine_transcribe_medical_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -347,31 +347,31 @@ defmodule AWS.ChimeSDKMeetings do
 
       create_meeting_request() :: %{
         optional("MeetingFeatures") => meeting_features_configuration(),
-        optional("MeetingHostId") => String.t(),
+        optional("MeetingHostId") => String.t() | Atom.t(),
         optional("NotificationsConfiguration") => notifications_configuration(),
-        optional("PrimaryMeetingId") => String.t(),
+        optional("PrimaryMeetingId") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        optional("TenantIds") => list(String.t()),
-        required("ClientRequestToken") => String.t(),
-        required("ExternalMeetingId") => String.t(),
-        required("MediaRegion") => String.t()
+        optional("TenantIds") => list(String.t() | Atom.t()),
+        required("ClientRequestToken") => String.t() | Atom.t(),
+        required("ExternalMeetingId") => String.t() | Atom.t(),
+        required("MediaRegion") => String.t() | Atom.t()
       }
 
   """
-  @type create_meeting_request() :: %{String.t() => any()}
+  @type create_meeting_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       not_found_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
 
   """
-  @type not_found_exception() :: %{String.t() => any()}
+  @type not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -379,11 +379,11 @@ defmodule AWS.ChimeSDKMeetings do
 
       create_attendee_request_item() :: %{
         "Capabilities" => attendee_capabilities(),
-        "ExternalUserId" => String.t()
+        "ExternalUserId" => String.t() | Atom.t()
       }
 
   """
-  @type create_attendee_request_item() :: %{String.t() => any()}
+  @type create_attendee_request_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -394,7 +394,7 @@ defmodule AWS.ChimeSDKMeetings do
       }
 
   """
-  @type create_attendee_response() :: %{String.t() => any()}
+  @type create_attendee_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -405,7 +405,7 @@ defmodule AWS.ChimeSDKMeetings do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -418,21 +418,21 @@ defmodule AWS.ChimeSDKMeetings do
       }
 
   """
-  @type attendee_capabilities() :: %{String.t() => any()}
+  @type attendee_capabilities() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_unavailable_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t(),
-        "RequestId" => String.t(),
-        "RetryAfterSeconds" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t(),
+        "RetryAfterSeconds" => String.t() | Atom.t()
       }
 
   """
-  @type service_unavailable_exception() :: %{String.t() => any()}
+  @type service_unavailable_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -448,26 +448,26 @@ defmodule AWS.ChimeSDKMeetings do
   ## Example:
 
       create_attendee_error() :: %{
-        "ErrorCode" => String.t(),
-        "ErrorMessage" => String.t(),
-        "ExternalUserId" => String.t()
+        "ErrorCode" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | Atom.t(),
+        "ExternalUserId" => String.t() | Atom.t()
       }
 
   """
-  @type create_attendee_error() :: %{String.t() => any()}
+  @type create_attendee_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       unprocessable_entity_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
 
   """
-  @type unprocessable_entity_exception() :: %{String.t() => any()}
+  @type unprocessable_entity_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -492,11 +492,11 @@ defmodule AWS.ChimeSDKMeetings do
   ## Example:
 
       attendee_id_item() :: %{
-        "AttendeeId" => String.t()
+        "AttendeeId" => String.t() | Atom.t()
       }
 
   """
-  @type attendee_id_item() :: %{String.t() => any()}
+  @type attendee_id_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -510,18 +510,18 @@ defmodule AWS.ChimeSDKMeetings do
       }
 
   """
-  @type meeting_features_configuration() :: %{String.t() => any()}
+  @type meeting_features_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t()
+        required("ResourceARN") => String.t() | Atom.t()
       }
 
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -532,7 +532,7 @@ defmodule AWS.ChimeSDKMeetings do
       }
 
   """
-  @type content_features() :: %{String.t() => any()}
+  @type content_features() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -543,7 +543,7 @@ defmodule AWS.ChimeSDKMeetings do
       }
 
   """
-  @type update_attendee_capabilities_request() :: %{String.t() => any()}
+  @type update_attendee_capabilities_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -554,20 +554,20 @@ defmodule AWS.ChimeSDKMeetings do
       }
 
   """
-  @type start_meeting_transcription_request() :: %{String.t() => any()}
+  @type start_meeting_transcription_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -578,7 +578,7 @@ defmodule AWS.ChimeSDKMeetings do
       }
 
   """
-  @type batch_create_attendee_request() :: %{String.t() => any()}
+  @type batch_create_attendee_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -590,7 +590,7 @@ defmodule AWS.ChimeSDKMeetings do
       }
 
   """
-  @type batch_create_attendee_response() :: %{String.t() => any()}
+  @type batch_create_attendee_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -598,11 +598,11 @@ defmodule AWS.ChimeSDKMeetings do
 
       list_attendees_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_attendees_request() :: %{String.t() => any()}
+  @type list_attendees_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -614,20 +614,20 @@ defmodule AWS.ChimeSDKMeetings do
       }
 
   """
-  @type batch_update_attendee_capabilities_except_request() :: %{String.t() => any()}
+  @type batch_update_attendee_capabilities_except_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       limit_exceeded_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
 
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -638,34 +638,34 @@ defmodule AWS.ChimeSDKMeetings do
       }
 
   """
-  @type video_features() :: %{String.t() => any()}
+  @type video_features() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       attendee() :: %{
-        "AttendeeId" => String.t(),
+        "AttendeeId" => String.t() | Atom.t(),
         "Capabilities" => attendee_capabilities(),
-        "ExternalUserId" => String.t(),
-        "JoinToken" => String.t()
+        "ExternalUserId" => String.t() | Atom.t(),
+        "JoinToken" => String.t() | Atom.t()
       }
 
   """
-  @type attendee() :: %{String.t() => any()}
+  @type attendee() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bad_request_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t(),
-        "RequestId" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t()
       }
 
   """
-  @type bad_request_exception() :: %{String.t() => any()}
+  @type bad_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -673,43 +673,43 @@ defmodule AWS.ChimeSDKMeetings do
 
       create_attendee_request() :: %{
         optional("Capabilities") => attendee_capabilities(),
-        required("ExternalUserId") => String.t()
+        required("ExternalUserId") => String.t() | Atom.t()
       }
 
   """
-  @type create_attendee_request() :: %{String.t() => any()}
+  @type create_attendee_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       media_placement() :: %{
-        "AudioFallbackUrl" => String.t(),
-        "AudioHostUrl" => String.t(),
-        "EventIngestionUrl" => String.t(),
-        "ScreenDataUrl" => String.t(),
-        "ScreenSharingUrl" => String.t(),
-        "ScreenViewingUrl" => String.t(),
-        "SignalingUrl" => String.t(),
-        "TurnControlUrl" => String.t()
+        "AudioFallbackUrl" => String.t() | Atom.t(),
+        "AudioHostUrl" => String.t() | Atom.t(),
+        "EventIngestionUrl" => String.t() | Atom.t(),
+        "ScreenDataUrl" => String.t() | Atom.t(),
+        "ScreenSharingUrl" => String.t() | Atom.t(),
+        "ScreenViewingUrl" => String.t() | Atom.t(),
+        "SignalingUrl" => String.t() | Atom.t(),
+        "TurnControlUrl" => String.t() | Atom.t()
       }
 
   """
-  @type media_placement() :: %{String.t() => any()}
+  @type media_placement() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_tags_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t(),
-        "RequestId" => String.t(),
-        "ResourceName" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
+        "RequestId" => String.t() | Atom.t(),
+        "ResourceName" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_tags_exception() :: %{String.t() => any()}
+  @type too_many_tags_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -902,7 +902,12 @@ defmodule AWS.ChimeSDKMeetings do
   [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
   *Amazon Chime Developer Guide*.
   """
-  @spec batch_create_attendee(map(), String.t(), batch_create_attendee_request(), list()) ::
+  @spec batch_create_attendee(
+          map(),
+          String.t() | Atom.t(),
+          batch_create_attendee_request(),
+          list()
+        ) ::
           {:ok, batch_create_attendee_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -973,7 +978,7 @@ defmodule AWS.ChimeSDKMeetings do
   """
   @spec batch_update_attendee_capabilities_except(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           batch_update_attendee_capabilities_except_request(),
           list()
         ) ::
@@ -1018,7 +1023,7 @@ defmodule AWS.ChimeSDKMeetings do
   in the
   *Amazon Chime Developer Guide*.
   """
-  @spec create_attendee(map(), String.t(), create_attendee_request(), list()) ::
+  @spec create_attendee(map(), String.t() | Atom.t(), create_attendee_request(), list()) ::
           {:ok, create_attendee_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1130,7 +1135,13 @@ defmodule AWS.ChimeSDKMeetings do
   [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html)
   in the *Amazon Chime Developer Guide*.
   """
-  @spec delete_attendee(map(), String.t(), String.t(), delete_attendee_request(), list()) ::
+  @spec delete_attendee(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_attendee_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1167,7 +1178,7 @@ defmodule AWS.ChimeSDKMeetings do
   [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
   *Amazon Chime Developer Guide*.
   """
-  @spec delete_meeting(map(), String.t(), delete_meeting_request(), list()) ::
+  @spec delete_meeting(map(), String.t() | Atom.t(), delete_meeting_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1202,7 +1213,7 @@ defmodule AWS.ChimeSDKMeetings do
   [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html)
   in the *Amazon Chime Developer Guide*.
   """
-  @spec get_attendee(map(), String.t(), String.t(), list()) ::
+  @spec get_attendee(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_attendee_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1226,7 +1237,7 @@ defmodule AWS.ChimeSDKMeetings do
   [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html)
   in the *Amazon Chime Developer Guide*.
   """
-  @spec get_meeting(map(), String.t(), list()) ::
+  @spec get_meeting(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_meeting_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1249,7 +1260,13 @@ defmodule AWS.ChimeSDKMeetings do
   [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html)
   in the *Amazon Chime Developer Guide*.
   """
-  @spec list_attendees(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_attendees(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_attendees_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1287,7 +1304,7 @@ defmodule AWS.ChimeSDKMeetings do
   @doc """
   Returns a list of the tags available for the specified resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1341,7 +1358,7 @@ defmodule AWS.ChimeSDKMeetings do
   """
   @spec start_meeting_transcription(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           start_meeting_transcription_request(),
           list()
         ) ::
@@ -1394,7 +1411,7 @@ defmodule AWS.ChimeSDKMeetings do
   """
   @spec stop_meeting_transcription(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           stop_meeting_transcription_request(),
           list()
         ) ::
@@ -1552,8 +1569,8 @@ defmodule AWS.ChimeSDKMeetings do
   """
   @spec update_attendee_capabilities(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_attendee_capabilities_request(),
           list()
         ) ::

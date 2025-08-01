@@ -43,83 +43,83 @@ defmodule AWS.AppRunner do
       
       custom_domain() :: %{
         "CertificateValidationRecords" => list(certificate_validation_record()),
-        "DomainName" => String.t(),
+        "DomainName" => String.t() | Atom.t(),
         "EnableWWWSubdomain" => boolean(),
         "Status" => list(any())
       }
       
   """
-  @type custom_domain() :: %{String.t() => any()}
+  @type custom_domain() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       encryption_configuration() :: %{
-        "KmsKey" => String.t()
+        "KmsKey" => String.t() | Atom.t()
       }
       
   """
-  @type encryption_configuration() :: %{String.t() => any()}
+  @type encryption_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
+        required("ResourceArn") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_observability_configuration_request() :: %{
-        required("ObservabilityConfigurationArn") => String.t()
+        required("ObservabilityConfigurationArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_observability_configuration_request() :: %{String.t() => any()}
+  @type delete_observability_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_observability_configurations_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "ObservabilityConfigurationSummaryList" => list(observability_configuration_summary())
       }
       
   """
-  @type list_observability_configurations_response() :: %{String.t() => any()}
+  @type list_observability_configurations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       ingress_vpc_configuration() :: %{
-        "VpcEndpointId" => String.t(),
-        "VpcId" => String.t()
+        "VpcEndpointId" => String.t() | Atom.t(),
+        "VpcId" => String.t() | Atom.t()
       }
       
   """
-  @type ingress_vpc_configuration() :: %{String.t() => any()}
+  @type ingress_vpc_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       vpc_ingress_connection_summary() :: %{
-        "ServiceArn" => String.t(),
-        "VpcIngressConnectionArn" => String.t()
+        "ServiceArn" => String.t() | Atom.t(),
+        "VpcIngressConnectionArn" => String.t() | Atom.t()
       }
       
   """
-  @type vpc_ingress_connection_summary() :: %{String.t() => any()}
+  @type vpc_ingress_connection_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -128,22 +128,22 @@ defmodule AWS.AppRunner do
       create_observability_configuration_request() :: %{
         optional("Tags") => list(tag()),
         optional("TraceConfiguration") => trace_configuration(),
-        required("ObservabilityConfigurationName") => String.t()
+        required("ObservabilityConfigurationName") => String.t() | Atom.t()
       }
       
   """
-  @type create_observability_configuration_request() :: %{String.t() => any()}
+  @type create_observability_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_auto_scaling_configuration_request() :: %{
-        required("AutoScalingConfigurationArn") => String.t()
+        required("AutoScalingConfigurationArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_auto_scaling_configuration_request() :: %{String.t() => any()}
+  @type describe_auto_scaling_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -154,7 +154,7 @@ defmodule AWS.AppRunner do
       }
       
   """
-  @type create_vpc_connector_response() :: %{String.t() => any()}
+  @type create_vpc_connector_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -166,18 +166,18 @@ defmodule AWS.AppRunner do
       }
       
   """
-  @type code_configuration() :: %{String.t() => any()}
+  @type code_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_observability_configuration_request() :: %{
-        required("ObservabilityConfigurationArn") => String.t()
+        required("ObservabilityConfigurationArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_observability_configuration_request() :: %{String.t() => any()}
+  @type describe_observability_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -188,20 +188,20 @@ defmodule AWS.AppRunner do
       }
       
   """
-  @type update_default_auto_scaling_configuration_response() :: %{String.t() => any()}
+  @type update_default_auto_scaling_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       vpc_dns_target() :: %{
-        "DomainName" => String.t(),
-        "VpcId" => String.t(),
-        "VpcIngressConnectionArn" => String.t()
+        "DomainName" => String.t() | Atom.t(),
+        "VpcId" => String.t() | Atom.t(),
+        "VpcIngressConnectionArn" => String.t() | Atom.t()
       }
       
   """
-  @type vpc_dns_target() :: %{String.t() => any()}
+  @type vpc_dns_target() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -212,7 +212,7 @@ defmodule AWS.AppRunner do
       }
       
   """
-  @type describe_observability_configuration_response() :: %{String.t() => any()}
+  @type describe_observability_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -223,7 +223,7 @@ defmodule AWS.AppRunner do
       }
       
   """
-  @type update_vpc_ingress_connection_response() :: %{String.t() => any()}
+  @type update_vpc_ingress_connection_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -239,11 +239,11 @@ defmodule AWS.AppRunner do
   ## Example:
       
       describe_service_request() :: %{
-        required("ServiceArn") => String.t()
+        required("ServiceArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_service_request() :: %{String.t() => any()}
+  @type describe_service_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -251,12 +251,12 @@ defmodule AWS.AppRunner do
       
       image_repository() :: %{
         "ImageConfiguration" => image_configuration(),
-        "ImageIdentifier" => String.t(),
+        "ImageIdentifier" => String.t() | Atom.t(),
         "ImageRepositoryType" => list(any())
       }
       
   """
-  @type image_repository() :: %{String.t() => any()}
+  @type image_repository() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -264,11 +264,11 @@ defmodule AWS.AppRunner do
       
       list_connections_response() :: %{
         "ConnectionSummaryList" => list(connection_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_connections_response() :: %{String.t() => any()}
+  @type list_connections_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -276,11 +276,11 @@ defmodule AWS.AppRunner do
       
       source_code_version() :: %{
         "Type" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type source_code_version() :: %{String.t() => any()}
+  @type source_code_version() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -291,18 +291,18 @@ defmodule AWS.AppRunner do
       }
       
   """
-  @type create_observability_configuration_response() :: %{String.t() => any()}
+  @type create_observability_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       pause_service_request() :: %{
-        required("ServiceArn") => String.t()
+        required("ServiceArn") => String.t() | Atom.t()
       }
       
   """
-  @type pause_service_request() :: %{String.t() => any()}
+  @type pause_service_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -310,12 +310,12 @@ defmodule AWS.AppRunner do
       
       describe_custom_domains_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ServiceArn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ServiceArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_custom_domains_request() :: %{String.t() => any()}
+  @type describe_custom_domains_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -324,27 +324,27 @@ defmodule AWS.AppRunner do
       vpc_connector() :: %{
         "CreatedAt" => non_neg_integer(),
         "DeletedAt" => non_neg_integer(),
-        "SecurityGroups" => list(String.t()),
+        "SecurityGroups" => list(String.t() | Atom.t()),
         "Status" => list(any()),
-        "Subnets" => list(String.t()),
-        "VpcConnectorArn" => String.t(),
-        "VpcConnectorName" => String.t(),
+        "Subnets" => list(String.t() | Atom.t()),
+        "VpcConnectorArn" => String.t() | Atom.t(),
+        "VpcConnectorName" => String.t() | Atom.t(),
         "VpcConnectorRevision" => integer()
       }
       
   """
-  @type vpc_connector() :: %{String.t() => any()}
+  @type vpc_connector() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_vpc_ingress_connection_request() :: %{
-        required("VpcIngressConnectionArn") => String.t()
+        required("VpcIngressConnectionArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_vpc_ingress_connection_request() :: %{String.t() => any()}
+  @type describe_vpc_ingress_connection_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -359,51 +359,51 @@ defmodule AWS.AppRunner do
         "InstanceConfiguration" => instance_configuration(),
         "NetworkConfiguration" => network_configuration(),
         "ObservabilityConfiguration" => service_observability_configuration(),
-        "ServiceArn" => String.t(),
-        "ServiceId" => String.t(),
-        "ServiceName" => String.t(),
-        "ServiceUrl" => String.t(),
+        "ServiceArn" => String.t() | Atom.t(),
+        "ServiceId" => String.t() | Atom.t(),
+        "ServiceName" => String.t() | Atom.t(),
+        "ServiceUrl" => String.t() | Atom.t(),
         "SourceConfiguration" => source_configuration(),
         "Status" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
       
   """
-  @type service() :: %{String.t() => any()}
+  @type service() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_vpc_connectors_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "VpcConnectors" => list(vpc_connector())
       }
       
   """
-  @type list_vpc_connectors_response() :: %{String.t() => any()}
+  @type list_vpc_connectors_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_service_error_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type internal_service_error_exception() :: %{String.t() => any()}
+  @type internal_service_error_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_deployment_response() :: %{
-        "OperationId" => String.t()
+        "OperationId" => String.t() | Atom.t()
       }
       
   """
-  @type start_deployment_response() :: %{String.t() => any()}
+  @type start_deployment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -411,28 +411,28 @@ defmodule AWS.AppRunner do
       
       operation_summary() :: %{
         "EndedAt" => non_neg_integer(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "StartedAt" => non_neg_integer(),
         "Status" => list(any()),
-        "TargetArn" => String.t(),
+        "TargetArn" => String.t() | Atom.t(),
         "Type" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
       
   """
-  @type operation_summary() :: %{String.t() => any()}
+  @type operation_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceArn") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -443,7 +443,7 @@ defmodule AWS.AppRunner do
       }
       
   """
-  @type delete_vpc_connector_response() :: %{String.t() => any()}
+  @type delete_vpc_connector_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -454,32 +454,32 @@ defmodule AWS.AppRunner do
       }
       
   """
-  @type create_vpc_ingress_connection_response() :: %{String.t() => any()}
+  @type create_vpc_ingress_connection_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_auto_scaling_configurations_request() :: %{
-        optional("AutoScalingConfigurationName") => String.t(),
+        optional("AutoScalingConfigurationName") => String.t() | Atom.t(),
         optional("LatestOnly") => boolean(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_auto_scaling_configurations_request() :: %{String.t() => any()}
+  @type list_auto_scaling_configurations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_state_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_state_exception() :: %{String.t() => any()}
+  @type invalid_state_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -487,12 +487,12 @@ defmodule AWS.AppRunner do
       
       associate_custom_domain_request() :: %{
         optional("EnableWWWSubdomain") => boolean(),
-        required("DomainName") => String.t(),
-        required("ServiceArn") => String.t()
+        required("DomainName") => String.t() | Atom.t(),
+        required("ServiceArn") => String.t() | Atom.t()
       }
       
   """
-  @type associate_custom_domain_request() :: %{String.t() => any()}
+  @type associate_custom_domain_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -501,12 +501,12 @@ defmodule AWS.AppRunner do
       create_vpc_ingress_connection_request() :: %{
         optional("Tags") => list(tag()),
         required("IngressVpcConfiguration") => ingress_vpc_configuration(),
-        required("ServiceArn") => String.t(),
-        required("VpcIngressConnectionName") => String.t()
+        required("ServiceArn") => String.t() | Atom.t(),
+        required("VpcIngressConnectionName") => String.t() | Atom.t()
       }
       
   """
-  @type create_vpc_ingress_connection_request() :: %{String.t() => any()}
+  @type create_vpc_ingress_connection_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -514,11 +514,11 @@ defmodule AWS.AppRunner do
       
       list_services_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_services_request() :: %{String.t() => any()}
+  @type list_services_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -529,44 +529,47 @@ defmodule AWS.AppRunner do
       }
       
   """
-  @type trace_configuration() :: %{String.t() => any()}
+  @type trace_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_custom_domain_request() :: %{
-        required("DomainName") => String.t(),
-        required("ServiceArn") => String.t()
+        required("DomainName") => String.t() | Atom.t(),
+        required("ServiceArn") => String.t() | Atom.t()
       }
       
   """
-  @type disassociate_custom_domain_request() :: %{String.t() => any()}
+  @type disassociate_custom_domain_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_connections_request() :: %{
-        optional("ConnectionName") => String.t(),
+        optional("ConnectionName") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_connections_request() :: %{String.t() => any()}
+  @type list_connections_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_services_for_auto_scaling_configuration_response() :: %{
-        "NextToken" => String.t(),
-        "ServiceArnList" => list(String.t())
+        "NextToken" => String.t() | Atom.t(),
+        "ServiceArnList" => list(String.t() | Atom.t())
       }
       
   """
-  @type list_services_for_auto_scaling_configuration_response() :: %{String.t() => any()}
+  @type list_services_for_auto_scaling_configuration_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -577,26 +580,26 @@ defmodule AWS.AppRunner do
       }
       
   """
-  @type delete_vpc_ingress_connection_response() :: %{String.t() => any()}
+  @type delete_vpc_ingress_connection_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       vpc_ingress_connection() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | Atom.t(),
         "CreatedAt" => non_neg_integer(),
         "DeletedAt" => non_neg_integer(),
-        "DomainName" => String.t(),
+        "DomainName" => String.t() | Atom.t(),
         "IngressVpcConfiguration" => ingress_vpc_configuration(),
-        "ServiceArn" => String.t(),
+        "ServiceArn" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "VpcIngressConnectionArn" => String.t(),
-        "VpcIngressConnectionName" => String.t()
+        "VpcIngressConnectionArn" => String.t() | Atom.t(),
+        "VpcIngressConnectionName" => String.t() | Atom.t()
       }
       
   """
-  @type vpc_ingress_connection() :: %{String.t() => any()}
+  @type vpc_ingress_connection() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -604,20 +607,20 @@ defmodule AWS.AppRunner do
       
       list_operations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ServiceArn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ServiceArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_operations_request() :: %{String.t() => any()}
+  @type list_operations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       auto_scaling_configuration() :: %{
-        "AutoScalingConfigurationArn" => String.t(),
-        "AutoScalingConfigurationName" => String.t(),
+        "AutoScalingConfigurationArn" => String.t() | Atom.t(),
+        "AutoScalingConfigurationName" => String.t() | Atom.t(),
         "AutoScalingConfigurationRevision" => integer(),
         "CreatedAt" => non_neg_integer(),
         "DeletedAt" => non_neg_integer(),
@@ -631,21 +634,21 @@ defmodule AWS.AppRunner do
       }
       
   """
-  @type auto_scaling_configuration() :: %{String.t() => any()}
+  @type auto_scaling_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       certificate_validation_record() :: %{
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "Type" => String.t(),
-        "Value" => String.t()
+        "Type" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type certificate_validation_record() :: %{String.t() => any()}
+  @type certificate_validation_record() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -653,25 +656,25 @@ defmodule AWS.AppRunner do
       
       list_vpc_connectors_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_vpc_connectors_request() :: %{String.t() => any()}
+  @type list_vpc_connectors_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_vpc_connector_request() :: %{
-        optional("SecurityGroups") => list(String.t()),
+        optional("SecurityGroups") => list(String.t() | Atom.t()),
         optional("Tags") => list(tag()),
-        required("Subnets") => list(String.t()),
-        required("VpcConnectorName") => String.t()
+        required("Subnets") => list(String.t() | Atom.t()),
+        required("VpcConnectorName") => String.t() | Atom.t()
       }
       
   """
-  @type create_vpc_connector_request() :: %{String.t() => any()}
+  @type create_vpc_connector_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -679,11 +682,11 @@ defmodule AWS.AppRunner do
       
       delete_auto_scaling_configuration_request() :: %{
         optional("DeleteAllRevisions") => boolean(),
-        required("AutoScalingConfigurationArn") => String.t()
+        required("AutoScalingConfigurationArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_auto_scaling_configuration_request() :: %{String.t() => any()}
+  @type delete_auto_scaling_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -691,83 +694,83 @@ defmodule AWS.AppRunner do
       
       update_vpc_ingress_connection_request() :: %{
         required("IngressVpcConfiguration") => ingress_vpc_configuration(),
-        required("VpcIngressConnectionArn") => String.t()
+        required("VpcIngressConnectionArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_vpc_ingress_connection_request() :: %{String.t() => any()}
+  @type update_vpc_ingress_connection_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_request_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_request_exception() :: %{String.t() => any()}
+  @type invalid_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       connection() :: %{
-        "ConnectionArn" => String.t(),
-        "ConnectionName" => String.t(),
+        "ConnectionArn" => String.t() | Atom.t(),
+        "ConnectionName" => String.t() | Atom.t(),
         "CreatedAt" => non_neg_integer(),
         "ProviderType" => list(any()),
         "Status" => list(any())
       }
       
   """
-  @type connection() :: %{String.t() => any()}
+  @type connection() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_services_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "ServiceSummaryList" => list(service_summary())
       }
       
   """
-  @type list_services_response() :: %{String.t() => any()}
+  @type list_services_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -775,46 +778,46 @@ defmodule AWS.AppRunner do
       
       service_summary() :: %{
         "CreatedAt" => non_neg_integer(),
-        "ServiceArn" => String.t(),
-        "ServiceId" => String.t(),
-        "ServiceName" => String.t(),
-        "ServiceUrl" => String.t(),
+        "ServiceArn" => String.t() | Atom.t(),
+        "ServiceId" => String.t() | Atom.t(),
+        "ServiceName" => String.t() | Atom.t(),
+        "ServiceUrl" => String.t() | Atom.t(),
         "Status" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
       
   """
-  @type service_summary() :: %{String.t() => any()}
+  @type service_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resume_service_request() :: %{
-        required("ServiceArn") => String.t()
+        required("ServiceArn") => String.t() | Atom.t()
       }
       
   """
-  @type resume_service_request() :: %{String.t() => any()}
+  @type resume_service_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_service_request() :: %{
-        optional("AutoScalingConfigurationArn") => String.t(),
+        optional("AutoScalingConfigurationArn") => String.t() | Atom.t(),
         optional("EncryptionConfiguration") => encryption_configuration(),
         optional("HealthCheckConfiguration") => health_check_configuration(),
         optional("InstanceConfiguration") => instance_configuration(),
         optional("NetworkConfiguration") => network_configuration(),
         optional("ObservabilityConfiguration") => service_observability_configuration(),
         optional("Tags") => list(tag()),
-        required("ServiceName") => String.t(),
+        required("ServiceName") => String.t() | Atom.t(),
         required("SourceConfiguration") => source_configuration()
       }
       
   """
-  @type create_service_request() :: %{String.t() => any()}
+  @type create_service_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -822,21 +825,21 @@ defmodule AWS.AppRunner do
       
       code_repository() :: %{
         "CodeConfiguration" => code_configuration(),
-        "RepositoryUrl" => String.t(),
+        "RepositoryUrl" => String.t() | Atom.t(),
         "SourceCodeVersion" => source_code_version(),
-        "SourceDirectory" => String.t()
+        "SourceDirectory" => String.t() | Atom.t()
       }
       
   """
-  @type code_repository() :: %{String.t() => any()}
+  @type code_repository() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       auto_scaling_configuration_summary() :: %{
-        "AutoScalingConfigurationArn" => String.t(),
-        "AutoScalingConfigurationName" => String.t(),
+        "AutoScalingConfigurationArn" => String.t() | Atom.t(),
+        "AutoScalingConfigurationName" => String.t() | Atom.t(),
         "AutoScalingConfigurationRevision" => integer(),
         "CreatedAt" => non_neg_integer(),
         "HasAssociatedService" => boolean(),
@@ -845,7 +848,7 @@ defmodule AWS.AppRunner do
       }
       
   """
-  @type auto_scaling_configuration_summary() :: %{String.t() => any()}
+  @type auto_scaling_configuration_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -854,12 +857,12 @@ defmodule AWS.AppRunner do
       list_observability_configurations_request() :: %{
         optional("LatestOnly") => boolean(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ObservabilityConfigurationName") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("ObservabilityConfigurationName") => String.t() | Atom.t()
       }
       
   """
-  @type list_observability_configurations_request() :: %{String.t() => any()}
+  @type list_observability_configurations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -870,7 +873,7 @@ defmodule AWS.AppRunner do
       }
       
   """
-  @type delete_observability_configuration_response() :: %{String.t() => any()}
+  @type delete_observability_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -881,7 +884,7 @@ defmodule AWS.AppRunner do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -892,7 +895,7 @@ defmodule AWS.AppRunner do
       }
       
   """
-  @type ingress_configuration() :: %{String.t() => any()}
+  @type ingress_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -906,18 +909,18 @@ defmodule AWS.AppRunner do
       }
       
   """
-  @type source_configuration() :: %{String.t() => any()}
+  @type source_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_vpc_connector_request() :: %{
-        required("VpcConnectorArn") => String.t()
+        required("VpcConnectorArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_vpc_connector_request() :: %{String.t() => any()}
+  @type describe_vpc_connector_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -928,62 +931,62 @@ defmodule AWS.AppRunner do
       }
       
   """
-  @type describe_service_response() :: %{String.t() => any()}
+  @type describe_service_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_vpc_connector_request() :: %{
-        required("VpcConnectorArn") => String.t()
+        required("VpcConnectorArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_vpc_connector_request() :: %{String.t() => any()}
+  @type delete_vpc_connector_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_default_auto_scaling_configuration_request() :: %{
-        required("AutoScalingConfigurationArn") => String.t()
+        required("AutoScalingConfigurationArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_default_auto_scaling_configuration_request() :: %{String.t() => any()}
+  @type update_default_auto_scaling_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_service_request() :: %{
-        optional("AutoScalingConfigurationArn") => String.t(),
+        optional("AutoScalingConfigurationArn") => String.t() | Atom.t(),
         optional("HealthCheckConfiguration") => health_check_configuration(),
         optional("InstanceConfiguration") => instance_configuration(),
         optional("NetworkConfiguration") => network_configuration(),
         optional("ObservabilityConfiguration") => service_observability_configuration(),
         optional("SourceConfiguration") => source_configuration(),
-        required("ServiceArn") => String.t()
+        required("ServiceArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_service_request() :: %{String.t() => any()}
+  @type update_service_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       code_configuration_values() :: %{
-        "BuildCommand" => String.t(),
-        "Port" => String.t(),
+        "BuildCommand" => String.t() | Atom.t(),
+        "Port" => String.t() | Atom.t(),
         "Runtime" => list(any()),
         "RuntimeEnvironmentSecrets" => map(),
         "RuntimeEnvironmentVariables" => map(),
-        "StartCommand" => String.t()
+        "StartCommand" => String.t() | Atom.t()
       }
       
   """
-  @type code_configuration_values() :: %{String.t() => any()}
+  @type code_configuration_values() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -994,7 +997,7 @@ defmodule AWS.AppRunner do
       }
       
   """
-  @type describe_auto_scaling_configuration_response() :: %{String.t() => any()}
+  @type describe_auto_scaling_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1002,12 +1005,15 @@ defmodule AWS.AppRunner do
       
       list_services_for_auto_scaling_configuration_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("AutoScalingConfigurationArn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("AutoScalingConfigurationArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_services_for_auto_scaling_configuration_request() :: %{String.t() => any()}
+  @type list_services_for_auto_scaling_configuration_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1017,15 +1023,15 @@ defmodule AWS.AppRunner do
         "CreatedAt" => non_neg_integer(),
         "DeletedAt" => non_neg_integer(),
         "Latest" => boolean(),
-        "ObservabilityConfigurationArn" => String.t(),
-        "ObservabilityConfigurationName" => String.t(),
+        "ObservabilityConfigurationArn" => String.t() | Atom.t(),
+        "ObservabilityConfigurationName" => String.t() | Atom.t(),
         "ObservabilityConfigurationRevision" => integer(),
         "Status" => list(any()),
         "TraceConfiguration" => trace_configuration()
       }
       
   """
-  @type observability_configuration() :: %{String.t() => any()}
+  @type observability_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1033,11 +1039,11 @@ defmodule AWS.AppRunner do
       
       list_auto_scaling_configurations_response() :: %{
         "AutoScalingConfigurationSummaryList" => list(auto_scaling_configuration_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_auto_scaling_configurations_response() :: %{String.t() => any()}
+  @type list_auto_scaling_configurations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1050,19 +1056,19 @@ defmodule AWS.AppRunner do
       }
       
   """
-  @type network_configuration() :: %{String.t() => any()}
+  @type network_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_operations_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "OperationSummaryList" => list(operation_summary())
       }
       
   """
-  @type list_operations_response() :: %{String.t() => any()}
+  @type list_operations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1078,40 +1084,40 @@ defmodule AWS.AppRunner do
   ## Example:
       
       list_vpc_ingress_connections_filter() :: %{
-        "ServiceArn" => String.t(),
-        "VpcEndpointId" => String.t()
+        "ServiceArn" => String.t() | Atom.t(),
+        "VpcEndpointId" => String.t() | Atom.t()
       }
       
   """
-  @type list_vpc_ingress_connections_filter() :: %{String.t() => any()}
+  @type list_vpc_ingress_connections_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       connection_summary() :: %{
-        "ConnectionArn" => String.t(),
-        "ConnectionName" => String.t(),
+        "ConnectionArn" => String.t() | Atom.t(),
+        "ConnectionName" => String.t() | Atom.t(),
         "CreatedAt" => non_neg_integer(),
         "ProviderType" => list(any()),
         "Status" => list(any())
       }
       
   """
-  @type connection_summary() :: %{String.t() => any()}
+  @type connection_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_configuration() :: %{
-        "Cpu" => String.t(),
-        "InstanceRoleArn" => String.t(),
-        "Memory" => String.t()
+        "Cpu" => String.t() | Atom.t(),
+        "InstanceRoleArn" => String.t() | Atom.t(),
+        "Memory" => String.t() | Atom.t()
       }
       
   """
-  @type instance_configuration() :: %{String.t() => any()}
+  @type instance_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1122,31 +1128,31 @@ defmodule AWS.AppRunner do
       }
       
   """
-  @type delete_connection_response() :: %{String.t() => any()}
+  @type delete_connection_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       observability_configuration_summary() :: %{
-        "ObservabilityConfigurationArn" => String.t(),
-        "ObservabilityConfigurationName" => String.t(),
+        "ObservabilityConfigurationArn" => String.t() | Atom.t(),
+        "ObservabilityConfigurationName" => String.t() | Atom.t(),
         "ObservabilityConfigurationRevision" => integer()
       }
       
   """
-  @type observability_configuration_summary() :: %{String.t() => any()}
+  @type observability_configuration_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1154,33 +1160,33 @@ defmodule AWS.AppRunner do
       
       egress_configuration() :: %{
         "EgressType" => list(any()),
-        "VpcConnectorArn" => String.t()
+        "VpcConnectorArn" => String.t() | Atom.t()
       }
       
   """
-  @type egress_configuration() :: %{String.t() => any()}
+  @type egress_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_service_request() :: %{
-        required("ServiceArn") => String.t()
+        required("ServiceArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_service_request() :: %{String.t() => any()}
+  @type delete_service_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_vpc_ingress_connection_request() :: %{
-        required("VpcIngressConnectionArn") => String.t()
+        required("VpcIngressConnectionArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_vpc_ingress_connection_request() :: %{String.t() => any()}
+  @type delete_vpc_ingress_connection_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1191,11 +1197,11 @@ defmodule AWS.AppRunner do
         optional("MaxSize") => integer(),
         optional("MinSize") => integer(),
         optional("Tags") => list(tag()),
-        required("AutoScalingConfigurationName") => String.t()
+        required("AutoScalingConfigurationName") => String.t() | Atom.t()
       }
       
   """
-  @type create_auto_scaling_configuration_request() :: %{String.t() => any()}
+  @type create_auto_scaling_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1206,7 +1212,7 @@ defmodule AWS.AppRunner do
       }
       
   """
-  @type create_connection_response() :: %{String.t() => any()}
+  @type create_connection_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1217,7 +1223,7 @@ defmodule AWS.AppRunner do
       }
       
   """
-  @type describe_vpc_ingress_connection_response() :: %{String.t() => any()}
+  @type describe_vpc_ingress_connection_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1228,19 +1234,19 @@ defmodule AWS.AppRunner do
       }
       
   """
-  @type delete_auto_scaling_configuration_response() :: %{String.t() => any()}
+  @type delete_auto_scaling_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       service_observability_configuration() :: %{
-        "ObservabilityConfigurationArn" => String.t(),
+        "ObservabilityConfigurationArn" => String.t() | Atom.t(),
         "ObservabilityEnabled" => boolean()
       }
       
   """
-  @type service_observability_configuration() :: %{String.t() => any()}
+  @type service_observability_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1251,92 +1257,92 @@ defmodule AWS.AppRunner do
       }
       
   """
-  @type describe_vpc_connector_response() :: %{String.t() => any()}
+  @type describe_vpc_connector_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_service_response() :: %{
-        "OperationId" => String.t(),
+        "OperationId" => String.t() | Atom.t(),
         "Service" => service()
       }
       
   """
-  @type update_service_response() :: %{String.t() => any()}
+  @type update_service_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_service_response() :: %{
-        "OperationId" => String.t(),
+        "OperationId" => String.t() | Atom.t(),
         "Service" => service()
       }
       
   """
-  @type delete_service_response() :: %{String.t() => any()}
+  @type delete_service_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       authentication_configuration() :: %{
-        "AccessRoleArn" => String.t(),
-        "ConnectionArn" => String.t()
+        "AccessRoleArn" => String.t() | Atom.t(),
+        "ConnectionArn" => String.t() | Atom.t()
       }
       
   """
-  @type authentication_configuration() :: %{String.t() => any()}
+  @type authentication_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_connection_request() :: %{
-        required("ConnectionArn") => String.t()
+        required("ConnectionArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_connection_request() :: %{String.t() => any()}
+  @type delete_connection_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_service_response() :: %{
-        "OperationId" => String.t(),
+        "OperationId" => String.t() | Atom.t(),
         "Service" => service()
       }
       
   """
-  @type create_service_response() :: %{String.t() => any()}
+  @type create_service_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       image_configuration() :: %{
-        "Port" => String.t(),
+        "Port" => String.t() | Atom.t(),
         "RuntimeEnvironmentSecrets" => map(),
         "RuntimeEnvironmentVariables" => map(),
-        "StartCommand" => String.t()
+        "StartCommand" => String.t() | Atom.t()
       }
       
   """
-  @type image_configuration() :: %{String.t() => any()}
+  @type image_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_vpc_ingress_connections_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "VpcIngressConnectionSummaryList" => list(vpc_ingress_connection_summary())
       }
       
   """
-  @type list_vpc_ingress_connections_response() :: %{String.t() => any()}
+  @type list_vpc_ingress_connections_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1344,12 +1350,12 @@ defmodule AWS.AppRunner do
       
       create_connection_request() :: %{
         optional("Tags") => list(tag()),
-        required("ConnectionName") => String.t(),
+        required("ConnectionName") => String.t() | Atom.t(),
         required("ProviderType") => list(any())
       }
       
   """
-  @type create_connection_request() :: %{String.t() => any()}
+  @type create_connection_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1357,24 +1363,24 @@ defmodule AWS.AppRunner do
       
       associate_custom_domain_response() :: %{
         "CustomDomain" => custom_domain(),
-        "DNSTarget" => String.t(),
-        "ServiceArn" => String.t(),
+        "DNSTarget" => String.t() | Atom.t(),
+        "ServiceArn" => String.t() | Atom.t(),
         "VpcDNSTargets" => list(vpc_dns_target())
       }
       
   """
-  @type associate_custom_domain_response() :: %{String.t() => any()}
+  @type associate_custom_domain_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_deployment_request() :: %{
-        required("ServiceArn") => String.t()
+        required("ServiceArn") => String.t() | Atom.t()
       }
       
   """
-  @type start_deployment_request() :: %{String.t() => any()}
+  @type start_deployment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1383,11 +1389,11 @@ defmodule AWS.AppRunner do
       list_vpc_ingress_connections_request() :: %{
         optional("Filter") => list_vpc_ingress_connections_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_vpc_ingress_connections_request() :: %{String.t() => any()}
+  @type list_vpc_ingress_connections_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1398,19 +1404,19 @@ defmodule AWS.AppRunner do
       }
       
   """
-  @type create_auto_scaling_configuration_response() :: %{String.t() => any()}
+  @type create_auto_scaling_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resume_service_response() :: %{
-        "OperationId" => String.t(),
+        "OperationId" => String.t() | Atom.t(),
         "Service" => service()
       }
       
   """
-  @type resume_service_response() :: %{String.t() => any()}
+  @type resume_service_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1418,25 +1424,25 @@ defmodule AWS.AppRunner do
       
       disassociate_custom_domain_response() :: %{
         "CustomDomain" => custom_domain(),
-        "DNSTarget" => String.t(),
-        "ServiceArn" => String.t(),
+        "DNSTarget" => String.t() | Atom.t(),
+        "ServiceArn" => String.t() | Atom.t(),
         "VpcDNSTargets" => list(vpc_dns_target())
       }
       
   """
-  @type disassociate_custom_domain_response() :: %{String.t() => any()}
+  @type disassociate_custom_domain_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       pause_service_response() :: %{
-        "OperationId" => String.t(),
+        "OperationId" => String.t() | Atom.t(),
         "Service" => service()
       }
       
   """
-  @type pause_service_response() :: %{String.t() => any()}
+  @type pause_service_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1445,14 +1451,14 @@ defmodule AWS.AppRunner do
       health_check_configuration() :: %{
         "HealthyThreshold" => integer(),
         "Interval" => integer(),
-        "Path" => String.t(),
+        "Path" => String.t() | Atom.t(),
         "Protocol" => list(any()),
         "Timeout" => integer(),
         "UnhealthyThreshold" => integer()
       }
       
   """
-  @type health_check_configuration() :: %{String.t() => any()}
+  @type health_check_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1460,14 +1466,14 @@ defmodule AWS.AppRunner do
       
       describe_custom_domains_response() :: %{
         "CustomDomains" => list(custom_domain()),
-        "DNSTarget" => String.t(),
-        "NextToken" => String.t(),
-        "ServiceArn" => String.t(),
+        "DNSTarget" => String.t() | Atom.t(),
+        "NextToken" => String.t() | Atom.t(),
+        "ServiceArn" => String.t() | Atom.t(),
         "VpcDNSTargets" => list(vpc_dns_target())
       }
       
   """
-  @type describe_custom_domains_response() :: %{String.t() => any()}
+  @type describe_custom_domains_response() :: %{String.t() | Atom.t() => any()}
 
   @type associate_custom_domain_errors() ::
           invalid_request_exception()

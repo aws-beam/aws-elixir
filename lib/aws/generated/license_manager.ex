@@ -18,28 +18,28 @@ defmodule AWS.LicenseManager do
       checkout_license_response() :: %{
         "CheckoutType" => list(any()),
         "EntitlementsAllowed" => list(entitlement_data()),
-        "Expiration" => String.t(),
-        "IssuedAt" => String.t(),
-        "LicenseArn" => String.t(),
-        "LicenseConsumptionToken" => String.t(),
-        "NodeId" => String.t(),
-        "SignedToken" => String.t()
+        "Expiration" => String.t() | Atom.t(),
+        "IssuedAt" => String.t() | Atom.t(),
+        "LicenseArn" => String.t() | Atom.t(),
+        "LicenseConsumptionToken" => String.t() | Atom.t(),
+        "NodeId" => String.t() | Atom.t(),
+        "SignedToken" => String.t() | Atom.t()
       }
       
   """
-  @type checkout_license_response() :: %{String.t() => any()}
+  @type checkout_license_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       check_in_license_request() :: %{
-        optional("Beneficiary") => String.t(),
-        required("LicenseConsumptionToken") => String.t()
+        optional("Beneficiary") => String.t() | Atom.t(),
+        required("LicenseConsumptionToken") => String.t() | Atom.t()
       }
       
   """
-  @type check_in_license_request() :: %{String.t() => any()}
+  @type check_in_license_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -51,18 +51,18 @@ defmodule AWS.LicenseManager do
       }
       
   """
-  @type report_frequency() :: %{String.t() => any()}
+  @type report_frequency() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_access_token_response() :: %{
-        "AccessToken" => String.t()
+        "AccessToken" => String.t() | Atom.t()
       }
       
   """
-  @type get_access_token_response() :: %{String.t() => any()}
+  @type get_access_token_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -70,17 +70,17 @@ defmodule AWS.LicenseManager do
       
       create_grant_version_request() :: %{
         optional("AllowedOperations") => list(list(any())()),
-        optional("GrantName") => String.t(),
+        optional("GrantName") => String.t() | Atom.t(),
         optional("Options") => options(),
-        optional("SourceVersion") => String.t(),
+        optional("SourceVersion") => String.t() | Atom.t(),
         optional("Status") => list(any()),
-        optional("StatusReason") => String.t(),
-        required("ClientToken") => String.t(),
-        required("GrantArn") => String.t()
+        optional("StatusReason") => String.t() | Atom.t(),
+        required("ClientToken") => String.t() | Atom.t(),
+        required("GrantArn") => String.t() | Atom.t()
       }
       
   """
-  @type create_grant_version_request() :: %{String.t() => any()}
+  @type create_grant_version_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -90,23 +90,23 @@ defmodule AWS.LicenseManager do
         "AutomatedDiscoveryInformation" => automated_discovery_information(),
         "ConsumedLicenseSummaryList" => list(consumed_license_summary()),
         "ConsumedLicenses" => float(),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "DisassociateWhenNotFound" => boolean(),
-        "LicenseConfigurationArn" => String.t(),
-        "LicenseConfigurationId" => String.t(),
+        "LicenseConfigurationArn" => String.t() | Atom.t(),
+        "LicenseConfigurationId" => String.t() | Atom.t(),
         "LicenseCount" => float(),
         "LicenseCountHardLimit" => boolean(),
         "LicenseCountingType" => list(any()),
-        "LicenseRules" => list(String.t()),
+        "LicenseRules" => list(String.t() | Atom.t()),
         "ManagedResourceSummaryList" => list(managed_resource_summary()),
-        "Name" => String.t(),
-        "OwnerAccountId" => String.t(),
+        "Name" => String.t() | Atom.t(),
+        "OwnerAccountId" => String.t() | Atom.t(),
         "ProductInformationList" => list(product_information()),
-        "Status" => String.t()
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type license_configuration() :: %{String.t() => any()}
+  @type license_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -115,24 +115,24 @@ defmodule AWS.LicenseManager do
       list_received_grants_for_organization_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("LicenseArn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("LicenseArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_received_grants_for_organization_request() :: %{String.t() => any()}
+  @type list_received_grants_for_organization_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
+        required("ResourceArn") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -140,45 +140,45 @@ defmodule AWS.LicenseManager do
       
       list_usage_for_license_configuration_response() :: %{
         "LicenseConfigurationUsageList" => list(license_configuration_usage()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_usage_for_license_configuration_response() :: %{String.t() => any()}
+  @type list_usage_for_license_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_license_configuration_response() :: %{
-        "LicenseConfigurationArn" => String.t()
+        "LicenseConfigurationArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_license_configuration_response() :: %{String.t() => any()}
+  @type create_license_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       filter_limit_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type filter_limit_exceeded_exception() :: %{String.t() => any()}
+  @type filter_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_license_request() :: %{
-        optional("Version") => String.t(),
-        required("LicenseArn") => String.t()
+        optional("Version") => String.t() | Atom.t(),
+        required("LicenseArn") => String.t() | Atom.t()
       }
       
   """
-  @type get_license_request() :: %{String.t() => any()}
+  @type get_license_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -187,14 +187,14 @@ defmodule AWS.LicenseManager do
       license_configuration_usage() :: %{
         "AssociationTime" => non_neg_integer(),
         "ConsumedLicenses" => float(),
-        "ResourceArn" => String.t(),
-        "ResourceOwnerId" => String.t(),
-        "ResourceStatus" => String.t(),
+        "ResourceArn" => String.t() | Atom.t(),
+        "ResourceOwnerId" => String.t() | Atom.t(),
+        "ResourceStatus" => String.t() | Atom.t(),
         "ResourceType" => list(any())
       }
       
   """
-  @type license_configuration_usage() :: %{String.t() => any()}
+  @type license_configuration_usage() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -203,26 +203,26 @@ defmodule AWS.LicenseManager do
       list_license_conversion_tasks_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_license_conversion_tasks_request() :: %{String.t() => any()}
+  @type list_license_conversion_tasks_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       license_configuration_association() :: %{
-        "AmiAssociationScope" => String.t(),
+        "AmiAssociationScope" => String.t() | Atom.t(),
         "AssociationTime" => non_neg_integer(),
-        "ResourceArn" => String.t(),
-        "ResourceOwnerId" => String.t(),
+        "ResourceArn" => String.t() | Atom.t(),
+        "ResourceOwnerId" => String.t() | Atom.t(),
         "ResourceType" => list(any())
       }
       
   """
-  @type license_configuration_association() :: %{String.t() => any()}
+  @type license_configuration_association() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -230,13 +230,13 @@ defmodule AWS.LicenseManager do
       
       list_license_configurations_request() :: %{
         optional("Filters") => list(filter()),
-        optional("LicenseConfigurationArns") => list(String.t()),
+        optional("LicenseConfigurationArns") => list(String.t() | Atom.t()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_license_configurations_request() :: %{String.t() => any()}
+  @type list_license_configurations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -256,29 +256,29 @@ defmodule AWS.LicenseManager do
       }
       
   """
-  @type license_usage() :: %{String.t() => any()}
+  @type license_usage() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       rate_limit_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type rate_limit_exceeded_exception() :: %{String.t() => any()}
+  @type rate_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       entitlement_not_allowed_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type entitlement_not_allowed_exception() :: %{String.t() => any()}
+  @type entitlement_not_allowed_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -286,36 +286,36 @@ defmodule AWS.LicenseManager do
       
       list_received_licenses_request() :: %{
         optional("Filters") => list(filter()),
-        optional("LicenseArns") => list(String.t()),
+        optional("LicenseArns") => list(String.t() | Atom.t()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_received_licenses_request() :: %{String.t() => any()}
+  @type list_received_licenses_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       license_usage_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type license_usage_exception() :: %{String.t() => any()}
+  @type license_usage_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       failed_dependency_exception() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type failed_dependency_exception() :: %{String.t() => any()}
+  @type failed_dependency_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -323,13 +323,13 @@ defmodule AWS.LicenseManager do
       
       list_licenses_request() :: %{
         optional("Filters") => list(filter()),
-        optional("LicenseArns") => list(String.t()),
+        optional("LicenseArns") => list(String.t() | Atom.t()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_licenses_request() :: %{String.t() => any()}
+  @type list_licenses_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -340,7 +340,7 @@ defmodule AWS.LicenseManager do
       }
       
   """
-  @type organization_configuration() :: %{String.t() => any()}
+  @type organization_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -349,53 +349,53 @@ defmodule AWS.LicenseManager do
       get_license_conversion_task_response() :: %{
         "DestinationLicenseContext" => license_conversion_context(),
         "EndTime" => non_neg_integer(),
-        "LicenseConversionTaskId" => String.t(),
+        "LicenseConversionTaskId" => String.t() | Atom.t(),
         "LicenseConversionTime" => non_neg_integer(),
-        "ResourceArn" => String.t(),
+        "ResourceArn" => String.t() | Atom.t(),
         "SourceLicenseContext" => license_conversion_context(),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
-        "StatusMessage" => String.t()
+        "StatusMessage" => String.t() | Atom.t()
       }
       
   """
-  @type get_license_conversion_task_response() :: %{String.t() => any()}
+  @type get_license_conversion_task_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       license() :: %{
-        "Beneficiary" => String.t(),
+        "Beneficiary" => String.t() | Atom.t(),
         "ConsumptionConfiguration" => consumption_configuration(),
-        "CreateTime" => String.t(),
+        "CreateTime" => String.t() | Atom.t(),
         "Entitlements" => list(entitlement()),
-        "HomeRegion" => String.t(),
+        "HomeRegion" => String.t() | Atom.t(),
         "Issuer" => issuer_details(),
-        "LicenseArn" => String.t(),
+        "LicenseArn" => String.t() | Atom.t(),
         "LicenseMetadata" => list(metadata()),
-        "LicenseName" => String.t(),
-        "ProductName" => String.t(),
-        "ProductSKU" => String.t(),
+        "LicenseName" => String.t() | Atom.t(),
+        "ProductName" => String.t() | Atom.t(),
+        "ProductSKU" => String.t() | Atom.t(),
         "Status" => list(any()),
         "Validity" => datetime_range(),
-        "Version" => String.t()
+        "Version" => String.t() | Atom.t()
       }
       
   """
-  @type license() :: %{String.t() => any()}
+  @type license() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       license_specification() :: %{
-        "AmiAssociationScope" => String.t(),
-        "LicenseConfigurationArn" => String.t()
+        "AmiAssociationScope" => String.t() | Atom.t(),
+        "LicenseConfigurationArn" => String.t() | Atom.t()
       }
       
   """
-  @type license_specification() :: %{String.t() => any()}
+  @type license_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -412,24 +412,24 @@ defmodule AWS.LicenseManager do
       
       inventory_filter() :: %{
         "Condition" => list(any()),
-        "Name" => String.t(),
-        "Value" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type inventory_filter() :: %{String.t() => any()}
+  @type inventory_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       metadata() :: %{
-        "Name" => String.t(),
-        "Value" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type metadata() :: %{String.t() => any()}
+  @type metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -437,11 +437,11 @@ defmodule AWS.LicenseManager do
       
       list_license_versions_response() :: %{
         "Licenses" => list(license()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_license_versions_response() :: %{String.t() => any()}
+  @type list_license_versions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -450,11 +450,11 @@ defmodule AWS.LicenseManager do
       list_license_manager_report_generators_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_license_manager_report_generators_request() :: %{String.t() => any()}
+  @type list_license_manager_report_generators_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -463,11 +463,11 @@ defmodule AWS.LicenseManager do
       list_received_licenses_for_organization_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_received_licenses_for_organization_request() :: %{String.t() => any()}
+  @type list_received_licenses_for_organization_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -475,11 +475,11 @@ defmodule AWS.LicenseManager do
       
       list_licenses_response() :: %{
         "Licenses" => list(license()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_licenses_response() :: %{String.t() => any()}
+  @type list_licenses_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -487,43 +487,43 @@ defmodule AWS.LicenseManager do
       
       create_license_version_request() :: %{
         optional("LicenseMetadata") => list(metadata()),
-        optional("SourceVersion") => String.t(),
-        required("ClientToken") => String.t(),
+        optional("SourceVersion") => String.t() | Atom.t(),
+        required("ClientToken") => String.t() | Atom.t(),
         required("ConsumptionConfiguration") => consumption_configuration(),
         required("Entitlements") => list(entitlement()),
-        required("HomeRegion") => String.t(),
+        required("HomeRegion") => String.t() | Atom.t(),
         required("Issuer") => issuer(),
-        required("LicenseArn") => String.t(),
-        required("LicenseName") => String.t(),
-        required("ProductName") => String.t(),
+        required("LicenseArn") => String.t() | Atom.t(),
+        required("LicenseName") => String.t() | Atom.t(),
+        required("ProductName") => String.t() | Atom.t(),
         required("Status") => list(any()),
         required("Validity") => datetime_range()
       }
       
   """
-  @type create_license_version_request() :: %{String.t() => any()}
+  @type create_license_version_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       no_entitlements_allowed_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type no_entitlements_allowed_exception() :: %{String.t() => any()}
+  @type no_entitlements_allowed_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_license_usage_request() :: %{
-        required("LicenseArn") => String.t()
+        required("LicenseArn") => String.t() | Atom.t()
       }
       
   """
-  @type get_license_usage_request() :: %{String.t() => any()}
+  @type get_license_usage_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -531,11 +531,11 @@ defmodule AWS.LicenseManager do
       
       list_distributed_grants_response() :: %{
         "Grants" => list(grant()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_distributed_grants_response() :: %{String.t() => any()}
+  @type list_distributed_grants_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -551,12 +551,12 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceArn") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -568,19 +568,19 @@ defmodule AWS.LicenseManager do
       }
       
   """
-  @type managed_resource_summary() :: %{String.t() => any()}
+  @type managed_resource_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       datetime_range() :: %{
-        "Begin" => String.t(),
-        "End" => String.t()
+        "Begin" => String.t() | Atom.t(),
+        "End" => String.t() | Atom.t()
       }
       
   """
-  @type datetime_range() :: %{String.t() => any()}
+  @type datetime_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -602,7 +602,7 @@ defmodule AWS.LicenseManager do
       }
       
   """
-  @type consumption_configuration() :: %{String.t() => any()}
+  @type consumption_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -613,7 +613,7 @@ defmodule AWS.LicenseManager do
       }
       
   """
-  @type get_grant_response() :: %{String.t() => any()}
+  @type get_grant_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -621,11 +621,14 @@ defmodule AWS.LicenseManager do
       
       list_failures_for_license_configuration_operations_response() :: %{
         "LicenseOperationFailureList" => list(license_operation_failure()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_failures_for_license_configuration_operations_response() :: %{String.t() => any()}
+  @type list_failures_for_license_configuration_operations_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -643,31 +646,31 @@ defmodule AWS.LicenseManager do
       create_license_request() :: %{
         optional("LicenseMetadata") => list(metadata()),
         optional("Tags") => list(tag()),
-        required("Beneficiary") => String.t(),
-        required("ClientToken") => String.t(),
+        required("Beneficiary") => String.t() | Atom.t(),
+        required("ClientToken") => String.t() | Atom.t(),
         required("ConsumptionConfiguration") => consumption_configuration(),
         required("Entitlements") => list(entitlement()),
-        required("HomeRegion") => String.t(),
+        required("HomeRegion") => String.t() | Atom.t(),
         required("Issuer") => issuer(),
-        required("LicenseName") => String.t(),
-        required("ProductName") => String.t(),
-        required("ProductSKU") => String.t(),
+        required("LicenseName") => String.t() | Atom.t(),
+        required("ProductName") => String.t() | Atom.t(),
+        required("ProductSKU") => String.t() | Atom.t(),
         required("Validity") => datetime_range()
       }
       
   """
-  @type create_license_request() :: %{String.t() => any()}
+  @type create_license_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_license_manager_report_generator_request() :: %{
-        required("LicenseManagerReportGeneratorArn") => String.t()
+        required("LicenseManagerReportGeneratorArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_license_manager_report_generator_request() :: %{String.t() => any()}
+  @type delete_license_manager_report_generator_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -678,7 +681,7 @@ defmodule AWS.LicenseManager do
       }
       
   """
-  @type options() :: %{String.t() => any()}
+  @type options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -687,22 +690,22 @@ defmodule AWS.LicenseManager do
       received_metadata() :: %{
         "AllowedOperations" => list(list(any())()),
         "ReceivedStatus" => list(any()),
-        "ReceivedStatusReason" => String.t()
+        "ReceivedStatusReason" => String.t() | Atom.t()
       }
       
   """
-  @type received_metadata() :: %{String.t() => any()}
+  @type received_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reject_grant_request() :: %{
-        required("GrantArn") => String.t()
+        required("GrantArn") => String.t() | Atom.t()
       }
       
   """
-  @type reject_grant_request() :: %{String.t() => any()}
+  @type reject_grant_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -710,26 +713,26 @@ defmodule AWS.LicenseManager do
       
       list_distributed_grants_request() :: %{
         optional("Filters") => list(filter()),
-        optional("GrantArns") => list(String.t()),
+        optional("GrantArns") => list(String.t() | Atom.t()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_distributed_grants_request() :: %{String.t() => any()}
+  @type list_distributed_grants_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reject_grant_response() :: %{
-        "GrantArn" => String.t(),
+        "GrantArn" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "Version" => String.t()
+        "Version" => String.t() | Atom.t()
       }
       
   """
-  @type reject_grant_response() :: %{String.t() => any()}
+  @type reject_grant_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -737,22 +740,22 @@ defmodule AWS.LicenseManager do
       
       list_received_grants_for_organization_response() :: %{
         "Grants" => list(grant()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_received_grants_for_organization_response() :: %{String.t() => any()}
+  @type list_received_grants_for_organization_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -760,34 +763,34 @@ defmodule AWS.LicenseManager do
       
       list_license_configurations_response() :: %{
         "LicenseConfigurations" => list(license_configuration()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_license_configurations_response() :: %{String.t() => any()}
+  @type list_license_configurations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       redirect_exception() :: %{
-        "Location" => String.t(),
-        "Message" => String.t()
+        "Location" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type redirect_exception() :: %{String.t() => any()}
+  @type redirect_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -798,40 +801,40 @@ defmodule AWS.LicenseManager do
       }
       
   """
-  @type get_license_response() :: %{String.t() => any()}
+  @type get_license_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       grant() :: %{
-        "GrantArn" => String.t(),
-        "GrantName" => String.t(),
+        "GrantArn" => String.t() | Atom.t(),
+        "GrantName" => String.t() | Atom.t(),
         "GrantStatus" => list(any()),
         "GrantedOperations" => list(list(any())()),
-        "GranteePrincipalArn" => String.t(),
-        "HomeRegion" => String.t(),
-        "LicenseArn" => String.t(),
+        "GranteePrincipalArn" => String.t() | Atom.t(),
+        "HomeRegion" => String.t() | Atom.t(),
+        "LicenseArn" => String.t() | Atom.t(),
         "Options" => options(),
-        "ParentArn" => String.t(),
-        "StatusReason" => String.t(),
-        "Version" => String.t()
+        "ParentArn" => String.t() | Atom.t(),
+        "StatusReason" => String.t() | Atom.t(),
+        "Version" => String.t() | Atom.t()
       }
       
   """
-  @type grant() :: %{String.t() => any()}
+  @type grant() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -847,57 +850,57 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       create_license_version_response() :: %{
-        "LicenseArn" => String.t(),
+        "LicenseArn" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "Version" => String.t()
+        "Version" => String.t() | Atom.t()
       }
       
   """
-  @type create_license_version_response() :: %{String.t() => any()}
+  @type create_license_version_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_license_response() :: %{
-        "LicenseArn" => String.t(),
+        "LicenseArn" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "Version" => String.t()
+        "Version" => String.t() | Atom.t()
       }
       
   """
-  @type create_license_response() :: %{String.t() => any()}
+  @type create_license_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_grant_request() :: %{
-        optional("Version") => String.t(),
-        required("GrantArn") => String.t()
+        optional("Version") => String.t() | Atom.t(),
+        required("GrantArn") => String.t() | Atom.t()
       }
       
   """
-  @type get_grant_request() :: %{String.t() => any()}
+  @type get_grant_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_license_configuration_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("DisassociateWhenNotFound") => boolean(),
         optional("LicenseConfigurationStatus") => list(any()),
         optional("LicenseCount") => float(),
         optional("LicenseCountHardLimit") => boolean(),
-        optional("LicenseRules") => list(String.t()),
-        optional("Name") => String.t(),
+        optional("LicenseRules") => list(String.t() | Atom.t()),
+        optional("Name") => String.t() | Atom.t(),
         optional("ProductInformationList") => list(product_information()),
-        required("LicenseConfigurationArn") => String.t()
+        required("LicenseConfigurationArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_license_configuration_request() :: %{String.t() => any()}
+  @type update_license_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -906,59 +909,59 @@ defmodule AWS.LicenseManager do
       create_grant_request() :: %{
         optional("Tags") => list(tag()),
         required("AllowedOperations") => list(list(any())()),
-        required("ClientToken") => String.t(),
-        required("GrantName") => String.t(),
-        required("HomeRegion") => String.t(),
-        required("LicenseArn") => String.t(),
-        required("Principals") => list(String.t())
+        required("ClientToken") => String.t() | Atom.t(),
+        required("GrantName") => String.t() | Atom.t(),
+        required("HomeRegion") => String.t() | Atom.t(),
+        required("LicenseArn") => String.t() | Atom.t(),
+        required("Principals") => list(String.t() | Atom.t())
       }
       
   """
-  @type create_grant_request() :: %{String.t() => any()}
+  @type create_grant_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_license_conversion_task_request() :: %{
-        required("LicenseConversionTaskId") => String.t()
+        required("LicenseConversionTaskId") => String.t() | Atom.t()
       }
       
   """
-  @type get_license_conversion_task_request() :: %{String.t() => any()}
+  @type get_license_conversion_task_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       accept_grant_request() :: %{
-        required("GrantArn") => String.t()
+        required("GrantArn") => String.t() | Atom.t()
       }
       
   """
-  @type accept_grant_request() :: %{String.t() => any()}
+  @type accept_grant_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameter_value_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_parameter_value_exception() :: %{String.t() => any()}
+  @type invalid_parameter_value_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_limit_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_limit_exceeded_exception() :: %{String.t() => any()}
+  @type resource_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -969,7 +972,7 @@ defmodule AWS.LicenseManager do
       }
       
   """
-  @type automated_discovery_information() :: %{String.t() => any()}
+  @type automated_discovery_information() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -977,28 +980,28 @@ defmodule AWS.LicenseManager do
       
       product_information() :: %{
         "ProductInformationFilterList" => list(product_information_filter()),
-        "ResourceType" => String.t()
+        "ResourceType" => String.t() | Atom.t()
       }
       
   """
-  @type product_information() :: %{String.t() => any()}
+  @type product_information() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       token_data() :: %{
-        "ExpirationTime" => String.t(),
-        "LicenseArn" => String.t(),
-        "RoleArns" => list(String.t()),
-        "Status" => String.t(),
-        "TokenId" => String.t(),
-        "TokenProperties" => list(String.t()),
-        "TokenType" => String.t()
+        "ExpirationTime" => String.t() | Atom.t(),
+        "LicenseArn" => String.t() | Atom.t(),
+        "RoleArns" => list(String.t() | Atom.t()),
+        "Status" => String.t() | Atom.t(),
+        "TokenId" => String.t() | Atom.t(),
+        "TokenProperties" => list(String.t() | Atom.t()),
+        "TokenType" => String.t() | Atom.t()
       }
       
   """
-  @type token_data() :: %{String.t() => any()}
+  @type token_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1015,12 +1018,15 @@ defmodule AWS.LicenseManager do
       
       list_failures_for_license_configuration_operations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("LicenseConfigurationArn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("LicenseConfigurationArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_failures_for_license_configuration_operations_request() :: %{String.t() => any()}
+  @type list_failures_for_license_configuration_operations_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1028,35 +1034,35 @@ defmodule AWS.LicenseManager do
       
       extend_license_consumption_request() :: %{
         optional("DryRun") => boolean(),
-        required("LicenseConsumptionToken") => String.t()
+        required("LicenseConsumptionToken") => String.t() | Atom.t()
       }
       
   """
-  @type extend_license_consumption_request() :: %{String.t() => any()}
+  @type extend_license_consumption_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_token_request() :: %{
-        required("TokenId") => String.t()
+        required("TokenId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_token_request() :: %{String.t() => any()}
+  @type delete_token_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_grant_request() :: %{
-        optional("StatusReason") => String.t(),
-        required("GrantArn") => String.t(),
-        required("Version") => String.t()
+        optional("StatusReason") => String.t() | Atom.t(),
+        required("GrantArn") => String.t() | Atom.t(),
+        required("Version") => String.t() | Atom.t()
       }
       
   """
-  @type delete_grant_request() :: %{String.t() => any()}
+  @type delete_grant_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1067,7 +1073,7 @@ defmodule AWS.LicenseManager do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1075,12 +1081,12 @@ defmodule AWS.LicenseManager do
       
       list_license_specifications_for_resource_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ResourceArn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_license_specifications_for_resource_request() :: %{String.t() => any()}
+  @type list_license_specifications_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1091,7 +1097,7 @@ defmodule AWS.LicenseManager do
       }
       
   """
-  @type get_license_manager_report_generator_response() :: %{String.t() => any()}
+  @type get_license_manager_report_generator_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1103,30 +1109,30 @@ defmodule AWS.LicenseManager do
       }
       
   """
-  @type consumed_license_summary() :: %{String.t() => any()}
+  @type consumed_license_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_location() :: %{
-        "bucket" => String.t(),
-        "keyPrefix" => String.t()
+        "bucket" => String.t() | Atom.t(),
+        "keyPrefix" => String.t() | Atom.t()
       }
       
   """
-  @type s3_location() :: %{String.t() => any()}
+  @type s3_location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_license_manager_report_generator_response() :: %{
-        "LicenseManagerReportGeneratorArn" => String.t()
+        "LicenseManagerReportGeneratorArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_license_manager_report_generator_response() :: %{String.t() => any()}
+  @type create_license_manager_report_generator_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1134,22 +1140,22 @@ defmodule AWS.LicenseManager do
       
       license_conversion_context() :: %{
         "ProductCodes" => list(product_code_list_item()),
-        "UsageOperation" => String.t()
+        "UsageOperation" => String.t() | Atom.t()
       }
       
   """
-  @type license_conversion_context() :: %{String.t() => any()}
+  @type license_conversion_context() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_resource_state_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_resource_state_exception() :: %{String.t() => any()}
+  @type invalid_resource_state_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1158,36 +1164,36 @@ defmodule AWS.LicenseManager do
       list_resource_inventory_request() :: %{
         optional("Filters") => list(inventory_filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_resource_inventory_request() :: %{String.t() => any()}
+  @type list_resource_inventory_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       filter() :: %{
-        "Name" => String.t(),
-        "Values" => list(String.t())
+        "Name" => String.t() | Atom.t(),
+        "Values" => list(String.t() | Atom.t())
       }
       
   """
-  @type filter() :: %{String.t() => any()}
+  @type filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       accept_grant_response() :: %{
-        "GrantArn" => String.t(),
+        "GrantArn" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "Version" => String.t()
+        "Version" => String.t() | Atom.t()
       }
       
   """
-  @type accept_grant_response() :: %{String.t() => any()}
+  @type accept_grant_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1195,11 +1201,11 @@ defmodule AWS.LicenseManager do
       
       list_license_conversion_tasks_response() :: %{
         "LicenseConversionTasks" => list(license_conversion_task()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_license_conversion_tasks_response() :: %{String.t() => any()}
+  @type list_license_conversion_tasks_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1211,7 +1217,7 @@ defmodule AWS.LicenseManager do
       }
       
   """
-  @type borrow_configuration() :: %{String.t() => any()}
+  @type borrow_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1219,66 +1225,66 @@ defmodule AWS.LicenseManager do
       
       list_received_licenses_for_organization_response() :: %{
         "Licenses" => list(granted_license()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_received_licenses_for_organization_response() :: %{String.t() => any()}
+  @type list_received_licenses_for_organization_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_resource_inventory_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "ResourceInventoryList" => list(resource_inventory())
       }
       
   """
-  @type list_resource_inventory_response() :: %{String.t() => any()}
+  @type list_resource_inventory_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_license_configuration_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("DisassociateWhenNotFound") => boolean(),
         optional("LicenseCount") => float(),
         optional("LicenseCountHardLimit") => boolean(),
-        optional("LicenseRules") => list(String.t()),
+        optional("LicenseRules") => list(String.t() | Atom.t()),
         optional("ProductInformationList") => list(product_information()),
         optional("Tags") => list(tag()),
         required("LicenseCountingType") => list(any()),
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type create_license_configuration_request() :: %{String.t() => any()}
+  @type create_license_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_grant_response() :: %{
-        "GrantArn" => String.t(),
+        "GrantArn" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "Version" => String.t()
+        "Version" => String.t() | Atom.t()
       }
       
   """
-  @type delete_grant_response() :: %{String.t() => any()}
+  @type delete_grant_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       authorization_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type authorization_exception() :: %{String.t() => any()}
+  @type authorization_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1287,14 +1293,14 @@ defmodule AWS.LicenseManager do
       entitlement() :: %{
         "AllowCheckIn" => boolean(),
         "MaxCount" => float(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Overage" => boolean(),
         "Unit" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type entitlement() :: %{String.t() => any()}
+  @type entitlement() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1303,45 +1309,45 @@ defmodule AWS.LicenseManager do
       checkout_borrow_license_response() :: %{
         "CheckoutMetadata" => list(metadata()),
         "EntitlementsAllowed" => list(entitlement_data()),
-        "Expiration" => String.t(),
-        "IssuedAt" => String.t(),
-        "LicenseArn" => String.t(),
-        "LicenseConsumptionToken" => String.t(),
-        "NodeId" => String.t(),
-        "SignedToken" => String.t()
+        "Expiration" => String.t() | Atom.t(),
+        "IssuedAt" => String.t() | Atom.t(),
+        "LicenseArn" => String.t() | Atom.t(),
+        "LicenseConsumptionToken" => String.t() | Atom.t(),
+        "NodeId" => String.t() | Atom.t(),
+        "SignedToken" => String.t() | Atom.t()
       }
       
   """
-  @type checkout_borrow_license_response() :: %{String.t() => any()}
+  @type checkout_borrow_license_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_license_manager_report_generator_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("ClientToken") => String.t(),
+        required("ClientToken") => String.t() | Atom.t(),
         required("ReportContext") => report_context(),
         required("ReportFrequency") => report_frequency(),
-        required("ReportGeneratorName") => String.t(),
+        required("ReportGeneratorName") => String.t() | Atom.t(),
         required("Type") => list(list(any())())
       }
       
   """
-  @type create_license_manager_report_generator_request() :: %{String.t() => any()}
+  @type create_license_manager_report_generator_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       product_code_list_item() :: %{
-        "ProductCodeId" => String.t(),
+        "ProductCodeId" => String.t() | Atom.t(),
         "ProductCodeType" => list(any())
       }
       
   """
-  @type product_code_list_item() :: %{String.t() => any()}
+  @type product_code_list_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1351,24 +1357,24 @@ defmodule AWS.LicenseManager do
         "AutomatedDiscoveryInformation" => automated_discovery_information(),
         "ConsumedLicenseSummaryList" => list(consumed_license_summary()),
         "ConsumedLicenses" => float(),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "DisassociateWhenNotFound" => boolean(),
-        "LicenseConfigurationArn" => String.t(),
-        "LicenseConfigurationId" => String.t(),
+        "LicenseConfigurationArn" => String.t() | Atom.t(),
+        "LicenseConfigurationId" => String.t() | Atom.t(),
         "LicenseCount" => float(),
         "LicenseCountHardLimit" => boolean(),
         "LicenseCountingType" => list(any()),
-        "LicenseRules" => list(String.t()),
+        "LicenseRules" => list(String.t() | Atom.t()),
         "ManagedResourceSummaryList" => list(managed_resource_summary()),
-        "Name" => String.t(),
-        "OwnerAccountId" => String.t(),
+        "Name" => String.t() | Atom.t(),
+        "OwnerAccountId" => String.t() | Atom.t(),
         "ProductInformationList" => list(product_information()),
-        "Status" => String.t(),
+        "Status" => String.t() | Atom.t(),
         "Tags" => list(tag())
       }
       
   """
-  @type get_license_configuration_response() :: %{String.t() => any()}
+  @type get_license_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1376,22 +1382,22 @@ defmodule AWS.LicenseManager do
       
       list_received_licenses_response() :: %{
         "Licenses" => list(granted_license()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_received_licenses_response() :: %{String.t() => any()}
+  @type list_received_licenses_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1400,43 +1406,43 @@ defmodule AWS.LicenseManager do
       license_conversion_task() :: %{
         "DestinationLicenseContext" => license_conversion_context(),
         "EndTime" => non_neg_integer(),
-        "LicenseConversionTaskId" => String.t(),
+        "LicenseConversionTaskId" => String.t() | Atom.t(),
         "LicenseConversionTime" => non_neg_integer(),
-        "ResourceArn" => String.t(),
+        "ResourceArn" => String.t() | Atom.t(),
         "SourceLicenseContext" => license_conversion_context(),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
-        "StatusMessage" => String.t()
+        "StatusMessage" => String.t() | Atom.t()
       }
       
   """
-  @type license_conversion_task() :: %{String.t() => any()}
+  @type license_conversion_task() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_license_response() :: %{
-        "DeletionDate" => String.t(),
+        "DeletionDate" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type delete_license_response() :: %{String.t() => any()}
+  @type delete_license_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       entitlement_usage() :: %{
-        "ConsumedValue" => String.t(),
-        "MaxCount" => String.t(),
-        "Name" => String.t(),
+        "ConsumedValue" => String.t() | Atom.t(),
+        "MaxCount" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "Unit" => list(any())
       }
       
   """
-  @type entitlement_usage() :: %{String.t() => any()}
+  @type entitlement_usage() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1452,34 +1458,34 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       issuer() :: %{
-        "Name" => String.t(),
-        "SignKey" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "SignKey" => String.t() | Atom.t()
       }
       
   """
-  @type issuer() :: %{String.t() => any()}
+  @type issuer() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       report_context() :: %{
-        "licenseConfigurationArns" => list(String.t())
+        "licenseConfigurationArns" => list(String.t() | Atom.t())
       }
       
   """
-  @type report_context() :: %{String.t() => any()}
+  @type report_context() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_license_configuration_request() :: %{
-        required("LicenseConfigurationArn") => String.t()
+        required("LicenseConfigurationArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_license_configuration_request() :: %{String.t() => any()}
+  @type delete_license_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1488,69 +1494,69 @@ defmodule AWS.LicenseManager do
       list_usage_for_license_configuration_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("LicenseConfigurationArn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("LicenseConfigurationArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_usage_for_license_configuration_request() :: %{String.t() => any()}
+  @type list_usage_for_license_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       server_internal_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type server_internal_exception() :: %{String.t() => any()}
+  @type server_internal_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_license_request() :: %{
-        required("LicenseArn") => String.t(),
-        required("SourceVersion") => String.t()
+        required("LicenseArn") => String.t() | Atom.t(),
+        required("SourceVersion") => String.t() | Atom.t()
       }
       
   """
-  @type delete_license_request() :: %{String.t() => any()}
+  @type delete_license_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       report_generator() :: %{
-        "CreateTime" => String.t(),
-        "Description" => String.t(),
-        "LastReportGenerationTime" => String.t(),
-        "LastRunFailureReason" => String.t(),
-        "LastRunStatus" => String.t(),
-        "LicenseManagerReportGeneratorArn" => String.t(),
+        "CreateTime" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "LastReportGenerationTime" => String.t() | Atom.t(),
+        "LastRunFailureReason" => String.t() | Atom.t(),
+        "LastRunStatus" => String.t() | Atom.t(),
+        "LicenseManagerReportGeneratorArn" => String.t() | Atom.t(),
         "ReportContext" => report_context(),
-        "ReportCreatorAccount" => String.t(),
+        "ReportCreatorAccount" => String.t() | Atom.t(),
         "ReportFrequency" => report_frequency(),
-        "ReportGeneratorName" => String.t(),
+        "ReportGeneratorName" => String.t() | Atom.t(),
         "ReportType" => list(list(any())()),
         "S3Location" => s3_location(),
         "Tags" => list(tag())
       }
       
   """
-  @type report_generator() :: %{String.t() => any()}
+  @type report_generator() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_license_configuration_request() :: %{
-        required("LicenseConfigurationArn") => String.t()
+        required("LicenseConfigurationArn") => String.t() | Atom.t()
       }
       
   """
-  @type get_license_configuration_request() :: %{String.t() => any()}
+  @type get_license_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1558,33 +1564,33 @@ defmodule AWS.LicenseManager do
       
       list_received_grants_response() :: %{
         "Grants" => list(grant()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_received_grants_response() :: %{String.t() => any()}
+  @type list_received_grants_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1600,50 +1606,50 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       extend_license_consumption_response() :: %{
-        "Expiration" => String.t(),
-        "LicenseConsumptionToken" => String.t()
+        "Expiration" => String.t() | Atom.t(),
+        "LicenseConsumptionToken" => String.t() | Atom.t()
       }
       
   """
-  @type extend_license_consumption_response() :: %{String.t() => any()}
+  @type extend_license_consumption_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       granted_license() :: %{
-        "Beneficiary" => String.t(),
+        "Beneficiary" => String.t() | Atom.t(),
         "ConsumptionConfiguration" => consumption_configuration(),
-        "CreateTime" => String.t(),
+        "CreateTime" => String.t() | Atom.t(),
         "Entitlements" => list(entitlement()),
-        "HomeRegion" => String.t(),
+        "HomeRegion" => String.t() | Atom.t(),
         "Issuer" => issuer_details(),
-        "LicenseArn" => String.t(),
+        "LicenseArn" => String.t() | Atom.t(),
         "LicenseMetadata" => list(metadata()),
-        "LicenseName" => String.t(),
-        "ProductName" => String.t(),
-        "ProductSKU" => String.t(),
+        "LicenseName" => String.t() | Atom.t(),
+        "ProductName" => String.t() | Atom.t(),
+        "ProductSKU" => String.t() | Atom.t(),
         "ReceivedMetadata" => received_metadata(),
         "Status" => list(any()),
         "Validity" => datetime_range(),
-        "Version" => String.t()
+        "Version" => String.t() | Atom.t()
       }
       
   """
-  @type granted_license() :: %{String.t() => any()}
+  @type granted_license() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_grant_version_response() :: %{
-        "GrantArn" => String.t(),
+        "GrantArn" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "Version" => String.t()
+        "Version" => String.t() | Atom.t()
       }
       
   """
-  @type create_grant_version_response() :: %{String.t() => any()}
+  @type create_grant_version_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1652,29 +1658,29 @@ defmodule AWS.LicenseManager do
       update_license_specifications_for_resource_request() :: %{
         optional("AddLicenseSpecifications") => list(license_specification()),
         optional("RemoveLicenseSpecifications") => list(license_specification()),
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_license_specifications_for_resource_request() :: %{String.t() => any()}
+  @type update_license_specifications_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       license_operation_failure() :: %{
-        "ErrorMessage" => String.t(),
+        "ErrorMessage" => String.t() | Atom.t(),
         "FailureTime" => non_neg_integer(),
         "MetadataList" => list(metadata()),
-        "OperationName" => String.t(),
-        "OperationRequestedBy" => String.t(),
-        "ResourceArn" => String.t(),
-        "ResourceOwnerId" => String.t(),
+        "OperationName" => String.t() | Atom.t(),
+        "OperationRequestedBy" => String.t() | Atom.t(),
+        "ResourceArn" => String.t() | Atom.t(),
+        "ResourceOwnerId" => String.t() | Atom.t(),
         "ResourceType" => list(any())
       }
       
   """
-  @type license_operation_failure() :: %{String.t() => any()}
+  @type license_operation_failure() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1682,26 +1688,26 @@ defmodule AWS.LicenseManager do
       
       get_service_settings_response() :: %{
         "EnableCrossAccountsDiscovery" => boolean(),
-        "LicenseManagerResourceShareArn" => String.t(),
+        "LicenseManagerResourceShareArn" => String.t() | Atom.t(),
         "OrganizationConfiguration" => organization_configuration(),
-        "S3BucketArn" => String.t(),
-        "SnsTopicArn" => String.t()
+        "S3BucketArn" => String.t() | Atom.t(),
+        "SnsTopicArn" => String.t() | Atom.t()
       }
       
   """
-  @type get_service_settings_response() :: %{String.t() => any()}
+  @type get_service_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_access_token_request() :: %{
-        optional("TokenProperties") => list(String.t()),
-        required("Token") => String.t()
+        optional("TokenProperties") => list(String.t() | Atom.t()),
+        required("Token") => String.t() | Atom.t()
       }
       
   """
-  @type get_access_token_request() :: %{String.t() => any()}
+  @type get_access_token_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1709,24 +1715,27 @@ defmodule AWS.LicenseManager do
       
       list_received_grants_request() :: %{
         optional("Filters") => list(filter()),
-        optional("GrantArns") => list(String.t()),
+        optional("GrantArns") => list(String.t() | Atom.t()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_received_grants_request() :: %{String.t() => any()}
+  @type list_received_grants_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_license_conversion_task_for_resource_response() :: %{
-        "LicenseConversionTaskId" => String.t()
+        "LicenseConversionTaskId" => String.t() | Atom.t()
       }
       
   """
-  @type create_license_conversion_task_for_resource_response() :: %{String.t() => any()}
+  @type create_license_conversion_task_for_resource_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1734,44 +1743,44 @@ defmodule AWS.LicenseManager do
       
       list_license_specifications_for_resource_response() :: %{
         "LicenseSpecifications" => list(license_specification()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_license_specifications_for_resource_response() :: %{String.t() => any()}
+  @type list_license_specifications_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       checkout_license_request() :: %{
-        optional("Beneficiary") => String.t(),
-        optional("NodeId") => String.t(),
+        optional("Beneficiary") => String.t() | Atom.t(),
+        optional("NodeId") => String.t() | Atom.t(),
         required("CheckoutType") => list(any()),
-        required("ClientToken") => String.t(),
+        required("ClientToken") => String.t() | Atom.t(),
         required("Entitlements") => list(entitlement_data()),
-        required("KeyFingerprint") => String.t(),
-        required("ProductSKU") => String.t()
+        required("KeyFingerprint") => String.t() | Atom.t(),
+        required("ProductSKU") => String.t() | Atom.t()
       }
       
   """
-  @type checkout_license_request() :: %{String.t() => any()}
+  @type checkout_license_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_inventory() :: %{
-        "Platform" => String.t(),
-        "PlatformVersion" => String.t(),
-        "ResourceArn" => String.t(),
-        "ResourceId" => String.t(),
-        "ResourceOwningAccountId" => String.t(),
+        "Platform" => String.t() | Atom.t(),
+        "PlatformVersion" => String.t() | Atom.t(),
+        "ResourceArn" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | Atom.t(),
+        "ResourceOwningAccountId" => String.t() | Atom.t(),
         "ResourceType" => list(any())
       }
       
   """
-  @type resource_inventory() :: %{String.t() => any()}
+  @type resource_inventory() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1779,12 +1788,12 @@ defmodule AWS.LicenseManager do
       
       list_associations_for_license_configuration_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("LicenseConfigurationArn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("LicenseConfigurationArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_associations_for_license_configuration_request() :: %{String.t() => any()}
+  @type list_associations_for_license_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1792,42 +1801,42 @@ defmodule AWS.LicenseManager do
       
       create_license_conversion_task_for_resource_request() :: %{
         required("DestinationLicenseContext") => license_conversion_context(),
-        required("ResourceArn") => String.t(),
+        required("ResourceArn") => String.t() | Atom.t(),
         required("SourceLicenseContext") => license_conversion_context()
       }
       
   """
-  @type create_license_conversion_task_for_resource_request() :: %{String.t() => any()}
+  @type create_license_conversion_task_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_license_manager_report_generator_request() :: %{
-        optional("Description") => String.t(),
-        required("ClientToken") => String.t(),
-        required("LicenseManagerReportGeneratorArn") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
+        required("ClientToken") => String.t() | Atom.t(),
+        required("LicenseManagerReportGeneratorArn") => String.t() | Atom.t(),
         required("ReportContext") => report_context(),
         required("ReportFrequency") => report_frequency(),
-        required("ReportGeneratorName") => String.t(),
+        required("ReportGeneratorName") => String.t() | Atom.t(),
         required("Type") => list(list(any())())
       }
       
   """
-  @type update_license_manager_report_generator_request() :: %{String.t() => any()}
+  @type update_license_manager_report_generator_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       product_information_filter() :: %{
-        "ProductInformationFilterComparator" => String.t(),
-        "ProductInformationFilterName" => String.t(),
-        "ProductInformationFilterValue" => list(String.t())
+        "ProductInformationFilterComparator" => String.t() | Atom.t(),
+        "ProductInformationFilterName" => String.t() | Atom.t(),
+        "ProductInformationFilterValue" => list(String.t() | Atom.t())
       }
       
   """
-  @type product_information_filter() :: %{String.t() => any()}
+  @type product_information_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1843,37 +1852,37 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       create_token_response() :: %{
-        "Token" => String.t(),
-        "TokenId" => String.t(),
+        "Token" => String.t() | Atom.t(),
+        "TokenId" => String.t() | Atom.t(),
         "TokenType" => list(any())
       }
       
   """
-  @type create_token_response() :: %{String.t() => any()}
+  @type create_token_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       unsupported_digital_signature_method_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type unsupported_digital_signature_method_exception() :: %{String.t() => any()}
+  @type unsupported_digital_signature_method_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       issuer_details() :: %{
-        "KeyFingerprint" => String.t(),
-        "Name" => String.t(),
-        "SignKey" => String.t()
+        "KeyFingerprint" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "SignKey" => String.t() | Atom.t()
       }
       
   """
-  @type issuer_details() :: %{String.t() => any()}
+  @type issuer_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1884,7 +1893,7 @@ defmodule AWS.LicenseManager do
       }
       
   """
-  @type get_license_usage_response() :: %{String.t() => any()}
+  @type get_license_usage_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1893,12 +1902,12 @@ defmodule AWS.LicenseManager do
       list_tokens_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("TokenIds") => list(String.t())
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("TokenIds") => list(String.t() | Atom.t())
       }
       
   """
-  @type list_tokens_request() :: %{String.t() => any()}
+  @type list_tokens_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1906,15 +1915,15 @@ defmodule AWS.LicenseManager do
       
       checkout_borrow_license_request() :: %{
         optional("CheckoutMetadata") => list(metadata()),
-        optional("NodeId") => String.t(),
-        required("ClientToken") => String.t(),
+        optional("NodeId") => String.t() | Atom.t(),
+        required("ClientToken") => String.t() | Atom.t(),
         required("DigitalSignatureMethod") => list(any()),
         required("Entitlements") => list(entitlement_data()),
-        required("LicenseArn") => String.t()
+        required("LicenseArn") => String.t() | Atom.t()
       }
       
   """
-  @type checkout_borrow_license_request() :: %{String.t() => any()}
+  @type checkout_borrow_license_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1922,39 +1931,39 @@ defmodule AWS.LicenseManager do
       
       create_token_request() :: %{
         optional("ExpirationInDays") => integer(),
-        optional("RoleArns") => list(String.t()),
-        optional("TokenProperties") => list(String.t()),
-        required("ClientToken") => String.t(),
-        required("LicenseArn") => String.t()
+        optional("RoleArns") => list(String.t() | Atom.t()),
+        optional("TokenProperties") => list(String.t() | Atom.t()),
+        required("ClientToken") => String.t() | Atom.t(),
+        required("LicenseArn") => String.t() | Atom.t()
       }
       
   """
-  @type create_token_request() :: %{String.t() => any()}
+  @type create_token_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_license_manager_report_generators_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "ReportGenerators" => list(report_generator())
       }
       
   """
-  @type list_license_manager_report_generators_response() :: %{String.t() => any()}
+  @type list_license_manager_report_generators_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_grant_response() :: %{
-        "GrantArn" => String.t(),
+        "GrantArn" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "Version" => String.t()
+        "Version" => String.t() | Atom.t()
       }
       
   """
-  @type create_grant_response() :: %{String.t() => any()}
+  @type create_grant_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1965,18 +1974,18 @@ defmodule AWS.LicenseManager do
       }
       
   """
-  @type provisional_configuration() :: %{String.t() => any()}
+  @type provisional_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_license_manager_report_generator_request() :: %{
-        required("LicenseManagerReportGeneratorArn") => String.t()
+        required("LicenseManagerReportGeneratorArn") => String.t() | Atom.t()
       }
       
   """
-  @type get_license_manager_report_generator_request() :: %{String.t() => any()}
+  @type get_license_manager_report_generator_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1994,25 +2003,25 @@ defmodule AWS.LicenseManager do
       update_service_settings_request() :: %{
         optional("EnableCrossAccountsDiscovery") => boolean(),
         optional("OrganizationConfiguration") => organization_configuration(),
-        optional("S3BucketArn") => String.t(),
-        optional("SnsTopicArn") => String.t()
+        optional("S3BucketArn") => String.t() | Atom.t(),
+        optional("SnsTopicArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_service_settings_request() :: %{String.t() => any()}
+  @type update_service_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       entitlement_data() :: %{
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Unit" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type entitlement_data() :: %{String.t() => any()}
+  @type entitlement_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2020,24 +2029,24 @@ defmodule AWS.LicenseManager do
       
       list_license_versions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("LicenseArn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("LicenseArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_license_versions_request() :: %{String.t() => any()}
+  @type list_license_versions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tokens_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Tokens" => list(token_data())
       }
       
   """
-  @type list_tokens_response() :: %{String.t() => any()}
+  @type list_tokens_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2045,11 +2054,14 @@ defmodule AWS.LicenseManager do
       
       list_associations_for_license_configuration_response() :: %{
         "LicenseConfigurationAssociations" => list(license_configuration_association()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_associations_for_license_configuration_response() :: %{String.t() => any()}
+  @type list_associations_for_license_configuration_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @type accept_grant_errors() ::
           validation_exception()

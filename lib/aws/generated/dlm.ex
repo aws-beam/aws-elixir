@@ -32,19 +32,19 @@ defmodule AWS.DLM do
       }
 
   """
-  @type archive_retain_rule() :: %{String.t() => any()}
+  @type archive_retain_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       encryption_configuration() :: %{
-        "CmkArn" => String.t(),
+        "CmkArn" => String.t() | Atom.t(),
         "Encrypted" => boolean()
       }
 
   """
-  @type encryption_configuration() :: %{String.t() => any()}
+  @type encryption_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -55,7 +55,7 @@ defmodule AWS.DLM do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -65,9 +65,9 @@ defmodule AWS.DLM do
         optional("CopyTags") => boolean(),
         optional("CreateInterval") => integer(),
         optional("CrossRegionCopyTargets") => list(cross_region_copy_target()),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("Exclusions") => exclusions(),
-        optional("ExecutionRoleArn") => String.t(),
+        optional("ExecutionRoleArn") => String.t() | Atom.t(),
         optional("ExtendDeletion") => boolean(),
         optional("PolicyDetails") => policy_details(),
         optional("RetainInterval") => integer(),
@@ -75,7 +75,7 @@ defmodule AWS.DLM do
       }
 
   """
-  @type update_lifecycle_policy_request() :: %{String.t() => any()}
+  @type update_lifecycle_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -84,11 +84,11 @@ defmodule AWS.DLM do
       cross_region_copy_action() :: %{
         "EncryptionConfiguration" => encryption_configuration(),
         "RetainRule" => cross_region_copy_retain_rule(),
-        "Target" => String.t()
+        "Target" => String.t() | Atom.t()
       }
 
   """
-  @type cross_region_copy_action() :: %{String.t() => any()}
+  @type cross_region_copy_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -119,7 +119,7 @@ defmodule AWS.DLM do
       }
 
   """
-  @type retain_rule() :: %{String.t() => any()}
+  @type retain_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -132,7 +132,7 @@ defmodule AWS.DLM do
       }
 
   """
-  @type deprecate_rule() :: %{String.t() => any()}
+  @type deprecate_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -140,53 +140,53 @@ defmodule AWS.DLM do
 
       get_lifecycle_policies_request() :: %{
         optional("DefaultPolicyType") => list(any()),
-        optional("PolicyIds") => list(String.t()),
+        optional("PolicyIds") => list(String.t() | Atom.t()),
         optional("ResourceTypes") => list(list(any())()),
         optional("State") => list(any()),
-        optional("TagsToAdd") => list(String.t()),
-        optional("TargetTags") => list(String.t())
+        optional("TagsToAdd") => list(String.t() | Atom.t()),
+        optional("TargetTags") => list(String.t() | Atom.t())
       }
 
   """
-  @type get_lifecycle_policies_request() :: %{String.t() => any()}
+  @type get_lifecycle_policies_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       event_parameters() :: %{
-        "DescriptionRegex" => String.t(),
+        "DescriptionRegex" => String.t() | Atom.t(),
         "EventType" => list(any()),
-        "SnapshotOwner" => list(String.t())
+        "SnapshotOwner" => list(String.t() | Atom.t())
       }
 
   """
-  @type event_parameters() :: %{String.t() => any()}
+  @type event_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       fast_restore_rule() :: %{
-        "AvailabilityZones" => list(String.t()),
+        "AvailabilityZones" => list(String.t() | Atom.t()),
         "Count" => integer(),
         "Interval" => integer(),
         "IntervalUnit" => list(any())
       }
 
   """
-  @type fast_restore_rule() :: %{String.t() => any()}
+  @type fast_restore_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t())
+        required("TagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -199,7 +199,7 @@ defmodule AWS.DLM do
       }
 
   """
-  @type parameters() :: %{String.t() => any()}
+  @type parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -211,7 +211,7 @@ defmodule AWS.DLM do
       }
 
   """
-  @type event_source() :: %{String.t() => any()}
+  @type event_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -227,14 +227,14 @@ defmodule AWS.DLM do
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t(),
-        "ResourceIds" => list(String.t()),
-        "ResourceType" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
+        "ResourceIds" => list(String.t() | Atom.t()),
+        "ResourceType" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -242,27 +242,27 @@ defmodule AWS.DLM do
 
       lifecycle_policy_summary() :: %{
         "DefaultPolicy" => boolean(),
-        "Description" => String.t(),
-        "PolicyId" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "PolicyId" => String.t() | Atom.t(),
         "PolicyType" => list(any()),
         "State" => list(any()),
         "Tags" => map()
       }
 
   """
-  @type lifecycle_policy_summary() :: %{String.t() => any()}
+  @type lifecycle_policy_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -274,21 +274,21 @@ defmodule AWS.DLM do
       }
 
   """
-  @type cross_region_copy_deprecate_rule() :: %{String.t() => any()}
+  @type cross_region_copy_deprecate_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_request_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t(),
-        "MutuallyExclusiveParameters" => list(String.t()),
-        "RequiredParameters" => list(String.t())
+        "Code" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
+        "MutuallyExclusiveParameters" => list(String.t() | Atom.t()),
+        "RequiredParameters" => list(String.t() | Atom.t())
       }
 
   """
-  @type invalid_request_exception() :: %{String.t() => any()}
+  @type invalid_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -299,7 +299,7 @@ defmodule AWS.DLM do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -308,22 +308,22 @@ defmodule AWS.DLM do
       exclusions() :: %{
         "ExcludeBootVolumes" => boolean(),
         "ExcludeTags" => list(tag()),
-        "ExcludeVolumeTypes" => list(String.t())
+        "ExcludeVolumeTypes" => list(String.t() | Atom.t())
       }
 
   """
-  @type exclusions() :: %{String.t() => any()}
+  @type exclusions() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_lifecycle_policy_response() :: %{
-        "PolicyId" => String.t()
+        "PolicyId" => String.t() | Atom.t()
       }
 
   """
-  @type create_lifecycle_policy_response() :: %{String.t() => any()}
+  @type create_lifecycle_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -334,35 +334,35 @@ defmodule AWS.DLM do
       }
 
   """
-  @type get_lifecycle_policies_response() :: %{String.t() => any()}
+  @type get_lifecycle_policies_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cross_region_copy_rule() :: %{
-        "CmkArn" => String.t(),
+        "CmkArn" => String.t() | Atom.t(),
         "CopyTags" => boolean(),
         "DeprecateRule" => cross_region_copy_deprecate_rule(),
         "Encrypted" => boolean(),
         "RetainRule" => cross_region_copy_retain_rule(),
-        "Target" => String.t(),
-        "TargetRegion" => String.t()
+        "Target" => String.t() | Atom.t(),
+        "TargetRegion" => String.t() | Atom.t()
       }
 
   """
-  @type cross_region_copy_rule() :: %{String.t() => any()}
+  @type cross_region_copy_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cross_region_copy_target() :: %{
-        "TargetRegion" => String.t()
+        "TargetRegion" => String.t() | Atom.t()
       }
 
   """
-  @type cross_region_copy_target() :: %{String.t() => any()}
+  @type cross_region_copy_target() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -372,30 +372,30 @@ defmodule AWS.DLM do
         "DateCreated" => non_neg_integer(),
         "DateModified" => non_neg_integer(),
         "DefaultPolicy" => boolean(),
-        "Description" => String.t(),
-        "ExecutionRoleArn" => String.t(),
-        "PolicyArn" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "ExecutionRoleArn" => String.t() | Atom.t(),
+        "PolicyArn" => String.t() | Atom.t(),
         "PolicyDetails" => policy_details(),
-        "PolicyId" => String.t(),
+        "PolicyId" => String.t() | Atom.t(),
         "State" => list(any()),
-        "StatusMessage" => String.t(),
+        "StatusMessage" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type lifecycle_policy() :: %{String.t() => any()}
+  @type lifecycle_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -406,7 +406,7 @@ defmodule AWS.DLM do
       }
 
   """
-  @type archive_rule() :: %{String.t() => any()}
+  @type archive_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -419,7 +419,7 @@ defmodule AWS.DLM do
         "CrossRegionCopyRules" => list(cross_region_copy_rule()),
         "DeprecateRule" => deprecate_rule(),
         "FastRestoreRule" => fast_restore_rule(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "RetainRule" => retain_rule(),
         "ShareRules" => list(share_rule()),
         "TagsToAdd" => list(tag()),
@@ -427,7 +427,7 @@ defmodule AWS.DLM do
       }
 
   """
-  @type schedule() :: %{String.t() => any()}
+  @type schedule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -444,27 +444,27 @@ defmodule AWS.DLM do
 
       action() :: %{
         "CrossRegionCopy" => list(cross_region_copy_action()),
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type action() :: %{String.t() => any()}
+  @type action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_rule() :: %{
-        "CronExpression" => String.t(),
+        "CronExpression" => String.t() | Atom.t(),
         "Interval" => integer(),
         "IntervalUnit" => list(any()),
         "Location" => list(any()),
         "Scripts" => list(script()),
-        "Times" => list(String.t())
+        "Times" => list(String.t() | Atom.t())
       }
 
   """
-  @type create_rule() :: %{String.t() => any()}
+  @type create_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -477,7 +477,7 @@ defmodule AWS.DLM do
       }
 
   """
-  @type retention_archive_tier() :: %{String.t() => any()}
+  @type retention_archive_tier() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -516,7 +516,7 @@ defmodule AWS.DLM do
       }
 
   """
-  @type cross_region_copy_retain_rule() :: %{String.t() => any()}
+  @type cross_region_copy_retain_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -532,13 +532,13 @@ defmodule AWS.DLM do
         optional("PolicyDetails") => policy_details(),
         optional("RetainInterval") => integer(),
         optional("Tags") => map(),
-        required("Description") => String.t(),
-        required("ExecutionRoleArn") => String.t(),
+        required("Description") => String.t() | Atom.t(),
+        required("ExecutionRoleArn") => String.t() | Atom.t(),
         required("State") => list(any())
       }
 
   """
-  @type create_lifecycle_policy_request() :: %{String.t() => any()}
+  @type create_lifecycle_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -546,7 +546,7 @@ defmodule AWS.DLM do
 
       script() :: %{
         "ExecuteOperationOnScriptFailure" => boolean(),
-        "ExecutionHandler" => String.t(),
+        "ExecutionHandler" => String.t() | Atom.t(),
         "ExecutionHandlerService" => list(any()),
         "ExecutionTimeout" => integer(),
         "MaximumRetryCount" => integer(),
@@ -554,20 +554,20 @@ defmodule AWS.DLM do
       }
 
   """
-  @type script() :: %{String.t() => any()}
+  @type script() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       limit_exceeded_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t(),
-        "ResourceType" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t()
       }
 
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -593,20 +593,20 @@ defmodule AWS.DLM do
       }
 
   """
-  @type policy_details() :: %{String.t() => any()}
+  @type policy_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       share_rule() :: %{
-        "TargetAccounts" => list(String.t()),
+        "TargetAccounts" => list(String.t() | Atom.t()),
         "UnshareInterval" => integer(),
         "UnshareIntervalUnit" => list(any())
       }
 
   """
-  @type share_rule() :: %{String.t() => any()}
+  @type share_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -617,7 +617,7 @@ defmodule AWS.DLM do
       }
 
   """
-  @type get_lifecycle_policy_response() :: %{String.t() => any()}
+  @type get_lifecycle_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @type create_lifecycle_policy_errors() ::
           limit_exceeded_exception() | internal_server_exception() | invalid_request_exception()
@@ -735,7 +735,12 @@ defmodule AWS.DLM do
 
   For more information about deleting a policy, see [Delete lifecycle policies](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-modify-delete.html#delete).
   """
-  @spec delete_lifecycle_policy(map(), String.t(), delete_lifecycle_policy_request(), list()) ::
+  @spec delete_lifecycle_policy(
+          map(),
+          String.t() | Atom.t(),
+          delete_lifecycle_policy_request(),
+          list()
+        ) ::
           {:ok, delete_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -769,12 +774,12 @@ defmodule AWS.DLM do
   """
   @spec get_lifecycle_policies(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, get_lifecycle_policies_response(), any()}
@@ -845,7 +850,7 @@ defmodule AWS.DLM do
   @doc """
   Gets detailed information about the specified lifecycle policy.
   """
-  @spec get_lifecycle_policy(map(), String.t(), list()) ::
+  @spec get_lifecycle_policy(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -863,7 +868,7 @@ defmodule AWS.DLM do
   @doc """
   Lists the tags for the specified resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -881,7 +886,7 @@ defmodule AWS.DLM do
   @doc """
   Adds the specified tags to the specified resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -910,7 +915,7 @@ defmodule AWS.DLM do
   @doc """
   Removes the specified tags from the specified resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -946,7 +951,12 @@ defmodule AWS.DLM do
 
   For more information about updating a policy, see [Modify lifecycle policies](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-modify-delete.html#modify).
   """
-  @spec update_lifecycle_policy(map(), String.t(), update_lifecycle_policy_request(), list()) ::
+  @spec update_lifecycle_policy(
+          map(),
+          String.t() | Atom.t(),
+          update_lifecycle_policy_request(),
+          list()
+        ) ::
           {:ok, update_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

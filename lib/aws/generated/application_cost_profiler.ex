@@ -23,11 +23,11 @@ defmodule AWS.ApplicationCostProfiler do
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -43,11 +43,11 @@ defmodule AWS.ApplicationCostProfiler do
   ## Example:
 
       delete_report_definition_result() :: %{
-        "reportId" => String.t()
+        "reportId" => String.t() | Atom.t()
       }
 
   """
-  @type delete_report_definition_result() :: %{String.t() => any()}
+  @type delete_report_definition_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -67,13 +67,13 @@ defmodule AWS.ApplicationCostProfiler do
         "destinationS3Location" => s3_location(),
         "format" => list(any()),
         "lastUpdated" => non_neg_integer(),
-        "reportDescription" => String.t(),
+        "reportDescription" => String.t() | Atom.t(),
         "reportFrequency" => list(any()),
-        "reportId" => String.t()
+        "reportId" => String.t() | Atom.t()
       }
 
   """
-  @type get_report_definition_result() :: %{String.t() => any()}
+  @type get_report_definition_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -84,29 +84,29 @@ defmodule AWS.ApplicationCostProfiler do
       }
 
   """
-  @type import_application_usage_request() :: %{String.t() => any()}
+  @type import_application_usage_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       import_application_usage_result() :: %{
-        "importId" => String.t()
+        "importId" => String.t() | Atom.t()
       }
 
   """
-  @type import_application_usage_result() :: %{String.t() => any()}
+  @type import_application_usage_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -114,23 +114,23 @@ defmodule AWS.ApplicationCostProfiler do
 
       list_report_definitions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_report_definitions_request() :: %{String.t() => any()}
+  @type list_report_definitions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_report_definitions_result() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "reportDefinitions" => list(report_definition())
       }
 
   """
-  @type list_report_definitions_result() :: %{String.t() => any()}
+  @type list_report_definitions_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -139,24 +139,24 @@ defmodule AWS.ApplicationCostProfiler do
       put_report_definition_request() :: %{
         required("destinationS3Location") => s3_location(),
         required("format") => list(any()),
-        required("reportDescription") => String.t(),
+        required("reportDescription") => String.t() | Atom.t(),
         required("reportFrequency") => list(any()),
-        required("reportId") => String.t()
+        required("reportId") => String.t() | Atom.t()
       }
 
   """
-  @type put_report_definition_request() :: %{String.t() => any()}
+  @type put_report_definition_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_report_definition_result() :: %{
-        "reportId" => String.t()
+        "reportId" => String.t() | Atom.t()
       }
 
   """
-  @type put_report_definition_result() :: %{String.t() => any()}
+  @type put_report_definition_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -167,60 +167,60 @@ defmodule AWS.ApplicationCostProfiler do
         "destinationS3Location" => s3_location(),
         "format" => list(any()),
         "lastUpdatedAt" => non_neg_integer(),
-        "reportDescription" => String.t(),
+        "reportDescription" => String.t() | Atom.t(),
         "reportFrequency" => list(any()),
-        "reportId" => String.t()
+        "reportId" => String.t() | Atom.t()
       }
 
   """
-  @type report_definition() :: %{String.t() => any()}
+  @type report_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_location() :: %{
-        "bucket" => String.t(),
-        "prefix" => String.t()
+        "bucket" => String.t() | Atom.t(),
+        "prefix" => String.t() | Atom.t()
       }
 
   """
-  @type s3_location() :: %{String.t() => any()}
+  @type s3_location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       source_s3_location() :: %{
-        "bucket" => String.t(),
-        "key" => String.t(),
+        "bucket" => String.t() | Atom.t(),
+        "key" => String.t() | Atom.t(),
         "region" => list(any())
       }
 
   """
-  @type source_s3_location() :: %{String.t() => any()}
+  @type source_s3_location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -229,34 +229,34 @@ defmodule AWS.ApplicationCostProfiler do
       update_report_definition_request() :: %{
         required("destinationS3Location") => s3_location(),
         required("format") => list(any()),
-        required("reportDescription") => String.t(),
+        required("reportDescription") => String.t() | Atom.t(),
         required("reportFrequency") => list(any())
       }
 
   """
-  @type update_report_definition_request() :: %{String.t() => any()}
+  @type update_report_definition_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_report_definition_result() :: %{
-        "reportId" => String.t()
+        "reportId" => String.t() | Atom.t()
       }
 
   """
-  @type update_report_definition_result() :: %{String.t() => any()}
+  @type update_report_definition_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @type delete_report_definition_errors() ::
           validation_exception()
@@ -317,7 +317,12 @@ defmodule AWS.ApplicationCostProfiler do
   This stops the report from being
   generated.
   """
-  @spec delete_report_definition(map(), String.t(), delete_report_definition_request(), list()) ::
+  @spec delete_report_definition(
+          map(),
+          String.t() | Atom.t(),
+          delete_report_definition_request(),
+          list()
+        ) ::
           {:ok, delete_report_definition_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -347,7 +352,7 @@ defmodule AWS.ApplicationCostProfiler do
   Retrieves the definition of a report already configured in AWS Application Cost
   Profiler.
   """
-  @spec get_report_definition(map(), String.t(), list()) ::
+  @spec get_report_definition(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_report_definition_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -402,7 +407,12 @@ defmodule AWS.ApplicationCostProfiler do
 
   The maximum number of reports is one.
   """
-  @spec list_report_definitions(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_report_definitions(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_report_definitions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -468,7 +478,12 @@ defmodule AWS.ApplicationCostProfiler do
   @doc """
   Updates existing report in AWS Application Cost Profiler.
   """
-  @spec update_report_definition(map(), String.t(), update_report_definition_request(), list()) ::
+  @spec update_report_definition(
+          map(),
+          String.t() | Atom.t(),
+          update_report_definition_request(),
+          list()
+        ) ::
           {:ok, update_report_definition_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

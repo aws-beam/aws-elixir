@@ -25,93 +25,93 @@ defmodule AWS.CloudTrailData do
   ## Example:
 
       audit_event() :: %{
-        "eventData" => [String.t()],
-        "eventDataChecksum" => [String.t()],
-        "id" => String.t()
+        "eventData" => [String.t() | Atom.t()],
+        "eventDataChecksum" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t()
       }
 
   """
-  @type audit_event() :: %{String.t() => any()}
+  @type audit_event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       audit_event_result_entry() :: %{
-        "eventID" => String.t(),
-        "id" => String.t()
+        "eventID" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t()
       }
 
   """
-  @type audit_event_result_entry() :: %{String.t() => any()}
+  @type audit_event_result_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       channel_insufficient_permission() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type channel_insufficient_permission() :: %{String.t() => any()}
+  @type channel_insufficient_permission() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       channel_not_found() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type channel_not_found() :: %{String.t() => any()}
+  @type channel_not_found() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       channel_unsupported_schema() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type channel_unsupported_schema() :: %{String.t() => any()}
+  @type channel_unsupported_schema() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       duplicated_audit_event_id() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type duplicated_audit_event_id() :: %{String.t() => any()}
+  @type duplicated_audit_event_id() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_channel_arn() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type invalid_channel_arn() :: %{String.t() => any()}
+  @type invalid_channel_arn() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_audit_events_request() :: %{
-        optional("externalId") => String.t(),
+        optional("externalId") => String.t() | Atom.t(),
         required("auditEvents") => list(audit_event()),
-        required("channelArn") => String.t()
+        required("channelArn") => String.t() | Atom.t()
       }
 
   """
-  @type put_audit_events_request() :: %{String.t() => any()}
+  @type put_audit_events_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -123,31 +123,31 @@ defmodule AWS.CloudTrailData do
       }
 
   """
-  @type put_audit_events_response() :: %{String.t() => any()}
+  @type put_audit_events_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       result_error_entry() :: %{
-        "errorCode" => String.t(),
-        "errorMessage" => String.t(),
-        "id" => String.t()
+        "errorCode" => String.t() | Atom.t(),
+        "errorMessage" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t()
       }
 
   """
-  @type result_error_entry() :: %{String.t() => any()}
+  @type result_error_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       unsupported_operation_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type unsupported_operation_exception() :: %{String.t() => any()}
+  @type unsupported_operation_exception() :: %{String.t() | Atom.t() => any()}
 
   @type put_audit_events_errors() ::
           unsupported_operation_exception()

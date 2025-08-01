@@ -24,7 +24,7 @@ defmodule AWS.IoTSecureTunneling do
       }
       
   """
-  @type close_tunnel_request() :: %{String.t() => any()}
+  @type close_tunnel_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -45,7 +45,7 @@ defmodule AWS.IoTSecureTunneling do
       }
       
   """
-  @type connection_state() :: %{String.t() => any()}
+  @type connection_state() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -65,41 +65,41 @@ defmodule AWS.IoTSecureTunneling do
       }
       
   """
-  @type describe_tunnel_response() :: %{String.t() => any()}
+  @type describe_tunnel_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       destination_config() :: %{
-        "services" => list(String.t()),
-        "thingName" => String.t()
+        "services" => list(String.t() | Atom.t()),
+        "thingName" => String.t() | Atom.t()
       }
       
   """
-  @type destination_config() :: %{String.t() => any()}
+  @type destination_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("resourceArn") => String.t()
+        required("resourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -110,7 +110,7 @@ defmodule AWS.IoTSecureTunneling do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -118,63 +118,63 @@ defmodule AWS.IoTSecureTunneling do
       
       list_tunnels_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("thingName") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("thingName") => String.t() | Atom.t()
       }
       
   """
-  @type list_tunnels_request() :: %{String.t() => any()}
+  @type list_tunnels_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tunnels_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "tunnelSummaries" => list(tunnel_summary())
       }
       
   """
-  @type list_tunnels_response() :: %{String.t() => any()}
+  @type list_tunnels_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       open_tunnel_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("destinationConfig") => destination_config(),
         optional("tags") => list(tag()),
         optional("timeoutConfig") => timeout_config()
       }
       
   """
-  @type open_tunnel_request() :: %{String.t() => any()}
+  @type open_tunnel_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       open_tunnel_response() :: %{
-        "destinationAccessToken" => String.t(),
-        "sourceAccessToken" => String.t(),
-        "tunnelArn" => String.t(),
-        "tunnelId" => String.t()
+        "destinationAccessToken" => String.t() | Atom.t(),
+        "sourceAccessToken" => String.t() | Atom.t(),
+        "tunnelArn" => String.t() | Atom.t(),
+        "tunnelId" => String.t() | Atom.t()
       }
       
   """
-  @type open_tunnel_response() :: %{String.t() => any()}
+  @type open_tunnel_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -186,44 +186,44 @@ defmodule AWS.IoTSecureTunneling do
       }
       
   """
-  @type rotate_tunnel_access_token_request() :: %{String.t() => any()}
+  @type rotate_tunnel_access_token_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       rotate_tunnel_access_token_response() :: %{
-        "destinationAccessToken" => String.t(),
-        "sourceAccessToken" => String.t(),
-        "tunnelArn" => String.t()
+        "destinationAccessToken" => String.t() | Atom.t(),
+        "sourceAccessToken" => String.t() | Atom.t(),
+        "tunnelArn" => String.t() | Atom.t()
       }
       
   """
-  @type rotate_tunnel_access_token_response() :: %{String.t() => any()}
+  @type rotate_tunnel_access_token_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "key" => String.t(),
-        "value" => String.t()
+        "key" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("resourceArn") => String.t(),
+        required("resourceArn") => String.t() | Atom.t(),
         required("tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -243,7 +243,7 @@ defmodule AWS.IoTSecureTunneling do
       }
       
   """
-  @type timeout_config() :: %{String.t() => any()}
+  @type timeout_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -251,7 +251,7 @@ defmodule AWS.IoTSecureTunneling do
       
       tunnel() :: %{
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "destinationConfig" => destination_config(),
         "destinationConnectionState" => connection_state(),
         "lastUpdatedAt" => non_neg_integer(),
@@ -259,12 +259,12 @@ defmodule AWS.IoTSecureTunneling do
         "status" => list(any()),
         "tags" => list(tag()),
         "timeoutConfig" => timeout_config(),
-        "tunnelArn" => String.t(),
-        "tunnelId" => String.t()
+        "tunnelArn" => String.t() | Atom.t(),
+        "tunnelId" => String.t() | Atom.t()
       }
       
   """
-  @type tunnel() :: %{String.t() => any()}
+  @type tunnel() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -272,27 +272,27 @@ defmodule AWS.IoTSecureTunneling do
       
       tunnel_summary() :: %{
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "lastUpdatedAt" => non_neg_integer(),
         "status" => list(any()),
-        "tunnelArn" => String.t(),
-        "tunnelId" => String.t()
+        "tunnelArn" => String.t() | Atom.t(),
+        "tunnelId" => String.t() | Atom.t()
       }
       
   """
-  @type tunnel_summary() :: %{String.t() => any()}
+  @type tunnel_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("resourceArn") => String.t(),
-        required("tagKeys") => list(String.t())
+        required("resourceArn") => String.t() | Atom.t(),
+        required("tagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 

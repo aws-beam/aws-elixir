@@ -37,40 +37,40 @@ defmodule AWS.Invoicing do
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
+        required("ResourceArn") => String.t() | Atom.t(),
         required("ResourceTags") => list(resource_tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_invoice_unit_response() :: %{
-        "InvoiceUnitArn" => String.t()
+        "InvoiceUnitArn" => String.t() | Atom.t()
       }
       
   """
-  @type delete_invoice_unit_response() :: %{String.t() => any()}
+  @type delete_invoice_unit_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_invoice_unit_response() :: %{
-        "Description" => String.t(),
-        "InvoiceReceiver" => String.t(),
-        "InvoiceUnitArn" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "InvoiceReceiver" => String.t() | Atom.t(),
+        "InvoiceUnitArn" => String.t() | Atom.t(),
         "LastModified" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Rule" => invoice_unit_rule(),
         "TaxInheritanceDisabled" => boolean()
       }
       
   """
-  @type get_invoice_unit_response() :: %{String.t() => any()}
+  @type get_invoice_unit_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -86,24 +86,24 @@ defmodule AWS.Invoicing do
   ## Example:
       
       entity() :: %{
-        "InvoicingEntity" => String.t()
+        "InvoicingEntity" => String.t() | Atom.t()
       }
       
   """
-  @type entity() :: %{String.t() => any()}
+  @type entity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       discounts_breakdown_amount() :: %{
-        "Amount" => String.t(),
-        "Description" => String.t(),
-        "Rate" => String.t()
+        "Amount" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "Rate" => String.t() | Atom.t()
       }
       
   """
-  @type discounts_breakdown_amount() :: %{String.t() => any()}
+  @type discounts_breakdown_amount() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -115,7 +115,7 @@ defmodule AWS.Invoicing do
       }
       
   """
-  @type date_interval() :: %{String.t() => any()}
+  @type date_interval() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -123,70 +123,70 @@ defmodule AWS.Invoicing do
       
       invoice_summaries_filter() :: %{
         "BillingPeriod" => billing_period(),
-        "InvoicingEntity" => String.t(),
+        "InvoicingEntity" => String.t() | Atom.t(),
         "TimeInterval" => date_interval()
       }
       
   """
-  @type invoice_summaries_filter() :: %{String.t() => any()}
+  @type invoice_summaries_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invoice_profile() :: %{
-        "AccountId" => String.t(),
-        "Issuer" => String.t(),
+        "AccountId" => String.t() | Atom.t(),
+        "Issuer" => String.t() | Atom.t(),
         "ReceiverAddress" => receiver_address(),
-        "ReceiverEmail" => String.t(),
-        "ReceiverName" => String.t(),
-        "TaxRegistrationNumber" => String.t()
+        "ReceiverEmail" => String.t() | Atom.t(),
+        "ReceiverName" => String.t() | Atom.t(),
+        "TaxRegistrationNumber" => String.t() | Atom.t()
       }
       
   """
-  @type invoice_profile() :: %{String.t() => any()}
+  @type invoice_profile() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
-        required("ResourceTagKeys") => list(String.t())
+        required("ResourceArn") => String.t() | Atom.t(),
+        required("ResourceTagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_invoice_unit_response() :: %{
-        "InvoiceUnitArn" => String.t()
+        "InvoiceUnitArn" => String.t() | Atom.t()
       }
       
   """
-  @type update_invoice_unit_response() :: %{String.t() => any()}
+  @type update_invoice_unit_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       receiver_address() :: %{
-        "AddressLine1" => String.t(),
-        "AddressLine2" => String.t(),
-        "AddressLine3" => String.t(),
-        "City" => String.t(),
-        "CompanyName" => String.t(),
-        "CountryCode" => String.t(),
-        "DistrictOrCounty" => String.t(),
-        "PostalCode" => String.t(),
-        "StateOrRegion" => String.t()
+        "AddressLine1" => String.t() | Atom.t(),
+        "AddressLine2" => String.t() | Atom.t(),
+        "AddressLine3" => String.t() | Atom.t(),
+        "City" => String.t() | Atom.t(),
+        "CompanyName" => String.t() | Atom.t(),
+        "CountryCode" => String.t() | Atom.t(),
+        "DistrictOrCounty" => String.t() | Atom.t(),
+        "PostalCode" => String.t() | Atom.t(),
+        "StateOrRegion" => String.t() | Atom.t()
       }
       
   """
-  @type receiver_address() :: %{String.t() => any()}
+  @type receiver_address() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -194,80 +194,80 @@ defmodule AWS.Invoicing do
       
       list_invoice_units_response() :: %{
         "InvoiceUnits" => list(invoice_unit()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_invoice_units_response() :: %{String.t() => any()}
+  @type list_invoice_units_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => String.t(),
-        "resourceName" => String.t()
+        "message" => String.t() | Atom.t(),
+        "resourceName" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       service_quota_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_invoice_unit_request() :: %{
-        required("InvoiceUnitArn") => String.t()
+        required("InvoiceUnitArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_invoice_unit_request() :: %{String.t() => any()}
+  @type delete_invoice_unit_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       taxes_breakdown_amount() :: %{
-        "Amount" => String.t(),
-        "Description" => String.t(),
-        "Rate" => String.t()
+        "Amount" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "Rate" => String.t() | Atom.t()
       }
       
   """
-  @type taxes_breakdown_amount() :: %{String.t() => any()}
+  @type taxes_breakdown_amount() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invoice_summary() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | Atom.t(),
         "BaseCurrencyAmount" => invoice_currency_amount(),
         "BillingPeriod" => billing_period(),
         "DueDate" => [non_neg_integer()],
         "Entity" => entity(),
-        "InvoiceId" => String.t(),
+        "InvoiceId" => String.t() | Atom.t(),
         "InvoiceType" => list(any()),
         "IssuedDate" => [non_neg_integer()],
-        "OriginalInvoiceId" => String.t(),
+        "OriginalInvoiceId" => String.t() | Atom.t(),
         "PaymentCurrencyAmount" => invoice_currency_amount(),
-        "PurchaseOrderNumber" => String.t(),
+        "PurchaseOrderNumber" => String.t() | Atom.t(),
         "TaxCurrencyAmount" => invoice_currency_amount()
       }
       
   """
-  @type invoice_summary() :: %{String.t() => any()}
+  @type invoice_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -278,43 +278,43 @@ defmodule AWS.Invoicing do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       currency_exchange_details() :: %{
-        "Rate" => String.t(),
-        "SourceCurrencyCode" => String.t(),
-        "TargetCurrencyCode" => String.t()
+        "Rate" => String.t() | Atom.t(),
+        "SourceCurrencyCode" => String.t() | Atom.t(),
+        "TargetCurrencyCode" => String.t() | Atom.t()
       }
       
   """
-  @type currency_exchange_details() :: %{String.t() => any()}
+  @type currency_exchange_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_invoice_profile_request() :: %{
-        required("AccountIds") => list(String.t())
+        required("AccountIds") => list(String.t() | Atom.t())
       }
       
   """
-  @type batch_get_invoice_profile_request() :: %{String.t() => any()}
+  @type batch_get_invoice_profile_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception_field() :: %{
-        "message" => String.t(),
-        "name" => String.t()
+        "message" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
       
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -322,14 +322,14 @@ defmodule AWS.Invoicing do
       
       invoice_currency_amount() :: %{
         "AmountBreakdown" => amount_breakdown(),
-        "CurrencyCode" => String.t(),
+        "CurrencyCode" => String.t() | Atom.t(),
         "CurrencyExchangeDetails" => currency_exchange_details(),
-        "TotalAmount" => String.t(),
-        "TotalAmountBeforeTax" => String.t()
+        "TotalAmount" => String.t() | Atom.t(),
+        "TotalAmountBeforeTax" => String.t() | Atom.t()
       }
       
   """
-  @type invoice_currency_amount() :: %{String.t() => any()}
+  @type invoice_currency_amount() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -337,11 +337,11 @@ defmodule AWS.Invoicing do
       
       discounts_breakdown() :: %{
         "Breakdown" => list(discounts_breakdown_amount()),
-        "TotalAmount" => String.t()
+        "TotalAmount" => String.t() | Atom.t()
       }
       
   """
-  @type discounts_breakdown() :: %{String.t() => any()}
+  @type discounts_breakdown() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -353,32 +353,32 @@ defmodule AWS.Invoicing do
       }
       
   """
-  @type billing_period() :: %{String.t() => any()}
+  @type billing_period() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       fees_breakdown_amount() :: %{
-        "Amount" => String.t(),
-        "Description" => String.t(),
-        "Rate" => String.t()
+        "Amount" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "Rate" => String.t() | Atom.t()
       }
       
   """
-  @type fees_breakdown_amount() :: %{String.t() => any()}
+  @type fees_breakdown_amount() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "message" => String.t(),
+        "message" => String.t() | Atom.t(),
         "retryAfterSeconds" => [integer()]
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -388,35 +388,35 @@ defmodule AWS.Invoicing do
         optional("AsOf") => non_neg_integer(),
         optional("Filters") => filters(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_invoice_units_request() :: %{String.t() => any()}
+  @type list_invoice_units_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type resource_tag() :: %{String.t() => any()}
+  @type resource_tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "message" => String.t(),
-        "resourceName" => String.t()
+        "message" => String.t() | Atom.t(),
+        "resourceName" => String.t() | Atom.t()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -432,11 +432,11 @@ defmodule AWS.Invoicing do
   ## Example:
       
       invoice_unit_rule() :: %{
-        "LinkedAccounts" => list(String.t())
+        "LinkedAccounts" => list(String.t() | Atom.t())
       }
       
   """
-  @type invoice_unit_rule() :: %{String.t() => any()}
+  @type invoice_unit_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -447,7 +447,7 @@ defmodule AWS.Invoicing do
       }
       
   """
-  @type batch_get_invoice_profile_response() :: %{String.t() => any()}
+  @type batch_get_invoice_profile_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -455,11 +455,11 @@ defmodule AWS.Invoicing do
       
       invoice_summaries_selector() :: %{
         "ResourceType" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type invoice_summaries_selector() :: %{String.t() => any()}
+  @type invoice_summaries_selector() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -467,65 +467,65 @@ defmodule AWS.Invoicing do
       
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
-        "message" => String.t(),
+        "message" => String.t() | Atom.t(),
         "reason" => list(any()),
-        "resourceName" => String.t()
+        "resourceName" => String.t() | Atom.t()
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_invoice_unit_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("ResourceTags") => list(resource_tag()),
         optional("TaxInheritanceDisabled") => boolean(),
-        required("InvoiceReceiver") => String.t(),
-        required("Name") => String.t(),
+        required("InvoiceReceiver") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t(),
         required("Rule") => invoice_unit_rule()
       }
       
   """
-  @type create_invoice_unit_request() :: %{String.t() => any()}
+  @type create_invoice_unit_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_invoice_unit_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("Rule") => invoice_unit_rule(),
         optional("TaxInheritanceDisabled") => boolean(),
-        required("InvoiceUnitArn") => String.t()
+        required("InvoiceUnitArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_invoice_unit_request() :: %{String.t() => any()}
+  @type update_invoice_unit_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -534,25 +534,25 @@ defmodule AWS.Invoicing do
       amount_breakdown() :: %{
         "Discounts" => discounts_breakdown(),
         "Fees" => fees_breakdown(),
-        "SubTotalAmount" => String.t(),
+        "SubTotalAmount" => String.t() | Atom.t(),
         "Taxes" => taxes_breakdown()
       }
       
   """
-  @type amount_breakdown() :: %{String.t() => any()}
+  @type amount_breakdown() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       filters() :: %{
-        "Accounts" => list(String.t()),
-        "InvoiceReceivers" => list(String.t()),
-        "Names" => list(String.t())
+        "Accounts" => list(String.t() | Atom.t()),
+        "InvoiceReceivers" => list(String.t() | Atom.t()),
+        "Names" => list(String.t() | Atom.t())
       }
       
   """
-  @type filters() :: %{String.t() => any()}
+  @type filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -560,22 +560,22 @@ defmodule AWS.Invoicing do
       
       list_invoice_summaries_response() :: %{
         "InvoiceSummaries" => list(invoice_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_invoice_summaries_response() :: %{String.t() => any()}
+  @type list_invoice_summaries_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_invoice_unit_response() :: %{
-        "InvoiceUnitArn" => String.t()
+        "InvoiceUnitArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_invoice_unit_response() :: %{String.t() => any()}
+  @type create_invoice_unit_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -583,11 +583,11 @@ defmodule AWS.Invoicing do
       
       fees_breakdown() :: %{
         "Breakdown" => list(fees_breakdown_amount()),
-        "TotalAmount" => String.t()
+        "TotalAmount" => String.t() | Atom.t()
       }
       
   """
-  @type fees_breakdown() :: %{String.t() => any()}
+  @type fees_breakdown() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -595,28 +595,28 @@ defmodule AWS.Invoicing do
       
       get_invoice_unit_request() :: %{
         optional("AsOf") => non_neg_integer(),
-        required("InvoiceUnitArn") => String.t()
+        required("InvoiceUnitArn") => String.t() | Atom.t()
       }
       
   """
-  @type get_invoice_unit_request() :: %{String.t() => any()}
+  @type get_invoice_unit_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invoice_unit() :: %{
-        "Description" => String.t(),
-        "InvoiceReceiver" => String.t(),
-        "InvoiceUnitArn" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "InvoiceReceiver" => String.t() | Atom.t(),
+        "InvoiceUnitArn" => String.t() | Atom.t(),
         "LastModified" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Rule" => invoice_unit_rule(),
         "TaxInheritanceDisabled" => boolean()
       }
       
   """
-  @type invoice_unit() :: %{String.t() => any()}
+  @type invoice_unit() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -625,12 +625,12 @@ defmodule AWS.Invoicing do
       list_invoice_summaries_request() :: %{
         optional("Filter") => invoice_summaries_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         required("Selector") => invoice_summaries_selector()
       }
       
   """
-  @type list_invoice_summaries_request() :: %{String.t() => any()}
+  @type list_invoice_summaries_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -638,11 +638,11 @@ defmodule AWS.Invoicing do
       
       taxes_breakdown() :: %{
         "Breakdown" => list(taxes_breakdown_amount()),
-        "TotalAmount" => String.t()
+        "TotalAmount" => String.t() | Atom.t()
       }
       
   """
-  @type taxes_breakdown() :: %{String.t() => any()}
+  @type taxes_breakdown() :: %{String.t() | Atom.t() => any()}
 
   @type batch_get_invoice_profile_errors() ::
           throttling_exception()

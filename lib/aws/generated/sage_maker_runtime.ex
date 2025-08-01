@@ -14,84 +14,84 @@ defmodule AWS.SageMakerRuntime do
   ## Example:
 
       internal_dependency_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_dependency_exception() :: %{String.t() => any()}
+  @type internal_dependency_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_failure() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_failure() :: %{String.t() => any()}
+  @type internal_failure() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_stream_failure() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_stream_failure() :: %{String.t() => any()}
+  @type internal_stream_failure() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invoke_endpoint_async_input() :: %{
-        optional("Accept") => String.t(),
-        optional("ContentType") => String.t(),
-        optional("CustomAttributes") => String.t(),
-        optional("InferenceId") => String.t(),
+        optional("Accept") => String.t() | Atom.t(),
+        optional("ContentType") => String.t() | Atom.t(),
+        optional("CustomAttributes") => String.t() | Atom.t(),
+        optional("InferenceId") => String.t() | Atom.t(),
         optional("InvocationTimeoutSeconds") => integer(),
         optional("RequestTTLSeconds") => integer(),
-        required("InputLocation") => String.t()
+        required("InputLocation") => String.t() | Atom.t()
       }
 
   """
-  @type invoke_endpoint_async_input() :: %{String.t() => any()}
+  @type invoke_endpoint_async_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invoke_endpoint_async_output() :: %{
-        "FailureLocation" => String.t(),
-        "InferenceId" => String.t(),
-        "OutputLocation" => String.t()
+        "FailureLocation" => String.t() | Atom.t(),
+        "InferenceId" => String.t() | Atom.t(),
+        "OutputLocation" => String.t() | Atom.t()
       }
 
   """
-  @type invoke_endpoint_async_output() :: %{String.t() => any()}
+  @type invoke_endpoint_async_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invoke_endpoint_input() :: %{
-        optional("Accept") => String.t(),
-        optional("ContentType") => String.t(),
-        optional("CustomAttributes") => String.t(),
-        optional("EnableExplanations") => String.t(),
-        optional("InferenceComponentName") => String.t(),
-        optional("InferenceId") => String.t(),
-        optional("SessionId") => String.t(),
-        optional("TargetContainerHostname") => String.t(),
-        optional("TargetModel") => String.t(),
-        optional("TargetVariant") => String.t(),
+        optional("Accept") => String.t() | Atom.t(),
+        optional("ContentType") => String.t() | Atom.t(),
+        optional("CustomAttributes") => String.t() | Atom.t(),
+        optional("EnableExplanations") => String.t() | Atom.t(),
+        optional("InferenceComponentName") => String.t() | Atom.t(),
+        optional("InferenceId") => String.t() | Atom.t(),
+        optional("SessionId") => String.t() | Atom.t(),
+        optional("TargetContainerHostname") => String.t() | Atom.t(),
+        optional("TargetModel") => String.t() | Atom.t(),
+        optional("TargetVariant") => String.t() | Atom.t(),
         required("Body") => binary()
       }
 
   """
-  @type invoke_endpoint_input() :: %{String.t() => any()}
+  @type invoke_endpoint_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -99,34 +99,34 @@ defmodule AWS.SageMakerRuntime do
 
       invoke_endpoint_output() :: %{
         "Body" => binary(),
-        "ClosedSessionId" => String.t(),
-        "ContentType" => String.t(),
-        "CustomAttributes" => String.t(),
-        "InvokedProductionVariant" => String.t(),
-        "NewSessionId" => String.t()
+        "ClosedSessionId" => String.t() | Atom.t(),
+        "ContentType" => String.t() | Atom.t(),
+        "CustomAttributes" => String.t() | Atom.t(),
+        "InvokedProductionVariant" => String.t() | Atom.t(),
+        "NewSessionId" => String.t() | Atom.t()
       }
 
   """
-  @type invoke_endpoint_output() :: %{String.t() => any()}
+  @type invoke_endpoint_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invoke_endpoint_with_response_stream_input() :: %{
-        optional("Accept") => String.t(),
-        optional("ContentType") => String.t(),
-        optional("CustomAttributes") => String.t(),
-        optional("InferenceComponentName") => String.t(),
-        optional("InferenceId") => String.t(),
-        optional("SessionId") => String.t(),
-        optional("TargetContainerHostname") => String.t(),
-        optional("TargetVariant") => String.t(),
+        optional("Accept") => String.t() | Atom.t(),
+        optional("ContentType") => String.t() | Atom.t(),
+        optional("CustomAttributes") => String.t() | Atom.t(),
+        optional("InferenceComponentName") => String.t() | Atom.t(),
+        optional("InferenceId") => String.t() | Atom.t(),
+        optional("SessionId") => String.t() | Atom.t(),
+        optional("TargetContainerHostname") => String.t() | Atom.t(),
+        optional("TargetVariant") => String.t() | Atom.t(),
         required("Body") => binary()
       }
 
   """
-  @type invoke_endpoint_with_response_stream_input() :: %{String.t() => any()}
+  @type invoke_endpoint_with_response_stream_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -134,50 +134,50 @@ defmodule AWS.SageMakerRuntime do
 
       invoke_endpoint_with_response_stream_output() :: %{
         "Body" => list(),
-        "ContentType" => String.t(),
-        "CustomAttributes" => String.t(),
-        "InvokedProductionVariant" => String.t()
+        "ContentType" => String.t() | Atom.t(),
+        "CustomAttributes" => String.t() | Atom.t(),
+        "InvokedProductionVariant" => String.t() | Atom.t()
       }
 
   """
-  @type invoke_endpoint_with_response_stream_output() :: %{String.t() => any()}
+  @type invoke_endpoint_with_response_stream_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       model_error() :: %{
-        "LogStreamArn" => String.t(),
-        "Message" => String.t(),
-        "OriginalMessage" => String.t(),
+        "LogStreamArn" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
+        "OriginalMessage" => String.t() | Atom.t(),
         "OriginalStatusCode" => integer()
       }
 
   """
-  @type model_error() :: %{String.t() => any()}
+  @type model_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       model_not_ready_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type model_not_ready_exception() :: %{String.t() => any()}
+  @type model_not_ready_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       model_stream_error() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type model_stream_error() :: %{String.t() => any()}
+  @type model_stream_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -188,29 +188,29 @@ defmodule AWS.SageMakerRuntime do
       }
 
   """
-  @type payload_part() :: %{String.t() => any()}
+  @type payload_part() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_unavailable() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type service_unavailable() :: %{String.t() => any()}
+  @type service_unavailable() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_error() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type validation_error() :: %{String.t() => any()}
+  @type validation_error() :: %{String.t() | Atom.t() => any()}
 
   @type invoke_endpoint_errors() ::
           validation_error()
@@ -277,7 +277,7 @@ defmodule AWS.SageMakerRuntime do
   not contain the account ID, but Amazon SageMaker determines the account ID from
   the authentication token that is supplied by the caller.
   """
-  @spec invoke_endpoint(map(), String.t(), invoke_endpoint_input(), list()) ::
+  @spec invoke_endpoint(map(), String.t() | Atom.t(), invoke_endpoint_input(), list()) ::
           {:ok, invoke_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -369,7 +369,7 @@ defmodule AWS.SageMakerRuntime do
   4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html)
   in the *Amazon S3 API Reference*.
   """
-  @spec invoke_endpoint_async(map(), String.t(), invoke_endpoint_async_input(), list()) ::
+  @spec invoke_endpoint_async(map(), String.t() | Atom.t(), invoke_endpoint_async_input(), list()) ::
           {:ok, invoke_endpoint_async_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -459,7 +459,7 @@ defmodule AWS.SageMakerRuntime do
   """
   @spec invoke_endpoint_with_response_stream(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           invoke_endpoint_with_response_stream_input(),
           list()
         ) ::

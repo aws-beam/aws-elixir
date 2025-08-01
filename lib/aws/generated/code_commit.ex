@@ -441,22 +441,22 @@ defmodule AWS.CodeCommit do
   ## Example:
       
       branch_name_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type branch_name_required_exception() :: %{String.t() => any()}
+  @type branch_name_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       source_and_destination_are_same_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type source_and_destination_are_same_exception() :: %{String.t() => any()}
+  @type source_and_destination_are_same_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -464,13 +464,13 @@ defmodule AWS.CodeCommit do
       
       batch_get_repositories_error() :: %{
         "errorCode" => list(any()),
-        "errorMessage" => String.t(),
-        "repositoryId" => String.t(),
-        "repositoryName" => String.t()
+        "errorMessage" => String.t() | Atom.t(),
+        "repositoryId" => String.t() | Atom.t(),
+        "repositoryName" => String.t() | Atom.t()
       }
       
   """
-  @type batch_get_repositories_error() :: %{String.t() => any()}
+  @type batch_get_repositories_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -481,51 +481,54 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type evaluate_pull_request_approval_rules_output() :: %{String.t() => any()}
+  @type evaluate_pull_request_approval_rules_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       approval_rule_template_name_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type approval_rule_template_name_required_exception() :: %{String.t() => any()}
+  @type approval_rule_template_name_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       default_branch_cannot_be_deleted_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type default_branch_cannot_be_deleted_exception() :: %{String.t() => any()}
+  @type default_branch_cannot_be_deleted_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       client_request_token_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type client_request_token_required_exception() :: %{String.t() => any()}
+  @type client_request_token_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       maximum_rule_templates_associated_with_repository_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type maximum_rule_templates_associated_with_repository_exception() :: %{String.t() => any()}
+  @type maximum_rule_templates_associated_with_repository_exception() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -536,7 +539,7 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type get_approval_rule_template_output() :: %{String.t() => any()}
+  @type get_approval_rule_template_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -547,173 +550,176 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type get_pull_request_output() :: %{String.t() => any()}
+  @type get_pull_request_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       commit() :: %{
-        "additionalData" => String.t(),
+        "additionalData" => String.t() | Atom.t(),
         "author" => user_info(),
-        "commitId" => String.t(),
+        "commitId" => String.t() | Atom.t(),
         "committer" => user_info(),
-        "message" => String.t(),
-        "parents" => list(String.t()),
-        "treeId" => String.t()
+        "message" => String.t() | Atom.t(),
+        "parents" => list(String.t() | Atom.t()),
+        "treeId" => String.t() | Atom.t()
       }
       
   """
-  @type commit() :: %{String.t() => any()}
+  @type commit() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_order_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_order_exception() :: %{String.t() => any()}
+  @type invalid_order_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_file_output() :: %{
-        "blobId" => String.t(),
-        "commitId" => String.t(),
-        "treeId" => String.t()
+        "blobId" => String.t() | Atom.t(),
+        "commitId" => String.t() | Atom.t(),
+        "treeId" => String.t() | Atom.t()
       }
       
   """
-  @type put_file_output() :: %{String.t() => any()}
+  @type put_file_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tips_divergence_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type tips_divergence_exceeded_exception() :: %{String.t() => any()}
+  @type tips_divergence_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_approval_rule_template_description_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_approval_rule_template_description_exception() :: %{String.t() => any()}
+  @type invalid_approval_rule_template_description_exception() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       repository_name_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type repository_name_exists_exception() :: %{String.t() => any()}
+  @type repository_name_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_max_results_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_max_results_exception() :: %{String.t() => any()}
+  @type invalid_max_results_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_blob_input() :: %{
-        required("blobId") => String.t(),
-        required("repositoryName") => String.t()
+        required("blobId") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type get_blob_input() :: %{String.t() => any()}
+  @type get_blob_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_file_position_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_file_position_exception() :: %{String.t() => any()}
+  @type invalid_file_position_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_continuation_token_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_continuation_token_exception() :: %{String.t() => any()}
+  @type invalid_continuation_token_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       symbolic_link() :: %{
-        "absolutePath" => String.t(),
-        "blobId" => String.t(),
+        "absolutePath" => String.t() | Atom.t(),
+        "blobId" => String.t() | Atom.t(),
         "fileMode" => list(any()),
-        "relativePath" => String.t()
+        "relativePath" => String.t() | Atom.t()
       }
       
   """
-  @type symbolic_link() :: %{String.t() => any()}
+  @type symbolic_link() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       approval_rule_name_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type approval_rule_name_required_exception() :: %{String.t() => any()}
+  @type approval_rule_name_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       file_content_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type file_content_required_exception() :: %{String.t() => any()}
+  @type file_content_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_target_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_target_exception() :: %{String.t() => any()}
+  @type invalid_target_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -722,60 +728,60 @@ defmodule AWS.CodeCommit do
       get_merge_options_input() :: %{
         optional("conflictDetailLevel") => list(any()),
         optional("conflictResolutionStrategy") => list(any()),
-        required("destinationCommitSpecifier") => String.t(),
-        required("repositoryName") => String.t(),
-        required("sourceCommitSpecifier") => String.t()
+        required("destinationCommitSpecifier") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t(),
+        required("sourceCommitSpecifier") => String.t() | Atom.t()
       }
       
   """
-  @type get_merge_options_input() :: %{String.t() => any()}
+  @type get_merge_options_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_repository_encryption_key_output() :: %{
-        "kmsKeyId" => String.t(),
-        "originalKmsKeyId" => String.t(),
-        "repositoryId" => String.t()
+        "kmsKeyId" => String.t() | Atom.t(),
+        "originalKmsKeyId" => String.t() | Atom.t(),
+        "repositoryId" => String.t() | Atom.t()
       }
       
   """
-  @type update_repository_encryption_key_output() :: %{String.t() => any()}
+  @type update_repository_encryption_key_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_commit_input() :: %{
-        required("commitId") => String.t(),
-        required("repositoryName") => String.t()
+        required("commitId") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type get_commit_input() :: %{String.t() => any()}
+  @type get_commit_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_destination_commit_specifier_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_destination_commit_specifier_exception() :: %{String.t() => any()}
+  @type invalid_destination_commit_specifier_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       comment_deleted_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type comment_deleted_exception() :: %{String.t() => any()}
+  @type comment_deleted_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -783,172 +789,175 @@ defmodule AWS.CodeCommit do
       
       list_associated_approval_rule_templates_for_repository_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("repositoryName") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type list_associated_approval_rule_templates_for_repository_input() :: %{String.t() => any()}
+  @type list_associated_approval_rule_templates_for_repository_input() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       invalid_pull_request_id_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_pull_request_id_exception() :: %{String.t() => any()}
+  @type invalid_pull_request_id_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       repository_names_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type repository_names_required_exception() :: %{String.t() => any()}
+  @type repository_names_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_branch_input() :: %{
-        required("branchName") => String.t(),
-        required("repositoryName") => String.t()
+        required("branchName") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_branch_input() :: %{String.t() => any()}
+  @type delete_branch_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_pull_requests_output() :: %{
-        "nextToken" => String.t(),
-        "pullRequestIds" => list(String.t())
+        "nextToken" => String.t() | Atom.t(),
+        "pullRequestIds" => list(String.t() | Atom.t())
       }
       
   """
-  @type list_pull_requests_output() :: %{String.t() => any()}
+  @type list_pull_requests_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       blob_id_does_not_exist_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type blob_id_does_not_exist_exception() :: %{String.t() => any()}
+  @type blob_id_does_not_exist_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_repository_input() :: %{
-        required("repositoryName") => String.t()
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type get_repository_input() :: %{String.t() => any()}
+  @type get_repository_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       merge_branches_by_squash_input() :: %{
-        optional("authorName") => String.t(),
-        optional("commitMessage") => String.t(),
+        optional("authorName") => String.t() | Atom.t(),
+        optional("commitMessage") => String.t() | Atom.t(),
         optional("conflictDetailLevel") => list(any()),
         optional("conflictResolution") => conflict_resolution(),
         optional("conflictResolutionStrategy") => list(any()),
-        optional("email") => String.t(),
+        optional("email") => String.t() | Atom.t(),
         optional("keepEmptyFolders") => boolean(),
-        optional("targetBranch") => String.t(),
-        required("destinationCommitSpecifier") => String.t(),
-        required("repositoryName") => String.t(),
-        required("sourceCommitSpecifier") => String.t()
+        optional("targetBranch") => String.t() | Atom.t(),
+        required("destinationCommitSpecifier") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t(),
+        required("sourceCommitSpecifier") => String.t() | Atom.t()
       }
       
   """
-  @type merge_branches_by_squash_input() :: %{String.t() => any()}
+  @type merge_branches_by_squash_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       comment_id_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type comment_id_required_exception() :: %{String.t() => any()}
+  @type comment_id_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       commit_ids_limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type commit_ids_limit_exceeded_exception() :: %{String.t() => any()}
+  @type commit_ids_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       encryption_integrity_checks_failed_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type encryption_integrity_checks_failed_exception() :: %{String.t() => any()}
+  @type encryption_integrity_checks_failed_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       approval_rule_name_already_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type approval_rule_name_already_exists_exception() :: %{String.t() => any()}
+  @type approval_rule_name_already_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_merge_conflicts_output() :: %{
-        "baseCommitId" => String.t(),
+        "baseCommitId" => String.t() | Atom.t(),
         "conflictMetadata" => conflict_metadata(),
-        "destinationCommitId" => String.t(),
+        "destinationCommitId" => String.t() | Atom.t(),
         "mergeHunks" => list(merge_hunk()),
-        "nextToken" => String.t(),
-        "sourceCommitId" => String.t()
+        "nextToken" => String.t() | Atom.t(),
+        "sourceCommitId" => String.t() | Atom.t()
       }
       
   """
-  @type describe_merge_conflicts_output() :: %{String.t() => any()}
+  @type describe_merge_conflicts_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_max_merge_hunks_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_max_merge_hunks_exception() :: %{String.t() => any()}
+  @type invalid_max_merge_hunks_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -961,40 +970,40 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type conflict_resolution() :: %{String.t() => any()}
+  @type conflict_resolution() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       encryption_key_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type encryption_key_not_found_exception() :: %{String.t() => any()}
+  @type encryption_key_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       encryption_key_unavailable_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type encryption_key_unavailable_exception() :: %{String.t() => any()}
+  @type encryption_key_unavailable_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_client_request_token_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_client_request_token_exception() :: %{String.t() => any()}
+  @type invalid_client_request_token_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1005,19 +1014,19 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type create_repository_output() :: %{String.t() => any()}
+  @type create_repository_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       source_file_specifier() :: %{
-        "filePath" => String.t(),
+        "filePath" => String.t() | Atom.t(),
         "isMove" => boolean()
       }
       
   """
-  @type source_file_specifier() :: %{String.t() => any()}
+  @type source_file_specifier() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1028,36 +1037,36 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type update_approval_rule_template_content_output() :: %{String.t() => any()}
+  @type update_approval_rule_template_content_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       pull_request_target() :: %{
-        "destinationCommit" => String.t(),
-        "destinationReference" => String.t(),
-        "mergeBase" => String.t(),
+        "destinationCommit" => String.t() | Atom.t(),
+        "destinationReference" => String.t() | Atom.t(),
+        "mergeBase" => String.t() | Atom.t(),
         "mergeMetadata" => merge_metadata(),
-        "repositoryName" => String.t(),
-        "sourceCommit" => String.t(),
-        "sourceReference" => String.t()
+        "repositoryName" => String.t() | Atom.t(),
+        "sourceCommit" => String.t() | Atom.t(),
+        "sourceReference" => String.t() | Atom.t()
       }
       
   """
-  @type pull_request_target() :: %{String.t() => any()}
+  @type pull_request_target() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_pull_request_approval_rule_input() :: %{
-        required("approvalRuleName") => String.t(),
-        required("pullRequestId") => String.t()
+        required("approvalRuleName") => String.t() | Atom.t(),
+        required("pullRequestId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_pull_request_approval_rule_input() :: %{String.t() => any()}
+  @type delete_pull_request_approval_rule_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1070,270 +1079,270 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type difference() :: %{String.t() => any()}
+  @type difference() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_repositories_for_approval_rule_template_output() :: %{
-        "nextToken" => String.t(),
-        "repositoryNames" => list(String.t())
+        "nextToken" => String.t() | Atom.t(),
+        "repositoryNames" => list(String.t() | Atom.t())
       }
       
   """
-  @type list_repositories_for_approval_rule_template_output() :: %{String.t() => any()}
+  @type list_repositories_for_approval_rule_template_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       pull_request_approval_rules_not_satisfied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type pull_request_approval_rules_not_satisfied_exception() :: %{String.t() => any()}
+  @type pull_request_approval_rules_not_satisfied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_pull_requests_input() :: %{
-        optional("authorArn") => String.t(),
+        optional("authorArn") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("pullRequestStatus") => list(any()),
-        required("repositoryName") => String.t()
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type list_pull_requests_input() :: %{String.t() => any()}
+  @type list_pull_requests_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       blob_metadata() :: %{
-        "blobId" => String.t(),
-        "mode" => String.t(),
-        "path" => String.t()
+        "blobId" => String.t() | Atom.t(),
+        "mode" => String.t() | Atom.t(),
+        "path" => String.t() | Atom.t()
       }
       
   """
-  @type blob_metadata() :: %{String.t() => any()}
+  @type blob_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reaction_value_formats() :: %{
-        "emoji" => String.t(),
-        "shortCode" => String.t(),
-        "unicode" => String.t()
+        "emoji" => String.t() | Atom.t(),
+        "shortCode" => String.t() | Atom.t(),
+        "unicode" => String.t() | Atom.t()
       }
       
   """
-  @type reaction_value_formats() :: %{String.t() => any()}
+  @type reaction_value_formats() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_author_arn_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_author_arn_exception() :: %{String.t() => any()}
+  @type invalid_author_arn_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       maximum_repository_triggers_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type maximum_repository_triggers_exceeded_exception() :: %{String.t() => any()}
+  @type maximum_repository_triggers_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_reaction_value_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_reaction_value_exception() :: %{String.t() => any()}
+  @type invalid_reaction_value_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       approval_rule_event_metadata() :: %{
-        "approvalRuleContent" => String.t(),
-        "approvalRuleId" => String.t(),
-        "approvalRuleName" => String.t()
+        "approvalRuleContent" => String.t() | Atom.t(),
+        "approvalRuleId" => String.t() | Atom.t(),
+        "approvalRuleName" => String.t() | Atom.t()
       }
       
   """
-  @type approval_rule_event_metadata() :: %{String.t() => any()}
+  @type approval_rule_event_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       folder_content_size_limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type folder_content_size_limit_exceeded_exception() :: %{String.t() => any()}
+  @type folder_content_size_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       source_file_or_content_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type source_file_or_content_required_exception() :: %{String.t() => any()}
+  @type source_file_or_content_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_repository_trigger_custom_data_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_repository_trigger_custom_data_exception() :: %{String.t() => any()}
+  @type invalid_repository_trigger_custom_data_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       test_repository_triggers_input() :: %{
-        required("repositoryName") => String.t(),
+        required("repositoryName") => String.t() | Atom.t(),
         required("triggers") => list(repository_trigger())
       }
       
   """
-  @type test_repository_triggers_input() :: %{String.t() => any()}
+  @type test_repository_triggers_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tags_map_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type tags_map_required_exception() :: %{String.t() => any()}
+  @type tags_map_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_differences_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "differences" => list(difference())
       }
       
   """
-  @type get_differences_output() :: %{String.t() => any()}
+  @type get_differences_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_conflict_resolution_strategy_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_conflict_resolution_strategy_exception() :: %{String.t() => any()}
+  @type invalid_conflict_resolution_strategy_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_merge_conflicts_output() :: %{
-        "baseCommitId" => String.t(),
+        "baseCommitId" => String.t() | Atom.t(),
         "conflictMetadataList" => list(conflict_metadata()),
-        "destinationCommitId" => String.t(),
+        "destinationCommitId" => String.t() | Atom.t(),
         "mergeable" => boolean(),
-        "nextToken" => String.t(),
-        "sourceCommitId" => String.t()
+        "nextToken" => String.t() | Atom.t(),
+        "sourceCommitId" => String.t() | Atom.t()
       }
       
   """
-  @type get_merge_conflicts_output() :: %{String.t() => any()}
+  @type get_merge_conflicts_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_override_status_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_override_status_exception() :: %{String.t() => any()}
+  @type invalid_override_status_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_merge_options_output() :: %{
-        "baseCommitId" => String.t(),
-        "destinationCommitId" => String.t(),
+        "baseCommitId" => String.t() | Atom.t(),
+        "destinationCommitId" => String.t() | Atom.t(),
         "mergeOptions" => list(list(any())()),
-        "sourceCommitId" => String.t()
+        "sourceCommitId" => String.t() | Atom.t()
       }
       
   """
-  @type get_merge_options_output() :: %{String.t() => any()}
+  @type get_merge_options_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_file_entry() :: %{
-        "filePath" => String.t()
+        "filePath" => String.t() | Atom.t()
       }
       
   """
-  @type delete_file_entry() :: %{String.t() => any()}
+  @type delete_file_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_targets_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_targets_exception() :: %{String.t() => any()}
+  @type invalid_targets_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       repository_triggers_list_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type repository_triggers_list_required_exception() :: %{String.t() => any()}
+  @type repository_triggers_list_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1341,23 +1350,23 @@ defmodule AWS.CodeCommit do
       
       merge_hunk_detail() :: %{
         "endLine" => integer(),
-        "hunkContent" => String.t(),
+        "hunkContent" => String.t() | Atom.t(),
         "startLine" => integer()
       }
       
   """
-  @type merge_hunk_detail() :: %{String.t() => any()}
+  @type merge_hunk_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       path_does_not_exist_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type path_does_not_exist_exception() :: %{String.t() => any()}
+  @type path_does_not_exist_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1368,21 +1377,21 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type get_pull_request_approval_states_output() :: %{String.t() => any()}
+  @type get_pull_request_approval_states_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_pull_request_input() :: %{
-        optional("clientRequestToken") => String.t(),
-        optional("description") => String.t(),
+        optional("clientRequestToken") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
         required("targets") => list(target()),
-        required("title") => String.t()
+        required("title") => String.t() | Atom.t()
       }
       
   """
-  @type create_pull_request_input() :: %{String.t() => any()}
+  @type create_pull_request_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1393,113 +1402,113 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type pull_request_status_changed_event_metadata() :: %{String.t() => any()}
+  @type pull_request_status_changed_event_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       file_name_conflicts_with_directory_name_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type file_name_conflicts_with_directory_name_exception() :: %{String.t() => any()}
+  @type file_name_conflicts_with_directory_name_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_approval_rule_template_output() :: %{
-        "approvalRuleTemplateId" => String.t()
+        "approvalRuleTemplateId" => String.t() | Atom.t()
       }
       
   """
-  @type delete_approval_rule_template_output() :: %{String.t() => any()}
+  @type delete_approval_rule_template_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_branches_output() :: %{
-        "branches" => list(String.t()),
-        "nextToken" => String.t()
+        "branches" => list(String.t() | Atom.t()),
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_branches_output() :: %{String.t() => any()}
+  @type list_branches_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       same_file_content_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type same_file_content_exception() :: %{String.t() => any()}
+  @type same_file_content_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_repositories_input() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("order") => list(any()),
         optional("sortBy") => list(any())
       }
       
   """
-  @type list_repositories_input() :: %{String.t() => any()}
+  @type list_repositories_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       repository_name_id_pair() :: %{
-        "repositoryId" => String.t(),
-        "repositoryName" => String.t()
+        "repositoryId" => String.t() | Atom.t(),
+        "repositoryName" => String.t() | Atom.t()
       }
       
   """
-  @type repository_name_id_pair() :: %{String.t() => any()}
+  @type repository_name_id_pair() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_approval_rule_template_input() :: %{
-        optional("approvalRuleTemplateDescription") => String.t(),
-        required("approvalRuleTemplateContent") => String.t(),
-        required("approvalRuleTemplateName") => String.t()
+        optional("approvalRuleTemplateDescription") => String.t() | Atom.t(),
+        required("approvalRuleTemplateContent") => String.t() | Atom.t(),
+        required("approvalRuleTemplateName") => String.t() | Atom.t()
       }
       
   """
-  @type create_approval_rule_template_input() :: %{String.t() => any()}
+  @type create_approval_rule_template_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       commit_id_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type commit_id_required_exception() :: %{String.t() => any()}
+  @type commit_id_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_repository_triggers_output() :: %{
-        "configurationId" => String.t(),
+        "configurationId" => String.t() | Atom.t(),
         "triggers" => list(repository_trigger())
       }
       
   """
-  @type get_repository_triggers_output() :: %{String.t() => any()}
+  @type get_repository_triggers_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1510,18 +1519,18 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type post_comment_reply_output() :: %{String.t() => any()}
+  @type post_comment_reply_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       same_path_request_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type same_path_request_exception() :: %{String.t() => any()}
+  @type same_path_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1532,139 +1541,139 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type get_repository_output() :: %{String.t() => any()}
+  @type get_repository_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       maximum_number_of_approvals_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type maximum_number_of_approvals_exceeded_exception() :: %{String.t() => any()}
+  @type maximum_number_of_approvals_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_rule_content_sha256_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_rule_content_sha256_exception() :: %{String.t() => any()}
+  @type invalid_rule_content_sha256_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       author_does_not_exist_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type author_does_not_exist_exception() :: %{String.t() => any()}
+  @type author_does_not_exist_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       post_comment_for_pull_request_output() :: %{
-        "afterBlobId" => String.t(),
-        "afterCommitId" => String.t(),
-        "beforeBlobId" => String.t(),
-        "beforeCommitId" => String.t(),
+        "afterBlobId" => String.t() | Atom.t(),
+        "afterCommitId" => String.t() | Atom.t(),
+        "beforeBlobId" => String.t() | Atom.t(),
+        "beforeCommitId" => String.t() | Atom.t(),
         "comment" => comment(),
         "location" => location(),
-        "pullRequestId" => String.t(),
-        "repositoryName" => String.t()
+        "pullRequestId" => String.t() | Atom.t(),
+        "repositoryName" => String.t() | Atom.t()
       }
       
   """
-  @type post_comment_for_pull_request_output() :: %{String.t() => any()}
+  @type post_comment_for_pull_request_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       file() :: %{
-        "absolutePath" => String.t(),
-        "blobId" => String.t(),
+        "absolutePath" => String.t() | Atom.t(),
+        "blobId" => String.t() | Atom.t(),
         "fileMode" => list(any()),
-        "relativePath" => String.t()
+        "relativePath" => String.t() | Atom.t()
       }
       
   """
-  @type file() :: %{String.t() => any()}
+  @type file() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       approval_rule_template_in_use_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type approval_rule_template_in_use_exception() :: %{String.t() => any()}
+  @type approval_rule_template_in_use_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_policy_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type tag_policy_exception() :: %{String.t() => any()}
+  @type tag_policy_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tip_of_source_reference_is_different_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type tip_of_source_reference_is_different_exception() :: %{String.t() => any()}
+  @type tip_of_source_reference_is_different_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_replacement_type_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_replacement_type_exception() :: %{String.t() => any()}
+  @type invalid_replacement_type_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_repository_description_input() :: %{
-        optional("repositoryDescription") => String.t(),
-        required("repositoryName") => String.t()
+        optional("repositoryDescription") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type update_repository_description_input() :: %{String.t() => any()}
+  @type update_repository_description_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       approval_rule_template_content_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type approval_rule_template_content_required_exception() :: %{String.t() => any()}
+  @type approval_rule_template_content_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1675,88 +1684,88 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type update_approval_rule_template_description_output() :: %{String.t() => any()}
+  @type update_approval_rule_template_description_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_repository_name_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_repository_name_exception() :: %{String.t() => any()}
+  @type invalid_repository_name_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       approval_state_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type approval_state_required_exception() :: %{String.t() => any()}
+  @type approval_state_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       file_entry_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type file_entry_required_exception() :: %{String.t() => any()}
+  @type file_entry_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_describe_merge_conflicts_error() :: %{
-        "exceptionName" => String.t(),
-        "filePath" => String.t(),
-        "message" => String.t()
+        "exceptionName" => String.t() | Atom.t(),
+        "filePath" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type batch_describe_merge_conflicts_error() :: %{String.t() => any()}
+  @type batch_describe_merge_conflicts_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_output() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "tags" => map()
       }
       
   """
-  @type list_tags_for_resource_output() :: %{String.t() => any()}
+  @type list_tags_for_resource_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       merge_branches_by_fast_forward_output() :: %{
-        "commitId" => String.t(),
-        "treeId" => String.t()
+        "commitId" => String.t() | Atom.t(),
+        "treeId" => String.t() | Atom.t()
       }
       
   """
-  @type merge_branches_by_fast_forward_output() :: %{String.t() => any()}
+  @type merge_branches_by_fast_forward_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       target_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type target_required_exception() :: %{String.t() => any()}
+  @type target_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1769,66 +1778,69 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type file_modes() :: %{String.t() => any()}
+  @type file_modes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       repository_trigger_branch_name_list_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type repository_trigger_branch_name_list_required_exception() :: %{String.t() => any()}
+  @type repository_trigger_branch_name_list_required_exception() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       update_pull_request_approval_rule_content_input() :: %{
-        optional("existingRuleContentSha256") => String.t(),
-        required("approvalRuleName") => String.t(),
-        required("newRuleContent") => String.t(),
-        required("pullRequestId") => String.t()
+        optional("existingRuleContentSha256") => String.t() | Atom.t(),
+        required("approvalRuleName") => String.t() | Atom.t(),
+        required("newRuleContent") => String.t() | Atom.t(),
+        required("pullRequestId") => String.t() | Atom.t()
       }
       
   """
-  @type update_pull_request_approval_rule_content_input() :: %{String.t() => any()}
+  @type update_pull_request_approval_rule_content_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parent_commit_id_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_parent_commit_id_exception() :: %{String.t() => any()}
+  @type invalid_parent_commit_id_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       approval_rule_template_does_not_exist_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type approval_rule_template_does_not_exist_exception() :: %{String.t() => any()}
+  @type approval_rule_template_does_not_exist_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       merge_branches_by_three_way_output() :: %{
-        "commitId" => String.t(),
-        "treeId" => String.t()
+        "commitId" => String.t() | Atom.t(),
+        "treeId" => String.t() | Atom.t()
       }
       
   """
-  @type merge_branches_by_three_way_output() :: %{String.t() => any()}
+  @type merge_branches_by_three_way_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1839,165 +1851,168 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type delete_branch_output() :: %{String.t() => any()}
+  @type delete_branch_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cannot_modify_approval_rule_from_template_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cannot_modify_approval_rule_from_template_exception() :: %{String.t() => any()}
+  @type cannot_modify_approval_rule_from_template_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       approval_rule_content_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type approval_rule_content_required_exception() :: %{String.t() => any()}
+  @type approval_rule_content_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       blob_id_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type blob_id_required_exception() :: %{String.t() => any()}
+  @type blob_id_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_approval_rule_template_from_repository_input() :: %{
-        required("approvalRuleTemplateName") => String.t(),
-        required("repositoryName") => String.t()
+        required("approvalRuleTemplateName") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type disassociate_approval_rule_template_from_repository_input() :: %{String.t() => any()}
+  @type disassociate_approval_rule_template_from_repository_input() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       pull_request_cannot_be_approved_by_author_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type pull_request_cannot_be_approved_by_author_exception() :: %{String.t() => any()}
+  @type pull_request_cannot_be_approved_by_author_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       branch_name_is_tag_name_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type branch_name_is_tag_name_exception() :: %{String.t() => any()}
+  @type branch_name_is_tag_name_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_file_commit_history_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "revisionDag" => list(file_version())
       }
       
   """
-  @type list_file_commit_history_response() :: %{String.t() => any()}
+  @type list_file_commit_history_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       file_metadata() :: %{
-        "absolutePath" => String.t(),
-        "blobId" => String.t(),
+        "absolutePath" => String.t() | Atom.t(),
+        "blobId" => String.t() | Atom.t(),
         "fileMode" => list(any())
       }
       
   """
-  @type file_metadata() :: %{String.t() => any()}
+  @type file_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_approval_rule_template_description_input() :: %{
-        required("approvalRuleTemplateDescription") => String.t(),
-        required("approvalRuleTemplateName") => String.t()
+        required("approvalRuleTemplateDescription") => String.t() | Atom.t(),
+        required("approvalRuleTemplateName") => String.t() | Atom.t()
       }
       
   """
-  @type update_approval_rule_template_description_input() :: %{String.t() => any()}
+  @type update_approval_rule_template_description_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reference_name_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type reference_name_required_exception() :: %{String.t() => any()}
+  @type reference_name_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       comment_content_size_limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type comment_content_size_limit_exceeded_exception() :: %{String.t() => any()}
+  @type comment_content_size_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       replacement_content_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type replacement_content_required_exception() :: %{String.t() => any()}
+  @type replacement_content_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       merge_branches_by_three_way_input() :: %{
-        optional("authorName") => String.t(),
-        optional("commitMessage") => String.t(),
+        optional("authorName") => String.t() | Atom.t(),
+        optional("commitMessage") => String.t() | Atom.t(),
         optional("conflictDetailLevel") => list(any()),
         optional("conflictResolution") => conflict_resolution(),
         optional("conflictResolutionStrategy") => list(any()),
-        optional("email") => String.t(),
+        optional("email") => String.t() | Atom.t(),
         optional("keepEmptyFolders") => boolean(),
-        optional("targetBranch") => String.t(),
-        required("destinationCommitSpecifier") => String.t(),
-        required("repositoryName") => String.t(),
-        required("sourceCommitSpecifier") => String.t()
+        optional("targetBranch") => String.t() | Atom.t(),
+        required("destinationCommitSpecifier") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t(),
+        required("sourceCommitSpecifier") => String.t() | Atom.t()
       }
       
   """
-  @type merge_branches_by_three_way_input() :: %{String.t() => any()}
+  @type merge_branches_by_three_way_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2008,7 +2023,7 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type create_approval_rule_template_output() :: %{String.t() => any()}
+  @type create_approval_rule_template_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2017,82 +2032,83 @@ defmodule AWS.CodeCommit do
       replace_content_entry() :: %{
         "content" => binary(),
         "fileMode" => list(any()),
-        "filePath" => String.t(),
+        "filePath" => String.t() | Atom.t(),
         "replacementType" => list(any())
       }
       
   """
-  @type replace_content_entry() :: %{String.t() => any()}
+  @type replace_content_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_repository_trigger_events_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_repository_trigger_events_exception() :: %{String.t() => any()}
+  @type invalid_repository_trigger_events_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       target() :: %{
-        "destinationReference" => String.t(),
-        "repositoryName" => String.t(),
-        "sourceReference" => String.t()
+        "destinationReference" => String.t() | Atom.t(),
+        "repositoryName" => String.t() | Atom.t(),
+        "sourceReference" => String.t() | Atom.t()
       }
       
   """
-  @type target() :: %{String.t() => any()}
+  @type target() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       pull_request_id_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type pull_request_id_required_exception() :: %{String.t() => any()}
+  @type pull_request_id_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       merge_option_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type merge_option_required_exception() :: %{String.t() => any()}
+  @type merge_option_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       encryption_key_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type encryption_key_required_exception() :: %{String.t() => any()}
+  @type encryption_key_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_associate_approval_rule_template_with_repositories_output() :: %{
-        "associatedRepositoryNames" => list(String.t()),
+        "associatedRepositoryNames" => list(String.t() | Atom.t()),
         "errors" => list(batch_associate_approval_rule_template_with_repositories_error())
       }
       
   """
   @type batch_associate_approval_rule_template_with_repositories_output() :: %{
-          String.t() => any()
+          String.t()
+          | Atom.t() => any()
         }
 
   @typedoc """
@@ -2100,22 +2116,22 @@ defmodule AWS.CodeCommit do
   ## Example:
       
       delete_comment_content_input() :: %{
-        required("commentId") => String.t()
+        required("commentId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_comment_content_input() :: %{String.t() => any()}
+  @type delete_comment_content_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       maximum_items_to_compare_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type maximum_items_to_compare_exceeded_exception() :: %{String.t() => any()}
+  @type maximum_items_to_compare_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2124,35 +2140,35 @@ defmodule AWS.CodeCommit do
       get_merge_commit_input() :: %{
         optional("conflictDetailLevel") => list(any()),
         optional("conflictResolutionStrategy") => list(any()),
-        required("destinationCommitSpecifier") => String.t(),
-        required("repositoryName") => String.t(),
-        required("sourceCommitSpecifier") => String.t()
+        required("destinationCommitSpecifier") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t(),
+        required("sourceCommitSpecifier") => String.t() | Atom.t()
       }
       
   """
-  @type get_merge_commit_input() :: %{String.t() => any()}
+  @type get_merge_commit_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_repository_output() :: %{
-        "repositoryId" => String.t()
+        "repositoryId" => String.t() | Atom.t()
       }
       
   """
-  @type delete_repository_output() :: %{String.t() => any()}
+  @type delete_repository_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       multiple_conflict_resolution_entries_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type multiple_conflict_resolution_entries_exception() :: %{String.t() => any()}
+  @type multiple_conflict_resolution_entries_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2163,29 +2179,29 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type merge_pull_request_by_fast_forward_output() :: %{String.t() => any()}
+  @type merge_pull_request_by_fast_forward_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       encryption_key_access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type encryption_key_access_denied_exception() :: %{String.t() => any()}
+  @type encryption_key_access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_approval_rule_template_content_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_approval_rule_template_content_exception() :: %{String.t() => any()}
+  @type invalid_approval_rule_template_content_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2193,24 +2209,24 @@ defmodule AWS.CodeCommit do
       
       merge_metadata() :: %{
         "isMerged" => boolean(),
-        "mergeCommitId" => String.t(),
+        "mergeCommitId" => String.t() | Atom.t(),
         "mergeOption" => list(any()),
-        "mergedBy" => String.t()
+        "mergedBy" => String.t() | Atom.t()
       }
       
   """
-  @type merge_metadata() :: %{String.t() => any()}
+  @type merge_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_replacement_content_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_replacement_content_exception() :: %{String.t() => any()}
+  @type invalid_replacement_content_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2220,27 +2236,27 @@ defmodule AWS.CodeCommit do
         optional("conflictDetailLevel") => list(any()),
         optional("conflictResolutionStrategy") => list(any()),
         optional("maxConflictFiles") => integer(),
-        optional("nextToken") => String.t(),
-        required("destinationCommitSpecifier") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
+        required("destinationCommitSpecifier") => String.t() | Atom.t(),
         required("mergeOption") => list(any()),
-        required("repositoryName") => String.t(),
-        required("sourceCommitSpecifier") => String.t()
+        required("repositoryName") => String.t() | Atom.t(),
+        required("sourceCommitSpecifier") => String.t() | Atom.t()
       }
       
   """
-  @type get_merge_conflicts_input() :: %{String.t() => any()}
+  @type get_merge_conflicts_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_comment_reactions_output() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "reactionsForComment" => list(reaction_for_comment())
       }
       
   """
-  @type get_comment_reactions_output() :: %{String.t() => any()}
+  @type get_comment_reactions_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2251,66 +2267,66 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type merge_pull_request_by_squash_output() :: %{String.t() => any()}
+  @type merge_pull_request_by_squash_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       merge_branches_by_squash_output() :: %{
-        "commitId" => String.t(),
-        "treeId" => String.t()
+        "commitId" => String.t() | Atom.t(),
+        "treeId" => String.t() | Atom.t()
       }
       
   """
-  @type merge_branches_by_squash_output() :: %{String.t() => any()}
+  @type merge_branches_by_squash_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       revision_id_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type revision_id_required_exception() :: %{String.t() => any()}
+  @type revision_id_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       merge_branches_by_fast_forward_input() :: %{
-        optional("targetBranch") => String.t(),
-        required("destinationCommitSpecifier") => String.t(),
-        required("repositoryName") => String.t(),
-        required("sourceCommitSpecifier") => String.t()
+        optional("targetBranch") => String.t() | Atom.t(),
+        required("destinationCommitSpecifier") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t(),
+        required("sourceCommitSpecifier") => String.t() | Atom.t()
       }
       
   """
-  @type merge_branches_by_fast_forward_input() :: %{String.t() => any()}
+  @type merge_branches_by_fast_forward_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       pull_request_status_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type pull_request_status_required_exception() :: %{String.t() => any()}
+  @type pull_request_status_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_branch_name_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_branch_name_exception() :: %{String.t() => any()}
+  @type invalid_branch_name_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2324,78 +2340,78 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type merge_hunk() :: %{String.t() => any()}
+  @type merge_hunk() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_approval_rule_content_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_approval_rule_content_exception() :: %{String.t() => any()}
+  @type invalid_approval_rule_content_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       comment() :: %{
-        "authorArn" => String.t(),
-        "callerReactions" => list(String.t()),
-        "clientRequestToken" => String.t(),
-        "commentId" => String.t(),
-        "content" => String.t(),
+        "authorArn" => String.t() | Atom.t(),
+        "callerReactions" => list(String.t() | Atom.t()),
+        "clientRequestToken" => String.t() | Atom.t(),
+        "commentId" => String.t() | Atom.t(),
+        "content" => String.t() | Atom.t(),
         "creationDate" => non_neg_integer(),
         "deleted" => boolean(),
-        "inReplyTo" => String.t(),
+        "inReplyTo" => String.t() | Atom.t(),
         "lastModifiedDate" => non_neg_integer(),
         "reactionCounts" => map()
       }
       
   """
-  @type comment() :: %{String.t() => any()}
+  @type comment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       post_comment_for_pull_request_input() :: %{
-        optional("clientRequestToken") => String.t(),
+        optional("clientRequestToken") => String.t() | Atom.t(),
         optional("location") => location(),
-        required("afterCommitId") => String.t(),
-        required("beforeCommitId") => String.t(),
-        required("content") => String.t(),
-        required("pullRequestId") => String.t(),
-        required("repositoryName") => String.t()
+        required("afterCommitId") => String.t() | Atom.t(),
+        required("beforeCommitId") => String.t() | Atom.t(),
+        required("content") => String.t() | Atom.t(),
+        required("pullRequestId") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type post_comment_for_pull_request_input() :: %{String.t() => any()}
+  @type post_comment_for_pull_request_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_repository_encryption_key_input() :: %{
-        required("kmsKeyId") => String.t(),
-        required("repositoryName") => String.t()
+        required("kmsKeyId") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type update_repository_encryption_key_input() :: %{String.t() => any()}
+  @type update_repository_encryption_key_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_pull_request_event_type_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_pull_request_event_type_exception() :: %{String.t() => any()}
+  @type invalid_pull_request_event_type_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2403,22 +2419,22 @@ defmodule AWS.CodeCommit do
       
       set_file_mode_entry() :: %{
         "fileMode" => list(any()),
-        "filePath" => String.t()
+        "filePath" => String.t() | Atom.t()
       }
       
   """
-  @type set_file_mode_entry() :: %{String.t() => any()}
+  @type set_file_mode_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reaction_value_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type reaction_value_required_exception() :: %{String.t() => any()}
+  @type reaction_value_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2426,140 +2442,140 @@ defmodule AWS.CodeCommit do
       
       get_comment_reactions_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("reactionUserArn") => String.t(),
-        required("commentId") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("reactionUserArn") => String.t() | Atom.t(),
+        required("commentId") => String.t() | Atom.t()
       }
       
   """
-  @type get_comment_reactions_input() :: %{String.t() => any()}
+  @type get_comment_reactions_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_folder_output() :: %{
-        "commitId" => String.t(),
+        "commitId" => String.t() | Atom.t(),
         "files" => list(file()),
-        "folderPath" => String.t(),
+        "folderPath" => String.t() | Atom.t(),
         "subFolders" => list(folder()),
         "subModules" => list(sub_module()),
         "symbolicLinks" => list(symbolic_link()),
-        "treeId" => String.t()
+        "treeId" => String.t() | Atom.t()
       }
       
   """
-  @type get_folder_output() :: %{String.t() => any()}
+  @type get_folder_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       maximum_repository_names_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type maximum_repository_names_exceeded_exception() :: %{String.t() => any()}
+  @type maximum_repository_names_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       merge_pull_request_by_fast_forward_input() :: %{
-        optional("sourceCommitId") => String.t(),
-        required("pullRequestId") => String.t(),
-        required("repositoryName") => String.t()
+        optional("sourceCommitId") => String.t() | Atom.t(),
+        required("pullRequestId") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type merge_pull_request_by_fast_forward_input() :: %{String.t() => any()}
+  @type merge_pull_request_by_fast_forward_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_revision_id_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_revision_id_exception() :: %{String.t() => any()}
+  @type invalid_revision_id_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_branch_input() :: %{
-        required("branchName") => String.t(),
-        required("commitId") => String.t(),
-        required("repositoryName") => String.t()
+        required("branchName") => String.t() | Atom.t(),
+        required("commitId") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type create_branch_input() :: %{String.t() => any()}
+  @type create_branch_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_commits_error() :: %{
-        "commitId" => String.t(),
-        "errorCode" => String.t(),
-        "errorMessage" => String.t()
+        "commitId" => String.t() | Atom.t(),
+        "errorCode" => String.t() | Atom.t(),
+        "errorMessage" => String.t() | Atom.t()
       }
       
   """
-  @type batch_get_commits_error() :: %{String.t() => any()}
+  @type batch_get_commits_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_blob_id_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_blob_id_exception() :: %{String.t() => any()}
+  @type invalid_blob_id_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_describe_merge_conflicts_output() :: %{
-        "baseCommitId" => String.t(),
+        "baseCommitId" => String.t() | Atom.t(),
         "conflicts" => list(conflict()),
-        "destinationCommitId" => String.t(),
+        "destinationCommitId" => String.t() | Atom.t(),
         "errors" => list(batch_describe_merge_conflicts_error()),
-        "nextToken" => String.t(),
-        "sourceCommitId" => String.t()
+        "nextToken" => String.t() | Atom.t(),
+        "sourceCommitId" => String.t() | Atom.t()
       }
       
   """
-  @type batch_describe_merge_conflicts_output() :: %{String.t() => any()}
+  @type batch_describe_merge_conflicts_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       pull_request_does_not_exist_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type pull_request_does_not_exist_exception() :: %{String.t() => any()}
+  @type pull_request_does_not_exist_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       repository_trigger_name_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type repository_trigger_name_required_exception() :: %{String.t() => any()}
+  @type repository_trigger_name_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2570,51 +2586,51 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type merge_pull_request_by_three_way_output() :: %{String.t() => any()}
+  @type merge_pull_request_by_three_way_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       commit_ids_list_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type commit_ids_list_required_exception() :: %{String.t() => any()}
+  @type commit_ids_list_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       repository_name_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type repository_name_required_exception() :: %{String.t() => any()}
+  @type repository_name_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_email_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_email_exception() :: %{String.t() => any()}
+  @type invalid_email_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       encryption_key_invalid_usage_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type encryption_key_invalid_usage_exception() :: %{String.t() => any()}
+  @type encryption_key_invalid_usage_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2625,40 +2641,40 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type get_commit_output() :: %{String.t() => any()}
+  @type get_commit_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       comment_not_created_by_caller_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type comment_not_created_by_caller_exception() :: %{String.t() => any()}
+  @type comment_not_created_by_caller_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_relative_file_version_enum_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_relative_file_version_enum_exception() :: %{String.t() => any()}
+  @type invalid_relative_file_version_enum_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       parent_commit_id_outdated_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type parent_commit_id_outdated_exception() :: %{String.t() => any()}
+  @type parent_commit_id_outdated_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2671,28 +2687,28 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type file_sizes() :: %{String.t() => any()}
+  @type file_sizes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_unreferenced_merge_commit_input() :: %{
-        optional("authorName") => String.t(),
-        optional("commitMessage") => String.t(),
+        optional("authorName") => String.t() | Atom.t(),
+        optional("commitMessage") => String.t() | Atom.t(),
         optional("conflictDetailLevel") => list(any()),
         optional("conflictResolution") => conflict_resolution(),
         optional("conflictResolutionStrategy") => list(any()),
-        optional("email") => String.t(),
+        optional("email") => String.t() | Atom.t(),
         optional("keepEmptyFolders") => boolean(),
-        required("destinationCommitSpecifier") => String.t(),
+        required("destinationCommitSpecifier") => String.t() | Atom.t(),
         required("mergeOption") => list(any()),
-        required("repositoryName") => String.t(),
-        required("sourceCommitSpecifier") => String.t()
+        required("repositoryName") => String.t() | Atom.t(),
+        required("sourceCommitSpecifier") => String.t() | Atom.t()
       }
       
   """
-  @type create_unreferenced_merge_commit_input() :: %{String.t() => any()}
+  @type create_unreferenced_merge_commit_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2703,32 +2719,35 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type update_pull_request_title_output() :: %{String.t() => any()}
+  @type update_pull_request_title_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       pull_request_source_reference_updated_event_metadata() :: %{
-        "afterCommitId" => String.t(),
-        "beforeCommitId" => String.t(),
-        "mergeBase" => String.t(),
-        "repositoryName" => String.t()
+        "afterCommitId" => String.t() | Atom.t(),
+        "beforeCommitId" => String.t() | Atom.t(),
+        "mergeBase" => String.t() | Atom.t(),
+        "repositoryName" => String.t() | Atom.t()
       }
       
   """
-  @type pull_request_source_reference_updated_event_metadata() :: %{String.t() => any()}
+  @type pull_request_source_reference_updated_event_metadata() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       get_pull_request_input() :: %{
-        required("pullRequestId") => String.t()
+        required("pullRequestId") => String.t() | Atom.t()
       }
       
   """
-  @type get_pull_request_input() :: %{String.t() => any()}
+  @type get_pull_request_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2739,51 +2758,54 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type get_comment_output() :: %{String.t() => any()}
+  @type get_comment_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       approval_rule_template() :: %{
-        "approvalRuleTemplateContent" => String.t(),
-        "approvalRuleTemplateDescription" => String.t(),
-        "approvalRuleTemplateId" => String.t(),
-        "approvalRuleTemplateName" => String.t(),
+        "approvalRuleTemplateContent" => String.t() | Atom.t(),
+        "approvalRuleTemplateDescription" => String.t() | Atom.t(),
+        "approvalRuleTemplateId" => String.t() | Atom.t(),
+        "approvalRuleTemplateName" => String.t() | Atom.t(),
         "creationDate" => non_neg_integer(),
         "lastModifiedDate" => non_neg_integer(),
-        "lastModifiedUser" => String.t(),
-        "ruleContentSha256" => String.t()
+        "lastModifiedUser" => String.t() | Atom.t(),
+        "ruleContentSha256" => String.t() | Atom.t()
       }
       
   """
-  @type approval_rule_template() :: %{String.t() => any()}
+  @type approval_rule_template() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       post_comment_reply_input() :: %{
-        optional("clientRequestToken") => String.t(),
-        required("content") => String.t(),
-        required("inReplyTo") => String.t()
+        optional("clientRequestToken") => String.t() | Atom.t(),
+        required("content") => String.t() | Atom.t(),
+        required("inReplyTo") => String.t() | Atom.t()
       }
       
   """
-  @type post_comment_reply_input() :: %{String.t() => any()}
+  @type post_comment_reply_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_associate_approval_rule_template_with_repositories_error() :: %{
-        "errorCode" => String.t(),
-        "errorMessage" => String.t(),
-        "repositoryName" => String.t()
+        "errorCode" => String.t() | Atom.t(),
+        "errorMessage" => String.t() | Atom.t(),
+        "repositoryName" => String.t() | Atom.t()
       }
       
   """
-  @type batch_associate_approval_rule_template_with_repositories_error() :: %{String.t() => any()}
+  @type batch_associate_approval_rule_template_with_repositories_error() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -2795,40 +2817,40 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type conflict() :: %{String.t() => any()}
+  @type conflict() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_reaction_user_arn_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_reaction_user_arn_exception() :: %{String.t() => any()}
+  @type invalid_reaction_user_arn_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       file_mode_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type file_mode_required_exception() :: %{String.t() => any()}
+  @type file_mode_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reaction_limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type reaction_limit_exceeded_exception() :: %{String.t() => any()}
+  @type reaction_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2838,38 +2860,38 @@ defmodule AWS.CodeCommit do
         optional("conflictDetailLevel") => list(any()),
         optional("conflictResolutionStrategy") => list(any()),
         optional("maxMergeHunks") => integer(),
-        optional("nextToken") => String.t(),
-        required("destinationCommitSpecifier") => String.t(),
-        required("filePath") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
+        required("destinationCommitSpecifier") => String.t() | Atom.t(),
+        required("filePath") => String.t() | Atom.t(),
         required("mergeOption") => list(any()),
-        required("repositoryName") => String.t(),
-        required("sourceCommitSpecifier") => String.t()
+        required("repositoryName") => String.t() | Atom.t(),
+        required("sourceCommitSpecifier") => String.t() | Atom.t()
       }
       
   """
-  @type describe_merge_conflicts_input() :: %{String.t() => any()}
+  @type describe_merge_conflicts_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_approval_rule_template_input() :: %{
-        required("approvalRuleTemplateName") => String.t()
+        required("approvalRuleTemplateName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_approval_rule_template_input() :: %{String.t() => any()}
+  @type delete_approval_rule_template_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       override_already_set_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type override_already_set_exception() :: %{String.t() => any()}
+  @type override_already_set_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2878,167 +2900,173 @@ defmodule AWS.CodeCommit do
       put_file_entry() :: %{
         "fileContent" => binary(),
         "fileMode" => list(any()),
-        "filePath" => String.t(),
+        "filePath" => String.t() | Atom.t(),
         "sourceFile" => source_file_specifier()
       }
       
   """
-  @type put_file_entry() :: %{String.t() => any()}
+  @type put_file_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_associate_approval_rule_template_with_repositories_input() :: %{
-        required("approvalRuleTemplateName") => String.t(),
-        required("repositoryNames") => list(String.t())
+        required("approvalRuleTemplateName") => String.t() | Atom.t(),
+        required("repositoryNames") => list(String.t() | Atom.t())
       }
       
   """
-  @type batch_associate_approval_rule_template_with_repositories_input() :: %{String.t() => any()}
+  @type batch_associate_approval_rule_template_with_repositories_input() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       invalid_commit_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_commit_exception() :: %{String.t() => any()}
+  @type invalid_commit_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       comment_does_not_exist_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type comment_does_not_exist_exception() :: %{String.t() => any()}
+  @type comment_does_not_exist_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       location() :: %{
-        "filePath" => String.t(),
+        "filePath" => String.t() | Atom.t(),
         "filePosition" => float(),
         "relativeFileVersion" => list(any())
       }
       
   """
-  @type location() :: %{String.t() => any()}
+  @type location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       repository_trigger_destination_arn_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type repository_trigger_destination_arn_required_exception() :: %{String.t() => any()}
+  @type repository_trigger_destination_arn_required_exception() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       get_pull_request_override_state_input() :: %{
-        required("pullRequestId") => String.t(),
-        required("revisionId") => String.t()
+        required("pullRequestId") => String.t() | Atom.t(),
+        required("revisionId") => String.t() | Atom.t()
       }
       
   """
-  @type get_pull_request_override_state_input() :: %{String.t() => any()}
+  @type get_pull_request_override_state_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_target_branch_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_target_branch_exception() :: %{String.t() => any()}
+  @type invalid_target_branch_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_description_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_description_exception() :: %{String.t() => any()}
+  @type invalid_description_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_commit_output() :: %{
-        "commitId" => String.t(),
+        "commitId" => String.t() | Atom.t(),
         "filesAdded" => list(file_metadata()),
         "filesDeleted" => list(file_metadata()),
         "filesUpdated" => list(file_metadata()),
-        "treeId" => String.t()
+        "treeId" => String.t() | Atom.t()
       }
       
   """
-  @type create_commit_output() :: %{String.t() => any()}
+  @type create_commit_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_max_conflict_files_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_max_conflict_files_exception() :: %{String.t() => any()}
+  @type invalid_max_conflict_files_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       targets_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type targets_required_exception() :: %{String.t() => any()}
+  @type targets_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_commit_id_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_commit_id_exception() :: %{String.t() => any()}
+  @type invalid_commit_id_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_file_commit_history_request() :: %{
-        optional("commitSpecifier") => String.t(),
+        optional("commitSpecifier") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("filePath") => String.t(),
-        required("repositoryName") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("filePath") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type list_file_commit_history_request() :: %{String.t() => any()}
+  @type list_file_commit_history_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3046,63 +3074,63 @@ defmodule AWS.CodeCommit do
       
       pull_request() :: %{
         "approvalRules" => list(approval_rule()),
-        "authorArn" => String.t(),
-        "clientRequestToken" => String.t(),
+        "authorArn" => String.t() | Atom.t(),
+        "clientRequestToken" => String.t() | Atom.t(),
         "creationDate" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "lastActivityDate" => non_neg_integer(),
-        "pullRequestId" => String.t(),
+        "pullRequestId" => String.t() | Atom.t(),
         "pullRequestStatus" => list(any()),
         "pullRequestTargets" => list(pull_request_target()),
-        "revisionId" => String.t(),
-        "title" => String.t()
+        "revisionId" => String.t() | Atom.t(),
+        "title" => String.t() | Atom.t()
       }
       
   """
-  @type pull_request() :: %{String.t() => any()}
+  @type pull_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_input() :: %{
-        required("resourceArn") => String.t(),
+        required("resourceArn") => String.t() | Atom.t(),
         required("tags") => map()
       }
       
   """
-  @type tag_resource_input() :: %{String.t() => any()}
+  @type tag_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       manual_merge_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type manual_merge_required_exception() :: %{String.t() => any()}
+  @type manual_merge_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       merge_pull_request_by_squash_input() :: %{
-        optional("authorName") => String.t(),
-        optional("commitMessage") => String.t(),
+        optional("authorName") => String.t() | Atom.t(),
+        optional("commitMessage") => String.t() | Atom.t(),
         optional("conflictDetailLevel") => list(any()),
         optional("conflictResolution") => conflict_resolution(),
         optional("conflictResolutionStrategy") => list(any()),
-        optional("email") => String.t(),
+        optional("email") => String.t() | Atom.t(),
         optional("keepEmptyFolders") => boolean(),
-        optional("sourceCommitId") => String.t(),
-        required("pullRequestId") => String.t(),
-        required("repositoryName") => String.t()
+        optional("sourceCommitId") => String.t() | Atom.t(),
+        required("pullRequestId") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type merge_pull_request_by_squash_input() :: %{String.t() => any()}
+  @type merge_pull_request_by_squash_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3114,73 +3142,73 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type batch_get_commits_output() :: %{String.t() => any()}
+  @type batch_get_commits_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_file_input() :: %{
-        optional("commitSpecifier") => String.t(),
-        required("filePath") => String.t(),
-        required("repositoryName") => String.t()
+        optional("commitSpecifier") => String.t() | Atom.t(),
+        required("filePath") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type get_file_input() :: %{String.t() => any()}
+  @type get_file_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_repository_triggers_input() :: %{
-        required("repositoryName") => String.t()
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type get_repository_triggers_input() :: %{String.t() => any()}
+  @type get_repository_triggers_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_commit_input() :: %{
-        optional("authorName") => String.t(),
-        optional("commitMessage") => String.t(),
+        optional("authorName") => String.t() | Atom.t(),
+        optional("commitMessage") => String.t() | Atom.t(),
         optional("deleteFiles") => list(delete_file_entry()),
-        optional("email") => String.t(),
+        optional("email") => String.t() | Atom.t(),
         optional("keepEmptyFolders") => boolean(),
-        optional("parentCommitId") => String.t(),
+        optional("parentCommitId") => String.t() | Atom.t(),
         optional("putFiles") => list(put_file_entry()),
         optional("setFileModes") => list(set_file_mode_entry()),
-        required("branchName") => String.t(),
-        required("repositoryName") => String.t()
+        required("branchName") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type create_commit_input() :: %{String.t() => any()}
+  @type create_commit_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       file_does_not_exist_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type file_does_not_exist_exception() :: %{String.t() => any()}
+  @type file_does_not_exist_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       multiple_repositories_in_pull_request_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type multiple_repositories_in_pull_request_exception() :: %{String.t() => any()}
+  @type multiple_repositories_in_pull_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3191,85 +3219,91 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type update_pull_request_status_output() :: %{String.t() => any()}
+  @type update_pull_request_status_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_deletion_parameter_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_deletion_parameter_exception() :: %{String.t() => any()}
+  @type invalid_deletion_parameter_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       number_of_rule_templates_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type number_of_rule_templates_exceeded_exception() :: %{String.t() => any()}
+  @type number_of_rule_templates_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       approval_rule_does_not_exist_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type approval_rule_does_not_exist_exception() :: %{String.t() => any()}
+  @type approval_rule_does_not_exist_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_approval_rule_templates_output() :: %{
-        "approvalRuleTemplateNames" => list(String.t()),
-        "nextToken" => String.t()
+        "approvalRuleTemplateNames" => list(String.t() | Atom.t()),
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_approval_rule_templates_output() :: %{String.t() => any()}
+  @type list_approval_rule_templates_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_actor_arn_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_actor_arn_exception() :: %{String.t() => any()}
+  @type invalid_actor_arn_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       maximum_conflict_resolution_entries_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type maximum_conflict_resolution_entries_exceeded_exception() :: %{String.t() => any()}
+  @type maximum_conflict_resolution_entries_exceeded_exception() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       before_commit_id_and_after_commit_id_are_same_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type before_commit_id_and_after_commit_id_are_same_exception() :: %{String.t() => any()}
+  @type before_commit_id_and_after_commit_id_are_same_exception() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -3277,98 +3311,98 @@ defmodule AWS.CodeCommit do
       
       override_pull_request_approval_rules_input() :: %{
         required("overrideStatus") => list(any()),
-        required("pullRequestId") => String.t(),
-        required("revisionId") => String.t()
+        required("pullRequestId") => String.t() | Atom.t(),
+        required("revisionId") => String.t() | Atom.t()
       }
       
   """
-  @type override_pull_request_approval_rules_input() :: %{String.t() => any()}
+  @type override_pull_request_approval_rules_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       merge_pull_request_by_three_way_input() :: %{
-        optional("authorName") => String.t(),
-        optional("commitMessage") => String.t(),
+        optional("authorName") => String.t() | Atom.t(),
+        optional("commitMessage") => String.t() | Atom.t(),
         optional("conflictDetailLevel") => list(any()),
         optional("conflictResolution") => conflict_resolution(),
         optional("conflictResolutionStrategy") => list(any()),
-        optional("email") => String.t(),
+        optional("email") => String.t() | Atom.t(),
         optional("keepEmptyFolders") => boolean(),
-        optional("sourceCommitId") => String.t(),
-        required("pullRequestId") => String.t(),
-        required("repositoryName") => String.t()
+        optional("sourceCommitId") => String.t() | Atom.t(),
+        required("pullRequestId") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type merge_pull_request_by_three_way_input() :: %{String.t() => any()}
+  @type merge_pull_request_by_three_way_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       folder_does_not_exist_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type folder_does_not_exist_exception() :: %{String.t() => any()}
+  @type folder_does_not_exist_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_pull_request_approval_rule_output() :: %{
-        "approvalRuleId" => String.t()
+        "approvalRuleId" => String.t() | Atom.t()
       }
       
   """
-  @type delete_pull_request_approval_rule_output() :: %{String.t() => any()}
+  @type delete_pull_request_approval_rule_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_repository_triggers_output() :: %{
-        "configurationId" => String.t()
+        "configurationId" => String.t() | Atom.t()
       }
       
   """
-  @type put_repository_triggers_output() :: %{String.t() => any()}
+  @type put_repository_triggers_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       encryption_key_invalid_id_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type encryption_key_invalid_id_exception() :: %{String.t() => any()}
+  @type encryption_key_invalid_id_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_arn_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_arn_required_exception() :: %{String.t() => any()}
+  @type resource_arn_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_repository_trigger_region_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_repository_trigger_region_exception() :: %{String.t() => any()}
+  @type invalid_repository_trigger_region_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3376,11 +3410,11 @@ defmodule AWS.CodeCommit do
       
       get_pull_request_override_state_output() :: %{
         "overridden" => boolean(),
-        "overrider" => String.t()
+        "overrider" => String.t() | Atom.t()
       }
       
   """
-  @type get_pull_request_override_state_output() :: %{String.t() => any()}
+  @type get_pull_request_override_state_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3391,124 +3425,127 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type update_pull_request_approval_rule_content_output() :: %{String.t() => any()}
+  @type update_pull_request_approval_rule_content_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       sub_module() :: %{
-        "absolutePath" => String.t(),
-        "commitId" => String.t(),
-        "relativePath" => String.t()
+        "absolutePath" => String.t() | Atom.t(),
+        "commitId" => String.t() | Atom.t(),
+        "relativePath" => String.t() | Atom.t()
       }
       
   """
-  @type sub_module() :: %{String.t() => any()}
+  @type sub_module() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_pull_request_description_input() :: %{
-        required("description") => String.t(),
-        required("pullRequestId") => String.t()
+        required("description") => String.t() | Atom.t(),
+        required("pullRequestId") => String.t() | Atom.t()
       }
       
   """
-  @type update_pull_request_description_input() :: %{String.t() => any()}
+  @type update_pull_request_description_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       title_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type title_required_exception() :: %{String.t() => any()}
+  @type title_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_merge_commit_output() :: %{
-        "baseCommitId" => String.t(),
-        "destinationCommitId" => String.t(),
-        "mergedCommitId" => String.t(),
-        "sourceCommitId" => String.t()
+        "baseCommitId" => String.t() | Atom.t(),
+        "destinationCommitId" => String.t() | Atom.t(),
+        "mergedCommitId" => String.t() | Atom.t(),
+        "sourceCommitId" => String.t() | Atom.t()
       }
       
   """
-  @type get_merge_commit_output() :: %{String.t() => any()}
+  @type get_merge_commit_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_approval_state_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_approval_state_exception() :: %{String.t() => any()}
+  @type invalid_approval_state_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       commit_message_length_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type commit_message_length_exceeded_exception() :: %{String.t() => any()}
+  @type commit_message_length_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       maximum_open_pull_requests_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type maximum_open_pull_requests_exceeded_exception() :: %{String.t() => any()}
+  @type maximum_open_pull_requests_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_file_entry_conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type put_file_entry_conflict_exception() :: %{String.t() => any()}
+  @type put_file_entry_conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_associated_approval_rule_templates_for_repository_output() :: %{
-        "approvalRuleTemplateNames" => list(String.t()),
-        "nextToken" => String.t()
+        "approvalRuleTemplateNames" => list(String.t() | Atom.t()),
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_associated_approval_rule_templates_for_repository_output() :: %{String.t() => any()}
+  @type list_associated_approval_rule_templates_for_repository_output() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       actor_does_not_exist_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type actor_does_not_exist_exception() :: %{String.t() => any()}
+  @type actor_does_not_exist_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3519,81 +3556,84 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type delete_comment_content_output() :: %{String.t() => any()}
+  @type delete_comment_content_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       repository_not_associated_with_pull_request_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type repository_not_associated_with_pull_request_exception() :: %{String.t() => any()}
+  @type repository_not_associated_with_pull_request_exception() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       delete_repository_input() :: %{
-        required("repositoryName") => String.t()
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_repository_input() :: %{String.t() => any()}
+  @type delete_repository_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       pull_request_already_closed_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type pull_request_already_closed_exception() :: %{String.t() => any()}
+  @type pull_request_already_closed_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_file_input() :: %{
-        optional("commitMessage") => String.t(),
-        optional("email") => String.t(),
+        optional("commitMessage") => String.t() | Atom.t(),
+        optional("email") => String.t() | Atom.t(),
         optional("fileMode") => list(any()),
-        optional("name") => String.t(),
-        optional("parentCommitId") => String.t(),
-        required("branchName") => String.t(),
+        optional("name") => String.t() | Atom.t(),
+        optional("parentCommitId") => String.t() | Atom.t(),
+        required("branchName") => String.t() | Atom.t(),
         required("fileContent") => binary(),
-        required("filePath") => String.t(),
-        required("repositoryName") => String.t()
+        required("filePath") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type put_file_input() :: %{String.t() => any()}
+  @type put_file_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_title_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_title_exception() :: %{String.t() => any()}
+  @type invalid_title_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       encryption_key_disabled_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type encryption_key_disabled_exception() :: %{String.t() => any()}
+  @type encryption_key_disabled_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3606,19 +3646,19 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type is_binary_file() :: %{String.t() => any()}
+  @type is_binary_file() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_branch_input() :: %{
-        optional("branchName") => String.t(),
-        optional("repositoryName") => String.t()
+        optional("branchName") => String.t() | Atom.t(),
+        optional("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type get_branch_input() :: %{String.t() => any()}
+  @type get_branch_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3627,54 +3667,55 @@ defmodule AWS.CodeCommit do
       batch_describe_merge_conflicts_input() :: %{
         optional("conflictDetailLevel") => list(any()),
         optional("conflictResolutionStrategy") => list(any()),
-        optional("filePaths") => list(String.t()),
+        optional("filePaths") => list(String.t() | Atom.t()),
         optional("maxConflictFiles") => integer(),
         optional("maxMergeHunks") => integer(),
-        optional("nextToken") => String.t(),
-        required("destinationCommitSpecifier") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
+        required("destinationCommitSpecifier") => String.t() | Atom.t(),
         required("mergeOption") => list(any()),
-        required("repositoryName") => String.t(),
-        required("sourceCommitSpecifier") => String.t()
+        required("repositoryName") => String.t() | Atom.t(),
+        required("sourceCommitSpecifier") => String.t() | Atom.t()
       }
       
   """
-  @type batch_describe_merge_conflicts_input() :: %{String.t() => any()}
+  @type batch_describe_merge_conflicts_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       file_content_and_source_file_specified_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type file_content_and_source_file_specified_exception() :: %{String.t() => any()}
+  @type file_content_and_source_file_specified_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_input() :: %{
-        required("resourceArn") => String.t(),
-        required("tagKeys") => list(String.t())
+        required("resourceArn") => String.t() | Atom.t(),
+        required("tagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_input() :: %{String.t() => any()}
+  @type untag_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_disassociate_approval_rule_template_from_repositories_input() :: %{
-        required("approvalRuleTemplateName") => String.t(),
-        required("repositoryNames") => list(String.t())
+        required("approvalRuleTemplateName") => String.t() | Atom.t(),
+        required("repositoryNames") => list(String.t() | Atom.t())
       }
       
   """
   @type batch_disassociate_approval_rule_template_from_repositories_input() :: %{
-          String.t() => any()
+          String.t()
+          | Atom.t() => any()
         }
 
   @typedoc """
@@ -3682,33 +3723,33 @@ defmodule AWS.CodeCommit do
   ## Example:
       
       replacement_type_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type replacement_type_required_exception() :: %{String.t() => any()}
+  @type replacement_type_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_tag_keys_list_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_tag_keys_list_exception() :: %{String.t() => any()}
+  @type invalid_tag_keys_list_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_sort_by_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_sort_by_exception() :: %{String.t() => any()}
+  @type invalid_sort_by_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3716,200 +3757,200 @@ defmodule AWS.CodeCommit do
       
       get_differences_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("afterPath") => String.t(),
-        optional("beforeCommitSpecifier") => String.t(),
-        optional("beforePath") => String.t(),
-        required("afterCommitSpecifier") => String.t(),
-        required("repositoryName") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("afterPath") => String.t() | Atom.t(),
+        optional("beforeCommitSpecifier") => String.t() | Atom.t(),
+        optional("beforePath") => String.t() | Atom.t(),
+        required("afterCommitSpecifier") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type get_differences_input() :: %{String.t() => any()}
+  @type get_differences_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       parent_commit_does_not_exist_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type parent_commit_does_not_exist_exception() :: %{String.t() => any()}
+  @type parent_commit_does_not_exist_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       repository_trigger() :: %{
-        "branches" => list(String.t()),
-        "customData" => String.t(),
-        "destinationArn" => String.t(),
+        "branches" => list(String.t() | Atom.t()),
+        "customData" => String.t() | Atom.t(),
+        "destinationArn" => String.t() | Atom.t(),
         "events" => list(list(any())()),
-        "name" => String.t()
+        "name" => String.t() | Atom.t()
       }
       
   """
-  @type repository_trigger() :: %{String.t() => any()}
+  @type repository_trigger() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       branch_does_not_exist_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type branch_does_not_exist_exception() :: %{String.t() => any()}
+  @type branch_does_not_exist_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_repository_triggers_input() :: %{
-        required("repositoryName") => String.t(),
+        required("repositoryName") => String.t() | Atom.t(),
         required("triggers") => list(repository_trigger())
       }
       
   """
-  @type put_repository_triggers_input() :: %{String.t() => any()}
+  @type put_repository_triggers_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_pull_request_events_output() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "pullRequestEvents" => list(pull_request_event())
       }
       
   """
-  @type describe_pull_request_events_output() :: %{String.t() => any()}
+  @type describe_pull_request_events_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       file_content_size_limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type file_content_size_limit_exceeded_exception() :: %{String.t() => any()}
+  @type file_content_size_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       comments_for_compared_commit() :: %{
-        "afterBlobId" => String.t(),
-        "afterCommitId" => String.t(),
-        "beforeBlobId" => String.t(),
-        "beforeCommitId" => String.t(),
+        "afterBlobId" => String.t() | Atom.t(),
+        "afterCommitId" => String.t() | Atom.t(),
+        "beforeBlobId" => String.t() | Atom.t(),
+        "beforeCommitId" => String.t() | Atom.t(),
         "comments" => list(comment()),
         "location" => location(),
-        "repositoryName" => String.t()
+        "repositoryName" => String.t() | Atom.t()
       }
       
   """
-  @type comments_for_compared_commit() :: %{String.t() => any()}
+  @type comments_for_compared_commit() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       origin_approval_rule_template() :: %{
-        "approvalRuleTemplateId" => String.t(),
-        "approvalRuleTemplateName" => String.t()
+        "approvalRuleTemplateId" => String.t() | Atom.t(),
+        "approvalRuleTemplateName" => String.t() | Atom.t()
       }
       
   """
-  @type origin_approval_rule_template() :: %{String.t() => any()}
+  @type origin_approval_rule_template() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       parent_commit_id_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type parent_commit_id_required_exception() :: %{String.t() => any()}
+  @type parent_commit_id_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_system_tag_usage_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_system_tag_usage_exception() :: %{String.t() => any()}
+  @type invalid_system_tag_usage_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_pull_request_events_input() :: %{
-        optional("actorArn") => String.t(),
+        optional("actorArn") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("pullRequestEventType") => list(any()),
-        required("pullRequestId") => String.t()
+        required("pullRequestId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_pull_request_events_input() :: %{String.t() => any()}
+  @type describe_pull_request_events_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       idempotency_parameter_mismatch_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type idempotency_parameter_mismatch_exception() :: %{String.t() => any()}
+  @type idempotency_parameter_mismatch_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_input() :: %{
-        optional("nextToken") => String.t(),
-        required("resourceArn") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("resourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_input() :: %{String.t() => any()}
+  @type list_tags_for_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       file_path_conflicts_with_submodule_path_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type file_path_conflicts_with_submodule_path_exception() :: %{String.t() => any()}
+  @type file_path_conflicts_with_submodule_path_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_commits_input() :: %{
-        required("commitIds") => list(String.t()),
-        required("repositoryName") => String.t()
+        required("commitIds") => list(String.t() | Atom.t()),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type batch_get_commits_input() :: %{String.t() => any()}
+  @type batch_get_commits_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3917,36 +3958,36 @@ defmodule AWS.CodeCommit do
       
       reaction_for_comment() :: %{
         "reaction" => reaction_value_formats(),
-        "reactionUsers" => list(String.t()),
+        "reactionUsers" => list(String.t() | Atom.t()),
         "reactionsFromDeletedUsersCount" => integer()
       }
       
   """
-  @type reaction_for_comment() :: %{String.t() => any()}
+  @type reaction_for_comment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       repository_trigger_execution_failure() :: %{
-        "failureMessage" => String.t(),
-        "trigger" => String.t()
+        "failureMessage" => String.t() | Atom.t(),
+        "trigger" => String.t() | Atom.t()
       }
       
   """
-  @type repository_trigger_execution_failure() :: %{String.t() => any()}
+  @type repository_trigger_execution_failure() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_repositories_output() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "repositories" => list(repository_name_id_pair())
       }
       
   """
-  @type list_repositories_output() :: %{String.t() => any()}
+  @type list_repositories_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3957,25 +3998,25 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type update_pull_request_description_output() :: %{String.t() => any()}
+  @type update_pull_request_description_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_file_input() :: %{
-        optional("commitMessage") => String.t(),
-        optional("email") => String.t(),
+        optional("commitMessage") => String.t() | Atom.t(),
+        optional("email") => String.t() | Atom.t(),
         optional("keepEmptyFolders") => boolean(),
-        optional("name") => String.t(),
-        required("branchName") => String.t(),
-        required("filePath") => String.t(),
-        required("parentCommitId") => String.t(),
-        required("repositoryName") => String.t()
+        optional("name") => String.t() | Atom.t(),
+        required("branchName") => String.t() | Atom.t(),
+        required("filePath") => String.t() | Atom.t(),
+        required("parentCommitId") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_file_input() :: %{String.t() => any()}
+  @type delete_file_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3983,48 +4024,48 @@ defmodule AWS.CodeCommit do
       
       update_pull_request_approval_state_input() :: %{
         required("approvalState") => list(any()),
-        required("pullRequestId") => String.t(),
-        required("revisionId") => String.t()
+        required("pullRequestId") => String.t() | Atom.t(),
+        required("revisionId") => String.t() | Atom.t()
       }
       
   """
-  @type update_pull_request_approval_state_input() :: %{String.t() => any()}
+  @type update_pull_request_approval_state_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_repository_trigger_branch_name_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_repository_trigger_branch_name_exception() :: %{String.t() => any()}
+  @type invalid_repository_trigger_branch_name_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       file_too_large_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type file_too_large_exception() :: %{String.t() => any()}
+  @type file_too_large_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       file_version() :: %{
-        "blobId" => String.t(),
+        "blobId" => String.t() | Atom.t(),
         "commit" => commit(),
-        "path" => String.t(),
-        "revisionChildren" => list(String.t())
+        "path" => String.t() | Atom.t(),
+        "revisionChildren" => list(String.t() | Atom.t())
       }
       
   """
-  @type file_version() :: %{String.t() => any()}
+  @type file_version() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4035,69 +4076,72 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type get_blob_output() :: %{String.t() => any()}
+  @type get_blob_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_path_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_path_exception() :: %{String.t() => any()}
+  @type invalid_path_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_comments_for_pull_request_input() :: %{
-        optional("afterCommitId") => String.t(),
-        optional("beforeCommitId") => String.t(),
+        optional("afterCommitId") => String.t() | Atom.t(),
+        optional("beforeCommitId") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("repositoryName") => String.t(),
-        required("pullRequestId") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("repositoryName") => String.t() | Atom.t(),
+        required("pullRequestId") => String.t() | Atom.t()
       }
       
   """
-  @type get_comments_for_pull_request_input() :: %{String.t() => any()}
+  @type get_comments_for_pull_request_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_pull_request_status_update_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_pull_request_status_update_exception() :: %{String.t() => any()}
+  @type invalid_pull_request_status_update_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       folder() :: %{
-        "absolutePath" => String.t(),
-        "relativePath" => String.t(),
-        "treeId" => String.t()
+        "absolutePath" => String.t() | Atom.t(),
+        "relativePath" => String.t() | Atom.t(),
+        "treeId" => String.t() | Atom.t()
       }
       
   """
-  @type folder() :: %{String.t() => any()}
+  @type folder() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_repository_trigger_destination_arn_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_repository_trigger_destination_arn_exception() :: %{String.t() => any()}
+  @type invalid_repository_trigger_destination_arn_exception() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -4105,56 +4149,56 @@ defmodule AWS.CodeCommit do
       
       get_comments_for_compared_commit_output() :: %{
         "commentsForComparedCommitData" => list(comments_for_compared_commit()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type get_comments_for_compared_commit_output() :: %{String.t() => any()}
+  @type get_comments_for_compared_commit_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_resource_arn_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_resource_arn_exception() :: %{String.t() => any()}
+  @type invalid_resource_arn_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_approval_rule_template_input() :: %{
-        required("approvalRuleTemplateName") => String.t()
+        required("approvalRuleTemplateName") => String.t() | Atom.t()
       }
       
   """
-  @type get_approval_rule_template_input() :: %{String.t() => any()}
+  @type get_approval_rule_template_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_source_commit_specifier_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_source_commit_specifier_exception() :: %{String.t() => any()}
+  @type invalid_source_commit_specifier_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_comment_reaction_input() :: %{
-        required("commentId") => String.t(),
-        required("reactionValue") => String.t()
+        required("commentId") => String.t() | Atom.t(),
+        required("reactionValue") => String.t() | Atom.t()
       }
       
   """
-  @type put_comment_reaction_input() :: %{String.t() => any()}
+  @type put_comment_reaction_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4165,98 +4209,98 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type update_comment_output() :: %{String.t() => any()}
+  @type update_comment_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       maximum_branches_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type maximum_branches_exceeded_exception() :: %{String.t() => any()}
+  @type maximum_branches_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_merge_option_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_merge_option_exception() :: %{String.t() => any()}
+  @type invalid_merge_option_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_unreferenced_merge_commit_output() :: %{
-        "commitId" => String.t(),
-        "treeId" => String.t()
+        "commitId" => String.t() | Atom.t(),
+        "treeId" => String.t() | Atom.t()
       }
       
   """
-  @type create_unreferenced_merge_commit_output() :: %{String.t() => any()}
+  @type create_unreferenced_merge_commit_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cannot_delete_approval_rule_from_template_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type cannot_delete_approval_rule_from_template_exception() :: %{String.t() => any()}
+  @type cannot_delete_approval_rule_from_template_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       override_status_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type override_status_required_exception() :: %{String.t() => any()}
+  @type override_status_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reference_type_not_supported_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type reference_type_not_supported_exception() :: %{String.t() => any()}
+  @type reference_type_not_supported_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_folder_input() :: %{
-        optional("commitSpecifier") => String.t(),
-        required("folderPath") => String.t(),
-        required("repositoryName") => String.t()
+        optional("commitSpecifier") => String.t() | Atom.t(),
+        required("folderPath") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type get_folder_input() :: %{String.t() => any()}
+  @type get_folder_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_comment_input() :: %{
-        required("commentId") => String.t()
+        required("commentId") => String.t() | Atom.t()
       }
       
   """
-  @type get_comment_input() :: %{String.t() => any()}
+  @type get_comment_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4267,18 +4311,18 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type update_approval_rule_template_name_output() :: %{String.t() => any()}
+  @type update_approval_rule_template_name_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_conflict_resolution_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_conflict_resolution_exception() :: %{String.t() => any()}
+  @type invalid_conflict_resolution_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4286,22 +4330,22 @@ defmodule AWS.CodeCommit do
       
       list_approval_rule_templates_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_approval_rule_templates_input() :: %{String.t() => any()}
+  @type list_approval_rule_templates_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_pull_request_status_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_pull_request_status_exception() :: %{String.t() => any()}
+  @type invalid_pull_request_status_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4309,36 +4353,37 @@ defmodule AWS.CodeCommit do
       
       get_comments_for_pull_request_output() :: %{
         "commentsForPullRequestData" => list(comments_for_pull_request()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type get_comments_for_pull_request_output() :: %{String.t() => any()}
+  @type get_comments_for_pull_request_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_reference_name_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_reference_name_exception() :: %{String.t() => any()}
+  @type invalid_reference_name_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_disassociate_approval_rule_template_from_repositories_error() :: %{
-        "errorCode" => String.t(),
-        "errorMessage" => String.t(),
-        "repositoryName" => String.t()
+        "errorCode" => String.t() | Atom.t(),
+        "errorMessage" => String.t() | Atom.t(),
+        "repositoryName" => String.t() | Atom.t()
       }
       
   """
   @type batch_disassociate_approval_rule_template_from_repositories_error() :: %{
-          String.t() => any()
+          String.t()
+          | Atom.t() => any()
         }
 
   @typedoc """
@@ -4346,14 +4391,14 @@ defmodule AWS.CodeCommit do
   ## Example:
       
       evaluation() :: %{
-        "approvalRulesNotSatisfied" => list(String.t()),
-        "approvalRulesSatisfied" => list(String.t()),
+        "approvalRulesNotSatisfied" => list(String.t() | Atom.t()),
+        "approvalRulesSatisfied" => list(String.t() | Atom.t()),
         "approved" => boolean(),
         "overridden" => boolean()
       }
       
   """
-  @type evaluation() :: %{String.t() => any()}
+  @type evaluation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4364,43 +4409,43 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type create_pull_request_output() :: %{String.t() => any()}
+  @type create_pull_request_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       comment_content_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type comment_content_required_exception() :: %{String.t() => any()}
+  @type comment_content_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_file_output() :: %{
-        "blobId" => String.t(),
-        "commitId" => String.t(),
-        "filePath" => String.t(),
-        "treeId" => String.t()
+        "blobId" => String.t() | Atom.t(),
+        "commitId" => String.t() | Atom.t(),
+        "filePath" => String.t() | Atom.t(),
+        "treeId" => String.t() | Atom.t()
       }
       
   """
-  @type delete_file_output() :: %{String.t() => any()}
+  @type delete_file_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_comment_id_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_comment_id_exception() :: %{String.t() => any()}
+  @type invalid_comment_id_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4411,29 +4456,29 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type get_branch_output() :: %{String.t() => any()}
+  @type get_branch_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_keys_list_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type tag_keys_list_required_exception() :: %{String.t() => any()}
+  @type tag_keys_list_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reference_does_not_exist_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type reference_does_not_exist_exception() :: %{String.t() => any()}
+  @type reference_does_not_exist_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4446,41 +4491,41 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type object_types() :: %{String.t() => any()}
+  @type object_types() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       revision_not_current_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type revision_not_current_exception() :: %{String.t() => any()}
+  @type revision_not_current_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_comment_input() :: %{
-        required("commentId") => String.t(),
-        required("content") => String.t()
+        required("commentId") => String.t() | Atom.t(),
+        required("content") => String.t() | Atom.t()
       }
       
   """
-  @type update_comment_input() :: %{String.t() => any()}
+  @type update_comment_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       commit_does_not_exist_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type commit_does_not_exist_exception() :: %{String.t() => any()}
+  @type commit_does_not_exist_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4488,88 +4533,89 @@ defmodule AWS.CodeCommit do
       
       approval() :: %{
         "approvalState" => list(any()),
-        "userArn" => String.t()
+        "userArn" => String.t() | Atom.t()
       }
       
   """
-  @type approval() :: %{String.t() => any()}
+  @type approval() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       name_length_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type name_length_exceeded_exception() :: %{String.t() => any()}
+  @type name_length_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_file_location_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_file_location_exception() :: %{String.t() => any()}
+  @type invalid_file_location_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_repository_input() :: %{
-        optional("kmsKeyId") => String.t(),
-        optional("repositoryDescription") => String.t(),
+        optional("kmsKeyId") => String.t() | Atom.t(),
+        optional("repositoryDescription") => String.t() | Atom.t(),
         optional("tags") => map(),
-        required("repositoryName") => String.t()
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type create_repository_input() :: %{String.t() => any()}
+  @type create_repository_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       repository_trigger_events_list_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type repository_trigger_events_list_required_exception() :: %{String.t() => any()}
+  @type repository_trigger_events_list_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       post_comment_for_compared_commit_output() :: %{
-        "afterBlobId" => String.t(),
-        "afterCommitId" => String.t(),
-        "beforeBlobId" => String.t(),
-        "beforeCommitId" => String.t(),
+        "afterBlobId" => String.t() | Atom.t(),
+        "afterCommitId" => String.t() | Atom.t(),
+        "beforeBlobId" => String.t() | Atom.t(),
+        "beforeCommitId" => String.t() | Atom.t(),
         "comment" => comment(),
         "location" => location(),
-        "repositoryName" => String.t()
+        "repositoryName" => String.t() | Atom.t()
       }
       
   """
-  @type post_comment_for_compared_commit_output() :: %{String.t() => any()}
+  @type post_comment_for_compared_commit_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_disassociate_approval_rule_template_from_repositories_output() :: %{
-        "disassociatedRepositoryNames" => list(String.t()),
+        "disassociatedRepositoryNames" => list(String.t() | Atom.t()),
         "errors" => list(batch_disassociate_approval_rule_template_from_repositories_error())
       }
       
   """
   @type batch_disassociate_approval_rule_template_from_repositories_output() :: %{
-          String.t() => any()
+          String.t()
+          | Atom.t() => any()
         }
 
   @typedoc """
@@ -4577,116 +4623,116 @@ defmodule AWS.CodeCommit do
   ## Example:
       
       pull_request_created_event_metadata() :: %{
-        "destinationCommitId" => String.t(),
-        "mergeBase" => String.t(),
-        "repositoryName" => String.t(),
-        "sourceCommitId" => String.t()
+        "destinationCommitId" => String.t() | Atom.t(),
+        "mergeBase" => String.t() | Atom.t(),
+        "repositoryName" => String.t() | Atom.t(),
+        "sourceCommitId" => String.t() | Atom.t()
       }
       
   """
-  @type pull_request_created_event_metadata() :: %{String.t() => any()}
+  @type pull_request_created_event_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_repositories_input() :: %{
-        required("repositoryNames") => list(String.t())
+        required("repositoryNames") => list(String.t() | Atom.t())
       }
       
   """
-  @type batch_get_repositories_input() :: %{String.t() => any()}
+  @type batch_get_repositories_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       branch_info() :: %{
-        "branchName" => String.t(),
-        "commitId" => String.t()
+        "branchName" => String.t() | Atom.t(),
+        "commitId" => String.t() | Atom.t()
       }
       
   """
-  @type branch_info() :: %{String.t() => any()}
+  @type branch_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       operation_not_allowed_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type operation_not_allowed_exception() :: %{String.t() => any()}
+  @type operation_not_allowed_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_branches_input() :: %{
-        optional("nextToken") => String.t(),
-        required("repositoryName") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type list_branches_input() :: %{String.t() => any()}
+  @type list_branches_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_approval_rule_template_name_input() :: %{
-        required("newApprovalRuleTemplateName") => String.t(),
-        required("oldApprovalRuleTemplateName") => String.t()
+        required("newApprovalRuleTemplateName") => String.t() | Atom.t(),
+        required("oldApprovalRuleTemplateName") => String.t() | Atom.t()
       }
       
   """
-  @type update_approval_rule_template_name_input() :: %{String.t() => any()}
+  @type update_approval_rule_template_name_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_conflict_detail_level_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_conflict_detail_level_exception() :: %{String.t() => any()}
+  @type invalid_conflict_detail_level_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       restricted_source_file_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type restricted_source_file_exception() :: %{String.t() => any()}
+  @type restricted_source_file_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       commit_id_does_not_exist_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type commit_id_does_not_exist_exception() :: %{String.t() => any()}
+  @type commit_id_does_not_exist_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       number_of_rules_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type number_of_rules_exceeded_exception() :: %{String.t() => any()}
+  @type number_of_rules_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4694,22 +4740,22 @@ defmodule AWS.CodeCommit do
       
       approval_rule_overridden_event_metadata() :: %{
         "overrideStatus" => list(any()),
-        "revisionId" => String.t()
+        "revisionId" => String.t() | Atom.t()
       }
       
   """
-  @type approval_rule_overridden_event_metadata() :: %{String.t() => any()}
+  @type approval_rule_overridden_event_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_approval_rule_template_name_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_approval_rule_template_name_exception() :: %{String.t() => any()}
+  @type invalid_approval_rule_template_name_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4717,12 +4763,12 @@ defmodule AWS.CodeCommit do
       
       list_repositories_for_approval_rule_template_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("approvalRuleTemplateName") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("approvalRuleTemplateName") => String.t() | Atom.t()
       }
       
   """
-  @type list_repositories_for_approval_rule_template_input() :: %{String.t() => any()}
+  @type list_repositories_for_approval_rule_template_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4731,35 +4777,35 @@ defmodule AWS.CodeCommit do
       batch_get_repositories_output() :: %{
         "errors" => list(batch_get_repositories_error()),
         "repositories" => list(repository_metadata()),
-        "repositoriesNotFound" => list(String.t())
+        "repositoriesNotFound" => list(String.t() | Atom.t())
       }
       
   """
-  @type batch_get_repositories_output() :: %{String.t() => any()}
+  @type batch_get_repositories_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_pull_request_approval_states_input() :: %{
-        required("pullRequestId") => String.t(),
-        required("revisionId") => String.t()
+        required("pullRequestId") => String.t() | Atom.t(),
+        required("revisionId") => String.t() | Atom.t()
       }
       
   """
-  @type get_pull_request_approval_states_input() :: %{String.t() => any()}
+  @type get_pull_request_approval_states_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_repository_name_input() :: %{
-        required("newName") => String.t(),
-        required("oldName") => String.t()
+        required("newName") => String.t() | Atom.t(),
+        required("oldName") => String.t() | Atom.t()
       }
       
   """
-  @type update_repository_name_input() :: %{String.t() => any()}
+  @type update_repository_name_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4771,136 +4817,139 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type merge_operations() :: %{String.t() => any()}
+  @type merge_operations() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_pull_request_status_input() :: %{
-        required("pullRequestId") => String.t(),
+        required("pullRequestId") => String.t() | Atom.t(),
         required("pullRequestStatus") => list(any())
       }
       
   """
-  @type update_pull_request_status_input() :: %{String.t() => any()}
+  @type update_pull_request_status_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       comments_for_pull_request() :: %{
-        "afterBlobId" => String.t(),
-        "afterCommitId" => String.t(),
-        "beforeBlobId" => String.t(),
-        "beforeCommitId" => String.t(),
+        "afterBlobId" => String.t() | Atom.t(),
+        "afterCommitId" => String.t() | Atom.t(),
+        "beforeBlobId" => String.t() | Atom.t(),
+        "beforeCommitId" => String.t() | Atom.t(),
         "comments" => list(comment()),
         "location" => location(),
-        "pullRequestId" => String.t(),
-        "repositoryName" => String.t()
+        "pullRequestId" => String.t() | Atom.t(),
+        "repositoryName" => String.t() | Atom.t()
       }
       
   """
-  @type comments_for_pull_request() :: %{String.t() => any()}
+  @type comments_for_pull_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_approval_rule_name_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_approval_rule_name_exception() :: %{String.t() => any()}
+  @type invalid_approval_rule_name_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       repository_limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type repository_limit_exceeded_exception() :: %{String.t() => any()}
+  @type repository_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       commit_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type commit_required_exception() :: %{String.t() => any()}
+  @type commit_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       post_comment_for_compared_commit_input() :: %{
-        optional("beforeCommitId") => String.t(),
-        optional("clientRequestToken") => String.t(),
+        optional("beforeCommitId") => String.t() | Atom.t(),
+        optional("clientRequestToken") => String.t() | Atom.t(),
         optional("location") => location(),
-        required("afterCommitId") => String.t(),
-        required("content") => String.t(),
-        required("repositoryName") => String.t()
+        required("afterCommitId") => String.t() | Atom.t(),
+        required("content") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type post_comment_for_compared_commit_input() :: %{String.t() => any()}
+  @type post_comment_for_compared_commit_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       branch_name_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type branch_name_exists_exception() :: %{String.t() => any()}
+  @type branch_name_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       approval_rule_template_name_already_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type approval_rule_template_name_already_exists_exception() :: %{String.t() => any()}
+  @type approval_rule_template_name_already_exists_exception() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       update_pull_request_title_input() :: %{
-        required("pullRequestId") => String.t(),
-        required("title") => String.t()
+        required("pullRequestId") => String.t() | Atom.t(),
+        required("title") => String.t() | Atom.t()
       }
       
   """
-  @type update_pull_request_title_input() :: %{String.t() => any()}
+  @type update_pull_request_title_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_file_output() :: %{
-        "blobId" => String.t(),
-        "commitId" => String.t(),
+        "blobId" => String.t() | Atom.t(),
+        "commitId" => String.t() | Atom.t(),
         "fileContent" => binary(),
         "fileMode" => list(any()),
-        "filePath" => String.t(),
+        "filePath" => String.t() | Atom.t(),
         "fileSize" => float()
       }
       
   """
-  @type get_file_output() :: %{String.t() => any()}
+  @type get_file_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4908,85 +4957,85 @@ defmodule AWS.CodeCommit do
       
       test_repository_triggers_output() :: %{
         "failedExecutions" => list(repository_trigger_execution_failure()),
-        "successfulExecutions" => list(String.t())
+        "successfulExecutions" => list(String.t() | Atom.t())
       }
       
   """
-  @type test_repository_triggers_output() :: %{String.t() => any()}
+  @type test_repository_triggers_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       maximum_file_entries_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type maximum_file_entries_exceeded_exception() :: %{String.t() => any()}
+  @type maximum_file_entries_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_approval_rule_template_content_input() :: %{
-        optional("existingRuleContentSha256") => String.t(),
-        required("approvalRuleTemplateName") => String.t(),
-        required("newRuleContent") => String.t()
+        optional("existingRuleContentSha256") => String.t() | Atom.t(),
+        required("approvalRuleTemplateName") => String.t() | Atom.t(),
+        required("newRuleContent") => String.t() | Atom.t()
       }
       
   """
-  @type update_approval_rule_template_content_input() :: %{String.t() => any()}
+  @type update_approval_rule_template_content_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_comments_for_compared_commit_input() :: %{
-        optional("beforeCommitId") => String.t(),
+        optional("beforeCommitId") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("afterCommitId") => String.t(),
-        required("repositoryName") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("afterCommitId") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type get_comments_for_compared_commit_input() :: %{String.t() => any()}
+  @type get_comments_for_compared_commit_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       path_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type path_required_exception() :: %{String.t() => any()}
+  @type path_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_default_branch_input() :: %{
-        required("defaultBranchName") => String.t(),
-        required("repositoryName") => String.t()
+        required("defaultBranchName") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type update_default_branch_input() :: %{String.t() => any()}
+  @type update_default_branch_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       evaluate_pull_request_approval_rules_input() :: %{
-        required("pullRequestId") => String.t(),
-        required("revisionId") => String.t()
+        required("pullRequestId") => String.t() | Atom.t(),
+        required("revisionId") => String.t() | Atom.t()
       }
       
   """
-  @type evaluate_pull_request_approval_rules_input() :: %{String.t() => any()}
+  @type evaluate_pull_request_approval_rules_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4994,119 +5043,122 @@ defmodule AWS.CodeCommit do
       
       approval_state_changed_event_metadata() :: %{
         "approvalStatus" => list(any()),
-        "revisionId" => String.t()
+        "revisionId" => String.t() | Atom.t()
       }
       
   """
-  @type approval_state_changed_event_metadata() :: %{String.t() => any()}
+  @type approval_state_changed_event_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       pull_request_event() :: %{
-        "actorArn" => String.t(),
+        "actorArn" => String.t() | Atom.t(),
         "approvalRuleEventMetadata" => approval_rule_event_metadata(),
         "approvalRuleOverriddenEventMetadata" => approval_rule_overridden_event_metadata(),
         "approvalStateChangedEventMetadata" => approval_state_changed_event_metadata(),
         "eventDate" => non_neg_integer(),
         "pullRequestCreatedEventMetadata" => pull_request_created_event_metadata(),
         "pullRequestEventType" => list(any()),
-        "pullRequestId" => String.t(),
+        "pullRequestId" => String.t() | Atom.t(),
         "pullRequestMergedStateChangedEventMetadata" => pull_request_merged_state_changed_event_metadata(),
         "pullRequestSourceReferenceUpdatedEventMetadata" => pull_request_source_reference_updated_event_metadata(),
         "pullRequestStatusChangedEventMetadata" => pull_request_status_changed_event_metadata()
       }
       
   """
-  @type pull_request_event() :: %{String.t() => any()}
+  @type pull_request_event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       pull_request_merged_state_changed_event_metadata() :: %{
-        "destinationReference" => String.t(),
+        "destinationReference" => String.t() | Atom.t(),
         "mergeMetadata" => merge_metadata(),
-        "repositoryName" => String.t()
+        "repositoryName" => String.t() | Atom.t()
       }
       
   """
-  @type pull_request_merged_state_changed_event_metadata() :: %{String.t() => any()}
+  @type pull_request_merged_state_changed_event_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       approval_rule() :: %{
-        "approvalRuleContent" => String.t(),
-        "approvalRuleId" => String.t(),
-        "approvalRuleName" => String.t(),
+        "approvalRuleContent" => String.t() | Atom.t(),
+        "approvalRuleId" => String.t() | Atom.t(),
+        "approvalRuleName" => String.t() | Atom.t(),
         "creationDate" => non_neg_integer(),
         "lastModifiedDate" => non_neg_integer(),
-        "lastModifiedUser" => String.t(),
+        "lastModifiedUser" => String.t() | Atom.t(),
         "originApprovalRuleTemplate" => origin_approval_rule_template(),
-        "ruleContentSha256" => String.t()
+        "ruleContentSha256" => String.t() | Atom.t()
       }
       
   """
-  @type approval_rule() :: %{String.t() => any()}
+  @type approval_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_tags_map_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_tags_map_exception() :: %{String.t() => any()}
+  @type invalid_tags_map_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_tags_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type too_many_tags_exception() :: %{String.t() => any()}
+  @type too_many_tags_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       concurrent_reference_update_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type concurrent_reference_update_exception() :: %{String.t() => any()}
+  @type concurrent_reference_update_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_approval_rule_template_with_repository_input() :: %{
-        required("approvalRuleTemplateName") => String.t(),
-        required("repositoryName") => String.t()
+        required("approvalRuleTemplateName") => String.t() | Atom.t(),
+        required("repositoryName") => String.t() | Atom.t()
       }
       
   """
-  @type associate_approval_rule_template_with_repository_input() :: %{String.t() => any()}
+  @type associate_approval_rule_template_with_repository_input() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       directory_name_conflicts_with_file_name_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type directory_name_conflicts_with_file_name_exception() :: %{String.t() => any()}
+  @type directory_name_conflicts_with_file_name_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5117,98 +5169,98 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type create_pull_request_approval_rule_output() :: %{String.t() => any()}
+  @type create_pull_request_approval_rule_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_file_mode_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_file_mode_exception() :: %{String.t() => any()}
+  @type invalid_file_mode_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_repository_description_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_repository_description_exception() :: %{String.t() => any()}
+  @type invalid_repository_description_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       user_info() :: %{
-        "date" => String.t(),
-        "email" => String.t(),
-        "name" => String.t()
+        "date" => String.t() | Atom.t(),
+        "email" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
       
   """
-  @type user_info() :: %{String.t() => any()}
+  @type user_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_pull_request_approval_rule_input() :: %{
-        required("approvalRuleContent") => String.t(),
-        required("approvalRuleName") => String.t(),
-        required("pullRequestId") => String.t()
+        required("approvalRuleContent") => String.t() | Atom.t(),
+        required("approvalRuleName") => String.t() | Atom.t(),
+        required("pullRequestId") => String.t() | Atom.t()
       }
       
   """
-  @type create_pull_request_approval_rule_input() :: %{String.t() => any()}
+  @type create_pull_request_approval_rule_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       maximum_file_content_to_load_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type maximum_file_content_to_load_exceeded_exception() :: %{String.t() => any()}
+  @type maximum_file_content_to_load_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       repository_metadata() :: %{
-        "Arn" => String.t(),
-        "accountId" => String.t(),
-        "cloneUrlHttp" => String.t(),
-        "cloneUrlSsh" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "accountId" => String.t() | Atom.t(),
+        "cloneUrlHttp" => String.t() | Atom.t(),
+        "cloneUrlSsh" => String.t() | Atom.t(),
         "creationDate" => non_neg_integer(),
-        "defaultBranch" => String.t(),
-        "kmsKeyId" => String.t(),
+        "defaultBranch" => String.t() | Atom.t(),
+        "kmsKeyId" => String.t() | Atom.t(),
         "lastModifiedDate" => non_neg_integer(),
-        "repositoryDescription" => String.t(),
-        "repositoryId" => String.t(),
-        "repositoryName" => String.t()
+        "repositoryDescription" => String.t() | Atom.t(),
+        "repositoryId" => String.t() | Atom.t(),
+        "repositoryName" => String.t() | Atom.t()
       }
       
   """
-  @type repository_metadata() :: %{String.t() => any()}
+  @type repository_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_repository_trigger_name_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_repository_trigger_name_exception() :: %{String.t() => any()}
+  @type invalid_repository_trigger_name_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5218,7 +5270,7 @@ defmodule AWS.CodeCommit do
         "contentConflict" => boolean(),
         "fileModeConflict" => boolean(),
         "fileModes" => file_modes(),
-        "filePath" => String.t(),
+        "filePath" => String.t() | Atom.t(),
         "fileSizes" => file_sizes(),
         "isBinaryFile" => is_binary_file(),
         "mergeOperations" => merge_operations(),
@@ -5228,29 +5280,29 @@ defmodule AWS.CodeCommit do
       }
       
   """
-  @type conflict_metadata() :: %{String.t() => any()}
+  @type conflict_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       no_change_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type no_change_exception() :: %{String.t() => any()}
+  @type no_change_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       repository_does_not_exist_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type repository_does_not_exist_exception() :: %{String.t() => any()}
+  @type repository_does_not_exist_exception() :: %{String.t() | Atom.t() => any()}
 
   @type associate_approval_rule_template_with_repository_errors() ::
           repository_does_not_exist_exception()

@@ -27,39 +27,39 @@ defmodule AWS.WorkSpacesWeb do
 
       create_ip_access_settings_request() :: %{
         optional("additionalEncryptionContext") => map(),
-        optional("clientToken") => String.t(),
-        optional("customerManagedKey") => String.t(),
-        optional("description") => String.t(),
-        optional("displayName") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("customerManagedKey") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("displayName") => String.t() | Atom.t(),
         optional("tags") => list(tag()),
         required("ipRules") => list(ip_rule())
       }
 
   """
-  @type create_ip_access_settings_request() :: %{String.t() => any()}
+  @type create_ip_access_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       ip_rule() :: %{
-        "description" => String.t(),
-        "ipRange" => String.t()
+        "description" => String.t() | Atom.t(),
+        "ipRange" => String.t() | Atom.t()
       }
 
   """
-  @type ip_rule() :: %{String.t() => any()}
+  @type ip_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_browser_settings_response() :: %{
-        "browserSettingsArn" => String.t()
+        "browserSettingsArn" => String.t() | Atom.t()
       }
 
   """
-  @type create_browser_settings_response() :: %{String.t() => any()}
+  @type create_browser_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -75,22 +75,22 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       get_trust_store_certificate_request() :: %{
-        required("thumbprint") => String.t()
+        required("thumbprint") => String.t() | Atom.t()
       }
 
   """
-  @type get_trust_store_certificate_request() :: %{String.t() => any()}
+  @type get_trust_store_certificate_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_ip_access_settings_response() :: %{
-        "ipAccessSettingsArn" => String.t()
+        "ipAccessSettingsArn" => String.t() | Atom.t()
       }
 
   """
-  @type create_ip_access_settings_response() :: %{String.t() => any()}
+  @type create_ip_access_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -98,25 +98,25 @@ defmodule AWS.WorkSpacesWeb do
 
       ip_access_settings_summary() :: %{
         "creationDate" => non_neg_integer(),
-        "description" => String.t(),
-        "displayName" => String.t(),
-        "ipAccessSettingsArn" => String.t()
+        "description" => String.t() | Atom.t(),
+        "displayName" => String.t() | Atom.t(),
+        "ipAccessSettingsArn" => String.t() | Atom.t()
       }
 
   """
-  @type ip_access_settings_summary() :: %{String.t() => any()}
+  @type ip_access_settings_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_user_settings_response() :: %{
-        "portalArn" => String.t(),
-        "userSettingsArn" => String.t()
+        "portalArn" => String.t() | Atom.t(),
+        "userSettingsArn" => String.t() | Atom.t()
       }
 
   """
-  @type associate_user_settings_response() :: %{String.t() => any()}
+  @type associate_user_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -128,30 +128,30 @@ defmodule AWS.WorkSpacesWeb do
       }
 
   """
-  @type cookie_synchronization_configuration() :: %{String.t() => any()}
+  @type cookie_synchronization_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_resource_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         required("tags") => list(tag())
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       trust_store_summary() :: %{
-        "trustStoreArn" => String.t()
+        "trustStoreArn" => String.t() | Atom.t()
       }
 
   """
-  @type trust_store_summary() :: %{String.t() => any()}
+  @type trust_store_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -159,11 +159,11 @@ defmodule AWS.WorkSpacesWeb do
 
       list_ip_access_settings_response() :: %{
         "ipAccessSettings" => list(ip_access_settings_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_ip_access_settings_response() :: %{String.t() => any()}
+  @type list_ip_access_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -188,11 +188,11 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       create_user_access_logging_settings_response() :: %{
-        "userAccessLoggingSettingsArn" => String.t()
+        "userAccessLoggingSettingsArn" => String.t() | Atom.t()
       }
 
   """
-  @type create_user_access_logging_settings_response() :: %{String.t() => any()}
+  @type create_user_access_logging_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -200,15 +200,15 @@ defmodule AWS.WorkSpacesWeb do
 
       session_summary() :: %{
         "endTime" => non_neg_integer(),
-        "portalArn" => String.t(),
-        "sessionId" => String.t(),
+        "portalArn" => String.t() | Atom.t(),
+        "sessionId" => String.t() | Atom.t(),
         "startTime" => non_neg_integer(),
         "status" => list(any()),
-        "username" => String.t()
+        "username" => String.t() | Atom.t()
       }
 
   """
-  @type session_summary() :: %{String.t() => any()}
+  @type session_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -216,11 +216,11 @@ defmodule AWS.WorkSpacesWeb do
 
       list_identity_providers_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_identity_providers_request() :: %{String.t() => any()}
+  @type list_identity_providers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -231,7 +231,7 @@ defmodule AWS.WorkSpacesWeb do
       }
 
   """
-  @type get_session_response() :: %{String.t() => any()}
+  @type get_session_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -248,11 +248,11 @@ defmodule AWS.WorkSpacesWeb do
 
       list_trust_store_certificates_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_trust_store_certificates_request() :: %{String.t() => any()}
+  @type list_trust_store_certificates_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -263,7 +263,7 @@ defmodule AWS.WorkSpacesWeb do
       }
 
   """
-  @type update_identity_provider_response() :: %{String.t() => any()}
+  @type update_identity_provider_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -274,19 +274,19 @@ defmodule AWS.WorkSpacesWeb do
       }
 
   """
-  @type get_identity_provider_response() :: %{String.t() => any()}
+  @type get_identity_provider_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_browser_settings_request() :: %{
-        optional("browserPolicy") => String.t(),
-        optional("clientToken") => String.t()
+        optional("browserPolicy") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | Atom.t()
       }
 
   """
-  @type update_browser_settings_request() :: %{String.t() => any()}
+  @type update_browser_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -294,11 +294,11 @@ defmodule AWS.WorkSpacesWeb do
 
       list_user_access_logging_settings_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_user_access_logging_settings_request() :: %{String.t() => any()}
+  @type list_user_access_logging_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -309,7 +309,7 @@ defmodule AWS.WorkSpacesWeb do
       }
 
   """
-  @type update_network_settings_response() :: %{String.t() => any()}
+  @type update_network_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -325,15 +325,15 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       create_network_settings_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("tags") => list(tag()),
-        required("securityGroupIds") => list(String.t()),
-        required("subnetIds") => list(String.t()),
-        required("vpcId") => String.t()
+        required("securityGroupIds") => list(String.t() | Atom.t()),
+        required("subnetIds") => list(String.t() | Atom.t()),
+        required("vpcId") => String.t() | Atom.t()
       }
 
   """
-  @type create_network_settings_request() :: %{String.t() => any()}
+  @type create_network_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -350,37 +350,37 @@ defmodule AWS.WorkSpacesWeb do
 
       inline_redaction_configuration() :: %{
         "globalConfidenceLevel" => integer(),
-        "globalEnforcedUrls" => list(String.t()),
-        "globalExemptUrls" => list(String.t()),
+        "globalEnforcedUrls" => list(String.t() | Atom.t()),
+        "globalExemptUrls" => list(String.t() | Atom.t()),
         "inlineRedactionPatterns" => list(inline_redaction_pattern())
       }
 
   """
-  @type inline_redaction_configuration() :: %{String.t() => any()}
+  @type inline_redaction_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_trust_store_request() :: %{
-        required("trustStoreArn") => String.t()
+        required("trustStoreArn") => String.t() | Atom.t()
       }
 
   """
-  @type associate_trust_store_request() :: %{String.t() => any()}
+  @type associate_trust_store_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cookie_specification() :: %{
-        "domain" => String.t(),
-        "name" => String.t(),
-        "path" => String.t()
+        "domain" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "path" => String.t() | Atom.t()
       }
 
   """
-  @type cookie_specification() :: %{String.t() => any()}
+  @type cookie_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -396,33 +396,33 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       associate_user_access_logging_settings_request() :: %{
-        required("userAccessLoggingSettingsArn") => String.t()
+        required("userAccessLoggingSettingsArn") => String.t() | Atom.t()
       }
 
   """
-  @type associate_user_access_logging_settings_request() :: %{String.t() => any()}
+  @type associate_user_access_logging_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_user_settings_request() :: %{
-        required("userSettingsArn") => String.t()
+        required("userSettingsArn") => String.t() | Atom.t()
       }
 
   """
-  @type associate_user_settings_request() :: %{String.t() => any()}
+  @type associate_user_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_identity_provider_response() :: %{
-        "identityProviderArn" => String.t()
+        "identityProviderArn" => String.t() | Atom.t()
       }
 
   """
-  @type create_identity_provider_response() :: %{String.t() => any()}
+  @type create_identity_provider_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -430,11 +430,11 @@ defmodule AWS.WorkSpacesWeb do
 
       list_browser_settings_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_browser_settings_request() :: %{String.t() => any()}
+  @type list_browser_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -450,36 +450,36 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       create_portal_response() :: %{
-        "portalArn" => String.t(),
-        "portalEndpoint" => String.t()
+        "portalArn" => String.t() | Atom.t(),
+        "portalEndpoint" => String.t() | Atom.t()
       }
 
   """
-  @type create_portal_response() :: %{String.t() => any()}
+  @type create_portal_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_ip_access_settings_response() :: %{
-        "ipAccessSettingsArn" => String.t(),
-        "portalArn" => String.t()
+        "ipAccessSettingsArn" => String.t() | Atom.t(),
+        "portalArn" => String.t() | Atom.t()
       }
 
   """
-  @type associate_ip_access_settings_response() :: %{String.t() => any()}
+  @type associate_ip_access_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_user_settings_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "userSettings" => list(user_settings_summary())
       }
 
   """
-  @type list_user_settings_response() :: %{String.t() => any()}
+  @type list_user_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -490,31 +490,31 @@ defmodule AWS.WorkSpacesWeb do
       }
 
   """
-  @type get_trust_store_response() :: %{String.t() => any()}
+  @type get_trust_store_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_data_protection_settings_response() :: %{
-        "dataProtectionSettingsArn" => String.t()
+        "dataProtectionSettingsArn" => String.t() | Atom.t()
       }
 
   """
-  @type create_data_protection_settings_response() :: %{String.t() => any()}
+  @type create_data_protection_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       user_access_logging_settings() :: %{
-        "associatedPortalArns" => list(String.t()),
-        "kinesisStreamArn" => String.t(),
-        "userAccessLoggingSettingsArn" => String.t()
+        "associatedPortalArns" => list(String.t() | Atom.t()),
+        "kinesisStreamArn" => String.t() | Atom.t(),
+        "userAccessLoggingSettingsArn" => String.t() | Atom.t()
       }
 
   """
-  @type user_access_logging_settings() :: %{String.t() => any()}
+  @type user_access_logging_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -558,11 +558,11 @@ defmodule AWS.WorkSpacesWeb do
 
       list_ip_access_settings_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_ip_access_settings_request() :: %{String.t() => any()}
+  @type list_ip_access_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -573,7 +573,7 @@ defmodule AWS.WorkSpacesWeb do
       }
 
   """
-  @type get_user_settings_response() :: %{String.t() => any()}
+  @type get_user_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -584,19 +584,19 @@ defmodule AWS.WorkSpacesWeb do
       }
 
   """
-  @type update_ip_access_settings_response() :: %{String.t() => any()}
+  @type update_ip_access_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_trust_store_response() :: %{
-        "portalArn" => String.t(),
-        "trustStoreArn" => String.t()
+        "portalArn" => String.t() | Atom.t(),
+        "trustStoreArn" => String.t() | Atom.t()
       }
 
   """
-  @type associate_trust_store_response() :: %{String.t() => any()}
+  @type associate_trust_store_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -604,12 +604,12 @@ defmodule AWS.WorkSpacesWeb do
 
       update_trust_store_request() :: %{
         optional("certificatesToAdd") => list(binary()),
-        optional("certificatesToDelete") => list(String.t()),
-        optional("clientToken") => String.t()
+        optional("certificatesToDelete") => list(String.t() | Atom.t()),
+        optional("clientToken") => String.t() | Atom.t()
       }
 
   """
-  @type update_trust_store_request() :: %{String.t() => any()}
+  @type update_trust_store_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -617,43 +617,43 @@ defmodule AWS.WorkSpacesWeb do
 
       user_settings_summary() :: %{
         "cookieSynchronizationConfiguration" => cookie_synchronization_configuration(),
-        "copyAllowed" => String.t(),
-        "deepLinkAllowed" => String.t(),
+        "copyAllowed" => String.t() | Atom.t(),
+        "deepLinkAllowed" => String.t() | Atom.t(),
         "disconnectTimeoutInMinutes" => integer(),
-        "downloadAllowed" => String.t(),
+        "downloadAllowed" => String.t() | Atom.t(),
         "idleDisconnectTimeoutInMinutes" => integer(),
-        "pasteAllowed" => String.t(),
-        "printAllowed" => String.t(),
+        "pasteAllowed" => String.t() | Atom.t(),
+        "printAllowed" => String.t() | Atom.t(),
         "toolbarConfiguration" => toolbar_configuration(),
-        "uploadAllowed" => String.t(),
-        "userSettingsArn" => String.t()
+        "uploadAllowed" => String.t() | Atom.t(),
+        "userSettingsArn" => String.t() | Atom.t()
       }
 
   """
-  @type user_settings_summary() :: %{String.t() => any()}
+  @type user_settings_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       user_access_logging_settings_summary() :: %{
-        "kinesisStreamArn" => String.t(),
-        "userAccessLoggingSettingsArn" => String.t()
+        "kinesisStreamArn" => String.t() | Atom.t(),
+        "userAccessLoggingSettingsArn" => String.t() | Atom.t()
       }
 
   """
-  @type user_access_logging_settings_summary() :: %{String.t() => any()}
+  @type user_access_logging_settings_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -669,11 +669,11 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       associate_network_settings_request() :: %{
-        required("networkSettingsArn") => String.t()
+        required("networkSettingsArn") => String.t() | Atom.t()
       }
 
   """
-  @type associate_network_settings_request() :: %{String.t() => any()}
+  @type associate_network_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -689,11 +689,11 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       associate_browser_settings_request() :: %{
-        required("browserSettingsArn") => String.t()
+        required("browserSettingsArn") => String.t() | Atom.t()
       }
 
   """
-  @type associate_browser_settings_request() :: %{String.t() => any()}
+  @type associate_browser_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -710,11 +710,11 @@ defmodule AWS.WorkSpacesWeb do
 
       list_trust_stores_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_trust_stores_request() :: %{String.t() => any()}
+  @type list_trust_stores_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -739,15 +739,15 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       certificate_summary() :: %{
-        "issuer" => String.t(),
+        "issuer" => String.t() | Atom.t(),
         "notValidAfter" => non_neg_integer(),
         "notValidBefore" => non_neg_integer(),
-        "subject" => String.t(),
-        "thumbprint" => String.t()
+        "subject" => String.t() | Atom.t(),
+        "thumbprint" => String.t() | Atom.t()
       }
 
   """
-  @type certificate_summary() :: %{String.t() => any()}
+  @type certificate_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -767,22 +767,22 @@ defmodule AWS.WorkSpacesWeb do
       }
 
   """
-  @type get_ip_access_settings_response() :: %{String.t() => any()}
+  @type get_ip_access_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       network_settings() :: %{
-        "associatedPortalArns" => list(String.t()),
-        "networkSettingsArn" => String.t(),
-        "securityGroupIds" => list(String.t()),
-        "subnetIds" => list(String.t()),
-        "vpcId" => String.t()
+        "associatedPortalArns" => list(String.t() | Atom.t()),
+        "networkSettingsArn" => String.t() | Atom.t(),
+        "securityGroupIds" => list(String.t() | Atom.t()),
+        "subnetIds" => list(String.t() | Atom.t()),
+        "vpcId" => String.t() | Atom.t()
       }
 
   """
-  @type network_settings() :: %{String.t() => any()}
+  @type network_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -790,39 +790,39 @@ defmodule AWS.WorkSpacesWeb do
 
       list_portals_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_portals_request() :: %{String.t() => any()}
+  @type list_portals_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       inline_redaction_pattern() :: %{
-        "builtInPatternId" => String.t(),
+        "builtInPatternId" => String.t() | Atom.t(),
         "confidenceLevel" => integer(),
         "customPattern" => custom_pattern(),
-        "enforcedUrls" => list(String.t()),
-        "exemptUrls" => list(String.t()),
+        "enforcedUrls" => list(String.t() | Atom.t()),
+        "exemptUrls" => list(String.t() | Atom.t()),
         "redactionPlaceHolder" => redaction_place_holder()
       }
 
   """
-  @type inline_redaction_pattern() :: %{String.t() => any()}
+  @type inline_redaction_pattern() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_sessions_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "sessions" => list(session_summary())
       }
 
   """
-  @type list_sessions_response() :: %{String.t() => any()}
+  @type list_sessions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -851,82 +851,82 @@ defmodule AWS.WorkSpacesWeb do
       }
 
   """
-  @type update_user_settings_response() :: %{String.t() => any()}
+  @type update_user_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_trust_store_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("tags") => list(tag()),
         required("certificateList") => list(binary())
       }
 
   """
-  @type create_trust_store_request() :: %{String.t() => any()}
+  @type create_trust_store_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t(),
-        "resourceId" => String.t(),
-        "resourceType" => String.t()
+        "message" => String.t() | Atom.t(),
+        "resourceId" => String.t() | Atom.t(),
+        "resourceType" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t(),
-        "resourceId" => String.t(),
-        "resourceType" => String.t()
+        "message" => String.t() | Atom.t(),
+        "resourceId" => String.t() | Atom.t(),
+        "resourceType" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_network_settings_response() :: %{
-        "networkSettingsArn" => String.t(),
-        "portalArn" => String.t()
+        "networkSettingsArn" => String.t() | Atom.t(),
+        "portalArn" => String.t() | Atom.t()
       }
 
   """
-  @type associate_network_settings_response() :: %{String.t() => any()}
+  @type associate_network_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_user_access_logging_settings_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("kinesisStreamArn") => String.t()
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("kinesisStreamArn") => String.t() | Atom.t()
       }
 
   """
-  @type update_user_access_logging_settings_request() :: %{String.t() => any()}
+  @type update_user_access_logging_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -942,11 +942,11 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       create_network_settings_response() :: %{
-        "networkSettingsArn" => String.t()
+        "networkSettingsArn" => String.t() | Atom.t()
       }
 
   """
-  @type create_network_settings_response() :: %{String.t() => any()}
+  @type create_network_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -954,14 +954,14 @@ defmodule AWS.WorkSpacesWeb do
 
       create_browser_settings_request() :: %{
         optional("additionalEncryptionContext") => map(),
-        optional("clientToken") => String.t(),
-        optional("customerManagedKey") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("customerManagedKey") => String.t() | Atom.t(),
         optional("tags") => list(tag()),
-        required("browserPolicy") => String.t()
+        required("browserPolicy") => String.t() | Atom.t()
       }
 
   """
-  @type create_browser_settings_request() :: %{String.t() => any()}
+  @type create_browser_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -986,12 +986,12 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       associate_data_protection_settings_response() :: %{
-        "dataProtectionSettingsArn" => String.t(),
-        "portalArn" => String.t()
+        "dataProtectionSettingsArn" => String.t() | Atom.t(),
+        "portalArn" => String.t() | Atom.t()
       }
 
   """
-  @type associate_data_protection_settings_response() :: %{String.t() => any()}
+  @type associate_data_protection_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -999,11 +999,11 @@ defmodule AWS.WorkSpacesWeb do
 
       list_network_settings_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_network_settings_request() :: %{String.t() => any()}
+  @type list_network_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1011,46 +1011,46 @@ defmodule AWS.WorkSpacesWeb do
 
       create_portal_request() :: %{
         optional("additionalEncryptionContext") => map(),
-        optional("authenticationType") => String.t(),
-        optional("clientToken") => String.t(),
-        optional("customerManagedKey") => String.t(),
-        optional("displayName") => String.t(),
-        optional("instanceType") => String.t(),
+        optional("authenticationType") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("customerManagedKey") => String.t() | Atom.t(),
+        optional("displayName") => String.t() | Atom.t(),
+        optional("instanceType") => String.t() | Atom.t(),
         optional("maxConcurrentSessions") => integer(),
         optional("tags") => list(tag())
       }
 
   """
-  @type create_portal_request() :: %{String.t() => any()}
+  @type create_portal_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => String.t(),
-        "quotaCode" => String.t(),
-        "resourceId" => String.t(),
-        "resourceType" => String.t(),
-        "serviceCode" => String.t()
+        "message" => String.t() | Atom.t(),
+        "quotaCode" => String.t() | Atom.t(),
+        "resourceId" => String.t() | Atom.t(),
+        "resourceType" => String.t() | Atom.t(),
+        "serviceCode" => String.t() | Atom.t()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_network_settings_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("securityGroupIds") => list(String.t()),
-        optional("subnetIds") => list(String.t()),
-        optional("vpcId") => String.t()
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("securityGroupIds") => list(String.t() | Atom.t()),
+        optional("subnetIds") => list(String.t() | Atom.t()),
+        optional("vpcId") => String.t() | Atom.t()
       }
 
   """
-  @type update_network_settings_request() :: %{String.t() => any()}
+  @type update_network_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1061,7 +1061,7 @@ defmodule AWS.WorkSpacesWeb do
       }
 
   """
-  @type update_portal_response() :: %{String.t() => any()}
+  @type update_portal_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1072,7 +1072,7 @@ defmodule AWS.WorkSpacesWeb do
       }
 
   """
-  @type get_network_settings_response() :: %{String.t() => any()}
+  @type get_network_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1080,17 +1080,17 @@ defmodule AWS.WorkSpacesWeb do
 
       data_protection_settings() :: %{
         "additionalEncryptionContext" => map(),
-        "associatedPortalArns" => list(String.t()),
+        "associatedPortalArns" => list(String.t() | Atom.t()),
         "creationDate" => non_neg_integer(),
-        "customerManagedKey" => String.t(),
-        "dataProtectionSettingsArn" => String.t(),
-        "description" => String.t(),
-        "displayName" => String.t(),
+        "customerManagedKey" => String.t() | Atom.t(),
+        "dataProtectionSettingsArn" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "displayName" => String.t() | Atom.t(),
         "inlineRedactionConfiguration" => inline_redaction_configuration()
       }
 
   """
-  @type data_protection_settings() :: %{String.t() => any()}
+  @type data_protection_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1110,43 +1110,43 @@ defmodule AWS.WorkSpacesWeb do
       }
 
   """
-  @type update_data_protection_settings_response() :: %{String.t() => any()}
+  @type update_data_protection_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       browser_settings_summary() :: %{
-        "browserSettingsArn" => String.t()
+        "browserSettingsArn" => String.t() | Atom.t()
       }
 
   """
-  @type browser_settings_summary() :: %{String.t() => any()}
+  @type browser_settings_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_data_protection_settings_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
-        optional("displayName") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("displayName") => String.t() | Atom.t(),
         optional("inlineRedactionConfiguration") => inline_redaction_configuration()
       }
 
   """
-  @type update_data_protection_settings_request() :: %{String.t() => any()}
+  @type update_data_protection_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_user_settings_response() :: %{
-        "userSettingsArn" => String.t()
+        "userSettingsArn" => String.t() | Atom.t()
       }
 
   """
-  @type create_user_settings_response() :: %{String.t() => any()}
+  @type create_user_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1157,19 +1157,19 @@ defmodule AWS.WorkSpacesWeb do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_trust_stores_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "trustStores" => list(trust_store_summary())
       }
 
   """
-  @type list_trust_stores_response() :: %{String.t() => any()}
+  @type list_trust_stores_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1194,24 +1194,24 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       identity_provider_summary() :: %{
-        "identityProviderArn" => String.t(),
-        "identityProviderName" => String.t(),
-        "identityProviderType" => String.t()
+        "identityProviderArn" => String.t() | Atom.t(),
+        "identityProviderName" => String.t() | Atom.t(),
+        "identityProviderType" => String.t() | Atom.t()
       }
 
   """
-  @type identity_provider_summary() :: %{String.t() => any()}
+  @type identity_provider_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_ip_access_settings_request() :: %{
-        required("ipAccessSettingsArn") => String.t()
+        required("ipAccessSettingsArn") => String.t() | Atom.t()
       }
 
   """
-  @type associate_ip_access_settings_request() :: %{String.t() => any()}
+  @type associate_ip_access_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1219,15 +1219,15 @@ defmodule AWS.WorkSpacesWeb do
 
       list_sessions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("sessionId") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("sessionId") => String.t() | Atom.t(),
         optional("sortBy") => list(any()),
         optional("status") => list(any()),
-        optional("username") => String.t()
+        optional("username") => String.t() | Atom.t()
       }
 
   """
-  @type list_sessions_request() :: %{String.t() => any()}
+  @type list_sessions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1235,35 +1235,35 @@ defmodule AWS.WorkSpacesWeb do
 
       list_data_protection_settings_response() :: %{
         "dataProtectionSettings" => list(data_protection_settings_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_data_protection_settings_response() :: %{String.t() => any()}
+  @type list_data_protection_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "message" => String.t(),
-        "name" => String.t()
+        "message" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       network_settings_summary() :: %{
-        "networkSettingsArn" => String.t(),
-        "vpcId" => String.t()
+        "networkSettingsArn" => String.t() | Atom.t(),
+        "vpcId" => String.t() | Atom.t()
       }
 
   """
-  @type network_settings_summary() :: %{String.t() => any()}
+  @type network_settings_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1279,50 +1279,50 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       session() :: %{
-        "clientIpAddresses" => list(String.t()),
+        "clientIpAddresses" => list(String.t() | Atom.t()),
         "endTime" => non_neg_integer(),
-        "portalArn" => String.t(),
-        "sessionId" => String.t(),
+        "portalArn" => String.t() | Atom.t(),
+        "sessionId" => String.t() | Atom.t(),
         "startTime" => non_neg_integer(),
         "status" => list(any()),
-        "username" => String.t()
+        "username" => String.t() | Atom.t()
       }
 
   """
-  @type session() :: %{String.t() => any()}
+  @type session() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_portal_service_provider_metadata_response() :: %{
-        "portalArn" => String.t(),
-        "serviceProviderSamlMetadata" => String.t()
+        "portalArn" => String.t() | Atom.t(),
+        "serviceProviderSamlMetadata" => String.t() | Atom.t()
       }
 
   """
-  @type get_portal_service_provider_metadata_response() :: %{String.t() => any()}
+  @type get_portal_service_provider_metadata_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_user_settings_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("cookieSynchronizationConfiguration") => cookie_synchronization_configuration(),
-        optional("copyAllowed") => String.t(),
-        optional("deepLinkAllowed") => String.t(),
+        optional("copyAllowed") => String.t() | Atom.t(),
+        optional("deepLinkAllowed") => String.t() | Atom.t(),
         optional("disconnectTimeoutInMinutes") => integer(),
-        optional("downloadAllowed") => String.t(),
+        optional("downloadAllowed") => String.t() | Atom.t(),
         optional("idleDisconnectTimeoutInMinutes") => integer(),
-        optional("pasteAllowed") => String.t(),
-        optional("printAllowed") => String.t(),
+        optional("pasteAllowed") => String.t() | Atom.t(),
+        optional("printAllowed") => String.t() | Atom.t(),
         optional("toolbarConfiguration") => toolbar_configuration(),
-        optional("uploadAllowed") => String.t()
+        optional("uploadAllowed") => String.t() | Atom.t()
       }
 
   """
-  @type update_user_settings_request() :: %{String.t() => any()}
+  @type update_user_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1339,25 +1339,25 @@ defmodule AWS.WorkSpacesWeb do
 
       list_network_settings_response() :: %{
         "networkSettings" => list(network_settings_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_network_settings_response() :: %{String.t() => any()}
+  @type list_network_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       identity_provider() :: %{
-        "identityProviderArn" => String.t(),
+        "identityProviderArn" => String.t() | Atom.t(),
         "identityProviderDetails" => map(),
-        "identityProviderName" => String.t(),
-        "identityProviderType" => String.t()
+        "identityProviderName" => String.t() | Atom.t(),
+        "identityProviderType" => String.t() | Atom.t()
       }
 
   """
-  @type identity_provider() :: %{String.t() => any()}
+  @type identity_provider() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1377,7 +1377,7 @@ defmodule AWS.WorkSpacesWeb do
       }
 
   """
-  @type get_browser_settings_response() :: %{String.t() => any()}
+  @type get_browser_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1385,36 +1385,36 @@ defmodule AWS.WorkSpacesWeb do
 
       list_trust_store_certificates_response() :: %{
         "certificateList" => list(certificate_summary()),
-        "nextToken" => String.t(),
-        "trustStoreArn" => String.t()
+        "nextToken" => String.t() | Atom.t(),
+        "trustStoreArn" => String.t() | Atom.t()
       }
 
   """
-  @type list_trust_store_certificates_response() :: %{String.t() => any()}
+  @type list_trust_store_certificates_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_portals_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "portals" => list(portal_summary())
       }
 
   """
-  @type list_portals_response() :: %{String.t() => any()}
+  @type list_portals_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => String.t(),
+        "message" => String.t() | Atom.t(),
         "retryAfterSeconds" => integer()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1431,15 +1431,15 @@ defmodule AWS.WorkSpacesWeb do
 
       certificate() :: %{
         "body" => binary(),
-        "issuer" => String.t(),
+        "issuer" => String.t() | Atom.t(),
         "notValidAfter" => non_neg_integer(),
         "notValidBefore" => non_neg_integer(),
-        "subject" => String.t(),
-        "thumbprint" => String.t()
+        "subject" => String.t() | Atom.t(),
+        "thumbprint" => String.t() | Atom.t()
       }
 
   """
-  @type certificate() :: %{String.t() => any()}
+  @type certificate() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1456,27 +1456,27 @@ defmodule AWS.WorkSpacesWeb do
 
       get_trust_store_certificate_response() :: %{
         "certificate" => certificate(),
-        "trustStoreArn" => String.t()
+        "trustStoreArn" => String.t() | Atom.t()
       }
 
   """
-  @type get_trust_store_certificate_response() :: %{String.t() => any()}
+  @type get_trust_store_certificate_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_identity_provider_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("tags") => list(tag()),
         required("identityProviderDetails") => map(),
-        required("identityProviderName") => String.t(),
-        required("identityProviderType") => String.t(),
-        required("portalArn") => String.t()
+        required("identityProviderName") => String.t() | Atom.t(),
+        required("identityProviderType") => String.t() | Atom.t(),
+        required("portalArn") => String.t() | Atom.t()
       }
 
   """
-  @type create_identity_provider_request() :: %{String.t() => any()}
+  @type create_identity_provider_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1487,7 +1487,7 @@ defmodule AWS.WorkSpacesWeb do
       }
 
   """
-  @type update_browser_settings_response() :: %{String.t() => any()}
+  @type update_browser_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1503,22 +1503,22 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_trust_store_response() :: %{
-        "trustStoreArn" => String.t()
+        "trustStoreArn" => String.t() | Atom.t()
       }
 
   """
-  @type create_trust_store_response() :: %{String.t() => any()}
+  @type create_trust_store_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1543,12 +1543,12 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       redaction_place_holder() :: %{
-        "redactionPlaceHolderText" => String.t(),
-        "redactionPlaceHolderType" => String.t()
+        "redactionPlaceHolderText" => String.t() | Atom.t(),
+        "redactionPlaceHolderType" => String.t() | Atom.t()
       }
 
   """
-  @type redaction_place_holder() :: %{String.t() => any()}
+  @type redaction_place_holder() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1556,23 +1556,23 @@ defmodule AWS.WorkSpacesWeb do
 
       create_user_settings_request() :: %{
         optional("additionalEncryptionContext") => map(),
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("cookieSynchronizationConfiguration") => cookie_synchronization_configuration(),
-        optional("customerManagedKey") => String.t(),
-        optional("deepLinkAllowed") => String.t(),
+        optional("customerManagedKey") => String.t() | Atom.t(),
+        optional("deepLinkAllowed") => String.t() | Atom.t(),
         optional("disconnectTimeoutInMinutes") => integer(),
         optional("idleDisconnectTimeoutInMinutes") => integer(),
         optional("tags") => list(tag()),
         optional("toolbarConfiguration") => toolbar_configuration(),
-        required("copyAllowed") => String.t(),
-        required("downloadAllowed") => String.t(),
-        required("pasteAllowed") => String.t(),
-        required("printAllowed") => String.t(),
-        required("uploadAllowed") => String.t()
+        required("copyAllowed") => String.t() | Atom.t(),
+        required("downloadAllowed") => String.t() | Atom.t(),
+        required("pasteAllowed") => String.t() | Atom.t(),
+        required("printAllowed") => String.t() | Atom.t(),
+        required("uploadAllowed") => String.t() | Atom.t()
       }
 
   """
-  @type create_user_settings_request() :: %{String.t() => any()}
+  @type create_user_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1589,27 +1589,27 @@ defmodule AWS.WorkSpacesWeb do
 
       data_protection_settings_summary() :: %{
         "creationDate" => non_neg_integer(),
-        "dataProtectionSettingsArn" => String.t(),
-        "description" => String.t(),
-        "displayName" => String.t()
+        "dataProtectionSettingsArn" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "displayName" => String.t() | Atom.t()
       }
 
   """
-  @type data_protection_settings_summary() :: %{String.t() => any()}
+  @type data_protection_settings_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_portal_request() :: %{
-        optional("authenticationType") => String.t(),
-        optional("displayName") => String.t(),
-        optional("instanceType") => String.t(),
+        optional("authenticationType") => String.t() | Atom.t(),
+        optional("displayName") => String.t() | Atom.t(),
+        optional("instanceType") => String.t() | Atom.t(),
         optional("maxConcurrentSessions") => integer()
       }
 
   """
-  @type update_portal_request() :: %{String.t() => any()}
+  @type update_portal_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1626,16 +1626,16 @@ defmodule AWS.WorkSpacesWeb do
 
       create_data_protection_settings_request() :: %{
         optional("additionalEncryptionContext") => map(),
-        optional("clientToken") => String.t(),
-        optional("customerManagedKey") => String.t(),
-        optional("description") => String.t(),
-        optional("displayName") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("customerManagedKey") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("displayName") => String.t() | Atom.t(),
         optional("inlineRedactionConfiguration") => inline_redaction_configuration(),
         optional("tags") => list(tag())
       }
 
   """
-  @type create_data_protection_settings_request() :: %{String.t() => any()}
+  @type create_data_protection_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1643,17 +1643,17 @@ defmodule AWS.WorkSpacesWeb do
 
       ip_access_settings() :: %{
         "additionalEncryptionContext" => map(),
-        "associatedPortalArns" => list(String.t()),
+        "associatedPortalArns" => list(String.t() | Atom.t()),
         "creationDate" => non_neg_integer(),
-        "customerManagedKey" => String.t(),
-        "description" => String.t(),
-        "displayName" => String.t(),
-        "ipAccessSettingsArn" => String.t(),
+        "customerManagedKey" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "displayName" => String.t() | Atom.t(),
+        "ipAccessSettingsArn" => String.t() | Atom.t(),
         "ipRules" => list(ip_rule())
       }
 
   """
-  @type ip_access_settings() :: %{String.t() => any()}
+  @type ip_access_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1670,12 +1670,12 @@ defmodule AWS.WorkSpacesWeb do
 
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
-        "message" => String.t(),
-        "reason" => String.t()
+        "message" => String.t() | Atom.t(),
+        "reason" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1701,11 +1701,11 @@ defmodule AWS.WorkSpacesWeb do
 
       list_identity_providers_response() :: %{
         "identityProviders" => list(identity_provider_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_identity_providers_response() :: %{String.t() => any()}
+  @type list_identity_providers_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1721,25 +1721,25 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       throttling_exception() :: %{
-        "message" => String.t(),
-        "quotaCode" => String.t(),
+        "message" => String.t() | Atom.t(),
+        "quotaCode" => String.t() | Atom.t(),
         "retryAfterSeconds" => integer(),
-        "serviceCode" => String.t()
+        "serviceCode" => String.t() | Atom.t()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_data_protection_settings_request() :: %{
-        required("dataProtectionSettingsArn") => String.t()
+        required("dataProtectionSettingsArn") => String.t() | Atom.t()
       }
 
   """
-  @type associate_data_protection_settings_request() :: %{String.t() => any()}
+  @type associate_data_protection_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1747,25 +1747,25 @@ defmodule AWS.WorkSpacesWeb do
 
       list_browser_settings_response() :: %{
         "browserSettings" => list(browser_settings_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_browser_settings_response() :: %{String.t() => any()}
+  @type list_browser_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       toolbar_configuration() :: %{
-        "hiddenToolbarItems" => list(String.t()),
-        "maxDisplayResolution" => String.t(),
-        "toolbarType" => String.t(),
-        "visualMode" => String.t()
+        "hiddenToolbarItems" => list(String.t() | Atom.t()),
+        "maxDisplayResolution" => String.t() | Atom.t(),
+        "toolbarType" => String.t() | Atom.t(),
+        "visualMode" => String.t() | Atom.t()
       }
 
   """
-  @type toolbar_configuration() :: %{String.t() => any()}
+  @type toolbar_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1773,50 +1773,50 @@ defmodule AWS.WorkSpacesWeb do
 
       list_data_protection_settings_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_data_protection_settings_request() :: %{String.t() => any()}
+  @type list_data_protection_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_user_access_logging_settings_response() :: %{
-        "portalArn" => String.t(),
-        "userAccessLoggingSettingsArn" => String.t()
+        "portalArn" => String.t() | Atom.t(),
+        "userAccessLoggingSettingsArn" => String.t() | Atom.t()
       }
 
   """
-  @type associate_user_access_logging_settings_response() :: %{String.t() => any()}
+  @type associate_user_access_logging_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       portal_summary() :: %{
-        "authenticationType" => String.t(),
-        "browserSettingsArn" => String.t(),
-        "browserType" => String.t(),
+        "authenticationType" => String.t() | Atom.t(),
+        "browserSettingsArn" => String.t() | Atom.t(),
+        "browserType" => String.t() | Atom.t(),
         "creationDate" => non_neg_integer(),
-        "dataProtectionSettingsArn" => String.t(),
-        "displayName" => String.t(),
-        "instanceType" => String.t(),
-        "ipAccessSettingsArn" => String.t(),
+        "dataProtectionSettingsArn" => String.t() | Atom.t(),
+        "displayName" => String.t() | Atom.t(),
+        "instanceType" => String.t() | Atom.t(),
+        "ipAccessSettingsArn" => String.t() | Atom.t(),
         "maxConcurrentSessions" => integer(),
-        "networkSettingsArn" => String.t(),
-        "portalArn" => String.t(),
-        "portalEndpoint" => String.t(),
-        "portalStatus" => String.t(),
-        "rendererType" => String.t(),
-        "trustStoreArn" => String.t(),
-        "userAccessLoggingSettingsArn" => String.t(),
-        "userSettingsArn" => String.t()
+        "networkSettingsArn" => String.t() | Atom.t(),
+        "portalArn" => String.t() | Atom.t(),
+        "portalEndpoint" => String.t() | Atom.t(),
+        "portalStatus" => String.t() | Atom.t(),
+        "rendererType" => String.t() | Atom.t(),
+        "trustStoreArn" => String.t() | Atom.t(),
+        "userAccessLoggingSettingsArn" => String.t() | Atom.t(),
+        "userSettingsArn" => String.t() | Atom.t()
       }
 
   """
-  @type portal_summary() :: %{String.t() => any()}
+  @type portal_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1832,12 +1832,12 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       associate_browser_settings_response() :: %{
-        "browserSettingsArn" => String.t(),
-        "portalArn" => String.t()
+        "browserSettingsArn" => String.t() | Atom.t(),
+        "portalArn" => String.t() | Atom.t()
       }
 
   """
-  @type associate_browser_settings_response() :: %{String.t() => any()}
+  @type associate_browser_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1845,23 +1845,23 @@ defmodule AWS.WorkSpacesWeb do
 
       user_settings() :: %{
         "additionalEncryptionContext" => map(),
-        "associatedPortalArns" => list(String.t()),
+        "associatedPortalArns" => list(String.t() | Atom.t()),
         "cookieSynchronizationConfiguration" => cookie_synchronization_configuration(),
-        "copyAllowed" => String.t(),
-        "customerManagedKey" => String.t(),
-        "deepLinkAllowed" => String.t(),
+        "copyAllowed" => String.t() | Atom.t(),
+        "customerManagedKey" => String.t() | Atom.t(),
+        "deepLinkAllowed" => String.t() | Atom.t(),
         "disconnectTimeoutInMinutes" => integer(),
-        "downloadAllowed" => String.t(),
+        "downloadAllowed" => String.t() | Atom.t(),
         "idleDisconnectTimeoutInMinutes" => integer(),
-        "pasteAllowed" => String.t(),
-        "printAllowed" => String.t(),
+        "pasteAllowed" => String.t() | Atom.t(),
+        "printAllowed" => String.t() | Atom.t(),
         "toolbarConfiguration" => toolbar_configuration(),
-        "uploadAllowed" => String.t(),
-        "userSettingsArn" => String.t()
+        "uploadAllowed" => String.t() | Atom.t(),
+        "userSettingsArn" => String.t() | Atom.t()
       }
 
   """
-  @type user_settings() :: %{String.t() => any()}
+  @type user_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1872,60 +1872,60 @@ defmodule AWS.WorkSpacesWeb do
       }
 
   """
-  @type get_portal_response() :: %{String.t() => any()}
+  @type get_portal_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       custom_pattern() :: %{
-        "keywordRegex" => String.t(),
-        "patternDescription" => String.t(),
-        "patternName" => String.t(),
-        "patternRegex" => String.t()
+        "keywordRegex" => String.t() | Atom.t(),
+        "patternDescription" => String.t() | Atom.t(),
+        "patternName" => String.t() | Atom.t(),
+        "patternRegex" => String.t() | Atom.t()
       }
 
   """
-  @type custom_pattern() :: %{String.t() => any()}
+  @type custom_pattern() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_user_access_logging_settings_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("tags") => list(tag()),
-        required("kinesisStreamArn") => String.t()
+        required("kinesisStreamArn") => String.t() | Atom.t()
       }
 
   """
-  @type create_user_access_logging_settings_request() :: %{String.t() => any()}
+  @type create_user_access_logging_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_identity_provider_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("identityProviderDetails") => map(),
-        optional("identityProviderName") => String.t(),
-        optional("identityProviderType") => String.t()
+        optional("identityProviderName") => String.t() | Atom.t(),
+        optional("identityProviderType") => String.t() | Atom.t()
       }
 
   """
-  @type update_identity_provider_request() :: %{String.t() => any()}
+  @type update_identity_provider_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_user_access_logging_settings_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "userAccessLoggingSettings" => list(user_access_logging_settings_summary())
       }
 
   """
-  @type list_user_access_logging_settings_response() :: %{String.t() => any()}
+  @type list_user_access_logging_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1936,7 +1936,7 @@ defmodule AWS.WorkSpacesWeb do
       }
 
   """
-  @type get_data_protection_settings_response() :: %{String.t() => any()}
+  @type get_data_protection_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1961,14 +1961,14 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       update_ip_access_settings_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
-        optional("displayName") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("displayName") => String.t() | Atom.t(),
         optional("ipRules") => list(ip_rule())
       }
 
   """
-  @type update_ip_access_settings_request() :: %{String.t() => any()}
+  @type update_ip_access_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1976,14 +1976,14 @@ defmodule AWS.WorkSpacesWeb do
 
       browser_settings() :: %{
         "additionalEncryptionContext" => map(),
-        "associatedPortalArns" => list(String.t()),
-        "browserPolicy" => String.t(),
-        "browserSettingsArn" => String.t(),
-        "customerManagedKey" => String.t()
+        "associatedPortalArns" => list(String.t() | Atom.t()),
+        "browserPolicy" => String.t() | Atom.t(),
+        "browserSettingsArn" => String.t() | Atom.t(),
+        "customerManagedKey" => String.t() | Atom.t()
       }
 
   """
-  @type browser_settings() :: %{String.t() => any()}
+  @type browser_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1994,7 +1994,7 @@ defmodule AWS.WorkSpacesWeb do
       }
 
   """
-  @type update_user_access_logging_settings_response() :: %{String.t() => any()}
+  @type update_user_access_logging_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2002,23 +2002,23 @@ defmodule AWS.WorkSpacesWeb do
 
       list_user_settings_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_user_settings_request() :: %{String.t() => any()}
+  @type list_user_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_tags_exception() :: %{
-        "message" => String.t(),
-        "resourceName" => String.t()
+        "message" => String.t() | Atom.t(),
+        "resourceName" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_tags_exception() :: %{String.t() => any()}
+  @type too_many_tags_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2065,7 +2065,7 @@ defmodule AWS.WorkSpacesWeb do
       }
 
   """
-  @type get_user_access_logging_settings_response() :: %{String.t() => any()}
+  @type get_user_access_logging_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2073,52 +2073,52 @@ defmodule AWS.WorkSpacesWeb do
 
       portal() :: %{
         "additionalEncryptionContext" => map(),
-        "authenticationType" => String.t(),
-        "browserSettingsArn" => String.t(),
-        "browserType" => String.t(),
+        "authenticationType" => String.t() | Atom.t(),
+        "browserSettingsArn" => String.t() | Atom.t(),
+        "browserType" => String.t() | Atom.t(),
         "creationDate" => non_neg_integer(),
-        "customerManagedKey" => String.t(),
-        "dataProtectionSettingsArn" => String.t(),
-        "displayName" => String.t(),
-        "instanceType" => String.t(),
-        "ipAccessSettingsArn" => String.t(),
+        "customerManagedKey" => String.t() | Atom.t(),
+        "dataProtectionSettingsArn" => String.t() | Atom.t(),
+        "displayName" => String.t() | Atom.t(),
+        "instanceType" => String.t() | Atom.t(),
+        "ipAccessSettingsArn" => String.t() | Atom.t(),
         "maxConcurrentSessions" => integer(),
-        "networkSettingsArn" => String.t(),
-        "portalArn" => String.t(),
-        "portalEndpoint" => String.t(),
-        "portalStatus" => String.t(),
-        "rendererType" => String.t(),
-        "statusReason" => String.t(),
-        "trustStoreArn" => String.t(),
-        "userAccessLoggingSettingsArn" => String.t(),
-        "userSettingsArn" => String.t()
+        "networkSettingsArn" => String.t() | Atom.t(),
+        "portalArn" => String.t() | Atom.t(),
+        "portalEndpoint" => String.t() | Atom.t(),
+        "portalStatus" => String.t() | Atom.t(),
+        "rendererType" => String.t() | Atom.t(),
+        "statusReason" => String.t() | Atom.t(),
+        "trustStoreArn" => String.t() | Atom.t(),
+        "userAccessLoggingSettingsArn" => String.t() | Atom.t(),
+        "userSettingsArn" => String.t() | Atom.t()
       }
 
   """
-  @type portal() :: %{String.t() => any()}
+  @type portal() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       trust_store() :: %{
-        "associatedPortalArns" => list(String.t()),
-        "trustStoreArn" => String.t()
+        "associatedPortalArns" => list(String.t() | Atom.t()),
+        "trustStoreArn" => String.t() | Atom.t()
       }
 
   """
-  @type trust_store() :: %{String.t() => any()}
+  @type trust_store() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_trust_store_response() :: %{
-        "trustStoreArn" => String.t()
+        "trustStoreArn" => String.t() | Atom.t()
       }
 
   """
-  @type update_trust_store_response() :: %{String.t() => any()}
+  @type update_trust_store_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2648,7 +2648,7 @@ defmodule AWS.WorkSpacesWeb do
   """
   @spec associate_browser_settings(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           associate_browser_settings_request(),
           list()
         ) ::
@@ -2687,7 +2687,7 @@ defmodule AWS.WorkSpacesWeb do
   """
   @spec associate_data_protection_settings(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           associate_data_protection_settings_request(),
           list()
         ) ::
@@ -2726,7 +2726,7 @@ defmodule AWS.WorkSpacesWeb do
   """
   @spec associate_ip_access_settings(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           associate_ip_access_settings_request(),
           list()
         ) ::
@@ -2765,7 +2765,7 @@ defmodule AWS.WorkSpacesWeb do
   """
   @spec associate_network_settings(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           associate_network_settings_request(),
           list()
         ) ::
@@ -2802,7 +2802,12 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Associates a trust store with a web portal.
   """
-  @spec associate_trust_store(map(), String.t(), associate_trust_store_request(), list()) ::
+  @spec associate_trust_store(
+          map(),
+          String.t() | Atom.t(),
+          associate_trust_store_request(),
+          list()
+        ) ::
           {:ok, associate_trust_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2838,7 +2843,7 @@ defmodule AWS.WorkSpacesWeb do
   """
   @spec associate_user_access_logging_settings(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           associate_user_access_logging_settings_request(),
           list()
         ) ::
@@ -2877,7 +2882,12 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Associates a user settings resource with a web portal.
   """
-  @spec associate_user_settings(map(), String.t(), associate_user_settings_request(), list()) ::
+  @spec associate_user_settings(
+          map(),
+          String.t() | Atom.t(),
+          associate_user_settings_request(),
+          list()
+        ) ::
           {:ok, associate_user_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3203,7 +3213,12 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Deletes browser settings.
   """
-  @spec delete_browser_settings(map(), String.t(), delete_browser_settings_request(), list()) ::
+  @spec delete_browser_settings(
+          map(),
+          String.t() | Atom.t(),
+          delete_browser_settings_request(),
+          list()
+        ) ::
           {:ok, delete_browser_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3234,7 +3249,7 @@ defmodule AWS.WorkSpacesWeb do
   """
   @spec delete_data_protection_settings(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_data_protection_settings_request(),
           list()
         ) ::
@@ -3273,7 +3288,12 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Deletes the identity provider.
   """
-  @spec delete_identity_provider(map(), String.t(), delete_identity_provider_request(), list()) ::
+  @spec delete_identity_provider(
+          map(),
+          String.t() | Atom.t(),
+          delete_identity_provider_request(),
+          list()
+        ) ::
           {:ok, delete_identity_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3302,7 +3322,12 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Deletes IP access settings.
   """
-  @spec delete_ip_access_settings(map(), String.t(), delete_ip_access_settings_request(), list()) ::
+  @spec delete_ip_access_settings(
+          map(),
+          String.t() | Atom.t(),
+          delete_ip_access_settings_request(),
+          list()
+        ) ::
           {:ok, delete_ip_access_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3331,7 +3356,12 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Deletes network settings.
   """
-  @spec delete_network_settings(map(), String.t(), delete_network_settings_request(), list()) ::
+  @spec delete_network_settings(
+          map(),
+          String.t() | Atom.t(),
+          delete_network_settings_request(),
+          list()
+        ) ::
           {:ok, delete_network_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3360,7 +3390,7 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Deletes a web portal.
   """
-  @spec delete_portal(map(), String.t(), delete_portal_request(), list()) ::
+  @spec delete_portal(map(), String.t() | Atom.t(), delete_portal_request(), list()) ::
           {:ok, delete_portal_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3389,7 +3419,7 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Deletes the trust store.
   """
-  @spec delete_trust_store(map(), String.t(), delete_trust_store_request(), list()) ::
+  @spec delete_trust_store(map(), String.t() | Atom.t(), delete_trust_store_request(), list()) ::
           {:ok, delete_trust_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3420,7 +3450,7 @@ defmodule AWS.WorkSpacesWeb do
   """
   @spec delete_user_access_logging_settings(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_user_access_logging_settings_request(),
           list()
         ) ::
@@ -3459,7 +3489,7 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Deletes user settings.
   """
-  @spec delete_user_settings(map(), String.t(), delete_user_settings_request(), list()) ::
+  @spec delete_user_settings(map(), String.t() | Atom.t(), delete_user_settings_request(), list()) ::
           {:ok, delete_user_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3490,7 +3520,7 @@ defmodule AWS.WorkSpacesWeb do
   """
   @spec disassociate_browser_settings(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           disassociate_browser_settings_request(),
           list()
         ) ::
@@ -3524,7 +3554,7 @@ defmodule AWS.WorkSpacesWeb do
   """
   @spec disassociate_data_protection_settings(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           disassociate_data_protection_settings_request(),
           list()
         ) ::
@@ -3558,7 +3588,7 @@ defmodule AWS.WorkSpacesWeb do
   """
   @spec disassociate_ip_access_settings(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           disassociate_ip_access_settings_request(),
           list()
         ) ::
@@ -3592,7 +3622,7 @@ defmodule AWS.WorkSpacesWeb do
   """
   @spec disassociate_network_settings(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           disassociate_network_settings_request(),
           list()
         ) ::
@@ -3624,7 +3654,12 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Disassociates a trust store from a web portal.
   """
-  @spec disassociate_trust_store(map(), String.t(), disassociate_trust_store_request(), list()) ::
+  @spec disassociate_trust_store(
+          map(),
+          String.t() | Atom.t(),
+          disassociate_trust_store_request(),
+          list()
+        ) ::
           {:ok, disassociate_trust_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3655,7 +3690,7 @@ defmodule AWS.WorkSpacesWeb do
   """
   @spec disassociate_user_access_logging_settings(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           disassociate_user_access_logging_settings_request(),
           list()
         ) ::
@@ -3696,7 +3731,7 @@ defmodule AWS.WorkSpacesWeb do
   """
   @spec disassociate_user_settings(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           disassociate_user_settings_request(),
           list()
         ) ::
@@ -3728,7 +3763,13 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Expires an active secure browser session.
   """
-  @spec expire_session(map(), String.t(), String.t(), expire_session_request(), list()) ::
+  @spec expire_session(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          expire_session_request(),
+          list()
+        ) ::
           {:ok, expire_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3759,7 +3800,7 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Gets browser settings.
   """
-  @spec get_browser_settings(map(), String.t(), list()) ::
+  @spec get_browser_settings(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_browser_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3777,7 +3818,7 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Gets the data protection settings.
   """
-  @spec get_data_protection_settings(map(), String.t(), list()) ::
+  @spec get_data_protection_settings(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_data_protection_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3801,7 +3842,7 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Gets the identity provider.
   """
-  @spec get_identity_provider(map(), String.t(), list()) ::
+  @spec get_identity_provider(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_identity_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3819,7 +3860,7 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Gets the IP access settings.
   """
-  @spec get_ip_access_settings(map(), String.t(), list()) ::
+  @spec get_ip_access_settings(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_ip_access_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3837,7 +3878,7 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Gets the network settings.
   """
-  @spec get_network_settings(map(), String.t(), list()) ::
+  @spec get_network_settings(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_network_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3855,7 +3896,7 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Gets the web portal.
   """
-  @spec get_portal(map(), String.t(), list()) ::
+  @spec get_portal(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_portal_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3873,7 +3914,7 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Gets the service provider metadata.
   """
-  @spec get_portal_service_provider_metadata(map(), String.t(), list()) ::
+  @spec get_portal_service_provider_metadata(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_portal_service_provider_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3891,7 +3932,7 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Gets information for a secure browser session.
   """
-  @spec get_session(map(), String.t(), String.t(), list()) ::
+  @spec get_session(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3911,7 +3952,7 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Gets the trust store.
   """
-  @spec get_trust_store(map(), String.t(), list()) ::
+  @spec get_trust_store(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_trust_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3929,7 +3970,7 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Gets the trust store certificate.
   """
-  @spec get_trust_store_certificate(map(), String.t(), String.t(), list()) ::
+  @spec get_trust_store_certificate(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_trust_store_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3954,7 +3995,7 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Gets user access logging settings.
   """
-  @spec get_user_access_logging_settings(map(), String.t(), list()) ::
+  @spec get_user_access_logging_settings(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_user_access_logging_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3978,7 +4019,7 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Gets user settings.
   """
-  @spec get_user_settings(map(), String.t(), list()) ::
+  @spec get_user_settings(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_user_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3996,7 +4037,12 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Retrieves a list of browser settings.
   """
-  @spec list_browser_settings(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_browser_settings(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_browser_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4033,7 +4079,12 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Retrieves a list of data protection settings.
   """
-  @spec list_data_protection_settings(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_data_protection_settings(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_data_protection_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4070,7 +4121,13 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Retrieves a list of identity providers for a specific web portal.
   """
-  @spec list_identity_providers(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_identity_providers(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_identity_providers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4108,7 +4165,12 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Retrieves a list of IP access settings.
   """
-  @spec list_ip_access_settings(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_ip_access_settings(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_ip_access_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4145,7 +4207,12 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Retrieves a list of network settings.
   """
-  @spec list_network_settings(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_network_settings(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_network_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4182,7 +4249,7 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Retrieves a list or web portals.
   """
-  @spec list_portals(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_portals(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_portals_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4216,13 +4283,13 @@ defmodule AWS.WorkSpacesWeb do
   """
   @spec list_sessions(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_sessions_response(), any()}
@@ -4294,7 +4361,7 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Retrieves a list of tags for a resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4314,9 +4381,9 @@ defmodule AWS.WorkSpacesWeb do
   """
   @spec list_trust_store_certificates(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_trust_store_certificates_response(), any()}
@@ -4356,7 +4423,7 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Retrieves a list of trust stores.
   """
-  @spec list_trust_stores(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_trust_stores(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_trust_stores_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4388,7 +4455,12 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Retrieves a list of user access logging settings.
   """
-  @spec list_user_access_logging_settings(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_user_access_logging_settings(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_user_access_logging_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4425,7 +4497,12 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Retrieves a list of user settings.
   """
-  @spec list_user_settings(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_user_settings(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_user_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4457,7 +4534,7 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Adds or overwrites one or more tags for the specified resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4486,7 +4563,7 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Removes one or more tags from the specified resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4520,7 +4597,12 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Updates browser settings.
   """
-  @spec update_browser_settings(map(), String.t(), update_browser_settings_request(), list()) ::
+  @spec update_browser_settings(
+          map(),
+          String.t() | Atom.t(),
+          update_browser_settings_request(),
+          list()
+        ) ::
           {:ok, update_browser_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4551,7 +4633,7 @@ defmodule AWS.WorkSpacesWeb do
   """
   @spec update_data_protection_settings(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_data_protection_settings_request(),
           list()
         ) ::
@@ -4590,7 +4672,12 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Updates the identity provider.
   """
-  @spec update_identity_provider(map(), String.t(), update_identity_provider_request(), list()) ::
+  @spec update_identity_provider(
+          map(),
+          String.t() | Atom.t(),
+          update_identity_provider_request(),
+          list()
+        ) ::
           {:ok, update_identity_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4619,7 +4706,12 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Updates IP access settings.
   """
-  @spec update_ip_access_settings(map(), String.t(), update_ip_access_settings_request(), list()) ::
+  @spec update_ip_access_settings(
+          map(),
+          String.t() | Atom.t(),
+          update_ip_access_settings_request(),
+          list()
+        ) ::
           {:ok, update_ip_access_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4648,7 +4740,12 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Updates network settings.
   """
-  @spec update_network_settings(map(), String.t(), update_network_settings_request(), list()) ::
+  @spec update_network_settings(
+          map(),
+          String.t() | Atom.t(),
+          update_network_settings_request(),
+          list()
+        ) ::
           {:ok, update_network_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4677,7 +4774,7 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Updates a web portal.
   """
-  @spec update_portal(map(), String.t(), update_portal_request(), list()) ::
+  @spec update_portal(map(), String.t() | Atom.t(), update_portal_request(), list()) ::
           {:ok, update_portal_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4706,7 +4803,7 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Updates the trust store.
   """
-  @spec update_trust_store(map(), String.t(), update_trust_store_request(), list()) ::
+  @spec update_trust_store(map(), String.t() | Atom.t(), update_trust_store_request(), list()) ::
           {:ok, update_trust_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4737,7 +4834,7 @@ defmodule AWS.WorkSpacesWeb do
   """
   @spec update_user_access_logging_settings(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_user_access_logging_settings_request(),
           list()
         ) ::
@@ -4776,7 +4873,7 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Updates the user settings.
   """
-  @spec update_user_settings(map(), String.t(), update_user_settings_request(), list()) ::
+  @spec update_user_settings(map(), String.t() | Atom.t(), update_user_settings_request(), list()) ::
           {:ok, update_user_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

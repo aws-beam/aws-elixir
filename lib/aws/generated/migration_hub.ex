@@ -23,13 +23,13 @@ defmodule AWS.MigrationHub do
   ## Example:
       
       list_application_states_request() :: %{
-        optional("ApplicationIds") => list(String.t()),
+        optional("ApplicationIds") => list(String.t() | Atom.t()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_application_states_request() :: %{String.t() => any()}
+  @type list_application_states_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -38,11 +38,11 @@ defmodule AWS.MigrationHub do
       task() :: %{
         "ProgressPercent" => integer(),
         "Status" => list(any()),
-        "StatusDetail" => String.t()
+        "StatusDetail" => String.t() | Atom.t()
       }
       
   """
-  @type task() :: %{String.t() => any()}
+  @type task() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -50,11 +50,11 @@ defmodule AWS.MigrationHub do
       
       resource_attribute() :: %{
         "Type" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type resource_attribute() :: %{String.t() => any()}
+  @type resource_attribute() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -62,13 +62,13 @@ defmodule AWS.MigrationHub do
       
       list_source_resources_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("MigrationTaskName") => String.t(),
-        required("ProgressUpdateStream") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("MigrationTaskName") => String.t() | Atom.t(),
+        required("ProgressUpdateStream") => String.t() | Atom.t()
       }
       
   """
-  @type list_source_resources_request() :: %{String.t() => any()}
+  @type list_source_resources_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -77,12 +77,12 @@ defmodule AWS.MigrationHub do
       notify_application_state_request() :: %{
         optional("DryRun") => boolean(),
         optional("UpdateDateTime") => non_neg_integer(),
-        required("ApplicationId") => String.t(),
+        required("ApplicationId") => String.t() | Atom.t(),
         required("Status") => list(any())
       }
       
   """
-  @type notify_application_state_request() :: %{String.t() => any()}
+  @type notify_application_state_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -90,11 +90,11 @@ defmodule AWS.MigrationHub do
       
       list_migration_tasks_result() :: %{
         "MigrationTaskSummaryList" => list(migration_task_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_migration_tasks_result() :: %{String.t() => any()}
+  @type list_migration_tasks_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -120,25 +120,25 @@ defmodule AWS.MigrationHub do
       
       put_resource_attributes_request() :: %{
         optional("DryRun") => boolean(),
-        required("MigrationTaskName") => String.t(),
-        required("ProgressUpdateStream") => String.t(),
+        required("MigrationTaskName") => String.t() | Atom.t(),
+        required("ProgressUpdateStream") => String.t() | Atom.t(),
         required("ResourceAttributeList") => list(resource_attribute())
       }
       
   """
-  @type put_resource_attributes_request() :: %{String.t() => any()}
+  @type put_resource_attributes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_progress_update_streams_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "ProgressUpdateStreamSummaryList" => list(progress_update_stream_summary())
       }
       
   """
-  @type list_progress_update_streams_result() :: %{String.t() => any()}
+  @type list_progress_update_streams_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -155,11 +155,11 @@ defmodule AWS.MigrationHub do
       
       delete_progress_update_stream_request() :: %{
         optional("DryRun") => boolean(),
-        required("ProgressUpdateStreamName") => String.t()
+        required("ProgressUpdateStreamName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_progress_update_stream_request() :: %{String.t() => any()}
+  @type delete_progress_update_stream_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -175,12 +175,12 @@ defmodule AWS.MigrationHub do
   ## Example:
       
       list_source_resources_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "SourceResourceList" => list(source_resource())
       }
       
   """
-  @type list_source_resources_result() :: %{String.t() => any()}
+  @type list_source_resources_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -189,23 +189,23 @@ defmodule AWS.MigrationHub do
       associate_discovered_resource_request() :: %{
         optional("DryRun") => boolean(),
         required("DiscoveredResource") => discovered_resource(),
-        required("MigrationTaskName") => String.t(),
-        required("ProgressUpdateStream") => String.t()
+        required("MigrationTaskName") => String.t() | Atom.t(),
+        required("ProgressUpdateStream") => String.t() | Atom.t()
       }
       
   """
-  @type associate_discovered_resource_request() :: %{String.t() => any()}
+  @type associate_discovered_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       unauthorized_operation() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type unauthorized_operation() :: %{String.t() => any()}
+  @type unauthorized_operation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -213,11 +213,11 @@ defmodule AWS.MigrationHub do
       
       create_progress_update_stream_request() :: %{
         optional("DryRun") => boolean(),
-        required("ProgressUpdateStreamName") => String.t()
+        required("ProgressUpdateStreamName") => String.t() | Atom.t()
       }
       
   """
-  @type create_progress_update_stream_request() :: %{String.t() => any()}
+  @type create_progress_update_stream_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -233,11 +233,11 @@ defmodule AWS.MigrationHub do
   ## Example:
       
       dry_run_operation() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type dry_run_operation() :: %{String.t() => any()}
+  @type dry_run_operation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -245,35 +245,35 @@ defmodule AWS.MigrationHub do
       
       list_application_states_result() :: %{
         "ApplicationStateList" => list(application_state()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_application_states_result() :: %{String.t() => any()}
+  @type list_application_states_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       source_resource() :: %{
-        "Description" => String.t(),
-        "Name" => String.t(),
-        "StatusDetail" => String.t()
+        "Description" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "StatusDetail" => String.t() | Atom.t()
       }
       
   """
-  @type source_resource() :: %{String.t() => any()}
+  @type source_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -281,24 +281,24 @@ defmodule AWS.MigrationHub do
       
       import_migration_task_request() :: %{
         optional("DryRun") => boolean(),
-        required("MigrationTaskName") => String.t(),
-        required("ProgressUpdateStream") => String.t()
+        required("MigrationTaskName") => String.t() | Atom.t(),
+        required("ProgressUpdateStream") => String.t() | Atom.t()
       }
       
   """
-  @type import_migration_task_request() :: %{String.t() => any()}
+  @type import_migration_task_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       created_artifact() :: %{
-        "Description" => String.t(),
-        "Name" => String.t()
+        "Description" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
       
   """
-  @type created_artifact() :: %{String.t() => any()}
+  @type created_artifact() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -306,13 +306,13 @@ defmodule AWS.MigrationHub do
       
       associate_source_resource_request() :: %{
         optional("DryRun") => boolean(),
-        required("MigrationTaskName") => String.t(),
-        required("ProgressUpdateStream") => String.t(),
+        required("MigrationTaskName") => String.t() | Atom.t(),
+        required("ProgressUpdateStream") => String.t() | Atom.t(),
         required("SourceResource") => source_resource()
       }
       
   """
-  @type associate_source_resource_request() :: %{String.t() => any()}
+  @type associate_source_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -320,13 +320,13 @@ defmodule AWS.MigrationHub do
       
       list_discovered_resources_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("MigrationTaskName") => String.t(),
-        required("ProgressUpdateStream") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("MigrationTaskName") => String.t() | Atom.t(),
+        required("ProgressUpdateStream") => String.t() | Atom.t()
       }
       
   """
-  @type list_discovered_resources_request() :: %{String.t() => any()}
+  @type list_discovered_resources_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -334,11 +334,11 @@ defmodule AWS.MigrationHub do
       
       list_progress_update_streams_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_progress_update_streams_request() :: %{String.t() => any()}
+  @type list_progress_update_streams_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -346,33 +346,33 @@ defmodule AWS.MigrationHub do
       
       list_created_artifacts_result() :: %{
         "CreatedArtifactList" => list(created_artifact()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_created_artifacts_result() :: %{String.t() => any()}
+  @type list_created_artifacts_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_input_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_input_exception() :: %{String.t() => any()}
+  @type invalid_input_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       progress_update_stream_summary() :: %{
-        "ProgressUpdateStreamName" => String.t()
+        "ProgressUpdateStreamName" => String.t() | Atom.t()
       }
       
   """
-  @type progress_update_stream_summary() :: %{String.t() => any()}
+  @type progress_update_stream_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -381,12 +381,12 @@ defmodule AWS.MigrationHub do
       associate_created_artifact_request() :: %{
         optional("DryRun") => boolean(),
         required("CreatedArtifact") => created_artifact(),
-        required("MigrationTaskName") => String.t(),
-        required("ProgressUpdateStream") => String.t()
+        required("MigrationTaskName") => String.t() | Atom.t(),
+        required("ProgressUpdateStream") => String.t() | Atom.t()
       }
       
   """
-  @type associate_created_artifact_request() :: %{String.t() => any()}
+  @type associate_created_artifact_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -403,24 +403,24 @@ defmodule AWS.MigrationHub do
       
       disassociate_discovered_resource_request() :: %{
         optional("DryRun") => boolean(),
-        required("ConfigurationId") => String.t(),
-        required("MigrationTaskName") => String.t(),
-        required("ProgressUpdateStream") => String.t()
+        required("ConfigurationId") => String.t() | Atom.t(),
+        required("MigrationTaskName") => String.t() | Atom.t(),
+        required("ProgressUpdateStream") => String.t() | Atom.t()
       }
       
   """
-  @type disassociate_discovered_resource_request() :: %{String.t() => any()}
+  @type disassociate_discovered_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       service_unavailable_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type service_unavailable_exception() :: %{String.t() => any()}
+  @type service_unavailable_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -428,11 +428,11 @@ defmodule AWS.MigrationHub do
       
       list_migration_task_updates_result() :: %{
         "MigrationTaskUpdateList" => list(migration_task_update()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_migration_task_updates_result() :: %{String.t() => any()}
+  @type list_migration_task_updates_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -440,15 +440,15 @@ defmodule AWS.MigrationHub do
       
       notify_migration_task_state_request() :: %{
         optional("DryRun") => boolean(),
-        required("MigrationTaskName") => String.t(),
+        required("MigrationTaskName") => String.t() | Atom.t(),
         required("NextUpdateSeconds") => integer(),
-        required("ProgressUpdateStream") => String.t(),
+        required("ProgressUpdateStream") => String.t() | Atom.t(),
         required("Task") => task(),
         required("UpdateDateTime") => non_neg_integer()
       }
       
   """
-  @type notify_migration_task_state_request() :: %{String.t() => any()}
+  @type notify_migration_task_state_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -456,13 +456,13 @@ defmodule AWS.MigrationHub do
       
       disassociate_created_artifact_request() :: %{
         optional("DryRun") => boolean(),
-        required("CreatedArtifactName") => String.t(),
-        required("MigrationTaskName") => String.t(),
-        required("ProgressUpdateStream") => String.t()
+        required("CreatedArtifactName") => String.t() | Atom.t(),
+        required("MigrationTaskName") => String.t() | Atom.t(),
+        required("ProgressUpdateStream") => String.t() | Atom.t()
       }
       
   """
-  @type disassociate_created_artifact_request() :: %{String.t() => any()}
+  @type disassociate_created_artifact_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -470,13 +470,13 @@ defmodule AWS.MigrationHub do
       
       disassociate_source_resource_request() :: %{
         optional("DryRun") => boolean(),
-        required("MigrationTaskName") => String.t(),
-        required("ProgressUpdateStream") => String.t(),
-        required("SourceResourceName") => String.t()
+        required("MigrationTaskName") => String.t() | Atom.t(),
+        required("ProgressUpdateStream") => String.t() | Atom.t(),
+        required("SourceResourceName") => String.t() | Atom.t()
       }
       
   """
-  @type disassociate_source_resource_request() :: %{String.t() => any()}
+  @type disassociate_source_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -484,25 +484,25 @@ defmodule AWS.MigrationHub do
       
       list_created_artifacts_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("MigrationTaskName") => String.t(),
-        required("ProgressUpdateStream") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("MigrationTaskName") => String.t() | Atom.t(),
+        required("ProgressUpdateStream") => String.t() | Atom.t()
       }
       
   """
-  @type list_created_artifacts_request() :: %{String.t() => any()}
+  @type list_created_artifacts_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       discovered_resource() :: %{
-        "ConfigurationId" => String.t(),
-        "Description" => String.t()
+        "ConfigurationId" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t()
       }
       
   """
-  @type discovered_resource() :: %{String.t() => any()}
+  @type discovered_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -510,47 +510,47 @@ defmodule AWS.MigrationHub do
       
       list_migration_task_updates_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("MigrationTaskName") => String.t(),
-        required("ProgressUpdateStream") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("MigrationTaskName") => String.t() | Atom.t(),
+        required("ProgressUpdateStream") => String.t() | Atom.t()
       }
       
   """
-  @type list_migration_task_updates_request() :: %{String.t() => any()}
+  @type list_migration_task_updates_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_error() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type internal_server_error() :: %{String.t() => any()}
+  @type internal_server_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_migration_task_request() :: %{
-        required("MigrationTaskName") => String.t(),
-        required("ProgressUpdateStream") => String.t()
+        required("MigrationTaskName") => String.t() | Atom.t(),
+        required("ProgressUpdateStream") => String.t() | Atom.t()
       }
       
   """
-  @type describe_migration_task_request() :: %{String.t() => any()}
+  @type describe_migration_task_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -558,12 +558,12 @@ defmodule AWS.MigrationHub do
       
       list_migration_tasks_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ResourceName") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("ResourceName") => String.t() | Atom.t()
       }
       
   """
-  @type list_migration_tasks_request() :: %{String.t() => any()}
+  @type list_migration_tasks_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -574,18 +574,18 @@ defmodule AWS.MigrationHub do
       }
       
   """
-  @type describe_migration_task_result() :: %{String.t() => any()}
+  @type describe_migration_task_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       policy_error_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type policy_error_exception() :: %{String.t() => any()}
+  @type policy_error_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -601,12 +601,12 @@ defmodule AWS.MigrationHub do
   ## Example:
       
       throttling_exception() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "RetryAfterSeconds" => integer()
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -622,11 +622,11 @@ defmodule AWS.MigrationHub do
   ## Example:
       
       home_region_not_set_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type home_region_not_set_exception() :: %{String.t() => any()}
+  @type home_region_not_set_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -660,27 +660,27 @@ defmodule AWS.MigrationHub do
   ## Example:
       
       describe_application_state_request() :: %{
-        required("ApplicationId") => String.t()
+        required("ApplicationId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_application_state_request() :: %{String.t() => any()}
+  @type describe_application_state_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       migration_task_summary() :: %{
-        "MigrationTaskName" => String.t(),
+        "MigrationTaskName" => String.t() | Atom.t(),
         "ProgressPercent" => integer(),
-        "ProgressUpdateStream" => String.t(),
+        "ProgressUpdateStream" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "StatusDetail" => String.t(),
+        "StatusDetail" => String.t() | Atom.t(),
         "UpdateDateTime" => non_neg_integer()
       }
       
   """
-  @type migration_task_summary() :: %{String.t() => any()}
+  @type migration_task_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -688,11 +688,11 @@ defmodule AWS.MigrationHub do
       
       list_discovered_resources_result() :: %{
         "DiscoveredResourceList" => list(discovered_resource()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_discovered_resources_result() :: %{String.t() => any()}
+  @type list_discovered_resources_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -705,20 +705,20 @@ defmodule AWS.MigrationHub do
       }
       
   """
-  @type migration_task_update() :: %{String.t() => any()}
+  @type migration_task_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       application_state() :: %{
-        "ApplicationId" => String.t(),
+        "ApplicationId" => String.t() | Atom.t(),
         "ApplicationStatus" => list(any()),
         "LastUpdatedTime" => non_neg_integer()
       }
       
   """
-  @type application_state() :: %{String.t() => any()}
+  @type application_state() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -739,22 +739,22 @@ defmodule AWS.MigrationHub do
       }
       
   """
-  @type describe_application_state_result() :: %{String.t() => any()}
+  @type describe_application_state_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       migration_task() :: %{
-        "MigrationTaskName" => String.t(),
-        "ProgressUpdateStream" => String.t(),
+        "MigrationTaskName" => String.t() | Atom.t(),
+        "ProgressUpdateStream" => String.t() | Atom.t(),
         "ResourceAttributeList" => list(resource_attribute()),
         "Task" => task(),
         "UpdateDateTime" => non_neg_integer()
       }
       
   """
-  @type migration_task() :: %{String.t() => any()}
+  @type migration_task() :: %{String.t() | Atom.t() => any()}
 
   @type associate_created_artifact_errors() ::
           home_region_not_set_exception()

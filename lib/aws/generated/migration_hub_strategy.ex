@@ -26,13 +26,13 @@ defmodule AWS.MigrationHubStrategy do
   ## Example:
 
       ip_address_based_remote_info() :: %{
-        "authType" => String.t(),
-        "ipAddressConfigurationTimeStamp" => String.t(),
-        "osType" => String.t()
+        "authType" => String.t() | Atom.t(),
+        "ipAddressConfigurationTimeStamp" => String.t() | Atom.t(),
+        "osType" => String.t() | Atom.t()
       }
 
   """
-  @type ip_address_based_remote_info() :: %{String.t() => any()}
+  @type ip_address_based_remote_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -48,60 +48,60 @@ defmodule AWS.MigrationHubStrategy do
   ## Example:
 
       start_import_file_task_request() :: %{
-        optional("dataSourceType") => String.t(),
+        optional("dataSourceType") => String.t() | Atom.t(),
         optional("groupId") => list(group()),
-        optional("s3bucketForReportData") => String.t(),
-        required("S3Bucket") => String.t(),
-        required("name") => String.t(),
-        required("s3key") => String.t()
+        optional("s3bucketForReportData") => String.t() | Atom.t(),
+        required("S3Bucket") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t(),
+        required("s3key") => String.t() | Atom.t()
       }
 
   """
-  @type start_import_file_task_request() :: %{String.t() => any()}
+  @type start_import_file_task_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_latest_assessment_id_response() :: %{
-        optional("id") => String.t()
+        optional("id") => String.t() | Atom.t()
       }
 
   """
-  @type get_latest_assessment_id_response() :: %{String.t() => any()}
+  @type get_latest_assessment_id_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       no_database_migration_preference() :: %{
-        "targetDatabaseEngine" => list(String.t())
+        "targetDatabaseEngine" => list(String.t() | Atom.t())
       }
 
   """
-  @type no_database_migration_preference() :: %{String.t() => any()}
+  @type no_database_migration_preference() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       heterogeneous() :: %{
-        "targetDatabaseEngine" => list(String.t())
+        "targetDatabaseEngine" => list(String.t() | Atom.t())
       }
 
   """
-  @type heterogeneous() :: %{String.t() => any()}
+  @type heterogeneous() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       dependency_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type dependency_exception() :: %{String.t() => any()}
+  @type dependency_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -109,22 +109,22 @@ defmodule AWS.MigrationHubStrategy do
 
       list_collectors_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_collectors_request() :: %{String.t() => any()}
+  @type list_collectors_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_import_file_task_response() :: %{
-        optional("id") => String.t()
+        optional("id") => String.t() | Atom.t()
       }
 
   """
-  @type start_import_file_task_response() :: %{String.t() => any()}
+  @type start_import_file_task_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -133,12 +133,12 @@ defmodule AWS.MigrationHubStrategy do
       get_application_component_details_response() :: %{
         optional("applicationComponentDetail") => application_component_detail(),
         optional("associatedApplications") => list(associated_application()),
-        optional("associatedServerIds") => list(String.t()),
+        optional("associatedServerIds") => list(String.t() | Atom.t()),
         optional("moreApplicationResource") => boolean()
       }
 
   """
-  @type get_application_component_details_response() :: %{String.t() => any()}
+  @type get_application_component_details_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -146,34 +146,34 @@ defmodule AWS.MigrationHubStrategy do
 
       server_status_summary() :: %{
         "count" => integer(),
-        "runTimeAssessmentStatus" => String.t()
+        "runTimeAssessmentStatus" => String.t() | Atom.t()
       }
 
   """
-  @type server_status_summary() :: %{String.t() => any()}
+  @type server_status_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       o_s_info() :: %{
-        "type" => String.t(),
-        "version" => String.t()
+        "type" => String.t() | Atom.t(),
+        "version" => String.t() | Atom.t()
       }
 
   """
-  @type o_s_info() :: %{String.t() => any()}
+  @type o_s_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       app_unit_error() :: %{
-        "appUnitErrorCategory" => String.t()
+        "appUnitErrorCategory" => String.t() | Atom.t()
       }
 
   """
-  @type app_unit_error() :: %{String.t() => any()}
+  @type app_unit_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -181,29 +181,29 @@ defmodule AWS.MigrationHubStrategy do
 
       strategy_summary() :: %{
         "count" => integer(),
-        "strategy" => String.t()
+        "strategy" => String.t() | Atom.t()
       }
 
   """
-  @type strategy_summary() :: %{String.t() => any()}
+  @type strategy_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       collector() :: %{
-        "collectorHealth" => String.t(),
-        "collectorId" => String.t(),
-        "collectorVersion" => String.t(),
+        "collectorHealth" => String.t() | Atom.t(),
+        "collectorId" => String.t() | Atom.t(),
+        "collectorVersion" => String.t() | Atom.t(),
         "configurationSummary" => configuration_summary(),
-        "hostName" => String.t(),
-        "ipAddress" => String.t(),
-        "lastActivityTimeStamp" => String.t(),
-        "registeredTimeStamp" => String.t()
+        "hostName" => String.t() | Atom.t(),
+        "ipAddress" => String.t() | Atom.t(),
+        "lastActivityTimeStamp" => String.t() | Atom.t(),
+        "registeredTimeStamp" => String.t() | Atom.t()
       }
 
   """
-  @type collector() :: %{String.t() => any()}
+  @type collector() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -211,36 +211,36 @@ defmodule AWS.MigrationHubStrategy do
 
       list_collectors_response() :: %{
         optional("Collectors") => list(collector()),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_collectors_response() :: %{String.t() => any()}
+  @type list_collectors_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       system_info() :: %{
-        "cpuArchitecture" => String.t(),
-        "fileSystemType" => String.t(),
+        "cpuArchitecture" => String.t() | Atom.t(),
+        "fileSystemType" => String.t() | Atom.t(),
         "networkInfoList" => list(network_info()),
         "osInfo" => o_s_info()
       }
 
   """
-  @type system_info() :: %{String.t() => any()}
+  @type system_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       homogeneous() :: %{
-        "targetDatabaseEngine" => list(String.t())
+        "targetDatabaseEngine" => list(String.t() | Atom.t())
       }
 
   """
-  @type homogeneous() :: %{String.t() => any()}
+  @type homogeneous() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -248,12 +248,12 @@ defmodule AWS.MigrationHubStrategy do
 
       get_server_details_response() :: %{
         optional("associatedApplications") => list(associated_application()),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("serverDetail") => server_detail()
       }
 
   """
-  @type get_server_details_response() :: %{String.t() => any()}
+  @type get_server_details_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -261,38 +261,38 @@ defmodule AWS.MigrationHubStrategy do
 
       update_server_config_request() :: %{
         optional("strategyOption") => strategy_option(),
-        required("serverId") => String.t()
+        required("serverId") => String.t() | Atom.t()
       }
 
   """
-  @type update_server_config_request() :: %{String.t() => any()}
+  @type update_server_config_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       stop_assessment_request() :: %{
-        required("assessmentId") => String.t()
+        required("assessmentId") => String.t() | Atom.t()
       }
 
   """
-  @type stop_assessment_request() :: %{String.t() => any()}
+  @type stop_assessment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_servers_request() :: %{
-        optional("filterValue") => String.t(),
+        optional("filterValue") => String.t() | Atom.t(),
         optional("groupIdFilter") => list(group()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("serverCriteria") => String.t(),
-        optional("sort") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("serverCriteria") => String.t() | Atom.t(),
+        optional("sort") => String.t() | Atom.t()
       }
 
   """
-  @type list_servers_request() :: %{String.t() => any()}
+  @type list_servers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -300,11 +300,11 @@ defmodule AWS.MigrationHubStrategy do
 
       antipattern_severity_summary() :: %{
         "count" => integer(),
-        "severity" => String.t()
+        "severity" => String.t() | Atom.t()
       }
 
   """
-  @type antipattern_severity_summary() :: %{String.t() => any()}
+  @type antipattern_severity_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -315,7 +315,7 @@ defmodule AWS.MigrationHubStrategy do
       }
 
   """
-  @type prioritize_business_goals() :: %{String.t() => any()}
+  @type prioritize_business_goals() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -323,44 +323,44 @@ defmodule AWS.MigrationHubStrategy do
 
       get_import_file_task_response() :: %{
         optional("completionTime") => non_neg_integer(),
-        optional("id") => String.t(),
-        optional("importName") => String.t(),
-        optional("inputS3Bucket") => String.t(),
-        optional("inputS3Key") => String.t(),
+        optional("id") => String.t() | Atom.t(),
+        optional("importName") => String.t() | Atom.t(),
+        optional("inputS3Bucket") => String.t() | Atom.t(),
+        optional("inputS3Key") => String.t() | Atom.t(),
         optional("numberOfRecordsFailed") => integer(),
         optional("numberOfRecordsSuccess") => integer(),
         optional("startTime") => non_neg_integer(),
-        optional("status") => String.t(),
-        optional("statusReportS3Bucket") => String.t(),
-        optional("statusReportS3Key") => String.t()
+        optional("status") => String.t() | Atom.t(),
+        optional("statusReportS3Bucket") => String.t() | Atom.t(),
+        optional("statusReportS3Key") => String.t() | Atom.t()
       }
 
   """
-  @type get_import_file_task_response() :: %{String.t() => any()}
+  @type get_import_file_task_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_object() :: %{
-        "s3Bucket" => String.t(),
-        "s3key" => String.t()
+        "s3Bucket" => String.t() | Atom.t(),
+        "s3key" => String.t() | Atom.t()
       }
 
   """
-  @type s3_object() :: %{String.t() => any()}
+  @type s3_object() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associated_application() :: %{
-        "id" => String.t(),
-        "name" => String.t()
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type associated_application() :: %{String.t() => any()}
+  @type associated_application() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -376,16 +376,16 @@ defmodule AWS.MigrationHubStrategy do
   ## Example:
 
       list_application_components_request() :: %{
-        optional("applicationComponentCriteria") => String.t(),
-        optional("filterValue") => String.t(),
+        optional("applicationComponentCriteria") => String.t() | Atom.t(),
+        optional("filterValue") => String.t() | Atom.t(),
         optional("groupIdFilter") => list(group()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("sort") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("sort") => String.t() | Atom.t()
       }
 
   """
-  @type list_application_components_request() :: %{String.t() => any()}
+  @type list_application_components_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -401,11 +401,11 @@ defmodule AWS.MigrationHubStrategy do
   ## Example:
 
       no_management_preference() :: %{
-        "targetDestination" => list(String.t())
+        "targetDestination" => list(String.t() | Atom.t())
       }
 
   """
-  @type no_management_preference() :: %{String.t() => any()}
+  @type no_management_preference() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -420,7 +420,7 @@ defmodule AWS.MigrationHubStrategy do
       }
 
   """
-  @type configuration_summary() :: %{String.t() => any()}
+  @type configuration_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -437,23 +437,23 @@ defmodule AWS.MigrationHubStrategy do
 
       application_component_status_summary() :: %{
         "count" => integer(),
-        "srcCodeOrDbAnalysisStatus" => String.t()
+        "srcCodeOrDbAnalysisStatus" => String.t() | Atom.t()
       }
 
   """
-  @type application_component_status_summary() :: %{String.t() => any()}
+  @type application_component_status_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       pipeline_info() :: %{
-        "pipelineConfigurationTimeStamp" => String.t(),
-        "pipelineType" => String.t()
+        "pipelineConfigurationTimeStamp" => String.t() | Atom.t(),
+        "pipelineType" => String.t() | Atom.t()
       }
 
   """
-  @type pipeline_info() :: %{String.t() => any()}
+  @type pipeline_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -461,34 +461,34 @@ defmodule AWS.MigrationHubStrategy do
 
       list_analyzable_servers_response() :: %{
         "analyzableServers" => list(analyzable_server_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_analyzable_servers_response() :: %{String.t() => any()}
+  @type list_analyzable_servers_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       server_error() :: %{
-        "serverErrorCategory" => String.t()
+        "serverErrorCategory" => String.t() | Atom.t()
       }
 
   """
-  @type server_error() :: %{String.t() => any()}
+  @type server_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       version_control_info() :: %{
-        "versionControlConfigurationTimeStamp" => String.t(),
-        "versionControlType" => String.t()
+        "versionControlConfigurationTimeStamp" => String.t() | Atom.t(),
+        "versionControlType" => String.t() | Atom.t()
       }
 
   """
-  @type version_control_info() :: %{String.t() => any()}
+  @type version_control_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -496,23 +496,23 @@ defmodule AWS.MigrationHubStrategy do
 
       list_import_file_task_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_import_file_task_request() :: %{String.t() => any()}
+  @type list_import_file_task_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       database_preferences() :: %{
-        "databaseManagementPreference" => String.t(),
+        "databaseManagementPreference" => String.t() | Atom.t(),
         "databaseMigrationPreference" => list()
       }
 
   """
-  @type database_preferences() :: %{String.t() => any()}
+  @type database_preferences() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -520,59 +520,59 @@ defmodule AWS.MigrationHubStrategy do
 
       strategy_option() :: %{
         "isPreferred" => boolean(),
-        "strategy" => String.t(),
-        "targetDestination" => String.t(),
-        "toolName" => String.t()
+        "strategy" => String.t() | Atom.t(),
+        "targetDestination" => String.t() | Atom.t(),
+        "toolName" => String.t() | Atom.t()
       }
 
   """
-  @type strategy_option() :: %{String.t() => any()}
+  @type strategy_option() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       recommendation_set() :: %{
-        "strategy" => String.t(),
-        "targetDestination" => String.t(),
+        "strategy" => String.t() | Atom.t(),
+        "targetDestination" => String.t() | Atom.t(),
         "transformationTool" => transformation_tool()
       }
 
   """
-  @type recommendation_set() :: %{String.t() => any()}
+  @type recommendation_set() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_managed_resources() :: %{
-        "targetDestination" => list(String.t())
+        "targetDestination" => list(String.t() | Atom.t())
       }
 
   """
-  @type aws_managed_resources() :: %{String.t() => any()}
+  @type aws_managed_resources() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -581,44 +581,44 @@ defmodule AWS.MigrationHubStrategy do
       application_component_strategy() :: %{
         "isPreferred" => boolean(),
         "recommendation" => recommendation_set(),
-        "status" => String.t()
+        "status" => String.t() | Atom.t()
       }
 
   """
-  @type application_component_strategy() :: %{String.t() => any()}
+  @type application_component_strategy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       application_component_detail() :: %{
-        "analysisStatus" => String.t(),
+        "analysisStatus" => String.t() | Atom.t(),
         "antipatternReportS3Object" => s3_object(),
-        "antipatternReportStatus" => String.t(),
-        "antipatternReportStatusMessage" => String.t(),
-        "appType" => String.t(),
+        "antipatternReportStatus" => String.t() | Atom.t(),
+        "antipatternReportStatusMessage" => String.t() | Atom.t(),
+        "appType" => String.t() | Atom.t(),
         "appUnitError" => app_unit_error(),
-        "associatedServerId" => String.t(),
+        "associatedServerId" => String.t() | Atom.t(),
         "databaseConfigDetail" => database_config_detail(),
-        "id" => String.t(),
-        "inclusionStatus" => String.t(),
+        "id" => String.t() | Atom.t(),
+        "inclusionStatus" => String.t() | Atom.t(),
         "lastAnalyzedTimestamp" => non_neg_integer(),
         "listAntipatternSeveritySummary" => list(antipattern_severity_summary()),
         "moreServerAssociationExists" => boolean(),
-        "name" => String.t(),
-        "osDriver" => String.t(),
-        "osVersion" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "osDriver" => String.t() | Atom.t(),
+        "osVersion" => String.t() | Atom.t(),
         "recommendationSet" => recommendation_set(),
-        "resourceSubType" => String.t(),
+        "resourceSubType" => String.t() | Atom.t(),
         "resultList" => list(result()),
-        "runtimeStatus" => String.t(),
-        "runtimeStatusMessage" => String.t(),
+        "runtimeStatus" => String.t() | Atom.t(),
+        "runtimeStatusMessage" => String.t() | Atom.t(),
         "sourceCodeRepositories" => list(source_code_repository()),
-        "statusMessage" => String.t()
+        "statusMessage" => String.t() | Atom.t()
       }
 
   """
-  @type application_component_detail() :: %{String.t() => any()}
+  @type application_component_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -626,34 +626,34 @@ defmodule AWS.MigrationHubStrategy do
 
       server_detail() :: %{
         "antipatternReportS3Object" => s3_object(),
-        "antipatternReportStatus" => String.t(),
-        "antipatternReportStatusMessage" => String.t(),
+        "antipatternReportStatus" => String.t() | Atom.t(),
+        "antipatternReportStatusMessage" => String.t() | Atom.t(),
         "applicationComponentStrategySummary" => list(strategy_summary()),
-        "dataCollectionStatus" => String.t(),
-        "id" => String.t(),
+        "dataCollectionStatus" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "lastAnalyzedTimestamp" => non_neg_integer(),
         "listAntipatternSeveritySummary" => list(antipattern_severity_summary()),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "recommendationSet" => recommendation_set(),
         "serverError" => server_error(),
-        "serverType" => String.t(),
-        "statusMessage" => String.t(),
+        "serverType" => String.t() | Atom.t(),
+        "statusMessage" => String.t() | Atom.t(),
         "systemInfo" => system_info()
       }
 
   """
-  @type server_detail() :: %{String.t() => any()}
+  @type server_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -664,7 +664,7 @@ defmodule AWS.MigrationHubStrategy do
       }
 
   """
-  @type get_server_strategies_response() :: %{String.t() => any()}
+  @type get_server_strategies_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -672,15 +672,15 @@ defmodule AWS.MigrationHubStrategy do
 
       recommendation_report_details() :: %{
         "completionTime" => non_neg_integer(),
-        "s3Bucket" => String.t(),
-        "s3Keys" => list(String.t()),
+        "s3Bucket" => String.t() | Atom.t(),
+        "s3Keys" => list(String.t() | Atom.t()),
         "startTime" => non_neg_integer(),
-        "status" => String.t(),
-        "statusMessage" => String.t()
+        "status" => String.t() | Atom.t(),
+        "statusMessage" => String.t() | Atom.t()
       }
 
   """
-  @type recommendation_report_details() :: %{String.t() => any()}
+  @type recommendation_report_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -697,13 +697,13 @@ defmodule AWS.MigrationHubStrategy do
 
       result() :: %{
         "analysisStatus" => list(),
-        "analysisType" => String.t(),
+        "analysisType" => String.t() | Atom.t(),
         "antipatternReportResultList" => list(antipattern_report_result()),
-        "statusMessage" => String.t()
+        "statusMessage" => String.t() | Atom.t()
       }
 
   """
-  @type result() :: %{String.t() => any()}
+  @type result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -717,7 +717,7 @@ defmodule AWS.MigrationHubStrategy do
       }
 
   """
-  @type business_goals() :: %{String.t() => any()}
+  @type business_goals() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -727,25 +727,25 @@ defmodule AWS.MigrationHubStrategy do
         "isPreferred" => boolean(),
         "numberOfApplicationComponents" => integer(),
         "recommendation" => recommendation_set(),
-        "status" => String.t()
+        "status" => String.t() | Atom.t()
       }
 
   """
-  @type server_strategy() :: %{String.t() => any()}
+  @type server_strategy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_assessment_request() :: %{
-        optional("assessmentDataSourceType") => String.t(),
+        optional("assessmentDataSourceType") => String.t() | Atom.t(),
         optional("assessmentTargets") => list(assessment_target()),
-        optional("s3bucketForAnalysisData") => String.t(),
-        optional("s3bucketForReportData") => String.t()
+        optional("s3bucketForAnalysisData") => String.t() | Atom.t(),
+        optional("s3bucketForReportData") => String.t() | Atom.t()
       }
 
   """
-  @type start_assessment_request() :: %{String.t() => any()}
+  @type start_assessment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -756,7 +756,7 @@ defmodule AWS.MigrationHubStrategy do
       }
 
   """
-  @type get_application_component_strategies_response() :: %{String.t() => any()}
+  @type get_application_component_strategies_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -772,12 +772,12 @@ defmodule AWS.MigrationHubStrategy do
   ## Example:
 
       list_import_file_task_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("taskInfos") => list(import_file_task_information())
       }
 
   """
-  @type list_import_file_task_response() :: %{String.t() => any()}
+  @type list_import_file_task_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -785,25 +785,25 @@ defmodule AWS.MigrationHubStrategy do
 
       start_recommendation_report_generation_request() :: %{
         optional("groupIdFilter") => list(group()),
-        optional("outputFormat") => String.t()
+        optional("outputFormat") => String.t() | Atom.t()
       }
 
   """
-  @type start_recommendation_report_generation_request() :: %{String.t() => any()}
+  @type start_recommendation_report_generation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       network_info() :: %{
-        "interfaceName" => String.t(),
-        "ipAddress" => String.t(),
-        "macAddress" => String.t(),
-        "netMask" => String.t()
+        "interfaceName" => String.t() | Atom.t(),
+        "ipAddress" => String.t() | Atom.t(),
+        "macAddress" => String.t() | Atom.t(),
+        "netMask" => String.t() | Atom.t()
       }
 
   """
-  @type network_info() :: %{String.t() => any()}
+  @type network_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -819,14 +819,14 @@ defmodule AWS.MigrationHubStrategy do
   ## Example:
 
       source_code_repository() :: %{
-        "branch" => String.t(),
-        "projectName" => String.t(),
-        "repository" => String.t(),
-        "versionControlType" => String.t()
+        "branch" => String.t() | Atom.t(),
+        "projectName" => String.t() | Atom.t(),
+        "repository" => String.t() | Atom.t(),
+        "versionControlType" => String.t() | Atom.t()
       }
 
   """
-  @type source_code_repository() :: %{String.t() => any()}
+  @type source_code_repository() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -842,11 +842,11 @@ defmodule AWS.MigrationHubStrategy do
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -857,62 +857,62 @@ defmodule AWS.MigrationHubStrategy do
       }
 
   """
-  @type application_preferences() :: %{String.t() => any()}
+  @type application_preferences() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       application_component_summary() :: %{
-        "appType" => String.t(),
+        "appType" => String.t() | Atom.t(),
         "count" => integer()
       }
 
   """
-  @type application_component_summary() :: %{String.t() => any()}
+  @type application_component_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       server_summary() :: %{
-        "ServerOsType" => String.t(),
+        "ServerOsType" => String.t() | Atom.t(),
         "count" => integer()
       }
 
   """
-  @type server_summary() :: %{String.t() => any()}
+  @type server_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       analyzable_server_summary() :: %{
-        "hostname" => String.t(),
-        "ipAddress" => String.t(),
-        "source" => String.t(),
-        "vmId" => String.t()
+        "hostname" => String.t() | Atom.t(),
+        "ipAddress" => String.t() | Atom.t(),
+        "source" => String.t() | Atom.t(),
+        "vmId" => String.t() | Atom.t()
       }
 
   """
-  @type analyzable_server_summary() :: %{String.t() => any()}
+  @type analyzable_server_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_application_component_config_request() :: %{
-        optional("appType") => String.t(),
+        optional("appType") => String.t() | Atom.t(),
         optional("configureOnly") => boolean(),
-        optional("inclusionStatus") => String.t(),
-        optional("secretsManagerKey") => String.t(),
+        optional("inclusionStatus") => String.t() | Atom.t(),
+        optional("secretsManagerKey") => String.t() | Atom.t(),
         optional("sourceCodeList") => list(source_code()),
         optional("strategyOption") => strategy_option(),
-        required("applicationComponentId") => String.t()
+        required("applicationComponentId") => String.t() | Atom.t()
       }
 
   """
-  @type update_application_component_config_request() :: %{String.t() => any()}
+  @type update_application_component_config_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -928,13 +928,13 @@ defmodule AWS.MigrationHubStrategy do
   ## Example:
 
       transformation_tool() :: %{
-        "description" => String.t(),
-        "name" => String.t(),
-        "tranformationToolInstallationLink" => String.t()
+        "description" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "tranformationToolInstallationLink" => String.t() | Atom.t()
       }
 
   """
-  @type transformation_tool() :: %{String.t() => any()}
+  @type transformation_tool() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -943,11 +943,11 @@ defmodule AWS.MigrationHubStrategy do
       get_assessment_response() :: %{
         optional("assessmentTargets") => list(assessment_target()),
         optional("dataCollectionDetails") => data_collection_details(),
-        optional("id") => String.t()
+        optional("id") => String.t() | Atom.t()
       }
 
   """
-  @type get_assessment_response() :: %{String.t() => any()}
+  @type get_assessment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -964,22 +964,22 @@ defmodule AWS.MigrationHubStrategy do
 
       get_server_details_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type get_server_details_request() :: %{String.t() => any()}
+  @type get_server_details_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -991,13 +991,13 @@ defmodule AWS.MigrationHubStrategy do
         "inProgress" => integer(),
         "servers" => integer(),
         "startTime" => non_neg_integer(),
-        "status" => String.t(),
-        "statusMessage" => String.t(),
+        "status" => String.t() | Atom.t(),
+        "statusMessage" => String.t() | Atom.t(),
         "success" => integer()
       }
 
   """
-  @type data_collection_details() :: %{String.t() => any()}
+  @type data_collection_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1005,25 +1005,25 @@ defmodule AWS.MigrationHubStrategy do
 
       list_application_components_response() :: %{
         optional("applicationComponentInfos") => list(application_component_detail()),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_application_components_response() :: %{String.t() => any()}
+  @type list_application_components_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_portfolio_preferences_response() :: %{
-        optional("applicationMode") => String.t(),
+        optional("applicationMode") => String.t() | Atom.t(),
         optional("applicationPreferences") => application_preferences(),
         optional("databasePreferences") => database_preferences(),
         optional("prioritizeBusinessGoals") => prioritize_business_goals()
       }
 
   """
-  @type get_portfolio_preferences_response() :: %{String.t() => any()}
+  @type get_portfolio_preferences_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1039,82 +1039,82 @@ defmodule AWS.MigrationHubStrategy do
   ## Example:
 
       get_recommendation_report_details_response() :: %{
-        optional("id") => String.t(),
+        optional("id") => String.t() | Atom.t(),
         optional("recommendationReportDetails") => recommendation_report_details()
       }
 
   """
-  @type get_recommendation_report_details_response() :: %{String.t() => any()}
+  @type get_recommendation_report_details_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       database_config_detail() :: %{
-        "secretName" => String.t()
+        "secretName" => String.t() | Atom.t()
       }
 
   """
-  @type database_config_detail() :: %{String.t() => any()}
+  @type database_config_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_linked_role_lock_client_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type service_linked_role_lock_client_exception() :: %{String.t() => any()}
+  @type service_linked_role_lock_client_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       group() :: %{
-        "name" => String.t(),
-        "value" => String.t()
+        "name" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type group() :: %{String.t() => any()}
+  @type group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       source_code() :: %{
-        "location" => String.t(),
-        "projectName" => String.t(),
-        "sourceVersion" => String.t(),
-        "versionControl" => String.t()
+        "location" => String.t() | Atom.t(),
+        "projectName" => String.t() | Atom.t(),
+        "sourceVersion" => String.t() | Atom.t(),
+        "versionControl" => String.t() | Atom.t()
       }
 
   """
-  @type source_code() :: %{String.t() => any()}
+  @type source_code() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1130,48 +1130,48 @@ defmodule AWS.MigrationHubStrategy do
   ## Example:
 
       list_servers_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("serverInfos") => list(server_detail())
       }
 
   """
-  @type list_servers_response() :: %{String.t() => any()}
+  @type list_servers_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_recommendation_report_generation_response() :: %{
-        optional("id") => String.t()
+        optional("id") => String.t() | Atom.t()
       }
 
   """
-  @type start_recommendation_report_generation_response() :: %{String.t() => any()}
+  @type start_recommendation_report_generation_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_portfolio_preferences_request() :: %{
-        optional("applicationMode") => String.t(),
+        optional("applicationMode") => String.t() | Atom.t(),
         optional("applicationPreferences") => application_preferences(),
         optional("databasePreferences") => database_preferences(),
         optional("prioritizeBusinessGoals") => prioritize_business_goals()
       }
 
   """
-  @type put_portfolio_preferences_request() :: %{String.t() => any()}
+  @type put_portfolio_preferences_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_assessment_response() :: %{
-        optional("assessmentId") => String.t()
+        optional("assessmentId") => String.t() | Atom.t()
       }
 
   """
-  @type start_assessment_response() :: %{String.t() => any()}
+  @type start_assessment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1179,23 +1179,23 @@ defmodule AWS.MigrationHubStrategy do
 
       list_analyzable_servers_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("sort") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("sort") => String.t() | Atom.t()
       }
 
   """
-  @type list_analyzable_servers_request() :: %{String.t() => any()}
+  @type list_analyzable_servers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       remote_source_code_analysis_server_info() :: %{
-        "remoteSourceCodeAnalysisServerConfigurationTimestamp" => String.t()
+        "remoteSourceCodeAnalysisServerConfigurationTimestamp" => String.t() | Atom.t()
       }
 
   """
-  @type remote_source_code_analysis_server_info() :: %{String.t() => any()}
+  @type remote_source_code_analysis_server_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1211,36 +1211,36 @@ defmodule AWS.MigrationHubStrategy do
   ## Example:
 
       vcenter_based_remote_info() :: %{
-        "osType" => String.t(),
-        "vcenterConfigurationTimeStamp" => String.t()
+        "osType" => String.t() | Atom.t(),
+        "vcenterConfigurationTimeStamp" => String.t() | Atom.t()
       }
 
   """
-  @type vcenter_based_remote_info() :: %{String.t() => any()}
+  @type vcenter_based_remote_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       self_manage_resources() :: %{
-        "targetDestination" => list(String.t())
+        "targetDestination" => list(String.t() | Atom.t())
       }
 
   """
-  @type self_manage_resources() :: %{String.t() => any()}
+  @type self_manage_resources() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       assessment_target() :: %{
-        "condition" => String.t(),
-        "name" => String.t(),
-        "values" => list(String.t())
+        "condition" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "values" => list(String.t() | Atom.t())
       }
 
   """
-  @type assessment_target() :: %{String.t() => any()}
+  @type assessment_target() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1248,8 +1248,8 @@ defmodule AWS.MigrationHubStrategy do
 
       assessment_summary() :: %{
         "antipatternReportS3Object" => s3_object(),
-        "antipatternReportStatus" => String.t(),
-        "antipatternReportStatusMessage" => String.t(),
+        "antipatternReportStatus" => String.t() | Atom.t(),
+        "antipatternReportStatusMessage" => String.t() | Atom.t(),
         "lastAnalyzedTimestamp" => non_neg_integer(),
         "listAntipatternSeveritySummary" => list(antipattern_severity_summary()),
         "listApplicationComponentStatusSummary" => list(application_component_status_summary()),
@@ -1261,7 +1261,7 @@ defmodule AWS.MigrationHubStrategy do
       }
 
   """
-  @type assessment_summary() :: %{String.t() => any()}
+  @type assessment_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1270,12 +1270,12 @@ defmodule AWS.MigrationHubStrategy do
       antipattern_report_result() :: %{
         "analyzerName" => list(),
         "antiPatternReportS3Object" => s3_object(),
-        "antipatternReportStatus" => String.t(),
-        "antipatternReportStatusMessage" => String.t()
+        "antipatternReportStatus" => String.t() | Atom.t(),
+        "antipatternReportStatusMessage" => String.t() | Atom.t()
       }
 
   """
-  @type antipattern_report_result() :: %{String.t() => any()}
+  @type antipattern_report_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1283,20 +1283,20 @@ defmodule AWS.MigrationHubStrategy do
 
       import_file_task_information() :: %{
         "completionTime" => non_neg_integer(),
-        "id" => String.t(),
-        "importName" => String.t(),
-        "inputS3Bucket" => String.t(),
-        "inputS3Key" => String.t(),
+        "id" => String.t() | Atom.t(),
+        "importName" => String.t() | Atom.t(),
+        "inputS3Bucket" => String.t() | Atom.t(),
+        "inputS3Key" => String.t() | Atom.t(),
         "numberOfRecordsFailed" => integer(),
         "numberOfRecordsSuccess" => integer(),
         "startTime" => non_neg_integer(),
-        "status" => String.t(),
-        "statusReportS3Bucket" => String.t(),
-        "statusReportS3Key" => String.t()
+        "status" => String.t() | Atom.t(),
+        "statusReportS3Bucket" => String.t() | Atom.t(),
+        "statusReportS3Key" => String.t() | Atom.t()
       }
 
   """
-  @type import_file_task_information() :: %{String.t() => any()}
+  @type import_file_task_information() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1307,7 +1307,7 @@ defmodule AWS.MigrationHubStrategy do
       }
 
   """
-  @type get_portfolio_summary_response() :: %{String.t() => any()}
+  @type get_portfolio_summary_response() :: %{String.t() | Atom.t() => any()}
 
   @type get_application_component_details_errors() ::
           throttling_exception() | internal_server_exception() | resource_not_found_exception()
@@ -1458,7 +1458,7 @@ defmodule AWS.MigrationHubStrategy do
   @doc """
   Retrieves details about an application component.
   """
-  @spec get_application_component_details(map(), String.t(), list()) ::
+  @spec get_application_component_details(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_application_component_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1484,7 +1484,7 @@ defmodule AWS.MigrationHubStrategy do
   component
   running on a server.
   """
-  @spec get_application_component_strategies(map(), String.t(), list()) ::
+  @spec get_application_component_strategies(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_application_component_strategies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1508,7 +1508,7 @@ defmodule AWS.MigrationHubStrategy do
   @doc """
   Retrieves the status of an on-going assessment.
   """
-  @spec get_assessment(map(), String.t(), list()) ::
+  @spec get_assessment(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1526,7 +1526,7 @@ defmodule AWS.MigrationHubStrategy do
   @doc """
   Retrieves the details about a specific import task.
   """
-  @spec get_import_file_task(map(), String.t(), list()) ::
+  @spec get_import_file_task(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_import_file_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1600,7 +1600,7 @@ defmodule AWS.MigrationHubStrategy do
   @doc """
   Retrieves detailed information about the specified recommendation report.
   """
-  @spec get_recommendation_report_details(map(), String.t(), list()) ::
+  @spec get_recommendation_report_details(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_recommendation_report_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1618,7 +1618,13 @@ defmodule AWS.MigrationHubStrategy do
   @doc """
   Retrieves detailed information about a specified server.
   """
-  @spec get_server_details(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_server_details(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, get_server_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1656,7 +1662,7 @@ defmodule AWS.MigrationHubStrategy do
   @doc """
   Retrieves recommended strategies and tools for the specified server.
   """
-  @spec get_server_strategies(map(), String.t(), list()) ::
+  @spec get_server_strategies(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_server_strategies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1733,7 +1739,7 @@ defmodule AWS.MigrationHubStrategy do
   @doc """
   Retrieves a list of all the installed collectors.
   """
-  @spec list_collectors(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_collectors(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_collectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1765,7 +1771,12 @@ defmodule AWS.MigrationHubStrategy do
   @doc """
   Retrieves a list of all the imports performed.
   """
-  @spec list_import_file_task(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_import_file_task(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_import_file_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

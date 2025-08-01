@@ -25,7 +25,10 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type put_voice_connector_external_systems_configuration_request() :: %{String.t() => any()}
+  @type put_voice_connector_external_systems_configuration_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -39,18 +42,18 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type streaming_configuration() :: %{String.t() => any()}
+  @type streaming_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_delete_phone_number_request() :: %{
-        required("PhoneNumberIds") => list(String.t())
+        required("PhoneNumberIds") => list(String.t() | Atom.t())
       }
 
   """
-  @type batch_delete_phone_number_request() :: %{String.t() => any()}
+  @type batch_delete_phone_number_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -61,7 +64,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type put_voice_connector_termination_credentials_request() :: %{String.t() => any()}
+  @type put_voice_connector_termination_credentials_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -70,11 +73,11 @@ defmodule AWS.ChimeSDKVoice do
       update_sip_rule_request() :: %{
         optional("Disabled") => boolean(),
         optional("TargetApplications") => list(sip_rule_target_application()),
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
 
   """
-  @type update_sip_rule_request() :: %{String.t() => any()}
+  @type update_sip_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -83,16 +86,16 @@ defmodule AWS.ChimeSDKVoice do
       sip_rule() :: %{
         "CreatedTimestamp" => non_neg_integer(),
         "Disabled" => boolean(),
-        "Name" => String.t(),
-        "SipRuleId" => String.t(),
+        "Name" => String.t() | Atom.t(),
+        "SipRuleId" => String.t() | Atom.t(),
         "TargetApplications" => list(sip_rule_target_application()),
         "TriggerType" => list(any()),
-        "TriggerValue" => String.t(),
+        "TriggerValue" => String.t() | Atom.t(),
         "UpdatedTimestamp" => non_neg_integer()
       }
 
   """
-  @type sip_rule() :: %{String.t() => any()}
+  @type sip_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -100,12 +103,12 @@ defmodule AWS.ChimeSDKVoice do
 
       call_details() :: %{
         "IsCaller" => boolean(),
-        "TransactionId" => String.t(),
-        "VoiceConnectorId" => String.t()
+        "TransactionId" => String.t() | Atom.t(),
+        "VoiceConnectorId" => String.t() | Atom.t()
       }
 
   """
-  @type call_details() :: %{String.t() => any()}
+  @type call_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -116,7 +119,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type create_phone_number_order_response() :: %{String.t() => any()}
+  @type create_phone_number_order_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -124,13 +127,13 @@ defmodule AWS.ChimeSDKVoice do
 
       create_sip_media_application_request() :: %{
         optional("Tags") => list(tag()),
-        required("AwsRegion") => String.t(),
+        required("AwsRegion") => String.t() | Atom.t(),
         required("Endpoints") => list(sip_media_application_endpoint()),
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
 
   """
-  @type create_sip_media_application_request() :: %{String.t() => any()}
+  @type create_sip_media_application_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -141,19 +144,19 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type update_sip_media_application_call_response() :: %{String.t() => any()}
+  @type update_sip_media_application_call_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
+        required("ResourceARN") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -164,7 +167,10 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type put_sip_media_application_logging_configuration_request() :: %{String.t() => any()}
+  @type put_sip_media_application_logging_configuration_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -173,12 +179,12 @@ defmodule AWS.ChimeSDKVoice do
       proxy() :: %{
         "DefaultSessionExpiryMinutes" => integer(),
         "Disabled" => boolean(),
-        "FallBackPhoneNumber" => String.t(),
-        "PhoneNumberCountries" => list(String.t())
+        "FallBackPhoneNumber" => String.t() | Atom.t(),
+        "PhoneNumberCountries" => list(String.t() | Atom.t())
       }
 
   """
-  @type proxy() :: %{String.t() => any()}
+  @type proxy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -190,7 +196,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type update_proxy_session_request() :: %{String.t() => any()}
+  @type update_proxy_session_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -201,7 +207,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type batch_update_phone_number_response() :: %{String.t() => any()}
+  @type batch_update_phone_number_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -218,13 +224,13 @@ defmodule AWS.ChimeSDKVoice do
 
       validate_e911_address_response() :: %{
         "Address" => address(),
-        "AddressExternalId" => String.t(),
+        "AddressExternalId" => String.t() | Atom.t(),
         "CandidateAddressList" => list(candidate_address()),
         "ValidationResult" => integer()
       }
 
   """
-  @type validate_e911_address_response() :: %{String.t() => any()}
+  @type validate_e911_address_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -235,32 +241,32 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type update_voice_connector_response() :: %{String.t() => any()}
+  @type update_voice_connector_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_phone_number_orders_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "PhoneNumberOrders" => list(phone_number_order())
       }
 
   """
-  @type list_phone_number_orders_response() :: %{String.t() => any()}
+  @type list_phone_number_orders_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_voice_tone_analysis_task_request() :: %{
-        optional("ClientRequestToken") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
         required("LanguageCode") => list(any()),
-        required("TransactionId") => String.t()
+        required("TransactionId") => String.t() | Atom.t()
       }
 
   """
-  @type start_voice_tone_analysis_task_request() :: %{String.t() => any()}
+  @type start_voice_tone_analysis_task_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -268,35 +274,35 @@ defmodule AWS.ChimeSDKVoice do
 
       speaker_search_result() :: %{
         "ConfidenceScore" => float(),
-        "VoiceProfileId" => String.t()
+        "VoiceProfileId" => String.t() | Atom.t()
       }
 
   """
-  @type speaker_search_result() :: %{String.t() => any()}
+  @type speaker_search_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       termination_health() :: %{
-        "Source" => String.t(),
+        "Source" => String.t() | Atom.t(),
         "Timestamp" => non_neg_integer()
       }
 
   """
-  @type termination_health() :: %{String.t() => any()}
+  @type termination_health() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       participant() :: %{
-        "PhoneNumber" => String.t(),
-        "ProxyPhoneNumber" => String.t()
+        "PhoneNumber" => String.t() | Atom.t(),
+        "ProxyPhoneNumber" => String.t() | Atom.t()
       }
 
   """
-  @type participant() :: %{String.t() => any()}
+  @type participant() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -304,11 +310,11 @@ defmodule AWS.ChimeSDKVoice do
 
       update_sip_media_application_request() :: %{
         optional("Endpoints") => list(sip_media_application_endpoint()),
-        optional("Name") => String.t()
+        optional("Name") => String.t() | Atom.t()
       }
 
   """
-  @type update_sip_media_application_request() :: %{String.t() => any()}
+  @type update_sip_media_application_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -316,15 +322,15 @@ defmodule AWS.ChimeSDKVoice do
 
       voice_profile_domain_summary() :: %{
         "CreatedTimestamp" => non_neg_integer(),
-        "Description" => String.t(),
-        "Name" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "UpdatedTimestamp" => non_neg_integer(),
-        "VoiceProfileDomainArn" => String.t(),
-        "VoiceProfileDomainId" => String.t()
+        "VoiceProfileDomainArn" => String.t() | Atom.t(),
+        "VoiceProfileDomainId" => String.t() | Atom.t()
       }
 
   """
-  @type voice_profile_domain_summary() :: %{String.t() => any()}
+  @type voice_profile_domain_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -345,7 +351,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type origination() :: %{String.t() => any()}
+  @type origination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -356,7 +362,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type start_speaker_search_task_response() :: %{String.t() => any()}
+  @type start_speaker_search_task_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -364,47 +370,47 @@ defmodule AWS.ChimeSDKVoice do
 
       list_voice_connectors_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_voice_connectors_request() :: %{String.t() => any()}
+  @type list_voice_connectors_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       phone_number_country() :: %{
-        "CountryCode" => String.t(),
+        "CountryCode" => String.t() | Atom.t(),
         "SupportedPhoneNumberTypes" => list(list(any())())
       }
 
   """
-  @type phone_number_country() :: %{String.t() => any()}
+  @type phone_number_country() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       geo_match_params() :: %{
-        "AreaCode" => String.t(),
-        "Country" => String.t()
+        "AreaCode" => String.t() | Atom.t(),
+        "Country" => String.t() | Atom.t()
       }
 
   """
-  @type geo_match_params() :: %{String.t() => any()}
+  @type geo_match_params() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       search_available_phone_numbers_response() :: %{
-        "E164PhoneNumbers" => list(String.t()),
-        "NextToken" => String.t()
+        "E164PhoneNumbers" => list(String.t() | Atom.t()),
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type search_available_phone_numbers_response() :: %{String.t() => any()}
+  @type search_available_phone_numbers_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -424,7 +430,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type put_voice_connector_origination_response() :: %{String.t() => any()}
+  @type put_voice_connector_origination_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -435,7 +441,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type create_sip_rule_response() :: %{String.t() => any()}
+  @type create_sip_rule_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -443,11 +449,14 @@ defmodule AWS.ChimeSDKVoice do
 
       associate_phone_numbers_with_voice_connector_group_request() :: %{
         optional("ForceAssociate") => boolean(),
-        required("E164PhoneNumbers") => list(String.t())
+        required("E164PhoneNumbers") => list(String.t() | Atom.t())
       }
 
   """
-  @type associate_phone_numbers_with_voice_connector_group_request() :: %{String.t() => any()}
+  @type associate_phone_numbers_with_voice_connector_group_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -458,19 +467,19 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type create_voice_connector_group_response() :: %{String.t() => any()}
+  @type create_voice_connector_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_voice_profile_domains_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "VoiceProfileDomains" => list(voice_profile_domain_summary())
       }
 
   """
-  @type list_voice_profile_domains_response() :: %{String.t() => any()}
+  @type list_voice_profile_domains_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -486,11 +495,11 @@ defmodule AWS.ChimeSDKVoice do
   ## Example:
 
       update_phone_number_settings_request() :: %{
-        required("CallingName") => String.t()
+        required("CallingName") => String.t() | Atom.t()
       }
 
   """
-  @type update_phone_number_settings_request() :: %{String.t() => any()}
+  @type update_phone_number_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -501,7 +510,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type get_voice_connector_proxy_response() :: %{String.t() => any()}
+  @type get_voice_connector_proxy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -518,11 +527,11 @@ defmodule AWS.ChimeSDKVoice do
 
       service_failure_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type service_failure_exception() :: %{String.t() => any()}
+  @type service_failure_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -560,7 +569,10 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type put_voice_connector_emergency_calling_configuration_request() :: %{String.t() => any()}
+  @type put_voice_connector_emergency_calling_configuration_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -571,7 +583,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type create_voice_profile_response() :: %{String.t() => any()}
+  @type create_voice_profile_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -579,11 +591,11 @@ defmodule AWS.ChimeSDKVoice do
 
       forbidden_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type forbidden_exception() :: %{String.t() => any()}
+  @type forbidden_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -594,7 +606,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type get_voice_connector_response() :: %{String.t() => any()}
+  @type get_voice_connector_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -605,7 +617,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type update_voice_profile_response() :: %{String.t() => any()}
+  @type update_voice_profile_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -616,7 +628,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type create_proxy_session_response() :: %{String.t() => any()}
+  @type create_proxy_session_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -636,7 +648,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type put_voice_connector_termination_request() :: %{String.t() => any()}
+  @type put_voice_connector_termination_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -645,11 +657,11 @@ defmodule AWS.ChimeSDKVoice do
       phone_number_association() :: %{
         "AssociatedTimestamp" => non_neg_integer(),
         "Name" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type phone_number_association() :: %{String.t() => any()}
+  @type phone_number_association() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -657,11 +669,11 @@ defmodule AWS.ChimeSDKVoice do
 
       unauthorized_client_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type unauthorized_client_exception() :: %{String.t() => any()}
+  @type unauthorized_client_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -678,16 +690,16 @@ defmodule AWS.ChimeSDKVoice do
 
       phone_number() :: %{
         "Associations" => list(phone_number_association()),
-        "CallingName" => String.t(),
+        "CallingName" => String.t() | Atom.t(),
         "CallingNameStatus" => list(any()),
         "Capabilities" => phone_number_capabilities(),
-        "Country" => String.t(),
+        "Country" => String.t() | Atom.t(),
         "CreatedTimestamp" => non_neg_integer(),
         "DeletionTimestamp" => non_neg_integer(),
-        "E164PhoneNumber" => String.t(),
-        "Name" => String.t(),
-        "OrderId" => String.t(),
-        "PhoneNumberId" => String.t(),
+        "E164PhoneNumber" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "OrderId" => String.t() | Atom.t(),
+        "PhoneNumberId" => String.t() | Atom.t(),
         "ProductType" => list(any()),
         "Status" => list(any()),
         "Type" => list(any()),
@@ -695,22 +707,22 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type phone_number() :: %{String.t() => any()}
+  @type phone_number() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       termination() :: %{
-        "CallingRegions" => list(String.t()),
-        "CidrAllowedList" => list(String.t()),
+        "CallingRegions" => list(String.t() | Atom.t()),
+        "CidrAllowedList" => list(String.t() | Atom.t()),
         "CpsLimit" => integer(),
-        "DefaultPhoneNumber" => String.t(),
+        "DefaultPhoneNumber" => String.t() | Atom.t(),
         "Disabled" => boolean()
       }
 
   """
-  @type termination() :: %{String.t() => any()}
+  @type termination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -730,7 +742,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type create_voice_profile_domain_response() :: %{String.t() => any()}
+  @type create_voice_profile_domain_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -740,15 +752,15 @@ defmodule AWS.ChimeSDKVoice do
         "CallDetails" => call_details(),
         "CreatedTimestamp" => non_neg_integer(),
         "SpeakerSearchDetails" => speaker_search_details(),
-        "SpeakerSearchTaskId" => String.t(),
-        "SpeakerSearchTaskStatus" => String.t(),
+        "SpeakerSearchTaskId" => String.t() | Atom.t(),
+        "SpeakerSearchTaskStatus" => String.t() | Atom.t(),
         "StartedTimestamp" => non_neg_integer(),
-        "StatusMessage" => String.t(),
+        "StatusMessage" => String.t() | Atom.t(),
         "UpdatedTimestamp" => non_neg_integer()
       }
 
   """
-  @type speaker_search_task() :: %{String.t() => any()}
+  @type speaker_search_task() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -759,7 +771,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type update_phone_number_response() :: %{String.t() => any()}
+  @type update_phone_number_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -770,7 +782,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type get_speaker_search_task_response() :: %{String.t() => any()}
+  @type get_speaker_search_task_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -787,11 +799,11 @@ defmodule AWS.ChimeSDKVoice do
 
       throttled_client_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type throttled_client_exception() :: %{String.t() => any()}
+  @type throttled_client_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -799,34 +811,34 @@ defmodule AWS.ChimeSDKVoice do
 
       gone_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type gone_exception() :: %{String.t() => any()}
+  @type gone_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_voice_profile_request() :: %{
-        required("SpeakerSearchTaskId") => String.t()
+        required("SpeakerSearchTaskId") => String.t() | Atom.t()
       }
 
   """
-  @type update_voice_profile_request() :: %{String.t() => any()}
+  @type update_voice_profile_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       media_insights_configuration() :: %{
-        "ConfigurationArn" => String.t(),
+        "ConfigurationArn" => String.t() | Atom.t(),
         "Disabled" => boolean()
       }
 
   """
-  @type media_insights_configuration() :: %{String.t() => any()}
+  @type media_insights_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -837,7 +849,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type get_voice_connector_termination_health_response() :: %{String.t() => any()}
+  @type get_voice_connector_termination_health_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -845,11 +857,14 @@ defmodule AWS.ChimeSDKVoice do
 
       associate_phone_numbers_with_voice_connector_request() :: %{
         optional("ForceAssociate") => boolean(),
-        required("E164PhoneNumbers") => list(String.t())
+        required("E164PhoneNumbers") => list(String.t() | Atom.t())
       }
 
   """
-  @type associate_phone_numbers_with_voice_connector_request() :: %{String.t() => any()}
+  @type associate_phone_numbers_with_voice_connector_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -866,11 +881,11 @@ defmodule AWS.ChimeSDKVoice do
 
       list_sip_media_applications_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_sip_media_applications_request() :: %{String.t() => any()}
+  @type list_sip_media_applications_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -881,31 +896,34 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type get_voice_connector_external_systems_configuration_response() :: %{String.t() => any()}
+  @type get_voice_connector_external_systems_configuration_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceARN") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       ordered_phone_number() :: %{
-        "E164PhoneNumber" => String.t(),
+        "E164PhoneNumber" => String.t() | Atom.t(),
         "Status" => list(any())
       }
 
   """
-  @type ordered_phone_number() :: %{String.t() => any()}
+  @type ordered_phone_number() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -916,7 +934,10 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type get_sip_media_application_logging_configuration_response() :: %{String.t() => any()}
+  @type get_sip_media_application_logging_configuration_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -927,20 +948,20 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type update_proxy_session_response() :: %{String.t() => any()}
+  @type update_proxy_session_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_phone_number_order_request() :: %{
-        optional("Name") => String.t(),
-        required("E164PhoneNumbers") => list(String.t()),
+        optional("Name") => String.t() | Atom.t(),
+        required("E164PhoneNumbers") => list(String.t() | Atom.t()),
         required("ProductType") => list(any())
       }
 
   """
-  @type create_phone_number_order_request() :: %{String.t() => any()}
+  @type create_phone_number_order_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -952,7 +973,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type external_systems_configuration() :: %{String.t() => any()}
+  @type external_systems_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -972,7 +993,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type get_sip_media_application_response() :: %{String.t() => any()}
+  @type get_sip_media_application_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -983,7 +1004,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type get_sip_rule_response() :: %{String.t() => any()}
+  @type get_sip_rule_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -994,18 +1015,18 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type update_voice_profile_domain_response() :: %{String.t() => any()}
+  @type update_voice_profile_domain_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       voice_connector_settings() :: %{
-        "CdrBucket" => String.t()
+        "CdrBucket" => String.t() | Atom.t()
       }
 
   """
-  @type voice_connector_settings() :: %{String.t() => any()}
+  @type voice_connector_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1016,7 +1037,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type get_voice_tone_analysis_task_response() :: %{String.t() => any()}
+  @type get_voice_tone_analysis_task_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1037,7 +1058,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type logging_configuration() :: %{String.t() => any()}
+  @type logging_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1048,7 +1069,10 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type put_voice_connector_external_systems_configuration_response() :: %{String.t() => any()}
+  @type put_voice_connector_external_systems_configuration_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1056,16 +1080,16 @@ defmodule AWS.ChimeSDKVoice do
 
       voice_profile_domain() :: %{
         "CreatedTimestamp" => non_neg_integer(),
-        "Description" => String.t(),
-        "Name" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "ServerSideEncryptionConfiguration" => server_side_encryption_configuration(),
         "UpdatedTimestamp" => non_neg_integer(),
-        "VoiceProfileDomainArn" => String.t(),
-        "VoiceProfileDomainId" => String.t()
+        "VoiceProfileDomainArn" => String.t() | Atom.t(),
+        "VoiceProfileDomainId" => String.t() | Atom.t()
       }
 
   """
-  @type voice_profile_domain() :: %{String.t() => any()}
+  @type voice_profile_domain() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1076,7 +1100,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type restore_phone_number_response() :: %{String.t() => any()}
+  @type restore_phone_number_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1084,11 +1108,11 @@ defmodule AWS.ChimeSDKVoice do
 
       speaker_search_details() :: %{
         "Results" => list(speaker_search_result()),
-        "VoiceprintGenerationStatus" => String.t()
+        "VoiceprintGenerationStatus" => String.t() | Atom.t()
       }
 
   """
-  @type speaker_search_details() :: %{String.t() => any()}
+  @type speaker_search_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1096,11 +1120,11 @@ defmodule AWS.ChimeSDKVoice do
 
       list_phone_number_orders_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_phone_number_orders_request() :: %{String.t() => any()}
+  @type list_phone_number_orders_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1111,19 +1135,19 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type put_voice_connector_termination_response() :: %{String.t() => any()}
+  @type put_voice_connector_termination_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_voice_connector_group_request() :: %{
-        required("Name") => String.t(),
+        required("Name") => String.t() | Atom.t(),
         required("VoiceConnectorItems") => list(voice_connector_item())
       }
 
   """
-  @type update_voice_connector_group_request() :: %{String.t() => any()}
+  @type update_voice_connector_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1134,7 +1158,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type list_supported_phone_number_countries_response() :: %{String.t() => any()}
+  @type list_supported_phone_number_countries_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1145,7 +1169,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type start_voice_tone_analysis_task_response() :: %{String.t() => any()}
+  @type start_voice_tone_analysis_task_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1156,20 +1180,20 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type update_sip_media_application_response() :: %{String.t() => any()}
+  @type update_sip_media_application_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       d_n_i_s_emergency_calling_configuration() :: %{
-        "CallingCountry" => String.t(),
-        "EmergencyPhoneNumber" => String.t(),
-        "TestPhoneNumber" => String.t()
+        "CallingCountry" => String.t() | Atom.t(),
+        "EmergencyPhoneNumber" => String.t() | Atom.t(),
+        "TestPhoneNumber" => String.t() | Atom.t()
       }
 
   """
-  @type d_n_i_s_emergency_calling_configuration() :: %{String.t() => any()}
+  @type d_n_i_s_emergency_calling_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1180,18 +1204,21 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type get_voice_connector_logging_configuration_response() :: %{String.t() => any()}
+  @type get_voice_connector_logging_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_phone_numbers_from_voice_connector_request() :: %{
-        required("E164PhoneNumbers") => list(String.t())
+        required("E164PhoneNumbers") => list(String.t() | Atom.t())
       }
 
   """
-  @type disassociate_phone_numbers_from_voice_connector_request() :: %{String.t() => any()}
+  @type disassociate_phone_numbers_from_voice_connector_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1207,12 +1234,12 @@ defmodule AWS.ChimeSDKVoice do
   ## Example:
 
       list_voice_connector_groups_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "VoiceConnectorGroups" => list(voice_connector_group())
       }
 
   """
-  @type list_voice_connector_groups_response() :: %{String.t() => any()}
+  @type list_voice_connector_groups_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1220,12 +1247,12 @@ defmodule AWS.ChimeSDKVoice do
 
       list_sip_rules_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("SipMediaApplicationId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("SipMediaApplicationId") => String.t() | Atom.t()
       }
 
   """
-  @type list_sip_rules_request() :: %{String.t() => any()}
+  @type list_sip_rules_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1241,12 +1268,12 @@ defmodule AWS.ChimeSDKVoice do
   ## Example:
 
       list_proxy_sessions_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "ProxySessions" => list(proxy_session())
       }
 
   """
-  @type list_proxy_sessions_response() :: %{String.t() => any()}
+  @type list_proxy_sessions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1254,11 +1281,11 @@ defmodule AWS.ChimeSDKVoice do
 
       conflict_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1269,7 +1296,10 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type get_sip_media_application_alexa_skill_configuration_response() :: %{String.t() => any()}
+  @type get_sip_media_application_alexa_skill_configuration_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1280,24 +1310,27 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type put_voice_connector_streaming_configuration_response() :: %{String.t() => any()}
+  @type put_voice_connector_streaming_configuration_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       validate_e911_address_request() :: %{
-        required("AwsAccountId") => String.t(),
-        required("City") => String.t(),
-        required("Country") => String.t(),
-        required("PostalCode") => String.t(),
-        required("State") => String.t(),
-        required("StreetInfo") => String.t(),
-        required("StreetNumber") => String.t()
+        required("AwsAccountId") => String.t() | Atom.t(),
+        required("City") => String.t() | Atom.t(),
+        required("Country") => String.t() | Atom.t(),
+        required("PostalCode") => String.t() | Atom.t(),
+        required("State") => String.t() | Atom.t(),
+        required("StreetInfo") => String.t() | Atom.t(),
+        required("StreetNumber") => String.t() | Atom.t()
       }
 
   """
-  @type validate_e911_address_request() :: %{String.t() => any()}
+  @type validate_e911_address_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1305,11 +1338,11 @@ defmodule AWS.ChimeSDKVoice do
 
       list_voice_connector_groups_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_voice_connector_groups_request() :: %{String.t() => any()}
+  @type list_voice_connector_groups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1320,7 +1353,10 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type disassociate_phone_numbers_from_voice_connector_response() :: %{String.t() => any()}
+  @type disassociate_phone_numbers_from_voice_connector_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1336,35 +1372,38 @@ defmodule AWS.ChimeSDKVoice do
   ## Example:
 
       list_sip_rules_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "SipRules" => list(sip_rule())
       }
 
   """
-  @type list_sip_rules_response() :: %{String.t() => any()}
+  @type list_sip_rules_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_phone_numbers_from_voice_connector_group_request() :: %{
-        required("E164PhoneNumbers") => list(String.t())
+        required("E164PhoneNumbers") => list(String.t() | Atom.t())
       }
 
   """
-  @type disassociate_phone_numbers_from_voice_connector_group_request() :: %{String.t() => any()}
+  @type disassociate_phone_numbers_from_voice_connector_group_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1373,13 +1412,13 @@ defmodule AWS.ChimeSDKVoice do
       create_sip_rule_request() :: %{
         optional("Disabled") => boolean(),
         optional("TargetApplications") => list(sip_rule_target_application()),
-        required("Name") => String.t(),
+        required("Name") => String.t() | Atom.t(),
         required("TriggerType") => list(any()),
-        required("TriggerValue") => String.t()
+        required("TriggerValue") => String.t() | Atom.t()
       }
 
   """
-  @type create_sip_rule_request() :: %{String.t() => any()}
+  @type create_sip_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1389,13 +1428,13 @@ defmodule AWS.ChimeSDKVoice do
         "CreatedTimestamp" => non_neg_integer(),
         "ExpirationTimestamp" => non_neg_integer(),
         "UpdatedTimestamp" => non_neg_integer(),
-        "VoiceProfileArn" => String.t(),
-        "VoiceProfileDomainId" => String.t(),
-        "VoiceProfileId" => String.t()
+        "VoiceProfileArn" => String.t() | Atom.t(),
+        "VoiceProfileDomainId" => String.t() | Atom.t(),
+        "VoiceProfileId" => String.t() | Atom.t()
       }
 
   """
-  @type voice_profile() :: %{String.t() => any()}
+  @type voice_profile() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1406,7 +1445,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type put_voice_connector_streaming_configuration_request() :: %{String.t() => any()}
+  @type put_voice_connector_streaming_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1414,13 +1453,13 @@ defmodule AWS.ChimeSDKVoice do
 
       start_speaker_search_task_request() :: %{
         optional("CallLeg") => list(any()),
-        optional("ClientRequestToken") => String.t(),
-        required("TransactionId") => String.t(),
-        required("VoiceProfileDomainId") => String.t()
+        optional("ClientRequestToken") => String.t() | Atom.t(),
+        required("TransactionId") => String.t() | Atom.t(),
+        required("VoiceProfileDomainId") => String.t() | Atom.t()
       }
 
   """
-  @type start_speaker_search_task_request() :: %{String.t() => any()}
+  @type start_speaker_search_task_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1431,7 +1470,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type batch_delete_phone_number_response() :: %{String.t() => any()}
+  @type batch_delete_phone_number_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1442,7 +1481,10 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type get_voice_connector_streaming_configuration_response() :: %{String.t() => any()}
+  @type get_voice_connector_streaming_configuration_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1455,17 +1497,17 @@ defmodule AWS.ChimeSDKVoice do
         "ExpiryMinutes" => integer(),
         "GeoMatchLevel" => list(any()),
         "GeoMatchParams" => geo_match_params(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "NumberSelectionBehavior" => list(any()),
         "Participants" => list(participant()),
-        "ProxySessionId" => String.t(),
+        "ProxySessionId" => String.t() | Atom.t(),
         "Status" => list(any()),
         "UpdatedTimestamp" => non_neg_integer(),
-        "VoiceConnectorId" => String.t()
+        "VoiceConnectorId" => String.t() | Atom.t()
       }
 
   """
-  @type proxy_session() :: %{String.t() => any()}
+  @type proxy_session() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1476,7 +1518,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type get_phone_number_order_response() :: %{String.t() => any()}
+  @type get_phone_number_order_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1484,15 +1526,15 @@ defmodule AWS.ChimeSDKVoice do
 
       list_phone_numbers_request() :: %{
         optional("FilterName") => list(any()),
-        optional("FilterValue") => String.t(),
+        optional("FilterValue") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("ProductType") => list(any()),
-        optional("Status") => String.t()
+        optional("Status") => String.t() | Atom.t()
       }
 
   """
-  @type list_phone_numbers_request() :: %{String.t() => any()}
+  @type list_phone_numbers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1500,11 +1542,11 @@ defmodule AWS.ChimeSDKVoice do
 
       resource_limit_exceeded_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_limit_exceeded_exception() :: %{String.t() => any()}
+  @type resource_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1514,12 +1556,12 @@ defmodule AWS.ChimeSDKVoice do
         optional("AwsRegion") => list(any()),
         optional("IntegrationType") => list(any()),
         optional("Tags") => list(tag()),
-        required("Name") => String.t(),
+        required("Name") => String.t() | Atom.t(),
         required("RequireEncryption") => boolean()
       }
 
   """
-  @type create_voice_connector_request() :: %{String.t() => any()}
+  @type create_voice_connector_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1535,11 +1577,11 @@ defmodule AWS.ChimeSDKVoice do
   ## Example:
 
       create_voice_profile_request() :: %{
-        required("SpeakerSearchTaskId") => String.t()
+        required("SpeakerSearchTaskId") => String.t() | Atom.t()
       }
 
   """
-  @type create_voice_profile_request() :: %{String.t() => any()}
+  @type create_voice_profile_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1547,11 +1589,11 @@ defmodule AWS.ChimeSDKVoice do
 
       not_found_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type not_found_exception() :: %{String.t() => any()}
+  @type not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1559,13 +1601,13 @@ defmodule AWS.ChimeSDKVoice do
 
       put_voice_connector_proxy_request() :: %{
         optional("Disabled") => boolean(),
-        optional("FallBackPhoneNumber") => String.t(),
+        optional("FallBackPhoneNumber") => String.t() | Atom.t(),
         required("DefaultSessionExpiryMinutes") => integer(),
-        required("PhoneNumberPoolCountries") => list(String.t())
+        required("PhoneNumberPoolCountries") => list(String.t() | Atom.t())
       }
 
   """
-  @type put_voice_connector_proxy_request() :: %{String.t() => any()}
+  @type put_voice_connector_proxy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1576,7 +1618,10 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type associate_phone_numbers_with_voice_connector_response() :: %{String.t() => any()}
+  @type associate_phone_numbers_with_voice_connector_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1587,7 +1632,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type put_voice_connector_logging_configuration_request() :: %{String.t() => any()}
+  @type put_voice_connector_logging_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1598,14 +1643,14 @@ defmodule AWS.ChimeSDKVoice do
         "FocDate" => non_neg_integer(),
         "OrderType" => list(any()),
         "OrderedPhoneNumbers" => list(ordered_phone_number()),
-        "PhoneNumberOrderId" => String.t(),
+        "PhoneNumberOrderId" => String.t() | Atom.t(),
         "ProductType" => list(any()),
         "Status" => list(any()),
         "UpdatedTimestamp" => non_neg_integer()
       }
 
   """
-  @type phone_number_order() :: %{String.t() => any()}
+  @type phone_number_order() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1625,18 +1670,18 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       sip_media_application_endpoint() :: %{
-        "LambdaArn" => String.t()
+        "LambdaArn" => String.t() | Atom.t()
       }
 
   """
-  @type sip_media_application_endpoint() :: %{String.t() => any()}
+  @type sip_media_application_endpoint() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1647,7 +1692,10 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type disassociate_phone_numbers_from_voice_connector_group_response() :: %{String.t() => any()}
+  @type disassociate_phone_numbers_from_voice_connector_group_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1658,7 +1706,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type get_global_settings_response() :: %{String.t() => any()}
+  @type get_global_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1668,16 +1716,16 @@ defmodule AWS.ChimeSDKVoice do
         "AwsRegion" => list(any()),
         "CreatedTimestamp" => non_neg_integer(),
         "IntegrationType" => list(any()),
-        "Name" => String.t(),
-        "OutboundHostName" => String.t(),
+        "Name" => String.t() | Atom.t(),
+        "OutboundHostName" => String.t() | Atom.t(),
         "RequireEncryption" => boolean(),
         "UpdatedTimestamp" => non_neg_integer(),
-        "VoiceConnectorArn" => String.t(),
-        "VoiceConnectorId" => String.t()
+        "VoiceConnectorArn" => String.t() | Atom.t(),
+        "VoiceConnectorId" => String.t() | Atom.t()
       }
 
   """
-  @type voice_connector() :: %{String.t() => any()}
+  @type voice_connector() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1685,19 +1733,19 @@ defmodule AWS.ChimeSDKVoice do
 
       list_proxy_sessions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("Status") => list(any())
       }
 
   """
-  @type list_proxy_sessions_request() :: %{String.t() => any()}
+  @type list_proxy_sessions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       origination_route() :: %{
-        "Host" => String.t(),
+        "Host" => String.t() | Atom.t(),
         "Port" => integer(),
         "Priority" => integer(),
         "Protocol" => list(any()),
@@ -1705,7 +1753,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type origination_route() :: %{String.t() => any()}
+  @type origination_route() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1713,11 +1761,11 @@ defmodule AWS.ChimeSDKVoice do
 
       list_voice_profile_domains_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_voice_profile_domains_request() :: %{String.t() => any()}
+  @type list_voice_profile_domains_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1725,11 +1773,11 @@ defmodule AWS.ChimeSDKVoice do
 
       service_unavailable_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type service_unavailable_exception() :: %{String.t() => any()}
+  @type service_unavailable_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1739,14 +1787,14 @@ defmodule AWS.ChimeSDKVoice do
         "CallDetails" => call_details(),
         "CreatedTimestamp" => non_neg_integer(),
         "StartedTimestamp" => non_neg_integer(),
-        "StatusMessage" => String.t(),
+        "StatusMessage" => String.t() | Atom.t(),
         "UpdatedTimestamp" => non_neg_integer(),
-        "VoiceToneAnalysisTaskId" => String.t(),
-        "VoiceToneAnalysisTaskStatus" => String.t()
+        "VoiceToneAnalysisTaskId" => String.t() | Atom.t(),
+        "VoiceToneAnalysisTaskStatus" => String.t() | Atom.t()
       }
 
   """
-  @type voice_tone_analysis_task() :: %{String.t() => any()}
+  @type voice_tone_analysis_task() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1757,22 +1805,22 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type streaming_notification_target() :: %{String.t() => any()}
+  @type streaming_notification_target() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_voice_profile_domain_request() :: %{
-        optional("ClientRequestToken") => String.t(),
-        optional("Description") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("Name") => String.t(),
+        required("Name") => String.t() | Atom.t(),
         required("ServerSideEncryptionConfiguration") => server_side_encryption_configuration()
       }
 
   """
-  @type create_voice_profile_domain_request() :: %{String.t() => any()}
+  @type create_voice_profile_domain_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1780,11 +1828,11 @@ defmodule AWS.ChimeSDKVoice do
 
       voice_connector_item() :: %{
         "Priority" => integer(),
-        "VoiceConnectorId" => String.t()
+        "VoiceConnectorId" => String.t() | Atom.t()
       }
 
   """
-  @type voice_connector_item() :: %{String.t() => any()}
+  @type voice_connector_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1795,7 +1843,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type list_available_voice_connector_regions_response() :: %{String.t() => any()}
+  @type list_available_voice_connector_regions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1806,7 +1854,10 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type put_sip_media_application_logging_configuration_response() :: %{String.t() => any()}
+  @type put_sip_media_application_logging_configuration_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1817,7 +1868,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type update_voice_connector_group_response() :: %{String.t() => any()}
+  @type update_voice_connector_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1828,7 +1879,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type get_phone_number_response() :: %{String.t() => any()}
+  @type get_phone_number_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1836,34 +1887,37 @@ defmodule AWS.ChimeSDKVoice do
 
       list_voice_profiles_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("VoiceProfileDomainId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("VoiceProfileDomainId") => String.t() | Atom.t()
       }
 
   """
-  @type list_voice_profiles_request() :: %{String.t() => any()}
+  @type list_voice_profiles_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_voice_connector_termination_credentials_response() :: %{
-        "Usernames" => list(String.t())
+        "Usernames" => list(String.t() | Atom.t())
       }
 
   """
-  @type list_voice_connector_termination_credentials_response() :: %{String.t() => any()}
+  @type list_voice_connector_termination_credentials_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       server_side_encryption_configuration() :: %{
-        "KmsKeyArn" => String.t()
+        "KmsKeyArn" => String.t() | Atom.t()
       }
 
   """
-  @type server_side_encryption_configuration() :: %{String.t() => any()}
+  @type server_side_encryption_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1874,19 +1928,19 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type update_global_settings_request() :: %{String.t() => any()}
+  @type update_global_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       sip_media_application_alexa_skill_configuration() :: %{
-        "AlexaSkillIds" => list(String.t()),
+        "AlexaSkillIds" => list(String.t() | Atom.t()),
         "AlexaSkillStatus" => list(any())
       }
 
   """
-  @type sip_media_application_alexa_skill_configuration() :: %{String.t() => any()}
+  @type sip_media_application_alexa_skill_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1896,31 +1950,31 @@ defmodule AWS.ChimeSDKVoice do
         optional("ExpiryMinutes") => integer(),
         optional("GeoMatchLevel") => list(any()),
         optional("GeoMatchParams") => geo_match_params(),
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("NumberSelectionBehavior") => list(any()),
         required("Capabilities") => list(list(any())()),
-        required("ParticipantPhoneNumbers") => list(String.t())
+        required("ParticipantPhoneNumbers") => list(String.t() | Atom.t())
       }
 
   """
-  @type create_proxy_session_request() :: %{String.t() => any()}
+  @type create_proxy_session_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       candidate_address() :: %{
-        "city" => String.t(),
-        "country" => String.t(),
-        "postalCode" => String.t(),
-        "postalCodePlus4" => String.t(),
-        "state" => String.t(),
-        "streetInfo" => String.t(),
-        "streetNumber" => String.t()
+        "city" => String.t() | Atom.t(),
+        "country" => String.t() | Atom.t(),
+        "postalCode" => String.t() | Atom.t(),
+        "postalCodePlus4" => String.t() | Atom.t(),
+        "state" => String.t() | Atom.t(),
+        "streetInfo" => String.t() | Atom.t(),
+        "streetNumber" => String.t() | Atom.t()
       }
 
   """
-  @type candidate_address() :: %{String.t() => any()}
+  @type candidate_address() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1954,12 +2008,12 @@ defmodule AWS.ChimeSDKVoice do
   ## Example:
 
       list_sip_media_applications_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "SipMediaApplications" => list(sip_media_application())
       }
 
   """
-  @type list_sip_media_applications_response() :: %{String.t() => any()}
+  @type list_sip_media_applications_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1997,7 +2051,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type sip_media_application_logging_configuration() :: %{String.t() => any()}
+  @type sip_media_application_logging_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2008,19 +2062,19 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type get_proxy_session_response() :: %{String.t() => any()}
+  @type get_proxy_session_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_voice_profiles_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "VoiceProfiles" => list(voice_profile_summary())
       }
 
   """
-  @type list_voice_profiles_response() :: %{String.t() => any()}
+  @type list_voice_profiles_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2031,7 +2085,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type update_sip_rule_response() :: %{String.t() => any()}
+  @type update_sip_rule_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2041,13 +2095,13 @@ defmodule AWS.ChimeSDKVoice do
         "CreatedTimestamp" => non_neg_integer(),
         "ExpirationTimestamp" => non_neg_integer(),
         "UpdatedTimestamp" => non_neg_integer(),
-        "VoiceProfileArn" => String.t(),
-        "VoiceProfileDomainId" => String.t(),
-        "VoiceProfileId" => String.t()
+        "VoiceProfileArn" => String.t() | Atom.t(),
+        "VoiceProfileDomainId" => String.t() | Atom.t(),
+        "VoiceProfileId" => String.t() | Atom.t()
       }
 
   """
-  @type voice_profile_summary() :: %{String.t() => any()}
+  @type voice_profile_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2055,11 +2109,11 @@ defmodule AWS.ChimeSDKVoice do
 
       unprocessable_entity_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type unprocessable_entity_exception() :: %{String.t() => any()}
+  @type unprocessable_entity_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2067,11 +2121,11 @@ defmodule AWS.ChimeSDKVoice do
 
       create_voice_connector_group_request() :: %{
         optional("VoiceConnectorItems") => list(voice_connector_item()),
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
 
   """
-  @type create_voice_connector_group_request() :: %{String.t() => any()}
+  @type create_voice_connector_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2079,11 +2133,11 @@ defmodule AWS.ChimeSDKVoice do
 
       access_denied_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2094,7 +2148,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type get_voice_profile_response() :: %{String.t() => any()}
+  @type get_voice_profile_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2105,7 +2159,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type create_sip_media_application_call_response() :: %{String.t() => any()}
+  @type create_sip_media_application_call_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2113,26 +2167,26 @@ defmodule AWS.ChimeSDKVoice do
 
       phone_number_error() :: %{
         "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t(),
-        "PhoneNumberId" => String.t()
+        "ErrorMessage" => String.t() | Atom.t(),
+        "PhoneNumberId" => String.t() | Atom.t()
       }
 
   """
-  @type phone_number_error() :: %{String.t() => any()}
+  @type phone_number_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_phone_number_request_item() :: %{
-        "CallingName" => String.t(),
-        "Name" => String.t(),
-        "PhoneNumberId" => String.t(),
+        "CallingName" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "PhoneNumberId" => String.t() | Atom.t(),
         "ProductType" => list(any())
       }
 
   """
-  @type update_phone_number_request_item() :: %{String.t() => any()}
+  @type update_phone_number_request_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2143,18 +2197,21 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type associate_phone_numbers_with_voice_connector_group_response() :: %{String.t() => any()}
+  @type associate_phone_numbers_with_voice_connector_group_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t()
+        required("ResourceARN") => String.t() | Atom.t()
       }
 
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2165,30 +2222,33 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type put_voice_connector_origination_request() :: %{String.t() => any()}
+  @type put_voice_connector_origination_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_voice_connector_termination_credentials_request() :: %{
-        required("Usernames") => list(String.t())
+        required("Usernames") => list(String.t() | Atom.t())
       }
 
   """
-  @type delete_voice_connector_termination_credentials_request() :: %{String.t() => any()}
+  @type delete_voice_connector_termination_credentials_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       list_voice_connectors_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "VoiceConnectors" => list(voice_connector())
       }
 
   """
-  @type list_voice_connectors_response() :: %{String.t() => any()}
+  @type list_voice_connectors_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2199,7 +2259,10 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type put_sip_media_application_alexa_skill_configuration_response() :: %{String.t() => any()}
+  @type put_sip_media_application_alexa_skill_configuration_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -2216,15 +2279,15 @@ defmodule AWS.ChimeSDKVoice do
 
       voice_connector_group() :: %{
         "CreatedTimestamp" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "UpdatedTimestamp" => non_neg_integer(),
-        "VoiceConnectorGroupArn" => String.t(),
-        "VoiceConnectorGroupId" => String.t(),
+        "VoiceConnectorGroupArn" => String.t() | Atom.t(),
+        "VoiceConnectorGroupId" => String.t() | Atom.t(),
         "VoiceConnectorItems" => list(voice_connector_item())
       }
 
   """
-  @type voice_connector_group() :: %{String.t() => any()}
+  @type voice_connector_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2235,7 +2298,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type get_voice_connector_origination_response() :: %{String.t() => any()}
+  @type get_voice_connector_origination_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2260,12 +2323,12 @@ defmodule AWS.ChimeSDKVoice do
   ## Example:
 
       get_phone_number_settings_response() :: %{
-        "CallingName" => String.t(),
+        "CallingName" => String.t() | Atom.t(),
         "CallingNameUpdatedTimestamp" => non_neg_integer()
       }
 
   """
-  @type get_phone_number_settings_response() :: %{String.t() => any()}
+  @type get_phone_number_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2274,12 +2337,12 @@ defmodule AWS.ChimeSDKVoice do
       create_sip_media_application_call_request() :: %{
         optional("ArgumentsMap") => map(),
         optional("SipHeaders") => map(),
-        required("FromPhoneNumber") => String.t(),
-        required("ToPhoneNumber") => String.t()
+        required("FromPhoneNumber") => String.t() | Atom.t(),
+        required("ToPhoneNumber") => String.t() | Atom.t()
       }
 
   """
-  @type create_sip_media_application_call_request() :: %{String.t() => any()}
+  @type create_sip_media_application_call_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2290,7 +2353,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type update_sip_media_application_call_request() :: %{String.t() => any()}
+  @type update_sip_media_application_call_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2310,7 +2373,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type get_voice_connector_group_response() :: %{String.t() => any()}
+  @type get_voice_connector_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2321,7 +2384,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type put_voice_connector_logging_configuration_response() :: %{String.t() => any()}
+  @type put_voice_connector_logging_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2332,7 +2395,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type create_voice_connector_response() :: %{String.t() => any()}
+  @type create_voice_connector_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2348,11 +2411,11 @@ defmodule AWS.ChimeSDKVoice do
   ## Example:
 
       sip_media_application_call() :: %{
-        "TransactionId" => String.t()
+        "TransactionId" => String.t() | Atom.t()
       }
 
   """
-  @type sip_media_application_call() :: %{String.t() => any()}
+  @type sip_media_application_call() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2360,35 +2423,35 @@ defmodule AWS.ChimeSDKVoice do
 
       bad_request_exception() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type bad_request_exception() :: %{String.t() => any()}
+  @type bad_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_phone_numbers_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "PhoneNumbers" => list(phone_number())
       }
 
   """
-  @type list_phone_numbers_response() :: %{String.t() => any()}
+  @type list_phone_numbers_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_voice_connector_request() :: %{
-        required("Name") => String.t(),
+        required("Name") => String.t() | Atom.t(),
         required("RequireEncryption") => boolean()
       }
 
   """
-  @type update_voice_connector_request() :: %{String.t() => any()}
+  @type update_voice_connector_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2399,31 +2462,31 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type get_voice_tone_analysis_task_request() :: %{String.t() => any()}
+  @type get_voice_tone_analysis_task_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_voice_profile_domain_request() :: %{
-        optional("Description") => String.t(),
-        optional("Name") => String.t()
+        optional("Description") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t()
       }
 
   """
-  @type update_voice_profile_domain_request() :: %{String.t() => any()}
+  @type update_voice_profile_domain_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       credential() :: %{
-        "Password" => String.t(),
-        "Username" => String.t()
+        "Password" => String.t() | Atom.t(),
+        "Username" => String.t() | Atom.t()
       }
 
   """
-  @type credential() :: %{String.t() => any()}
+  @type credential() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2439,7 +2502,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type phone_number_capabilities() :: %{String.t() => any()}
+  @type phone_number_capabilities() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2477,7 +2540,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type create_sip_media_application_response() :: %{String.t() => any()}
+  @type create_sip_media_application_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2488,40 +2551,40 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type put_voice_connector_proxy_response() :: %{String.t() => any()}
+  @type put_voice_connector_proxy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       address() :: %{
-        "city" => String.t(),
-        "country" => String.t(),
-        "postDirectional" => String.t(),
-        "postalCode" => String.t(),
-        "postalCodePlus4" => String.t(),
-        "preDirectional" => String.t(),
-        "state" => String.t(),
-        "streetName" => String.t(),
-        "streetNumber" => String.t(),
-        "streetSuffix" => String.t()
+        "city" => String.t() | Atom.t(),
+        "country" => String.t() | Atom.t(),
+        "postDirectional" => String.t() | Atom.t(),
+        "postalCode" => String.t() | Atom.t(),
+        "postalCodePlus4" => String.t() | Atom.t(),
+        "preDirectional" => String.t() | Atom.t(),
+        "state" => String.t() | Atom.t(),
+        "streetName" => String.t() | Atom.t(),
+        "streetNumber" => String.t() | Atom.t(),
+        "streetSuffix" => String.t() | Atom.t()
       }
 
   """
-  @type address() :: %{String.t() => any()}
+  @type address() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       sip_rule_target_application() :: %{
-        "AwsRegion" => String.t(),
+        "AwsRegion" => String.t() | Atom.t(),
         "Priority" => integer(),
-        "SipMediaApplicationId" => String.t()
+        "SipMediaApplicationId" => String.t() | Atom.t()
       }
 
   """
-  @type sip_rule_target_application() :: %{String.t() => any()}
+  @type sip_rule_target_application() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2532,7 +2595,10 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type get_voice_connector_emergency_calling_configuration_response() :: %{String.t() => any()}
+  @type get_voice_connector_emergency_calling_configuration_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -2557,13 +2623,13 @@ defmodule AWS.ChimeSDKVoice do
   ## Example:
 
       update_phone_number_request() :: %{
-        optional("CallingName") => String.t(),
-        optional("Name") => String.t(),
+        optional("CallingName") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("ProductType") => list(any())
       }
 
   """
-  @type update_phone_number_request() :: %{String.t() => any()}
+  @type update_phone_number_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2574,7 +2640,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type get_voice_profile_domain_response() :: %{String.t() => any()}
+  @type get_voice_profile_domain_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2594,7 +2660,10 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type put_voice_connector_emergency_calling_configuration_response() :: %{String.t() => any()}
+  @type put_voice_connector_emergency_calling_configuration_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -2605,7 +2674,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type get_voice_connector_termination_response() :: %{String.t() => any()}
+  @type get_voice_connector_termination_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2625,7 +2694,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type batch_update_phone_number_request() :: %{String.t() => any()}
+  @type batch_update_phone_number_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2636,42 +2705,45 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type put_sip_media_application_alexa_skill_configuration_request() :: %{String.t() => any()}
+  @type put_sip_media_application_alexa_skill_configuration_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       sip_media_application() :: %{
-        "AwsRegion" => String.t(),
+        "AwsRegion" => String.t() | Atom.t(),
         "CreatedTimestamp" => non_neg_integer(),
         "Endpoints" => list(sip_media_application_endpoint()),
-        "Name" => String.t(),
-        "SipMediaApplicationArn" => String.t(),
-        "SipMediaApplicationId" => String.t(),
+        "Name" => String.t() | Atom.t(),
+        "SipMediaApplicationArn" => String.t() | Atom.t(),
+        "SipMediaApplicationId" => String.t() | Atom.t(),
         "UpdatedTimestamp" => non_neg_integer()
       }
 
   """
-  @type sip_media_application() :: %{String.t() => any()}
+  @type sip_media_application() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       search_available_phone_numbers_request() :: %{
-        optional("AreaCode") => String.t(),
-        optional("City") => String.t(),
-        optional("Country") => String.t(),
+        optional("AreaCode") => String.t() | Atom.t(),
+        optional("City") => String.t() | Atom.t(),
+        optional("Country") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("PhoneNumberType") => list(any()),
-        optional("State") => String.t(),
-        optional("TollFreePrefix") => String.t()
+        optional("State") => String.t() | Atom.t(),
+        optional("TollFreePrefix") => String.t() | Atom.t()
       }
 
   """
-  @type search_available_phone_numbers_request() :: %{String.t() => any()}
+  @type search_available_phone_numbers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2682,7 +2754,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type list_supported_phone_number_countries_request() :: %{String.t() => any()}
+  @type list_supported_phone_number_countries_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2693,7 +2765,7 @@ defmodule AWS.ChimeSDKVoice do
       }
 
   """
-  @type emergency_calling_configuration() :: %{String.t() => any()}
+  @type emergency_calling_configuration() :: %{String.t() | Atom.t() => any()}
 
   @type associate_phone_numbers_with_voice_connector_errors() ::
           bad_request_exception()
@@ -3629,7 +3701,7 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec associate_phone_numbers_with_voice_connector(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           associate_phone_numbers_with_voice_connector_request(),
           list()
         ) ::
@@ -3671,7 +3743,7 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec associate_phone_numbers_with_voice_connector_group(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           associate_phone_numbers_with_voice_connector_group_request(),
           list()
         ) ::
@@ -3815,7 +3887,7 @@ defmodule AWS.ChimeSDKVoice do
   Creates a proxy session for the specified Amazon Chime SDK Voice Connector for
   the specified participant phone numbers.
   """
-  @spec create_proxy_session(map(), String.t(), create_proxy_session_request(), list()) ::
+  @spec create_proxy_session(map(), String.t() | Atom.t(), create_proxy_session_request(), list()) ::
           {:ok, create_proxy_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3882,7 +3954,7 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec create_sip_media_application_call(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           create_sip_media_application_call_request(),
           list()
         ) ::
@@ -4116,7 +4188,7 @@ defmodule AWS.ChimeSDKVoice do
   **Deletion queue** queue for 7 days before
   they are deleted permanently.
   """
-  @spec delete_phone_number(map(), String.t(), delete_phone_number_request(), list()) ::
+  @spec delete_phone_number(map(), String.t() | Atom.t(), delete_phone_number_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4148,8 +4220,8 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec delete_proxy_session(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_proxy_session_request(),
           list()
         ) ::
@@ -4191,7 +4263,7 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec delete_sip_media_application(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_sip_media_application_request(),
           list()
         ) ::
@@ -4228,7 +4300,7 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Deletes a SIP rule.
   """
-  @spec delete_sip_rule(map(), String.t(), delete_sip_rule_request(), list()) ::
+  @spec delete_sip_rule(map(), String.t() | Atom.t(), delete_sip_rule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4262,7 +4334,12 @@ defmodule AWS.ChimeSDKVoice do
   it
   can be deleted.
   """
-  @spec delete_voice_connector(map(), String.t(), delete_voice_connector_request(), list()) ::
+  @spec delete_voice_connector(
+          map(),
+          String.t() | Atom.t(),
+          delete_voice_connector_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4294,7 +4371,7 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec delete_voice_connector_emergency_calling_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_voice_connector_emergency_calling_configuration_request(),
           list()
         ) ::
@@ -4335,7 +4412,7 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec delete_voice_connector_external_systems_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_voice_connector_external_systems_configuration_request(),
           list()
         ) ::
@@ -4380,7 +4457,7 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec delete_voice_connector_group(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_voice_connector_group_request(),
           list()
         ) ::
@@ -4423,7 +4500,7 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec delete_voice_connector_origination(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_voice_connector_origination_request(),
           list()
         ) ::
@@ -4463,7 +4540,7 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec delete_voice_connector_proxy(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_voice_connector_proxy_request(),
           list()
         ) ::
@@ -4499,7 +4576,7 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec delete_voice_connector_streaming_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_voice_connector_streaming_configuration_request(),
           list()
         ) ::
@@ -4544,7 +4621,7 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec delete_voice_connector_termination(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_voice_connector_termination_request(),
           list()
         ) ::
@@ -4584,7 +4661,7 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec delete_voice_connector_termination_credentials(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_voice_connector_termination_credentials_request(),
           list()
         ) ::
@@ -4625,7 +4702,7 @@ defmodule AWS.ChimeSDKVoice do
 
   WARNING: This action is not reversible.
   """
-  @spec delete_voice_profile(map(), String.t(), delete_voice_profile_request(), list()) ::
+  @spec delete_voice_profile(map(), String.t() | Atom.t(), delete_voice_profile_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4658,7 +4735,7 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec delete_voice_profile_domain(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_voice_profile_domain_request(),
           list()
         ) ::
@@ -4698,7 +4775,7 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec disassociate_phone_numbers_from_voice_connector(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           disassociate_phone_numbers_from_voice_connector_request(),
           list()
         ) ::
@@ -4741,7 +4818,7 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec disassociate_phone_numbers_from_voice_connector_group(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           disassociate_phone_numbers_from_voice_connector_group_request(),
           list()
         ) ::
@@ -4800,7 +4877,7 @@ defmodule AWS.ChimeSDKVoice do
   Retrieves details for the specified phone number ID, such as associations,
   capabilities, and product type.
   """
-  @spec get_phone_number(map(), String.t(), list()) ::
+  @spec get_phone_number(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4820,7 +4897,7 @@ defmodule AWS.ChimeSDKVoice do
   creation timestamp, phone numbers in E.164 format, product type, and
   order status.
   """
-  @spec get_phone_number_order(map(), String.t(), list()) ::
+  @spec get_phone_number_order(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_phone_number_order_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4858,7 +4935,7 @@ defmodule AWS.ChimeSDKVoice do
   Retrieves the specified proxy session details for the specified Amazon Chime SDK
   Voice Connector.
   """
-  @spec get_proxy_session(map(), String.t(), String.t(), list()) ::
+  @spec get_proxy_session(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_proxy_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4879,7 +4956,7 @@ defmodule AWS.ChimeSDKVoice do
   Retrieves the information for a SIP media application, including name,
   AWS Region, and endpoints.
   """
-  @spec get_sip_media_application(map(), String.t(), list()) ::
+  @spec get_sip_media_application(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_sip_media_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4901,7 +4978,7 @@ defmodule AWS.ChimeSDKVoice do
   for use. For more information, refer to
   the [Alexa Smart Properties](https://developer.amazon.com/en-US/alexa/alexasmartproperties) page.
   """
-  @spec get_sip_media_application_alexa_skill_configuration(map(), String.t(), list()) ::
+  @spec get_sip_media_application_alexa_skill_configuration(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_sip_media_application_alexa_skill_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4925,7 +5002,7 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Retrieves the logging configuration for the specified SIP media application.
   """
-  @spec get_sip_media_application_logging_configuration(map(), String.t(), list()) ::
+  @spec get_sip_media_application_logging_configuration(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_sip_media_application_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4950,7 +5027,7 @@ defmodule AWS.ChimeSDKVoice do
   Retrieves the details of a SIP rule, such as the rule ID, name, triggers, and
   target endpoints.
   """
-  @spec get_sip_rule(map(), String.t(), list()) ::
+  @spec get_sip_rule(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_sip_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4968,7 +5045,7 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Retrieves the details of the specified speaker search task.
   """
-  @spec get_speaker_search_task(map(), String.t(), String.t(), list()) ::
+  @spec get_speaker_search_task(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_speaker_search_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4994,7 +5071,7 @@ defmodule AWS.ChimeSDKVoice do
   Retrieves details for the specified Amazon Chime SDK Voice Connector, such as
   timestamps,name, outbound host, and encryption requirements.
   """
-  @spec get_voice_connector(map(), String.t(), list()) ::
+  @spec get_voice_connector(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5013,7 +5090,7 @@ defmodule AWS.ChimeSDKVoice do
   Retrieves the emergency calling configuration details for the specified Voice
   Connector.
   """
-  @spec get_voice_connector_emergency_calling_configuration(map(), String.t(), list()) ::
+  @spec get_voice_connector_emergency_calling_configuration(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_voice_connector_emergency_calling_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5038,7 +5115,7 @@ defmodule AWS.ChimeSDKVoice do
   Gets information about an external systems configuration for a Voice
   Connector.
   """
-  @spec get_voice_connector_external_systems_configuration(map(), String.t(), list()) ::
+  @spec get_voice_connector_external_systems_configuration(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_voice_connector_external_systems_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5063,7 +5140,7 @@ defmodule AWS.ChimeSDKVoice do
   Retrieves details for the specified Amazon Chime SDK Voice Connector group,
   such as timestamps,name, and associated `VoiceConnectorItems`.
   """
-  @spec get_voice_connector_group(map(), String.t(), list()) ::
+  @spec get_voice_connector_group(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5084,7 +5161,7 @@ defmodule AWS.ChimeSDKVoice do
   Shows whether SIP message logs are enabled for sending to Amazon CloudWatch
   Logs.
   """
-  @spec get_voice_connector_logging_configuration(map(), String.t(), list()) ::
+  @spec get_voice_connector_logging_configuration(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_voice_connector_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5108,7 +5185,7 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Retrieves the origination settings for the specified Voice Connector.
   """
-  @spec get_voice_connector_origination(map(), String.t(), list()) ::
+  @spec get_voice_connector_origination(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_voice_connector_origination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5128,7 +5205,7 @@ defmodule AWS.ChimeSDKVoice do
   Voice
   Connector.
   """
-  @spec get_voice_connector_proxy(map(), String.t(), list()) ::
+  @spec get_voice_connector_proxy(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_voice_connector_proxy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5153,7 +5230,7 @@ defmodule AWS.ChimeSDKVoice do
   Kinesis. It also shows the retention period, in hours, for the Amazon Kinesis
   data.
   """
-  @spec get_voice_connector_streaming_configuration(map(), String.t(), list()) ::
+  @spec get_voice_connector_streaming_configuration(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_voice_connector_streaming_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5177,7 +5254,7 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Retrieves the termination setting details for the specified Voice Connector.
   """
-  @spec get_voice_connector_termination(map(), String.t(), list()) ::
+  @spec get_voice_connector_termination(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_voice_connector_termination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5198,7 +5275,7 @@ defmodule AWS.ChimeSDKVoice do
   Voice
   Connector.
   """
-  @spec get_voice_connector_termination_health(map(), String.t(), list()) ::
+  @spec get_voice_connector_termination_health(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_voice_connector_termination_health_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5220,7 +5297,7 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Retrieves the details of the specified voice profile.
   """
-  @spec get_voice_profile(map(), String.t(), list()) ::
+  @spec get_voice_profile(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_voice_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5238,7 +5315,7 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Retrieves the details of the specified voice profile domain.
   """
-  @spec get_voice_profile_domain(map(), String.t(), list()) ::
+  @spec get_voice_profile_domain(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_voice_profile_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5256,7 +5333,13 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Retrieves the details of a voice tone analysis task.
   """
-  @spec get_voice_tone_analysis_task(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_voice_tone_analysis_task(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_voice_tone_analysis_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5308,7 +5391,12 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Lists the phone numbers for an administrator's Amazon Chime SDK account.
   """
-  @spec list_phone_number_orders(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_phone_number_orders(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_phone_number_orders_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5350,12 +5438,12 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec list_phone_numbers(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_phone_numbers_response(), any()}
@@ -5428,10 +5516,10 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec list_proxy_sessions(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_proxy_sessions_response(), any()}
@@ -5479,7 +5567,12 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Lists the SIP media applications under the administrator's AWS account.
   """
-  @spec list_sip_media_applications(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_sip_media_applications(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_sip_media_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5516,7 +5609,13 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Lists the SIP rules under the administrator's AWS account.
   """
-  @spec list_sip_rules(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_sip_rules(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_sip_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5561,7 +5660,7 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Lists the countries that you can order phone numbers from.
   """
-  @spec list_supported_phone_number_countries(map(), String.t(), list()) ::
+  @spec list_supported_phone_number_countries(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_supported_phone_number_countries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5586,7 +5685,7 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Returns a list of the tags in a given resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5612,7 +5711,12 @@ defmodule AWS.ChimeSDKVoice do
   Lists the Amazon Chime SDK Voice Connector groups in the administrator's AWS
   account.
   """
-  @spec list_voice_connector_groups(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_voice_connector_groups(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_voice_connector_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5649,7 +5753,7 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Lists the SIP credentials for the specified Amazon Chime SDK Voice Connector.
   """
-  @spec list_voice_connector_termination_credentials(map(), String.t(), list()) ::
+  @spec list_voice_connector_termination_credentials(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_voice_connector_termination_credentials_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5674,7 +5778,12 @@ defmodule AWS.ChimeSDKVoice do
   Lists the Amazon Chime SDK Voice Connectors in the administrators
   AWS account.
   """
-  @spec list_voice_connectors(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_voice_connectors(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_voice_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5711,7 +5820,12 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Lists the specified voice profile domains in the administrator's AWS account.
   """
-  @spec list_voice_profile_domains(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_voice_profile_domains(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_voice_profile_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5748,7 +5862,13 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Lists the voice profiles in a voice profile domain.
   """
-  @spec list_voice_profiles(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
+  @spec list_voice_profiles(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, list_voice_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5799,7 +5919,7 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec put_sip_media_application_alexa_skill_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_sip_media_application_alexa_skill_configuration_request(),
           list()
         ) ::
@@ -5840,7 +5960,7 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec put_sip_media_application_logging_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_sip_media_application_logging_configuration_request(),
           list()
         ) ::
@@ -5881,7 +6001,7 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec put_voice_connector_emergency_calling_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_voice_connector_emergency_calling_configuration_request(),
           list()
         ) ::
@@ -5922,7 +6042,7 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec put_voice_connector_external_systems_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_voice_connector_external_systems_configuration_request(),
           list()
         ) ::
@@ -5963,7 +6083,7 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec put_voice_connector_logging_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_voice_connector_logging_configuration_request(),
           list()
         ) ::
@@ -6004,7 +6124,7 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec put_voice_connector_origination(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_voice_connector_origination_request(),
           list()
         ) ::
@@ -6042,7 +6162,12 @@ defmodule AWS.ChimeSDKVoice do
   Puts the specified proxy configuration to the specified Amazon Chime SDK Voice
   Connector.
   """
-  @spec put_voice_connector_proxy(map(), String.t(), put_voice_connector_proxy_request(), list()) ::
+  @spec put_voice_connector_proxy(
+          map(),
+          String.t() | Atom.t(),
+          put_voice_connector_proxy_request(),
+          list()
+        ) ::
           {:ok, put_voice_connector_proxy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6075,7 +6200,7 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec put_voice_connector_streaming_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_voice_connector_streaming_configuration_request(),
           list()
         ) ::
@@ -6116,7 +6241,7 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec put_voice_connector_termination(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_voice_connector_termination_request(),
           list()
         ) ::
@@ -6155,7 +6280,7 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec put_voice_connector_termination_credentials(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_voice_connector_termination_credentials_request(),
           list()
         ) ::
@@ -6194,7 +6319,7 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Restores a deleted phone number.
   """
-  @spec restore_phone_number(map(), String.t(), restore_phone_number_request(), list()) ::
+  @spec restore_phone_number(map(), String.t() | Atom.t(), restore_phone_number_request(), list()) ::
           {:ok, restore_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6225,14 +6350,14 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec search_available_phone_numbers(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, search_available_phone_numbers_response(), any()}
@@ -6325,7 +6450,12 @@ defmodule AWS.ChimeSDKVoice do
   [AWS service terms](https://aws.amazon.com/service-terms/) for the Amazon Chime
   SDK.
   """
-  @spec start_speaker_search_task(map(), String.t(), start_speaker_search_task_request(), list()) ::
+  @spec start_speaker_search_task(
+          map(),
+          String.t() | Atom.t(),
+          start_speaker_search_task_request(),
+          list()
+        ) ::
           {:ok, start_speaker_search_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6366,7 +6496,7 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec start_voice_tone_analysis_task(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           start_voice_tone_analysis_task_request(),
           list()
         ) ::
@@ -6402,8 +6532,8 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec stop_speaker_search_task(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           stop_speaker_search_task_request(),
           list()
         ) ::
@@ -6445,8 +6575,8 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec stop_voice_tone_analysis_task(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           stop_voice_tone_analysis_task_request(),
           list()
         ) ::
@@ -6588,7 +6718,7 @@ defmodule AWS.ChimeSDKVoice do
   another
   update.
   """
-  @spec update_phone_number(map(), String.t(), update_phone_number_request(), list()) ::
+  @spec update_phone_number(map(), String.t() | Atom.t(), update_phone_number_request(), list()) ::
           {:ok, update_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6653,8 +6783,8 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec update_proxy_session(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_proxy_session_request(),
           list()
         ) ::
@@ -6696,7 +6826,7 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec update_sip_media_application(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_sip_media_application_request(),
           list()
         ) ::
@@ -6739,8 +6869,8 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec update_sip_media_application_call(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_sip_media_application_call_request(),
           list()
         ) ::
@@ -6780,7 +6910,7 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Updates the details of the specified SIP rule.
   """
-  @spec update_sip_rule(map(), String.t(), update_sip_rule_request(), list()) ::
+  @spec update_sip_rule(map(), String.t() | Atom.t(), update_sip_rule_request(), list()) ::
           {:ok, update_sip_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6809,7 +6939,12 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Updates the details for the specified Amazon Chime SDK Voice Connector.
   """
-  @spec update_voice_connector(map(), String.t(), update_voice_connector_request(), list()) ::
+  @spec update_voice_connector(
+          map(),
+          String.t() | Atom.t(),
+          update_voice_connector_request(),
+          list()
+        ) ::
           {:ok, update_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6840,7 +6975,7 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec update_voice_connector_group(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_voice_connector_group_request(),
           list()
         ) ::
@@ -6893,7 +7028,7 @@ defmodule AWS.ChimeSDKVoice do
   the terms of your agreement
   with AWS governing your use of the service.
   """
-  @spec update_voice_profile(map(), String.t(), update_voice_profile_request(), list()) ::
+  @spec update_voice_profile(map(), String.t() | Atom.t(), update_voice_profile_request(), list()) ::
           {:ok, update_voice_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6924,7 +7059,7 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec update_voice_profile_domain(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_voice_profile_domain_request(),
           list()
         ) ::

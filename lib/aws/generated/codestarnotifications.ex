@@ -93,23 +93,23 @@ defmodule AWS.Codestarnotifications do
   ## Example:
 
       create_notification_rule_result() :: %{
-        "Arn" => String.t()
+        "Arn" => String.t() | Atom.t()
       }
 
   """
-  @type create_notification_rule_result() :: %{String.t() => any()}
+  @type create_notification_rule_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_resource_request() :: %{
-        required("Arn") => String.t(),
+        required("Arn") => String.t() | Atom.t(),
         required("Tags") => map()
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -127,23 +127,23 @@ defmodule AWS.Codestarnotifications do
       list_notification_rules_request() :: %{
         optional("Filters") => list(list_notification_rules_filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_notification_rules_request() :: %{String.t() => any()}
+  @type list_notification_rules_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       unsubscribe_request() :: %{
-        required("Arn") => String.t(),
-        required("TargetAddress") => String.t()
+        required("Arn") => String.t() | Atom.t(),
+        required("TargetAddress") => String.t() | Atom.t()
       }
 
   """
-  @type unsubscribe_request() :: %{String.t() => any()}
+  @type unsubscribe_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -160,56 +160,56 @@ defmodule AWS.Codestarnotifications do
 
       list_event_types_filter() :: %{
         "Name" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type list_event_types_filter() :: %{String.t() => any()}
+  @type list_event_types_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       configuration_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type configuration_exception() :: %{String.t() => any()}
+  @type configuration_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_targets_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Targets" => list(target_summary())
       }
 
   """
-  @type list_targets_result() :: %{String.t() => any()}
+  @type list_targets_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_notification_rule_request() :: %{
-        required("Arn") => String.t()
+        required("Arn") => String.t() | Atom.t()
       }
 
   """
-  @type delete_notification_rule_request() :: %{String.t() => any()}
+  @type delete_notification_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t())
+        required("TagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -225,72 +225,72 @@ defmodule AWS.Codestarnotifications do
   ## Example:
 
       target() :: %{
-        "TargetAddress" => String.t(),
-        "TargetType" => String.t()
+        "TargetAddress" => String.t() | Atom.t(),
+        "TargetType" => String.t() | Atom.t()
       }
 
   """
-  @type target() :: %{String.t() => any()}
+  @type target() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       event_type_summary() :: %{
-        "EventTypeId" => String.t(),
-        "EventTypeName" => String.t(),
-        "ResourceType" => String.t(),
-        "ServiceName" => String.t()
+        "EventTypeId" => String.t() | Atom.t(),
+        "EventTypeName" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t(),
+        "ServiceName" => String.t() | Atom.t()
       }
 
   """
-  @type event_type_summary() :: %{String.t() => any()}
+  @type event_type_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_notification_rule_result() :: %{
-        "Arn" => String.t()
+        "Arn" => String.t() | Atom.t()
       }
 
   """
-  @type delete_notification_rule_result() :: %{String.t() => any()}
+  @type delete_notification_rule_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       target_summary() :: %{
-        "TargetAddress" => String.t(),
+        "TargetAddress" => String.t() | Atom.t(),
         "TargetStatus" => list(any()),
-        "TargetType" => String.t()
+        "TargetType" => String.t() | Atom.t()
       }
 
   """
-  @type target_summary() :: %{String.t() => any()}
+  @type target_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_next_token_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_next_token_exception() :: %{String.t() => any()}
+  @type invalid_next_token_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -298,11 +298,11 @@ defmodule AWS.Codestarnotifications do
 
       delete_target_request() :: %{
         optional("ForceUnsubscribeAll") => boolean(),
-        required("TargetAddress") => String.t()
+        required("TargetAddress") => String.t() | Atom.t()
       }
 
   """
-  @type delete_target_request() :: %{String.t() => any()}
+  @type delete_target_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -310,11 +310,11 @@ defmodule AWS.Codestarnotifications do
 
       list_notification_rules_filter() :: %{
         "Name" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type list_notification_rules_filter() :: %{String.t() => any()}
+  @type list_notification_rules_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -322,40 +322,40 @@ defmodule AWS.Codestarnotifications do
 
       list_event_types_result() :: %{
         "EventTypes" => list(event_type_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_event_types_result() :: %{String.t() => any()}
+  @type list_event_types_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_notification_rule_request() :: %{
-        optional("ClientRequestToken") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
         optional("Status") => list(any()),
         optional("Tags") => map(),
         required("DetailType") => list(any()),
-        required("EventTypeIds") => list(String.t()),
-        required("Name") => String.t(),
-        required("Resource") => String.t(),
+        required("EventTypeIds") => list(String.t() | Atom.t()),
+        required("Name") => String.t() | Atom.t(),
+        required("Resource") => String.t() | Atom.t(),
         required("Targets") => list(target())
       }
 
   """
-  @type create_notification_rule_request() :: %{String.t() => any()}
+  @type create_notification_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       subscribe_result() :: %{
-        "Arn" => String.t()
+        "Arn" => String.t() | Atom.t()
       }
 
   """
-  @type subscribe_result() :: %{String.t() => any()}
+  @type subscribe_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -363,15 +363,15 @@ defmodule AWS.Codestarnotifications do
 
       update_notification_rule_request() :: %{
         optional("DetailType") => list(any()),
-        optional("EventTypeIds") => list(String.t()),
-        optional("Name") => String.t(),
+        optional("EventTypeIds") => list(String.t() | Atom.t()),
+        optional("Name") => String.t() | Atom.t(),
         optional("Status") => list(any()),
         optional("Targets") => list(target()),
-        required("Arn") => String.t()
+        required("Arn") => String.t() | Atom.t()
       }
 
   """
-  @type update_notification_rule_request() :: %{String.t() => any()}
+  @type update_notification_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -382,7 +382,7 @@ defmodule AWS.Codestarnotifications do
       }
 
   """
-  @type list_tags_for_resource_result() :: %{String.t() => any()}
+  @type list_tags_for_resource_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -391,90 +391,90 @@ defmodule AWS.Codestarnotifications do
       list_targets_request() :: %{
         optional("Filters") => list(list_targets_filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_targets_request() :: %{String.t() => any()}
+  @type list_targets_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       concurrent_modification_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type concurrent_modification_exception() :: %{String.t() => any()}
+  @type concurrent_modification_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       unsubscribe_result() :: %{
-        "Arn" => String.t()
+        "Arn" => String.t() | Atom.t()
       }
 
   """
-  @type unsubscribe_result() :: %{String.t() => any()}
+  @type unsubscribe_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_for_resource_request() :: %{
-        required("Arn") => String.t()
+        required("Arn") => String.t() | Atom.t()
       }
 
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       subscribe_request() :: %{
-        optional("ClientRequestToken") => String.t(),
-        required("Arn") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
+        required("Arn") => String.t() | Atom.t(),
         required("Target") => target()
       }
 
   """
-  @type subscribe_request() :: %{String.t() => any()}
+  @type subscribe_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       limit_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -485,74 +485,74 @@ defmodule AWS.Codestarnotifications do
       }
 
   """
-  @type tag_resource_result() :: %{String.t() => any()}
+  @type tag_resource_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_notification_rules_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "NotificationRules" => list(notification_rule_summary())
       }
 
   """
-  @type list_notification_rules_result() :: %{String.t() => any()}
+  @type list_notification_rules_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_already_exists_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_already_exists_exception() :: %{String.t() => any()}
+  @type resource_already_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_notification_rule_request() :: %{
-        required("Arn") => String.t()
+        required("Arn") => String.t() | Atom.t()
       }
 
   """
-  @type describe_notification_rule_request() :: %{String.t() => any()}
+  @type describe_notification_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_notification_rule_result() :: %{
-        "Arn" => String.t(),
-        "CreatedBy" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "CreatedBy" => String.t() | Atom.t(),
         "CreatedTimestamp" => non_neg_integer(),
         "DetailType" => list(any()),
         "EventTypes" => list(event_type_summary()),
         "LastModifiedTimestamp" => non_neg_integer(),
-        "Name" => String.t(),
-        "Resource" => String.t(),
+        "Name" => String.t() | Atom.t(),
+        "Resource" => String.t() | Atom.t(),
         "Status" => list(any()),
         "Tags" => map(),
         "Targets" => list(target_summary())
       }
 
   """
-  @type describe_notification_rule_result() :: %{String.t() => any()}
+  @type describe_notification_rule_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       notification_rule_summary() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type notification_rule_summary() :: %{String.t() => any()}
+  @type notification_rule_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -561,11 +561,11 @@ defmodule AWS.Codestarnotifications do
       list_event_types_request() :: %{
         optional("Filters") => list(list_event_types_filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_event_types_request() :: %{String.t() => any()}
+  @type list_event_types_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -573,11 +573,11 @@ defmodule AWS.Codestarnotifications do
 
       list_targets_filter() :: %{
         "Name" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type list_targets_filter() :: %{String.t() => any()}
+  @type list_targets_filter() :: %{String.t() | Atom.t() => any()}
 
   @type create_notification_rule_errors() ::
           resource_already_exists_exception()
@@ -979,7 +979,7 @@ defmodule AWS.Codestarnotifications do
   Removes the association between one or more provided tags and a notification
   rule.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

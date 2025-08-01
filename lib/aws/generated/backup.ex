@@ -22,11 +22,11 @@ defmodule AWS.Backup do
 
       list_restore_testing_plans_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t()]
+        optional("NextToken") => [String.t() | Atom.t()]
       }
 
   """
-  @type list_restore_testing_plans_input() :: %{String.t() => any()}
+  @type list_restore_testing_plans_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -36,43 +36,43 @@ defmodule AWS.Backup do
         "CompletionTime" => non_neg_integer(),
         "CreationTime" => non_neg_integer(),
         "ReportDestination" => report_destination(),
-        "ReportJobId" => String.t(),
-        "ReportPlanArn" => String.t(),
-        "ReportTemplate" => String.t(),
-        "Status" => String.t(),
-        "StatusMessage" => String.t()
+        "ReportJobId" => String.t() | Atom.t(),
+        "ReportPlanArn" => String.t() | Atom.t(),
+        "ReportTemplate" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t(),
+        "StatusMessage" => String.t() | Atom.t()
       }
 
   """
-  @type report_job() :: %{String.t() => any()}
+  @type report_job() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       recovery_point_member() :: %{
-        "BackupVaultName" => String.t(),
-        "RecoveryPointArn" => String.t(),
-        "ResourceArn" => String.t(),
-        "ResourceType" => String.t()
+        "BackupVaultName" => String.t() | Atom.t(),
+        "RecoveryPointArn" => String.t() | Atom.t(),
+        "ResourceArn" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t()
       }
 
   """
-  @type recovery_point_member() :: %{String.t() => any()}
+  @type recovery_point_member() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       missing_parameter_value_exception() :: %{
-        "Code" => String.t(),
-        "Context" => String.t(),
-        "Message" => String.t(),
-        "Type" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Context" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
+        "Type" => String.t() | Atom.t()
       }
 
   """
-  @type missing_parameter_value_exception() :: %{String.t() => any()}
+  @type missing_parameter_value_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -83,27 +83,27 @@ defmodule AWS.Backup do
         optional("CreatedBefore") => non_neg_integer(),
         optional("IndexStatus") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ResourceType") => String.t(),
-        optional("SourceResourceArn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("ResourceType") => String.t() | Atom.t(),
+        optional("SourceResourceArn") => String.t() | Atom.t()
       }
 
   """
-  @type list_indexed_recovery_points_input() :: %{String.t() => any()}
+  @type list_indexed_recovery_points_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_backup_plan_output() :: %{
-        "BackupPlanArn" => String.t(),
-        "BackupPlanId" => String.t(),
+        "BackupPlanArn" => String.t() | Atom.t(),
+        "BackupPlanId" => String.t() | Atom.t(),
         "DeletionDate" => non_neg_integer(),
-        "VersionId" => String.t()
+        "VersionId" => String.t() | Atom.t()
       }
 
   """
-  @type delete_backup_plan_output() :: %{String.t() => any()}
+  @type delete_backup_plan_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -111,12 +111,12 @@ defmodule AWS.Backup do
 
       backup_plan_input() :: %{
         "AdvancedBackupSettings" => list(advanced_backup_setting()),
-        "BackupPlanName" => String.t(),
+        "BackupPlanName" => String.t() | Atom.t(),
         "Rules" => list(backup_rule_input())
       }
 
   """
-  @type backup_plan_input() :: %{String.t() => any()}
+  @type backup_plan_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -124,18 +124,18 @@ defmodule AWS.Backup do
 
       backup_plans_list_member() :: %{
         "AdvancedBackupSettings" => list(advanced_backup_setting()),
-        "BackupPlanArn" => String.t(),
-        "BackupPlanId" => String.t(),
-        "BackupPlanName" => String.t(),
+        "BackupPlanArn" => String.t() | Atom.t(),
+        "BackupPlanId" => String.t() | Atom.t(),
+        "BackupPlanName" => String.t() | Atom.t(),
         "CreationDate" => non_neg_integer(),
-        "CreatorRequestId" => String.t(),
+        "CreatorRequestId" => String.t() | Atom.t(),
         "DeletionDate" => non_neg_integer(),
         "LastExecutionDate" => non_neg_integer(),
-        "VersionId" => String.t()
+        "VersionId" => String.t() | Atom.t()
       }
 
   """
-  @type backup_plans_list_member() :: %{String.t() => any()}
+  @type backup_plans_list_member() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -160,11 +160,11 @@ defmodule AWS.Backup do
   ## Example:
 
       describe_recovery_point_input() :: %{
-        optional("BackupVaultAccountId") => String.t()
+        optional("BackupVaultAccountId") => String.t() | Atom.t()
       }
 
   """
-  @type describe_recovery_point_input() :: %{String.t() => any()}
+  @type describe_recovery_point_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -172,11 +172,11 @@ defmodule AWS.Backup do
 
       list_backup_vaults_output() :: %{
         "BackupVaultList" => list(backup_vault_list_member()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_backup_vaults_output() :: %{String.t() => any()}
+  @type list_backup_vaults_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -187,21 +187,21 @@ defmodule AWS.Backup do
       }
 
   """
-  @type update_recovery_point_lifecycle_input() :: %{String.t() => any()}
+  @type update_recovery_point_lifecycle_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       recovery_point_creator() :: %{
-        "BackupPlanArn" => String.t(),
-        "BackupPlanId" => String.t(),
-        "BackupPlanVersion" => String.t(),
-        "BackupRuleId" => String.t()
+        "BackupPlanArn" => String.t() | Atom.t(),
+        "BackupPlanId" => String.t() | Atom.t(),
+        "BackupPlanVersion" => String.t() | Atom.t(),
+        "BackupRuleId" => String.t() | Atom.t()
       }
 
   """
-  @type recovery_point_creator() :: %{String.t() => any()}
+  @type recovery_point_creator() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -210,62 +210,62 @@ defmodule AWS.Backup do
       start_backup_job_input() :: %{
         optional("BackupOptions") => map(),
         optional("CompleteWindowMinutes") => float(),
-        optional("IdempotencyToken") => String.t(),
+        optional("IdempotencyToken") => String.t() | Atom.t(),
         optional("Index") => list(any()),
         optional("Lifecycle") => lifecycle(),
         optional("RecoveryPointTags") => map(),
         optional("StartWindowMinutes") => float(),
-        required("BackupVaultName") => String.t(),
-        required("IamRoleArn") => String.t(),
-        required("ResourceArn") => String.t()
+        required("BackupVaultName") => String.t() | Atom.t(),
+        required("IamRoleArn") => String.t() | Atom.t(),
+        required("ResourceArn") => String.t() | Atom.t()
       }
 
   """
-  @type start_backup_job_input() :: %{String.t() => any()}
+  @type start_backup_job_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       copy_job() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | Atom.t(),
         "BackupSizeInBytes" => float(),
         "ChildJobsInState" => map(),
         "CompletionDate" => non_neg_integer(),
-        "CompositeMemberIdentifier" => String.t(),
-        "CopyJobId" => String.t(),
+        "CompositeMemberIdentifier" => String.t() | Atom.t(),
+        "CopyJobId" => String.t() | Atom.t(),
         "CreatedBy" => recovery_point_creator(),
         "CreationDate" => non_neg_integer(),
-        "DestinationBackupVaultArn" => String.t(),
-        "DestinationRecoveryPointArn" => String.t(),
-        "IamRoleArn" => String.t(),
+        "DestinationBackupVaultArn" => String.t() | Atom.t(),
+        "DestinationRecoveryPointArn" => String.t() | Atom.t(),
+        "IamRoleArn" => String.t() | Atom.t(),
         "IsParent" => boolean(),
-        "MessageCategory" => String.t(),
+        "MessageCategory" => String.t() | Atom.t(),
         "NumberOfChildJobs" => float(),
-        "ParentJobId" => String.t(),
-        "ResourceArn" => String.t(),
-        "ResourceName" => String.t(),
-        "ResourceType" => String.t(),
-        "SourceBackupVaultArn" => String.t(),
-        "SourceRecoveryPointArn" => String.t(),
+        "ParentJobId" => String.t() | Atom.t(),
+        "ResourceArn" => String.t() | Atom.t(),
+        "ResourceName" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t(),
+        "SourceBackupVaultArn" => String.t() | Atom.t(),
+        "SourceRecoveryPointArn" => String.t() | Atom.t(),
         "State" => list(any()),
-        "StatusMessage" => String.t()
+        "StatusMessage" => String.t() | Atom.t()
       }
 
   """
-  @type copy_job() :: %{String.t() => any()}
+  @type copy_job() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_protected_resources_by_backup_vault_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Results" => list(protected_resource())
       }
 
   """
-  @type list_protected_resources_by_backup_vault_output() :: %{String.t() => any()}
+  @type list_protected_resources_by_backup_vault_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -273,24 +273,24 @@ defmodule AWS.Backup do
 
       create_report_plan_output() :: %{
         "CreationTime" => non_neg_integer(),
-        "ReportPlanArn" => String.t(),
-        "ReportPlanName" => String.t()
+        "ReportPlanArn" => String.t() | Atom.t(),
+        "ReportPlanName" => String.t() | Atom.t()
       }
 
   """
-  @type create_report_plan_output() :: %{String.t() => any()}
+  @type create_report_plan_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_restore_testing_selection_input() :: %{
-        optional("CreatorRequestId") => [String.t()],
+        optional("CreatorRequestId") => [String.t() | Atom.t()],
         required("RestoreTestingSelection") => restore_testing_selection_for_create()
       }
 
   """
-  @type create_restore_testing_selection_input() :: %{String.t() => any()}
+  @type create_restore_testing_selection_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -302,7 +302,7 @@ defmodule AWS.Backup do
       }
 
   """
-  @type describe_region_settings_output() :: %{String.t() => any()}
+  @type describe_region_settings_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -319,14 +319,14 @@ defmodule AWS.Backup do
 
       create_backup_plan_output() :: %{
         "AdvancedBackupSettings" => list(advanced_backup_setting()),
-        "BackupPlanArn" => String.t(),
-        "BackupPlanId" => String.t(),
+        "BackupPlanArn" => String.t() | Atom.t(),
+        "BackupPlanId" => String.t() | Atom.t(),
         "CreationDate" => non_neg_integer(),
-        "VersionId" => String.t()
+        "VersionId" => String.t() | Atom.t()
       }
 
   """
-  @type create_backup_plan_output() :: %{String.t() => any()}
+  @type create_backup_plan_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -334,15 +334,15 @@ defmodule AWS.Backup do
 
       start_restore_job_input() :: %{
         optional("CopySourceTagsToRestoredResource") => boolean(),
-        optional("IamRoleArn") => String.t(),
-        optional("IdempotencyToken") => String.t(),
-        optional("ResourceType") => String.t(),
+        optional("IamRoleArn") => String.t() | Atom.t(),
+        optional("IdempotencyToken") => String.t() | Atom.t(),
+        optional("ResourceType") => String.t() | Atom.t(),
         required("Metadata") => map(),
-        required("RecoveryPointArn") => String.t()
+        required("RecoveryPointArn") => String.t() | Atom.t()
       }
 
   """
-  @type start_restore_job_input() :: %{String.t() => any()}
+  @type start_restore_job_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -350,12 +350,12 @@ defmodule AWS.Backup do
 
       backup_plan() :: %{
         "AdvancedBackupSettings" => list(advanced_backup_setting()),
-        "BackupPlanName" => String.t(),
+        "BackupPlanName" => String.t() | Atom.t(),
         "Rules" => list(backup_rule())
       }
 
   """
-  @type backup_plan() :: %{String.t() => any()}
+  @type backup_plan() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -363,35 +363,35 @@ defmodule AWS.Backup do
 
       recovery_point_by_backup_vault() :: %{
         "BackupSizeInBytes" => float(),
-        "BackupVaultArn" => String.t(),
-        "BackupVaultName" => String.t(),
+        "BackupVaultArn" => String.t() | Atom.t(),
+        "BackupVaultName" => String.t() | Atom.t(),
         "CalculatedLifecycle" => calculated_lifecycle(),
         "CompletionDate" => non_neg_integer(),
-        "CompositeMemberIdentifier" => String.t(),
+        "CompositeMemberIdentifier" => String.t() | Atom.t(),
         "CreatedBy" => recovery_point_creator(),
         "CreationDate" => non_neg_integer(),
-        "EncryptionKeyArn" => String.t(),
-        "IamRoleArn" => String.t(),
+        "EncryptionKeyArn" => String.t() | Atom.t(),
+        "IamRoleArn" => String.t() | Atom.t(),
         "IndexStatus" => list(any()),
-        "IndexStatusMessage" => String.t(),
+        "IndexStatusMessage" => String.t() | Atom.t(),
         "InitiationDate" => non_neg_integer(),
         "IsEncrypted" => boolean(),
         "IsParent" => boolean(),
         "LastRestoreTime" => non_neg_integer(),
         "Lifecycle" => lifecycle(),
-        "ParentRecoveryPointArn" => String.t(),
-        "RecoveryPointArn" => String.t(),
-        "ResourceArn" => String.t(),
-        "ResourceName" => String.t(),
-        "ResourceType" => String.t(),
-        "SourceBackupVaultArn" => String.t(),
+        "ParentRecoveryPointArn" => String.t() | Atom.t(),
+        "RecoveryPointArn" => String.t() | Atom.t(),
+        "ResourceArn" => String.t() | Atom.t(),
+        "ResourceName" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t(),
+        "SourceBackupVaultArn" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "StatusMessage" => String.t(),
+        "StatusMessage" => String.t() | Atom.t(),
         "VaultType" => list(any())
       }
 
   """
-  @type recovery_point_by_backup_vault() :: %{String.t() => any()}
+  @type recovery_point_by_backup_vault() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -399,49 +399,49 @@ defmodule AWS.Backup do
 
       restore_testing_selection_for_list() :: %{
         "CreationTime" => [non_neg_integer()],
-        "IamRoleArn" => [String.t()],
-        "ProtectedResourceType" => [String.t()],
-        "RestoreTestingPlanName" => [String.t()],
-        "RestoreTestingSelectionName" => [String.t()],
+        "IamRoleArn" => [String.t() | Atom.t()],
+        "ProtectedResourceType" => [String.t() | Atom.t()],
+        "RestoreTestingPlanName" => [String.t() | Atom.t()],
+        "RestoreTestingSelectionName" => [String.t() | Atom.t()],
         "ValidationWindowHours" => integer()
       }
 
   """
-  @type restore_testing_selection_for_list() :: %{String.t() => any()}
+  @type restore_testing_selection_for_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_report_jobs_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "ReportJobs" => list(report_job())
       }
 
   """
-  @type list_report_jobs_output() :: %{String.t() => any()}
+  @type list_report_jobs_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_backup_plan_input() :: %{
-        optional("VersionId") => String.t()
+        optional("VersionId") => String.t() | Atom.t()
       }
 
   """
-  @type get_backup_plan_input() :: %{String.t() => any()}
+  @type get_backup_plan_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_report_job_output() :: %{
-        "ReportJobId" => String.t()
+        "ReportJobId" => String.t() | Atom.t()
       }
 
   """
-  @type start_report_job_output() :: %{String.t() => any()}
+  @type start_report_job_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -449,11 +449,11 @@ defmodule AWS.Backup do
 
       list_backup_plan_templates_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_backup_plan_templates_input() :: %{String.t() => any()}
+  @type list_backup_plan_templates_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -461,11 +461,11 @@ defmodule AWS.Backup do
 
       get_restore_job_metadata_output() :: %{
         "Metadata" => map(),
-        "RestoreJobId" => String.t()
+        "RestoreJobId" => String.t() | Atom.t()
       }
 
   """
-  @type get_restore_job_metadata_output() :: %{String.t() => any()}
+  @type get_restore_job_metadata_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -476,23 +476,23 @@ defmodule AWS.Backup do
       }
 
   """
-  @type get_backup_plan_from_json_output() :: %{String.t() => any()}
+  @type get_backup_plan_from_json_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       already_exists_exception() :: %{
-        "Arn" => String.t(),
-        "Code" => String.t(),
-        "Context" => String.t(),
-        "CreatorRequestId" => String.t(),
-        "Message" => String.t(),
-        "Type" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Code" => String.t() | Atom.t(),
+        "Context" => String.t() | Atom.t(),
+        "CreatorRequestId" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
+        "Type" => String.t() | Atom.t()
       }
 
   """
-  @type already_exists_exception() :: %{String.t() => any()}
+  @type already_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -502,15 +502,15 @@ defmodule AWS.Backup do
         "CreationTime" => [non_neg_integer()],
         "LastExecutionTime" => [non_neg_integer()],
         "LastUpdateTime" => [non_neg_integer()],
-        "RestoreTestingPlanArn" => [String.t()],
-        "RestoreTestingPlanName" => [String.t()],
-        "ScheduleExpression" => [String.t()],
-        "ScheduleExpressionTimezone" => [String.t()],
+        "RestoreTestingPlanArn" => [String.t() | Atom.t()],
+        "RestoreTestingPlanName" => [String.t() | Atom.t()],
+        "ScheduleExpression" => [String.t() | Atom.t()],
+        "ScheduleExpressionTimezone" => [String.t() | Atom.t()],
         "StartWindowHours" => integer()
       }
 
   """
-  @type restore_testing_plan_for_list() :: %{String.t() => any()}
+  @type restore_testing_plan_for_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -518,13 +518,13 @@ defmodule AWS.Backup do
 
       restore_testing_plan_for_update() :: %{
         "RecoveryPointSelection" => restore_testing_recovery_point_selection(),
-        "ScheduleExpression" => [String.t()],
-        "ScheduleExpressionTimezone" => [String.t()],
+        "ScheduleExpression" => [String.t() | Atom.t()],
+        "ScheduleExpressionTimezone" => [String.t() | Atom.t()],
         "StartWindowHours" => integer()
       }
 
   """
-  @type restore_testing_plan_for_update() :: %{String.t() => any()}
+  @type restore_testing_plan_for_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -532,30 +532,30 @@ defmodule AWS.Backup do
 
       report_plan() :: %{
         "CreationTime" => non_neg_integer(),
-        "DeploymentStatus" => String.t(),
+        "DeploymentStatus" => String.t() | Atom.t(),
         "LastAttemptedExecutionTime" => non_neg_integer(),
         "LastSuccessfulExecutionTime" => non_neg_integer(),
         "ReportDeliveryChannel" => report_delivery_channel(),
-        "ReportPlanArn" => String.t(),
-        "ReportPlanDescription" => String.t(),
-        "ReportPlanName" => String.t(),
+        "ReportPlanArn" => String.t() | Atom.t(),
+        "ReportPlanDescription" => String.t() | Atom.t(),
+        "ReportPlanName" => String.t() | Atom.t(),
         "ReportSetting" => report_setting()
       }
 
   """
-  @type report_plan() :: %{String.t() => any()}
+  @type report_plan() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       report_destination() :: %{
-        "S3BucketName" => String.t(),
-        "S3Keys" => list(String.t())
+        "S3BucketName" => String.t() | Atom.t(),
+        "S3Keys" => list(String.t() | Atom.t())
       }
 
   """
-  @type report_destination() :: %{String.t() => any()}
+  @type report_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -581,15 +581,15 @@ defmodule AWS.Backup do
 
       protected_resource() :: %{
         "LastBackupTime" => non_neg_integer(),
-        "LastBackupVaultArn" => String.t(),
-        "LastRecoveryPointArn" => String.t(),
-        "ResourceArn" => String.t(),
-        "ResourceName" => String.t(),
-        "ResourceType" => String.t()
+        "LastBackupVaultArn" => String.t() | Atom.t(),
+        "LastRecoveryPointArn" => String.t() | Atom.t(),
+        "ResourceArn" => String.t() | Atom.t(),
+        "ResourceName" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t()
       }
 
   """
-  @type protected_resource() :: %{String.t() => any()}
+  @type protected_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -606,12 +606,12 @@ defmodule AWS.Backup do
 
       create_backup_vault_input() :: %{
         optional("BackupVaultTags") => map(),
-        optional("CreatorRequestId") => String.t(),
-        optional("EncryptionKeyArn") => String.t()
+        optional("CreatorRequestId") => String.t() | Atom.t(),
+        optional("EncryptionKeyArn") => String.t() | Atom.t()
       }
 
   """
-  @type create_backup_vault_input() :: %{String.t() => any()}
+  @type create_backup_vault_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -620,17 +620,17 @@ defmodule AWS.Backup do
       get_backup_plan_output() :: %{
         "AdvancedBackupSettings" => list(advanced_backup_setting()),
         "BackupPlan" => backup_plan(),
-        "BackupPlanArn" => String.t(),
-        "BackupPlanId" => String.t(),
+        "BackupPlanArn" => String.t() | Atom.t(),
+        "BackupPlanId" => String.t() | Atom.t(),
         "CreationDate" => non_neg_integer(),
-        "CreatorRequestId" => String.t(),
+        "CreatorRequestId" => String.t() | Atom.t(),
         "DeletionDate" => non_neg_integer(),
         "LastExecutionDate" => non_neg_integer(),
-        "VersionId" => String.t()
+        "VersionId" => String.t() | Atom.t()
       }
 
   """
-  @type get_backup_plan_output() :: %{String.t() => any()}
+  @type get_backup_plan_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -647,11 +647,11 @@ defmodule AWS.Backup do
 
       list_backup_plans_output() :: %{
         "BackupPlansList" => list(backup_plans_list_member()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_backup_plans_output() :: %{String.t() => any()}
+  @type list_backup_plans_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -659,41 +659,41 @@ defmodule AWS.Backup do
 
       list_backup_selections_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_backup_selections_input() :: %{String.t() => any()}
+  @type list_backup_selections_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       restore_job_summary() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | Atom.t(),
         "Count" => integer(),
         "EndTime" => non_neg_integer(),
-        "Region" => String.t(),
-        "ResourceType" => String.t(),
+        "Region" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t(),
         "StartTime" => non_neg_integer(),
         "State" => list(any())
       }
 
   """
-  @type restore_job_summary() :: %{String.t() => any()}
+  @type restore_job_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_backup_vault_output() :: %{
-        "BackupVaultArn" => String.t(),
-        "BackupVaultName" => String.t(),
+        "BackupVaultArn" => String.t() | Atom.t(),
+        "BackupVaultName" => String.t() | Atom.t(),
         "CreationDate" => non_neg_integer()
       }
 
   """
-  @type create_backup_vault_output() :: %{String.t() => any()}
+  @type create_backup_vault_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -704,34 +704,34 @@ defmodule AWS.Backup do
       }
 
   """
-  @type get_restore_testing_plan_output() :: %{String.t() => any()}
+  @type get_restore_testing_plan_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       condition_parameter() :: %{
-        "ConditionKey" => String.t(),
-        "ConditionValue" => String.t()
+        "ConditionKey" => String.t() | Atom.t(),
+        "ConditionValue" => String.t() | Atom.t()
       }
 
   """
-  @type condition_parameter() :: %{String.t() => any()}
+  @type condition_parameter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_legal_hold_input() :: %{
-        optional("IdempotencyToken") => String.t(),
+        optional("IdempotencyToken") => String.t() | Atom.t(),
         optional("RecoveryPointSelection") => recovery_point_selection(),
         optional("Tags") => map(),
-        required("Description") => String.t(),
-        required("Title") => String.t()
+        required("Description") => String.t() | Atom.t(),
+        required("Title") => String.t() | Atom.t()
       }
 
   """
-  @type create_legal_hold_input() :: %{String.t() => any()}
+  @type create_legal_hold_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -747,41 +747,41 @@ defmodule AWS.Backup do
   ## Example:
 
       restore_jobs_list_member() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | Atom.t(),
         "BackupSizeInBytes" => float(),
         "CompletionDate" => non_neg_integer(),
         "CreatedBy" => restore_job_creator(),
-        "CreatedResourceArn" => String.t(),
+        "CreatedResourceArn" => String.t() | Atom.t(),
         "CreationDate" => non_neg_integer(),
         "DeletionStatus" => list(any()),
-        "DeletionStatusMessage" => String.t(),
+        "DeletionStatusMessage" => String.t() | Atom.t(),
         "ExpectedCompletionTimeMinutes" => float(),
-        "IamRoleArn" => String.t(),
-        "PercentDone" => String.t(),
-        "RecoveryPointArn" => String.t(),
+        "IamRoleArn" => String.t() | Atom.t(),
+        "PercentDone" => String.t() | Atom.t(),
+        "RecoveryPointArn" => String.t() | Atom.t(),
         "RecoveryPointCreationDate" => non_neg_integer(),
-        "ResourceType" => String.t(),
-        "RestoreJobId" => String.t(),
+        "ResourceType" => String.t() | Atom.t(),
+        "RestoreJobId" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "StatusMessage" => String.t(),
+        "StatusMessage" => String.t() | Atom.t(),
         "ValidationStatus" => list(any()),
-        "ValidationStatusMessage" => String.t()
+        "ValidationStatusMessage" => String.t() | Atom.t()
       }
 
   """
-  @type restore_jobs_list_member() :: %{String.t() => any()}
+  @type restore_jobs_list_member() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_restore_testing_plans_output() :: %{
-        "NextToken" => [String.t()],
+        "NextToken" => [String.t() | Atom.t()],
         "RestoreTestingPlans" => list(restore_testing_plan_for_list())
       }
 
   """
-  @type list_restore_testing_plans_output() :: %{String.t() => any()}
+  @type list_restore_testing_plans_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -790,54 +790,54 @@ defmodule AWS.Backup do
       list_report_jobs_input() :: %{
         optional("ByCreationAfter") => non_neg_integer(),
         optional("ByCreationBefore") => non_neg_integer(),
-        optional("ByReportPlanName") => String.t(),
-        optional("ByStatus") => String.t(),
+        optional("ByReportPlanName") => String.t() | Atom.t(),
+        optional("ByStatus") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_report_jobs_input() :: %{String.t() => any()}
+  @type list_report_jobs_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_recovery_point_index_settings_output() :: %{
-        "BackupVaultName" => String.t(),
+        "BackupVaultName" => String.t() | Atom.t(),
         "Index" => list(any()),
         "IndexStatus" => list(any()),
-        "RecoveryPointArn" => String.t()
+        "RecoveryPointArn" => String.t() | Atom.t()
       }
 
   """
-  @type update_recovery_point_index_settings_output() :: %{String.t() => any()}
+  @type update_recovery_point_index_settings_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_backup_vault_output() :: %{
-        "BackupVaultArn" => String.t(),
-        "BackupVaultName" => String.t(),
+        "BackupVaultArn" => String.t() | Atom.t(),
+        "BackupVaultName" => String.t() | Atom.t(),
         "CreationDate" => non_neg_integer(),
-        "CreatorRequestId" => String.t(),
-        "EncryptionKeyArn" => String.t(),
+        "CreatorRequestId" => String.t() | Atom.t(),
+        "EncryptionKeyArn" => String.t() | Atom.t(),
         "LatestMpaApprovalTeamUpdate" => latest_mpa_approval_team_update(),
         "LockDate" => non_neg_integer(),
         "Locked" => boolean(),
         "MaxRetentionDays" => float(),
         "MinRetentionDays" => float(),
-        "MpaApprovalTeamArn" => String.t(),
-        "MpaSessionArn" => String.t(),
+        "MpaApprovalTeamArn" => String.t() | Atom.t(),
+        "MpaSessionArn" => String.t() | Atom.t(),
         "NumberOfRecoveryPoints" => float(),
-        "SourceBackupVaultArn" => String.t(),
+        "SourceBackupVaultArn" => String.t() | Atom.t(),
         "VaultState" => list(any()),
         "VaultType" => list(any())
       }
 
   """
-  @type describe_backup_vault_output() :: %{String.t() => any()}
+  @type describe_backup_vault_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -845,28 +845,28 @@ defmodule AWS.Backup do
 
       list_restore_testing_selections_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t()]
+        optional("NextToken") => [String.t() | Atom.t()]
       }
 
   """
-  @type list_restore_testing_selections_input() :: %{String.t() => any()}
+  @type list_restore_testing_selections_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_backup_job_summaries_input() :: %{
-        optional("AccountId") => String.t(),
+        optional("AccountId") => String.t() | Atom.t(),
         optional("AggregationPeriod") => list(any()),
         optional("MaxResults") => integer(),
-        optional("MessageCategory") => String.t(),
-        optional("NextToken") => String.t(),
-        optional("ResourceType") => String.t(),
+        optional("MessageCategory") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("ResourceType") => String.t() | Atom.t(),
         optional("State") => list(any())
       }
 
   """
-  @type list_backup_job_summaries_input() :: %{String.t() => any()}
+  @type list_backup_job_summaries_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -874,11 +874,11 @@ defmodule AWS.Backup do
 
       put_backup_vault_notifications_input() :: %{
         required("BackupVaultEvents") => list(list(any())()),
-        required("SNSTopicArn") => String.t()
+        required("SNSTopicArn") => String.t() | Atom.t()
       }
 
   """
-  @type put_backup_vault_notifications_input() :: %{String.t() => any()}
+  @type put_backup_vault_notifications_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -886,13 +886,13 @@ defmodule AWS.Backup do
 
       create_restore_access_backup_vault_output() :: %{
         "CreationDate" => non_neg_integer(),
-        "RestoreAccessBackupVaultArn" => String.t(),
-        "RestoreAccessBackupVaultName" => String.t(),
+        "RestoreAccessBackupVaultArn" => String.t() | Atom.t(),
+        "RestoreAccessBackupVaultName" => String.t() | Atom.t(),
         "VaultState" => list(any())
       }
 
   """
-  @type create_restore_access_backup_vault_output() :: %{String.t() => any()}
+  @type create_restore_access_backup_vault_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -917,44 +917,44 @@ defmodule AWS.Backup do
   ## Example:
 
       control_scope() :: %{
-        "ComplianceResourceIds" => list(String.t()),
-        "ComplianceResourceTypes" => list(String.t()),
+        "ComplianceResourceIds" => list(String.t() | Atom.t()),
+        "ComplianceResourceTypes" => list(String.t() | Atom.t()),
         "Tags" => map()
       }
 
   """
-  @type control_scope() :: %{String.t() => any()}
+  @type control_scope() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_legal_hold_output() :: %{
-        "CancelDescription" => String.t(),
+        "CancelDescription" => String.t() | Atom.t(),
         "CancellationDate" => non_neg_integer(),
         "CreationDate" => non_neg_integer(),
-        "Description" => String.t(),
-        "LegalHoldArn" => String.t(),
-        "LegalHoldId" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "LegalHoldArn" => String.t() | Atom.t(),
+        "LegalHoldId" => String.t() | Atom.t(),
         "RecoveryPointSelection" => recovery_point_selection(),
         "RetainRecordUntil" => non_neg_integer(),
         "Status" => list(any()),
-        "Title" => String.t()
+        "Title" => String.t() | Atom.t()
       }
 
   """
-  @type get_legal_hold_output() :: %{String.t() => any()}
+  @type get_legal_hold_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_backup_vault_mpa_approval_team_input() :: %{
-        optional("RequesterComment") => String.t()
+        optional("RequesterComment") => String.t() | Atom.t()
       }
 
   """
-  @type disassociate_backup_vault_mpa_approval_team_input() :: %{String.t() => any()}
+  @type disassociate_backup_vault_mpa_approval_team_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -962,12 +962,12 @@ defmodule AWS.Backup do
 
       framework_control() :: %{
         "ControlInputParameters" => list(control_input_parameter()),
-        "ControlName" => String.t(),
+        "ControlName" => String.t() | Atom.t(),
         "ControlScope" => control_scope()
       }
 
   """
-  @type framework_control() :: %{String.t() => any()}
+  @type framework_control() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -975,11 +975,11 @@ defmodule AWS.Backup do
 
       list_backup_jobs_output() :: %{
         "BackupJobs" => list(backup_job()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_backup_jobs_output() :: %{String.t() => any()}
+  @type list_backup_jobs_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -995,23 +995,23 @@ defmodule AWS.Backup do
   ## Example:
 
       update_recovery_point_index_settings_input() :: %{
-        optional("IamRoleArn") => String.t(),
+        optional("IamRoleArn") => String.t() | Atom.t(),
         required("Index") => list(any())
       }
 
   """
-  @type update_recovery_point_index_settings_input() :: %{String.t() => any()}
+  @type update_recovery_point_index_settings_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       export_backup_plan_template_output() :: %{
-        "BackupPlanTemplateJson" => String.t()
+        "BackupPlanTemplateJson" => String.t() | Atom.t()
       }
 
   """
-  @type export_backup_plan_template_output() :: %{String.t() => any()}
+  @type export_backup_plan_template_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1022,19 +1022,19 @@ defmodule AWS.Backup do
       }
 
   """
-  @type update_backup_plan_input() :: %{String.t() => any()}
+  @type update_backup_plan_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_report_plans_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "ReportPlans" => list(report_plan())
       }
 
   """
-  @type list_report_plans_output() :: %{String.t() => any()}
+  @type list_report_plans_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1042,15 +1042,15 @@ defmodule AWS.Backup do
 
       backup_selection() :: %{
         "Conditions" => conditions(),
-        "IamRoleArn" => String.t(),
+        "IamRoleArn" => String.t() | Atom.t(),
         "ListOfTags" => list(condition()),
-        "NotResources" => list(String.t()),
-        "Resources" => list(String.t()),
-        "SelectionName" => String.t()
+        "NotResources" => list(String.t() | Atom.t()),
+        "Resources" => list(String.t() | Atom.t()),
+        "SelectionName" => String.t() | Atom.t()
       }
 
   """
-  @type backup_selection() :: %{String.t() => any()}
+  @type backup_selection() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1062,7 +1062,7 @@ defmodule AWS.Backup do
       }
 
   """
-  @type update_region_settings_input() :: %{String.t() => any()}
+  @type update_region_settings_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1070,11 +1070,11 @@ defmodule AWS.Backup do
 
       list_legal_holds_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_legal_holds_input() :: %{String.t() => any()}
+  @type list_legal_holds_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1096,18 +1096,18 @@ defmodule AWS.Backup do
       }
 
   """
-  @type lifecycle() :: %{String.t() => any()}
+  @type lifecycle() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       revoke_restore_access_backup_vault_input() :: %{
-        optional("RequesterComment") => String.t()
+        optional("RequesterComment") => String.t() | Atom.t()
       }
 
   """
-  @type revoke_restore_access_backup_vault_input() :: %{String.t() => any()}
+  @type revoke_restore_access_backup_vault_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1115,24 +1115,24 @@ defmodule AWS.Backup do
 
       list_recovery_points_by_legal_hold_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_recovery_points_by_legal_hold_input() :: %{String.t() => any()}
+  @type list_recovery_points_by_legal_hold_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_backup_selection_output() :: %{
-        "BackupPlanId" => String.t(),
+        "BackupPlanId" => String.t() | Atom.t(),
         "CreationDate" => non_neg_integer(),
-        "SelectionId" => String.t()
+        "SelectionId" => String.t() | Atom.t()
       }
 
   """
-  @type create_backup_selection_output() :: %{String.t() => any()}
+  @type create_backup_selection_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1153,19 +1153,19 @@ defmodule AWS.Backup do
       }
 
   """
-  @type protected_resource_conditions() :: %{String.t() => any()}
+  @type protected_resource_conditions() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       control_input_parameter() :: %{
-        "ParameterName" => String.t(),
-        "ParameterValue" => String.t()
+        "ParameterName" => String.t() | Atom.t(),
+        "ParameterValue" => String.t() | Atom.t()
       }
 
   """
-  @type control_input_parameter() :: %{String.t() => any()}
+  @type control_input_parameter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1177,19 +1177,19 @@ defmodule AWS.Backup do
       }
 
   """
-  @type calculated_lifecycle() :: %{String.t() => any()}
+  @type calculated_lifecycle() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       copy_action() :: %{
-        "DestinationBackupVaultArn" => String.t(),
+        "DestinationBackupVaultArn" => String.t() | Atom.t(),
         "Lifecycle" => lifecycle()
       }
 
   """
-  @type copy_action() :: %{String.t() => any()}
+  @type copy_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1197,12 +1197,12 @@ defmodule AWS.Backup do
 
       update_framework_input() :: %{
         optional("FrameworkControls") => list(framework_control()),
-        optional("FrameworkDescription") => String.t(),
-        optional("IdempotencyToken") => String.t()
+        optional("FrameworkDescription") => String.t() | Atom.t(),
+        optional("IdempotencyToken") => String.t() | Atom.t()
       }
 
   """
-  @type update_framework_input() :: %{String.t() => any()}
+  @type update_framework_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1211,26 +1211,26 @@ defmodule AWS.Backup do
       latest_mpa_approval_team_update() :: %{
         "ExpiryDate" => non_neg_integer(),
         "InitiationDate" => non_neg_integer(),
-        "MpaSessionArn" => String.t(),
+        "MpaSessionArn" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "StatusMessage" => String.t()
+        "StatusMessage" => String.t() | Atom.t()
       }
 
   """
-  @type latest_mpa_approval_team_update() :: %{String.t() => any()}
+  @type latest_mpa_approval_team_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_restore_testing_inferred_metadata_input() :: %{
-        optional("BackupVaultAccountId") => [String.t()],
-        required("BackupVaultName") => [String.t()],
-        required("RecoveryPointArn") => [String.t()]
+        optional("BackupVaultAccountId") => [String.t() | Atom.t()],
+        required("BackupVaultName") => [String.t() | Atom.t()],
+        required("RecoveryPointArn") => [String.t() | Atom.t()]
       }
 
   """
-  @type get_restore_testing_inferred_metadata_input() :: %{String.t() => any()}
+  @type get_restore_testing_inferred_metadata_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1247,115 +1247,115 @@ defmodule AWS.Backup do
 
       list_report_plans_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_report_plans_input() :: %{String.t() => any()}
+  @type list_report_plans_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_backup_selection_input() :: %{
-        optional("CreatorRequestId") => String.t(),
+        optional("CreatorRequestId") => String.t() | Atom.t(),
         required("BackupSelection") => backup_selection()
       }
 
   """
-  @type create_backup_selection_input() :: %{String.t() => any()}
+  @type create_backup_selection_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Code" => String.t(),
-        "Context" => String.t(),
-        "Message" => String.t(),
-        "Type" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Context" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
+        "Type" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_backup_vault_access_policy_input() :: %{
-        optional("Policy") => String.t()
+        optional("Policy") => String.t() | Atom.t()
       }
 
   """
-  @type put_backup_vault_access_policy_input() :: %{String.t() => any()}
+  @type put_backup_vault_access_policy_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Code" => String.t(),
-        "Context" => String.t(),
-        "Message" => String.t(),
-        "Type" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Context" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
+        "Type" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_restore_jobs_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "RestoreJobs" => list(restore_jobs_list_member())
       }
 
   """
-  @type list_restore_jobs_output() :: %{String.t() => any()}
+  @type list_restore_jobs_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_restore_job_output() :: %{
-        "RestoreJobId" => String.t()
+        "RestoreJobId" => String.t() | Atom.t()
       }
 
   """
-  @type start_restore_job_output() :: %{String.t() => any()}
+  @type start_restore_job_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       copy_job_summary() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | Atom.t(),
         "Count" => integer(),
         "EndTime" => non_neg_integer(),
-        "MessageCategory" => String.t(),
-        "Region" => String.t(),
-        "ResourceType" => String.t(),
+        "MessageCategory" => String.t() | Atom.t(),
+        "Region" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t(),
         "StartTime" => non_neg_integer(),
         "State" => list(any())
       }
 
   """
-  @type copy_job_summary() :: %{String.t() => any()}
+  @type copy_job_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_backup_vault_mpa_approval_team_input() :: %{
-        optional("RequesterComment") => String.t(),
-        required("MpaApprovalTeamArn") => String.t()
+        optional("RequesterComment") => String.t() | Atom.t(),
+        required("MpaApprovalTeamArn") => String.t() | Atom.t()
       }
 
   """
-  @type associate_backup_vault_mpa_approval_team_input() :: %{String.t() => any()}
+  @type associate_backup_vault_mpa_approval_team_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1371,26 +1371,26 @@ defmodule AWS.Backup do
   ## Example:
 
       list_recovery_points_by_resource_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "RecoveryPoints" => list(recovery_point_by_resource())
       }
 
   """
-  @type list_recovery_points_by_resource_output() :: %{String.t() => any()}
+  @type list_recovery_points_by_resource_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_request_exception() :: %{
-        "Code" => String.t(),
-        "Context" => String.t(),
-        "Message" => String.t(),
-        "Type" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Context" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
+        "Type" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_request_exception() :: %{String.t() => any()}
+  @type invalid_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1400,12 +1400,12 @@ defmodule AWS.Backup do
         "ApprovalDate" => non_neg_integer(),
         "CreationDate" => non_neg_integer(),
         "LatestRevokeRequest" => latest_revoke_request(),
-        "RestoreAccessBackupVaultArn" => String.t(),
+        "RestoreAccessBackupVaultArn" => String.t() | Atom.t(),
         "VaultState" => list(any())
       }
 
   """
-  @type restore_access_backup_vault_list_member() :: %{String.t() => any()}
+  @type restore_access_backup_vault_list_member() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1413,11 +1413,11 @@ defmodule AWS.Backup do
 
       list_backup_selections_output() :: %{
         "BackupSelectionsList" => list(backup_selections_list_member()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_backup_selections_output() :: %{String.t() => any()}
+  @type list_backup_selections_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1425,19 +1425,19 @@ defmodule AWS.Backup do
 
       restore_testing_plan_for_get() :: %{
         "CreationTime" => [non_neg_integer()],
-        "CreatorRequestId" => [String.t()],
+        "CreatorRequestId" => [String.t() | Atom.t()],
         "LastExecutionTime" => [non_neg_integer()],
         "LastUpdateTime" => [non_neg_integer()],
         "RecoveryPointSelection" => restore_testing_recovery_point_selection(),
-        "RestoreTestingPlanArn" => [String.t()],
-        "RestoreTestingPlanName" => [String.t()],
-        "ScheduleExpression" => [String.t()],
-        "ScheduleExpressionTimezone" => [String.t()],
+        "RestoreTestingPlanArn" => [String.t() | Atom.t()],
+        "RestoreTestingPlanName" => [String.t() | Atom.t()],
+        "ScheduleExpression" => [String.t() | Atom.t()],
+        "ScheduleExpressionTimezone" => [String.t() | Atom.t()],
         "StartWindowHours" => integer()
       }
 
   """
-  @type restore_testing_plan_for_get() :: %{String.t() => any()}
+  @type restore_testing_plan_for_get() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1445,87 +1445,87 @@ defmodule AWS.Backup do
 
       update_restore_testing_selection_output() :: %{
         "CreationTime" => [non_neg_integer()],
-        "RestoreTestingPlanArn" => [String.t()],
-        "RestoreTestingPlanName" => [String.t()],
-        "RestoreTestingSelectionName" => [String.t()],
+        "RestoreTestingPlanArn" => [String.t() | Atom.t()],
+        "RestoreTestingPlanName" => [String.t() | Atom.t()],
+        "RestoreTestingSelectionName" => [String.t() | Atom.t()],
         "UpdateTime" => [non_neg_integer()]
       }
 
   """
-  @type update_restore_testing_selection_output() :: %{String.t() => any()}
+  @type update_restore_testing_selection_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_restore_job_output() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | Atom.t(),
         "BackupSizeInBytes" => float(),
         "CompletionDate" => non_neg_integer(),
         "CreatedBy" => restore_job_creator(),
-        "CreatedResourceArn" => String.t(),
+        "CreatedResourceArn" => String.t() | Atom.t(),
         "CreationDate" => non_neg_integer(),
         "DeletionStatus" => list(any()),
-        "DeletionStatusMessage" => String.t(),
+        "DeletionStatusMessage" => String.t() | Atom.t(),
         "ExpectedCompletionTimeMinutes" => float(),
-        "IamRoleArn" => String.t(),
-        "PercentDone" => String.t(),
-        "RecoveryPointArn" => String.t(),
+        "IamRoleArn" => String.t() | Atom.t(),
+        "PercentDone" => String.t() | Atom.t(),
+        "RecoveryPointArn" => String.t() | Atom.t(),
         "RecoveryPointCreationDate" => non_neg_integer(),
-        "ResourceType" => String.t(),
-        "RestoreJobId" => String.t(),
+        "ResourceType" => String.t() | Atom.t(),
+        "RestoreJobId" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "StatusMessage" => String.t(),
+        "StatusMessage" => String.t() | Atom.t(),
         "ValidationStatus" => list(any()),
-        "ValidationStatusMessage" => String.t()
+        "ValidationStatusMessage" => String.t() | Atom.t()
       }
 
   """
-  @type describe_restore_job_output() :: %{String.t() => any()}
+  @type describe_restore_job_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       restore_testing_selection_for_update() :: %{
-        "IamRoleArn" => [String.t()],
-        "ProtectedResourceArns" => list(String.t()),
+        "IamRoleArn" => [String.t() | Atom.t()],
+        "ProtectedResourceArns" => list(String.t() | Atom.t()),
         "ProtectedResourceConditions" => protected_resource_conditions(),
         "RestoreMetadataOverrides" => map(),
         "ValidationWindowHours" => integer()
       }
 
   """
-  @type restore_testing_selection_for_update() :: %{String.t() => any()}
+  @type restore_testing_selection_for_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_copy_job_output() :: %{
-        "CopyJobId" => String.t(),
+        "CopyJobId" => String.t() | Atom.t(),
         "CreationDate" => non_neg_integer(),
         "IsParent" => boolean()
       }
 
   """
-  @type start_copy_job_output() :: %{String.t() => any()}
+  @type start_copy_job_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_restore_job_summaries_input() :: %{
-        optional("AccountId") => String.t(),
+        optional("AccountId") => String.t() | Atom.t(),
         optional("AggregationPeriod") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ResourceType") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("ResourceType") => String.t() | Atom.t(),
         optional("State") => list(any())
       }
 
   """
-  @type list_restore_job_summaries_input() :: %{String.t() => any()}
+  @type list_restore_job_summaries_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1541,78 +1541,78 @@ defmodule AWS.Backup do
   ## Example:
 
       describe_backup_job_output() :: %{
-        "AccountId" => String.t(),
-        "BackupJobId" => String.t(),
+        "AccountId" => String.t() | Atom.t(),
+        "BackupJobId" => String.t() | Atom.t(),
         "BackupOptions" => map(),
         "BackupSizeInBytes" => float(),
-        "BackupType" => String.t(),
-        "BackupVaultArn" => String.t(),
-        "BackupVaultName" => String.t(),
+        "BackupType" => String.t() | Atom.t(),
+        "BackupVaultArn" => String.t() | Atom.t(),
+        "BackupVaultName" => String.t() | Atom.t(),
         "BytesTransferred" => float(),
         "ChildJobsInState" => map(),
         "CompletionDate" => non_neg_integer(),
         "CreatedBy" => recovery_point_creator(),
         "CreationDate" => non_neg_integer(),
         "ExpectedCompletionDate" => non_neg_integer(),
-        "IamRoleArn" => String.t(),
+        "IamRoleArn" => String.t() | Atom.t(),
         "InitiationDate" => non_neg_integer(),
         "IsParent" => boolean(),
-        "MessageCategory" => String.t(),
+        "MessageCategory" => String.t() | Atom.t(),
         "NumberOfChildJobs" => float(),
-        "ParentJobId" => String.t(),
-        "PercentDone" => String.t(),
-        "RecoveryPointArn" => String.t(),
-        "ResourceArn" => String.t(),
-        "ResourceName" => String.t(),
-        "ResourceType" => String.t(),
+        "ParentJobId" => String.t() | Atom.t(),
+        "PercentDone" => String.t() | Atom.t(),
+        "RecoveryPointArn" => String.t() | Atom.t(),
+        "ResourceArn" => String.t() | Atom.t(),
+        "ResourceName" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t(),
         "StartBy" => non_neg_integer(),
         "State" => list(any()),
-        "StatusMessage" => String.t()
+        "StatusMessage" => String.t() | Atom.t()
       }
 
   """
-  @type describe_backup_job_output() :: %{String.t() => any()}
+  @type describe_backup_job_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       backup_selections_list_member() :: %{
-        "BackupPlanId" => String.t(),
+        "BackupPlanId" => String.t() | Atom.t(),
         "CreationDate" => non_neg_integer(),
-        "CreatorRequestId" => String.t(),
-        "IamRoleArn" => String.t(),
-        "SelectionId" => String.t(),
-        "SelectionName" => String.t()
+        "CreatorRequestId" => String.t() | Atom.t(),
+        "IamRoleArn" => String.t() | Atom.t(),
+        "SelectionId" => String.t() | Atom.t(),
+        "SelectionName" => String.t() | Atom.t()
       }
 
   """
-  @type backup_selections_list_member() :: %{String.t() => any()}
+  @type backup_selections_list_member() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_framework_output() :: %{
-        "FrameworkArn" => String.t(),
-        "FrameworkName" => String.t()
+        "FrameworkArn" => String.t() | Atom.t(),
+        "FrameworkName" => String.t() | Atom.t()
       }
 
   """
-  @type create_framework_output() :: %{String.t() => any()}
+  @type create_framework_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_copy_job_summaries_output() :: %{
-        "AggregationPeriod" => String.t(),
+        "AggregationPeriod" => String.t() | Atom.t(),
         "CopyJobSummaries" => list(copy_job_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_copy_job_summaries_output() :: %{String.t() => any()}
+  @type list_copy_job_summaries_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1624,32 +1624,32 @@ defmodule AWS.Backup do
       }
 
   """
-  @type describe_global_settings_output() :: %{String.t() => any()}
+  @type describe_global_settings_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_supported_resource_types_output() :: %{
-        "ResourceTypes" => list(String.t())
+        "ResourceTypes" => list(String.t() | Atom.t())
       }
 
   """
-  @type get_supported_resource_types_output() :: %{String.t() => any()}
+  @type get_supported_resource_types_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_parameter_value_exception() :: %{
-        "Code" => String.t(),
-        "Context" => String.t(),
-        "Message" => String.t(),
-        "Type" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Context" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
+        "Type" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_parameter_value_exception() :: %{String.t() => any()}
+  @type invalid_parameter_value_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1657,28 +1657,28 @@ defmodule AWS.Backup do
 
       restore_testing_recovery_point_selection() :: %{
         "Algorithm" => list(any()),
-        "ExcludeVaults" => list(String.t()),
-        "IncludeVaults" => list(String.t()),
+        "ExcludeVaults" => list(String.t() | Atom.t()),
+        "IncludeVaults" => list(String.t() | Atom.t()),
         "RecoveryPointTypes" => list(list(any())()),
         "SelectionWindowDays" => integer()
       }
 
   """
-  @type restore_testing_recovery_point_selection() :: %{String.t() => any()}
+  @type restore_testing_recovery_point_selection() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       dependency_failure_exception() :: %{
-        "Code" => String.t(),
-        "Context" => String.t(),
-        "Message" => String.t(),
-        "Type" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Context" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
+        "Type" => String.t() | Atom.t()
       }
 
   """
-  @type dependency_failure_exception() :: %{String.t() => any()}
+  @type dependency_failure_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1686,13 +1686,13 @@ defmodule AWS.Backup do
 
       create_restore_testing_selection_output() :: %{
         "CreationTime" => [non_neg_integer()],
-        "RestoreTestingPlanArn" => [String.t()],
-        "RestoreTestingPlanName" => [String.t()],
-        "RestoreTestingSelectionName" => [String.t()]
+        "RestoreTestingPlanArn" => [String.t() | Atom.t()],
+        "RestoreTestingPlanName" => [String.t() | Atom.t()],
+        "RestoreTestingSelectionName" => [String.t() | Atom.t()]
       }
 
   """
-  @type create_restore_testing_selection_output() :: %{String.t() => any()}
+  @type create_restore_testing_selection_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1703,7 +1703,7 @@ defmodule AWS.Backup do
       }
 
   """
-  @type describe_report_job_output() :: %{String.t() => any()}
+  @type describe_report_job_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1714,21 +1714,21 @@ defmodule AWS.Backup do
       }
 
   """
-  @type get_restore_testing_inferred_metadata_output() :: %{String.t() => any()}
+  @type get_restore_testing_inferred_metadata_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_backup_vault_notifications_output() :: %{
-        "BackupVaultArn" => String.t(),
+        "BackupVaultArn" => String.t() | Atom.t(),
         "BackupVaultEvents" => list(list(any())()),
-        "BackupVaultName" => String.t(),
-        "SNSTopicArn" => String.t()
+        "BackupVaultName" => String.t() | Atom.t(),
+        "SNSTopicArn" => String.t() | Atom.t()
       }
 
   """
-  @type get_backup_vault_notifications_output() :: %{String.t() => any()}
+  @type get_backup_vault_notifications_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1736,11 +1736,11 @@ defmodule AWS.Backup do
 
       advanced_backup_setting() :: %{
         "BackupOptions" => map(),
-        "ResourceType" => String.t()
+        "ResourceType" => String.t() | Atom.t()
       }
 
   """
-  @type advanced_backup_setting() :: %{String.t() => any()}
+  @type advanced_backup_setting() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1748,12 +1748,12 @@ defmodule AWS.Backup do
 
       recovery_point_selection() :: %{
         "DateRange" => date_range(),
-        "ResourceIdentifiers" => list(String.t()),
-        "VaultNames" => list(String.t())
+        "ResourceIdentifiers" => list(String.t() | Atom.t()),
+        "VaultNames" => list(String.t() | Atom.t())
       }
 
   """
-  @type recovery_point_selection() :: %{String.t() => any()}
+  @type recovery_point_selection() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1767,7 +1767,7 @@ defmodule AWS.Backup do
       }
 
   """
-  @type conditions() :: %{String.t() => any()}
+  @type conditions() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1778,7 +1778,7 @@ defmodule AWS.Backup do
       }
 
   """
-  @type update_restore_testing_plan_input() :: %{String.t() => any()}
+  @type update_restore_testing_plan_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1794,13 +1794,13 @@ defmodule AWS.Backup do
   ## Example:
 
       get_backup_vault_access_policy_output() :: %{
-        "BackupVaultArn" => String.t(),
-        "BackupVaultName" => String.t(),
-        "Policy" => String.t()
+        "BackupVaultArn" => String.t() | Atom.t(),
+        "BackupVaultName" => String.t() | Atom.t(),
+        "Policy" => String.t() | Atom.t()
       }
 
   """
-  @type get_backup_vault_access_policy_output() :: %{String.t() => any()}
+  @type get_backup_vault_access_policy_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1811,7 +1811,7 @@ defmodule AWS.Backup do
       }
 
   """
-  @type get_restore_testing_selection_output() :: %{String.t() => any()}
+  @type get_restore_testing_selection_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1819,50 +1819,50 @@ defmodule AWS.Backup do
 
       list_indexed_recovery_points_output() :: %{
         "IndexedRecoveryPoints" => list(indexed_recovery_point()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_indexed_recovery_points_output() :: %{String.t() => any()}
+  @type list_indexed_recovery_points_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       report_delivery_channel() :: %{
-        "Formats" => list(String.t()),
-        "S3BucketName" => String.t(),
-        "S3KeyPrefix" => String.t()
+        "Formats" => list(String.t() | Atom.t()),
+        "S3BucketName" => String.t() | Atom.t(),
+        "S3KeyPrefix" => String.t() | Atom.t()
       }
 
   """
-  @type report_delivery_channel() :: %{String.t() => any()}
+  @type report_delivery_channel() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_protected_resources_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Results" => list(protected_resource())
       }
 
   """
-  @type list_protected_resources_output() :: %{String.t() => any()}
+  @type list_protected_resources_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_unavailable_exception() :: %{
-        "Code" => String.t(),
-        "Context" => String.t(),
-        "Message" => String.t(),
-        "Type" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Context" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
+        "Type" => String.t() | Atom.t()
       }
 
   """
-  @type service_unavailable_exception() :: %{String.t() => any()}
+  @type service_unavailable_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1887,27 +1887,27 @@ defmodule AWS.Backup do
   ## Example:
 
       condition() :: %{
-        "ConditionKey" => String.t(),
+        "ConditionKey" => String.t() | Atom.t(),
         "ConditionType" => list(any()),
-        "ConditionValue" => String.t()
+        "ConditionValue" => String.t() | Atom.t()
       }
 
   """
-  @type condition() :: %{String.t() => any()}
+  @type condition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_resource_state_exception() :: %{
-        "Code" => String.t(),
-        "Context" => String.t(),
-        "Message" => String.t(),
-        "Type" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Context" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
+        "Type" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_resource_state_exception() :: %{String.t() => any()}
+  @type invalid_resource_state_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1918,7 +1918,7 @@ defmodule AWS.Backup do
       }
 
   """
-  @type tag_resource_input() :: %{String.t() => any()}
+  @type tag_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1926,11 +1926,11 @@ defmodule AWS.Backup do
 
       list_backup_plan_versions_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_backup_plan_versions_input() :: %{String.t() => any()}
+  @type list_backup_plan_versions_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1938,38 +1938,38 @@ defmodule AWS.Backup do
 
       indexed_recovery_point() :: %{
         "BackupCreationDate" => non_neg_integer(),
-        "BackupVaultArn" => String.t(),
-        "IamRoleArn" => String.t(),
+        "BackupVaultArn" => String.t() | Atom.t(),
+        "IamRoleArn" => String.t() | Atom.t(),
         "IndexCreationDate" => non_neg_integer(),
         "IndexStatus" => list(any()),
-        "IndexStatusMessage" => String.t(),
-        "RecoveryPointArn" => String.t(),
-        "ResourceType" => String.t(),
-        "SourceResourceArn" => String.t()
+        "IndexStatusMessage" => String.t() | Atom.t(),
+        "RecoveryPointArn" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t(),
+        "SourceResourceArn" => String.t() | Atom.t()
       }
 
   """
-  @type indexed_recovery_point() :: %{String.t() => any()}
+  @type indexed_recovery_point() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_restore_jobs_input() :: %{
-        optional("ByAccountId") => String.t(),
+        optional("ByAccountId") => String.t() | Atom.t(),
         optional("ByCompleteAfter") => non_neg_integer(),
         optional("ByCompleteBefore") => non_neg_integer(),
         optional("ByCreatedAfter") => non_neg_integer(),
         optional("ByCreatedBefore") => non_neg_integer(),
-        optional("ByResourceType") => String.t(),
-        optional("ByRestoreTestingPlanArn") => String.t(),
+        optional("ByResourceType") => String.t() | Atom.t(),
+        optional("ByRestoreTestingPlanArn") => String.t() | Atom.t(),
         optional("ByStatus") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_restore_jobs_input() :: %{String.t() => any()}
+  @type list_restore_jobs_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1985,15 +1985,15 @@ defmodule AWS.Backup do
   ## Example:
 
       get_backup_selection_output() :: %{
-        "BackupPlanId" => String.t(),
+        "BackupPlanId" => String.t() | Atom.t(),
         "BackupSelection" => backup_selection(),
         "CreationDate" => non_neg_integer(),
-        "CreatorRequestId" => String.t(),
-        "SelectionId" => String.t()
+        "CreatorRequestId" => String.t() | Atom.t(),
+        "SelectionId" => String.t() | Atom.t()
       }
 
   """
-  @type get_backup_selection_output() :: %{String.t() => any()}
+  @type get_backup_selection_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2001,76 +2001,76 @@ defmodule AWS.Backup do
 
       recovery_point_by_resource() :: %{
         "BackupSizeBytes" => float(),
-        "BackupVaultName" => String.t(),
+        "BackupVaultName" => String.t() | Atom.t(),
         "CreationDate" => non_neg_integer(),
-        "EncryptionKeyArn" => String.t(),
+        "EncryptionKeyArn" => String.t() | Atom.t(),
         "IndexStatus" => list(any()),
-        "IndexStatusMessage" => String.t(),
+        "IndexStatusMessage" => String.t() | Atom.t(),
         "IsParent" => boolean(),
-        "ParentRecoveryPointArn" => String.t(),
-        "RecoveryPointArn" => String.t(),
-        "ResourceName" => String.t(),
+        "ParentRecoveryPointArn" => String.t() | Atom.t(),
+        "RecoveryPointArn" => String.t() | Atom.t(),
+        "ResourceName" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "StatusMessage" => String.t(),
+        "StatusMessage" => String.t() | Atom.t(),
         "VaultType" => list(any())
       }
 
   """
-  @type recovery_point_by_resource() :: %{String.t() => any()}
+  @type recovery_point_by_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_recovery_point_index_details_output() :: %{
-        "BackupVaultArn" => String.t(),
+        "BackupVaultArn" => String.t() | Atom.t(),
         "IndexCompletionDate" => non_neg_integer(),
         "IndexCreationDate" => non_neg_integer(),
         "IndexDeletionDate" => non_neg_integer(),
         "IndexStatus" => list(any()),
-        "IndexStatusMessage" => String.t(),
-        "RecoveryPointArn" => String.t(),
-        "SourceResourceArn" => String.t(),
+        "IndexStatusMessage" => String.t() | Atom.t(),
+        "RecoveryPointArn" => String.t() | Atom.t(),
+        "SourceResourceArn" => String.t() | Atom.t(),
         "TotalItemsIndexed" => float()
       }
 
   """
-  @type get_recovery_point_index_details_output() :: %{String.t() => any()}
+  @type get_recovery_point_index_details_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       report_setting() :: %{
-        "Accounts" => list(String.t()),
-        "FrameworkArns" => list(String.t()),
+        "Accounts" => list(String.t() | Atom.t()),
+        "FrameworkArns" => list(String.t() | Atom.t()),
         "NumberOfFrameworks" => integer(),
-        "OrganizationUnits" => list(String.t()),
-        "Regions" => list(String.t()),
-        "ReportTemplate" => String.t()
+        "OrganizationUnits" => list(String.t() | Atom.t()),
+        "Regions" => list(String.t() | Atom.t()),
+        "ReportTemplate" => String.t() | Atom.t()
       }
 
   """
-  @type report_setting() :: %{String.t() => any()}
+  @type report_setting() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_recovery_points_by_backup_vault_input() :: %{
-        optional("BackupVaultAccountId") => String.t(),
-        optional("ByBackupPlanId") => String.t(),
+        optional("BackupVaultAccountId") => String.t() | Atom.t(),
+        optional("ByBackupPlanId") => String.t() | Atom.t(),
         optional("ByCreatedAfter") => non_neg_integer(),
         optional("ByCreatedBefore") => non_neg_integer(),
-        optional("ByParentRecoveryPointArn") => String.t(),
-        optional("ByResourceArn") => String.t(),
-        optional("ByResourceType") => String.t(),
+        optional("ByParentRecoveryPointArn") => String.t() | Atom.t(),
+        optional("ByResourceArn") => String.t() | Atom.t(),
+        optional("ByResourceType") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_recovery_points_by_backup_vault_input() :: %{String.t() => any()}
+  @type list_recovery_points_by_backup_vault_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2078,32 +2078,32 @@ defmodule AWS.Backup do
 
       framework() :: %{
         "CreationTime" => non_neg_integer(),
-        "DeploymentStatus" => String.t(),
-        "FrameworkArn" => String.t(),
-        "FrameworkDescription" => String.t(),
-        "FrameworkName" => String.t(),
+        "DeploymentStatus" => String.t() | Atom.t(),
+        "FrameworkArn" => String.t() | Atom.t(),
+        "FrameworkDescription" => String.t() | Atom.t(),
+        "FrameworkName" => String.t() | Atom.t(),
         "NumberOfControls" => integer()
       }
 
   """
-  @type framework() :: %{String.t() => any()}
+  @type framework() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       restore_testing_selection_for_create() :: %{
-        "IamRoleArn" => [String.t()],
-        "ProtectedResourceArns" => list(String.t()),
+        "IamRoleArn" => [String.t() | Atom.t()],
+        "ProtectedResourceArns" => list(String.t() | Atom.t()),
         "ProtectedResourceConditions" => protected_resource_conditions(),
-        "ProtectedResourceType" => [String.t()],
+        "ProtectedResourceType" => [String.t() | Atom.t()],
         "RestoreMetadataOverrides" => map(),
-        "RestoreTestingSelectionName" => [String.t()],
+        "RestoreTestingSelectionName" => [String.t() | Atom.t()],
         "ValidationWindowHours" => integer()
       }
 
   """
-  @type restore_testing_selection_for_create() :: %{String.t() => any()}
+  @type restore_testing_selection_for_create() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2111,22 +2111,22 @@ defmodule AWS.Backup do
 
       list_frameworks_output() :: %{
         "Frameworks" => list(framework()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_frameworks_output() :: %{String.t() => any()}
+  @type list_frameworks_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       backup_vault_list_member() :: %{
-        "BackupVaultArn" => String.t(),
-        "BackupVaultName" => String.t(),
+        "BackupVaultArn" => String.t() | Atom.t(),
+        "BackupVaultName" => String.t() | Atom.t(),
         "CreationDate" => non_neg_integer(),
-        "CreatorRequestId" => String.t(),
-        "EncryptionKeyArn" => String.t(),
+        "CreatorRequestId" => String.t() | Atom.t(),
+        "EncryptionKeyArn" => String.t() | Atom.t(),
         "LockDate" => non_neg_integer(),
         "Locked" => boolean(),
         "MaxRetentionDays" => float(),
@@ -2137,7 +2137,7 @@ defmodule AWS.Backup do
       }
 
   """
-  @type backup_vault_list_member() :: %{String.t() => any()}
+  @type backup_vault_list_member() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2153,17 +2153,17 @@ defmodule AWS.Backup do
   ## Example:
 
       list_copy_job_summaries_input() :: %{
-        optional("AccountId") => String.t(),
+        optional("AccountId") => String.t() | Atom.t(),
         optional("AggregationPeriod") => list(any()),
         optional("MaxResults") => integer(),
-        optional("MessageCategory") => String.t(),
-        optional("NextToken") => String.t(),
-        optional("ResourceType") => String.t(),
+        optional("MessageCategory") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("ResourceType") => String.t() | Atom.t(),
         optional("State") => list(any())
       }
 
   """
-  @type list_copy_job_summaries_input() :: %{String.t() => any()}
+  @type list_copy_job_summaries_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2171,11 +2171,11 @@ defmodule AWS.Backup do
 
       list_legal_holds_output() :: %{
         "LegalHolds" => list(legal_hold()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_legal_holds_output() :: %{String.t() => any()}
+  @type list_legal_holds_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2197,16 +2197,16 @@ defmodule AWS.Backup do
         "IndexActions" => list(index_action()),
         "Lifecycle" => lifecycle(),
         "RecoveryPointTags" => map(),
-        "RuleId" => String.t(),
-        "RuleName" => String.t(),
-        "ScheduleExpression" => String.t(),
-        "ScheduleExpressionTimezone" => String.t(),
+        "RuleId" => String.t() | Atom.t(),
+        "RuleName" => String.t() | Atom.t(),
+        "ScheduleExpression" => String.t() | Atom.t(),
+        "ScheduleExpressionTimezone" => String.t() | Atom.t(),
         "StartWindowMinutes" => float(),
-        "TargetBackupVaultName" => String.t()
+        "TargetBackupVaultName" => String.t() | Atom.t()
       }
 
   """
-  @type backup_rule() :: %{String.t() => any()}
+  @type backup_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2217,32 +2217,32 @@ defmodule AWS.Backup do
       }
 
   """
-  @type get_backup_plan_from_template_output() :: %{String.t() => any()}
+  @type get_backup_plan_from_template_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_report_plan_input() :: %{
-        optional("IdempotencyToken") => String.t(),
+        optional("IdempotencyToken") => String.t() | Atom.t(),
         optional("ReportDeliveryChannel") => report_delivery_channel(),
-        optional("ReportPlanDescription") => String.t(),
+        optional("ReportPlanDescription") => String.t() | Atom.t(),
         optional("ReportSetting") => report_setting()
       }
 
   """
-  @type update_report_plan_input() :: %{String.t() => any()}
+  @type update_report_plan_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_input() :: %{
-        required("TagKeyList") => list(String.t())
+        required("TagKeyList") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_input() :: %{String.t() => any()}
+  @type untag_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2260,23 +2260,23 @@ defmodule AWS.Backup do
       list_recovery_points_by_resource_input() :: %{
         optional("ManagedByAWSBackupOnly") => boolean(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_recovery_points_by_resource_input() :: %{String.t() => any()}
+  @type list_recovery_points_by_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_recovery_points_by_legal_hold_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "RecoveryPoints" => list(recovery_point_member())
       }
 
   """
-  @type list_recovery_points_by_legal_hold_output() :: %{String.t() => any()}
+  @type list_recovery_points_by_legal_hold_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2284,16 +2284,16 @@ defmodule AWS.Backup do
 
       create_legal_hold_output() :: %{
         "CreationDate" => non_neg_integer(),
-        "Description" => String.t(),
-        "LegalHoldArn" => String.t(),
-        "LegalHoldId" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "LegalHoldArn" => String.t() | Atom.t(),
+        "LegalHoldId" => String.t() | Atom.t(),
         "RecoveryPointSelection" => recovery_point_selection(),
         "Status" => list(any()),
-        "Title" => String.t()
+        "Title" => String.t() | Atom.t()
       }
 
   """
-  @type create_legal_hold_output() :: %{String.t() => any()}
+  @type create_legal_hold_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2304,80 +2304,80 @@ defmodule AWS.Backup do
       }
 
   """
-  @type update_global_settings_input() :: %{String.t() => any()}
+  @type update_global_settings_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_copy_jobs_input() :: %{
-        optional("ByAccountId") => String.t(),
+        optional("ByAccountId") => String.t() | Atom.t(),
         optional("ByCompleteAfter") => non_neg_integer(),
         optional("ByCompleteBefore") => non_neg_integer(),
         optional("ByCreatedAfter") => non_neg_integer(),
         optional("ByCreatedBefore") => non_neg_integer(),
-        optional("ByDestinationVaultArn") => String.t(),
-        optional("ByMessageCategory") => String.t(),
-        optional("ByParentJobId") => String.t(),
-        optional("ByResourceArn") => String.t(),
-        optional("ByResourceType") => String.t(),
+        optional("ByDestinationVaultArn") => String.t() | Atom.t(),
+        optional("ByMessageCategory") => String.t() | Atom.t(),
+        optional("ByParentJobId") => String.t() | Atom.t(),
+        optional("ByResourceArn") => String.t() | Atom.t(),
+        optional("ByResourceType") => String.t() | Atom.t(),
         optional("ByState") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_copy_jobs_input() :: %{String.t() => any()}
+  @type list_copy_jobs_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_recovery_point_restore_metadata_input() :: %{
-        optional("BackupVaultAccountId") => String.t()
+        optional("BackupVaultAccountId") => String.t() | Atom.t()
       }
 
   """
-  @type get_recovery_point_restore_metadata_input() :: %{String.t() => any()}
+  @type get_recovery_point_restore_metadata_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_backup_jobs_input() :: %{
-        optional("ByAccountId") => String.t(),
-        optional("ByBackupVaultName") => String.t(),
+        optional("ByAccountId") => String.t() | Atom.t(),
+        optional("ByBackupVaultName") => String.t() | Atom.t(),
         optional("ByCompleteAfter") => non_neg_integer(),
         optional("ByCompleteBefore") => non_neg_integer(),
         optional("ByCreatedAfter") => non_neg_integer(),
         optional("ByCreatedBefore") => non_neg_integer(),
-        optional("ByMessageCategory") => String.t(),
-        optional("ByParentJobId") => String.t(),
-        optional("ByResourceArn") => String.t(),
-        optional("ByResourceType") => String.t(),
+        optional("ByMessageCategory") => String.t() | Atom.t(),
+        optional("ByParentJobId") => String.t() | Atom.t(),
+        optional("ByResourceArn") => String.t() | Atom.t(),
+        optional("ByResourceType") => String.t() | Atom.t(),
         optional("ByState") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_backup_jobs_input() :: %{String.t() => any()}
+  @type list_backup_jobs_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_copy_job_input() :: %{
-        optional("IdempotencyToken") => String.t(),
+        optional("IdempotencyToken") => String.t() | Atom.t(),
         optional("Lifecycle") => lifecycle(),
-        required("DestinationBackupVaultArn") => String.t(),
-        required("IamRoleArn") => String.t(),
-        required("RecoveryPointArn") => String.t(),
-        required("SourceBackupVaultName") => String.t()
+        required("DestinationBackupVaultArn") => String.t() | Atom.t(),
+        required("IamRoleArn") => String.t() | Atom.t(),
+        required("RecoveryPointArn") => String.t() | Atom.t(),
+        required("SourceBackupVaultName") => String.t() | Atom.t()
       }
 
   """
-  @type start_copy_job_input() :: %{String.t() => any()}
+  @type start_copy_job_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2393,26 +2393,26 @@ defmodule AWS.Backup do
   ## Example:
 
       start_backup_job_output() :: %{
-        "BackupJobId" => String.t(),
+        "BackupJobId" => String.t() | Atom.t(),
         "CreationDate" => non_neg_integer(),
         "IsParent" => boolean(),
-        "RecoveryPointArn" => String.t()
+        "RecoveryPointArn" => String.t() | Atom.t()
       }
 
   """
-  @type start_backup_job_output() :: %{String.t() => any()}
+  @type start_backup_job_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_restore_jobs_by_protected_resource_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "RestoreJobs" => list(restore_jobs_list_member())
       }
 
   """
-  @type list_restore_jobs_by_protected_resource_output() :: %{String.t() => any()}
+  @type list_restore_jobs_by_protected_resource_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2420,11 +2420,11 @@ defmodule AWS.Backup do
 
       list_restore_access_backup_vaults_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_restore_access_backup_vaults_input() :: %{String.t() => any()}
+  @type list_restore_access_backup_vaults_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2440,15 +2440,15 @@ defmodule AWS.Backup do
   ## Example:
 
       create_framework_input() :: %{
-        optional("FrameworkDescription") => String.t(),
+        optional("FrameworkDescription") => String.t() | Atom.t(),
         optional("FrameworkTags") => map(),
-        optional("IdempotencyToken") => String.t(),
+        optional("IdempotencyToken") => String.t() | Atom.t(),
         required("FrameworkControls") => list(framework_control()),
-        required("FrameworkName") => String.t()
+        required("FrameworkName") => String.t() | Atom.t()
       }
 
   """
-  @type create_framework_input() :: %{String.t() => any()}
+  @type create_framework_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2456,12 +2456,12 @@ defmodule AWS.Backup do
 
       create_backup_plan_input() :: %{
         optional("BackupPlanTags") => map(),
-        optional("CreatorRequestId") => String.t(),
+        optional("CreatorRequestId") => String.t() | Atom.t(),
         required("BackupPlan") => backup_plan_input()
       }
 
   """
-  @type create_backup_plan_input() :: %{String.t() => any()}
+  @type create_backup_plan_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2469,22 +2469,22 @@ defmodule AWS.Backup do
 
       list_tags_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_tags_input() :: %{String.t() => any()}
+  @type list_tags_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_backup_vault_input() :: %{
-        optional("BackupVaultAccountId") => String.t()
+        optional("BackupVaultAccountId") => String.t() | Atom.t()
       }
 
   """
-  @type describe_backup_vault_input() :: %{String.t() => any()}
+  @type describe_backup_vault_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2492,11 +2492,11 @@ defmodule AWS.Backup do
 
       list_copy_jobs_output() :: %{
         "CopyJobs" => list(copy_job()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_copy_jobs_output() :: %{String.t() => any()}
+  @type list_copy_jobs_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2506,56 +2506,56 @@ defmodule AWS.Backup do
         optional("ByShared") => boolean(),
         optional("ByVaultType") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_backup_vaults_input() :: %{String.t() => any()}
+  @type list_backup_vaults_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_protected_resources_by_backup_vault_input() :: %{
-        optional("BackupVaultAccountId") => String.t(),
+        optional("BackupVaultAccountId") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_protected_resources_by_backup_vault_input() :: %{String.t() => any()}
+  @type list_protected_resources_by_backup_vault_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       limit_exceeded_exception() :: %{
-        "Code" => String.t(),
-        "Context" => String.t(),
-        "Message" => String.t(),
-        "Type" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Context" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
+        "Type" => String.t() | Atom.t()
       }
 
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       backup_job_summary() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | Atom.t(),
         "Count" => integer(),
         "EndTime" => non_neg_integer(),
-        "MessageCategory" => String.t(),
-        "Region" => String.t(),
-        "ResourceType" => String.t(),
+        "MessageCategory" => String.t() | Atom.t(),
+        "Region" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t(),
         "StartTime" => non_neg_integer(),
         "State" => list(any())
       }
 
   """
-  @type backup_job_summary() :: %{String.t() => any()}
+  @type backup_job_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2563,43 +2563,43 @@ defmodule AWS.Backup do
 
       describe_protected_resource_output() :: %{
         "LastBackupTime" => non_neg_integer(),
-        "LastBackupVaultArn" => String.t(),
-        "LastRecoveryPointArn" => String.t(),
+        "LastBackupVaultArn" => String.t() | Atom.t(),
+        "LastRecoveryPointArn" => String.t() | Atom.t(),
         "LatestRestoreExecutionTimeMinutes" => float(),
         "LatestRestoreJobCreationDate" => non_neg_integer(),
         "LatestRestoreRecoveryPointCreationDate" => non_neg_integer(),
-        "ResourceArn" => String.t(),
-        "ResourceName" => String.t(),
-        "ResourceType" => String.t()
+        "ResourceArn" => String.t() | Atom.t(),
+        "ResourceName" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t()
       }
 
   """
-  @type describe_protected_resource_output() :: %{String.t() => any()}
+  @type describe_protected_resource_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       restore_job_creator() :: %{
-        "RestoreTestingPlanArn" => String.t()
+        "RestoreTestingPlanArn" => String.t() | Atom.t()
       }
 
   """
-  @type restore_job_creator() :: %{String.t() => any()}
+  @type restore_job_creator() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_logically_air_gapped_backup_vault_output() :: %{
-        "BackupVaultArn" => String.t(),
-        "BackupVaultName" => String.t(),
+        "BackupVaultArn" => String.t() | Atom.t(),
+        "BackupVaultName" => String.t() | Atom.t(),
         "CreationDate" => non_neg_integer(),
         "VaultState" => list(any())
       }
 
   """
-  @type create_logically_air_gapped_backup_vault_output() :: %{String.t() => any()}
+  @type create_logically_air_gapped_backup_vault_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2612,15 +2612,15 @@ defmodule AWS.Backup do
         "IndexActions" => list(index_action()),
         "Lifecycle" => lifecycle(),
         "RecoveryPointTags" => map(),
-        "RuleName" => String.t(),
-        "ScheduleExpression" => String.t(),
-        "ScheduleExpressionTimezone" => String.t(),
+        "RuleName" => String.t() | Atom.t(),
+        "ScheduleExpression" => String.t() | Atom.t(),
+        "ScheduleExpressionTimezone" => String.t() | Atom.t(),
         "StartWindowMinutes" => float(),
-        "TargetBackupVaultName" => String.t()
+        "TargetBackupVaultName" => String.t() | Atom.t()
       }
 
   """
-  @type backup_rule_input() :: %{String.t() => any()}
+  @type backup_rule_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2628,14 +2628,14 @@ defmodule AWS.Backup do
 
       restore_testing_plan_for_create() :: %{
         "RecoveryPointSelection" => restore_testing_recovery_point_selection(),
-        "RestoreTestingPlanName" => [String.t()],
-        "ScheduleExpression" => [String.t()],
-        "ScheduleExpressionTimezone" => [String.t()],
+        "RestoreTestingPlanName" => [String.t() | Atom.t()],
+        "ScheduleExpression" => [String.t() | Atom.t()],
+        "ScheduleExpressionTimezone" => [String.t() | Atom.t()],
         "StartWindowHours" => integer()
       }
 
   """
-  @type restore_testing_plan_for_create() :: %{String.t() => any()}
+  @type restore_testing_plan_for_create() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2644,15 +2644,15 @@ defmodule AWS.Backup do
       legal_hold() :: %{
         "CancellationDate" => non_neg_integer(),
         "CreationDate" => non_neg_integer(),
-        "Description" => String.t(),
-        "LegalHoldArn" => String.t(),
-        "LegalHoldId" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "LegalHoldArn" => String.t() | Atom.t(),
+        "LegalHoldId" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "Title" => String.t()
+        "Title" => String.t() | Atom.t()
       }
 
   """
-  @type legal_hold() :: %{String.t() => any()}
+  @type legal_hold() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2660,11 +2660,11 @@ defmodule AWS.Backup do
 
       list_backup_plan_versions_output() :: %{
         "BackupPlanVersionsList" => list(backup_plans_list_member()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_backup_plan_versions_output() :: %{String.t() => any()}
+  @type list_backup_plan_versions_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2672,12 +2672,12 @@ defmodule AWS.Backup do
 
       update_framework_output() :: %{
         "CreationTime" => non_neg_integer(),
-        "FrameworkArn" => String.t(),
-        "FrameworkName" => String.t()
+        "FrameworkArn" => String.t() | Atom.t(),
+        "FrameworkName" => String.t() | Atom.t()
       }
 
   """
-  @type update_framework_output() :: %{String.t() => any()}
+  @type update_framework_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2685,122 +2685,122 @@ defmodule AWS.Backup do
 
       list_frameworks_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_frameworks_input() :: %{String.t() => any()}
+  @type list_frameworks_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       backup_plan_templates_list_member() :: %{
-        "BackupPlanTemplateId" => String.t(),
-        "BackupPlanTemplateName" => String.t()
+        "BackupPlanTemplateId" => String.t() | Atom.t(),
+        "BackupPlanTemplateName" => String.t() | Atom.t()
       }
 
   """
-  @type backup_plan_templates_list_member() :: %{String.t() => any()}
+  @type backup_plan_templates_list_member() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_backup_job_summaries_output() :: %{
-        "AggregationPeriod" => String.t(),
+        "AggregationPeriod" => String.t() | Atom.t(),
         "BackupJobSummaries" => list(backup_job_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_backup_job_summaries_output() :: %{String.t() => any()}
+  @type list_backup_job_summaries_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_recovery_points_by_backup_vault_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "RecoveryPoints" => list(recovery_point_by_backup_vault())
       }
 
   """
-  @type list_recovery_points_by_backup_vault_output() :: %{String.t() => any()}
+  @type list_recovery_points_by_backup_vault_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       key_value() :: %{
-        "Key" => [String.t()],
-        "Value" => [String.t()]
+        "Key" => [String.t() | Atom.t()],
+        "Value" => [String.t() | Atom.t()]
       }
 
   """
-  @type key_value() :: %{String.t() => any()}
+  @type key_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_report_job_input() :: %{
-        optional("IdempotencyToken") => String.t()
+        optional("IdempotencyToken") => String.t() | Atom.t()
       }
 
   """
-  @type start_report_job_input() :: %{String.t() => any()}
+  @type start_report_job_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_report_plan_input() :: %{
-        optional("IdempotencyToken") => String.t(),
-        optional("ReportPlanDescription") => String.t(),
+        optional("IdempotencyToken") => String.t() | Atom.t(),
+        optional("ReportPlanDescription") => String.t() | Atom.t(),
         optional("ReportPlanTags") => map(),
         required("ReportDeliveryChannel") => report_delivery_channel(),
-        required("ReportPlanName") => String.t(),
+        required("ReportPlanName") => String.t() | Atom.t(),
         required("ReportSetting") => report_setting()
       }
 
   """
-  @type create_report_plan_input() :: %{String.t() => any()}
+  @type create_report_plan_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       backup_job() :: %{
-        "AccountId" => String.t(),
-        "BackupJobId" => String.t(),
+        "AccountId" => String.t() | Atom.t(),
+        "BackupJobId" => String.t() | Atom.t(),
         "BackupOptions" => map(),
         "BackupSizeInBytes" => float(),
-        "BackupType" => String.t(),
-        "BackupVaultArn" => String.t(),
-        "BackupVaultName" => String.t(),
+        "BackupType" => String.t() | Atom.t(),
+        "BackupVaultArn" => String.t() | Atom.t(),
+        "BackupVaultName" => String.t() | Atom.t(),
         "BytesTransferred" => float(),
         "CompletionDate" => non_neg_integer(),
         "CreatedBy" => recovery_point_creator(),
         "CreationDate" => non_neg_integer(),
         "ExpectedCompletionDate" => non_neg_integer(),
-        "IamRoleArn" => String.t(),
+        "IamRoleArn" => String.t() | Atom.t(),
         "InitiationDate" => non_neg_integer(),
         "IsParent" => boolean(),
-        "MessageCategory" => String.t(),
-        "ParentJobId" => String.t(),
-        "PercentDone" => String.t(),
-        "RecoveryPointArn" => String.t(),
-        "ResourceArn" => String.t(),
-        "ResourceName" => String.t(),
-        "ResourceType" => String.t(),
+        "MessageCategory" => String.t() | Atom.t(),
+        "ParentJobId" => String.t() | Atom.t(),
+        "PercentDone" => String.t() | Atom.t(),
+        "RecoveryPointArn" => String.t() | Atom.t(),
+        "ResourceArn" => String.t() | Atom.t(),
+        "ResourceName" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t(),
         "StartBy" => non_neg_integer(),
         "State" => list(any()),
-        "StatusMessage" => String.t()
+        "StatusMessage" => String.t() | Atom.t()
       }
 
   """
-  @type backup_job() :: %{String.t() => any()}
+  @type backup_job() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2829,35 +2829,35 @@ defmodule AWS.Backup do
         optional("ByRecoveryPointCreationDateBefore") => non_neg_integer(),
         optional("ByStatus") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_restore_jobs_by_protected_resource_input() :: %{String.t() => any()}
+  @type list_restore_jobs_by_protected_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_backup_plan_from_json_input() :: %{
-        required("BackupPlanTemplateJson") => String.t()
+        required("BackupPlanTemplateJson") => String.t() | Atom.t()
       }
 
   """
-  @type get_backup_plan_from_json_input() :: %{String.t() => any()}
+  @type get_backup_plan_from_json_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_restore_job_summaries_output() :: %{
-        "AggregationPeriod" => String.t(),
-        "NextToken" => String.t(),
+        "AggregationPeriod" => String.t() | Atom.t(),
+        "NextToken" => String.t() | Atom.t(),
         "RestoreJobSummaries" => list(restore_job_summary())
       }
 
   """
-  @type list_restore_job_summaries_output() :: %{String.t() => any()}
+  @type list_restore_job_summaries_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2865,17 +2865,17 @@ defmodule AWS.Backup do
 
       describe_framework_output() :: %{
         "CreationTime" => non_neg_integer(),
-        "DeploymentStatus" => String.t(),
-        "FrameworkArn" => String.t(),
+        "DeploymentStatus" => String.t() | Atom.t(),
+        "FrameworkArn" => String.t() | Atom.t(),
         "FrameworkControls" => list(framework_control()),
-        "FrameworkDescription" => String.t(),
-        "FrameworkName" => String.t(),
-        "FrameworkStatus" => String.t(),
-        "IdempotencyToken" => String.t()
+        "FrameworkDescription" => String.t() | Atom.t(),
+        "FrameworkName" => String.t() | Atom.t(),
+        "FrameworkStatus" => String.t() | Atom.t(),
+        "IdempotencyToken" => String.t() | Atom.t()
       }
 
   """
-  @type describe_framework_output() :: %{String.t() => any()}
+  @type describe_framework_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2901,13 +2901,13 @@ defmodule AWS.Backup do
 
       update_restore_testing_plan_output() :: %{
         "CreationTime" => [non_neg_integer()],
-        "RestoreTestingPlanArn" => [String.t()],
-        "RestoreTestingPlanName" => [String.t()],
+        "RestoreTestingPlanArn" => [String.t() | Atom.t()],
+        "RestoreTestingPlanName" => [String.t() | Atom.t()],
         "UpdateTime" => [non_neg_integer()]
       }
 
   """
-  @type update_restore_testing_plan_output() :: %{String.t() => any()}
+  @type update_restore_testing_plan_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2919,33 +2919,33 @@ defmodule AWS.Backup do
       }
 
   """
-  @type date_range() :: %{String.t() => any()}
+  @type date_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_recovery_point_lifecycle_output() :: %{
-        "BackupVaultArn" => String.t(),
+        "BackupVaultArn" => String.t() | Atom.t(),
         "CalculatedLifecycle" => calculated_lifecycle(),
         "Lifecycle" => lifecycle(),
-        "RecoveryPointArn" => String.t()
+        "RecoveryPointArn" => String.t() | Atom.t()
       }
 
   """
-  @type update_recovery_point_lifecycle_output() :: %{String.t() => any()}
+  @type update_recovery_point_lifecycle_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_restore_testing_selections_output() :: %{
-        "NextToken" => [String.t()],
+        "NextToken" => [String.t() | Atom.t()],
         "RestoreTestingSelections" => list(restore_testing_selection_for_list())
       }
 
   """
-  @type list_restore_testing_selections_output() :: %{String.t() => any()}
+  @type list_restore_testing_selections_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2953,36 +2953,36 @@ defmodule AWS.Backup do
 
       describe_recovery_point_output() :: %{
         "BackupSizeInBytes" => float(),
-        "BackupVaultArn" => String.t(),
-        "BackupVaultName" => String.t(),
+        "BackupVaultArn" => String.t() | Atom.t(),
+        "BackupVaultName" => String.t() | Atom.t(),
         "CalculatedLifecycle" => calculated_lifecycle(),
         "CompletionDate" => non_neg_integer(),
-        "CompositeMemberIdentifier" => String.t(),
+        "CompositeMemberIdentifier" => String.t() | Atom.t(),
         "CreatedBy" => recovery_point_creator(),
         "CreationDate" => non_neg_integer(),
-        "EncryptionKeyArn" => String.t(),
-        "IamRoleArn" => String.t(),
+        "EncryptionKeyArn" => String.t() | Atom.t(),
+        "IamRoleArn" => String.t() | Atom.t(),
         "IndexStatus" => list(any()),
-        "IndexStatusMessage" => String.t(),
+        "IndexStatusMessage" => String.t() | Atom.t(),
         "InitiationDate" => non_neg_integer(),
         "IsEncrypted" => boolean(),
         "IsParent" => boolean(),
         "LastRestoreTime" => non_neg_integer(),
         "Lifecycle" => lifecycle(),
-        "ParentRecoveryPointArn" => String.t(),
-        "RecoveryPointArn" => String.t(),
-        "ResourceArn" => String.t(),
-        "ResourceName" => String.t(),
-        "ResourceType" => String.t(),
-        "SourceBackupVaultArn" => String.t(),
+        "ParentRecoveryPointArn" => String.t() | Atom.t(),
+        "RecoveryPointArn" => String.t() | Atom.t(),
+        "ResourceArn" => String.t() | Atom.t(),
+        "ResourceName" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t(),
+        "SourceBackupVaultArn" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "StatusMessage" => String.t(),
+        "StatusMessage" => String.t() | Atom.t(),
         "StorageClass" => list(any()),
         "VaultType" => list(any())
       }
 
   """
-  @type describe_recovery_point_output() :: %{String.t() => any()}
+  @type describe_recovery_point_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2991,13 +2991,13 @@ defmodule AWS.Backup do
       latest_revoke_request() :: %{
         "ExpiryDate" => non_neg_integer(),
         "InitiationDate" => non_neg_integer(),
-        "MpaSessionArn" => String.t(),
+        "MpaSessionArn" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "StatusMessage" => String.t()
+        "StatusMessage" => String.t() | Atom.t()
       }
 
   """
-  @type latest_revoke_request() :: %{String.t() => any()}
+  @type latest_revoke_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3008,7 +3008,7 @@ defmodule AWS.Backup do
       }
 
   """
-  @type describe_copy_job_output() :: %{String.t() => any()}
+  @type describe_copy_job_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3016,36 +3016,36 @@ defmodule AWS.Backup do
 
       cancel_legal_hold_input() :: %{
         optional("RetainRecordInDays") => float(),
-        required("CancelDescription") => String.t()
+        required("CancelDescription") => String.t() | Atom.t()
       }
 
   """
-  @type cancel_legal_hold_input() :: %{String.t() => any()}
+  @type cancel_legal_hold_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type list_tags_output() :: %{String.t() => any()}
+  @type list_tags_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_restore_testing_plan_input() :: %{
-        optional("CreatorRequestId") => [String.t()],
+        optional("CreatorRequestId") => [String.t() | Atom.t()],
         optional("Tags") => map(),
         required("RestoreTestingPlan") => restore_testing_plan_for_create()
       }
 
   """
-  @type create_restore_testing_plan_input() :: %{String.t() => any()}
+  @type create_restore_testing_plan_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3061,15 +3061,15 @@ defmodule AWS.Backup do
   ## Example:
 
       create_restore_access_backup_vault_input() :: %{
-        optional("BackupVaultName") => String.t(),
+        optional("BackupVaultName") => String.t() | Atom.t(),
         optional("BackupVaultTags") => map(),
-        optional("CreatorRequestId") => String.t(),
-        optional("RequesterComment") => String.t(),
-        required("SourceBackupVaultArn") => String.t()
+        optional("CreatorRequestId") => String.t() | Atom.t(),
+        optional("RequesterComment") => String.t() | Atom.t(),
+        required("SourceBackupVaultArn") => String.t() | Atom.t()
       }
 
   """
-  @type create_restore_access_backup_vault_input() :: %{String.t() => any()}
+  @type create_restore_access_backup_vault_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3077,33 +3077,33 @@ defmodule AWS.Backup do
 
       restore_testing_selection_for_get() :: %{
         "CreationTime" => [non_neg_integer()],
-        "CreatorRequestId" => [String.t()],
-        "IamRoleArn" => [String.t()],
-        "ProtectedResourceArns" => list(String.t()),
+        "CreatorRequestId" => [String.t() | Atom.t()],
+        "IamRoleArn" => [String.t() | Atom.t()],
+        "ProtectedResourceArns" => list(String.t() | Atom.t()),
         "ProtectedResourceConditions" => protected_resource_conditions(),
-        "ProtectedResourceType" => [String.t()],
+        "ProtectedResourceType" => [String.t() | Atom.t()],
         "RestoreMetadataOverrides" => map(),
-        "RestoreTestingPlanName" => [String.t()],
-        "RestoreTestingSelectionName" => [String.t()],
+        "RestoreTestingPlanName" => [String.t() | Atom.t()],
+        "RestoreTestingSelectionName" => [String.t() | Atom.t()],
         "ValidationWindowHours" => integer()
       }
 
   """
-  @type restore_testing_selection_for_get() :: %{String.t() => any()}
+  @type restore_testing_selection_for_get() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_recovery_point_restore_metadata_output() :: %{
-        "BackupVaultArn" => String.t(),
-        "RecoveryPointArn" => String.t(),
-        "ResourceType" => String.t(),
+        "BackupVaultArn" => String.t() | Atom.t(),
+        "RecoveryPointArn" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t(),
         "RestoreMetadata" => map()
       }
 
   """
-  @type get_recovery_point_restore_metadata_output() :: %{String.t() => any()}
+  @type get_recovery_point_restore_metadata_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3111,12 +3111,12 @@ defmodule AWS.Backup do
 
       create_restore_testing_plan_output() :: %{
         "CreationTime" => [non_neg_integer()],
-        "RestoreTestingPlanArn" => [String.t()],
-        "RestoreTestingPlanName" => [String.t()]
+        "RestoreTestingPlanArn" => [String.t() | Atom.t()],
+        "RestoreTestingPlanName" => [String.t() | Atom.t()]
       }
 
   """
-  @type create_restore_testing_plan_output() :: %{String.t() => any()}
+  @type create_restore_testing_plan_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3132,11 +3132,11 @@ defmodule AWS.Backup do
   ## Example:
 
       index_action() :: %{
-        "ResourceTypes" => list(String.t())
+        "ResourceTypes" => list(String.t() | Atom.t())
       }
 
   """
-  @type index_action() :: %{String.t() => any()}
+  @type index_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3144,11 +3144,11 @@ defmodule AWS.Backup do
 
       list_protected_resources_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_protected_resources_input() :: %{String.t() => any()}
+  @type list_protected_resources_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3165,12 +3165,12 @@ defmodule AWS.Backup do
 
       update_report_plan_output() :: %{
         "CreationTime" => non_neg_integer(),
-        "ReportPlanArn" => String.t(),
-        "ReportPlanName" => String.t()
+        "ReportPlanArn" => String.t() | Atom.t(),
+        "ReportPlanName" => String.t() | Atom.t()
       }
 
   """
-  @type update_report_plan_output() :: %{String.t() => any()}
+  @type update_report_plan_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3178,11 +3178,11 @@ defmodule AWS.Backup do
 
       list_backup_plan_templates_output() :: %{
         "BackupPlanTemplatesList" => list(backup_plan_templates_list_member()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_backup_plan_templates_output() :: %{String.t() => any()}
+  @type list_backup_plan_templates_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3191,11 +3191,11 @@ defmodule AWS.Backup do
       list_backup_plans_input() :: %{
         optional("IncludeDeleted") => boolean(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_backup_plans_input() :: %{String.t() => any()}
+  @type list_backup_plans_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3212,13 +3212,13 @@ defmodule AWS.Backup do
 
       create_logically_air_gapped_backup_vault_input() :: %{
         optional("BackupVaultTags") => map(),
-        optional("CreatorRequestId") => String.t(),
+        optional("CreatorRequestId") => String.t() | Atom.t(),
         required("MaxRetentionDays") => float(),
         required("MinRetentionDays") => float()
       }
 
   """
-  @type create_logically_air_gapped_backup_vault_input() :: %{String.t() => any()}
+  @type create_logically_air_gapped_backup_vault_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3229,7 +3229,7 @@ defmodule AWS.Backup do
       }
 
   """
-  @type describe_report_plan_output() :: %{String.t() => any()}
+  @type describe_report_plan_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3240,7 +3240,7 @@ defmodule AWS.Backup do
       }
 
   """
-  @type update_restore_testing_selection_input() :: %{String.t() => any()}
+  @type update_restore_testing_selection_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3253,7 +3253,7 @@ defmodule AWS.Backup do
       }
 
   """
-  @type put_backup_vault_lock_configuration_input() :: %{String.t() => any()}
+  @type put_backup_vault_lock_configuration_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3270,38 +3270,38 @@ defmodule AWS.Backup do
 
       update_backup_plan_output() :: %{
         "AdvancedBackupSettings" => list(advanced_backup_setting()),
-        "BackupPlanArn" => String.t(),
-        "BackupPlanId" => String.t(),
+        "BackupPlanArn" => String.t() | Atom.t(),
+        "BackupPlanId" => String.t() | Atom.t(),
         "CreationDate" => non_neg_integer(),
-        "VersionId" => String.t()
+        "VersionId" => String.t() | Atom.t()
       }
 
   """
-  @type update_backup_plan_output() :: %{String.t() => any()}
+  @type update_backup_plan_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_restore_access_backup_vaults_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "RestoreAccessBackupVaults" => list(restore_access_backup_vault_list_member())
       }
 
   """
-  @type list_restore_access_backup_vaults_output() :: %{String.t() => any()}
+  @type list_restore_access_backup_vaults_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_restore_validation_result_input() :: %{
-        optional("ValidationStatusMessage") => String.t(),
+        optional("ValidationStatusMessage") => String.t() | Atom.t(),
         required("ValidationStatus") => list(any())
       }
 
   """
-  @type put_restore_validation_result_input() :: %{String.t() => any()}
+  @type put_restore_validation_result_input() :: %{String.t() | Atom.t() => any()}
 
   @type associate_backup_vault_mpa_approval_team_errors() ::
           service_unavailable_exception()
@@ -3906,7 +3906,7 @@ defmodule AWS.Backup do
   """
   @spec associate_backup_vault_mpa_approval_team(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           associate_backup_vault_mpa_approval_team_input(),
           list()
         ) ::
@@ -3946,7 +3946,7 @@ defmodule AWS.Backup do
   This action can only be performed
   by a user with sufficient permissions.
   """
-  @spec cancel_legal_hold(map(), String.t(), cancel_legal_hold_input(), list()) ::
+  @spec cancel_legal_hold(map(), String.t() | Atom.t(), cancel_legal_hold_input(), list()) ::
           {:ok, cancel_legal_hold_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4020,7 +4020,12 @@ defmodule AWS.Backup do
 
   For examples, see [Assigning resources programmatically](https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html#assigning-resources-json).
   """
-  @spec create_backup_selection(map(), String.t(), create_backup_selection_input(), list()) ::
+  @spec create_backup_selection(
+          map(),
+          String.t() | Atom.t(),
+          create_backup_selection_input(),
+          list()
+        ) ::
           {:ok, create_backup_selection_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4057,7 +4062,7 @@ defmodule AWS.Backup do
   Do not include sensitive data, such as passport numbers, in the name of a backup
   vault.
   """
-  @spec create_backup_vault(map(), String.t(), create_backup_vault_input(), list()) ::
+  @spec create_backup_vault(map(), String.t() | Atom.t(), create_backup_vault_input(), list()) ::
           {:ok, create_backup_vault_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4169,7 +4174,7 @@ defmodule AWS.Backup do
   """
   @spec create_logically_air_gapped_backup_vault(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           create_logically_air_gapped_backup_vault_input(),
           list()
         ) ::
@@ -4335,7 +4340,7 @@ defmodule AWS.Backup do
   """
   @spec create_restore_testing_selection(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           create_restore_testing_selection_input(),
           list()
         ) ::
@@ -4379,7 +4384,7 @@ defmodule AWS.Backup do
   version of a
   backup plan. Previous versions, if any, will still exist.
   """
-  @spec delete_backup_plan(map(), String.t(), delete_backup_plan_input(), list()) ::
+  @spec delete_backup_plan(map(), String.t() | Atom.t(), delete_backup_plan_input(), list()) ::
           {:ok, delete_backup_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4412,8 +4417,8 @@ defmodule AWS.Backup do
   """
   @spec delete_backup_selection(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_backup_selection_input(),
           list()
         ) ::
@@ -4456,7 +4461,7 @@ defmodule AWS.Backup do
   A vault can be deleted only if it is
   empty.
   """
-  @spec delete_backup_vault(map(), String.t(), delete_backup_vault_input(), list()) ::
+  @spec delete_backup_vault(map(), String.t() | Atom.t(), delete_backup_vault_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4487,7 +4492,7 @@ defmodule AWS.Backup do
   """
   @spec delete_backup_vault_access_policy(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_backup_vault_access_policy_input(),
           list()
         ) ::
@@ -4534,7 +4539,7 @@ defmodule AWS.Backup do
   """
   @spec delete_backup_vault_lock_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_backup_vault_lock_configuration_input(),
           list()
         ) ::
@@ -4573,7 +4578,7 @@ defmodule AWS.Backup do
   """
   @spec delete_backup_vault_notifications(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_backup_vault_notifications_input(),
           list()
         ) ::
@@ -4612,7 +4617,7 @@ defmodule AWS.Backup do
   @doc """
   Deletes the framework specified by a framework name.
   """
-  @spec delete_framework(map(), String.t(), delete_framework_input(), list()) ::
+  @spec delete_framework(map(), String.t() | Atom.t(), delete_framework_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4663,8 +4668,8 @@ defmodule AWS.Backup do
   """
   @spec delete_recovery_point(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_recovery_point_input(),
           list()
         ) ::
@@ -4704,7 +4709,7 @@ defmodule AWS.Backup do
   @doc """
   Deletes the report plan specified by a report plan name.
   """
-  @spec delete_report_plan(map(), String.t(), delete_report_plan_input(), list()) ::
+  @spec delete_report_plan(map(), String.t() | Atom.t(), delete_report_plan_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4738,7 +4743,7 @@ defmodule AWS.Backup do
   """
   @spec delete_restore_testing_plan(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_restore_testing_plan_input(),
           list()
         ) ::
@@ -4781,8 +4786,8 @@ defmodule AWS.Backup do
   """
   @spec delete_restore_testing_selection(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_restore_testing_selection_input(),
           list()
         ) ::
@@ -4822,7 +4827,7 @@ defmodule AWS.Backup do
   @doc """
   Returns backup job details for the specified `BackupJobId`.
   """
-  @spec describe_backup_job(map(), String.t(), list()) ::
+  @spec describe_backup_job(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_backup_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4840,7 +4845,7 @@ defmodule AWS.Backup do
   @doc """
   Returns metadata about a backup vault specified by its name.
   """
-  @spec describe_backup_vault(map(), String.t(), String.t() | nil, list()) ::
+  @spec describe_backup_vault(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
           {:ok, describe_backup_vault_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4870,7 +4875,7 @@ defmodule AWS.Backup do
   @doc """
   Returns metadata associated with creating a copy of a resource.
   """
-  @spec describe_copy_job(map(), String.t(), list()) ::
+  @spec describe_copy_job(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_copy_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4888,7 +4893,7 @@ defmodule AWS.Backup do
   @doc """
   Returns the framework details for the specified `FrameworkName`.
   """
-  @spec describe_framework(map(), String.t(), list()) ::
+  @spec describe_framework(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_framework_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4933,7 +4938,7 @@ defmodule AWS.Backup do
   saved
   resource.
   """
-  @spec describe_protected_resource(map(), String.t(), list()) ::
+  @spec describe_protected_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_protected_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4953,7 +4958,13 @@ defmodule AWS.Backup do
   encryption, and
   lifecycle.
   """
-  @spec describe_recovery_point(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec describe_recovery_point(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, describe_recovery_point_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5012,7 +5023,7 @@ defmodule AWS.Backup do
   Returns the details associated with creating a report as specified by its
   `ReportJobId`.
   """
-  @spec describe_report_job(map(), String.t(), list()) ::
+  @spec describe_report_job(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_report_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5031,7 +5042,7 @@ defmodule AWS.Backup do
   Returns a list of all report plans for an Amazon Web Services account and Amazon
   Web Services Region.
   """
-  @spec describe_report_plan(map(), String.t(), list()) ::
+  @spec describe_report_plan(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_report_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5049,7 +5060,7 @@ defmodule AWS.Backup do
   @doc """
   Returns metadata associated with a restore job that is specified by a job ID.
   """
-  @spec describe_restore_job(map(), String.t(), list()) ::
+  @spec describe_restore_job(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_restore_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5070,7 +5081,7 @@ defmodule AWS.Backup do
   """
   @spec disassociate_backup_vault_mpa_approval_team(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           disassociate_backup_vault_mpa_approval_team_input(),
           list()
         ) ::
@@ -5117,8 +5128,8 @@ defmodule AWS.Backup do
   """
   @spec disassociate_recovery_point(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           disassociate_recovery_point_input(),
           list()
         ) ::
@@ -5161,8 +5172,8 @@ defmodule AWS.Backup do
   """
   @spec disassociate_recovery_point_from_parent(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           disassociate_recovery_point_from_parent_input(),
           list()
         ) ::
@@ -5202,7 +5213,7 @@ defmodule AWS.Backup do
   @doc """
   Returns the backup plan that is specified by the plan ID as a backup template.
   """
-  @spec export_backup_plan_template(map(), String.t(), list()) ::
+  @spec export_backup_plan_template(map(), String.t() | Atom.t(), list()) ::
           {:ok, export_backup_plan_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5224,7 +5235,7 @@ defmodule AWS.Backup do
   details are the body of a backup plan in JSON format, in addition to plan
   metadata.
   """
-  @spec get_backup_plan(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_backup_plan(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
           {:ok, get_backup_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5278,7 +5289,7 @@ defmodule AWS.Backup do
   @doc """
   Returns the template specified by its `templateId` as a backup plan.
   """
-  @spec get_backup_plan_from_template(map(), String.t(), list()) ::
+  @spec get_backup_plan_from_template(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_backup_plan_from_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5298,7 +5309,7 @@ defmodule AWS.Backup do
   of
   resources that are associated with a backup plan.
   """
-  @spec get_backup_selection(map(), String.t(), String.t(), list()) ::
+  @spec get_backup_selection(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_backup_selection_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5319,7 +5330,7 @@ defmodule AWS.Backup do
   Returns the access policy document that is associated with the named backup
   vault.
   """
-  @spec get_backup_vault_access_policy(map(), String.t(), list()) ::
+  @spec get_backup_vault_access_policy(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_backup_vault_access_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5337,7 +5348,7 @@ defmodule AWS.Backup do
   @doc """
   Returns event notifications for the specified backup vault.
   """
-  @spec get_backup_vault_notifications(map(), String.t(), list()) ::
+  @spec get_backup_vault_notifications(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_backup_vault_notifications_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5360,7 +5371,7 @@ defmodule AWS.Backup do
   The details are the
   body of a legal hold in JSON format, in addition to metadata.
   """
-  @spec get_legal_hold(map(), String.t(), list()) ::
+  @spec get_legal_hold(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_legal_hold_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5379,7 +5390,12 @@ defmodule AWS.Backup do
   This operation returns the metadata and details specific to
   the backup index associated with the specified recovery point.
   """
-  @spec get_recovery_point_index_details(map(), String.t(), String.t(), list()) ::
+  @spec get_recovery_point_index_details(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_recovery_point_index_details_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5406,9 +5422,9 @@ defmodule AWS.Backup do
   """
   @spec get_recovery_point_restore_metadata(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, get_recovery_point_restore_metadata_output(), any()}
@@ -5443,7 +5459,7 @@ defmodule AWS.Backup do
   @doc """
   This request returns the metadata for the specified restore job.
   """
-  @spec get_restore_job_metadata(map(), String.t(), list()) ::
+  @spec get_restore_job_metadata(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_restore_job_metadata_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5468,9 +5484,9 @@ defmodule AWS.Backup do
   """
   @spec get_restore_testing_inferred_metadata(
           map(),
-          String.t() | nil,
-          String.t(),
-          String.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           list()
         ) ::
           {:ok, get_restore_testing_inferred_metadata_output(), any()}
@@ -5521,7 +5537,7 @@ defmodule AWS.Backup do
   The details are the body of a restore testing plan
   in JSON format, in addition to plan metadata.
   """
-  @spec get_restore_testing_plan(map(), String.t(), list()) ::
+  @spec get_restore_testing_plan(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_restore_testing_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5540,7 +5556,7 @@ defmodule AWS.Backup do
   Returns RestoreTestingSelection, which displays resources
   and elements of the restore testing plan.
   """
-  @spec get_restore_testing_selection(map(), String.t(), String.t(), list()) ::
+  @spec get_restore_testing_selection(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_restore_testing_selection_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5595,13 +5611,13 @@ defmodule AWS.Backup do
   """
   @spec list_backup_job_summaries(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_backup_job_summaries_output(), any()}
@@ -5686,19 +5702,19 @@ defmodule AWS.Backup do
   """
   @spec list_backup_jobs(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_backup_jobs_output(), any()}
@@ -5825,7 +5841,12 @@ defmodule AWS.Backup do
   @doc """
   Lists the backup plan templates.
   """
-  @spec list_backup_plan_templates(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_backup_plan_templates(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_backup_plan_templates_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5864,7 +5885,13 @@ defmodule AWS.Backup do
   (ARNs),
   backup plan IDs, creation and deletion dates, plan names, and version IDs.
   """
-  @spec list_backup_plan_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_backup_plan_versions(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_backup_plan_versions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5902,7 +5929,13 @@ defmodule AWS.Backup do
   @doc """
   Lists the active backup plans for the account.
   """
-  @spec list_backup_plans(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_backup_plans(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_backup_plans_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5949,7 +5982,13 @@ defmodule AWS.Backup do
   backup
   plan.
   """
-  @spec list_backup_selections(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_backup_selections(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_backup_selections_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5990,10 +6029,10 @@ defmodule AWS.Backup do
   """
   @spec list_backup_vaults(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_backup_vaults_output(), any()}
@@ -6060,13 +6099,13 @@ defmodule AWS.Backup do
   """
   @spec list_copy_job_summaries(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_copy_job_summaries_output(), any()}
@@ -6147,19 +6186,19 @@ defmodule AWS.Backup do
   """
   @spec list_copy_jobs(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_copy_jobs_output(), any()}
@@ -6287,7 +6326,7 @@ defmodule AWS.Backup do
   Returns a list of all frameworks for an Amazon Web Services account and Amazon
   Web Services Region.
   """
-  @spec list_frameworks(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_frameworks(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_frameworks_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6326,13 +6365,13 @@ defmodule AWS.Backup do
   """
   @spec list_indexed_recovery_points(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_indexed_recovery_points_output(), any()}
@@ -6411,7 +6450,7 @@ defmodule AWS.Backup do
   @doc """
   This action returns metadata about active and previous legal holds.
   """
-  @spec list_legal_holds(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_legal_holds(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_legal_holds_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6446,7 +6485,12 @@ defmodule AWS.Backup do
   and a
   resource type.
   """
-  @spec list_protected_resources(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_protected_resources(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_protected_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6485,10 +6529,10 @@ defmodule AWS.Backup do
   """
   @spec list_protected_resources_by_backup_vault(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_protected_resources_by_backup_vault_output(), any()}
@@ -6538,16 +6582,16 @@ defmodule AWS.Backup do
   """
   @spec list_recovery_points_by_backup_vault(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_recovery_points_by_backup_vault_output(), any()}
@@ -6646,9 +6690,9 @@ defmodule AWS.Backup do
   """
   @spec list_recovery_points_by_legal_hold(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_recovery_points_by_legal_hold_output(), any()}
@@ -6694,10 +6738,10 @@ defmodule AWS.Backup do
   """
   @spec list_recovery_points_by_resource(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_recovery_points_by_resource_output(), any()}
@@ -6747,12 +6791,12 @@ defmodule AWS.Backup do
   """
   @spec list_report_jobs(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_report_jobs_output(), any()}
@@ -6826,7 +6870,7 @@ defmodule AWS.Backup do
   For detailed information about a single report
   plan, use `DescribeReportPlan`.
   """
-  @spec list_report_plans(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_report_plans(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_report_plans_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6861,9 +6905,9 @@ defmodule AWS.Backup do
   """
   @spec list_restore_access_backup_vaults(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_restore_access_backup_vaults_output(), any()}
@@ -6917,12 +6961,12 @@ defmodule AWS.Backup do
   """
   @spec list_restore_job_summaries(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_restore_job_summaries_output(), any()}
@@ -6996,16 +7040,16 @@ defmodule AWS.Backup do
   """
   @spec list_restore_jobs(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_restore_jobs_output(), any()}
@@ -7115,12 +7159,12 @@ defmodule AWS.Backup do
   """
   @spec list_restore_jobs_by_protected_resource(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_restore_jobs_by_protected_resource_output(), any()}
@@ -7187,7 +7231,12 @@ defmodule AWS.Backup do
   @doc """
   Returns a list of restore testing plans.
   """
-  @spec list_restore_testing_plans(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_restore_testing_plans(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_restore_testing_plans_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7229,9 +7278,9 @@ defmodule AWS.Backup do
   """
   @spec list_restore_testing_selections(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_restore_testing_selections_output(), any()}
@@ -7291,7 +7340,13 @@ defmodule AWS.Backup do
   `arn:aws:backup` and they are noted in the [Feature availability by resource](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource)
   table.
   """
-  @spec list_tags(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_tags(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7336,7 +7391,7 @@ defmodule AWS.Backup do
   """
   @spec put_backup_vault_access_policy(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_backup_vault_access_policy_input(),
           list()
         ) ::
@@ -7389,7 +7444,7 @@ defmodule AWS.Backup do
   """
   @spec put_backup_vault_lock_configuration(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_backup_vault_lock_configuration_input(),
           list()
         ) ::
@@ -7428,7 +7483,7 @@ defmodule AWS.Backup do
   """
   @spec put_backup_vault_notifications(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_backup_vault_notifications_input(),
           list()
         ) ::
@@ -7469,7 +7524,7 @@ defmodule AWS.Backup do
   """
   @spec put_restore_validation_result(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_restore_validation_result_input(),
           list()
         ) ::
@@ -7504,8 +7559,8 @@ defmodule AWS.Backup do
   """
   @spec revoke_restore_access_backup_vault(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           revoke_restore_access_backup_vault_input(),
           list()
         ) ::
@@ -7610,7 +7665,7 @@ defmodule AWS.Backup do
   @doc """
   Starts an on-demand report job for the specified report plan.
   """
-  @spec start_report_job(map(), String.t(), start_report_job_input(), list()) ::
+  @spec start_report_job(map(), String.t() | Atom.t(), start_report_job_input(), list()) ::
           {:ok, start_report_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7697,7 +7752,7 @@ defmodule AWS.Backup do
     *
   Amazon RDS
   """
-  @spec stop_backup_job(map(), String.t(), stop_backup_job_input(), list()) ::
+  @spec stop_backup_job(map(), String.t() | Atom.t(), stop_backup_job_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7726,7 +7781,7 @@ defmodule AWS.Backup do
   @doc """
   Assigns a set of key-value pairs to a resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7763,7 +7818,7 @@ defmodule AWS.Backup do
   Amazon EBS,
   Amazon FSx, Neptune, and Amazon RDS.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7794,7 +7849,7 @@ defmodule AWS.Backup do
 
   The new version is uniquely identified by its ID.
   """
-  @spec update_backup_plan(map(), String.t(), update_backup_plan_input(), list()) ::
+  @spec update_backup_plan(map(), String.t() | Atom.t(), update_backup_plan_input(), list()) ::
           {:ok, update_backup_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7823,7 +7878,7 @@ defmodule AWS.Backup do
   @doc """
   Updates the specified framework.
   """
-  @spec update_framework(map(), String.t(), update_framework_input(), list()) ::
+  @spec update_framework(map(), String.t() | Atom.t(), update_framework_input(), list()) ::
           {:ok, update_framework_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7890,8 +7945,8 @@ defmodule AWS.Backup do
   """
   @spec update_recovery_point_index_settings(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_recovery_point_index_settings_input(),
           list()
         ) ::
@@ -7959,8 +8014,8 @@ defmodule AWS.Backup do
   """
   @spec update_recovery_point_lifecycle(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_recovery_point_lifecycle_input(),
           list()
         ) ::
@@ -8033,7 +8088,7 @@ defmodule AWS.Backup do
   @doc """
   Updates the specified report plan.
   """
-  @spec update_report_plan(map(), String.t(), update_report_plan_input(), list()) ::
+  @spec update_report_plan(map(), String.t() | Atom.t(), update_report_plan_input(), list()) ::
           {:ok, update_report_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8090,7 +8145,7 @@ defmodule AWS.Backup do
   """
   @spec update_restore_testing_plan(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_restore_testing_plan_input(),
           list()
         ) ::
@@ -8134,8 +8189,8 @@ defmodule AWS.Backup do
   """
   @spec update_restore_testing_selection(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_restore_testing_selection_input(),
           list()
         ) ::

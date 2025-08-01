@@ -127,14 +127,14 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       update_firewall_description_request() :: %{
-        optional("Description") => String.t(),
-        optional("FirewallArn") => String.t(),
-        optional("FirewallName") => String.t(),
-        optional("UpdateToken") => String.t()
+        optional("Description") => String.t() | Atom.t(),
+        optional("FirewallArn") => String.t() | Atom.t(),
+        optional("FirewallName") => String.t() | Atom.t(),
+        optional("UpdateToken") => String.t() | Atom.t()
       }
       
   """
-  @type update_firewall_description_request() :: %{String.t() => any()}
+  @type update_firewall_description_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -142,25 +142,25 @@ defmodule AWS.NetworkFirewall do
       
       list_t_l_s_inspection_configurations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_t_l_s_inspection_configurations_request() :: %{String.t() => any()}
+  @type list_t_l_s_inspection_configurations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       server_certificate_configuration() :: %{
-        "CertificateAuthorityArn" => String.t(),
+        "CertificateAuthorityArn" => String.t() | Atom.t(),
         "CheckCertificateRevocationStatus" => check_certificate_revocation_status_actions(),
         "Scopes" => list(server_certificate_scope()),
         "ServerCertificates" => list(server_certificate())
       }
       
   """
-  @type server_certificate_configuration() :: %{String.t() => any()}
+  @type server_certificate_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -172,7 +172,7 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type t_c_p_flag_field() :: %{String.t() => any()}
+  @type t_c_p_flag_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -183,32 +183,32 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type a_z_sync_state() :: %{String.t() => any()}
+  @type a_z_sync_state() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       analysis_result() :: %{
-        "AnalysisDetail" => String.t(),
-        "IdentifiedRuleIds" => list(String.t()),
+        "AnalysisDetail" => String.t() | Atom.t(),
+        "IdentifiedRuleIds" => list(String.t() | Atom.t()),
         "IdentifiedType" => list(any())
       }
       
   """
-  @type analysis_result() :: %{String.t() => any()}
+  @type analysis_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       encryption_configuration() :: %{
-        "KeyId" => String.t(),
+        "KeyId" => String.t() | Atom.t(),
         "Type" => list(any())
       }
       
   """
-  @type encryption_configuration() :: %{String.t() => any()}
+  @type encryption_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -216,13 +216,13 @@ defmodule AWS.NetworkFirewall do
       
       rules_source() :: %{
         "RulesSourceList" => rules_source_list(),
-        "RulesString" => String.t(),
+        "RulesString" => String.t() | Atom.t(),
         "StatefulRules" => list(stateful_rule()),
         "StatelessRulesAndCustomActions" => stateless_rules_and_custom_actions()
       }
       
   """
-  @type rules_source() :: %{String.t() => any()}
+  @type rules_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -230,11 +230,11 @@ defmodule AWS.NetworkFirewall do
       
       update_rule_group_response() :: %{
         "RuleGroupResponse" => rule_group_response(),
-        "UpdateToken" => String.t()
+        "UpdateToken" => String.t() | Atom.t()
       }
       
   """
-  @type update_rule_group_response() :: %{String.t() => any()}
+  @type update_rule_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -242,26 +242,26 @@ defmodule AWS.NetworkFirewall do
       
       flow_filter() :: %{
         "DestinationAddress" => address(),
-        "DestinationPort" => String.t(),
-        "Protocols" => list(String.t()),
+        "DestinationPort" => String.t() | Atom.t(),
+        "Protocols" => list(String.t() | Atom.t()),
         "SourceAddress" => address(),
-        "SourcePort" => String.t()
+        "SourcePort" => String.t() | Atom.t()
       }
       
   """
-  @type flow_filter() :: %{String.t() => any()}
+  @type flow_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
+        required("ResourceArn") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -277,11 +277,11 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       unsupported_operation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type unsupported_operation_exception() :: %{String.t() => any()}
+  @type unsupported_operation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -292,62 +292,62 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type stateful_rule_group_override() :: %{String.t() => any()}
+  @type stateful_rule_group_override() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       rule_group_metadata() :: %{
-        "Arn" => String.t(),
-        "Name" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
       
   """
-  @type rule_group_metadata() :: %{String.t() => any()}
+  @type rule_group_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_rule_groups_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "RuleGroups" => list(rule_group_metadata())
       }
       
   """
-  @type list_rule_groups_response() :: %{String.t() => any()}
+  @type list_rule_groups_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_flow_capture_request() :: %{
-        optional("AvailabilityZone") => String.t(),
+        optional("AvailabilityZone") => String.t() | Atom.t(),
         optional("MinimumFlowAgeInSeconds") => integer(),
-        optional("VpcEndpointAssociationArn") => String.t(),
-        optional("VpcEndpointId") => String.t(),
-        required("FirewallArn") => String.t(),
+        optional("VpcEndpointAssociationArn") => String.t() | Atom.t(),
+        optional("VpcEndpointId") => String.t() | Atom.t(),
+        required("FirewallArn") => String.t() | Atom.t(),
         required("FlowFilters") => list(flow_filter())
       }
       
   """
-  @type start_flow_capture_request() :: %{String.t() => any()}
+  @type start_flow_capture_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_flow_operation_request() :: %{
-        optional("AvailabilityZone") => String.t(),
-        optional("VpcEndpointAssociationArn") => String.t(),
-        optional("VpcEndpointId") => String.t(),
-        required("FirewallArn") => String.t(),
-        required("FlowOperationId") => String.t()
+        optional("AvailabilityZone") => String.t() | Atom.t(),
+        optional("VpcEndpointAssociationArn") => String.t() | Atom.t(),
+        optional("VpcEndpointId") => String.t() | Atom.t(),
+        required("FirewallArn") => String.t() | Atom.t(),
+        required("FlowOperationId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_flow_operation_request() :: %{String.t() => any()}
+  @type describe_flow_operation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -355,47 +355,47 @@ defmodule AWS.NetworkFirewall do
       
       update_availability_zone_change_protection_response() :: %{
         "AvailabilityZoneChangeProtection" => boolean(),
-        "FirewallArn" => String.t(),
-        "FirewallName" => String.t(),
-        "UpdateToken" => String.t()
+        "FirewallArn" => String.t() | Atom.t(),
+        "FirewallName" => String.t() | Atom.t(),
+        "UpdateToken" => String.t() | Atom.t()
       }
       
   """
-  @type update_availability_zone_change_protection_response() :: %{String.t() => any()}
+  @type update_availability_zone_change_protection_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_flow_operation_response() :: %{
-        "AvailabilityZone" => String.t(),
-        "FirewallArn" => String.t(),
+        "AvailabilityZone" => String.t() | Atom.t(),
+        "FirewallArn" => String.t() | Atom.t(),
         "FlowOperation" => flow_operation(),
-        "FlowOperationId" => String.t(),
+        "FlowOperationId" => String.t() | Atom.t(),
         "FlowOperationStatus" => list(any()),
         "FlowOperationType" => list(any()),
         "FlowRequestTimestamp" => non_neg_integer(),
-        "StatusMessage" => String.t(),
-        "VpcEndpointAssociationArn" => String.t(),
-        "VpcEndpointId" => String.t()
+        "StatusMessage" => String.t() | Atom.t(),
+        "VpcEndpointAssociationArn" => String.t() | Atom.t(),
+        "VpcEndpointId" => String.t() | Atom.t()
       }
       
   """
-  @type describe_flow_operation_response() :: %{String.t() => any()}
+  @type describe_flow_operation_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_subnets_response() :: %{
-        "FirewallArn" => String.t(),
-        "FirewallName" => String.t(),
+        "FirewallArn" => String.t() | Atom.t(),
+        "FirewallName" => String.t() | Atom.t(),
         "SubnetMappings" => list(subnet_mapping()),
-        "UpdateToken" => String.t()
+        "UpdateToken" => String.t() | Atom.t()
       }
       
   """
-  @type associate_subnets_response() :: %{String.t() => any()}
+  @type associate_subnets_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -403,27 +403,27 @@ defmodule AWS.NetworkFirewall do
       
       associate_availability_zones_response() :: %{
         "AvailabilityZoneMappings" => list(availability_zone_mapping()),
-        "FirewallArn" => String.t(),
-        "FirewallName" => String.t(),
-        "UpdateToken" => String.t()
+        "FirewallArn" => String.t() | Atom.t(),
+        "FirewallName" => String.t() | Atom.t(),
+        "UpdateToken" => String.t() | Atom.t()
       }
       
   """
-  @type associate_availability_zones_response() :: %{String.t() => any()}
+  @type associate_availability_zones_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_firewall_policy_change_protection_request() :: %{
-        optional("FirewallArn") => String.t(),
-        optional("FirewallName") => String.t(),
-        optional("UpdateToken") => String.t(),
+        optional("FirewallArn") => String.t() | Atom.t(),
+        optional("FirewallName") => String.t() | Atom.t(),
+        optional("UpdateToken") => String.t() | Atom.t(),
         required("FirewallPolicyChangeProtection") => boolean()
       }
       
   """
-  @type update_firewall_policy_change_protection_request() :: %{String.t() => any()}
+  @type update_firewall_policy_change_protection_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -436,7 +436,7 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type stateful_engine_options() :: %{String.t() => any()}
+  @type stateful_engine_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -452,60 +452,60 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       rule_definition() :: %{
-        "Actions" => list(String.t()),
+        "Actions" => list(String.t() | Atom.t()),
         "MatchAttributes" => match_attributes()
       }
       
   """
-  @type rule_definition() :: %{String.t() => any()}
+  @type rule_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_owner_check_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_owner_check_exception() :: %{String.t() => any()}
+  @type resource_owner_check_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       t_l_s_inspection_configuration_metadata() :: %{
-        "Arn" => String.t(),
-        "Name" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
       
   """
-  @type t_l_s_inspection_configuration_metadata() :: %{String.t() => any()}
+  @type t_l_s_inspection_configuration_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_t_l_s_inspection_configuration_request() :: %{
-        optional("TLSInspectionConfigurationArn") => String.t(),
-        optional("TLSInspectionConfigurationName") => String.t()
+        optional("TLSInspectionConfigurationArn") => String.t() | Atom.t(),
+        optional("TLSInspectionConfigurationName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_t_l_s_inspection_configuration_request() :: %{String.t() => any()}
+  @type describe_t_l_s_inspection_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_rule_group_metadata_request() :: %{
-        optional("RuleGroupArn") => String.t(),
-        optional("RuleGroupName") => String.t(),
+        optional("RuleGroupArn") => String.t() | Atom.t(),
+        optional("RuleGroupName") => String.t() | Atom.t(),
         optional("Type") => list(any())
       }
       
   """
-  @type describe_rule_group_metadata_request() :: %{String.t() => any()}
+  @type describe_rule_group_metadata_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -517,7 +517,7 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type delete_vpc_endpoint_association_response() :: %{String.t() => any()}
+  @type delete_vpc_endpoint_association_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -527,14 +527,14 @@ defmodule AWS.NetworkFirewall do
         "AnalysisReportResults" => list(analysis_type_report_result()),
         "AnalysisType" => list(any()),
         "EndTime" => non_neg_integer(),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "ReportTime" => non_neg_integer(),
         "StartTime" => non_neg_integer(),
-        "Status" => String.t()
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type get_analysis_report_results_response() :: %{String.t() => any()}
+  @type get_analysis_report_results_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -542,13 +542,13 @@ defmodule AWS.NetworkFirewall do
       
       describe_rule_group_request() :: %{
         optional("AnalyzeRuleGroup") => boolean(),
-        optional("RuleGroupArn") => String.t(),
-        optional("RuleGroupName") => String.t(),
+        optional("RuleGroupArn") => String.t() | Atom.t(),
+        optional("RuleGroupName") => String.t() | Atom.t(),
         optional("Type") => list(any())
       }
       
   """
-  @type describe_rule_group_request() :: %{String.t() => any()}
+  @type describe_rule_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -562,32 +562,32 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type rule_group() :: %{String.t() => any()}
+  @type rule_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_operation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_operation_exception() :: %{String.t() => any()}
+  @type invalid_operation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       attachment() :: %{
-        "EndpointId" => String.t(),
+        "EndpointId" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "StatusMessage" => String.t(),
-        "SubnetId" => String.t()
+        "StatusMessage" => String.t() | Atom.t(),
+        "SubnetId" => String.t() | Atom.t()
       }
       
   """
-  @type attachment() :: %{String.t() => any()}
+  @type attachment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -595,13 +595,13 @@ defmodule AWS.NetworkFirewall do
       
       update_firewall_analysis_settings_request() :: %{
         optional("EnabledAnalysisTypes") => list(list(any())()),
-        optional("FirewallArn") => String.t(),
-        optional("FirewallName") => String.t(),
-        optional("UpdateToken") => String.t()
+        optional("FirewallArn") => String.t() | Atom.t(),
+        optional("FirewallName") => String.t() | Atom.t(),
+        optional("UpdateToken") => String.t() | Atom.t()
       }
       
   """
-  @type update_firewall_analysis_settings_request() :: %{String.t() => any()}
+  @type update_firewall_analysis_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -612,7 +612,7 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type t_l_s_inspection_configuration() :: %{String.t() => any()}
+  @type t_l_s_inspection_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -620,13 +620,13 @@ defmodule AWS.NetworkFirewall do
       
       update_logging_configuration_request() :: %{
         optional("EnableMonitoringDashboard") => boolean(),
-        optional("FirewallArn") => String.t(),
-        optional("FirewallName") => String.t(),
+        optional("FirewallArn") => String.t() | Atom.t(),
+        optional("FirewallName") => String.t() | Atom.t(),
         optional("LoggingConfiguration") => logging_configuration()
       }
       
   """
-  @type update_logging_configuration_request() :: %{String.t() => any()}
+  @type update_logging_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -634,11 +634,11 @@ defmodule AWS.NetworkFirewall do
       
       subnet_mapping() :: %{
         "IPAddressType" => list(any()),
-        "SubnetId" => String.t()
+        "SubnetId" => String.t() | Atom.t()
       }
       
   """
-  @type subnet_mapping() :: %{String.t() => any()}
+  @type subnet_mapping() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -646,13 +646,13 @@ defmodule AWS.NetworkFirewall do
       
       update_firewall_encryption_configuration_response() :: %{
         "EncryptionConfiguration" => encryption_configuration(),
-        "FirewallArn" => String.t(),
-        "FirewallName" => String.t(),
-        "UpdateToken" => String.t()
+        "FirewallArn" => String.t() | Atom.t(),
+        "FirewallName" => String.t() | Atom.t(),
+        "UpdateToken" => String.t() | Atom.t()
       }
       
   """
-  @type update_firewall_encryption_configuration_response() :: %{String.t() => any()}
+  @type update_firewall_encryption_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -663,105 +663,108 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type publish_metric_action() :: %{String.t() => any()}
+  @type publish_metric_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceArn") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       header() :: %{
-        "Destination" => String.t(),
-        "DestinationPort" => String.t(),
+        "Destination" => String.t() | Atom.t(),
+        "DestinationPort" => String.t() | Atom.t(),
         "Direction" => list(any()),
         "Protocol" => list(any()),
-        "Source" => String.t(),
-        "SourcePort" => String.t()
+        "Source" => String.t() | Atom.t(),
+        "SourcePort" => String.t() | Atom.t()
       }
       
   """
-  @type header() :: %{String.t() => any()}
+  @type header() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_firewall_metadata_response() :: %{
-        "Description" => String.t(),
-        "FirewallArn" => String.t(),
-        "FirewallPolicyArn" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "FirewallArn" => String.t() | Atom.t(),
+        "FirewallPolicyArn" => String.t() | Atom.t(),
         "Status" => list(any()),
         "SupportedAvailabilityZones" => map(),
-        "TransitGatewayAttachmentId" => String.t()
+        "TransitGatewayAttachmentId" => String.t() | Atom.t()
       }
       
   """
-  @type describe_firewall_metadata_response() :: %{String.t() => any()}
+  @type describe_firewall_metadata_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_network_firewall_transit_gateway_attachment_response() :: %{
-        "TransitGatewayAttachmentId" => String.t(),
+        "TransitGatewayAttachmentId" => String.t() | Atom.t(),
         "TransitGatewayAttachmentStatus" => list(any())
       }
       
   """
-  @type delete_network_firewall_transit_gateway_attachment_response() :: %{String.t() => any()}
+  @type delete_network_firewall_transit_gateway_attachment_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       create_firewall_policy_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("DryRun") => boolean(),
         optional("EncryptionConfiguration") => encryption_configuration(),
         optional("Tags") => list(tag()),
         required("FirewallPolicy") => firewall_policy(),
-        required("FirewallPolicyName") => String.t()
+        required("FirewallPolicyName") => String.t() | Atom.t()
       }
       
   """
-  @type create_firewall_policy_request() :: %{String.t() => any()}
+  @type create_firewall_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_firewall_policy_request() :: %{
-        optional("FirewallArn") => String.t(),
-        optional("FirewallName") => String.t(),
-        optional("UpdateToken") => String.t(),
-        required("FirewallPolicyArn") => String.t()
+        optional("FirewallArn") => String.t() | Atom.t(),
+        optional("FirewallName") => String.t() | Atom.t(),
+        optional("UpdateToken") => String.t() | Atom.t(),
+        required("FirewallPolicyArn") => String.t() | Atom.t()
       }
       
   """
-  @type associate_firewall_policy_request() :: %{String.t() => any()}
+  @type associate_firewall_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_vpc_endpoint_associations_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "VpcEndpointAssociations" => list(vpc_endpoint_association_metadata())
       }
       
   """
-  @type list_vpc_endpoint_associations_response() :: %{String.t() => any()}
+  @type list_vpc_endpoint_associations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -772,21 +775,21 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type logging_configuration() :: %{String.t() => any()}
+  @type logging_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tls_certificate_data() :: %{
-        "CertificateArn" => String.t(),
-        "CertificateSerial" => String.t(),
-        "Status" => String.t(),
-        "StatusMessage" => String.t()
+        "CertificateArn" => String.t() | Atom.t(),
+        "CertificateSerial" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t(),
+        "StatusMessage" => String.t() | Atom.t()
       }
       
   """
-  @type tls_certificate_data() :: %{String.t() => any()}
+  @type tls_certificate_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -794,18 +797,18 @@ defmodule AWS.NetworkFirewall do
       
       firewall_policy() :: %{
         "PolicyVariables" => policy_variables(),
-        "StatefulDefaultActions" => list(String.t()),
+        "StatefulDefaultActions" => list(String.t() | Atom.t()),
         "StatefulEngineOptions" => stateful_engine_options(),
         "StatefulRuleGroupReferences" => list(stateful_rule_group_reference()),
         "StatelessCustomActions" => list(custom_action()),
-        "StatelessDefaultActions" => list(String.t()),
-        "StatelessFragmentDefaultActions" => list(String.t()),
+        "StatelessDefaultActions" => list(String.t() | Atom.t()),
+        "StatelessFragmentDefaultActions" => list(String.t() | Atom.t()),
         "StatelessRuleGroupReferences" => list(stateless_rule_group_reference()),
-        "TLSInspectionConfigurationArn" => String.t()
+        "TLSInspectionConfigurationArn" => String.t() | Atom.t()
       }
       
   """
-  @type firewall_policy() :: %{String.t() => any()}
+  @type firewall_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -817,51 +820,54 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type describe_vpc_endpoint_association_response() :: %{String.t() => any()}
+  @type describe_vpc_endpoint_association_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_analysis_report_results_request() :: %{
-        optional("FirewallArn") => String.t(),
-        optional("FirewallName") => String.t(),
+        optional("FirewallArn") => String.t() | Atom.t(),
+        optional("FirewallName") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("AnalysisReportId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("AnalysisReportId") => String.t() | Atom.t()
       }
       
   """
-  @type get_analysis_report_results_request() :: %{String.t() => any()}
+  @type get_analysis_report_results_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reject_network_firewall_transit_gateway_attachment_response() :: %{
-        "TransitGatewayAttachmentId" => String.t(),
+        "TransitGatewayAttachmentId" => String.t() | Atom.t(),
         "TransitGatewayAttachmentStatus" => list(any())
       }
       
   """
-  @type reject_network_firewall_transit_gateway_attachment_response() :: %{String.t() => any()}
+  @type reject_network_firewall_transit_gateway_attachment_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       update_firewall_policy_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("DryRun") => boolean(),
         optional("EncryptionConfiguration") => encryption_configuration(),
-        optional("FirewallPolicyArn") => String.t(),
-        optional("FirewallPolicyName") => String.t(),
+        optional("FirewallPolicyArn") => String.t() | Atom.t(),
+        optional("FirewallPolicyName") => String.t() | Atom.t(),
         required("FirewallPolicy") => firewall_policy(),
-        required("UpdateToken") => String.t()
+        required("UpdateToken") => String.t() | Atom.t()
       }
       
   """
-  @type update_firewall_policy_request() :: %{String.t() => any()}
+  @type update_firewall_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -869,11 +875,11 @@ defmodule AWS.NetworkFirewall do
       
       create_rule_group_response() :: %{
         "RuleGroupResponse" => rule_group_response(),
-        "UpdateToken" => String.t()
+        "UpdateToken" => String.t() | Atom.t()
       }
       
   """
-  @type create_rule_group_response() :: %{String.t() => any()}
+  @type create_rule_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -881,21 +887,21 @@ defmodule AWS.NetworkFirewall do
       
       create_rule_group_request() :: %{
         optional("AnalyzeRuleGroup") => boolean(),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("DryRun") => boolean(),
         optional("EncryptionConfiguration") => encryption_configuration(),
         optional("RuleGroup") => rule_group(),
-        optional("Rules") => String.t(),
+        optional("Rules") => String.t() | Atom.t(),
         optional("SourceMetadata") => source_metadata(),
         optional("SummaryConfiguration") => summary_configuration(),
         optional("Tags") => list(tag()),
         required("Capacity") => integer(),
-        required("RuleGroupName") => String.t(),
+        required("RuleGroupName") => String.t() | Atom.t(),
         required("Type") => list(any())
       }
       
   """
-  @type create_rule_group_request() :: %{String.t() => any()}
+  @type create_rule_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -906,18 +912,18 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type ip_set_metadata() :: %{String.t() => any()}
+  @type ip_set_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       insufficient_capacity_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type insufficient_capacity_exception() :: %{String.t() => any()}
+  @type insufficient_capacity_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -925,11 +931,11 @@ defmodule AWS.NetworkFirewall do
       
       list_analysis_reports_response() :: %{
         "AnalysisReports" => list(analysis_report()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_analysis_reports_response() :: %{String.t() => any()}
+  @type list_analysis_reports_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -944,7 +950,7 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type firewall_status() :: %{String.t() => any()}
+  @type firewall_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -956,7 +962,7 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type vpc_endpoint_association_status() :: %{String.t() => any()}
+  @type vpc_endpoint_association_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -968,7 +974,7 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type delete_firewall_response() :: %{String.t() => any()}
+  @type delete_firewall_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -976,58 +982,61 @@ defmodule AWS.NetworkFirewall do
       
       list_flow_operations_response() :: %{
         "FlowOperations" => list(flow_operation_metadata()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_flow_operations_response() :: %{String.t() => any()}
+  @type list_flow_operations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       accept_network_firewall_transit_gateway_attachment_response() :: %{
-        "TransitGatewayAttachmentId" => String.t(),
+        "TransitGatewayAttachmentId" => String.t() | Atom.t(),
         "TransitGatewayAttachmentStatus" => list(any())
       }
       
   """
-  @type accept_network_firewall_transit_gateway_attachment_response() :: %{String.t() => any()}
+  @type accept_network_firewall_transit_gateway_attachment_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       describe_rule_group_summary_request() :: %{
-        optional("RuleGroupArn") => String.t(),
-        optional("RuleGroupName") => String.t(),
+        optional("RuleGroupArn") => String.t() | Atom.t(),
+        optional("RuleGroupName") => String.t() | Atom.t(),
         optional("Type") => list(any())
       }
       
   """
-  @type describe_rule_group_summary_request() :: %{String.t() => any()}
+  @type describe_rule_group_summary_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_vpc_endpoint_association_request() :: %{
-        required("VpcEndpointAssociationArn") => String.t()
+        required("VpcEndpointAssociationArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_vpc_endpoint_association_request() :: %{String.t() => any()}
+  @type describe_vpc_endpoint_association_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1038,31 +1047,31 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type delete_firewall_policy_response() :: %{String.t() => any()}
+  @type delete_firewall_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       vpc_endpoint_association_metadata() :: %{
-        "VpcEndpointAssociationArn" => String.t()
+        "VpcEndpointAssociationArn" => String.t() | Atom.t()
       }
       
   """
-  @type vpc_endpoint_association_metadata() :: %{String.t() => any()}
+  @type vpc_endpoint_association_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_rule_group_summary_response() :: %{
-        "Description" => String.t(),
-        "RuleGroupName" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "RuleGroupName" => String.t() | Atom.t(),
         "Summary" => summary()
       }
       
   """
-  @type describe_rule_group_summary_response() :: %{String.t() => any()}
+  @type describe_rule_group_summary_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1070,23 +1079,23 @@ defmodule AWS.NetworkFirewall do
       
       create_firewall_policy_response() :: %{
         "FirewallPolicyResponse" => firewall_policy_response(),
-        "UpdateToken" => String.t()
+        "UpdateToken" => String.t() | Atom.t()
       }
       
   """
-  @type create_firewall_policy_response() :: %{String.t() => any()}
+  @type create_firewall_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1101,69 +1110,69 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type server_certificate_scope() :: %{String.t() => any()}
+  @type server_certificate_scope() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_request_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_request_exception() :: %{String.t() => any()}
+  @type invalid_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       flow_operation_metadata() :: %{
-        "FlowOperationId" => String.t(),
+        "FlowOperationId" => String.t() | Atom.t(),
         "FlowOperationStatus" => list(any()),
         "FlowOperationType" => list(any()),
         "FlowRequestTimestamp" => non_neg_integer()
       }
       
   """
-  @type flow_operation_metadata() :: %{String.t() => any()}
+  @type flow_operation_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       availability_zone_mapping() :: %{
-        "AvailabilityZone" => String.t()
+        "AvailabilityZone" => String.t() | Atom.t()
       }
       
   """
-  @type availability_zone_mapping() :: %{String.t() => any()}
+  @type availability_zone_mapping() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_logging_configuration_request() :: %{
-        optional("FirewallArn") => String.t(),
-        optional("FirewallName") => String.t()
+        optional("FirewallArn") => String.t() | Atom.t(),
+        optional("FirewallName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_logging_configuration_request() :: %{String.t() => any()}
+  @type describe_logging_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_subnets_response() :: %{
-        "FirewallArn" => String.t(),
-        "FirewallName" => String.t(),
+        "FirewallArn" => String.t() | Atom.t(),
+        "FirewallName" => String.t() | Atom.t(),
         "SubnetMappings" => list(subnet_mapping()),
-        "UpdateToken" => String.t()
+        "UpdateToken" => String.t() | Atom.t()
       }
       
   """
-  @type disassociate_subnets_response() :: %{String.t() => any()}
+  @type disassociate_subnets_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1175,7 +1184,7 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type sync_state() :: %{String.t() => any()}
+  @type sync_state() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1186,7 +1195,7 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type hits() :: %{String.t() => any()}
+  @type hits() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1198,7 +1207,7 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type create_firewall_response() :: %{String.t() => any()}
+  @type create_firewall_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1206,52 +1215,52 @@ defmodule AWS.NetworkFirewall do
       
       per_object_status() :: %{
         "SyncStatus" => list(any()),
-        "UpdateToken" => String.t()
+        "UpdateToken" => String.t() | Atom.t()
       }
       
   """
-  @type per_object_status() :: %{String.t() => any()}
+  @type per_object_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       vpc_endpoint_association() :: %{
-        "Description" => String.t(),
-        "FirewallArn" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "FirewallArn" => String.t() | Atom.t(),
         "SubnetMapping" => subnet_mapping(),
         "Tags" => list(tag()),
-        "VpcEndpointAssociationArn" => String.t(),
-        "VpcEndpointAssociationId" => String.t(),
-        "VpcId" => String.t()
+        "VpcEndpointAssociationArn" => String.t() | Atom.t(),
+        "VpcEndpointAssociationId" => String.t() | Atom.t(),
+        "VpcId" => String.t() | Atom.t()
       }
       
   """
-  @type vpc_endpoint_association() :: %{String.t() => any()}
+  @type vpc_endpoint_association() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_firewall_request() :: %{
-        optional("FirewallArn") => String.t(),
-        optional("FirewallName") => String.t()
+        optional("FirewallArn") => String.t() | Atom.t(),
+        optional("FirewallName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_firewall_request() :: %{String.t() => any()}
+  @type describe_firewall_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_t_l_s_inspection_configuration_request() :: %{
-        optional("TLSInspectionConfigurationArn") => String.t(),
-        optional("TLSInspectionConfigurationName") => String.t()
+        optional("TLSInspectionConfigurationArn") => String.t() | Atom.t(),
+        optional("TLSInspectionConfigurationName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_t_l_s_inspection_configuration_request() :: %{String.t() => any()}
+  @type delete_t_l_s_inspection_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1261,15 +1270,15 @@ defmodule AWS.NetworkFirewall do
         "AnalysisResults" => list(analysis_result()),
         "Capacity" => integer(),
         "ConsumedCapacity" => integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "EncryptionConfiguration" => encryption_configuration(),
         "LastModifiedTime" => non_neg_integer(),
         "NumberOfAssociations" => integer(),
-        "RuleGroupArn" => String.t(),
-        "RuleGroupId" => String.t(),
-        "RuleGroupName" => String.t(),
+        "RuleGroupArn" => String.t() | Atom.t(),
+        "RuleGroupId" => String.t() | Atom.t(),
+        "RuleGroupName" => String.t() | Atom.t(),
         "RuleGroupStatus" => list(any()),
-        "SnsTopic" => String.t(),
+        "SnsTopic" => String.t() | Atom.t(),
         "SourceMetadata" => source_metadata(),
         "SummaryConfiguration" => summary_configuration(),
         "Tags" => list(tag()),
@@ -1277,60 +1286,63 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type rule_group_response() :: %{String.t() => any()}
+  @type rule_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       analysis_report() :: %{
-        "AnalysisReportId" => String.t(),
+        "AnalysisReportId" => String.t() | Atom.t(),
         "AnalysisType" => list(any()),
         "ReportTime" => non_neg_integer(),
-        "Status" => String.t()
+        "Status" => String.t() | Atom.t()
       }
       
   """
-  @type analysis_report() :: %{String.t() => any()}
+  @type analysis_report() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       ip_set() :: %{
-        "Definition" => list(String.t())
+        "Definition" => list(String.t() | Atom.t())
       }
       
   """
-  @type ip_set() :: %{String.t() => any()}
+  @type ip_set() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_flow_operation_results_request() :: %{
-        optional("AvailabilityZone") => String.t(),
+        optional("AvailabilityZone") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("VpcEndpointAssociationArn") => String.t(),
-        optional("VpcEndpointId") => String.t(),
-        required("FirewallArn") => String.t(),
-        required("FlowOperationId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("VpcEndpointAssociationArn") => String.t() | Atom.t(),
+        optional("VpcEndpointId") => String.t() | Atom.t(),
+        required("FirewallArn") => String.t() | Atom.t(),
+        required("FlowOperationId") => String.t() | Atom.t()
       }
       
   """
-  @type list_flow_operation_results_request() :: %{String.t() => any()}
+  @type list_flow_operation_results_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       accept_network_firewall_transit_gateway_attachment_request() :: %{
-        required("TransitGatewayAttachmentId") => String.t()
+        required("TransitGatewayAttachmentId") => String.t() | Atom.t()
       }
       
   """
-  @type accept_network_firewall_transit_gateway_attachment_request() :: %{String.t() => any()}
+  @type accept_network_firewall_transit_gateway_attachment_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1343,7 +1355,7 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type stateful_rule() :: %{String.t() => any()}
+  @type stateful_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1355,7 +1367,7 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type create_vpc_endpoint_association_response() :: %{String.t() => any()}
+  @type create_vpc_endpoint_association_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1365,23 +1377,23 @@ defmodule AWS.NetworkFirewall do
         "DeepThreatInspection" => boolean(),
         "Override" => stateful_rule_group_override(),
         "Priority" => integer(),
-        "ResourceArn" => String.t()
+        "ResourceArn" => String.t() | Atom.t()
       }
       
   """
-  @type stateful_rule_group_reference() :: %{String.t() => any()}
+  @type stateful_rule_group_reference() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Tags" => list(tag())
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1389,40 +1401,40 @@ defmodule AWS.NetworkFirewall do
       
       list_firewalls_response() :: %{
         "Firewalls" => list(firewall_metadata()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_firewalls_response() :: %{String.t() => any()}
+  @type list_firewalls_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_t_l_s_inspection_configuration_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("EncryptionConfiguration") => encryption_configuration(),
         optional("Tags") => list(tag()),
         required("TLSInspectionConfiguration") => t_l_s_inspection_configuration(),
-        required("TLSInspectionConfigurationName") => String.t()
+        required("TLSInspectionConfigurationName") => String.t() | Atom.t()
       }
       
   """
-  @type create_t_l_s_inspection_configuration_request() :: %{String.t() => any()}
+  @type create_t_l_s_inspection_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_analysis_reports_request() :: %{
-        optional("FirewallArn") => String.t(),
-        optional("FirewallName") => String.t(),
+        optional("FirewallArn") => String.t() | Atom.t(),
+        optional("FirewallName") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_analysis_reports_request() :: %{String.t() => any()}
+  @type list_analysis_reports_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1431,11 +1443,11 @@ defmodule AWS.NetworkFirewall do
       firewall_policy_response() :: %{
         "ConsumedStatefulRuleCapacity" => integer(),
         "ConsumedStatelessRuleCapacity" => integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "EncryptionConfiguration" => encryption_configuration(),
-        "FirewallPolicyArn" => String.t(),
-        "FirewallPolicyId" => String.t(),
-        "FirewallPolicyName" => String.t(),
+        "FirewallPolicyArn" => String.t() | Atom.t(),
+        "FirewallPolicyId" => String.t() | Atom.t(),
+        "FirewallPolicyName" => String.t() | Atom.t(),
         "FirewallPolicyStatus" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
         "NumberOfAssociations" => integer(),
@@ -1443,7 +1455,7 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type firewall_policy_response() :: %{String.t() => any()}
+  @type firewall_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1455,34 +1467,34 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type flow_operation() :: %{String.t() => any()}
+  @type flow_operation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_flow_capture_response() :: %{
-        "FirewallArn" => String.t(),
-        "FlowOperationId" => String.t(),
+        "FirewallArn" => String.t() | Atom.t(),
+        "FlowOperationId" => String.t() | Atom.t(),
         "FlowOperationStatus" => list(any())
       }
       
   """
-  @type start_flow_capture_response() :: %{String.t() => any()}
+  @type start_flow_capture_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_firewall_policy_change_protection_response() :: %{
-        "FirewallArn" => String.t(),
-        "FirewallName" => String.t(),
+        "FirewallArn" => String.t() | Atom.t(),
+        "FirewallName" => String.t() | Atom.t(),
         "FirewallPolicyChangeProtection" => boolean(),
-        "UpdateToken" => String.t()
+        "UpdateToken" => String.t() | Atom.t()
       }
       
   """
-  @type update_firewall_policy_change_protection_response() :: %{String.t() => any()}
+  @type update_firewall_policy_change_protection_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1493,49 +1505,52 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type reference_sets() :: %{String.t() => any()}
+  @type reference_sets() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_subnet_change_protection_request() :: %{
-        optional("FirewallArn") => String.t(),
-        optional("FirewallName") => String.t(),
-        optional("UpdateToken") => String.t(),
+        optional("FirewallArn") => String.t() | Atom.t(),
+        optional("FirewallName") => String.t() | Atom.t(),
+        optional("UpdateToken") => String.t() | Atom.t(),
         required("SubnetChangeProtection") => boolean()
       }
       
   """
-  @type update_subnet_change_protection_request() :: %{String.t() => any()}
+  @type update_subnet_change_protection_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_network_firewall_transit_gateway_attachment_request() :: %{
-        required("TransitGatewayAttachmentId") => String.t()
+        required("TransitGatewayAttachmentId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_network_firewall_transit_gateway_attachment_request() :: %{String.t() => any()}
+  @type delete_network_firewall_transit_gateway_attachment_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       list_flow_operations_request() :: %{
-        optional("AvailabilityZone") => String.t(),
+        optional("AvailabilityZone") => String.t() | Atom.t(),
         optional("FlowOperationType") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("VpcEndpointAssociationArn") => String.t(),
-        optional("VpcEndpointId") => String.t(),
-        required("FirewallArn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("VpcEndpointAssociationArn") => String.t() | Atom.t(),
+        optional("VpcEndpointId") => String.t() | Atom.t(),
+        required("FirewallArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_flow_operations_request() :: %{String.t() => any()}
+  @type list_flow_operations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1545,25 +1560,25 @@ defmodule AWS.NetworkFirewall do
         "AvailabilityZoneChangeProtection" => boolean(),
         "AvailabilityZoneMappings" => list(availability_zone_mapping()),
         "DeleteProtection" => boolean(),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "EnabledAnalysisTypes" => list(list(any())()),
         "EncryptionConfiguration" => encryption_configuration(),
-        "FirewallArn" => String.t(),
-        "FirewallId" => String.t(),
-        "FirewallName" => String.t(),
-        "FirewallPolicyArn" => String.t(),
+        "FirewallArn" => String.t() | Atom.t(),
+        "FirewallId" => String.t() | Atom.t(),
+        "FirewallName" => String.t() | Atom.t(),
+        "FirewallPolicyArn" => String.t() | Atom.t(),
         "FirewallPolicyChangeProtection" => boolean(),
         "NumberOfAssociations" => integer(),
         "SubnetChangeProtection" => boolean(),
         "SubnetMappings" => list(subnet_mapping()),
         "Tags" => list(tag()),
-        "TransitGatewayId" => String.t(),
-        "TransitGatewayOwnerAccountId" => String.t(),
-        "VpcId" => String.t()
+        "TransitGatewayId" => String.t() | Atom.t(),
+        "TransitGatewayOwnerAccountId" => String.t() | Atom.t(),
+        "VpcId" => String.t() | Atom.t()
       }
       
   """
-  @type firewall() :: %{String.t() => any()}
+  @type firewall() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1574,7 +1589,7 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type policy_variables() :: %{String.t() => any()}
+  @type policy_variables() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1584,103 +1599,103 @@ defmodule AWS.NetworkFirewall do
         optional("AvailabilityZoneChangeProtection") => boolean(),
         optional("AvailabilityZoneMappings") => list(availability_zone_mapping()),
         optional("DeleteProtection") => boolean(),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("EnabledAnalysisTypes") => list(list(any())()),
         optional("EncryptionConfiguration") => encryption_configuration(),
         optional("FirewallPolicyChangeProtection") => boolean(),
         optional("SubnetChangeProtection") => boolean(),
         optional("SubnetMappings") => list(subnet_mapping()),
         optional("Tags") => list(tag()),
-        optional("TransitGatewayId") => String.t(),
-        optional("VpcId") => String.t(),
-        required("FirewallName") => String.t(),
-        required("FirewallPolicyArn") => String.t()
+        optional("TransitGatewayId") => String.t() | Atom.t(),
+        optional("VpcId") => String.t() | Atom.t(),
+        required("FirewallName") => String.t() | Atom.t(),
+        required("FirewallPolicyArn") => String.t() | Atom.t()
       }
       
   """
-  @type create_firewall_request() :: %{String.t() => any()}
+  @type create_firewall_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       analysis_type_report_result() :: %{
-        "Domain" => String.t(),
+        "Domain" => String.t() | Atom.t(),
         "FirstAccessed" => non_neg_integer(),
         "Hits" => hits(),
         "LastAccessed" => non_neg_integer(),
-        "Protocol" => String.t(),
+        "Protocol" => String.t() | Atom.t(),
         "UniqueSources" => unique_sources()
       }
       
   """
-  @type analysis_type_report_result() :: %{String.t() => any()}
+  @type analysis_type_report_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_firewall_request() :: %{
-        optional("FirewallArn") => String.t(),
-        optional("FirewallName") => String.t()
+        optional("FirewallArn") => String.t() | Atom.t(),
+        optional("FirewallName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_firewall_request() :: %{String.t() => any()}
+  @type delete_firewall_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       rule_summary() :: %{
-        "Metadata" => String.t(),
-        "Msg" => String.t(),
-        "SID" => String.t()
+        "Metadata" => String.t() | Atom.t(),
+        "Msg" => String.t() | Atom.t(),
+        "SID" => String.t() | Atom.t()
       }
       
   """
-  @type rule_summary() :: %{String.t() => any()}
+  @type rule_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_t_l_s_inspection_configurations_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "TLSInspectionConfigurations" => list(t_l_s_inspection_configuration_metadata())
       }
       
   """
-  @type list_t_l_s_inspection_configurations_response() :: %{String.t() => any()}
+  @type list_t_l_s_inspection_configurations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_flow_flush_request() :: %{
-        optional("AvailabilityZone") => String.t(),
+        optional("AvailabilityZone") => String.t() | Atom.t(),
         optional("MinimumFlowAgeInSeconds") => integer(),
-        optional("VpcEndpointAssociationArn") => String.t(),
-        optional("VpcEndpointId") => String.t(),
-        required("FirewallArn") => String.t(),
+        optional("VpcEndpointAssociationArn") => String.t() | Atom.t(),
+        optional("VpcEndpointId") => String.t() | Atom.t(),
+        required("FirewallArn") => String.t() | Atom.t(),
         required("FlowFilters") => list(flow_filter())
       }
       
   """
-  @type start_flow_flush_request() :: %{String.t() => any()}
+  @type start_flow_flush_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_flow_flush_response() :: %{
-        "FirewallArn" => String.t(),
-        "FlowOperationId" => String.t(),
+        "FirewallArn" => String.t() | Atom.t(),
+        "FlowOperationId" => String.t() | Atom.t(),
         "FlowOperationStatus" => list(any())
       }
       
   """
-  @type start_flow_flush_response() :: %{String.t() => any()}
+  @type start_flow_flush_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1689,19 +1704,19 @@ defmodule AWS.NetworkFirewall do
       t_l_s_inspection_configuration_response() :: %{
         "CertificateAuthority" => tls_certificate_data(),
         "Certificates" => list(tls_certificate_data()),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "EncryptionConfiguration" => encryption_configuration(),
         "LastModifiedTime" => non_neg_integer(),
         "NumberOfAssociations" => integer(),
-        "TLSInspectionConfigurationArn" => String.t(),
-        "TLSInspectionConfigurationId" => String.t(),
-        "TLSInspectionConfigurationName" => String.t(),
+        "TLSInspectionConfigurationArn" => String.t() | Atom.t(),
+        "TLSInspectionConfigurationId" => String.t() | Atom.t(),
+        "TLSInspectionConfigurationName" => String.t() | Atom.t(),
         "TLSInspectionConfigurationStatus" => list(any()),
         "Tags" => list(tag())
       }
       
   """
-  @type t_l_s_inspection_configuration_response() :: %{String.t() => any()}
+  @type t_l_s_inspection_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1710,11 +1725,11 @@ defmodule AWS.NetworkFirewall do
       describe_t_l_s_inspection_configuration_response() :: %{
         "TLSInspectionConfiguration" => t_l_s_inspection_configuration(),
         "TLSInspectionConfigurationResponse" => t_l_s_inspection_configuration_response(),
-        "UpdateToken" => String.t()
+        "UpdateToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_t_l_s_inspection_configuration_response() :: %{String.t() => any()}
+  @type describe_t_l_s_inspection_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1725,7 +1740,7 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type flow_timeouts() :: %{String.t() => any()}
+  @type flow_timeouts() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1733,11 +1748,11 @@ defmodule AWS.NetworkFirewall do
       
       custom_action() :: %{
         "ActionDefinition" => action_definition(),
-        "ActionName" => String.t()
+        "ActionName" => String.t() | Atom.t()
       }
       
   """
-  @type custom_action() :: %{String.t() => any()}
+  @type custom_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1749,7 +1764,7 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type port_range() :: %{String.t() => any()}
+  @type port_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1758,23 +1773,23 @@ defmodule AWS.NetworkFirewall do
       rules_source_list() :: %{
         "GeneratedRulesType" => list(any()),
         "TargetTypes" => list(list(any())()),
-        "Targets" => list(String.t())
+        "Targets" => list(String.t() | Atom.t())
       }
       
   """
-  @type rules_source_list() :: %{String.t() => any()}
+  @type rules_source_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_resource_policy_request() :: %{
-        required("Policy") => String.t(),
-        required("ResourceArn") => String.t()
+        required("Policy") => String.t() | Atom.t(),
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type put_resource_policy_request() :: %{String.t() => any()}
+  @type put_resource_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1782,25 +1797,25 @@ defmodule AWS.NetworkFirewall do
       
       list_firewall_policies_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_firewall_policies_request() :: %{String.t() => any()}
+  @type list_firewall_policies_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_availability_zones_request() :: %{
-        optional("FirewallArn") => String.t(),
-        optional("FirewallName") => String.t(),
-        optional("UpdateToken") => String.t(),
+        optional("FirewallArn") => String.t() | Atom.t(),
+        optional("FirewallName") => String.t() | Atom.t(),
+        optional("UpdateToken") => String.t() | Atom.t(),
         required("AvailabilityZoneMappings") => list(availability_zone_mapping())
       }
       
   """
-  @type disassociate_availability_zones_request() :: %{String.t() => any()}
+  @type disassociate_availability_zones_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1808,11 +1823,11 @@ defmodule AWS.NetworkFirewall do
       
       list_firewall_policies_response() :: %{
         "FirewallPolicies" => list(firewall_policy_metadata()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_firewall_policies_response() :: %{String.t() => any()}
+  @type list_firewall_policies_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1820,48 +1835,48 @@ defmodule AWS.NetworkFirewall do
       
       update_firewall_delete_protection_response() :: %{
         "DeleteProtection" => boolean(),
-        "FirewallArn" => String.t(),
-        "FirewallName" => String.t(),
-        "UpdateToken" => String.t()
+        "FirewallArn" => String.t() | Atom.t(),
+        "FirewallName" => String.t() | Atom.t(),
+        "UpdateToken" => String.t() | Atom.t()
       }
       
   """
-  @type update_firewall_delete_protection_response() :: %{String.t() => any()}
+  @type update_firewall_delete_protection_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       port_set() :: %{
-        "Definition" => list(String.t())
+        "Definition" => list(String.t() | Atom.t())
       }
       
   """
-  @type port_set() :: %{String.t() => any()}
+  @type port_set() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_error() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type internal_server_error() :: %{String.t() => any()}
+  @type internal_server_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       transit_gateway_attachment_sync_state() :: %{
-        "AttachmentId" => String.t(),
-        "StatusMessage" => String.t(),
+        "AttachmentId" => String.t() | Atom.t(),
+        "StatusMessage" => String.t() | Atom.t(),
         "TransitGatewayAttachmentStatus" => list(any())
       }
       
   """
-  @type transit_gateway_attachment_sync_state() :: %{String.t() => any()}
+  @type transit_gateway_attachment_sync_state() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1872,7 +1887,7 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type capacity_usage_summary() :: %{String.t() => any()}
+  @type capacity_usage_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1880,13 +1895,13 @@ defmodule AWS.NetworkFirewall do
       
       update_firewall_encryption_configuration_request() :: %{
         optional("EncryptionConfiguration") => encryption_configuration(),
-        optional("FirewallArn") => String.t(),
-        optional("FirewallName") => String.t(),
-        optional("UpdateToken") => String.t()
+        optional("FirewallArn") => String.t() | Atom.t(),
+        optional("FirewallName") => String.t() | Atom.t(),
+        optional("UpdateToken") => String.t() | Atom.t()
       }
       
   """
-  @type update_firewall_encryption_configuration_request() :: %{String.t() => any()}
+  @type update_firewall_encryption_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1897,7 +1912,7 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type delete_t_l_s_inspection_configuration_response() :: %{String.t() => any()}
+  @type delete_t_l_s_inspection_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1905,21 +1920,21 @@ defmodule AWS.NetworkFirewall do
       
       update_rule_group_request() :: %{
         optional("AnalyzeRuleGroup") => boolean(),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("DryRun") => boolean(),
         optional("EncryptionConfiguration") => encryption_configuration(),
         optional("RuleGroup") => rule_group(),
-        optional("RuleGroupArn") => String.t(),
-        optional("RuleGroupName") => String.t(),
-        optional("Rules") => String.t(),
+        optional("RuleGroupArn") => String.t() | Atom.t(),
+        optional("RuleGroupName") => String.t() | Atom.t(),
+        optional("Rules") => String.t() | Atom.t(),
         optional("SourceMetadata") => source_metadata(),
         optional("SummaryConfiguration") => summary_configuration(),
         optional("Type") => list(any()),
-        required("UpdateToken") => String.t()
+        required("UpdateToken") => String.t() | Atom.t()
       }
       
   """
-  @type update_rule_group_request() :: %{String.t() => any()}
+  @type update_rule_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1930,7 +1945,7 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type delete_rule_group_response() :: %{String.t() => any()}
+  @type delete_rule_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1938,11 +1953,11 @@ defmodule AWS.NetworkFirewall do
       
       create_t_l_s_inspection_configuration_response() :: %{
         "TLSInspectionConfigurationResponse" => t_l_s_inspection_configuration_response(),
-        "UpdateToken" => String.t()
+        "UpdateToken" => String.t() | Atom.t()
       }
       
   """
-  @type create_t_l_s_inspection_configuration_response() :: %{String.t() => any()}
+  @type create_t_l_s_inspection_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1958,12 +1973,12 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       firewall_policy_metadata() :: %{
-        "Arn" => String.t(),
-        "Name" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
       
   """
-  @type firewall_policy_metadata() :: %{String.t() => any()}
+  @type firewall_policy_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1974,7 +1989,7 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type stateful_rule_options() :: %{String.t() => any()}
+  @type stateful_rule_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1982,26 +1997,26 @@ defmodule AWS.NetworkFirewall do
       
       list_firewalls_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("VpcIds") => list(String.t())
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("VpcIds") => list(String.t() | Atom.t())
       }
       
   """
-  @type list_firewalls_request() :: %{String.t() => any()}
+  @type list_firewalls_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_firewall_policy_response() :: %{
-        "FirewallArn" => String.t(),
-        "FirewallName" => String.t(),
-        "FirewallPolicyArn" => String.t(),
-        "UpdateToken" => String.t()
+        "FirewallArn" => String.t() | Atom.t(),
+        "FirewallName" => String.t() | Atom.t(),
+        "FirewallPolicyArn" => String.t() | Atom.t(),
+        "UpdateToken" => String.t() | Atom.t()
       }
       
   """
-  @type associate_firewall_policy_response() :: %{String.t() => any()}
+  @type associate_firewall_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2014,18 +2029,18 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type log_destination_config() :: %{String.t() => any()}
+  @type log_destination_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_resource_policy_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_resource_policy_exception() :: %{String.t() => any()}
+  @type invalid_resource_policy_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2034,11 +2049,11 @@ defmodule AWS.NetworkFirewall do
       describe_firewall_response() :: %{
         "Firewall" => firewall(),
         "FirewallStatus" => firewall_status(),
-        "UpdateToken" => String.t()
+        "UpdateToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_firewall_response() :: %{String.t() => any()}
+  @type describe_firewall_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2049,7 +2064,7 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type unique_sources() :: %{String.t() => any()}
+  @type unique_sources() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2057,12 +2072,12 @@ defmodule AWS.NetworkFirewall do
       
       list_tags_for_resource_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ResourceArn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2070,11 +2085,11 @@ defmodule AWS.NetworkFirewall do
       
       update_t_l_s_inspection_configuration_response() :: %{
         "TLSInspectionConfigurationResponse" => t_l_s_inspection_configuration_response(),
-        "UpdateToken" => String.t()
+        "UpdateToken" => String.t() | Atom.t()
       }
       
   """
-  @type update_t_l_s_inspection_configuration_response() :: %{String.t() => any()}
+  @type update_t_l_s_inspection_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2086,7 +2101,7 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type rule_variables() :: %{String.t() => any()}
+  @type rule_variables() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2094,24 +2109,24 @@ defmodule AWS.NetworkFirewall do
       
       update_firewall_analysis_settings_response() :: %{
         "EnabledAnalysisTypes" => list(list(any())()),
-        "FirewallArn" => String.t(),
-        "FirewallName" => String.t(),
-        "UpdateToken" => String.t()
+        "FirewallArn" => String.t() | Atom.t(),
+        "FirewallName" => String.t() | Atom.t(),
+        "UpdateToken" => String.t() | Atom.t()
       }
       
   """
-  @type update_firewall_analysis_settings_response() :: %{String.t() => any()}
+  @type update_firewall_analysis_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2119,48 +2134,48 @@ defmodule AWS.NetworkFirewall do
       
       describe_logging_configuration_response() :: %{
         "EnableMonitoringDashboard" => boolean(),
-        "FirewallArn" => String.t(),
+        "FirewallArn" => String.t() | Atom.t(),
         "LoggingConfiguration" => logging_configuration()
       }
       
   """
-  @type describe_logging_configuration_response() :: %{String.t() => any()}
+  @type describe_logging_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_resource_policy_response() :: %{
-        "Policy" => String.t()
+        "Policy" => String.t() | Atom.t()
       }
       
   """
-  @type describe_resource_policy_response() :: %{String.t() => any()}
+  @type describe_resource_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_subnets_request() :: %{
-        optional("FirewallArn") => String.t(),
-        optional("FirewallName") => String.t(),
-        optional("UpdateToken") => String.t(),
-        required("SubnetIds") => list(String.t())
+        optional("FirewallArn") => String.t() | Atom.t(),
+        optional("FirewallName") => String.t() | Atom.t(),
+        optional("UpdateToken") => String.t() | Atom.t(),
+        required("SubnetIds") => list(String.t() | Atom.t())
       }
       
   """
-  @type disassociate_subnets_request() :: %{String.t() => any()}
+  @type disassociate_subnets_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       log_destination_permission_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type log_destination_permission_exception() :: %{String.t() => any()}
+  @type log_destination_permission_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2171,19 +2186,19 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type availability_zone_metadata() :: %{String.t() => any()}
+  @type availability_zone_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_firewall_policy_request() :: %{
-        optional("FirewallPolicyArn") => String.t(),
-        optional("FirewallPolicyName") => String.t()
+        optional("FirewallPolicyArn") => String.t() | Atom.t(),
+        optional("FirewallPolicyName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_firewall_policy_request() :: %{String.t() => any()}
+  @type delete_firewall_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2199,72 +2214,75 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_vpc_endpoint_association_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("FirewallArn") => String.t(),
+        required("FirewallArn") => String.t() | Atom.t(),
         required("SubnetMapping") => subnet_mapping(),
-        required("VpcId") => String.t()
+        required("VpcId") => String.t() | Atom.t()
       }
       
   """
-  @type create_vpc_endpoint_association_request() :: %{String.t() => any()}
+  @type create_vpc_endpoint_association_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_analysis_report_request() :: %{
-        optional("FirewallArn") => String.t(),
-        optional("FirewallName") => String.t(),
+        optional("FirewallArn") => String.t() | Atom.t(),
+        optional("FirewallName") => String.t() | Atom.t(),
         required("AnalysisType") => list(any())
       }
       
   """
-  @type start_analysis_report_request() :: %{String.t() => any()}
+  @type start_analysis_report_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reject_network_firewall_transit_gateway_attachment_request() :: %{
-        required("TransitGatewayAttachmentId") => String.t()
+        required("TransitGatewayAttachmentId") => String.t() | Atom.t()
       }
       
   """
-  @type reject_network_firewall_transit_gateway_attachment_request() :: %{String.t() => any()}
+  @type reject_network_firewall_transit_gateway_attachment_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       dimension() :: %{
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type dimension() :: %{String.t() => any()}
+  @type dimension() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_resource_policy_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_resource_policy_request() :: %{String.t() => any()}
+  @type delete_resource_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2275,83 +2293,83 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type summary_configuration() :: %{String.t() => any()}
+  @type summary_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_availability_zones_request() :: %{
-        optional("FirewallArn") => String.t(),
-        optional("FirewallName") => String.t(),
-        optional("UpdateToken") => String.t(),
+        optional("FirewallArn") => String.t() | Atom.t(),
+        optional("FirewallName") => String.t() | Atom.t(),
+        optional("UpdateToken") => String.t() | Atom.t(),
         required("AvailabilityZoneMappings") => list(availability_zone_mapping())
       }
       
   """
-  @type associate_availability_zones_request() :: %{String.t() => any()}
+  @type associate_availability_zones_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_t_l_s_inspection_configuration_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("EncryptionConfiguration") => encryption_configuration(),
-        optional("TLSInspectionConfigurationArn") => String.t(),
-        optional("TLSInspectionConfigurationName") => String.t(),
+        optional("TLSInspectionConfigurationArn") => String.t() | Atom.t(),
+        optional("TLSInspectionConfigurationName") => String.t() | Atom.t(),
         required("TLSInspectionConfiguration") => t_l_s_inspection_configuration(),
-        required("UpdateToken") => String.t()
+        required("UpdateToken") => String.t() | Atom.t()
       }
       
   """
-  @type update_t_l_s_inspection_configuration_request() :: %{String.t() => any()}
+  @type update_t_l_s_inspection_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_flow_operation_results_response() :: %{
-        "AvailabilityZone" => String.t(),
-        "FirewallArn" => String.t(),
-        "FlowOperationId" => String.t(),
+        "AvailabilityZone" => String.t() | Atom.t(),
+        "FirewallArn" => String.t() | Atom.t(),
+        "FlowOperationId" => String.t() | Atom.t(),
         "FlowOperationStatus" => list(any()),
         "FlowRequestTimestamp" => non_neg_integer(),
         "Flows" => list(flow()),
-        "NextToken" => String.t(),
-        "StatusMessage" => String.t(),
-        "VpcEndpointAssociationArn" => String.t(),
-        "VpcEndpointId" => String.t()
+        "NextToken" => String.t() | Atom.t(),
+        "StatusMessage" => String.t() | Atom.t(),
+        "VpcEndpointAssociationArn" => String.t() | Atom.t(),
+        "VpcEndpointId" => String.t() | Atom.t()
       }
       
   """
-  @type list_flow_operation_results_response() :: %{String.t() => any()}
+  @type list_flow_operation_results_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_firewall_delete_protection_request() :: %{
-        optional("FirewallArn") => String.t(),
-        optional("FirewallName") => String.t(),
-        optional("UpdateToken") => String.t(),
+        optional("FirewallArn") => String.t() | Atom.t(),
+        optional("FirewallName") => String.t() | Atom.t(),
+        optional("UpdateToken") => String.t() | Atom.t(),
         required("DeleteProtection") => boolean()
       }
       
   """
-  @type update_firewall_delete_protection_request() :: %{String.t() => any()}
+  @type update_firewall_delete_protection_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       source_metadata() :: %{
-        "SourceArn" => String.t(),
-        "SourceUpdateToken" => String.t()
+        "SourceArn" => String.t() | Atom.t(),
+        "SourceUpdateToken" => String.t() | Atom.t()
       }
       
   """
-  @type source_metadata() :: %{String.t() => any()}
+  @type source_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2359,25 +2377,25 @@ defmodule AWS.NetworkFirewall do
       
       update_firewall_policy_response() :: %{
         "FirewallPolicyResponse" => firewall_policy_response(),
-        "UpdateToken" => String.t()
+        "UpdateToken" => String.t() | Atom.t()
       }
       
   """
-  @type update_firewall_policy_response() :: %{String.t() => any()}
+  @type update_firewall_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_firewall_description_response() :: %{
-        "Description" => String.t(),
-        "FirewallArn" => String.t(),
-        "FirewallName" => String.t(),
-        "UpdateToken" => String.t()
+        "Description" => String.t() | Atom.t(),
+        "FirewallArn" => String.t() | Atom.t(),
+        "FirewallName" => String.t() | Atom.t(),
+        "UpdateToken" => String.t() | Atom.t()
       }
       
   """
-  @type update_firewall_description_response() :: %{String.t() => any()}
+  @type update_firewall_description_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2393,7 +2411,7 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type match_attributes() :: %{String.t() => any()}
+  @type match_attributes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2401,52 +2419,52 @@ defmodule AWS.NetworkFirewall do
       
       describe_rule_group_metadata_response() :: %{
         "Capacity" => integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "RuleGroupArn" => String.t(),
-        "RuleGroupName" => String.t(),
+        "RuleGroupArn" => String.t() | Atom.t(),
+        "RuleGroupName" => String.t() | Atom.t(),
         "StatefulRuleOptions" => stateful_rule_options(),
         "Type" => list(any())
       }
       
   """
-  @type describe_rule_group_metadata_response() :: %{String.t() => any()}
+  @type describe_rule_group_metadata_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_subnets_request() :: %{
-        optional("FirewallArn") => String.t(),
-        optional("FirewallName") => String.t(),
-        optional("UpdateToken") => String.t(),
+        optional("FirewallArn") => String.t() | Atom.t(),
+        optional("FirewallName") => String.t() | Atom.t(),
+        optional("UpdateToken") => String.t() | Atom.t(),
         required("SubnetMappings") => list(subnet_mapping())
       }
       
   """
-  @type associate_subnets_request() :: %{String.t() => any()}
+  @type associate_subnets_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       address() :: %{
-        "AddressDefinition" => String.t()
+        "AddressDefinition" => String.t() | Atom.t()
       }
       
   """
-  @type address() :: %{String.t() => any()}
+  @type address() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_firewall_metadata_request() :: %{
-        optional("FirewallArn") => String.t()
+        optional("FirewallArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_firewall_metadata_request() :: %{String.t() => any()}
+  @type describe_firewall_metadata_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2456,15 +2474,15 @@ defmodule AWS.NetworkFirewall do
         "Age" => integer(),
         "ByteCount" => float(),
         "DestinationAddress" => address(),
-        "DestinationPort" => String.t(),
+        "DestinationPort" => String.t() | Atom.t(),
         "PacketCount" => integer(),
-        "Protocol" => String.t(),
+        "Protocol" => String.t() | Atom.t(),
         "SourceAddress" => address(),
-        "SourcePort" => String.t()
+        "SourcePort" => String.t() | Atom.t()
       }
       
   """
-  @type flow() :: %{String.t() => any()}
+  @type flow() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2472,13 +2490,13 @@ defmodule AWS.NetworkFirewall do
       
       update_logging_configuration_response() :: %{
         "EnableMonitoringDashboard" => boolean(),
-        "FirewallArn" => String.t(),
-        "FirewallName" => String.t(),
+        "FirewallArn" => String.t() | Atom.t(),
+        "FirewallName" => String.t() | Atom.t(),
         "LoggingConfiguration" => logging_configuration()
       }
       
   """
-  @type update_logging_configuration_response() :: %{String.t() => any()}
+  @type update_logging_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2487,11 +2505,11 @@ defmodule AWS.NetworkFirewall do
       describe_rule_group_response() :: %{
         "RuleGroup" => rule_group(),
         "RuleGroupResponse" => rule_group_response(),
-        "UpdateToken" => String.t()
+        "UpdateToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_rule_group_response() :: %{String.t() => any()}
+  @type describe_rule_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2503,31 +2521,31 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type stateless_rule() :: %{String.t() => any()}
+  @type stateless_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_token_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_token_exception() :: %{String.t() => any()}
+  @type invalid_token_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_rule_group_request() :: %{
-        optional("RuleGroupArn") => String.t(),
-        optional("RuleGroupName") => String.t(),
+        optional("RuleGroupArn") => String.t() | Atom.t(),
+        optional("RuleGroupName") => String.t() | Atom.t(),
         optional("Type") => list(any())
       }
       
   """
-  @type delete_rule_group_request() :: %{String.t() => any()}
+  @type delete_rule_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2535,35 +2553,35 @@ defmodule AWS.NetworkFirewall do
       
       stateless_rule_group_reference() :: %{
         "Priority" => integer(),
-        "ResourceArn" => String.t()
+        "ResourceArn" => String.t() | Atom.t()
       }
       
   """
-  @type stateless_rule_group_reference() :: %{String.t() => any()}
+  @type stateless_rule_group_reference() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       firewall_metadata() :: %{
-        "FirewallArn" => String.t(),
-        "FirewallName" => String.t(),
-        "TransitGatewayAttachmentId" => String.t()
+        "FirewallArn" => String.t() | Atom.t(),
+        "FirewallName" => String.t() | Atom.t(),
+        "TransitGatewayAttachmentId" => String.t() | Atom.t()
       }
       
   """
-  @type firewall_metadata() :: %{String.t() => any()}
+  @type firewall_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_vpc_endpoint_association_request() :: %{
-        required("VpcEndpointAssociationArn") => String.t()
+        required("VpcEndpointAssociationArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_vpc_endpoint_association_request() :: %{String.t() => any()}
+  @type delete_vpc_endpoint_association_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2574,7 +2592,7 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type summary() :: %{String.t() => any()}
+  @type summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2587,21 +2605,21 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type c_id_r_summary() :: %{String.t() => any()}
+  @type c_id_r_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_subnet_change_protection_response() :: %{
-        "FirewallArn" => String.t(),
-        "FirewallName" => String.t(),
+        "FirewallArn" => String.t() | Atom.t(),
+        "FirewallName" => String.t() | Atom.t(),
         "SubnetChangeProtection" => boolean(),
-        "UpdateToken" => String.t()
+        "UpdateToken" => String.t() | Atom.t()
       }
       
   """
-  @type update_subnet_change_protection_response() :: %{String.t() => any()}
+  @type update_subnet_change_protection_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2613,19 +2631,19 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type stateless_rules_and_custom_actions() :: %{String.t() => any()}
+  @type stateless_rules_and_custom_actions() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       rule_option() :: %{
-        "Keyword" => String.t(),
-        "Settings" => list(String.t())
+        "Keyword" => String.t() | Atom.t(),
+        "Settings" => list(String.t() | Atom.t())
       }
       
   """
-  @type rule_option() :: %{String.t() => any()}
+  @type rule_option() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2633,13 +2651,13 @@ defmodule AWS.NetworkFirewall do
       
       disassociate_availability_zones_response() :: %{
         "AvailabilityZoneMappings" => list(availability_zone_mapping()),
-        "FirewallArn" => String.t(),
-        "FirewallName" => String.t(),
-        "UpdateToken" => String.t()
+        "FirewallArn" => String.t() | Atom.t(),
+        "FirewallName" => String.t() | Atom.t(),
+        "UpdateToken" => String.t() | Atom.t()
       }
       
   """
-  @type disassociate_availability_zones_response() :: %{String.t() => any()}
+  @type disassociate_availability_zones_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2651,29 +2669,29 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type check_certificate_revocation_status_actions() :: %{String.t() => any()}
+  @type check_certificate_revocation_status_actions() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_analysis_report_response() :: %{
-        "AnalysisReportId" => String.t()
+        "AnalysisReportId" => String.t() | Atom.t()
       }
       
   """
-  @type start_analysis_report_response() :: %{String.t() => any()}
+  @type start_analysis_report_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       ip_set_reference() :: %{
-        "ReferenceArn" => String.t()
+        "ReferenceArn" => String.t() | Atom.t()
       }
       
   """
-  @type ip_set_reference() :: %{String.t() => any()}
+  @type ip_set_reference() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2682,13 +2700,13 @@ defmodule AWS.NetworkFirewall do
       list_rule_groups_request() :: %{
         optional("ManagedType") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("Scope") => list(any()),
         optional("Type") => list(any())
       }
       
   """
-  @type list_rule_groups_request() :: %{String.t() => any()}
+  @type list_rule_groups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2699,54 +2717,54 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type action_definition() :: %{String.t() => any()}
+  @type action_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_firewall_policy_request() :: %{
-        optional("FirewallPolicyArn") => String.t(),
-        optional("FirewallPolicyName") => String.t()
+        optional("FirewallPolicyArn") => String.t() | Atom.t(),
+        optional("FirewallPolicyName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_firewall_policy_request() :: %{String.t() => any()}
+  @type describe_firewall_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       server_certificate() :: %{
-        "ResourceArn" => String.t()
+        "ResourceArn" => String.t() | Atom.t()
       }
       
   """
-  @type server_certificate() :: %{String.t() => any()}
+  @type server_certificate() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_resource_policy_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_resource_policy_request() :: %{String.t() => any()}
+  @type describe_resource_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_vpc_endpoint_associations_request() :: %{
-        optional("FirewallArn") => String.t(),
+        optional("FirewallArn") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_vpc_endpoint_associations_request() :: %{String.t() => any()}
+  @type list_vpc_endpoint_associations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2755,25 +2773,25 @@ defmodule AWS.NetworkFirewall do
       describe_firewall_policy_response() :: %{
         "FirewallPolicy" => firewall_policy(),
         "FirewallPolicyResponse" => firewall_policy_response(),
-        "UpdateToken" => String.t()
+        "UpdateToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_firewall_policy_response() :: %{String.t() => any()}
+  @type describe_firewall_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_availability_zone_change_protection_request() :: %{
-        optional("FirewallArn") => String.t(),
-        optional("FirewallName") => String.t(),
-        optional("UpdateToken") => String.t(),
+        optional("FirewallArn") => String.t() | Atom.t(),
+        optional("FirewallName") => String.t() | Atom.t(),
+        optional("UpdateToken") => String.t() | Atom.t(),
         required("AvailabilityZoneChangeProtection") => boolean()
       }
       
   """
-  @type update_availability_zone_change_protection_request() :: %{String.t() => any()}
+  @type update_availability_zone_change_protection_request() :: %{String.t() | Atom.t() => any()}
 
   @type accept_network_firewall_transit_gateway_attachment_errors() ::
           throttling_exception()

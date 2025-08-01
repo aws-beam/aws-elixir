@@ -69,13 +69,13 @@ defmodule AWS.Budgets do
   ## Example:
       
       delete_budget_action_request() :: %{
-        required("AccountId") => String.t(),
-        required("ActionId") => String.t(),
-        required("BudgetName") => String.t()
+        required("AccountId") => String.t() | Atom.t(),
+        required("ActionId") => String.t() | Atom.t(),
+        required("BudgetName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_budget_action_request() :: %{String.t() => any()}
+  @type delete_budget_action_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -84,23 +84,23 @@ defmodule AWS.Budgets do
       expression_dimension_values() :: %{
         "Key" => list(any()),
         "MatchOptions" => list(list(any())()),
-        "Values" => list(String.t())
+        "Values" => list(String.t() | Atom.t())
       }
       
   """
-  @type expression_dimension_values() :: %{String.t() => any()}
+  @type expression_dimension_values() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
+        required("ResourceARN") => String.t() | Atom.t(),
         required("ResourceTags") => list(resource_tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -108,11 +108,11 @@ defmodule AWS.Budgets do
       
       describe_budgets_response() :: %{
         "Budgets" => list(budget()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_budgets_response() :: %{String.t() => any()}
+  @type describe_budgets_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -120,12 +120,12 @@ defmodule AWS.Budgets do
       
       describe_budget_notifications_for_account_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("AccountId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("AccountId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_budget_notifications_for_account_request() :: %{String.t() => any()}
+  @type describe_budget_notifications_for_account_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -141,27 +141,27 @@ defmodule AWS.Budgets do
   ## Example:
       
       delete_subscriber_request() :: %{
-        required("AccountId") => String.t(),
-        required("BudgetName") => String.t(),
+        required("AccountId") => String.t() | Atom.t(),
+        required("BudgetName") => String.t() | Atom.t(),
         required("Notification") => notification(),
         required("Subscriber") => subscriber()
       }
       
   """
-  @type delete_subscriber_request() :: %{String.t() => any()}
+  @type delete_subscriber_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_budget_action_response() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | Atom.t(),
         "Action" => action(),
-        "BudgetName" => String.t()
+        "BudgetName" => String.t() | Atom.t()
       }
       
   """
-  @type delete_budget_action_response() :: %{String.t() => any()}
+  @type delete_budget_action_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -169,15 +169,15 @@ defmodule AWS.Budgets do
       
       describe_budget_action_histories_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("TimePeriod") => time_period(),
-        required("AccountId") => String.t(),
-        required("ActionId") => String.t(),
-        required("BudgetName") => String.t()
+        required("AccountId") => String.t() | Atom.t(),
+        required("ActionId") => String.t() | Atom.t(),
+        required("BudgetName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_budget_action_histories_request() :: %{String.t() => any()}
+  @type describe_budget_action_histories_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -211,13 +211,13 @@ defmodule AWS.Budgets do
   ## Example:
       
       tag_values() :: %{
-        "Key" => String.t(),
+        "Key" => String.t() | Atom.t(),
         "MatchOptions" => list(list(any())()),
-        "Values" => list(String.t())
+        "Values" => list(String.t() | Atom.t())
       }
       
   """
-  @type tag_values() :: %{String.t() => any()}
+  @type tag_values() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -229,7 +229,7 @@ defmodule AWS.Budgets do
       }
       
   """
-  @type action_threshold() :: %{String.t() => any()}
+  @type action_threshold() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -245,12 +245,12 @@ defmodule AWS.Budgets do
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
-        required("ResourceTagKeys") => list(String.t())
+        required("ResourceARN") => String.t() | Atom.t(),
+        required("ResourceTagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -260,16 +260,16 @@ defmodule AWS.Budgets do
         optional("ActionThreshold") => action_threshold(),
         optional("ApprovalModel") => list(any()),
         optional("Definition") => definition(),
-        optional("ExecutionRoleArn") => String.t(),
+        optional("ExecutionRoleArn") => String.t() | Atom.t(),
         optional("NotificationType") => list(any()),
         optional("Subscribers") => list(subscriber()),
-        required("AccountId") => String.t(),
-        required("ActionId") => String.t(),
-        required("BudgetName") => String.t()
+        required("AccountId") => String.t() | Atom.t(),
+        required("ActionId") => String.t() | Atom.t(),
+        required("BudgetName") => String.t() | Atom.t()
       }
       
   """
-  @type update_budget_action_request() :: %{String.t() => any()}
+  @type update_budget_action_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -277,12 +277,12 @@ defmodule AWS.Budgets do
       
       describe_budget_actions_for_account_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("AccountId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("AccountId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_budget_actions_for_account_request() :: %{String.t() => any()}
+  @type describe_budget_actions_for_account_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -290,13 +290,13 @@ defmodule AWS.Budgets do
       
       describe_budgets_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("ShowFilterExpression") => boolean(),
-        required("AccountId") => String.t()
+        required("AccountId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_budgets_request() :: %{String.t() => any()}
+  @type describe_budgets_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -308,7 +308,7 @@ defmodule AWS.Budgets do
       }
       
   """
-  @type time_period() :: %{String.t() => any()}
+  @type time_period() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -325,11 +325,11 @@ defmodule AWS.Budgets do
       
       describe_budget_actions_for_budget_response() :: %{
         "Actions" => list(action()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_budget_actions_for_budget_response() :: %{String.t() => any()}
+  @type describe_budget_actions_for_budget_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -337,25 +337,25 @@ defmodule AWS.Budgets do
       
       describe_budget_actions_for_budget_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("AccountId") => String.t(),
-        required("BudgetName") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("AccountId") => String.t() | Atom.t(),
+        required("BudgetName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_budget_actions_for_budget_request() :: %{String.t() => any()}
+  @type describe_budget_actions_for_budget_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_budget_request() :: %{
-        required("AccountId") => String.t(),
+        required("AccountId") => String.t() | Atom.t(),
         required("NewBudget") => budget()
       }
       
   """
-  @type update_budget_request() :: %{String.t() => any()}
+  @type update_budget_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -371,23 +371,23 @@ defmodule AWS.Budgets do
   ## Example:
       
       expired_next_token_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type expired_next_token_exception() :: %{String.t() => any()}
+  @type expired_next_token_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_subscribers_for_notification_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Subscribers" => list(subscriber())
       }
       
   """
-  @type describe_subscribers_for_notification_response() :: %{String.t() => any()}
+  @type describe_subscribers_for_notification_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -395,25 +395,25 @@ defmodule AWS.Budgets do
       
       describe_budget_notifications_for_account_response() :: %{
         "BudgetNotificationsForAccount" => list(budget_notifications_for_account()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_budget_notifications_for_account_response() :: %{String.t() => any()}
+  @type describe_budget_notifications_for_account_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       execute_budget_action_response() :: %{
-        "AccountId" => String.t(),
-        "ActionId" => String.t(),
-        "BudgetName" => String.t(),
+        "AccountId" => String.t() | Atom.t(),
+        "ActionId" => String.t() | Atom.t(),
+        "BudgetName" => String.t() | Atom.t(),
         "ExecutionType" => list(any())
       }
       
   """
-  @type execute_budget_action_response() :: %{String.t() => any()}
+  @type execute_budget_action_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -425,34 +425,34 @@ defmodule AWS.Budgets do
       }
       
   """
-  @type calculated_spend() :: %{String.t() => any()}
+  @type calculated_spend() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_subscriber_request() :: %{
-        required("AccountId") => String.t(),
-        required("BudgetName") => String.t(),
+        required("AccountId") => String.t() | Atom.t(),
+        required("BudgetName") => String.t() | Atom.t(),
         required("NewSubscriber") => subscriber(),
         required("Notification") => notification(),
         required("OldSubscriber") => subscriber()
       }
       
   """
-  @type update_subscriber_request() :: %{String.t() => any()}
+  @type update_subscriber_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       scp_action_definition() :: %{
-        "PolicyId" => String.t(),
-        "TargetIds" => list(String.t())
+        "PolicyId" => String.t() | Atom.t(),
+        "TargetIds" => list(String.t() | Atom.t())
       }
       
   """
-  @type scp_action_definition() :: %{String.t() => any()}
+  @type scp_action_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -460,11 +460,11 @@ defmodule AWS.Budgets do
       
       describe_budget_performance_history_response() :: %{
         "BudgetPerformanceHistory" => budget_performance_history(),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_budget_performance_history_response() :: %{String.t() => any()}
+  @type describe_budget_performance_history_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -478,18 +478,18 @@ defmodule AWS.Budgets do
       }
       
   """
-  @type action_history() :: %{String.t() => any()}
+  @type action_history() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -497,23 +497,23 @@ defmodule AWS.Budgets do
       
       ssm_action_definition() :: %{
         "ActionSubType" => list(any()),
-        "InstanceIds" => list(String.t()),
-        "Region" => String.t()
+        "InstanceIds" => list(String.t() | Atom.t()),
+        "Region" => String.t() | Atom.t()
       }
       
   """
-  @type ssm_action_definition() :: %{String.t() => any()}
+  @type ssm_action_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_next_token_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_next_token_exception() :: %{String.t() => any()}
+  @type invalid_next_token_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -521,22 +521,22 @@ defmodule AWS.Budgets do
       
       describe_budget_action_histories_response() :: %{
         "ActionHistories" => list(action_history()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_budget_action_histories_response() :: %{String.t() => any()}
+  @type describe_budget_action_histories_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type not_found_exception() :: %{String.t() => any()}
+  @type not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -557,7 +557,7 @@ defmodule AWS.Budgets do
       }
       
   """
-  @type cost_types() :: %{String.t() => any()}
+  @type cost_types() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -577,7 +577,7 @@ defmodule AWS.Budgets do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -590,7 +590,7 @@ defmodule AWS.Budgets do
       }
       
   """
-  @type auto_adjust_data() :: %{String.t() => any()}
+  @type auto_adjust_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -602,19 +602,19 @@ defmodule AWS.Budgets do
       }
       
   """
-  @type notification_with_subscribers() :: %{String.t() => any()}
+  @type notification_with_subscribers() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       subscriber() :: %{
-        "Address" => String.t(),
+        "Address" => String.t() | Atom.t(),
         "SubscriptionType" => list(any())
       }
       
   """
-  @type subscriber() :: %{String.t() => any()}
+  @type subscriber() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -622,19 +622,19 @@ defmodule AWS.Budgets do
       
       create_budget_action_request() :: %{
         optional("ResourceTags") => list(resource_tag()),
-        required("AccountId") => String.t(),
+        required("AccountId") => String.t() | Atom.t(),
         required("ActionThreshold") => action_threshold(),
         required("ActionType") => list(any()),
         required("ApprovalModel") => list(any()),
-        required("BudgetName") => String.t(),
+        required("BudgetName") => String.t() | Atom.t(),
         required("Definition") => definition(),
-        required("ExecutionRoleArn") => String.t(),
+        required("ExecutionRoleArn") => String.t() | Atom.t(),
         required("NotificationType") => list(any()),
         required("Subscribers") => list(subscriber())
       }
       
   """
-  @type create_budget_action_request() :: %{String.t() => any()}
+  @type create_budget_action_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -642,26 +642,26 @@ defmodule AWS.Budgets do
       
       describe_notifications_for_budget_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("AccountId") => String.t(),
-        required("BudgetName") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("AccountId") => String.t() | Atom.t(),
+        required("BudgetName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_notifications_for_budget_request() :: %{String.t() => any()}
+  @type describe_notifications_for_budget_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_budget_action_request() :: %{
-        required("AccountId") => String.t(),
-        required("ActionId") => String.t(),
-        required("BudgetName") => String.t()
+        required("AccountId") => String.t() | Atom.t(),
+        required("ActionId") => String.t() | Atom.t(),
+        required("BudgetName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_budget_action_request() :: %{String.t() => any()}
+  @type describe_budget_action_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -669,38 +669,38 @@ defmodule AWS.Budgets do
       
       describe_budget_request() :: %{
         optional("ShowFilterExpression") => boolean(),
-        required("AccountId") => String.t(),
-        required("BudgetName") => String.t()
+        required("AccountId") => String.t() | Atom.t(),
+        required("BudgetName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_budget_request() :: %{String.t() => any()}
+  @type describe_budget_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_notification_request() :: %{
-        required("AccountId") => String.t(),
-        required("BudgetName") => String.t(),
+        required("AccountId") => String.t() | Atom.t(),
+        required("BudgetName") => String.t() | Atom.t(),
         required("NewNotification") => notification(),
         required("OldNotification") => notification()
       }
       
   """
-  @type update_notification_request() :: %{String.t() => any()}
+  @type update_notification_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type resource_tag() :: %{String.t() => any()}
+  @type resource_tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -708,44 +708,44 @@ defmodule AWS.Budgets do
       
       describe_budget_actions_for_account_response() :: %{
         "Actions" => list(action()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_budget_actions_for_account_response() :: %{String.t() => any()}
+  @type describe_budget_actions_for_account_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       action() :: %{
-        "ActionId" => String.t(),
+        "ActionId" => String.t() | Atom.t(),
         "ActionThreshold" => action_threshold(),
         "ActionType" => list(any()),
         "ApprovalModel" => list(any()),
-        "BudgetName" => String.t(),
+        "BudgetName" => String.t() | Atom.t(),
         "Definition" => definition(),
-        "ExecutionRoleArn" => String.t(),
+        "ExecutionRoleArn" => String.t() | Atom.t(),
         "NotificationType" => list(any()),
         "Status" => list(any()),
         "Subscribers" => list(subscriber())
       }
       
   """
-  @type action() :: %{String.t() => any()}
+  @type action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cost_category_values() :: %{
-        "Key" => String.t(),
+        "Key" => String.t() | Atom.t(),
         "MatchOptions" => list(list(any())()),
-        "Values" => list(String.t())
+        "Values" => list(String.t() | Atom.t())
       }
       
   """
-  @type cost_category_values() :: %{String.t() => any()}
+  @type cost_category_values() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -754,7 +754,7 @@ defmodule AWS.Budgets do
       budget() :: %{
         "AutoAdjustData" => auto_adjust_data(),
         "BudgetLimit" => spend(),
-        "BudgetName" => String.t(),
+        "BudgetName" => String.t() | Atom.t(),
         "BudgetType" => list(any()),
         "CalculatedSpend" => calculated_spend(),
         "CostFilters" => map(),
@@ -768,29 +768,29 @@ defmodule AWS.Budgets do
       }
       
   """
-  @type budget() :: %{String.t() => any()}
+  @type budget() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameter_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_parameter_exception() :: %{String.t() => any()}
+  @type invalid_parameter_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -811,7 +811,7 @@ defmodule AWS.Budgets do
       }
       
   """
-  @type historical_options() :: %{String.t() => any()}
+  @type historical_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -820,26 +820,26 @@ defmodule AWS.Budgets do
       create_budget_request() :: %{
         optional("NotificationsWithSubscribers") => list(notification_with_subscribers()),
         optional("ResourceTags") => list(resource_tag()),
-        required("AccountId") => String.t(),
+        required("AccountId") => String.t() | Atom.t(),
         required("Budget") => budget()
       }
       
   """
-  @type create_budget_request() :: %{String.t() => any()}
+  @type create_budget_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       execute_budget_action_request() :: %{
-        required("AccountId") => String.t(),
-        required("ActionId") => String.t(),
-        required("BudgetName") => String.t(),
+        required("AccountId") => String.t() | Atom.t(),
+        required("ActionId") => String.t() | Atom.t(),
+        required("BudgetName") => String.t() | Atom.t(),
         required("ExecutionType") => list(any())
       }
       
   """
-  @type execute_budget_action_request() :: %{String.t() => any()}
+  @type execute_budget_action_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -855,11 +855,11 @@ defmodule AWS.Budgets do
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t()
+        required("ResourceARN") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -870,54 +870,54 @@ defmodule AWS.Budgets do
       }
       
   """
-  @type describe_budget_response() :: %{String.t() => any()}
+  @type describe_budget_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_locked_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_locked_exception() :: %{String.t() => any()}
+  @type resource_locked_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_notifications_for_budget_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Notifications" => list(notification())
       }
       
   """
-  @type describe_notifications_for_budget_response() :: %{String.t() => any()}
+  @type describe_notifications_for_budget_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_budget_action_response() :: %{
-        "AccountId" => String.t(),
-        "ActionId" => String.t(),
-        "BudgetName" => String.t()
+        "AccountId" => String.t() | Atom.t(),
+        "ActionId" => String.t() | Atom.t(),
+        "BudgetName" => String.t() | Atom.t()
       }
       
   """
-  @type create_budget_action_response() :: %{String.t() => any()}
+  @type create_budget_action_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -930,7 +930,7 @@ defmodule AWS.Budgets do
       }
       
   """
-  @type definition() :: %{String.t() => any()}
+  @type definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -946,7 +946,7 @@ defmodule AWS.Budgets do
       }
       
   """
-  @type expression() :: %{String.t() => any()}
+  @type expression() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -959,21 +959,21 @@ defmodule AWS.Budgets do
       }
       
   """
-  @type budgeted_and_actual_amounts() :: %{String.t() => any()}
+  @type budgeted_and_actual_amounts() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_budget_action_response() :: %{
-        "AccountId" => String.t(),
-        "BudgetName" => String.t(),
+        "AccountId" => String.t() | Atom.t(),
+        "BudgetName" => String.t() | Atom.t(),
         "NewAction" => action(),
         "OldAction" => action()
       }
       
   """
-  @type update_budget_action_response() :: %{String.t() => any()}
+  @type update_budget_action_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -988,14 +988,14 @@ defmodule AWS.Budgets do
       }
       
   """
-  @type notification() :: %{String.t() => any()}
+  @type notification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       budget_performance_history() :: %{
-        "BudgetName" => String.t(),
+        "BudgetName" => String.t() | Atom.t(),
         "BudgetType" => list(any()),
         "BudgetedAndActualAmountsList" => list(budgeted_and_actual_amounts()),
         "CostFilters" => map(),
@@ -1004,96 +1004,96 @@ defmodule AWS.Budgets do
       }
       
   """
-  @type budget_performance_history() :: %{String.t() => any()}
+  @type budget_performance_history() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_budget_action_response() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | Atom.t(),
         "Action" => action(),
-        "BudgetName" => String.t()
+        "BudgetName" => String.t() | Atom.t()
       }
       
   """
-  @type describe_budget_action_response() :: %{String.t() => any()}
+  @type describe_budget_action_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_budget_request() :: %{
-        required("AccountId") => String.t(),
-        required("BudgetName") => String.t()
+        required("AccountId") => String.t() | Atom.t(),
+        required("BudgetName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_budget_request() :: %{String.t() => any()}
+  @type delete_budget_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_subscriber_request() :: %{
-        required("AccountId") => String.t(),
-        required("BudgetName") => String.t(),
+        required("AccountId") => String.t() | Atom.t(),
+        required("BudgetName") => String.t() | Atom.t(),
         required("Notification") => notification(),
         required("Subscriber") => subscriber()
       }
       
   """
-  @type create_subscriber_request() :: %{String.t() => any()}
+  @type create_subscriber_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       iam_action_definition() :: %{
-        "Groups" => list(String.t()),
-        "PolicyArn" => String.t(),
-        "Roles" => list(String.t()),
-        "Users" => list(String.t())
+        "Groups" => list(String.t() | Atom.t()),
+        "PolicyArn" => String.t() | Atom.t(),
+        "Roles" => list(String.t() | Atom.t()),
+        "Users" => list(String.t() | Atom.t())
       }
       
   """
-  @type iam_action_definition() :: %{String.t() => any()}
+  @type iam_action_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_notification_request() :: %{
-        required("AccountId") => String.t(),
-        required("BudgetName") => String.t(),
+        required("AccountId") => String.t() | Atom.t(),
+        required("BudgetName") => String.t() | Atom.t(),
         required("Notification") => notification()
       }
       
   """
-  @type delete_notification_request() :: %{String.t() => any()}
+  @type delete_notification_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       duplicate_record_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type duplicate_record_exception() :: %{String.t() => any()}
+  @type duplicate_record_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       budget_notifications_for_account() :: %{
-        "BudgetName" => String.t(),
+        "BudgetName" => String.t() | Atom.t(),
         "Notifications" => list(notification())
       }
       
   """
-  @type budget_notifications_for_account() :: %{String.t() => any()}
+  @type budget_notifications_for_account() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1109,26 +1109,26 @@ defmodule AWS.Budgets do
   ## Example:
       
       create_notification_request() :: %{
-        required("AccountId") => String.t(),
-        required("BudgetName") => String.t(),
+        required("AccountId") => String.t() | Atom.t(),
+        required("BudgetName") => String.t() | Atom.t(),
         required("Notification") => notification(),
         required("Subscribers") => list(subscriber())
       }
       
   """
-  @type create_notification_request() :: %{String.t() => any()}
+  @type create_notification_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       spend() :: %{
-        "Amount" => String.t(),
-        "Unit" => String.t()
+        "Amount" => String.t() | Atom.t(),
+        "Unit" => String.t() | Atom.t()
       }
       
   """
-  @type spend() :: %{String.t() => any()}
+  @type spend() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1136,25 +1136,25 @@ defmodule AWS.Budgets do
       
       describe_budget_performance_history_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("TimePeriod") => time_period(),
-        required("AccountId") => String.t(),
-        required("BudgetName") => String.t()
+        required("AccountId") => String.t() | Atom.t(),
+        required("BudgetName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_budget_performance_history_request() :: %{String.t() => any()}
+  @type describe_budget_performance_history_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       creation_limit_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type creation_limit_exceeded_exception() :: %{String.t() => any()}
+  @type creation_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1162,11 +1162,11 @@ defmodule AWS.Budgets do
       
       action_history_details() :: %{
         "Action" => action(),
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type action_history_details() :: %{String.t() => any()}
+  @type action_history_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1174,25 +1174,25 @@ defmodule AWS.Budgets do
       
       describe_subscribers_for_notification_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("AccountId") => String.t(),
-        required("BudgetName") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
+        required("AccountId") => String.t() | Atom.t(),
+        required("BudgetName") => String.t() | Atom.t(),
         required("Notification") => notification()
       }
       
   """
-  @type describe_subscribers_for_notification_request() :: %{String.t() => any()}
+  @type describe_subscribers_for_notification_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_error_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type internal_error_exception() :: %{String.t() => any()}
+  @type internal_error_exception() :: %{String.t() | Atom.t() => any()}
 
   @type create_budget_errors() ::
           internal_error_exception()

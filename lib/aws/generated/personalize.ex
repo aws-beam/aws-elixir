@@ -22,7 +22,7 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type hyper_parameter_ranges() :: %{String.t() => any()}
+  @type hyper_parameter_ranges() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -30,19 +30,19 @@ defmodule AWS.Personalize do
       
       data_deletion_job() :: %{
         "creationDateTime" => non_neg_integer(),
-        "dataDeletionJobArn" => String.t(),
+        "dataDeletionJobArn" => String.t() | Atom.t(),
         "dataSource" => data_source(),
-        "datasetGroupArn" => String.t(),
-        "failureReason" => String.t(),
-        "jobName" => String.t(),
+        "datasetGroupArn" => String.t() | Atom.t(),
+        "failureReason" => String.t() | Atom.t(),
+        "jobName" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
         "numDeleted" => integer(),
-        "roleArn" => String.t(),
-        "status" => String.t()
+        "roleArn" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type data_deletion_job() :: %{String.t() => any()}
+  @type data_deletion_job() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -50,34 +50,34 @@ defmodule AWS.Personalize do
       
       create_event_tracker_request() :: %{
         optional("tags") => list(tag()),
-        required("datasetGroupArn") => String.t(),
-        required("name") => String.t()
+        required("datasetGroupArn") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t()
       }
       
   """
-  @type create_event_tracker_request() :: %{String.t() => any()}
+  @type create_event_tracker_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_event_tracker_request() :: %{
-        required("eventTrackerArn") => String.t()
+        required("eventTrackerArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_event_tracker_request() :: %{String.t() => any()}
+  @type describe_event_tracker_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_metric_attribution_request() :: %{
-        required("metricAttributionArn") => String.t()
+        required("metricAttributionArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_metric_attribution_request() :: %{String.t() => any()}
+  @type delete_metric_attribution_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -88,18 +88,18 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type describe_solution_response() :: %{String.t() => any()}
+  @type describe_solution_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_metric_attribution_request() :: %{
-        required("metricAttributionArn") => String.t()
+        required("metricAttributionArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_metric_attribution_request() :: %{String.t() => any()}
+  @type describe_metric_attribution_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -108,11 +108,11 @@ defmodule AWS.Personalize do
       update_solution_request() :: %{
         optional("performAutoTraining") => boolean(),
         optional("solutionUpdateConfig") => solution_update_config(),
-        required("solutionArn") => String.t()
+        required("solutionArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_solution_request() :: %{String.t() => any()}
+  @type update_solution_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -120,12 +120,12 @@ defmodule AWS.Personalize do
       
       list_batch_segment_jobs_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("solutionVersionArn") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("solutionVersionArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_batch_segment_jobs_request() :: %{String.t() => any()}
+  @type list_batch_segment_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -136,18 +136,18 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type describe_campaign_response() :: %{String.t() => any()}
+  @type describe_campaign_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_campaign_response() :: %{
-        "campaignArn" => String.t()
+        "campaignArn" => String.t() | Atom.t()
       }
       
   """
-  @type update_campaign_response() :: %{String.t() => any()}
+  @type update_campaign_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -158,7 +158,7 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type describe_batch_inference_job_response() :: %{String.t() => any()}
+  @type describe_batch_inference_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -167,19 +167,19 @@ defmodule AWS.Personalize do
       create_batch_inference_job_request() :: %{
         optional("batchInferenceJobConfig") => batch_inference_job_config(),
         optional("batchInferenceJobMode") => list(any()),
-        optional("filterArn") => String.t(),
+        optional("filterArn") => String.t() | Atom.t(),
         optional("numResults") => integer(),
         optional("tags") => list(tag()),
         optional("themeGenerationConfig") => theme_generation_config(),
         required("jobInput") => batch_inference_job_input(),
-        required("jobName") => String.t(),
+        required("jobName") => String.t() | Atom.t(),
         required("jobOutput") => batch_inference_job_output(),
-        required("roleArn") => String.t(),
-        required("solutionVersionArn") => String.t()
+        required("roleArn") => String.t() | Atom.t(),
+        required("solutionVersionArn") => String.t() | Atom.t()
       }
       
   """
-  @type create_batch_inference_job_request() :: %{String.t() => any()}
+  @type create_batch_inference_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -187,28 +187,28 @@ defmodule AWS.Personalize do
       
       filter_summary() :: %{
         "creationDateTime" => non_neg_integer(),
-        "datasetGroupArn" => String.t(),
-        "failureReason" => String.t(),
-        "filterArn" => String.t(),
+        "datasetGroupArn" => String.t() | Atom.t(),
+        "failureReason" => String.t() | Atom.t(),
+        "filterArn" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "name" => String.t(),
-        "status" => String.t()
+        "name" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type filter_summary() :: %{String.t() => any()}
+  @type filter_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("resourceArn") => String.t(),
+        required("resourceArn") => String.t() | Atom.t(),
         required("tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -216,24 +216,24 @@ defmodule AWS.Personalize do
       
       list_batch_inference_jobs_response() :: %{
         "batchInferenceJobs" => list(batch_inference_job_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_batch_inference_jobs_response() :: %{String.t() => any()}
+  @type list_batch_inference_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_data_deletion_jobs_request() :: %{
-        optional("datasetGroupArn") => String.t(),
+        optional("datasetGroupArn") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_data_deletion_jobs_request() :: %{String.t() => any()}
+  @type list_data_deletion_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -241,44 +241,44 @@ defmodule AWS.Personalize do
       
       create_schema_request() :: %{
         optional("domain") => list(any()),
-        required("name") => String.t(),
-        required("schema") => String.t()
+        required("name") => String.t() | Atom.t(),
+        required("schema") => String.t() | Atom.t()
       }
       
   """
-  @type create_schema_request() :: %{String.t() => any()}
+  @type create_schema_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       campaign() :: %{
-        "campaignArn" => String.t(),
+        "campaignArn" => String.t() | Atom.t(),
         "campaignConfig" => campaign_config(),
         "creationDateTime" => non_neg_integer(),
-        "failureReason" => String.t(),
+        "failureReason" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
         "latestCampaignUpdate" => campaign_update_summary(),
         "minProvisionedTPS" => integer(),
-        "name" => String.t(),
-        "solutionVersionArn" => String.t(),
-        "status" => String.t()
+        "name" => String.t() | Atom.t(),
+        "solutionVersionArn" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type campaign() :: %{String.t() => any()}
+  @type campaign() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_recipes_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "recipes" => list(recipe_summary())
       }
       
   """
-  @type list_recipes_response() :: %{String.t() => any()}
+  @type list_recipes_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -286,26 +286,26 @@ defmodule AWS.Personalize do
       
       recommender_update_summary() :: %{
         "creationDateTime" => non_neg_integer(),
-        "failureReason" => String.t(),
+        "failureReason" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
         "recommenderConfig" => recommender_config(),
-        "status" => String.t()
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type recommender_update_summary() :: %{String.t() => any()}
+  @type recommender_update_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_event_tracker_response() :: %{
-        "eventTrackerArn" => String.t(),
-        "trackingId" => String.t()
+        "eventTrackerArn" => String.t() | Atom.t(),
+        "trackingId" => String.t() | Atom.t()
       }
       
   """
-  @type create_event_tracker_response() :: %{String.t() => any()}
+  @type create_event_tracker_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -314,13 +314,13 @@ defmodule AWS.Personalize do
       create_recommender_request() :: %{
         optional("recommenderConfig") => recommender_config(),
         optional("tags") => list(tag()),
-        required("datasetGroupArn") => String.t(),
-        required("name") => String.t(),
-        required("recipeArn") => String.t()
+        required("datasetGroupArn") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t(),
+        required("recipeArn") => String.t() | Atom.t()
       }
       
   """
-  @type create_recommender_request() :: %{String.t() => any()}
+  @type create_recommender_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -330,55 +330,55 @@ defmodule AWS.Personalize do
         "isTunable" => boolean(),
         "maxValue" => integer(),
         "minValue" => integer(),
-        "name" => String.t()
+        "name" => String.t() | Atom.t()
       }
       
   """
-  @type default_integer_hyper_parameter_range() :: %{String.t() => any()}
+  @type default_integer_hyper_parameter_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_recommender_response() :: %{
-        "recommenderArn" => String.t()
+        "recommenderArn" => String.t() | Atom.t()
       }
       
   """
-  @type update_recommender_response() :: %{String.t() => any()}
+  @type update_recommender_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_schema_request() :: %{
-        required("schemaArn") => String.t()
+        required("schemaArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_schema_request() :: %{String.t() => any()}
+  @type describe_schema_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       auto_training_config() :: %{
-        "schedulingExpression" => String.t()
+        "schedulingExpression" => String.t() | Atom.t()
       }
       
   """
-  @type auto_training_config() :: %{String.t() => any()}
+  @type auto_training_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_dataset_response() :: %{
-        "datasetArn" => String.t()
+        "datasetArn" => String.t() | Atom.t()
       }
       
   """
-  @type update_dataset_response() :: %{String.t() => any()}
+  @type update_dataset_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -386,23 +386,23 @@ defmodule AWS.Personalize do
       
       default_categorical_hyper_parameter_range() :: %{
         "isTunable" => boolean(),
-        "name" => String.t(),
-        "values" => list(String.t())
+        "name" => String.t() | Atom.t(),
+        "values" => list(String.t() | Atom.t())
       }
       
   """
-  @type default_categorical_hyper_parameter_range() :: %{String.t() => any()}
+  @type default_categorical_hyper_parameter_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_solution_version_request() :: %{
-        required("solutionVersionArn") => String.t()
+        required("solutionVersionArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_solution_version_request() :: %{String.t() => any()}
+  @type describe_solution_version_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -411,41 +411,41 @@ defmodule AWS.Personalize do
       continuous_hyper_parameter_range() :: %{
         "maxValue" => float(),
         "minValue" => float(),
-        "name" => String.t()
+        "name" => String.t() | Atom.t()
       }
       
   """
-  @type continuous_hyper_parameter_range() :: %{String.t() => any()}
+  @type continuous_hyper_parameter_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_solution_request() :: %{
-        optional("eventType") => String.t(),
+        optional("eventType") => String.t() | Atom.t(),
         optional("performAutoML") => boolean(),
         optional("performAutoTraining") => boolean(),
         optional("performHPO") => boolean(),
-        optional("recipeArn") => String.t(),
+        optional("recipeArn") => String.t() | Atom.t(),
         optional("solutionConfig") => solution_config(),
         optional("tags") => list(tag()),
-        required("datasetGroupArn") => String.t(),
-        required("name") => String.t()
+        required("datasetGroupArn") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t()
       }
       
   """
-  @type create_solution_request() :: %{String.t() => any()}
+  @type create_solution_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_metric_attribution_response() :: %{
-        "metricAttributionArn" => String.t()
+        "metricAttributionArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_metric_attribution_response() :: %{String.t() => any()}
+  @type create_metric_attribution_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -461,22 +461,22 @@ defmodule AWS.Personalize do
   ## Example:
       
       delete_schema_request() :: %{
-        required("schemaArn") => String.t()
+        required("schemaArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_schema_request() :: %{String.t() => any()}
+  @type delete_schema_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_data_deletion_job_response() :: %{
-        "dataDeletionJobArn" => String.t()
+        "dataDeletionJobArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_data_deletion_job_response() :: %{String.t() => any()}
+  @type create_data_deletion_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -484,26 +484,26 @@ defmodule AWS.Personalize do
       
       metric_attribution_summary() :: %{
         "creationDateTime" => non_neg_integer(),
-        "failureReason" => String.t(),
+        "failureReason" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "metricAttributionArn" => String.t(),
-        "name" => String.t(),
-        "status" => String.t()
+        "metricAttributionArn" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type metric_attribution_summary() :: %{String.t() => any()}
+  @type metric_attribution_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_in_use_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_in_use_exception() :: %{String.t() => any()}
+  @type resource_in_use_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -514,7 +514,7 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type batch_segment_job_output() :: %{String.t() => any()}
+  @type batch_segment_job_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -525,7 +525,7 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type describe_dataset_import_job_response() :: %{String.t() => any()}
+  @type describe_dataset_import_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -534,45 +534,45 @@ defmodule AWS.Personalize do
       solution() :: %{
         "autoMLResult" => auto_ml_result(),
         "creationDateTime" => non_neg_integer(),
-        "datasetGroupArn" => String.t(),
-        "eventType" => String.t(),
+        "datasetGroupArn" => String.t() | Atom.t(),
+        "eventType" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
         "latestSolutionUpdate" => solution_update_summary(),
         "latestSolutionVersion" => solution_version_summary(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "performAutoML" => boolean(),
         "performAutoTraining" => boolean(),
         "performHPO" => boolean(),
-        "recipeArn" => String.t(),
-        "solutionArn" => String.t(),
+        "recipeArn" => String.t() | Atom.t(),
+        "solutionArn" => String.t() | Atom.t(),
         "solutionConfig" => solution_config(),
-        "status" => String.t()
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type solution() :: %{String.t() => any()}
+  @type solution() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_batch_segment_job_response() :: %{
-        "batchSegmentJobArn" => String.t()
+        "batchSegmentJobArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_batch_segment_job_response() :: %{String.t() => any()}
+  @type create_batch_segment_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_recommender_response() :: %{
-        "recommenderArn" => String.t()
+        "recommenderArn" => String.t() | Atom.t()
       }
       
   """
-  @type start_recommender_response() :: %{String.t() => any()}
+  @type start_recommender_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -582,33 +582,33 @@ defmodule AWS.Personalize do
         "creationDateTime" => non_neg_integer(),
         "domain" => list(any()),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "name" => String.t(),
-        "schema" => String.t(),
-        "schemaArn" => String.t()
+        "name" => String.t() | Atom.t(),
+        "schema" => String.t() | Atom.t(),
+        "schemaArn" => String.t() | Atom.t()
       }
       
   """
-  @type dataset_schema() :: %{String.t() => any()}
+  @type dataset_schema() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       algorithm() :: %{
-        "algorithmArn" => String.t(),
+        "algorithmArn" => String.t() | Atom.t(),
         "algorithmImage" => algorithm_image(),
         "creationDateTime" => non_neg_integer(),
         "defaultHyperParameterRanges" => default_hyper_parameter_ranges(),
         "defaultHyperParameters" => map(),
         "defaultResourceConfig" => map(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "name" => String.t(),
-        "roleArn" => String.t(),
-        "trainingInputMode" => String.t()
+        "name" => String.t() | Atom.t(),
+        "roleArn" => String.t() | Atom.t(),
+        "trainingInputMode" => String.t() | Atom.t()
       }
       
   """
-  @type algorithm() :: %{String.t() => any()}
+  @type algorithm() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -618,26 +618,26 @@ defmodule AWS.Personalize do
         "creationDateTime" => non_neg_integer(),
         "domain" => list(any()),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "name" => String.t(),
-        "recipeArn" => String.t(),
-        "status" => String.t()
+        "name" => String.t() | Atom.t(),
+        "recipeArn" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type recipe_summary() :: %{String.t() => any()}
+  @type recipe_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_datasets_request() :: %{
-        optional("datasetGroupArn") => String.t(),
+        optional("datasetGroupArn") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_datasets_request() :: %{String.t() => any()}
+  @type list_datasets_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -645,35 +645,35 @@ defmodule AWS.Personalize do
       
       list_campaigns_response() :: %{
         "campaigns" => list(campaign_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_campaigns_response() :: %{String.t() => any()}
+  @type list_campaigns_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       event_parameters() :: %{
-        "eventType" => String.t(),
+        "eventType" => String.t() | Atom.t(),
         "eventValueThreshold" => float(),
         "weight" => float()
       }
       
   """
-  @type event_parameters() :: %{String.t() => any()}
+  @type event_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_filter_response() :: %{
-        "filterArn" => String.t()
+        "filterArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_filter_response() :: %{String.t() => any()}
+  @type create_filter_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -684,7 +684,7 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type theme_generation_config() :: %{String.t() => any()}
+  @type theme_generation_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -697,7 +697,7 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type default_hyper_parameter_ranges() :: %{String.t() => any()}
+  @type default_hyper_parameter_ranges() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -708,29 +708,29 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type describe_schema_response() :: %{String.t() => any()}
+  @type describe_schema_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_campaign_request() :: %{
-        required("campaignArn") => String.t()
+        required("campaignArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_campaign_request() :: %{String.t() => any()}
+  @type delete_campaign_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_campaign_request() :: %{
-        required("campaignArn") => String.t()
+        required("campaignArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_campaign_request() :: %{String.t() => any()}
+  @type describe_campaign_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -738,59 +738,59 @@ defmodule AWS.Personalize do
       
       list_metric_attribution_metrics_request() :: %{
         optional("maxResults") => integer(),
-        optional("metricAttributionArn") => String.t(),
-        optional("nextToken") => String.t()
+        optional("metricAttributionArn") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_metric_attribution_metrics_request() :: %{String.t() => any()}
+  @type list_metric_attribution_metrics_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_solutions_request() :: %{
-        optional("datasetGroupArn") => String.t(),
+        optional("datasetGroupArn") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_solutions_request() :: %{String.t() => any()}
+  @type list_solutions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_algorithm_request() :: %{
-        required("algorithmArn") => String.t()
+        required("algorithmArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_algorithm_request() :: %{String.t() => any()}
+  @type describe_algorithm_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_schema_response() :: %{
-        "schemaArn" => String.t()
+        "schemaArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_schema_response() :: %{String.t() => any()}
+  @type create_schema_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("resourceArn") => String.t(),
-        required("tagKeys") => list(String.t())
+        required("resourceArn") => String.t() | Atom.t(),
+        required("tagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -801,7 +801,7 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type batch_inference_job_input() :: %{String.t() => any()}
+  @type batch_inference_job_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -812,18 +812,18 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type batch_inference_job_config() :: %{String.t() => any()}
+  @type batch_inference_job_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_solution_metrics_request() :: %{
-        required("solutionVersionArn") => String.t()
+        required("solutionVersionArn") => String.t() | Atom.t()
       }
       
   """
-  @type get_solution_metrics_request() :: %{String.t() => any()}
+  @type get_solution_metrics_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -836,7 +836,7 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type campaign_config() :: %{String.t() => any()}
+  @type campaign_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -847,7 +847,7 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type describe_data_deletion_job_response() :: %{String.t() => any()}
+  @type describe_data_deletion_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -855,24 +855,24 @@ defmodule AWS.Personalize do
       
       list_data_deletion_jobs_response() :: %{
         "dataDeletionJobs" => list(data_deletion_job_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_data_deletion_jobs_response() :: %{String.t() => any()}
+  @type list_data_deletion_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_event_trackers_request() :: %{
-        optional("datasetGroupArn") => String.t(),
+        optional("datasetGroupArn") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_event_trackers_request() :: %{String.t() => any()}
+  @type list_event_trackers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -880,25 +880,25 @@ defmodule AWS.Personalize do
       
       create_dataset_group_request() :: %{
         optional("domain") => list(any()),
-        optional("kmsKeyArn") => String.t(),
-        optional("roleArn") => String.t(),
+        optional("kmsKeyArn") => String.t() | Atom.t(),
+        optional("roleArn") => String.t() | Atom.t(),
         optional("tags") => list(tag()),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
       
   """
-  @type create_dataset_group_request() :: %{String.t() => any()}
+  @type create_dataset_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_tag_keys_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type too_many_tag_keys_exception() :: %{String.t() => any()}
+  @type too_many_tag_keys_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -907,14 +907,14 @@ defmodule AWS.Personalize do
       solution_summary() :: %{
         "creationDateTime" => non_neg_integer(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "name" => String.t(),
-        "recipeArn" => String.t(),
-        "solutionArn" => String.t(),
-        "status" => String.t()
+        "name" => String.t() | Atom.t(),
+        "recipeArn" => String.t() | Atom.t(),
+        "solutionArn" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type solution_summary() :: %{String.t() => any()}
+  @type solution_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -922,11 +922,11 @@ defmodule AWS.Personalize do
       
       list_schemas_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_schemas_request() :: %{String.t() => any()}
+  @type list_schemas_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -934,79 +934,79 @@ defmodule AWS.Personalize do
       
       recommender_summary() :: %{
         "creationDateTime" => non_neg_integer(),
-        "datasetGroupArn" => String.t(),
+        "datasetGroupArn" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "name" => String.t(),
-        "recipeArn" => String.t(),
-        "recommenderArn" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "recipeArn" => String.t() | Atom.t(),
+        "recommenderArn" => String.t() | Atom.t(),
         "recommenderConfig" => recommender_config(),
-        "status" => String.t()
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type recommender_summary() :: %{String.t() => any()}
+  @type recommender_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_solution_request() :: %{
-        required("solutionArn") => String.t()
+        required("solutionArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_solution_request() :: %{String.t() => any()}
+  @type describe_solution_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_recommender_request() :: %{
-        required("recommenderArn") => String.t(),
+        required("recommenderArn") => String.t() | Atom.t(),
         required("recommenderConfig") => recommender_config()
       }
       
   """
-  @type update_recommender_request() :: %{String.t() => any()}
+  @type update_recommender_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_metric_attribution_request() :: %{
-        required("datasetGroupArn") => String.t(),
+        required("datasetGroupArn") => String.t() | Atom.t(),
         required("metrics") => list(metric_attribute()),
         required("metricsOutputConfig") => metric_attribution_output(),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
       
   """
-  @type create_metric_attribution_request() :: %{String.t() => any()}
+  @type create_metric_attribution_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_inference_job() :: %{
-        "batchInferenceJobArn" => String.t(),
+        "batchInferenceJobArn" => String.t() | Atom.t(),
         "batchInferenceJobConfig" => batch_inference_job_config(),
         "batchInferenceJobMode" => list(any()),
         "creationDateTime" => non_neg_integer(),
-        "failureReason" => String.t(),
-        "filterArn" => String.t(),
+        "failureReason" => String.t() | Atom.t(),
+        "filterArn" => String.t() | Atom.t(),
         "jobInput" => batch_inference_job_input(),
-        "jobName" => String.t(),
+        "jobName" => String.t() | Atom.t(),
         "jobOutput" => batch_inference_job_output(),
         "lastUpdatedDateTime" => non_neg_integer(),
         "numResults" => integer(),
-        "roleArn" => String.t(),
-        "solutionVersionArn" => String.t(),
-        "status" => String.t(),
+        "roleArn" => String.t() | Atom.t(),
+        "solutionVersionArn" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t(),
         "themeGenerationConfig" => theme_generation_config()
       }
       
   """
-  @type batch_inference_job() :: %{String.t() => any()}
+  @type batch_inference_job() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1014,19 +1014,19 @@ defmodule AWS.Personalize do
       
       dataset() :: %{
         "creationDateTime" => non_neg_integer(),
-        "datasetArn" => String.t(),
-        "datasetGroupArn" => String.t(),
-        "datasetType" => String.t(),
+        "datasetArn" => String.t() | Atom.t(),
+        "datasetGroupArn" => String.t() | Atom.t(),
+        "datasetType" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
         "latestDatasetUpdate" => dataset_update_summary(),
-        "name" => String.t(),
-        "schemaArn" => String.t(),
-        "status" => String.t(),
-        "trackingId" => String.t()
+        "name" => String.t() | Atom.t(),
+        "schemaArn" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t(),
+        "trackingId" => String.t() | Atom.t()
       }
       
   """
-  @type dataset() :: %{String.t() => any()}
+  @type dataset() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1037,18 +1037,18 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type describe_dataset_export_job_response() :: %{String.t() => any()}
+  @type describe_dataset_export_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_dataset_response() :: %{
-        "datasetArn" => String.t()
+        "datasetArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_dataset_response() :: %{String.t() => any()}
+  @type create_dataset_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1056,29 +1056,29 @@ defmodule AWS.Personalize do
       
       list_campaigns_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("solutionArn") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("solutionArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_campaigns_request() :: %{String.t() => any()}
+  @type list_campaigns_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_segment_job_summary() :: %{
-        "batchSegmentJobArn" => String.t(),
+        "batchSegmentJobArn" => String.t() | Atom.t(),
         "creationDateTime" => non_neg_integer(),
-        "failureReason" => String.t(),
-        "jobName" => String.t(),
+        "failureReason" => String.t() | Atom.t(),
+        "jobName" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "solutionVersionArn" => String.t(),
-        "status" => String.t()
+        "solutionVersionArn" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type batch_segment_job_summary() :: %{String.t() => any()}
+  @type batch_segment_job_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1089,7 +1089,7 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type describe_batch_segment_job_response() :: %{String.t() => any()}
+  @type describe_batch_segment_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1098,15 +1098,15 @@ defmodule AWS.Personalize do
       campaign_update_summary() :: %{
         "campaignConfig" => campaign_config(),
         "creationDateTime" => non_neg_integer(),
-        "failureReason" => String.t(),
+        "failureReason" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
         "minProvisionedTPS" => integer(),
-        "solutionVersionArn" => String.t(),
-        "status" => String.t()
+        "solutionVersionArn" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type campaign_update_summary() :: %{String.t() => any()}
+  @type campaign_update_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1117,7 +1117,7 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type batch_inference_job_output() :: %{String.t() => any()}
+  @type batch_inference_job_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1126,32 +1126,32 @@ defmodule AWS.Personalize do
       dataset_import_job() :: %{
         "creationDateTime" => non_neg_integer(),
         "dataSource" => data_source(),
-        "datasetArn" => String.t(),
-        "datasetImportJobArn" => String.t(),
-        "failureReason" => String.t(),
+        "datasetArn" => String.t() | Atom.t(),
+        "datasetImportJobArn" => String.t() | Atom.t(),
+        "failureReason" => String.t() | Atom.t(),
         "importMode" => list(any()),
-        "jobName" => String.t(),
+        "jobName" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
         "publishAttributionMetricsToS3" => boolean(),
-        "roleArn" => String.t(),
-        "status" => String.t()
+        "roleArn" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type dataset_import_job() :: %{String.t() => any()}
+  @type dataset_import_job() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       metric_attribute() :: %{
-        "eventType" => String.t(),
-        "expression" => String.t(),
-        "metricName" => String.t()
+        "eventType" => String.t() | Atom.t(),
+        "expression" => String.t() | Atom.t(),
+        "metricName" => String.t() | Atom.t()
       }
       
   """
-  @type metric_attribute() :: %{String.t() => any()}
+  @type metric_attribute() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1159,18 +1159,18 @@ defmodule AWS.Personalize do
       
       solution_version() :: %{
         "creationDateTime" => non_neg_integer(),
-        "datasetGroupArn" => String.t(),
-        "eventType" => String.t(),
-        "failureReason" => String.t(),
+        "datasetGroupArn" => String.t() | Atom.t(),
+        "eventType" => String.t() | Atom.t(),
+        "failureReason" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "performAutoML" => boolean(),
         "performHPO" => boolean(),
-        "recipeArn" => String.t(),
-        "solutionArn" => String.t(),
+        "recipeArn" => String.t() | Atom.t(),
+        "solutionArn" => String.t() | Atom.t(),
         "solutionConfig" => solution_config(),
-        "solutionVersionArn" => String.t(),
-        "status" => String.t(),
+        "solutionVersionArn" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t(),
         "trainingHours" => float(),
         "trainingMode" => list(any()),
         "trainingType" => list(any()),
@@ -1178,7 +1178,7 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type solution_version() :: %{String.t() => any()}
+  @type solution_version() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1186,61 +1186,61 @@ defmodule AWS.Personalize do
       
       dataset_export_job_summary() :: %{
         "creationDateTime" => non_neg_integer(),
-        "datasetExportJobArn" => String.t(),
-        "failureReason" => String.t(),
-        "jobName" => String.t(),
+        "datasetExportJobArn" => String.t() | Atom.t(),
+        "failureReason" => String.t() | Atom.t(),
+        "jobName" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "status" => String.t()
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type dataset_export_job_summary() :: %{String.t() => any()}
+  @type dataset_export_job_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       fields_for_theme_generation() :: %{
-        "itemName" => String.t()
+        "itemName" => String.t() | Atom.t()
       }
       
   """
-  @type fields_for_theme_generation() :: %{String.t() => any()}
+  @type fields_for_theme_generation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_dataset_import_jobs_request() :: %{
-        optional("datasetArn") => String.t(),
+        optional("datasetArn") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_dataset_import_jobs_request() :: %{String.t() => any()}
+  @type list_dataset_import_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_event_tracker_request() :: %{
-        required("eventTrackerArn") => String.t()
+        required("eventTrackerArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_event_tracker_request() :: %{String.t() => any()}
+  @type delete_event_tracker_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1248,13 +1248,13 @@ defmodule AWS.Personalize do
       
       create_filter_request() :: %{
         optional("tags") => list(tag()),
-        required("datasetGroupArn") => String.t(),
-        required("filterExpression") => String.t(),
-        required("name") => String.t()
+        required("datasetGroupArn") => String.t() | Atom.t(),
+        required("filterExpression") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t()
       }
       
   """
-  @type create_filter_request() :: %{String.t() => any()}
+  @type create_filter_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1262,34 +1262,34 @@ defmodule AWS.Personalize do
       
       recommender() :: %{
         "creationDateTime" => non_neg_integer(),
-        "datasetGroupArn" => String.t(),
-        "failureReason" => String.t(),
+        "datasetGroupArn" => String.t() | Atom.t(),
+        "failureReason" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
         "latestRecommenderUpdate" => recommender_update_summary(),
         "modelMetrics" => map(),
-        "name" => String.t(),
-        "recipeArn" => String.t(),
-        "recommenderArn" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "recipeArn" => String.t() | Atom.t(),
+        "recommenderArn" => String.t() | Atom.t(),
         "recommenderConfig" => recommender_config(),
-        "status" => String.t()
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type recommender() :: %{String.t() => any()}
+  @type recommender() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_solution_version_request() :: %{
-        optional("name") => String.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("tags") => list(tag()),
         optional("trainingMode") => list(any()),
-        required("solutionArn") => String.t()
+        required("solutionArn") => String.t() | Atom.t()
       }
       
   """
-  @type create_solution_version_request() :: %{String.t() => any()}
+  @type create_solution_version_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1297,17 +1297,17 @@ defmodule AWS.Personalize do
       
       metric_attribution() :: %{
         "creationDateTime" => non_neg_integer(),
-        "datasetGroupArn" => String.t(),
-        "failureReason" => String.t(),
+        "datasetGroupArn" => String.t() | Atom.t(),
+        "failureReason" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "metricAttributionArn" => String.t(),
+        "metricAttributionArn" => String.t() | Atom.t(),
         "metricsOutputConfig" => metric_attribution_output(),
-        "name" => String.t(),
-        "status" => String.t()
+        "name" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type metric_attribution() :: %{String.t() => any()}
+  @type metric_attribution() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1318,18 +1318,18 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type describe_solution_version_response() :: %{String.t() => any()}
+  @type describe_solution_version_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_batch_segment_job_request() :: %{
-        required("batchSegmentJobArn") => String.t()
+        required("batchSegmentJobArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_batch_segment_job_request() :: %{String.t() => any()}
+  @type describe_batch_segment_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1337,15 +1337,15 @@ defmodule AWS.Personalize do
       
       dataset_summary() :: %{
         "creationDateTime" => non_neg_integer(),
-        "datasetArn" => String.t(),
-        "datasetType" => String.t(),
+        "datasetArn" => String.t() | Atom.t(),
+        "datasetType" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "name" => String.t(),
-        "status" => String.t()
+        "name" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type dataset_summary() :: %{String.t() => any()}
+  @type dataset_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1356,19 +1356,19 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type tuned_h_p_o_params() :: %{String.t() => any()}
+  @type tuned_h_p_o_params() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "tagKey" => String.t(),
-        "tagValue" => String.t()
+        "tagKey" => String.t() | Atom.t(),
+        "tagValue" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1379,29 +1379,29 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type batch_segment_job_input() :: %{String.t() => any()}
+  @type batch_segment_job_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_solution_version_response() :: %{
-        "solutionVersionArn" => String.t()
+        "solutionVersionArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_solution_version_response() :: %{String.t() => any()}
+  @type create_solution_version_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_batch_inference_job_response() :: %{
-        "batchInferenceJobArn" => String.t()
+        "batchInferenceJobArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_batch_inference_job_response() :: %{String.t() => any()}
+  @type create_batch_inference_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1409,38 +1409,38 @@ defmodule AWS.Personalize do
       
       solution_version_summary() :: %{
         "creationDateTime" => non_neg_integer(),
-        "failureReason" => String.t(),
+        "failureReason" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "solutionVersionArn" => String.t(),
-        "status" => String.t(),
+        "solutionVersionArn" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t(),
         "trainingMode" => list(any()),
         "trainingType" => list(any())
       }
       
   """
-  @type solution_version_summary() :: %{String.t() => any()}
+  @type solution_version_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_recommender_request() :: %{
-        required("recommenderArn") => String.t()
+        required("recommenderArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_recommender_request() :: %{String.t() => any()}
+  @type delete_recommender_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_next_token_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_next_token_exception() :: %{String.t() => any()}
+  @type invalid_next_token_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1451,20 +1451,20 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type describe_recipe_response() :: %{String.t() => any()}
+  @type describe_recipe_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_metric_attributions_request() :: %{
-        optional("datasetGroupArn") => String.t(),
+        optional("datasetGroupArn") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_metric_attributions_request() :: %{String.t() => any()}
+  @type list_metric_attributions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1472,64 +1472,64 @@ defmodule AWS.Personalize do
       
       list_dataset_groups_response() :: %{
         "datasetGroups" => list(dataset_group_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_dataset_groups_response() :: %{String.t() => any()}
+  @type list_dataset_groups_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       recipe() :: %{
-        "algorithmArn" => String.t(),
+        "algorithmArn" => String.t() | Atom.t(),
         "creationDateTime" => non_neg_integer(),
-        "description" => String.t(),
-        "featureTransformationArn" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "featureTransformationArn" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "name" => String.t(),
-        "recipeArn" => String.t(),
-        "recipeType" => String.t(),
-        "status" => String.t()
+        "name" => String.t() | Atom.t(),
+        "recipeArn" => String.t() | Atom.t(),
+        "recipeType" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type recipe() :: %{String.t() => any()}
+  @type recipe() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_segment_job() :: %{
-        "batchSegmentJobArn" => String.t(),
+        "batchSegmentJobArn" => String.t() | Atom.t(),
         "creationDateTime" => non_neg_integer(),
-        "failureReason" => String.t(),
-        "filterArn" => String.t(),
+        "failureReason" => String.t() | Atom.t(),
+        "filterArn" => String.t() | Atom.t(),
         "jobInput" => batch_segment_job_input(),
-        "jobName" => String.t(),
+        "jobName" => String.t() | Atom.t(),
         "jobOutput" => batch_segment_job_output(),
         "lastUpdatedDateTime" => non_neg_integer(),
         "numResults" => integer(),
-        "roleArn" => String.t(),
-        "solutionVersionArn" => String.t(),
-        "status" => String.t()
+        "roleArn" => String.t() | Atom.t(),
+        "solutionVersionArn" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type batch_segment_job() :: %{String.t() => any()}
+  @type batch_segment_job() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       optimization_objective() :: %{
-        "itemAttribute" => String.t(),
+        "itemAttribute" => String.t() | Atom.t(),
         "objectiveSensitivity" => list(any())
       }
       
   """
-  @type optimization_objective() :: %{String.t() => any()}
+  @type optimization_objective() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1537,11 +1537,11 @@ defmodule AWS.Personalize do
       
       list_metric_attribution_metrics_response() :: %{
         "metrics" => list(metric_attribute()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_metric_attribution_metrics_response() :: %{String.t() => any()}
+  @type list_metric_attribution_metrics_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1549,44 +1549,44 @@ defmodule AWS.Personalize do
       
       list_dataset_groups_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_dataset_groups_request() :: %{String.t() => any()}
+  @type list_dataset_groups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_input_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_input_exception() :: %{String.t() => any()}
+  @type invalid_input_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_recommender_request() :: %{
-        required("recommenderArn") => String.t()
+        required("recommenderArn") => String.t() | Atom.t()
       }
       
   """
-  @type start_recommender_request() :: %{String.t() => any()}
+  @type start_recommender_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_recommender_response() :: %{
-        "recommenderArn" => String.t()
+        "recommenderArn" => String.t() | Atom.t()
       }
       
   """
-  @type stop_recommender_response() :: %{String.t() => any()}
+  @type stop_recommender_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1597,7 +1597,7 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1608,7 +1608,7 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type events_config() :: %{String.t() => any()}
+  @type events_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1617,34 +1617,34 @@ defmodule AWS.Personalize do
       integer_hyper_parameter_range() :: %{
         "maxValue" => integer(),
         "minValue" => integer(),
-        "name" => String.t()
+        "name" => String.t() | Atom.t()
       }
       
   """
-  @type integer_hyper_parameter_range() :: %{String.t() => any()}
+  @type integer_hyper_parameter_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       categorical_hyper_parameter_range() :: %{
-        "name" => String.t(),
-        "values" => list(String.t())
+        "name" => String.t() | Atom.t(),
+        "values" => list(String.t() | Atom.t())
       }
       
   """
-  @type categorical_hyper_parameter_range() :: %{String.t() => any()}
+  @type categorical_hyper_parameter_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_recommender_request() :: %{
-        required("recommenderArn") => String.t()
+        required("recommenderArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_recommender_request() :: %{String.t() => any()}
+  @type describe_recommender_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1652,46 +1652,46 @@ defmodule AWS.Personalize do
       
       list_batch_segment_jobs_response() :: %{
         "batchSegmentJobs" => list(batch_segment_job_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_batch_segment_jobs_response() :: %{String.t() => any()}
+  @type list_batch_segment_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_dataset_request() :: %{
-        required("datasetArn") => String.t(),
-        required("schemaArn") => String.t()
+        required("datasetArn") => String.t() | Atom.t(),
+        required("schemaArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_dataset_request() :: %{String.t() => any()}
+  @type update_dataset_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_solutions_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "solutions" => list(solution_summary())
       }
       
   """
-  @type list_solutions_response() :: %{String.t() => any()}
+  @type list_solutions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_solution_request() :: %{
-        required("solutionArn") => String.t()
+        required("solutionArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_solution_request() :: %{String.t() => any()}
+  @type delete_solution_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1699,28 +1699,28 @@ defmodule AWS.Personalize do
       
       filter() :: %{
         "creationDateTime" => non_neg_integer(),
-        "datasetGroupArn" => String.t(),
-        "failureReason" => String.t(),
-        "filterArn" => String.t(),
-        "filterExpression" => String.t(),
+        "datasetGroupArn" => String.t() | Atom.t(),
+        "failureReason" => String.t() | Atom.t(),
+        "filterArn" => String.t() | Atom.t(),
+        "filterExpression" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "name" => String.t(),
-        "status" => String.t()
+        "name" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type filter() :: %{String.t() => any()}
+  @type filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_feature_transformation_request() :: %{
-        required("featureTransformationArn") => String.t()
+        required("featureTransformationArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_feature_transformation_request() :: %{String.t() => any()}
+  @type describe_feature_transformation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1728,14 +1728,14 @@ defmodule AWS.Personalize do
       
       dataset_update_summary() :: %{
         "creationDateTime" => non_neg_integer(),
-        "failureReason" => String.t(),
+        "failureReason" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "schemaArn" => String.t(),
-        "status" => String.t()
+        "schemaArn" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type dataset_update_summary() :: %{String.t() => any()}
+  @type dataset_update_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1746,42 +1746,42 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type describe_algorithm_response() :: %{String.t() => any()}
+  @type describe_algorithm_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_recipe_request() :: %{
-        required("recipeArn") => String.t()
+        required("recipeArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_recipe_request() :: %{String.t() => any()}
+  @type describe_recipe_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_filter_request() :: %{
-        required("filterArn") => String.t()
+        required("filterArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_filter_request() :: %{String.t() => any()}
+  @type describe_filter_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       h_p_o_objective() :: %{
-        "metricName" => String.t(),
-        "metricRegex" => String.t(),
-        "type" => String.t()
+        "metricName" => String.t() | Atom.t(),
+        "metricRegex" => String.t() | Atom.t(),
+        "type" => String.t() | Atom.t()
       }
       
   """
-  @type h_p_o_objective() :: %{String.t() => any()}
+  @type h_p_o_objective() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1790,24 +1790,24 @@ defmodule AWS.Personalize do
       create_data_deletion_job_request() :: %{
         optional("tags") => list(tag()),
         required("dataSource") => data_source(),
-        required("datasetGroupArn") => String.t(),
-        required("jobName") => String.t(),
-        required("roleArn") => String.t()
+        required("datasetGroupArn") => String.t() | Atom.t(),
+        required("jobName") => String.t() | Atom.t(),
+        required("roleArn") => String.t() | Atom.t()
       }
       
   """
-  @type create_data_deletion_job_request() :: %{String.t() => any()}
+  @type create_data_deletion_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_recommender_response() :: %{
-        "recommenderArn" => String.t()
+        "recommenderArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_recommender_response() :: %{String.t() => any()}
+  @type create_recommender_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1818,7 +1818,7 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type describe_recommender_response() :: %{String.t() => any()}
+  @type describe_recommender_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1826,12 +1826,12 @@ defmodule AWS.Personalize do
       
       list_batch_inference_jobs_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("solutionVersionArn") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("solutionVersionArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_batch_inference_jobs_request() :: %{String.t() => any()}
+  @type list_batch_inference_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1839,53 +1839,53 @@ defmodule AWS.Personalize do
       
       dataset_export_job() :: %{
         "creationDateTime" => non_neg_integer(),
-        "datasetArn" => String.t(),
-        "datasetExportJobArn" => String.t(),
-        "failureReason" => String.t(),
+        "datasetArn" => String.t() | Atom.t(),
+        "datasetExportJobArn" => String.t() | Atom.t(),
+        "failureReason" => String.t() | Atom.t(),
         "ingestionMode" => list(any()),
-        "jobName" => String.t(),
+        "jobName" => String.t() | Atom.t(),
         "jobOutput" => dataset_export_job_output(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "roleArn" => String.t(),
-        "status" => String.t()
+        "roleArn" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type dataset_export_job() :: %{String.t() => any()}
+  @type dataset_export_job() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       auto_ml_config() :: %{
-        "metricName" => String.t(),
-        "recipeList" => list(String.t())
+        "metricName" => String.t() | Atom.t(),
+        "recipeList" => list(String.t() | Atom.t())
       }
       
   """
-  @type auto_ml_config() :: %{String.t() => any()}
+  @type auto_ml_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_recommender_request() :: %{
-        required("recommenderArn") => String.t()
+        required("recommenderArn") => String.t() | Atom.t()
       }
       
   """
-  @type stop_recommender_request() :: %{String.t() => any()}
+  @type stop_recommender_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_batch_inference_job_request() :: %{
-        required("batchInferenceJobArn") => String.t()
+        required("batchInferenceJobArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_batch_inference_job_request() :: %{String.t() => any()}
+  @type describe_batch_inference_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1893,34 +1893,34 @@ defmodule AWS.Personalize do
       
       dataset_import_job_summary() :: %{
         "creationDateTime" => non_neg_integer(),
-        "datasetImportJobArn" => String.t(),
-        "failureReason" => String.t(),
+        "datasetImportJobArn" => String.t() | Atom.t(),
+        "failureReason" => String.t() | Atom.t(),
         "importMode" => list(any()),
-        "jobName" => String.t(),
+        "jobName" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "status" => String.t()
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type dataset_import_job_summary() :: %{String.t() => any()}
+  @type dataset_import_job_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_batch_segment_job_request() :: %{
-        optional("filterArn") => String.t(),
+        optional("filterArn") => String.t() | Atom.t(),
         optional("numResults") => integer(),
         optional("tags") => list(tag()),
         required("jobInput") => batch_segment_job_input(),
-        required("jobName") => String.t(),
+        required("jobName") => String.t() | Atom.t(),
         required("jobOutput") => batch_segment_job_output(),
-        required("roleArn") => String.t(),
-        required("solutionVersionArn") => String.t()
+        required("roleArn") => String.t() | Atom.t(),
+        required("solutionVersionArn") => String.t() | Atom.t()
       }
       
   """
-  @type create_batch_segment_job_request() :: %{String.t() => any()}
+  @type create_batch_segment_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1928,16 +1928,16 @@ defmodule AWS.Personalize do
       
       data_deletion_job_summary() :: %{
         "creationDateTime" => non_neg_integer(),
-        "dataDeletionJobArn" => String.t(),
-        "datasetGroupArn" => String.t(),
-        "failureReason" => String.t(),
-        "jobName" => String.t(),
+        "dataDeletionJobArn" => String.t() | Atom.t(),
+        "datasetGroupArn" => String.t() | Atom.t(),
+        "failureReason" => String.t() | Atom.t(),
+        "jobName" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "status" => String.t()
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type data_deletion_job_summary() :: %{String.t() => any()}
+  @type data_deletion_job_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1945,23 +1945,23 @@ defmodule AWS.Personalize do
       
       list_dataset_import_jobs_response() :: %{
         "datasetImportJobs" => list(dataset_import_job_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_dataset_import_jobs_response() :: %{String.t() => any()}
+  @type list_dataset_import_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       h_p_o_resource_config() :: %{
-        "maxNumberOfTrainingJobs" => String.t(),
-        "maxParallelTrainingJobs" => String.t()
+        "maxNumberOfTrainingJobs" => String.t() | Atom.t(),
+        "maxParallelTrainingJobs" => String.t() | Atom.t()
       }
       
   """
-  @type h_p_o_resource_config() :: %{String.t() => any()}
+  @type h_p_o_resource_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1969,25 +1969,25 @@ defmodule AWS.Personalize do
       
       event_tracker_summary() :: %{
         "creationDateTime" => non_neg_integer(),
-        "eventTrackerArn" => String.t(),
+        "eventTrackerArn" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "name" => String.t(),
-        "status" => String.t()
+        "name" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type event_tracker_summary() :: %{String.t() => any()}
+  @type event_tracker_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_dataset_group_request() :: %{
-        required("datasetGroupArn") => String.t()
+        required("datasetGroupArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_dataset_group_request() :: %{String.t() => any()}
+  @type delete_dataset_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1999,7 +1999,7 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type solution_update_config() :: %{String.t() => any()}
+  @type solution_update_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2018,12 +2018,12 @@ defmodule AWS.Personalize do
         optional("campaignConfig") => campaign_config(),
         optional("minProvisionedTPS") => integer(),
         optional("tags") => list(tag()),
-        required("name") => String.t(),
-        required("solutionVersionArn") => String.t()
+        required("name") => String.t() | Atom.t(),
+        required("solutionVersionArn") => String.t() | Atom.t()
       }
       
   """
-  @type create_campaign_request() :: %{String.t() => any()}
+  @type create_campaign_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2031,59 +2031,59 @@ defmodule AWS.Personalize do
       
       list_dataset_export_jobs_response() :: %{
         "datasetExportJobs" => list(dataset_export_job_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_dataset_export_jobs_response() :: %{String.t() => any()}
+  @type list_dataset_export_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       event_tracker() :: %{
-        "accountId" => String.t(),
+        "accountId" => String.t() | Atom.t(),
         "creationDateTime" => non_neg_integer(),
-        "datasetGroupArn" => String.t(),
-        "eventTrackerArn" => String.t(),
+        "datasetGroupArn" => String.t() | Atom.t(),
+        "eventTrackerArn" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "name" => String.t(),
-        "status" => String.t(),
-        "trackingId" => String.t()
+        "name" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t(),
+        "trackingId" => String.t() | Atom.t()
       }
       
   """
-  @type event_tracker() :: %{String.t() => any()}
+  @type event_tracker() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_dataset_group_response() :: %{
-        "datasetGroupArn" => String.t(),
+        "datasetGroupArn" => String.t() | Atom.t(),
         "domain" => list(any())
       }
       
   """
-  @type create_dataset_group_response() :: %{String.t() => any()}
+  @type create_dataset_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_inference_job_summary() :: %{
-        "batchInferenceJobArn" => String.t(),
+        "batchInferenceJobArn" => String.t() | Atom.t(),
         "batchInferenceJobMode" => list(any()),
         "creationDateTime" => non_neg_integer(),
-        "failureReason" => String.t(),
-        "jobName" => String.t(),
+        "failureReason" => String.t() | Atom.t(),
+        "jobName" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "solutionVersionArn" => String.t(),
-        "status" => String.t()
+        "solutionVersionArn" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type batch_inference_job_summary() :: %{String.t() => any()}
+  @type batch_inference_job_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2094,7 +2094,7 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type describe_feature_transformation_response() :: %{String.t() => any()}
+  @type describe_feature_transformation_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2105,19 +2105,19 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type describe_event_tracker_response() :: %{String.t() => any()}
+  @type describe_event_tracker_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_recommenders_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "recommenders" => list(recommender_summary())
       }
       
   """
-  @type list_recommenders_response() :: %{String.t() => any()}
+  @type list_recommenders_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2128,7 +2128,7 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type describe_metric_attribution_response() :: %{String.t() => any()}
+  @type describe_metric_attribution_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2139,7 +2139,7 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type describe_dataset_response() :: %{String.t() => any()}
+  @type describe_dataset_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2153,40 +2153,40 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type recommender_config() :: %{String.t() => any()}
+  @type recommender_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       auto_ml_result() :: %{
-        "bestRecipeArn" => String.t()
+        "bestRecipeArn" => String.t() | Atom.t()
       }
       
   """
-  @type auto_ml_result() :: %{String.t() => any()}
+  @type auto_ml_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_solution_version_creation_request() :: %{
-        required("solutionVersionArn") => String.t()
+        required("solutionVersionArn") => String.t() | Atom.t()
       }
       
   """
-  @type stop_solution_version_creation_request() :: %{String.t() => any()}
+  @type stop_solution_version_creation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("resourceArn") => String.t()
+        required("resourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2194,25 +2194,25 @@ defmodule AWS.Personalize do
       
       create_dataset_request() :: %{
         optional("tags") => list(tag()),
-        required("datasetGroupArn") => String.t(),
-        required("datasetType") => String.t(),
-        required("name") => String.t(),
-        required("schemaArn") => String.t()
+        required("datasetGroupArn") => String.t() | Atom.t(),
+        required("datasetType") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t(),
+        required("schemaArn") => String.t() | Atom.t()
       }
       
   """
-  @type create_dataset_request() :: %{String.t() => any()}
+  @type create_dataset_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_dataset_group_request() :: %{
-        required("datasetGroupArn") => String.t()
+        required("datasetGroupArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_dataset_group_request() :: %{String.t() => any()}
+  @type describe_dataset_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2220,11 +2220,11 @@ defmodule AWS.Personalize do
       
       list_metric_attributions_response() :: %{
         "metricAttributions" => list(metric_attribution_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_metric_attributions_response() :: %{String.t() => any()}
+  @type list_metric_attributions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2232,11 +2232,11 @@ defmodule AWS.Personalize do
       
       list_event_trackers_response() :: %{
         "eventTrackers" => list(event_tracker_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_event_trackers_response() :: %{String.t() => any()}
+  @type list_event_trackers_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2245,14 +2245,14 @@ defmodule AWS.Personalize do
       feature_transformation() :: %{
         "creationDateTime" => non_neg_integer(),
         "defaultParameters" => map(),
-        "featureTransformationArn" => String.t(),
+        "featureTransformationArn" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "name" => String.t(),
-        "status" => String.t()
+        "name" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type feature_transformation() :: %{String.t() => any()}
+  @type feature_transformation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2263,13 +2263,13 @@ defmodule AWS.Personalize do
         optional("publishAttributionMetricsToS3") => boolean(),
         optional("tags") => list(tag()),
         required("dataSource") => data_source(),
-        required("datasetArn") => String.t(),
-        required("jobName") => String.t(),
-        required("roleArn") => String.t()
+        required("datasetArn") => String.t() | Atom.t(),
+        required("jobName") => String.t() | Atom.t(),
+        required("roleArn") => String.t() | Atom.t()
       }
       
   """
-  @type create_dataset_import_job_request() :: %{String.t() => any()}
+  @type create_dataset_import_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2279,7 +2279,7 @@ defmodule AWS.Personalize do
         "algorithmHyperParameters" => map(),
         "autoMLConfig" => auto_ml_config(),
         "autoTrainingConfig" => auto_training_config(),
-        "eventValueThreshold" => String.t(),
+        "eventValueThreshold" => String.t() | Atom.t(),
         "eventsConfig" => events_config(),
         "featureTransformationParameters" => map(),
         "hpoConfig" => h_p_o_config(),
@@ -2288,19 +2288,19 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type solution_config() :: %{String.t() => any()}
+  @type solution_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_solution_versions_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "solutionVersions" => list(solution_version_summary())
       }
       
   """
-  @type list_solution_versions_response() :: %{String.t() => any()}
+  @type list_solution_versions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2310,34 +2310,34 @@ defmodule AWS.Personalize do
         "creationDateTime" => non_neg_integer(),
         "domain" => list(any()),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "name" => String.t(),
-        "schemaArn" => String.t()
+        "name" => String.t() | Atom.t(),
+        "schemaArn" => String.t() | Atom.t()
       }
       
   """
-  @type dataset_schema_summary() :: %{String.t() => any()}
+  @type dataset_schema_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_dataset_import_job_request() :: %{
-        required("datasetImportJobArn") => String.t()
+        required("datasetImportJobArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_dataset_import_job_request() :: %{String.t() => any()}
+  @type describe_dataset_import_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2345,59 +2345,59 @@ defmodule AWS.Personalize do
       
       update_metric_attribution_request() :: %{
         optional("addMetrics") => list(metric_attribute()),
-        optional("metricAttributionArn") => String.t(),
+        optional("metricAttributionArn") => String.t() | Atom.t(),
         optional("metricsOutputConfig") => metric_attribution_output(),
-        optional("removeMetrics") => list(String.t())
+        optional("removeMetrics") => list(String.t() | Atom.t())
       }
       
   """
-  @type update_metric_attribution_request() :: %{String.t() => any()}
+  @type update_metric_attribution_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_data_config() :: %{
-        "kmsKeyArn" => String.t(),
-        "path" => String.t()
+        "kmsKeyArn" => String.t() | Atom.t(),
+        "path" => String.t() | Atom.t()
       }
       
   """
-  @type s3_data_config() :: %{String.t() => any()}
+  @type s3_data_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_solution_response() :: %{
-        "solutionArn" => String.t()
+        "solutionArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_solution_response() :: %{String.t() => any()}
+  @type create_solution_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       metric_attribution_output() :: %{
-        "roleArn" => String.t(),
+        "roleArn" => String.t() | Atom.t(),
         "s3DataDestination" => s3_data_config()
       }
       
   """
-  @type metric_attribution_output() :: %{String.t() => any()}
+  @type metric_attribution_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_metric_attribution_response() :: %{
-        "metricAttributionArn" => String.t()
+        "metricAttributionArn" => String.t() | Atom.t()
       }
       
   """
-  @type update_metric_attribution_response() :: %{String.t() => any()}
+  @type update_metric_attribution_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2408,7 +2408,7 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type describe_dataset_group_response() :: %{String.t() => any()}
+  @type describe_dataset_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2418,11 +2418,11 @@ defmodule AWS.Personalize do
         "isTunable" => boolean(),
         "maxValue" => float(),
         "minValue" => float(),
-        "name" => String.t()
+        "name" => String.t() | Atom.t()
       }
       
   """
-  @type default_continuous_hyper_parameter_range() :: %{String.t() => any()}
+  @type default_continuous_hyper_parameter_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2430,11 +2430,11 @@ defmodule AWS.Personalize do
       
       get_solution_metrics_response() :: %{
         "metrics" => map(),
-        "solutionVersionArn" => String.t()
+        "solutionVersionArn" => String.t() | Atom.t()
       }
       
   """
-  @type get_solution_metrics_response() :: %{String.t() => any()}
+  @type get_solution_metrics_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2442,15 +2442,15 @@ defmodule AWS.Personalize do
       
       solution_update_summary() :: %{
         "creationDateTime" => non_neg_integer(),
-        "failureReason" => String.t(),
+        "failureReason" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
         "performAutoTraining" => boolean(),
         "solutionUpdateConfig" => solution_update_config(),
-        "status" => String.t()
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type solution_update_summary() :: %{String.t() => any()}
+  @type solution_update_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2459,34 +2459,34 @@ defmodule AWS.Personalize do
       update_campaign_request() :: %{
         optional("campaignConfig") => campaign_config(),
         optional("minProvisionedTPS") => integer(),
-        optional("solutionVersionArn") => String.t(),
-        required("campaignArn") => String.t()
+        optional("solutionVersionArn") => String.t() | Atom.t(),
+        required("campaignArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_campaign_request() :: %{String.t() => any()}
+  @type update_campaign_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_dataset_request() :: %{
-        required("datasetArn") => String.t()
+        required("datasetArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_dataset_request() :: %{String.t() => any()}
+  @type describe_dataset_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_dataset_request() :: %{
-        required("datasetArn") => String.t()
+        required("datasetArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_dataset_request() :: %{String.t() => any()}
+  @type delete_dataset_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2494,47 +2494,47 @@ defmodule AWS.Personalize do
       
       list_datasets_response() :: %{
         "datasets" => list(dataset_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_datasets_response() :: %{String.t() => any()}
+  @type list_datasets_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       algorithm_image() :: %{
-        "dockerURI" => String.t(),
-        "name" => String.t()
+        "dockerURI" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
       
   """
-  @type algorithm_image() :: %{String.t() => any()}
+  @type algorithm_image() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_already_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_already_exists_exception() :: %{String.t() => any()}
+  @type resource_already_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_dataset_export_jobs_request() :: %{
-        optional("datasetArn") => String.t(),
+        optional("datasetArn") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_dataset_export_jobs_request() :: %{String.t() => any()}
+  @type list_dataset_export_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2547,40 +2547,40 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type h_p_o_config() :: %{String.t() => any()}
+  @type h_p_o_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       data_source() :: %{
-        "dataLocation" => String.t()
+        "dataLocation" => String.t() | Atom.t()
       }
       
   """
-  @type data_source() :: %{String.t() => any()}
+  @type data_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_solution_response() :: %{
-        "solutionArn" => String.t()
+        "solutionArn" => String.t() | Atom.t()
       }
       
   """
-  @type update_solution_response() :: %{String.t() => any()}
+  @type update_solution_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_data_deletion_job_request() :: %{
-        required("dataDeletionJobArn") => String.t()
+        required("dataDeletionJobArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_data_deletion_job_request() :: %{String.t() => any()}
+  @type describe_data_deletion_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2591,41 +2591,41 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type dataset_export_job_output() :: %{String.t() => any()}
+  @type dataset_export_job_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_campaign_response() :: %{
-        "campaignArn" => String.t()
+        "campaignArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_campaign_response() :: %{String.t() => any()}
+  @type create_campaign_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_schemas_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "schemas" => list(dataset_schema_summary())
       }
       
   """
-  @type list_schemas_response() :: %{String.t() => any()}
+  @type list_schemas_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_dataset_export_job_response() :: %{
-        "datasetExportJobArn" => String.t()
+        "datasetExportJobArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_dataset_export_job_response() :: %{String.t() => any()}
+  @type create_dataset_export_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2634,14 +2634,14 @@ defmodule AWS.Personalize do
       create_dataset_export_job_request() :: %{
         optional("ingestionMode") => list(any()),
         optional("tags") => list(tag()),
-        required("datasetArn") => String.t(),
-        required("jobName") => String.t(),
+        required("datasetArn") => String.t() | Atom.t(),
+        required("jobName") => String.t() | Atom.t(),
         required("jobOutput") => dataset_export_job_output(),
-        required("roleArn") => String.t()
+        required("roleArn") => String.t() | Atom.t()
       }
       
   """
-  @type create_dataset_export_job_request() :: %{String.t() => any()}
+  @type create_dataset_export_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2652,7 +2652,7 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type training_data_config() :: %{String.t() => any()}
+  @type training_data_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2661,12 +2661,12 @@ defmodule AWS.Personalize do
       list_recipes_request() :: %{
         optional("domain") => list(any()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("recipeProvider") => list(any())
       }
       
   """
-  @type list_recipes_request() :: %{String.t() => any()}
+  @type list_recipes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2674,12 +2674,12 @@ defmodule AWS.Personalize do
       
       list_solution_versions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("solutionArn") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("solutionArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_solution_versions_request() :: %{String.t() => any()}
+  @type list_solution_versions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2687,11 +2687,11 @@ defmodule AWS.Personalize do
       
       list_filters_response() :: %{
         "Filters" => list(filter_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_filters_response() :: %{String.t() => any()}
+  @type list_filters_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2702,7 +2702,7 @@ defmodule AWS.Personalize do
       }
       
   """
-  @type describe_filter_response() :: %{String.t() => any()}
+  @type describe_filter_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2710,104 +2710,104 @@ defmodule AWS.Personalize do
       
       dataset_group() :: %{
         "creationDateTime" => non_neg_integer(),
-        "datasetGroupArn" => String.t(),
+        "datasetGroupArn" => String.t() | Atom.t(),
         "domain" => list(any()),
-        "failureReason" => String.t(),
-        "kmsKeyArn" => String.t(),
+        "failureReason" => String.t() | Atom.t(),
+        "kmsKeyArn" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "name" => String.t(),
-        "roleArn" => String.t(),
-        "status" => String.t()
+        "name" => String.t() | Atom.t(),
+        "roleArn" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type dataset_group() :: %{String.t() => any()}
+  @type dataset_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       campaign_summary() :: %{
-        "campaignArn" => String.t(),
+        "campaignArn" => String.t() | Atom.t(),
         "creationDateTime" => non_neg_integer(),
-        "failureReason" => String.t(),
+        "failureReason" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "name" => String.t(),
-        "status" => String.t()
+        "name" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type campaign_summary() :: %{String.t() => any()}
+  @type campaign_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_dataset_export_job_request() :: %{
-        required("datasetExportJobArn") => String.t()
+        required("datasetExportJobArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_dataset_export_job_request() :: %{String.t() => any()}
+  @type describe_dataset_export_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_tags_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type too_many_tags_exception() :: %{String.t() => any()}
+  @type too_many_tags_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_filter_request() :: %{
-        required("filterArn") => String.t()
+        required("filterArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_filter_request() :: %{String.t() => any()}
+  @type delete_filter_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_recommenders_request() :: %{
-        optional("datasetGroupArn") => String.t(),
+        optional("datasetGroupArn") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_recommenders_request() :: %{String.t() => any()}
+  @type list_recommenders_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_dataset_import_job_response() :: %{
-        "datasetImportJobArn" => String.t()
+        "datasetImportJobArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_dataset_import_job_response() :: %{String.t() => any()}
+  @type create_dataset_import_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_filters_request() :: %{
-        optional("datasetGroupArn") => String.t(),
+        optional("datasetGroupArn") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_filters_request() :: %{String.t() => any()}
+  @type list_filters_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2815,16 +2815,16 @@ defmodule AWS.Personalize do
       
       dataset_group_summary() :: %{
         "creationDateTime" => non_neg_integer(),
-        "datasetGroupArn" => String.t(),
+        "datasetGroupArn" => String.t() | Atom.t(),
         "domain" => list(any()),
-        "failureReason" => String.t(),
+        "failureReason" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "name" => String.t(),
-        "status" => String.t()
+        "name" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type dataset_group_summary() :: %{String.t() => any()}
+  @type dataset_group_summary() :: %{String.t() | Atom.t() => any()}
 
   @type create_batch_inference_job_errors() ::
           too_many_tags_exception()

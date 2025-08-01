@@ -20,11 +20,11 @@ defmodule AWS.Inspector do
   ## Example:
       
       get_telemetry_metadata_request() :: %{
-        required("assessmentRunArn") => String.t()
+        required("assessmentRunArn") => String.t() | Atom.t()
       }
       
   """
-  @type get_telemetry_metadata_request() :: %{String.t() => any()}
+  @type get_telemetry_metadata_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -35,18 +35,18 @@ defmodule AWS.Inspector do
       }
       
   """
-  @type remove_attributes_from_findings_response() :: %{String.t() => any()}
+  @type remove_attributes_from_findings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_assessment_templates_request() :: %{
-        required("assessmentTemplateArns") => list(String.t())
+        required("assessmentTemplateArns") => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_assessment_templates_request() :: %{String.t() => any()}
+  @type describe_assessment_templates_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -54,34 +54,34 @@ defmodule AWS.Inspector do
       
       add_attributes_to_findings_request() :: %{
         required("attributes") => list(attribute()),
-        required("findingArns") => list(String.t())
+        required("findingArns") => list(String.t() | Atom.t())
       }
       
   """
-  @type add_attributes_to_findings_request() :: %{String.t() => any()}
+  @type add_attributes_to_findings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_assessment_template_request() :: %{
-        required("assessmentTemplateArn") => String.t()
+        required("assessmentTemplateArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_assessment_template_request() :: %{String.t() => any()}
+  @type delete_assessment_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_event_subscriptions_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "subscriptions" => list(subscription())
       }
       
   """
-  @type list_event_subscriptions_response() :: %{String.t() => any()}
+  @type list_event_subscriptions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -89,14 +89,14 @@ defmodule AWS.Inspector do
       
       create_assessment_template_request() :: %{
         optional("userAttributesForFindings") => list(attribute()),
-        required("assessmentTargetArn") => String.t(),
-        required("assessmentTemplateName") => String.t(),
+        required("assessmentTargetArn") => String.t() | Atom.t(),
+        required("assessmentTemplateName") => String.t() | Atom.t(),
         required("durationInSeconds") => integer(),
-        required("rulesPackageArns") => list(String.t())
+        required("rulesPackageArns") => list(String.t() | Atom.t())
       }
       
   """
-  @type create_assessment_template_request() :: %{String.t() => any()}
+  @type create_assessment_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -104,42 +104,42 @@ defmodule AWS.Inspector do
       
       list_event_subscriptions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("resourceArn") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("resourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_event_subscriptions_request() :: %{String.t() => any()}
+  @type list_event_subscriptions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_exclusions_response() :: %{
-        "exclusionArns" => list(String.t()),
-        "nextToken" => String.t()
+        "exclusionArns" => list(String.t() | Atom.t()),
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_exclusions_response() :: %{String.t() => any()}
+  @type list_exclusions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       asset_attributes() :: %{
-        "agentId" => String.t(),
-        "amiId" => String.t(),
-        "autoScalingGroup" => String.t(),
-        "hostname" => String.t(),
-        "ipv4Addresses" => list(String.t()),
+        "agentId" => String.t() | Atom.t(),
+        "amiId" => String.t() | Atom.t(),
+        "autoScalingGroup" => String.t() | Atom.t(),
+        "hostname" => String.t() | Atom.t(),
+        "ipv4Addresses" => list(String.t() | Atom.t()),
         "networkInterfaces" => list(network_interface()),
         "schemaVersion" => integer(),
         "tags" => list(tag())
       }
       
   """
-  @type asset_attributes() :: %{String.t() => any()}
+  @type asset_attributes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -147,11 +147,11 @@ defmodule AWS.Inspector do
       
       stop_assessment_run_request() :: %{
         optional("stopAction") => list(any()),
-        required("assessmentRunArn") => String.t()
+        required("assessmentRunArn") => String.t() | Atom.t()
       }
       
   """
-  @type stop_assessment_run_request() :: %{String.t() => any()}
+  @type stop_assessment_run_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -163,18 +163,18 @@ defmodule AWS.Inspector do
       }
       
   """
-  @type describe_assessment_targets_response() :: %{String.t() => any()}
+  @type describe_assessment_targets_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_resource_group_response() :: %{
-        "resourceGroupArn" => String.t()
+        "resourceGroupArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_resource_group_response() :: %{String.t() => any()}
+  @type create_resource_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -183,22 +183,22 @@ defmodule AWS.Inspector do
       no_such_entity_exception() :: %{
         "canRetry" => boolean(),
         "errorCode" => list(any()),
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type no_such_entity_exception() :: %{String.t() => any()}
+  @type no_such_entity_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_assessment_target_request() :: %{
-        required("assessmentTargetArn") => String.t()
+        required("assessmentTargetArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_assessment_target_request() :: %{String.t() => any()}
+  @type delete_assessment_target_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -207,15 +207,15 @@ defmodule AWS.Inspector do
       assessment_run_filter() :: %{
         "completionTimeRange" => timestamp_range(),
         "durationRange" => duration_range(),
-        "namePattern" => String.t(),
-        "rulesPackageArns" => list(String.t()),
+        "namePattern" => String.t() | Atom.t(),
+        "rulesPackageArns" => list(String.t() | Atom.t()),
         "startTimeRange" => timestamp_range(),
         "stateChangeTimeRange" => timestamp_range(),
         "states" => list(list(any())())
       }
       
   """
-  @type assessment_run_filter() :: %{String.t() => any()}
+  @type assessment_run_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -227,50 +227,50 @@ defmodule AWS.Inspector do
       }
       
   """
-  @type event_subscription() :: %{String.t() => any()}
+  @type event_subscription() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_attributes_from_findings_request() :: %{
-        required("attributeKeys") => list(String.t()),
-        required("findingArns") => list(String.t())
+        required("attributeKeys") => list(String.t() | Atom.t()),
+        required("findingArns") => list(String.t() | Atom.t())
       }
       
   """
-  @type remove_attributes_from_findings_request() :: %{String.t() => any()}
+  @type remove_attributes_from_findings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_exclusions_preview_response() :: %{
-        "previewToken" => String.t()
+        "previewToken" => String.t() | Atom.t()
       }
       
   """
-  @type create_exclusions_preview_response() :: %{String.t() => any()}
+  @type create_exclusions_preview_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       network_interface() :: %{
-        "ipv6Addresses" => list(String.t()),
-        "networkInterfaceId" => String.t(),
-        "privateDnsName" => String.t(),
-        "privateIpAddress" => String.t(),
+        "ipv6Addresses" => list(String.t() | Atom.t()),
+        "networkInterfaceId" => String.t() | Atom.t(),
+        "privateDnsName" => String.t() | Atom.t(),
+        "privateIpAddress" => String.t() | Atom.t(),
         "privateIpAddresses" => list(private_ip()),
-        "publicDnsName" => String.t(),
-        "publicIp" => String.t(),
+        "publicDnsName" => String.t() | Atom.t(),
+        "publicIp" => String.t() | Atom.t(),
         "securityGroups" => list(security_group()),
-        "subnetId" => String.t(),
-        "vpcId" => String.t()
+        "subnetId" => String.t() | Atom.t(),
+        "vpcId" => String.t() | Atom.t()
       }
       
   """
-  @type network_interface() :: %{String.t() => any()}
+  @type network_interface() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -282,7 +282,7 @@ defmodule AWS.Inspector do
       }
       
   """
-  @type describe_assessment_templates_response() :: %{String.t() => any()}
+  @type describe_assessment_templates_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -292,36 +292,36 @@ defmodule AWS.Inspector do
         "date" => non_neg_integer(),
         "error" => boolean(),
         "event" => list(any()),
-        "message" => String.t(),
+        "message" => String.t() | Atom.t(),
         "snsPublishStatusCode" => list(any()),
-        "snsTopicArn" => String.t()
+        "snsTopicArn" => String.t() | Atom.t()
       }
       
   """
-  @type assessment_run_notification() :: %{String.t() => any()}
+  @type assessment_run_notification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_findings_response() :: %{
-        "findingArns" => list(String.t()),
-        "nextToken" => String.t()
+        "findingArns" => list(String.t() | Atom.t()),
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_findings_response() :: %{String.t() => any()}
+  @type list_findings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       register_cross_account_access_role_request() :: %{
-        required("roleArn") => String.t()
+        required("roleArn") => String.t() | Atom.t()
       }
       
   """
-  @type register_cross_account_access_role_request() :: %{String.t() => any()}
+  @type register_cross_account_access_role_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -330,37 +330,37 @@ defmodule AWS.Inspector do
       assessment_run_agent() :: %{
         "agentHealth" => list(any()),
         "agentHealthCode" => list(any()),
-        "agentHealthDetails" => String.t(),
-        "agentId" => String.t(),
-        "assessmentRunArn" => String.t(),
-        "autoScalingGroup" => String.t(),
+        "agentHealthDetails" => String.t() | Atom.t(),
+        "agentId" => String.t() | Atom.t(),
+        "assessmentRunArn" => String.t() | Atom.t(),
+        "autoScalingGroup" => String.t() | Atom.t(),
         "telemetryMetadata" => list(telemetry_metadata())
       }
       
   """
-  @type assessment_run_agent() :: %{String.t() => any()}
+  @type assessment_run_agent() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_assessment_template_response() :: %{
-        "assessmentTemplateArn" => String.t()
+        "assessmentTemplateArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_assessment_template_response() :: %{String.t() => any()}
+  @type create_assessment_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       preview_generation_in_progress_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type preview_generation_in_progress_exception() :: %{String.t() => any()}
+  @type preview_generation_in_progress_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -368,11 +368,11 @@ defmodule AWS.Inspector do
       
       list_rules_packages_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_rules_packages_request() :: %{String.t() => any()}
+  @type list_rules_packages_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -380,28 +380,28 @@ defmodule AWS.Inspector do
       
       get_exclusions_preview_response() :: %{
         "exclusionPreviews" => list(exclusion_preview()),
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "previewStatus" => list(any())
       }
       
   """
-  @type get_exclusions_preview_response() :: %{String.t() => any()}
+  @type get_exclusions_preview_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       exclusion() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "attributes" => list(attribute()),
-        "description" => String.t(),
-        "recommendation" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "recommendation" => String.t() | Atom.t(),
         "scopes" => list(scope()),
-        "title" => String.t()
+        "title" => String.t() | Atom.t()
       }
       
   """
-  @type exclusion() :: %{String.t() => any()}
+  @type exclusion() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -412,19 +412,19 @@ defmodule AWS.Inspector do
       }
       
   """
-  @type add_attributes_to_findings_response() :: %{String.t() => any()}
+  @type add_attributes_to_findings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_rules_packages_response() :: %{
-        "nextToken" => String.t(),
-        "rulesPackageArns" => list(String.t())
+        "nextToken" => String.t() | Atom.t(),
+        "rulesPackageArns" => list(String.t() | Atom.t())
       }
       
   """
-  @type list_rules_packages_response() :: %{String.t() => any()}
+  @type list_rules_packages_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -433,34 +433,34 @@ defmodule AWS.Inspector do
       invalid_cross_account_role_exception() :: %{
         "canRetry" => boolean(),
         "errorCode" => list(any()),
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_cross_account_role_exception() :: %{String.t() => any()}
+  @type invalid_cross_account_role_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_exclusions_preview_request() :: %{
-        required("assessmentTemplateArn") => String.t()
+        required("assessmentTemplateArn") => String.t() | Atom.t()
       }
       
   """
-  @type create_exclusions_preview_request() :: %{String.t() => any()}
+  @type create_exclusions_preview_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_group_tag() :: %{
-        "key" => String.t(),
-        "value" => String.t()
+        "key" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
       
   """
-  @type resource_group_tag() :: %{String.t() => any()}
+  @type resource_group_tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -468,11 +468,11 @@ defmodule AWS.Inspector do
       
       unsupported_feature_exception() :: %{
         "canRetry" => boolean(),
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type unsupported_feature_exception() :: %{String.t() => any()}
+  @type unsupported_feature_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -484,7 +484,7 @@ defmodule AWS.Inspector do
       }
       
   """
-  @type agent_filter() :: %{String.t() => any()}
+  @type agent_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -493,38 +493,38 @@ defmodule AWS.Inspector do
       list_assessment_run_agents_request() :: %{
         optional("filter") => agent_filter(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("assessmentRunArn") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("assessmentRunArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_assessment_run_agents_request() :: %{String.t() => any()}
+  @type list_assessment_run_agents_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_assessment_targets_response() :: %{
-        "assessmentTargetArns" => list(String.t()),
-        "nextToken" => String.t()
+        "assessmentTargetArns" => list(String.t() | Atom.t()),
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_assessment_targets_response() :: %{String.t() => any()}
+  @type list_assessment_targets_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_assessment_templates_request() :: %{
-        optional("assessmentTargetArns") => list(String.t()),
+        optional("assessmentTargetArns") => list(String.t() | Atom.t()),
         optional("filter") => assessment_template_filter(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_assessment_templates_request() :: %{String.t() => any()}
+  @type list_assessment_templates_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -532,12 +532,12 @@ defmodule AWS.Inspector do
       
       list_exclusions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("assessmentRunArn") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("assessmentRunArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_exclusions_request() :: %{String.t() => any()}
+  @type list_exclusions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -545,26 +545,26 @@ defmodule AWS.Inspector do
       
       exclusion_preview() :: %{
         "attributes" => list(attribute()),
-        "description" => String.t(),
-        "recommendation" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "recommendation" => String.t() | Atom.t(),
         "scopes" => list(scope()),
-        "title" => String.t()
+        "title" => String.t() | Atom.t()
       }
       
   """
-  @type exclusion_preview() :: %{String.t() => any()}
+  @type exclusion_preview() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "key" => String.t(),
-        "value" => String.t()
+        "key" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -574,51 +574,51 @@ defmodule AWS.Inspector do
         "agents" => list(agent_already_running_assessment()),
         "agentsTruncated" => boolean(),
         "canRetry" => boolean(),
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type agents_already_running_assessment_exception() :: %{String.t() => any()}
+  @type agents_already_running_assessment_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_assessment_targets_request() :: %{
-        required("assessmentTargetArns") => list(String.t())
+        required("assessmentTargetArns") => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_assessment_targets_request() :: %{String.t() => any()}
+  @type describe_assessment_targets_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       rules_package() :: %{
-        "arn" => String.t(),
-        "description" => String.t(),
-        "name" => String.t(),
-        "provider" => String.t(),
-        "version" => String.t()
+        "arn" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "provider" => String.t() | Atom.t(),
+        "version" => String.t() | Atom.t()
       }
       
   """
-  @type rules_package() :: %{String.t() => any()}
+  @type rules_package() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       assessment_run_in_progress_exception() :: %{
-        "assessmentRunArns" => list(String.t()),
+        "assessmentRunArns" => list(String.t() | Atom.t()),
         "assessmentRunArnsTruncated" => boolean(),
         "canRetry" => boolean(),
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type assessment_run_in_progress_exception() :: %{String.t() => any()}
+  @type assessment_run_in_progress_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -627,39 +627,39 @@ defmodule AWS.Inspector do
       list_assessment_targets_request() :: %{
         optional("filter") => assessment_target_filter(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_assessment_targets_request() :: %{String.t() => any()}
+  @type list_assessment_targets_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       finding() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "assetAttributes" => asset_attributes(),
         "assetType" => list(any()),
         "attributes" => list(attribute()),
         "confidence" => integer(),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
-        "id" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "indicatorOfCompromise" => boolean(),
         "numericSeverity" => float(),
-        "recommendation" => String.t(),
+        "recommendation" => String.t() | Atom.t(),
         "schemaVersion" => integer(),
-        "service" => String.t(),
+        "service" => String.t() | Atom.t(),
         "serviceAttributes" => inspector_service_attributes(),
         "severity" => list(any()),
-        "title" => String.t(),
+        "title" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer(),
         "userAttributes" => list(attribute())
       }
       
   """
-  @type finding() :: %{String.t() => any()}
+  @type finding() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -668,11 +668,11 @@ defmodule AWS.Inspector do
       invalid_input_exception() :: %{
         "canRetry" => boolean(),
         "errorCode" => list(any()),
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_input_exception() :: %{String.t() => any()}
+  @type invalid_input_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -684,7 +684,7 @@ defmodule AWS.Inspector do
       }
       
   """
-  @type describe_exclusions_response() :: %{String.t() => any()}
+  @type describe_exclusions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -692,17 +692,17 @@ defmodule AWS.Inspector do
       
       agent_preview() :: %{
         "agentHealth" => list(any()),
-        "agentId" => String.t(),
-        "agentVersion" => String.t(),
-        "autoScalingGroup" => String.t(),
-        "hostname" => String.t(),
-        "ipv4Address" => String.t(),
-        "kernelVersion" => String.t(),
-        "operatingSystem" => String.t()
+        "agentId" => String.t() | Atom.t(),
+        "agentVersion" => String.t() | Atom.t(),
+        "autoScalingGroup" => String.t() | Atom.t(),
+        "hostname" => String.t() | Atom.t(),
+        "ipv4Address" => String.t() | Atom.t(),
+        "kernelVersion" => String.t() | Atom.t(),
+        "operatingSystem" => String.t() | Atom.t()
       }
       
   """
-  @type agent_preview() :: %{String.t() => any()}
+  @type agent_preview() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -713,7 +713,7 @@ defmodule AWS.Inspector do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -725,21 +725,21 @@ defmodule AWS.Inspector do
       }
       
   """
-  @type describe_assessment_runs_response() :: %{String.t() => any()}
+  @type describe_assessment_runs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_findings_request() :: %{
-        optional("assessmentRunArns") => list(String.t()),
+        optional("assessmentRunArns") => list(String.t() | Atom.t()),
         optional("filter") => finding_filter(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_findings_request() :: %{String.t() => any()}
+  @type list_findings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -747,11 +747,11 @@ defmodule AWS.Inspector do
       
       list_assessment_run_agents_response() :: %{
         "assessmentRunAgents" => list(assessment_run_agent()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_assessment_run_agents_response() :: %{String.t() => any()}
+  @type list_assessment_run_agents_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -759,11 +759,11 @@ defmodule AWS.Inspector do
       
       set_tags_for_resource_request() :: %{
         optional("tags") => list(tag()),
-        required("resourceArn") => String.t()
+        required("resourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type set_tags_for_resource_request() :: %{String.t() => any()}
+  @type set_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -771,50 +771,50 @@ defmodule AWS.Inspector do
       
       get_assessment_report_response() :: %{
         "status" => list(any()),
-        "url" => String.t()
+        "url" => String.t() | Atom.t()
       }
       
   """
-  @type get_assessment_report_response() :: %{String.t() => any()}
+  @type get_assessment_report_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       security_group() :: %{
-        "groupId" => String.t(),
-        "groupName" => String.t()
+        "groupId" => String.t() | Atom.t(),
+        "groupName" => String.t() | Atom.t()
       }
       
   """
-  @type security_group() :: %{String.t() => any()}
+  @type security_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_assessment_runs_request() :: %{
-        optional("assessmentTemplateArns") => list(String.t()),
+        optional("assessmentTemplateArns") => list(String.t() | Atom.t()),
         optional("filter") => assessment_run_filter(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_assessment_runs_request() :: %{String.t() => any()}
+  @type list_assessment_runs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_group() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
         "tags" => list(resource_group_tag())
       }
       
   """
-  @type resource_group() :: %{String.t() => any()}
+  @type resource_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -822,24 +822,24 @@ defmodule AWS.Inspector do
       
       unsubscribe_from_event_request() :: %{
         required("event") => list(any()),
-        required("resourceArn") => String.t(),
-        required("topicArn") => String.t()
+        required("resourceArn") => String.t() | Atom.t(),
+        required("topicArn") => String.t() | Atom.t()
       }
       
   """
-  @type unsubscribe_from_event_request() :: %{String.t() => any()}
+  @type unsubscribe_from_event_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_assessment_run_request() :: %{
-        optional("assessmentRunName") => String.t(),
-        required("assessmentTemplateArn") => String.t()
+        optional("assessmentRunName") => String.t() | Atom.t(),
+        required("assessmentTemplateArn") => String.t() | Atom.t()
       }
       
   """
-  @type start_assessment_run_request() :: %{String.t() => any()}
+  @type start_assessment_run_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -847,12 +847,12 @@ defmodule AWS.Inspector do
       
       assessment_template_filter() :: %{
         "durationRange" => duration_range(),
-        "namePattern" => String.t(),
-        "rulesPackageArns" => list(String.t())
+        "namePattern" => String.t() | Atom.t(),
+        "rulesPackageArns" => list(String.t() | Atom.t())
       }
       
   """
-  @type assessment_template_filter() :: %{String.t() => any()}
+  @type assessment_template_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -860,11 +860,11 @@ defmodule AWS.Inspector do
       
       scope() :: %{
         "key" => list(any()),
-        "value" => String.t()
+        "value" => String.t() | Atom.t()
       }
       
   """
-  @type scope() :: %{String.t() => any()}
+  @type scope() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -872,22 +872,22 @@ defmodule AWS.Inspector do
       
       preview_agents_response() :: %{
         "agentPreviews" => list(agent_preview()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type preview_agents_response() :: %{String.t() => any()}
+  @type preview_agents_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_assessment_target_response() :: %{
-        "assessmentTargetArn" => String.t()
+        "assessmentTargetArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_assessment_target_response() :: %{String.t() => any()}
+  @type create_assessment_target_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -895,22 +895,22 @@ defmodule AWS.Inspector do
       
       service_temporarily_unavailable_exception() :: %{
         "canRetry" => boolean(),
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type service_temporarily_unavailable_exception() :: %{String.t() => any()}
+  @type service_temporarily_unavailable_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_assessment_run_request() :: %{
-        required("assessmentRunArn") => String.t()
+        required("assessmentRunArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_assessment_run_request() :: %{String.t() => any()}
+  @type delete_assessment_run_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -918,11 +918,11 @@ defmodule AWS.Inspector do
       
       describe_rules_packages_request() :: %{
         optional("locale") => list(any()),
-        required("rulesPackageArns") => list(String.t())
+        required("rulesPackageArns") => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_rules_packages_request() :: %{String.t() => any()}
+  @type describe_rules_packages_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -934,32 +934,32 @@ defmodule AWS.Inspector do
       }
       
   """
-  @type duration_range() :: %{String.t() => any()}
+  @type duration_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_assessment_runs_response() :: %{
-        "assessmentRunArns" => list(String.t()),
-        "nextToken" => String.t()
+        "assessmentRunArns" => list(String.t() | Atom.t()),
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_assessment_runs_response() :: %{String.t() => any()}
+  @type list_assessment_runs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       inspector_service_attributes() :: %{
-        "assessmentRunArn" => String.t(),
-        "rulesPackageArn" => String.t(),
+        "assessmentRunArn" => String.t() | Atom.t(),
+        "rulesPackageArn" => String.t() | Atom.t(),
         "schemaVersion" => integer()
       }
       
   """
-  @type inspector_service_attributes() :: %{String.t() => any()}
+  @type inspector_service_attributes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -971,7 +971,7 @@ defmodule AWS.Inspector do
       }
       
   """
-  @type timestamp_range() :: %{String.t() => any()}
+  @type timestamp_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -979,11 +979,11 @@ defmodule AWS.Inspector do
       
       internal_exception() :: %{
         "canRetry" => boolean(),
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type internal_exception() :: %{String.t() => any()}
+  @type internal_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -992,11 +992,11 @@ defmodule AWS.Inspector do
       access_denied_exception() :: %{
         "canRetry" => boolean(),
         "errorCode" => list(any()),
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1005,11 +1005,11 @@ defmodule AWS.Inspector do
       telemetry_metadata() :: %{
         "count" => float(),
         "dataSize" => float(),
-        "messageType" => String.t()
+        "messageType" => String.t() | Atom.t()
       }
       
   """
-  @type telemetry_metadata() :: %{String.t() => any()}
+  @type telemetry_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1020,7 +1020,7 @@ defmodule AWS.Inspector do
       }
       
   """
-  @type create_resource_group_request() :: %{String.t() => any()}
+  @type create_resource_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1028,11 +1028,11 @@ defmodule AWS.Inspector do
       
       describe_exclusions_request() :: %{
         optional("locale") => list(any()),
-        required("exclusionArns") => list(String.t())
+        required("exclusionArns") => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_exclusions_request() :: %{String.t() => any()}
+  @type describe_exclusions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1044,25 +1044,25 @@ defmodule AWS.Inspector do
       }
       
   """
-  @type describe_findings_response() :: %{String.t() => any()}
+  @type describe_findings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       finding_filter() :: %{
-        "agentIds" => list(String.t()),
+        "agentIds" => list(String.t() | Atom.t()),
         "attributes" => list(attribute()),
-        "autoScalingGroups" => list(String.t()),
+        "autoScalingGroups" => list(String.t() | Atom.t()),
         "creationTimeRange" => timestamp_range(),
-        "ruleNames" => list(String.t()),
-        "rulesPackageArns" => list(String.t()),
+        "ruleNames" => list(String.t() | Atom.t()),
+        "rulesPackageArns" => list(String.t() | Atom.t()),
         "severities" => list(list(any())()),
         "userAttributes" => list(attribute())
       }
       
   """
-  @type finding_filter() :: %{String.t() => any()}
+  @type finding_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1070,42 +1070,42 @@ defmodule AWS.Inspector do
       
       describe_cross_account_access_role_response() :: %{
         "registeredAt" => non_neg_integer(),
-        "roleArn" => String.t(),
+        "roleArn" => String.t() | Atom.t(),
         "valid" => boolean()
       }
       
   """
-  @type describe_cross_account_access_role_response() :: %{String.t() => any()}
+  @type describe_cross_account_access_role_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       assessment_template() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "assessmentRunCount" => integer(),
-        "assessmentTargetArn" => String.t(),
+        "assessmentTargetArn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
         "durationInSeconds" => integer(),
-        "lastAssessmentRunArn" => String.t(),
-        "name" => String.t(),
-        "rulesPackageArns" => list(String.t()),
+        "lastAssessmentRunArn" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "rulesPackageArns" => list(String.t() | Atom.t()),
         "userAttributesForFindings" => list(attribute())
       }
       
   """
-  @type assessment_template() :: %{String.t() => any()}
+  @type assessment_template() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("resourceArn") => String.t()
+        required("resourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1113,24 +1113,24 @@ defmodule AWS.Inspector do
       
       preview_agents_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("previewAgentsArn") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("previewAgentsArn") => String.t() | Atom.t()
       }
       
   """
-  @type preview_agents_request() :: %{String.t() => any()}
+  @type preview_agents_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       private_ip() :: %{
-        "privateDnsName" => String.t(),
-        "privateIpAddress" => String.t()
+        "privateDnsName" => String.t() | Atom.t(),
+        "privateIpAddress" => String.t() | Atom.t()
       }
       
   """
-  @type private_ip() :: %{String.t() => any()}
+  @type private_ip() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1138,12 +1138,12 @@ defmodule AWS.Inspector do
       
       subscription() :: %{
         "eventSubscriptions" => list(event_subscription()),
-        "resourceArn" => String.t(),
-        "topicArn" => String.t()
+        "resourceArn" => String.t() | Atom.t(),
+        "topicArn" => String.t() | Atom.t()
       }
       
   """
-  @type subscription() :: %{String.t() => any()}
+  @type subscription() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1155,18 +1155,18 @@ defmodule AWS.Inspector do
       }
       
   """
-  @type describe_rules_packages_response() :: %{String.t() => any()}
+  @type describe_rules_packages_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       assessment_target_filter() :: %{
-        "assessmentTargetNamePattern" => String.t()
+        "assessmentTargetNamePattern" => String.t() | Atom.t()
       }
       
   """
-  @type assessment_target_filter() :: %{String.t() => any()}
+  @type assessment_target_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1178,47 +1178,47 @@ defmodule AWS.Inspector do
       }
       
   """
-  @type describe_resource_groups_response() :: %{String.t() => any()}
+  @type describe_resource_groups_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_assessment_target_request() :: %{
-        optional("resourceGroupArn") => String.t(),
-        required("assessmentTargetName") => String.t()
+        optional("resourceGroupArn") => String.t() | Atom.t(),
+        required("assessmentTargetName") => String.t() | Atom.t()
       }
       
   """
-  @type create_assessment_target_request() :: %{String.t() => any()}
+  @type create_assessment_target_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       attribute() :: %{
-        "key" => String.t(),
-        "value" => String.t()
+        "key" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
       
   """
-  @type attribute() :: %{String.t() => any()}
+  @type attribute() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       assessment_run() :: %{
-        "arn" => String.t(),
-        "assessmentTemplateArn" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "assessmentTemplateArn" => String.t() | Atom.t(),
         "completedAt" => non_neg_integer(),
         "createdAt" => non_neg_integer(),
         "dataCollected" => boolean(),
         "durationInSeconds" => integer(),
         "findingCounts" => map(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "notifications" => list(assessment_run_notification()),
-        "rulesPackageArns" => list(String.t()),
+        "rulesPackageArns" => list(String.t() | Atom.t()),
         "startedAt" => non_neg_integer(),
         "state" => list(any()),
         "stateChangedAt" => non_neg_integer(),
@@ -1227,7 +1227,7 @@ defmodule AWS.Inspector do
       }
       
   """
-  @type assessment_run() :: %{String.t() => any()}
+  @type assessment_run() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1236,11 +1236,11 @@ defmodule AWS.Inspector do
       limit_exceeded_exception() :: %{
         "canRetry" => boolean(),
         "errorCode" => list(any()),
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1248,48 +1248,48 @@ defmodule AWS.Inspector do
       
       subscribe_to_event_request() :: %{
         required("event") => list(any()),
-        required("resourceArn") => String.t(),
-        required("topicArn") => String.t()
+        required("resourceArn") => String.t() | Atom.t(),
+        required("topicArn") => String.t() | Atom.t()
       }
       
   """
-  @type subscribe_to_event_request() :: %{String.t() => any()}
+  @type subscribe_to_event_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_assessment_templates_response() :: %{
-        "assessmentTemplateArns" => list(String.t()),
-        "nextToken" => String.t()
+        "assessmentTemplateArns" => list(String.t() | Atom.t()),
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_assessment_templates_response() :: %{String.t() => any()}
+  @type list_assessment_templates_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_assessment_report_request() :: %{
-        required("assessmentRunArn") => String.t(),
+        required("assessmentRunArn") => String.t() | Atom.t(),
         required("reportFileFormat") => list(any()),
         required("reportType") => list(any())
       }
       
   """
-  @type get_assessment_report_request() :: %{String.t() => any()}
+  @type get_assessment_report_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_assessment_run_response() :: %{
-        "assessmentRunArn" => String.t()
+        "assessmentRunArn" => String.t() | Atom.t()
       }
       
   """
-  @type start_assessment_run_response() :: %{String.t() => any()}
+  @type start_assessment_run_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1297,23 +1297,23 @@ defmodule AWS.Inspector do
       
       describe_findings_request() :: %{
         optional("locale") => list(any()),
-        required("findingArns") => list(String.t())
+        required("findingArns") => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_findings_request() :: %{String.t() => any()}
+  @type describe_findings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       agent_already_running_assessment() :: %{
-        "agentId" => String.t(),
-        "assessmentRunArn" => String.t()
+        "agentId" => String.t() | Atom.t(),
+        "assessmentRunArn" => String.t() | Atom.t()
       }
       
   """
-  @type agent_already_running_assessment() :: %{String.t() => any()}
+  @type agent_already_running_assessment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1324,18 +1324,18 @@ defmodule AWS.Inspector do
       }
       
   """
-  @type get_telemetry_metadata_response() :: %{String.t() => any()}
+  @type get_telemetry_metadata_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_resource_groups_request() :: %{
-        required("resourceGroupArns") => list(String.t())
+        required("resourceGroupArns") => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_resource_groups_request() :: %{String.t() => any()}
+  @type describe_resource_groups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1347,7 +1347,7 @@ defmodule AWS.Inspector do
       }
       
   """
-  @type failed_item_details() :: %{String.t() => any()}
+  @type failed_item_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1359,22 +1359,22 @@ defmodule AWS.Inspector do
       }
       
   """
-  @type assessment_run_state_change() :: %{String.t() => any()}
+  @type assessment_run_state_change() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       assessment_target() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "name" => String.t(),
-        "resourceGroupArn" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "resourceGroupArn" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer()
       }
       
   """
-  @type assessment_target() :: %{String.t() => any()}
+  @type assessment_target() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1383,37 +1383,37 @@ defmodule AWS.Inspector do
       get_exclusions_preview_request() :: %{
         optional("locale") => list(any()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("assessmentTemplateArn") => String.t(),
-        required("previewToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("assessmentTemplateArn") => String.t() | Atom.t(),
+        required("previewToken") => String.t() | Atom.t()
       }
       
   """
-  @type get_exclusions_preview_request() :: %{String.t() => any()}
+  @type get_exclusions_preview_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_assessment_runs_request() :: %{
-        required("assessmentRunArns") => list(String.t())
+        required("assessmentRunArns") => list(String.t() | Atom.t())
       }
       
   """
-  @type describe_assessment_runs_request() :: %{String.t() => any()}
+  @type describe_assessment_runs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_assessment_target_request() :: %{
-        optional("resourceGroupArn") => String.t(),
-        required("assessmentTargetArn") => String.t(),
-        required("assessmentTargetName") => String.t()
+        optional("resourceGroupArn") => String.t() | Atom.t(),
+        required("assessmentTargetArn") => String.t() | Atom.t(),
+        required("assessmentTargetName") => String.t() | Atom.t()
       }
       
   """
-  @type update_assessment_target_request() :: %{String.t() => any()}
+  @type update_assessment_target_request() :: %{String.t() | Atom.t() => any()}
 
   @type add_attributes_to_findings_errors() ::
           access_denied_exception()

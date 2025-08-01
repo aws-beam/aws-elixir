@@ -21,38 +21,38 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       add_data_source_response() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type add_data_source_response() :: %{String.t() => any()}
+  @type add_data_source_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       inbound_connection_status() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "StatusCode" => list(any())
       }
 
   """
-  @type inbound_connection_status() :: %{String.t() => any()}
+  @type inbound_connection_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       dry_run_progress_status() :: %{
-        "CreationDate" => String.t(),
-        "DryRunId" => String.t(),
-        "DryRunStatus" => String.t(),
-        "UpdateDate" => String.t(),
+        "CreationDate" => String.t() | Atom.t(),
+        "DryRunId" => String.t() | Atom.t(),
+        "DryRunStatus" => String.t() | Atom.t(),
+        "UpdateDate" => String.t() | Atom.t(),
         "ValidationFailures" => list(validation_failure())
       }
 
   """
-  @type dry_run_progress_status() :: %{String.t() => any()}
+  @type dry_run_progress_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -64,7 +64,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type window_start_time() :: %{String.t() => any()}
+  @type window_start_time() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -75,15 +75,15 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type list_domain_names_request() :: %{String.t() => any()}
+  @type list_domain_names_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       outbound_connection() :: %{
-        "ConnectionAlias" => String.t(),
-        "ConnectionId" => String.t(),
+        "ConnectionAlias" => String.t() | Atom.t(),
+        "ConnectionId" => String.t() | Atom.t(),
         "ConnectionMode" => list(any()),
         "ConnectionProperties" => connection_properties(),
         "ConnectionStatus" => outbound_connection_status(),
@@ -92,34 +92,34 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type outbound_connection() :: %{String.t() => any()}
+  @type outbound_connection() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       modifying_properties() :: %{
-        "ActiveValue" => String.t(),
-        "Name" => String.t(),
-        "PendingValue" => String.t(),
+        "ActiveValue" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "PendingValue" => String.t() | Atom.t(),
         "ValueType" => list(any())
       }
 
   """
-  @type modifying_properties() :: %{String.t() => any()}
+  @type modifying_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       auto_tune_options_output() :: %{
-        "ErrorMessage" => String.t(),
+        "ErrorMessage" => String.t() | Atom.t(),
         "State" => list(any()),
         "UseOffPeakWindow" => boolean()
       }
 
   """
-  @type auto_tune_options_output() :: %{String.t() => any()}
+  @type auto_tune_options_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -127,12 +127,12 @@ defmodule AWS.OpenSearch do
 
       update_package_scope_request() :: %{
         required("Operation") => list(any()),
-        required("PackageID") => String.t(),
-        required("PackageUserList") => list(String.t())
+        required("PackageID") => String.t() | Atom.t(),
+        required("PackageUserList") => list(String.t() | Atom.t())
       }
 
   """
-  @type update_package_scope_request() :: %{String.t() => any()}
+  @type update_package_scope_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -143,7 +143,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type delete_domain_response() :: %{String.t() => any()}
+  @type delete_domain_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -151,11 +151,11 @@ defmodule AWS.OpenSearch do
 
       describe_domain_auto_tunes_response() :: %{
         "AutoTunes" => list(auto_tune()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type describe_domain_auto_tunes_response() :: %{String.t() => any()}
+  @type describe_domain_auto_tunes_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -166,19 +166,19 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type package_vending_options() :: %{String.t() => any()}
+  @type package_vending_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_vpc_endpoints_for_domain_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "VpcEndpointSummaryList" => list(vpc_endpoint_summary())
       }
 
   """
-  @type list_vpc_endpoints_for_domain_response() :: %{String.t() => any()}
+  @type list_vpc_endpoints_for_domain_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -186,23 +186,23 @@ defmodule AWS.OpenSearch do
 
       describe_domain_auto_tunes_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type describe_domain_auto_tunes_request() :: %{String.t() => any()}
+  @type describe_domain_auto_tunes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       package_source() :: %{
-        "S3BucketName" => String.t(),
-        "S3Key" => String.t()
+        "S3BucketName" => String.t() | Atom.t(),
+        "S3Key" => String.t() | Atom.t()
       }
 
   """
-  @type package_source() :: %{String.t() => any()}
+  @type package_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -211,23 +211,23 @@ defmodule AWS.OpenSearch do
       describe_outbound_connections_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type describe_outbound_connections_request() :: %{String.t() => any()}
+  @type describe_outbound_connections_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       compatible_versions_map() :: %{
-        "SourceVersion" => String.t(),
-        "TargetVersions" => list(String.t())
+        "SourceVersion" => String.t() | Atom.t(),
+        "TargetVersions" => list(String.t() | Atom.t())
       }
 
   """
-  @type compatible_versions_map() :: %{String.t() => any()}
+  @type compatible_versions_map() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -235,12 +235,12 @@ defmodule AWS.OpenSearch do
 
       update_package_scope_response() :: %{
         "Operation" => list(any()),
-        "PackageID" => String.t(),
-        "PackageUserList" => list(String.t())
+        "PackageID" => String.t() | Atom.t(),
+        "PackageUserList" => list(String.t() | Atom.t())
       }
 
   """
-  @type update_package_scope_response() :: %{String.t() => any()}
+  @type update_package_scope_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -251,7 +251,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type snapshot_options() :: %{String.t() => any()}
+  @type snapshot_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -262,7 +262,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type auto_tune_details() :: %{String.t() => any()}
+  @type auto_tune_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -273,7 +273,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type dissociate_packages_response() :: %{String.t() => any()}
+  @type dissociate_packages_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -281,11 +281,11 @@ defmodule AWS.OpenSearch do
 
       describe_outbound_connections_response() :: %{
         "Connections" => list(outbound_connection()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type describe_outbound_connections_response() :: %{String.t() => any()}
+  @type describe_outbound_connections_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -296,60 +296,60 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type authorize_vpc_endpoint_access_response() :: %{String.t() => any()}
+  @type authorize_vpc_endpoint_access_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       direct_query_data_source() :: %{
-        "DataSourceArn" => String.t(),
-        "DataSourceName" => String.t(),
+        "DataSourceArn" => String.t() | Atom.t(),
+        "DataSourceName" => String.t() | Atom.t(),
         "DataSourceType" => list(),
-        "Description" => String.t(),
-        "OpenSearchArns" => list(String.t()),
+        "Description" => String.t() | Atom.t(),
+        "OpenSearchArns" => list(String.t() | Atom.t()),
         "TagList" => list(tag())
       }
 
   """
-  @type direct_query_data_source() :: %{String.t() => any()}
+  @type direct_query_data_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       package_details() :: %{
-        "AllowListedUserList" => list(String.t()),
+        "AllowListedUserList" => list(String.t() | Atom.t()),
         "AvailablePackageConfiguration" => package_configuration(),
-        "AvailablePackageVersion" => String.t(),
+        "AvailablePackageVersion" => String.t() | Atom.t(),
         "AvailablePluginProperties" => plugin_properties(),
         "CreatedAt" => non_neg_integer(),
-        "EngineVersion" => String.t(),
+        "EngineVersion" => String.t() | Atom.t(),
         "ErrorDetails" => error_details(),
         "LastUpdatedAt" => non_neg_integer(),
-        "PackageDescription" => String.t(),
+        "PackageDescription" => String.t() | Atom.t(),
         "PackageEncryptionOptions" => package_encryption_options(),
-        "PackageID" => String.t(),
-        "PackageName" => String.t(),
-        "PackageOwner" => String.t(),
+        "PackageID" => String.t() | Atom.t(),
+        "PackageName" => String.t() | Atom.t(),
+        "PackageOwner" => String.t() | Atom.t(),
         "PackageStatus" => list(any()),
         "PackageType" => list(any()),
         "PackageVendingOptions" => package_vending_options()
       }
 
   """
-  @type package_details() :: %{String.t() => any()}
+  @type package_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_domain_change_progress_request() :: %{
-        optional("ChangeId") => String.t()
+        optional("ChangeId") => String.t() | Atom.t()
       }
 
   """
-  @type describe_domain_change_progress_request() :: %{String.t() => any()}
+  @type describe_domain_change_progress_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -361,7 +361,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type cluster_config_status() :: %{String.t() => any()}
+  @type cluster_config_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -370,31 +370,31 @@ defmodule AWS.OpenSearch do
       create_outbound_connection_request() :: %{
         optional("ConnectionMode") => list(any()),
         optional("ConnectionProperties") => connection_properties(),
-        required("ConnectionAlias") => String.t(),
+        required("ConnectionAlias") => String.t() | Atom.t(),
         required("LocalDomainInfo") => domain_information_container(),
         required("RemoteDomainInfo") => domain_information_container()
       }
 
   """
-  @type create_outbound_connection_request() :: %{String.t() => any()}
+  @type create_outbound_connection_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_package_request() :: %{
-        optional("EngineVersion") => String.t(),
+        optional("EngineVersion") => String.t() | Atom.t(),
         optional("PackageConfiguration") => package_configuration(),
-        optional("PackageDescription") => String.t(),
+        optional("PackageDescription") => String.t() | Atom.t(),
         optional("PackageEncryptionOptions") => package_encryption_options(),
         optional("PackageVendingOptions") => package_vending_options(),
-        required("PackageName") => String.t(),
+        required("PackageName") => String.t() | Atom.t(),
         required("PackageSource") => package_source(),
         required("PackageType") => list(any())
       }
 
   """
-  @type create_package_request() :: %{String.t() => any()}
+  @type create_package_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -402,7 +402,7 @@ defmodule AWS.OpenSearch do
 
       auto_tune_status() :: %{
         "CreationDate" => non_neg_integer(),
-        "ErrorMessage" => String.t(),
+        "ErrorMessage" => String.t() | Atom.t(),
         "PendingDeletion" => boolean(),
         "State" => list(any()),
         "UpdateDate" => non_neg_integer(),
@@ -410,7 +410,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type auto_tune_status() :: %{String.t() => any()}
+  @type auto_tune_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -418,24 +418,24 @@ defmodule AWS.OpenSearch do
 
       package_configuration() :: %{
         "ConfigurationRequirement" => list(any()),
-        "LicenseFilepath" => String.t(),
+        "LicenseFilepath" => String.t() | Atom.t(),
         "LicenseRequirement" => list(any()),
         "RequiresRestartForConfigurationUpdate" => boolean()
       }
 
   """
-  @type package_configuration() :: %{String.t() => any()}
+  @type package_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_vpc_endpoints_request() :: %{
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_vpc_endpoints_request() :: %{String.t() => any()}
+  @type list_vpc_endpoints_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -446,18 +446,18 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type cold_storage_options() :: %{String.t() => any()}
+  @type cold_storage_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_vpc_endpoints_request() :: %{
-        required("VpcEndpointIds") => list(String.t())
+        required("VpcEndpointIds") => list(String.t() | Atom.t())
       }
 
   """
-  @type describe_vpc_endpoints_request() :: %{String.t() => any()}
+  @type describe_vpc_endpoints_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -469,7 +469,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type auto_tune_options_status() :: %{String.t() => any()}
+  @type auto_tune_options_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -481,7 +481,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type natural_language_query_generation_options_output() :: %{String.t() => any()}
+  @type natural_language_query_generation_options_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -493,32 +493,32 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type snapshot_options_status() :: %{String.t() => any()}
+  @type snapshot_options_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cloud_watch_direct_query_data_source() :: %{
-        "RoleArn" => String.t()
+        "RoleArn" => String.t() | Atom.t()
       }
 
   """
-  @type cloud_watch_direct_query_data_source() :: %{String.t() => any()}
+  @type cloud_watch_direct_query_data_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       vpc_endpoint_summary() :: %{
-        "DomainArn" => String.t(),
+        "DomainArn" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "VpcEndpointId" => String.t(),
-        "VpcEndpointOwner" => String.t()
+        "VpcEndpointId" => String.t() | Atom.t(),
+        "VpcEndpointOwner" => String.t() | Atom.t()
       }
 
   """
-  @type vpc_endpoint_summary() :: %{String.t() => any()}
+  @type vpc_endpoint_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -526,35 +526,35 @@ defmodule AWS.OpenSearch do
 
       recurring_charge() :: %{
         "RecurringChargeAmount" => float(),
-        "RecurringChargeFrequency" => String.t()
+        "RecurringChargeFrequency" => String.t() | Atom.t()
       }
 
   """
-  @type recurring_charge() :: %{String.t() => any()}
+  @type recurring_charge() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_reserved_instance_offerings_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "ReservedInstanceOfferings" => list(reserved_instance_offering())
       }
 
   """
-  @type describe_reserved_instance_offerings_response() :: %{String.t() => any()}
+  @type describe_reserved_instance_offerings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_vpc_endpoints_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "VpcEndpointSummaryList" => list(vpc_endpoint_summary())
       }
 
   """
-  @type list_vpc_endpoints_response() :: %{String.t() => any()}
+  @type list_vpc_endpoints_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -567,7 +567,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type describe_dry_run_progress_response() :: %{String.t() => any()}
+  @type describe_dry_run_progress_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -576,16 +576,16 @@ defmodule AWS.OpenSearch do
       instance_type_details() :: %{
         "AdvancedSecurityEnabled" => boolean(),
         "AppLogsEnabled" => boolean(),
-        "AvailabilityZones" => list(String.t()),
+        "AvailabilityZones" => list(String.t() | Atom.t()),
         "CognitoEnabled" => boolean(),
         "EncryptionEnabled" => boolean(),
-        "InstanceRole" => list(String.t()),
+        "InstanceRole" => list(String.t() | Atom.t()),
         "InstanceType" => list(any()),
         "WarmEnabled" => boolean()
       }
 
   """
-  @type instance_type_details() :: %{String.t() => any()}
+  @type instance_type_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -596,32 +596,32 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type package_association_configuration() :: %{String.t() => any()}
+  @type package_association_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_domains_request() :: %{
-        required("DomainNames") => list(String.t())
+        required("DomainNames") => list(String.t() | Atom.t())
       }
 
   """
-  @type describe_domains_request() :: %{String.t() => any()}
+  @type describe_domains_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       vpc_derived_info() :: %{
-        "AvailabilityZones" => list(String.t()),
-        "SecurityGroupIds" => list(String.t()),
-        "SubnetIds" => list(String.t()),
-        "VPCId" => String.t()
+        "AvailabilityZones" => list(String.t() | Atom.t()),
+        "SecurityGroupIds" => list(String.t() | Atom.t()),
+        "SubnetIds" => list(String.t() | Atom.t()),
+        "VPCId" => String.t() | Atom.t()
       }
 
   """
-  @type vpc_derived_info() :: %{String.t() => any()}
+  @type vpc_derived_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -637,12 +637,12 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       saml_idp() :: %{
-        "EntityId" => String.t(),
-        "MetadataContent" => String.t()
+        "EntityId" => String.t() | Atom.t(),
+        "MetadataContent" => String.t() | Atom.t()
       }
 
   """
-  @type saml_idp() :: %{String.t() => any()}
+  @type saml_idp() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -673,18 +673,18 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type domain_config() :: %{String.t() => any()}
+  @type domain_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_domain_maintenance_status_request() :: %{
-        required("MaintenanceId") => String.t()
+        required("MaintenanceId") => String.t() | Atom.t()
       }
 
   """
-  @type get_domain_maintenance_status_request() :: %{String.t() => any()}
+  @type get_domain_maintenance_status_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -693,14 +693,14 @@ defmodule AWS.OpenSearch do
       get_domain_maintenance_status_response() :: %{
         "Action" => list(any()),
         "CreatedAt" => non_neg_integer(),
-        "NodeId" => String.t(),
+        "NodeId" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "StatusMessage" => String.t(),
+        "StatusMessage" => String.t() | Atom.t(),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type get_domain_maintenance_status_response() :: %{String.t() => any()}
+  @type get_domain_maintenance_status_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -711,7 +711,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type list_tags_response() :: %{String.t() => any()}
+  @type list_tags_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -727,36 +727,36 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       outbound_connection_status() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "StatusCode" => list(any())
       }
 
   """
-  @type outbound_connection_status() :: %{String.t() => any()}
+  @type outbound_connection_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_domain_maintenance_request() :: %{
-        optional("NodeId") => String.t(),
+        optional("NodeId") => String.t() | Atom.t(),
         required("Action") => list(any())
       }
 
   """
-  @type start_domain_maintenance_request() :: %{String.t() => any()}
+  @type start_domain_maintenance_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       storage_type_limit() :: %{
-        "LimitName" => String.t(),
-        "LimitValues" => list(String.t())
+        "LimitName" => String.t() | Atom.t(),
+        "LimitValues" => list(String.t() | Atom.t())
       }
 
   """
-  @type storage_type_limit() :: %{String.t() => any()}
+  @type storage_type_limit() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -764,19 +764,19 @@ defmodule AWS.OpenSearch do
 
       list_direct_query_data_sources_response() :: %{
         "DirectQueryDataSources" => list(direct_query_data_source()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_direct_query_data_sources_response() :: %{String.t() => any()}
+  @type list_direct_query_data_sources_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_outbound_connection_response() :: %{
-        "ConnectionAlias" => String.t(),
-        "ConnectionId" => String.t(),
+        "ConnectionAlias" => String.t() | Atom.t(),
+        "ConnectionId" => String.t() | Atom.t(),
         "ConnectionMode" => list(any()),
         "ConnectionProperties" => connection_properties(),
         "ConnectionStatus" => outbound_connection_status(),
@@ -785,7 +785,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type create_outbound_connection_response() :: %{String.t() => any()}
+  @type create_outbound_connection_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -797,30 +797,30 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type ebs_options_status() :: %{String.t() => any()}
+  @type ebs_options_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       authorized_principal() :: %{
-        "Principal" => String.t(),
+        "Principal" => String.t() | Atom.t(),
         "PrincipalType" => list(any())
       }
 
   """
-  @type authorized_principal() :: %{String.t() => any()}
+  @type authorized_principal() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disabled_operation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type disabled_operation_exception() :: %{String.t() => any()}
+  @type disabled_operation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -831,20 +831,20 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type delete_vpc_endpoint_response() :: %{String.t() => any()}
+  @type delete_vpc_endpoint_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       storage_type() :: %{
-        "StorageSubTypeName" => String.t(),
+        "StorageSubTypeName" => String.t() | Atom.t(),
         "StorageTypeLimits" => list(storage_type_limit()),
-        "StorageTypeName" => String.t()
+        "StorageTypeName" => String.t() | Atom.t()
       }
 
   """
-  @type storage_type() :: %{String.t() => any()}
+  @type storage_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -855,18 +855,18 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type update_package_response() :: %{String.t() => any()}
+  @type update_package_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_data_source_response() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type update_data_source_response() :: %{String.t() => any()}
+  @type update_data_source_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -877,19 +877,19 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type associate_packages_response() :: %{String.t() => any()}
+  @type associate_packages_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       additional_limit() :: %{
-        "LimitName" => String.t(),
-        "LimitValues" => list(String.t())
+        "LimitName" => String.t() | Atom.t(),
+        "LimitValues" => list(String.t() | Atom.t())
       }
 
   """
-  @type additional_limit() :: %{String.t() => any()}
+  @type additional_limit() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -900,7 +900,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type reject_inbound_connection_response() :: %{String.t() => any()}
+  @type reject_inbound_connection_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -908,13 +908,13 @@ defmodule AWS.OpenSearch do
 
       identity_center_options_input() :: %{
         "EnabledAPIAccess" => boolean(),
-        "IdentityCenterInstanceARN" => String.t(),
+        "IdentityCenterInstanceARN" => String.t() | Atom.t(),
         "RolesKey" => list(any()),
         "SubjectKey" => list(any())
       }
 
   """
-  @type identity_center_options_input() :: %{String.t() => any()}
+  @type identity_center_options_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -926,7 +926,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type vpc_derived_info_status() :: %{String.t() => any()}
+  @type vpc_derived_info_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -946,7 +946,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type update_scheduled_action_response() :: %{String.t() => any()}
+  @type update_scheduled_action_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -955,39 +955,39 @@ defmodule AWS.OpenSearch do
       domain_maintenance_details() :: %{
         "Action" => list(any()),
         "CreatedAt" => non_neg_integer(),
-        "DomainName" => String.t(),
-        "MaintenanceId" => String.t(),
-        "NodeId" => String.t(),
+        "DomainName" => String.t() | Atom.t(),
+        "MaintenanceId" => String.t() | Atom.t(),
+        "NodeId" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "StatusMessage" => String.t(),
+        "StatusMessage" => String.t() | Atom.t(),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type domain_maintenance_details() :: %{String.t() => any()}
+  @type domain_maintenance_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_domain_health_response() :: %{
-        "ActiveAvailabilityZoneCount" => String.t(),
-        "AvailabilityZoneCount" => String.t(),
+        "ActiveAvailabilityZoneCount" => String.t() | Atom.t(),
+        "AvailabilityZoneCount" => String.t() | Atom.t(),
         "ClusterHealth" => list(any()),
-        "DataNodeCount" => String.t(),
+        "DataNodeCount" => String.t() | Atom.t(),
         "DedicatedMaster" => boolean(),
         "DomainState" => list(any()),
         "EnvironmentInformation" => list(environment_info()),
-        "MasterEligibleNodeCount" => String.t(),
+        "MasterEligibleNodeCount" => String.t() | Atom.t(),
         "MasterNode" => list(any()),
-        "StandByAvailabilityZoneCount" => String.t(),
-        "TotalShards" => String.t(),
-        "TotalUnAssignedShards" => String.t(),
-        "WarmNodeCount" => String.t()
+        "StandByAvailabilityZoneCount" => String.t() | Atom.t(),
+        "TotalShards" => String.t() | Atom.t(),
+        "TotalUnAssignedShards" => String.t() | Atom.t(),
+        "WarmNodeCount" => String.t() | Atom.t()
       }
 
   """
-  @type describe_domain_health_response() :: %{String.t() => any()}
+  @type describe_domain_health_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -998,7 +998,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type start_service_software_update_response() :: %{String.t() => any()}
+  @type start_service_software_update_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1009,7 +1009,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type accept_inbound_connection_response() :: %{String.t() => any()}
+  @type accept_inbound_connection_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1017,11 +1017,11 @@ defmodule AWS.OpenSearch do
 
       describe_inbound_connections_response() :: %{
         "Connections" => list(inbound_connection()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type describe_inbound_connections_response() :: %{String.t() => any()}
+  @type describe_inbound_connections_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1032,7 +1032,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type cancel_domain_config_change_request() :: %{String.t() => any()}
+  @type cancel_domain_config_change_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1041,13 +1041,13 @@ defmodule AWS.OpenSearch do
       saml_options_output() :: %{
         "Enabled" => boolean(),
         "Idp" => saml_idp(),
-        "RolesKey" => String.t(),
+        "RolesKey" => String.t() | Atom.t(),
         "SessionTimeoutMinutes" => integer(),
-        "SubjectKey" => String.t()
+        "SubjectKey" => String.t() | Atom.t()
       }
 
   """
-  @type saml_options_output() :: %{String.t() => any()}
+  @type saml_options_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1059,7 +1059,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type cognito_options_status() :: %{String.t() => any()}
+  @type cognito_options_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1067,11 +1067,11 @@ defmodule AWS.OpenSearch do
 
       list_scheduled_actions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_scheduled_actions_request() :: %{String.t() => any()}
+  @type list_scheduled_actions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1079,13 +1079,13 @@ defmodule AWS.OpenSearch do
 
       j_w_t_options_input() :: %{
         "Enabled" => boolean(),
-        "PublicKey" => String.t(),
-        "RolesKey" => String.t(),
-        "SubjectKey" => String.t()
+        "PublicKey" => String.t() | Atom.t(),
+        "RolesKey" => String.t() | Atom.t(),
+        "SubjectKey" => String.t() | Atom.t()
       }
 
   """
-  @type j_w_t_options_input() :: %{String.t() => any()}
+  @type j_w_t_options_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1101,13 +1101,13 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       auto_tune_maintenance_schedule() :: %{
-        "CronExpressionForRecurrence" => String.t(),
+        "CronExpressionForRecurrence" => String.t() | Atom.t(),
         "Duration" => duration(),
         "StartAt" => non_neg_integer()
       }
 
   """
-  @type auto_tune_maintenance_schedule() :: %{String.t() => any()}
+  @type auto_tune_maintenance_schedule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1115,22 +1115,22 @@ defmodule AWS.OpenSearch do
 
       list_packages_for_domain_response() :: %{
         "DomainPackageDetailsList" => list(domain_package_details()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_packages_for_domain_response() :: %{String.t() => any()}
+  @type list_packages_for_domain_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_compatible_versions_request() :: %{
-        optional("DomainName") => String.t()
+        optional("DomainName") => String.t() | Atom.t()
       }
 
   """
-  @type get_compatible_versions_request() :: %{String.t() => any()}
+  @type get_compatible_versions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1146,31 +1146,31 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       delete_data_source_response() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type delete_data_source_response() :: %{String.t() => any()}
+  @type delete_data_source_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       change_progress_status_details() :: %{
-        "ChangeId" => String.t(),
+        "ChangeId" => String.t() | Atom.t(),
         "ChangeProgressStages" => list(change_progress_stage()),
-        "CompletedProperties" => list(String.t()),
+        "CompletedProperties" => list(String.t() | Atom.t()),
         "ConfigChangeStatus" => list(any()),
         "InitiatedBy" => list(any()),
         "LastUpdatedTime" => non_neg_integer(),
-        "PendingProperties" => list(String.t()),
+        "PendingProperties" => list(String.t() | Atom.t()),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
         "TotalNumberOfStages" => integer()
       }
 
   """
-  @type change_progress_status_details() :: %{String.t() => any()}
+  @type change_progress_status_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1181,7 +1181,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type a_i_ml_options_output() :: %{String.t() => any()}
+  @type a_i_ml_options_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1189,37 +1189,37 @@ defmodule AWS.OpenSearch do
 
       update_scheduled_action_request() :: %{
         optional("DesiredStartTime") => float(),
-        required("ActionID") => String.t(),
+        required("ActionID") => String.t() | Atom.t(),
         required("ActionType") => list(any()),
         required("ScheduleAt") => list(any())
       }
 
   """
-  @type update_scheduled_action_request() :: %{String.t() => any()}
+  @type update_scheduled_action_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       add_tags_request() :: %{
-        required("ARN") => String.t(),
+        required("ARN") => String.t() | Atom.t(),
         required("TagList") => list(tag())
       }
 
   """
-  @type add_tags_request() :: %{String.t() => any()}
+  @type add_tags_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_failure() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type validation_failure() :: %{String.t() => any()}
+  @type validation_failure() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1227,12 +1227,12 @@ defmodule AWS.OpenSearch do
 
       describe_reserved_instances_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ReservedInstanceId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("ReservedInstanceId") => String.t() | Atom.t()
       }
 
   """
-  @type describe_reserved_instances_request() :: %{String.t() => any()}
+  @type describe_reserved_instances_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1241,12 +1241,12 @@ defmodule AWS.OpenSearch do
       upgrade_history() :: %{
         "StartTimestamp" => non_neg_integer(),
         "StepsList" => list(upgrade_step_item()),
-        "UpgradeName" => String.t(),
+        "UpgradeName" => String.t() | Atom.t(),
         "UpgradeStatus" => list(any())
       }
 
   """
-  @type upgrade_history() :: %{String.t() => any()}
+  @type upgrade_history() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1259,33 +1259,33 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type node_config() :: %{String.t() => any()}
+  @type node_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_direct_query_data_source_response() :: %{
-        "DataSourceArn" => String.t(),
-        "DataSourceName" => String.t(),
+        "DataSourceArn" => String.t() | Atom.t(),
+        "DataSourceName" => String.t() | Atom.t(),
         "DataSourceType" => list(),
-        "Description" => String.t(),
-        "OpenSearchArns" => list(String.t())
+        "Description" => String.t() | Atom.t(),
+        "OpenSearchArns" => list(String.t() | Atom.t())
       }
 
   """
-  @type get_direct_query_data_source_response() :: %{String.t() => any()}
+  @type get_direct_query_data_source_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1296,29 +1296,29 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type delete_package_response() :: %{String.t() => any()}
+  @type delete_package_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       security_lake_direct_query_data_source() :: %{
-        "RoleArn" => String.t()
+        "RoleArn" => String.t() | Atom.t()
       }
 
   """
-  @type security_lake_direct_query_data_source() :: %{String.t() => any()}
+  @type security_lake_direct_query_data_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1326,7 +1326,7 @@ defmodule AWS.OpenSearch do
 
       create_domain_request() :: %{
         optional("AIMLOptions") => a_i_ml_options_input(),
-        optional("AccessPolicies") => String.t(),
+        optional("AccessPolicies") => String.t() | Atom.t(),
         optional("AdvancedOptions") => map(),
         optional("AdvancedSecurityOptions") => advanced_security_options_input(),
         optional("AutoTuneOptions") => auto_tune_options_input(),
@@ -1335,7 +1335,7 @@ defmodule AWS.OpenSearch do
         optional("DomainEndpointOptions") => domain_endpoint_options(),
         optional("EBSOptions") => ebs_options(),
         optional("EncryptionAtRestOptions") => encryption_at_rest_options(),
-        optional("EngineVersion") => String.t(),
+        optional("EngineVersion") => String.t() | Atom.t(),
         optional("IPAddressType") => list(any()),
         optional("IdentityCenterOptions") => identity_center_options_input(),
         optional("LogPublishingOptions") => map(),
@@ -1345,63 +1345,63 @@ defmodule AWS.OpenSearch do
         optional("SoftwareUpdateOptions") => software_update_options(),
         optional("TagList") => list(tag()),
         optional("VPCOptions") => vpc_options(),
-        required("DomainName") => String.t()
+        required("DomainName") => String.t() | Atom.t()
       }
 
   """
-  @type create_domain_request() :: %{String.t() => any()}
+  @type create_domain_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_packages_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "PackageDetailsList" => list(package_details())
       }
 
   """
-  @type describe_packages_response() :: %{String.t() => any()}
+  @type describe_packages_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       dry_run_results() :: %{
-        "DeploymentType" => String.t(),
-        "Message" => String.t()
+        "DeploymentType" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type dry_run_results() :: %{String.t() => any()}
+  @type dry_run_results() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       availability_zone_info() :: %{
-        "AvailabilityZoneName" => String.t(),
-        "AvailableDataNodeCount" => String.t(),
-        "ConfiguredDataNodeCount" => String.t(),
-        "TotalShards" => String.t(),
-        "TotalUnAssignedShards" => String.t(),
+        "AvailabilityZoneName" => String.t() | Atom.t(),
+        "AvailableDataNodeCount" => String.t() | Atom.t(),
+        "ConfiguredDataNodeCount" => String.t() | Atom.t(),
+        "TotalShards" => String.t() | Atom.t(),
+        "TotalUnAssignedShards" => String.t() | Atom.t(),
         "ZoneStatus" => list(any())
       }
 
   """
-  @type availability_zone_info() :: %{String.t() => any()}
+  @type availability_zone_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1417,7 +1417,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type advanced_security_options() :: %{String.t() => any()}
+  @type advanced_security_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1432,7 +1432,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type option_status() :: %{String.t() => any()}
+  @type option_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1444,7 +1444,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type off_peak_window_options_status() :: %{String.t() => any()}
+  @type off_peak_window_options_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1460,13 +1460,13 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       cancel_domain_config_change_response() :: %{
-        "CancelledChangeIds" => list(String.t()),
+        "CancelledChangeIds" => list(String.t() | Atom.t()),
         "CancelledChangeProperties" => list(cancelled_change_property()),
         "DryRun" => boolean()
       }
 
   """
-  @type cancel_domain_config_change_response() :: %{String.t() => any()}
+  @type cancel_domain_config_change_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1478,19 +1478,19 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type node_to_node_encryption_options_status() :: %{String.t() => any()}
+  @type node_to_node_encryption_options_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_upgrade_history_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "UpgradeHistories" => list(upgrade_history())
       }
 
   """
-  @type get_upgrade_history_response() :: %{String.t() => any()}
+  @type get_upgrade_history_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1502,7 +1502,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type a_i_ml_options_status() :: %{String.t() => any()}
+  @type a_i_ml_options_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1515,20 +1515,20 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type update_domain_config_response() :: %{String.t() => any()}
+  @type update_domain_config_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       add_data_source_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         required("DataSourceType") => list(),
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
 
   """
-  @type add_data_source_request() :: %{String.t() => any()}
+  @type add_data_source_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1536,7 +1536,7 @@ defmodule AWS.OpenSearch do
 
       update_domain_config_request() :: %{
         optional("AIMLOptions") => a_i_ml_options_input(),
-        optional("AccessPolicies") => String.t(),
+        optional("AccessPolicies") => String.t() | Atom.t(),
         optional("AdvancedOptions") => map(),
         optional("AdvancedSecurityOptions") => advanced_security_options_input(),
         optional("AutoTuneOptions") => auto_tune_options(),
@@ -1558,7 +1558,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type update_domain_config_request() :: %{String.t() => any()}
+  @type update_domain_config_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1566,8 +1566,8 @@ defmodule AWS.OpenSearch do
 
       scheduled_action() :: %{
         "Cancellable" => boolean(),
-        "Description" => String.t(),
-        "Id" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "Mandatory" => boolean(),
         "ScheduledBy" => list(any()),
         "ScheduledTime" => float(),
@@ -1577,19 +1577,19 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type scheduled_action() :: %{String.t() => any()}
+  @type scheduled_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_scheduled_actions_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "ScheduledActions" => list(scheduled_action())
       }
 
   """
-  @type list_scheduled_actions_response() :: %{String.t() => any()}
+  @type list_scheduled_actions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1601,7 +1601,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type off_peak_window_options() :: %{String.t() => any()}
+  @type off_peak_window_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1609,22 +1609,22 @@ defmodule AWS.OpenSearch do
 
       connection_properties() :: %{
         "CrossClusterSearch" => cross_cluster_search_connection_properties(),
-        "Endpoint" => String.t()
+        "Endpoint" => String.t() | Atom.t()
       }
 
   """
-  @type connection_properties() :: %{String.t() => any()}
+  @type connection_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       dependency_failure_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type dependency_failure_exception() :: %{String.t() => any()}
+  @type dependency_failure_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1635,7 +1635,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type describe_domain_config_response() :: %{String.t() => any()}
+  @type describe_domain_config_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1646,7 +1646,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type describe_instance_type_limits_response() :: %{String.t() => any()}
+  @type describe_instance_type_limits_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1658,7 +1658,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type describe_vpc_endpoints_response() :: %{String.t() => any()}
+  @type describe_vpc_endpoints_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1669,7 +1669,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type delete_inbound_connection_response() :: %{String.t() => any()}
+  @type delete_inbound_connection_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1680,7 +1680,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type list_data_sources_response() :: %{String.t() => any()}
+  @type list_data_sources_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1697,11 +1697,11 @@ defmodule AWS.OpenSearch do
 
       describe_packages_filter() :: %{
         "Name" => list(any()),
-        "Value" => list(String.t())
+        "Value" => list(String.t() | Atom.t())
       }
 
   """
-  @type describe_packages_filter() :: %{String.t() => any()}
+  @type describe_packages_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1712,7 +1712,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type update_vpc_endpoint_response() :: %{String.t() => any()}
+  @type update_vpc_endpoint_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1737,23 +1737,23 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       error_details() :: %{
-        "ErrorMessage" => String.t(),
-        "ErrorType" => String.t()
+        "ErrorMessage" => String.t() | Atom.t(),
+        "ErrorType" => String.t() | Atom.t()
       }
 
   """
-  @type error_details() :: %{String.t() => any()}
+  @type error_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_instance_type_limits_request() :: %{
-        optional("DomainName") => String.t()
+        optional("DomainName") => String.t() | Atom.t()
       }
 
   """
-  @type describe_instance_type_limits_request() :: %{String.t() => any()}
+  @type describe_instance_type_limits_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1761,35 +1761,35 @@ defmodule AWS.OpenSearch do
 
       encryption_at_rest_options() :: %{
         "Enabled" => boolean(),
-        "KmsKeyId" => String.t()
+        "KmsKeyId" => String.t() | Atom.t()
       }
 
   """
-  @type encryption_at_rest_options() :: %{String.t() => any()}
+  @type encryption_at_rest_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_direct_query_data_sources_request() :: %{
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_direct_query_data_sources_request() :: %{String.t() => any()}
+  @type list_direct_query_data_sources_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_package_version_history_response() :: %{
-        "NextToken" => String.t(),
-        "PackageID" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
+        "PackageID" => String.t() | Atom.t(),
         "PackageVersionHistoryList" => list(package_version_history())
       }
 
   """
-  @type get_package_version_history_response() :: %{String.t() => any()}
+  @type get_package_version_history_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1800,7 +1800,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type describe_domain_response() :: %{String.t() => any()}
+  @type describe_domain_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1808,38 +1808,38 @@ defmodule AWS.OpenSearch do
 
       create_application_request() :: %{
         optional("appConfigs") => list(app_config()),
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("dataSources") => list(data_source()),
         optional("iamIdentityCenterOptions") => iam_identity_center_options_input(),
         optional("tagList") => list(tag()),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_application_request() :: %{String.t() => any()}
+  @type create_application_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       version_status() :: %{
-        "Options" => String.t(),
+        "Options" => String.t() | Atom.t(),
         "Status" => option_status()
       }
 
   """
-  @type version_status() :: %{String.t() => any()}
+  @type version_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_vpc_endpoints_for_domain_request() :: %{
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_vpc_endpoints_for_domain_request() :: %{String.t() => any()}
+  @type list_vpc_endpoints_for_domain_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1848,27 +1848,27 @@ defmodule AWS.OpenSearch do
       saml_options_input() :: %{
         "Enabled" => boolean(),
         "Idp" => saml_idp(),
-        "MasterBackendRole" => String.t(),
-        "MasterUserName" => String.t(),
-        "RolesKey" => String.t(),
+        "MasterBackendRole" => String.t() | Atom.t(),
+        "MasterUserName" => String.t() | Atom.t(),
+        "RolesKey" => String.t() | Atom.t(),
         "SessionTimeoutMinutes" => integer(),
-        "SubjectKey" => String.t()
+        "SubjectKey" => String.t() | Atom.t()
       }
 
   """
-  @type saml_options_input() :: %{String.t() => any()}
+  @type saml_options_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_reserved_instances_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "ReservedInstances" => list(reserved_instance())
       }
 
   """
-  @type describe_reserved_instances_response() :: %{String.t() => any()}
+  @type describe_reserved_instances_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1884,16 +1884,16 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       vpc_endpoint() :: %{
-        "DomainArn" => String.t(),
-        "Endpoint" => String.t(),
+        "DomainArn" => String.t() | Atom.t(),
+        "Endpoint" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "VpcEndpointId" => String.t(),
-        "VpcEndpointOwner" => String.t(),
+        "VpcEndpointId" => String.t() | Atom.t(),
+        "VpcEndpointOwner" => String.t() | Atom.t(),
         "VpcOptions" => vpc_derived_info()
       }
 
   """
-  @type vpc_endpoint() :: %{String.t() => any()}
+  @type vpc_endpoint() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1901,25 +1901,25 @@ defmodule AWS.OpenSearch do
 
       get_package_version_history_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type get_package_version_history_request() :: %{String.t() => any()}
+  @type get_package_version_history_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       scheduled_auto_tune_details() :: %{
-        "Action" => String.t(),
+        "Action" => String.t() | Atom.t(),
         "ActionType" => list(any()),
         "Date" => non_neg_integer(),
         "Severity" => list(any())
       }
 
   """
-  @type scheduled_auto_tune_details() :: %{String.t() => any()}
+  @type scheduled_auto_tune_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1927,29 +1927,29 @@ defmodule AWS.OpenSearch do
 
       create_application_response() :: %{
         "appConfigs" => list(app_config()),
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
         "dataSources" => list(data_source()),
         "iamIdentityCenterOptions" => iam_identity_center_options(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "tagList" => list(tag())
       }
 
   """
-  @type create_application_response() :: %{String.t() => any()}
+  @type create_application_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_versions_response() :: %{
-        "NextToken" => String.t(),
-        "Versions" => list(String.t())
+        "NextToken" => String.t() | Atom.t(),
+        "Versions" => list(String.t() | Atom.t())
       }
 
   """
-  @type list_versions_response() :: %{String.t() => any()}
+  @type list_versions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1961,7 +1961,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type ip_address_type_status() :: %{String.t() => any()}
+  @type ip_address_type_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1976,23 +1976,23 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type ebs_options() :: %{String.t() => any()}
+  @type ebs_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_package_request() :: %{
-        optional("CommitMessage") => String.t(),
+        optional("CommitMessage") => String.t() | Atom.t(),
         optional("PackageConfiguration") => package_configuration(),
-        optional("PackageDescription") => String.t(),
+        optional("PackageDescription") => String.t() | Atom.t(),
         optional("PackageEncryptionOptions") => package_encryption_options(),
-        required("PackageID") => String.t(),
+        required("PackageID") => String.t() | Atom.t(),
         required("PackageSource") => package_source()
       }
 
   """
-  @type update_package_request() :: %{String.t() => any()}
+  @type update_package_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2003,7 +2003,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type list_domain_names_response() :: %{String.t() => any()}
+  @type list_domain_names_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2019,15 +2019,15 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       plugin_properties() :: %{
-        "ClassName" => String.t(),
-        "Description" => String.t(),
-        "Name" => String.t(),
+        "ClassName" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "UncompressedSizeInBytes" => float(),
-        "Version" => String.t()
+        "Version" => String.t() | Atom.t()
       }
 
   """
-  @type plugin_properties() :: %{String.t() => any()}
+  @type plugin_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2035,30 +2035,30 @@ defmodule AWS.OpenSearch do
 
       associate_package_request() :: %{
         optional("AssociationConfiguration") => package_association_configuration(),
-        optional("PrerequisitePackageIDList") => list(String.t())
+        optional("PrerequisitePackageIDList") => list(String.t() | Atom.t())
       }
 
   """
-  @type associate_package_request() :: %{String.t() => any()}
+  @type associate_package_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       filter() :: %{
-        "Name" => String.t(),
-        "Values" => list(String.t())
+        "Name" => String.t() | Atom.t(),
+        "Values" => list(String.t() | Atom.t())
       }
 
   """
-  @type filter() :: %{String.t() => any()}
+  @type filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       inbound_connection() :: %{
-        "ConnectionId" => String.t(),
+        "ConnectionId" => String.t() | Atom.t(),
         "ConnectionMode" => list(any()),
         "ConnectionStatus" => inbound_connection_status(),
         "LocalDomainInfo" => domain_information_container(),
@@ -2066,7 +2066,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type inbound_connection() :: %{String.t() => any()}
+  @type inbound_connection() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2082,11 +2082,11 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       s3_glue_data_catalog() :: %{
-        "RoleArn" => String.t()
+        "RoleArn" => String.t() | Atom.t()
       }
 
   """
-  @type s3_glue_data_catalog() :: %{String.t() => any()}
+  @type s3_glue_data_catalog() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2094,13 +2094,13 @@ defmodule AWS.OpenSearch do
 
       iam_identity_center_options() :: %{
         "enabled" => boolean(),
-        "iamIdentityCenterApplicationArn" => String.t(),
-        "iamIdentityCenterInstanceArn" => String.t(),
-        "iamRoleForIdentityCenterApplicationArn" => String.t()
+        "iamIdentityCenterApplicationArn" => String.t() | Atom.t(),
+        "iamIdentityCenterInstanceArn" => String.t() | Atom.t(),
+        "iamRoleForIdentityCenterApplicationArn" => String.t() | Atom.t()
       }
 
   """
-  @type iam_identity_center_options() :: %{String.t() => any()}
+  @type iam_identity_center_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2125,7 +2125,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type advanced_security_options_input() :: %{String.t() => any()}
+  @type advanced_security_options_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2133,13 +2133,13 @@ defmodule AWS.OpenSearch do
 
       data_source_details() :: %{
         "DataSourceType" => list(),
-        "Description" => String.t(),
-        "Name" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "Status" => list(any())
       }
 
   """
-  @type data_source_details() :: %{String.t() => any()}
+  @type data_source_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2151,7 +2151,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type update_application_request() :: %{String.t() => any()}
+  @type update_application_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2159,17 +2159,17 @@ defmodule AWS.OpenSearch do
 
       update_application_response() :: %{
         "appConfigs" => list(app_config()),
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
         "dataSources" => list(data_source()),
         "iamIdentityCenterOptions" => iam_identity_center_options(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t()
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type update_application_response() :: %{String.t() => any()}
+  @type update_application_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2177,15 +2177,15 @@ defmodule AWS.OpenSearch do
 
       identity_center_options() :: %{
         "EnabledAPIAccess" => boolean(),
-        "IdentityCenterApplicationARN" => String.t(),
-        "IdentityCenterInstanceARN" => String.t(),
-        "IdentityStoreId" => String.t(),
+        "IdentityCenterApplicationARN" => String.t() | Atom.t(),
+        "IdentityCenterInstanceARN" => String.t() | Atom.t(),
+        "IdentityStoreId" => String.t() | Atom.t(),
         "RolesKey" => list(any()),
         "SubjectKey" => list(any())
       }
 
   """
-  @type identity_center_options() :: %{String.t() => any()}
+  @type identity_center_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2199,23 +2199,23 @@ defmodule AWS.OpenSearch do
         "AdvancedSecurityOptions" => advanced_security_options(),
         "ServiceSoftwareOptions" => service_software_options(),
         "IdentityCenterOptions" => identity_center_options(),
-        "ARN" => String.t(),
-        "DomainId" => String.t(),
+        "ARN" => String.t() | Atom.t(),
+        "DomainId" => String.t() | Atom.t(),
         "ModifyingProperties" => list(modifying_properties()),
         "AdvancedOptions" => map(),
         "SnapshotOptions" => snapshot_options(),
         "Processing" => boolean(),
         "Created" => boolean(),
-        "AccessPolicies" => String.t(),
+        "AccessPolicies" => String.t() | Atom.t(),
         "DomainProcessingStatus" => list(any()),
         "ChangeProgressDetails" => change_progress_details(),
         "DomainEndpointOptions" => domain_endpoint_options(),
-        "EndpointV2" => String.t(),
+        "EndpointV2" => String.t() | Atom.t(),
         "NodeToNodeEncryptionOptions" => node_to_node_encryption_options(),
         "ClusterConfig" => cluster_config(),
         "CognitoOptions" => cognito_options(),
-        "DomainName" => String.t(),
-        "DomainEndpointV2HostedZoneId" => String.t(),
+        "DomainName" => String.t() | Atom.t(),
+        "DomainEndpointV2HostedZoneId" => String.t() | Atom.t(),
         "AutoTuneOptions" => auto_tune_options_output(),
         "LogPublishingOptions" => map(),
         "OffPeakWindowOptions" => off_peak_window_options(),
@@ -2223,25 +2223,25 @@ defmodule AWS.OpenSearch do
         "Deleted" => boolean(),
         "IPAddressType" => list(any()),
         "EncryptionAtRestOptions" => encryption_at_rest_options(),
-        "EngineVersion" => String.t(),
-        "Endpoint" => String.t(),
+        "EngineVersion" => String.t() | Atom.t(),
+        "Endpoint" => String.t() | Atom.t(),
         "Endpoints" => map()
       }
 
   """
-  @type domain_status() :: %{String.t() => any()}
+  @type domain_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       domain_info() :: %{
-        "DomainName" => String.t(),
+        "DomainName" => String.t() | Atom.t(),
         "EngineType" => list(any())
       }
 
   """
-  @type domain_info() :: %{String.t() => any()}
+  @type domain_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2249,37 +2249,37 @@ defmodule AWS.OpenSearch do
 
       cognito_options() :: %{
         "Enabled" => boolean(),
-        "IdentityPoolId" => String.t(),
-        "RoleArn" => String.t(),
-        "UserPoolId" => String.t()
+        "IdentityPoolId" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | Atom.t(),
+        "UserPoolId" => String.t() | Atom.t()
       }
 
   """
-  @type cognito_options() :: %{String.t() => any()}
+  @type cognito_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_vpc_endpoint_access_request() :: %{
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_vpc_endpoint_access_request() :: %{String.t() => any()}
+  @type list_vpc_endpoint_access_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_vpc_endpoint_request() :: %{
-        optional("ClientToken") => String.t(),
-        required("DomainArn") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
+        required("DomainArn") => String.t() | Atom.t(),
         required("VpcOptions") => vpc_options()
       }
 
   """
-  @type create_vpc_endpoint_request() :: %{String.t() => any()}
+  @type create_vpc_endpoint_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2292,20 +2292,20 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type auto_tune_options_input() :: %{String.t() => any()}
+  @type auto_tune_options_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cancelled_change_property() :: %{
-        "ActiveValue" => String.t(),
-        "CancelledValue" => String.t(),
-        "PropertyName" => String.t()
+        "ActiveValue" => String.t() | Atom.t(),
+        "CancelledValue" => String.t() | Atom.t(),
+        "PropertyName" => String.t() | Atom.t()
       }
 
   """
-  @type cancelled_change_property() :: %{String.t() => any()}
+  @type cancelled_change_property() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2313,19 +2313,19 @@ defmodule AWS.OpenSearch do
 
       get_application_response() :: %{
         "appConfigs" => list(app_config()),
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
         "dataSources" => list(data_source()),
-        "endpoint" => String.t(),
+        "endpoint" => String.t() | Atom.t(),
         "iamIdentityCenterOptions" => iam_identity_center_options(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type get_application_response() :: %{String.t() => any()}
+  @type get_application_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2336,7 +2336,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type describe_domain_change_progress_response() :: %{String.t() => any()}
+  @type describe_domain_change_progress_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2347,52 +2347,52 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type instance_limits() :: %{String.t() => any()}
+  @type instance_limits() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_type_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_type_exception() :: %{String.t() => any()}
+  @type invalid_type_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       reserved_instance_offering() :: %{
-        "CurrencyCode" => String.t(),
+        "CurrencyCode" => String.t() | Atom.t(),
         "Duration" => integer(),
         "FixedPrice" => float(),
         "InstanceType" => list(any()),
         "PaymentOption" => list(any()),
         "RecurringCharges" => list(recurring_charge()),
-        "ReservedInstanceOfferingId" => String.t(),
+        "ReservedInstanceOfferingId" => String.t() | Atom.t(),
         "UsagePrice" => float()
       }
 
   """
-  @type reserved_instance_offering() :: %{String.t() => any()}
+  @type reserved_instance_offering() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       change_progress_details() :: %{
-        "ChangeId" => String.t(),
+        "ChangeId" => String.t() | Atom.t(),
         "ConfigChangeStatus" => list(any()),
         "InitiatedBy" => list(any()),
         "LastUpdatedTime" => non_neg_integer(),
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "StartTime" => non_neg_integer()
       }
 
   """
-  @type change_progress_details() :: %{String.t() => any()}
+  @type change_progress_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2400,23 +2400,23 @@ defmodule AWS.OpenSearch do
 
       describe_reserved_instance_offerings_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ReservedInstanceOfferingId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("ReservedInstanceOfferingId") => String.t() | Atom.t()
       }
 
   """
-  @type describe_reserved_instance_offerings_request() :: %{String.t() => any()}
+  @type describe_reserved_instance_offerings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_service_software_update_request() :: %{
-        required("DomainName") => String.t()
+        required("DomainName") => String.t() | Atom.t()
       }
 
   """
-  @type cancel_service_software_update_request() :: %{String.t() => any()}
+  @type cancel_service_software_update_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2427,7 +2427,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type zone_awareness_config() :: %{String.t() => any()}
+  @type zone_awareness_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2435,38 +2435,38 @@ defmodule AWS.OpenSearch do
 
       get_upgrade_history_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type get_upgrade_history_request() :: %{String.t() => any()}
+  @type get_upgrade_history_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_domain_information() :: %{
-        "DomainName" => String.t(),
-        "OwnerId" => String.t(),
-        "Region" => String.t()
+        "DomainName" => String.t() | Atom.t(),
+        "OwnerId" => String.t() | Atom.t(),
+        "Region" => String.t() | Atom.t()
       }
 
   """
-  @type aws_domain_information() :: %{String.t() => any()}
+  @type aws_domain_information() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       change_progress_stage() :: %{
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "LastUpdated" => non_neg_integer(),
-        "Name" => String.t(),
-        "Status" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type change_progress_stage() :: %{String.t() => any()}
+  @type change_progress_stage() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2474,24 +2474,24 @@ defmodule AWS.OpenSearch do
 
       list_applications_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("statuses") => list(list(any())())
       }
 
   """
-  @type list_applications_request() :: %{String.t() => any()}
+  @type list_applications_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       key_store_access_option() :: %{
-        "KeyAccessRoleArn" => String.t(),
+        "KeyAccessRoleArn" => String.t() | Atom.t(),
         "KeyStoreAccessEnabled" => boolean()
       }
 
   """
-  @type key_store_access_option() :: %{String.t() => any()}
+  @type key_store_access_option() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2502,7 +2502,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type dissociate_package_response() :: %{String.t() => any()}
+  @type dissociate_package_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2511,12 +2511,12 @@ defmodule AWS.OpenSearch do
       list_domain_maintenances_request() :: %{
         optional("Action") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("Status") => list(any())
       }
 
   """
-  @type list_domain_maintenances_request() :: %{String.t() => any()}
+  @type list_domain_maintenances_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2532,11 +2532,11 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       internal_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_exception() :: %{String.t() => any()}
+  @type internal_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2544,12 +2544,12 @@ defmodule AWS.OpenSearch do
 
       iam_identity_center_options_input() :: %{
         "enabled" => boolean(),
-        "iamIdentityCenterInstanceArn" => String.t(),
-        "iamRoleForIdentityCenterApplicationArn" => String.t()
+        "iamIdentityCenterInstanceArn" => String.t() | Atom.t(),
+        "iamRoleForIdentityCenterApplicationArn" => String.t() | Atom.t()
       }
 
   """
-  @type iam_identity_center_options_input() :: %{String.t() => any()}
+  @type iam_identity_center_options_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2557,12 +2557,12 @@ defmodule AWS.OpenSearch do
 
       package_details_for_association() :: %{
         "AssociationConfiguration" => package_association_configuration(),
-        "PackageID" => String.t(),
-        "PrerequisitePackageIDList" => list(String.t())
+        "PackageID" => String.t() | Atom.t(),
+        "PrerequisitePackageIDList" => list(String.t() | Atom.t())
       }
 
   """
-  @type package_details_for_association() :: %{String.t() => any()}
+  @type package_details_for_association() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2570,22 +2570,22 @@ defmodule AWS.OpenSearch do
 
       app_config() :: %{
         "key" => list(any()),
-        "value" => String.t()
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type app_config() :: %{String.t() => any()}
+  @type app_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2605,25 +2605,25 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type natural_language_query_generation_options_input() :: %{String.t() => any()}
+  @type natural_language_query_generation_options_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       domain_nodes_status() :: %{
-        "AvailabilityZone" => String.t(),
+        "AvailabilityZone" => String.t() | Atom.t(),
         "InstanceType" => list(any()),
-        "NodeId" => String.t(),
+        "NodeId" => String.t() | Atom.t(),
         "NodeStatus" => list(any()),
         "NodeType" => list(any()),
-        "StorageSize" => String.t(),
-        "StorageType" => String.t(),
+        "StorageSize" => String.t() | Atom.t(),
+        "StorageType" => String.t() | Atom.t(),
         "StorageVolumeType" => list(any())
       }
 
   """
-  @type domain_nodes_status() :: %{String.t() => any()}
+  @type domain_nodes_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2631,11 +2631,11 @@ defmodule AWS.OpenSearch do
 
       list_packages_for_domain_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_packages_for_domain_request() :: %{String.t() => any()}
+  @type list_packages_for_domain_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2647,7 +2647,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type advanced_security_options_status() :: %{String.t() => any()}
+  @type advanced_security_options_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2659,7 +2659,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type duration() :: %{String.t() => any()}
+  @type duration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2671,7 +2671,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type node_option() :: %{String.t() => any()}
+  @type node_option() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2679,11 +2679,11 @@ defmodule AWS.OpenSearch do
 
       package_encryption_options() :: %{
         "EncryptionEnabled" => boolean(),
-        "KmsKeyIdentifier" => String.t()
+        "KmsKeyIdentifier" => String.t() | Atom.t()
       }
 
   """
-  @type package_encryption_options() :: %{String.t() => any()}
+  @type package_encryption_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2691,23 +2691,23 @@ defmodule AWS.OpenSearch do
 
       list_domains_for_package_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_domains_for_package_request() :: %{String.t() => any()}
+  @type list_domains_for_package_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       purchase_reserved_instance_offering_response() :: %{
-        "ReservationName" => String.t(),
-        "ReservedInstanceId" => String.t()
+        "ReservationName" => String.t() | Atom.t(),
+        "ReservedInstanceId" => String.t() | Atom.t()
       }
 
   """
-  @type purchase_reserved_instance_offering_response() :: %{String.t() => any()}
+  @type purchase_reserved_instance_offering_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2715,23 +2715,23 @@ defmodule AWS.OpenSearch do
 
       slot_not_available_exception() :: %{
         "SlotSuggestions" => list(float()),
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type slot_not_available_exception() :: %{String.t() => any()}
+  @type slot_not_available_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       authorize_vpc_endpoint_access_request() :: %{
-        optional("Account") => String.t(),
+        optional("Account") => String.t() | Atom.t(),
         optional("Service") => list(any())
       }
 
   """
-  @type authorize_vpc_endpoint_access_request() :: %{String.t() => any()}
+  @type authorize_vpc_endpoint_access_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2740,16 +2740,16 @@ defmodule AWS.OpenSearch do
       service_software_options() :: %{
         "AutomatedUpdateDate" => non_neg_integer(),
         "Cancellable" => boolean(),
-        "CurrentVersion" => String.t(),
-        "Description" => String.t(),
-        "NewVersion" => String.t(),
+        "CurrentVersion" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "NewVersion" => String.t() | Atom.t(),
         "OptionalDeployment" => boolean(),
         "UpdateAvailable" => boolean(),
         "UpdateStatus" => list(any())
       }
 
   """
-  @type service_software_options() :: %{String.t() => any()}
+  @type service_software_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2761,7 +2761,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type log_publishing_options_status() :: %{String.t() => any()}
+  @type log_publishing_options_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2770,23 +2770,23 @@ defmodule AWS.OpenSearch do
       upgrade_domain_request() :: %{
         optional("AdvancedOptions") => map(),
         optional("PerformCheckOnly") => boolean(),
-        required("DomainName") => String.t(),
-        required("TargetVersion") => String.t()
+        required("DomainName") => String.t() | Atom.t(),
+        required("TargetVersion") => String.t() | Atom.t()
       }
 
   """
-  @type upgrade_domain_request() :: %{String.t() => any()}
+  @type upgrade_domain_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2795,26 +2795,26 @@ defmodule AWS.OpenSearch do
       start_service_software_update_request() :: %{
         optional("DesiredStartTime") => float(),
         optional("ScheduleAt") => list(any()),
-        required("DomainName") => String.t()
+        required("DomainName") => String.t() | Atom.t()
       }
 
   """
-  @type start_service_software_update_request() :: %{String.t() => any()}
+  @type start_service_software_update_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_instance_type_details_request() :: %{
-        optional("DomainName") => String.t(),
-        optional("InstanceType") => String.t(),
+        optional("DomainName") => String.t() | Atom.t(),
+        optional("InstanceType") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("RetrieveAZs") => boolean()
       }
 
   """
-  @type list_instance_type_details_request() :: %{String.t() => any()}
+  @type list_instance_type_details_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2822,13 +2822,13 @@ defmodule AWS.OpenSearch do
 
       j_w_t_options_output() :: %{
         "Enabled" => boolean(),
-        "PublicKey" => String.t(),
-        "RolesKey" => String.t(),
-        "SubjectKey" => String.t()
+        "PublicKey" => String.t() | Atom.t(),
+        "RolesKey" => String.t() | Atom.t(),
+        "SubjectKey" => String.t() | Atom.t()
       }
 
   """
-  @type j_w_t_options_output() :: %{String.t() => any()}
+  @type j_w_t_options_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2842,7 +2842,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type auto_tune_options() :: %{String.t() => any()}
+  @type auto_tune_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2853,20 +2853,20 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type software_update_options() :: %{String.t() => any()}
+  @type software_update_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_data_source_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("Status") => list(any()),
         required("DataSourceType") => list()
       }
 
   """
-  @type update_data_source_request() :: %{String.t() => any()}
+  @type update_data_source_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2877,7 +2877,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type a_i_ml_options_input() :: %{String.t() => any()}
+  @type a_i_ml_options_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2895,14 +2895,14 @@ defmodule AWS.OpenSearch do
       upgrade_domain_response() :: %{
         "AdvancedOptions" => map(),
         "ChangeProgressDetails" => change_progress_details(),
-        "DomainName" => String.t(),
+        "DomainName" => String.t() | Atom.t(),
         "PerformCheckOnly" => boolean(),
-        "TargetVersion" => String.t(),
-        "UpgradeId" => String.t()
+        "TargetVersion" => String.t() | Atom.t(),
+        "UpgradeId" => String.t() | Atom.t()
       }
 
   """
-  @type upgrade_domain_response() :: %{String.t() => any()}
+  @type upgrade_domain_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2922,18 +2922,18 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type create_domain_response() :: %{String.t() => any()}
+  @type create_domain_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       base_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type base_exception() :: %{String.t() => any()}
+  @type base_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2944,7 +2944,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type node_to_node_encryption_options() :: %{String.t() => any()}
+  @type node_to_node_encryption_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2952,11 +2952,11 @@ defmodule AWS.OpenSearch do
 
       list_versions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_versions_request() :: %{String.t() => any()}
+  @type list_versions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2967,7 +2967,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type create_package_response() :: %{String.t() => any()}
+  @type create_package_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2980,30 +2980,30 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type limits() :: %{String.t() => any()}
+  @type limits() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_dry_run_progress_request() :: %{
-        optional("DryRunId") => String.t(),
+        optional("DryRunId") => String.t() | Atom.t(),
         optional("LoadDryRunConfig") => boolean()
       }
 
   """
-  @type describe_dry_run_progress_request() :: %{String.t() => any()}
+  @type describe_dry_run_progress_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_domain_maintenance_response() :: %{
-        "MaintenanceId" => String.t()
+        "MaintenanceId" => String.t() | Atom.t()
       }
 
   """
-  @type start_domain_maintenance_response() :: %{String.t() => any()}
+  @type start_domain_maintenance_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3019,29 +3019,29 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       application_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "endpoint" => String.t(),
-        "id" => String.t(),
+        "endpoint" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type application_summary() :: %{String.t() => any()}
+  @type application_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       revoke_vpc_endpoint_access_request() :: %{
-        optional("Account") => String.t(),
+        optional("Account") => String.t() | Atom.t(),
         optional("Service") => list(any())
       }
 
   """
-  @type revoke_vpc_endpoint_access_request() :: %{String.t() => any()}
+  @type revoke_vpc_endpoint_access_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3052,19 +3052,19 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type environment_info() :: %{String.t() => any()}
+  @type environment_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       vpc_options() :: %{
-        "SecurityGroupIds" => list(String.t()),
-        "SubnetIds" => list(String.t())
+        "SecurityGroupIds" => list(String.t() | Atom.t()),
+        "SubnetIds" => list(String.t() | Atom.t())
       }
 
   """
-  @type vpc_options() :: %{String.t() => any()}
+  @type vpc_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3075,18 +3075,18 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type describe_domains_response() :: %{String.t() => any()}
+  @type describe_domains_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3097,7 +3097,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type delete_outbound_connection_response() :: %{String.t() => any()}
+  @type delete_outbound_connection_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3120,7 +3120,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type cluster_config() :: %{String.t() => any()}
+  @type cluster_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3131,7 +3131,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type create_vpc_endpoint_response() :: %{String.t() => any()}
+  @type create_vpc_endpoint_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3139,11 +3139,11 @@ defmodule AWS.OpenSearch do
 
       list_applications_response() :: %{
         "ApplicationSummaries" => list(application_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_applications_response() :: %{String.t() => any()}
+  @type list_applications_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3155,22 +3155,22 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type identity_center_options_status() :: %{String.t() => any()}
+  @type identity_center_options_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       add_direct_query_data_source_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("TagList") => list(tag()),
-        required("DataSourceName") => String.t(),
+        required("DataSourceName") => String.t() | Atom.t(),
         required("DataSourceType") => list(),
-        required("OpenSearchArns") => list(String.t())
+        required("OpenSearchArns") => list(String.t() | Atom.t())
       }
 
   """
-  @type add_direct_query_data_source_request() :: %{String.t() => any()}
+  @type add_direct_query_data_source_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3182,7 +3182,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type domain_endpoint_options_status() :: %{String.t() => any()}
+  @type domain_endpoint_options_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3191,24 +3191,24 @@ defmodule AWS.OpenSearch do
       describe_inbound_connections_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type describe_inbound_connections_request() :: %{String.t() => any()}
+  @type describe_inbound_connections_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_direct_query_data_source_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         required("DataSourceType") => list(),
-        required("OpenSearchArns") => list(String.t())
+        required("OpenSearchArns") => list(String.t() | Atom.t())
       }
 
   """
-  @type update_direct_query_data_source_request() :: %{String.t() => any()}
+  @type update_direct_query_data_source_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3216,20 +3216,20 @@ defmodule AWS.OpenSearch do
 
       domain_package_details() :: %{
         "AssociationConfiguration" => package_association_configuration(),
-        "DomainName" => String.t(),
+        "DomainName" => String.t() | Atom.t(),
         "DomainPackageStatus" => list(any()),
         "ErrorDetails" => error_details(),
         "LastUpdated" => non_neg_integer(),
-        "PackageID" => String.t(),
-        "PackageName" => String.t(),
+        "PackageID" => String.t() | Atom.t(),
+        "PackageName" => String.t() | Atom.t(),
         "PackageType" => list(any()),
-        "PackageVersion" => String.t(),
-        "PrerequisitePackageIDList" => list(String.t()),
-        "ReferencePath" => String.t()
+        "PackageVersion" => String.t() | Atom.t(),
+        "PrerequisitePackageIDList" => list(String.t() | Atom.t()),
+        "ReferencePath" => String.t() | Atom.t()
       }
 
   """
-  @type domain_package_details() :: %{String.t() => any()}
+  @type domain_package_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3241,19 +3241,19 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type advanced_options_status() :: %{String.t() => any()}
+  @type advanced_options_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_policies_status() :: %{
-        "Options" => String.t(),
+        "Options" => String.t() | Atom.t(),
         "Status" => option_status()
       }
 
   """
-  @type access_policies_status() :: %{String.t() => any()}
+  @type access_policies_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3261,38 +3261,38 @@ defmodule AWS.OpenSearch do
 
       reserved_instance() :: %{
         "BillingSubscriptionId" => float(),
-        "CurrencyCode" => String.t(),
+        "CurrencyCode" => String.t() | Atom.t(),
         "Duration" => integer(),
         "FixedPrice" => float(),
         "InstanceCount" => integer(),
         "InstanceType" => list(any()),
         "PaymentOption" => list(any()),
         "RecurringCharges" => list(recurring_charge()),
-        "ReservationName" => String.t(),
-        "ReservedInstanceId" => String.t(),
-        "ReservedInstanceOfferingId" => String.t(),
+        "ReservationName" => String.t() | Atom.t(),
+        "ReservedInstanceId" => String.t() | Atom.t(),
+        "ReservedInstanceOfferingId" => String.t() | Atom.t(),
         "StartTime" => non_neg_integer(),
-        "State" => String.t(),
+        "State" => String.t() | Atom.t(),
         "UsagePrice" => float()
       }
 
   """
-  @type reserved_instance() :: %{String.t() => any()}
+  @type reserved_instance() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       package_version_history() :: %{
-        "CommitMessage" => String.t(),
+        "CommitMessage" => String.t() | Atom.t(),
         "CreatedAt" => non_neg_integer(),
         "PackageConfiguration" => package_configuration(),
-        "PackageVersion" => String.t(),
+        "PackageVersion" => String.t() | Atom.t(),
         "PluginProperties" => plugin_properties()
       }
 
   """
-  @type package_version_history() :: %{String.t() => any()}
+  @type package_version_history() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3308,59 +3308,59 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       resource_already_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_already_exists_exception() :: %{String.t() => any()}
+  @type resource_already_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       data_source() :: %{
-        "dataSourceArn" => String.t(),
-        "dataSourceDescription" => String.t()
+        "dataSourceArn" => String.t() | Atom.t(),
+        "dataSourceDescription" => String.t() | Atom.t()
       }
 
   """
-  @type data_source() :: %{String.t() => any()}
+  @type data_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_vpc_endpoint_request() :: %{
-        required("VpcEndpointId") => String.t(),
+        required("VpcEndpointId") => String.t() | Atom.t(),
         required("VpcOptions") => vpc_options()
       }
 
   """
-  @type update_vpc_endpoint_request() :: %{String.t() => any()}
+  @type update_vpc_endpoint_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       remove_tags_request() :: %{
-        required("ARN") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ARN") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type remove_tags_request() :: %{String.t() => any()}
+  @type remove_tags_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_packages_request() :: %{
-        required("DomainName") => String.t(),
+        required("DomainName") => String.t() | Atom.t(),
         required("PackageList") => list(package_details_for_association())
       }
 
   """
-  @type associate_packages_request() :: %{String.t() => any()}
+  @type associate_packages_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3368,22 +3368,22 @@ defmodule AWS.OpenSearch do
 
       list_domain_maintenances_response() :: %{
         "DomainMaintenances" => list(domain_maintenance_details()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_domain_maintenances_response() :: %{String.t() => any()}
+  @type list_domain_maintenances_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_request() :: %{
-        required("ARN") => String.t()
+        required("ARN") => String.t() | Atom.t()
       }
 
   """
-  @type list_tags_request() :: %{String.t() => any()}
+  @type list_tags_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3394,7 +3394,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type cancel_service_software_update_response() :: %{String.t() => any()}
+  @type cancel_service_software_update_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3406,7 +3406,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type auto_tune() :: %{String.t() => any()}
+  @type auto_tune() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3414,12 +3414,12 @@ defmodule AWS.OpenSearch do
 
       purchase_reserved_instance_offering_request() :: %{
         optional("InstanceCount") => integer(),
-        required("ReservationName") => String.t(),
-        required("ReservedInstanceOfferingId") => String.t()
+        required("ReservationName") => String.t() | Atom.t(),
+        required("ReservedInstanceOfferingId") => String.t() | Atom.t()
       }
 
   """
-  @type purchase_reserved_instance_offering_request() :: %{String.t() => any()}
+  @type purchase_reserved_instance_offering_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3428,11 +3428,11 @@ defmodule AWS.OpenSearch do
       describe_packages_request() :: %{
         optional("Filters") => list(describe_packages_filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type describe_packages_request() :: %{String.t() => any()}
+  @type describe_packages_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3443,44 +3443,44 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type cross_cluster_search_connection_properties() :: %{String.t() => any()}
+  @type cross_cluster_search_connection_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       upgrade_step_item() :: %{
-        "Issues" => list(String.t()),
+        "Issues" => list(String.t() | Atom.t()),
         "ProgressPercent" => float(),
         "UpgradeStep" => list(any()),
         "UpgradeStepStatus" => list(any())
       }
 
   """
-  @type upgrade_step_item() :: %{String.t() => any()}
+  @type upgrade_step_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       log_publishing_option() :: %{
-        "CloudWatchLogsLogGroupArn" => String.t(),
+        "CloudWatchLogsLogGroupArn" => String.t() | Atom.t(),
         "Enabled" => boolean()
       }
 
   """
-  @type log_publishing_option() :: %{String.t() => any()}
+  @type log_publishing_option() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       add_direct_query_data_source_response() :: %{
-        "DataSourceArn" => String.t()
+        "DataSourceArn" => String.t() | Atom.t()
       }
 
   """
-  @type add_direct_query_data_source_response() :: %{String.t() => any()}
+  @type add_direct_query_data_source_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3488,11 +3488,11 @@ defmodule AWS.OpenSearch do
 
       list_vpc_endpoint_access_response() :: %{
         "AuthorizedPrincipalList" => list(authorized_principal()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_vpc_endpoint_access_response() :: %{String.t() => any()}
+  @type list_vpc_endpoint_access_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3500,13 +3500,13 @@ defmodule AWS.OpenSearch do
 
       get_data_source_response() :: %{
         "DataSourceType" => list(),
-        "Description" => String.t(),
-        "Name" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "Status" => list(any())
       }
 
   """
-  @type get_data_source_response() :: %{String.t() => any()}
+  @type get_data_source_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3514,11 +3514,11 @@ defmodule AWS.OpenSearch do
 
       list_instance_type_details_response() :: %{
         "InstanceTypeDetails" => list(instance_type_details()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_instance_type_details_response() :: %{String.t() => any()}
+  @type list_instance_type_details_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3535,12 +3535,12 @@ defmodule AWS.OpenSearch do
 
       vpc_endpoint_error() :: %{
         "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t(),
-        "VpcEndpointId" => String.t()
+        "ErrorMessage" => String.t() | Atom.t(),
+        "VpcEndpointId" => String.t() | Atom.t()
       }
 
   """
-  @type vpc_endpoint_error() :: %{String.t() => any()}
+  @type vpc_endpoint_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3548,38 +3548,38 @@ defmodule AWS.OpenSearch do
 
       get_upgrade_status_response() :: %{
         "StepStatus" => list(any()),
-        "UpgradeName" => String.t(),
+        "UpgradeName" => String.t() | Atom.t(),
         "UpgradeStep" => list(any())
       }
 
   """
-  @type get_upgrade_status_response() :: %{String.t() => any()}
+  @type get_upgrade_status_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       domain_endpoint_options() :: %{
-        "CustomEndpoint" => String.t(),
-        "CustomEndpointCertificateArn" => String.t(),
+        "CustomEndpoint" => String.t() | Atom.t(),
+        "CustomEndpointCertificateArn" => String.t() | Atom.t(),
         "CustomEndpointEnabled" => boolean(),
         "EnforceHTTPS" => boolean(),
         "TLSSecurityPolicy" => list(any())
       }
 
   """
-  @type domain_endpoint_options() :: %{String.t() => any()}
+  @type domain_endpoint_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_direct_query_data_source_response() :: %{
-        "DataSourceArn" => String.t()
+        "DataSourceArn" => String.t() | Atom.t()
       }
 
   """
-  @type update_direct_query_data_source_response() :: %{String.t() => any()}
+  @type update_direct_query_data_source_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3590,7 +3590,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type associate_package_response() :: %{String.t() => any()}
+  @type associate_package_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3602,7 +3602,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type encryption_at_rest_options_status() :: %{String.t() => any()}
+  @type encryption_at_rest_options_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3613,7 +3613,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type domain_information_container() :: %{String.t() => any()}
+  @type domain_information_container() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3625,7 +3625,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type instance_count_limits() :: %{String.t() => any()}
+  @type instance_count_limits() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3636,7 +3636,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type describe_domain_nodes_response() :: %{String.t() => any()}
+  @type describe_domain_nodes_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3657,7 +3657,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type software_update_options_status() :: %{String.t() => any()}
+  @type software_update_options_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3668,7 +3668,7 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type off_peak_window() :: %{String.t() => any()}
+  @type off_peak_window() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3685,22 +3685,22 @@ defmodule AWS.OpenSearch do
 
       list_domains_for_package_response() :: %{
         "DomainPackageDetailsList" => list(domain_package_details()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_domains_for_package_response() :: %{String.t() => any()}
+  @type list_domains_for_package_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_pagination_token_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_pagination_token_exception() :: %{String.t() => any()}
+  @type invalid_pagination_token_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3711,32 +3711,32 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type get_compatible_versions_response() :: %{String.t() => any()}
+  @type get_compatible_versions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       dissociate_packages_request() :: %{
-        required("DomainName") => String.t(),
-        required("PackageList") => list(String.t())
+        required("DomainName") => String.t() | Atom.t(),
+        required("PackageList") => list(String.t() | Atom.t())
       }
 
   """
-  @type dissociate_packages_request() :: %{String.t() => any()}
+  @type dissociate_packages_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       master_user_options() :: %{
-        "MasterUserARN" => String.t(),
-        "MasterUserName" => String.t(),
-        "MasterUserPassword" => String.t()
+        "MasterUserARN" => String.t() | Atom.t(),
+        "MasterUserName" => String.t() | Atom.t(),
+        "MasterUserPassword" => String.t() | Atom.t()
       }
 
   """
-  @type master_user_options() :: %{String.t() => any()}
+  @type master_user_options() :: %{String.t() | Atom.t() => any()}
 
   @type accept_inbound_connection_errors() ::
           limit_exceeded_exception()
@@ -4270,7 +4270,12 @@ defmodule AWS.OpenSearch do
   For more information, see [Cross-cluster search for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
   """
-  @spec accept_inbound_connection(map(), String.t(), accept_inbound_connection_request(), list()) ::
+  @spec accept_inbound_connection(
+          map(),
+          String.t() | Atom.t(),
+          accept_inbound_connection_request(),
+          list()
+        ) ::
           {:ok, accept_inbound_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4304,7 +4309,7 @@ defmodule AWS.OpenSearch do
   For more information, see
   [Creating Amazon OpenSearch Service data source integrations with Amazon S3](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-creating.html).
   """
-  @spec add_data_source(map(), String.t(), add_data_source_request(), list()) ::
+  @spec add_data_source(map(), String.t() | Atom.t(), add_data_source_request(), list()) ::
           {:ok, add_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4403,7 +4408,13 @@ defmodule AWS.OpenSearch do
   [Custom packages for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
   """
-  @spec associate_package(map(), String.t(), String.t(), associate_package_request(), list()) ::
+  @spec associate_package(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          associate_package_request(),
+          list()
+        ) ::
           {:ok, associate_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4468,7 +4479,7 @@ defmodule AWS.OpenSearch do
   """
   @spec authorize_vpc_endpoint_access(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           authorize_vpc_endpoint_access_request(),
           list()
         ) ::
@@ -4504,7 +4515,7 @@ defmodule AWS.OpenSearch do
   """
   @spec cancel_domain_config_change(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           cancel_domain_config_change_request(),
           list()
         ) ::
@@ -4730,7 +4741,7 @@ defmodule AWS.OpenSearch do
   @doc """
   Deletes a specified OpenSearch application.
   """
-  @spec delete_application(map(), String.t(), delete_application_request(), list()) ::
+  @spec delete_application(map(), String.t() | Atom.t(), delete_application_request(), list()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4762,7 +4773,13 @@ defmodule AWS.OpenSearch do
   For more information, see [Deleting an Amazon OpenSearch Service data source with Amazon
   S3](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-delete.html).
   """
-  @spec delete_data_source(map(), String.t(), String.t(), delete_data_source_request(), list()) ::
+  @spec delete_data_source(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_data_source_request(),
+          list()
+        ) ::
           {:ok, delete_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4797,7 +4814,7 @@ defmodule AWS.OpenSearch do
   """
   @spec delete_direct_query_data_source(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_direct_query_data_source_request(),
           list()
         ) ::
@@ -4834,7 +4851,7 @@ defmodule AWS.OpenSearch do
   You can't recover a domain
   after you delete it.
   """
-  @spec delete_domain(map(), String.t(), delete_domain_request(), list()) ::
+  @spec delete_domain(map(), String.t() | Atom.t(), delete_domain_request(), list()) ::
           {:ok, delete_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4868,7 +4885,12 @@ defmodule AWS.OpenSearch do
   For more information, see [Cross-cluster search for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
   """
-  @spec delete_inbound_connection(map(), String.t(), delete_inbound_connection_request(), list()) ::
+  @spec delete_inbound_connection(
+          map(),
+          String.t() | Atom.t(),
+          delete_inbound_connection_request(),
+          list()
+        ) ::
           {:ok, delete_inbound_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4904,7 +4926,7 @@ defmodule AWS.OpenSearch do
   """
   @spec delete_outbound_connection(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_outbound_connection_request(),
           list()
         ) ::
@@ -4941,7 +4963,7 @@ defmodule AWS.OpenSearch do
   For more information, see [Custom packages for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
   """
-  @spec delete_package(map(), String.t(), delete_package_request(), list()) ::
+  @spec delete_package(map(), String.t() | Atom.t(), delete_package_request(), list()) ::
           {:ok, delete_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4970,7 +4992,7 @@ defmodule AWS.OpenSearch do
   @doc """
   Deletes an Amazon OpenSearch Service-managed interface VPC endpoint.
   """
-  @spec delete_vpc_endpoint(map(), String.t(), delete_vpc_endpoint_request(), list()) ::
+  @spec delete_vpc_endpoint(map(), String.t() | Atom.t(), delete_vpc_endpoint_request(), list()) ::
           {:ok, delete_vpc_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5001,7 +5023,7 @@ defmodule AWS.OpenSearch do
   domain,
   including the domain ID, domain service endpoint, and domain ARN.
   """
-  @spec describe_domain(map(), String.t(), list()) ::
+  @spec describe_domain(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5023,7 +5045,7 @@ defmodule AWS.OpenSearch do
 
   For more information, see [Auto-Tune for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html).
   """
-  @spec describe_domain_auto_tunes(map(), String.t(), list()) ::
+  @spec describe_domain_auto_tunes(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_domain_auto_tunes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5045,7 +5067,12 @@ defmodule AWS.OpenSearch do
 
   For more information, see [Making configuration changes in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes.html).
   """
-  @spec describe_domain_change_progress(map(), String.t(), String.t() | nil, list()) ::
+  @spec describe_domain_change_progress(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, describe_domain_change_progress_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5075,7 +5102,7 @@ defmodule AWS.OpenSearch do
   @doc """
   Returns the configuration of an Amazon OpenSearch Service domain.
   """
-  @spec describe_domain_config(map(), String.t(), list()) ::
+  @spec describe_domain_config(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_domain_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5094,7 +5121,7 @@ defmodule AWS.OpenSearch do
   Returns information about domain and node health, the standby Availability Zone,
   number of nodes per Availability Zone, and shard count per node.
   """
-  @spec describe_domain_health(map(), String.t(), list()) ::
+  @spec describe_domain_health(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_domain_health_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5115,7 +5142,7 @@ defmodule AWS.OpenSearch do
   nodes, Availability Zone(s), standby nodes, node configurations, and node
   states.
   """
-  @spec describe_domain_nodes(map(), String.t(), list()) ::
+  @spec describe_domain_nodes(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_domain_nodes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5167,7 +5194,13 @@ defmodule AWS.OpenSearch do
 
   For more information, see [Determining whether a change will cause a blue/green deployment](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#dryrun).
   """
-  @spec describe_dry_run_progress(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec describe_dry_run_progress(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, describe_dry_run_progress_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5241,7 +5274,13 @@ defmodule AWS.OpenSearch do
   OpenSearch or
   Elasticsearch version and instance type.
   """
-  @spec describe_instance_type_limits(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec describe_instance_type_limits(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, describe_instance_type_limits_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5346,9 +5385,9 @@ defmodule AWS.OpenSearch do
   """
   @spec describe_reserved_instance_offerings(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, describe_reserved_instance_offerings_response(), any()}
@@ -5400,9 +5439,9 @@ defmodule AWS.OpenSearch do
   """
   @spec describe_reserved_instances(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, describe_reserved_instances_response(), any()}
@@ -5484,7 +5523,13 @@ defmodule AWS.OpenSearch do
   in OpenSearch Service for association later. For more information, see [Custom packages for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
   """
-  @spec dissociate_package(map(), String.t(), String.t(), dissociate_package_request(), list()) ::
+  @spec dissociate_package(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          dissociate_package_request(),
+          list()
+        ) ::
           {:ok, dissociate_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5544,7 +5589,7 @@ defmodule AWS.OpenSearch do
   @doc """
   Retrieves the configuration and status of an existing OpenSearch application.
   """
-  @spec get_application(map(), String.t(), list()) ::
+  @spec get_application(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5564,7 +5609,7 @@ defmodule AWS.OpenSearch do
   upgrade them
   to.
   """
-  @spec get_compatible_versions(map(), String.t() | nil, list()) ::
+  @spec get_compatible_versions(map(), String.t() | Atom.t() | nil, list()) ::
           {:ok, get_compatible_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5589,7 +5634,7 @@ defmodule AWS.OpenSearch do
   @doc """
   Retrieves information about a direct query data source.
   """
-  @spec get_data_source(map(), String.t(), String.t(), list()) ::
+  @spec get_data_source(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5611,7 +5656,7 @@ defmodule AWS.OpenSearch do
   Returns detailed configuration information for
   a specific direct query data source in Amazon OpenSearch Service.
   """
-  @spec get_direct_query_data_source(map(), String.t(), list()) ::
+  @spec get_direct_query_data_source(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_direct_query_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5631,7 +5676,7 @@ defmodule AWS.OpenSearch do
   @doc """
   The status of the maintenance action.
   """
-  @spec get_domain_maintenance_status(map(), String.t(), String.t(), list()) ::
+  @spec get_domain_maintenance_status(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_domain_maintenance_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5668,7 +5713,13 @@ defmodule AWS.OpenSearch do
   For more information, see [Custom packages for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
   """
-  @spec get_package_version_history(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_package_version_history(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, get_package_version_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5708,7 +5759,13 @@ defmodule AWS.OpenSearch do
   OpenSearch
   Service domain.
   """
-  @spec get_upgrade_history(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_upgrade_history(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, get_upgrade_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5748,7 +5805,7 @@ defmodule AWS.OpenSearch do
   performed on
   an Amazon OpenSearch Service domain.
   """
-  @spec get_upgrade_status(map(), String.t(), list()) ::
+  @spec get_upgrade_status(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_upgrade_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5766,7 +5823,13 @@ defmodule AWS.OpenSearch do
   @doc """
   Lists all OpenSearch applications under your account.
   """
-  @spec list_applications(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_applications(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5815,7 +5878,7 @@ defmodule AWS.OpenSearch do
   For more information, see
   [Working with Amazon OpenSearch Service direct queries with Amazon S3](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3.html).
   """
-  @spec list_data_sources(map(), String.t(), list()) ::
+  @spec list_data_sources(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_data_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5835,7 +5898,7 @@ defmodule AWS.OpenSearch do
   Lists an inventory of all the direct query data sources that you
   have configured within Amazon OpenSearch Service.
   """
-  @spec list_direct_query_data_sources(map(), String.t() | nil, list()) ::
+  @spec list_direct_query_data_sources(map(), String.t() | Atom.t() | nil, list()) ::
           {:ok, list_direct_query_data_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5862,11 +5925,11 @@ defmodule AWS.OpenSearch do
   """
   @spec list_domain_maintenances(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_domain_maintenances_response(), any()}
@@ -5926,7 +5989,7 @@ defmodule AWS.OpenSearch do
   user in the
   active Region.
   """
-  @spec list_domain_names(map(), String.t() | nil, list()) ::
+  @spec list_domain_names(map(), String.t() | Atom.t() | nil, list()) ::
           {:ok, list_domain_names_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5955,7 +6018,13 @@ defmodule AWS.OpenSearch do
   information, see [Custom packages for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
   """
-  @spec list_domains_for_package(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_domains_for_package(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_domains_for_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5997,12 +6066,12 @@ defmodule AWS.OpenSearch do
   """
   @spec list_instance_type_details(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_instance_type_details_response(), any()}
@@ -6070,7 +6139,13 @@ defmodule AWS.OpenSearch do
   information, see [Custom packages for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
   """
-  @spec list_packages_for_domain(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_packages_for_domain(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_packages_for_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6113,7 +6188,13 @@ defmodule AWS.OpenSearch do
   or [blue/green Auto-Tune
   enhancements](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types).
   """
-  @spec list_scheduled_actions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_scheduled_actions(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_scheduled_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6158,7 +6239,7 @@ defmodule AWS.OpenSearch do
   For more information, see [Tagging Amazon OpenSearch Service
   resources](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html).
   """
-  @spec list_tags(map(), String.t(), list()) ::
+  @spec list_tags(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6185,7 +6266,7 @@ defmodule AWS.OpenSearch do
   Service
   supports.
   """
-  @spec list_versions(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_versions(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6220,7 +6301,12 @@ defmodule AWS.OpenSearch do
   given Amazon OpenSearch Service domain through the use of an interface VPC
   endpoint.
   """
-  @spec list_vpc_endpoint_access(map(), String.t(), String.t() | nil, list()) ::
+  @spec list_vpc_endpoint_access(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_vpc_endpoint_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6248,7 +6334,7 @@ defmodule AWS.OpenSearch do
   Retrieves all Amazon OpenSearch Service-managed VPC endpoints in the current
   Amazon Web Services account and Region.
   """
-  @spec list_vpc_endpoints(map(), String.t() | nil, list()) ::
+  @spec list_vpc_endpoints(map(), String.t() | Atom.t() | nil, list()) ::
           {:ok, list_vpc_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6275,7 +6361,12 @@ defmodule AWS.OpenSearch do
   particular
   domain.
   """
-  @spec list_vpc_endpoints_for_domain(map(), String.t(), String.t() | nil, list()) ::
+  @spec list_vpc_endpoints_for_domain(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_vpc_endpoints_for_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6340,7 +6431,12 @@ defmodule AWS.OpenSearch do
   cross-cluster
   connection request.
   """
-  @spec reject_inbound_connection(map(), String.t(), reject_inbound_connection_request(), list()) ::
+  @spec reject_inbound_connection(
+          map(),
+          String.t() | Atom.t(),
+          reject_inbound_connection_request(),
+          list()
+        ) ::
           {:ok, reject_inbound_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6408,7 +6504,7 @@ defmodule AWS.OpenSearch do
   """
   @spec revoke_vpc_endpoint_access(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           revoke_vpc_endpoint_access_request(),
           list()
         ) ::
@@ -6446,7 +6542,12 @@ defmodule AWS.OpenSearch do
   process restart,
   or a Dashboard or Kibana restart.
   """
-  @spec start_domain_maintenance(map(), String.t(), start_domain_maintenance_request(), list()) ::
+  @spec start_domain_maintenance(
+          map(),
+          String.t() | Atom.t(),
+          start_domain_maintenance_request(),
+          list()
+        ) ::
           {:ok, start_domain_maintenance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6510,7 +6611,7 @@ defmodule AWS.OpenSearch do
   @doc """
   Updates the configuration and settings of an existing OpenSearch application.
   """
-  @spec update_application(map(), String.t(), update_application_request(), list()) ::
+  @spec update_application(map(), String.t() | Atom.t(), update_application_request(), list()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6542,7 +6643,13 @@ defmodule AWS.OpenSearch do
   For more information, see
   [Working with Amazon OpenSearch Service data source integrations with Amazon S3](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-creating.html).
   """
-  @spec update_data_source(map(), String.t(), String.t(), update_data_source_request(), list()) ::
+  @spec update_data_source(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_data_source_request(),
+          list()
+        ) ::
           {:ok, update_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6577,7 +6684,7 @@ defmodule AWS.OpenSearch do
   """
   @spec update_direct_query_data_source(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_direct_query_data_source_request(),
           list()
         ) ::
@@ -6612,7 +6719,7 @@ defmodule AWS.OpenSearch do
   Modifies the cluster configuration of the specified Amazon OpenSearch Service
   domain.
   """
-  @spec update_domain_config(map(), String.t(), update_domain_config_request(), list()) ::
+  @spec update_domain_config(map(), String.t() | Atom.t(), update_domain_config_request(), list()) ::
           {:ok, update_domain_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6709,7 +6816,12 @@ defmodule AWS.OpenSearch do
   or a [blue/green Auto-Tune
   enhancement](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types).
   """
-  @spec update_scheduled_action(map(), String.t(), update_scheduled_action_request(), list()) ::
+  @spec update_scheduled_action(
+          map(),
+          String.t() | Atom.t(),
+          update_scheduled_action_request(),
+          list()
+        ) ::
           {:ok, update_scheduled_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

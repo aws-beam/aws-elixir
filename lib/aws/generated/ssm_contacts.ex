@@ -37,12 +37,12 @@ defmodule AWS.SSMContacts do
       
       list_pages_by_engagement_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("EngagementId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("EngagementId") => String.t() | Atom.t()
       }
       
   """
-  @type list_pages_by_engagement_request() :: %{String.t() => any()}
+  @type list_pages_by_engagement_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -58,44 +58,44 @@ defmodule AWS.SSMContacts do
       }
       
   """
-  @type recurrence_settings() :: %{String.t() => any()}
+  @type recurrence_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_rotation_request() :: %{
-        optional("IdempotencyToken") => String.t(),
+        optional("IdempotencyToken") => String.t() | Atom.t(),
         optional("StartTime") => non_neg_integer(),
         optional("Tags") => list(tag()),
-        required("ContactIds") => list(String.t()),
-        required("Name") => String.t(),
+        required("ContactIds") => list(String.t() | Atom.t()),
+        required("Name") => String.t() | Atom.t(),
         required("Recurrence") => recurrence_settings(),
-        required("TimeZoneId") => String.t()
+        required("TimeZoneId") => String.t() | Atom.t()
       }
       
   """
-  @type create_rotation_request() :: %{String.t() => any()}
+  @type create_rotation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_engagement_result() :: %{
-        "ContactArn" => String.t(),
-        "Content" => String.t(),
-        "EngagementArn" => String.t(),
-        "IncidentId" => String.t(),
-        "PublicContent" => String.t(),
-        "PublicSubject" => String.t(),
-        "Sender" => String.t(),
+        "ContactArn" => String.t() | Atom.t(),
+        "Content" => String.t() | Atom.t(),
+        "EngagementArn" => String.t() | Atom.t(),
+        "IncidentId" => String.t() | Atom.t(),
+        "PublicContent" => String.t() | Atom.t(),
+        "PublicSubject" => String.t() | Atom.t(),
+        "Sender" => String.t() | Atom.t(),
         "StartTime" => non_neg_integer(),
         "StopTime" => non_neg_integer(),
-        "Subject" => String.t()
+        "Subject" => String.t() | Atom.t()
       }
       
   """
-  @type describe_engagement_result() :: %{String.t() => any()}
+  @type describe_engagement_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -107,19 +107,19 @@ defmodule AWS.SSMContacts do
       }
       
   """
-  @type stage() :: %{String.t() => any()}
+  @type stage() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
+        required("ResourceARN") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -127,15 +127,15 @@ defmodule AWS.SSMContacts do
       
       create_contact_channel_request() :: %{
         optional("DeferActivation") => boolean(),
-        optional("IdempotencyToken") => String.t(),
-        required("ContactId") => String.t(),
+        optional("IdempotencyToken") => String.t() | Atom.t(),
+        required("ContactId") => String.t() | Atom.t(),
         required("DeliveryAddress") => contact_channel_address(),
-        required("Name") => String.t(),
+        required("Name") => String.t() | Atom.t(),
         required("Type") => list(any())
       }
       
   """
-  @type create_contact_channel_request() :: %{String.t() => any()}
+  @type create_contact_channel_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -143,77 +143,77 @@ defmodule AWS.SSMContacts do
       
       list_pages_by_contact_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ContactId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ContactId") => String.t() | Atom.t()
       }
       
   """
-  @type list_pages_by_contact_request() :: %{String.t() => any()}
+  @type list_pages_by_contact_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_rotation_override_request() :: %{
-        optional("IdempotencyToken") => String.t(),
+        optional("IdempotencyToken") => String.t() | Atom.t(),
         required("EndTime") => non_neg_integer(),
-        required("NewContactIds") => list(String.t()),
-        required("RotationId") => String.t(),
+        required("NewContactIds") => list(String.t() | Atom.t()),
+        required("RotationId") => String.t() | Atom.t(),
         required("StartTime") => non_neg_integer()
       }
       
   """
-  @type create_rotation_override_request() :: %{String.t() => any()}
+  @type create_rotation_override_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_contact_request() :: %{
-        required("ContactId") => String.t()
+        required("ContactId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_contact_request() :: %{String.t() => any()}
+  @type delete_contact_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       contact_target_info() :: %{
-        "ContactId" => String.t(),
+        "ContactId" => String.t() | Atom.t(),
         "IsEssential" => boolean()
       }
       
   """
-  @type contact_target_info() :: %{String.t() => any()}
+  @type contact_target_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       engagement() :: %{
-        "ContactArn" => String.t(),
-        "EngagementArn" => String.t(),
-        "IncidentId" => String.t(),
-        "Sender" => String.t(),
+        "ContactArn" => String.t() | Atom.t(),
+        "EngagementArn" => String.t() | Atom.t(),
+        "IncidentId" => String.t() | Atom.t(),
+        "Sender" => String.t() | Atom.t(),
         "StartTime" => non_neg_integer(),
         "StopTime" => non_neg_integer()
       }
       
   """
-  @type engagement() :: %{String.t() => any()}
+  @type engagement() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_rotation_override_result() :: %{
-        "RotationOverrideId" => String.t()
+        "RotationOverrideId" => String.t() | Atom.t()
       }
       
   """
-  @type create_rotation_override_result() :: %{String.t() => any()}
+  @type create_rotation_override_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -229,34 +229,34 @@ defmodule AWS.SSMContacts do
   ## Example:
       
       data_encryption_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type data_encryption_exception() :: %{String.t() => any()}
+  @type data_encryption_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_engagement_request() :: %{
-        optional("Reason") => String.t(),
-        required("EngagementId") => String.t()
+        optional("Reason") => String.t() | Atom.t(),
+        required("EngagementId") => String.t() | Atom.t()
       }
       
   """
-  @type stop_engagement_request() :: %{String.t() => any()}
+  @type stop_engagement_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_contact_channel_request() :: %{
-        required("ContactChannelId") => String.t()
+        required("ContactChannelId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_contact_channel_request() :: %{String.t() => any()}
+  @type delete_contact_channel_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -268,128 +268,128 @@ defmodule AWS.SSMContacts do
       }
       
   """
-  @type weekly_setting() :: %{String.t() => any()}
+  @type weekly_setting() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       shift_details() :: %{
-        "OverriddenContactIds" => list(String.t())
+        "OverriddenContactIds" => list(String.t() | Atom.t())
       }
       
   """
-  @type shift_details() :: %{String.t() => any()}
+  @type shift_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_rotation_override_request() :: %{
-        required("RotationId") => String.t(),
-        required("RotationOverrideId") => String.t()
+        required("RotationId") => String.t() | Atom.t(),
+        required("RotationOverrideId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_rotation_override_request() :: %{String.t() => any()}
+  @type delete_rotation_override_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       receipt() :: %{
-        "ContactChannelArn" => String.t(),
-        "ReceiptInfo" => String.t(),
+        "ContactChannelArn" => String.t() | Atom.t(),
+        "ReceiptInfo" => String.t() | Atom.t(),
         "ReceiptTime" => non_neg_integer(),
         "ReceiptType" => list(any())
       }
       
   """
-  @type receipt() :: %{String.t() => any()}
+  @type receipt() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_rotation_request() :: %{
-        optional("ContactIds") => list(String.t()),
+        optional("ContactIds") => list(String.t() | Atom.t()),
         optional("StartTime") => non_neg_integer(),
-        optional("TimeZoneId") => String.t(),
+        optional("TimeZoneId") => String.t() | Atom.t(),
         required("Recurrence") => recurrence_settings(),
-        required("RotationId") => String.t()
+        required("RotationId") => String.t() | Atom.t()
       }
       
   """
-  @type update_rotation_request() :: %{String.t() => any()}
+  @type update_rotation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_page_resolutions_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "PageResolutions" => list(resolution_contact())
       }
       
   """
-  @type list_page_resolutions_result() :: %{String.t() => any()}
+  @type list_page_resolutions_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceARN") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_contact_channel_result() :: %{
-        "ContactChannelArn" => String.t()
+        "ContactChannelArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_contact_channel_result() :: %{String.t() => any()}
+  @type create_contact_channel_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       rotation() :: %{
-        "ContactIds" => list(String.t()),
-        "Name" => String.t(),
+        "ContactIds" => list(String.t() | Atom.t()),
+        "Name" => String.t() | Atom.t(),
         "Recurrence" => recurrence_settings(),
-        "RotationArn" => String.t(),
+        "RotationArn" => String.t() | Atom.t(),
         "StartTime" => non_neg_integer(),
-        "TimeZoneId" => String.t()
+        "TimeZoneId" => String.t() | Atom.t()
       }
       
   """
-  @type rotation() :: %{String.t() => any()}
+  @type rotation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_engagement_request() :: %{
-        optional("IdempotencyToken") => String.t(),
-        optional("IncidentId") => String.t(),
-        optional("PublicContent") => String.t(),
-        optional("PublicSubject") => String.t(),
-        required("ContactId") => String.t(),
-        required("Content") => String.t(),
-        required("Sender") => String.t(),
-        required("Subject") => String.t()
+        optional("IdempotencyToken") => String.t() | Atom.t(),
+        optional("IncidentId") => String.t() | Atom.t(),
+        optional("PublicContent") => String.t() | Atom.t(),
+        optional("PublicSubject") => String.t() | Atom.t(),
+        required("ContactId") => String.t() | Atom.t(),
+        required("Content") => String.t() | Atom.t(),
+        required("Sender") => String.t() | Atom.t(),
+        required("Subject") => String.t() | Atom.t()
       }
       
   """
-  @type start_engagement_request() :: %{String.t() => any()}
+  @type start_engagement_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -397,15 +397,15 @@ defmodule AWS.SSMContacts do
       
       contact_channel() :: %{
         "ActivationStatus" => list(any()),
-        "ContactArn" => String.t(),
-        "ContactChannelArn" => String.t(),
+        "ContactArn" => String.t() | Atom.t(),
+        "ContactChannelArn" => String.t() | Atom.t(),
         "DeliveryAddress" => contact_channel_address(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Type" => list(any())
       }
       
   """
-  @type contact_channel() :: %{String.t() => any()}
+  @type contact_channel() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -414,13 +414,13 @@ defmodule AWS.SSMContacts do
       rotation_override() :: %{
         "CreateTime" => non_neg_integer(),
         "EndTime" => non_neg_integer(),
-        "NewContactIds" => list(String.t()),
-        "RotationOverrideId" => String.t(),
+        "NewContactIds" => list(String.t() | Atom.t()),
+        "RotationOverrideId" => String.t() | Atom.t(),
         "StartTime" => non_neg_integer()
       }
       
   """
-  @type rotation_override() :: %{String.t() => any()}
+  @type rotation_override() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -441,7 +441,7 @@ defmodule AWS.SSMContacts do
       }
       
   """
-  @type coverage_time() :: %{String.t() => any()}
+  @type coverage_time() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -453,19 +453,19 @@ defmodule AWS.SSMContacts do
       }
       
   """
-  @type monthly_setting() :: %{String.t() => any()}
+  @type monthly_setting() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_page_resolutions_request() :: %{
-        optional("NextToken") => String.t(),
-        required("PageId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("PageId") => String.t() | Atom.t()
       }
       
   """
-  @type list_page_resolutions_request() :: %{String.t() => any()}
+  @type list_page_resolutions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -473,11 +473,11 @@ defmodule AWS.SSMContacts do
       
       list_engagements_result() :: %{
         "Engagements" => list(engagement()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_engagements_result() :: %{String.t() => any()}
+  @type list_engagements_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -489,30 +489,30 @@ defmodule AWS.SSMContacts do
       }
       
   """
-  @type target() :: %{String.t() => any()}
+  @type target() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       contact_channel_address() :: %{
-        "SimpleAddress" => String.t()
+        "SimpleAddress" => String.t() | Atom.t()
       }
       
   """
-  @type contact_channel_address() :: %{String.t() => any()}
+  @type contact_channel_address() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_pages_by_engagement_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Pages" => list(page())
       }
       
   """
-  @type list_pages_by_engagement_result() :: %{String.t() => any()}
+  @type list_pages_by_engagement_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -520,23 +520,23 @@ defmodule AWS.SSMContacts do
       
       list_rotations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("RotationNamePrefix") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("RotationNamePrefix") => String.t() | Atom.t()
       }
       
   """
-  @type list_rotations_request() :: %{String.t() => any()}
+  @type list_rotations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_page_request() :: %{
-        required("PageId") => String.t()
+        required("PageId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_page_request() :: %{String.t() => any()}
+  @type describe_page_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -544,12 +544,12 @@ defmodule AWS.SSMContacts do
       
       list_page_receipts_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("PageId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("PageId") => String.t() | Atom.t()
       }
       
   """
-  @type list_page_receipts_request() :: %{String.t() => any()}
+  @type list_page_receipts_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -557,13 +557,13 @@ defmodule AWS.SSMContacts do
       
       conflict_exception() :: %{
         "DependentEntities" => list(dependent_entity()),
-        "Message" => String.t(),
-        "ResourceId" => String.t(),
-        "ResourceType" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t()
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -571,24 +571,24 @@ defmodule AWS.SSMContacts do
       
       list_contacts_result() :: %{
         "Contacts" => list(contact()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_contacts_result() :: %{String.t() => any()}
+  @type list_contacts_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t(),
-        "ResourceId" => String.t(),
-        "ResourceType" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -604,12 +604,12 @@ defmodule AWS.SSMContacts do
   ## Example:
       
       list_page_receipts_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Receipts" => list(receipt())
       }
       
   """
-  @type list_page_receipts_result() :: %{String.t() => any()}
+  @type list_page_receipts_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -617,48 +617,48 @@ defmodule AWS.SSMContacts do
       
       update_contact_channel_request() :: %{
         optional("DeliveryAddress") => contact_channel_address(),
-        optional("Name") => String.t(),
-        required("ContactChannelId") => String.t()
+        optional("Name") => String.t() | Atom.t(),
+        required("ContactChannelId") => String.t() | Atom.t()
       }
       
   """
-  @type update_contact_channel_request() :: %{String.t() => any()}
+  @type update_contact_channel_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_pages_by_contact_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Pages" => list(page())
       }
       
   """
-  @type list_pages_by_contact_result() :: %{String.t() => any()}
+  @type list_pages_by_contact_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       activate_contact_channel_request() :: %{
-        required("ActivationCode") => String.t(),
-        required("ContactChannelId") => String.t()
+        required("ActivationCode") => String.t() | Atom.t(),
+        required("ContactChannelId") => String.t() | Atom.t()
       }
       
   """
-  @type activate_contact_channel_request() :: %{String.t() => any()}
+  @type activate_contact_channel_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -666,30 +666,30 @@ defmodule AWS.SSMContacts do
       
       get_contact_channel_result() :: %{
         "ActivationStatus" => list(any()),
-        "ContactArn" => String.t(),
-        "ContactChannelArn" => String.t(),
+        "ContactArn" => String.t() | Atom.t(),
+        "ContactChannelArn" => String.t() | Atom.t(),
         "DeliveryAddress" => contact_channel_address(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Type" => list(any())
       }
       
   """
-  @type get_contact_channel_result() :: %{String.t() => any()}
+  @type get_contact_channel_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t(),
-        "QuotaCode" => String.t(),
-        "ResourceId" => String.t(),
-        "ResourceType" => String.t(),
-        "ServiceCode" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "QuotaCode" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t(),
+        "ServiceCode" => String.t() | Atom.t()
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -698,14 +698,14 @@ defmodule AWS.SSMContacts do
       get_rotation_override_result() :: %{
         "CreateTime" => non_neg_integer(),
         "EndTime" => non_neg_integer(),
-        "NewContactIds" => list(String.t()),
-        "RotationArn" => String.t(),
-        "RotationOverrideId" => String.t(),
+        "NewContactIds" => list(String.t() | Atom.t()),
+        "RotationArn" => String.t() | Atom.t(),
+        "RotationOverrideId" => String.t() | Atom.t(),
         "StartTime" => non_neg_integer()
       }
       
   """
-  @type get_rotation_override_result() :: %{String.t() => any()}
+  @type get_rotation_override_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -713,26 +713,26 @@ defmodule AWS.SSMContacts do
       
       list_rotation_overrides_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         required("EndTime") => non_neg_integer(),
-        required("RotationId") => String.t(),
+        required("RotationId") => String.t() | Atom.t(),
         required("StartTime") => non_neg_integer()
       }
       
   """
-  @type list_rotation_overrides_request() :: %{String.t() => any()}
+  @type list_rotation_overrides_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_preview_rotation_shifts_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "RotationShifts" => list(rotation_shift())
       }
       
   """
-  @type list_preview_rotation_shifts_result() :: %{String.t() => any()}
+  @type list_preview_rotation_shifts_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -748,11 +748,11 @@ defmodule AWS.SSMContacts do
   ## Example:
       
       get_rotation_request() :: %{
-        required("RotationId") => String.t()
+        required("RotationId") => String.t() | Atom.t()
       }
       
   """
-  @type get_rotation_request() :: %{String.t() => any()}
+  @type get_rotation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -760,11 +760,11 @@ defmodule AWS.SSMContacts do
       
       list_contact_channels_result() :: %{
         "ContactChannels" => list(contact_channel()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_contact_channels_result() :: %{String.t() => any()}
+  @type list_contact_channels_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -772,30 +772,30 @@ defmodule AWS.SSMContacts do
       
       list_rotation_shifts_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("StartTime") => non_neg_integer(),
         required("EndTime") => non_neg_integer(),
-        required("RotationId") => String.t()
+        required("RotationId") => String.t() | Atom.t()
       }
       
   """
-  @type list_rotation_shifts_request() :: %{String.t() => any()}
+  @type list_rotation_shifts_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_rotation_result() :: %{
-        "ContactIds" => list(String.t()),
-        "Name" => String.t(),
+        "ContactIds" => list(String.t() | Atom.t()),
+        "Name" => String.t() | Atom.t(),
         "Recurrence" => recurrence_settings(),
-        "RotationArn" => String.t(),
+        "RotationArn" => String.t() | Atom.t(),
         "StartTime" => non_neg_integer(),
-        "TimeZoneId" => String.t()
+        "TimeZoneId" => String.t() | Atom.t()
       }
       
   """
-  @type get_rotation_result() :: %{String.t() => any()}
+  @type get_rotation_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -811,23 +811,23 @@ defmodule AWS.SSMContacts do
   ## Example:
       
       validation_exception_field() :: %{
-        "Message" => String.t(),
-        "Name" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
       
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       send_activation_code_request() :: %{
-        required("ContactChannelId") => String.t()
+        required("ContactChannelId") => String.t() | Atom.t()
       }
       
   """
-  @type send_activation_code_request() :: %{String.t() => any()}
+  @type send_activation_code_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -835,82 +835,82 @@ defmodule AWS.SSMContacts do
       
       accept_page_request() :: %{
         optional("AcceptCodeValidation") => list(any()),
-        optional("ContactChannelId") => String.t(),
-        optional("Note") => String.t(),
-        required("AcceptCode") => String.t(),
+        optional("ContactChannelId") => String.t() | Atom.t(),
+        optional("Note") => String.t() | Atom.t(),
+        required("AcceptCode") => String.t() | Atom.t(),
         required("AcceptType") => list(any()),
-        required("PageId") => String.t()
+        required("PageId") => String.t() | Atom.t()
       }
       
   """
-  @type accept_page_request() :: %{String.t() => any()}
+  @type accept_page_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       dependent_entity() :: %{
-        "DependentResourceIds" => list(String.t()),
-        "RelationType" => String.t()
+        "DependentResourceIds" => list(String.t() | Atom.t()),
+        "RelationType" => String.t() | Atom.t()
       }
       
   """
-  @type dependent_entity() :: %{String.t() => any()}
+  @type dependent_entity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       contact() :: %{
-        "Alias" => String.t(),
-        "ContactArn" => String.t(),
-        "DisplayName" => String.t(),
+        "Alias" => String.t() | Atom.t(),
+        "ContactArn" => String.t() | Atom.t(),
+        "DisplayName" => String.t() | Atom.t(),
         "Type" => list(any())
       }
       
   """
-  @type contact() :: %{String.t() => any()}
+  @type contact() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_engagement_result() :: %{
-        "EngagementArn" => String.t()
+        "EngagementArn" => String.t() | Atom.t()
       }
       
   """
-  @type start_engagement_result() :: %{String.t() => any()}
+  @type start_engagement_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_contact_result() :: %{
-        "ContactArn" => String.t()
+        "ContactArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_contact_result() :: %{String.t() => any()}
+  @type create_contact_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_rotation_shifts_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "RotationShifts" => list(rotation_shift())
       }
       
   """
-  @type list_rotation_shifts_result() :: %{String.t() => any()}
+  @type list_rotation_shifts_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       rotation_shift() :: %{
-        "ContactIds" => list(String.t()),
+        "ContactIds" => list(String.t() | Atom.t()),
         "EndTime" => non_neg_integer(),
         "ShiftDetails" => shift_details(),
         "StartTime" => non_neg_integer(),
@@ -918,41 +918,41 @@ defmodule AWS.SSMContacts do
       }
       
   """
-  @type rotation_shift() :: %{String.t() => any()}
+  @type rotation_shift() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "RetryAfterSeconds" => integer()
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_page_result() :: %{
-        "ContactArn" => String.t(),
-        "Content" => String.t(),
+        "ContactArn" => String.t() | Atom.t(),
+        "Content" => String.t() | Atom.t(),
         "DeliveryTime" => non_neg_integer(),
-        "EngagementArn" => String.t(),
-        "IncidentId" => String.t(),
-        "PageArn" => String.t(),
-        "PublicContent" => String.t(),
-        "PublicSubject" => String.t(),
+        "EngagementArn" => String.t() | Atom.t(),
+        "IncidentId" => String.t() | Atom.t(),
+        "PageArn" => String.t() | Atom.t(),
+        "PublicContent" => String.t() | Atom.t(),
+        "PublicSubject" => String.t() | Atom.t(),
         "ReadTime" => non_neg_integer(),
-        "Sender" => String.t(),
+        "Sender" => String.t() | Atom.t(),
         "SentTime" => non_neg_integer(),
-        "Subject" => String.t()
+        "Subject" => String.t() | Atom.t()
       }
       
   """
-  @type describe_page_result() :: %{String.t() => any()}
+  @type describe_page_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -963,44 +963,44 @@ defmodule AWS.SSMContacts do
       }
       
   """
-  @type list_tags_for_resource_result() :: %{String.t() => any()}
+  @type list_tags_for_resource_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_contact_request() :: %{
-        required("ContactId") => String.t()
+        required("ContactId") => String.t() | Atom.t()
       }
       
   """
-  @type get_contact_request() :: %{String.t() => any()}
+  @type get_contact_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_contacts_request() :: %{
-        optional("AliasPrefix") => String.t(),
+        optional("AliasPrefix") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("Type") => list(any())
       }
       
   """
-  @type list_contacts_request() :: %{String.t() => any()}
+  @type list_contacts_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_rotations_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Rotations" => list(rotation())
       }
       
   """
-  @type list_rotations_result() :: %{String.t() => any()}
+  @type list_rotations_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1008,38 +1008,38 @@ defmodule AWS.SSMContacts do
       
       list_contact_channels_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ContactId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ContactId") => String.t() | Atom.t()
       }
       
   """
-  @type list_contact_channels_request() :: %{String.t() => any()}
+  @type list_contact_channels_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_contact_result() :: %{
-        "Alias" => String.t(),
-        "ContactArn" => String.t(),
-        "DisplayName" => String.t(),
+        "Alias" => String.t() | Atom.t(),
+        "ContactArn" => String.t() | Atom.t(),
+        "DisplayName" => String.t() | Atom.t(),
         "Plan" => plan(),
         "Type" => list(any())
       }
       
   """
-  @type get_contact_result() :: %{String.t() => any()}
+  @type get_contact_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_contact_policy_request() :: %{
-        required("ContactArn") => String.t()
+        required("ContactArn") => String.t() | Atom.t()
       }
       
   """
-  @type get_contact_policy_request() :: %{String.t() => any()}
+  @type get_contact_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1051,53 +1051,53 @@ defmodule AWS.SSMContacts do
       }
       
   """
-  @type time_range() :: %{String.t() => any()}
+  @type time_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_rotation_overrides_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "RotationOverrides" => list(rotation_override())
       }
       
   """
-  @type list_rotation_overrides_result() :: %{String.t() => any()}
+  @type list_rotation_overrides_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_contact_policy_request() :: %{
-        required("ContactArn") => String.t(),
-        required("Policy") => String.t()
+        required("ContactArn") => String.t() | Atom.t(),
+        required("Policy") => String.t() | Atom.t()
       }
       
   """
-  @type put_contact_policy_request() :: %{String.t() => any()}
+  @type put_contact_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_engagement_request() :: %{
-        required("EngagementId") => String.t()
+        required("EngagementId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_engagement_request() :: %{String.t() => any()}
+  @type describe_engagement_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1113,13 +1113,13 @@ defmodule AWS.SSMContacts do
   ## Example:
       
       update_contact_request() :: %{
-        optional("DisplayName") => String.t(),
+        optional("DisplayName") => String.t() | Atom.t(),
         optional("Plan") => plan(),
-        required("ContactId") => String.t()
+        required("ContactId") => String.t() | Atom.t()
       }
       
   """
-  @type update_contact_request() :: %{String.t() => any()}
+  @type update_contact_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1136,53 +1136,53 @@ defmodule AWS.SSMContacts do
       
       validation_exception() :: %{
         "Fields" => list(validation_exception_field()),
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "Reason" => list(any())
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t()
+        required("ResourceARN") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "Message" => String.t(),
-        "QuotaCode" => String.t(),
+        "Message" => String.t() | Atom.t(),
+        "QuotaCode" => String.t() | Atom.t(),
         "RetryAfterSeconds" => integer(),
-        "ServiceCode" => String.t()
+        "ServiceCode" => String.t() | Atom.t()
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_contact_request() :: %{
-        optional("DisplayName") => String.t(),
-        optional("IdempotencyToken") => String.t(),
+        optional("DisplayName") => String.t() | Atom.t(),
+        optional("IdempotencyToken") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("Alias") => String.t(),
+        required("Alias") => String.t() | Atom.t(),
         required("Plan") => plan(),
         required("Type") => list(any())
       }
       
   """
-  @type create_contact_request() :: %{String.t() => any()}
+  @type create_contact_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1194,7 +1194,7 @@ defmodule AWS.SSMContacts do
       }
       
   """
-  @type hand_off_time() :: %{String.t() => any()}
+  @type hand_off_time() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1211,41 +1211,41 @@ defmodule AWS.SSMContacts do
       
       list_preview_rotation_shifts_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("Overrides") => list(preview_override()),
         optional("RotationStartTime") => non_neg_integer(),
         optional("StartTime") => non_neg_integer(),
         required("EndTime") => non_neg_integer(),
-        required("Members") => list(String.t()),
+        required("Members") => list(String.t() | Atom.t()),
         required("Recurrence") => recurrence_settings(),
-        required("TimeZoneId") => String.t()
+        required("TimeZoneId") => String.t() | Atom.t()
       }
       
   """
-  @type list_preview_rotation_shifts_request() :: %{String.t() => any()}
+  @type list_preview_rotation_shifts_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       deactivate_contact_channel_request() :: %{
-        required("ContactChannelId") => String.t()
+        required("ContactChannelId") => String.t() | Atom.t()
       }
       
   """
-  @type deactivate_contact_channel_request() :: %{String.t() => any()}
+  @type deactivate_contact_channel_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_rotation_override_request() :: %{
-        required("RotationId") => String.t(),
-        required("RotationOverrideId") => String.t()
+        required("RotationId") => String.t() | Atom.t(),
+        required("RotationOverrideId") => String.t() | Atom.t()
       }
       
   """
-  @type get_rotation_override_request() :: %{String.t() => any()}
+  @type get_rotation_override_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1253,12 +1253,12 @@ defmodule AWS.SSMContacts do
       
       preview_override() :: %{
         "EndTime" => non_neg_integer(),
-        "NewMembers" => list(String.t()),
+        "NewMembers" => list(String.t() | Atom.t()),
         "StartTime" => non_neg_integer()
       }
       
   """
-  @type preview_override() :: %{String.t() => any()}
+  @type preview_override() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1283,11 +1283,11 @@ defmodule AWS.SSMContacts do
   ## Example:
       
       get_contact_channel_request() :: %{
-        required("ContactChannelId") => String.t()
+        required("ContactChannelId") => String.t() | Atom.t()
       }
       
   """
-  @type get_contact_channel_request() :: %{String.t() => any()}
+  @type get_contact_channel_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1303,12 +1303,12 @@ defmodule AWS.SSMContacts do
   ## Example:
       
       get_contact_policy_result() :: %{
-        "ContactArn" => String.t(),
-        "Policy" => String.t()
+        "ContactArn" => String.t() | Atom.t(),
+        "Policy" => String.t() | Atom.t()
       }
       
   """
-  @type get_contact_policy_result() :: %{String.t() => any()}
+  @type get_contact_policy_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1324,68 +1324,68 @@ defmodule AWS.SSMContacts do
   ## Example:
       
       list_engagements_request() :: %{
-        optional("IncidentId") => String.t(),
+        optional("IncidentId") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("TimeRangeValue") => time_range()
       }
       
   """
-  @type list_engagements_request() :: %{String.t() => any()}
+  @type list_engagements_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       channel_target_info() :: %{
-        "ContactChannelId" => String.t(),
+        "ContactChannelId" => String.t() | Atom.t(),
         "RetryIntervalInMinutes" => integer()
       }
       
   """
-  @type channel_target_info() :: %{String.t() => any()}
+  @type channel_target_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       page() :: %{
-        "ContactArn" => String.t(),
+        "ContactArn" => String.t() | Atom.t(),
         "DeliveryTime" => non_neg_integer(),
-        "EngagementArn" => String.t(),
-        "IncidentId" => String.t(),
-        "PageArn" => String.t(),
+        "EngagementArn" => String.t() | Atom.t(),
+        "IncidentId" => String.t() | Atom.t(),
+        "PageArn" => String.t() | Atom.t(),
         "ReadTime" => non_neg_integer(),
-        "Sender" => String.t(),
+        "Sender" => String.t() | Atom.t(),
         "SentTime" => non_neg_integer()
       }
       
   """
-  @type page() :: %{String.t() => any()}
+  @type page() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_rotation_result() :: %{
-        "RotationArn" => String.t()
+        "RotationArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_rotation_result() :: %{String.t() => any()}
+  @type create_rotation_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resolution_contact() :: %{
-        "ContactArn" => String.t(),
+        "ContactArn" => String.t() | Atom.t(),
         "StageIndex" => integer(),
         "Type" => list(any())
       }
       
   """
-  @type resolution_contact() :: %{String.t() => any()}
+  @type resolution_contact() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1401,11 +1401,11 @@ defmodule AWS.SSMContacts do
   ## Example:
       
       delete_rotation_request() :: %{
-        required("RotationId") => String.t()
+        required("RotationId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_rotation_request() :: %{String.t() => any()}
+  @type delete_rotation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1421,12 +1421,12 @@ defmodule AWS.SSMContacts do
   ## Example:
       
       plan() :: %{
-        "RotationIds" => list(String.t()),
+        "RotationIds" => list(String.t() | Atom.t()),
         "Stages" => list(stage())
       }
       
   """
-  @type plan() :: %{String.t() => any()}
+  @type plan() :: %{String.t() | Atom.t() => any()}
 
   @type accept_page_errors() ::
           throttling_exception()

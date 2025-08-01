@@ -42,11 +42,11 @@ defmodule AWS.MigrationHubConfig do
   ## Example:
       
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -54,12 +54,12 @@ defmodule AWS.MigrationHubConfig do
       
       create_home_region_control_request() :: %{
         optional("DryRun") => boolean(),
-        required("HomeRegion") => String.t(),
+        required("HomeRegion") => String.t() | Atom.t(),
         required("Target") => target()
       }
       
   """
-  @type create_home_region_control_request() :: %{String.t() => any()}
+  @type create_home_region_control_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -70,18 +70,18 @@ defmodule AWS.MigrationHubConfig do
       }
       
   """
-  @type create_home_region_control_result() :: %{String.t() => any()}
+  @type create_home_region_control_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_home_region_control_request() :: %{
-        required("ControlId") => String.t()
+        required("ControlId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_home_region_control_request() :: %{String.t() => any()}
+  @type delete_home_region_control_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -97,15 +97,15 @@ defmodule AWS.MigrationHubConfig do
   ## Example:
       
       describe_home_region_controls_request() :: %{
-        optional("ControlId") => String.t(),
-        optional("HomeRegion") => String.t(),
+        optional("ControlId") => String.t() | Atom.t(),
+        optional("HomeRegion") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("Target") => target()
       }
       
   """
-  @type describe_home_region_controls_request() :: %{String.t() => any()}
+  @type describe_home_region_controls_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -113,22 +113,22 @@ defmodule AWS.MigrationHubConfig do
       
       describe_home_region_controls_result() :: %{
         "HomeRegionControls" => list(home_region_control()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_home_region_controls_result() :: %{String.t() => any()}
+  @type describe_home_region_controls_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       dry_run_operation() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type dry_run_operation() :: %{String.t() => any()}
+  @type dry_run_operation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -144,82 +144,82 @@ defmodule AWS.MigrationHubConfig do
   ## Example:
       
       get_home_region_result() :: %{
-        "HomeRegion" => String.t()
+        "HomeRegion" => String.t() | Atom.t()
       }
       
   """
-  @type get_home_region_result() :: %{String.t() => any()}
+  @type get_home_region_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       home_region_control() :: %{
-        "ControlId" => String.t(),
-        "HomeRegion" => String.t(),
+        "ControlId" => String.t() | Atom.t(),
+        "HomeRegion" => String.t() | Atom.t(),
         "RequestedTime" => non_neg_integer(),
         "Target" => target()
       }
       
   """
-  @type home_region_control() :: %{String.t() => any()}
+  @type home_region_control() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_error() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type internal_server_error() :: %{String.t() => any()}
+  @type internal_server_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_input_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_input_exception() :: %{String.t() => any()}
+  @type invalid_input_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       service_unavailable_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type service_unavailable_exception() :: %{String.t() => any()}
+  @type service_unavailable_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       target() :: %{
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "Type" => list(any())
       }
       
   """
-  @type target() :: %{String.t() => any()}
+  @type target() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "RetryAfterSeconds" => integer()
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @type create_home_region_control_errors() ::
           throttling_exception()

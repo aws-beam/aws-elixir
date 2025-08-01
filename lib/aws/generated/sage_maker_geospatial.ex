@@ -19,46 +19,46 @@ defmodule AWS.SageMakerGeospatial do
       }
 
   """
-  @type view_off_nadir_input() :: %{String.t() => any()}
+  @type view_off_nadir_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       zonal_statistics_config_input() :: %{
-        "Statistics" => list(String.t()),
-        "TargetBands" => list([String.t()]()),
-        "ZoneS3Path" => String.t(),
-        "ZoneS3PathKmsKeyId" => String.t()
+        "Statistics" => list(String.t() | Atom.t()),
+        "TargetBands" => list([String.t() | Atom.t()]()),
+        "ZoneS3Path" => String.t() | Atom.t(),
+        "ZoneS3PathKmsKeyId" => String.t() | Atom.t()
       }
 
   """
-  @type zonal_statistics_config_input() :: %{String.t() => any()}
+  @type zonal_statistics_config_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       operation() :: %{
-        "Equation" => [String.t()],
-        "Name" => [String.t()],
-        "OutputType" => String.t()
+        "Equation" => [String.t() | Atom.t()],
+        "Name" => [String.t() | Atom.t()],
+        "OutputType" => String.t() | Atom.t()
       }
 
   """
-  @type operation() :: %{String.t() => any()}
+  @type operation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       output_band() :: %{
-        "BandName" => [String.t()],
-        "OutputDataType" => String.t()
+        "BandName" => [String.t() | Atom.t()],
+        "OutputDataType" => String.t() | Atom.t()
       }
 
   """
-  @type output_band() :: %{String.t() => any()}
+  @type output_band() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -70,31 +70,31 @@ defmodule AWS.SageMakerGeospatial do
       }
 
   """
-  @type view_sun_elevation_input() :: %{String.t() => any()}
+  @type view_sun_elevation_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_earth_observation_job_output() :: %{
-        "Arn" => [String.t()],
+        "Arn" => [String.t() | Atom.t()],
         "CreationTime" => [non_neg_integer()],
         "DurationInSeconds" => [integer()],
         "ErrorDetails" => earth_observation_job_error_details(),
-        "ExecutionRoleArn" => String.t(),
+        "ExecutionRoleArn" => String.t() | Atom.t(),
         "ExportErrorDetails" => export_error_details(),
-        "ExportStatus" => String.t(),
+        "ExportStatus" => String.t() | Atom.t(),
         "InputConfig" => input_config_output(),
         "JobConfig" => list(),
-        "KmsKeyId" => String.t(),
-        "Name" => [String.t()],
+        "KmsKeyId" => String.t() | Atom.t(),
+        "Name" => [String.t() | Atom.t()],
         "OutputBands" => list(output_band()),
-        "Status" => String.t(),
+        "Status" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type get_earth_observation_job_output() :: %{String.t() => any()}
+  @type get_earth_observation_job_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -105,31 +105,31 @@ defmodule AWS.SageMakerGeospatial do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       reverse_geocoding_config() :: %{
-        "XAttributeName" => [String.t()],
-        "YAttributeName" => [String.t()]
+        "XAttributeName" => [String.t() | Atom.t()],
+        "YAttributeName" => [String.t() | Atom.t()]
       }
 
   """
-  @type reverse_geocoding_config() :: %{String.t() => any()}
+  @type reverse_geocoding_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       user_defined() :: %{
-        "Unit" => String.t(),
+        "Unit" => String.t() | Atom.t(),
         "Value" => [float()]
       }
 
   """
-  @type user_defined() :: %{String.t() => any()}
+  @type user_defined() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -137,23 +137,23 @@ defmodule AWS.SageMakerGeospatial do
 
       stack_config_input() :: %{
         "OutputResolution" => output_resolution_stack_input(),
-        "TargetBands" => list([String.t()]())
+        "TargetBands" => list([String.t() | Atom.t()]())
       }
 
   """
-  @type stack_config_input() :: %{String.t() => any()}
+  @type stack_config_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       property_filters() :: %{
-        "LogicalOperator" => String.t(),
+        "LogicalOperator" => String.t() | Atom.t(),
         "Properties" => list(property_filter())
       }
 
   """
-  @type property_filters() :: %{String.t() => any()}
+  @type property_filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -164,19 +164,19 @@ defmodule AWS.SageMakerGeospatial do
       }
 
   """
-  @type polygon_geometry_input() :: %{String.t() => any()}
+  @type polygon_geometry_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_raster_data_collections_output() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         required("RasterDataCollectionSummaries") => list(raster_data_collection_metadata())
       }
 
   """
-  @type list_raster_data_collections_output() :: %{String.t() => any()}
+  @type list_raster_data_collections_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -184,11 +184,11 @@ defmodule AWS.SageMakerGeospatial do
 
       geometry() :: %{
         "Coordinates" => list(list(list([float()]())())()),
-        "Type" => [String.t()]
+        "Type" => [String.t() | Atom.t()]
       }
 
   """
-  @type geometry() :: %{String.t() => any()}
+  @type geometry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -204,24 +204,24 @@ defmodule AWS.SageMakerGeospatial do
   ## Example:
 
       list_earth_observation_job_output() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         required("EarthObservationJobSummaries") => list(list_earth_observation_job_output_config())
       }
 
   """
-  @type list_earth_observation_job_output() :: %{String.t() => any()}
+  @type list_earth_observation_job_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       export_s3_data_input() :: %{
-        "KmsKeyId" => String.t(),
-        "S3Uri" => String.t()
+        "KmsKeyId" => String.t() | Atom.t(),
+        "S3Uri" => String.t() | Atom.t()
       }
 
   """
-  @type export_s3_data_input() :: %{String.t() => any()}
+  @type export_s3_data_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -229,19 +229,19 @@ defmodule AWS.SageMakerGeospatial do
 
       start_earth_observation_job_output() :: %{
         optional("InputConfig") => input_config_output(),
-        optional("KmsKeyId") => String.t(),
+        optional("KmsKeyId") => String.t() | Atom.t(),
         optional("Tags") => map(),
-        required("Arn") => [String.t()],
+        required("Arn") => [String.t() | Atom.t()],
         required("CreationTime") => [non_neg_integer()],
         required("DurationInSeconds") => [integer()],
-        required("ExecutionRoleArn") => String.t(),
+        required("ExecutionRoleArn") => String.t() | Atom.t(),
         required("JobConfig") => list(),
-        required("Name") => [String.t()],
-        required("Status") => String.t()
+        required("Name") => [String.t() | Atom.t()],
+        required("Status") => String.t() | Atom.t()
       }
 
   """
-  @type start_earth_observation_job_output() :: %{String.t() => any()}
+  @type start_earth_observation_job_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -250,45 +250,45 @@ defmodule AWS.SageMakerGeospatial do
       properties() :: %{
         "EoCloudCover" => [float()],
         "LandsatCloudCoverLand" => [float()],
-        "Platform" => [String.t()],
+        "Platform" => [String.t() | Atom.t()],
         "ViewOffNadir" => [float()],
         "ViewSunAzimuth" => [float()],
         "ViewSunElevation" => [float()]
       }
 
   """
-  @type properties() :: %{String.t() => any()}
+  @type properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       export_vector_enrichment_job_input() :: %{
-        optional("ClientToken") => [String.t()],
-        required("Arn") => String.t(),
-        required("ExecutionRoleArn") => String.t(),
+        optional("ClientToken") => [String.t() | Atom.t()],
+        required("Arn") => String.t() | Atom.t(),
+        required("ExecutionRoleArn") => String.t() | Atom.t(),
         required("OutputConfig") => export_vector_enrichment_job_output_config()
       }
 
   """
-  @type export_vector_enrichment_job_input() :: %{String.t() => any()}
+  @type export_vector_enrichment_job_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_vector_enrichment_job_input() :: %{
-        optional("ClientToken") => [String.t()],
-        optional("KmsKeyId") => String.t(),
+        optional("ClientToken") => [String.t() | Atom.t()],
+        optional("KmsKeyId") => String.t() | Atom.t(),
         optional("Tags") => map(),
-        required("ExecutionRoleArn") => String.t(),
+        required("ExecutionRoleArn") => String.t() | Atom.t(),
         required("InputConfig") => vector_enrichment_job_input_config(),
         required("JobConfig") => list(),
-        required("Name") => [String.t()]
+        required("Name") => [String.t() | Atom.t()]
       }
 
   """
-  @type start_vector_enrichment_job_input() :: %{String.t() => any()}
+  @type start_vector_enrichment_job_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -304,13 +304,13 @@ defmodule AWS.SageMakerGeospatial do
   ## Example:
 
       cloud_removal_config_input() :: %{
-        "AlgorithmName" => String.t(),
-        "InterpolationValue" => [String.t()],
-        "TargetBands" => list([String.t()]())
+        "AlgorithmName" => String.t() | Atom.t(),
+        "InterpolationValue" => [String.t() | Atom.t()],
+        "TargetBands" => list([String.t() | Atom.t()]())
       }
 
   """
-  @type cloud_removal_config_input() :: %{String.t() => any()}
+  @type cloud_removal_config_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -319,24 +319,24 @@ defmodule AWS.SageMakerGeospatial do
       raster_data_collection_query_output() :: %{
         "AreaOfInterest" => list(),
         "PropertyFilters" => property_filters(),
-        "RasterDataCollectionArn" => String.t(),
-        "RasterDataCollectionName" => [String.t()],
+        "RasterDataCollectionArn" => String.t() | Atom.t(),
+        "RasterDataCollectionName" => [String.t() | Atom.t()],
         "TimeRangeFilter" => time_range_filter_output()
       }
 
   """
-  @type raster_data_collection_query_output() :: %{String.t() => any()}
+  @type raster_data_collection_query_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list([String.t()]())
+        required("TagKeys") => list([String.t() | Atom.t()]())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -348,7 +348,7 @@ defmodule AWS.SageMakerGeospatial do
       }
 
   """
-  @type time_range_filter_input() :: %{String.t() => any()}
+  @type time_range_filter_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -359,7 +359,7 @@ defmodule AWS.SageMakerGeospatial do
       }
 
   """
-  @type custom_indices_input() :: %{String.t() => any()}
+  @type custom_indices_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -376,14 +376,14 @@ defmodule AWS.SageMakerGeospatial do
 
       list_earth_observation_job_input() :: %{
         optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t(),
-        optional("SortBy") => [String.t()],
-        optional("SortOrder") => String.t(),
-        optional("StatusEquals") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("SortBy") => [String.t() | Atom.t()],
+        optional("SortOrder") => String.t() | Atom.t(),
+        optional("StatusEquals") => String.t() | Atom.t()
       }
 
   """
-  @type list_earth_observation_job_input() :: %{String.t() => any()}
+  @type list_earth_observation_job_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -391,15 +391,15 @@ defmodule AWS.SageMakerGeospatial do
 
       export_earth_observation_job_output() :: %{
         optional("ExportSourceImages") => [boolean()],
-        required("Arn") => String.t(),
+        required("Arn") => String.t() | Atom.t(),
         required("CreationTime") => [non_neg_integer()],
-        required("ExecutionRoleArn") => String.t(),
-        required("ExportStatus") => String.t(),
+        required("ExecutionRoleArn") => String.t() | Atom.t(),
+        required("ExportStatus") => String.t() | Atom.t(),
         required("OutputConfig") => output_config_input()
       }
 
   """
-  @type export_earth_observation_job_output() :: %{String.t() => any()}
+  @type export_earth_observation_job_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -415,11 +415,11 @@ defmodule AWS.SageMakerGeospatial do
   ## Example:
 
       asset_value() :: %{
-        "Href" => [String.t()]
+        "Href" => [String.t() | Atom.t()]
       }
 
   """
-  @type asset_value() :: %{String.t() => any()}
+  @type asset_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -431,43 +431,43 @@ defmodule AWS.SageMakerGeospatial do
       }
 
   """
-  @type landsat_cloud_cover_land_input() :: %{String.t() => any()}
+  @type landsat_cloud_cover_land_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_vector_enrichment_job_output() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         required("VectorEnrichmentJobSummaries") => list(list_vector_enrichment_job_output_config())
       }
 
   """
-  @type list_vector_enrichment_job_output() :: %{String.t() => any()}
+  @type list_vector_enrichment_job_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => [String.t()],
-        "ResourceId" => [String.t()]
+        "Message" => [String.t() | Atom.t()],
+        "ResourceId" => [String.t() | Atom.t()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => [String.t()],
-        "ResourceId" => [String.t()]
+        "Message" => [String.t() | Atom.t()],
+        "ResourceId" => [String.t() | Atom.t()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -479,51 +479,51 @@ defmodule AWS.SageMakerGeospatial do
       }
 
   """
-  @type time_range_filter_output() :: %{String.t() => any()}
+  @type time_range_filter_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       temporal_statistics_config_input() :: %{
-        "GroupBy" => String.t(),
-        "Statistics" => list(String.t()),
-        "TargetBands" => list([String.t()]())
+        "GroupBy" => String.t() | Atom.t(),
+        "Statistics" => list(String.t() | Atom.t()),
+        "TargetBands" => list([String.t() | Atom.t()]())
       }
 
   """
-  @type temporal_statistics_config_input() :: %{String.t() => any()}
+  @type temporal_statistics_config_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "Message" => [String.t()],
-        "ResourceId" => [String.t()]
+        "Message" => [String.t() | Atom.t()],
+        "ResourceId" => [String.t() | Atom.t()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_tile_input() :: %{
-        optional("ExecutionRoleArn") => String.t(),
+        optional("ExecutionRoleArn") => String.t() | Atom.t(),
         optional("ImageMask") => [boolean()],
-        optional("OutputDataType") => String.t(),
-        optional("OutputFormat") => [String.t()],
-        optional("PropertyFilters") => [String.t()],
-        optional("TimeRangeFilter") => [String.t()],
-        required("Arn") => String.t(),
-        required("ImageAssets") => list([String.t()]()),
-        required("Target") => String.t()
+        optional("OutputDataType") => String.t() | Atom.t(),
+        optional("OutputFormat") => [String.t() | Atom.t()],
+        optional("PropertyFilters") => [String.t() | Atom.t()],
+        optional("TimeRangeFilter") => [String.t() | Atom.t()],
+        required("Arn") => String.t() | Atom.t(),
+        required("ImageAssets") => list([String.t() | Atom.t()]()),
+        required("Target") => String.t() | Atom.t()
       }
 
   """
-  @type get_tile_input() :: %{String.t() => any()}
+  @type get_tile_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -531,70 +531,70 @@ defmodule AWS.SageMakerGeospatial do
 
       vector_enrichment_job_input_config() :: %{
         "DataSourceConfig" => list(),
-        "DocumentType" => String.t()
+        "DocumentType" => String.t() | Atom.t()
       }
 
   """
-  @type vector_enrichment_job_input_config() :: %{String.t() => any()}
+  @type vector_enrichment_job_input_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       earth_observation_job_error_details() :: %{
-        "Message" => [String.t()],
-        "Type" => String.t()
+        "Message" => [String.t() | Atom.t()],
+        "Type" => String.t() | Atom.t()
       }
 
   """
-  @type earth_observation_job_error_details() :: %{String.t() => any()}
+  @type earth_observation_job_error_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_earth_observation_job_input() :: %{
-        optional("ClientToken") => [String.t()],
-        optional("KmsKeyId") => String.t(),
+        optional("ClientToken") => [String.t() | Atom.t()],
+        optional("KmsKeyId") => String.t() | Atom.t(),
         optional("Tags") => map(),
-        required("ExecutionRoleArn") => String.t(),
+        required("ExecutionRoleArn") => String.t() | Atom.t(),
         required("InputConfig") => input_config_input(),
         required("JobConfig") => list(),
-        required("Name") => [String.t()]
+        required("Name") => [String.t() | Atom.t()]
       }
 
   """
-  @type start_earth_observation_job_input() :: %{String.t() => any()}
+  @type start_earth_observation_job_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_earth_observation_job_output_config() :: %{
-        "Arn" => [String.t()],
+        "Arn" => [String.t() | Atom.t()],
         "CreationTime" => [non_neg_integer()],
         "DurationInSeconds" => [integer()],
-        "Name" => [String.t()],
-        "OperationType" => [String.t()],
-        "Status" => String.t(),
+        "Name" => [String.t() | Atom.t()],
+        "OperationType" => [String.t() | Atom.t()],
+        "Status" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type list_earth_observation_job_output_config() :: %{String.t() => any()}
+  @type list_earth_observation_job_output_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       search_raster_data_collection_input() :: %{
-        optional("NextToken") => String.t(),
-        required("Arn") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
+        required("Arn") => String.t() | Atom.t(),
         required("RasterDataCollectionQuery") => raster_data_collection_query_with_band_filter_input()
       }
 
   """
-  @type search_raster_data_collection_input() :: %{String.t() => any()}
+  @type search_raster_data_collection_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -605,7 +605,7 @@ defmodule AWS.SageMakerGeospatial do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -615,24 +615,24 @@ defmodule AWS.SageMakerGeospatial do
         "Assets" => map(),
         "DateTime" => [non_neg_integer()],
         "Geometry" => geometry(),
-        "Id" => [String.t()],
+        "Id" => [String.t() | Atom.t()],
         "Properties" => properties()
       }
 
   """
-  @type item_source() :: %{String.t() => any()}
+  @type item_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       input_config_input() :: %{
-        "PreviousEarthObservationJobArn" => String.t(),
+        "PreviousEarthObservationJobArn" => String.t() | Atom.t(),
         "RasterDataCollectionQuery" => raster_data_collection_query_input()
       }
 
   """
-  @type input_config_input() :: %{String.t() => any()}
+  @type input_config_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -644,7 +644,7 @@ defmodule AWS.SageMakerGeospatial do
       }
 
   """
-  @type eo_cloud_cover_input() :: %{String.t() => any()}
+  @type eo_cloud_cover_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -655,7 +655,7 @@ defmodule AWS.SageMakerGeospatial do
       }
 
   """
-  @type export_vector_enrichment_job_output_config() :: %{String.t() => any()}
+  @type export_vector_enrichment_job_output_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -671,12 +671,12 @@ defmodule AWS.SageMakerGeospatial do
   ## Example:
 
       vector_enrichment_job_error_details() :: %{
-        "ErrorMessage" => [String.t()],
-        "ErrorType" => String.t()
+        "ErrorMessage" => [String.t() | Atom.t()],
+        "ErrorType" => String.t() | Atom.t()
       }
 
   """
-  @type vector_enrichment_job_error_details() :: %{String.t() => any()}
+  @type vector_enrichment_job_error_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -685,25 +685,25 @@ defmodule AWS.SageMakerGeospatial do
       filter() :: %{
         "Maximum" => [float()],
         "Minimum" => [float()],
-        "Name" => [String.t()],
-        "Type" => [String.t()]
+        "Name" => [String.t() | Atom.t()],
+        "Type" => [String.t() | Atom.t()]
       }
 
   """
-  @type filter() :: %{String.t() => any()}
+  @type filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resampling_config_input() :: %{
-        "AlgorithmName" => String.t(),
+        "AlgorithmName" => String.t() | Atom.t(),
         "OutputResolution" => output_resolution_resampling_input(),
-        "TargetBands" => list([String.t()]())
+        "TargetBands" => list([String.t() | Atom.t()]())
       }
 
   """
-  @type resampling_config_input() :: %{String.t() => any()}
+  @type resampling_config_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -714,7 +714,7 @@ defmodule AWS.SageMakerGeospatial do
       }
 
   """
-  @type get_tile_output() :: %{String.t() => any()}
+  @type get_tile_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -730,50 +730,50 @@ defmodule AWS.SageMakerGeospatial do
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => [String.t()],
-        "ResourceId" => [String.t()]
+        "Message" => [String.t() | Atom.t()],
+        "ResourceId" => [String.t() | Atom.t()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       platform_input() :: %{
-        "ComparisonOperator" => String.t(),
-        "Value" => [String.t()]
+        "ComparisonOperator" => String.t() | Atom.t(),
+        "Value" => [String.t() | Atom.t()]
       }
 
   """
-  @type platform_input() :: %{String.t() => any()}
+  @type platform_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       export_earth_observation_job_input() :: %{
-        optional("ClientToken") => [String.t()],
+        optional("ClientToken") => [String.t() | Atom.t()],
         optional("ExportSourceImages") => [boolean()],
-        required("Arn") => String.t(),
-        required("ExecutionRoleArn") => String.t(),
+        required("Arn") => String.t() | Atom.t(),
+        required("ExecutionRoleArn") => String.t() | Atom.t(),
         required("OutputConfig") => output_config_input()
       }
 
   """
-  @type export_earth_observation_job_input() :: %{String.t() => any()}
+  @type export_earth_observation_job_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -784,7 +784,7 @@ defmodule AWS.SageMakerGeospatial do
       }
 
   """
-  @type property_filter() :: %{String.t() => any()}
+  @type property_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -801,11 +801,11 @@ defmodule AWS.SageMakerGeospatial do
 
       list_raster_data_collections_input() :: %{
         optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_raster_data_collections_input() :: %{String.t() => any()}
+  @type list_raster_data_collections_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -830,24 +830,24 @@ defmodule AWS.SageMakerGeospatial do
   ## Example:
 
       geo_mosaic_config_input() :: %{
-        "AlgorithmName" => String.t(),
-        "TargetBands" => list([String.t()]())
+        "AlgorithmName" => String.t() | Atom.t(),
+        "TargetBands" => list([String.t() | Atom.t()]())
       }
 
   """
-  @type geo_mosaic_config_input() :: %{String.t() => any()}
+  @type geo_mosaic_config_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "Message" => [String.t()],
-        "ResourceId" => [String.t()]
+        "Message" => [String.t() | Atom.t()],
+        "ResourceId" => [String.t() | Atom.t()]
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -864,25 +864,25 @@ defmodule AWS.SageMakerGeospatial do
 
       list_vector_enrichment_job_input() :: %{
         optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t(),
-        optional("SortBy") => [String.t()],
-        optional("SortOrder") => String.t(),
-        optional("StatusEquals") => [String.t()]
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("SortBy") => [String.t() | Atom.t()],
+        optional("SortOrder") => String.t() | Atom.t(),
+        optional("StatusEquals") => [String.t() | Atom.t()]
       }
 
   """
-  @type list_vector_enrichment_job_input() :: %{String.t() => any()}
+  @type list_vector_enrichment_job_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       stop_vector_enrichment_job_input() :: %{
-        required("Arn") => String.t()
+        required("Arn") => String.t() | Atom.t()
       }
 
   """
-  @type stop_vector_enrichment_job_input() :: %{String.t() => any()}
+  @type stop_vector_enrichment_job_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -893,60 +893,60 @@ defmodule AWS.SageMakerGeospatial do
       }
 
   """
-  @type output_resolution_resampling_input() :: %{String.t() => any()}
+  @type output_resolution_resampling_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => [String.t()],
-        "ResourceId" => [String.t()]
+        "Message" => [String.t() | Atom.t()],
+        "ResourceId" => [String.t() | Atom.t()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       vector_enrichment_job_s3_data() :: %{
-        "KmsKeyId" => String.t(),
-        "S3Uri" => String.t()
+        "KmsKeyId" => String.t() | Atom.t(),
+        "S3Uri" => String.t() | Atom.t()
       }
 
   """
-  @type vector_enrichment_job_s3_data() :: %{String.t() => any()}
+  @type vector_enrichment_job_s3_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       input_config_output() :: %{
-        "PreviousEarthObservationJobArn" => String.t(),
+        "PreviousEarthObservationJobArn" => String.t() | Atom.t(),
         "RasterDataCollectionQuery" => raster_data_collection_query_output()
       }
 
   """
-  @type input_config_output() :: %{String.t() => any()}
+  @type input_config_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       raster_data_collection_metadata() :: %{
-        "Arn" => String.t(),
-        "Description" => [String.t()],
-        "DescriptionPageUrl" => [String.t()],
-        "Name" => [String.t()],
+        "Arn" => String.t() | Atom.t(),
+        "Description" => [String.t() | Atom.t()],
+        "DescriptionPageUrl" => [String.t() | Atom.t()],
+        "Name" => [String.t() | Atom.t()],
         "SupportedFilters" => list(filter()),
         "Tags" => map(),
-        "Type" => String.t()
+        "Type" => String.t() | Atom.t()
       }
 
   """
-  @type raster_data_collection_metadata() :: %{String.t() => any()}
+  @type raster_data_collection_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -954,34 +954,34 @@ defmodule AWS.SageMakerGeospatial do
 
       raster_data_collection_query_with_band_filter_input() :: %{
         "AreaOfInterest" => list(),
-        "BandFilter" => list([String.t()]()),
+        "BandFilter" => list([String.t() | Atom.t()]()),
         "PropertyFilters" => property_filters(),
         "TimeRangeFilter" => time_range_filter_input()
       }
 
   """
-  @type raster_data_collection_query_with_band_filter_input() :: %{String.t() => any()}
+  @type raster_data_collection_query_with_band_filter_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_vector_enrichment_job_output() :: %{
-        optional("KmsKeyId") => String.t(),
+        optional("KmsKeyId") => String.t() | Atom.t(),
         optional("Tags") => map(),
-        required("Arn") => String.t(),
+        required("Arn") => String.t() | Atom.t(),
         required("CreationTime") => [non_neg_integer()],
         required("DurationInSeconds") => [integer()],
-        required("ExecutionRoleArn") => String.t(),
+        required("ExecutionRoleArn") => String.t() | Atom.t(),
         required("InputConfig") => vector_enrichment_job_input_config(),
         required("JobConfig") => list(),
-        required("Name") => [String.t()],
-        required("Status") => String.t(),
-        required("Type") => String.t()
+        required("Name") => [String.t() | Atom.t()],
+        required("Status") => String.t() | Atom.t(),
+        required("Type") => String.t() | Atom.t()
       }
 
   """
-  @type start_vector_enrichment_job_output() :: %{String.t() => any()}
+  @type start_vector_enrichment_job_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -993,7 +993,7 @@ defmodule AWS.SageMakerGeospatial do
       }
 
   """
-  @type export_error_details() :: %{String.t() => any()}
+  @type export_error_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1002,11 +1002,11 @@ defmodule AWS.SageMakerGeospatial do
       search_raster_data_collection_output() :: %{
         "ApproximateResultCount" => [integer()],
         "Items" => list(item_source()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type search_raster_data_collection_output() :: %{String.t() => any()}
+  @type search_raster_data_collection_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1031,31 +1031,31 @@ defmodule AWS.SageMakerGeospatial do
   ## Example:
 
       map_matching_config() :: %{
-        "IdAttributeName" => [String.t()],
-        "TimestampAttributeName" => [String.t()],
-        "XAttributeName" => [String.t()],
-        "YAttributeName" => [String.t()]
+        "IdAttributeName" => [String.t() | Atom.t()],
+        "TimestampAttributeName" => [String.t() | Atom.t()],
+        "XAttributeName" => [String.t() | Atom.t()],
+        "YAttributeName" => [String.t() | Atom.t()]
       }
 
   """
-  @type map_matching_config() :: %{String.t() => any()}
+  @type map_matching_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_vector_enrichment_job_output_config() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreationTime" => [non_neg_integer()],
         "DurationInSeconds" => [integer()],
-        "Name" => [String.t()],
-        "Status" => String.t(),
+        "Name" => [String.t() | Atom.t()],
+        "Status" => String.t() | Atom.t(),
         "Tags" => map(),
-        "Type" => String.t()
+        "Type" => String.t() | Atom.t()
       }
 
   """
-  @type list_vector_enrichment_job_output_config() :: %{String.t() => any()}
+  @type list_vector_enrichment_job_output_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1063,41 +1063,41 @@ defmodule AWS.SageMakerGeospatial do
 
       get_raster_data_collection_output() :: %{
         optional("Tags") => map(),
-        required("Arn") => String.t(),
-        required("Description") => [String.t()],
-        required("DescriptionPageUrl") => [String.t()],
-        required("ImageSourceBands") => list([String.t()]()),
-        required("Name") => [String.t()],
+        required("Arn") => String.t() | Atom.t(),
+        required("Description") => [String.t() | Atom.t()],
+        required("DescriptionPageUrl") => [String.t() | Atom.t()],
+        required("ImageSourceBands") => list([String.t() | Atom.t()]()),
+        required("Name") => [String.t() | Atom.t()],
         required("SupportedFilters") => list(filter()),
-        required("Type") => String.t()
+        required("Type") => String.t() | Atom.t()
       }
 
   """
-  @type get_raster_data_collection_output() :: %{String.t() => any()}
+  @type get_raster_data_collection_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_vector_enrichment_job_output() :: %{
-        "Arn" => [String.t()],
+        "Arn" => [String.t() | Atom.t()],
         "CreationTime" => [non_neg_integer()],
         "DurationInSeconds" => [integer()],
         "ErrorDetails" => vector_enrichment_job_error_details(),
-        "ExecutionRoleArn" => String.t(),
+        "ExecutionRoleArn" => String.t() | Atom.t(),
         "ExportErrorDetails" => vector_enrichment_job_export_error_details(),
-        "ExportStatus" => String.t(),
+        "ExportStatus" => String.t() | Atom.t(),
         "InputConfig" => vector_enrichment_job_input_config(),
         "JobConfig" => list(),
-        "KmsKeyId" => String.t(),
-        "Name" => [String.t()],
-        "Status" => String.t(),
+        "KmsKeyId" => String.t() | Atom.t(),
+        "Name" => [String.t() | Atom.t()],
+        "Status" => String.t() | Atom.t(),
         "Tags" => map(),
-        "Type" => String.t()
+        "Type" => String.t() | Atom.t()
       }
 
   """
-  @type get_vector_enrichment_job_output() :: %{String.t() => any()}
+  @type get_vector_enrichment_job_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1108,31 +1108,31 @@ defmodule AWS.SageMakerGeospatial do
       }
 
   """
-  @type multi_polygon_geometry_input() :: %{String.t() => any()}
+  @type multi_polygon_geometry_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       export_error_details_output() :: %{
-        "Message" => [String.t()],
-        "Type" => String.t()
+        "Message" => [String.t() | Atom.t()],
+        "Type" => String.t() | Atom.t()
       }
 
   """
-  @type export_error_details_output() :: %{String.t() => any()}
+  @type export_error_details_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       output_resolution_stack_input() :: %{
-        "Predefined" => String.t(),
+        "Predefined" => String.t() | Atom.t(),
         "UserDefined" => user_defined()
       }
 
   """
-  @type output_resolution_stack_input() :: %{String.t() => any()}
+  @type output_resolution_stack_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1141,27 +1141,27 @@ defmodule AWS.SageMakerGeospatial do
       raster_data_collection_query_input() :: %{
         "AreaOfInterest" => list(),
         "PropertyFilters" => property_filters(),
-        "RasterDataCollectionArn" => String.t(),
+        "RasterDataCollectionArn" => String.t() | Atom.t(),
         "TimeRangeFilter" => time_range_filter_input()
       }
 
   """
-  @type raster_data_collection_query_input() :: %{String.t() => any()}
+  @type raster_data_collection_query_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       export_vector_enrichment_job_output() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreationTime" => [non_neg_integer()],
-        "ExecutionRoleArn" => String.t(),
-        "ExportStatus" => String.t(),
+        "ExecutionRoleArn" => String.t() | Atom.t(),
+        "ExportStatus" => String.t() | Atom.t(),
         "OutputConfig" => export_vector_enrichment_job_output_config()
       }
 
   """
-  @type export_vector_enrichment_job_output() :: %{String.t() => any()}
+  @type export_vector_enrichment_job_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1172,7 +1172,7 @@ defmodule AWS.SageMakerGeospatial do
       }
 
   """
-  @type output_config_input() :: %{String.t() => any()}
+  @type output_config_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1202,18 +1202,18 @@ defmodule AWS.SageMakerGeospatial do
       }
 
   """
-  @type view_sun_azimuth_input() :: %{String.t() => any()}
+  @type view_sun_azimuth_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       stop_earth_observation_job_input() :: %{
-        required("Arn") => String.t()
+        required("Arn") => String.t() | Atom.t()
       }
 
   """
-  @type stop_earth_observation_job_input() :: %{String.t() => any()}
+  @type stop_earth_observation_job_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1221,23 +1221,23 @@ defmodule AWS.SageMakerGeospatial do
 
       band_math_config_input() :: %{
         "CustomIndices" => custom_indices_input(),
-        "PredefinedIndices" => list([String.t()]())
+        "PredefinedIndices" => list([String.t() | Atom.t()]())
       }
 
   """
-  @type band_math_config_input() :: %{String.t() => any()}
+  @type band_math_config_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       vector_enrichment_job_export_error_details() :: %{
-        "Message" => [String.t()],
-        "Type" => String.t()
+        "Message" => [String.t() | Atom.t()],
+        "Type" => String.t() | Atom.t()
       }
 
   """
-  @type vector_enrichment_job_export_error_details() :: %{String.t() => any()}
+  @type vector_enrichment_job_export_error_details() :: %{String.t() | Atom.t() => any()}
 
   @type delete_earth_observation_job_errors() ::
           throttling_exception()
@@ -1405,7 +1405,7 @@ defmodule AWS.SageMakerGeospatial do
   """
   @spec delete_earth_observation_job(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_earth_observation_job_input(),
           list()
         ) ::
@@ -1439,7 +1439,7 @@ defmodule AWS.SageMakerGeospatial do
   """
   @spec delete_vector_enrichment_job(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_vector_enrichment_job_input(),
           list()
         ) ::
@@ -1531,7 +1531,7 @@ defmodule AWS.SageMakerGeospatial do
   @doc """
   Get the details for a previously initiated Earth Observation job.
   """
-  @spec get_earth_observation_job(map(), String.t(), list()) ::
+  @spec get_earth_observation_job(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_earth_observation_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1549,7 +1549,7 @@ defmodule AWS.SageMakerGeospatial do
   @doc """
   Use this operation to get details of a specific raster data collection.
   """
-  @spec get_raster_data_collection(map(), String.t(), list()) ::
+  @spec get_raster_data_collection(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_raster_data_collection_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1569,18 +1569,18 @@ defmodule AWS.SageMakerGeospatial do
   """
   @spec get_tile(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, get_tile_output(), any()}
@@ -1681,7 +1681,7 @@ defmodule AWS.SageMakerGeospatial do
   Retrieves details of a Vector Enrichment Job for a given job Amazon Resource
   Name (ARN).
   """
-  @spec get_vector_enrichment_job(map(), String.t(), list()) ::
+  @spec get_vector_enrichment_job(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_vector_enrichment_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1729,7 +1729,12 @@ defmodule AWS.SageMakerGeospatial do
   @doc """
   Use this operation to get raster data collections.
   """
-  @spec list_raster_data_collections(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_raster_data_collections(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_raster_data_collections_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1766,7 +1771,7 @@ defmodule AWS.SageMakerGeospatial do
   @doc """
   Lists the tags attached to the resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1962,7 +1967,7 @@ defmodule AWS.SageMakerGeospatial do
   @doc """
   The resource you want to tag.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1991,7 +1996,7 @@ defmodule AWS.SageMakerGeospatial do
   @doc """
   The resource you want to untag.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

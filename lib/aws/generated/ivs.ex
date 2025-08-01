@@ -183,26 +183,26 @@ defmodule AWS.Ivs do
   ## Example:
 
       update_playback_restriction_policy_request() :: %{
-        optional("allowedCountries") => list(String.t()),
-        optional("allowedOrigins") => list(String.t()),
+        optional("allowedCountries") => list(String.t() | Atom.t()),
+        optional("allowedOrigins") => list(String.t() | Atom.t()),
         optional("enableStrictOriginEnforcement") => boolean(),
-        optional("name") => String.t(),
-        required("arn") => String.t()
+        optional("name") => String.t() | Atom.t(),
+        required("arn") => String.t() | Atom.t()
       }
 
   """
-  @type update_playback_restriction_policy_request() :: %{String.t() => any()}
+  @type update_playback_restriction_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_channel_request() :: %{
-        required("arn") => String.t()
+        required("arn") => String.t() | Atom.t()
       }
 
   """
-  @type delete_channel_request() :: %{String.t() => any()}
+  @type delete_channel_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -213,7 +213,7 @@ defmodule AWS.Ivs do
       }
 
   """
-  @type create_stream_key_response() :: %{String.t() => any()}
+  @type create_stream_key_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -225,7 +225,7 @@ defmodule AWS.Ivs do
       }
 
   """
-  @type ingest_configuration() :: %{String.t() => any()}
+  @type ingest_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -235,22 +235,22 @@ defmodule AWS.Ivs do
         "endTime" => non_neg_integer(),
         "hasErrorEvent" => boolean(),
         "startTime" => non_neg_integer(),
-        "streamId" => String.t()
+        "streamId" => String.t() | Atom.t()
       }
 
   """
-  @type stream_session_summary() :: %{String.t() => any()}
+  @type stream_session_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_channel_request() :: %{
-        required("arn") => String.t()
+        required("arn") => String.t() | Atom.t()
       }
 
   """
-  @type get_channel_request() :: %{String.t() => any()}
+  @type get_channel_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -261,25 +261,25 @@ defmodule AWS.Ivs do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       recording_configuration() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "destinationConfiguration" => destination_configuration(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "recordingReconnectWindowSeconds" => integer(),
         "renditionConfiguration" => rendition_configuration(),
-        "state" => String.t(),
+        "state" => String.t() | Atom.t(),
         "tags" => map(),
         "thumbnailConfiguration" => thumbnail_configuration()
       }
 
   """
-  @type recording_configuration() :: %{String.t() => any()}
+  @type recording_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -291,20 +291,20 @@ defmodule AWS.Ivs do
       }
 
   """
-  @type create_channel_response() :: %{String.t() => any()}
+  @type create_channel_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       import_playback_key_pair_request() :: %{
-        optional("name") => String.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("tags") => map(),
-        required("publicKeyMaterial") => String.t()
+        required("publicKeyMaterial") => String.t() | Atom.t()
       }
 
   """
-  @type import_playback_key_pair_request() :: %{String.t() => any()}
+  @type import_playback_key_pair_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -315,7 +315,7 @@ defmodule AWS.Ivs do
       }
 
   """
-  @type get_stream_response() :: %{String.t() => any()}
+  @type get_stream_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -331,112 +331,112 @@ defmodule AWS.Ivs do
   ## Example:
 
       get_stream_key_request() :: %{
-        required("arn") => String.t()
+        required("arn") => String.t() | Atom.t()
       }
 
   """
-  @type get_stream_key_request() :: %{String.t() => any()}
+  @type get_stream_key_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       playback_restriction_policy() :: %{
-        "allowedCountries" => list(String.t()),
-        "allowedOrigins" => list(String.t()),
-        "arn" => String.t(),
+        "allowedCountries" => list(String.t() | Atom.t()),
+        "allowedOrigins" => list(String.t() | Atom.t()),
+        "arn" => String.t() | Atom.t(),
         "enableStrictOriginEnforcement" => boolean(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "tags" => map()
       }
 
   """
-  @type playback_restriction_policy() :: %{String.t() => any()}
+  @type playback_restriction_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_playback_restriction_policy_request() :: %{
-        required("arn") => String.t()
+        required("arn") => String.t() | Atom.t()
       }
 
   """
-  @type delete_playback_restriction_policy_request() :: %{String.t() => any()}
+  @type delete_playback_restriction_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_stream_sessions_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("streamSessions") => list(stream_session_summary())
       }
 
   """
-  @type list_stream_sessions_response() :: %{String.t() => any()}
+  @type list_stream_sessions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       playback_key_pair_summary() :: %{
-        "arn" => String.t(),
-        "name" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "tags" => map()
       }
 
   """
-  @type playback_key_pair_summary() :: %{String.t() => any()}
+  @type playback_key_pair_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_playback_key_pair_request() :: %{
-        required("arn") => String.t()
+        required("arn") => String.t() | Atom.t()
       }
 
   """
-  @type get_playback_key_pair_request() :: %{String.t() => any()}
+  @type get_playback_key_pair_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_playback_restriction_policy_request() :: %{
-        required("arn") => String.t()
+        required("arn") => String.t() | Atom.t()
       }
 
   """
-  @type get_playback_restriction_policy_request() :: %{String.t() => any()}
+  @type get_playback_restriction_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_playback_key_pairs_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("keyPairs") => list(playback_key_pair_summary())
       }
 
   """
-  @type list_playback_key_pairs_response() :: %{String.t() => any()}
+  @type list_playback_key_pairs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       recording_configuration_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "destinationConfiguration" => destination_configuration(),
-        "name" => String.t(),
-        "state" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "state" => String.t() | Atom.t(),
         "tags" => map()
       }
 
   """
-  @type recording_configuration_summary() :: %{String.t() => any()}
+  @type recording_configuration_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -447,7 +447,7 @@ defmodule AWS.Ivs do
       }
 
   """
-  @type update_playback_restriction_policy_response() :: %{String.t() => any()}
+  @type update_playback_restriction_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -459,7 +459,7 @@ defmodule AWS.Ivs do
       }
 
   """
-  @type batch_get_channel_response() :: %{String.t() => any()}
+  @type batch_get_channel_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -470,7 +470,7 @@ defmodule AWS.Ivs do
       }
 
   """
-  @type create_recording_configuration_response() :: %{String.t() => any()}
+  @type create_recording_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -481,7 +481,7 @@ defmodule AWS.Ivs do
       }
 
   """
-  @type import_playback_key_pair_response() :: %{String.t() => any()}
+  @type import_playback_key_pair_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -497,23 +497,23 @@ defmodule AWS.Ivs do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_stream_keys_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("streamKeys") => list(stream_key_summary())
       }
 
   """
-  @type list_stream_keys_response() :: %{String.t() => any()}
+  @type list_stream_keys_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -522,37 +522,37 @@ defmodule AWS.Ivs do
       list_streams_request() :: %{
         optional("filterBy") => stream_filters(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_streams_request() :: %{String.t() => any()}
+  @type list_streams_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_stream_session_request() :: %{
-        optional("streamId") => String.t(),
-        required("channelArn") => String.t()
+        optional("streamId") => String.t() | Atom.t(),
+        required("channelArn") => String.t() | Atom.t()
       }
 
   """
-  @type get_stream_session_request() :: %{String.t() => any()}
+  @type get_stream_session_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       stream_key() :: %{
-        "arn" => String.t(),
-        "channelArn" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "channelArn" => String.t() | Atom.t(),
         "tags" => map(),
-        "value" => String.t()
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type stream_key() :: %{String.t() => any()}
+  @type stream_key() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -563,14 +563,14 @@ defmodule AWS.Ivs do
       }
 
   """
-  @type batch_start_viewer_session_revocation_request() :: %{String.t() => any()}
+  @type batch_start_viewer_session_revocation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_recording_configuration_request() :: %{
-        optional("name") => String.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("recordingReconnectWindowSeconds") => integer(),
         optional("renditionConfiguration") => rendition_configuration(),
         optional("tags") => map(),
@@ -579,7 +579,7 @@ defmodule AWS.Ivs do
       }
 
   """
-  @type create_recording_configuration_request() :: %{String.t() => any()}
+  @type create_recording_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -587,151 +587,151 @@ defmodule AWS.Ivs do
 
       create_stream_key_request() :: %{
         optional("tags") => map(),
-        required("channelArn") => String.t()
+        required("channelArn") => String.t() | Atom.t()
       }
 
   """
-  @type create_stream_key_request() :: %{String.t() => any()}
+  @type create_stream_key_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       playback_key_pair() :: %{
-        "arn" => String.t(),
-        "fingerprint" => String.t(),
-        "name" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "fingerprint" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "tags" => map()
       }
 
   """
-  @type playback_key_pair() :: %{String.t() => any()}
+  @type playback_key_pair() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_get_stream_key_request() :: %{
-        required("arns") => list(String.t())
+        required("arns") => list(String.t() | Atom.t())
       }
 
   """
-  @type batch_get_stream_key_request() :: %{String.t() => any()}
+  @type batch_get_stream_key_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       playback_restriction_policy_summary() :: %{
-        "allowedCountries" => list(String.t()),
-        "allowedOrigins" => list(String.t()),
-        "arn" => String.t(),
+        "allowedCountries" => list(String.t() | Atom.t()),
+        "allowedOrigins" => list(String.t() | Atom.t()),
+        "arn" => String.t() | Atom.t(),
         "enableStrictOriginEnforcement" => boolean(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "tags" => map()
       }
 
   """
-  @type playback_restriction_policy_summary() :: %{String.t() => any()}
+  @type playback_restriction_policy_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       channel_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "authorized" => boolean(),
         "insecureIngest" => boolean(),
-        "latencyMode" => String.t(),
-        "name" => String.t(),
-        "playbackRestrictionPolicyArn" => String.t(),
+        "latencyMode" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "playbackRestrictionPolicyArn" => String.t() | Atom.t(),
         "preset" => list(any()),
-        "recordingConfigurationArn" => String.t(),
+        "recordingConfigurationArn" => String.t() | Atom.t(),
         "tags" => map(),
         "type" => list(any())
       }
 
   """
-  @type channel_summary() :: %{String.t() => any()}
+  @type channel_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_recording_configuration_request() :: %{
-        required("arn") => String.t()
+        required("arn") => String.t() | Atom.t()
       }
 
   """
-  @type delete_recording_configuration_request() :: %{String.t() => any()}
+  @type delete_recording_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "exceptionMessage" => String.t()
+        "exceptionMessage" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "exceptionMessage" => String.t()
+        "exceptionMessage" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_streams_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("streams") => list(stream_summary())
       }
 
   """
-  @type list_streams_response() :: %{String.t() => any()}
+  @type list_streams_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_recording_configuration_request() :: %{
-        required("arn") => String.t()
+        required("arn") => String.t() | Atom.t()
       }
 
   """
-  @type get_recording_configuration_request() :: %{String.t() => any()}
+  @type get_recording_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_recording_configurations_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("recordingConfigurations") => list(recording_configuration_summary())
       }
 
   """
-  @type list_recording_configurations_response() :: %{String.t() => any()}
+  @type list_recording_configurations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "exceptionMessage" => String.t()
+        "exceptionMessage" => String.t() | Atom.t()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -744,45 +744,45 @@ defmodule AWS.Ivs do
         "ingestConfigurations" => ingest_configurations(),
         "recordingConfiguration" => recording_configuration(),
         "startTime" => non_neg_integer(),
-        "streamId" => String.t(),
+        "streamId" => String.t() | Atom.t(),
         "truncatedEvents" => list(stream_event())
       }
 
   """
-  @type stream_session() :: %{String.t() => any()}
+  @type stream_session() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_get_channel_request() :: %{
-        required("arns") => list(String.t())
+        required("arns") => list(String.t() | Atom.t())
       }
 
   """
-  @type batch_get_channel_request() :: %{String.t() => any()}
+  @type batch_get_channel_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_stream_key_request() :: %{
-        required("arn") => String.t()
+        required("arn") => String.t() | Atom.t()
       }
 
   """
-  @type delete_stream_key_request() :: %{String.t() => any()}
+  @type delete_stream_key_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_destination_configuration() :: %{
-        "bucketName" => String.t()
+        "bucketName" => String.t() | Atom.t()
       }
 
   """
-  @type s3_destination_configuration() :: %{String.t() => any()}
+  @type s3_destination_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -793,7 +793,7 @@ defmodule AWS.Ivs do
       }
 
   """
-  @type get_playback_restriction_policy_response() :: %{String.t() => any()}
+  @type get_playback_restriction_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -801,34 +801,34 @@ defmodule AWS.Ivs do
 
       create_channel_request() :: %{
         optional("authorized") => boolean(),
-        optional("containerFormat") => String.t(),
+        optional("containerFormat") => String.t() | Atom.t(),
         optional("insecureIngest") => boolean(),
-        optional("latencyMode") => String.t(),
+        optional("latencyMode") => String.t() | Atom.t(),
         optional("multitrackInputConfiguration") => multitrack_input_configuration(),
-        optional("name") => String.t(),
-        optional("playbackRestrictionPolicyArn") => String.t(),
+        optional("name") => String.t() | Atom.t(),
+        optional("playbackRestrictionPolicyArn") => String.t() | Atom.t(),
         optional("preset") => list(any()),
-        optional("recordingConfigurationArn") => String.t(),
+        optional("recordingConfigurationArn") => String.t() | Atom.t(),
         optional("tags") => map(),
         optional("type") => list(any())
       }
 
   """
-  @type create_channel_request() :: %{String.t() => any()}
+  @type create_channel_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       stream_event() :: %{
-        "code" => String.t(),
+        "code" => String.t() | Atom.t(),
         "eventTime" => non_neg_integer(),
-        "name" => String.t(),
-        "type" => String.t()
+        "name" => String.t() | Atom.t(),
+        "type" => String.t() | Atom.t()
       }
 
   """
-  @type stream_event() :: %{String.t() => any()}
+  @type stream_event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -839,19 +839,19 @@ defmodule AWS.Ivs do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_channels_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("channels") => list(channel_summary())
       }
 
   """
-  @type list_channels_response() :: %{String.t() => any()}
+  @type list_channels_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -859,20 +859,20 @@ defmodule AWS.Ivs do
 
       update_channel_request() :: %{
         optional("authorized") => boolean(),
-        optional("containerFormat") => String.t(),
+        optional("containerFormat") => String.t() | Atom.t(),
         optional("insecureIngest") => boolean(),
-        optional("latencyMode") => String.t(),
+        optional("latencyMode") => String.t() | Atom.t(),
         optional("multitrackInputConfiguration") => multitrack_input_configuration(),
-        optional("name") => String.t(),
-        optional("playbackRestrictionPolicyArn") => String.t(),
+        optional("name") => String.t() | Atom.t(),
+        optional("playbackRestrictionPolicyArn") => String.t() | Atom.t(),
         optional("preset") => list(any()),
-        optional("recordingConfigurationArn") => String.t(),
+        optional("recordingConfigurationArn") => String.t() | Atom.t(),
         optional("type") => list(any()),
-        required("arn") => String.t()
+        required("arn") => String.t() | Atom.t()
       }
 
   """
-  @type update_channel_request() :: %{String.t() => any()}
+  @type update_channel_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -888,22 +888,22 @@ defmodule AWS.Ivs do
   ## Example:
 
       stream_unavailable() :: %{
-        "exceptionMessage" => String.t()
+        "exceptionMessage" => String.t() | Atom.t()
       }
 
   """
-  @type stream_unavailable() :: %{String.t() => any()}
+  @type stream_unavailable() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_playback_key_pair_request() :: %{
-        required("arn") => String.t()
+        required("arn") => String.t() | Atom.t()
       }
 
   """
-  @type delete_playback_key_pair_request() :: %{String.t() => any()}
+  @type delete_playback_key_pair_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -914,18 +914,18 @@ defmodule AWS.Ivs do
       }
 
   """
-  @type create_playback_restriction_policy_response() :: %{String.t() => any()}
+  @type create_playback_restriction_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "exceptionMessage" => String.t()
+        "exceptionMessage" => String.t() | Atom.t()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -933,12 +933,12 @@ defmodule AWS.Ivs do
 
       list_stream_sessions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("channelArn") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("channelArn") => String.t() | Atom.t()
       }
 
   """
-  @type list_stream_sessions_request() :: %{String.t() => any()}
+  @type list_stream_sessions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -946,11 +946,11 @@ defmodule AWS.Ivs do
 
       list_playback_restriction_policies_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_playback_restriction_policies_request() :: %{String.t() => any()}
+  @type list_playback_restriction_policies_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -961,7 +961,7 @@ defmodule AWS.Ivs do
       }
 
   """
-  @type get_recording_configuration_response() :: %{String.t() => any()}
+  @type get_recording_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -972,29 +972,29 @@ defmodule AWS.Ivs do
       }
 
   """
-  @type get_playback_key_pair_response() :: %{String.t() => any()}
+  @type get_playback_key_pair_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "exceptionMessage" => String.t()
+        "exceptionMessage" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_stream_request() :: %{
-        required("channelArn") => String.t()
+        required("channelArn") => String.t() | Atom.t()
       }
 
   """
-  @type get_stream_request() :: %{String.t() => any()}
+  @type get_stream_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1002,12 +1002,12 @@ defmodule AWS.Ivs do
 
       list_stream_keys_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("channelArn") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("channelArn") => String.t() | Atom.t()
       }
 
   """
-  @type list_stream_keys_request() :: %{String.t() => any()}
+  @type list_stream_keys_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1015,14 +1015,14 @@ defmodule AWS.Ivs do
 
       audio_configuration() :: %{
         "channels" => float(),
-        "codec" => String.t(),
+        "codec" => String.t() | Atom.t(),
         "sampleRate" => float(),
         "targetBitrate" => float(),
-        "track" => String.t()
+        "track" => String.t() | Atom.t()
       }
 
   """
-  @type audio_configuration() :: %{String.t() => any()}
+  @type audio_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1038,50 +1038,53 @@ defmodule AWS.Ivs do
   ## Example:
 
       put_metadata_request() :: %{
-        required("channelArn") => String.t(),
-        required("metadata") => String.t()
+        required("channelArn") => String.t() | Atom.t(),
+        required("metadata") => String.t() | Atom.t()
       }
 
   """
-  @type put_metadata_request() :: %{String.t() => any()}
+  @type put_metadata_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       thumbnail_configuration() :: %{
-        "recordingMode" => String.t(),
+        "recordingMode" => String.t() | Atom.t(),
         "resolution" => list(any()),
-        "storage" => list(String.t()),
+        "storage" => list(String.t() | Atom.t()),
         "targetIntervalSeconds" => float()
       }
 
   """
-  @type thumbnail_configuration() :: %{String.t() => any()}
+  @type thumbnail_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_start_viewer_session_revocation_viewer_session() :: %{
-        "channelArn" => String.t(),
-        "viewerId" => String.t(),
+        "channelArn" => String.t() | Atom.t(),
+        "viewerId" => String.t() | Atom.t(),
         "viewerSessionVersionsLessThanOrEqualTo" => integer()
       }
 
   """
-  @type batch_start_viewer_session_revocation_viewer_session() :: %{String.t() => any()}
+  @type batch_start_viewer_session_revocation_viewer_session() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "exceptionMessage" => String.t()
+        "exceptionMessage" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1097,12 +1100,12 @@ defmodule AWS.Ivs do
   ## Example:
 
       rendition_configuration() :: %{
-        "renditionSelection" => String.t(),
+        "renditionSelection" => String.t() | Atom.t(),
         "renditions" => list(list(any())())
       }
 
   """
-  @type rendition_configuration() :: %{String.t() => any()}
+  @type rendition_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1114,7 +1117,7 @@ defmodule AWS.Ivs do
       }
 
   """
-  @type ingest_configurations() :: %{String.t() => any()}
+  @type ingest_configurations() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1125,71 +1128,71 @@ defmodule AWS.Ivs do
       }
 
   """
-  @type get_stream_key_response() :: %{String.t() => any()}
+  @type get_stream_key_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "exceptionMessage" => String.t()
+        "exceptionMessage" => String.t() | Atom.t()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_playback_restriction_policies_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "playbackRestrictionPolicies" => list(playback_restriction_policy_summary())
       }
 
   """
-  @type list_playback_restriction_policies_response() :: %{String.t() => any()}
+  @type list_playback_restriction_policies_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       channel() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "authorized" => boolean(),
-        "containerFormat" => String.t(),
-        "ingestEndpoint" => String.t(),
+        "containerFormat" => String.t() | Atom.t(),
+        "ingestEndpoint" => String.t() | Atom.t(),
         "insecureIngest" => boolean(),
-        "latencyMode" => String.t(),
+        "latencyMode" => String.t() | Atom.t(),
         "multitrackInputConfiguration" => multitrack_input_configuration(),
-        "name" => String.t(),
-        "playbackRestrictionPolicyArn" => String.t(),
-        "playbackUrl" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "playbackRestrictionPolicyArn" => String.t() | Atom.t(),
+        "playbackUrl" => String.t() | Atom.t(),
         "preset" => list(any()),
-        "recordingConfigurationArn" => String.t(),
+        "recordingConfigurationArn" => String.t() | Atom.t(),
         "srt" => srt(),
         "tags" => map(),
         "type" => list(any())
       }
 
   """
-  @type channel() :: %{String.t() => any()}
+  @type channel() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       stream_summary() :: %{
-        "channelArn" => String.t(),
-        "health" => String.t(),
+        "channelArn" => String.t() | Atom.t(),
+        "health" => String.t() | Atom.t(),
         "startTime" => non_neg_integer(),
-        "state" => String.t(),
-        "streamId" => String.t(),
+        "state" => String.t() | Atom.t(),
+        "streamId" => String.t() | Atom.t(),
         "viewerCount" => float()
       }
 
   """
-  @type stream_summary() :: %{String.t() => any()}
+  @type stream_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1200,32 +1203,32 @@ defmodule AWS.Ivs do
       }
 
   """
-  @type batch_start_viewer_session_revocation_response() :: %{String.t() => any()}
+  @type batch_start_viewer_session_revocation_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_start_viewer_session_revocation_error() :: %{
-        "channelArn" => String.t(),
-        "code" => String.t(),
-        "message" => String.t(),
-        "viewerId" => String.t()
+        "channelArn" => String.t() | Atom.t(),
+        "code" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t(),
+        "viewerId" => String.t() | Atom.t()
       }
 
   """
-  @type batch_start_viewer_session_revocation_error() :: %{String.t() => any()}
+  @type batch_start_viewer_session_revocation_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       stop_stream_request() :: %{
-        required("channelArn") => String.t()
+        required("channelArn") => String.t() | Atom.t()
       }
 
   """
-  @type stop_stream_request() :: %{String.t() => any()}
+  @type stop_stream_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1236,35 +1239,35 @@ defmodule AWS.Ivs do
       }
 
   """
-  @type get_channel_response() :: %{String.t() => any()}
+  @type get_channel_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       stream_filters() :: %{
-        "health" => String.t()
+        "health" => String.t() | Atom.t()
       }
 
   """
-  @type stream_filters() :: %{String.t() => any()}
+  @type stream_filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       stream() :: %{
-        "channelArn" => String.t(),
-        "health" => String.t(),
-        "playbackUrl" => String.t(),
+        "channelArn" => String.t() | Atom.t(),
+        "health" => String.t() | Atom.t(),
+        "playbackUrl" => String.t() | Atom.t(),
         "startTime" => non_neg_integer(),
-        "state" => String.t(),
-        "streamId" => String.t(),
+        "state" => String.t() | Atom.t(),
+        "streamId" => String.t() | Atom.t(),
         "viewerCount" => float()
       }
 
   """
-  @type stream() :: %{String.t() => any()}
+  @type stream() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1272,12 +1275,12 @@ defmodule AWS.Ivs do
 
       start_viewer_session_revocation_request() :: %{
         optional("viewerSessionVersionsLessThanOrEqualTo") => integer(),
-        required("channelArn") => String.t(),
-        required("viewerId") => String.t()
+        required("channelArn") => String.t() | Atom.t(),
+        required("viewerId") => String.t() | Atom.t()
       }
 
   """
-  @type start_viewer_session_revocation_request() :: %{String.t() => any()}
+  @type start_viewer_session_revocation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1288,20 +1291,20 @@ defmodule AWS.Ivs do
       }
 
   """
-  @type update_channel_response() :: %{String.t() => any()}
+  @type update_channel_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_error() :: %{
-        "arn" => String.t(),
-        "code" => String.t(),
-        "message" => String.t()
+        "arn" => String.t() | Atom.t(),
+        "code" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type batch_error() :: %{String.t() => any()}
+  @type batch_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1317,21 +1320,21 @@ defmodule AWS.Ivs do
   ## Example:
 
       video_configuration() :: %{
-        "avcLevel" => String.t(),
-        "avcProfile" => String.t(),
-        "codec" => String.t(),
-        "encoder" => String.t(),
-        "level" => String.t(),
-        "profile" => String.t(),
+        "avcLevel" => String.t() | Atom.t(),
+        "avcProfile" => String.t() | Atom.t(),
+        "codec" => String.t() | Atom.t(),
+        "encoder" => String.t() | Atom.t(),
+        "level" => String.t() | Atom.t(),
+        "profile" => String.t() | Atom.t(),
         "targetBitrate" => float(),
         "targetFramerate" => float(),
-        "track" => String.t(),
+        "track" => String.t() | Atom.t(),
         "videoHeight" => float(),
         "videoWidth" => float()
       }
 
   """
-  @type video_configuration() :: %{String.t() => any()}
+  @type video_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1339,26 +1342,26 @@ defmodule AWS.Ivs do
 
       list_playback_key_pairs_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_playback_key_pairs_request() :: %{String.t() => any()}
+  @type list_playback_key_pairs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_channels_request() :: %{
-        optional("filterByName") => String.t(),
-        optional("filterByPlaybackRestrictionPolicyArn") => String.t(),
-        optional("filterByRecordingConfigurationArn") => String.t(),
+        optional("filterByName") => String.t() | Atom.t(),
+        optional("filterByPlaybackRestrictionPolicyArn") => String.t() | Atom.t(),
+        optional("filterByRecordingConfigurationArn") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_channels_request() :: %{String.t() => any()}
+  @type list_channels_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1369,7 +1372,7 @@ defmodule AWS.Ivs do
       }
 
   """
-  @type get_stream_session_response() :: %{String.t() => any()}
+  @type get_stream_session_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1382,47 +1385,47 @@ defmodule AWS.Ivs do
       }
 
   """
-  @type multitrack_input_configuration() :: %{String.t() => any()}
+  @type multitrack_input_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       stream_key_summary() :: %{
-        "arn" => String.t(),
-        "channelArn" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "channelArn" => String.t() | Atom.t(),
         "tags" => map()
       }
 
   """
-  @type stream_key_summary() :: %{String.t() => any()}
+  @type stream_key_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       srt() :: %{
-        "endpoint" => String.t(),
-        "passphrase" => String.t()
+        "endpoint" => String.t() | Atom.t(),
+        "passphrase" => String.t() | Atom.t()
       }
 
   """
-  @type srt() :: %{String.t() => any()}
+  @type srt() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_playback_restriction_policy_request() :: %{
-        optional("allowedCountries") => list(String.t()),
-        optional("allowedOrigins") => list(String.t()),
+        optional("allowedCountries") => list(String.t() | Atom.t()),
+        optional("allowedOrigins") => list(String.t() | Atom.t()),
         optional("enableStrictOriginEnforcement") => boolean(),
-        optional("name") => String.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("tags") => map()
       }
 
   """
-  @type create_playback_restriction_policy_request() :: %{String.t() => any()}
+  @type create_playback_restriction_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1430,22 +1433,22 @@ defmodule AWS.Ivs do
 
       list_recording_configurations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_recording_configurations_request() :: %{String.t() => any()}
+  @type list_recording_configurations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       pending_verification() :: %{
-        "exceptionMessage" => String.t()
+        "exceptionMessage" => String.t() | Atom.t()
       }
 
   """
-  @type pending_verification() :: %{String.t() => any()}
+  @type pending_verification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1456,7 +1459,7 @@ defmodule AWS.Ivs do
       }
 
   """
-  @type destination_configuration() :: %{String.t() => any()}
+  @type destination_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1468,18 +1471,18 @@ defmodule AWS.Ivs do
       }
 
   """
-  @type batch_get_stream_key_response() :: %{String.t() => any()}
+  @type batch_get_stream_key_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       channel_not_broadcasting() :: %{
-        "exceptionMessage" => String.t()
+        "exceptionMessage" => String.t() | Atom.t()
       }
 
   """
-  @type channel_not_broadcasting() :: %{String.t() => any()}
+  @type channel_not_broadcasting() :: %{String.t() | Atom.t() => any()}
 
   @type batch_start_viewer_session_revocation_errors() ::
           pending_verification()
@@ -2548,7 +2551,7 @@ defmodule AWS.Ivs do
   @doc """
   Gets information about Amazon Web Services tags for the specified ARN.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2679,7 +2682,7 @@ defmodule AWS.Ivs do
   Adds or updates tags for the Amazon Web Services resource with the specified
   ARN.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2708,7 +2711,7 @@ defmodule AWS.Ivs do
   @doc """
   Removes tags from the resource with the specified ARN.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

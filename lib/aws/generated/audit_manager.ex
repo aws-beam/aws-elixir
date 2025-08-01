@@ -66,21 +66,21 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type update_assessment_response() :: %{String.t() => any()}
+  @type update_assessment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       framework_metadata() :: %{
-        "complianceType" => String.t(),
-        "description" => String.t(),
-        "logo" => String.t(),
-        "name" => String.t()
+        "complianceType" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "logo" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type framework_metadata() :: %{String.t() => any()}
+  @type framework_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -88,11 +88,11 @@ defmodule AWS.AuditManager do
 
       list_assessments_response() :: %{
         "assessmentMetadata" => list(assessment_metadata_item()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_assessments_response() :: %{String.t() => any()}
+  @type list_assessments_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -100,11 +100,11 @@ defmodule AWS.AuditManager do
 
       get_delegations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type get_delegations_request() :: %{String.t() => any()}
+  @type get_delegations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -115,7 +115,7 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -126,7 +126,7 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type update_control_response() :: %{String.t() => any()}
+  @type update_control_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -135,14 +135,14 @@ defmodule AWS.AuditManager do
       control_domain_insights() :: %{
         "controlsCountByNoncompliantEvidence" => integer(),
         "evidenceInsights" => evidence_insights(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "lastUpdated" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "totalControlsCount" => integer()
       }
 
   """
-  @type control_domain_insights() :: %{String.t() => any()}
+  @type control_domain_insights() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -167,13 +167,13 @@ defmodule AWS.AuditManager do
   ## Example:
 
       aws_account() :: %{
-        "emailAddress" => String.t(),
-        "id" => String.t(),
-        "name" => String.t()
+        "emailAddress" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type aws_account() :: %{String.t() => any()}
+  @type aws_account() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -185,7 +185,7 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type update_assessment_framework_share_request() :: %{String.t() => any()}
+  @type update_assessment_framework_share_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -196,7 +196,7 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type batch_delete_delegation_by_assessment_response() :: %{String.t() => any()}
+  @type batch_delete_delegation_by_assessment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -225,7 +225,7 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type create_assessment_report_response() :: %{String.t() => any()}
+  @type create_assessment_report_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -236,7 +236,7 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type create_assessment_response() :: %{String.t() => any()}
+  @type create_assessment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -253,11 +253,11 @@ defmodule AWS.AuditManager do
 
       list_assessment_reports_response() :: %{
         "assessmentReports" => list(assessment_report_metadata()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_assessment_reports_response() :: %{String.t() => any()}
+  @type list_assessment_reports_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -265,23 +265,23 @@ defmodule AWS.AuditManager do
 
       get_evidence_by_evidence_folder_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type get_evidence_by_evidence_folder_request() :: %{String.t() => any()}
+  @type get_evidence_by_evidence_folder_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_notifications_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "notifications" => list(notification())
       }
 
   """
-  @type list_notifications_response() :: %{String.t() => any()}
+  @type list_notifications_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -292,7 +292,7 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type register_account_response() :: %{String.t() => any()}
+  @type register_account_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -308,13 +308,13 @@ defmodule AWS.AuditManager do
   ## Example:
 
       assessment_evidence_folder() :: %{
-        "assessmentId" => String.t(),
+        "assessmentId" => String.t() | Atom.t(),
         "assessmentReportSelectionCount" => integer(),
-        "author" => String.t(),
-        "controlId" => String.t(),
-        "controlName" => String.t(),
-        "controlSetId" => String.t(),
-        "dataSource" => String.t(),
+        "author" => String.t() | Atom.t(),
+        "controlId" => String.t() | Atom.t(),
+        "controlName" => String.t() | Atom.t(),
+        "controlSetId" => String.t() | Atom.t(),
+        "dataSource" => String.t() | Atom.t(),
         "date" => non_neg_integer(),
         "evidenceAwsServiceSourceCount" => integer(),
         "evidenceByTypeComplianceCheckCount" => integer(),
@@ -323,25 +323,25 @@ defmodule AWS.AuditManager do
         "evidenceByTypeManualCount" => integer(),
         "evidenceByTypeUserActivityCount" => integer(),
         "evidenceResourcesIncludedCount" => integer(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "totalEvidence" => integer()
       }
 
   """
-  @type assessment_evidence_folder() :: %{String.t() => any()}
+  @type assessment_evidence_folder() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       register_account_request() :: %{
-        optional("delegatedAdminAccount") => String.t(),
-        optional("kmsKey") => String.t()
+        optional("delegatedAdminAccount") => String.t() | Atom.t(),
+        optional("kmsKey") => String.t() | Atom.t()
       }
 
   """
-  @type register_account_request() :: %{String.t() => any()}
+  @type register_account_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -357,12 +357,12 @@ defmodule AWS.AuditManager do
   ## Example:
 
       assessment_reports_destination() :: %{
-        "destination" => String.t(),
+        "destination" => String.t() | Atom.t(),
         "destinationType" => list(any())
       }
 
   """
-  @type assessment_reports_destination() :: %{String.t() => any()}
+  @type assessment_reports_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -370,12 +370,12 @@ defmodule AWS.AuditManager do
 
       list_control_insights_by_control_domain_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("controlDomainId") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("controlDomainId") => String.t() | Atom.t()
       }
 
   """
-  @type list_control_insights_by_control_domain_request() :: %{String.t() => any()}
+  @type list_control_insights_by_control_domain_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -383,12 +383,12 @@ defmodule AWS.AuditManager do
 
       control_set() :: %{
         "controls" => list(control()),
-        "id" => String.t(),
-        "name" => String.t()
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type control_set() :: %{String.t() => any()}
+  @type control_set() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -396,22 +396,22 @@ defmodule AWS.AuditManager do
 
       get_evidence_folders_by_assessment_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type get_evidence_folders_by_assessment_request() :: %{String.t() => any()}
+  @type get_evidence_folders_by_assessment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_assessment_framework_control() :: %{
-        "id" => String.t()
+        "id" => String.t() | Atom.t()
       }
 
   """
-  @type create_assessment_framework_control() :: %{String.t() => any()}
+  @type create_assessment_framework_control() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -422,68 +422,68 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type deregistration_policy() :: %{String.t() => any()}
+  @type deregistration_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_metadata() :: %{
-        "category" => String.t(),
-        "description" => String.t(),
-        "displayName" => String.t(),
-        "name" => String.t()
+        "category" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "displayName" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type service_metadata() :: %{String.t() => any()}
+  @type service_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       assessment_metadata_item() :: %{
-        "complianceType" => String.t(),
+        "complianceType" => String.t() | Atom.t(),
         "creationTime" => non_neg_integer(),
         "delegations" => list(delegation()),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "lastUpdated" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "roles" => list(role()),
         "status" => list(any())
       }
 
   """
-  @type assessment_metadata_item() :: %{String.t() => any()}
+  @type assessment_metadata_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_control_mapping_source() :: %{
-        "sourceDescription" => String.t(),
+        "sourceDescription" => String.t() | Atom.t(),
         "sourceFrequency" => list(any()),
         "sourceKeyword" => source_keyword(),
-        "sourceName" => String.t(),
+        "sourceName" => String.t() | Atom.t(),
         "sourceSetUpOption" => list(any()),
         "sourceType" => list(any()),
-        "troubleshootingText" => String.t()
+        "troubleshootingText" => String.t() | Atom.t()
       }
 
   """
-  @type create_control_mapping_source() :: %{String.t() => any()}
+  @type create_control_mapping_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       role() :: %{
-        "roleArn" => String.t(),
+        "roleArn" => String.t() | Atom.t(),
         "roleType" => list(any())
       }
 
   """
-  @type role() :: %{String.t() => any()}
+  @type role() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -503,45 +503,45 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type update_settings_response() :: %{String.t() => any()}
+  @type update_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_assessment_control_set_status_request() :: %{
-        required("comment") => String.t(),
+        required("comment") => String.t() | Atom.t(),
         required("status") => list(any())
       }
 
   """
-  @type update_assessment_control_set_status_request() :: %{String.t() => any()}
+  @type update_assessment_control_set_status_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       control() :: %{
-        "actionPlanInstructions" => String.t(),
-        "actionPlanTitle" => String.t(),
-        "arn" => String.t(),
+        "actionPlanInstructions" => String.t() | Atom.t(),
+        "actionPlanTitle" => String.t() | Atom.t(),
+        "arn" => String.t() | Atom.t(),
         "controlMappingSources" => list(control_mapping_source()),
-        "controlSources" => String.t(),
+        "controlSources" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "description" => String.t(),
-        "id" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "lastUpdatedAt" => non_neg_integer(),
-        "lastUpdatedBy" => String.t(),
-        "name" => String.t(),
+        "lastUpdatedBy" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "state" => list(any()),
         "tags" => map(),
-        "testingInformation" => String.t(),
+        "testingInformation" => String.t() | Atom.t(),
         "type" => list(any())
       }
 
   """
-  @type control() :: %{String.t() => any()}
+  @type control() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -558,22 +558,22 @@ defmodule AWS.AuditManager do
 
       list_control_insights_by_control_domain_response() :: %{
         "controlInsightsMetadata" => list(control_insights_metadata_item()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_control_insights_by_control_domain_response() :: %{String.t() => any()}
+  @type list_control_insights_by_control_domain_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -589,13 +589,13 @@ defmodule AWS.AuditManager do
   ## Example:
 
       control_comment() :: %{
-        "authorName" => String.t(),
-        "commentBody" => String.t(),
+        "authorName" => String.t() | Atom.t(),
+        "commentBody" => String.t() | Atom.t(),
         "postedDate" => non_neg_integer()
       }
 
   """
-  @type control_comment() :: %{String.t() => any()}
+  @type control_comment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -603,32 +603,35 @@ defmodule AWS.AuditManager do
 
       assessment_metadata() :: %{
         "assessmentReportsDestination" => assessment_reports_destination(),
-        "complianceType" => String.t(),
+        "complianceType" => String.t() | Atom.t(),
         "creationTime" => non_neg_integer(),
         "delegations" => list(delegation()),
-        "description" => String.t(),
-        "id" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "lastUpdated" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "roles" => list(role()),
         "scope" => scope(),
         "status" => list(any())
       }
 
   """
-  @type assessment_metadata() :: %{String.t() => any()}
+  @type assessment_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_disassociate_assessment_report_evidence_request() :: %{
-        required("evidenceFolderId") => String.t(),
-        required("evidenceIds") => list(String.t())
+        required("evidenceFolderId") => String.t() | Atom.t(),
+        required("evidenceIds") => list(String.t() | Atom.t())
       }
 
   """
-  @type batch_disassociate_assessment_report_evidence_request() :: %{String.t() => any()}
+  @type batch_disassociate_assessment_report_evidence_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -637,17 +640,17 @@ defmodule AWS.AuditManager do
       assessment_control() :: %{
         "assessmentReportEvidenceCount" => integer(),
         "comments" => list(control_comment()),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "evidenceCount" => integer(),
-        "evidenceSources" => list(String.t()),
-        "id" => String.t(),
-        "name" => String.t(),
+        "evidenceSources" => list(String.t() | Atom.t()),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "response" => list(any()),
         "status" => list(any())
       }
 
   """
-  @type assessment_control() :: %{String.t() => any()}
+  @type assessment_control() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -667,20 +670,20 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type update_assessment_status_request() :: %{String.t() => any()}
+  @type update_assessment_status_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       manual_evidence() :: %{
-        "evidenceFileName" => String.t(),
-        "s3ResourcePath" => String.t(),
-        "textResponse" => String.t()
+        "evidenceFileName" => String.t() | Atom.t(),
+        "s3ResourcePath" => String.t() | Atom.t(),
+        "textResponse" => String.t() | Atom.t()
       }
 
   """
-  @type manual_evidence() :: %{String.t() => any()}
+  @type manual_evidence() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -688,11 +691,11 @@ defmodule AWS.AuditManager do
 
       list_controls_response() :: %{
         "controlMetadataList" => list(control_metadata()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_controls_response() :: %{String.t() => any()}
+  @type list_controls_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -700,35 +703,35 @@ defmodule AWS.AuditManager do
 
       list_keywords_for_data_source_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("source") => list(any())
       }
 
   """
-  @type list_keywords_for_data_source_request() :: %{String.t() => any()}
+  @type list_keywords_for_data_source_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       deregister_organization_admin_account_request() :: %{
-        optional("adminAccountId") => String.t()
+        optional("adminAccountId") => String.t() | Atom.t()
       }
 
   """
-  @type deregister_organization_admin_account_request() :: %{String.t() => any()}
+  @type deregister_organization_admin_account_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_associate_assessment_report_evidence_request() :: %{
-        required("evidenceFolderId") => String.t(),
-        required("evidenceIds") => list(String.t())
+        required("evidenceFolderId") => String.t() | Atom.t(),
+        required("evidenceIds") => list(String.t() | Atom.t())
       }
 
   """
-  @type batch_associate_assessment_report_evidence_request() :: %{String.t() => any()}
+  @type batch_associate_assessment_report_evidence_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -739,7 +742,7 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type create_assessment_framework_response() :: %{String.t() => any()}
+  @type create_assessment_framework_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -747,11 +750,11 @@ defmodule AWS.AuditManager do
 
       list_control_domain_insights_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_control_domain_insights_request() :: %{String.t() => any()}
+  @type list_control_domain_insights_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -768,11 +771,11 @@ defmodule AWS.AuditManager do
 
       list_control_domain_insights_by_assessment_response() :: %{
         "controlDomainInsights" => list(control_domain_insights()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_control_domain_insights_by_assessment_response() :: %{String.t() => any()}
+  @type list_control_domain_insights_by_assessment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -780,11 +783,11 @@ defmodule AWS.AuditManager do
 
       create_assessment_framework_control_set() :: %{
         "controls" => list(create_assessment_framework_control()),
-        "name" => String.t()
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type create_assessment_framework_control_set() :: %{String.t() => any()}
+  @type create_assessment_framework_control_set() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -795,7 +798,7 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type create_control_response() :: %{String.t() => any()}
+  @type create_control_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -803,11 +806,11 @@ defmodule AWS.AuditManager do
 
       get_change_logs_response() :: %{
         "changeLogs" => list(change_log()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type get_change_logs_response() :: %{String.t() => any()}
+  @type get_change_logs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -823,25 +826,25 @@ defmodule AWS.AuditManager do
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t(),
-        "resourceId" => String.t(),
-        "resourceType" => String.t()
+        "message" => String.t() | Atom.t(),
+        "resourceId" => String.t() | Atom.t(),
+        "resourceType" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_organization_admin_account_response() :: %{
-        "adminAccountId" => String.t(),
-        "organizationId" => String.t()
+        "adminAccountId" => String.t() | Atom.t(),
+        "organizationId" => String.t() | Atom.t()
       }
 
   """
-  @type get_organization_admin_account_response() :: %{String.t() => any()}
+  @type get_organization_admin_account_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -852,7 +855,7 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type batch_create_delegation_by_assessment_request() :: %{String.t() => any()}
+  @type batch_create_delegation_by_assessment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -865,33 +868,33 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type evidence_insights() :: %{String.t() => any()}
+  @type evidence_insights() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_service() :: %{
-        "serviceName" => String.t()
+        "serviceName" => String.t() | Atom.t()
       }
 
   """
-  @type aws_service() :: %{String.t() => any()}
+  @type aws_service() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_assessment_framework_request() :: %{
-        optional("complianceType") => String.t(),
-        optional("description") => String.t(),
+        optional("complianceType") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("tags") => map(),
         required("controlSets") => list(create_assessment_framework_control_set()),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_assessment_framework_request() :: %{String.t() => any()}
+  @type create_assessment_framework_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -899,27 +902,27 @@ defmodule AWS.AuditManager do
 
       list_assessment_frameworks_response() :: %{
         "frameworkMetadataList" => list(assessment_framework_metadata()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_assessment_frameworks_response() :: %{String.t() => any()}
+  @type list_assessment_frameworks_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       control_metadata() :: %{
-        "arn" => String.t(),
-        "controlSources" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "controlSources" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t()
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type control_metadata() :: %{String.t() => any()}
+  @type control_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -927,22 +930,22 @@ defmodule AWS.AuditManager do
 
       list_assessment_framework_share_requests_response() :: %{
         "assessmentFrameworkShareRequests" => list(assessment_framework_share_request()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_assessment_framework_share_requests_response() :: %{String.t() => any()}
+  @type list_assessment_framework_share_requests_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -950,11 +953,14 @@ defmodule AWS.AuditManager do
 
       list_assessment_control_insights_by_control_domain_response() :: %{
         "controlInsightsByAssessment" => list(control_insights_metadata_by_assessment_item()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_assessment_control_insights_by_control_domain_response() :: %{String.t() => any()}
+  @type list_assessment_control_insights_by_control_domain_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -965,7 +971,7 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type update_assessment_control_set_status_response() :: %{String.t() => any()}
+  @type update_assessment_control_set_status_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -973,11 +979,11 @@ defmodule AWS.AuditManager do
 
       list_notifications_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_notifications_request() :: %{String.t() => any()}
+  @type list_notifications_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -988,34 +994,34 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type get_insights_by_assessment_response() :: %{String.t() => any()}
+  @type get_insights_by_assessment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_assessment_framework_request() :: %{
-        optional("complianceType") => String.t(),
-        optional("description") => String.t(),
+        optional("complianceType") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
         required("controlSets") => list(update_assessment_framework_control_set()),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type update_assessment_framework_request() :: %{String.t() => any()}
+  @type update_assessment_framework_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_delete_delegation_by_assessment_error() :: %{
-        "delegationId" => String.t(),
-        "errorCode" => String.t(),
-        "errorMessage" => String.t()
+        "delegationId" => String.t() | Atom.t(),
+        "errorCode" => String.t() | Atom.t(),
+        "errorMessage" => String.t() | Atom.t()
       }
 
   """
-  @type batch_delete_delegation_by_assessment_error() :: %{String.t() => any()}
+  @type batch_delete_delegation_by_assessment_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1026,19 +1032,19 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type delete_assessment_framework_share_request() :: %{String.t() => any()}
+  @type delete_assessment_framework_share_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       default_export_destination() :: %{
-        "destination" => String.t(),
+        "destination" => String.t() | Atom.t(),
         "destinationType" => list(any())
       }
 
   """
-  @type default_export_destination() :: %{String.t() => any()}
+  @type default_export_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1064,13 +1070,16 @@ defmodule AWS.AuditManager do
 
       list_assessment_control_insights_by_control_domain_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("assessmentId") => String.t(),
-        required("controlDomainId") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("assessmentId") => String.t() | Atom.t(),
+        required("controlDomainId") => String.t() | Atom.t()
       }
 
   """
-  @type list_assessment_control_insights_by_control_domain_request() :: %{String.t() => any()}
+  @type list_assessment_control_insights_by_control_domain_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1079,8 +1088,8 @@ defmodule AWS.AuditManager do
       assessment_control_set() :: %{
         "controls" => list(assessment_control()),
         "delegations" => list(delegation()),
-        "description" => String.t(),
-        "id" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "manualEvidenceCount" => integer(),
         "roles" => list(role()),
         "status" => list(any()),
@@ -1088,20 +1097,20 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type assessment_control_set() :: %{String.t() => any()}
+  @type assessment_control_set() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       assessment_report_evidence_error() :: %{
-        "errorCode" => String.t(),
-        "errorMessage" => String.t(),
-        "evidenceId" => String.t()
+        "errorCode" => String.t() | Atom.t(),
+        "errorMessage" => String.t() | Atom.t(),
+        "evidenceId" => String.t() | Atom.t()
       }
 
   """
-  @type assessment_report_evidence_error() :: %{String.t() => any()}
+  @type assessment_report_evidence_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1114,12 +1123,12 @@ defmodule AWS.AuditManager do
         "deregistrationPolicy" => deregistration_policy(),
         "evidenceFinderEnablement" => evidence_finder_enablement(),
         "isAwsOrgEnabled" => boolean(),
-        "kmsKey" => String.t(),
-        "snsTopic" => String.t()
+        "kmsKey" => String.t() | Atom.t(),
+        "snsTopic" => String.t() | Atom.t()
       }
 
   """
-  @type settings() :: %{String.t() => any()}
+  @type settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1130,7 +1139,7 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type get_services_in_scope_response() :: %{String.t() => any()}
+  @type get_services_in_scope_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1138,12 +1147,12 @@ defmodule AWS.AuditManager do
 
       list_assessments_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("status") => list(any())
       }
 
   """
-  @type list_assessments_request() :: %{String.t() => any()}
+  @type list_assessments_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1151,12 +1160,12 @@ defmodule AWS.AuditManager do
 
       list_control_domain_insights_by_assessment_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("assessmentId") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("assessmentId") => String.t() | Atom.t()
       }
 
   """
-  @type list_control_domain_insights_by_assessment_request() :: %{String.t() => any()}
+  @type list_control_domain_insights_by_assessment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1173,11 +1182,11 @@ defmodule AWS.AuditManager do
 
       batch_associate_assessment_report_evidence_response() :: %{
         "errors" => list(assessment_report_evidence_error()),
-        "evidenceIds" => list(String.t())
+        "evidenceIds" => list(String.t() | Atom.t())
       }
 
   """
-  @type batch_associate_assessment_report_evidence_response() :: %{String.t() => any()}
+  @type batch_associate_assessment_report_evidence_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1188,7 +1197,7 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1200,12 +1209,12 @@ defmodule AWS.AuditManager do
         optional("defaultProcessOwners") => list(role()),
         optional("deregistrationPolicy") => deregistration_policy(),
         optional("evidenceFinderEnabled") => boolean(),
-        optional("kmsKey") => String.t(),
-        optional("snsTopic") => String.t()
+        optional("kmsKey") => String.t() | Atom.t(),
+        optional("snsTopic") => String.t() | Atom.t()
       }
 
   """
-  @type update_settings_request() :: %{String.t() => any()}
+  @type update_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1213,62 +1222,62 @@ defmodule AWS.AuditManager do
 
       get_evidence_folders_by_assessment_control_response() :: %{
         "evidenceFolders" => list(assessment_evidence_folder()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type get_evidence_folders_by_assessment_control_response() :: %{String.t() => any()}
+  @type get_evidence_folders_by_assessment_control_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_change_logs_request() :: %{
-        optional("controlId") => String.t(),
-        optional("controlSetId") => String.t(),
+        optional("controlId") => String.t() | Atom.t(),
+        optional("controlSetId") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type get_change_logs_request() :: %{String.t() => any()}
+  @type get_change_logs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "message" => String.t(),
-        "name" => String.t()
+        "message" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       register_organization_admin_account_request() :: %{
-        required("adminAccountId") => String.t()
+        required("adminAccountId") => String.t() | Atom.t()
       }
 
   """
-  @type register_organization_admin_account_request() :: %{String.t() => any()}
+  @type register_organization_admin_account_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_controls_request() :: %{
-        optional("controlCatalogId") => String.t(),
+        optional("controlCatalogId") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("controlType") => list(any())
       }
 
   """
-  @type list_controls_request() :: %{String.t() => any()}
+  @type list_controls_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1285,29 +1294,29 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type insights() :: %{String.t() => any()}
+  @type insights() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_assessment_request() :: %{
-        optional("assessmentDescription") => String.t(),
-        optional("assessmentName") => String.t(),
+        optional("assessmentDescription") => String.t() | Atom.t(),
+        optional("assessmentName") => String.t() | Atom.t(),
         optional("assessmentReportsDestination") => assessment_reports_destination(),
         optional("roles") => list(role()),
         required("scope") => scope()
       }
 
   """
-  @type update_assessment_request() :: %{String.t() => any()}
+  @type update_assessment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       assessment() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "awsAccount" => aws_account(),
         "framework" => assessment_framework(),
         "metadata" => assessment_metadata(),
@@ -1315,7 +1324,7 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type assessment() :: %{String.t() => any()}
+  @type assessment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1326,7 +1335,7 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type batch_import_evidence_to_assessment_control_request() :: %{String.t() => any()}
+  @type batch_import_evidence_to_assessment_control_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1337,7 +1346,7 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type get_insights_response() :: %{String.t() => any()}
+  @type get_insights_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1348,7 +1357,7 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type get_settings_response() :: %{String.t() => any()}
+  @type get_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1356,34 +1365,34 @@ defmodule AWS.AuditManager do
 
       get_evidence_folders_by_assessment_response() :: %{
         "evidenceFolders" => list(assessment_evidence_folder()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type get_evidence_folders_by_assessment_response() :: %{String.t() => any()}
+  @type get_evidence_folders_by_assessment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_evidence_file_upload_url_request() :: %{
-        required("fileName") => String.t()
+        required("fileName") => String.t() | Atom.t()
       }
 
   """
-  @type get_evidence_file_upload_url_request() :: %{String.t() => any()}
+  @type get_evidence_file_upload_url_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_evidence_file_upload_url_response() :: %{
-        "evidenceFileName" => String.t(),
-        "uploadUrl" => String.t()
+        "evidenceFileName" => String.t() | Atom.t(),
+        "uploadUrl" => String.t() | Atom.t()
       }
 
   """
-  @type get_evidence_file_upload_url_response() :: %{String.t() => any()}
+  @type get_evidence_file_upload_url_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1399,11 +1408,11 @@ defmodule AWS.AuditManager do
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1424,53 +1433,53 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type scope() :: %{String.t() => any()}
+  @type scope() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_delete_delegation_by_assessment_request() :: %{
-        required("delegationIds") => list(String.t())
+        required("delegationIds") => list(String.t() | Atom.t())
       }
 
   """
-  @type batch_delete_delegation_by_assessment_request() :: %{String.t() => any()}
+  @type batch_delete_delegation_by_assessment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       framework() :: %{
-        "arn" => String.t(),
-        "complianceType" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "complianceType" => String.t() | Atom.t(),
         "controlSets" => list(control_set()),
-        "controlSources" => String.t(),
+        "controlSources" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "description" => String.t(),
-        "id" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "lastUpdatedAt" => non_neg_integer(),
-        "lastUpdatedBy" => String.t(),
-        "logo" => String.t(),
-        "name" => String.t(),
+        "lastUpdatedBy" => String.t() | Atom.t(),
+        "logo" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "tags" => map(),
         "type" => list(any())
       }
 
   """
-  @type framework() :: %{String.t() => any()}
+  @type framework() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validate_assessment_report_integrity_request() :: %{
-        required("s3RelativePath") => String.t()
+        required("s3RelativePath") => String.t() | Atom.t()
       }
 
   """
-  @type validate_assessment_report_integrity_request() :: %{String.t() => any()}
+  @type validate_assessment_report_integrity_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1478,11 +1487,11 @@ defmodule AWS.AuditManager do
 
       get_delegations_response() :: %{
         "delegations" => list(delegation_metadata()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type get_delegations_response() :: %{String.t() => any()}
+  @type get_delegations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1490,30 +1499,30 @@ defmodule AWS.AuditManager do
 
       list_assessment_framework_share_requests_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("requestType") => list(any())
       }
 
   """
-  @type list_assessment_framework_share_requests_request() :: %{String.t() => any()}
+  @type list_assessment_framework_share_requests_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       assessment_report_metadata() :: %{
-        "assessmentId" => String.t(),
-        "assessmentName" => String.t(),
-        "author" => String.t(),
+        "assessmentId" => String.t() | Atom.t(),
+        "assessmentName" => String.t() | Atom.t(),
+        "author" => String.t() | Atom.t(),
         "creationTime" => non_neg_integer(),
-        "description" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type assessment_report_metadata() :: %{String.t() => any()}
+  @type assessment_report_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1521,12 +1530,12 @@ defmodule AWS.AuditManager do
 
       update_assessment_framework_control_set() :: %{
         "controls" => list(create_assessment_framework_control()),
-        "id" => String.t(),
-        "name" => String.t()
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type update_assessment_framework_control_set() :: %{String.t() => any()}
+  @type update_assessment_framework_control_set() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1538,7 +1547,7 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type get_assessment_response() :: %{String.t() => any()}
+  @type get_assessment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1546,11 +1555,11 @@ defmodule AWS.AuditManager do
 
       list_control_domain_insights_response() :: %{
         "controlDomainInsights" => list(control_domain_insights()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_control_domain_insights_response() :: %{String.t() => any()}
+  @type list_control_domain_insights_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1561,29 +1570,29 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type deregister_account_response() :: %{String.t() => any()}
+  @type deregister_account_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_assessment_report_evidence_folder_request() :: %{
-        required("evidenceFolderId") => String.t()
+        required("evidenceFolderId") => String.t() | Atom.t()
       }
 
   """
-  @type associate_assessment_report_evidence_folder_request() :: %{String.t() => any()}
+  @type associate_assessment_report_evidence_folder_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1594,22 +1603,25 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type batch_import_evidence_to_assessment_control_response() :: %{String.t() => any()}
+  @type batch_import_evidence_to_assessment_control_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       control_insights_metadata_by_assessment_item() :: %{
-        "controlSetName" => String.t(),
+        "controlSetName" => String.t() | Atom.t(),
         "evidenceInsights" => evidence_insights(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "lastUpdated" => non_neg_integer(),
-        "name" => String.t()
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type control_insights_metadata_by_assessment_item() :: %{String.t() => any()}
+  @type control_insights_metadata_by_assessment_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1625,52 +1637,52 @@ defmodule AWS.AuditManager do
   ## Example:
 
       validate_assessment_report_integrity_response() :: %{
-        "signatureAlgorithm" => String.t(),
-        "signatureDateTime" => String.t(),
-        "signatureKeyId" => String.t(),
+        "signatureAlgorithm" => String.t() | Atom.t(),
+        "signatureDateTime" => String.t() | Atom.t(),
+        "signatureKeyId" => String.t() | Atom.t(),
         "signatureValid" => boolean(),
-        "validationErrors" => list(String.t())
+        "validationErrors" => list(String.t() | Atom.t())
       }
 
   """
-  @type validate_assessment_report_integrity_response() :: %{String.t() => any()}
+  @type validate_assessment_report_integrity_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       assessment_framework_metadata() :: %{
-        "arn" => String.t(),
-        "complianceType" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "complianceType" => String.t() | Atom.t(),
         "controlSetsCount" => integer(),
         "controlsCount" => integer(),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
-        "id" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "lastUpdatedAt" => non_neg_integer(),
-        "logo" => String.t(),
-        "name" => String.t(),
+        "logo" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "type" => list(any())
       }
 
   """
-  @type assessment_framework_metadata() :: %{String.t() => any()}
+  @type assessment_framework_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_control_request() :: %{
-        optional("actionPlanInstructions") => String.t(),
-        optional("actionPlanTitle") => String.t(),
-        optional("description") => String.t(),
-        optional("testingInformation") => String.t(),
+        optional("actionPlanInstructions") => String.t() | Atom.t(),
+        optional("actionPlanTitle") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("testingInformation") => String.t() | Atom.t(),
         required("controlMappingSources") => list(control_mapping_source()),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type update_control_request() :: %{String.t() => any()}
+  @type update_control_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1690,7 +1702,7 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type update_assessment_framework_response() :: %{String.t() => any()}
+  @type update_assessment_framework_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1698,12 +1710,12 @@ defmodule AWS.AuditManager do
 
       batch_create_delegation_by_assessment_error() :: %{
         "createDelegationRequest" => create_delegation_request(),
-        "errorCode" => String.t(),
-        "errorMessage" => String.t()
+        "errorCode" => String.t() | Atom.t(),
+        "errorMessage" => String.t() | Atom.t()
       }
 
   """
-  @type batch_create_delegation_by_assessment_error() :: %{String.t() => any()}
+  @type batch_create_delegation_by_assessment_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1711,12 +1723,12 @@ defmodule AWS.AuditManager do
 
       validation_exception() :: %{
         "fields" => list(validation_exception_field()),
-        "message" => String.t(),
+        "message" => String.t() | Atom.t(),
         "reason" => list(any())
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1737,7 +1749,7 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type batch_create_delegation_by_assessment_response() :: %{String.t() => any()}
+  @type batch_create_delegation_by_assessment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1746,12 +1758,12 @@ defmodule AWS.AuditManager do
       evidence_finder_enablement() :: %{
         "backfillStatus" => list(any()),
         "enablementStatus" => list(any()),
-        "error" => String.t(),
-        "eventDataStoreArn" => String.t()
+        "error" => String.t() | Atom.t(),
+        "eventDataStoreArn" => String.t() | Atom.t()
       }
 
   """
-  @type evidence_finder_enablement() :: %{String.t() => any()}
+  @type evidence_finder_enablement() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1767,73 +1779,73 @@ defmodule AWS.AuditManager do
   ## Example:
 
       url() :: %{
-        "hyperlinkName" => String.t(),
-        "link" => String.t()
+        "hyperlinkName" => String.t() | Atom.t(),
+        "link" => String.t() | Atom.t()
       }
 
   """
-  @type url() :: %{String.t() => any()}
+  @type url() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       evidence() :: %{
-        "assessmentReportSelection" => String.t(),
+        "assessmentReportSelection" => String.t() | Atom.t(),
         "attributes" => map(),
-        "awsAccountId" => String.t(),
-        "awsOrganization" => String.t(),
-        "complianceCheck" => String.t(),
-        "dataSource" => String.t(),
-        "eventName" => String.t(),
-        "eventSource" => String.t(),
-        "evidenceAwsAccountId" => String.t(),
-        "evidenceByType" => String.t(),
-        "evidenceFolderId" => String.t(),
-        "iamId" => String.t(),
-        "id" => String.t(),
+        "awsAccountId" => String.t() | Atom.t(),
+        "awsOrganization" => String.t() | Atom.t(),
+        "complianceCheck" => String.t() | Atom.t(),
+        "dataSource" => String.t() | Atom.t(),
+        "eventName" => String.t() | Atom.t(),
+        "eventSource" => String.t() | Atom.t(),
+        "evidenceAwsAccountId" => String.t() | Atom.t(),
+        "evidenceByType" => String.t() | Atom.t(),
+        "evidenceFolderId" => String.t() | Atom.t(),
+        "iamId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "resourcesIncluded" => list(resource()),
         "time" => non_neg_integer()
       }
 
   """
-  @type evidence() :: %{String.t() => any()}
+  @type evidence() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       assessment_framework_share_request() :: %{
-        "comment" => String.t(),
-        "complianceType" => String.t(),
+        "comment" => String.t() | Atom.t(),
+        "complianceType" => String.t() | Atom.t(),
         "creationTime" => non_neg_integer(),
         "customControlsCount" => integer(),
-        "destinationAccount" => String.t(),
-        "destinationRegion" => String.t(),
+        "destinationAccount" => String.t() | Atom.t(),
+        "destinationRegion" => String.t() | Atom.t(),
         "expirationTime" => non_neg_integer(),
-        "frameworkDescription" => String.t(),
-        "frameworkId" => String.t(),
-        "frameworkName" => String.t(),
-        "id" => String.t(),
+        "frameworkDescription" => String.t() | Atom.t(),
+        "frameworkId" => String.t() | Atom.t(),
+        "frameworkName" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "lastUpdated" => non_neg_integer(),
-        "sourceAccount" => String.t(),
+        "sourceAccount" => String.t() | Atom.t(),
         "standardControlsCount" => integer(),
         "status" => list(any())
       }
 
   """
-  @type assessment_framework_share_request() :: %{String.t() => any()}
+  @type assessment_framework_share_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1841,11 +1853,11 @@ defmodule AWS.AuditManager do
 
       get_evidence_by_evidence_folder_response() :: %{
         "evidence" => list(evidence()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type get_evidence_by_evidence_folder_response() :: %{String.t() => any()}
+  @type get_evidence_by_evidence_folder_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1865,52 +1877,52 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type update_assessment_control_response() :: %{String.t() => any()}
+  @type update_assessment_control_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delegation() :: %{
-        "assessmentId" => String.t(),
-        "assessmentName" => String.t(),
-        "comment" => String.t(),
-        "controlSetId" => String.t(),
-        "createdBy" => String.t(),
+        "assessmentId" => String.t() | Atom.t(),
+        "assessmentName" => String.t() | Atom.t(),
+        "comment" => String.t() | Atom.t(),
+        "controlSetId" => String.t() | Atom.t(),
+        "createdBy" => String.t() | Atom.t(),
         "creationTime" => non_neg_integer(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "lastUpdated" => non_neg_integer(),
-        "roleArn" => String.t(),
+        "roleArn" => String.t() | Atom.t(),
         "roleType" => list(any()),
         "status" => list(any())
       }
 
   """
-  @type delegation() :: %{String.t() => any()}
+  @type delegation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_keywords_for_data_source_response() :: %{
-        "keywords" => list(String.t()),
-        "nextToken" => String.t()
+        "keywords" => list(String.t() | Atom.t()),
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_keywords_for_data_source_response() :: %{String.t() => any()}
+  @type list_keywords_for_data_source_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       register_organization_admin_account_response() :: %{
-        "adminAccountId" => String.t(),
-        "organizationId" => String.t()
+        "adminAccountId" => String.t() | Atom.t(),
+        "organizationId" => String.t() | Atom.t()
       }
 
   """
-  @type register_organization_admin_account_response() :: %{String.t() => any()}
+  @type register_organization_admin_account_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1921,50 +1933,50 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type get_evidence_response() :: %{String.t() => any()}
+  @type get_evidence_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       notification() :: %{
-        "assessmentId" => String.t(),
-        "assessmentName" => String.t(),
-        "controlSetId" => String.t(),
-        "controlSetName" => String.t(),
-        "description" => String.t(),
+        "assessmentId" => String.t() | Atom.t(),
+        "assessmentName" => String.t() | Atom.t(),
+        "controlSetId" => String.t() | Atom.t(),
+        "controlSetName" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
         "eventTime" => non_neg_integer(),
-        "id" => String.t(),
-        "source" => String.t()
+        "id" => String.t() | Atom.t(),
+        "source" => String.t() | Atom.t()
       }
 
   """
-  @type notification() :: %{String.t() => any()}
+  @type notification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_assessment_framework_share_request() :: %{
-        optional("comment") => String.t(),
-        required("destinationAccount") => String.t(),
-        required("destinationRegion") => String.t()
+        optional("comment") => String.t() | Atom.t(),
+        required("destinationAccount") => String.t() | Atom.t(),
+        required("destinationRegion") => String.t() | Atom.t()
       }
 
   """
-  @type start_assessment_framework_share_request() :: %{String.t() => any()}
+  @type start_assessment_framework_share_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_assessment_control_request() :: %{
-        optional("commentBody") => String.t(),
+        optional("commentBody") => String.t() | Atom.t(),
         optional("controlStatus") => list(any())
       }
 
   """
-  @type update_assessment_control_request() :: %{String.t() => any()}
+  @type update_assessment_control_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1972,12 +1984,12 @@ defmodule AWS.AuditManager do
 
       list_assessment_frameworks_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("frameworkType") => list(any())
       }
 
   """
-  @type list_assessment_frameworks_request() :: %{String.t() => any()}
+  @type list_assessment_frameworks_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1988,18 +2000,21 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type get_evidence_folder_response() :: %{String.t() => any()}
+  @type get_evidence_folder_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_assessment_report_evidence_folder_request() :: %{
-        required("evidenceFolderId") => String.t()
+        required("evidenceFolderId") => String.t() | Atom.t()
       }
 
   """
-  @type disassociate_assessment_report_evidence_folder_request() :: %{String.t() => any()}
+  @type disassociate_assessment_report_evidence_folder_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -2010,26 +2025,26 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type start_assessment_framework_share_response() :: %{String.t() => any()}
+  @type start_assessment_framework_share_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       assessment_report() :: %{
-        "assessmentId" => String.t(),
-        "assessmentName" => String.t(),
-        "author" => String.t(),
-        "awsAccountId" => String.t(),
+        "assessmentId" => String.t() | Atom.t(),
+        "assessmentName" => String.t() | Atom.t(),
+        "author" => String.t() | Atom.t(),
+        "awsAccountId" => String.t() | Atom.t(),
         "creationTime" => non_neg_integer(),
-        "description" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type assessment_report() :: %{String.t() => any()}
+  @type assessment_report() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2040,7 +2055,7 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type get_control_response() :: %{String.t() => any()}
+  @type get_control_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2056,17 +2071,17 @@ defmodule AWS.AuditManager do
   ## Example:
 
       create_assessment_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("tags") => map(),
         required("assessmentReportsDestination") => assessment_reports_destination(),
-        required("frameworkId") => String.t(),
-        required("name") => String.t(),
+        required("frameworkId") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t(),
         required("roles") => list(role()),
         required("scope") => scope()
       }
 
   """
-  @type create_assessment_request() :: %{String.t() => any()}
+  @type create_assessment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2074,41 +2089,44 @@ defmodule AWS.AuditManager do
 
       batch_disassociate_assessment_report_evidence_response() :: %{
         "errors" => list(assessment_report_evidence_error()),
-        "evidenceIds" => list(String.t())
+        "evidenceIds" => list(String.t() | Atom.t())
       }
 
   """
-  @type batch_disassociate_assessment_report_evidence_response() :: %{String.t() => any()}
+  @type batch_disassociate_assessment_report_evidence_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       create_control_request() :: %{
-        optional("actionPlanInstructions") => String.t(),
-        optional("actionPlanTitle") => String.t(),
-        optional("description") => String.t(),
+        optional("actionPlanInstructions") => String.t() | Atom.t(),
+        optional("actionPlanTitle") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("tags") => map(),
-        optional("testingInformation") => String.t(),
+        optional("testingInformation") => String.t() | Atom.t(),
         required("controlMappingSources") => list(create_control_mapping_source()),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_control_request() :: %{String.t() => any()}
+  @type create_control_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_import_evidence_to_assessment_control_error() :: %{
-        "errorCode" => String.t(),
-        "errorMessage" => String.t(),
+        "errorCode" => String.t() | Atom.t(),
+        "errorMessage" => String.t() | Atom.t(),
         "manualEvidence" => manual_evidence()
       }
 
   """
-  @type batch_import_evidence_to_assessment_control_error() :: %{String.t() => any()}
+  @type batch_import_evidence_to_assessment_control_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2124,7 +2142,7 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type insights_by_assessment() :: %{String.t() => any()}
+  @type insights_by_assessment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2132,25 +2150,25 @@ defmodule AWS.AuditManager do
 
       source_keyword() :: %{
         "keywordInputType" => list(any()),
-        "keywordValue" => String.t()
+        "keywordValue" => String.t() | Atom.t()
       }
 
   """
-  @type source_keyword() :: %{String.t() => any()}
+  @type source_keyword() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_delegation_request() :: %{
-        "comment" => String.t(),
-        "controlSetId" => String.t(),
-        "roleArn" => String.t(),
+        "comment" => String.t() | Atom.t(),
+        "controlSetId" => String.t() | Atom.t(),
+        "roleArn" => String.t() | Atom.t(),
         "roleType" => list(any())
       }
 
   """
-  @type create_delegation_request() :: %{String.t() => any()}
+  @type create_delegation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2179,7 +2197,7 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type update_assessment_status_response() :: %{String.t() => any()}
+  @type update_assessment_status_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2188,31 +2206,31 @@ defmodule AWS.AuditManager do
       change_log() :: %{
         "action" => list(any()),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "objectName" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "objectName" => String.t() | Atom.t(),
         "objectType" => list(any())
       }
 
   """
-  @type change_log() :: %{String.t() => any()}
+  @type change_log() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       control_mapping_source() :: %{
-        "sourceDescription" => String.t(),
+        "sourceDescription" => String.t() | Atom.t(),
         "sourceFrequency" => list(any()),
-        "sourceId" => String.t(),
+        "sourceId" => String.t() | Atom.t(),
         "sourceKeyword" => source_keyword(),
-        "sourceName" => String.t(),
+        "sourceName" => String.t() | Atom.t(),
         "sourceSetUpOption" => list(any()),
         "sourceType" => list(any()),
-        "troubleshootingText" => String.t()
+        "troubleshootingText" => String.t() | Atom.t()
       }
 
   """
-  @type control_mapping_source() :: %{String.t() => any()}
+  @type control_mapping_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2220,11 +2238,11 @@ defmodule AWS.AuditManager do
 
       list_assessment_reports_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_assessment_reports_request() :: %{String.t() => any()}
+  @type list_assessment_reports_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2240,13 +2258,13 @@ defmodule AWS.AuditManager do
   ## Example:
 
       create_assessment_report_request() :: %{
-        optional("description") => String.t(),
-        optional("queryStatement") => String.t(),
-        required("name") => String.t()
+        optional("description") => String.t() | Atom.t(),
+        optional("queryStatement") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_assessment_report_request() :: %{String.t() => any()}
+  @type create_assessment_report_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2266,7 +2284,7 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type get_assessment_framework_response() :: %{String.t() => any()}
+  @type get_assessment_framework_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2274,25 +2292,25 @@ defmodule AWS.AuditManager do
 
       get_evidence_folders_by_assessment_control_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type get_evidence_folders_by_assessment_control_request() :: %{String.t() => any()}
+  @type get_evidence_folders_by_assessment_control_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       assessment_framework() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "controlSets" => list(assessment_control_set()),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "metadata" => framework_metadata()
       }
 
   """
-  @type assessment_framework() :: %{String.t() => any()}
+  @type assessment_framework() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2303,24 +2321,24 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type update_assessment_framework_share_response() :: %{String.t() => any()}
+  @type update_assessment_framework_share_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delegation_metadata() :: %{
-        "assessmentId" => String.t(),
-        "assessmentName" => String.t(),
-        "controlSetName" => String.t(),
+        "assessmentId" => String.t() | Atom.t(),
+        "assessmentName" => String.t() | Atom.t(),
+        "controlSetName" => String.t() | Atom.t(),
         "creationTime" => non_neg_integer(),
-        "id" => String.t(),
-        "roleArn" => String.t(),
+        "id" => String.t() | Atom.t(),
+        "roleArn" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type delegation_metadata() :: %{String.t() => any()}
+  @type delegation_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2328,13 +2346,13 @@ defmodule AWS.AuditManager do
 
       control_insights_metadata_item() :: %{
         "evidenceInsights" => evidence_insights(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "lastUpdated" => non_neg_integer(),
-        "name" => String.t()
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type control_insights_metadata_item() :: %{String.t() => any()}
+  @type control_insights_metadata_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2345,7 +2363,7 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type get_account_status_response() :: %{String.t() => any()}
+  @type get_account_status_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2356,20 +2374,20 @@ defmodule AWS.AuditManager do
       }
 
   """
-  @type get_assessment_report_url_response() :: %{String.t() => any()}
+  @type get_assessment_report_url_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource() :: %{
-        "arn" => String.t(),
-        "complianceCheck" => String.t(),
-        "value" => String.t()
+        "arn" => String.t() | Atom.t(),
+        "complianceCheck" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type resource() :: %{String.t() => any()}
+  @type resource() :: %{String.t() | Atom.t() => any()}
 
   @type associate_assessment_report_evidence_folder_errors() ::
           validation_exception()
@@ -2724,7 +2742,7 @@ defmodule AWS.AuditManager do
   """
   @spec associate_assessment_report_evidence_folder(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           associate_assessment_report_evidence_folder_request(),
           list()
         ) ::
@@ -2764,7 +2782,7 @@ defmodule AWS.AuditManager do
   """
   @spec batch_associate_assessment_report_evidence(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           batch_associate_assessment_report_evidence_request(),
           list()
         ) ::
@@ -2805,7 +2823,7 @@ defmodule AWS.AuditManager do
   """
   @spec batch_create_delegation_by_assessment(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           batch_create_delegation_by_assessment_request(),
           list()
         ) ::
@@ -2844,7 +2862,7 @@ defmodule AWS.AuditManager do
   """
   @spec batch_delete_delegation_by_assessment(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           batch_delete_delegation_by_assessment_request(),
           list()
         ) ::
@@ -2883,7 +2901,7 @@ defmodule AWS.AuditManager do
   """
   @spec batch_disassociate_assessment_report_evidence(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           batch_disassociate_assessment_report_evidence_request(),
           list()
         ) ::
@@ -2951,9 +2969,9 @@ defmodule AWS.AuditManager do
   """
   @spec batch_import_evidence_to_assessment_control(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           batch_import_evidence_to_assessment_control_request(),
           list()
         ) ::
@@ -3052,7 +3070,12 @@ defmodule AWS.AuditManager do
   @doc """
   Creates an assessment report for the specified assessment.
   """
-  @spec create_assessment_report(map(), String.t(), create_assessment_report_request(), list()) ::
+  @spec create_assessment_report(
+          map(),
+          String.t() | Atom.t(),
+          create_assessment_report_request(),
+          list()
+        ) ::
           {:ok, create_assessment_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3110,7 +3133,7 @@ defmodule AWS.AuditManager do
   @doc """
   Deletes an assessment in Audit Manager.
   """
-  @spec delete_assessment(map(), String.t(), delete_assessment_request(), list()) ::
+  @spec delete_assessment(map(), String.t() | Atom.t(), delete_assessment_request(), list()) ::
           {:ok, delete_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3141,7 +3164,7 @@ defmodule AWS.AuditManager do
   """
   @spec delete_assessment_framework(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_assessment_framework_request(),
           list()
         ) ::
@@ -3175,7 +3198,7 @@ defmodule AWS.AuditManager do
   """
   @spec delete_assessment_framework_share(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_assessment_framework_share_request(),
           list()
         ) ::
@@ -3249,8 +3272,8 @@ defmodule AWS.AuditManager do
   """
   @spec delete_assessment_report(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_assessment_report_request(),
           list()
         ) ::
@@ -3297,7 +3320,7 @@ defmodule AWS.AuditManager do
   includes
   assessments that you previously created before you deleted the custom control.
   """
-  @spec delete_control(map(), String.t(), delete_control_request(), list()) ::
+  @spec delete_control(map(), String.t() | Atom.t(), delete_control_request(), list()) ::
           {:ok, delete_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3488,7 +3511,7 @@ defmodule AWS.AuditManager do
   """
   @spec disassociate_assessment_report_evidence_folder(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           disassociate_assessment_report_evidence_folder_request(),
           list()
         ) ::
@@ -3545,7 +3568,7 @@ defmodule AWS.AuditManager do
   @doc """
   Gets information about a specified assessment.
   """
-  @spec get_assessment(map(), String.t(), list()) ::
+  @spec get_assessment(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3563,7 +3586,7 @@ defmodule AWS.AuditManager do
   @doc """
   Gets information about a specified framework.
   """
-  @spec get_assessment_framework(map(), String.t(), list()) ::
+  @spec get_assessment_framework(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_assessment_framework_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3581,7 +3604,7 @@ defmodule AWS.AuditManager do
   @doc """
   Gets the URL of an assessment report in Audit Manager.
   """
-  @spec get_assessment_report_url(map(), String.t(), String.t(), list()) ::
+  @spec get_assessment_report_url(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_assessment_report_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3608,11 +3631,11 @@ defmodule AWS.AuditManager do
   """
   @spec get_change_logs(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, get_change_logs_response(), any()}
@@ -3668,7 +3691,7 @@ defmodule AWS.AuditManager do
   @doc """
   Gets information about a specified control.
   """
-  @spec get_control(map(), String.t(), list()) ::
+  @spec get_control(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3686,7 +3709,7 @@ defmodule AWS.AuditManager do
   @doc """
   Gets a list of delegations from an audit owner to a delegate.
   """
-  @spec get_delegations(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_delegations(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, get_delegations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3718,7 +3741,14 @@ defmodule AWS.AuditManager do
   @doc """
   Gets information about a specified evidence item.
   """
-  @spec get_evidence(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_evidence(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_evidence_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3747,11 +3777,11 @@ defmodule AWS.AuditManager do
   """
   @spec get_evidence_by_evidence_folder(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, get_evidence_by_evidence_folder_response(), any()}
@@ -3816,7 +3846,7 @@ defmodule AWS.AuditManager do
   For more information about Audit Manager service restrictions, see [Quotas and restrictions for Audit
   Manager](https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html).
   """
-  @spec get_evidence_file_upload_url(map(), String.t(), list()) ::
+  @spec get_evidence_file_upload_url(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_evidence_file_upload_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3841,7 +3871,13 @@ defmodule AWS.AuditManager do
   @doc """
   Gets an evidence folder from a specified assessment in Audit Manager.
   """
-  @spec get_evidence_folder(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_evidence_folder(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_evidence_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3869,9 +3905,9 @@ defmodule AWS.AuditManager do
   """
   @spec get_evidence_folders_by_assessment(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, get_evidence_folders_by_assessment_response(), any()}
@@ -3915,11 +3951,11 @@ defmodule AWS.AuditManager do
   """
   @spec get_evidence_folders_by_assessment_control(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, get_evidence_folders_by_assessment_control_response(), any()}
@@ -3981,7 +4017,7 @@ defmodule AWS.AuditManager do
   @doc """
   Gets the latest analytics data for a specific active assessment.
   """
-  @spec get_insights_by_assessment(map(), String.t(), list()) ::
+  @spec get_insights_by_assessment(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_insights_by_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4053,7 +4089,7 @@ defmodule AWS.AuditManager do
   @doc """
   Gets the settings for a specified Amazon Web Services account.
   """
-  @spec get_settings(map(), String.t(), list()) ::
+  @spec get_settings(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4082,10 +4118,10 @@ defmodule AWS.AuditManager do
   """
   @spec list_assessment_control_insights_by_control_domain(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_assessment_control_insights_by_control_domain_response(), any()}
@@ -4143,9 +4179,9 @@ defmodule AWS.AuditManager do
   """
   @spec list_assessment_framework_share_requests(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
           list()
         ) ::
           {:ok, list_assessment_framework_share_requests_response(), any()}
@@ -4194,7 +4230,13 @@ defmodule AWS.AuditManager do
   framework
   library.
   """
-  @spec list_assessment_frameworks(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_assessment_frameworks(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_assessment_frameworks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4239,7 +4281,12 @@ defmodule AWS.AuditManager do
   @doc """
   Returns a list of assessment reports created in Audit Manager.
   """
-  @spec list_assessment_reports(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_assessment_reports(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_assessment_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4276,7 +4323,13 @@ defmodule AWS.AuditManager do
   @doc """
   Returns a list of current and past assessments from Audit Manager.
   """
-  @spec list_assessments(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_assessments(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_assessments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4338,7 +4391,12 @@ defmodule AWS.AuditManager do
   `controlDomainInsights`. If this condition isn’t met, no data is listed
   for that control domain.
   """
-  @spec list_control_domain_insights(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_control_domain_insights(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_control_domain_insights_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4393,9 +4451,9 @@ defmodule AWS.AuditManager do
   """
   @spec list_control_domain_insights_by_assessment(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_control_domain_insights_by_assessment_response(), any()}
@@ -4452,9 +4510,9 @@ defmodule AWS.AuditManager do
   """
   @spec list_control_insights_by_control_domain(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_control_insights_by_control_domain_response(), any()}
@@ -4503,10 +4561,10 @@ defmodule AWS.AuditManager do
   """
   @spec list_controls(
           map(),
-          String.t() | nil,
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_controls_response(), any()}
@@ -4564,9 +4622,9 @@ defmodule AWS.AuditManager do
   """
   @spec list_keywords_for_data_source(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
           list()
         ) ::
           {:ok, list_keywords_for_data_source_response(), any()}
@@ -4613,7 +4671,12 @@ defmodule AWS.AuditManager do
   @doc """
   Returns a list of all Audit Manager notifications.
   """
-  @spec list_notifications(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_notifications(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_notifications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4645,7 +4708,7 @@ defmodule AWS.AuditManager do
   @doc """
   Returns a list of tags for the specified resource in Audit Manager.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4779,7 +4842,7 @@ defmodule AWS.AuditManager do
   """
   @spec start_assessment_framework_share(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           start_assessment_framework_share_request(),
           list()
         ) ::
@@ -4811,7 +4874,7 @@ defmodule AWS.AuditManager do
   @doc """
   Tags the specified resource in Audit Manager.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4840,7 +4903,7 @@ defmodule AWS.AuditManager do
   @doc """
   Removes a tag from a resource in Audit Manager.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4874,7 +4937,7 @@ defmodule AWS.AuditManager do
   @doc """
   Edits an Audit Manager assessment.
   """
-  @spec update_assessment(map(), String.t(), update_assessment_request(), list()) ::
+  @spec update_assessment(map(), String.t() | Atom.t(), update_assessment_request(), list()) ::
           {:ok, update_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4905,9 +4968,9 @@ defmodule AWS.AuditManager do
   """
   @spec update_assessment_control(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_assessment_control_request(),
           list()
         ) ::
@@ -4950,8 +5013,8 @@ defmodule AWS.AuditManager do
   """
   @spec update_assessment_control_set_status(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_assessment_control_set_status_request(),
           list()
         ) ::
@@ -4993,7 +5056,7 @@ defmodule AWS.AuditManager do
   """
   @spec update_assessment_framework(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_assessment_framework_request(),
           list()
         ) ::
@@ -5027,7 +5090,7 @@ defmodule AWS.AuditManager do
   """
   @spec update_assessment_framework_share(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_assessment_framework_share_request(),
           list()
         ) ::
@@ -5059,7 +5122,12 @@ defmodule AWS.AuditManager do
   @doc """
   Updates the status of an assessment in Audit Manager.
   """
-  @spec update_assessment_status(map(), String.t(), update_assessment_status_request(), list()) ::
+  @spec update_assessment_status(
+          map(),
+          String.t() | Atom.t(),
+          update_assessment_status_request(),
+          list()
+        ) ::
           {:ok, update_assessment_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5088,7 +5156,7 @@ defmodule AWS.AuditManager do
   @doc """
   Updates a custom control in Audit Manager.
   """
-  @spec update_control(map(), String.t(), update_control_request(), list()) ::
+  @spec update_control(map(), String.t() | Atom.t(), update_control_request(), list()) ::
           {:ok, update_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

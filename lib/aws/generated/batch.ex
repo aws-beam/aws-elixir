@@ -40,7 +40,7 @@ defmodule AWS.Batch do
       }
 
   """
-  @type ecs_properties_override() :: %{String.t() => any()}
+  @type ecs_properties_override() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -48,11 +48,11 @@ defmodule AWS.Batch do
 
       describe_compute_environments_response() :: %{
         "computeEnvironments" => list(compute_environment_detail()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type describe_compute_environments_response() :: %{String.t() => any()}
+  @type describe_compute_environments_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -60,23 +60,23 @@ defmodule AWS.Batch do
 
       list_scheduling_policies_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_scheduling_policies_request() :: %{String.t() => any()}
+  @type list_scheduling_policies_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_job_request() :: %{
-        required("jobId") => String.t(),
-        required("reason") => String.t()
+        required("jobId") => String.t() | Atom.t(),
+        required("reason") => String.t() | Atom.t()
       }
 
   """
-  @type cancel_job_request() :: %{String.t() => any()}
+  @type cancel_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -85,11 +85,11 @@ defmodule AWS.Batch do
       eks_metadata() :: %{
         "annotations" => map(),
         "labels" => map(),
-        "namespace" => String.t()
+        "namespace" => String.t() | Atom.t()
       }
 
   """
-  @type eks_metadata() :: %{String.t() => any()}
+  @type eks_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -100,7 +100,7 @@ defmodule AWS.Batch do
       }
 
   """
-  @type task_properties_override() :: %{String.t() => any()}
+  @type task_properties_override() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -111,7 +111,7 @@ defmodule AWS.Batch do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -120,41 +120,41 @@ defmodule AWS.Batch do
       list_jobs_by_consumable_resource_summary() :: %{
         "consumableResourceProperties" => consumable_resource_properties(),
         "createdAt" => float(),
-        "jobArn" => String.t(),
-        "jobDefinitionArn" => String.t(),
-        "jobName" => String.t(),
-        "jobQueueArn" => String.t(),
-        "jobStatus" => String.t(),
+        "jobArn" => String.t() | Atom.t(),
+        "jobDefinitionArn" => String.t() | Atom.t(),
+        "jobName" => String.t() | Atom.t(),
+        "jobQueueArn" => String.t() | Atom.t(),
+        "jobStatus" => String.t() | Atom.t(),
         "quantity" => float(),
-        "shareIdentifier" => String.t(),
+        "shareIdentifier" => String.t() | Atom.t(),
         "startedAt" => float(),
-        "statusReason" => String.t()
+        "statusReason" => String.t() | Atom.t()
       }
 
   """
-  @type list_jobs_by_consumable_resource_summary() :: %{String.t() => any()}
+  @type list_jobs_by_consumable_resource_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       deregister_job_definition_request() :: %{
-        required("jobDefinition") => String.t()
+        required("jobDefinition") => String.t() | Atom.t()
       }
 
   """
-  @type deregister_job_definition_request() :: %{String.t() => any()}
+  @type deregister_job_definition_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       fargate_platform_configuration() :: %{
-        "platformVersion" => String.t()
+        "platformVersion" => String.t() | Atom.t()
       }
 
   """
-  @type fargate_platform_configuration() :: %{String.t() => any()}
+  @type fargate_platform_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -162,26 +162,26 @@ defmodule AWS.Batch do
 
       describe_job_definitions_response() :: %{
         "jobDefinitions" => list(job_definition()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type describe_job_definitions_response() :: %{String.t() => any()}
+  @type describe_job_definitions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       container_properties() :: %{
-        "command" => list(String.t()),
+        "command" => list(String.t() | Atom.t()),
         "enableExecuteCommand" => boolean(),
         "environment" => list(key_value_pair()),
         "ephemeralStorage" => ephemeral_storage(),
-        "executionRoleArn" => String.t(),
+        "executionRoleArn" => String.t() | Atom.t(),
         "fargatePlatformConfiguration" => fargate_platform_configuration(),
-        "image" => String.t(),
-        "instanceType" => String.t(),
-        "jobRoleArn" => String.t(),
+        "image" => String.t() | Atom.t(),
+        "instanceType" => String.t() | Atom.t(),
+        "jobRoleArn" => String.t() | Atom.t(),
         "linuxParameters" => linux_parameters(),
         "logConfiguration" => log_configuration(),
         "memory" => integer(),
@@ -194,48 +194,48 @@ defmodule AWS.Batch do
         "runtimePlatform" => runtime_platform(),
         "secrets" => list(secret()),
         "ulimits" => list(ulimit()),
-        "user" => String.t(),
+        "user" => String.t() | Atom.t(),
         "vcpus" => integer(),
         "volumes" => list(volume())
       }
 
   """
-  @type container_properties() :: %{String.t() => any()}
+  @type container_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       eks_host_path() :: %{
-        "path" => String.t()
+        "path" => String.t() | Atom.t()
       }
 
   """
-  @type eks_host_path() :: %{String.t() => any()}
+  @type eks_host_path() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_compute_environment_response() :: %{
-        "computeEnvironmentArn" => String.t(),
-        "computeEnvironmentName" => String.t()
+        "computeEnvironmentArn" => String.t() | Atom.t(),
+        "computeEnvironmentName" => String.t() | Atom.t()
       }
 
   """
-  @type create_compute_environment_response() :: %{String.t() => any()}
+  @type create_compute_environment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       eks_container_environment_variable() :: %{
-        "name" => String.t(),
-        "value" => String.t()
+        "name" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type eks_container_environment_variable() :: %{String.t() => any()}
+  @type eks_container_environment_variable() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -252,27 +252,27 @@ defmodule AWS.Batch do
 
       update_compute_environment_request() :: %{
         optional("computeResources") => compute_resource_update(),
-        optional("context") => String.t(),
-        optional("serviceRole") => String.t(),
+        optional("context") => String.t() | Atom.t(),
+        optional("serviceRole") => String.t() | Atom.t(),
         optional("state") => list(any()),
         optional("unmanagedvCpus") => integer(),
         optional("updatePolicy") => update_policy(),
-        required("computeEnvironment") => String.t()
+        required("computeEnvironment") => String.t() | Atom.t()
       }
 
   """
-  @type update_compute_environment_request() :: %{String.t() => any()}
+  @type update_compute_environment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_job_queue_snapshot_request() :: %{
-        required("jobQueue") => String.t()
+        required("jobQueue") => String.t() | Atom.t()
       }
 
   """
-  @type get_job_queue_snapshot_request() :: %{String.t() => any()}
+  @type get_job_queue_snapshot_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -283,73 +283,73 @@ defmodule AWS.Batch do
       }
 
   """
-  @type job_timeout() :: %{String.t() => any()}
+  @type job_timeout() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       scheduling_policy_detail() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "fairsharePolicy" => fairshare_policy(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "tags" => map()
       }
 
   """
-  @type scheduling_policy_detail() :: %{String.t() => any()}
+  @type scheduling_policy_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_jobs_request() :: %{
-        optional("arrayJobId") => String.t(),
+        optional("arrayJobId") => String.t() | Atom.t(),
         optional("filters") => list(key_values_pair()),
-        optional("jobQueue") => String.t(),
+        optional("jobQueue") => String.t() | Atom.t(),
         optional("jobStatus") => list(any()),
         optional("maxResults") => integer(),
-        optional("multiNodeJobId") => String.t(),
-        optional("nextToken") => String.t()
+        optional("multiNodeJobId") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_jobs_request() :: %{String.t() => any()}
+  @type list_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_scheduling_policy_request() :: %{
-        required("arn") => String.t()
+        required("arn") => String.t() | Atom.t()
       }
 
   """
-  @type delete_scheduling_policy_request() :: %{String.t() => any()}
+  @type delete_scheduling_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       image_pull_secret() :: %{
-        "name" => String.t()
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type image_pull_secret() :: %{String.t() => any()}
+  @type image_pull_secret() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       ec2_configuration() :: %{
-        "imageIdOverride" => String.t(),
-        "imageKubernetesVersion" => String.t(),
-        "imageType" => String.t()
+        "imageIdOverride" => String.t() | Atom.t(),
+        "imageKubernetesVersion" => String.t() | Atom.t(),
+        "imageType" => String.t() | Atom.t()
       }
 
   """
-  @type ec2_configuration() :: %{String.t() => any()}
+  @type ec2_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -367,11 +367,11 @@ defmodule AWS.Batch do
       create_scheduling_policy_request() :: %{
         optional("fairsharePolicy") => fairshare_policy(),
         optional("tags") => map(),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_scheduling_policy_request() :: %{String.t() => any()}
+  @type create_scheduling_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -382,41 +382,41 @@ defmodule AWS.Batch do
         "containerOverrides" => container_overrides(),
         "ecsPropertiesOverride" => ecs_properties_override(),
         "eksPropertiesOverride" => eks_properties_override(),
-        "instanceTypes" => list(String.t()),
-        "targetNodes" => String.t()
+        "instanceTypes" => list(String.t() | Atom.t()),
+        "targetNodes" => String.t() | Atom.t()
       }
 
   """
-  @type node_property_override() :: %{String.t() => any()}
+  @type node_property_override() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       network_interface() :: %{
-        "attachmentId" => String.t(),
-        "ipv6Address" => String.t(),
-        "privateIpv4Address" => String.t()
+        "attachmentId" => String.t() | Atom.t(),
+        "ipv6Address" => String.t() | Atom.t(),
+        "privateIpv4Address" => String.t() | Atom.t()
       }
 
   """
-  @type network_interface() :: %{String.t() => any()}
+  @type network_interface() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       eks_container_override() :: %{
-        "args" => list(String.t()),
-        "command" => list(String.t()),
+        "args" => list(String.t() | Atom.t()),
+        "command" => list(String.t() | Atom.t()),
         "env" => list(eks_container_environment_variable()),
-        "image" => String.t(),
-        "name" => String.t(),
+        "image" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "resources" => eks_container_resource_requirements()
       }
 
   """
-  @type eks_container_override() :: %{String.t() => any()}
+  @type eks_container_override() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -424,11 +424,11 @@ defmodule AWS.Batch do
 
       list_jobs_response() :: %{
         "jobSummaryList" => list(job_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_jobs_response() :: %{String.t() => any()}
+  @type list_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -436,14 +436,14 @@ defmodule AWS.Batch do
 
       attempt_task_container_details() :: %{
         "exitCode" => integer(),
-        "logStreamName" => String.t(),
-        "name" => String.t(),
+        "logStreamName" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "networkInterfaces" => list(network_interface()),
-        "reason" => String.t()
+        "reason" => String.t() | Atom.t()
       }
 
   """
-  @type attempt_task_container_details() :: %{String.t() => any()}
+  @type attempt_task_container_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -454,7 +454,7 @@ defmodule AWS.Batch do
       }
 
   """
-  @type describe_scheduling_policies_response() :: %{String.t() => any()}
+  @type describe_scheduling_policies_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -466,7 +466,7 @@ defmodule AWS.Batch do
       }
 
   """
-  @type update_policy() :: %{String.t() => any()}
+  @type update_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -474,44 +474,44 @@ defmodule AWS.Batch do
 
       job_queue_detail() :: %{
         "computeEnvironmentOrder" => list(compute_environment_order()),
-        "jobQueueArn" => String.t(),
-        "jobQueueName" => String.t(),
+        "jobQueueArn" => String.t() | Atom.t(),
+        "jobQueueName" => String.t() | Atom.t(),
         "jobStateTimeLimitActions" => list(job_state_time_limit_action()),
         "priority" => integer(),
-        "schedulingPolicyArn" => String.t(),
+        "schedulingPolicyArn" => String.t() | Atom.t(),
         "state" => list(any()),
         "status" => list(any()),
-        "statusReason" => String.t(),
+        "statusReason" => String.t() | Atom.t(),
         "tags" => map()
       }
 
   """
-  @type job_queue_detail() :: %{String.t() => any()}
+  @type job_queue_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_consumable_resource_request() :: %{
-        optional("resourceType") => String.t(),
+        optional("resourceType") => String.t() | Atom.t(),
         optional("tags") => map(),
         optional("totalQuantity") => float(),
-        required("consumableResourceName") => String.t()
+        required("consumableResourceName") => String.t() | Atom.t()
       }
 
   """
-  @type create_consumable_resource_request() :: %{String.t() => any()}
+  @type create_consumable_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -531,35 +531,35 @@ defmodule AWS.Batch do
       }
 
   """
-  @type ecs_properties() :: %{String.t() => any()}
+  @type ecs_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       register_job_definition_response() :: %{
-        "jobDefinitionArn" => String.t(),
-        "jobDefinitionName" => String.t(),
+        "jobDefinitionArn" => String.t() | Atom.t(),
+        "jobDefinitionName" => String.t() | Atom.t(),
         "revision" => integer()
       }
 
   """
-  @type register_job_definition_response() :: %{String.t() => any()}
+  @type register_job_definition_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_job_definitions_request() :: %{
-        optional("jobDefinitionName") => String.t(),
-        optional("jobDefinitions") => list(String.t()),
+        optional("jobDefinitionName") => String.t() | Atom.t(),
+        optional("jobDefinitions") => list(String.t() | Atom.t()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("status") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("status") => String.t() | Atom.t()
       }
 
   """
-  @type describe_job_definitions_request() :: %{String.t() => any()}
+  @type describe_job_definitions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -567,79 +567,79 @@ defmodule AWS.Batch do
 
       create_compute_environment_request() :: %{
         optional("computeResources") => compute_resource(),
-        optional("context") => String.t(),
+        optional("context") => String.t() | Atom.t(),
         optional("eksConfiguration") => eks_configuration(),
-        optional("serviceRole") => String.t(),
+        optional("serviceRole") => String.t() | Atom.t(),
         optional("state") => list(any()),
         optional("tags") => map(),
         optional("unmanagedvCpus") => integer(),
-        required("computeEnvironmentName") => String.t(),
+        required("computeEnvironmentName") => String.t() | Atom.t(),
         required("type") => list(any())
       }
 
   """
-  @type create_compute_environment_request() :: %{String.t() => any()}
+  @type create_compute_environment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       mount_point() :: %{
-        "containerPath" => String.t(),
+        "containerPath" => String.t() | Atom.t(),
         "readOnly" => boolean(),
-        "sourceVolume" => String.t()
+        "sourceVolume" => String.t() | Atom.t()
       }
 
   """
-  @type mount_point() :: %{String.t() => any()}
+  @type mount_point() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       attempt_ecs_task_details() :: %{
-        "containerInstanceArn" => String.t(),
+        "containerInstanceArn" => String.t() | Atom.t(),
         "containers" => list(attempt_task_container_details()),
-        "taskArn" => String.t()
+        "taskArn" => String.t() | Atom.t()
       }
 
   """
-  @type attempt_ecs_task_details() :: %{String.t() => any()}
+  @type attempt_ecs_task_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       task_container_overrides() :: %{
-        "command" => list(String.t()),
+        "command" => list(String.t() | Atom.t()),
         "environment" => list(key_value_pair()),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "resourceRequirements" => list(resource_requirement())
       }
 
   """
-  @type task_container_overrides() :: %{String.t() => any()}
+  @type task_container_overrides() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       eks_container_detail() :: %{
-        "args" => list(String.t()),
-        "command" => list(String.t()),
+        "args" => list(String.t() | Atom.t()),
+        "command" => list(String.t() | Atom.t()),
         "env" => list(eks_container_environment_variable()),
         "exitCode" => integer(),
-        "image" => String.t(),
-        "imagePullPolicy" => String.t(),
-        "name" => String.t(),
-        "reason" => String.t(),
+        "image" => String.t() | Atom.t(),
+        "imagePullPolicy" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "reason" => String.t() | Atom.t(),
         "resources" => eks_container_resource_requirements(),
         "securityContext" => eks_container_security_context(),
         "volumeMounts" => list(eks_container_volume_mount())
       }
 
   """
-  @type eks_container_detail() :: %{String.t() => any()}
+  @type eks_container_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -650,19 +650,19 @@ defmodule AWS.Batch do
       }
 
   """
-  @type eks_properties_override() :: %{String.t() => any()}
+  @type eks_properties_override() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_scheduling_policy_response() :: %{
-        "arn" => String.t(),
-        "name" => String.t()
+        "arn" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type create_scheduling_policy_response() :: %{String.t() => any()}
+  @type create_scheduling_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -671,12 +671,12 @@ defmodule AWS.Batch do
       list_jobs_by_consumable_resource_request() :: %{
         optional("filters") => list(key_values_pair()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("consumableResource") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("consumableResource") => String.t() | Atom.t()
       }
 
   """
-  @type list_jobs_by_consumable_resource_request() :: %{String.t() => any()}
+  @type list_jobs_by_consumable_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -686,42 +686,42 @@ defmodule AWS.Batch do
         "arrayProperties" => array_properties_summary(),
         "container" => container_summary(),
         "createdAt" => float(),
-        "jobArn" => String.t(),
-        "jobDefinition" => String.t(),
-        "jobId" => String.t(),
-        "jobName" => String.t(),
+        "jobArn" => String.t() | Atom.t(),
+        "jobDefinition" => String.t() | Atom.t(),
+        "jobId" => String.t() | Atom.t(),
+        "jobName" => String.t() | Atom.t(),
         "nodeProperties" => node_properties_summary(),
         "startedAt" => float(),
         "status" => list(any()),
-        "statusReason" => String.t(),
+        "statusReason" => String.t() | Atom.t(),
         "stoppedAt" => float()
       }
 
   """
-  @type job_summary() :: %{String.t() => any()}
+  @type job_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_scheduling_policies_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "schedulingPolicies" => list(scheduling_policy_listing_detail())
       }
 
   """
-  @type list_scheduling_policies_response() :: %{String.t() => any()}
+  @type list_scheduling_policies_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_compute_environment_request() :: %{
-        required("computeEnvironment") => String.t()
+        required("computeEnvironment") => String.t() | Atom.t()
       }
 
   """
-  @type delete_compute_environment_request() :: %{String.t() => any()}
+  @type delete_compute_environment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -731,72 +731,72 @@ defmodule AWS.Batch do
         "containers" => list(task_container_properties()),
         "enableExecuteCommand" => boolean(),
         "ephemeralStorage" => ephemeral_storage(),
-        "executionRoleArn" => String.t(),
-        "ipcMode" => String.t(),
+        "executionRoleArn" => String.t() | Atom.t(),
+        "ipcMode" => String.t() | Atom.t(),
         "networkConfiguration" => network_configuration(),
-        "pidMode" => String.t(),
-        "platformVersion" => String.t(),
+        "pidMode" => String.t() | Atom.t(),
+        "platformVersion" => String.t() | Atom.t(),
         "runtimePlatform" => runtime_platform(),
-        "taskRoleArn" => String.t(),
+        "taskRoleArn" => String.t() | Atom.t(),
         "volumes" => list(volume())
       }
 
   """
-  @type ecs_task_properties() :: %{String.t() => any()}
+  @type ecs_task_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       task_container_details() :: %{
-        "command" => list(String.t()),
+        "command" => list(String.t() | Atom.t()),
         "dependsOn" => list(task_container_dependency()),
         "environment" => list(key_value_pair()),
         "essential" => boolean(),
         "exitCode" => integer(),
         "firelensConfiguration" => firelens_configuration(),
-        "image" => String.t(),
+        "image" => String.t() | Atom.t(),
         "linuxParameters" => linux_parameters(),
         "logConfiguration" => log_configuration(),
-        "logStreamName" => String.t(),
+        "logStreamName" => String.t() | Atom.t(),
         "mountPoints" => list(mount_point()),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "networkInterfaces" => list(network_interface()),
         "privileged" => boolean(),
         "readonlyRootFilesystem" => boolean(),
-        "reason" => String.t(),
+        "reason" => String.t() | Atom.t(),
         "repositoryCredentials" => repository_credentials(),
         "resourceRequirements" => list(resource_requirement()),
         "secrets" => list(secret()),
         "ulimits" => list(ulimit()),
-        "user" => String.t()
+        "user" => String.t() | Atom.t()
       }
 
   """
-  @type task_container_details() :: %{String.t() => any()}
+  @type task_container_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       client_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type client_exception() :: %{String.t() => any()}
+  @type client_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_job_queue_response() :: %{
-        "jobQueueArn" => String.t(),
-        "jobQueueName" => String.t()
+        "jobQueueArn" => String.t() | Atom.t(),
+        "jobQueueName" => String.t() | Atom.t()
       }
 
   """
-  @type create_job_queue_response() :: %{String.t() => any()}
+  @type create_job_queue_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -804,12 +804,12 @@ defmodule AWS.Batch do
 
       ulimit() :: %{
         "hardLimit" => integer(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "softLimit" => integer()
       }
 
   """
-  @type ulimit() :: %{String.t() => any()}
+  @type ulimit() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -817,13 +817,13 @@ defmodule AWS.Batch do
 
       evaluate_on_exit() :: %{
         "action" => list(any()),
-        "onExitCode" => String.t(),
-        "onReason" => String.t(),
-        "onStatusReason" => String.t()
+        "onExitCode" => String.t() | Atom.t(),
+        "onReason" => String.t() | Atom.t(),
+        "onStatusReason" => String.t() | Atom.t()
       }
 
   """
-  @type evaluate_on_exit() :: %{String.t() => any()}
+  @type evaluate_on_exit() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -832,13 +832,13 @@ defmodule AWS.Batch do
       attempt_detail() :: %{
         "container" => attempt_container_detail(),
         "startedAt" => float(),
-        "statusReason" => String.t(),
+        "statusReason" => String.t() | Atom.t(),
         "stoppedAt" => float(),
         "taskProperties" => list(attempt_ecs_task_details())
       }
 
   """
-  @type attempt_detail() :: %{String.t() => any()}
+  @type attempt_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -857,12 +857,12 @@ defmodule AWS.Batch do
         optional("schedulingPriority") => integer(),
         optional("tags") => map(),
         optional("timeout") => job_timeout(),
-        required("jobDefinitionName") => String.t(),
+        required("jobDefinitionName") => String.t() | Atom.t(),
         required("type") => list(any())
       }
 
   """
-  @type register_job_definition_request() :: %{String.t() => any()}
+  @type register_job_definition_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -889,44 +889,44 @@ defmodule AWS.Batch do
         optional("propagateTags") => boolean(),
         optional("retryStrategy") => retry_strategy(),
         optional("schedulingPriorityOverride") => integer(),
-        optional("shareIdentifier") => String.t(),
+        optional("shareIdentifier") => String.t() | Atom.t(),
         optional("tags") => map(),
         optional("timeout") => job_timeout(),
-        required("jobDefinition") => String.t(),
-        required("jobName") => String.t(),
-        required("jobQueue") => String.t()
+        required("jobDefinition") => String.t() | Atom.t(),
+        required("jobName") => String.t() | Atom.t(),
+        required("jobQueue") => String.t() | Atom.t()
       }
 
   """
-  @type submit_job_request() :: %{String.t() => any()}
+  @type submit_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       key_values_pair() :: %{
-        "name" => String.t(),
-        "values" => list(String.t())
+        "name" => String.t() | Atom.t(),
+        "values" => list(String.t() | Atom.t())
       }
 
   """
-  @type key_values_pair() :: %{String.t() => any()}
+  @type key_values_pair() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       attempt_container_detail() :: %{
-        "containerInstanceArn" => String.t(),
+        "containerInstanceArn" => String.t() | Atom.t(),
         "exitCode" => integer(),
-        "logStreamName" => String.t(),
+        "logStreamName" => String.t() | Atom.t(),
         "networkInterfaces" => list(network_interface()),
-        "reason" => String.t(),
-        "taskArn" => String.t()
+        "reason" => String.t() | Atom.t(),
+        "taskArn" => String.t() | Atom.t()
       }
 
   """
-  @type attempt_container_detail() :: %{String.t() => any()}
+  @type attempt_container_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -934,11 +934,11 @@ defmodule AWS.Batch do
 
       list_consumable_resources_response() :: %{
         "consumableResources" => list(consumable_resource_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_consumable_resources_response() :: %{String.t() => any()}
+  @type list_consumable_resources_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -948,36 +948,36 @@ defmodule AWS.Batch do
         optional("computeEnvironmentOrder") => list(compute_environment_order()),
         optional("jobStateTimeLimitActions") => list(job_state_time_limit_action()),
         optional("priority") => integer(),
-        optional("schedulingPolicyArn") => String.t(),
+        optional("schedulingPolicyArn") => String.t() | Atom.t(),
         optional("state") => list(any()),
-        required("jobQueue") => String.t()
+        required("jobQueue") => String.t() | Atom.t()
       }
 
   """
-  @type update_job_queue_request() :: %{String.t() => any()}
+  @type update_job_queue_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       ecs_task_details() :: %{
-        "containerInstanceArn" => String.t(),
+        "containerInstanceArn" => String.t() | Atom.t(),
         "containers" => list(task_container_details()),
         "enableExecuteCommand" => boolean(),
         "ephemeralStorage" => ephemeral_storage(),
-        "executionRoleArn" => String.t(),
-        "ipcMode" => String.t(),
+        "executionRoleArn" => String.t() | Atom.t(),
+        "ipcMode" => String.t() | Atom.t(),
         "networkConfiguration" => network_configuration(),
-        "pidMode" => String.t(),
-        "platformVersion" => String.t(),
+        "pidMode" => String.t() | Atom.t(),
+        "platformVersion" => String.t() | Atom.t(),
         "runtimePlatform" => runtime_platform(),
-        "taskArn" => String.t(),
-        "taskRoleArn" => String.t(),
+        "taskArn" => String.t() | Atom.t(),
+        "taskRoleArn" => String.t() | Atom.t(),
         "volumes" => list(volume())
       }
 
   """
-  @type ecs_task_details() :: %{String.t() => any()}
+  @type ecs_task_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -985,47 +985,47 @@ defmodule AWS.Batch do
 
       describe_job_queues_response() :: %{
         "jobQueues" => list(job_queue_detail()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type describe_job_queues_response() :: %{String.t() => any()}
+  @type describe_job_queues_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       eks_configuration() :: %{
-        "eksClusterArn" => String.t(),
-        "kubernetesNamespace" => String.t()
+        "eksClusterArn" => String.t() | Atom.t(),
+        "kubernetesNamespace" => String.t() | Atom.t()
       }
 
   """
-  @type eks_configuration() :: %{String.t() => any()}
+  @type eks_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       secret() :: %{
-        "name" => String.t(),
-        "valueFrom" => String.t()
+        "name" => String.t() | Atom.t(),
+        "valueFrom" => String.t() | Atom.t()
       }
 
   """
-  @type secret() :: %{String.t() => any()}
+  @type secret() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       share_attributes() :: %{
-        "shareIdentifier" => String.t(),
+        "shareIdentifier" => String.t() | Atom.t(),
         "weightFactor" => float()
       }
 
   """
-  @type share_attributes() :: %{String.t() => any()}
+  @type share_attributes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1038,19 +1038,19 @@ defmodule AWS.Batch do
       }
 
   """
-  @type fairshare_policy() :: %{String.t() => any()}
+  @type fairshare_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       terminate_job_request() :: %{
-        required("jobId") => String.t(),
-        required("reason") => String.t()
+        required("jobId") => String.t() | Atom.t(),
+        required("reason") => String.t() | Atom.t()
       }
 
   """
-  @type terminate_job_request() :: %{String.t() => any()}
+  @type terminate_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1059,13 +1059,13 @@ defmodule AWS.Batch do
       eks_volume() :: %{
         "emptyDir" => eks_empty_dir(),
         "hostPath" => eks_host_path(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "persistentVolumeClaim" => eks_persistent_volume_claim(),
         "secret" => eks_secret()
       }
 
   """
-  @type eks_volume() :: %{String.t() => any()}
+  @type eks_volume() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1077,8 +1077,8 @@ defmodule AWS.Batch do
         "containerProperties" => container_properties(),
         "ecsProperties" => ecs_properties(),
         "eksProperties" => eks_properties(),
-        "jobDefinitionArn" => String.t(),
-        "jobDefinitionName" => String.t(),
+        "jobDefinitionArn" => String.t() | Atom.t(),
+        "jobDefinitionName" => String.t() | Atom.t(),
         "nodeProperties" => node_properties(),
         "parameters" => map(),
         "platformCapabilities" => list(list(any())()),
@@ -1086,14 +1086,14 @@ defmodule AWS.Batch do
         "retryStrategy" => retry_strategy(),
         "revision" => integer(),
         "schedulingPriority" => integer(),
-        "status" => String.t(),
+        "status" => String.t() | Atom.t(),
         "tags" => map(),
         "timeout" => job_timeout(),
-        "type" => String.t()
+        "type" => String.t() | Atom.t()
       }
 
   """
-  @type job_definition() :: %{String.t() => any()}
+  @type job_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1104,7 +1104,7 @@ defmodule AWS.Batch do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1112,11 +1112,11 @@ defmodule AWS.Batch do
 
       front_of_queue_job_summary() :: %{
         "earliestTimeAtPosition" => float(),
-        "jobArn" => String.t()
+        "jobArn" => String.t() | Atom.t()
       }
 
   """
-  @type front_of_queue_job_summary() :: %{String.t() => any()}
+  @type front_of_queue_job_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1124,22 +1124,22 @@ defmodule AWS.Batch do
 
       container_summary() :: %{
         "exitCode" => integer(),
-        "reason" => String.t()
+        "reason" => String.t() | Atom.t()
       }
 
   """
-  @type container_summary() :: %{String.t() => any()}
+  @type container_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_consumable_resource_request() :: %{
-        required("consumableResource") => String.t()
+        required("consumableResource") => String.t() | Atom.t()
       }
 
   """
-  @type delete_consumable_resource_request() :: %{String.t() => any()}
+  @type delete_consumable_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1150,20 +1150,20 @@ defmodule AWS.Batch do
       }
 
   """
-  @type ephemeral_storage() :: %{String.t() => any()}
+  @type ephemeral_storage() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_consumable_resource_response() :: %{
-        "consumableResourceArn" => String.t(),
-        "consumableResourceName" => String.t(),
+        "consumableResourceArn" => String.t() | Atom.t(),
+        "consumableResourceName" => String.t() | Atom.t(),
         "totalQuantity" => float()
       }
 
   """
-  @type update_consumable_resource_response() :: %{String.t() => any()}
+  @type update_consumable_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1174,7 +1174,7 @@ defmodule AWS.Batch do
       }
 
   """
-  @type eks_properties() :: %{String.t() => any()}
+  @type eks_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1182,18 +1182,18 @@ defmodule AWS.Batch do
 
       eks_attempt_detail() :: %{
         "containers" => list(eks_attempt_container_detail()),
-        "eksClusterArn" => String.t(),
+        "eksClusterArn" => String.t() | Atom.t(),
         "initContainers" => list(eks_attempt_container_detail()),
-        "nodeName" => String.t(),
-        "podName" => String.t(),
-        "podNamespace" => String.t(),
+        "nodeName" => String.t() | Atom.t(),
+        "podName" => String.t() | Atom.t(),
+        "podNamespace" => String.t() | Atom.t(),
         "startedAt" => float(),
-        "statusReason" => String.t(),
+        "statusReason" => String.t() | Atom.t(),
         "stoppedAt" => float()
       }
 
   """
-  @type eks_attempt_detail() :: %{String.t() => any()}
+  @type eks_attempt_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1201,11 +1201,11 @@ defmodule AWS.Batch do
 
       eks_secret() :: %{
         "optional" => boolean(),
-        "secretName" => String.t()
+        "secretName" => String.t() | Atom.t()
       }
 
   """
-  @type eks_secret() :: %{String.t() => any()}
+  @type eks_secret() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1216,30 +1216,30 @@ defmodule AWS.Batch do
       }
 
   """
-  @type get_job_queue_snapshot_response() :: %{String.t() => any()}
+  @type get_job_queue_snapshot_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       host() :: %{
-        "sourcePath" => String.t()
+        "sourcePath" => String.t() | Atom.t()
       }
 
   """
-  @type host() :: %{String.t() => any()}
+  @type host() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       compute_environment_order() :: %{
-        "computeEnvironment" => String.t(),
+        "computeEnvironment" => String.t() | Atom.t(),
         "order" => integer()
       }
 
   """
-  @type compute_environment_order() :: %{String.t() => any()}
+  @type compute_environment_order() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1247,11 +1247,11 @@ defmodule AWS.Batch do
 
       update_scheduling_policy_request() :: %{
         optional("fairsharePolicy") => fairshare_policy(),
-        required("arn") => String.t()
+        required("arn") => String.t() | Atom.t()
       }
 
   """
-  @type update_scheduling_policy_request() :: %{String.t() => any()}
+  @type update_scheduling_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1262,23 +1262,23 @@ defmodule AWS.Batch do
         "bidPercentage" => integer(),
         "desiredvCpus" => integer(),
         "ec2Configuration" => list(ec2_configuration()),
-        "ec2KeyPair" => String.t(),
-        "imageId" => String.t(),
-        "instanceRole" => String.t(),
-        "instanceTypes" => list(String.t()),
+        "ec2KeyPair" => String.t() | Atom.t(),
+        "imageId" => String.t() | Atom.t(),
+        "instanceRole" => String.t() | Atom.t(),
+        "instanceTypes" => list(String.t() | Atom.t()),
         "launchTemplate" => launch_template_specification(),
         "maxvCpus" => integer(),
         "minvCpus" => integer(),
-        "placementGroup" => String.t(),
-        "securityGroupIds" => list(String.t()),
-        "subnets" => list(String.t()),
+        "placementGroup" => String.t() | Atom.t(),
+        "securityGroupIds" => list(String.t() | Atom.t()),
+        "subnets" => list(String.t() | Atom.t()),
         "tags" => map(),
         "type" => list(any()),
         "updateToLatestImageVersion" => boolean()
       }
 
   """
-  @type compute_resource_update() :: %{String.t() => any()}
+  @type compute_resource_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1294,48 +1294,48 @@ defmodule AWS.Batch do
       }
 
   """
-  @type eks_container_security_context() :: %{String.t() => any()}
+  @type eks_container_security_context() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       e_f_s_authorization_config() :: %{
-        "accessPointId" => String.t(),
+        "accessPointId" => String.t() | Atom.t(),
         "iam" => list(any())
       }
 
   """
-  @type e_f_s_authorization_config() :: %{String.t() => any()}
+  @type e_f_s_authorization_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       submit_job_response() :: %{
-        "jobArn" => String.t(),
-        "jobId" => String.t(),
-        "jobName" => String.t()
+        "jobArn" => String.t() | Atom.t(),
+        "jobId" => String.t() | Atom.t(),
+        "jobName" => String.t() | Atom.t()
       }
 
   """
-  @type submit_job_response() :: %{String.t() => any()}
+  @type submit_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       container_overrides() :: %{
-        "command" => list(String.t()),
+        "command" => list(String.t() | Atom.t()),
         "environment" => list(key_value_pair()),
-        "instanceType" => String.t(),
+        "instanceType" => String.t() | Atom.t(),
         "memory" => integer(),
         "resourceRequirements" => list(resource_requirement()),
         "vcpus" => integer()
       }
 
   """
-  @type container_overrides() :: %{String.t() => any()}
+  @type container_overrides() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1347,7 +1347,7 @@ defmodule AWS.Batch do
       }
 
   """
-  @type front_of_queue_detail() :: %{String.t() => any()}
+  @type front_of_queue_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1355,54 +1355,54 @@ defmodule AWS.Batch do
 
       e_f_s_volume_configuration() :: %{
         "authorizationConfig" => e_f_s_authorization_config(),
-        "fileSystemId" => String.t(),
-        "rootDirectory" => String.t(),
+        "fileSystemId" => String.t() | Atom.t(),
+        "rootDirectory" => String.t() | Atom.t(),
         "transitEncryption" => list(any()),
         "transitEncryptionPort" => integer()
       }
 
   """
-  @type e_f_s_volume_configuration() :: %{String.t() => any()}
+  @type e_f_s_volume_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       container_detail() :: %{
-        "command" => list(String.t()),
-        "containerInstanceArn" => String.t(),
+        "command" => list(String.t() | Atom.t()),
+        "containerInstanceArn" => String.t() | Atom.t(),
         "enableExecuteCommand" => boolean(),
         "environment" => list(key_value_pair()),
         "ephemeralStorage" => ephemeral_storage(),
-        "executionRoleArn" => String.t(),
+        "executionRoleArn" => String.t() | Atom.t(),
         "exitCode" => integer(),
         "fargatePlatformConfiguration" => fargate_platform_configuration(),
-        "image" => String.t(),
-        "instanceType" => String.t(),
-        "jobRoleArn" => String.t(),
+        "image" => String.t() | Atom.t(),
+        "instanceType" => String.t() | Atom.t(),
+        "jobRoleArn" => String.t() | Atom.t(),
         "linuxParameters" => linux_parameters(),
         "logConfiguration" => log_configuration(),
-        "logStreamName" => String.t(),
+        "logStreamName" => String.t() | Atom.t(),
         "memory" => integer(),
         "mountPoints" => list(mount_point()),
         "networkConfiguration" => network_configuration(),
         "networkInterfaces" => list(network_interface()),
         "privileged" => boolean(),
         "readonlyRootFilesystem" => boolean(),
-        "reason" => String.t(),
+        "reason" => String.t() | Atom.t(),
         "repositoryCredentials" => repository_credentials(),
         "resourceRequirements" => list(resource_requirement()),
         "runtimePlatform" => runtime_platform(),
         "secrets" => list(secret()),
-        "taskArn" => String.t(),
+        "taskArn" => String.t() | Atom.t(),
         "ulimits" => list(ulimit()),
-        "user" => String.t(),
+        "user" => String.t() | Atom.t(),
         "vcpus" => integer(),
         "volumes" => list(volume())
       }
 
   """
-  @type container_detail() :: %{String.t() => any()}
+  @type container_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1413,32 +1413,32 @@ defmodule AWS.Batch do
       }
 
   """
-  @type network_configuration() :: %{String.t() => any()}
+  @type network_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_consumable_resource_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("operation") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("operation") => String.t() | Atom.t(),
         optional("quantity") => float(),
-        required("consumableResource") => String.t()
+        required("consumableResource") => String.t() | Atom.t()
       }
 
   """
-  @type update_consumable_resource_request() :: %{String.t() => any()}
+  @type update_consumable_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       scheduling_policy_listing_detail() :: %{
-        "arn" => String.t()
+        "arn" => String.t() | Atom.t()
       }
 
   """
-  @type scheduling_policy_listing_detail() :: %{String.t() => any()}
+  @type scheduling_policy_listing_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1454,25 +1454,25 @@ defmodule AWS.Batch do
   ## Example:
 
       describe_compute_environments_request() :: %{
-        optional("computeEnvironments") => list(String.t()),
+        optional("computeEnvironments") => list(String.t() | Atom.t()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type describe_compute_environments_request() :: %{String.t() => any()}
+  @type describe_compute_environments_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       consumable_resource_requirement() :: %{
-        "consumableResource" => String.t(),
+        "consumableResource" => String.t() | Atom.t(),
         "quantity" => float()
       }
 
   """
-  @type consumable_resource_requirement() :: %{String.t() => any()}
+  @type consumable_resource_requirement() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1484,7 +1484,7 @@ defmodule AWS.Batch do
       }
 
   """
-  @type node_overrides() :: %{String.t() => any()}
+  @type node_overrides() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1493,11 +1493,11 @@ defmodule AWS.Batch do
       volume() :: %{
         "efsVolumeConfiguration" => e_f_s_volume_configuration(),
         "host" => host(),
-        "name" => String.t()
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type volume() :: %{String.t() => any()}
+  @type volume() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1505,29 +1505,29 @@ defmodule AWS.Batch do
 
       describe_consumable_resource_response() :: %{
         "availableQuantity" => float(),
-        "consumableResourceArn" => String.t(),
-        "consumableResourceName" => String.t(),
+        "consumableResourceArn" => String.t() | Atom.t(),
+        "consumableResourceName" => String.t() | Atom.t(),
         "createdAt" => float(),
         "inUseQuantity" => float(),
-        "resourceType" => String.t(),
+        "resourceType" => String.t() | Atom.t(),
         "tags" => map(),
         "totalQuantity" => float()
       }
 
   """
-  @type describe_consumable_resource_response() :: %{String.t() => any()}
+  @type describe_consumable_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       job_dependency() :: %{
-        "jobId" => String.t(),
+        "jobId" => String.t() | Atom.t(),
         "type" => list(any())
       }
 
   """
-  @type job_dependency() :: %{String.t() => any()}
+  @type job_dependency() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1547,7 +1547,7 @@ defmodule AWS.Batch do
       }
 
   """
-  @type array_properties() :: %{String.t() => any()}
+  @type array_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1558,38 +1558,38 @@ defmodule AWS.Batch do
         "container" => container_properties(),
         "ecsProperties" => ecs_properties(),
         "eksProperties" => eks_properties(),
-        "instanceTypes" => list(String.t()),
-        "targetNodes" => String.t()
+        "instanceTypes" => list(String.t() | Atom.t()),
+        "targetNodes" => String.t() | Atom.t()
       }
 
   """
-  @type node_range_property() :: %{String.t() => any()}
+  @type node_range_property() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       eks_attempt_container_detail() :: %{
-        "containerID" => String.t(),
+        "containerID" => String.t() | Atom.t(),
         "exitCode" => integer(),
-        "name" => String.t(),
-        "reason" => String.t()
+        "name" => String.t() | Atom.t(),
+        "reason" => String.t() | Atom.t()
       }
 
   """
-  @type eks_attempt_container_detail() :: %{String.t() => any()}
+  @type eks_attempt_container_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       eks_persistent_volume_claim() :: %{
-        "claimName" => String.t(),
+        "claimName" => String.t() | Atom.t(),
         "readOnly" => boolean()
       }
 
   """
-  @type eks_persistent_volume_claim() :: %{String.t() => any()}
+  @type eks_persistent_volume_claim() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1600,19 +1600,19 @@ defmodule AWS.Batch do
       }
 
   """
-  @type describe_jobs_response() :: %{String.t() => any()}
+  @type describe_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       key_value_pair() :: %{
-        "name" => String.t(),
-        "value" => String.t()
+        "name" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type key_value_pair() :: %{String.t() => any()}
+  @type key_value_pair() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1628,38 +1628,38 @@ defmodule AWS.Batch do
   ## Example:
 
       launch_template_specification_override() :: %{
-        "launchTemplateId" => String.t(),
-        "launchTemplateName" => String.t(),
-        "targetInstanceTypes" => list(String.t()),
+        "launchTemplateId" => String.t() | Atom.t(),
+        "launchTemplateName" => String.t() | Atom.t(),
+        "targetInstanceTypes" => list(String.t() | Atom.t()),
         "userdataType" => list(any()),
-        "version" => String.t()
+        "version" => String.t() | Atom.t()
       }
 
   """
-  @type launch_template_specification_override() :: %{String.t() => any()}
+  @type launch_template_specification_override() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       runtime_platform() :: %{
-        "cpuArchitecture" => String.t(),
-        "operatingSystemFamily" => String.t()
+        "cpuArchitecture" => String.t() | Atom.t(),
+        "operatingSystemFamily" => String.t() | Atom.t()
       }
 
   """
-  @type runtime_platform() :: %{String.t() => any()}
+  @type runtime_platform() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_job_queue_request() :: %{
-        required("jobQueue") => String.t()
+        required("jobQueue") => String.t() | Atom.t()
       }
 
   """
-  @type delete_job_queue_request() :: %{String.t() => any()}
+  @type delete_job_queue_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1680,7 +1680,7 @@ defmodule AWS.Batch do
       }
 
   """
-  @type eks_container_resource_requirements() :: %{String.t() => any()}
+  @type eks_container_resource_requirements() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1696,19 +1696,19 @@ defmodule AWS.Batch do
       }
 
   """
-  @type linux_parameters() :: %{String.t() => any()}
+  @type linux_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_compute_environment_response() :: %{
-        "computeEnvironmentArn" => String.t(),
-        "computeEnvironmentName" => String.t()
+        "computeEnvironmentArn" => String.t() | Atom.t(),
+        "computeEnvironmentName" => String.t() | Atom.t()
       }
 
   """
-  @type update_compute_environment_response() :: %{String.t() => any()}
+  @type update_compute_environment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1720,33 +1720,33 @@ defmodule AWS.Batch do
       }
 
   """
-  @type node_details() :: %{String.t() => any()}
+  @type node_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       eks_container_volume_mount() :: %{
-        "mountPath" => String.t(),
-        "name" => String.t(),
+        "mountPath" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "readOnly" => boolean(),
-        "subPath" => String.t()
+        "subPath" => String.t() | Atom.t()
       }
 
   """
-  @type eks_container_volume_mount() :: %{String.t() => any()}
+  @type eks_container_volume_mount() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_consumable_resource_response() :: %{
-        "consumableResourceArn" => String.t(),
-        "consumableResourceName" => String.t()
+        "consumableResourceArn" => String.t() | Atom.t(),
+        "consumableResourceName" => String.t() | Atom.t()
       }
 
   """
-  @type create_consumable_resource_response() :: %{String.t() => any()}
+  @type create_consumable_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1754,11 +1754,11 @@ defmodule AWS.Batch do
 
       list_jobs_by_consumable_resource_response() :: %{
         "jobs" => list(list_jobs_by_consumable_resource_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_jobs_by_consumable_resource_response() :: %{String.t() => any()}
+  @type list_jobs_by_consumable_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1766,41 +1766,41 @@ defmodule AWS.Batch do
 
       eks_pod_properties() :: %{
         "containers" => list(eks_container()),
-        "dnsPolicy" => String.t(),
+        "dnsPolicy" => String.t() | Atom.t(),
         "hostNetwork" => boolean(),
         "imagePullSecrets" => list(image_pull_secret()),
         "initContainers" => list(eks_container()),
         "metadata" => eks_metadata(),
-        "serviceAccountName" => String.t(),
+        "serviceAccountName" => String.t() | Atom.t(),
         "shareProcessNamespace" => boolean(),
         "volumes" => list(eks_volume())
       }
 
   """
-  @type eks_pod_properties() :: %{String.t() => any()}
+  @type eks_pod_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       server_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type server_exception() :: %{String.t() => any()}
+  @type server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_job_queue_response() :: %{
-        "jobQueueArn" => String.t(),
-        "jobQueueName" => String.t()
+        "jobQueueArn" => String.t() | Atom.t(),
+        "jobQueueName" => String.t() | Atom.t()
       }
 
   """
-  @type update_job_queue_response() :: %{String.t() => any()}
+  @type update_job_queue_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1812,33 +1812,33 @@ defmodule AWS.Batch do
       }
 
   """
-  @type retry_strategy() :: %{String.t() => any()}
+  @type retry_strategy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_jobs_request() :: %{
-        required("jobs") => list(String.t())
+        required("jobs") => list(String.t() | Atom.t())
       }
 
   """
-  @type describe_jobs_request() :: %{String.t() => any()}
+  @type describe_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       launch_template_specification() :: %{
-        "launchTemplateId" => String.t(),
-        "launchTemplateName" => String.t(),
+        "launchTemplateId" => String.t() | Atom.t(),
+        "launchTemplateName" => String.t() | Atom.t(),
         "overrides" => list(launch_template_specification_override()),
         "userdataType" => list(any()),
-        "version" => String.t()
+        "version" => String.t() | Atom.t()
       }
 
   """
-  @type launch_template_specification() :: %{String.t() => any()}
+  @type launch_template_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1851,7 +1851,7 @@ defmodule AWS.Batch do
       }
 
   """
-  @type node_properties_summary() :: %{String.t() => any()}
+  @type node_properties_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1860,50 +1860,50 @@ defmodule AWS.Batch do
       list_consumable_resources_request() :: %{
         optional("filters") => list(key_values_pair()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_consumable_resources_request() :: %{String.t() => any()}
+  @type list_consumable_resources_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       compute_environment_detail() :: %{
-        "computeEnvironmentArn" => String.t(),
-        "computeEnvironmentName" => String.t(),
+        "computeEnvironmentArn" => String.t() | Atom.t(),
+        "computeEnvironmentName" => String.t() | Atom.t(),
         "computeResources" => compute_resource(),
         "containerOrchestrationType" => list(any()),
-        "context" => String.t(),
-        "ecsClusterArn" => String.t(),
+        "context" => String.t() | Atom.t(),
+        "ecsClusterArn" => String.t() | Atom.t(),
         "eksConfiguration" => eks_configuration(),
-        "serviceRole" => String.t(),
+        "serviceRole" => String.t() | Atom.t(),
         "state" => list(any()),
         "status" => list(any()),
-        "statusReason" => String.t(),
+        "statusReason" => String.t() | Atom.t(),
         "tags" => map(),
         "type" => list(any()),
         "unmanagedvCpus" => integer(),
         "updatePolicy" => update_policy(),
-        "uuid" => String.t()
+        "uuid" => String.t() | Atom.t()
       }
 
   """
-  @type compute_environment_detail() :: %{String.t() => any()}
+  @type compute_environment_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       device() :: %{
-        "containerPath" => String.t(),
-        "hostPath" => String.t(),
+        "containerPath" => String.t() | Atom.t(),
+        "hostPath" => String.t() | Atom.t(),
         "permissions" => list(list(any())())
       }
 
   """
-  @type device() :: %{String.t() => any()}
+  @type device() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1914,39 +1914,39 @@ defmodule AWS.Batch do
       }
 
   """
-  @type eks_properties_detail() :: %{String.t() => any()}
+  @type eks_properties_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_job_queues_request() :: %{
-        optional("jobQueues") => list(String.t()),
+        optional("jobQueues") => list(String.t() | Atom.t()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type describe_job_queues_request() :: %{String.t() => any()}
+  @type describe_job_queues_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       eks_container() :: %{
-        "args" => list(String.t()),
-        "command" => list(String.t()),
+        "args" => list(String.t() | Atom.t()),
+        "command" => list(String.t() | Atom.t()),
         "env" => list(eks_container_environment_variable()),
-        "image" => String.t(),
-        "imagePullPolicy" => String.t(),
-        "name" => String.t(),
+        "image" => String.t() | Atom.t(),
+        "imagePullPolicy" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "resources" => eks_container_resource_requirements(),
         "securityContext" => eks_container_security_context(),
         "volumeMounts" => list(eks_container_volume_mount())
       }
 
   """
-  @type eks_container() :: %{String.t() => any()}
+  @type eks_container() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1964,11 +1964,11 @@ defmodule AWS.Batch do
         "eksProperties" => eks_properties_detail(),
         "isCancelled" => boolean(),
         "isTerminated" => boolean(),
-        "jobArn" => String.t(),
-        "jobDefinition" => String.t(),
-        "jobId" => String.t(),
-        "jobName" => String.t(),
-        "jobQueue" => String.t(),
+        "jobArn" => String.t() | Atom.t(),
+        "jobDefinition" => String.t() | Atom.t(),
+        "jobId" => String.t() | Atom.t(),
+        "jobName" => String.t() | Atom.t(),
+        "jobQueue" => String.t() | Atom.t(),
         "nodeDetails" => node_details(),
         "nodeProperties" => node_properties(),
         "parameters" => map(),
@@ -1976,17 +1976,17 @@ defmodule AWS.Batch do
         "propagateTags" => boolean(),
         "retryStrategy" => retry_strategy(),
         "schedulingPriority" => integer(),
-        "shareIdentifier" => String.t(),
+        "shareIdentifier" => String.t() | Atom.t(),
         "startedAt" => float(),
         "status" => list(any()),
-        "statusReason" => String.t(),
+        "statusReason" => String.t() | Atom.t(),
         "stoppedAt" => float(),
         "tags" => map(),
         "timeout" => job_timeout()
       }
 
   """
-  @type job_detail() :: %{String.t() => any()}
+  @type job_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1999,18 +1999,18 @@ defmodule AWS.Batch do
       }
 
   """
-  @type array_properties_detail() :: %{String.t() => any()}
+  @type array_properties_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_scheduling_policies_request() :: %{
-        required("arns") => list(String.t())
+        required("arns") => list(String.t() | Atom.t())
       }
 
   """
-  @type describe_scheduling_policies_request() :: %{String.t() => any()}
+  @type describe_scheduling_policies_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2022,7 +2022,7 @@ defmodule AWS.Batch do
       }
 
   """
-  @type array_properties_summary() :: %{String.t() => any()}
+  @type array_properties_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2033,22 +2033,22 @@ defmodule AWS.Batch do
       }
 
   """
-  @type ecs_properties_detail() :: %{String.t() => any()}
+  @type ecs_properties_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       consumable_resource_summary() :: %{
-        "consumableResourceArn" => String.t(),
-        "consumableResourceName" => String.t(),
+        "consumableResourceArn" => String.t() | Atom.t(),
+        "consumableResourceName" => String.t() | Atom.t(),
         "inUseQuantity" => float(),
-        "resourceType" => String.t(),
+        "resourceType" => String.t() | Atom.t(),
         "totalQuantity" => float()
       }
 
   """
-  @type consumable_resource_summary() :: %{String.t() => any()}
+  @type consumable_resource_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2056,16 +2056,16 @@ defmodule AWS.Batch do
 
       create_job_queue_request() :: %{
         optional("jobStateTimeLimitActions") => list(job_state_time_limit_action()),
-        optional("schedulingPolicyArn") => String.t(),
+        optional("schedulingPolicyArn") => String.t() | Atom.t(),
         optional("state") => list(any()),
         optional("tags") => map(),
         required("computeEnvironmentOrder") => list(compute_environment_order()),
-        required("jobQueueName") => String.t(),
+        required("jobQueueName") => String.t() | Atom.t(),
         required("priority") => integer()
       }
 
   """
-  @type create_job_queue_request() :: %{String.t() => any()}
+  @type create_job_queue_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2078,18 +2078,18 @@ defmodule AWS.Batch do
       }
 
   """
-  @type log_configuration() :: %{String.t() => any()}
+  @type log_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_consumable_resource_request() :: %{
-        required("consumableResource") => String.t()
+        required("consumableResource") => String.t() | Atom.t()
       }
 
   """
-  @type describe_consumable_resource_request() :: %{String.t() => any()}
+  @type describe_consumable_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2115,11 +2115,11 @@ defmodule AWS.Batch do
 
       resource_requirement() :: %{
         "type" => list(any()),
-        "value" => String.t()
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type resource_requirement() :: %{String.t() => any()}
+  @type resource_requirement() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2131,7 +2131,7 @@ defmodule AWS.Batch do
       }
 
   """
-  @type firelens_configuration() :: %{String.t() => any()}
+  @type firelens_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2140,12 +2140,12 @@ defmodule AWS.Batch do
       job_state_time_limit_action() :: %{
         "action" => list(any()),
         "maxTimeSeconds" => integer(),
-        "reason" => String.t(),
+        "reason" => String.t() | Atom.t(),
         "state" => list(any())
       }
 
   """
-  @type job_state_time_limit_action() :: %{String.t() => any()}
+  @type job_state_time_limit_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2156,23 +2156,23 @@ defmodule AWS.Batch do
         "bidPercentage" => integer(),
         "desiredvCpus" => integer(),
         "ec2Configuration" => list(ec2_configuration()),
-        "ec2KeyPair" => String.t(),
-        "imageId" => String.t(),
-        "instanceRole" => String.t(),
-        "instanceTypes" => list(String.t()),
+        "ec2KeyPair" => String.t() | Atom.t(),
+        "imageId" => String.t() | Atom.t(),
+        "instanceRole" => String.t() | Atom.t(),
+        "instanceTypes" => list(String.t() | Atom.t()),
         "launchTemplate" => launch_template_specification(),
         "maxvCpus" => integer(),
         "minvCpus" => integer(),
-        "placementGroup" => String.t(),
-        "securityGroupIds" => list(String.t()),
-        "spotIamFleetRole" => String.t(),
-        "subnets" => list(String.t()),
+        "placementGroup" => String.t() | Atom.t(),
+        "securityGroupIds" => list(String.t() | Atom.t()),
+        "spotIamFleetRole" => String.t() | Atom.t(),
+        "subnets" => list(String.t() | Atom.t()),
         "tags" => map(),
         "type" => list(any())
       }
 
   """
-  @type compute_resource() :: %{String.t() => any()}
+  @type compute_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2185,31 +2185,31 @@ defmodule AWS.Batch do
       }
 
   """
-  @type node_properties() :: %{String.t() => any()}
+  @type node_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       eks_empty_dir() :: %{
-        "medium" => String.t(),
-        "sizeLimit" => String.t()
+        "medium" => String.t() | Atom.t(),
+        "sizeLimit" => String.t() | Atom.t()
       }
 
   """
-  @type eks_empty_dir() :: %{String.t() => any()}
+  @type eks_empty_dir() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       task_container_dependency() :: %{
-        "condition" => String.t(),
-        "containerName" => String.t()
+        "condition" => String.t() | Atom.t(),
+        "containerName" => String.t() | Atom.t()
       }
 
   """
-  @type task_container_dependency() :: %{String.t() => any()}
+  @type task_container_dependency() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2222,7 +2222,7 @@ defmodule AWS.Batch do
       }
 
   """
-  @type eks_pod_properties_override() :: %{String.t() => any()}
+  @type eks_pod_properties_override() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2233,18 +2233,18 @@ defmodule AWS.Batch do
       }
 
   """
-  @type consumable_resource_properties() :: %{String.t() => any()}
+  @type consumable_resource_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       repository_credentials() :: %{
-        "credentialsParameter" => String.t()
+        "credentialsParameter" => String.t() | Atom.t()
       }
 
   """
-  @type repository_credentials() :: %{String.t() => any()}
+  @type repository_credentials() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2252,33 +2252,33 @@ defmodule AWS.Batch do
 
       eks_pod_properties_detail() :: %{
         "containers" => list(eks_container_detail()),
-        "dnsPolicy" => String.t(),
+        "dnsPolicy" => String.t() | Atom.t(),
         "hostNetwork" => boolean(),
         "imagePullSecrets" => list(image_pull_secret()),
         "initContainers" => list(eks_container_detail()),
         "metadata" => eks_metadata(),
-        "nodeName" => String.t(),
-        "podName" => String.t(),
-        "serviceAccountName" => String.t(),
+        "nodeName" => String.t() | Atom.t(),
+        "podName" => String.t() | Atom.t(),
+        "serviceAccountName" => String.t() | Atom.t(),
         "shareProcessNamespace" => boolean(),
         "volumes" => list(eks_volume())
       }
 
   """
-  @type eks_pod_properties_detail() :: %{String.t() => any()}
+  @type eks_pod_properties_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tmpfs() :: %{
-        "containerPath" => String.t(),
-        "mountOptions" => list(String.t()),
+        "containerPath" => String.t() | Atom.t(),
+        "mountOptions" => list(String.t() | Atom.t()),
         "size" => integer()
       }
 
   """
-  @type tmpfs() :: %{String.t() => any()}
+  @type tmpfs() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2294,27 +2294,27 @@ defmodule AWS.Batch do
   ## Example:
 
       task_container_properties() :: %{
-        "command" => list(String.t()),
+        "command" => list(String.t() | Atom.t()),
         "dependsOn" => list(task_container_dependency()),
         "environment" => list(key_value_pair()),
         "essential" => boolean(),
         "firelensConfiguration" => firelens_configuration(),
-        "image" => String.t(),
+        "image" => String.t() | Atom.t(),
         "linuxParameters" => linux_parameters(),
         "logConfiguration" => log_configuration(),
         "mountPoints" => list(mount_point()),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "privileged" => boolean(),
         "readonlyRootFilesystem" => boolean(),
         "repositoryCredentials" => repository_credentials(),
         "resourceRequirements" => list(resource_requirement()),
         "secrets" => list(secret()),
         "ulimits" => list(ulimit()),
-        "user" => String.t()
+        "user" => String.t() | Atom.t()
       }
 
   """
-  @type task_container_properties() :: %{String.t() => any()}
+  @type task_container_properties() :: %{String.t() | Atom.t() => any()}
 
   @type cancel_job_errors() :: server_exception() | client_exception()
 
@@ -3209,7 +3209,7 @@ defmodule AWS.Batch do
   and scheduling policies. ARNs for child jobs of array and multi-node parallel
   (MNP) jobs aren't supported.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3313,7 +3313,7 @@ defmodule AWS.Batch do
   and scheduling policies. ARNs for child jobs of array and multi-node parallel
   (MNP) jobs aren't supported.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3376,7 +3376,7 @@ defmodule AWS.Batch do
   @doc """
   Deletes specified tags from an Batch resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

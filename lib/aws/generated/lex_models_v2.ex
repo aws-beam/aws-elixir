@@ -19,15 +19,15 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       s3_bucket_transcript_source() :: %{
-        "kmsKeyArn" => String.t(),
+        "kmsKeyArn" => String.t() | Atom.t(),
         "pathFormat" => path_format(),
-        "s3BucketName" => String.t(),
+        "s3BucketName" => String.t() | Atom.t(),
         "transcriptFilter" => transcript_filter(),
         "transcriptFormat" => list(any())
       }
 
   """
-  @type s3_bucket_transcript_source() :: %{String.t() => any()}
+  @type s3_bucket_transcript_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -39,19 +39,19 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type import_sort_by() :: %{String.t() => any()}
+  @type import_sort_by() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       built_in_intent_summary() :: %{
-        "description" => String.t(),
-        "intentSignature" => String.t()
+        "description" => String.t() | Atom.t(),
+        "intentSignature" => String.t() | Atom.t()
       }
 
   """
-  @type built_in_intent_summary() :: %{String.t() => any()}
+  @type built_in_intent_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -65,7 +65,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type fulfillment_updates_specification() :: %{String.t() => any()}
+  @type fulfillment_updates_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -78,7 +78,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type analytics_intent_metric() :: %{String.t() => any()}
+  @type analytics_intent_metric() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -89,20 +89,20 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type grammar_slot_type_setting() :: %{String.t() => any()}
+  @type grammar_slot_type_setting() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bot_recommendation_results() :: %{
-        "associatedTranscriptsUrl" => String.t(),
-        "botLocaleExportUrl" => String.t(),
+        "associatedTranscriptsUrl" => String.t() | Atom.t(),
+        "botLocaleExportUrl" => String.t() | Atom.t(),
         "statistics" => bot_recommendation_result_statistics()
       }
 
   """
-  @type bot_recommendation_results() :: %{String.t() => any()}
+  @type bot_recommendation_results() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -118,27 +118,27 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       bot_locale_import_specification() :: %{
-        "botId" => String.t(),
-        "botVersion" => String.t(),
-        "localeId" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
+        "localeId" => String.t() | Atom.t(),
         "nluIntentConfidenceThreshold" => float(),
         "voiceSettings" => voice_settings()
       }
 
   """
-  @type bot_locale_import_specification() :: %{String.t() => any()}
+  @type bot_locale_import_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bedrock_guardrail_configuration() :: %{
-        "identifier" => String.t(),
-        "version" => String.t()
+        "identifier" => String.t() | Atom.t(),
+        "version" => String.t() | Atom.t()
       }
 
   """
-  @type bedrock_guardrail_configuration() :: %{String.t() => any()}
+  @type bedrock_guardrail_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -149,21 +149,21 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type test_execution_target() :: %{String.t() => any()}
+  @type test_execution_target() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_bot_locales_response() :: %{
-        "botId" => String.t(),
+        "botId" => String.t() | Atom.t(),
         "botLocaleSummaries" => list(bot_locale_summary()),
-        "botVersion" => String.t(),
-        "nextToken" => String.t()
+        "botVersion" => String.t() | Atom.t(),
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_bot_locales_response() :: %{String.t() => any()}
+  @type list_bot_locales_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -184,46 +184,46 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type date_range_filter() :: %{String.t() => any()}
+  @type date_range_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_test_set_generation_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("testSetTags") => map(),
         required("generationDataSource") => test_set_generation_data_source(),
-        required("roleArn") => String.t(),
+        required("roleArn") => String.t() | Atom.t(),
         required("storageLocation") => test_set_storage_location(),
-        required("testSetName") => String.t()
+        required("testSetName") => String.t() | Atom.t()
       }
 
   """
-  @type start_test_set_generation_request() :: %{String.t() => any()}
+  @type start_test_set_generation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_slot_type_response() :: %{
-        "botId" => String.t(),
-        "botVersion" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
         "compositeSlotTypeSetting" => composite_slot_type_setting(),
         "creationDateTime" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "externalSourceSetting" => external_source_setting(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "localeId" => String.t(),
-        "parentSlotTypeSignature" => String.t(),
-        "slotTypeId" => String.t(),
-        "slotTypeName" => String.t(),
+        "localeId" => String.t() | Atom.t(),
+        "parentSlotTypeSignature" => String.t() | Atom.t(),
+        "slotTypeId" => String.t() | Atom.t(),
+        "slotTypeName" => String.t() | Atom.t(),
         "slotTypeValues" => list(slot_type_value()),
         "valueSelectionSetting" => slot_value_selection_setting()
       }
 
   """
-  @type update_slot_type_response() :: %{String.t() => any()}
+  @type update_slot_type_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -231,30 +231,30 @@ defmodule AWS.LexModelsV2 do
 
       start_test_set_generation_response() :: %{
         "creationDateTime" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "generationDataSource" => test_set_generation_data_source(),
-        "roleArn" => String.t(),
+        "roleArn" => String.t() | Atom.t(),
         "storageLocation" => test_set_storage_location(),
-        "testSetGenerationId" => String.t(),
+        "testSetGenerationId" => String.t() | Atom.t(),
         "testSetGenerationStatus" => list(any()),
-        "testSetName" => String.t(),
+        "testSetName" => String.t() | Atom.t(),
         "testSetTags" => map()
       }
 
   """
-  @type start_test_set_generation_response() :: %{String.t() => any()}
+  @type start_test_set_generation_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_test_execution_result_items_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "testExecutionResults" => test_execution_result_items()
       }
 
   """
-  @type list_test_execution_result_items_response() :: %{String.t() => any()}
+  @type list_test_execution_result_items_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -266,32 +266,32 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type default_conditional_branch() :: %{String.t() => any()}
+  @type default_conditional_branch() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       intent_level_slot_resolution_test_result_item() :: %{
-        "intentName" => String.t(),
+        "intentName" => String.t() | Atom.t(),
         "multiTurnConversation" => boolean(),
         "slotResolutionResults" => list(slot_resolution_test_result_item())
       }
 
   """
-  @type intent_level_slot_resolution_test_result_item() :: %{String.t() => any()}
+  @type intent_level_slot_resolution_test_result_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bot_locale_history_event() :: %{
-        "event" => String.t(),
+        "event" => String.t() | Atom.t(),
         "eventDate" => non_neg_integer()
       }
 
   """
-  @type bot_locale_history_event() :: %{String.t() => any()}
+  @type bot_locale_history_event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -305,7 +305,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type analytics_utterance_result() :: %{String.t() => any()}
+  @type analytics_utterance_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -316,18 +316,18 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associated_transcript() :: %{
-        "transcript" => String.t()
+        "transcript" => String.t() | Atom.t()
       }
 
   """
-  @type associated_transcript() :: %{String.t() => any()}
+  @type associated_transcript() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -338,29 +338,29 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type conversation_level_test_results_filter_by() :: %{String.t() => any()}
+  @type conversation_level_test_results_filter_by() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_bot_version_replicas_response() :: %{
-        "botId" => String.t(),
+        "botId" => String.t() | Atom.t(),
         "botVersionReplicaSummaries" => list(bot_version_replica_summary()),
-        "nextToken" => String.t(),
-        "replicaRegion" => String.t(),
-        "sourceRegion" => String.t()
+        "nextToken" => String.t() | Atom.t(),
+        "replicaRegion" => String.t() | Atom.t(),
+        "sourceRegion" => String.t() | Atom.t()
       }
 
   """
-  @type list_bot_version_replicas_response() :: %{String.t() => any()}
+  @type list_bot_version_replicas_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conversation_level_test_result_item() :: %{
-        "conversationId" => String.t(),
+        "conversationId" => String.t() | Atom.t(),
         "endToEndResult" => list(any()),
         "intentClassificationResults" => list(conversation_level_intent_classification_result_item()),
         "slotResolutionResults" => list(conversation_level_slot_resolution_result_item()),
@@ -368,19 +368,19 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type conversation_level_test_result_item() :: %{String.t() => any()}
+  @type conversation_level_test_result_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_resource_policy_response() :: %{
-        "resourceArn" => String.t(),
-        "revisionId" => String.t()
+        "resourceArn" => String.t() | Atom.t(),
+        "revisionId" => String.t() | Atom.t()
       }
 
   """
-  @type delete_resource_policy_response() :: %{String.t() => any()}
+  @type delete_resource_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -402,19 +402,19 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type conversation_logs_data_source_filter_by() :: %{String.t() => any()}
+  @type conversation_logs_data_source_filter_by() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_resource_policy_statement_response() :: %{
-        "resourceArn" => String.t(),
-        "revisionId" => String.t()
+        "resourceArn" => String.t() | Atom.t(),
+        "revisionId" => String.t() | Atom.t()
       }
 
   """
-  @type delete_resource_policy_statement_response() :: %{String.t() => any()}
+  @type delete_resource_policy_statement_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -426,19 +426,19 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type built_in_slot_type_sort_by() :: %{String.t() => any()}
+  @type built_in_slot_type_sort_by() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       test_set_intent_discrepancy_item() :: %{
-        "errorMessage" => String.t(),
-        "intentName" => String.t()
+        "errorMessage" => String.t() | Atom.t(),
+        "intentName" => String.t() | Atom.t()
       }
 
   """
-  @type test_set_intent_discrepancy_item() :: %{String.t() => any()}
+  @type test_set_intent_discrepancy_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -450,14 +450,14 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type slot_sort_by() :: %{String.t() => any()}
+  @type slot_sort_by() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_intent_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("dialogCodeHook") => dialog_code_hook_settings(),
         optional("fulfillmentCodeHook") => fulfillment_code_hook_settings(),
         optional("initialResponseSetting") => initial_response_setting(),
@@ -466,16 +466,16 @@ defmodule AWS.LexModelsV2 do
         optional("intentConfirmationSetting") => intent_confirmation_setting(),
         optional("kendraConfiguration") => kendra_configuration(),
         optional("outputContexts") => list(output_context()),
-        optional("parentIntentSignature") => String.t(),
+        optional("parentIntentSignature") => String.t() | Atom.t(),
         optional("qInConnectIntentConfiguration") => q_in_connect_intent_configuration(),
         optional("qnAIntentConfiguration") => qn_a_intent_configuration(),
         optional("sampleUtterances") => list(sample_utterance()),
         optional("slotPriorities") => list(slot_priority()),
-        required("intentName") => String.t()
+        required("intentName") => String.t() | Atom.t()
       }
 
   """
-  @type update_intent_request() :: %{String.t() => any()}
+  @type update_intent_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -486,18 +486,18 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type analytics_utterance_group_by_specification() :: %{String.t() => any()}
+  @type analytics_utterance_group_by_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       slot_value_regex_filter() :: %{
-        "pattern" => String.t()
+        "pattern" => String.t() | Atom.t()
       }
 
   """
-  @type slot_value_regex_filter() :: %{String.t() => any()}
+  @type slot_value_regex_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -508,7 +508,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type obfuscation_setting() :: %{String.t() => any()}
+  @type obfuscation_setting() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -521,32 +521,32 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type start_test_execution_request() :: %{String.t() => any()}
+  @type start_test_execution_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       specifications() :: %{
-        "slotTypeId" => String.t(),
+        "slotTypeId" => String.t() | Atom.t(),
         "valueElicitationSetting" => sub_slot_value_elicitation_setting()
       }
 
   """
-  @type specifications() :: %{String.t() => any()}
+  @type specifications() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bot_alias_history_event() :: %{
-        "botVersion" => String.t(),
+        "botVersion" => String.t() | Atom.t(),
         "endDate" => non_neg_integer(),
         "startDate" => non_neg_integer()
       }
 
   """
-  @type bot_alias_history_event() :: %{String.t() => any()}
+  @type bot_alias_history_event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -559,7 +559,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type fulfillment_update_response_specification() :: %{String.t() => any()}
+  @type fulfillment_update_response_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -584,15 +584,15 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       agent_turn_result() :: %{
-        "actualAgentPrompt" => String.t(),
-        "actualElicitedSlot" => String.t(),
-        "actualIntent" => String.t(),
+        "actualAgentPrompt" => String.t() | Atom.t(),
+        "actualElicitedSlot" => String.t() | Atom.t(),
+        "actualIntent" => String.t() | Atom.t(),
         "errorDetails" => execution_error_details(),
-        "expectedAgentPrompt" => String.t()
+        "expectedAgentPrompt" => String.t() | Atom.t()
       }
 
   """
-  @type agent_turn_result() :: %{String.t() => any()}
+  @type agent_turn_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -603,30 +603,30 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type error_log_settings() :: %{String.t() => any()}
+  @type error_log_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_bot_version_response() :: %{
-        "botId" => String.t(),
+        "botId" => String.t() | Atom.t(),
         "botMembers" => list(bot_member()),
-        "botName" => String.t(),
+        "botName" => String.t() | Atom.t(),
         "botStatus" => list(any()),
         "botType" => list(any()),
-        "botVersion" => String.t(),
+        "botVersion" => String.t() | Atom.t(),
         "creationDateTime" => non_neg_integer(),
         "dataPrivacy" => data_privacy(),
-        "description" => String.t(),
-        "failureReasons" => list(String.t()),
+        "description" => String.t() | Atom.t(),
+        "failureReasons" => list(String.t() | Atom.t()),
         "idleSessionTTLInSeconds" => integer(),
         "parentBotNetworks" => list(parent_bot_network()),
-        "roleArn" => String.t()
+        "roleArn" => String.t() | Atom.t()
       }
 
   """
-  @type describe_bot_version_response() :: %{String.t() => any()}
+  @type describe_bot_version_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -647,7 +647,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type utterance_data_sort_by() :: %{String.t() => any()}
+  @type utterance_data_sort_by() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -656,33 +656,33 @@ defmodule AWS.LexModelsV2 do
       describe_test_execution_response() :: %{
         "apiMode" => list(any()),
         "creationDateTime" => non_neg_integer(),
-        "failureReasons" => list(String.t()),
+        "failureReasons" => list(String.t() | Atom.t()),
         "lastUpdatedDateTime" => non_neg_integer(),
         "target" => test_execution_target(),
-        "testExecutionId" => String.t(),
+        "testExecutionId" => String.t() | Atom.t(),
         "testExecutionModality" => list(any()),
         "testExecutionStatus" => list(any()),
-        "testSetId" => String.t(),
-        "testSetName" => String.t()
+        "testSetId" => String.t() | Atom.t(),
+        "testSetName" => String.t() | Atom.t()
       }
 
   """
-  @type describe_test_execution_response() :: %{String.t() => any()}
+  @type describe_test_execution_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_intents_response() :: %{
-        "botId" => String.t(),
-        "botVersion" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
         "intentSummaries" => list(intent_summary()),
-        "localeId" => String.t(),
-        "nextToken" => String.t()
+        "localeId" => String.t() | Atom.t(),
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_intents_response() :: %{String.t() => any()}
+  @type list_intents_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -691,11 +691,11 @@ defmodule AWS.LexModelsV2 do
       analytics_utterance_filter() :: %{
         "name" => list(any()),
         "operator" => list(any()),
-        "values" => list(String.t())
+        "values" => list(String.t() | Atom.t())
       }
 
   """
-  @type analytics_utterance_filter() :: %{String.t() => any()}
+  @type analytics_utterance_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -707,7 +707,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type generative_a_i_settings() :: %{String.t() => any()}
+  @type generative_a_i_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -720,7 +720,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type data_source_configuration() :: %{String.t() => any()}
+  @type data_source_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -742,7 +742,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type analytics_session_metric() :: %{String.t() => any()}
+  @type analytics_session_metric() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -753,14 +753,14 @@ defmodule AWS.LexModelsV2 do
         optional("filters") => list(analytics_intent_stage_filter()),
         optional("groupBy") => list(analytics_intent_stage_group_by_specification()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("endDateTime") => non_neg_integer(),
         required("metrics") => list(analytics_intent_stage_metric()),
         required("startDateTime") => non_neg_integer()
       }
 
   """
-  @type list_intent_stage_metrics_request() :: %{String.t() => any()}
+  @type list_intent_stage_metrics_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -772,60 +772,60 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type message_group() :: %{String.t() => any()}
+  @type message_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_bot_replica_response() :: %{
-        "botId" => String.t(),
+        "botId" => String.t() | Atom.t(),
         "botReplicaStatus" => list(any()),
         "creationDateTime" => non_neg_integer(),
-        "failureReasons" => list(String.t()),
-        "replicaRegion" => String.t(),
-        "sourceRegion" => String.t()
+        "failureReasons" => list(String.t() | Atom.t()),
+        "replicaRegion" => String.t() | Atom.t(),
+        "sourceRegion" => String.t() | Atom.t()
       }
 
   """
-  @type describe_bot_replica_response() :: %{String.t() => any()}
+  @type describe_bot_replica_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_recommended_intents_response() :: %{
-        "botId" => String.t(),
-        "botRecommendationId" => String.t(),
-        "botVersion" => String.t(),
-        "localeId" => String.t(),
-        "nextToken" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botRecommendationId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
+        "localeId" => String.t() | Atom.t(),
+        "nextToken" => String.t() | Atom.t(),
         "summaryList" => list(recommended_intent_summary())
       }
 
   """
-  @type list_recommended_intents_response() :: %{String.t() => any()}
+  @type list_recommended_intents_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_bot_alias_response() :: %{
-        "botAliasId" => String.t(),
+        "botAliasId" => String.t() | Atom.t(),
         "botAliasLocaleSettings" => map(),
-        "botAliasName" => String.t(),
+        "botAliasName" => String.t() | Atom.t(),
         "botAliasStatus" => list(any()),
-        "botId" => String.t(),
-        "botVersion" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
         "conversationLogSettings" => conversation_log_settings(),
         "creationDateTime" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
         "sentimentAnalysisSettings" => sentiment_analysis_settings()
       }
 
   """
-  @type update_bot_alias_response() :: %{String.t() => any()}
+  @type update_bot_alias_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -833,11 +833,11 @@ defmodule AWS.LexModelsV2 do
 
       elicitation_code_hook_invocation_setting() :: %{
         "enableCodeHookInvocation" => boolean(),
-        "invocationLabel" => String.t()
+        "invocationLabel" => String.t() | Atom.t()
       }
 
   """
-  @type elicitation_code_hook_invocation_setting() :: %{String.t() => any()}
+  @type elicitation_code_hook_invocation_setting() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -850,7 +850,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type intent_classification_test_result_item_counts() :: %{String.t() => any()}
+  @type intent_classification_test_result_item_counts() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -861,7 +861,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type lex_transcript_filter() :: %{String.t() => any()}
+  @type lex_transcript_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -872,70 +872,70 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type analytics_utterance_attribute() :: %{String.t() => any()}
+  @type analytics_utterance_attribute() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       intent_classification_test_result_item() :: %{
-        "intentName" => String.t(),
+        "intentName" => String.t() | Atom.t(),
         "multiTurnConversation" => boolean(),
         "resultCounts" => intent_classification_test_result_item_counts()
       }
 
   """
-  @type intent_classification_test_result_item() :: %{String.t() => any()}
+  @type intent_classification_test_result_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       generate_bot_element_response() :: %{
-        "botId" => String.t(),
-        "botVersion" => String.t(),
-        "intentId" => String.t(),
-        "localeId" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
+        "intentId" => String.t() | Atom.t(),
+        "localeId" => String.t() | Atom.t(),
         "sampleUtterances" => list(sample_utterance())
       }
 
   """
-  @type generate_bot_element_response() :: %{String.t() => any()}
+  @type generate_bot_element_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_export_request() :: %{
-        optional("filePassword") => String.t(),
+        optional("filePassword") => String.t() | Atom.t(),
         required("fileFormat") => list(any()),
         required("resourceSpecification") => export_resource_specification()
       }
 
   """
-  @type create_export_request() :: %{String.t() => any()}
+  @type create_export_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       path_format() :: %{
-        "objectPrefixes" => list(String.t())
+        "objectPrefixes" => list(String.t() | Atom.t())
       }
 
   """
-  @type path_format() :: %{String.t() => any()}
+  @type path_format() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_resource_policy_statement_request() :: %{
-        optional("expectedRevisionId") => String.t()
+        optional("expectedRevisionId") => String.t() | Atom.t()
       }
 
   """
-  @type delete_resource_policy_statement_request() :: %{String.t() => any()}
+  @type delete_resource_policy_statement_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -947,39 +947,39 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type runtime_settings() :: %{String.t() => any()}
+  @type runtime_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_slot_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("multipleValuesSetting") => multiple_values_setting(),
         optional("obfuscationSetting") => obfuscation_setting(),
-        optional("slotTypeId") => String.t(),
+        optional("slotTypeId") => String.t() | Atom.t(),
         optional("subSlotSetting") => sub_slot_setting(),
-        required("slotName") => String.t(),
+        required("slotName") => String.t() | Atom.t(),
         required("valueElicitationSetting") => slot_value_elicitation_setting()
       }
 
   """
-  @type update_slot_request() :: %{String.t() => any()}
+  @type update_slot_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       opensearch_configuration() :: %{
-        "domainEndpoint" => String.t(),
+        "domainEndpoint" => String.t() | Atom.t(),
         "exactResponse" => boolean(),
         "exactResponseFields" => exact_response_fields(),
-        "includeFields" => list(String.t()),
-        "indexName" => String.t()
+        "includeFields" => list(String.t() | Atom.t()),
+        "indexName" => String.t() | Atom.t()
       }
 
   """
-  @type opensearch_configuration() :: %{String.t() => any()}
+  @type opensearch_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -990,46 +990,46 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type delete_bot_request() :: %{String.t() => any()}
+  @type delete_bot_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_slot_response() :: %{
-        "botId" => String.t(),
-        "botVersion" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
         "creationDateTime" => non_neg_integer(),
-        "description" => String.t(),
-        "intentId" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "intentId" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "localeId" => String.t(),
+        "localeId" => String.t() | Atom.t(),
         "multipleValuesSetting" => multiple_values_setting(),
         "obfuscationSetting" => obfuscation_setting(),
-        "slotId" => String.t(),
-        "slotName" => String.t(),
-        "slotTypeId" => String.t(),
+        "slotId" => String.t() | Atom.t(),
+        "slotName" => String.t() | Atom.t(),
+        "slotTypeId" => String.t() | Atom.t(),
         "subSlotSetting" => sub_slot_setting(),
         "valueElicitationSetting" => slot_value_elicitation_setting()
       }
 
   """
-  @type update_slot_response() :: %{String.t() => any()}
+  @type update_slot_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bot_member() :: %{
-        "botMemberAliasId" => String.t(),
-        "botMemberAliasName" => String.t(),
-        "botMemberId" => String.t(),
-        "botMemberName" => String.t(),
-        "botMemberVersion" => String.t()
+        "botMemberAliasId" => String.t() | Atom.t(),
+        "botMemberAliasName" => String.t() | Atom.t(),
+        "botMemberId" => String.t() | Atom.t(),
+        "botMemberName" => String.t() | Atom.t(),
+        "botMemberVersion" => String.t() | Atom.t()
       }
 
   """
-  @type bot_member() :: %{String.t() => any()}
+  @type bot_member() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1040,7 +1040,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type intent_statistics() :: %{String.t() => any()}
+  @type intent_statistics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1052,33 +1052,33 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type start_bot_recommendation_request() :: %{String.t() => any()}
+  @type start_bot_recommendation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       output_context() :: %{
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "timeToLiveInSeconds" => integer(),
         "turnsToLive" => integer()
       }
 
   """
-  @type output_context() :: %{String.t() => any()}
+  @type output_context() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bot_alias_test_execution_target() :: %{
-        "botAliasId" => String.t(),
-        "botId" => String.t(),
-        "localeId" => String.t()
+        "botAliasId" => String.t() | Atom.t(),
+        "botId" => String.t() | Atom.t(),
+        "localeId" => String.t() | Atom.t()
       }
 
   """
-  @type bot_alias_test_execution_target() :: %{String.t() => any()}
+  @type bot_alias_test_execution_target() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1086,23 +1086,23 @@ defmodule AWS.LexModelsV2 do
 
       slot_priority() :: %{
         "priority" => integer(),
-        "slotId" => String.t()
+        "slotId" => String.t() | Atom.t()
       }
 
   """
-  @type slot_priority() :: %{String.t() => any()}
+  @type slot_priority() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_resource_policy_response() :: %{
-        "resourceArn" => String.t(),
-        "revisionId" => String.t()
+        "resourceArn" => String.t() | Atom.t(),
+        "revisionId" => String.t() | Atom.t()
       }
 
   """
-  @type create_resource_policy_response() :: %{String.t() => any()}
+  @type create_resource_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1116,7 +1116,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type initial_response_setting() :: %{String.t() => any()}
+  @type initial_response_setting() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1127,55 +1127,55 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type text_input_specification() :: %{String.t() => any()}
+  @type text_input_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bot_import_specification() :: %{
-        "botName" => String.t(),
+        "botName" => String.t() | Atom.t(),
         "botTags" => map(),
         "dataPrivacy" => data_privacy(),
         "errorLogSettings" => error_log_settings(),
         "idleSessionTTLInSeconds" => integer(),
-        "roleArn" => String.t(),
+        "roleArn" => String.t() | Atom.t(),
         "testBotAliasTags" => map()
       }
 
   """
-  @type bot_import_specification() :: %{String.t() => any()}
+  @type bot_import_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_bot_version_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         required("botVersionLocaleSpecification") => map()
       }
 
   """
-  @type create_bot_version_request() :: %{String.t() => any()}
+  @type create_bot_version_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_bot_recommendation_response() :: %{
-        "botId" => String.t(),
-        "botRecommendationId" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botRecommendationId" => String.t() | Atom.t(),
         "botRecommendationStatus" => list(any()),
-        "botVersion" => String.t(),
+        "botVersion" => String.t() | Atom.t(),
         "creationDateTime" => non_neg_integer(),
         "encryptionSetting" => encryption_setting(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "localeId" => String.t(),
+        "localeId" => String.t() | Atom.t(),
         "transcriptSourceSetting" => transcript_source_setting()
       }
 
   """
-  @type update_bot_recommendation_response() :: %{String.t() => any()}
+  @type update_bot_recommendation_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1184,11 +1184,11 @@ defmodule AWS.LexModelsV2 do
       analytics_path_filter() :: %{
         "name" => list(any()),
         "operator" => list(any()),
-        "values" => list(String.t())
+        "values" => list(String.t() | Atom.t())
       }
 
   """
-  @type analytics_path_filter() :: %{String.t() => any()}
+  @type analytics_path_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1200,19 +1200,19 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type test_set_discrepancy_errors() :: %{String.t() => any()}
+  @type test_set_discrepancy_errors() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_test_set_request() :: %{
-        optional("description") => String.t(),
-        required("testSetName") => String.t()
+        optional("description") => String.t() | Atom.t(),
+        required("testSetName") => String.t() | Atom.t()
       }
 
   """
-  @type update_test_set_request() :: %{String.t() => any()}
+  @type update_test_set_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1221,11 +1221,11 @@ defmodule AWS.LexModelsV2 do
       export_filter() :: %{
         "name" => list(any()),
         "operator" => list(any()),
-        "values" => list(String.t())
+        "values" => list(String.t() | Atom.t())
       }
 
   """
-  @type export_filter() :: %{String.t() => any()}
+  @type export_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1236,7 +1236,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type dialog_code_hook_settings() :: %{String.t() => any()}
+  @type dialog_code_hook_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1247,7 +1247,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type overall_test_results() :: %{String.t() => any()}
+  @type overall_test_results() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1259,29 +1259,29 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type slot_resolution_improvement_specification() :: %{String.t() => any()}
+  @type slot_resolution_improvement_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s_s_ml_message() :: %{
-        "value" => String.t()
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type s_s_ml_message() :: %{String.t() => any()}
+  @type s_s_ml_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invoked_intent_sample() :: %{
-        "intentName" => String.t()
+        "intentName" => String.t() | Atom.t()
       }
 
   """
-  @type invoked_intent_sample() :: %{String.t() => any()}
+  @type invoked_intent_sample() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1289,15 +1289,15 @@ defmodule AWS.LexModelsV2 do
 
       bot_locale_summary() :: %{
         "botLocaleStatus" => list(any()),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "lastBuildSubmittedDateTime" => non_neg_integer(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "localeId" => String.t(),
-        "localeName" => String.t()
+        "localeId" => String.t() | Atom.t(),
+        "localeName" => String.t() | Atom.t()
       }
 
   """
-  @type bot_locale_summary() :: %{String.t() => any()}
+  @type bot_locale_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1309,7 +1309,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type audio_specification() :: %{String.t() => any()}
+  @type audio_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1317,41 +1317,41 @@ defmodule AWS.LexModelsV2 do
 
       import_summary() :: %{
         "creationDateTime" => non_neg_integer(),
-        "importId" => String.t(),
+        "importId" => String.t() | Atom.t(),
         "importStatus" => list(any()),
-        "importedResourceId" => String.t(),
-        "importedResourceName" => String.t(),
+        "importedResourceId" => String.t() | Atom.t(),
+        "importedResourceName" => String.t() | Atom.t(),
         "importedResourceType" => list(any()),
         "lastUpdatedDateTime" => non_neg_integer(),
         "mergeStrategy" => list(any())
       }
 
   """
-  @type import_summary() :: %{String.t() => any()}
+  @type import_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       grammar_slot_type_source() :: %{
-        "kmsKeyArn" => String.t(),
-        "s3BucketName" => String.t(),
-        "s3ObjectKey" => String.t()
+        "kmsKeyArn" => String.t() | Atom.t(),
+        "s3BucketName" => String.t() | Atom.t(),
+        "s3ObjectKey" => String.t() | Atom.t()
       }
 
   """
-  @type grammar_slot_type_source() :: %{String.t() => any()}
+  @type grammar_slot_type_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       slot_value() :: %{
-        "interpretedValue" => String.t()
+        "interpretedValue" => String.t() | Atom.t()
       }
 
   """
-  @type slot_value() :: %{String.t() => any()}
+  @type slot_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1359,11 +1359,11 @@ defmodule AWS.LexModelsV2 do
 
       analytics_session_group_by_key() :: %{
         "name" => list(any()),
-        "value" => String.t()
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type analytics_session_group_by_key() :: %{String.t() => any()}
+  @type analytics_session_group_by_key() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1375,31 +1375,34 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type bot_locale_sort_by() :: %{String.t() => any()}
+  @type bot_locale_sort_by() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conversation_level_intent_classification_result_item() :: %{
-        "intentName" => String.t(),
+        "intentName" => String.t() | Atom.t(),
         "matchResult" => list(any())
       }
 
   """
-  @type conversation_level_intent_classification_result_item() :: %{String.t() => any()}
+  @type conversation_level_intent_classification_result_item() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       execution_error_details() :: %{
-        "errorCode" => String.t(),
-        "errorMessage" => String.t()
+        "errorCode" => String.t() | Atom.t(),
+        "errorMessage" => String.t() | Atom.t()
       }
 
   """
-  @type execution_error_details() :: %{String.t() => any()}
+  @type execution_error_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1414,7 +1417,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type prompt_specification() :: %{String.t() => any()}
+  @type prompt_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1425,19 +1428,19 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type batch_create_custom_vocabulary_item_request() :: %{String.t() => any()}
+  @type batch_create_custom_vocabulary_item_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_upload_url_response() :: %{
-        "importId" => String.t(),
-        "uploadUrl" => String.t()
+        "importId" => String.t() | Atom.t(),
+        "uploadUrl" => String.t() | Atom.t()
       }
 
   """
-  @type create_upload_url_response() :: %{String.t() => any()}
+  @type create_upload_url_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1450,7 +1453,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type fulfillment_start_response_specification() :: %{String.t() => any()}
+  @type fulfillment_start_response_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1458,11 +1461,11 @@ defmodule AWS.LexModelsV2 do
 
       voice_settings() :: %{
         "engine" => list(any()),
-        "voiceId" => String.t()
+        "voiceId" => String.t() | Atom.t()
       }
 
   """
-  @type voice_settings() :: %{String.t() => any()}
+  @type voice_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1483,25 +1486,25 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type conversation_level_result_detail() :: %{String.t() => any()}
+  @type conversation_level_result_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_aggregated_utterances_request() :: %{
-        optional("botAliasId") => String.t(),
-        optional("botVersion") => String.t(),
+        optional("botAliasId") => String.t() | Atom.t(),
+        optional("botVersion") => String.t() | Atom.t(),
         optional("filters") => list(aggregated_utterances_filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortBy") => aggregated_utterances_sort_by(),
         required("aggregationDuration") => utterance_aggregation_duration(),
-        required("localeId") => String.t()
+        required("localeId") => String.t() | Atom.t()
       }
 
   """
-  @type list_aggregated_utterances_request() :: %{String.t() => any()}
+  @type list_aggregated_utterances_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1509,28 +1512,28 @@ defmodule AWS.LexModelsV2 do
 
       associated_transcript_filter() :: %{
         "name" => list(any()),
-        "values" => list(String.t())
+        "values" => list(String.t() | Atom.t())
       }
 
   """
-  @type associated_transcript_filter() :: %{String.t() => any()}
+  @type associated_transcript_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_slot_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("multipleValuesSetting") => multiple_values_setting(),
         optional("obfuscationSetting") => obfuscation_setting(),
-        optional("slotTypeId") => String.t(),
+        optional("slotTypeId") => String.t() | Atom.t(),
         optional("subSlotSetting") => sub_slot_setting(),
-        required("slotName") => String.t(),
+        required("slotName") => String.t() | Atom.t(),
         required("valueElicitationSetting") => slot_value_elicitation_setting()
       }
 
   """
-  @type create_slot_request() :: %{String.t() => any()}
+  @type create_slot_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1544,7 +1547,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type search_associated_transcripts_request() :: %{String.t() => any()}
+  @type search_associated_transcripts_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1560,53 +1563,53 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       principal() :: %{
-        "arn" => String.t(),
-        "service" => String.t()
+        "arn" => String.t() | Atom.t(),
+        "service" => String.t() | Atom.t()
       }
 
   """
-  @type principal() :: %{String.t() => any()}
+  @type principal() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       intent_summary() :: %{
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "inputContexts" => list(input_context()),
-        "intentId" => String.t(),
-        "intentName" => String.t(),
+        "intentId" => String.t() | Atom.t(),
+        "intentName" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
         "outputContexts" => list(output_context()),
-        "parentIntentSignature" => String.t()
+        "parentIntentSignature" => String.t() | Atom.t()
       }
 
   """
-  @type intent_summary() :: %{String.t() => any()}
+  @type intent_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       sub_slot_type_composition() :: %{
-        "name" => String.t(),
-        "slotTypeId" => String.t()
+        "name" => String.t() | Atom.t(),
+        "slotTypeId" => String.t() | Atom.t()
       }
 
   """
-  @type sub_slot_type_composition() :: %{String.t() => any()}
+  @type sub_slot_type_composition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       test_set_import_input_location() :: %{
-        "s3BucketName" => String.t(),
-        "s3Path" => String.t()
+        "s3BucketName" => String.t() | Atom.t(),
+        "s3Path" => String.t() | Atom.t()
       }
 
   """
-  @type test_set_import_input_location() :: %{String.t() => any()}
+  @type test_set_import_input_location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1615,12 +1618,12 @@ defmodule AWS.LexModelsV2 do
       list_intents_request() :: %{
         optional("filters") => list(intent_filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortBy") => intent_sort_by()
       }
 
   """
-  @type list_intents_request() :: %{String.t() => any()}
+  @type list_intents_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1633,18 +1636,18 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type analytics_bin_by_specification() :: %{String.t() => any()}
+  @type analytics_bin_by_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1652,11 +1655,11 @@ defmodule AWS.LexModelsV2 do
 
       slot_resolution_test_result_item() :: %{
         "resultCounts" => slot_resolution_test_result_item_counts(),
-        "slotName" => String.t()
+        "slotName" => String.t() | Atom.t()
       }
 
   """
-  @type slot_resolution_test_result_item() :: %{String.t() => any()}
+  @type slot_resolution_test_result_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1670,7 +1673,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type export_resource_specification() :: %{String.t() => any()}
+  @type export_resource_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1684,7 +1687,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type overall_test_result_item() :: %{String.t() => any()}
+  @type overall_test_result_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1703,39 +1706,39 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type user_turn_result() :: %{String.t() => any()}
+  @type user_turn_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bot_version_locale_details() :: %{
-        "sourceBotVersion" => String.t()
+        "sourceBotVersion" => String.t() | Atom.t()
       }
 
   """
-  @type bot_version_locale_details() :: %{String.t() => any()}
+  @type bot_version_locale_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_bot_alias_response() :: %{
-        "botAliasId" => String.t(),
+        "botAliasId" => String.t() | Atom.t(),
         "botAliasLocaleSettings" => map(),
-        "botAliasName" => String.t(),
+        "botAliasName" => String.t() | Atom.t(),
         "botAliasStatus" => list(any()),
-        "botId" => String.t(),
-        "botVersion" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
         "conversationLogSettings" => conversation_log_settings(),
         "creationDateTime" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "sentimentAnalysisSettings" => sentiment_analysis_settings(),
         "tags" => map()
       }
 
   """
-  @type create_bot_alias_response() :: %{String.t() => any()}
+  @type create_bot_alias_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1743,12 +1746,12 @@ defmodule AWS.LexModelsV2 do
 
       list_bot_versions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortBy") => bot_version_sort_by()
       }
 
   """
-  @type list_bot_versions_request() :: %{String.t() => any()}
+  @type list_bot_versions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1756,13 +1759,13 @@ defmodule AWS.LexModelsV2 do
 
       image_response_card() :: %{
         "buttons" => list(button()),
-        "imageUrl" => String.t(),
-        "subtitle" => String.t(),
-        "title" => String.t()
+        "imageUrl" => String.t() | Atom.t(),
+        "subtitle" => String.t() | Atom.t(),
+        "title" => String.t() | Atom.t()
       }
 
   """
-  @type image_response_card() :: %{String.t() => any()}
+  @type image_response_card() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1774,49 +1777,49 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type qn_a_intent_configuration() :: %{String.t() => any()}
+  @type qn_a_intent_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_exports_request() :: %{
-        optional("botId") => String.t(),
-        optional("botVersion") => String.t(),
+        optional("botId") => String.t() | Atom.t(),
+        optional("botVersion") => String.t() | Atom.t(),
         optional("filters") => list(export_filter()),
-        optional("localeId") => String.t(),
+        optional("localeId") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortBy") => export_sort_by()
       }
 
   """
-  @type list_exports_request() :: %{String.t() => any()}
+  @type list_exports_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_test_set_records_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "testSetRecords" => list(test_set_turn_record())
       }
 
   """
-  @type list_test_set_records_response() :: %{String.t() => any()}
+  @type list_test_set_records_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_bot_alias_response() :: %{
-        "botAliasId" => String.t(),
+        "botAliasId" => String.t() | Atom.t(),
         "botAliasStatus" => list(any()),
-        "botId" => String.t()
+        "botId" => String.t() | Atom.t()
       }
 
   """
-  @type delete_bot_alias_response() :: %{String.t() => any()}
+  @type delete_bot_alias_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1825,12 +1828,12 @@ defmodule AWS.LexModelsV2 do
       list_intent_paths_request() :: %{
         optional("filters") => list(analytics_path_filter()),
         required("endDateTime") => non_neg_integer(),
-        required("intentPath") => String.t(),
+        required("intentPath") => String.t() | Atom.t(),
         required("startDateTime") => non_neg_integer()
       }
 
   """
-  @type list_intent_paths_request() :: %{String.t() => any()}
+  @type list_intent_paths_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1843,7 +1846,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type dialog_state() :: %{String.t() => any()}
+  @type dialog_state() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1854,20 +1857,20 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type transcript_filter() :: %{String.t() => any()}
+  @type transcript_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_intent_metrics_response() :: %{
-        "botId" => String.t(),
-        "nextToken" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "nextToken" => String.t() | Atom.t(),
         "results" => list(analytics_intent_result())
       }
 
   """
-  @type list_intent_metrics_response() :: %{String.t() => any()}
+  @type list_intent_metrics_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1875,13 +1878,13 @@ defmodule AWS.LexModelsV2 do
 
       generation_summary() :: %{
         "creationDateTime" => non_neg_integer(),
-        "generationId" => String.t(),
+        "generationId" => String.t() | Atom.t(),
         "generationStatus" => list(any()),
         "lastUpdatedDateTime" => non_neg_integer()
       }
 
   """
-  @type generation_summary() :: %{String.t() => any()}
+  @type generation_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1892,7 +1895,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type batch_update_custom_vocabulary_item_request() :: %{String.t() => any()}
+  @type batch_update_custom_vocabulary_item_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1900,52 +1903,52 @@ defmodule AWS.LexModelsV2 do
 
       describe_test_set_generation_response() :: %{
         "creationDateTime" => non_neg_integer(),
-        "description" => String.t(),
-        "failureReasons" => list(String.t()),
+        "description" => String.t() | Atom.t(),
+        "failureReasons" => list(String.t() | Atom.t()),
         "generationDataSource" => test_set_generation_data_source(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "roleArn" => String.t(),
+        "roleArn" => String.t() | Atom.t(),
         "storageLocation" => test_set_storage_location(),
-        "testSetGenerationId" => String.t(),
+        "testSetGenerationId" => String.t() | Atom.t(),
         "testSetGenerationStatus" => list(any()),
-        "testSetId" => String.t(),
-        "testSetName" => String.t()
+        "testSetId" => String.t() | Atom.t(),
+        "testSetName" => String.t() | Atom.t()
       }
 
   """
-  @type describe_test_set_generation_response() :: %{String.t() => any()}
+  @type describe_test_set_generation_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_bot_replica_response() :: %{
-        "botId" => String.t(),
+        "botId" => String.t() | Atom.t(),
         "botReplicaStatus" => list(any()),
         "creationDateTime" => non_neg_integer(),
-        "replicaRegion" => String.t(),
-        "sourceRegion" => String.t()
+        "replicaRegion" => String.t() | Atom.t(),
+        "sourceRegion" => String.t() | Atom.t()
       }
 
   """
-  @type create_bot_replica_response() :: %{String.t() => any()}
+  @type create_bot_replica_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bot_alias_summary() :: %{
-        "botAliasId" => String.t(),
-        "botAliasName" => String.t(),
+        "botAliasId" => String.t() | Atom.t(),
+        "botAliasName" => String.t() | Atom.t(),
         "botAliasStatus" => list(any()),
-        "botVersion" => String.t(),
+        "botVersion" => String.t() | Atom.t(),
         "creationDateTime" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer()
       }
 
   """
-  @type bot_alias_summary() :: %{String.t() => any()}
+  @type bot_alias_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1953,11 +1956,11 @@ defmodule AWS.LexModelsV2 do
 
       list_bot_recommendations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_bot_recommendations_request() :: %{String.t() => any()}
+  @type list_bot_recommendations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1965,37 +1968,37 @@ defmodule AWS.LexModelsV2 do
 
       search_associated_transcripts_response() :: %{
         "associatedTranscripts" => list(associated_transcript()),
-        "botId" => String.t(),
-        "botRecommendationId" => String.t(),
-        "botVersion" => String.t(),
-        "localeId" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botRecommendationId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
+        "localeId" => String.t() | Atom.t(),
         "nextIndex" => integer(),
         "totalResults" => integer()
       }
 
   """
-  @type search_associated_transcripts_response() :: %{String.t() => any()}
+  @type search_associated_transcripts_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_bot_resource_generation_response() :: %{
-        "botId" => String.t(),
-        "botVersion" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
         "creationDateTime" => non_neg_integer(),
-        "failureReasons" => list(String.t()),
-        "generatedBotLocaleUrl" => String.t(),
-        "generationId" => String.t(),
-        "generationInputPrompt" => String.t(),
+        "failureReasons" => list(String.t() | Atom.t()),
+        "generatedBotLocaleUrl" => String.t() | Atom.t(),
+        "generationId" => String.t() | Atom.t(),
+        "generationInputPrompt" => String.t() | Atom.t(),
         "generationStatus" => list(any()),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "localeId" => String.t(),
-        "modelArn" => String.t()
+        "localeId" => String.t() | Atom.t(),
+        "modelArn" => String.t() | Atom.t()
       }
 
   """
-  @type describe_bot_resource_generation_response() :: %{String.t() => any()}
+  @type describe_bot_resource_generation_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2003,19 +2006,19 @@ defmodule AWS.LexModelsV2 do
 
       update_test_set_response() :: %{
         "creationDateTime" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
         "modality" => list(any()),
         "numTurns" => integer(),
-        "roleArn" => String.t(),
+        "roleArn" => String.t() | Atom.t(),
         "status" => list(any()),
         "storageLocation" => test_set_storage_location(),
-        "testSetId" => String.t(),
-        "testSetName" => String.t()
+        "testSetId" => String.t() | Atom.t(),
+        "testSetName" => String.t() | Atom.t()
       }
 
   """
-  @type update_test_set_response() :: %{String.t() => any()}
+  @type update_test_set_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2029,20 +2032,20 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type prompt_attempt_specification() :: %{String.t() => any()}
+  @type prompt_attempt_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       kendra_configuration() :: %{
-        "kendraIndex" => String.t(),
-        "queryFilterString" => String.t(),
+        "kendraIndex" => String.t() | Atom.t(),
+        "queryFilterString" => String.t() | Atom.t(),
         "queryFilterStringEnabled" => boolean()
       }
 
   """
-  @type kendra_configuration() :: %{String.t() => any()}
+  @type kendra_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2063,22 +2066,22 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type descriptive_bot_builder_specification() :: %{String.t() => any()}
+  @type descriptive_bot_builder_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_imports_response() :: %{
-        "botId" => String.t(),
-        "botVersion" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
         "importSummaries" => list(import_summary()),
-        "localeId" => String.t(),
-        "nextToken" => String.t()
+        "localeId" => String.t() | Atom.t(),
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_imports_response() :: %{String.t() => any()}
+  @type list_imports_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2089,7 +2092,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type advanced_recognition_setting() :: %{String.t() => any()}
+  @type advanced_recognition_setting() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2100,30 +2103,30 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type utterance_aggregation_duration() :: %{String.t() => any()}
+  @type utterance_aggregation_duration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_intent_response() :: %{
-        "botId" => String.t(),
-        "botVersion" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
         "creationDateTime" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "dialogCodeHook" => dialog_code_hook_settings(),
         "fulfillmentCodeHook" => fulfillment_code_hook_settings(),
         "initialResponseSetting" => initial_response_setting(),
         "inputContexts" => list(input_context()),
         "intentClosingSetting" => intent_closing_setting(),
         "intentConfirmationSetting" => intent_confirmation_setting(),
-        "intentId" => String.t(),
-        "intentName" => String.t(),
+        "intentId" => String.t() | Atom.t(),
+        "intentName" => String.t() | Atom.t(),
         "kendraConfiguration" => kendra_configuration(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "localeId" => String.t(),
+        "localeId" => String.t() | Atom.t(),
         "outputContexts" => list(output_context()),
-        "parentIntentSignature" => String.t(),
+        "parentIntentSignature" => String.t() | Atom.t(),
         "qInConnectIntentConfiguration" => q_in_connect_intent_configuration(),
         "qnAIntentConfiguration" => qn_a_intent_configuration(),
         "sampleUtterances" => list(sample_utterance()),
@@ -2131,20 +2134,20 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type update_intent_response() :: %{String.t() => any()}
+  @type update_intent_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       test_set_storage_location() :: %{
-        "kmsKeyArn" => String.t(),
-        "s3BucketName" => String.t(),
-        "s3Path" => String.t()
+        "kmsKeyArn" => String.t() | Atom.t(),
+        "s3BucketName" => String.t() | Atom.t(),
+        "s3Path" => String.t() | Atom.t()
       }
 
   """
-  @type test_set_storage_location() :: %{String.t() => any()}
+  @type test_set_storage_location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2160,15 +2163,15 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       list_slot_types_response() :: %{
-        "botId" => String.t(),
-        "botVersion" => String.t(),
-        "localeId" => String.t(),
-        "nextToken" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
+        "localeId" => String.t() | Atom.t(),
+        "nextToken" => String.t() | Atom.t(),
         "slotTypeSummaries" => list(slot_type_summary())
       }
 
   """
-  @type list_slot_types_response() :: %{String.t() => any()}
+  @type list_slot_types_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2181,7 +2184,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type analytics_intent_stage_metric_result() :: %{String.t() => any()}
+  @type analytics_intent_stage_metric_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2189,12 +2192,12 @@ defmodule AWS.LexModelsV2 do
 
       list_built_in_slot_types_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortBy") => built_in_slot_type_sort_by()
       }
 
   """
-  @type list_built_in_slot_types_request() :: %{String.t() => any()}
+  @type list_built_in_slot_types_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2206,7 +2209,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type test_set_turn_result() :: %{String.t() => any()}
+  @type test_set_turn_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2217,7 +2220,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type intent_level_slot_resolution_test_results() :: %{String.t() => any()}
+  @type intent_level_slot_resolution_test_results() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2229,7 +2232,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type bot_alias_locale_settings() :: %{String.t() => any()}
+  @type bot_alias_locale_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2237,16 +2240,16 @@ defmodule AWS.LexModelsV2 do
 
       create_bot_alias_request() :: %{
         optional("botAliasLocaleSettings") => map(),
-        optional("botVersion") => String.t(),
+        optional("botVersion") => String.t() | Atom.t(),
         optional("conversationLogSettings") => conversation_log_settings(),
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("sentimentAnalysisSettings") => sentiment_analysis_settings(),
         optional("tags") => map(),
-        required("botAliasName") => String.t()
+        required("botAliasName") => String.t() | Atom.t()
       }
 
   """
-  @type create_bot_alias_request() :: %{String.t() => any()}
+  @type create_bot_alias_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2258,25 +2261,25 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type user_turn_specification() :: %{String.t() => any()}
+  @type user_turn_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_bot_recommendation_response() :: %{
-        "botId" => String.t(),
-        "botRecommendationId" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botRecommendationId" => String.t() | Atom.t(),
         "botRecommendationStatus" => list(any()),
-        "botVersion" => String.t(),
+        "botVersion" => String.t() | Atom.t(),
         "creationDateTime" => non_neg_integer(),
         "encryptionSetting" => encryption_setting(),
-        "localeId" => String.t(),
+        "localeId" => String.t() | Atom.t(),
         "transcriptSourceSetting" => transcript_source_setting()
       }
 
   """
-  @type start_bot_recommendation_response() :: %{String.t() => any()}
+  @type start_bot_recommendation_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2287,20 +2290,20 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type text_log_destination() :: %{String.t() => any()}
+  @type text_log_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_bot_version_response() :: %{
-        "botId" => String.t(),
+        "botId" => String.t() | Atom.t(),
         "botStatus" => list(any()),
-        "botVersion" => String.t()
+        "botVersion" => String.t() | Atom.t()
       }
 
   """
-  @type delete_bot_version_response() :: %{String.t() => any()}
+  @type delete_bot_version_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2308,15 +2311,15 @@ defmodule AWS.LexModelsV2 do
 
       update_bot_alias_request() :: %{
         optional("botAliasLocaleSettings") => map(),
-        optional("botVersion") => String.t(),
+        optional("botVersion") => String.t() | Atom.t(),
         optional("conversationLogSettings") => conversation_log_settings(),
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("sentimentAnalysisSettings") => sentiment_analysis_settings(),
-        required("botAliasName") => String.t()
+        required("botAliasName") => String.t() | Atom.t()
       }
 
   """
-  @type update_bot_alias_request() :: %{String.t() => any()}
+  @type update_bot_alias_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2332,49 +2335,49 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       conversation_logs_data_source() :: %{
-        "botAliasId" => String.t(),
-        "botId" => String.t(),
+        "botAliasId" => String.t() | Atom.t(),
+        "botId" => String.t() | Atom.t(),
         "filter" => conversation_logs_data_source_filter_by(),
-        "localeId" => String.t()
+        "localeId" => String.t() | Atom.t()
       }
 
   """
-  @type conversation_logs_data_source() :: %{String.t() => any()}
+  @type conversation_logs_data_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       utterance_audio_input_specification() :: %{
-        "audioFileS3Location" => String.t()
+        "audioFileS3Location" => String.t() | Atom.t()
       }
 
   """
-  @type utterance_audio_input_specification() :: %{String.t() => any()}
+  @type utterance_audio_input_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_session_analytics_data_response() :: %{
-        "botId" => String.t(),
-        "nextToken" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "nextToken" => String.t() | Atom.t(),
         "sessions" => list(session_specification())
       }
 
   """
-  @type list_session_analytics_data_response() :: %{String.t() => any()}
+  @type list_session_analytics_data_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_bot_resource_generation_request() :: %{
-        required("generationInputPrompt") => String.t()
+        required("generationInputPrompt") => String.t() | Atom.t()
       }
 
   """
-  @type start_bot_resource_generation_request() :: %{String.t() => any()}
+  @type start_bot_resource_generation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2387,24 +2390,24 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type slot_resolution_test_result_item_counts() :: %{String.t() => any()}
+  @type slot_resolution_test_result_item_counts() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bot_summary() :: %{
-        "botId" => String.t(),
-        "botName" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botName" => String.t() | Atom.t(),
         "botStatus" => list(any()),
         "botType" => list(any()),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "latestBotVersion" => String.t()
+        "latestBotVersion" => String.t() | Atom.t()
       }
 
   """
-  @type bot_summary() :: %{String.t() => any()}
+  @type bot_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2413,62 +2416,62 @@ defmodule AWS.LexModelsV2 do
       list_bots_request() :: %{
         optional("filters") => list(bot_filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortBy") => bot_sort_by()
       }
 
   """
-  @type list_bots_request() :: %{String.t() => any()}
+  @type list_bots_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_custom_vocabulary_metadata_response() :: %{
-        "botId" => String.t(),
-        "botVersion" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
         "creationDateTime" => non_neg_integer(),
         "customVocabularyStatus" => list(any()),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "localeId" => String.t()
+        "localeId" => String.t() | Atom.t()
       }
 
   """
-  @type describe_custom_vocabulary_metadata_response() :: %{String.t() => any()}
+  @type describe_custom_vocabulary_metadata_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_resource_policy_statement_response() :: %{
-        "resourceArn" => String.t(),
-        "revisionId" => String.t()
+        "resourceArn" => String.t() | Atom.t(),
+        "revisionId" => String.t() | Atom.t()
       }
 
   """
-  @type create_resource_policy_statement_response() :: %{String.t() => any()}
+  @type create_resource_policy_statement_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2493,16 +2496,16 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       list_slots_response() :: %{
-        "botId" => String.t(),
-        "botVersion" => String.t(),
-        "intentId" => String.t(),
-        "localeId" => String.t(),
-        "nextToken" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
+        "intentId" => String.t() | Atom.t(),
+        "localeId" => String.t() | Atom.t(),
+        "nextToken" => String.t() | Atom.t(),
         "slotSummaries" => list(slot_summary())
       }
 
   """
-  @type list_slots_response() :: %{String.t() => any()}
+  @type list_slots_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2513,7 +2516,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type list_intent_paths_response() :: %{String.t() => any()}
+  @type list_intent_paths_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2521,12 +2524,12 @@ defmodule AWS.LexModelsV2 do
 
       failed_custom_vocabulary_item() :: %{
         "errorCode" => list(any()),
-        "errorMessage" => String.t(),
-        "itemId" => String.t()
+        "errorMessage" => String.t() | Atom.t(),
+        "itemId" => String.t() | Atom.t()
       }
 
   """
-  @type failed_custom_vocabulary_item() :: %{String.t() => any()}
+  @type failed_custom_vocabulary_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2538,45 +2541,45 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type buildtime_settings() :: %{String.t() => any()}
+  @type buildtime_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       custom_vocabulary_import_specification() :: %{
-        "botId" => String.t(),
-        "botVersion" => String.t(),
-        "localeId" => String.t()
+        "botId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
+        "localeId" => String.t() | Atom.t()
       }
 
   """
-  @type custom_vocabulary_import_specification() :: %{String.t() => any()}
+  @type custom_vocabulary_import_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       test_set_discrepancy_report_bot_alias_target() :: %{
-        "botAliasId" => String.t(),
-        "botId" => String.t(),
-        "localeId" => String.t()
+        "botAliasId" => String.t() | Atom.t(),
+        "botId" => String.t() | Atom.t(),
+        "localeId" => String.t() | Atom.t()
       }
 
   """
-  @type test_set_discrepancy_report_bot_alias_target() :: %{String.t() => any()}
+  @type test_set_discrepancy_report_bot_alias_target() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_bot_response() :: %{
-        "botId" => String.t(),
+        "botId" => String.t() | Atom.t(),
         "botStatus" => list(any())
       }
 
   """
-  @type delete_bot_response() :: %{String.t() => any()}
+  @type delete_bot_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2587,14 +2590,14 @@ defmodule AWS.LexModelsV2 do
         optional("filters") => list(analytics_intent_filter()),
         optional("groupBy") => list(analytics_intent_group_by_specification()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("endDateTime") => non_neg_integer(),
         required("metrics") => list(analytics_intent_metric()),
         required("startDateTime") => non_neg_integer()
       }
 
   """
-  @type list_intent_metrics_request() :: %{String.t() => any()}
+  @type list_intent_metrics_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2603,58 +2606,58 @@ defmodule AWS.LexModelsV2 do
       create_test_set_discrepancy_report_response() :: %{
         "creationDateTime" => non_neg_integer(),
         "target" => test_set_discrepancy_report_resource_target(),
-        "testSetDiscrepancyReportId" => String.t(),
-        "testSetId" => String.t()
+        "testSetDiscrepancyReportId" => String.t() | Atom.t(),
+        "testSetId" => String.t() | Atom.t()
       }
 
   """
-  @type create_test_set_discrepancy_report_response() :: %{String.t() => any()}
+  @type create_test_set_discrepancy_report_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       analytics_utterance_attribute_result() :: %{
-        "lastUsedIntent" => String.t()
+        "lastUsedIntent" => String.t() | Atom.t()
       }
 
   """
-  @type analytics_utterance_attribute_result() :: %{String.t() => any()}
+  @type analytics_utterance_attribute_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bot_export_specification() :: %{
-        "botId" => String.t(),
-        "botVersion" => String.t()
+        "botId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t()
       }
 
   """
-  @type bot_export_specification() :: %{String.t() => any()}
+  @type bot_export_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_bot_response() :: %{
-        "botId" => String.t(),
+        "botId" => String.t() | Atom.t(),
         "botMembers" => list(bot_member()),
-        "botName" => String.t(),
+        "botName" => String.t() | Atom.t(),
         "botStatus" => list(any()),
         "botType" => list(any()),
         "creationDateTime" => non_neg_integer(),
         "dataPrivacy" => data_privacy(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "errorLogSettings" => error_log_settings(),
-        "failureReasons" => list(String.t()),
+        "failureReasons" => list(String.t() | Atom.t()),
         "idleSessionTTLInSeconds" => integer(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "roleArn" => String.t()
+        "roleArn" => String.t() | Atom.t()
       }
 
   """
-  @type describe_bot_response() :: %{String.t() => any()}
+  @type describe_bot_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2663,11 +2666,11 @@ defmodule AWS.LexModelsV2 do
       analytics_intent_filter() :: %{
         "name" => list(any()),
         "operator" => list(any()),
-        "values" => list(String.t())
+        "values" => list(String.t() | Atom.t())
       }
 
   """
-  @type analytics_intent_filter() :: %{String.t() => any()}
+  @type analytics_intent_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2689,7 +2692,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type analytics_session_metric_result() :: %{String.t() => any()}
+  @type analytics_session_metric_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2700,7 +2703,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type delete_bot_version_request() :: %{String.t() => any()}
+  @type delete_bot_version_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2711,7 +2714,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type analytics_intent_group_by_specification() :: %{String.t() => any()}
+  @type analytics_intent_group_by_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2722,97 +2725,97 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type utterance_level_test_results() :: %{String.t() => any()}
+  @type utterance_level_test_results() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       session_specification() :: %{
-        "botAliasId" => String.t(),
-        "botVersion" => String.t(),
-        "channel" => String.t(),
+        "botAliasId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
+        "channel" => String.t() | Atom.t(),
         "conversationDurationSeconds" => float(),
         "conversationEndState" => list(any()),
         "conversationEndTime" => non_neg_integer(),
         "conversationStartTime" => non_neg_integer(),
         "invokedIntentSamples" => list(invoked_intent_sample()),
-        "localeId" => String.t(),
+        "localeId" => String.t() | Atom.t(),
         "mode" => list(any()),
         "numberOfTurns" => float(),
-        "originatingRequestId" => String.t(),
-        "sessionId" => String.t()
+        "originatingRequestId" => String.t() | Atom.t(),
+        "sessionId" => String.t() | Atom.t()
       }
 
   """
-  @type session_specification() :: %{String.t() => any()}
+  @type session_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bot_locale_export_specification() :: %{
-        "botId" => String.t(),
-        "botVersion" => String.t(),
-        "localeId" => String.t()
+        "botId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
+        "localeId" => String.t() | Atom.t()
       }
 
   """
-  @type bot_locale_export_specification() :: %{String.t() => any()}
+  @type bot_locale_export_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       active_context() :: %{
-        "name" => String.t()
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type active_context() :: %{String.t() => any()}
+  @type active_context() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_bot_recommendation_response() :: %{
-        "botId" => String.t(),
-        "botRecommendationId" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botRecommendationId" => String.t() | Atom.t(),
         "botRecommendationResults" => bot_recommendation_results(),
         "botRecommendationStatus" => list(any()),
-        "botVersion" => String.t(),
+        "botVersion" => String.t() | Atom.t(),
         "creationDateTime" => non_neg_integer(),
         "encryptionSetting" => encryption_setting(),
-        "failureReasons" => list(String.t()),
+        "failureReasons" => list(String.t() | Atom.t()),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "localeId" => String.t(),
+        "localeId" => String.t() | Atom.t(),
         "transcriptSourceSetting" => transcript_source_setting()
       }
 
   """
-  @type describe_bot_recommendation_response() :: %{String.t() => any()}
+  @type describe_bot_recommendation_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_resource_policy_request() :: %{
-        required("policy") => String.t()
+        required("policy") => String.t() | Atom.t()
       }
 
   """
-  @type create_resource_policy_request() :: %{String.t() => any()}
+  @type create_resource_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2823,18 +2826,18 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type test_set_discrepancy_report_resource_target() :: %{String.t() => any()}
+  @type test_set_discrepancy_report_resource_target() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_bot_replica_request() :: %{
-        required("replicaRegion") => String.t()
+        required("replicaRegion") => String.t() | Atom.t()
       }
 
   """
-  @type create_bot_replica_request() :: %{String.t() => any()}
+  @type create_bot_replica_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2846,21 +2849,21 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type session_data_sort_by() :: %{String.t() => any()}
+  @type session_data_sort_by() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       custom_vocabulary_item() :: %{
-        "displayAs" => String.t(),
-        "itemId" => String.t(),
-        "phrase" => String.t(),
+        "displayAs" => String.t() | Atom.t(),
+        "itemId" => String.t() | Atom.t(),
+        "phrase" => String.t() | Atom.t(),
         "weight" => integer()
       }
 
   """
-  @type custom_vocabulary_item() :: %{String.t() => any()}
+  @type custom_vocabulary_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2868,15 +2871,15 @@ defmodule AWS.LexModelsV2 do
 
       create_resource_policy_statement_request() :: %{
         optional("condition") => map(),
-        optional("expectedRevisionId") => String.t(),
-        required("action") => list(String.t()),
+        optional("expectedRevisionId") => String.t() | Atom.t(),
+        required("action") => list(String.t() | Atom.t()),
         required("effect") => list(any()),
         required("principal") => list(principal()),
-        required("statementId") => String.t()
+        required("statementId") => String.t() | Atom.t()
       }
 
   """
-  @type create_resource_policy_statement_request() :: %{String.t() => any()}
+  @type create_resource_policy_statement_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2889,14 +2892,14 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type input_session_state_specification() :: %{String.t() => any()}
+  @type input_session_state_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_intent_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("dialogCodeHook") => dialog_code_hook_settings(),
         optional("fulfillmentCodeHook") => fulfillment_code_hook_settings(),
         optional("initialResponseSetting") => initial_response_setting(),
@@ -2905,15 +2908,15 @@ defmodule AWS.LexModelsV2 do
         optional("intentConfirmationSetting") => intent_confirmation_setting(),
         optional("kendraConfiguration") => kendra_configuration(),
         optional("outputContexts") => list(output_context()),
-        optional("parentIntentSignature") => String.t(),
+        optional("parentIntentSignature") => String.t() | Atom.t(),
         optional("qInConnectIntentConfiguration") => q_in_connect_intent_configuration(),
         optional("qnAIntentConfiguration") => qn_a_intent_configuration(),
         optional("sampleUtterances") => list(sample_utterance()),
-        required("intentName") => String.t()
+        required("intentName") => String.t() | Atom.t()
       }
 
   """
-  @type create_intent_request() :: %{String.t() => any()}
+  @type create_intent_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2925,7 +2928,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type response_specification() :: %{String.t() => any()}
+  @type response_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2935,13 +2938,13 @@ defmodule AWS.LexModelsV2 do
         "containsDataFromDeletedResources" => boolean(),
         "hitCount" => integer(),
         "missedCount" => integer(),
-        "utterance" => String.t(),
+        "utterance" => String.t() | Atom.t(),
         "utteranceFirstRecordedInAggregationDuration" => non_neg_integer(),
         "utteranceLastRecordedInAggregationDuration" => non_neg_integer()
       }
 
   """
-  @type aggregated_utterances_summary() :: %{String.t() => any()}
+  @type aggregated_utterances_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2949,18 +2952,18 @@ defmodule AWS.LexModelsV2 do
 
       describe_import_response() :: %{
         "creationDateTime" => non_neg_integer(),
-        "failureReasons" => list(String.t()),
-        "importId" => String.t(),
+        "failureReasons" => list(String.t() | Atom.t()),
+        "importId" => String.t() | Atom.t(),
         "importStatus" => list(any()),
-        "importedResourceId" => String.t(),
-        "importedResourceName" => String.t(),
+        "importedResourceId" => String.t() | Atom.t(),
+        "importedResourceName" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
         "mergeStrategy" => list(any()),
         "resourceSpecification" => import_resource_specification()
       }
 
   """
-  @type describe_import_response() :: %{String.t() => any()}
+  @type describe_import_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2968,7 +2971,7 @@ defmodule AWS.LexModelsV2 do
 
       export_summary() :: %{
         "creationDateTime" => non_neg_integer(),
-        "exportId" => String.t(),
+        "exportId" => String.t() | Atom.t(),
         "exportStatus" => list(any()),
         "fileFormat" => list(any()),
         "lastUpdatedDateTime" => non_neg_integer(),
@@ -2976,7 +2979,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type export_summary() :: %{String.t() => any()}
+  @type export_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2985,11 +2988,11 @@ defmodule AWS.LexModelsV2 do
       bot_filter() :: %{
         "name" => list(any()),
         "operator" => list(any()),
-        "values" => list(String.t())
+        "values" => list(String.t() | Atom.t())
       }
 
   """
-  @type bot_filter() :: %{String.t() => any()}
+  @type bot_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3012,7 +3015,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type intent_confirmation_setting() :: %{String.t() => any()}
+  @type intent_confirmation_setting() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3021,12 +3024,12 @@ defmodule AWS.LexModelsV2 do
       bot_replica_summary() :: %{
         "botReplicaStatus" => list(any()),
         "creationDateTime" => non_neg_integer(),
-        "failureReasons" => list(String.t()),
-        "replicaRegion" => String.t()
+        "failureReasons" => list(String.t() | Atom.t()),
+        "replicaRegion" => String.t() | Atom.t()
       }
 
   """
-  @type bot_replica_summary() :: %{String.t() => any()}
+  @type bot_replica_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3038,7 +3041,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type bot_recommendation_result_statistics() :: %{String.t() => any()}
+  @type bot_recommendation_result_statistics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3050,7 +3053,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type slot_type_value() :: %{String.t() => any()}
+  @type slot_type_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3061,33 +3064,33 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type conversation_level_test_results() :: %{String.t() => any()}
+  @type conversation_level_test_results() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conversation_level_slot_resolution_result_item() :: %{
-        "intentName" => String.t(),
+        "intentName" => String.t() | Atom.t(),
         "matchResult" => list(any()),
-        "slotName" => String.t()
+        "slotName" => String.t() | Atom.t()
       }
 
   """
-  @type conversation_level_slot_resolution_result_item() :: %{String.t() => any()}
+  @type conversation_level_slot_resolution_result_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       custom_vocabulary_export_specification() :: %{
-        "botId" => String.t(),
-        "botVersion" => String.t(),
-        "localeId" => String.t()
+        "botId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
+        "localeId" => String.t() | Atom.t()
       }
 
   """
-  @type custom_vocabulary_export_specification() :: %{String.t() => any()}
+  @type custom_vocabulary_export_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3096,11 +3099,11 @@ defmodule AWS.LexModelsV2 do
       slot_filter() :: %{
         "name" => list(any()),
         "operator" => list(any()),
-        "values" => list(String.t())
+        "values" => list(String.t() | Atom.t())
       }
 
   """
-  @type slot_filter() :: %{String.t() => any()}
+  @type slot_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3111,7 +3114,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type slot_resolution_setting() :: %{String.t() => any()}
+  @type slot_resolution_setting() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3122,32 +3125,32 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type audio_log_destination() :: %{String.t() => any()}
+  @type audio_log_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_intent_stage_metrics_response() :: %{
-        "botId" => String.t(),
-        "nextToken" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "nextToken" => String.t() | Atom.t(),
         "results" => list(analytics_intent_stage_result())
       }
 
   """
-  @type list_intent_stage_metrics_response() :: %{String.t() => any()}
+  @type list_intent_stage_metrics_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       built_in_slot_type_summary() :: %{
-        "description" => String.t(),
-        "slotTypeSignature" => String.t()
+        "description" => String.t() | Atom.t(),
+        "slotTypeSignature" => String.t() | Atom.t()
       }
 
   """
-  @type built_in_slot_type_summary() :: %{String.t() => any()}
+  @type built_in_slot_type_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3160,7 +3163,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type slot_value_override() :: %{String.t() => any()}
+  @type slot_value_override() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3169,11 +3172,11 @@ defmodule AWS.LexModelsV2 do
       analytics_intent_stage_filter() :: %{
         "name" => list(any()),
         "operator" => list(any()),
-        "values" => list(String.t())
+        "values" => list(String.t() | Atom.t())
       }
 
   """
-  @type analytics_intent_stage_filter() :: %{String.t() => any()}
+  @type analytics_intent_stage_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3184,25 +3187,25 @@ defmodule AWS.LexModelsV2 do
         optional("filters") => list(analytics_session_filter()),
         optional("groupBy") => list(analytics_session_group_by_specification()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("endDateTime") => non_neg_integer(),
         required("metrics") => list(analytics_session_metric()),
         required("startDateTime") => non_neg_integer()
       }
 
   """
-  @type list_session_metrics_request() :: %{String.t() => any()}
+  @type list_session_metrics_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       custom_vocabulary_entry_id() :: %{
-        "itemId" => String.t()
+        "itemId" => String.t() | Atom.t()
       }
 
   """
-  @type custom_vocabulary_entry_id() :: %{String.t() => any()}
+  @type custom_vocabulary_entry_id() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3216,18 +3219,18 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type import_resource_specification() :: %{String.t() => any()}
+  @type import_resource_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       test_set_export_specification() :: %{
-        "testSetId" => String.t()
+        "testSetId" => String.t() | Atom.t()
       }
 
   """
-  @type test_set_export_specification() :: %{String.t() => any()}
+  @type test_set_export_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3240,7 +3243,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type analytics_intent_stage_metric() :: %{String.t() => any()}
+  @type analytics_intent_stage_metric() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3254,7 +3257,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type sub_slot_value_elicitation_setting() :: %{String.t() => any()}
+  @type sub_slot_value_elicitation_setting() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3267,20 +3270,20 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type analytics_session_result() :: %{String.t() => any()}
+  @type analytics_session_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       utterance_bot_response() :: %{
-        "content" => String.t(),
+        "content" => String.t() | Atom.t(),
         "contentType" => list(any()),
         "imageResponseCard" => image_response_card()
       }
 
   """
-  @type utterance_bot_response() :: %{String.t() => any()}
+  @type utterance_bot_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3293,7 +3296,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type analytics_intent_result() :: %{String.t() => any()}
+  @type analytics_intent_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3304,7 +3307,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3318,7 +3321,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type wait_and_continue_specification() :: %{String.t() => any()}
+  @type wait_and_continue_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3329,7 +3332,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type slot_default_value_specification() :: %{String.t() => any()}
+  @type slot_default_value_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3337,41 +3340,41 @@ defmodule AWS.LexModelsV2 do
 
       list_bot_version_replicas_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortBy") => bot_version_replica_sort_by()
       }
 
   """
-  @type list_bot_version_replicas_request() :: %{String.t() => any()}
+  @type list_bot_version_replicas_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_export_response() :: %{
-        "exportId" => String.t(),
+        "exportId" => String.t() | Atom.t(),
         "exportStatus" => list(any())
       }
 
   """
-  @type delete_export_response() :: %{String.t() => any()}
+  @type delete_export_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       test_set_import_resource_specification() :: %{
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "importInputLocation" => test_set_import_input_location(),
         "modality" => list(any()),
-        "roleArn" => String.t(),
+        "roleArn" => String.t() | Atom.t(),
         "storageLocation" => test_set_storage_location(),
-        "testSetName" => String.t(),
+        "testSetName" => String.t() | Atom.t(),
         "testSetTags" => map()
       }
 
   """
-  @type test_set_import_resource_specification() :: %{String.t() => any()}
+  @type test_set_import_resource_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3388,11 +3391,11 @@ defmodule AWS.LexModelsV2 do
 
       analytics_intent_group_by_key() :: %{
         "name" => list(any()),
-        "value" => String.t()
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type analytics_intent_group_by_key() :: %{String.t() => any()}
+  @type analytics_intent_group_by_key() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3404,20 +3407,20 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type relative_aggregation_duration() :: %{String.t() => any()}
+  @type relative_aggregation_duration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       test_set_slot_discrepancy_item() :: %{
-        "errorMessage" => String.t(),
-        "intentName" => String.t(),
-        "slotName" => String.t()
+        "errorMessage" => String.t() | Atom.t(),
+        "intentName" => String.t() | Atom.t(),
+        "slotName" => String.t() | Atom.t()
       }
 
   """
-  @type test_set_slot_discrepancy_item() :: %{String.t() => any()}
+  @type test_set_slot_discrepancy_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3431,7 +3434,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type fulfillment_code_hook_settings() :: %{String.t() => any()}
+  @type fulfillment_code_hook_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3443,7 +3446,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type bot_sort_by() :: %{String.t() => any()}
+  @type bot_sort_by() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3452,11 +3455,11 @@ defmodule AWS.LexModelsV2 do
       intent_filter() :: %{
         "name" => list(any()),
         "operator" => list(any()),
-        "values" => list(String.t())
+        "values" => list(String.t() | Atom.t())
       }
 
   """
-  @type intent_filter() :: %{String.t() => any()}
+  @type intent_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3474,7 +3477,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type slot_capture_setting() :: %{String.t() => any()}
+  @type slot_capture_setting() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3485,7 +3488,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type q_in_connect_intent_configuration() :: %{String.t() => any()}
+  @type q_in_connect_intent_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3497,20 +3500,20 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type test_set_sort_by() :: %{String.t() => any()}
+  @type test_set_sort_by() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       recommended_intent_summary() :: %{
-        "intentId" => String.t(),
-        "intentName" => String.t(),
+        "intentId" => String.t() | Atom.t(),
+        "intentName" => String.t() | Atom.t(),
         "sampleUtterancesCount" => integer()
       }
 
   """
-  @type recommended_intent_summary() :: %{String.t() => any()}
+  @type recommended_intent_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3526,33 +3529,33 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       sample_utterance() :: %{
-        "utterance" => String.t()
+        "utterance" => String.t() | Atom.t()
       }
 
   """
-  @type sample_utterance() :: %{String.t() => any()}
+  @type sample_utterance() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_slot_type_response() :: %{
-        "botId" => String.t(),
-        "botVersion" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
         "compositeSlotTypeSetting" => composite_slot_type_setting(),
         "creationDateTime" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "externalSourceSetting" => external_source_setting(),
-        "localeId" => String.t(),
-        "parentSlotTypeSignature" => String.t(),
-        "slotTypeId" => String.t(),
-        "slotTypeName" => String.t(),
+        "localeId" => String.t() | Atom.t(),
+        "parentSlotTypeSignature" => String.t() | Atom.t(),
+        "slotTypeId" => String.t() | Atom.t(),
+        "slotTypeName" => String.t() | Atom.t(),
         "slotTypeValues" => list(slot_type_value()),
         "valueSelectionSetting" => slot_value_selection_setting()
       }
 
   """
-  @type create_slot_type_response() :: %{String.t() => any()}
+  @type create_slot_type_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3560,11 +3563,11 @@ defmodule AWS.LexModelsV2 do
 
       analytics_intent_stage_group_by_key() :: %{
         "name" => list(any()),
-        "value" => String.t()
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type analytics_intent_stage_group_by_key() :: %{String.t() => any()}
+  @type analytics_intent_stage_group_by_key() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3580,50 +3583,50 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       bot_version_replica_summary() :: %{
-        "botVersion" => String.t(),
+        "botVersion" => String.t() | Atom.t(),
         "botVersionReplicationStatus" => list(any()),
         "creationDateTime" => non_neg_integer(),
-        "failureReasons" => list(String.t())
+        "failureReasons" => list(String.t() | Atom.t())
       }
 
   """
-  @type bot_version_replica_summary() :: %{String.t() => any()}
+  @type bot_version_replica_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bedrock_model_specification() :: %{
-        "customPrompt" => String.t(),
+        "customPrompt" => String.t() | Atom.t(),
         "guardrail" => bedrock_guardrail_configuration(),
-        "modelArn" => String.t(),
+        "modelArn" => String.t() | Atom.t(),
         "traceStatus" => list(any())
       }
 
   """
-  @type bedrock_model_specification() :: %{String.t() => any()}
+  @type bedrock_model_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       condition() :: %{
-        "expressionString" => String.t()
+        "expressionString" => String.t() | Atom.t()
       }
 
   """
-  @type condition() :: %{String.t() => any()}
+  @type condition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bedrock_knowledge_store_exact_response_fields() :: %{
-        "answerField" => String.t()
+        "answerField" => String.t() | Atom.t()
       }
 
   """
-  @type bedrock_knowledge_store_exact_response_fields() :: %{String.t() => any()}
+  @type bedrock_knowledge_store_exact_response_fields() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3631,11 +3634,11 @@ defmodule AWS.LexModelsV2 do
 
       analytics_utterance_group_by_key() :: %{
         "name" => list(any()),
-        "value" => String.t()
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type analytics_utterance_group_by_key() :: %{String.t() => any()}
+  @type analytics_utterance_group_by_key() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3644,12 +3647,12 @@ defmodule AWS.LexModelsV2 do
       list_slots_request() :: %{
         optional("filters") => list(slot_filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortBy") => slot_sort_by()
       }
 
   """
-  @type list_slots_request() :: %{String.t() => any()}
+  @type list_slots_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3657,12 +3660,12 @@ defmodule AWS.LexModelsV2 do
 
       list_built_in_slot_types_response() :: %{
         "builtInSlotTypeSummaries" => list(built_in_slot_type_summary()),
-        "localeId" => String.t(),
-        "nextToken" => String.t()
+        "localeId" => String.t() | Atom.t(),
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_built_in_slot_types_response() :: %{String.t() => any()}
+  @type list_built_in_slot_types_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3674,7 +3677,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type allowed_input_types() :: %{String.t() => any()}
+  @type allowed_input_types() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3686,7 +3689,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type test_execution_sort_by() :: %{String.t() => any()}
+  @type test_execution_sort_by() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3694,12 +3697,12 @@ defmodule AWS.LexModelsV2 do
 
       list_bot_aliases_response() :: %{
         "botAliasSummaries" => list(bot_alias_summary()),
-        "botId" => String.t(),
-        "nextToken" => String.t()
+        "botId" => String.t() | Atom.t(),
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_bot_aliases_response() :: %{String.t() => any()}
+  @type list_bot_aliases_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3711,7 +3714,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type bot_version_replica_sort_by() :: %{String.t() => any()}
+  @type bot_version_replica_sort_by() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3723,15 +3726,15 @@ defmodule AWS.LexModelsV2 do
         "aggregationLastRefreshedDateTime" => non_neg_integer(),
         "aggregationWindowEndTime" => non_neg_integer(),
         "aggregationWindowStartTime" => non_neg_integer(),
-        "botAliasId" => String.t(),
-        "botId" => String.t(),
-        "botVersion" => String.t(),
-        "localeId" => String.t(),
-        "nextToken" => String.t()
+        "botAliasId" => String.t() | Atom.t(),
+        "botId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
+        "localeId" => String.t() | Atom.t(),
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_aggregated_utterances_response() :: %{String.t() => any()}
+  @type list_aggregated_utterances_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3739,53 +3742,53 @@ defmodule AWS.LexModelsV2 do
 
       update_slot_type_request() :: %{
         optional("compositeSlotTypeSetting") => composite_slot_type_setting(),
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("externalSourceSetting") => external_source_setting(),
-        optional("parentSlotTypeSignature") => String.t(),
+        optional("parentSlotTypeSignature") => String.t() | Atom.t(),
         optional("slotTypeValues") => list(slot_type_value()),
         optional("valueSelectionSetting") => slot_value_selection_setting(),
-        required("slotTypeName") => String.t()
+        required("slotTypeName") => String.t() | Atom.t()
       }
 
   """
-  @type update_slot_type_request() :: %{String.t() => any()}
+  @type update_slot_type_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       runtime_hint_value() :: %{
-        "phrase" => String.t()
+        "phrase" => String.t() | Atom.t()
       }
 
   """
-  @type runtime_hint_value() :: %{String.t() => any()}
+  @type runtime_hint_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bedrock_knowledge_store_configuration() :: %{
-        "bedrockKnowledgeBaseArn" => String.t(),
+        "bedrockKnowledgeBaseArn" => String.t() | Atom.t(),
         "exactResponse" => boolean(),
         "exactResponseFields" => bedrock_knowledge_store_exact_response_fields()
       }
 
   """
-  @type bedrock_knowledge_store_configuration() :: %{String.t() => any()}
+  @type bedrock_knowledge_store_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       new_custom_vocabulary_item() :: %{
-        "displayAs" => String.t(),
-        "phrase" => String.t(),
+        "displayAs" => String.t() | Atom.t(),
+        "phrase" => String.t() | Atom.t(),
         "weight" => integer()
       }
 
   """
-  @type new_custom_vocabulary_item() :: %{String.t() => any()}
+  @type new_custom_vocabulary_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3797,19 +3800,19 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type analytics_bin_key() :: %{String.t() => any()}
+  @type analytics_bin_key() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_resource_policy_response() :: %{
-        "resourceArn" => String.t(),
-        "revisionId" => String.t()
+        "resourceArn" => String.t() | Atom.t(),
+        "revisionId" => String.t() | Atom.t()
       }
 
   """
-  @type update_resource_policy_response() :: %{String.t() => any()}
+  @type update_resource_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3822,7 +3825,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type analytics_intent_metric_result() :: %{String.t() => any()}
+  @type analytics_intent_metric_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3843,7 +3846,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type bot_version_sort_by() :: %{String.t() => any()}
+  @type bot_version_sort_by() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3854,20 +3857,20 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type analytics_session_group_by_specification() :: %{String.t() => any()}
+  @type analytics_session_group_by_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_bot_replica_response() :: %{
-        "botId" => String.t(),
+        "botId" => String.t() | Atom.t(),
         "botReplicaStatus" => list(any()),
-        "replicaRegion" => String.t()
+        "replicaRegion" => String.t() | Atom.t()
       }
 
   """
-  @type delete_bot_replica_response() :: %{String.t() => any()}
+  @type delete_bot_replica_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3878,7 +3881,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type slot_type_statistics() :: %{String.t() => any()}
+  @type slot_type_statistics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3895,7 +3898,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type slot_value_elicitation_setting() :: %{String.t() => any()}
+  @type slot_value_elicitation_setting() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3903,13 +3906,13 @@ defmodule AWS.LexModelsV2 do
 
       conditional_branch() :: %{
         "condition" => condition(),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "nextStep" => dialog_state(),
         "response" => response_specification()
       }
 
   """
-  @type conditional_branch() :: %{String.t() => any()}
+  @type conditional_branch() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3921,7 +3924,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type slot_type_sort_by() :: %{String.t() => any()}
+  @type slot_type_sort_by() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3932,19 +3935,19 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type create_test_set_discrepancy_report_request() :: %{String.t() => any()}
+  @type create_test_set_discrepancy_report_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cloud_watch_log_group_log_destination() :: %{
-        "cloudWatchLogGroupArn" => String.t(),
-        "logPrefix" => String.t()
+        "cloudWatchLogGroupArn" => String.t() | Atom.t(),
+        "logPrefix" => String.t() | Atom.t()
       }
 
   """
-  @type cloud_watch_log_group_log_destination() :: %{String.t() => any()}
+  @type cloud_watch_log_group_log_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3952,14 +3955,14 @@ defmodule AWS.LexModelsV2 do
 
       list_bot_alias_replicas_response() :: %{
         "botAliasReplicaSummaries" => list(bot_alias_replica_summary()),
-        "botId" => String.t(),
-        "nextToken" => String.t(),
-        "replicaRegion" => String.t(),
-        "sourceRegion" => String.t()
+        "botId" => String.t() | Atom.t(),
+        "nextToken" => String.t() | Atom.t(),
+        "replicaRegion" => String.t() | Atom.t(),
+        "sourceRegion" => String.t() | Atom.t()
       }
 
   """
-  @type list_bot_alias_replicas_response() :: %{String.t() => any()}
+  @type list_bot_alias_replicas_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3974,21 +3977,21 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type test_execution_result_items() :: %{String.t() => any()}
+  @type test_execution_result_items() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       test_set_turn_record() :: %{
-        "conversationId" => String.t(),
+        "conversationId" => String.t() | Atom.t(),
         "recordNumber" => float(),
         "turnNumber" => integer(),
         "turnSpecification" => turn_specification()
       }
 
   """
-  @type test_set_turn_record() :: %{String.t() => any()}
+  @type test_set_turn_record() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3997,23 +4000,23 @@ defmodule AWS.LexModelsV2 do
       analytics_session_filter() :: %{
         "name" => list(any()),
         "operator" => list(any()),
-        "values" => list(String.t())
+        "values" => list(String.t() | Atom.t())
       }
 
   """
-  @type analytics_session_filter() :: %{String.t() => any()}
+  @type analytics_session_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       lambda_code_hook() :: %{
-        "codeHookInterfaceVersion" => String.t(),
-        "lambdaARN" => String.t()
+        "codeHookInterfaceVersion" => String.t() | Atom.t(),
+        "lambdaARN" => String.t() | Atom.t()
       }
 
   """
-  @type lambda_code_hook() :: %{String.t() => any()}
+  @type lambda_code_hook() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4024,45 +4027,45 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type batch_delete_custom_vocabulary_item_request() :: %{String.t() => any()}
+  @type batch_delete_custom_vocabulary_item_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_import_response() :: %{
-        "importId" => String.t(),
+        "importId" => String.t() | Atom.t(),
         "importStatus" => list(any())
       }
 
   """
-  @type delete_import_response() :: %{String.t() => any()}
+  @type delete_import_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bot_version_summary() :: %{
-        "botName" => String.t(),
+        "botName" => String.t() | Atom.t(),
         "botStatus" => list(any()),
-        "botVersion" => String.t(),
+        "botVersion" => String.t() | Atom.t(),
         "creationDateTime" => non_neg_integer(),
-        "description" => String.t()
+        "description" => String.t() | Atom.t()
       }
 
   """
-  @type bot_version_summary() :: %{String.t() => any()}
+  @type bot_version_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4073,7 +4076,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type intent_classification_test_results() :: %{String.t() => any()}
+  @type intent_classification_test_results() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4084,7 +4087,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type delete_bot_alias_request() :: %{String.t() => any()}
+  @type delete_bot_alias_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4095,24 +4098,24 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type analytics_intent_stage_group_by_specification() :: %{String.t() => any()}
+  @type analytics_intent_stage_group_by_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       slot_summary() :: %{
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
         "slotConstraint" => list(any()),
-        "slotId" => String.t(),
-        "slotName" => String.t(),
-        "slotTypeId" => String.t(),
+        "slotId" => String.t() | Atom.t(),
+        "slotName" => String.t() | Atom.t(),
+        "slotTypeId" => String.t() | Atom.t(),
         "valueElicitationPromptSpecification" => prompt_specification()
       }
 
   """
-  @type slot_summary() :: %{String.t() => any()}
+  @type slot_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4120,24 +4123,24 @@ defmodule AWS.LexModelsV2 do
 
       list_bots_response() :: %{
         "botSummaries" => list(bot_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_bots_response() :: %{String.t() => any()}
+  @type list_bots_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_bot_versions_response() :: %{
-        "botId" => String.t(),
+        "botId" => String.t() | Atom.t(),
         "botVersionSummaries" => list(bot_version_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_bot_versions_response() :: %{String.t() => any()}
+  @type list_bot_versions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4148,19 +4151,19 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type composite_slot_type_setting() :: %{String.t() => any()}
+  @type composite_slot_type_setting() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       sub_slot_setting() :: %{
-        "expression" => String.t(),
+        "expression" => String.t() | Atom.t(),
         "slotSpecifications" => map()
       }
 
   """
-  @type sub_slot_setting() :: %{String.t() => any()}
+  @type sub_slot_setting() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4172,7 +4175,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type export_sort_by() :: %{String.t() => any()}
+  @type export_sort_by() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4185,7 +4188,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type user_turn_input_specification() :: %{String.t() => any()}
+  @type user_turn_input_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4193,11 +4196,11 @@ defmodule AWS.LexModelsV2 do
 
       utterance_input_specification() :: %{
         "audioInput" => utterance_audio_input_specification(),
-        "textInput" => String.t()
+        "textInput" => String.t() | Atom.t()
       }
 
   """
-  @type utterance_input_specification() :: %{String.t() => any()}
+  @type utterance_input_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4205,11 +4208,11 @@ defmodule AWS.LexModelsV2 do
 
       list_bot_aliases_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_bot_aliases_request() :: %{String.t() => any()}
+  @type list_bot_aliases_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4217,11 +4220,11 @@ defmodule AWS.LexModelsV2 do
 
       list_bot_alias_replicas_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_bot_alias_replicas_request() :: %{String.t() => any()}
+  @type list_bot_alias_replicas_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4237,23 +4240,23 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       describe_slot_type_response() :: %{
-        "botId" => String.t(),
-        "botVersion" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
         "compositeSlotTypeSetting" => composite_slot_type_setting(),
         "creationDateTime" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "externalSourceSetting" => external_source_setting(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "localeId" => String.t(),
-        "parentSlotTypeSignature" => String.t(),
-        "slotTypeId" => String.t(),
-        "slotTypeName" => String.t(),
+        "localeId" => String.t() | Atom.t(),
+        "parentSlotTypeSignature" => String.t() | Atom.t(),
+        "slotTypeId" => String.t() | Atom.t(),
+        "slotTypeName" => String.t() | Atom.t(),
         "slotTypeValues" => list(slot_type_value()),
         "valueSelectionSetting" => slot_value_selection_setting()
       }
 
   """
-  @type describe_slot_type_response() :: %{String.t() => any()}
+  @type describe_slot_type_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4262,12 +4265,12 @@ defmodule AWS.LexModelsV2 do
       list_bot_locales_request() :: %{
         optional("filters") => list(bot_locale_filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortBy") => bot_locale_sort_by()
       }
 
   """
-  @type list_bot_locales_request() :: %{String.t() => any()}
+  @type list_bot_locales_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4276,11 +4279,11 @@ defmodule AWS.LexModelsV2 do
       slot_type_filter() :: %{
         "name" => list(any()),
         "operator" => list(any()),
-        "values" => list(String.t())
+        "values" => list(String.t() | Atom.t())
       }
 
   """
-  @type slot_type_filter() :: %{String.t() => any()}
+  @type slot_type_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4288,25 +4291,25 @@ defmodule AWS.LexModelsV2 do
 
       list_test_set_records_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_test_set_records_request() :: %{String.t() => any()}
+  @type list_test_set_records_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_custom_vocabulary_response() :: %{
-        "botId" => String.t(),
-        "botVersion" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
         "customVocabularyStatus" => list(any()),
-        "localeId" => String.t()
+        "localeId" => String.t() | Atom.t()
       }
 
   """
-  @type delete_custom_vocabulary_response() :: %{String.t() => any()}
+  @type delete_custom_vocabulary_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4314,16 +4317,16 @@ defmodule AWS.LexModelsV2 do
 
       create_slot_type_request() :: %{
         optional("compositeSlotTypeSetting") => composite_slot_type_setting(),
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("externalSourceSetting") => external_source_setting(),
-        optional("parentSlotTypeSignature") => String.t(),
+        optional("parentSlotTypeSignature") => String.t() | Atom.t(),
         optional("slotTypeValues") => list(slot_type_value()),
         optional("valueSelectionSetting") => slot_value_selection_setting(),
-        required("slotTypeName") => String.t()
+        required("slotTypeName") => String.t() | Atom.t()
       }
 
   """
-  @type create_slot_type_request() :: %{String.t() => any()}
+  @type create_slot_type_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4334,7 +4337,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type test_set_generation_data_source() :: %{String.t() => any()}
+  @type test_set_generation_data_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4355,7 +4358,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type conversation_log_settings() :: %{String.t() => any()}
+  @type conversation_log_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4371,27 +4374,27 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       user_turn_intent_output() :: %{
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "slots" => map()
       }
 
   """
-  @type user_turn_intent_output() :: %{String.t() => any()}
+  @type user_turn_intent_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_update_custom_vocabulary_item_response() :: %{
-        "botId" => String.t(),
-        "botVersion" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
         "errors" => list(failed_custom_vocabulary_item()),
-        "localeId" => String.t(),
+        "localeId" => String.t() | Atom.t(),
         "resources" => list(custom_vocabulary_item())
       }
 
   """
-  @type batch_update_custom_vocabulary_item_response() :: %{String.t() => any()}
+  @type batch_update_custom_vocabulary_item_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4403,7 +4406,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type test_execution_result_filter_by() :: %{String.t() => any()}
+  @type test_execution_result_filter_by() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4411,33 +4414,33 @@ defmodule AWS.LexModelsV2 do
 
       describe_test_set_discrepancy_report_response() :: %{
         "creationDateTime" => non_neg_integer(),
-        "failureReasons" => list(String.t()),
+        "failureReasons" => list(String.t() | Atom.t()),
         "lastUpdatedDataTime" => non_neg_integer(),
         "target" => test_set_discrepancy_report_resource_target(),
-        "testSetDiscrepancyRawOutputUrl" => String.t(),
-        "testSetDiscrepancyReportId" => String.t(),
+        "testSetDiscrepancyRawOutputUrl" => String.t() | Atom.t(),
+        "testSetDiscrepancyReportId" => String.t() | Atom.t(),
         "testSetDiscrepancyReportStatus" => list(any()),
         "testSetDiscrepancyTopErrors" => test_set_discrepancy_errors(),
-        "testSetId" => String.t()
+        "testSetId" => String.t() | Atom.t()
       }
 
   """
-  @type describe_test_set_discrepancy_report_response() :: %{String.t() => any()}
+  @type describe_test_set_discrepancy_report_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_create_custom_vocabulary_item_response() :: %{
-        "botId" => String.t(),
-        "botVersion" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
         "errors" => list(failed_custom_vocabulary_item()),
-        "localeId" => String.t(),
+        "localeId" => String.t() | Atom.t(),
         "resources" => list(custom_vocabulary_item())
       }
 
   """
-  @type batch_create_custom_vocabulary_item_response() :: %{String.t() => any()}
+  @type batch_create_custom_vocabulary_item_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4445,37 +4448,37 @@ defmodule AWS.LexModelsV2 do
 
       create_export_response() :: %{
         "creationDateTime" => non_neg_integer(),
-        "exportId" => String.t(),
+        "exportId" => String.t() | Atom.t(),
         "exportStatus" => list(any()),
         "fileFormat" => list(any()),
         "resourceSpecification" => export_resource_specification()
       }
 
   """
-  @type create_export_response() :: %{String.t() => any()}
+  @type create_export_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       agent_turn_specification() :: %{
-        "agentPrompt" => String.t()
+        "agentPrompt" => String.t() | Atom.t()
       }
 
   """
-  @type agent_turn_specification() :: %{String.t() => any()}
+  @type agent_turn_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       intent_override() :: %{
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "slots" => map()
       }
 
   """
-  @type intent_override() :: %{String.t() => any()}
+  @type intent_override() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4484,11 +4487,11 @@ defmodule AWS.LexModelsV2 do
       import_filter() :: %{
         "name" => list(any()),
         "operator" => list(any()),
-        "values" => list(String.t())
+        "values" => list(String.t() | Atom.t())
       }
 
   """
-  @type import_filter() :: %{String.t() => any()}
+  @type import_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4507,7 +4510,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type post_fulfillment_status_specification() :: %{String.t() => any()}
+  @type post_fulfillment_status_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4515,12 +4518,12 @@ defmodule AWS.LexModelsV2 do
 
       list_bot_resource_generations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortBy") => generation_sort_by()
       }
 
   """
-  @type list_bot_resource_generations_request() :: %{String.t() => any()}
+  @type list_bot_resource_generations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4536,23 +4539,23 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       create_slot_response() :: %{
-        "botId" => String.t(),
-        "botVersion" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
         "creationDateTime" => non_neg_integer(),
-        "description" => String.t(),
-        "intentId" => String.t(),
-        "localeId" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "intentId" => String.t() | Atom.t(),
+        "localeId" => String.t() | Atom.t(),
         "multipleValuesSetting" => multiple_values_setting(),
         "obfuscationSetting" => obfuscation_setting(),
-        "slotId" => String.t(),
-        "slotName" => String.t(),
-        "slotTypeId" => String.t(),
+        "slotId" => String.t() | Atom.t(),
+        "slotName" => String.t() | Atom.t(),
+        "slotTypeId" => String.t() | Atom.t(),
         "subSlotSetting" => sub_slot_setting(),
         "valueElicitationSetting" => slot_value_elicitation_setting()
       }
 
   """
-  @type create_slot_response() :: %{String.t() => any()}
+  @type create_slot_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4566,24 +4569,24 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type intent_closing_setting() :: %{String.t() => any()}
+  @type intent_closing_setting() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_bot_resource_generation_response() :: %{
-        "botId" => String.t(),
-        "botVersion" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
         "creationDateTime" => non_neg_integer(),
-        "generationId" => String.t(),
-        "generationInputPrompt" => String.t(),
+        "generationId" => String.t() | Atom.t(),
+        "generationInputPrompt" => String.t() | Atom.t(),
         "generationStatus" => list(any()),
-        "localeId" => String.t()
+        "localeId" => String.t() | Atom.t()
       }
 
   """
-  @type start_bot_resource_generation_response() :: %{String.t() => any()}
+  @type start_bot_resource_generation_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4596,7 +4599,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type analytics_intent_stage_result() :: %{String.t() => any()}
+  @type analytics_intent_stage_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4604,12 +4607,12 @@ defmodule AWS.LexModelsV2 do
 
       list_test_executions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortBy") => test_execution_sort_by()
       }
 
   """
-  @type list_test_executions_request() :: %{String.t() => any()}
+  @type list_test_executions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4622,20 +4625,20 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type analytics_utterance_metric() :: %{String.t() => any()}
+  @type analytics_utterance_metric() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_utterance_analytics_data_response() :: %{
-        "botId" => String.t(),
-        "nextToken" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "nextToken" => String.t() | Atom.t(),
         "utterances" => list(utterance_specification())
       }
 
   """
-  @type list_utterance_analytics_data_response() :: %{String.t() => any()}
+  @type list_utterance_analytics_data_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4654,35 +4657,35 @@ defmodule AWS.LexModelsV2 do
         "apiMode" => list(any()),
         "creationDateTime" => non_neg_integer(),
         "target" => test_execution_target(),
-        "testExecutionId" => String.t(),
+        "testExecutionId" => String.t() | Atom.t(),
         "testExecutionModality" => list(any()),
-        "testSetId" => String.t()
+        "testSetId" => String.t() | Atom.t()
       }
 
   """
-  @type start_test_execution_response() :: %{String.t() => any()}
+  @type start_test_execution_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       input_context() :: %{
-        "name" => String.t()
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type input_context() :: %{String.t() => any()}
+  @type input_context() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       plain_text_message() :: %{
-        "value" => String.t()
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type plain_text_message() :: %{String.t() => any()}
+  @type plain_text_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4691,16 +4694,16 @@ defmodule AWS.LexModelsV2 do
       update_bot_request() :: %{
         optional("botMembers") => list(bot_member()),
         optional("botType") => list(any()),
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("errorLogSettings") => error_log_settings(),
-        required("botName") => String.t(),
+        required("botName") => String.t() | Atom.t(),
         required("dataPrivacy") => data_privacy(),
         required("idleSessionTTLInSeconds") => integer(),
-        required("roleArn") => String.t()
+        required("roleArn") => String.t() | Atom.t()
       }
 
   """
-  @type update_bot_request() :: %{String.t() => any()}
+  @type update_bot_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4708,19 +4711,19 @@ defmodule AWS.LexModelsV2 do
 
       describe_test_set_response() :: %{
         "creationDateTime" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
         "modality" => list(any()),
         "numTurns" => integer(),
-        "roleArn" => String.t(),
+        "roleArn" => String.t() | Atom.t(),
         "status" => list(any()),
         "storageLocation" => test_set_storage_location(),
-        "testSetId" => String.t(),
-        "testSetName" => String.t()
+        "testSetId" => String.t() | Atom.t(),
+        "testSetName" => String.t() | Atom.t()
       }
 
   """
-  @type describe_test_set_response() :: %{String.t() => any()}
+  @type describe_test_set_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4733,7 +4736,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type conditional_specification() :: %{String.t() => any()}
+  @type conditional_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4744,22 +4747,22 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type delete_slot_type_request() :: %{String.t() => any()}
+  @type delete_slot_type_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_bot_resource_generations_response() :: %{
-        "botId" => String.t(),
-        "botVersion" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
         "generationSummaries" => list(generation_summary()),
-        "localeId" => String.t(),
-        "nextToken" => String.t()
+        "localeId" => String.t() | Atom.t(),
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_bot_resource_generations_response() :: %{String.t() => any()}
+  @type list_bot_resource_generations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4770,7 +4773,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type runtime_hints() :: %{String.t() => any()}
+  @type runtime_hints() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4783,7 +4786,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type audio_log_setting() :: %{String.t() => any()}
+  @type audio_log_setting() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4802,7 +4805,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type post_dialog_code_hook_invocation_specification() :: %{String.t() => any()}
+  @type post_dialog_code_hook_invocation_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4810,61 +4813,61 @@ defmodule AWS.LexModelsV2 do
 
       describe_bot_alias_response() :: %{
         "botAliasHistoryEvents" => list(bot_alias_history_event()),
-        "botAliasId" => String.t(),
+        "botAliasId" => String.t() | Atom.t(),
         "botAliasLocaleSettings" => map(),
-        "botAliasName" => String.t(),
+        "botAliasName" => String.t() | Atom.t(),
         "botAliasStatus" => list(any()),
-        "botId" => String.t(),
-        "botVersion" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
         "conversationLogSettings" => conversation_log_settings(),
         "creationDateTime" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
         "parentBotNetworks" => list(parent_bot_network()),
         "sentimentAnalysisSettings" => sentiment_analysis_settings()
       }
 
   """
-  @type describe_bot_alias_response() :: %{String.t() => any()}
+  @type describe_bot_alias_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_delete_custom_vocabulary_item_response() :: %{
-        "botId" => String.t(),
-        "botVersion" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
         "errors" => list(failed_custom_vocabulary_item()),
-        "localeId" => String.t(),
+        "localeId" => String.t() | Atom.t(),
         "resources" => list(custom_vocabulary_item())
       }
 
   """
-  @type batch_delete_custom_vocabulary_item_response() :: %{String.t() => any()}
+  @type batch_delete_custom_vocabulary_item_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_bot_replicas_response() :: %{
-        "botId" => String.t(),
+        "botId" => String.t() | Atom.t(),
         "botReplicaSummaries" => list(bot_replica_summary()),
-        "sourceRegion" => String.t()
+        "sourceRegion" => String.t() | Atom.t()
       }
 
   """
-  @type list_bot_replicas_response() :: %{String.t() => any()}
+  @type list_bot_replicas_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4880,12 +4883,12 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       update_resource_policy_request() :: %{
-        optional("expectedRevisionId") => String.t(),
-        required("policy") => String.t()
+        optional("expectedRevisionId") => String.t() | Atom.t(),
+        required("policy") => String.t() | Atom.t()
       }
 
   """
-  @type update_resource_policy_request() :: %{String.t() => any()}
+  @type update_resource_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4896,7 +4899,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type update_bot_recommendation_request() :: %{String.t() => any()}
+  @type update_bot_recommendation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4904,12 +4907,12 @@ defmodule AWS.LexModelsV2 do
 
       list_built_in_intents_response() :: %{
         "builtInIntentSummaries" => list(built_in_intent_summary()),
-        "localeId" => String.t(),
-        "nextToken" => String.t()
+        "localeId" => String.t() | Atom.t(),
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_built_in_intents_response() :: %{String.t() => any()}
+  @type list_built_in_intents_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4921,46 +4924,46 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type intent_sort_by() :: %{String.t() => any()}
+  @type intent_sort_by() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_bot_locale_response() :: %{
-        "botId" => String.t(),
+        "botId" => String.t() | Atom.t(),
         "botLocaleHistoryEvents" => list(bot_locale_history_event()),
         "botLocaleStatus" => list(any()),
-        "botVersion" => String.t(),
+        "botVersion" => String.t() | Atom.t(),
         "creationDateTime" => non_neg_integer(),
-        "description" => String.t(),
-        "failureReasons" => list(String.t()),
+        "description" => String.t() | Atom.t(),
+        "failureReasons" => list(String.t() | Atom.t()),
         "generativeAISettings" => generative_a_i_settings(),
         "intentsCount" => integer(),
         "lastBuildSubmittedDateTime" => non_neg_integer(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "localeId" => String.t(),
-        "localeName" => String.t(),
+        "localeId" => String.t() | Atom.t(),
+        "localeName" => String.t() | Atom.t(),
         "nluIntentConfidenceThreshold" => float(),
-        "recommendedActions" => list(String.t()),
+        "recommendedActions" => list(String.t() | Atom.t()),
         "slotTypesCount" => integer(),
         "voiceSettings" => voice_settings()
       }
 
   """
-  @type describe_bot_locale_response() :: %{String.t() => any()}
+  @type describe_bot_locale_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => String.t(),
+        "message" => String.t() | Atom.t(),
         "retryAfterSeconds" => integer()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4969,40 +4972,40 @@ defmodule AWS.LexModelsV2 do
       aggregated_utterances_filter() :: %{
         "name" => list(any()),
         "operator" => list(any()),
-        "values" => list(String.t())
+        "values" => list(String.t() | Atom.t())
       }
 
   """
-  @type aggregated_utterances_filter() :: %{String.t() => any()}
+  @type aggregated_utterances_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_intent_response() :: %{
-        "botId" => String.t(),
-        "botVersion" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
         "creationDateTime" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "dialogCodeHook" => dialog_code_hook_settings(),
         "fulfillmentCodeHook" => fulfillment_code_hook_settings(),
         "initialResponseSetting" => initial_response_setting(),
         "inputContexts" => list(input_context()),
         "intentClosingSetting" => intent_closing_setting(),
         "intentConfirmationSetting" => intent_confirmation_setting(),
-        "intentId" => String.t(),
-        "intentName" => String.t(),
+        "intentId" => String.t() | Atom.t(),
+        "intentName" => String.t() | Atom.t(),
         "kendraConfiguration" => kendra_configuration(),
-        "localeId" => String.t(),
+        "localeId" => String.t() | Atom.t(),
         "outputContexts" => list(output_context()),
-        "parentIntentSignature" => String.t(),
+        "parentIntentSignature" => String.t() | Atom.t(),
         "qInConnectIntentConfiguration" => q_in_connect_intent_configuration(),
         "qnAIntentConfiguration" => qn_a_intent_configuration(),
         "sampleUtterances" => list(sample_utterance())
       }
 
   """
-  @type create_intent_response() :: %{String.t() => any()}
+  @type create_intent_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5010,59 +5013,59 @@ defmodule AWS.LexModelsV2 do
 
       list_custom_vocabulary_items_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_custom_vocabulary_items_request() :: %{String.t() => any()}
+  @type list_custom_vocabulary_items_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       exact_response_fields() :: %{
-        "answerField" => String.t(),
-        "questionField" => String.t()
+        "answerField" => String.t() | Atom.t(),
+        "questionField" => String.t() | Atom.t()
       }
 
   """
-  @type exact_response_fields() :: %{String.t() => any()}
+  @type exact_response_fields() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       generate_bot_element_request() :: %{
-        required("intentId") => String.t()
+        required("intentId") => String.t() | Atom.t()
       }
 
   """
-  @type generate_bot_element_request() :: %{String.t() => any()}
+  @type generate_bot_element_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_resource_policy_response() :: %{
-        "policy" => String.t(),
-        "resourceArn" => String.t(),
-        "revisionId" => String.t()
+        "policy" => String.t() | Atom.t(),
+        "resourceArn" => String.t() | Atom.t(),
+        "revisionId" => String.t() | Atom.t()
       }
 
   """
-  @type describe_resource_policy_response() :: %{String.t() => any()}
+  @type describe_resource_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_test_executions_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "testExecutions" => list(test_execution_summary())
       }
 
   """
-  @type list_test_executions_response() :: %{String.t() => any()}
+  @type list_test_executions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5072,34 +5075,34 @@ defmodule AWS.LexModelsV2 do
         optional("botMembers") => list(bot_member()),
         optional("botTags") => map(),
         optional("botType") => list(any()),
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("errorLogSettings") => error_log_settings(),
         optional("testBotAliasTags") => map(),
-        required("botName") => String.t(),
+        required("botName") => String.t() | Atom.t(),
         required("dataPrivacy") => data_privacy(),
         required("idleSessionTTLInSeconds") => integer(),
-        required("roleArn") => String.t()
+        required("roleArn") => String.t() | Atom.t()
       }
 
   """
-  @type create_bot_request() :: %{String.t() => any()}
+  @type create_bot_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_imports_request() :: %{
-        optional("botId") => String.t(),
-        optional("botVersion") => String.t(),
+        optional("botId") => String.t() | Atom.t(),
+        optional("botVersion") => String.t() | Atom.t(),
         optional("filters") => list(import_filter()),
-        optional("localeId") => String.t(),
+        optional("localeId") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortBy") => import_sort_by()
       }
 
   """
-  @type list_imports_request() :: %{String.t() => any()}
+  @type list_imports_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5107,11 +5110,11 @@ defmodule AWS.LexModelsV2 do
 
       list_recommended_intents_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_recommended_intents_request() :: %{String.t() => any()}
+  @type list_recommended_intents_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5122,7 +5125,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type nlu_improvement_specification() :: %{String.t() => any()}
+  @type nlu_improvement_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5135,7 +5138,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type slot_value_selection_setting() :: %{String.t() => any()}
+  @type slot_value_selection_setting() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5153,26 +5156,26 @@ defmodule AWS.LexModelsV2 do
       list_utterance_analytics_data_request() :: %{
         optional("filters") => list(analytics_utterance_filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortBy") => utterance_data_sort_by(),
         required("endDateTime") => non_neg_integer(),
         required("startDateTime") => non_neg_integer()
       }
 
   """
-  @type list_utterance_analytics_data_request() :: %{String.t() => any()}
+  @type list_utterance_analytics_data_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       button() :: %{
-        "text" => String.t(),
-        "value" => String.t()
+        "text" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type button() :: %{String.t() => any()}
+  @type button() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5185,68 +5188,68 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type audio_and_d_t_m_f_input_specification() :: %{String.t() => any()}
+  @type audio_and_d_t_m_f_input_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       dialog_action() :: %{
-        "slotToElicit" => String.t(),
+        "slotToElicit" => String.t() | Atom.t(),
         "suppressNextMessage" => boolean(),
         "type" => list(any())
       }
 
   """
-  @type dialog_action() :: %{String.t() => any()}
+  @type dialog_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       slot_type_summary() :: %{
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "parentSlotTypeSignature" => String.t(),
+        "parentSlotTypeSignature" => String.t() | Atom.t(),
         "slotTypeCategory" => list(any()),
-        "slotTypeId" => String.t(),
-        "slotTypeName" => String.t()
+        "slotTypeId" => String.t() | Atom.t(),
+        "slotTypeName" => String.t() | Atom.t()
       }
 
   """
-  @type slot_type_summary() :: %{String.t() => any()}
+  @type slot_type_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       utterance_specification() :: %{
-        "associatedIntentName" => String.t(),
-        "associatedSlotName" => String.t(),
+        "associatedIntentName" => String.t() | Atom.t(),
+        "associatedSlotName" => String.t() | Atom.t(),
         "audioVoiceDurationMillis" => float(),
-        "botAliasId" => String.t(),
-        "botResponseAudioVoiceId" => String.t(),
+        "botAliasId" => String.t() | Atom.t(),
+        "botResponseAudioVoiceId" => String.t() | Atom.t(),
         "botResponses" => list(utterance_bot_response()),
-        "botVersion" => String.t(),
-        "channel" => String.t(),
+        "botVersion" => String.t() | Atom.t(),
+        "channel" => String.t() | Atom.t(),
         "conversationEndTime" => non_neg_integer(),
         "conversationStartTime" => non_neg_integer(),
-        "dialogActionType" => String.t(),
-        "inputType" => String.t(),
+        "dialogActionType" => String.t() | Atom.t(),
+        "inputType" => String.t() | Atom.t(),
         "intentState" => list(any()),
-        "localeId" => String.t(),
+        "localeId" => String.t() | Atom.t(),
         "mode" => list(any()),
-        "outputType" => String.t(),
-        "sessionId" => String.t(),
-        "slotsFilledInSession" => String.t(),
-        "utterance" => String.t(),
-        "utteranceRequestId" => String.t(),
+        "outputType" => String.t() | Atom.t(),
+        "sessionId" => String.t() | Atom.t(),
+        "slotsFilledInSession" => String.t() | Atom.t(),
+        "utterance" => String.t() | Atom.t(),
+        "utteranceRequestId" => String.t() | Atom.t(),
         "utteranceTimestamp" => non_neg_integer(),
         "utteranceUnderstood" => boolean()
       }
 
   """
-  @type utterance_specification() :: %{String.t() => any()}
+  @type utterance_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5257,7 +5260,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type data_privacy() :: %{String.t() => any()}
+  @type data_privacy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5268,43 +5271,43 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type external_source_setting() :: %{String.t() => any()}
+  @type external_source_setting() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       utterance_level_test_result_item() :: %{
-        "conversationId" => String.t(),
+        "conversationId" => String.t() | Atom.t(),
         "recordNumber" => float(),
         "turnResult" => test_set_turn_result()
       }
 
   """
-  @type utterance_level_test_result_item() :: %{String.t() => any()}
+  @type utterance_level_test_result_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_bot_response() :: %{
-        "botId" => String.t(),
+        "botId" => String.t() | Atom.t(),
         "botMembers" => list(bot_member()),
-        "botName" => String.t(),
+        "botName" => String.t() | Atom.t(),
         "botStatus" => list(any()),
         "botTags" => map(),
         "botType" => list(any()),
         "creationDateTime" => non_neg_integer(),
         "dataPrivacy" => data_privacy(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "errorLogSettings" => error_log_settings(),
         "idleSessionTTLInSeconds" => integer(),
-        "roleArn" => String.t(),
+        "roleArn" => String.t() | Atom.t(),
         "testBotAliasTags" => map()
       }
 
   """
-  @type create_bot_response() :: %{String.t() => any()}
+  @type create_bot_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5312,12 +5315,12 @@ defmodule AWS.LexModelsV2 do
 
       list_built_in_intents_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortBy") => built_in_intent_sort_by()
       }
 
   """
-  @type list_built_in_intents_request() :: %{String.t() => any()}
+  @type list_built_in_intents_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5335,11 +5338,11 @@ defmodule AWS.LexModelsV2 do
       bot_locale_filter() :: %{
         "name" => list(any()),
         "operator" => list(any()),
-        "values" => list(String.t())
+        "values" => list(String.t() | Atom.t())
       }
 
   """
-  @type bot_locale_filter() :: %{String.t() => any()}
+  @type bot_locale_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5351,18 +5354,18 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type runtime_hint_details() :: %{String.t() => any()}
+  @type runtime_hint_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_resource_policy_request() :: %{
-        optional("expectedRevisionId") => String.t()
+        optional("expectedRevisionId") => String.t() | Atom.t()
       }
 
   """
-  @type delete_resource_policy_request() :: %{String.t() => any()}
+  @type delete_resource_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5375,7 +5378,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type analytics_utterance_metric_result() :: %{String.t() => any()}
+  @type analytics_utterance_metric_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5387,42 +5390,42 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type aggregated_utterances_sort_by() :: %{String.t() => any()}
+  @type aggregated_utterances_sort_by() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       slot_default_value() :: %{
-        "defaultValue" => String.t()
+        "defaultValue" => String.t() | Atom.t()
       }
 
   """
-  @type slot_default_value() :: %{String.t() => any()}
+  @type slot_default_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_slot_response() :: %{
-        "botId" => String.t(),
-        "botVersion" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
         "creationDateTime" => non_neg_integer(),
-        "description" => String.t(),
-        "intentId" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "intentId" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "localeId" => String.t(),
+        "localeId" => String.t() | Atom.t(),
         "multipleValuesSetting" => multiple_values_setting(),
         "obfuscationSetting" => obfuscation_setting(),
-        "slotId" => String.t(),
-        "slotName" => String.t(),
-        "slotTypeId" => String.t(),
+        "slotId" => String.t() | Atom.t(),
+        "slotName" => String.t() | Atom.t(),
+        "slotTypeId" => String.t() | Atom.t(),
         "subSlotSetting" => sub_slot_setting(),
         "valueElicitationSetting" => slot_value_elicitation_setting()
       }
 
   """
-  @type describe_slot_response() :: %{String.t() => any()}
+  @type describe_slot_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5431,13 +5434,13 @@ defmodule AWS.LexModelsV2 do
       analytics_intent_node_summary() :: %{
         "intentCount" => integer(),
         "intentLevel" => integer(),
-        "intentName" => String.t(),
-        "intentPath" => String.t(),
+        "intentName" => String.t() | Atom.t(),
+        "intentPath" => String.t() | Atom.t(),
         "nodeType" => list(any())
       }
 
   """
-  @type analytics_intent_node_summary() :: %{String.t() => any()}
+  @type analytics_intent_node_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5448,15 +5451,15 @@ defmodule AWS.LexModelsV2 do
         "creationDateTime" => non_neg_integer(),
         "lastUpdatedDateTime" => non_neg_integer(),
         "target" => test_execution_target(),
-        "testExecutionId" => String.t(),
+        "testExecutionId" => String.t() | Atom.t(),
         "testExecutionModality" => list(any()),
         "testExecutionStatus" => list(any()),
-        "testSetId" => String.t(),
-        "testSetName" => String.t()
+        "testSetId" => String.t() | Atom.t(),
+        "testSetName" => String.t() | Atom.t()
       }
 
   """
-  @type test_execution_summary() :: %{String.t() => any()}
+  @type test_execution_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5467,93 +5470,93 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type code_hook_specification() :: %{String.t() => any()}
+  @type code_hook_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       q_in_connect_assistant_configuration() :: %{
-        "assistantArn" => String.t()
+        "assistantArn" => String.t() | Atom.t()
       }
 
   """
-  @type q_in_connect_assistant_configuration() :: %{String.t() => any()}
+  @type q_in_connect_assistant_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_bot_locale_response() :: %{
-        "botId" => String.t(),
+        "botId" => String.t() | Atom.t(),
         "botLocaleStatus" => list(any()),
-        "botVersion" => String.t(),
+        "botVersion" => String.t() | Atom.t(),
         "creationDateTime" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "generativeAISettings" => generative_a_i_settings(),
-        "localeId" => String.t(),
-        "localeName" => String.t(),
+        "localeId" => String.t() | Atom.t(),
+        "localeName" => String.t() | Atom.t(),
         "nluIntentConfidenceThreshold" => float(),
         "voiceSettings" => voice_settings()
       }
 
   """
-  @type create_bot_locale_response() :: %{String.t() => any()}
+  @type create_bot_locale_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_bot_recommendations_response() :: %{
-        "botId" => String.t(),
+        "botId" => String.t() | Atom.t(),
         "botRecommendationSummaries" => list(bot_recommendation_summary()),
-        "botVersion" => String.t(),
-        "localeId" => String.t(),
-        "nextToken" => String.t()
+        "botVersion" => String.t() | Atom.t(),
+        "localeId" => String.t() | Atom.t(),
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_bot_recommendations_response() :: %{String.t() => any()}
+  @type list_bot_recommendations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_bot_locale_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("generativeAISettings") => generative_a_i_settings(),
         optional("voiceSettings") => voice_settings(),
         required("nluIntentConfidenceThreshold") => float()
       }
 
   """
-  @type update_bot_locale_request() :: %{String.t() => any()}
+  @type update_bot_locale_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_test_sets_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "testSets" => list(test_set_summary())
       }
 
   """
-  @type list_test_sets_response() :: %{String.t() => any()}
+  @type list_test_sets_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bot_recommendation_summary() :: %{
-        "botRecommendationId" => String.t(),
+        "botRecommendationId" => String.t() | Atom.t(),
         "botRecommendationStatus" => list(any()),
         "creationDateTime" => non_neg_integer(),
         "lastUpdatedDateTime" => non_neg_integer()
       }
 
   """
-  @type bot_recommendation_summary() :: %{String.t() => any()}
+  @type bot_recommendation_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5562,26 +5565,26 @@ defmodule AWS.LexModelsV2 do
       user_turn_output_specification() :: %{
         "activeContexts" => list(active_context()),
         "intent" => user_turn_intent_output(),
-        "transcript" => String.t()
+        "transcript" => String.t() | Atom.t()
       }
 
   """
-  @type user_turn_output_specification() :: %{String.t() => any()}
+  @type user_turn_output_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       build_bot_locale_response() :: %{
-        "botId" => String.t(),
+        "botId" => String.t() | Atom.t(),
         "botLocaleStatus" => list(any()),
-        "botVersion" => String.t(),
+        "botVersion" => String.t() | Atom.t(),
         "lastBuildSubmittedDateTime" => non_neg_integer(),
-        "localeId" => String.t()
+        "localeId" => String.t() | Atom.t()
       }
 
   """
-  @type build_bot_locale_response() :: %{String.t() => any()}
+  @type build_bot_locale_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5593,7 +5596,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type generation_sort_by() :: %{String.t() => any()}
+  @type generation_sort_by() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5601,12 +5604,12 @@ defmodule AWS.LexModelsV2 do
 
       user_turn_slot_output() :: %{
         "subSlots" => map(),
-        "value" => String.t(),
+        "value" => String.t() | Atom.t(),
         "values" => list(user_turn_slot_output())
       }
 
   """
-  @type user_turn_slot_output() :: %{String.t() => any()}
+  @type user_turn_slot_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5618,20 +5621,20 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type turn_specification() :: %{String.t() => any()}
+  @type turn_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       encryption_setting() :: %{
-        "associatedTranscriptsPassword" => String.t(),
-        "botLocaleExportPassword" => String.t(),
-        "kmsKeyArn" => String.t()
+        "associatedTranscriptsPassword" => String.t() | Atom.t(),
+        "botLocaleExportPassword" => String.t() | Atom.t(),
+        "kmsKeyArn" => String.t() | Atom.t()
       }
 
   """
-  @type encryption_setting() :: %{String.t() => any()}
+  @type encryption_setting() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5642,19 +5645,19 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type transcript_source_setting() :: %{String.t() => any()}
+  @type transcript_source_setting() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_utterances_request() :: %{
-        optional("localeId") => String.t(),
-        optional("sessionId") => String.t()
+        optional("localeId") => String.t() | Atom.t(),
+        optional("sessionId") => String.t() | Atom.t()
       }
 
   """
-  @type delete_utterances_request() :: %{String.t() => any()}
+  @type delete_utterances_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5662,7 +5665,7 @@ defmodule AWS.LexModelsV2 do
 
       update_export_response() :: %{
         "creationDateTime" => non_neg_integer(),
-        "exportId" => String.t(),
+        "exportId" => String.t() | Atom.t(),
         "exportStatus" => list(any()),
         "fileFormat" => list(any()),
         "lastUpdatedDateTime" => non_neg_integer(),
@@ -5670,7 +5673,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type update_export_response() :: %{String.t() => any()}
+  @type update_export_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5678,19 +5681,19 @@ defmodule AWS.LexModelsV2 do
 
       test_set_summary() :: %{
         "creationDateTime" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
         "modality" => list(any()),
         "numTurns" => integer(),
-        "roleArn" => String.t(),
+        "roleArn" => String.t() | Atom.t(),
         "status" => list(any()),
         "storageLocation" => test_set_storage_location(),
-        "testSetId" => String.t(),
-        "testSetName" => String.t()
+        "testSetId" => String.t() | Atom.t(),
+        "testSetName" => String.t() | Atom.t()
       }
 
   """
-  @type test_set_summary() :: %{String.t() => any()}
+  @type test_set_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5698,62 +5701,62 @@ defmodule AWS.LexModelsV2 do
 
       list_test_execution_result_items_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("resultFilterBy") => test_execution_result_filter_by()
       }
 
   """
-  @type list_test_execution_result_items_request() :: %{String.t() => any()}
+  @type list_test_execution_result_items_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       custom_payload() :: %{
-        "value" => String.t()
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type custom_payload() :: %{String.t() => any()}
+  @type custom_payload() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_export_request() :: %{
-        optional("filePassword") => String.t()
+        optional("filePassword") => String.t() | Atom.t()
       }
 
   """
-  @type update_export_request() :: %{String.t() => any()}
+  @type update_export_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_utterance_metrics_response() :: %{
-        "botId" => String.t(),
-        "nextToken" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "nextToken" => String.t() | Atom.t(),
         "results" => list(analytics_utterance_result())
       }
 
   """
-  @type list_utterance_metrics_response() :: %{String.t() => any()}
+  @type list_utterance_metrics_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       stop_bot_recommendation_response() :: %{
-        "botId" => String.t(),
-        "botRecommendationId" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botRecommendationId" => String.t() | Atom.t(),
         "botRecommendationStatus" => list(any()),
-        "botVersion" => String.t(),
-        "localeId" => String.t()
+        "botVersion" => String.t() | Atom.t(),
+        "localeId" => String.t() | Atom.t()
       }
 
   """
-  @type stop_bot_recommendation_response() :: %{String.t() => any()}
+  @type stop_bot_recommendation_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5762,35 +5765,35 @@ defmodule AWS.LexModelsV2 do
       dialog_code_hook_invocation_setting() :: %{
         "active" => boolean(),
         "enableCodeHookInvocation" => boolean(),
-        "invocationLabel" => String.t(),
+        "invocationLabel" => String.t() | Atom.t(),
         "postCodeHookSpecification" => post_dialog_code_hook_invocation_specification()
       }
 
   """
-  @type dialog_code_hook_invocation_setting() :: %{String.t() => any()}
+  @type dialog_code_hook_invocation_setting() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_bot_locale_response() :: %{
-        "botId" => String.t(),
+        "botId" => String.t() | Atom.t(),
         "botLocaleStatus" => list(any()),
-        "botVersion" => String.t(),
+        "botVersion" => String.t() | Atom.t(),
         "creationDateTime" => non_neg_integer(),
-        "description" => String.t(),
-        "failureReasons" => list(String.t()),
+        "description" => String.t() | Atom.t(),
+        "failureReasons" => list(String.t() | Atom.t()),
         "generativeAISettings" => generative_a_i_settings(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "localeId" => String.t(),
-        "localeName" => String.t(),
+        "localeId" => String.t() | Atom.t(),
+        "localeName" => String.t() | Atom.t(),
         "nluIntentConfidenceThreshold" => float(),
-        "recommendedActions" => list(String.t()),
+        "recommendedActions" => list(String.t() | Atom.t()),
         "voiceSettings" => voice_settings()
       }
 
   """
-  @type update_bot_locale_response() :: %{String.t() => any()}
+  @type update_bot_locale_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5802,14 +5805,14 @@ defmodule AWS.LexModelsV2 do
         optional("filters") => list(analytics_utterance_filter()),
         optional("groupBy") => list(analytics_utterance_group_by_specification()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("endDateTime") => non_neg_integer(),
         required("metrics") => list(analytics_utterance_metric()),
         required("startDateTime") => non_neg_integer()
       }
 
   """
-  @type list_utterance_metrics_request() :: %{String.t() => any()}
+  @type list_utterance_metrics_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5821,7 +5824,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type sample_utterance_generation_specification() :: %{String.t() => any()}
+  @type sample_utterance_generation_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5834,7 +5837,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type text_log_setting() :: %{String.t() => any()}
+  @type text_log_setting() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5845,20 +5848,20 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type sentiment_analysis_settings() :: %{String.t() => any()}
+  @type sentiment_analysis_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_session_metrics_response() :: %{
-        "botId" => String.t(),
-        "nextToken" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "nextToken" => String.t() | Atom.t(),
         "results" => list(analytics_session_result())
       }
 
   """
-  @type list_session_metrics_response() :: %{String.t() => any()}
+  @type list_session_metrics_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5872,34 +5875,34 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type still_waiting_response_specification() :: %{String.t() => any()}
+  @type still_waiting_response_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       precondition_failed_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type precondition_failed_exception() :: %{String.t() => any()}
+  @type precondition_failed_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bot_alias_replica_summary() :: %{
-        "botAliasId" => String.t(),
+        "botAliasId" => String.t() | Atom.t(),
         "botAliasReplicationStatus" => list(any()),
-        "botVersion" => String.t(),
+        "botVersion" => String.t() | Atom.t(),
         "creationDateTime" => non_neg_integer(),
-        "failureReasons" => list(String.t()),
+        "failureReasons" => list(String.t() | Atom.t()),
         "lastUpdatedDateTime" => non_neg_integer()
       }
 
   """
-  @type bot_alias_replica_summary() :: %{String.t() => any()}
+  @type bot_alias_replica_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5908,12 +5911,12 @@ defmodule AWS.LexModelsV2 do
       list_slot_types_request() :: %{
         optional("filters") => list(slot_type_filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortBy") => slot_type_sort_by()
       }
 
   """
-  @type list_slot_types_request() :: %{String.t() => any()}
+  @type list_slot_types_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5921,35 +5924,35 @@ defmodule AWS.LexModelsV2 do
 
       qn_a_kendra_configuration() :: %{
         "exactResponse" => boolean(),
-        "kendraIndex" => String.t(),
-        "queryFilterString" => String.t(),
+        "kendraIndex" => String.t() | Atom.t(),
+        "queryFilterString" => String.t() | Atom.t(),
         "queryFilterStringEnabled" => boolean()
       }
 
   """
-  @type qn_a_kendra_configuration() :: %{String.t() => any()}
+  @type qn_a_kendra_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_bot_response() :: %{
-        "botId" => String.t(),
+        "botId" => String.t() | Atom.t(),
         "botMembers" => list(bot_member()),
-        "botName" => String.t(),
+        "botName" => String.t() | Atom.t(),
         "botStatus" => list(any()),
         "botType" => list(any()),
         "creationDateTime" => non_neg_integer(),
         "dataPrivacy" => data_privacy(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "errorLogSettings" => error_log_settings(),
         "idleSessionTTLInSeconds" => integer(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "roleArn" => String.t()
+        "roleArn" => String.t() | Atom.t()
       }
 
   """
-  @type update_bot_response() :: %{String.t() => any()}
+  @type update_bot_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5966,43 +5969,43 @@ defmodule AWS.LexModelsV2 do
 
       describe_export_response() :: %{
         "creationDateTime" => non_neg_integer(),
-        "downloadUrl" => String.t(),
-        "exportId" => String.t(),
+        "downloadUrl" => String.t() | Atom.t(),
+        "exportId" => String.t() | Atom.t(),
         "exportStatus" => list(any()),
-        "failureReasons" => list(String.t()),
+        "failureReasons" => list(String.t() | Atom.t()),
         "fileFormat" => list(any()),
         "lastUpdatedDateTime" => non_neg_integer(),
         "resourceSpecification" => export_resource_specification()
       }
 
   """
-  @type describe_export_response() :: %{String.t() => any()}
+  @type describe_export_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       parent_bot_network() :: %{
-        "botId" => String.t(),
-        "botVersion" => String.t()
+        "botId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t()
       }
 
   """
-  @type parent_bot_network() :: %{String.t() => any()}
+  @type parent_bot_network() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_import_request() :: %{
-        optional("filePassword") => String.t(),
-        required("importId") => String.t(),
+        optional("filePassword") => String.t() | Atom.t(),
+        required("importId") => String.t() | Atom.t(),
         required("mergeStrategy") => list(any()),
         required("resourceSpecification") => import_resource_specification()
       }
 
   """
-  @type start_import_request() :: %{String.t() => any()}
+  @type start_import_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6011,14 +6014,14 @@ defmodule AWS.LexModelsV2 do
       list_session_analytics_data_request() :: %{
         optional("filters") => list(analytics_session_filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortBy") => session_data_sort_by(),
         required("endDateTime") => non_neg_integer(),
         required("startDateTime") => non_neg_integer()
       }
 
   """
-  @type list_session_analytics_data_request() :: %{String.t() => any()}
+  @type list_session_analytics_data_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6026,12 +6029,12 @@ defmodule AWS.LexModelsV2 do
 
       list_test_sets_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortBy") => test_set_sort_by()
       }
 
   """
-  @type list_test_sets_request() :: %{String.t() => any()}
+  @type list_test_sets_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6039,28 +6042,28 @@ defmodule AWS.LexModelsV2 do
 
       start_import_response() :: %{
         "creationDateTime" => non_neg_integer(),
-        "importId" => String.t(),
+        "importId" => String.t() | Atom.t(),
         "importStatus" => list(any()),
         "mergeStrategy" => list(any()),
         "resourceSpecification" => import_resource_specification()
       }
 
   """
-  @type start_import_response() :: %{String.t() => any()}
+  @type start_import_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_bot_locale_response() :: %{
-        "botId" => String.t(),
+        "botId" => String.t() | Atom.t(),
         "botLocaleStatus" => list(any()),
-        "botVersion" => String.t(),
-        "localeId" => String.t()
+        "botVersion" => String.t() | Atom.t(),
+        "localeId" => String.t() | Atom.t()
       }
 
   """
-  @type delete_bot_locale_response() :: %{String.t() => any()}
+  @type delete_bot_locale_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6076,23 +6079,23 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       describe_intent_response() :: %{
-        "botId" => String.t(),
-        "botVersion" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
         "creationDateTime" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "dialogCodeHook" => dialog_code_hook_settings(),
         "fulfillmentCodeHook" => fulfillment_code_hook_settings(),
         "initialResponseSetting" => initial_response_setting(),
         "inputContexts" => list(input_context()),
         "intentClosingSetting" => intent_closing_setting(),
         "intentConfirmationSetting" => intent_confirmation_setting(),
-        "intentId" => String.t(),
-        "intentName" => String.t(),
+        "intentId" => String.t() | Atom.t(),
+        "intentName" => String.t() | Atom.t(),
         "kendraConfiguration" => kendra_configuration(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "localeId" => String.t(),
+        "localeId" => String.t() | Atom.t(),
         "outputContexts" => list(output_context()),
-        "parentIntentSignature" => String.t(),
+        "parentIntentSignature" => String.t() | Atom.t(),
         "qInConnectIntentConfiguration" => q_in_connect_intent_configuration(),
         "qnAIntentConfiguration" => qn_a_intent_configuration(),
         "sampleUtterances" => list(sample_utterance()),
@@ -6100,18 +6103,18 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type describe_intent_response() :: %{String.t() => any()}
+  @type describe_intent_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       sample_value() :: %{
-        "value" => String.t()
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type sample_value() :: %{String.t() => any()}
+  @type sample_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6123,22 +6126,22 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type built_in_intent_sort_by() :: %{String.t() => any()}
+  @type built_in_intent_sort_by() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_bot_locale_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("generativeAISettings") => generative_a_i_settings(),
         optional("voiceSettings") => voice_settings(),
-        required("localeId") => String.t(),
+        required("localeId") => String.t() | Atom.t(),
         required("nluIntentConfidenceThreshold") => float()
       }
 
   """
-  @type create_bot_locale_request() :: %{String.t() => any()}
+  @type create_bot_locale_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6172,58 +6175,58 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       create_bot_version_response() :: %{
-        "botId" => String.t(),
+        "botId" => String.t() | Atom.t(),
         "botStatus" => list(any()),
-        "botVersion" => String.t(),
+        "botVersion" => String.t() | Atom.t(),
         "botVersionLocaleSpecification" => map(),
         "creationDateTime" => non_neg_integer(),
-        "description" => String.t()
+        "description" => String.t() | Atom.t()
       }
 
   """
-  @type create_bot_version_response() :: %{String.t() => any()}
+  @type create_bot_version_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_exports_response() :: %{
-        "botId" => String.t(),
-        "botVersion" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
         "exportSummaries" => list(export_summary()),
-        "localeId" => String.t(),
-        "nextToken" => String.t()
+        "localeId" => String.t() | Atom.t(),
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_exports_response() :: %{String.t() => any()}
+  @type list_exports_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_test_execution_artifacts_url_response() :: %{
-        "downloadArtifactsUrl" => String.t(),
-        "testExecutionId" => String.t()
+        "downloadArtifactsUrl" => String.t() | Atom.t(),
+        "testExecutionId" => String.t() | Atom.t()
       }
 
   """
-  @type get_test_execution_artifacts_url_response() :: %{String.t() => any()}
+  @type get_test_execution_artifacts_url_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_custom_vocabulary_items_response() :: %{
-        "botId" => String.t(),
-        "botVersion" => String.t(),
+        "botId" => String.t() | Atom.t(),
+        "botVersion" => String.t() | Atom.t(),
         "customVocabularyItems" => list(custom_vocabulary_item()),
-        "localeId" => String.t(),
-        "nextToken" => String.t()
+        "localeId" => String.t() | Atom.t(),
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_custom_vocabulary_items_response() :: %{String.t() => any()}
+  @type list_custom_vocabulary_items_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6234,7 +6237,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type multiple_values_setting() :: %{String.t() => any()}
+  @type multiple_values_setting() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6250,14 +6253,14 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       d_t_m_f_specification() :: %{
-        "deletionCharacter" => String.t(),
-        "endCharacter" => String.t(),
+        "deletionCharacter" => String.t() | Atom.t(),
+        "endCharacter" => String.t() | Atom.t(),
         "endTimeoutMs" => integer(),
         "maxLength" => integer()
       }
 
   """
-  @type d_t_m_f_specification() :: %{String.t() => any()}
+  @type d_t_m_f_specification() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6271,7 +6274,7 @@ defmodule AWS.LexModelsV2 do
       }
 
   """
-  @type message() :: %{String.t() => any()}
+  @type message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6287,13 +6290,13 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       s3_bucket_log_destination() :: %{
-        "kmsKeyArn" => String.t(),
-        "logPrefix" => String.t(),
-        "s3BucketArn" => String.t()
+        "kmsKeyArn" => String.t() | Atom.t(),
+        "logPrefix" => String.t() | Atom.t(),
+        "s3BucketArn" => String.t() | Atom.t()
       }
 
   """
-  @type s3_bucket_log_destination() :: %{String.t() => any()}
+  @type s3_bucket_log_destination() :: %{String.t() | Atom.t() => any()}
 
   @type batch_create_custom_vocabulary_item_errors() ::
           throttling_exception()
@@ -7034,9 +7037,9 @@ defmodule AWS.LexModelsV2 do
   """
   @spec batch_create_custom_vocabulary_item(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           batch_create_custom_vocabulary_item_request(),
           list()
         ) ::
@@ -7080,9 +7083,9 @@ defmodule AWS.LexModelsV2 do
   """
   @spec batch_delete_custom_vocabulary_item(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           batch_delete_custom_vocabulary_item_request(),
           list()
         ) ::
@@ -7126,9 +7129,9 @@ defmodule AWS.LexModelsV2 do
   """
   @spec batch_update_custom_vocabulary_item(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           batch_update_custom_vocabulary_item_request(),
           list()
         ) ::
@@ -7175,9 +7178,9 @@ defmodule AWS.LexModelsV2 do
   """
   @spec build_bot_locale(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           build_bot_locale_request(),
           list()
         ) ::
@@ -7247,7 +7250,7 @@ defmodule AWS.LexModelsV2 do
   For example, you can create an alias called "PROD" that your
   applications use to call the Amazon Lex bot.
   """
-  @spec create_bot_alias(map(), String.t(), create_bot_alias_request(), list()) ::
+  @spec create_bot_alias(map(), String.t() | Atom.t(), create_bot_alias_request(), list()) ::
           {:ok, create_bot_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7281,7 +7284,13 @@ defmodule AWS.LexModelsV2 do
   specified language and locale. You must add a locale to a bot before
   you can add intents and slot types to the bot.
   """
-  @spec create_bot_locale(map(), String.t(), String.t(), create_bot_locale_request(), list()) ::
+  @spec create_bot_locale(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          create_bot_locale_request(),
+          list()
+        ) ::
           {:ok, create_bot_locale_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7312,7 +7321,7 @@ defmodule AWS.LexModelsV2 do
   @doc """
   Action to create a replication of the source bot in the secondary region.
   """
-  @spec create_bot_replica(map(), String.t(), create_bot_replica_request(), list()) ::
+  @spec create_bot_replica(map(), String.t() | Atom.t(), create_bot_replica_request(), list()) ::
           {:ok, create_bot_replica_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7349,7 +7358,7 @@ defmodule AWS.LexModelsV2 do
   version
   is deleted, that bot version number will not be reused.
   """
-  @spec create_bot_version(map(), String.t(), create_bot_version_request(), list()) ::
+  @spec create_bot_version(map(), String.t() | Atom.t(), create_bot_version_request(), list()) ::
           {:ok, create_bot_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7456,7 +7465,14 @@ defmodule AWS.LexModelsV2 do
   A follow-up prompt that asks the user for additional activity.
   For example, "Do you want a drink with your pizza?"
   """
-  @spec create_intent(map(), String.t(), String.t(), String.t(), create_intent_request(), list()) ::
+  @spec create_intent(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          create_intent_request(),
+          list()
+        ) ::
           {:ok, create_intent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7488,7 +7504,12 @@ defmodule AWS.LexModelsV2 do
   Creates a new resource policy with the specified policy
   statements.
   """
-  @spec create_resource_policy(map(), String.t(), create_resource_policy_request(), list()) ::
+  @spec create_resource_policy(
+          map(),
+          String.t() | Atom.t(),
+          create_resource_policy_request(),
+          list()
+        ) ::
           {:ok, create_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7529,7 +7550,7 @@ defmodule AWS.LexModelsV2 do
   """
   @spec create_resource_policy_statement(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           create_resource_policy_statement_request(),
           list()
         ) ::
@@ -7574,10 +7595,10 @@ defmodule AWS.LexModelsV2 do
   """
   @spec create_slot(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           create_slot_request(),
           list()
         ) ::
@@ -7625,9 +7646,9 @@ defmodule AWS.LexModelsV2 do
   """
   @spec create_slot_type(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           create_slot_type_request(),
           list()
         ) ::
@@ -7663,7 +7684,7 @@ defmodule AWS.LexModelsV2 do
   """
   @spec create_test_set_discrepancy_report(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           create_test_set_discrepancy_report_request(),
           list()
         ) ::
@@ -7738,7 +7759,7 @@ defmodule AWS.LexModelsV2 do
   the bot and the alias, set the `skipResourceInUseCheck`
   parameter to `true`.
   """
-  @spec delete_bot(map(), String.t(), delete_bot_request(), list()) ::
+  @spec delete_bot(map(), String.t() | Atom.t(), delete_bot_request(), list()) ::
           {:ok, delete_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7772,7 +7793,13 @@ defmodule AWS.LexModelsV2 do
   @doc """
   Deletes the specified bot alias.
   """
-  @spec delete_bot_alias(map(), String.t(), String.t(), delete_bot_alias_request(), list()) ::
+  @spec delete_bot_alias(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_bot_alias_request(),
+          list()
+        ) ::
           {:ok, delete_bot_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7813,9 +7840,9 @@ defmodule AWS.LexModelsV2 do
   """
   @spec delete_bot_locale(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_bot_locale_request(),
           list()
         ) ::
@@ -7849,7 +7876,13 @@ defmodule AWS.LexModelsV2 do
   @doc """
   The action to delete the replicated bot in the secondary region.
   """
-  @spec delete_bot_replica(map(), String.t(), String.t(), delete_bot_replica_request(), list()) ::
+  @spec delete_bot_replica(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_bot_replica_request(),
+          list()
+        ) ::
           {:ok, delete_bot_replica_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7885,7 +7918,13 @@ defmodule AWS.LexModelsV2 do
   [DeleteBot](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DeleteBot.html)
   operation.
   """
-  @spec delete_bot_version(map(), String.t(), String.t(), delete_bot_version_request(), list()) ::
+  @spec delete_bot_version(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_bot_version_request(),
+          list()
+        ) ::
           {:ok, delete_bot_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7924,9 +7963,9 @@ defmodule AWS.LexModelsV2 do
   """
   @spec delete_custom_vocabulary(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_custom_vocabulary_request(),
           list()
         ) ::
@@ -7968,7 +8007,7 @@ defmodule AWS.LexModelsV2 do
   Removes a previous export and the associated files stored in an S3
   bucket.
   """
-  @spec delete_export(map(), String.t(), delete_export_request(), list()) ::
+  @spec delete_export(map(), String.t() | Atom.t(), delete_export_request(), list()) ::
           {:ok, delete_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7998,7 +8037,7 @@ defmodule AWS.LexModelsV2 do
   Removes a previous import and the associated file stored in an S3
   bucket.
   """
-  @spec delete_import(map(), String.t(), delete_import_request(), list()) ::
+  @spec delete_import(map(), String.t() | Atom.t(), delete_import_request(), list()) ::
           {:ok, delete_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8032,10 +8071,10 @@ defmodule AWS.LexModelsV2 do
   """
   @spec delete_intent(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_intent_request(),
           list()
         ) ::
@@ -8080,7 +8119,12 @@ defmodule AWS.LexModelsV2 do
   If the resource
   doesn't have a policy attached, Amazon Lex returns an exception.
   """
-  @spec delete_resource_policy(map(), String.t(), delete_resource_policy_request(), list()) ::
+  @spec delete_resource_policy(
+          map(),
+          String.t() | Atom.t(),
+          delete_resource_policy_request(),
+          list()
+        ) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8125,8 +8169,8 @@ defmodule AWS.LexModelsV2 do
   """
   @spec delete_resource_policy_statement(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_resource_policy_statement_request(),
           list()
         ) ::
@@ -8173,11 +8217,11 @@ defmodule AWS.LexModelsV2 do
   """
   @spec delete_slot(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_slot_request(),
           list()
         ) ::
@@ -8227,10 +8271,10 @@ defmodule AWS.LexModelsV2 do
   """
   @spec delete_slot_type(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_slot_type_request(),
           list()
         ) ::
@@ -8277,7 +8321,7 @@ defmodule AWS.LexModelsV2 do
   @doc """
   The action to delete the selected test set.
   """
-  @spec delete_test_set(map(), String.t(), delete_test_set_request(), list()) ::
+  @spec delete_test_set(map(), String.t() | Atom.t(), delete_test_set_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8321,7 +8365,7 @@ defmodule AWS.LexModelsV2 do
   `ListAggregatedUtterances` operation are deleted after 15
   days.
   """
-  @spec delete_utterances(map(), String.t(), delete_utterances_request(), list()) ::
+  @spec delete_utterances(map(), String.t() | Atom.t(), delete_utterances_request(), list()) ::
           {:ok, delete_utterances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8356,7 +8400,7 @@ defmodule AWS.LexModelsV2 do
   @doc """
   Provides metadata information about a bot.
   """
-  @spec describe_bot(map(), String.t(), list()) ::
+  @spec describe_bot(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8374,7 +8418,7 @@ defmodule AWS.LexModelsV2 do
   @doc """
   Get information about a specific bot alias.
   """
-  @spec describe_bot_alias(map(), String.t(), String.t(), list()) ::
+  @spec describe_bot_alias(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, describe_bot_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8394,7 +8438,13 @@ defmodule AWS.LexModelsV2 do
   @doc """
   Describes the settings that a bot has for a specific locale.
   """
-  @spec describe_bot_locale(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec describe_bot_locale(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, describe_bot_locale_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8420,7 +8470,14 @@ defmodule AWS.LexModelsV2 do
   download intents and slot-types generated by the bot
   recommendation.
   """
-  @spec describe_bot_recommendation(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
+  @spec describe_bot_recommendation(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, describe_bot_recommendation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8447,7 +8504,7 @@ defmodule AWS.LexModelsV2 do
   @doc """
   Monitors the bot replication status through the UI console.
   """
-  @spec describe_bot_replica(map(), String.t(), String.t(), list()) ::
+  @spec describe_bot_replica(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, describe_bot_replica_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8476,10 +8533,10 @@ defmodule AWS.LexModelsV2 do
   """
   @spec describe_bot_resource_generation(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           list()
         ) ::
           {:ok, describe_bot_resource_generation_response(), any()}
@@ -8508,7 +8565,7 @@ defmodule AWS.LexModelsV2 do
   @doc """
   Provides metadata about a version of a bot.
   """
-  @spec describe_bot_version(map(), String.t(), String.t(), list()) ::
+  @spec describe_bot_version(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, describe_bot_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8528,7 +8585,13 @@ defmodule AWS.LexModelsV2 do
   @doc """
   Provides metadata information about a custom vocabulary.
   """
-  @spec describe_custom_vocabulary_metadata(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec describe_custom_vocabulary_metadata(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, describe_custom_vocabulary_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8554,7 +8617,7 @@ defmodule AWS.LexModelsV2 do
   @doc """
   Gets information about a specific export.
   """
-  @spec describe_export(map(), String.t(), list()) ::
+  @spec describe_export(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8572,7 +8635,7 @@ defmodule AWS.LexModelsV2 do
   @doc """
   Gets information about a specific import.
   """
-  @spec describe_import(map(), String.t(), list()) ::
+  @spec describe_import(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8590,7 +8653,14 @@ defmodule AWS.LexModelsV2 do
   @doc """
   Returns metadata about an intent.
   """
-  @spec describe_intent(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
+  @spec describe_intent(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, describe_intent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8618,7 +8688,7 @@ defmodule AWS.LexModelsV2 do
   Gets the resource policy and policy revision for a bot or bot
   alias.
   """
-  @spec describe_resource_policy(map(), String.t(), list()) ::
+  @spec describe_resource_policy(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8636,7 +8706,15 @@ defmodule AWS.LexModelsV2 do
   @doc """
   Gets metadata information about a slot.
   """
-  @spec describe_slot(map(), String.t(), String.t(), String.t(), String.t(), String.t(), list()) ::
+  @spec describe_slot(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, describe_slot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8664,7 +8742,14 @@ defmodule AWS.LexModelsV2 do
   @doc """
   Gets metadata information about a slot type.
   """
-  @spec describe_slot_type(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
+  @spec describe_slot_type(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, describe_slot_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8691,7 +8776,7 @@ defmodule AWS.LexModelsV2 do
   @doc """
   Gets metadata information about the test execution.
   """
-  @spec describe_test_execution(map(), String.t(), list()) ::
+  @spec describe_test_execution(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_test_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8709,7 +8794,7 @@ defmodule AWS.LexModelsV2 do
   @doc """
   Gets metadata information about the test set.
   """
-  @spec describe_test_set(map(), String.t(), list()) ::
+  @spec describe_test_set(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_test_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8727,7 +8812,7 @@ defmodule AWS.LexModelsV2 do
   @doc """
   Gets metadata information about the test set discrepancy report.
   """
-  @spec describe_test_set_discrepancy_report(map(), String.t(), list()) ::
+  @spec describe_test_set_discrepancy_report(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_test_set_discrepancy_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8749,7 +8834,7 @@ defmodule AWS.LexModelsV2 do
   @doc """
   Gets metadata information about the test set generation.
   """
-  @spec describe_test_set_generation(map(), String.t(), list()) ::
+  @spec describe_test_set_generation(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_test_set_generation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8769,9 +8854,9 @@ defmodule AWS.LexModelsV2 do
   """
   @spec generate_bot_element(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           generate_bot_element_request(),
           list()
         ) ::
@@ -8812,7 +8897,7 @@ defmodule AWS.LexModelsV2 do
   @doc """
   The pre-signed Amazon S3 URL to download the test execution result artifacts.
   """
-  @spec get_test_execution_artifacts_url(map(), String.t(), list()) ::
+  @spec get_test_execution_artifacts_url(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_test_execution_artifacts_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8858,7 +8943,7 @@ defmodule AWS.LexModelsV2 do
   """
   @spec list_aggregated_utterances(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           list_aggregated_utterances_request(),
           list()
         ) ::
@@ -8892,8 +8977,8 @@ defmodule AWS.LexModelsV2 do
   """
   @spec list_bot_alias_replicas(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           list_bot_alias_replicas_request(),
           list()
         ) ::
@@ -8927,7 +9012,7 @@ defmodule AWS.LexModelsV2 do
   @doc """
   Gets a list of aliases for the specified bot.
   """
-  @spec list_bot_aliases(map(), String.t(), list_bot_aliases_request(), list()) ::
+  @spec list_bot_aliases(map(), String.t() | Atom.t(), list_bot_aliases_request(), list()) ::
           {:ok, list_bot_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8956,7 +9041,13 @@ defmodule AWS.LexModelsV2 do
   @doc """
   Gets a list of locales for the specified bot.
   """
-  @spec list_bot_locales(map(), String.t(), String.t(), list_bot_locales_request(), list()) ::
+  @spec list_bot_locales(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list_bot_locales_request(),
+          list()
+        ) ::
           {:ok, list_bot_locales_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8990,9 +9081,9 @@ defmodule AWS.LexModelsV2 do
   """
   @spec list_bot_recommendations(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           list_bot_recommendations_request(),
           list()
         ) ::
@@ -9033,7 +9124,7 @@ defmodule AWS.LexModelsV2 do
   @doc """
   The action to list the replicated bots.
   """
-  @spec list_bot_replicas(map(), String.t(), list_bot_replicas_request(), list()) ::
+  @spec list_bot_replicas(map(), String.t() | Atom.t(), list_bot_replicas_request(), list()) ::
           {:ok, list_bot_replicas_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9064,9 +9155,9 @@ defmodule AWS.LexModelsV2 do
   """
   @spec list_bot_resource_generations(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           list_bot_resource_generations_request(),
           list()
         ) ::
@@ -9110,8 +9201,8 @@ defmodule AWS.LexModelsV2 do
   """
   @spec list_bot_version_replicas(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           list_bot_version_replicas_request(),
           list()
         ) ::
@@ -9154,7 +9245,7 @@ defmodule AWS.LexModelsV2 do
   The `ListBotVersions` operation always returns at least
   one version, the `DRAFT` version.
   """
-  @spec list_bot_versions(map(), String.t(), list_bot_versions_request(), list()) ::
+  @spec list_bot_versions(map(), String.t() | Atom.t(), list_bot_versions_request(), list()) ::
           {:ok, list_bot_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9219,7 +9310,12 @@ defmodule AWS.LexModelsV2 do
   more information, see
   [CreateIntent](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateIntent.html).
   """
-  @spec list_built_in_intents(map(), String.t(), list_built_in_intents_request(), list()) ::
+  @spec list_built_in_intents(
+          map(),
+          String.t() | Atom.t(),
+          list_built_in_intents_request(),
+          list()
+        ) ::
           {:ok, list_built_in_intents_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9249,7 +9345,12 @@ defmodule AWS.LexModelsV2 do
   Gets a list of built-in slot types that meet the specified
   criteria.
   """
-  @spec list_built_in_slot_types(map(), String.t(), list_built_in_slot_types_request(), list()) ::
+  @spec list_built_in_slot_types(
+          map(),
+          String.t() | Atom.t(),
+          list_built_in_slot_types_request(),
+          list()
+        ) ::
           {:ok, list_built_in_slot_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9281,9 +9382,9 @@ defmodule AWS.LexModelsV2 do
   """
   @spec list_custom_vocabulary_items(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           list_custom_vocabulary_items_request(),
           list()
         ) ::
@@ -9417,7 +9518,7 @@ defmodule AWS.LexModelsV2 do
   Note that an `order` field exists in both `binBy` and `metrics`. You can specify
   only one `order` in a given request.
   """
-  @spec list_intent_metrics(map(), String.t(), list_intent_metrics_request(), list()) ::
+  @spec list_intent_metrics(map(), String.t() | Atom.t(), list_intent_metrics_request(), list()) ::
           {:ok, list_intent_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9464,7 +9565,7 @@ defmodule AWS.LexModelsV2 do
 
   Use the optional `filters` field to filter the results.
   """
-  @spec list_intent_paths(map(), String.t(), list_intent_paths_request(), list()) ::
+  @spec list_intent_paths(map(), String.t() | Atom.t(), list_intent_paths_request(), list()) ::
           {:ok, list_intent_paths_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9524,7 +9625,12 @@ defmodule AWS.LexModelsV2 do
   Note that an `order` field exists in both `binBy` and `metrics`. You can only
   specify one `order` in a given request.
   """
-  @spec list_intent_stage_metrics(map(), String.t(), list_intent_stage_metrics_request(), list()) ::
+  @spec list_intent_stage_metrics(
+          map(),
+          String.t() | Atom.t(),
+          list_intent_stage_metrics_request(),
+          list()
+        ) ::
           {:ok, list_intent_stage_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9553,7 +9659,14 @@ defmodule AWS.LexModelsV2 do
   @doc """
   Get a list of intents that meet the specified criteria.
   """
-  @spec list_intents(map(), String.t(), String.t(), String.t(), list_intents_request(), list()) ::
+  @spec list_intents(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list_intents_request(),
+          list()
+        ) ::
           {:ok, list_intents_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9590,10 +9703,10 @@ defmodule AWS.LexModelsV2 do
   """
   @spec list_recommended_intents(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           list_recommended_intents_request(),
           list()
         ) ::
@@ -9650,7 +9763,7 @@ defmodule AWS.LexModelsV2 do
   """
   @spec list_session_analytics_data(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           list_session_analytics_data_request(),
           list()
         ) ::
@@ -9713,7 +9826,7 @@ defmodule AWS.LexModelsV2 do
   Note that an `order` field exists in both `binBy` and `metrics`. Currently, you
   can specify it in either field, but not in both.
   """
-  @spec list_session_metrics(map(), String.t(), list_session_metrics_request(), list()) ::
+  @spec list_session_metrics(map(), String.t() | Atom.t(), list_session_metrics_request(), list()) ::
           {:ok, list_session_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9744,9 +9857,9 @@ defmodule AWS.LexModelsV2 do
   """
   @spec list_slot_types(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           list_slot_types_request(),
           list()
         ) ::
@@ -9782,10 +9895,10 @@ defmodule AWS.LexModelsV2 do
   """
   @spec list_slots(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           list_slots_request(),
           list()
         ) ::
@@ -9830,7 +9943,7 @@ defmodule AWS.LexModelsV2 do
   Only bots, bot
   aliases, and bot channels can have tags associated with them.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9850,7 +9963,7 @@ defmodule AWS.LexModelsV2 do
   """
   @spec list_test_execution_result_items(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           list_test_execution_result_items_request(),
           list()
         ) ::
@@ -9916,7 +10029,12 @@ defmodule AWS.LexModelsV2 do
   @doc """
   The list of test set records.
   """
-  @spec list_test_set_records(map(), String.t(), list_test_set_records_request(), list()) ::
+  @spec list_test_set_records(
+          map(),
+          String.t() | Atom.t(),
+          list_test_set_records_request(),
+          list()
+        ) ::
           {:ok, list_test_set_records_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10003,7 +10121,7 @@ defmodule AWS.LexModelsV2 do
   """
   @spec list_utterance_analytics_data(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           list_utterance_analytics_data_request(),
           list()
         ) ::
@@ -10075,7 +10193,12 @@ defmodule AWS.LexModelsV2 do
   Note that an `order` field exists in both `binBy` and `metrics`. Currently, you
   can specify it in either field, but not in both.
   """
-  @spec list_utterance_metrics(map(), String.t(), list_utterance_metrics_request(), list()) ::
+  @spec list_utterance_metrics(
+          map(),
+          String.t() | Atom.t(),
+          list_utterance_metrics_request(),
+          list()
+        ) ::
           {:ok, list_utterance_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10107,10 +10230,10 @@ defmodule AWS.LexModelsV2 do
   """
   @spec search_associated_transcripts(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           search_associated_transcripts_request(),
           list()
         ) ::
@@ -10155,9 +10278,9 @@ defmodule AWS.LexModelsV2 do
   """
   @spec start_bot_recommendation(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           start_bot_recommendation_request(),
           list()
         ) ::
@@ -10209,9 +10332,9 @@ defmodule AWS.LexModelsV2 do
   """
   @spec start_bot_resource_generation(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           start_bot_resource_generation_request(),
           list()
         ) ::
@@ -10282,7 +10405,7 @@ defmodule AWS.LexModelsV2 do
   @doc """
   The action to start test set execution.
   """
-  @spec start_test_execution(map(), String.t(), start_test_execution_request(), list()) ::
+  @spec start_test_execution(map(), String.t() | Atom.t(), start_test_execution_request(), list()) ::
           {:ok, start_test_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10342,10 +10465,10 @@ defmodule AWS.LexModelsV2 do
   """
   @spec stop_bot_recommendation(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           stop_bot_recommendation_request(),
           list()
         ) ::
@@ -10391,7 +10514,7 @@ defmodule AWS.LexModelsV2 do
   already exists, the existing value is replaced with the new
   value.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10420,7 +10543,7 @@ defmodule AWS.LexModelsV2 do
   @doc """
   Removes tags from a bot, bot alias, or bot channel.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10454,7 +10577,7 @@ defmodule AWS.LexModelsV2 do
   @doc """
   Updates the configuration of an existing bot.
   """
-  @spec update_bot(map(), String.t(), update_bot_request(), list()) ::
+  @spec update_bot(map(), String.t() | Atom.t(), update_bot_request(), list()) ::
           {:ok, update_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10483,7 +10606,13 @@ defmodule AWS.LexModelsV2 do
   @doc """
   Updates the configuration of an existing bot alias.
   """
-  @spec update_bot_alias(map(), String.t(), String.t(), update_bot_alias_request(), list()) ::
+  @spec update_bot_alias(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_bot_alias_request(),
+          list()
+        ) ::
           {:ok, update_bot_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10516,9 +10645,9 @@ defmodule AWS.LexModelsV2 do
   """
   @spec update_bot_locale(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_bot_locale_request(),
           list()
         ) ::
@@ -10554,10 +10683,10 @@ defmodule AWS.LexModelsV2 do
   """
   @spec update_bot_recommendation(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_bot_recommendation_request(),
           list()
         ) ::
@@ -10605,7 +10734,7 @@ defmodule AWS.LexModelsV2 do
   [DescribeExport](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeExport.html)
   operation.
   """
-  @spec update_export(map(), String.t(), update_export_request(), list()) ::
+  @spec update_export(map(), String.t() | Atom.t(), update_export_request(), list()) ::
           {:ok, update_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10636,10 +10765,10 @@ defmodule AWS.LexModelsV2 do
   """
   @spec update_intent(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_intent_request(),
           list()
         ) ::
@@ -10685,7 +10814,12 @@ defmodule AWS.LexModelsV2 do
   If the policy doesn't exist, Amazon Lex returns an
   exception.
   """
-  @spec update_resource_policy(map(), String.t(), update_resource_policy_request(), list()) ::
+  @spec update_resource_policy(
+          map(),
+          String.t() | Atom.t(),
+          update_resource_policy_request(),
+          list()
+        ) ::
           {:ok, update_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10721,11 +10855,11 @@ defmodule AWS.LexModelsV2 do
   """
   @spec update_slot(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_slot_request(),
           list()
         ) ::
@@ -10770,10 +10904,10 @@ defmodule AWS.LexModelsV2 do
   """
   @spec update_slot_type(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_slot_type_request(),
           list()
         ) ::
@@ -10815,7 +10949,7 @@ defmodule AWS.LexModelsV2 do
   @doc """
   The action to update the test set.
   """
-  @spec update_test_set(map(), String.t(), update_test_set_request(), list()) ::
+  @spec update_test_set(map(), String.t() | Atom.t(), update_test_set_request(), list()) ::
           {:ok, update_test_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

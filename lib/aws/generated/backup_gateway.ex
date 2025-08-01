@@ -37,71 +37,71 @@ defmodule AWS.BackupGateway do
       }
       
   """
-  @type maintenance_start_time() :: %{String.t() => any()}
+  @type maintenance_start_time() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_bandwidth_rate_limit_schedule_output() :: %{
-        optional("GatewayArn") => String.t()
+        optional("GatewayArn") => String.t() | Atom.t()
       }
       
   """
-  @type put_bandwidth_rate_limit_schedule_output() :: %{String.t() => any()}
+  @type put_bandwidth_rate_limit_schedule_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       gateway_details() :: %{
-        "GatewayArn" => String.t(),
-        "GatewayDisplayName" => String.t(),
-        "GatewayType" => String.t(),
-        "HypervisorId" => String.t(),
+        "GatewayArn" => String.t() | Atom.t(),
+        "GatewayDisplayName" => String.t() | Atom.t(),
+        "GatewayType" => String.t() | Atom.t(),
+        "HypervisorId" => String.t() | Atom.t(),
         "LastSeenTime" => non_neg_integer(),
         "MaintenanceStartTime" => maintenance_start_time(),
         "NextUpdateAvailabilityTime" => non_neg_integer(),
-        "VpcEndpoint" => String.t()
+        "VpcEndpoint" => String.t() | Atom.t()
       }
       
   """
-  @type gateway_details() :: %{String.t() => any()}
+  @type gateway_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_hypervisor_property_mappings_input() :: %{
-        required("HypervisorArn") => String.t(),
-        required("IamRoleArn") => String.t(),
+        required("HypervisorArn") => String.t() | Atom.t(),
+        required("IamRoleArn") => String.t() | Atom.t(),
         required("VmwareToAwsTagMappings") => list(vmware_to_aws_tag_mapping())
       }
       
   """
-  @type put_hypervisor_property_mappings_input() :: %{String.t() => any()}
+  @type put_hypervisor_property_mappings_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_hypervisor_output() :: %{
-        optional("HypervisorArn") => String.t()
+        optional("HypervisorArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_hypervisor_output() :: %{String.t() => any()}
+  @type update_hypervisor_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_gateway_from_server_input() :: %{
-        required("GatewayArn") => String.t()
+        required("GatewayArn") => String.t() | Atom.t()
       }
       
   """
-  @type disassociate_gateway_from_server_input() :: %{String.t() => any()}
+  @type disassociate_gateway_from_server_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -109,11 +109,11 @@ defmodule AWS.BackupGateway do
       
       get_bandwidth_rate_limit_schedule_output() :: %{
         optional("BandwidthRateLimitIntervals") => list(bandwidth_rate_limit_interval()),
-        optional("GatewayArn") => String.t()
+        optional("GatewayArn") => String.t() | Atom.t()
       }
       
   """
-  @type get_bandwidth_rate_limit_schedule_output() :: %{String.t() => any()}
+  @type get_bandwidth_rate_limit_schedule_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -121,77 +121,77 @@ defmodule AWS.BackupGateway do
       
       put_bandwidth_rate_limit_schedule_input() :: %{
         required("BandwidthRateLimitIntervals") => list(bandwidth_rate_limit_interval()),
-        required("GatewayArn") => String.t()
+        required("GatewayArn") => String.t() | Atom.t()
       }
       
   """
-  @type put_bandwidth_rate_limit_schedule_input() :: %{String.t() => any()}
+  @type put_bandwidth_rate_limit_schedule_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       virtual_machine() :: %{
-        "HostName" => String.t(),
-        "HypervisorId" => String.t(),
+        "HostName" => String.t() | Atom.t(),
+        "HypervisorId" => String.t() | Atom.t(),
         "LastBackupDate" => non_neg_integer(),
-        "Name" => String.t(),
-        "Path" => String.t(),
-        "ResourceArn" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Path" => String.t() | Atom.t(),
+        "ResourceArn" => String.t() | Atom.t()
       }
       
   """
-  @type virtual_machine() :: %{String.t() => any()}
+  @type virtual_machine() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       vmware_to_aws_tag_mapping() :: %{
-        "AwsTagKey" => String.t(),
-        "AwsTagValue" => String.t(),
-        "VmwareCategory" => String.t(),
-        "VmwareTagName" => String.t()
+        "AwsTagKey" => String.t() | Atom.t(),
+        "AwsTagValue" => String.t() | Atom.t(),
+        "VmwareCategory" => String.t() | Atom.t(),
+        "VmwareTagName" => String.t() | Atom.t()
       }
       
   """
-  @type vmware_to_aws_tag_mapping() :: %{String.t() => any()}
+  @type vmware_to_aws_tag_mapping() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_hypervisor_property_mappings_input() :: %{
-        required("HypervisorArn") => String.t()
+        required("HypervisorArn") => String.t() | Atom.t()
       }
       
   """
-  @type get_hypervisor_property_mappings_input() :: %{String.t() => any()}
+  @type get_hypervisor_property_mappings_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       test_hypervisor_configuration_input() :: %{
-        optional("Password") => String.t(),
-        optional("Username") => String.t(),
-        required("GatewayArn") => String.t(),
-        required("Host") => String.t()
+        optional("Password") => String.t() | Atom.t(),
+        optional("Username") => String.t() | Atom.t(),
+        required("GatewayArn") => String.t() | Atom.t(),
+        required("Host") => String.t() | Atom.t()
       }
       
   """
-  @type test_hypervisor_configuration_input() :: %{String.t() => any()}
+  @type test_hypervisor_configuration_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_gateway_from_server_output() :: %{
-        optional("GatewayArn") => String.t()
+        optional("GatewayArn") => String.t() | Atom.t()
       }
       
   """
-  @type disassociate_gateway_from_server_output() :: %{String.t() => any()}
+  @type disassociate_gateway_from_server_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -207,48 +207,48 @@ defmodule AWS.BackupGateway do
   ## Example:
       
       get_hypervisor_property_mappings_output() :: %{
-        optional("HypervisorArn") => String.t(),
-        optional("IamRoleArn") => String.t(),
+        optional("HypervisorArn") => String.t() | Atom.t(),
+        optional("IamRoleArn") => String.t() | Atom.t(),
         optional("VmwareToAwsTagMappings") => list(vmware_to_aws_tag_mapping())
       }
       
   """
-  @type get_hypervisor_property_mappings_output() :: %{String.t() => any()}
+  @type get_hypervisor_property_mappings_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_gateway_to_server_input() :: %{
-        required("GatewayArn") => String.t(),
-        required("ServerArn") => String.t()
+        required("GatewayArn") => String.t() | Atom.t(),
+        required("ServerArn") => String.t() | Atom.t()
       }
       
   """
-  @type associate_gateway_to_server_input() :: %{String.t() => any()}
+  @type associate_gateway_to_server_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_output() :: %{
-        optional("ResourceArn") => String.t(),
+        optional("ResourceArn") => String.t() | Atom.t(),
         optional("Tags") => list(tag())
       }
       
   """
-  @type list_tags_for_resource_output() :: %{String.t() => any()}
+  @type list_tags_for_resource_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_bandwidth_rate_limit_schedule_input() :: %{
-        required("GatewayArn") => String.t()
+        required("GatewayArn") => String.t() | Atom.t()
       }
       
   """
-  @type get_bandwidth_rate_limit_schedule_input() :: %{String.t() => any()}
+  @type get_bandwidth_rate_limit_schedule_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -259,141 +259,141 @@ defmodule AWS.BackupGateway do
       }
       
   """
-  @type get_hypervisor_output() :: %{String.t() => any()}
+  @type get_hypervisor_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_virtual_machines_output() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("VirtualMachines") => list(virtual_machine())
       }
       
   """
-  @type list_virtual_machines_output() :: %{String.t() => any()}
+  @type list_virtual_machines_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_gateway_output() :: %{
-        optional("GatewayArn") => String.t()
+        optional("GatewayArn") => String.t() | Atom.t()
       }
       
   """
-  @type create_gateway_output() :: %{String.t() => any()}
+  @type create_gateway_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       gateway() :: %{
-        "GatewayArn" => String.t(),
-        "GatewayDisplayName" => String.t(),
-        "GatewayType" => String.t(),
-        "HypervisorId" => String.t(),
+        "GatewayArn" => String.t() | Atom.t(),
+        "GatewayDisplayName" => String.t() | Atom.t(),
+        "GatewayType" => String.t() | Atom.t(),
+        "HypervisorId" => String.t() | Atom.t(),
         "LastSeenTime" => non_neg_integer()
       }
       
   """
-  @type gateway() :: %{String.t() => any()}
+  @type gateway() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_hypervisor_output() :: %{
-        optional("HypervisorArn") => String.t()
+        optional("HypervisorArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_hypervisor_output() :: %{String.t() => any()}
+  @type delete_hypervisor_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_hypervisor_input() :: %{
-        required("HypervisorArn") => String.t()
+        required("HypervisorArn") => String.t() | Atom.t()
       }
       
   """
-  @type get_hypervisor_input() :: %{String.t() => any()}
+  @type get_hypervisor_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_maintenance_start_time_output() :: %{
-        optional("GatewayArn") => String.t()
+        optional("GatewayArn") => String.t() | Atom.t()
       }
       
   """
-  @type put_maintenance_start_time_output() :: %{String.t() => any()}
+  @type put_maintenance_start_time_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_gateway_information_output() :: %{
-        optional("GatewayArn") => String.t()
+        optional("GatewayArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_gateway_information_output() :: %{String.t() => any()}
+  @type update_gateway_information_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_hypervisor_input() :: %{
-        optional("Host") => String.t(),
-        optional("LogGroupArn") => String.t(),
-        optional("Name") => String.t(),
-        optional("Password") => String.t(),
-        optional("Username") => String.t(),
-        required("HypervisorArn") => String.t()
+        optional("Host") => String.t() | Atom.t(),
+        optional("LogGroupArn") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t(),
+        optional("Password") => String.t() | Atom.t(),
+        optional("Username") => String.t() | Atom.t(),
+        required("HypervisorArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_hypervisor_input() :: %{String.t() => any()}
+  @type update_hypervisor_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -409,7 +409,7 @@ defmodule AWS.BackupGateway do
       }
       
   """
-  @type bandwidth_rate_limit_interval() :: %{String.t() => any()}
+  @type bandwidth_rate_limit_interval() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -417,11 +417,11 @@ defmodule AWS.BackupGateway do
       
       list_gateways_output() :: %{
         optional("Gateways") => list(gateway()),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_gateways_output() :: %{String.t() => any()}
+  @type list_gateways_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -430,66 +430,66 @@ defmodule AWS.BackupGateway do
       put_maintenance_start_time_input() :: %{
         optional("DayOfMonth") => integer(),
         optional("DayOfWeek") => integer(),
-        required("GatewayArn") => String.t(),
+        required("GatewayArn") => String.t() | Atom.t(),
         required("HourOfDay") => integer(),
         required("MinuteOfHour") => integer()
       }
       
   """
-  @type put_maintenance_start_time_input() :: %{String.t() => any()}
+  @type put_maintenance_start_time_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_gateway_input() :: %{
-        required("GatewayArn") => String.t()
+        required("GatewayArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_gateway_input() :: %{String.t() => any()}
+  @type delete_gateway_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       hypervisor_details() :: %{
-        "Host" => String.t(),
-        "HypervisorArn" => String.t(),
-        "KmsKeyArn" => String.t(),
+        "Host" => String.t() | Atom.t(),
+        "HypervisorArn" => String.t() | Atom.t(),
+        "KmsKeyArn" => String.t() | Atom.t(),
         "LastSuccessfulMetadataSyncTime" => non_neg_integer(),
-        "LatestMetadataSyncStatus" => String.t(),
-        "LatestMetadataSyncStatusMessage" => String.t(),
-        "LogGroupArn" => String.t(),
-        "Name" => String.t(),
-        "State" => String.t()
+        "LatestMetadataSyncStatus" => String.t() | Atom.t(),
+        "LatestMetadataSyncStatusMessage" => String.t() | Atom.t(),
+        "LogGroupArn" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "State" => String.t() | Atom.t()
       }
       
   """
-  @type hypervisor_details() :: %{String.t() => any()}
+  @type hypervisor_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       import_hypervisor_configuration_output() :: %{
-        optional("HypervisorArn") => String.t()
+        optional("HypervisorArn") => String.t() | Atom.t()
       }
       
   """
-  @type import_hypervisor_configuration_output() :: %{String.t() => any()}
+  @type import_hypervisor_configuration_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_input() :: %{
-        required("ResourceARN") => String.t(),
+        required("ResourceARN") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_input() :: %{String.t() => any()}
+  @type tag_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -500,121 +500,121 @@ defmodule AWS.BackupGateway do
       }
       
   """
-  @type get_gateway_output() :: %{String.t() => any()}
+  @type get_gateway_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_gateway_to_server_output() :: %{
-        optional("GatewayArn") => String.t()
+        optional("GatewayArn") => String.t() | Atom.t()
       }
       
   """
-  @type associate_gateway_to_server_output() :: %{String.t() => any()}
+  @type associate_gateway_to_server_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       import_hypervisor_configuration_input() :: %{
-        optional("KmsKeyArn") => String.t(),
-        optional("Password") => String.t(),
+        optional("KmsKeyArn") => String.t() | Atom.t(),
+        optional("Password") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        optional("Username") => String.t(),
-        required("Host") => String.t(),
-        required("Name") => String.t()
+        optional("Username") => String.t() | Atom.t(),
+        required("Host") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type import_hypervisor_configuration_input() :: %{String.t() => any()}
+  @type import_hypervisor_configuration_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_virtual_machines_input() :: %{
-        optional("HypervisorArn") => String.t(),
+        optional("HypervisorArn") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_virtual_machines_input() :: %{String.t() => any()}
+  @type list_virtual_machines_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_output() :: %{
-        optional("ResourceARN") => String.t()
+        optional("ResourceARN") => String.t() | Atom.t()
       }
       
   """
-  @type tag_resource_output() :: %{String.t() => any()}
+  @type tag_resource_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_gateway_information_input() :: %{
-        optional("GatewayDisplayName") => String.t(),
-        required("GatewayArn") => String.t()
+        optional("GatewayDisplayName") => String.t() | Atom.t(),
+        required("GatewayArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_gateway_information_input() :: %{String.t() => any()}
+  @type update_gateway_information_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_virtual_machine_input() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type get_virtual_machine_input() :: %{String.t() => any()}
+  @type get_virtual_machine_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_hypervisor_input() :: %{
-        required("HypervisorArn") => String.t()
+        required("HypervisorArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_hypervisor_input() :: %{String.t() => any()}
+  @type delete_hypervisor_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       virtual_machine_details() :: %{
-        "HostName" => String.t(),
-        "HypervisorId" => String.t(),
+        "HostName" => String.t() | Atom.t(),
+        "HypervisorId" => String.t() | Atom.t(),
         "LastBackupDate" => non_neg_integer(),
-        "Name" => String.t(),
-        "Path" => String.t(),
-        "ResourceArn" => String.t(),
+        "Name" => String.t() | Atom.t(),
+        "Path" => String.t() | Atom.t(),
+        "ResourceArn" => String.t() | Atom.t(),
         "VmwareTags" => list(vmware_tag())
       }
       
   """
-  @type virtual_machine_details() :: %{String.t() => any()}
+  @type virtual_machine_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -622,48 +622,48 @@ defmodule AWS.BackupGateway do
       
       list_gateways_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_gateways_input() :: %{String.t() => any()}
+  @type list_gateways_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_input() :: %{
-        required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceARN") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_input() :: %{String.t() => any()}
+  @type untag_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       vmware_tag() :: %{
-        "VmwareCategory" => String.t(),
-        "VmwareTagDescription" => String.t(),
-        "VmwareTagName" => String.t()
+        "VmwareCategory" => String.t() | Atom.t(),
+        "VmwareTagDescription" => String.t() | Atom.t(),
+        "VmwareTagName" => String.t() | Atom.t()
       }
       
   """
-  @type vmware_tag() :: %{String.t() => any()}
+  @type vmware_tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -671,68 +671,68 @@ defmodule AWS.BackupGateway do
       
       list_hypervisors_output() :: %{
         optional("Hypervisors") => list(hypervisor()),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_hypervisors_output() :: %{String.t() => any()}
+  @type list_hypervisors_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_input() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_input() :: %{String.t() => any()}
+  @type list_tags_for_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_output() :: %{
-        optional("ResourceARN") => String.t()
+        optional("ResourceARN") => String.t() | Atom.t()
       }
       
   """
-  @type untag_resource_output() :: %{String.t() => any()}
+  @type untag_resource_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_gateway_output() :: %{
-        optional("GatewayArn") => String.t()
+        optional("GatewayArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_gateway_output() :: %{String.t() => any()}
+  @type delete_gateway_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -740,13 +740,13 @@ defmodule AWS.BackupGateway do
       
       create_gateway_input() :: %{
         optional("Tags") => list(tag()),
-        required("ActivationKey") => String.t(),
-        required("GatewayDisplayName") => String.t(),
-        required("GatewayType") => String.t()
+        required("ActivationKey") => String.t() | Atom.t(),
+        required("GatewayDisplayName") => String.t() | Atom.t(),
+        required("GatewayType") => String.t() | Atom.t()
       }
       
   """
-  @type create_gateway_input() :: %{String.t() => any()}
+  @type create_gateway_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -754,11 +754,11 @@ defmodule AWS.BackupGateway do
       
       list_hypervisors_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_hypervisors_input() :: %{String.t() => any()}
+  @type list_hypervisors_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -769,88 +769,88 @@ defmodule AWS.BackupGateway do
       }
       
   """
-  @type get_virtual_machine_output() :: %{String.t() => any()}
+  @type get_virtual_machine_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_gateway_software_now_output() :: %{
-        optional("GatewayArn") => String.t()
+        optional("GatewayArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_gateway_software_now_output() :: %{String.t() => any()}
+  @type update_gateway_software_now_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_gateway_input() :: %{
-        required("GatewayArn") => String.t()
+        required("GatewayArn") => String.t() | Atom.t()
       }
       
   """
-  @type get_gateway_input() :: %{String.t() => any()}
+  @type get_gateway_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_virtual_machines_metadata_sync_input() :: %{
-        required("HypervisorArn") => String.t()
+        required("HypervisorArn") => String.t() | Atom.t()
       }
       
   """
-  @type start_virtual_machines_metadata_sync_input() :: %{String.t() => any()}
+  @type start_virtual_machines_metadata_sync_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_gateway_software_now_input() :: %{
-        required("GatewayArn") => String.t()
+        required("GatewayArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_gateway_software_now_input() :: %{String.t() => any()}
+  @type update_gateway_software_now_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       hypervisor() :: %{
-        "Host" => String.t(),
-        "HypervisorArn" => String.t(),
-        "KmsKeyArn" => String.t(),
-        "Name" => String.t(),
-        "State" => String.t()
+        "Host" => String.t() | Atom.t(),
+        "HypervisorArn" => String.t() | Atom.t(),
+        "KmsKeyArn" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "State" => String.t() | Atom.t()
       }
       
   """
-  @type hypervisor() :: %{String.t() => any()}
+  @type hypervisor() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_hypervisor_property_mappings_output() :: %{
-        optional("HypervisorArn") => String.t()
+        optional("HypervisorArn") => String.t() | Atom.t()
       }
       
   """
-  @type put_hypervisor_property_mappings_output() :: %{String.t() => any()}
+  @type put_hypervisor_property_mappings_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_virtual_machines_metadata_sync_output() :: %{
-        optional("HypervisorArn") => String.t()
+        optional("HypervisorArn") => String.t() | Atom.t()
       }
       
   """
-  @type start_virtual_machines_metadata_sync_output() :: %{String.t() => any()}
+  @type start_virtual_machines_metadata_sync_output() :: %{String.t() | Atom.t() => any()}
 
   @type associate_gateway_to_server_errors() :: conflict_exception()
 

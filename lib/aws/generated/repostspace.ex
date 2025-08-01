@@ -24,60 +24,60 @@ defmodule AWS.Repostspace do
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_add_role_input() :: %{
-        required("accessorIds") => list(String.t()),
+        required("accessorIds") => list(String.t() | Atom.t()),
         required("role") => list(any())
       }
 
   """
-  @type batch_add_role_input() :: %{String.t() => any()}
+  @type batch_add_role_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_add_role_output() :: %{
-        "addedAccessorIds" => list(String.t()),
+        "addedAccessorIds" => list(String.t() | Atom.t()),
         "errors" => list(batch_error())
       }
 
   """
-  @type batch_add_role_output() :: %{String.t() => any()}
+  @type batch_add_role_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_error() :: %{
-        "accessorId" => String.t(),
+        "accessorId" => String.t() | Atom.t(),
         "error" => integer(),
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type batch_error() :: %{String.t() => any()}
+  @type batch_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_remove_role_input() :: %{
-        required("accessorIds") => list(String.t()),
+        required("accessorIds") => list(String.t() | Atom.t()),
         required("role") => list(any())
       }
 
   """
-  @type batch_remove_role_input() :: %{String.t() => any()}
+  @type batch_remove_role_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -85,52 +85,52 @@ defmodule AWS.Repostspace do
 
       batch_remove_role_output() :: %{
         "errors" => list(batch_error()),
-        "removedAccessorIds" => list(String.t())
+        "removedAccessorIds" => list(String.t() | Atom.t())
       }
 
   """
-  @type batch_remove_role_output() :: %{String.t() => any()}
+  @type batch_remove_role_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "resourceId" => [String.t() | Atom.t()],
+        "resourceType" => [String.t() | Atom.t()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_space_input() :: %{
-        optional("description") => String.t(),
-        optional("roleArn") => String.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("roleArn") => String.t() | Atom.t(),
         optional("tags") => map(),
-        optional("userKMSKey") => String.t(),
-        required("name") => String.t(),
-        required("subdomain") => String.t(),
+        optional("userKMSKey") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t(),
+        required("subdomain") => String.t() | Atom.t(),
         required("tier") => list(any())
       }
 
   """
-  @type create_space_input() :: %{String.t() => any()}
+  @type create_space_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_space_output() :: %{
-        "spaceId" => String.t()
+        "spaceId" => String.t() | Atom.t()
       }
 
   """
-  @type create_space_output() :: %{String.t() => any()}
+  @type create_space_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -164,43 +164,43 @@ defmodule AWS.Repostspace do
   ## Example:
 
       get_space_output() :: %{
-        "arn" => String.t(),
-        "clientId" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "clientId" => String.t() | Atom.t(),
         "configurationStatus" => list(any()),
         "contentSize" => float(),
         "createDateTime" => [non_neg_integer()],
-        "customerRoleArn" => String.t(),
+        "customerRoleArn" => String.t() | Atom.t(),
         "deleteDateTime" => [non_neg_integer()],
-        "description" => String.t(),
-        "groupAdmins" => list(String.t()),
-        "name" => String.t(),
-        "randomDomain" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "groupAdmins" => list(String.t() | Atom.t()),
+        "name" => String.t() | Atom.t(),
+        "randomDomain" => String.t() | Atom.t(),
         "roles" => map(),
-        "spaceId" => String.t(),
-        "status" => String.t(),
+        "spaceId" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t(),
         "storageLimit" => float(),
         "tier" => list(any()),
-        "userAdmins" => list(String.t()),
+        "userAdmins" => list(String.t() | Atom.t()),
         "userCount" => integer(),
-        "userKMSKey" => String.t(),
-        "vanityDomain" => String.t(),
+        "userKMSKey" => String.t() | Atom.t(),
+        "vanityDomain" => String.t() | Atom.t(),
         "vanityDomainStatus" => list(any())
       }
 
   """
-  @type get_space_output() :: %{String.t() => any()}
+  @type get_space_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t()],
+        "message" => [String.t() | Atom.t()],
         "retryAfterSeconds" => [integer()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -208,23 +208,23 @@ defmodule AWS.Repostspace do
 
       list_spaces_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | Atom.t()]
       }
 
   """
-  @type list_spaces_input() :: %{String.t() => any()}
+  @type list_spaces_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_spaces_output() :: %{
-        "nextToken" => [String.t()],
+        "nextToken" => [String.t() | Atom.t()],
         "spaces" => list(space_data())
       }
 
   """
-  @type list_spaces_output() :: %{String.t() => any()}
+  @type list_spaces_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -244,7 +244,7 @@ defmodule AWS.Repostspace do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -260,67 +260,67 @@ defmodule AWS.Repostspace do
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "resourceId" => [String.t() | Atom.t()],
+        "resourceType" => [String.t() | Atom.t()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       send_invites_input() :: %{
-        required("accessorIds") => list(String.t()),
-        required("body") => String.t(),
-        required("title") => String.t()
+        required("accessorIds") => list(String.t() | Atom.t()),
+        required("body") => String.t() | Atom.t(),
+        required("title") => String.t() | Atom.t()
       }
 
   """
-  @type send_invites_input() :: %{String.t() => any()}
+  @type send_invites_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t()],
-        "quotaCode" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()],
-        "serviceCode" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "quotaCode" => [String.t() | Atom.t()],
+        "resourceId" => [String.t() | Atom.t()],
+        "resourceType" => [String.t() | Atom.t()],
+        "serviceCode" => [String.t() | Atom.t()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       space_data() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "configurationStatus" => list(any()),
         "contentSize" => float(),
         "createDateTime" => [non_neg_integer()],
         "deleteDateTime" => [non_neg_integer()],
-        "description" => String.t(),
-        "name" => String.t(),
-        "randomDomain" => String.t(),
-        "spaceId" => String.t(),
-        "status" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "randomDomain" => String.t() | Atom.t(),
+        "spaceId" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t(),
         "storageLimit" => float(),
         "tier" => list(any()),
         "userCount" => integer(),
-        "userKMSKey" => String.t(),
-        "vanityDomain" => String.t(),
+        "userKMSKey" => String.t() | Atom.t(),
+        "vanityDomain" => String.t() | Atom.t(),
         "vanityDomainStatus" => list(any())
       }
 
   """
-  @type space_data() :: %{String.t() => any()}
+  @type space_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -331,7 +331,7 @@ defmodule AWS.Repostspace do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -347,25 +347,25 @@ defmodule AWS.Repostspace do
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t()],
-        "quotaCode" => [String.t()],
+        "message" => [String.t() | Atom.t()],
+        "quotaCode" => [String.t() | Atom.t()],
         "retryAfterSeconds" => [integer()],
-        "serviceCode" => [String.t()]
+        "serviceCode" => [String.t() | Atom.t()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -381,13 +381,13 @@ defmodule AWS.Repostspace do
   ## Example:
 
       update_space_input() :: %{
-        optional("description") => String.t(),
-        optional("roleArn") => String.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("roleArn") => String.t() | Atom.t(),
         optional("tier") => list(any())
       }
 
   """
-  @type update_space_input() :: %{String.t() => any()}
+  @type update_space_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -395,24 +395,24 @@ defmodule AWS.Repostspace do
 
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
-        "message" => [String.t()],
+        "message" => [String.t() | Atom.t()],
         "reason" => list(any())
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "message" => [String.t()],
-        "name" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "name" => [String.t() | Atom.t()]
       }
 
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
 
   @type batch_add_role_errors() ::
           validation_exception()
@@ -526,7 +526,7 @@ defmodule AWS.Repostspace do
   @doc """
   Add role to multiple users or groups in a private re:Post.
   """
-  @spec batch_add_role(map(), String.t(), batch_add_role_input(), list()) ::
+  @spec batch_add_role(map(), String.t() | Atom.t(), batch_add_role_input(), list()) ::
           {:ok, batch_add_role_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -555,7 +555,7 @@ defmodule AWS.Repostspace do
   @doc """
   Remove role from multiple users or groups in a private re:Post.
   """
-  @spec batch_remove_role(map(), String.t(), batch_remove_role_input(), list()) ::
+  @spec batch_remove_role(map(), String.t() | Atom.t(), batch_remove_role_input(), list()) ::
           {:ok, batch_remove_role_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -613,7 +613,7 @@ defmodule AWS.Repostspace do
   @doc """
   Deletes an AWS re:Post Private private re:Post.
   """
-  @spec delete_space(map(), String.t(), delete_space_input(), list()) ::
+  @spec delete_space(map(), String.t() | Atom.t(), delete_space_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -643,7 +643,13 @@ defmodule AWS.Repostspace do
   Removes the user or group from the list of administrators of the private
   re:Post.
   """
-  @spec deregister_admin(map(), String.t(), String.t(), deregister_admin_input(), list()) ::
+  @spec deregister_admin(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          deregister_admin_input(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -672,7 +678,7 @@ defmodule AWS.Repostspace do
   @doc """
   Displays information about the AWS re:Post Private private re:Post.
   """
-  @spec get_space(map(), String.t(), list()) ::
+  @spec get_space(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_space_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -691,7 +697,7 @@ defmodule AWS.Repostspace do
   Returns a list of AWS re:Post Private private re:Posts in the account with some
   information about each private re:Post.
   """
-  @spec list_spaces(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_spaces(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_spaces_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -726,7 +732,7 @@ defmodule AWS.Repostspace do
 
   The only resource that can be tagged is a private re:Post.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -744,7 +750,13 @@ defmodule AWS.Repostspace do
   @doc """
   Adds a user or group to the list of administrators of the private re:Post.
   """
-  @spec register_admin(map(), String.t(), String.t(), register_admin_input(), list()) ::
+  @spec register_admin(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          register_admin_input(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -773,7 +785,7 @@ defmodule AWS.Repostspace do
   @doc """
   Sends an invitation email to selected users and groups.
   """
-  @spec send_invites(map(), String.t(), send_invites_input(), list()) ::
+  @spec send_invites(map(), String.t() | Atom.t(), send_invites_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -808,7 +820,7 @@ defmodule AWS.Repostspace do
   associated with the resource, the new tag value that you specify replaces the
   previous value for that tag.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -837,7 +849,7 @@ defmodule AWS.Repostspace do
   @doc """
   Removes the association of the tag with the AWS re:Post Private resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -871,7 +883,7 @@ defmodule AWS.Repostspace do
   @doc """
   Modifies an existing AWS re:Post Private private re:Post.
   """
-  @spec update_space(map(), String.t(), update_space_input(), list()) ::
+  @spec update_space(map(), String.t() | Atom.t(), update_space_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

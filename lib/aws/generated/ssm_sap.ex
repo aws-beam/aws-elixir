@@ -24,7 +24,7 @@ defmodule AWS.SsmSap do
       }
 
   """
-  @type get_component_output() :: %{String.t() => any()}
+  @type get_component_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -32,42 +32,42 @@ defmodule AWS.SsmSap do
 
       operation() :: %{
         "EndTime" => [non_neg_integer()],
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "LastUpdatedTime" => [non_neg_integer()],
         "Properties" => map(),
-        "ResourceArn" => String.t(),
-        "ResourceId" => String.t(),
-        "ResourceType" => String.t(),
+        "ResourceArn" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t(),
         "StartTime" => [non_neg_integer()],
         "Status" => list(any()),
-        "StatusMessage" => [String.t()],
-        "Type" => String.t()
+        "StatusMessage" => [String.t() | Atom.t()],
+        "Type" => String.t() | Atom.t()
       }
 
   """
-  @type operation() :: %{String.t() => any()}
+  @type operation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_resource_permission_output() :: %{
-        optional("Policy") => [String.t()]
+        optional("Policy") => [String.t() | Atom.t()]
       }
 
   """
-  @type put_resource_permission_output() :: %{String.t() => any()}
+  @type put_resource_permission_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_application_output() :: %{
-        "OperationId" => String.t()
+        "OperationId" => String.t() | Atom.t()
       }
 
   """
-  @type start_application_output() :: %{String.t() => any()}
+  @type start_application_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -78,51 +78,51 @@ defmodule AWS.SsmSap do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       database() :: %{
-        "ApplicationId" => String.t(),
-        "Arn" => String.t(),
-        "ComponentId" => String.t(),
-        "ConnectedComponentArns" => list(String.t()),
+        "ApplicationId" => String.t() | Atom.t(),
+        "Arn" => String.t() | Atom.t(),
+        "ComponentId" => String.t() | Atom.t(),
+        "ConnectedComponentArns" => list(String.t() | Atom.t()),
         "Credentials" => list(application_credential()),
-        "DatabaseId" => String.t(),
-        "DatabaseName" => [String.t()],
+        "DatabaseId" => String.t() | Atom.t(),
+        "DatabaseName" => [String.t() | Atom.t()],
         "DatabaseType" => list(any()),
         "LastUpdated" => [non_neg_integer()],
-        "PrimaryHost" => [String.t()],
+        "PrimaryHost" => [String.t() | Atom.t()],
         "SQLPort" => [integer()],
         "Status" => list(any())
       }
 
   """
-  @type database() :: %{String.t() => any()}
+  @type database() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       stop_application_output() :: %{
-        "OperationId" => String.t()
+        "OperationId" => String.t() | Atom.t()
       }
 
   """
-  @type stop_application_output() :: %{String.t() => any()}
+  @type stop_application_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       unauthorized_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
 
   """
-  @type unauthorized_exception() :: %{String.t() => any()}
+  @type unauthorized_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -139,36 +139,36 @@ defmodule AWS.SsmSap do
 
       register_application_output() :: %{
         optional("Application") => application(),
-        optional("OperationId") => String.t()
+        optional("OperationId") => String.t() | Atom.t()
       }
 
   """
-  @type register_application_output() :: %{String.t() => any()}
+  @type register_application_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_operations_output() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("Operations") => list(operation())
       }
 
   """
-  @type list_operations_output() :: %{String.t() => any()}
+  @type list_operations_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       database_connection() :: %{
-        "ConnectionIp" => [String.t()],
-        "DatabaseArn" => String.t(),
+        "ConnectionIp" => [String.t() | Atom.t()],
+        "DatabaseArn" => String.t() | Atom.t(),
         "DatabaseConnectionMethod" => list(any())
       }
 
   """
-  @type database_connection() :: %{String.t() => any()}
+  @type database_connection() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -176,12 +176,12 @@ defmodule AWS.SsmSap do
 
       ip_address_member() :: %{
         "AllocationType" => list(any()),
-        "IpAddress" => [String.t()],
+        "IpAddress" => [String.t() | Atom.t()],
         "Primary" => [boolean()]
       }
 
   """
-  @type ip_address_member() :: %{String.t() => any()}
+  @type ip_address_member() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -193,56 +193,56 @@ defmodule AWS.SsmSap do
       }
 
   """
-  @type backint_config() :: %{String.t() => any()}
+  @type backint_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_resource_permission_output() :: %{
-        optional("Policy") => [String.t()]
+        optional("Policy") => [String.t() | Atom.t()]
       }
 
   """
-  @type delete_resource_permission_output() :: %{String.t() => any()}
+  @type delete_resource_permission_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_operation_events_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "OperationEvents" => list(operation_event())
       }
 
   """
-  @type list_operation_events_output() :: %{String.t() => any()}
+  @type list_operation_events_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       component_summary() :: %{
-        "ApplicationId" => String.t(),
-        "Arn" => String.t(),
-        "ComponentId" => String.t(),
+        "ApplicationId" => String.t() | Atom.t(),
+        "Arn" => String.t() | Atom.t(),
+        "ComponentId" => String.t() | Atom.t(),
         "ComponentType" => list(any()),
         "Tags" => map()
       }
 
   """
-  @type component_summary() :: %{String.t() => any()}
+  @type component_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -250,11 +250,11 @@ defmodule AWS.SsmSap do
 
       list_components_output() :: %{
         optional("Components") => list(component_summary()),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_components_output() :: %{String.t() => any()}
+  @type list_components_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -265,11 +265,11 @@ defmodule AWS.SsmSap do
         "EnqueueReplication" => [boolean()],
         "HsrOperationMode" => list(any()),
         "HsrReplicationMode" => list(any()),
-        "HsrTier" => [String.t()]
+        "HsrTier" => [String.t() | Atom.t()]
       }
 
   """
-  @type resilience() :: %{String.t() => any()}
+  @type resilience() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -278,25 +278,25 @@ defmodule AWS.SsmSap do
       stop_application_input() :: %{
         optional("IncludeEc2InstanceShutdown") => [boolean()],
         optional("StopConnectedEntity") => list(any()),
-        required("ApplicationId") => String.t()
+        required("ApplicationId") => String.t() | Atom.t()
       }
 
   """
-  @type stop_application_input() :: %{String.t() => any()}
+  @type stop_application_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_databases_input() :: %{
-        optional("ApplicationId") => String.t(),
-        optional("ComponentId") => String.t(),
+        optional("ApplicationId") => String.t() | Atom.t(),
+        optional("ComponentId") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_databases_input() :: %{String.t() => any()}
+  @type list_databases_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -305,12 +305,12 @@ defmodule AWS.SsmSap do
       list_operation_events_input() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("OperationId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("OperationId") => String.t() | Atom.t()
       }
 
   """
-  @type list_operation_events_input() :: %{String.t() => any()}
+  @type list_operation_events_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -318,22 +318,22 @@ defmodule AWS.SsmSap do
 
       list_applications_output() :: %{
         optional("Applications") => list(application_summary()),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_applications_output() :: %{String.t() => any()}
+  @type list_applications_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       deregister_application_input() :: %{
-        required("ApplicationId") => String.t()
+        required("ApplicationId") => String.t() | Atom.t()
       }
 
   """
-  @type deregister_application_input() :: %{String.t() => any()}
+  @type deregister_application_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -344,7 +344,7 @@ defmodule AWS.SsmSap do
       }
 
   """
-  @type get_operation_output() :: %{String.t() => any()}
+  @type get_operation_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -352,23 +352,23 @@ defmodule AWS.SsmSap do
 
       application_credential() :: %{
         "CredentialType" => list(any()),
-        "DatabaseName" => String.t(),
-        "SecretId" => String.t()
+        "DatabaseName" => String.t() | Atom.t(),
+        "SecretId" => String.t() | Atom.t()
       }
 
   """
-  @type application_credential() :: %{String.t() => any()}
+  @type application_credential() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_application_refresh_input() :: %{
-        required("ApplicationId") => String.t()
+        required("ApplicationId") => String.t() | Atom.t()
       }
 
   """
-  @type start_application_refresh_input() :: %{String.t() => any()}
+  @type start_application_refresh_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -377,33 +377,33 @@ defmodule AWS.SsmSap do
       list_applications_input() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_applications_input() :: %{String.t() => any()}
+  @type list_applications_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -415,30 +415,30 @@ defmodule AWS.SsmSap do
       }
 
   """
-  @type get_database_output() :: %{String.t() => any()}
+  @type get_database_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_operation_input() :: %{
-        required("OperationId") => String.t()
+        required("OperationId") => String.t() | Atom.t()
       }
 
   """
-  @type get_operation_input() :: %{String.t() => any()}
+  @type get_operation_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_application_settings_output() :: %{
-        optional("Message") => [String.t()],
-        optional("OperationIds") => list(String.t())
+        optional("Message") => [String.t() | Atom.t()],
+        optional("OperationIds") => list(String.t() | Atom.t())
       }
 
   """
-  @type update_application_settings_output() :: %{String.t() => any()}
+  @type update_application_settings_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -446,74 +446,74 @@ defmodule AWS.SsmSap do
 
       list_databases_output() :: %{
         optional("Databases") => list(database_summary()),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_databases_output() :: %{String.t() => any()}
+  @type list_databases_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       component() :: %{
-        "ApplicationId" => String.t(),
-        "Arn" => String.t(),
+        "ApplicationId" => String.t() | Atom.t(),
+        "Arn" => String.t() | Atom.t(),
         "AssociatedHost" => associated_host(),
-        "ChildComponents" => list(String.t()),
-        "ComponentId" => String.t(),
+        "ChildComponents" => list(String.t() | Atom.t()),
+        "ComponentId" => String.t() | Atom.t(),
         "ComponentType" => list(any()),
         "DatabaseConnection" => database_connection(),
-        "Databases" => list(String.t()),
-        "HdbVersion" => [String.t()],
+        "Databases" => list(String.t() | Atom.t()),
+        "HdbVersion" => [String.t() | Atom.t()],
         "Hosts" => list(host()),
         "LastUpdated" => [non_neg_integer()],
-        "ParentComponent" => String.t(),
-        "PrimaryHost" => [String.t()],
+        "ParentComponent" => String.t() | Atom.t(),
+        "PrimaryHost" => [String.t() | Atom.t()],
         "Resilience" => resilience(),
-        "SapFeature" => [String.t()],
-        "SapHostname" => [String.t()],
-        "SapKernelVersion" => [String.t()],
-        "Sid" => String.t(),
+        "SapFeature" => [String.t() | Atom.t()],
+        "SapHostname" => [String.t() | Atom.t()],
+        "SapKernelVersion" => [String.t() | Atom.t()],
+        "Sid" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "SystemNumber" => String.t()
+        "SystemNumber" => String.t() | Atom.t()
       }
 
   """
-  @type component() :: %{String.t() => any()}
+  @type component() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_components_input() :: %{
-        optional("ApplicationId") => String.t(),
+        optional("ApplicationId") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_components_input() :: %{String.t() => any()}
+  @type list_components_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       application() :: %{
-        "AppRegistryArn" => String.t(),
-        "Arn" => String.t(),
-        "AssociatedApplicationArns" => list(String.t()),
-        "Components" => list(String.t()),
+        "AppRegistryArn" => String.t() | Atom.t(),
+        "Arn" => String.t() | Atom.t(),
+        "AssociatedApplicationArns" => list(String.t() | Atom.t()),
+        "Components" => list(String.t() | Atom.t()),
         "DiscoveryStatus" => list(any()),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "LastUpdated" => [non_neg_integer()],
         "Status" => list(any()),
-        "StatusMessage" => [String.t()],
+        "StatusMessage" => [String.t() | Atom.t()],
         "Type" => list(any())
       }
 
   """
-  @type application() :: %{String.t() => any()}
+  @type application() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -521,12 +521,12 @@ defmodule AWS.SsmSap do
 
       delete_resource_permission_input() :: %{
         optional("ActionType") => list(any()),
-        optional("SourceResourceArn") => String.t(),
-        required("ResourceArn") => String.t()
+        optional("SourceResourceArn") => String.t() | Atom.t(),
+        required("ResourceArn") => String.t() | Atom.t()
       }
 
   """
-  @type delete_resource_permission_input() :: %{String.t() => any()}
+  @type delete_resource_permission_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -546,76 +546,76 @@ defmodule AWS.SsmSap do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_database_input() :: %{
-        optional("ApplicationId") => String.t(),
-        optional("ComponentId") => String.t(),
-        optional("DatabaseArn") => String.t(),
-        optional("DatabaseId") => String.t()
+        optional("ApplicationId") => String.t() | Atom.t(),
+        optional("ComponentId") => String.t() | Atom.t(),
+        optional("DatabaseArn") => String.t() | Atom.t(),
+        optional("DatabaseId") => String.t() | Atom.t()
       }
 
   """
-  @type get_database_input() :: %{String.t() => any()}
+  @type get_database_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       operation_event() :: %{
-        "Description" => [String.t()],
+        "Description" => [String.t() | Atom.t()],
         "Resource" => resource(),
         "Status" => list(any()),
-        "StatusMessage" => [String.t()],
+        "StatusMessage" => [String.t() | Atom.t()],
         "Timestamp" => [non_neg_integer()]
       }
 
   """
-  @type operation_event() :: %{String.t() => any()}
+  @type operation_event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       filter() :: %{
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Operator" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type filter() :: %{String.t() => any()}
+  @type filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       host() :: %{
-        "EC2InstanceId" => [String.t()],
-        "HostIp" => [String.t()],
-        "HostName" => [String.t()],
+        "EC2InstanceId" => [String.t() | Atom.t()],
+        "HostIp" => [String.t() | Atom.t()],
+        "HostName" => [String.t() | Atom.t()],
         "HostRole" => list(any()),
-        "InstanceId" => [String.t()],
-        "OsVersion" => [String.t()]
+        "InstanceId" => [String.t() | Atom.t()],
+        "OsVersion" => [String.t() | Atom.t()]
       }
 
   """
-  @type host() :: %{String.t() => any()}
+  @type host() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_application_input() :: %{
-        required("ApplicationId") => String.t()
+        required("ApplicationId") => String.t() | Atom.t()
       }
 
   """
-  @type start_application_input() :: %{String.t() => any()}
+  @type start_application_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -627,44 +627,44 @@ defmodule AWS.SsmSap do
       }
 
   """
-  @type get_application_output() :: %{String.t() => any()}
+  @type get_application_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_component_input() :: %{
-        required("ApplicationId") => String.t(),
-        required("ComponentId") => String.t()
+        required("ApplicationId") => String.t() | Atom.t(),
+        required("ComponentId") => String.t() | Atom.t()
       }
 
   """
-  @type get_component_input() :: %{String.t() => any()}
+  @type get_component_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associated_host() :: %{
-        "Ec2InstanceId" => [String.t()],
-        "Hostname" => [String.t()],
+        "Ec2InstanceId" => [String.t() | Atom.t()],
+        "Hostname" => [String.t() | Atom.t()],
         "IpAddresses" => list(ip_address_member()),
-        "OsVersion" => [String.t()]
+        "OsVersion" => [String.t() | Atom.t()]
       }
 
   """
-  @type associated_host() :: %{String.t() => any()}
+  @type associated_host() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -672,12 +672,12 @@ defmodule AWS.SsmSap do
 
       component_info() :: %{
         "ComponentType" => list(any()),
-        "Ec2InstanceId" => String.t(),
-        "Sid" => String.t()
+        "Ec2InstanceId" => String.t() | Atom.t(),
+        "Sid" => String.t() | Atom.t()
       }
 
   """
-  @type component_info() :: %{String.t() => any()}
+  @type component_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -687,12 +687,12 @@ defmodule AWS.SsmSap do
         optional("Backint") => backint_config(),
         optional("CredentialsToAddOrUpdate") => list(application_credential()),
         optional("CredentialsToRemove") => list(application_credential()),
-        optional("DatabaseArn") => String.t(),
-        required("ApplicationId") => String.t()
+        optional("DatabaseArn") => String.t() | Atom.t(),
+        required("ApplicationId") => String.t() | Atom.t()
       }
 
   """
-  @type update_application_settings_input() :: %{String.t() => any()}
+  @type update_application_settings_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -708,11 +708,11 @@ defmodule AWS.SsmSap do
   ## Example:
 
       validation_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -730,28 +730,28 @@ defmodule AWS.SsmSap do
       list_operations_input() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ApplicationId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ApplicationId") => String.t() | Atom.t()
       }
 
   """
-  @type list_operations_input() :: %{String.t() => any()}
+  @type list_operations_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       database_summary() :: %{
-        "ApplicationId" => String.t(),
-        "Arn" => String.t(),
-        "ComponentId" => String.t(),
-        "DatabaseId" => String.t(),
+        "ApplicationId" => String.t() | Atom.t(),
+        "Arn" => String.t() | Atom.t(),
+        "ComponentId" => String.t() | Atom.t(),
+        "DatabaseId" => String.t() | Atom.t(),
         "DatabaseType" => list(any()),
         "Tags" => map()
       }
 
   """
-  @type database_summary() :: %{String.t() => any()}
+  @type database_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -759,37 +759,37 @@ defmodule AWS.SsmSap do
 
       get_resource_permission_input() :: %{
         optional("ActionType") => list(any()),
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
 
   """
-  @type get_resource_permission_input() :: %{String.t() => any()}
+  @type get_resource_permission_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_application_refresh_output() :: %{
-        "OperationId" => String.t()
+        "OperationId" => String.t() | Atom.t()
       }
 
   """
-  @type start_application_refresh_output() :: %{String.t() => any()}
+  @type start_application_refresh_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       application_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "DiscoveryStatus" => list(any()),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "Tags" => map(),
         "Type" => list(any())
       }
 
   """
-  @type application_summary() :: %{String.t() => any()}
+  @type application_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -797,36 +797,36 @@ defmodule AWS.SsmSap do
 
       put_resource_permission_input() :: %{
         required("ActionType") => list(any()),
-        required("ResourceArn") => String.t(),
-        required("SourceResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t(),
+        required("SourceResourceArn") => String.t() | Atom.t()
       }
 
   """
-  @type put_resource_permission_input() :: %{String.t() => any()}
+  @type put_resource_permission_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_resource_permission_output() :: %{
-        optional("Policy") => [String.t()]
+        optional("Policy") => [String.t() | Atom.t()]
       }
 
   """
-  @type get_resource_permission_output() :: %{String.t() => any()}
+  @type get_resource_permission_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_application_input() :: %{
-        optional("AppRegistryArn") => String.t(),
-        optional("ApplicationArn") => String.t(),
-        optional("ApplicationId") => String.t()
+        optional("AppRegistryArn") => String.t() | Atom.t(),
+        optional("ApplicationArn") => String.t() | Atom.t(),
+        optional("ApplicationId") => String.t() | Atom.t()
       }
 
   """
-  @type get_application_input() :: %{String.t() => any()}
+  @type get_application_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -835,29 +835,29 @@ defmodule AWS.SsmSap do
       register_application_input() :: %{
         optional("ComponentsInfo") => list(component_info()),
         optional("Credentials") => list(application_credential()),
-        optional("DatabaseArn") => String.t(),
-        optional("SapInstanceNumber") => String.t(),
-        optional("Sid") => String.t(),
+        optional("DatabaseArn") => String.t() | Atom.t(),
+        optional("SapInstanceNumber") => String.t() | Atom.t(),
+        optional("Sid") => String.t() | Atom.t(),
         optional("Tags") => map(),
-        required("ApplicationId") => String.t(),
+        required("ApplicationId") => String.t() | Atom.t(),
         required("ApplicationType") => list(any()),
-        required("Instances") => list(String.t())
+        required("Instances") => list(String.t() | Atom.t())
       }
 
   """
-  @type register_application_input() :: %{String.t() => any()}
+  @type register_application_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource() :: %{
-        "ResourceArn" => String.t(),
-        "ResourceType" => String.t()
+        "ResourceArn" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t()
       }
 
   """
-  @type resource() :: %{String.t() => any()}
+  @type resource() :: %{String.t() | Atom.t() => any()}
 
   @type delete_resource_permission_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
@@ -1320,7 +1320,7 @@ defmodule AWS.SsmSap do
   Systems
   Manager for SAP.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1504,7 +1504,7 @@ defmodule AWS.SsmSap do
   @doc """
   Creates tag for a resource by specifying the ARN.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1533,7 +1533,7 @@ defmodule AWS.SsmSap do
   @doc """
   Delete the tags for a resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

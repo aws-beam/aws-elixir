@@ -94,7 +94,7 @@ defmodule AWS.GlobalAccelerator do
       }
       
   """
-  @type create_custom_routing_endpoint_group_response() :: %{String.t() => any()}
+  @type create_custom_routing_endpoint_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -110,50 +110,50 @@ defmodule AWS.GlobalAccelerator do
   ## Example:
       
       endpoint_configuration() :: %{
-        "AttachmentArn" => String.t(),
+        "AttachmentArn" => String.t() | Atom.t(),
         "ClientIPPreservationEnabled" => boolean(),
-        "EndpointId" => String.t(),
+        "EndpointId" => String.t() | Atom.t(),
         "Weight" => integer()
       }
       
   """
-  @type endpoint_configuration() :: %{String.t() => any()}
+  @type endpoint_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       byoip_cidr() :: %{
-        "Cidr" => String.t(),
+        "Cidr" => String.t() | Atom.t(),
         "Events" => list(byoip_cidr_event()),
         "State" => list(any())
       }
       
   """
-  @type byoip_cidr() :: %{String.t() => any()}
+  @type byoip_cidr() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_accelerator_attributes_request() :: %{
-        required("AcceleratorArn") => String.t()
+        required("AcceleratorArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_accelerator_attributes_request() :: %{String.t() => any()}
+  @type describe_accelerator_attributes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
+        required("ResourceArn") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -161,11 +161,11 @@ defmodule AWS.GlobalAccelerator do
       
       list_cross_account_attachments_response() :: %{
         "CrossAccountAttachments" => list(attachment()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_cross_account_attachments_response() :: %{String.t() => any()}
+  @type list_cross_account_attachments_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -176,7 +176,7 @@ defmodule AWS.GlobalAccelerator do
       }
       
   """
-  @type update_accelerator_attributes_response() :: %{String.t() => any()}
+  @type update_accelerator_attributes_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -187,7 +187,7 @@ defmodule AWS.GlobalAccelerator do
       }
       
   """
-  @type describe_custom_routing_accelerator_response() :: %{String.t() => any()}
+  @type describe_custom_routing_accelerator_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -196,13 +196,13 @@ defmodule AWS.GlobalAccelerator do
       update_accelerator_request() :: %{
         optional("Enabled") => boolean(),
         optional("IpAddressType") => list(any()),
-        optional("IpAddresses") => list(String.t()),
-        optional("Name") => String.t(),
-        required("AcceleratorArn") => String.t()
+        optional("IpAddresses") => list(String.t() | Atom.t()),
+        optional("Name") => String.t() | Atom.t(),
+        required("AcceleratorArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_accelerator_request() :: %{String.t() => any()}
+  @type update_accelerator_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -210,12 +210,12 @@ defmodule AWS.GlobalAccelerator do
       
       accelerator_attributes() :: %{
         "FlowLogsEnabled" => boolean(),
-        "FlowLogsS3Bucket" => String.t(),
-        "FlowLogsS3Prefix" => String.t()
+        "FlowLogsS3Bucket" => String.t() | Atom.t(),
+        "FlowLogsS3Prefix" => String.t() | Atom.t()
       }
       
   """
-  @type accelerator_attributes() :: %{String.t() => any()}
+  @type accelerator_attributes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -226,7 +226,7 @@ defmodule AWS.GlobalAccelerator do
       }
       
   """
-  @type create_accelerator_response() :: %{String.t() => any()}
+  @type create_accelerator_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -237,7 +237,7 @@ defmodule AWS.GlobalAccelerator do
       }
       
   """
-  @type create_listener_response() :: %{String.t() => any()}
+  @type create_listener_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -250,7 +250,7 @@ defmodule AWS.GlobalAccelerator do
       }
       
   """
-  @type custom_routing_destination_configuration() :: %{String.t() => any()}
+  @type custom_routing_destination_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -258,22 +258,22 @@ defmodule AWS.GlobalAccelerator do
       
       list_cross_account_attachments_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_cross_account_attachments_request() :: %{String.t() => any()}
+  @type list_cross_account_attachments_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_custom_routing_accelerator_request() :: %{
-        required("AcceleratorArn") => String.t()
+        required("AcceleratorArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_custom_routing_accelerator_request() :: %{String.t() => any()}
+  @type describe_custom_routing_accelerator_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -284,7 +284,7 @@ defmodule AWS.GlobalAccelerator do
       }
       
   """
-  @type deprovision_byoip_cidr_response() :: %{String.t() => any()}
+  @type deprovision_byoip_cidr_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -301,24 +301,24 @@ defmodule AWS.GlobalAccelerator do
       
       listener() :: %{
         "ClientAffinity" => list(any()),
-        "ListenerArn" => String.t(),
+        "ListenerArn" => String.t() | Atom.t(),
         "PortRanges" => list(port_range()),
         "Protocol" => list(any())
       }
       
   """
-  @type listener() :: %{String.t() => any()}
+  @type listener() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoint_already_exists_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type endpoint_already_exists_exception() :: %{String.t() => any()}
+  @type endpoint_already_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -329,19 +329,19 @@ defmodule AWS.GlobalAccelerator do
       }
       
   """
-  @type update_custom_routing_listener_response() :: %{String.t() => any()}
+  @type update_custom_routing_listener_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       socket_address() :: %{
-        "IpAddress" => String.t(),
+        "IpAddress" => String.t() | Atom.t(),
         "Port" => integer()
       }
       
   """
-  @type socket_address() :: %{String.t() => any()}
+  @type socket_address() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -350,12 +350,12 @@ defmodule AWS.GlobalAccelerator do
       custom_routing_endpoint_group() :: %{
         "DestinationDescriptions" => list(custom_routing_destination_description()),
         "EndpointDescriptions" => list(custom_routing_endpoint_description()),
-        "EndpointGroupArn" => String.t(),
-        "EndpointGroupRegion" => String.t()
+        "EndpointGroupArn" => String.t() | Atom.t(),
+        "EndpointGroupRegion" => String.t() | Atom.t()
       }
       
   """
-  @type custom_routing_endpoint_group() :: %{String.t() => any()}
+  @type custom_routing_endpoint_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -366,7 +366,7 @@ defmodule AWS.GlobalAccelerator do
       }
       
   """
-  @type create_custom_routing_listener_response() :: %{String.t() => any()}
+  @type create_custom_routing_listener_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -374,11 +374,11 @@ defmodule AWS.GlobalAccelerator do
       
       list_custom_routing_endpoint_groups_response() :: %{
         "EndpointGroups" => list(custom_routing_endpoint_group()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_custom_routing_endpoint_groups_response() :: %{String.t() => any()}
+  @type list_custom_routing_endpoint_groups_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -389,18 +389,18 @@ defmodule AWS.GlobalAccelerator do
       }
       
   """
-  @type describe_accelerator_attributes_response() :: %{String.t() => any()}
+  @type describe_accelerator_attributes_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       byoip_cidr_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type byoip_cidr_not_found_exception() :: %{String.t() => any()}
+  @type byoip_cidr_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -413,35 +413,35 @@ defmodule AWS.GlobalAccelerator do
       }
       
   """
-  @type custom_routing_destination_description() :: %{String.t() => any()}
+  @type custom_routing_destination_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       attachment() :: %{
-        "AttachmentArn" => String.t(),
+        "AttachmentArn" => String.t() | Atom.t(),
         "CreatedTime" => non_neg_integer(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "Principals" => list(String.t()),
+        "Name" => String.t() | Atom.t(),
+        "Principals" => list(String.t() | Atom.t()),
         "Resources" => list(resource())
       }
       
   """
-  @type attachment() :: %{String.t() => any()}
+  @type attachment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_custom_routing_port_mappings_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "PortMappings" => list(port_mapping())
       }
       
   """
-  @type list_custom_routing_port_mappings_response() :: %{String.t() => any()}
+  @type list_custom_routing_port_mappings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -452,62 +452,62 @@ defmodule AWS.GlobalAccelerator do
       }
       
   """
-  @type provision_byoip_cidr_response() :: %{String.t() => any()}
+  @type provision_byoip_cidr_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_custom_routing_listener_request() :: %{
-        required("ListenerArn") => String.t()
+        required("ListenerArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_custom_routing_listener_request() :: %{String.t() => any()}
+  @type describe_custom_routing_listener_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       incorrect_cidr_state_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type incorrect_cidr_state_exception() :: %{String.t() => any()}
+  @type incorrect_cidr_state_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_endpoint_group_request() :: %{
-        required("EndpointGroupArn") => String.t()
+        required("EndpointGroupArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_endpoint_group_request() :: %{String.t() => any()}
+  @type delete_endpoint_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       attachment_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type attachment_not_found_exception() :: %{String.t() => any()}
+  @type attachment_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_service_error_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type internal_service_error_exception() :: %{String.t() => any()}
+  @type internal_service_error_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -515,13 +515,13 @@ defmodule AWS.GlobalAccelerator do
       
       update_accelerator_attributes_request() :: %{
         optional("FlowLogsEnabled") => boolean(),
-        optional("FlowLogsS3Bucket") => String.t(),
-        optional("FlowLogsS3Prefix") => String.t(),
-        required("AcceleratorArn") => String.t()
+        optional("FlowLogsS3Bucket") => String.t() | Atom.t(),
+        optional("FlowLogsS3Prefix") => String.t() | Atom.t(),
+        required("AcceleratorArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_accelerator_attributes_request() :: %{String.t() => any()}
+  @type update_accelerator_attributes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -529,14 +529,14 @@ defmodule AWS.GlobalAccelerator do
       
       endpoint_description() :: %{
         "ClientIPPreservationEnabled" => boolean(),
-        "EndpointId" => String.t(),
-        "HealthReason" => String.t(),
+        "EndpointId" => String.t() | Atom.t(),
+        "HealthReason" => String.t() | Atom.t(),
         "HealthState" => list(any()),
         "Weight" => integer()
       }
       
   """
-  @type endpoint_description() :: %{String.t() => any()}
+  @type endpoint_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -547,55 +547,55 @@ defmodule AWS.GlobalAccelerator do
       }
       
   """
-  @type describe_cross_account_attachment_response() :: %{String.t() => any()}
+  @type describe_cross_account_attachment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceArn") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_custom_routing_listener_request() :: %{
-        required("AcceleratorArn") => String.t(),
-        required("IdempotencyToken") => String.t(),
+        required("AcceleratorArn") => String.t() | Atom.t(),
+        required("IdempotencyToken") => String.t() | Atom.t(),
         required("PortRanges") => list(port_range())
       }
       
   """
-  @type create_custom_routing_listener_request() :: %{String.t() => any()}
+  @type create_custom_routing_listener_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       accelerator_not_disabled_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type accelerator_not_disabled_exception() :: %{String.t() => any()}
+  @type accelerator_not_disabled_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_custom_routing_endpoints_request() :: %{
-        required("EndpointGroupArn") => String.t(),
-        required("EndpointIds") => list(String.t())
+        required("EndpointGroupArn") => String.t() | Atom.t(),
+        required("EndpointIds") => list(String.t() | Atom.t())
       }
       
   """
-  @type remove_custom_routing_endpoints_request() :: %{String.t() => any()}
+  @type remove_custom_routing_endpoints_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -604,25 +604,25 @@ defmodule AWS.GlobalAccelerator do
       create_accelerator_request() :: %{
         optional("Enabled") => boolean(),
         optional("IpAddressType") => list(any()),
-        optional("IpAddresses") => list(String.t()),
+        optional("IpAddresses") => list(String.t() | Atom.t()),
         optional("Tags") => list(tag()),
-        required("IdempotencyToken") => String.t(),
-        required("Name") => String.t()
+        required("IdempotencyToken") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type create_accelerator_request() :: %{String.t() => any()}
+  @type create_accelerator_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_cross_account_attachment_request() :: %{
-        required("AttachmentArn") => String.t()
+        required("AttachmentArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_cross_account_attachment_request() :: %{String.t() => any()}
+  @type describe_cross_account_attachment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -630,11 +630,11 @@ defmodule AWS.GlobalAccelerator do
       
       list_byoip_cidrs_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_byoip_cidrs_request() :: %{String.t() => any()}
+  @type list_byoip_cidrs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -642,27 +642,27 @@ defmodule AWS.GlobalAccelerator do
       
       list_custom_routing_listeners_response() :: %{
         "Listeners" => list(custom_routing_listener()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_custom_routing_listeners_response() :: %{String.t() => any()}
+  @type list_custom_routing_listeners_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_cross_account_attachment_request() :: %{
-        optional("AddPrincipals") => list(String.t()),
+        optional("AddPrincipals") => list(String.t() | Atom.t()),
         optional("AddResources") => list(resource()),
-        optional("Name") => String.t(),
-        optional("RemovePrincipals") => list(String.t()),
+        optional("Name") => String.t() | Atom.t(),
+        optional("RemovePrincipals") => list(String.t() | Atom.t()),
         optional("RemoveResources") => list(resource()),
-        required("AttachmentArn") => String.t()
+        required("AttachmentArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_cross_account_attachment_request() :: %{String.t() => any()}
+  @type update_cross_account_attachment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -670,11 +670,11 @@ defmodule AWS.GlobalAccelerator do
       
       endpoint_identifier() :: %{
         "ClientIPPreservationEnabled" => boolean(),
-        "EndpointId" => String.t()
+        "EndpointId" => String.t() | Atom.t()
       }
       
   """
-  @type endpoint_identifier() :: %{String.t() => any()}
+  @type endpoint_identifier() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -685,7 +685,7 @@ defmodule AWS.GlobalAccelerator do
       }
       
   """
-  @type update_cross_account_attachment_response() :: %{String.t() => any()}
+  @type update_cross_account_attachment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -693,11 +693,11 @@ defmodule AWS.GlobalAccelerator do
       
       add_endpoints_request() :: %{
         required("EndpointConfigurations") => list(endpoint_configuration()),
-        required("EndpointGroupArn") => String.t()
+        required("EndpointGroupArn") => String.t() | Atom.t()
       }
       
   """
-  @type add_endpoints_request() :: %{String.t() => any()}
+  @type add_endpoints_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -708,7 +708,7 @@ defmodule AWS.GlobalAccelerator do
       }
       
   """
-  @type create_cross_account_attachment_response() :: %{String.t() => any()}
+  @type create_cross_account_attachment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -716,13 +716,16 @@ defmodule AWS.GlobalAccelerator do
       
       list_custom_routing_port_mappings_by_destination_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("DestinationAddress") => String.t(),
-        required("EndpointId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("DestinationAddress") => String.t() | Atom.t(),
+        required("EndpointId") => String.t() | Atom.t()
       }
       
   """
-  @type list_custom_routing_port_mappings_by_destination_request() :: %{String.t() => any()}
+  @type list_custom_routing_port_mappings_by_destination_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -733,7 +736,7 @@ defmodule AWS.GlobalAccelerator do
       }
       
   """
-  @type describe_accelerator_response() :: %{String.t() => any()}
+  @type describe_accelerator_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -745,7 +748,7 @@ defmodule AWS.GlobalAccelerator do
       }
       
   """
-  @type port_override() :: %{String.t() => any()}
+  @type port_override() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -756,18 +759,18 @@ defmodule AWS.GlobalAccelerator do
       }
       
   """
-  @type create_endpoint_group_response() :: %{String.t() => any()}
+  @type create_endpoint_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -775,69 +778,72 @@ defmodule AWS.GlobalAccelerator do
       
       list_listeners_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("AcceleratorArn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("AcceleratorArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_listeners_request() :: %{String.t() => any()}
+  @type list_listeners_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       advertise_byoip_cidr_request() :: %{
-        required("Cidr") => String.t()
+        required("Cidr") => String.t() | Atom.t()
       }
       
   """
-  @type advertise_byoip_cidr_request() :: %{String.t() => any()}
+  @type advertise_byoip_cidr_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_endpoints_request() :: %{
-        required("EndpointGroupArn") => String.t(),
+        required("EndpointGroupArn") => String.t() | Atom.t(),
         required("EndpointIdentifiers") => list(endpoint_identifier())
       }
       
   """
-  @type remove_endpoints_request() :: %{String.t() => any()}
+  @type remove_endpoints_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       accelerator_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type accelerator_not_found_exception() :: %{String.t() => any()}
+  @type accelerator_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_custom_routing_accelerator_attributes_request() :: %{
-        required("AcceleratorArn") => String.t()
+        required("AcceleratorArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_custom_routing_accelerator_attributes_request() :: %{String.t() => any()}
+  @type describe_custom_routing_accelerator_attributes_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -848,7 +854,7 @@ defmodule AWS.GlobalAccelerator do
       }
       
   """
-  @type describe_listener_response() :: %{String.t() => any()}
+  @type describe_listener_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -856,69 +862,69 @@ defmodule AWS.GlobalAccelerator do
       
       list_accelerators_response() :: %{
         "Accelerators" => list(accelerator()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_accelerators_response() :: %{String.t() => any()}
+  @type list_accelerators_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cross_account_resource() :: %{
-        "AttachmentArn" => String.t(),
-        "Cidr" => String.t(),
-        "EndpointId" => String.t()
+        "AttachmentArn" => String.t() | Atom.t(),
+        "Cidr" => String.t() | Atom.t(),
+        "EndpointId" => String.t() | Atom.t()
       }
       
   """
-  @type cross_account_resource() :: %{String.t() => any()}
+  @type cross_account_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_next_token_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_next_token_exception() :: %{String.t() => any()}
+  @type invalid_next_token_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_endpoint_group_request() :: %{
-        required("EndpointGroupArn") => String.t()
+        required("EndpointGroupArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_endpoint_group_request() :: %{String.t() => any()}
+  @type describe_endpoint_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_custom_routing_listener_request() :: %{
-        required("ListenerArn") => String.t(),
+        required("ListenerArn") => String.t() | Atom.t(),
         required("PortRanges") => list(port_range())
       }
       
   """
-  @type update_custom_routing_listener_request() :: %{String.t() => any()}
+  @type update_custom_routing_listener_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_listener_request() :: %{
-        required("ListenerArn") => String.t()
+        required("ListenerArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_listener_request() :: %{String.t() => any()}
+  @type describe_listener_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -929,7 +935,7 @@ defmodule AWS.GlobalAccelerator do
       }
       
   """
-  @type describe_custom_routing_endpoint_group_response() :: %{String.t() => any()}
+  @type describe_custom_routing_endpoint_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -937,37 +943,40 @@ defmodule AWS.GlobalAccelerator do
       
       list_custom_routing_port_mappings_by_destination_response() :: %{
         "DestinationPortMappings" => list(destination_port_mapping()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_custom_routing_port_mappings_by_destination_response() :: %{String.t() => any()}
+  @type list_custom_routing_port_mappings_by_destination_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       custom_routing_listener() :: %{
-        "ListenerArn" => String.t(),
+        "ListenerArn" => String.t() | Atom.t(),
         "PortRanges" => list(port_range())
       }
       
   """
-  @type custom_routing_listener() :: %{String.t() => any()}
+  @type custom_routing_listener() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_cross_account_resources_request() :: %{
-        optional("AcceleratorArn") => String.t(),
+        optional("AcceleratorArn") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ResourceOwnerAwsAccountId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ResourceOwnerAwsAccountId") => String.t() | Atom.t()
       }
       
   """
-  @type list_cross_account_resources_request() :: %{String.t() => any()}
+  @type list_cross_account_resources_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -975,12 +984,12 @@ defmodule AWS.GlobalAccelerator do
       
       ip_set() :: %{
         "IpAddressFamily" => list(any()),
-        "IpAddresses" => list(String.t()),
-        "IpFamily" => String.t()
+        "IpAddresses" => list(String.t() | Atom.t()),
+        "IpFamily" => String.t() | Atom.t()
       }
       
   """
-  @type ip_set() :: %{String.t() => any()}
+  @type ip_set() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -991,28 +1000,28 @@ defmodule AWS.GlobalAccelerator do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       accelerator() :: %{
-        "AcceleratorArn" => String.t(),
+        "AcceleratorArn" => String.t() | Atom.t(),
         "CreatedTime" => non_neg_integer(),
-        "DnsName" => String.t(),
-        "DualStackDnsName" => String.t(),
+        "DnsName" => String.t() | Atom.t(),
+        "DualStackDnsName" => String.t() | Atom.t(),
         "Enabled" => boolean(),
         "Events" => list(accelerator_event()),
         "IpAddressType" => list(any()),
         "IpSets" => list(ip_set()),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type accelerator() :: %{String.t() => any()}
+  @type accelerator() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1023,30 +1032,30 @@ defmodule AWS.GlobalAccelerator do
       }
       
   """
-  @type advertise_byoip_cidr_response() :: %{String.t() => any()}
+  @type advertise_byoip_cidr_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       custom_routing_endpoint_configuration() :: %{
-        "AttachmentArn" => String.t(),
-        "EndpointId" => String.t()
+        "AttachmentArn" => String.t() | Atom.t(),
+        "EndpointId" => String.t() | Atom.t()
       }
       
   """
-  @type custom_routing_endpoint_configuration() :: %{String.t() => any()}
+  @type custom_routing_endpoint_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_port_range_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_port_range_exception() :: %{String.t() => any()}
+  @type invalid_port_range_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1057,7 +1066,10 @@ defmodule AWS.GlobalAccelerator do
       }
       
   """
-  @type update_custom_routing_accelerator_attributes_response() :: %{String.t() => any()}
+  @type update_custom_routing_accelerator_attributes_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1066,14 +1078,14 @@ defmodule AWS.GlobalAccelerator do
       create_custom_routing_accelerator_request() :: %{
         optional("Enabled") => boolean(),
         optional("IpAddressType") => list(any()),
-        optional("IpAddresses") => list(String.t()),
+        optional("IpAddresses") => list(String.t() | Atom.t()),
         optional("Tags") => list(tag()),
-        required("IdempotencyToken") => String.t(),
-        required("Name") => String.t()
+        required("IdempotencyToken") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type create_custom_routing_accelerator_request() :: %{String.t() => any()}
+  @type create_custom_routing_accelerator_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1081,11 +1093,11 @@ defmodule AWS.GlobalAccelerator do
       
       list_listeners_response() :: %{
         "Listeners" => list(listener()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_listeners_response() :: %{String.t() => any()}
+  @type list_listeners_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1096,7 +1108,7 @@ defmodule AWS.GlobalAccelerator do
       }
       
   """
-  @type withdraw_byoip_cidr_response() :: %{String.t() => any()}
+  @type withdraw_byoip_cidr_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1104,14 +1116,14 @@ defmodule AWS.GlobalAccelerator do
       
       allow_custom_routing_traffic_request() :: %{
         optional("AllowAllTrafficToEndpoint") => boolean(),
-        optional("DestinationAddresses") => list(String.t()),
+        optional("DestinationAddresses") => list(String.t() | Atom.t()),
         optional("DestinationPorts") => list(integer()),
-        required("EndpointGroupArn") => String.t(),
-        required("EndpointId") => String.t()
+        required("EndpointGroupArn") => String.t() | Atom.t(),
+        required("EndpointId") => String.t() | Atom.t()
       }
       
   """
-  @type allow_custom_routing_traffic_request() :: %{String.t() => any()}
+  @type allow_custom_routing_traffic_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1119,14 +1131,14 @@ defmodule AWS.GlobalAccelerator do
       
       deny_custom_routing_traffic_request() :: %{
         optional("DenyAllTrafficToEndpoint") => boolean(),
-        optional("DestinationAddresses") => list(String.t()),
+        optional("DestinationAddresses") => list(String.t() | Atom.t()),
         optional("DestinationPorts") => list(integer()),
-        required("EndpointGroupArn") => String.t(),
-        required("EndpointId") => String.t()
+        required("EndpointGroupArn") => String.t() | Atom.t(),
+        required("EndpointId") => String.t() | Atom.t()
       }
       
   """
-  @type deny_custom_routing_traffic_request() :: %{String.t() => any()}
+  @type deny_custom_routing_traffic_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1134,12 +1146,12 @@ defmodule AWS.GlobalAccelerator do
       
       list_custom_routing_listeners_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("AcceleratorArn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("AcceleratorArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_custom_routing_listeners_request() :: %{String.t() => any()}
+  @type list_custom_routing_listeners_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1150,22 +1162,22 @@ defmodule AWS.GlobalAccelerator do
       }
       
   """
-  @type describe_endpoint_group_response() :: %{String.t() => any()}
+  @type describe_endpoint_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_cross_account_attachment_request() :: %{
-        optional("Principals") => list(String.t()),
+        optional("Principals") => list(String.t() | Atom.t()),
         optional("Resources") => list(resource()),
         optional("Tags") => list(tag()),
-        required("IdempotencyToken") => String.t(),
-        required("Name") => String.t()
+        required("IdempotencyToken") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type create_cross_account_attachment_request() :: %{String.t() => any()}
+  @type create_cross_account_attachment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1176,7 +1188,7 @@ defmodule AWS.GlobalAccelerator do
       }
       
   """
-  @type update_accelerator_response() :: %{String.t() => any()}
+  @type update_accelerator_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1184,33 +1196,33 @@ defmodule AWS.GlobalAccelerator do
       
       list_cross_account_resources_response() :: %{
         "CrossAccountResources" => list(cross_account_resource()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_cross_account_resources_response() :: %{String.t() => any()}
+  @type list_cross_account_resources_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       associated_listener_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type associated_listener_found_exception() :: %{String.t() => any()}
+  @type associated_listener_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoint_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type endpoint_not_found_exception() :: %{String.t() => any()}
+  @type endpoint_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1222,21 +1234,21 @@ defmodule AWS.GlobalAccelerator do
       }
       
   """
-  @type port_range() :: %{String.t() => any()}
+  @type port_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_custom_routing_port_mappings_request() :: %{
-        optional("EndpointGroupArn") => String.t(),
+        optional("EndpointGroupArn") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("AcceleratorArn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("AcceleratorArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_custom_routing_port_mappings_request() :: %{String.t() => any()}
+  @type list_custom_routing_port_mappings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1244,45 +1256,45 @@ defmodule AWS.GlobalAccelerator do
       
       add_endpoints_response() :: %{
         "EndpointDescriptions" => list(endpoint_description()),
-        "EndpointGroupArn" => String.t()
+        "EndpointGroupArn" => String.t() | Atom.t()
       }
       
   """
-  @type add_endpoints_response() :: %{String.t() => any()}
+  @type add_endpoints_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_custom_routing_listener_request() :: %{
-        required("ListenerArn") => String.t()
+        required("ListenerArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_custom_routing_listener_request() :: %{String.t() => any()}
+  @type delete_custom_routing_listener_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       byoip_cidr_event() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "Timestamp" => non_neg_integer()
       }
       
   """
-  @type byoip_cidr_event() :: %{String.t() => any()}
+  @type byoip_cidr_event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       associated_endpoint_group_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type associated_endpoint_group_found_exception() :: %{String.t() => any()}
+  @type associated_endpoint_group_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1291,17 +1303,17 @@ defmodule AWS.GlobalAccelerator do
       update_endpoint_group_request() :: %{
         optional("EndpointConfigurations") => list(endpoint_configuration()),
         optional("HealthCheckIntervalSeconds") => integer(),
-        optional("HealthCheckPath") => String.t(),
+        optional("HealthCheckPath") => String.t() | Atom.t(),
         optional("HealthCheckPort") => integer(),
         optional("HealthCheckProtocol") => list(any()),
         optional("PortOverrides") => list(port_override()),
         optional("ThresholdCount") => integer(),
         optional("TrafficDialPercentage") => float(),
-        required("EndpointGroupArn") => String.t()
+        required("EndpointGroupArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_endpoint_group_request() :: %{String.t() => any()}
+  @type update_endpoint_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1310,24 +1322,24 @@ defmodule AWS.GlobalAccelerator do
       update_custom_routing_accelerator_request() :: %{
         optional("Enabled") => boolean(),
         optional("IpAddressType") => list(any()),
-        optional("IpAddresses") => list(String.t()),
-        optional("Name") => String.t(),
-        required("AcceleratorArn") => String.t()
+        optional("IpAddresses") => list(String.t() | Atom.t()),
+        optional("Name") => String.t() | Atom.t(),
+        required("AcceleratorArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_custom_routing_accelerator_request() :: %{String.t() => any()}
+  @type update_custom_routing_accelerator_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_custom_routing_endpoint_group_request() :: %{
-        required("EndpointGroupArn") => String.t()
+        required("EndpointGroupArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_custom_routing_endpoint_group_request() :: %{String.t() => any()}
+  @type describe_custom_routing_endpoint_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1335,33 +1347,33 @@ defmodule AWS.GlobalAccelerator do
       
       list_endpoint_groups_response() :: %{
         "EndpointGroups" => list(endpoint_group()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_endpoint_groups_response() :: %{String.t() => any()}
+  @type list_endpoint_groups_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_cross_account_attachment_request() :: %{
-        required("AttachmentArn") => String.t()
+        required("AttachmentArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_cross_account_attachment_request() :: %{String.t() => any()}
+  @type delete_cross_account_attachment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1371,11 +1383,11 @@ defmodule AWS.GlobalAccelerator do
         optional("ClientAffinity") => list(any()),
         optional("PortRanges") => list(port_range()),
         optional("Protocol") => list(any()),
-        required("ListenerArn") => String.t()
+        required("ListenerArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_listener_request() :: %{String.t() => any()}
+  @type update_listener_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1386,7 +1398,7 @@ defmodule AWS.GlobalAccelerator do
       }
       
   """
-  @type update_listener_response() :: %{String.t() => any()}
+  @type update_listener_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1403,35 +1415,35 @@ defmodule AWS.GlobalAccelerator do
       
       custom_routing_accelerator_attributes() :: %{
         "FlowLogsEnabled" => boolean(),
-        "FlowLogsS3Bucket" => String.t(),
-        "FlowLogsS3Prefix" => String.t()
+        "FlowLogsS3Bucket" => String.t() | Atom.t(),
+        "FlowLogsS3Prefix" => String.t() | Atom.t()
       }
       
   """
-  @type custom_routing_accelerator_attributes() :: %{String.t() => any()}
+  @type custom_routing_accelerator_attributes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_argument_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_argument_exception() :: %{String.t() => any()}
+  @type invalid_argument_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cidr_authorization_context() :: %{
-        "Message" => String.t(),
-        "Signature" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "Signature" => String.t() | Atom.t()
       }
       
   """
-  @type cidr_authorization_context() :: %{String.t() => any()}
+  @type cidr_authorization_context() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1441,13 +1453,13 @@ defmodule AWS.GlobalAccelerator do
         "AcceleratorPort" => integer(),
         "DestinationSocketAddress" => socket_address(),
         "DestinationTrafficState" => list(any()),
-        "EndpointGroupArn" => String.t(),
-        "EndpointId" => String.t(),
+        "EndpointGroupArn" => String.t() | Atom.t(),
+        "EndpointId" => String.t() | Atom.t(),
         "Protocols" => list(list(any())())
       }
       
   """
-  @type port_mapping() :: %{String.t() => any()}
+  @type port_mapping() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1458,18 +1470,18 @@ defmodule AWS.GlobalAccelerator do
       }
       
   """
-  @type update_custom_routing_accelerator_response() :: %{String.t() => any()}
+  @type update_custom_routing_accelerator_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1477,11 +1489,11 @@ defmodule AWS.GlobalAccelerator do
       
       add_custom_routing_endpoints_request() :: %{
         required("EndpointConfigurations") => list(custom_routing_endpoint_configuration()),
-        required("EndpointGroupArn") => String.t()
+        required("EndpointGroupArn") => String.t() | Atom.t()
       }
       
   """
-  @type add_custom_routing_endpoints_request() :: %{String.t() => any()}
+  @type add_custom_routing_endpoints_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1489,33 +1501,33 @@ defmodule AWS.GlobalAccelerator do
       
       list_byoip_cidrs_response() :: %{
         "ByoipCidrs" => list(byoip_cidr()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_byoip_cidrs_response() :: %{String.t() => any()}
+  @type list_byoip_cidrs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       transaction_in_progress_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type transaction_in_progress_exception() :: %{String.t() => any()}
+  @type transaction_in_progress_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_accelerator_request() :: %{
-        required("AcceleratorArn") => String.t()
+        required("AcceleratorArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_accelerator_request() :: %{String.t() => any()}
+  @type delete_accelerator_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1523,45 +1535,45 @@ defmodule AWS.GlobalAccelerator do
       
       list_endpoint_groups_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ListenerArn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ListenerArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_endpoint_groups_request() :: %{String.t() => any()}
+  @type list_endpoint_groups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       withdraw_byoip_cidr_request() :: %{
-        required("Cidr") => String.t()
+        required("Cidr") => String.t() | Atom.t()
       }
       
   """
-  @type withdraw_byoip_cidr_request() :: %{String.t() => any()}
+  @type withdraw_byoip_cidr_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoint_group_already_exists_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type endpoint_group_already_exists_exception() :: %{String.t() => any()}
+  @type endpoint_group_already_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1569,22 +1581,22 @@ defmodule AWS.GlobalAccelerator do
       
       list_accelerators_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_accelerators_request() :: %{String.t() => any()}
+  @type list_accelerators_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_custom_routing_accelerator_request() :: %{
-        required("AcceleratorArn") => String.t()
+        required("AcceleratorArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_custom_routing_accelerator_request() :: %{String.t() => any()}
+  @type delete_custom_routing_accelerator_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1592,30 +1604,30 @@ defmodule AWS.GlobalAccelerator do
       
       list_custom_routing_accelerators_response() :: %{
         "Accelerators" => list(custom_routing_accelerator()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_custom_routing_accelerators_response() :: %{String.t() => any()}
+  @type list_custom_routing_accelerators_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       custom_routing_accelerator() :: %{
-        "AcceleratorArn" => String.t(),
+        "AcceleratorArn" => String.t() | Atom.t(),
         "CreatedTime" => non_neg_integer(),
-        "DnsName" => String.t(),
+        "DnsName" => String.t() | Atom.t(),
         "Enabled" => boolean(),
         "IpAddressType" => list(any()),
         "IpSets" => list(ip_set()),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type custom_routing_accelerator() :: %{String.t() => any()}
+  @type custom_routing_accelerator() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1623,24 +1635,27 @@ defmodule AWS.GlobalAccelerator do
       
       update_custom_routing_accelerator_attributes_request() :: %{
         optional("FlowLogsEnabled") => boolean(),
-        optional("FlowLogsS3Bucket") => String.t(),
-        optional("FlowLogsS3Prefix") => String.t(),
-        required("AcceleratorArn") => String.t()
+        optional("FlowLogsS3Bucket") => String.t() | Atom.t(),
+        optional("FlowLogsS3Prefix") => String.t() | Atom.t(),
+        required("AcceleratorArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_custom_routing_accelerator_attributes_request() :: %{String.t() => any()}
+  @type update_custom_routing_accelerator_attributes_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       describe_accelerator_request() :: %{
-        required("AcceleratorArn") => String.t()
+        required("AcceleratorArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_accelerator_request() :: %{String.t() => any()}
+  @type describe_accelerator_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1648,11 +1663,11 @@ defmodule AWS.GlobalAccelerator do
       
       add_custom_routing_endpoints_response() :: %{
         "EndpointDescriptions" => list(custom_routing_endpoint_description()),
-        "EndpointGroupArn" => String.t()
+        "EndpointGroupArn" => String.t() | Atom.t()
       }
       
   """
-  @type add_custom_routing_endpoints_response() :: %{String.t() => any()}
+  @type add_custom_routing_endpoints_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1660,86 +1675,86 @@ defmodule AWS.GlobalAccelerator do
       
       list_custom_routing_endpoint_groups_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ListenerArn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("ListenerArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_custom_routing_endpoint_groups_request() :: %{String.t() => any()}
+  @type list_custom_routing_endpoint_groups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       listener_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type listener_not_found_exception() :: %{String.t() => any()}
+  @type listener_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       destination_port_mapping() :: %{
-        "AcceleratorArn" => String.t(),
+        "AcceleratorArn" => String.t() | Atom.t(),
         "AcceleratorSocketAddresses" => list(socket_address()),
         "DestinationSocketAddress" => socket_address(),
         "DestinationTrafficState" => list(any()),
-        "EndpointGroupArn" => String.t(),
-        "EndpointGroupRegion" => String.t(),
-        "EndpointId" => String.t(),
+        "EndpointGroupArn" => String.t() | Atom.t(),
+        "EndpointGroupRegion" => String.t() | Atom.t(),
+        "EndpointId" => String.t() | Atom.t(),
         "IpAddressType" => list(any())
       }
       
   """
-  @type destination_port_mapping() :: %{String.t() => any()}
+  @type destination_port_mapping() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_cross_account_resource_accounts_response() :: %{
-        "ResourceOwnerAwsAccountIds" => list(String.t())
+        "ResourceOwnerAwsAccountIds" => list(String.t() | Atom.t())
       }
       
   """
-  @type list_cross_account_resource_accounts_response() :: %{String.t() => any()}
+  @type list_cross_account_resource_accounts_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_listener_request() :: %{
-        required("ListenerArn") => String.t()
+        required("ListenerArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_listener_request() :: %{String.t() => any()}
+  @type delete_listener_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       accelerator_event() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "Timestamp" => non_neg_integer()
       }
       
   """
-  @type accelerator_event() :: %{String.t() => any()}
+  @type accelerator_event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoint_group_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type endpoint_group_not_found_exception() :: %{String.t() => any()}
+  @type endpoint_group_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1750,7 +1765,7 @@ defmodule AWS.GlobalAccelerator do
       }
       
   """
-  @type update_endpoint_group_response() :: %{String.t() => any()}
+  @type update_endpoint_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1761,7 +1776,10 @@ defmodule AWS.GlobalAccelerator do
       }
       
   """
-  @type describe_custom_routing_accelerator_attributes_response() :: %{String.t() => any()}
+  @type describe_custom_routing_accelerator_attributes_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1769,13 +1787,13 @@ defmodule AWS.GlobalAccelerator do
       
       create_custom_routing_endpoint_group_request() :: %{
         required("DestinationConfigurations") => list(custom_routing_destination_configuration()),
-        required("EndpointGroupRegion") => String.t(),
-        required("IdempotencyToken") => String.t(),
-        required("ListenerArn") => String.t()
+        required("EndpointGroupRegion") => String.t() | Atom.t(),
+        required("IdempotencyToken") => String.t() | Atom.t(),
+        required("ListenerArn") => String.t() | Atom.t()
       }
       
   """
-  @type create_custom_routing_endpoint_group_request() :: %{String.t() => any()}
+  @type create_custom_routing_endpoint_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1783,10 +1801,10 @@ defmodule AWS.GlobalAccelerator do
       
       endpoint_group() :: %{
         "EndpointDescriptions" => list(endpoint_description()),
-        "EndpointGroupArn" => String.t(),
-        "EndpointGroupRegion" => String.t(),
+        "EndpointGroupArn" => String.t() | Atom.t(),
+        "EndpointGroupRegion" => String.t() | Atom.t(),
         "HealthCheckIntervalSeconds" => integer(),
-        "HealthCheckPath" => String.t(),
+        "HealthCheckPath" => String.t() | Atom.t(),
         "HealthCheckPort" => integer(),
         "HealthCheckProtocol" => list(any()),
         "PortOverrides" => list(port_override()),
@@ -1795,29 +1813,29 @@ defmodule AWS.GlobalAccelerator do
       }
       
   """
-  @type endpoint_group() :: %{String.t() => any()}
+  @type endpoint_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       deprovision_byoip_cidr_request() :: %{
-        required("Cidr") => String.t()
+        required("Cidr") => String.t() | Atom.t()
       }
       
   """
-  @type deprovision_byoip_cidr_request() :: %{String.t() => any()}
+  @type deprovision_byoip_cidr_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       custom_routing_endpoint_description() :: %{
-        "EndpointId" => String.t()
+        "EndpointId" => String.t() | Atom.t()
       }
       
   """
-  @type custom_routing_endpoint_description() :: %{String.t() => any()}
+  @type custom_routing_endpoint_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1825,22 +1843,22 @@ defmodule AWS.GlobalAccelerator do
       
       list_custom_routing_accelerators_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_custom_routing_accelerators_request() :: %{String.t() => any()}
+  @type list_custom_routing_accelerators_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_custom_routing_endpoint_group_request() :: %{
-        required("EndpointGroupArn") => String.t()
+        required("EndpointGroupArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_custom_routing_endpoint_group_request() :: %{String.t() => any()}
+  @type delete_custom_routing_endpoint_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1851,7 +1869,7 @@ defmodule AWS.GlobalAccelerator do
       }
       
   """
-  @type create_custom_routing_accelerator_response() :: %{String.t() => any()}
+  @type create_custom_routing_accelerator_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1862,7 +1880,7 @@ defmodule AWS.GlobalAccelerator do
       }
       
   """
-  @type describe_custom_routing_listener_response() :: %{String.t() => any()}
+  @type describe_custom_routing_listener_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1870,39 +1888,39 @@ defmodule AWS.GlobalAccelerator do
       
       create_listener_request() :: %{
         optional("ClientAffinity") => list(any()),
-        required("AcceleratorArn") => String.t(),
-        required("IdempotencyToken") => String.t(),
+        required("AcceleratorArn") => String.t() | Atom.t(),
+        required("IdempotencyToken") => String.t() | Atom.t(),
         required("PortRanges") => list(port_range()),
         required("Protocol") => list(any())
       }
       
   """
-  @type create_listener_request() :: %{String.t() => any()}
+  @type create_listener_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       provision_byoip_cidr_request() :: %{
-        required("Cidr") => String.t(),
+        required("Cidr") => String.t() | Atom.t(),
         required("CidrAuthorizationContext") => cidr_authorization_context()
       }
       
   """
-  @type provision_byoip_cidr_request() :: %{String.t() => any()}
+  @type provision_byoip_cidr_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource() :: %{
-        "Cidr" => String.t(),
-        "EndpointId" => String.t(),
-        "Region" => String.t()
+        "Cidr" => String.t() | Atom.t(),
+        "EndpointId" => String.t() | Atom.t(),
+        "Region" => String.t() | Atom.t()
       }
       
   """
-  @type resource() :: %{String.t() => any()}
+  @type resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1911,19 +1929,19 @@ defmodule AWS.GlobalAccelerator do
       create_endpoint_group_request() :: %{
         optional("EndpointConfigurations") => list(endpoint_configuration()),
         optional("HealthCheckIntervalSeconds") => integer(),
-        optional("HealthCheckPath") => String.t(),
+        optional("HealthCheckPath") => String.t() | Atom.t(),
         optional("HealthCheckPort") => integer(),
         optional("HealthCheckProtocol") => list(any()),
         optional("PortOverrides") => list(port_override()),
         optional("ThresholdCount") => integer(),
         optional("TrafficDialPercentage") => float(),
-        required("EndpointGroupRegion") => String.t(),
-        required("IdempotencyToken") => String.t(),
-        required("ListenerArn") => String.t()
+        required("EndpointGroupRegion") => String.t() | Atom.t(),
+        required("IdempotencyToken") => String.t() | Atom.t(),
+        required("ListenerArn") => String.t() | Atom.t()
       }
       
   """
-  @type create_endpoint_group_request() :: %{String.t() => any()}
+  @type create_endpoint_group_request() :: %{String.t() | Atom.t() => any()}
 
   @type add_custom_routing_endpoints_errors() ::
           endpoint_group_not_found_exception()

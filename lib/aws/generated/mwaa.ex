@@ -85,7 +85,7 @@ defmodule AWS.MWAA do
       }
 
   """
-  @type get_environment_output() :: %{String.t() => any()}
+  @type get_environment_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -97,7 +97,7 @@ defmodule AWS.MWAA do
       }
 
   """
-  @type invoke_rest_api_response() :: %{String.t() => any()}
+  @type invoke_rest_api_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -105,33 +105,33 @@ defmodule AWS.MWAA do
 
       create_environment_input() :: %{
         "AirflowConfigurationOptions" => map(),
-        "AirflowVersion" => String.t(),
-        "DagS3Path" => String.t(),
-        "EndpointManagement" => String.t(),
-        "EnvironmentClass" => String.t(),
-        "ExecutionRoleArn" => String.t(),
-        "KmsKey" => String.t(),
+        "AirflowVersion" => String.t() | Atom.t(),
+        "DagS3Path" => String.t() | Atom.t(),
+        "EndpointManagement" => String.t() | Atom.t(),
+        "EnvironmentClass" => String.t() | Atom.t(),
+        "ExecutionRoleArn" => String.t() | Atom.t(),
+        "KmsKey" => String.t() | Atom.t(),
         "LoggingConfiguration" => logging_configuration_input(),
         "MaxWebservers" => integer(),
         "MaxWorkers" => integer(),
         "MinWebservers" => integer(),
         "MinWorkers" => integer(),
         "NetworkConfiguration" => network_configuration(),
-        "PluginsS3ObjectVersion" => String.t(),
-        "PluginsS3Path" => String.t(),
-        "RequirementsS3ObjectVersion" => String.t(),
-        "RequirementsS3Path" => String.t(),
+        "PluginsS3ObjectVersion" => String.t() | Atom.t(),
+        "PluginsS3Path" => String.t() | Atom.t(),
+        "RequirementsS3ObjectVersion" => String.t() | Atom.t(),
+        "RequirementsS3Path" => String.t() | Atom.t(),
         "Schedulers" => integer(),
-        "SourceBucketArn" => String.t(),
-        "StartupScriptS3ObjectVersion" => String.t(),
-        "StartupScriptS3Path" => String.t(),
+        "SourceBucketArn" => String.t() | Atom.t(),
+        "StartupScriptS3ObjectVersion" => String.t() | Atom.t(),
+        "StartupScriptS3Path" => String.t() | Atom.t(),
         "Tags" => map(),
-        "WebserverAccessMode" => String.t(),
-        "WeeklyMaintenanceWindowStart" => String.t()
+        "WebserverAccessMode" => String.t() | Atom.t(),
+        "WeeklyMaintenanceWindowStart" => String.t() | Atom.t()
       }
 
   """
-  @type create_environment_input() :: %{String.t() => any()}
+  @type create_environment_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -147,13 +147,13 @@ defmodule AWS.MWAA do
   ## Example:
 
       module_logging_configuration() :: %{
-        "CloudWatchLogGroupArn" => String.t(),
+        "CloudWatchLogGroupArn" => String.t() | Atom.t(),
         "Enabled" => boolean(),
-        "LogLevel" => String.t()
+        "LogLevel" => String.t() | Atom.t()
       }
 
   """
-  @type module_logging_configuration() :: %{String.t() => any()}
+  @type module_logging_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -168,7 +168,7 @@ defmodule AWS.MWAA do
       }
 
   """
-  @type logging_configuration_input() :: %{String.t() => any()}
+  @type logging_configuration_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -176,11 +176,11 @@ defmodule AWS.MWAA do
 
       list_environments_input() :: %{
         optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_environments_input() :: %{String.t() => any()}
+  @type list_environments_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -191,18 +191,18 @@ defmodule AWS.MWAA do
       }
 
   """
-  @type list_tags_for_resource_output() :: %{String.t() => any()}
+  @type list_tags_for_resource_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_network_configuration_input() :: %{
-        "SecurityGroupIds" => list(String.t())
+        "SecurityGroupIds" => list(String.t() | Atom.t())
       }
 
   """
-  @type update_network_configuration_input() :: %{String.t() => any()}
+  @type update_network_configuration_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -217,30 +217,30 @@ defmodule AWS.MWAA do
       }
 
   """
-  @type logging_configuration() :: %{String.t() => any()}
+  @type logging_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_environment_output() :: %{
-        optional("Arn") => String.t()
+        optional("Arn") => String.t() | Atom.t()
       }
 
   """
-  @type create_environment_output() :: %{String.t() => any()}
+  @type create_environment_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_error() :: %{
-        "ErrorCode" => String.t(),
-        "ErrorMessage" => String.t()
+        "ErrorCode" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | Atom.t()
       }
 
   """
-  @type update_error() :: %{String.t() => any()}
+  @type update_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -248,37 +248,37 @@ defmodule AWS.MWAA do
 
       metric_datum() :: %{
         "Dimensions" => list(dimension()),
-        "MetricName" => [String.t()],
+        "MetricName" => [String.t() | Atom.t()],
         "StatisticValues" => statistic_set(),
         "Timestamp" => [non_neg_integer()],
-        "Unit" => String.t(),
+        "Unit" => String.t() | Atom.t(),
         "Value" => [float()]
       }
 
   """
-  @type metric_datum() :: %{String.t() => any()}
+  @type metric_datum() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_environment_output() :: %{
-        optional("Arn") => String.t()
+        optional("Arn") => String.t() | Atom.t()
       }
 
   """
-  @type update_environment_output() :: %{String.t() => any()}
+  @type update_environment_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -287,57 +287,57 @@ defmodule AWS.MWAA do
       last_update() :: %{
         "CreatedAt" => non_neg_integer(),
         "Error" => update_error(),
-        "Source" => String.t(),
-        "Status" => String.t(),
-        "WorkerReplacementStrategy" => String.t()
+        "Source" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t(),
+        "WorkerReplacementStrategy" => String.t() | Atom.t()
       }
 
   """
-  @type last_update() :: %{String.t() => any()}
+  @type last_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       environment() :: %{
-        "EnvironmentClass" => String.t(),
-        "Status" => String.t(),
+        "EnvironmentClass" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t(),
         "LastUpdate" => last_update(),
         "MinWorkers" => integer(),
-        "AirflowVersion" => String.t(),
-        "ServiceRoleArn" => String.t(),
+        "AirflowVersion" => String.t() | Atom.t(),
+        "ServiceRoleArn" => String.t() | Atom.t(),
         "MaxWebservers" => integer(),
-        "DatabaseVpcEndpointService" => String.t(),
-        "EndpointManagement" => String.t(),
+        "DatabaseVpcEndpointService" => String.t() | Atom.t(),
+        "EndpointManagement" => String.t() | Atom.t(),
         "Tags" => map(),
         "NetworkConfiguration" => network_configuration(),
-        "KmsKey" => String.t(),
-        "ExecutionRoleArn" => String.t(),
+        "KmsKey" => String.t() | Atom.t(),
+        "ExecutionRoleArn" => String.t() | Atom.t(),
         "CreatedAt" => non_neg_integer(),
         "LoggingConfiguration" => logging_configuration(),
-        "WeeklyMaintenanceWindowStart" => String.t(),
-        "RequirementsS3ObjectVersion" => String.t(),
-        "WebserverUrl" => String.t(),
-        "StartupScriptS3ObjectVersion" => [String.t()],
+        "WeeklyMaintenanceWindowStart" => String.t() | Atom.t(),
+        "RequirementsS3ObjectVersion" => String.t() | Atom.t(),
+        "WebserverUrl" => String.t() | Atom.t(),
+        "StartupScriptS3ObjectVersion" => [String.t() | Atom.t()],
         "MinWebservers" => integer(),
-        "WebserverAccessMode" => String.t(),
-        "CeleryExecutorQueue" => String.t(),
-        "SourceBucketArn" => String.t(),
-        "RequirementsS3Path" => String.t(),
+        "WebserverAccessMode" => String.t() | Atom.t(),
+        "CeleryExecutorQueue" => String.t() | Atom.t(),
+        "SourceBucketArn" => String.t() | Atom.t(),
+        "RequirementsS3Path" => String.t() | Atom.t(),
         "Schedulers" => integer(),
-        "WebserverVpcEndpointService" => String.t(),
+        "WebserverVpcEndpointService" => String.t() | Atom.t(),
         "AirflowConfigurationOptions" => map(),
-        "Arn" => String.t(),
-        "Name" => String.t(),
-        "PluginsS3Path" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "PluginsS3Path" => String.t() | Atom.t(),
         "MaxWorkers" => integer(),
-        "StartupScriptS3Path" => [String.t()],
-        "PluginsS3ObjectVersion" => String.t(),
-        "DagS3Path" => String.t()
+        "StartupScriptS3Path" => [String.t() | Atom.t()],
+        "PluginsS3ObjectVersion" => String.t() | Atom.t(),
+        "DagS3Path" => String.t() | Atom.t()
       }
 
   """
-  @type environment() :: %{String.t() => any()}
+  @type environment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -353,12 +353,12 @@ defmodule AWS.MWAA do
   ## Example:
 
       list_environments_output() :: %{
-        optional("NextToken") => String.t(),
-        required("Environments") => list(String.t())
+        optional("NextToken") => String.t() | Atom.t(),
+        required("Environments") => list(String.t() | Atom.t())
       }
 
   """
-  @type list_environments_output() :: %{String.t() => any()}
+  @type list_environments_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -366,31 +366,31 @@ defmodule AWS.MWAA do
 
       update_environment_input() :: %{
         optional("AirflowConfigurationOptions") => map(),
-        optional("AirflowVersion") => String.t(),
-        optional("DagS3Path") => String.t(),
-        optional("EnvironmentClass") => String.t(),
-        optional("ExecutionRoleArn") => String.t(),
+        optional("AirflowVersion") => String.t() | Atom.t(),
+        optional("DagS3Path") => String.t() | Atom.t(),
+        optional("EnvironmentClass") => String.t() | Atom.t(),
+        optional("ExecutionRoleArn") => String.t() | Atom.t(),
         optional("LoggingConfiguration") => logging_configuration_input(),
         optional("MaxWebservers") => integer(),
         optional("MaxWorkers") => integer(),
         optional("MinWebservers") => integer(),
         optional("MinWorkers") => integer(),
         optional("NetworkConfiguration") => update_network_configuration_input(),
-        optional("PluginsS3ObjectVersion") => String.t(),
-        optional("PluginsS3Path") => String.t(),
-        optional("RequirementsS3ObjectVersion") => String.t(),
-        optional("RequirementsS3Path") => String.t(),
+        optional("PluginsS3ObjectVersion") => String.t() | Atom.t(),
+        optional("PluginsS3Path") => String.t() | Atom.t(),
+        optional("RequirementsS3ObjectVersion") => String.t() | Atom.t(),
+        optional("RequirementsS3Path") => String.t() | Atom.t(),
         optional("Schedulers") => integer(),
-        optional("SourceBucketArn") => String.t(),
-        optional("StartupScriptS3ObjectVersion") => String.t(),
-        optional("StartupScriptS3Path") => String.t(),
-        optional("WebserverAccessMode") => String.t(),
-        optional("WeeklyMaintenanceWindowStart") => String.t(),
-        optional("WorkerReplacementStrategy") => String.t()
+        optional("SourceBucketArn") => String.t() | Atom.t(),
+        optional("StartupScriptS3ObjectVersion") => String.t() | Atom.t(),
+        optional("StartupScriptS3Path") => String.t() | Atom.t(),
+        optional("WebserverAccessMode") => String.t() | Atom.t(),
+        optional("WeeklyMaintenanceWindowStart") => String.t() | Atom.t(),
+        optional("WorkerReplacementStrategy") => String.t() | Atom.t()
       }
 
   """
-  @type update_environment_input() :: %{String.t() => any()}
+  @type update_environment_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -402,7 +402,7 @@ defmodule AWS.MWAA do
       }
 
   """
-  @type rest_api_client_exception() :: %{String.t() => any()}
+  @type rest_api_client_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -420,12 +420,12 @@ defmodule AWS.MWAA do
       invoke_rest_api_request() :: %{
         optional("Body") => any(),
         optional("QueryParameters") => [any()],
-        required("Method") => String.t(),
-        required("Path") => String.t()
+        required("Method") => String.t() | Atom.t(),
+        required("Path") => String.t() | Atom.t()
       }
 
   """
-  @type invoke_rest_api_request() :: %{String.t() => any()}
+  @type invoke_rest_api_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -436,7 +436,7 @@ defmodule AWS.MWAA do
       }
 
   """
-  @type tag_resource_input() :: %{String.t() => any()}
+  @type tag_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -452,11 +452,11 @@ defmodule AWS.MWAA do
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -472,46 +472,46 @@ defmodule AWS.MWAA do
   ## Example:
 
       create_cli_token_response() :: %{
-        optional("CliToken") => String.t(),
-        optional("WebServerHostname") => String.t()
+        optional("CliToken") => String.t() | Atom.t(),
+        optional("WebServerHostname") => String.t() | Atom.t()
       }
 
   """
-  @type create_cli_token_response() :: %{String.t() => any()}
+  @type create_cli_token_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       network_configuration() :: %{
-        "SecurityGroupIds" => list(String.t()),
-        "SubnetIds" => list(String.t())
+        "SecurityGroupIds" => list(String.t() | Atom.t()),
+        "SubnetIds" => list(String.t() | Atom.t())
       }
 
   """
-  @type network_configuration() :: %{String.t() => any()}
+  @type network_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_input() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_input() :: %{String.t() => any()}
+  @type untag_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -532,18 +532,18 @@ defmodule AWS.MWAA do
       }
 
   """
-  @type rest_api_server_exception() :: %{String.t() => any()}
+  @type rest_api_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -568,26 +568,26 @@ defmodule AWS.MWAA do
   ## Example:
 
       create_web_login_token_response() :: %{
-        optional("AirflowIdentity") => String.t(),
-        optional("IamIdentity") => String.t(),
-        optional("WebServerHostname") => String.t(),
-        optional("WebToken") => String.t()
+        optional("AirflowIdentity") => String.t() | Atom.t(),
+        optional("IamIdentity") => String.t() | Atom.t(),
+        optional("WebServerHostname") => String.t() | Atom.t(),
+        optional("WebToken") => String.t() | Atom.t()
       }
 
   """
-  @type create_web_login_token_response() :: %{String.t() => any()}
+  @type create_web_login_token_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       dimension() :: %{
-        "Name" => [String.t()],
-        "Value" => [String.t()]
+        "Name" => [String.t() | Atom.t()],
+        "Value" => [String.t() | Atom.t()]
       }
 
   """
-  @type dimension() :: %{String.t() => any()}
+  @type dimension() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -598,7 +598,7 @@ defmodule AWS.MWAA do
       }
 
   """
-  @type publish_metrics_input() :: %{String.t() => any()}
+  @type publish_metrics_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -615,11 +615,11 @@ defmodule AWS.MWAA do
 
       module_logging_configuration_input() :: %{
         "Enabled" => boolean(),
-        "LogLevel" => String.t()
+        "LogLevel" => String.t() | Atom.t()
       }
 
   """
-  @type module_logging_configuration_input() :: %{String.t() => any()}
+  @type module_logging_configuration_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -633,7 +633,7 @@ defmodule AWS.MWAA do
       }
 
   """
-  @type statistic_set() :: %{String.t() => any()}
+  @type statistic_set() :: %{String.t() | Atom.t() => any()}
 
   @type create_cli_token_errors() :: resource_not_found_exception()
 
@@ -696,7 +696,7 @@ defmodule AWS.MWAA do
 
   To learn more, see [Creating an Apache Airflow CLI token](https://docs.aws.amazon.com/mwaa/latest/userguide/call-mwaa-apis-cli.html).
   """
-  @spec create_cli_token(map(), String.t(), create_cli_token_request(), list()) ::
+  @spec create_cli_token(map(), String.t() | Atom.t(), create_cli_token_request(), list()) ::
           {:ok, create_cli_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -726,7 +726,7 @@ defmodule AWS.MWAA do
   Creates an Amazon Managed Workflows for Apache Airflow (Amazon MWAA)
   environment.
   """
-  @spec create_environment(map(), String.t(), create_environment_input(), list()) ::
+  @spec create_environment(map(), String.t() | Atom.t(), create_environment_input(), list()) ::
           {:ok, create_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -757,7 +757,12 @@ defmodule AWS.MWAA do
 
   To learn more, see [Creating an Apache Airflow web login token](https://docs.aws.amazon.com/mwaa/latest/userguide/call-mwaa-apis-web.html).
   """
-  @spec create_web_login_token(map(), String.t(), create_web_login_token_request(), list()) ::
+  @spec create_web_login_token(
+          map(),
+          String.t() | Atom.t(),
+          create_web_login_token_request(),
+          list()
+        ) ::
           {:ok, create_web_login_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -787,7 +792,7 @@ defmodule AWS.MWAA do
   Deletes an Amazon Managed Workflows for Apache Airflow (Amazon MWAA)
   environment.
   """
-  @spec delete_environment(map(), String.t(), delete_environment_input(), list()) ::
+  @spec delete_environment(map(), String.t() | Atom.t(), delete_environment_input(), list()) ::
           {:ok, delete_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -816,7 +821,7 @@ defmodule AWS.MWAA do
   @doc """
   Describes an Amazon Managed Workflows for Apache Airflow (MWAA) environment.
   """
-  @spec get_environment(map(), String.t(), list()) ::
+  @spec get_environment(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -837,7 +842,7 @@ defmodule AWS.MWAA do
   To
   learn more, see [Using the Apache Airflow REST API](https://docs.aws.amazon.com/mwaa/latest/userguide/access-mwaa-apache-airflow-rest-api.html)
   """
-  @spec invoke_rest_api(map(), String.t(), invoke_rest_api_request(), list()) ::
+  @spec invoke_rest_api(map(), String.t() | Atom.t(), invoke_rest_api_request(), list()) ::
           {:ok, invoke_rest_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -866,7 +871,7 @@ defmodule AWS.MWAA do
   @doc """
   Lists the Amazon Managed Workflows for Apache Airflow (MWAA) environments.
   """
-  @spec list_environments(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_environments(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_environments_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -901,7 +906,7 @@ defmodule AWS.MWAA do
 
   For example, `"Environment": "Staging"`.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -922,7 +927,7 @@ defmodule AWS.MWAA do
 
   Publishes environment health metrics to Amazon CloudWatch.
   """
-  @spec publish_metrics(map(), String.t(), publish_metrics_input(), list()) ::
+  @spec publish_metrics(map(), String.t() | Atom.t(), publish_metrics_input(), list()) ::
           {:ok, publish_metrics_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -952,7 +957,7 @@ defmodule AWS.MWAA do
   Associates key-value tag pairs to your Amazon Managed Workflows for Apache
   Airflow (MWAA) environment.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -984,7 +989,7 @@ defmodule AWS.MWAA do
 
   For example, `"Environment": "Staging"`.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1018,7 +1023,7 @@ defmodule AWS.MWAA do
   @doc """
   Updates an Amazon Managed Workflows for Apache Airflow (MWAA) environment.
   """
-  @spec update_environment(map(), String.t(), update_environment_input(), list()) ::
+  @spec update_environment(map(), String.t() | Atom.t(), update_environment_input(), list()) ::
           {:ok, update_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

@@ -53,13 +53,13 @@ defmodule AWS.PI do
   ## Example:
       
       dimension_key_detail() :: %{
-        "Dimension" => String.t(),
+        "Dimension" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type dimension_key_detail() :: %{String.t() => any()}
+  @type dimension_key_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -68,14 +68,14 @@ defmodule AWS.PI do
       list_available_resource_dimensions_request() :: %{
         optional("AuthorizedActions") => list(list(any())()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("Identifier") => String.t(),
-        required("Metrics") => list(String.t()),
+        optional("NextToken") => String.t() | Atom.t(),
+        required("Identifier") => String.t() | Atom.t(),
+        required("Metrics") => list(String.t() | Atom.t()),
         required("ServiceType") => list(any())
       }
       
   """
-  @type list_available_resource_dimensions_request() :: %{String.t() => any()}
+  @type list_available_resource_dimensions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -83,27 +83,27 @@ defmodule AWS.PI do
       
       performance_insights_metric() :: %{
         "Dimensions" => map(),
-        "DisplayName" => String.t(),
+        "DisplayName" => String.t() | Atom.t(),
         "Filter" => map(),
-        "Metric" => String.t(),
+        "Metric" => String.t() | Atom.t(),
         "Value" => float()
       }
       
   """
-  @type performance_insights_metric() :: %{String.t() => any()}
+  @type performance_insights_metric() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
+        required("ResourceARN") => String.t() | Atom.t(),
         required("ServiceType") => list(any()),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -115,7 +115,7 @@ defmodule AWS.PI do
       }
       
   """
-  @type data_point() :: %{String.t() => any()}
+  @type data_point() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -123,11 +123,11 @@ defmodule AWS.PI do
       
       list_available_resource_metrics_response() :: %{
         "Metrics" => list(response_resource_metric()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_available_resource_metrics_response() :: %{String.t() => any()}
+  @type list_available_resource_metrics_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -138,7 +138,7 @@ defmodule AWS.PI do
       }
       
   """
-  @type get_dimension_key_details_response() :: %{String.t() => any()}
+  @type get_dimension_key_details_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -147,13 +147,13 @@ defmodule AWS.PI do
       get_performance_analysis_report_request() :: %{
         optional("AcceptLanguage") => list(any()),
         optional("TextFormat") => list(any()),
-        required("AnalysisReportId") => String.t(),
-        required("Identifier") => String.t(),
+        required("AnalysisReportId") => String.t() | Atom.t(),
+        required("Identifier") => String.t() | Atom.t(),
         required("ServiceType") => list(any())
       }
       
   """
-  @type get_performance_analysis_report_request() :: %{String.t() => any()}
+  @type get_performance_analysis_report_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -165,7 +165,7 @@ defmodule AWS.PI do
       }
       
   """
-  @type metric_key_data_points() :: %{String.t() => any()}
+  @type metric_key_data_points() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -181,12 +181,12 @@ defmodule AWS.PI do
   ## Example:
       
       get_resource_metadata_request() :: %{
-        required("Identifier") => String.t(),
+        required("Identifier") => String.t() | Atom.t(),
         required("ServiceType") => list(any())
       }
       
   """
-  @type get_resource_metadata_request() :: %{String.t() => any()}
+  @type get_resource_metadata_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -197,20 +197,20 @@ defmodule AWS.PI do
       }
       
   """
-  @type get_performance_analysis_report_response() :: %{String.t() => any()}
+  @type get_performance_analysis_report_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       response_resource_metric() :: %{
-        "Description" => String.t(),
-        "Metric" => String.t(),
-        "Unit" => String.t()
+        "Description" => String.t() | Atom.t(),
+        "Metric" => String.t() | Atom.t(),
+        "Unit" => String.t() | Atom.t()
       }
       
   """
-  @type response_resource_metric() :: %{String.t() => any()}
+  @type response_resource_metric() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -221,7 +221,7 @@ defmodule AWS.PI do
       }
       
   """
-  @type feature_metadata() :: %{String.t() => any()}
+  @type feature_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -229,11 +229,11 @@ defmodule AWS.PI do
       
       list_available_resource_dimensions_response() :: %{
         "MetricDimensions" => list(metric_dimension_groups()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_available_resource_dimensions_response() :: %{String.t() => any()}
+  @type list_available_resource_dimensions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -241,31 +241,31 @@ defmodule AWS.PI do
       
       get_resource_metrics_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("PeriodAlignment") => list(any()),
         optional("PeriodInSeconds") => integer(),
         required("EndTime") => non_neg_integer(),
-        required("Identifier") => String.t(),
+        required("Identifier") => String.t() | Atom.t(),
         required("MetricQueries") => list(metric_query()),
         required("ServiceType") => list(any()),
         required("StartTime") => non_neg_integer()
       }
       
   """
-  @type get_resource_metrics_request() :: %{String.t() => any()}
+  @type get_resource_metrics_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
+        required("ResourceARN") => String.t() | Atom.t(),
         required("ServiceType") => list(any()),
-        required("TagKeys") => list(String.t())
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -274,13 +274,13 @@ defmodule AWS.PI do
       get_resource_metrics_response() :: %{
         "AlignedEndTime" => non_neg_integer(),
         "AlignedStartTime" => non_neg_integer(),
-        "Identifier" => String.t(),
+        "Identifier" => String.t() | Atom.t(),
         "MetricList" => list(metric_key_data_points()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type get_resource_metrics_response() :: %{String.t() => any()}
+  @type get_resource_metrics_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -289,49 +289,49 @@ defmodule AWS.PI do
       create_performance_analysis_report_request() :: %{
         optional("Tags") => list(tag()),
         required("EndTime") => non_neg_integer(),
-        required("Identifier") => String.t(),
+        required("Identifier") => String.t() | Atom.t(),
         required("ServiceType") => list(any()),
         required("StartTime") => non_neg_integer()
       }
       
   """
-  @type create_performance_analysis_report_request() :: %{String.t() => any()}
+  @type create_performance_analysis_report_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_performance_analysis_report_response() :: %{
-        "AnalysisReportId" => String.t()
+        "AnalysisReportId" => String.t() | Atom.t()
       }
       
   """
-  @type create_performance_analysis_report_response() :: %{String.t() => any()}
+  @type create_performance_analysis_report_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_performance_analysis_report_request() :: %{
-        required("AnalysisReportId") => String.t(),
-        required("Identifier") => String.t(),
+        required("AnalysisReportId") => String.t() | Atom.t(),
+        required("Identifier") => String.t() | Atom.t(),
         required("ServiceType") => list(any())
       }
       
   """
-  @type delete_performance_analysis_report_request() :: %{String.t() => any()}
+  @type delete_performance_analysis_report_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -339,33 +339,33 @@ defmodule AWS.PI do
       
       response_resource_metric_key() :: %{
         "Dimensions" => map(),
-        "Metric" => String.t()
+        "Metric" => String.t() | Atom.t()
       }
       
   """
-  @type response_resource_metric_key() :: %{String.t() => any()}
+  @type response_resource_metric_key() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       recommendation() :: %{
-        "RecommendationDescription" => String.t(),
-        "RecommendationId" => String.t()
+        "RecommendationDescription" => String.t() | Atom.t(),
+        "RecommendationId" => String.t() | Atom.t()
       }
       
   """
-  @type recommendation() :: %{String.t() => any()}
+  @type recommendation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       analysis_report() :: %{
-        "AnalysisReportId" => String.t(),
+        "AnalysisReportId" => String.t() | Atom.t(),
         "CreateTime" => non_neg_integer(),
         "EndTime" => non_neg_integer(),
-        "Identifier" => String.t(),
+        "Identifier" => String.t() | Atom.t(),
         "Insights" => list(insight()),
         "ServiceType" => list(any()),
         "StartTime" => non_neg_integer(),
@@ -373,14 +373,14 @@ defmodule AWS.PI do
       }
       
   """
-  @type analysis_report() :: %{String.t() => any()}
+  @type analysis_report() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       analysis_report_summary() :: %{
-        "AnalysisReportId" => String.t(),
+        "AnalysisReportId" => String.t() | Atom.t(),
         "CreateTime" => non_neg_integer(),
         "EndTime" => non_neg_integer(),
         "StartTime" => non_neg_integer(),
@@ -389,7 +389,7 @@ defmodule AWS.PI do
       }
       
   """
-  @type analysis_report_summary() :: %{String.t() => any()}
+  @type analysis_report_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -400,7 +400,7 @@ defmodule AWS.PI do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -408,27 +408,27 @@ defmodule AWS.PI do
       
       list_available_resource_metrics_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("Identifier") => String.t(),
-        required("MetricTypes") => list(String.t()),
+        optional("NextToken") => String.t() | Atom.t(),
+        required("Identifier") => String.t() | Atom.t(),
+        required("MetricTypes") => list(String.t() | Atom.t()),
         required("ServiceType") => list(any())
       }
       
   """
-  @type list_available_resource_metrics_request() :: %{String.t() => any()}
+  @type list_available_resource_metrics_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       dimension_group() :: %{
-        "Dimensions" => list(String.t()),
-        "Group" => String.t(),
+        "Dimensions" => list(String.t() | Atom.t()),
+        "Group" => String.t() | Atom.t(),
         "Limit" => integer()
       }
       
   """
-  @type dimension_group() :: %{String.t() => any()}
+  @type dimension_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -437,22 +437,22 @@ defmodule AWS.PI do
       metric_query() :: %{
         "Filter" => map(),
         "GroupBy" => dimension_group(),
-        "Metric" => String.t()
+        "Metric" => String.t() | Atom.t()
       }
       
   """
-  @type metric_query() :: %{String.t() => any()}
+  @type metric_query() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       dimension_detail() :: %{
-        "Identifier" => String.t()
+        "Identifier" => String.t() | Atom.t()
       }
       
   """
-  @type dimension_detail() :: %{String.t() => any()}
+  @type dimension_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -466,33 +466,33 @@ defmodule AWS.PI do
       }
       
   """
-  @type dimension_key_description() :: %{String.t() => any()}
+  @type dimension_key_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_dimension_key_details_request() :: %{
-        optional("RequestedDimensions") => list(String.t()),
-        required("Group") => String.t(),
-        required("GroupIdentifier") => String.t(),
-        required("Identifier") => String.t(),
+        optional("RequestedDimensions") => list(String.t() | Atom.t()),
+        required("Group") => String.t() | Atom.t(),
+        required("GroupIdentifier") => String.t() | Atom.t(),
+        required("Identifier") => String.t() | Atom.t(),
         required("ServiceType") => list(any())
       }
       
   """
-  @type get_dimension_key_details_request() :: %{String.t() => any()}
+  @type get_dimension_key_details_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       not_authorized_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type not_authorized_exception() :: %{String.t() => any()}
+  @type not_authorized_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -508,11 +508,11 @@ defmodule AWS.PI do
   ## Example:
       
       invalid_argument_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_argument_exception() :: %{String.t() => any()}
+  @type invalid_argument_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -528,23 +528,23 @@ defmodule AWS.PI do
   ## Example:
       
       internal_service_error() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type internal_service_error() :: %{String.t() => any()}
+  @type internal_service_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t(),
+        required("ResourceARN") => String.t() | Atom.t(),
         required("ServiceType") => list(any())
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -555,7 +555,7 @@ defmodule AWS.PI do
       }
       
   """
-  @type response_partition_key() :: %{String.t() => any()}
+  @type response_partition_key() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -564,35 +564,35 @@ defmodule AWS.PI do
       list_performance_analysis_reports_request() :: %{
         optional("ListTags") => boolean(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("Identifier") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
+        required("Identifier") => String.t() | Atom.t(),
         required("ServiceType") => list(any())
       }
       
   """
-  @type list_performance_analysis_reports_request() :: %{String.t() => any()}
+  @type list_performance_analysis_reports_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_dimension_keys_request() :: %{
-        optional("AdditionalMetrics") => list(String.t()),
+        optional("AdditionalMetrics") => list(String.t() | Atom.t()),
         optional("Filter") => map(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("PartitionBy") => dimension_group(),
         optional("PeriodInSeconds") => integer(),
         required("EndTime") => non_neg_integer(),
         required("GroupBy") => dimension_group(),
-        required("Identifier") => String.t(),
-        required("Metric") => String.t(),
+        required("Identifier") => String.t() | Atom.t(),
+        required("Metric") => String.t() | Atom.t(),
         required("ServiceType") => list(any()),
         required("StartTime") => non_neg_integer()
       }
       
   """
-  @type describe_dimension_keys_request() :: %{String.t() => any()}
+  @type describe_dimension_keys_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -600,11 +600,11 @@ defmodule AWS.PI do
       
       dimension_group_detail() :: %{
         "Dimensions" => list(dimension_detail()),
-        "Group" => String.t()
+        "Group" => String.t() | Atom.t()
       }
       
   """
-  @type dimension_group_detail() :: %{String.t() => any()}
+  @type dimension_group_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -614,12 +614,12 @@ defmodule AWS.PI do
         "AlignedEndTime" => non_neg_integer(),
         "AlignedStartTime" => non_neg_integer(),
         "Keys" => list(dimension_key_description()),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "PartitionKeys" => list(response_partition_key())
       }
       
   """
-  @type describe_dimension_keys_response() :: %{String.t() => any()}
+  @type describe_dimension_keys_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -630,7 +630,7 @@ defmodule AWS.PI do
       }
       
   """
-  @type data() :: %{String.t() => any()}
+  @type data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -639,11 +639,11 @@ defmodule AWS.PI do
       insight() :: %{
         "BaselineData" => list(data()),
         "Context" => list(any()),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "EndTime" => non_neg_integer(),
         "InsightData" => list(data()),
-        "InsightId" => String.t(),
-        "InsightType" => String.t(),
+        "InsightId" => String.t() | Atom.t(),
+        "InsightType" => String.t() | Atom.t(),
         "Recommendations" => list(recommendation()),
         "Severity" => list(any()),
         "StartTime" => non_neg_integer(),
@@ -651,7 +651,7 @@ defmodule AWS.PI do
       }
       
   """
-  @type insight() :: %{String.t() => any()}
+  @type insight() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -659,11 +659,11 @@ defmodule AWS.PI do
       
       list_performance_analysis_reports_response() :: %{
         "AnalysisReports" => list(analysis_report_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_performance_analysis_reports_response() :: %{String.t() => any()}
+  @type list_performance_analysis_reports_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -671,11 +671,11 @@ defmodule AWS.PI do
       
       metric_dimension_groups() :: %{
         "Groups" => list(dimension_group_detail()),
-        "Metric" => String.t()
+        "Metric" => String.t() | Atom.t()
       }
       
   """
-  @type metric_dimension_groups() :: %{String.t() => any()}
+  @type metric_dimension_groups() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -683,11 +683,11 @@ defmodule AWS.PI do
       
       get_resource_metadata_response() :: %{
         "Features" => map(),
-        "Identifier" => String.t()
+        "Identifier" => String.t() | Atom.t()
       }
       
   """
-  @type get_resource_metadata_response() :: %{String.t() => any()}
+  @type get_resource_metadata_response() :: %{String.t() | Atom.t() => any()}
 
   @type create_performance_analysis_report_errors() ::
           internal_service_error() | invalid_argument_exception() | not_authorized_exception()

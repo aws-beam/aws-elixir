@@ -54,42 +54,42 @@ defmodule AWS.PartnerCentralSelling do
       
       list_engagement_members_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t()],
-        required("Catalog") => String.t(),
-        required("Identifier") => String.t()
+        optional("NextToken") => [String.t() | Atom.t()],
+        required("Catalog") => String.t() | Atom.t(),
+        required("Identifier") => String.t() | Atom.t()
       }
       
   """
-  @type list_engagement_members_request() :: %{String.t() => any()}
+  @type list_engagement_members_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
+        required("ResourceArn") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_engagement_resource_associations_request() :: %{
-        optional("CreatedBy") => String.t(),
-        optional("EngagementIdentifier") => String.t(),
+        optional("CreatedBy") => String.t() | Atom.t(),
+        optional("EngagementIdentifier") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t()],
-        optional("ResourceIdentifier") => String.t(),
+        optional("NextToken") => [String.t() | Atom.t()],
+        optional("ResourceIdentifier") => String.t() | Atom.t(),
         optional("ResourceType") => list(any()),
-        required("Catalog") => String.t()
+        required("Catalog") => String.t() | Atom.t()
       }
       
   """
-  @type list_engagement_resource_associations_request() :: %{String.t() => any()}
+  @type list_engagement_resource_associations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -97,11 +97,11 @@ defmodule AWS.PartnerCentralSelling do
       
       list_engagement_members_response() :: %{
         "EngagementMemberList" => list(engagement_member()),
-        "NextToken" => [String.t()]
+        "NextToken" => [String.t() | Atom.t()]
       }
       
   """
-  @type list_engagement_members_response() :: %{String.t() => any()}
+  @type list_engagement_members_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -113,7 +113,7 @@ defmodule AWS.PartnerCentralSelling do
       }
       
   """
-  @type opportunity_sort() :: %{String.t() => any()}
+  @type opportunity_sort() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -121,17 +121,17 @@ defmodule AWS.PartnerCentralSelling do
       
       life_cycle() :: %{
         "ClosedLostReason" => list(any()),
-        "NextSteps" => String.t(),
+        "NextSteps" => String.t() | Atom.t(),
         "NextStepsHistory" => list(next_steps_history()),
-        "ReviewComments" => [String.t()],
+        "ReviewComments" => [String.t() | Atom.t()],
         "ReviewStatus" => list(any()),
-        "ReviewStatusReason" => [String.t()],
+        "ReviewStatusReason" => [String.t() | Atom.t()],
         "Stage" => list(any()),
-        "TargetCloseDate" => String.t()
+        "TargetCloseDate" => String.t() | Atom.t()
       }
       
   """
-  @type life_cycle() :: %{String.t() => any()}
+  @type life_cycle() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -139,26 +139,26 @@ defmodule AWS.PartnerCentralSelling do
       
       assign_opportunity_request() :: %{
         required("Assignee") => assignee_contact(),
-        required("Catalog") => String.t(),
-        required("Identifier") => String.t()
+        required("Catalog") => String.t() | Atom.t(),
+        required("Identifier") => String.t() | Atom.t()
       }
       
   """
-  @type assign_opportunity_request() :: %{String.t() => any()}
+  @type assign_opportunity_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_engagement_invitation_request() :: %{
-        required("Catalog") => String.t(),
-        required("ClientToken") => String.t(),
-        required("EngagementIdentifier") => String.t(),
+        required("Catalog") => String.t() | Atom.t(),
+        required("ClientToken") => String.t() | Atom.t(),
+        required("EngagementIdentifier") => String.t() | Atom.t(),
         required("Invitation") => invitation()
       }
       
   """
-  @type create_engagement_invitation_request() :: %{String.t() => any()}
+  @type create_engagement_invitation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -166,55 +166,58 @@ defmodule AWS.PartnerCentralSelling do
       
       aws_team_member() :: %{
         "BusinessTitle" => list(any()),
-        "Email" => String.t(),
-        "FirstName" => String.t(),
-        "LastName" => String.t()
+        "Email" => String.t() | Atom.t(),
+        "FirstName" => String.t() | Atom.t(),
+        "LastName" => String.t() | Atom.t()
       }
       
   """
-  @type aws_team_member() :: %{String.t() => any()}
+  @type aws_team_member() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_engagement_by_accepting_invitation_task_response() :: %{
-        "EngagementInvitationId" => String.t(),
-        "Message" => [String.t()],
-        "OpportunityId" => String.t(),
+        "EngagementInvitationId" => String.t() | Atom.t(),
+        "Message" => [String.t() | Atom.t()],
+        "OpportunityId" => String.t() | Atom.t(),
         "ReasonCode" => list(any()),
-        "ResourceSnapshotJobId" => String.t(),
+        "ResourceSnapshotJobId" => String.t() | Atom.t(),
         "StartTime" => non_neg_integer(),
-        "TaskArn" => String.t(),
-        "TaskId" => String.t(),
+        "TaskArn" => String.t() | Atom.t(),
+        "TaskId" => String.t() | Atom.t(),
         "TaskStatus" => list(any())
       }
       
   """
-  @type start_engagement_by_accepting_invitation_task_response() :: %{String.t() => any()}
+  @type start_engagement_by_accepting_invitation_task_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       engagement_invitation_summary() :: %{
-        "Arn" => [String.t()],
-        "Catalog" => String.t(),
-        "EngagementId" => String.t(),
-        "EngagementTitle" => String.t(),
+        "Arn" => [String.t() | Atom.t()],
+        "Catalog" => String.t() | Atom.t(),
+        "EngagementId" => String.t() | Atom.t(),
+        "EngagementTitle" => String.t() | Atom.t(),
         "ExpirationDate" => non_neg_integer(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "InvitationDate" => non_neg_integer(),
         "ParticipantType" => list(any()),
         "PayloadType" => list(any()),
         "Receiver" => list(),
-        "SenderAwsAccountId" => String.t(),
-        "SenderCompanyName" => [String.t()],
+        "SenderAwsAccountId" => String.t() | Atom.t(),
+        "SenderCompanyName" => [String.t() | Atom.t()],
         "Status" => list(any())
       }
       
   """
-  @type engagement_invitation_summary() :: %{String.t() => any()}
+  @type engagement_invitation_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -226,7 +229,7 @@ defmodule AWS.PartnerCentralSelling do
       }
       
   """
-  @type project_summary() :: %{String.t() => any()}
+  @type project_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -238,7 +241,7 @@ defmodule AWS.PartnerCentralSelling do
       }
       
   """
-  @type last_modified_date() :: %{String.t() => any()}
+  @type last_modified_date() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -254,71 +257,74 @@ defmodule AWS.PartnerCentralSelling do
   ## Example:
       
       resource_snapshot_job_summary() :: %{
-        "Arn" => String.t(),
-        "EngagementId" => String.t(),
-        "Id" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "EngagementId" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type resource_snapshot_job_summary() :: %{String.t() => any()}
+  @type resource_snapshot_job_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_engagement_by_accepting_invitation_tasks_response() :: %{
-        "NextToken" => [String.t()],
+        "NextToken" => [String.t() | Atom.t()],
         "TaskSummaries" => list(list_engagement_by_accepting_invitation_task_summary())
       }
       
   """
-  @type list_engagement_by_accepting_invitation_tasks_response() :: %{String.t() => any()}
+  @type list_engagement_by_accepting_invitation_tasks_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       aws_opportunity_related_entities() :: %{
-        "AwsProducts" => list(String.t()),
-        "Solutions" => list(String.t())
+        "AwsProducts" => list(String.t() | Atom.t()),
+        "Solutions" => list(String.t() | Atom.t())
       }
       
   """
-  @type aws_opportunity_related_entities() :: %{String.t() => any()}
+  @type aws_opportunity_related_entities() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       engagement_customer() :: %{
-        "CompanyName" => String.t(),
+        "CompanyName" => String.t() | Atom.t(),
         "CountryCode" => list(any()),
         "Industry" => list(any()),
-        "WebsiteUrl" => String.t()
+        "WebsiteUrl" => String.t() | Atom.t()
       }
       
   """
-  @type engagement_customer() :: %{String.t() => any()}
+  @type engagement_customer() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_resource_snapshot_job_request() :: %{
-        required("Catalog") => String.t(),
-        required("ResourceSnapshotJobIdentifier") => String.t()
+        required("Catalog") => String.t() | Atom.t(),
+        required("ResourceSnapshotJobIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type stop_resource_snapshot_job_request() :: %{String.t() => any()}
+  @type stop_resource_snapshot_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_aws_opportunity_summary_response() :: %{
-        "Catalog" => String.t(),
+        "Catalog" => String.t() | Atom.t(),
         "Customer" => aws_opportunity_customer(),
         "Insights" => aws_opportunity_insights(),
         "InvolvementType" => list(any()),
@@ -328,12 +334,12 @@ defmodule AWS.PartnerCentralSelling do
         "Origin" => list(any()),
         "Project" => aws_opportunity_project(),
         "RelatedEntityIds" => aws_opportunity_related_entities(),
-        "RelatedOpportunityId" => String.t(),
+        "RelatedOpportunityId" => String.t() | Atom.t(),
         "Visibility" => list(any())
       }
       
   """
-  @type get_aws_opportunity_summary_response() :: %{String.t() => any()}
+  @type get_aws_opportunity_summary_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -341,42 +347,42 @@ defmodule AWS.PartnerCentralSelling do
       
       aws_opportunity_insights() :: %{
         "EngagementScore" => list(any()),
-        "NextBestActions" => [String.t()]
+        "NextBestActions" => [String.t() | Atom.t()]
       }
       
   """
-  @type aws_opportunity_insights() :: %{String.t() => any()}
+  @type aws_opportunity_insights() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invitation() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "Payload" => list(),
         "Receiver" => list()
       }
       
   """
-  @type invitation() :: %{String.t() => any()}
+  @type invitation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_opportunity_response() :: %{
-        "Arn" => String.t(),
-        "Catalog" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Catalog" => String.t() | Atom.t(),
         "CreatedDate" => non_neg_integer(),
         "Customer" => customer(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "LastModifiedDate" => non_neg_integer(),
         "LifeCycle" => life_cycle(),
         "Marketing" => marketing(),
         "NationalSecurity" => list(any()),
         "OpportunityTeam" => list(contact()),
         "OpportunityType" => list(any()),
-        "PartnerOpportunityIdentifier" => [String.t()],
+        "PartnerOpportunityIdentifier" => [String.t() | Atom.t()],
         "PrimaryNeedsFromAws" => list(list(any())()),
         "Project" => project(),
         "RelatedEntityIdentifiers" => related_entity_identifiers(),
@@ -384,52 +390,52 @@ defmodule AWS.PartnerCentralSelling do
       }
       
   """
-  @type get_opportunity_response() :: %{String.t() => any()}
+  @type get_opportunity_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_selling_system_settings_response() :: %{
-        "Catalog" => String.t(),
-        "ResourceSnapshotJobRoleArn" => String.t()
+        "Catalog" => String.t() | Atom.t(),
+        "ResourceSnapshotJobRoleArn" => String.t() | Atom.t()
       }
       
   """
-  @type put_selling_system_settings_response() :: %{String.t() => any()}
+  @type put_selling_system_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       project_view() :: %{
-        "CustomerUseCase" => [String.t()],
+        "CustomerUseCase" => [String.t() | Atom.t()],
         "DeliveryModels" => list(list(any())()),
         "ExpectedCustomerSpend" => list(expected_customer_spend()),
-        "OtherSolutionDescription" => String.t(),
+        "OtherSolutionDescription" => String.t() | Atom.t(),
         "SalesActivities" => list(list(any())())
       }
       
   """
-  @type project_view() :: %{String.t() => any()}
+  @type project_view() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_resource_snapshots_request() :: %{
-        optional("CreatedBy") => String.t(),
+        optional("CreatedBy") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t()],
-        optional("ResourceIdentifier") => String.t(),
-        optional("ResourceSnapshotTemplateIdentifier") => String.t(),
+        optional("NextToken") => [String.t() | Atom.t()],
+        optional("ResourceIdentifier") => String.t() | Atom.t(),
+        optional("ResourceSnapshotTemplateIdentifier") => String.t() | Atom.t(),
         optional("ResourceType") => list(any()),
-        required("Catalog") => String.t(),
-        required("EngagementIdentifier") => String.t()
+        required("Catalog") => String.t() | Atom.t(),
+        required("EngagementIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type list_resource_snapshots_request() :: %{String.t() => any()}
+  @type list_resource_snapshots_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -441,78 +447,78 @@ defmodule AWS.PartnerCentralSelling do
       }
       
   """
-  @type solution_sort() :: %{String.t() => any()}
+  @type solution_sort() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_resource_snapshots_response() :: %{
-        "NextToken" => [String.t()],
+        "NextToken" => [String.t() | Atom.t()],
         "ResourceSnapshotSummaries" => list(resource_snapshot_summary())
       }
       
   """
-  @type list_resource_snapshots_response() :: %{String.t() => any()}
+  @type list_resource_snapshots_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_aws_opportunity_summary_request() :: %{
-        required("Catalog") => String.t(),
-        required("RelatedOpportunityIdentifier") => String.t()
+        required("Catalog") => String.t() | Atom.t(),
+        required("RelatedOpportunityIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type get_aws_opportunity_summary_request() :: %{String.t() => any()}
+  @type get_aws_opportunity_summary_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_selling_system_settings_request() :: %{
-        optional("ResourceSnapshotJobRoleIdentifier") => String.t(),
-        required("Catalog") => String.t()
+        optional("ResourceSnapshotJobRoleIdentifier") => String.t() | Atom.t(),
+        required("Catalog") => String.t() | Atom.t()
       }
       
   """
-  @type put_selling_system_settings_request() :: %{String.t() => any()}
+  @type put_selling_system_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_solutions_request() :: %{
-        optional("Category") => list([String.t()]()),
-        optional("Identifier") => list(String.t()),
+        optional("Category") => list([String.t() | Atom.t()]()),
+        optional("Identifier") => list(String.t() | Atom.t()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t()],
+        optional("NextToken") => [String.t() | Atom.t()],
         optional("Sort") => solution_sort(),
         optional("Status") => list(list(any())()),
-        required("Catalog") => String.t()
+        required("Catalog") => String.t() | Atom.t()
       }
       
   """
-  @type list_solutions_request() :: %{String.t() => any()}
+  @type list_solutions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_engagement_from_opportunity_tasks_request() :: %{
-        optional("EngagementIdentifier") => list(String.t()),
+        optional("EngagementIdentifier") => list(String.t() | Atom.t()),
         optional("MaxResults") => [integer()],
-        optional("NextToken") => [String.t()],
-        optional("OpportunityIdentifier") => list(String.t()),
+        optional("NextToken") => [String.t() | Atom.t()],
+        optional("OpportunityIdentifier") => list(String.t() | Atom.t()),
         optional("Sort") => list_tasks_sort_base(),
-        optional("TaskIdentifier") => list(String.t()),
+        optional("TaskIdentifier") => list(String.t() | Atom.t()),
         optional("TaskStatus") => list(list(any())()),
-        required("Catalog") => String.t()
+        required("Catalog") => String.t() | Atom.t()
       }
       
   """
-  @type list_engagement_from_opportunity_tasks_request() :: %{String.t() => any()}
+  @type list_engagement_from_opportunity_tasks_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -523,7 +529,7 @@ defmodule AWS.PartnerCentralSelling do
       }
       
   """
-  @type aws_opportunity_project() :: %{String.t() => any()}
+  @type aws_opportunity_project() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -535,55 +541,55 @@ defmodule AWS.PartnerCentralSelling do
         optional("Marketing") => marketing(),
         optional("NationalSecurity") => list(any()),
         optional("OpportunityType") => list(any()),
-        optional("PartnerOpportunityIdentifier") => [String.t()],
+        optional("PartnerOpportunityIdentifier") => [String.t() | Atom.t()],
         optional("PrimaryNeedsFromAws") => list(list(any())()),
         optional("Project") => project(),
         optional("SoftwareRevenue") => software_revenue(),
-        required("Catalog") => String.t(),
-        required("Identifier") => String.t(),
+        required("Catalog") => String.t() | Atom.t(),
+        required("Identifier") => String.t() | Atom.t(),
         required("LastModifiedDate") => non_neg_integer()
       }
       
   """
-  @type update_opportunity_request() :: %{String.t() => any()}
+  @type update_opportunity_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceArn") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_opportunity_response() :: %{
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "LastModifiedDate" => non_neg_integer(),
-        "PartnerOpportunityIdentifier" => [String.t()]
+        "PartnerOpportunityIdentifier" => [String.t() | Atom.t()]
       }
       
   """
-  @type create_opportunity_response() :: %{String.t() => any()}
+  @type create_opportunity_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       engagement_member() :: %{
-        "AccountId" => String.t(),
-        "CompanyName" => String.t(),
-        "WebsiteUrl" => [String.t()]
+        "AccountId" => String.t() | Atom.t(),
+        "CompanyName" => String.t() | Atom.t(),
+        "WebsiteUrl" => [String.t() | Atom.t()]
       }
       
   """
-  @type engagement_member() :: %{String.t() => any()}
+  @type engagement_member() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -595,25 +601,28 @@ defmodule AWS.PartnerCentralSelling do
       }
       
   """
-  @type engagement_sort() :: %{String.t() => any()}
+  @type engagement_sort() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_engagement_by_accepting_invitation_tasks_request() :: %{
-        optional("EngagementInvitationIdentifier") => list(String.t()),
+        optional("EngagementInvitationIdentifier") => list(String.t() | Atom.t()),
         optional("MaxResults") => [integer()],
-        optional("NextToken") => [String.t()],
-        optional("OpportunityIdentifier") => list(String.t()),
+        optional("NextToken") => [String.t() | Atom.t()],
+        optional("OpportunityIdentifier") => list(String.t() | Atom.t()),
         optional("Sort") => list_tasks_sort_base(),
-        optional("TaskIdentifier") => list(String.t()),
+        optional("TaskIdentifier") => list(String.t() | Atom.t()),
         optional("TaskStatus") => list(list(any())()),
-        required("Catalog") => String.t()
+        required("Catalog") => String.t() | Atom.t()
       }
       
   """
-  @type list_engagement_by_accepting_invitation_tasks_request() :: %{String.t() => any()}
+  @type list_engagement_by_accepting_invitation_tasks_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -625,7 +634,7 @@ defmodule AWS.PartnerCentralSelling do
       }
       
   """
-  @type engagement_context_details() :: %{String.t() => any()}
+  @type engagement_context_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -633,38 +642,38 @@ defmodule AWS.PartnerCentralSelling do
       
       list_engagements_response() :: %{
         "EngagementSummaryList" => list(engagement_summary()),
-        "NextToken" => [String.t()]
+        "NextToken" => [String.t() | Atom.t()]
       }
       
   """
-  @type list_engagements_response() :: %{String.t() => any()}
+  @type list_engagements_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_opportunity_request() :: %{
-        required("Catalog") => String.t(),
-        required("OpportunityIdentifier") => String.t(),
-        required("RelatedEntityIdentifier") => [String.t()],
+        required("Catalog") => String.t() | Atom.t(),
+        required("OpportunityIdentifier") => String.t() | Atom.t(),
+        required("RelatedEntityIdentifier") => [String.t() | Atom.t()],
         required("RelatedEntityType") => list(any())
       }
       
   """
-  @type associate_opportunity_request() :: %{String.t() => any()}
+  @type associate_opportunity_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       related_entity_identifiers() :: %{
-        "AwsMarketplaceOffers" => list(String.t()),
-        "AwsProducts" => list(String.t()),
-        "Solutions" => list(String.t())
+        "AwsMarketplaceOffers" => list(String.t() | Atom.t()),
+        "AwsProducts" => list(String.t() | Atom.t()),
+        "Solutions" => list(String.t() | Atom.t())
       }
       
   """
-  @type related_entity_identifiers() :: %{String.t() => any()}
+  @type related_entity_identifiers() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -676,21 +685,21 @@ defmodule AWS.PartnerCentralSelling do
       }
       
   """
-  @type customer() :: %{String.t() => any()}
+  @type customer() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       life_cycle_for_view() :: %{
-        "NextSteps" => String.t(),
+        "NextSteps" => String.t() | Atom.t(),
         "ReviewStatus" => list(any()),
         "Stage" => list(any()),
-        "TargetCloseDate" => String.t()
+        "TargetCloseDate" => String.t() | Atom.t()
       }
       
   """
-  @type life_cycle_for_view() :: %{String.t() => any()}
+  @type life_cycle_for_view() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -698,33 +707,33 @@ defmodule AWS.PartnerCentralSelling do
       
       list_engagement_invitations_response() :: %{
         "EngagementInvitationSummaries" => list(engagement_invitation_summary()),
-        "NextToken" => [String.t()]
+        "NextToken" => [String.t() | Atom.t()]
       }
       
   """
-  @type list_engagement_invitations_response() :: %{String.t() => any()}
+  @type list_engagement_invitations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -736,103 +745,106 @@ defmodule AWS.PartnerCentralSelling do
       }
       
   """
-  @type opportunity_engagement_invitation_sort() :: %{String.t() => any()}
+  @type opportunity_engagement_invitation_sort() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_resource_snapshot_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "Revision" => integer()
       }
       
   """
-  @type create_resource_snapshot_response() :: %{String.t() => any()}
+  @type create_resource_snapshot_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_engagement_from_opportunity_task_response() :: %{
-        "EngagementId" => String.t(),
-        "EngagementInvitationId" => String.t(),
-        "Message" => [String.t()],
-        "OpportunityId" => String.t(),
+        "EngagementId" => String.t() | Atom.t(),
+        "EngagementInvitationId" => String.t() | Atom.t(),
+        "Message" => [String.t() | Atom.t()],
+        "OpportunityId" => String.t() | Atom.t(),
         "ReasonCode" => list(any()),
-        "ResourceSnapshotJobId" => String.t(),
+        "ResourceSnapshotJobId" => String.t() | Atom.t(),
         "StartTime" => non_neg_integer(),
-        "TaskArn" => String.t(),
-        "TaskId" => String.t(),
+        "TaskArn" => String.t() | Atom.t(),
+        "TaskId" => String.t() | Atom.t(),
         "TaskStatus" => list(any())
       }
       
   """
-  @type start_engagement_from_opportunity_task_response() :: %{String.t() => any()}
+  @type start_engagement_from_opportunity_task_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       project() :: %{
-        "AdditionalComments" => [String.t()],
-        "ApnPrograms" => list([String.t()]()),
+        "AdditionalComments" => [String.t() | Atom.t()],
+        "ApnPrograms" => list([String.t() | Atom.t()]()),
         "CompetitorName" => list(any()),
-        "CustomerBusinessProblem" => String.t(),
-        "CustomerUseCase" => [String.t()],
+        "CustomerBusinessProblem" => String.t() | Atom.t(),
+        "CustomerUseCase" => [String.t() | Atom.t()],
         "DeliveryModels" => list(list(any())()),
         "ExpectedCustomerSpend" => list(expected_customer_spend()),
-        "OtherCompetitorNames" => [String.t()],
-        "OtherSolutionDescription" => String.t(),
-        "RelatedOpportunityIdentifier" => String.t(),
+        "OtherCompetitorNames" => [String.t() | Atom.t()],
+        "OtherSolutionDescription" => String.t() | Atom.t(),
+        "RelatedOpportunityIdentifier" => String.t() | Atom.t(),
         "SalesActivities" => list(list(any())()),
-        "Title" => String.t()
+        "Title" => String.t() | Atom.t()
       }
       
   """
-  @type project() :: %{String.t() => any()}
+  @type project() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_engagement_by_accepting_invitation_task_summary() :: %{
-        "EngagementInvitationId" => String.t(),
-        "Message" => [String.t()],
-        "OpportunityId" => String.t(),
+        "EngagementInvitationId" => String.t() | Atom.t(),
+        "Message" => [String.t() | Atom.t()],
+        "OpportunityId" => String.t() | Atom.t(),
         "ReasonCode" => list(any()),
-        "ResourceSnapshotJobId" => String.t(),
+        "ResourceSnapshotJobId" => String.t() | Atom.t(),
         "StartTime" => non_neg_integer(),
-        "TaskArn" => String.t(),
-        "TaskId" => String.t(),
+        "TaskArn" => String.t() | Atom.t(),
+        "TaskId" => String.t() | Atom.t(),
         "TaskStatus" => list(any())
       }
       
   """
-  @type list_engagement_by_accepting_invitation_task_summary() :: %{String.t() => any()}
+  @type list_engagement_by_accepting_invitation_task_summary() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       service_quota_exceeded_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -840,45 +852,45 @@ defmodule AWS.PartnerCentralSelling do
       
       create_engagement_request() :: %{
         optional("Contexts") => list(engagement_context_details()),
-        required("Catalog") => String.t(),
-        required("ClientToken") => [String.t()],
-        required("Description") => String.t(),
-        required("Title") => String.t()
+        required("Catalog") => String.t() | Atom.t(),
+        required("ClientToken") => [String.t() | Atom.t()],
+        required("Description") => String.t() | Atom.t(),
+        required("Title") => String.t() | Atom.t()
       }
       
   """
-  @type create_engagement_request() :: %{String.t() => any()}
+  @type create_engagement_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_opportunities_request() :: %{
-        optional("CustomerCompanyName") => list([String.t()]()),
-        optional("Identifier") => list(String.t()),
+        optional("CustomerCompanyName") => list([String.t() | Atom.t()]()),
+        optional("Identifier") => list(String.t() | Atom.t()),
         optional("LastModifiedDate") => last_modified_date(),
         optional("LifeCycleReviewStatus") => list(list(any())()),
         optional("LifeCycleStage") => list(list(any())()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t()],
+        optional("NextToken") => [String.t() | Atom.t()],
         optional("Sort") => opportunity_sort(),
-        required("Catalog") => String.t()
+        required("Catalog") => String.t() | Atom.t()
       }
       
   """
-  @type list_opportunities_request() :: %{String.t() => any()}
+  @type list_opportunities_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_selling_system_settings_response() :: %{
-        "Catalog" => String.t(),
-        "ResourceSnapshotJobRoleArn" => String.t()
+        "Catalog" => String.t() | Atom.t(),
+        "ResourceSnapshotJobRoleArn" => String.t() | Atom.t()
       }
       
   """
-  @type get_selling_system_settings_response() :: %{String.t() => any()}
+  @type get_selling_system_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -886,15 +898,15 @@ defmodule AWS.PartnerCentralSelling do
       
       get_resource_snapshot_request() :: %{
         optional("Revision") => integer(),
-        required("Catalog") => String.t(),
-        required("EngagementIdentifier") => String.t(),
-        required("ResourceIdentifier") => String.t(),
-        required("ResourceSnapshotTemplateIdentifier") => String.t(),
+        required("Catalog") => String.t() | Atom.t(),
+        required("EngagementIdentifier") => String.t() | Atom.t(),
+        required("ResourceIdentifier") => String.t() | Atom.t(),
+        required("ResourceSnapshotTemplateIdentifier") => String.t() | Atom.t(),
         required("ResourceType") => list(any())
       }
       
   """
-  @type get_resource_snapshot_request() :: %{String.t() => any()}
+  @type get_resource_snapshot_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -902,38 +914,38 @@ defmodule AWS.PartnerCentralSelling do
       
       profile_next_steps_history() :: %{
         "Time" => non_neg_integer(),
-        "Value" => [String.t()]
+        "Value" => [String.t() | Atom.t()]
       }
       
   """
-  @type profile_next_steps_history() :: %{String.t() => any()}
+  @type profile_next_steps_history() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_resource_snapshot_job_response() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t()
       }
       
   """
-  @type create_resource_snapshot_job_response() :: %{String.t() => any()}
+  @type create_resource_snapshot_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       sender_contact() :: %{
-        "BusinessTitle" => String.t(),
-        "Email" => String.t(),
-        "FirstName" => String.t(),
-        "LastName" => String.t(),
-        "Phone" => String.t()
+        "BusinessTitle" => String.t() | Atom.t(),
+        "Email" => String.t() | Atom.t(),
+        "FirstName" => String.t() | Atom.t(),
+        "LastName" => String.t() | Atom.t(),
+        "Phone" => String.t() | Atom.t()
       }
       
   """
-  @type sender_contact() :: %{String.t() => any()}
+  @type sender_contact() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -941,16 +953,16 @@ defmodule AWS.PartnerCentralSelling do
       
       account() :: %{
         "Address" => address(),
-        "AwsAccountId" => String.t(),
-        "CompanyName" => String.t(),
-        "Duns" => String.t(),
+        "AwsAccountId" => String.t() | Atom.t(),
+        "CompanyName" => String.t() | Atom.t(),
+        "Duns" => String.t() | Atom.t(),
         "Industry" => list(any()),
-        "OtherIndustry" => [String.t()],
-        "WebsiteUrl" => String.t()
+        "OtherIndustry" => [String.t() | Atom.t()],
+        "WebsiteUrl" => String.t() | Atom.t()
       }
       
   """
-  @type account() :: %{String.t() => any()}
+  @type account() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -964,7 +976,7 @@ defmodule AWS.PartnerCentralSelling do
       }
       
   """
-  @type opportunity_invitation_payload() :: %{String.t() => any()}
+  @type opportunity_invitation_payload() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -972,28 +984,28 @@ defmodule AWS.PartnerCentralSelling do
       
       submit_opportunity_request() :: %{
         optional("Visibility") => list(any()),
-        required("Catalog") => String.t(),
-        required("Identifier") => String.t(),
+        required("Catalog") => String.t() | Atom.t(),
+        required("Identifier") => String.t() | Atom.t(),
         required("InvolvementType") => list(any())
       }
       
   """
-  @type submit_opportunity_request() :: %{String.t() => any()}
+  @type submit_opportunity_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       expected_customer_spend() :: %{
-        "Amount" => [String.t()],
+        "Amount" => [String.t() | Atom.t()],
         "CurrencyCode" => list(any()),
-        "EstimationUrl" => String.t(),
+        "EstimationUrl" => String.t() | Atom.t(),
         "Frequency" => list(any()),
-        "TargetCompany" => [String.t()]
+        "TargetCompany" => [String.t() | Atom.t()]
       }
       
   """
-  @type expected_customer_spend() :: %{String.t() => any()}
+  @type expected_customer_spend() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1001,28 +1013,28 @@ defmodule AWS.PartnerCentralSelling do
       
       life_cycle_summary() :: %{
         "ClosedLostReason" => list(any()),
-        "NextSteps" => String.t(),
-        "ReviewComments" => [String.t()],
+        "NextSteps" => String.t() | Atom.t(),
+        "ReviewComments" => [String.t() | Atom.t()],
         "ReviewStatus" => list(any()),
-        "ReviewStatusReason" => [String.t()],
+        "ReviewStatusReason" => [String.t() | Atom.t()],
         "Stage" => list(any()),
-        "TargetCloseDate" => String.t()
+        "TargetCloseDate" => String.t() | Atom.t()
       }
       
   """
-  @type life_cycle_summary() :: %{String.t() => any()}
+  @type life_cycle_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_engagement_invitation_request() :: %{
-        required("Catalog") => String.t(),
-        required("Identifier") => String.t()
+        required("Catalog") => String.t() | Atom.t(),
+        required("Identifier") => String.t() | Atom.t()
       }
       
   """
-  @type get_engagement_invitation_request() :: %{String.t() => any()}
+  @type get_engagement_invitation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1033,38 +1045,38 @@ defmodule AWS.PartnerCentralSelling do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_engagement_invitations_request() :: %{
-        optional("EngagementIdentifier") => list(String.t()),
+        optional("EngagementIdentifier") => list(String.t() | Atom.t()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t()],
+        optional("NextToken") => [String.t() | Atom.t()],
         optional("PayloadType") => list(list(any())()),
-        optional("SenderAwsAccountId") => list(String.t()),
+        optional("SenderAwsAccountId") => list(String.t() | Atom.t()),
         optional("Sort") => opportunity_engagement_invitation_sort(),
         optional("Status") => list(list(any())()),
-        required("Catalog") => String.t(),
+        required("Catalog") => String.t() | Atom.t(),
         required("ParticipantType") => list(any())
       }
       
   """
-  @type list_engagement_invitations_request() :: %{String.t() => any()}
+  @type list_engagement_invitations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_resource_snapshot_job_request() :: %{
-        required("Catalog") => String.t(),
-        required("ResourceSnapshotJobIdentifier") => String.t()
+        required("Catalog") => String.t() | Atom.t(),
+        required("ResourceSnapshotJobIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type delete_resource_snapshot_job_request() :: %{String.t() => any()}
+  @type delete_resource_snapshot_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1072,26 +1084,26 @@ defmodule AWS.PartnerCentralSelling do
       
       account_summary() :: %{
         "Address" => address_summary(),
-        "CompanyName" => String.t(),
+        "CompanyName" => String.t() | Atom.t(),
         "Industry" => list(any()),
-        "OtherIndustry" => [String.t()],
-        "WebsiteUrl" => String.t()
+        "OtherIndustry" => [String.t() | Atom.t()],
+        "WebsiteUrl" => String.t() | Atom.t()
       }
       
   """
-  @type account_summary() :: %{String.t() => any()}
+  @type account_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_opportunity_response() :: %{
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "LastModifiedDate" => non_neg_integer()
       }
       
   """
-  @type update_opportunity_response() :: %{String.t() => any()}
+  @type update_opportunity_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1099,51 +1111,51 @@ defmodule AWS.PartnerCentralSelling do
       
       marketing() :: %{
         "AwsFundingUsed" => list(any()),
-        "CampaignName" => [String.t()],
+        "CampaignName" => [String.t() | Atom.t()],
         "Channels" => list(list(any())()),
         "Source" => list(any()),
-        "UseCases" => list([String.t()]())
+        "UseCases" => list([String.t() | Atom.t()]())
       }
       
   """
-  @type marketing() :: %{String.t() => any()}
+  @type marketing() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_solutions_response() :: %{
-        "NextToken" => [String.t()],
+        "NextToken" => [String.t() | Atom.t()],
         "SolutionSummaries" => list(solution_base())
       }
       
   """
-  @type list_solutions_response() :: %{String.t() => any()}
+  @type list_solutions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_selling_system_settings_request() :: %{
-        required("Catalog") => String.t()
+        required("Catalog") => String.t() | Atom.t()
       }
       
   """
-  @type get_selling_system_settings_request() :: %{String.t() => any()}
+  @type get_selling_system_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       project_details() :: %{
-        "BusinessProblem" => String.t(),
+        "BusinessProblem" => String.t() | Atom.t(),
         "ExpectedCustomerSpend" => list(expected_customer_spend()),
-        "TargetCompletionDate" => String.t(),
-        "Title" => [String.t()]
+        "TargetCompletionDate" => String.t() | Atom.t(),
+        "Title" => [String.t() | Atom.t()]
       }
       
   """
-  @type project_details() :: %{String.t() => any()}
+  @type project_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1157,31 +1169,31 @@ defmodule AWS.PartnerCentralSelling do
         optional("OpportunityTeam") => list(contact()),
         optional("OpportunityType") => list(any()),
         optional("Origin") => list(any()),
-        optional("PartnerOpportunityIdentifier") => [String.t()],
+        optional("PartnerOpportunityIdentifier") => [String.t() | Atom.t()],
         optional("PrimaryNeedsFromAws") => list(list(any())()),
         optional("Project") => project(),
         optional("SoftwareRevenue") => software_revenue(),
-        required("Catalog") => String.t(),
-        required("ClientToken") => [String.t()]
+        required("Catalog") => String.t() | Atom.t(),
+        required("ClientToken") => [String.t() | Atom.t()]
       }
       
   """
-  @type create_opportunity_request() :: %{String.t() => any()}
+  @type create_opportunity_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       contact() :: %{
-        "BusinessTitle" => String.t(),
-        "Email" => String.t(),
-        "FirstName" => String.t(),
-        "LastName" => String.t(),
-        "Phone" => String.t()
+        "BusinessTitle" => String.t() | Atom.t(),
+        "Email" => String.t() | Atom.t(),
+        "FirstName" => String.t() | Atom.t(),
+        "LastName" => String.t() | Atom.t(),
+        "Phone" => String.t() | Atom.t()
       }
       
   """
-  @type contact() :: %{String.t() => any()}
+  @type contact() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1193,7 +1205,7 @@ defmodule AWS.PartnerCentralSelling do
       }
       
   """
-  @type sort_object() :: %{String.t() => any()}
+  @type sort_object() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1201,57 +1213,57 @@ defmodule AWS.PartnerCentralSelling do
       
       software_revenue() :: %{
         "DeliveryModel" => list(any()),
-        "EffectiveDate" => String.t(),
-        "ExpirationDate" => String.t(),
+        "EffectiveDate" => String.t() | Atom.t(),
+        "ExpirationDate" => String.t() | Atom.t(),
         "Value" => monetary_value()
       }
       
   """
-  @type software_revenue() :: %{String.t() => any()}
+  @type software_revenue() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       opportunity_summary() :: %{
-        "Arn" => String.t(),
-        "Catalog" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Catalog" => String.t() | Atom.t(),
         "CreatedDate" => non_neg_integer(),
         "Customer" => customer_summary(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "LastModifiedDate" => non_neg_integer(),
         "LifeCycle" => life_cycle_summary(),
         "OpportunityType" => list(any()),
-        "PartnerOpportunityIdentifier" => [String.t()],
+        "PartnerOpportunityIdentifier" => [String.t() | Atom.t()],
         "Project" => project_summary()
       }
       
   """
-  @type opportunity_summary() :: %{String.t() => any()}
+  @type opportunity_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_opportunities_response() :: %{
-        "NextToken" => [String.t()],
+        "NextToken" => [String.t() | Atom.t()],
         "OpportunitySummaries" => list(opportunity_summary())
       }
       
   """
-  @type list_opportunities_response() :: %{String.t() => any()}
+  @type list_opportunities_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       engagement_member_summary() :: %{
-        "CompanyName" => String.t(),
-        "WebsiteUrl" => [String.t()]
+        "CompanyName" => String.t() | Atom.t(),
+        "WebsiteUrl" => [String.t() | Atom.t()]
       }
       
   """
-  @type engagement_member_summary() :: %{String.t() => any()}
+  @type engagement_member_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1263,18 +1275,18 @@ defmodule AWS.PartnerCentralSelling do
       }
       
   """
-  @type list_tasks_sort_base() :: %{String.t() => any()}
+  @type list_tasks_sort_base() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1285,58 +1297,58 @@ defmodule AWS.PartnerCentralSelling do
       }
       
   """
-  @type customer_summary() :: %{String.t() => any()}
+  @type customer_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_resource_snapshot_jobs_response() :: %{
-        "NextToken" => [String.t()],
+        "NextToken" => [String.t() | Atom.t()],
         "ResourceSnapshotJobSummaries" => list(resource_snapshot_job_summary())
       }
       
   """
-  @type list_resource_snapshot_jobs_response() :: %{String.t() => any()}
+  @type list_resource_snapshot_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       address_summary() :: %{
-        "City" => String.t(),
+        "City" => String.t() | Atom.t(),
         "CountryCode" => list(any()),
-        "PostalCode" => String.t(),
-        "StateOrRegion" => String.t()
+        "PostalCode" => String.t() | Atom.t(),
+        "StateOrRegion" => String.t() | Atom.t()
       }
       
   """
-  @type address_summary() :: %{String.t() => any()}
+  @type address_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reject_engagement_invitation_request() :: %{
-        optional("RejectionReason") => String.t(),
-        required("Catalog") => String.t(),
-        required("Identifier") => String.t()
+        optional("RejectionReason") => String.t() | Atom.t(),
+        required("Catalog") => String.t() | Atom.t(),
+        required("Identifier") => String.t() | Atom.t()
       }
       
   """
-  @type reject_engagement_invitation_request() :: %{String.t() => any()}
+  @type reject_engagement_invitation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_engagement_response() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t()
       }
       
   """
-  @type create_engagement_response() :: %{String.t() => any()}
+  @type create_engagement_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1344,11 +1356,11 @@ defmodule AWS.PartnerCentralSelling do
       
       list_engagement_resource_associations_response() :: %{
         "EngagementResourceAssociationSummaries" => list(engagement_resource_association_summary()),
-        "NextToken" => [String.t()]
+        "NextToken" => [String.t() | Atom.t()]
       }
       
   """
-  @type list_engagement_resource_associations_response() :: %{String.t() => any()}
+  @type list_engagement_resource_associations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1357,52 +1369,52 @@ defmodule AWS.PartnerCentralSelling do
       start_engagement_from_opportunity_task_request() :: %{
         optional("Tags") => list(tag()),
         required("AwsSubmission") => aws_submission(),
-        required("Catalog") => String.t(),
-        required("ClientToken") => String.t(),
-        required("Identifier") => String.t()
+        required("Catalog") => String.t() | Atom.t(),
+        required("ClientToken") => String.t() | Atom.t(),
+        required("Identifier") => String.t() | Atom.t()
       }
       
   """
-  @type start_engagement_from_opportunity_task_request() :: %{String.t() => any()}
+  @type start_engagement_from_opportunity_task_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_snapshot_summary() :: %{
-        "Arn" => String.t(),
-        "CreatedBy" => String.t(),
-        "ResourceId" => String.t(),
-        "ResourceSnapshotTemplateName" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "CreatedBy" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | Atom.t(),
+        "ResourceSnapshotTemplateName" => String.t() | Atom.t(),
         "ResourceType" => list(any()),
         "Revision" => integer()
       }
       
   """
-  @type resource_snapshot_summary() :: %{String.t() => any()}
+  @type resource_snapshot_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_engagement_request() :: %{
-        required("Catalog") => String.t(),
-        required("Identifier") => String.t()
+        required("Catalog") => String.t() | Atom.t(),
+        required("Identifier") => String.t() | Atom.t()
       }
       
   """
-  @type get_engagement_request() :: %{String.t() => any()}
+  @type get_engagement_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1419,30 +1431,30 @@ defmodule AWS.PartnerCentralSelling do
       
       aws_opportunity_life_cycle() :: %{
         "ClosedLostReason" => list(any()),
-        "NextSteps" => String.t(),
+        "NextSteps" => String.t() | Atom.t(),
         "NextStepsHistory" => list(profile_next_steps_history()),
         "Stage" => list(any()),
-        "TargetCloseDate" => String.t()
+        "TargetCloseDate" => String.t() | Atom.t()
       }
       
   """
-  @type aws_opportunity_life_cycle() :: %{String.t() => any()}
+  @type aws_opportunity_life_cycle() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       engagement_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreatedAt" => non_neg_integer(),
-        "CreatedBy" => String.t(),
-        "Id" => String.t(),
+        "CreatedBy" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "MemberCount" => [integer()],
-        "Title" => String.t()
+        "Title" => String.t() | Atom.t()
       }
       
   """
-  @type engagement_summary() :: %{String.t() => any()}
+  @type engagement_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1450,68 +1462,68 @@ defmodule AWS.PartnerCentralSelling do
       
       validation_exception_error() :: %{
         "Code" => list(any()),
-        "FieldName" => [String.t()],
-        "Message" => [String.t()]
+        "FieldName" => [String.t() | Atom.t()],
+        "Message" => [String.t() | Atom.t()]
       }
       
   """
-  @type validation_exception_error() :: %{String.t() => any()}
+  @type validation_exception_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_resource_snapshot_job_request() :: %{
-        required("Catalog") => String.t(),
-        required("ResourceSnapshotJobIdentifier") => String.t()
+        required("Catalog") => String.t() | Atom.t(),
+        required("ResourceSnapshotJobIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type start_resource_snapshot_job_request() :: %{String.t() => any()}
+  @type start_resource_snapshot_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_resource_snapshot_jobs_request() :: %{
-        optional("EngagementIdentifier") => String.t(),
+        optional("EngagementIdentifier") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t()],
+        optional("NextToken") => [String.t() | Atom.t()],
         optional("Sort") => sort_object(),
         optional("Status") => list(any()),
-        required("Catalog") => String.t()
+        required("Catalog") => String.t() | Atom.t()
       }
       
   """
-  @type list_resource_snapshot_jobs_request() :: %{String.t() => any()}
+  @type list_resource_snapshot_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_engagement_from_opportunity_tasks_response() :: %{
-        "NextToken" => [String.t()],
+        "NextToken" => [String.t() | Atom.t()],
         "TaskSummaries" => list(list_engagement_from_opportunity_task_summary())
       }
       
   """
-  @type list_engagement_from_opportunity_tasks_response() :: %{String.t() => any()}
+  @type list_engagement_from_opportunity_tasks_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_resource_snapshot_request() :: %{
-        required("Catalog") => String.t(),
-        required("ClientToken") => String.t(),
-        required("EngagementIdentifier") => String.t(),
-        required("ResourceIdentifier") => String.t(),
-        required("ResourceSnapshotTemplateIdentifier") => String.t(),
+        required("Catalog") => String.t() | Atom.t(),
+        required("ClientToken") => String.t() | Atom.t(),
+        required("EngagementIdentifier") => String.t() | Atom.t(),
+        required("ResourceIdentifier") => String.t() | Atom.t(),
+        required("ResourceSnapshotTemplateIdentifier") => String.t() | Atom.t(),
         required("ResourceType") => list(any())
       }
       
   """
-  @type create_resource_snapshot_request() :: %{String.t() => any()}
+  @type create_resource_snapshot_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1519,23 +1531,23 @@ defmodule AWS.PartnerCentralSelling do
       
       validation_exception() :: %{
         "ErrorList" => list(validation_exception_error()),
-        "Message" => [String.t()],
+        "Message" => [String.t() | Atom.t()],
         "Reason" => list(any())
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1547,50 +1559,50 @@ defmodule AWS.PartnerCentralSelling do
       }
       
   """
-  @type customer_projects_context() :: %{String.t() => any()}
+  @type customer_projects_context() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_resource_snapshot_response() :: %{
-        "Arn" => String.t(),
-        "Catalog" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Catalog" => String.t() | Atom.t(),
         "CreatedAt" => non_neg_integer(),
-        "CreatedBy" => String.t(),
-        "EngagementId" => String.t(),
+        "CreatedBy" => String.t() | Atom.t(),
+        "EngagementId" => String.t() | Atom.t(),
         "Payload" => list(),
-        "ResourceId" => String.t(),
-        "ResourceSnapshotTemplateName" => String.t(),
+        "ResourceId" => String.t() | Atom.t(),
+        "ResourceSnapshotTemplateName" => String.t() | Atom.t(),
         "ResourceType" => list(any()),
         "Revision" => integer()
       }
       
   """
-  @type get_resource_snapshot_response() :: %{String.t() => any()}
+  @type get_resource_snapshot_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       accept_engagement_invitation_request() :: %{
-        required("Catalog") => String.t(),
-        required("Identifier") => String.t()
+        required("Catalog") => String.t() | Atom.t(),
+        required("Identifier") => String.t() | Atom.t()
       }
       
   """
-  @type accept_engagement_invitation_request() :: %{String.t() => any()}
+  @type accept_engagement_invitation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1598,16 +1610,16 @@ defmodule AWS.PartnerCentralSelling do
       
       create_resource_snapshot_job_request() :: %{
         optional("Tags") => list(tag()),
-        required("Catalog") => String.t(),
-        required("ClientToken") => String.t(),
-        required("EngagementIdentifier") => String.t(),
-        required("ResourceIdentifier") => String.t(),
-        required("ResourceSnapshotTemplateIdentifier") => String.t(),
+        required("Catalog") => String.t() | Atom.t(),
+        required("ClientToken") => String.t() | Atom.t(),
+        required("EngagementIdentifier") => String.t() | Atom.t(),
+        required("ResourceIdentifier") => String.t() | Atom.t(),
+        required("ResourceSnapshotTemplateIdentifier") => String.t() | Atom.t(),
         required("ResourceType") => list(any())
       }
       
   """
-  @type create_resource_snapshot_job_request() :: %{String.t() => any()}
+  @type create_resource_snapshot_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1615,11 +1627,11 @@ defmodule AWS.PartnerCentralSelling do
       
       next_steps_history() :: %{
         "Time" => non_neg_integer(),
-        "Value" => [String.t()]
+        "Value" => [String.t() | Atom.t()]
       }
       
   """
-  @type next_steps_history() :: %{String.t() => any()}
+  @type next_steps_history() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1630,170 +1642,170 @@ defmodule AWS.PartnerCentralSelling do
       }
       
   """
-  @type aws_opportunity_customer() :: %{String.t() => any()}
+  @type aws_opportunity_customer() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_engagement_invitation_response() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t()
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t()
       }
       
   """
-  @type create_engagement_invitation_response() :: %{String.t() => any()}
+  @type create_engagement_invitation_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       account_receiver() :: %{
-        "Alias" => String.t(),
-        "AwsAccountId" => String.t()
+        "Alias" => String.t() | Atom.t(),
+        "AwsAccountId" => String.t() | Atom.t()
       }
       
   """
-  @type account_receiver() :: %{String.t() => any()}
+  @type account_receiver() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       assignee_contact() :: %{
-        "BusinessTitle" => String.t(),
-        "Email" => String.t(),
-        "FirstName" => String.t(),
-        "LastName" => String.t()
+        "BusinessTitle" => String.t() | Atom.t(),
+        "Email" => String.t() | Atom.t(),
+        "FirstName" => String.t() | Atom.t(),
+        "LastName" => String.t() | Atom.t()
       }
       
   """
-  @type assignee_contact() :: %{String.t() => any()}
+  @type assignee_contact() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_opportunity_request() :: %{
-        required("Catalog") => String.t(),
-        required("OpportunityIdentifier") => String.t(),
-        required("RelatedEntityIdentifier") => [String.t()],
+        required("Catalog") => String.t() | Atom.t(),
+        required("OpportunityIdentifier") => String.t() | Atom.t(),
+        required("RelatedEntityIdentifier") => [String.t() | Atom.t()],
         required("RelatedEntityType") => list(any())
       }
       
   """
-  @type disassociate_opportunity_request() :: %{String.t() => any()}
+  @type disassociate_opportunity_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       engagement_customer_project_details() :: %{
-        "BusinessProblem" => String.t(),
-        "TargetCompletionDate" => [String.t()],
-        "Title" => String.t()
+        "BusinessProblem" => String.t() | Atom.t(),
+        "TargetCompletionDate" => [String.t() | Atom.t()],
+        "Title" => String.t() | Atom.t()
       }
       
   """
-  @type engagement_customer_project_details() :: %{String.t() => any()}
+  @type engagement_customer_project_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       monetary_value() :: %{
-        "Amount" => [String.t()],
+        "Amount" => [String.t() | Atom.t()],
         "CurrencyCode" => list(any())
       }
       
   """
-  @type monetary_value() :: %{String.t() => any()}
+  @type monetary_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       address() :: %{
-        "City" => String.t(),
+        "City" => String.t() | Atom.t(),
         "CountryCode" => list(any()),
-        "PostalCode" => String.t(),
-        "StateOrRegion" => String.t(),
-        "StreetAddress" => String.t()
+        "PostalCode" => String.t() | Atom.t(),
+        "StateOrRegion" => String.t() | Atom.t(),
+        "StreetAddress" => String.t() | Atom.t()
       }
       
   """
-  @type address() :: %{String.t() => any()}
+  @type address() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       solution_base() :: %{
-        "Arn" => String.t(),
-        "Catalog" => String.t(),
-        "Category" => [String.t()],
+        "Arn" => String.t() | Atom.t(),
+        "Catalog" => String.t() | Atom.t(),
+        "Category" => [String.t() | Atom.t()],
         "CreatedDate" => non_neg_integer(),
-        "Id" => String.t(),
-        "Name" => [String.t()],
+        "Id" => String.t() | Atom.t(),
+        "Name" => [String.t() | Atom.t()],
         "Status" => list(any())
       }
       
   """
-  @type solution_base() :: %{String.t() => any()}
+  @type solution_base() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_resource_snapshot_job_request() :: %{
-        required("Catalog") => String.t(),
-        required("ResourceSnapshotJobIdentifier") => String.t()
+        required("Catalog") => String.t() | Atom.t(),
+        required("ResourceSnapshotJobIdentifier") => String.t() | Atom.t()
       }
       
   """
-  @type get_resource_snapshot_job_request() :: %{String.t() => any()}
+  @type get_resource_snapshot_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       engagement_resource_association_summary() :: %{
-        "Catalog" => String.t(),
-        "CreatedBy" => String.t(),
-        "EngagementId" => String.t(),
-        "ResourceId" => String.t(),
+        "Catalog" => String.t() | Atom.t(),
+        "CreatedBy" => String.t() | Atom.t(),
+        "EngagementId" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | Atom.t(),
         "ResourceType" => list(any())
       }
       
   """
-  @type engagement_resource_association_summary() :: %{String.t() => any()}
+  @type engagement_resource_association_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_engagement_invitation_response() :: %{
-        "Arn" => [String.t()],
-        "Catalog" => String.t(),
-        "EngagementDescription" => String.t(),
-        "EngagementId" => String.t(),
-        "EngagementTitle" => String.t(),
+        "Arn" => [String.t() | Atom.t()],
+        "Catalog" => String.t() | Atom.t(),
+        "EngagementDescription" => String.t() | Atom.t(),
+        "EngagementId" => String.t() | Atom.t(),
+        "EngagementTitle" => String.t() | Atom.t(),
         "ExistingMembers" => list(engagement_member_summary()),
         "ExpirationDate" => non_neg_integer(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "InvitationDate" => non_neg_integer(),
-        "InvitationMessage" => String.t(),
+        "InvitationMessage" => String.t() | Atom.t(),
         "Payload" => list(),
         "PayloadType" => list(any()),
         "Receiver" => list(),
-        "RejectionReason" => String.t(),
-        "SenderAwsAccountId" => String.t(),
-        "SenderCompanyName" => [String.t()],
+        "RejectionReason" => String.t() | Atom.t(),
+        "SenderAwsAccountId" => String.t() | Atom.t(),
+        "SenderCompanyName" => [String.t() | Atom.t()],
         "Status" => list(any())
       }
       
   """
-  @type get_engagement_invitation_response() :: %{String.t() => any()}
+  @type get_engagement_invitation_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1810,74 +1822,74 @@ defmodule AWS.PartnerCentralSelling do
       }
       
   """
-  @type opportunity_summary_view() :: %{String.t() => any()}
+  @type opportunity_summary_view() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_engagements_request() :: %{
-        optional("CreatedBy") => list(String.t()),
-        optional("EngagementIdentifier") => list(String.t()),
-        optional("ExcludeCreatedBy") => list(String.t()),
+        optional("CreatedBy") => list(String.t() | Atom.t()),
+        optional("EngagementIdentifier") => list(String.t() | Atom.t()),
+        optional("ExcludeCreatedBy") => list(String.t() | Atom.t()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t()],
+        optional("NextToken") => [String.t() | Atom.t()],
         optional("Sort") => engagement_sort(),
-        required("Catalog") => String.t()
+        required("Catalog") => String.t() | Atom.t()
       }
       
   """
-  @type list_engagements_request() :: %{String.t() => any()}
+  @type list_engagements_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_engagement_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "Contexts" => list(engagement_context_details()),
         "CreatedAt" => non_neg_integer(),
-        "CreatedBy" => String.t(),
-        "Description" => String.t(),
-        "Id" => String.t(),
+        "CreatedBy" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "MemberCount" => [integer()],
-        "Title" => String.t()
+        "Title" => String.t() | Atom.t()
       }
       
   """
-  @type get_engagement_response() :: %{String.t() => any()}
+  @type get_engagement_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_opportunity_request() :: %{
-        required("Catalog") => String.t(),
-        required("Identifier") => String.t()
+        required("Catalog") => String.t() | Atom.t(),
+        required("Identifier") => String.t() | Atom.t()
       }
       
   """
-  @type get_opportunity_request() :: %{String.t() => any()}
+  @type get_opportunity_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_engagement_from_opportunity_task_summary() :: %{
-        "EngagementId" => String.t(),
-        "EngagementInvitationId" => String.t(),
-        "Message" => [String.t()],
-        "OpportunityId" => String.t(),
+        "EngagementId" => String.t() | Atom.t(),
+        "EngagementInvitationId" => String.t() | Atom.t(),
+        "Message" => [String.t() | Atom.t()],
+        "OpportunityId" => String.t() | Atom.t(),
         "ReasonCode" => list(any()),
-        "ResourceSnapshotJobId" => String.t(),
+        "ResourceSnapshotJobId" => String.t() | Atom.t(),
         "StartTime" => non_neg_integer(),
-        "TaskArn" => String.t(),
-        "TaskId" => String.t(),
+        "TaskArn" => String.t() | Atom.t(),
+        "TaskId" => String.t() | Atom.t(),
         "TaskStatus" => list(any())
       }
       
   """
-  @type list_engagement_from_opportunity_task_summary() :: %{String.t() => any()}
+  @type list_engagement_from_opportunity_task_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1889,29 +1901,29 @@ defmodule AWS.PartnerCentralSelling do
       }
       
   """
-  @type aws_submission() :: %{String.t() => any()}
+  @type aws_submission() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_resource_snapshot_job_response() :: %{
-        "Arn" => String.t(),
-        "Catalog" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Catalog" => String.t() | Atom.t(),
         "CreatedAt" => non_neg_integer(),
-        "EngagementId" => String.t(),
-        "Id" => String.t(),
-        "LastFailure" => [String.t()],
+        "EngagementId" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "LastFailure" => [String.t() | Atom.t()],
         "LastSuccessfulExecutionDate" => non_neg_integer(),
-        "ResourceArn" => String.t(),
-        "ResourceId" => String.t(),
-        "ResourceSnapshotTemplateName" => String.t(),
+        "ResourceArn" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | Atom.t(),
+        "ResourceSnapshotTemplateName" => String.t() | Atom.t(),
         "ResourceType" => list(any()),
         "Status" => list(any())
       }
       
   """
-  @type get_resource_snapshot_job_response() :: %{String.t() => any()}
+  @type get_resource_snapshot_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1919,13 +1931,16 @@ defmodule AWS.PartnerCentralSelling do
       
       start_engagement_by_accepting_invitation_task_request() :: %{
         optional("Tags") => list(tag()),
-        required("Catalog") => String.t(),
-        required("ClientToken") => String.t(),
-        required("Identifier") => String.t()
+        required("Catalog") => String.t() | Atom.t(),
+        required("ClientToken") => String.t() | Atom.t(),
+        required("Identifier") => String.t() | Atom.t()
       }
       
   """
-  @type start_engagement_by_accepting_invitation_task_request() :: %{String.t() => any()}
+  @type start_engagement_by_accepting_invitation_task_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @type accept_engagement_invitation_errors() ::
           throttling_exception()

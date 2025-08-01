@@ -45,17 +45,17 @@ defmodule AWS.GeoPlaces do
         "FoodTypes" => list(food_type()),
         "Intersections" => list(intersection()),
         "MapView" => list([float()]()),
-        "PlaceId" => String.t(),
-        "PlaceType" => String.t(),
-        "PoliticalView" => String.t(),
+        "PlaceId" => String.t() | Atom.t(),
+        "PlaceType" => String.t() | Atom.t(),
+        "PoliticalView" => String.t() | Atom.t(),
         "Position" => list([float()]()),
         "PostalCodeDetails" => list(postal_code_details()),
         "TimeZone" => time_zone(),
-        "Title" => String.t()
+        "Title" => String.t() | Atom.t()
       }
 
   """
-  @type reverse_geocode_result_item() :: %{String.t() => any()}
+  @type reverse_geocode_result_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -78,19 +78,19 @@ defmodule AWS.GeoPlaces do
       }
 
   """
-  @type geocode_parsed_query_address_components() :: %{String.t() => any()}
+  @type geocode_parsed_query_address_components() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       sub_region() :: %{
-        "Code" => String.t(),
-        "Name" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type sub_region() :: %{String.t() => any()}
+  @type sub_region() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -102,38 +102,38 @@ defmodule AWS.GeoPlaces do
       }
 
   """
-  @type phoneme_details() :: %{String.t() => any()}
+  @type phoneme_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       autocomplete_response() :: %{
-        "PricingBucket" => [String.t()],
+        "PricingBucket" => [String.t() | Atom.t()],
         "ResultItems" => list(autocomplete_result_item())
       }
 
   """
-  @type autocomplete_response() :: %{String.t() => any()}
+  @type autocomplete_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       reverse_geocode_request() :: %{
-        optional("AdditionalFeatures") => list(String.t()),
+        optional("AdditionalFeatures") => list(String.t() | Atom.t()),
         optional("Filter") => reverse_geocode_filter(),
-        optional("IntendedUse") => String.t(),
-        optional("Key") => String.t(),
-        optional("Language") => String.t(),
+        optional("IntendedUse") => String.t() | Atom.t(),
+        optional("Key") => String.t() | Atom.t(),
+        optional("Language") => String.t() | Atom.t(),
         optional("MaxResults") => [integer()],
-        optional("PoliticalView") => String.t(),
+        optional("PoliticalView") => String.t() | Atom.t(),
         optional("QueryRadius") => float(),
         required("QueryPosition") => list([float()]())
       }
 
   """
-  @type reverse_geocode_request() :: %{String.t() => any()}
+  @type reverse_geocode_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -152,16 +152,16 @@ defmodule AWS.GeoPlaces do
         "MapView" => list([float()]()),
         "OpeningHours" => list(opening_hours()),
         "Phonemes" => phoneme_details(),
-        "PlaceId" => String.t(),
-        "PlaceType" => String.t(),
-        "PoliticalView" => String.t(),
+        "PlaceId" => String.t() | Atom.t(),
+        "PlaceType" => String.t() | Atom.t(),
+        "PoliticalView" => String.t() | Atom.t(),
         "Position" => list([float()]()),
         "TimeZone" => time_zone(),
-        "Title" => String.t()
+        "Title" => String.t() | Atom.t()
       }
 
   """
-  @type search_text_result_item() :: %{String.t() => any()}
+  @type search_text_result_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -173,7 +173,7 @@ defmodule AWS.GeoPlaces do
       }
 
   """
-  @type country_highlights() :: %{String.t() => any()}
+  @type country_highlights() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -184,7 +184,7 @@ defmodule AWS.GeoPlaces do
       }
 
   """
-  @type suggest_address_highlights() :: %{String.t() => any()}
+  @type suggest_address_highlights() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -193,24 +193,24 @@ defmodule AWS.GeoPlaces do
       highlight() :: %{
         "EndIndex" => [integer()],
         "StartIndex" => [integer()],
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type highlight() :: %{String.t() => any()}
+  @type highlight() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       suggest_response() :: %{
-        "PricingBucket" => [String.t()],
+        "PricingBucket" => [String.t() | Atom.t()],
         "QueryRefinements" => list(query_refinement()),
         "ResultItems" => list(suggest_result_item())
       }
 
   """
-  @type suggest_response() :: %{String.t() => any()}
+  @type suggest_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -218,17 +218,17 @@ defmodule AWS.GeoPlaces do
 
       search_nearby_filter() :: %{
         "BoundingBox" => list([float()]()),
-        "ExcludeBusinessChains" => list(String.t()),
-        "ExcludeCategories" => list(String.t()),
-        "ExcludeFoodTypes" => list(String.t()),
-        "IncludeBusinessChains" => list(String.t()),
-        "IncludeCategories" => list(String.t()),
-        "IncludeCountries" => list(String.t()),
-        "IncludeFoodTypes" => list(String.t())
+        "ExcludeBusinessChains" => list(String.t() | Atom.t()),
+        "ExcludeCategories" => list(String.t() | Atom.t()),
+        "ExcludeFoodTypes" => list(String.t() | Atom.t()),
+        "IncludeBusinessChains" => list(String.t() | Atom.t()),
+        "IncludeCategories" => list(String.t() | Atom.t()),
+        "IncludeCountries" => list(String.t() | Atom.t()),
+        "IncludeFoodTypes" => list(String.t() | Atom.t())
       }
 
   """
-  @type search_nearby_filter() :: %{String.t() => any()}
+  @type search_nearby_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -240,7 +240,7 @@ defmodule AWS.GeoPlaces do
       }
 
   """
-  @type filter_circle() :: %{String.t() => any()}
+  @type filter_circle() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -264,31 +264,31 @@ defmodule AWS.GeoPlaces do
       }
 
   """
-  @type autocomplete_address_highlights() :: %{String.t() => any()}
+  @type autocomplete_address_highlights() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       usps_zip() :: %{
-        "ZipClassificationCode" => String.t()
+        "ZipClassificationCode" => String.t() | Atom.t()
       }
 
   """
-  @type usps_zip() :: %{String.t() => any()}
+  @type usps_zip() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       search_text_response() :: %{
-        "NextToken" => String.t(),
-        "PricingBucket" => [String.t()],
+        "NextToken" => String.t() | Atom.t(),
+        "PricingBucket" => [String.t() | Atom.t()],
         "ResultItems" => list(search_text_result_item())
       }
 
   """
-  @type search_text_response() :: %{String.t() => any()}
+  @type search_text_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -304,28 +304,28 @@ defmodule AWS.GeoPlaces do
         "FoodTypes" => list(food_type()),
         "MapView" => list([float()]()),
         "Phonemes" => phoneme_details(),
-        "PlaceId" => String.t(),
-        "PlaceType" => String.t(),
-        "PoliticalView" => String.t(),
+        "PlaceId" => String.t() | Atom.t(),
+        "PlaceType" => String.t() | Atom.t(),
+        "PoliticalView" => String.t() | Atom.t(),
         "Position" => list([float()]()),
         "TimeZone" => time_zone()
       }
 
   """
-  @type suggest_place_result() :: %{String.t() => any()}
+  @type suggest_place_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       food_type() :: %{
-        "Id" => String.t(),
-        "LocalizedName" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "LocalizedName" => String.t() | Atom.t(),
         "Primary" => boolean()
       }
 
   """
-  @type food_type() :: %{String.t() => any()}
+  @type food_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -337,44 +337,44 @@ defmodule AWS.GeoPlaces do
       }
 
   """
-  @type match_score_details() :: %{String.t() => any()}
+  @type match_score_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       country() :: %{
-        "Code2" => String.t(),
-        "Code3" => String.t(),
-        "Name" => String.t()
+        "Code2" => String.t() | Atom.t(),
+        "Code3" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type country() :: %{String.t() => any()}
+  @type country() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       suggest_query_result() :: %{
-        "QueryId" => String.t(),
-        "QueryType" => String.t()
+        "QueryId" => String.t() | Atom.t(),
+        "QueryType" => String.t() | Atom.t()
       }
 
   """
-  @type suggest_query_result() :: %{String.t() => any()}
+  @type suggest_query_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       geocode_filter() :: %{
-        "IncludeCountries" => list(String.t()),
-        "IncludePlaceTypes" => list(String.t())
+        "IncludeCountries" => list(String.t() | Atom.t()),
+        "IncludePlaceTypes" => list(String.t() | Atom.t())
       }
 
   """
-  @type geocode_filter() :: %{String.t() => any()}
+  @type geocode_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -386,7 +386,7 @@ defmodule AWS.GeoPlaces do
       }
 
   """
-  @type autocomplete_highlights() :: %{String.t() => any()}
+  @type autocomplete_highlights() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -396,15 +396,15 @@ defmodule AWS.GeoPlaces do
         "Address" => address(),
         "Distance" => float(),
         "Highlights" => autocomplete_highlights(),
-        "Language" => String.t(),
-        "PlaceId" => String.t(),
-        "PlaceType" => String.t(),
-        "PoliticalView" => String.t(),
-        "Title" => String.t()
+        "Language" => String.t() | Atom.t(),
+        "PlaceId" => String.t() | Atom.t(),
+        "PlaceType" => String.t() | Atom.t(),
+        "PoliticalView" => String.t() | Atom.t(),
+        "Title" => String.t() | Atom.t()
       }
 
   """
-  @type autocomplete_result_item() :: %{String.t() => any()}
+  @type autocomplete_result_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -416,30 +416,30 @@ defmodule AWS.GeoPlaces do
       }
 
   """
-  @type region_highlights() :: %{String.t() => any()}
+  @type region_highlights() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       usps_zip_plus4() :: %{
-        "RecordTypeCode" => String.t()
+        "RecordTypeCode" => String.t() | Atom.t()
       }
 
   """
-  @type usps_zip_plus4() :: %{String.t() => any()}
+  @type usps_zip_plus4() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       reverse_geocode_response() :: %{
-        "PricingBucket" => [String.t()],
+        "PricingBucket" => [String.t() | Atom.t()],
         "ResultItems" => list(reverse_geocode_result_item())
       }
 
   """
-  @type reverse_geocode_response() :: %{String.t() => any()}
+  @type reverse_geocode_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -451,90 +451,90 @@ defmodule AWS.GeoPlaces do
       }
 
   """
-  @type geocode_parsed_query() :: %{String.t() => any()}
+  @type geocode_parsed_query() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       region() :: %{
-        "Code" => String.t(),
-        "Name" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type region() :: %{String.t() => any()}
+  @type region() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       street_components() :: %{
-        "BaseName" => String.t(),
-        "Direction" => String.t(),
-        "Language" => String.t(),
-        "Prefix" => String.t(),
-        "Suffix" => String.t(),
-        "Type" => String.t(),
-        "TypePlacement" => String.t(),
-        "TypeSeparator" => String.t()
+        "BaseName" => String.t() | Atom.t(),
+        "Direction" => String.t() | Atom.t(),
+        "Language" => String.t() | Atom.t(),
+        "Prefix" => String.t() | Atom.t(),
+        "Suffix" => String.t() | Atom.t(),
+        "Type" => String.t() | Atom.t(),
+        "TypePlacement" => String.t() | Atom.t(),
+        "TypeSeparator" => String.t() | Atom.t()
       }
 
   """
-  @type street_components() :: %{String.t() => any()}
+  @type street_components() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       suggest_request() :: %{
-        optional("AdditionalFeatures") => list(String.t()),
+        optional("AdditionalFeatures") => list(String.t() | Atom.t()),
         optional("BiasPosition") => list([float()]()),
         optional("Filter") => suggest_filter(),
-        optional("IntendedUse") => String.t(),
-        optional("Key") => String.t(),
-        optional("Language") => String.t(),
+        optional("IntendedUse") => String.t() | Atom.t(),
+        optional("Key") => String.t() | Atom.t(),
+        optional("Language") => String.t() | Atom.t(),
         optional("MaxQueryRefinements") => [integer()],
         optional("MaxResults") => [integer()],
-        optional("PoliticalView") => String.t(),
-        required("QueryText") => String.t()
+        optional("PoliticalView") => String.t() | Atom.t(),
+        required("QueryText") => String.t() | Atom.t()
       }
 
   """
-  @type suggest_request() :: %{String.t() => any()}
+  @type suggest_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       business_chain() :: %{
-        "Id" => String.t(),
-        "Name" => String.t()
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type business_chain() :: %{String.t() => any()}
+  @type business_chain() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       search_text_request() :: %{
-        optional("AdditionalFeatures") => list(String.t()),
+        optional("AdditionalFeatures") => list(String.t() | Atom.t()),
         optional("BiasPosition") => list([float()]()),
         optional("Filter") => search_text_filter(),
-        optional("IntendedUse") => String.t(),
-        optional("Key") => String.t(),
-        optional("Language") => String.t(),
+        optional("IntendedUse") => String.t() | Atom.t(),
+        optional("Key") => String.t() | Atom.t(),
+        optional("Language") => String.t() | Atom.t(),
         optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t(),
-        optional("PoliticalView") => String.t(),
-        optional("QueryId") => String.t(),
-        optional("QueryText") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("PoliticalView") => String.t() | Atom.t(),
+        optional("QueryId") => String.t() | Atom.t(),
+        optional("QueryText") => String.t() | Atom.t()
       }
 
   """
-  @type search_text_request() :: %{String.t() => any()}
+  @type search_text_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -546,7 +546,7 @@ defmodule AWS.GeoPlaces do
       }
 
   """
-  @type access_restriction() :: %{String.t() => any()}
+  @type access_restriction() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -555,39 +555,39 @@ defmodule AWS.GeoPlaces do
       search_text_filter() :: %{
         "BoundingBox" => list([float()]()),
         "Circle" => filter_circle(),
-        "IncludeCountries" => list(String.t())
+        "IncludeCountries" => list(String.t() | Atom.t())
       }
 
   """
-  @type search_text_filter() :: %{String.t() => any()}
+  @type search_text_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       opening_hours_components() :: %{
-        "OpenDuration" => String.t(),
-        "OpenTime" => String.t(),
-        "Recurrence" => String.t()
+        "OpenDuration" => String.t() | Atom.t(),
+        "OpenTime" => String.t() | Atom.t(),
+        "Recurrence" => String.t() | Atom.t()
       }
 
   """
-  @type opening_hours_components() :: %{String.t() => any()}
+  @type opening_hours_components() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       postal_code_details() :: %{
-        "PostalAuthority" => String.t(),
-        "PostalCode" => String.t(),
-        "PostalCodeType" => String.t(),
+        "PostalAuthority" => String.t() | Atom.t(),
+        "PostalCode" => String.t() | Atom.t(),
+        "PostalCodeType" => String.t() | Atom.t(),
         "UspsZip" => usps_zip(),
         "UspsZipPlus4" => usps_zip_plus4()
       }
 
   """
-  @type postal_code_details() :: %{String.t() => any()}
+  @type postal_code_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -595,68 +595,68 @@ defmodule AWS.GeoPlaces do
 
       parsed_query_component() :: %{
         "EndIndex" => [integer()],
-        "QueryComponent" => String.t(),
+        "QueryComponent" => String.t() | Atom.t(),
         "StartIndex" => [integer()],
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type parsed_query_component() :: %{String.t() => any()}
+  @type parsed_query_component() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "Message" => [String.t()],
-        "Name" => [String.t()]
+        "Message" => [String.t() | Atom.t()],
+        "Name" => [String.t() | Atom.t()]
       }
 
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_place_request() :: %{
-        optional("AdditionalFeatures") => list(String.t()),
-        optional("IntendedUse") => String.t(),
-        optional("Key") => String.t(),
-        optional("Language") => String.t(),
-        optional("PoliticalView") => String.t()
+        optional("AdditionalFeatures") => list(String.t() | Atom.t()),
+        optional("IntendedUse") => String.t() | Atom.t(),
+        optional("Key") => String.t() | Atom.t(),
+        optional("Language") => String.t() | Atom.t(),
+        optional("PoliticalView") => String.t() | Atom.t()
       }
 
   """
-  @type get_place_request() :: %{String.t() => any()}
+  @type get_place_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       time_zone() :: %{
-        "Name" => String.t(),
-        "Offset" => String.t(),
+        "Name" => String.t() | Atom.t(),
+        "Offset" => String.t() | Atom.t(),
         "OffsetSeconds" => float()
       }
 
   """
-  @type time_zone() :: %{String.t() => any()}
+  @type time_zone() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       parsed_query_secondary_address_component() :: %{
-        "Designator" => String.t(),
+        "Designator" => String.t() | Atom.t(),
         "EndIndex" => [integer()],
-        "Number" => String.t(),
+        "Number" => String.t() | Atom.t(),
         "StartIndex" => [integer()],
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type parsed_query_secondary_address_component() :: %{String.t() => any()}
+  @type parsed_query_secondary_address_component() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -664,13 +664,13 @@ defmodule AWS.GeoPlaces do
 
       query_refinement() :: %{
         "EndIndex" => [integer()],
-        "OriginalTerm" => String.t(),
-        "RefinedTerm" => String.t(),
+        "OriginalTerm" => String.t() | Atom.t(),
+        "RefinedTerm" => String.t() | Atom.t(),
         "StartIndex" => [integer()]
       }
 
   """
-  @type query_refinement() :: %{String.t() => any()}
+  @type query_refinement() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -682,72 +682,72 @@ defmodule AWS.GeoPlaces do
       }
 
   """
-  @type suggest_highlights() :: %{String.t() => any()}
+  @type suggest_highlights() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       autocomplete_request() :: %{
-        optional("AdditionalFeatures") => list(String.t()),
+        optional("AdditionalFeatures") => list(String.t() | Atom.t()),
         optional("BiasPosition") => list([float()]()),
         optional("Filter") => autocomplete_filter(),
-        optional("IntendedUse") => String.t(),
-        optional("Key") => String.t(),
-        optional("Language") => String.t(),
+        optional("IntendedUse") => String.t() | Atom.t(),
+        optional("Key") => String.t() | Atom.t(),
+        optional("Language") => String.t() | Atom.t(),
         optional("MaxResults") => [integer()],
-        optional("PoliticalView") => String.t(),
-        optional("PostalCodeMode") => String.t(),
-        required("QueryText") => String.t()
+        optional("PoliticalView") => String.t() | Atom.t(),
+        optional("PostalCodeMode") => String.t() | Atom.t(),
+        required("QueryText") => String.t() | Atom.t()
       }
 
   """
-  @type autocomplete_request() :: %{String.t() => any()}
+  @type autocomplete_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       secondary_address_component() :: %{
-        "Number" => String.t()
+        "Number" => String.t() | Atom.t()
       }
 
   """
-  @type secondary_address_component() :: %{String.t() => any()}
+  @type secondary_address_component() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       geocode_response() :: %{
-        "PricingBucket" => [String.t()],
+        "PricingBucket" => [String.t() | Atom.t()],
         "ResultItems" => list(geocode_result_item())
       }
 
   """
-  @type geocode_response() :: %{String.t() => any()}
+  @type geocode_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -758,7 +758,7 @@ defmodule AWS.GeoPlaces do
       }
 
   """
-  @type secondary_address_component_match_score() :: %{String.t() => any()}
+  @type secondary_address_component_match_score() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -769,14 +769,14 @@ defmodule AWS.GeoPlaces do
         "Address" => address(),
         "Distance" => float(),
         "MapView" => list([float()]()),
-        "PlaceId" => String.t(),
+        "PlaceId" => String.t() | Atom.t(),
         "Position" => list([float()]()),
         "RouteDistance" => float(),
-        "Title" => String.t()
+        "Title" => String.t() | Atom.t()
       }
 
   """
-  @type intersection() :: %{String.t() => any()}
+  @type intersection() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -795,16 +795,16 @@ defmodule AWS.GeoPlaces do
         "MapView" => list([float()]()),
         "OpeningHours" => list(opening_hours()),
         "Phonemes" => phoneme_details(),
-        "PlaceId" => String.t(),
-        "PlaceType" => String.t(),
-        "PoliticalView" => String.t(),
+        "PlaceId" => String.t() | Atom.t(),
+        "PlaceType" => String.t() | Atom.t(),
+        "PoliticalView" => String.t() | Atom.t(),
         "Position" => list([float()]()),
         "TimeZone" => time_zone(),
-        "Title" => String.t()
+        "Title" => String.t() | Atom.t()
       }
 
   """
-  @type search_nearby_result_item() :: %{String.t() => any()}
+  @type search_nearby_result_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -812,12 +812,12 @@ defmodule AWS.GeoPlaces do
 
       validation_exception() :: %{
         "FieldList" => list(validation_exception_field()),
-        "Message" => [String.t()],
-        "Reason" => String.t()
+        "Message" => [String.t() | Atom.t()],
+        "Reason" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -828,7 +828,7 @@ defmodule AWS.GeoPlaces do
       }
 
   """
-  @type access_point() :: %{String.t() => any()}
+  @type access_point() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -847,30 +847,30 @@ defmodule AWS.GeoPlaces do
         "MapView" => list([float()]()),
         "OpeningHours" => list(opening_hours()),
         "Phonemes" => phoneme_details(),
-        "PlaceId" => String.t(),
-        "PlaceType" => String.t(),
-        "PoliticalView" => String.t(),
+        "PlaceId" => String.t() | Atom.t(),
+        "PlaceType" => String.t() | Atom.t(),
+        "PoliticalView" => String.t() | Atom.t(),
         "Position" => list([float()]()),
         "PostalCodeDetails" => list(postal_code_details()),
-        "PricingBucket" => [String.t()],
+        "PricingBucket" => [String.t() | Atom.t()],
         "SecondaryAddresses" => list(related_place()),
         "TimeZone" => time_zone(),
-        "Title" => String.t()
+        "Title" => String.t() | Atom.t()
       }
 
   """
-  @type get_place_response() :: %{String.t() => any()}
+  @type get_place_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -879,14 +879,14 @@ defmodule AWS.GeoPlaces do
       related_place() :: %{
         "AccessPoints" => list(access_point()),
         "Address" => address(),
-        "PlaceId" => String.t(),
-        "PlaceType" => String.t(),
+        "PlaceId" => String.t() | Atom.t(),
+        "PlaceType" => String.t() | Atom.t(),
         "Position" => list([float()]()),
-        "Title" => String.t()
+        "Title" => String.t() | Atom.t()
       }
 
   """
-  @type related_place() :: %{String.t() => any()}
+  @type related_place() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -905,7 +905,7 @@ defmodule AWS.GeoPlaces do
       }
 
   """
-  @type address_component_phonemes() :: %{String.t() => any()}
+  @type address_component_phonemes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -928,21 +928,21 @@ defmodule AWS.GeoPlaces do
       }
 
   """
-  @type address_component_match_scores() :: %{String.t() => any()}
+  @type address_component_match_scores() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       category() :: %{
-        "Id" => String.t(),
-        "LocalizedName" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "LocalizedName" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "Primary" => boolean()
       }
 
   """
-  @type category() :: %{String.t() => any()}
+  @type category() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -950,30 +950,30 @@ defmodule AWS.GeoPlaces do
 
       contact_details() :: %{
         "Categories" => list(category()),
-        "Label" => String.t(),
-        "Value" => String.t()
+        "Label" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type contact_details() :: %{String.t() => any()}
+  @type contact_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       geocode_query_components() :: %{
-        "AddressNumber" => String.t(),
-        "Country" => String.t(),
-        "District" => String.t(),
-        "Locality" => String.t(),
-        "PostalCode" => String.t(),
-        "Region" => String.t(),
-        "Street" => String.t(),
-        "SubRegion" => String.t()
+        "AddressNumber" => String.t() | Atom.t(),
+        "Country" => String.t() | Atom.t(),
+        "District" => String.t() | Atom.t(),
+        "Locality" => String.t() | Atom.t(),
+        "PostalCode" => String.t() | Atom.t(),
+        "Region" => String.t() | Atom.t(),
+        "Street" => String.t() | Atom.t(),
+        "SubRegion" => String.t() | Atom.t()
       }
 
   """
-  @type geocode_query_components() :: %{String.t() => any()}
+  @type geocode_query_components() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -983,32 +983,32 @@ defmodule AWS.GeoPlaces do
         "Highlights" => suggest_highlights(),
         "Place" => suggest_place_result(),
         "Query" => suggest_query_result(),
-        "SuggestResultItemType" => String.t(),
-        "Title" => String.t()
+        "SuggestResultItemType" => String.t() | Atom.t(),
+        "Title" => String.t() | Atom.t()
       }
 
   """
-  @type suggest_result_item() :: %{String.t() => any()}
+  @type suggest_result_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       geocode_request() :: %{
-        optional("AdditionalFeatures") => list(String.t()),
+        optional("AdditionalFeatures") => list(String.t() | Atom.t()),
         optional("BiasPosition") => list([float()]()),
         optional("Filter") => geocode_filter(),
-        optional("IntendedUse") => String.t(),
-        optional("Key") => String.t(),
-        optional("Language") => String.t(),
+        optional("IntendedUse") => String.t() | Atom.t(),
+        optional("Key") => String.t() | Atom.t(),
+        optional("Language") => String.t() | Atom.t(),
         optional("MaxResults") => [integer()],
-        optional("PoliticalView") => String.t(),
+        optional("PoliticalView") => String.t() | Atom.t(),
         optional("QueryComponents") => geocode_query_components(),
-        optional("QueryText") => String.t()
+        optional("QueryText") => String.t() | Atom.t()
       }
 
   """
-  @type geocode_request() :: %{String.t() => any()}
+  @type geocode_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1026,55 +1026,55 @@ defmodule AWS.GeoPlaces do
         "MapView" => list([float()]()),
         "MatchScores" => match_score_details(),
         "ParsedQuery" => geocode_parsed_query(),
-        "PlaceId" => String.t(),
-        "PlaceType" => String.t(),
-        "PoliticalView" => String.t(),
+        "PlaceId" => String.t() | Atom.t(),
+        "PlaceType" => String.t() | Atom.t(),
+        "PoliticalView" => String.t() | Atom.t(),
         "Position" => list([float()]()),
         "PostalCodeDetails" => list(postal_code_details()),
         "SecondaryAddresses" => list(related_place()),
         "TimeZone" => time_zone(),
-        "Title" => String.t()
+        "Title" => String.t() | Atom.t()
       }
 
   """
-  @type geocode_result_item() :: %{String.t() => any()}
+  @type geocode_result_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       reverse_geocode_filter() :: %{
-        "IncludePlaceTypes" => list(String.t())
+        "IncludePlaceTypes" => list(String.t() | Atom.t())
       }
 
   """
-  @type reverse_geocode_filter() :: %{String.t() => any()}
+  @type reverse_geocode_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       phoneme_transcription() :: %{
-        "Language" => String.t(),
+        "Language" => String.t() | Atom.t(),
         "Preferred" => boolean(),
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type phoneme_transcription() :: %{String.t() => any()}
+  @type phoneme_transcription() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       search_nearby_response() :: %{
-        "NextToken" => String.t(),
-        "PricingBucket" => [String.t()],
+        "NextToken" => String.t() | Atom.t(),
+        "PricingBucket" => [String.t() | Atom.t()],
         "ResultItems" => list(search_nearby_result_item())
       }
 
   """
-  @type search_nearby_response() :: %{String.t() => any()}
+  @type search_nearby_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1083,38 +1083,38 @@ defmodule AWS.GeoPlaces do
       autocomplete_filter() :: %{
         "BoundingBox" => list([float()]()),
         "Circle" => filter_circle(),
-        "IncludeCountries" => list(String.t()),
-        "IncludePlaceTypes" => list(String.t())
+        "IncludeCountries" => list(String.t() | Atom.t()),
+        "IncludePlaceTypes" => list(String.t() | Atom.t())
       }
 
   """
-  @type autocomplete_filter() :: %{String.t() => any()}
+  @type autocomplete_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       address() :: %{
-        "AddressNumber" => String.t(),
-        "Block" => String.t(),
-        "Building" => String.t(),
+        "AddressNumber" => String.t() | Atom.t(),
+        "Block" => String.t() | Atom.t(),
+        "Building" => String.t() | Atom.t(),
         "Country" => country(),
-        "District" => String.t(),
-        "Intersection" => list(String.t()),
-        "Label" => String.t(),
-        "Locality" => String.t(),
-        "PostalCode" => String.t(),
+        "District" => String.t() | Atom.t(),
+        "Intersection" => list(String.t() | Atom.t()),
+        "Label" => String.t() | Atom.t(),
+        "Locality" => String.t() | Atom.t(),
+        "PostalCode" => String.t() | Atom.t(),
         "Region" => region(),
         "SecondaryAddressComponents" => list(secondary_address_component()),
-        "Street" => String.t(),
+        "Street" => String.t() | Atom.t(),
         "StreetComponents" => list(street_components()),
-        "SubBlock" => String.t(),
-        "SubDistrict" => String.t(),
+        "SubBlock" => String.t() | Atom.t(),
+        "SubDistrict" => String.t() | Atom.t(),
         "SubRegion" => sub_region()
       }
 
   """
-  @type address() :: %{String.t() => any()}
+  @type address() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1123,12 +1123,12 @@ defmodule AWS.GeoPlaces do
       opening_hours() :: %{
         "Categories" => list(category()),
         "Components" => list(opening_hours_components()),
-        "Display" => list(String.t()),
+        "Display" => list(String.t() | Atom.t()),
         "OpenNow" => boolean()
       }
 
   """
-  @type opening_hours() :: %{String.t() => any()}
+  @type opening_hours() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1142,7 +1142,7 @@ defmodule AWS.GeoPlaces do
       }
 
   """
-  @type contacts() :: %{String.t() => any()}
+  @type contacts() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1154,7 +1154,7 @@ defmodule AWS.GeoPlaces do
       }
 
   """
-  @type component_match_scores() :: %{String.t() => any()}
+  @type component_match_scores() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1163,31 +1163,31 @@ defmodule AWS.GeoPlaces do
       suggest_filter() :: %{
         "BoundingBox" => list([float()]()),
         "Circle" => filter_circle(),
-        "IncludeCountries" => list(String.t())
+        "IncludeCountries" => list(String.t() | Atom.t())
       }
 
   """
-  @type suggest_filter() :: %{String.t() => any()}
+  @type suggest_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       search_nearby_request() :: %{
-        optional("AdditionalFeatures") => list(String.t()),
+        optional("AdditionalFeatures") => list(String.t() | Atom.t()),
         optional("Filter") => search_nearby_filter(),
-        optional("IntendedUse") => String.t(),
-        optional("Key") => String.t(),
-        optional("Language") => String.t(),
+        optional("IntendedUse") => String.t() | Atom.t(),
+        optional("Key") => String.t() | Atom.t(),
+        optional("Language") => String.t() | Atom.t(),
         optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t(),
-        optional("PoliticalView") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("PoliticalView") => String.t() | Atom.t(),
         optional("QueryRadius") => float(),
         required("QueryPosition") => list([float()]())
       }
 
   """
-  @type search_nearby_request() :: %{String.t() => any()}
+  @type search_nearby_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1199,7 +1199,7 @@ defmodule AWS.GeoPlaces do
       }
 
   """
-  @type sub_region_highlights() :: %{String.t() => any()}
+  @type sub_region_highlights() :: %{String.t() | Atom.t() => any()}
 
   @type autocomplete_errors() ::
           throttling_exception()
@@ -1361,12 +1361,12 @@ defmodule AWS.GeoPlaces do
   """
   @spec get_place(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, get_place_response(), any()}

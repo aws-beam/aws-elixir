@@ -26,7 +26,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type flywheel_iteration_filter() :: %{String.t() => any()}
+  @type flywheel_iteration_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -37,30 +37,30 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type invalid_request_detail() :: %{String.t() => any()}
+  @type invalid_request_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_document_classifier_request() :: %{
-        optional("ClientRequestToken") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
         optional("Mode") => list(any()),
-        optional("ModelKmsKeyId") => String.t(),
-        optional("ModelPolicy") => String.t(),
+        optional("ModelKmsKeyId") => String.t() | Atom.t(),
+        optional("ModelPolicy") => String.t() | Atom.t(),
         optional("OutputDataConfig") => document_classifier_output_data_config(),
         optional("Tags") => list(tag()),
-        optional("VersionName") => String.t(),
-        optional("VolumeKmsKeyId") => String.t(),
+        optional("VersionName") => String.t() | Atom.t(),
+        optional("VolumeKmsKeyId") => String.t() | Atom.t(),
         optional("VpcConfig") => vpc_config(),
-        required("DataAccessRoleArn") => String.t(),
-        required("DocumentClassifierName") => String.t(),
+        required("DataAccessRoleArn") => String.t() | Atom.t(),
+        required("DocumentClassifierName") => String.t() | Atom.t(),
         required("InputDataConfig") => document_classifier_input_data_config(),
         required("LanguageCode") => list(any())
       }
       
   """
-  @type create_document_classifier_request() :: %{String.t() => any()}
+  @type create_document_classifier_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -71,21 +71,21 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type describe_events_detection_job_response() :: %{String.t() => any()}
+  @type describe_events_detection_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_flywheel_request() :: %{
-        optional("ActiveModelArn") => String.t(),
-        optional("DataAccessRoleArn") => String.t(),
+        optional("ActiveModelArn") => String.t() | Atom.t(),
+        optional("DataAccessRoleArn") => String.t() | Atom.t(),
         optional("DataSecurityConfig") => update_data_security_config(),
-        required("FlywheelArn") => String.t()
+        required("FlywheelArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_flywheel_request() :: %{String.t() => any()}
+  @type update_flywheel_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -93,11 +93,11 @@ defmodule AWS.Comprehend do
       
       contains_pii_entities_request() :: %{
         required("LanguageCode") => list(any()),
-        required("Text") => String.t()
+        required("Text") => String.t() | Atom.t()
       }
       
   """
-  @type contains_pii_entities_request() :: %{String.t() => any()}
+  @type contains_pii_entities_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -105,23 +105,23 @@ defmodule AWS.Comprehend do
       
       list_entity_recognizers_response() :: %{
         "EntityRecognizerPropertiesList" => list(entity_recognizer_properties()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_entity_recognizers_response() :: %{String.t() => any()}
+  @type list_entity_recognizers_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_flywheel_iteration_request() :: %{
-        optional("ClientRequestToken") => String.t(),
-        required("FlywheelArn") => String.t()
+        optional("ClientRequestToken") => String.t() | Atom.t(),
+        required("FlywheelArn") => String.t() | Atom.t()
       }
       
   """
-  @type start_flywheel_iteration_request() :: %{String.t() => any()}
+  @type start_flywheel_iteration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -130,47 +130,47 @@ defmodule AWS.Comprehend do
       list_pii_entities_detection_jobs_request() :: %{
         optional("Filter") => pii_entities_detection_job_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_pii_entities_detection_jobs_request() :: %{String.t() => any()}
+  @type list_pii_entities_detection_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       document_classifier_output_data_config() :: %{
-        "FlywheelStatsS3Prefix" => String.t(),
-        "KmsKeyId" => String.t(),
-        "S3Uri" => String.t()
+        "FlywheelStatsS3Prefix" => String.t() | Atom.t(),
+        "KmsKeyId" => String.t() | Atom.t(),
+        "S3Uri" => String.t() | Atom.t()
       }
       
   """
-  @type document_classifier_output_data_config() :: %{String.t() => any()}
+  @type document_classifier_output_data_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_training_document_classifier_request() :: %{
-        required("DocumentClassifierArn") => String.t()
+        required("DocumentClassifierArn") => String.t() | Atom.t()
       }
       
   """
-  @type stop_training_document_classifier_request() :: %{String.t() => any()}
+  @type stop_training_document_classifier_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
+        required("ResourceArn") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -181,7 +181,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type describe_dominant_language_detection_job_response() :: %{String.t() => any()}
+  @type describe_dominant_language_detection_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -201,7 +201,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type describe_targeted_sentiment_detection_job_response() :: %{String.t() => any()}
+  @type describe_targeted_sentiment_detection_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -213,13 +213,13 @@ defmodule AWS.Comprehend do
         "DocumentReaderConfig" => document_reader_config(),
         "DocumentType" => list(any()),
         "Documents" => document_classifier_documents(),
-        "LabelDelimiter" => String.t(),
-        "S3Uri" => String.t(),
-        "TestS3Uri" => String.t()
+        "LabelDelimiter" => String.t() | Atom.t(),
+        "S3Uri" => String.t() | Atom.t(),
+        "TestS3Uri" => String.t() | Atom.t()
       }
       
   """
-  @type document_classifier_input_data_config() :: %{String.t() => any()}
+  @type document_classifier_input_data_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -231,48 +231,48 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type batch_detect_dominant_language_response() :: %{String.t() => any()}
+  @type batch_detect_dominant_language_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_events_detection_job_request() :: %{
-        optional("ClientRequestToken") => String.t(),
-        optional("JobName") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
+        optional("JobName") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("DataAccessRoleArn") => String.t(),
+        required("DataAccessRoleArn") => String.t() | Atom.t(),
         required("InputDataConfig") => input_data_config(),
         required("LanguageCode") => list(any()),
         required("OutputDataConfig") => output_data_config(),
-        required("TargetEventTypes") => list(String.t())
+        required("TargetEventTypes") => list(String.t() | Atom.t())
       }
       
   """
-  @type start_events_detection_job_request() :: %{String.t() => any()}
+  @type start_events_detection_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       dataset_document_classifier_input_data_config() :: %{
-        "LabelDelimiter" => String.t(),
-        "S3Uri" => String.t()
+        "LabelDelimiter" => String.t() | Atom.t(),
+        "S3Uri" => String.t() | Atom.t()
       }
       
   """
-  @type dataset_document_classifier_input_data_config() :: %{String.t() => any()}
+  @type dataset_document_classifier_input_data_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_endpoint_response() :: %{
-        "DesiredModelArn" => String.t()
+        "DesiredModelArn" => String.t() | Atom.t()
       }
       
   """
-  @type update_endpoint_response() :: %{String.t() => any()}
+  @type update_endpoint_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -286,7 +286,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type classifier_metadata() :: %{String.t() => any()}
+  @type classifier_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -294,14 +294,14 @@ defmodule AWS.Comprehend do
       
       entity_recognizer_summary() :: %{
         "LatestVersionCreatedAt" => non_neg_integer(),
-        "LatestVersionName" => String.t(),
+        "LatestVersionName" => String.t() | Atom.t(),
         "LatestVersionStatus" => list(any()),
         "NumberOfVersions" => integer(),
-        "RecognizerName" => String.t()
+        "RecognizerName" => String.t() | Atom.t()
       }
       
   """
-  @type entity_recognizer_summary() :: %{String.t() => any()}
+  @type entity_recognizer_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -313,29 +313,29 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type batch_detect_dominant_language_item_result() :: %{String.t() => any()}
+  @type batch_detect_dominant_language_item_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       events_detection_job_properties() :: %{
-        "DataAccessRoleArn" => String.t(),
+        "DataAccessRoleArn" => String.t() | Atom.t(),
         "EndTime" => non_neg_integer(),
         "InputDataConfig" => input_data_config(),
-        "JobArn" => String.t(),
-        "JobId" => String.t(),
-        "JobName" => String.t(),
+        "JobArn" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
+        "JobName" => String.t() | Atom.t(),
         "JobStatus" => list(any()),
         "LanguageCode" => list(any()),
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "OutputDataConfig" => output_data_config(),
         "SubmitTime" => non_neg_integer(),
-        "TargetEventTypes" => list(String.t())
+        "TargetEventTypes" => list(String.t() | Atom.t())
       }
       
   """
-  @type events_detection_job_properties() :: %{String.t() => any()}
+  @type events_detection_job_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -344,22 +344,22 @@ defmodule AWS.Comprehend do
       input_data_config() :: %{
         "DocumentReaderConfig" => document_reader_config(),
         "InputFormat" => list(any()),
-        "S3Uri" => String.t()
+        "S3Uri" => String.t() | Atom.t()
       }
       
   """
-  @type input_data_config() :: %{String.t() => any()}
+  @type input_data_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_topics_detection_job_request() :: %{
-        required("JobId") => String.t()
+        required("JobId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_topics_detection_job_request() :: %{String.t() => any()}
+  @type describe_topics_detection_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -371,27 +371,27 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type geometry() :: %{String.t() => any()}
+  @type geometry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_document_classification_job_request() :: %{
-        optional("ClientRequestToken") => String.t(),
-        optional("DocumentClassifierArn") => String.t(),
-        optional("FlywheelArn") => String.t(),
-        optional("JobName") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
+        optional("DocumentClassifierArn") => String.t() | Atom.t(),
+        optional("FlywheelArn") => String.t() | Atom.t(),
+        optional("JobName") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        optional("VolumeKmsKeyId") => String.t(),
+        optional("VolumeKmsKeyId") => String.t() | Atom.t(),
         optional("VpcConfig") => vpc_config(),
-        required("DataAccessRoleArn") => String.t(),
+        required("DataAccessRoleArn") => String.t() | Atom.t(),
         required("InputDataConfig") => input_data_config(),
         required("OutputDataConfig") => output_data_config()
       }
       
   """
-  @type start_document_classification_job_request() :: %{String.t() => any()}
+  @type start_document_classification_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -408,11 +408,11 @@ defmodule AWS.Comprehend do
       
       list_flywheel_iteration_history_response() :: %{
         "FlywheelIterationPropertiesList" => list(flywheel_iteration_properties()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_flywheel_iteration_history_response() :: %{String.t() => any()}
+  @type list_flywheel_iteration_history_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -423,87 +423,87 @@ defmodule AWS.Comprehend do
         "BlockReferences" => list(block_reference()),
         "EndOffset" => integer(),
         "Score" => float(),
-        "Text" => String.t(),
+        "Text" => String.t() | Atom.t(),
         "Type" => list(any())
       }
       
   """
-  @type entity() :: %{String.t() => any()}
+  @type entity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       key_phrases_detection_job_filter() :: %{
-        "JobName" => String.t(),
+        "JobName" => String.t() | Atom.t(),
         "JobStatus" => list(any()),
         "SubmitTimeAfter" => non_neg_integer(),
         "SubmitTimeBefore" => non_neg_integer()
       }
       
   """
-  @type key_phrases_detection_job_filter() :: %{String.t() => any()}
+  @type key_phrases_detection_job_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       sentiment_detection_job_filter() :: %{
-        "JobName" => String.t(),
+        "JobName" => String.t() | Atom.t(),
         "JobStatus" => list(any()),
         "SubmitTimeAfter" => non_neg_integer(),
         "SubmitTimeBefore" => non_neg_integer()
       }
       
   """
-  @type sentiment_detection_job_filter() :: %{String.t() => any()}
+  @type sentiment_detection_job_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       import_model_response() :: %{
-        "ModelArn" => String.t()
+        "ModelArn" => String.t() | Atom.t()
       }
       
   """
-  @type import_model_response() :: %{String.t() => any()}
+  @type import_model_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_in_use_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_in_use_exception() :: %{String.t() => any()}
+  @type resource_in_use_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_entity_recognizer_request() :: %{
-        required("EntityRecognizerArn") => String.t()
+        required("EntityRecognizerArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_entity_recognizer_request() :: %{String.t() => any()}
+  @type delete_entity_recognizer_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       data_security_config() :: %{
-        "DataLakeKmsKeyId" => String.t(),
-        "ModelKmsKeyId" => String.t(),
-        "VolumeKmsKeyId" => String.t(),
+        "DataLakeKmsKeyId" => String.t() | Atom.t(),
+        "ModelKmsKeyId" => String.t() | Atom.t(),
+        "VolumeKmsKeyId" => String.t() | Atom.t(),
         "VpcConfig" => vpc_config()
       }
       
   """
-  @type data_security_config() :: %{String.t() => any()}
+  @type data_security_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -511,28 +511,28 @@ defmodule AWS.Comprehend do
       
       document_classifier_properties() :: %{
         "ClassifierMetadata" => classifier_metadata(),
-        "DataAccessRoleArn" => String.t(),
-        "DocumentClassifierArn" => String.t(),
+        "DataAccessRoleArn" => String.t() | Atom.t(),
+        "DocumentClassifierArn" => String.t() | Atom.t(),
         "EndTime" => non_neg_integer(),
-        "FlywheelArn" => String.t(),
+        "FlywheelArn" => String.t() | Atom.t(),
         "InputDataConfig" => document_classifier_input_data_config(),
         "LanguageCode" => list(any()),
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "Mode" => list(any()),
-        "ModelKmsKeyId" => String.t(),
+        "ModelKmsKeyId" => String.t() | Atom.t(),
         "OutputDataConfig" => document_classifier_output_data_config(),
-        "SourceModelArn" => String.t(),
+        "SourceModelArn" => String.t() | Atom.t(),
         "Status" => list(any()),
         "SubmitTime" => non_neg_integer(),
         "TrainingEndTime" => non_neg_integer(),
         "TrainingStartTime" => non_neg_integer(),
-        "VersionName" => String.t(),
-        "VolumeKmsKeyId" => String.t(),
+        "VersionName" => String.t() | Atom.t(),
+        "VolumeKmsKeyId" => String.t() | Atom.t(),
         "VpcConfig" => vpc_config()
       }
       
   """
-  @type document_classifier_properties() :: %{String.t() => any()}
+  @type document_classifier_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -540,26 +540,26 @@ defmodule AWS.Comprehend do
       
       list_flywheels_response() :: %{
         "FlywheelSummaryList" => list(flywheel_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_flywheels_response() :: %{String.t() => any()}
+  @type list_flywheels_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       dataset_augmented_manifests_list_item() :: %{
-        "AnnotationDataS3Uri" => String.t(),
-        "AttributeNames" => list(String.t()),
+        "AnnotationDataS3Uri" => String.t() | Atom.t(),
+        "AttributeNames" => list(String.t() | Atom.t()),
         "DocumentType" => list(any()),
-        "S3Uri" => String.t(),
-        "SourceDocumentsS3Uri" => String.t()
+        "S3Uri" => String.t() | Atom.t(),
+        "SourceDocumentsS3Uri" => String.t() | Atom.t()
       }
       
   """
-  @type dataset_augmented_manifests_list_item() :: %{String.t() => any()}
+  @type dataset_augmented_manifests_list_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -568,23 +568,23 @@ defmodule AWS.Comprehend do
       classify_document_request() :: %{
         optional("Bytes") => binary(),
         optional("DocumentReaderConfig") => document_reader_config(),
-        optional("Text") => String.t(),
-        required("EndpointArn") => String.t()
+        optional("Text") => String.t() | Atom.t(),
+        required("EndpointArn") => String.t() | Atom.t()
       }
       
   """
-  @type classify_document_request() :: %{String.t() => any()}
+  @type classify_document_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_unavailable_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_unavailable_exception() :: %{String.t() => any()}
+  @type resource_unavailable_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -596,7 +596,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type batch_detect_syntax_item_result() :: %{String.t() => any()}
+  @type batch_detect_syntax_item_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -609,7 +609,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type document_reader_config() :: %{String.t() => any()}
+  @type document_reader_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -617,28 +617,28 @@ defmodule AWS.Comprehend do
       
       list_document_classifier_summaries_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_document_classifier_summaries_request() :: %{String.t() => any()}
+  @type list_document_classifier_summaries_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_endpoint_request() :: %{
-        optional("ClientRequestToken") => String.t(),
-        optional("DataAccessRoleArn") => String.t(),
-        optional("FlywheelArn") => String.t(),
-        optional("ModelArn") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
+        optional("DataAccessRoleArn") => String.t() | Atom.t(),
+        optional("FlywheelArn") => String.t() | Atom.t(),
+        optional("ModelArn") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
         required("DesiredInferenceUnits") => integer(),
-        required("EndpointName") => String.t()
+        required("EndpointName") => String.t() | Atom.t()
       }
       
   """
-  @type create_endpoint_request() :: %{String.t() => any()}
+  @type create_endpoint_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -646,13 +646,13 @@ defmodule AWS.Comprehend do
       
       list_datasets_request() :: %{
         optional("Filter") => dataset_filter(),
-        optional("FlywheelArn") => String.t(),
+        optional("FlywheelArn") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_datasets_request() :: %{String.t() => any()}
+  @type list_datasets_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -660,22 +660,22 @@ defmodule AWS.Comprehend do
       
       detect_key_phrases_request() :: %{
         required("LanguageCode") => list(any()),
-        required("Text") => String.t()
+        required("Text") => String.t() | Atom.t()
       }
       
   """
-  @type detect_key_phrases_request() :: %{String.t() => any()}
+  @type detect_key_phrases_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_entities_detection_job_request() :: %{
-        required("JobId") => String.t()
+        required("JobId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_entities_detection_job_request() :: %{String.t() => any()}
+  @type describe_entities_detection_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -684,11 +684,11 @@ defmodule AWS.Comprehend do
       list_flywheels_request() :: %{
         optional("Filter") => flywheel_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_flywheels_request() :: %{String.t() => any()}
+  @type list_flywheels_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -699,7 +699,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type describe_entity_recognizer_response() :: %{String.t() => any()}
+  @type describe_entity_recognizer_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -710,7 +710,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type contains_pii_entities_response() :: %{String.t() => any()}
+  @type contains_pii_entities_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -726,16 +726,16 @@ defmodule AWS.Comprehend do
   ## Example:
       
       augmented_manifests_list_item() :: %{
-        "AnnotationDataS3Uri" => String.t(),
-        "AttributeNames" => list(String.t()),
+        "AnnotationDataS3Uri" => String.t() | Atom.t(),
+        "AttributeNames" => list(String.t() | Atom.t()),
         "DocumentType" => list(any()),
-        "S3Uri" => String.t(),
-        "SourceDocumentsS3Uri" => String.t(),
+        "S3Uri" => String.t() | Atom.t(),
+        "SourceDocumentsS3Uri" => String.t() | Atom.t(),
         "Split" => list(any())
       }
       
   """
-  @type augmented_manifests_list_item() :: %{String.t() => any()}
+  @type augmented_manifests_list_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -747,34 +747,34 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type part_of_speech_tag() :: %{String.t() => any()}
+  @type part_of_speech_tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_endpoint_request() :: %{
-        optional("DesiredDataAccessRoleArn") => String.t(),
+        optional("DesiredDataAccessRoleArn") => String.t() | Atom.t(),
         optional("DesiredInferenceUnits") => integer(),
-        optional("DesiredModelArn") => String.t(),
-        optional("FlywheelArn") => String.t(),
-        required("EndpointArn") => String.t()
+        optional("DesiredModelArn") => String.t() | Atom.t(),
+        optional("FlywheelArn") => String.t() | Atom.t(),
+        required("EndpointArn") => String.t() | Atom.t()
       }
       
   """
-  @type update_endpoint_request() :: %{String.t() => any()}
+  @type update_endpoint_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_sentiment_detection_job_response() :: %{
-        "JobId" => String.t(),
+        "JobId" => String.t() | Atom.t(),
         "JobStatus" => list(any())
       }
       
   """
-  @type stop_sentiment_detection_job_response() :: %{String.t() => any()}
+  @type stop_sentiment_detection_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -785,52 +785,52 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type detect_pii_entities_response() :: %{String.t() => any()}
+  @type detect_pii_entities_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_events_detection_job_request() :: %{
-        required("JobId") => String.t()
+        required("JobId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_events_detection_job_request() :: %{String.t() => any()}
+  @type describe_events_detection_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceArn") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_requests_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type too_many_requests_exception() :: %{String.t() => any()}
+  @type too_many_requests_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_sentiment_detection_job_request() :: %{
-        required("JobId") => String.t()
+        required("JobId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_sentiment_detection_job_request() :: %{String.t() => any()}
+  @type describe_sentiment_detection_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -841,7 +841,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type describe_topics_detection_job_response() :: %{String.t() => any()}
+  @type describe_topics_detection_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -850,11 +850,11 @@ defmodule AWS.Comprehend do
       list_entity_recognizers_request() :: %{
         optional("Filter") => entity_recognizer_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_entity_recognizers_request() :: %{String.t() => any()}
+  @type list_entity_recognizers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -862,22 +862,22 @@ defmodule AWS.Comprehend do
       
       batch_detect_syntax_request() :: %{
         required("LanguageCode") => list(any()),
-        required("TextList") => list(String.t())
+        required("TextList") => list(String.t() | Atom.t())
       }
       
   """
-  @type batch_detect_syntax_request() :: %{String.t() => any()}
+  @type batch_detect_syntax_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_filter_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_filter_exception() :: %{String.t() => any()}
+  @type invalid_filter_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -885,50 +885,50 @@ defmodule AWS.Comprehend do
       
       dataset_entity_recognizer_documents() :: %{
         "InputFormat" => list(any()),
-        "S3Uri" => String.t()
+        "S3Uri" => String.t() | Atom.t()
       }
       
   """
-  @type dataset_entity_recognizer_documents() :: %{String.t() => any()}
+  @type dataset_entity_recognizer_documents() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       entity_recognizer_properties() :: %{
-        "DataAccessRoleArn" => String.t(),
+        "DataAccessRoleArn" => String.t() | Atom.t(),
         "EndTime" => non_neg_integer(),
-        "EntityRecognizerArn" => String.t(),
-        "FlywheelArn" => String.t(),
+        "EntityRecognizerArn" => String.t() | Atom.t(),
+        "FlywheelArn" => String.t() | Atom.t(),
         "InputDataConfig" => entity_recognizer_input_data_config(),
         "LanguageCode" => list(any()),
-        "Message" => String.t(),
-        "ModelKmsKeyId" => String.t(),
+        "Message" => String.t() | Atom.t(),
+        "ModelKmsKeyId" => String.t() | Atom.t(),
         "OutputDataConfig" => entity_recognizer_output_data_config(),
         "RecognizerMetadata" => entity_recognizer_metadata(),
-        "SourceModelArn" => String.t(),
+        "SourceModelArn" => String.t() | Atom.t(),
         "Status" => list(any()),
         "SubmitTime" => non_neg_integer(),
         "TrainingEndTime" => non_neg_integer(),
         "TrainingStartTime" => non_neg_integer(),
-        "VersionName" => String.t(),
-        "VolumeKmsKeyId" => String.t(),
+        "VersionName" => String.t() | Atom.t(),
+        "VolumeKmsKeyId" => String.t() | Atom.t(),
         "VpcConfig" => vpc_config()
       }
       
   """
-  @type entity_recognizer_properties() :: %{String.t() => any()}
+  @type entity_recognizer_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_tag_keys_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type too_many_tag_keys_exception() :: %{String.t() => any()}
+  @type too_many_tag_keys_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -941,7 +941,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type task_config() :: %{String.t() => any()}
+  @type task_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -954,28 +954,28 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type entity_recognizer_evaluation_metrics() :: %{String.t() => any()}
+  @type entity_recognizer_evaluation_metrics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_entity_recognizer_request() :: %{
-        optional("ClientRequestToken") => String.t(),
-        optional("ModelKmsKeyId") => String.t(),
-        optional("ModelPolicy") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
+        optional("ModelKmsKeyId") => String.t() | Atom.t(),
+        optional("ModelPolicy") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        optional("VersionName") => String.t(),
-        optional("VolumeKmsKeyId") => String.t(),
+        optional("VersionName") => String.t() | Atom.t(),
+        optional("VolumeKmsKeyId") => String.t() | Atom.t(),
         optional("VpcConfig") => vpc_config(),
-        required("DataAccessRoleArn") => String.t(),
+        required("DataAccessRoleArn") => String.t() | Atom.t(),
         required("InputDataConfig") => entity_recognizer_input_data_config(),
         required("LanguageCode") => list(any()),
-        required("RecognizerName") => String.t()
+        required("RecognizerName") => String.t() | Atom.t()
       }
       
   """
-  @type create_entity_recognizer_request() :: %{String.t() => any()}
+  @type create_entity_recognizer_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -983,43 +983,43 @@ defmodule AWS.Comprehend do
       
       batch_detect_targeted_sentiment_request() :: %{
         required("LanguageCode") => list(any()),
-        required("TextList") => list(String.t())
+        required("TextList") => list(String.t() | Atom.t())
       }
       
   """
-  @type batch_detect_targeted_sentiment_request() :: %{String.t() => any()}
+  @type batch_detect_targeted_sentiment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_entities_detection_job_request() :: %{
-        optional("ClientRequestToken") => String.t(),
-        optional("EntityRecognizerArn") => String.t(),
-        optional("FlywheelArn") => String.t(),
-        optional("JobName") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
+        optional("EntityRecognizerArn") => String.t() | Atom.t(),
+        optional("FlywheelArn") => String.t() | Atom.t(),
+        optional("JobName") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        optional("VolumeKmsKeyId") => String.t(),
+        optional("VolumeKmsKeyId") => String.t() | Atom.t(),
         optional("VpcConfig") => vpc_config(),
-        required("DataAccessRoleArn") => String.t(),
+        required("DataAccessRoleArn") => String.t() | Atom.t(),
         required("InputDataConfig") => input_data_config(),
         required("LanguageCode") => list(any()),
         required("OutputDataConfig") => output_data_config()
       }
       
   """
-  @type start_entities_detection_job_request() :: %{String.t() => any()}
+  @type start_entities_detection_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_document_classification_job_request() :: %{
-        required("JobId") => String.t()
+        required("JobId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_document_classification_job_request() :: %{String.t() => any()}
+  @type describe_document_classification_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1046,41 +1046,41 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type classifier_evaluation_metrics() :: %{String.t() => any()}
+  @type classifier_evaluation_metrics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       topics_detection_job_properties() :: %{
-        "DataAccessRoleArn" => String.t(),
+        "DataAccessRoleArn" => String.t() | Atom.t(),
         "EndTime" => non_neg_integer(),
         "InputDataConfig" => input_data_config(),
-        "JobArn" => String.t(),
-        "JobId" => String.t(),
-        "JobName" => String.t(),
+        "JobArn" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
+        "JobName" => String.t() | Atom.t(),
         "JobStatus" => list(any()),
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "NumberOfTopics" => integer(),
         "OutputDataConfig" => output_data_config(),
         "SubmitTime" => non_neg_integer(),
-        "VolumeKmsKeyId" => String.t(),
+        "VolumeKmsKeyId" => String.t() | Atom.t(),
         "VpcConfig" => vpc_config()
       }
       
   """
-  @type topics_detection_job_properties() :: %{String.t() => any()}
+  @type topics_detection_job_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_sentiment_detection_job_request() :: %{
-        required("JobId") => String.t()
+        required("JobId") => String.t() | Atom.t()
       }
       
   """
-  @type stop_sentiment_detection_job_request() :: %{String.t() => any()}
+  @type stop_sentiment_detection_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1096,7 +1096,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type entity_recognizer_input_data_config() :: %{String.t() => any()}
+  @type entity_recognizer_input_data_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1104,11 +1104,11 @@ defmodule AWS.Comprehend do
       
       detect_syntax_request() :: %{
         required("LanguageCode") => list(any()),
-        required("Text") => String.t()
+        required("Text") => String.t() | Atom.t()
       }
       
   """
-  @type detect_syntax_request() :: %{String.t() => any()}
+  @type detect_syntax_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1118,43 +1118,43 @@ defmodule AWS.Comprehend do
         "BeginOffset" => integer(),
         "EndOffset" => integer(),
         "PartOfSpeech" => part_of_speech_tag(),
-        "Text" => String.t(),
+        "Text" => String.t() | Atom.t(),
         "TokenId" => integer()
       }
       
   """
-  @type syntax_token() :: %{String.t() => any()}
+  @type syntax_token() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_pii_entities_detection_job_response() :: %{
-        "JobId" => String.t(),
+        "JobId" => String.t() | Atom.t(),
         "JobStatus" => list(any())
       }
       
   """
-  @type stop_pii_entities_detection_job_response() :: %{String.t() => any()}
+  @type stop_pii_entities_detection_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       flywheel_summary() :: %{
-        "ActiveModelArn" => String.t(),
+        "ActiveModelArn" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
-        "DataLakeS3Uri" => String.t(),
-        "FlywheelArn" => String.t(),
+        "DataLakeS3Uri" => String.t() | Atom.t(),
+        "FlywheelArn" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "LatestFlywheelIteration" => String.t(),
-        "Message" => String.t(),
+        "LatestFlywheelIteration" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
         "ModelType" => list(any()),
         "Status" => list(any())
       }
       
   """
-  @type flywheel_summary() :: %{String.t() => any()}
+  @type flywheel_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1169,7 +1169,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type detect_entities_response() :: %{String.t() => any()}
+  @type detect_entities_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1181,7 +1181,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type entity_label() :: %{String.t() => any()}
+  @type entity_label() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1193,7 +1193,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type point() :: %{String.t() => any()}
+  @type point() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1201,11 +1201,11 @@ defmodule AWS.Comprehend do
       
       list_document_classifier_summaries_response() :: %{
         "DocumentClassifierSummariesList" => list(document_classifier_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_document_classifier_summaries_response() :: %{String.t() => any()}
+  @type list_document_classifier_summaries_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1213,35 +1213,35 @@ defmodule AWS.Comprehend do
       
       detect_sentiment_request() :: %{
         required("LanguageCode") => list(any()),
-        required("Text") => String.t()
+        required("Text") => String.t() | Atom.t()
       }
       
   """
-  @type detect_sentiment_request() :: %{String.t() => any()}
+  @type detect_sentiment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_sentiment_detection_job_response() :: %{
-        "JobArn" => String.t(),
-        "JobId" => String.t(),
+        "JobArn" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
         "JobStatus" => list(any())
       }
       
   """
-  @type start_sentiment_detection_job_response() :: %{String.t() => any()}
+  @type start_sentiment_detection_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_dataset_response() :: %{
-        "DatasetArn" => String.t()
+        "DatasetArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_dataset_response() :: %{String.t() => any()}
+  @type create_dataset_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1249,11 +1249,11 @@ defmodule AWS.Comprehend do
       
       list_document_classification_jobs_response() :: %{
         "DocumentClassificationJobPropertiesList" => list(document_classification_job_properties()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_document_classification_jobs_response() :: %{String.t() => any()}
+  @type list_document_classification_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1263,11 +1263,11 @@ defmodule AWS.Comprehend do
         "BeginOffset" => integer(),
         "EndOffset" => integer(),
         "Score" => float(),
-        "Text" => String.t()
+        "Text" => String.t() | Atom.t()
       }
       
   """
-  @type key_phrase() :: %{String.t() => any()}
+  @type key_phrase() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1276,25 +1276,25 @@ defmodule AWS.Comprehend do
       list_entities_detection_jobs_request() :: %{
         optional("Filter") => entities_detection_job_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_entities_detection_jobs_request() :: %{String.t() => any()}
+  @type list_entities_detection_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       pii_entities_detection_job_filter() :: %{
-        "JobName" => String.t(),
+        "JobName" => String.t() | Atom.t(),
         "JobStatus" => list(any()),
         "SubmitTimeAfter" => non_neg_integer(),
         "SubmitTimeBefore" => non_neg_integer()
       }
       
   """
-  @type pii_entities_detection_job_filter() :: %{String.t() => any()}
+  @type pii_entities_detection_job_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1303,74 +1303,74 @@ defmodule AWS.Comprehend do
       list_topics_detection_jobs_request() :: %{
         optional("Filter") => topics_detection_job_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_topics_detection_jobs_request() :: %{String.t() => any()}
+  @type list_topics_detection_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_entities_detection_job_request() :: %{
-        required("JobId") => String.t()
+        required("JobId") => String.t() | Atom.t()
       }
       
   """
-  @type stop_entities_detection_job_request() :: %{String.t() => any()}
+  @type stop_entities_detection_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       entity_recognizer_entity_list() :: %{
-        "S3Uri" => String.t()
+        "S3Uri" => String.t() | Atom.t()
       }
       
   """
-  @type entity_recognizer_entity_list() :: %{String.t() => any()}
+  @type entity_recognizer_entity_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_targeted_sentiment_detection_job_request() :: %{
-        optional("ClientRequestToken") => String.t(),
-        optional("JobName") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
+        optional("JobName") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        optional("VolumeKmsKeyId") => String.t(),
+        optional("VolumeKmsKeyId") => String.t() | Atom.t(),
         optional("VpcConfig") => vpc_config(),
-        required("DataAccessRoleArn") => String.t(),
+        required("DataAccessRoleArn") => String.t() | Atom.t(),
         required("InputDataConfig") => input_data_config(),
         required("LanguageCode") => list(any()),
         required("OutputDataConfig") => output_data_config()
       }
       
   """
-  @type start_targeted_sentiment_detection_job_request() :: %{String.t() => any()}
+  @type start_targeted_sentiment_detection_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_document_classifier_request() :: %{
-        required("DocumentClassifierArn") => String.t()
+        required("DocumentClassifierArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_document_classifier_request() :: %{String.t() => any()}
+  @type delete_document_classifier_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1384,30 +1384,30 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type sentiment_score() :: %{String.t() => any()}
+  @type sentiment_score() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_flywheel_iteration_request() :: %{
-        required("FlywheelArn") => String.t(),
-        required("FlywheelIterationId") => String.t()
+        required("FlywheelArn") => String.t() | Atom.t(),
+        required("FlywheelIterationId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_flywheel_iteration_request() :: %{String.t() => any()}
+  @type describe_flywheel_iteration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       dataset_entity_recognizer_annotations() :: %{
-        "S3Uri" => String.t()
+        "S3Uri" => String.t() | Atom.t()
       }
       
   """
-  @type dataset_entity_recognizer_annotations() :: %{String.t() => any()}
+  @type dataset_entity_recognizer_annotations() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1416,13 +1416,13 @@ defmodule AWS.Comprehend do
       detect_entities_request() :: %{
         optional("Bytes") => binary(),
         optional("DocumentReaderConfig") => document_reader_config(),
-        optional("EndpointArn") => String.t(),
+        optional("EndpointArn") => String.t() | Atom.t(),
         optional("LanguageCode") => list(any()),
-        optional("Text") => String.t()
+        optional("Text") => String.t() | Atom.t()
       }
       
   """
-  @type detect_entities_request() :: %{String.t() => any()}
+  @type detect_entities_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1430,32 +1430,32 @@ defmodule AWS.Comprehend do
       
       block_reference() :: %{
         "BeginOffset" => integer(),
-        "BlockId" => String.t(),
+        "BlockId" => String.t() | Atom.t(),
         "ChildBlocks" => list(child_block()),
         "EndOffset" => integer()
       }
       
   """
-  @type block_reference() :: %{String.t() => any()}
+  @type block_reference() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_sentiment_detection_job_request() :: %{
-        optional("ClientRequestToken") => String.t(),
-        optional("JobName") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
+        optional("JobName") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        optional("VolumeKmsKeyId") => String.t(),
+        optional("VolumeKmsKeyId") => String.t() | Atom.t(),
         optional("VpcConfig") => vpc_config(),
-        required("DataAccessRoleArn") => String.t(),
+        required("DataAccessRoleArn") => String.t() | Atom.t(),
         required("InputDataConfig") => input_data_config(),
         required("LanguageCode") => list(any()),
         required("OutputDataConfig") => output_data_config()
       }
       
   """
-  @type start_sentiment_detection_job_request() :: %{String.t() => any()}
+  @type start_sentiment_detection_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1464,50 +1464,50 @@ defmodule AWS.Comprehend do
       list_flywheel_iteration_history_request() :: %{
         optional("Filter") => flywheel_iteration_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("FlywheelArn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("FlywheelArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_flywheel_iteration_history_request() :: %{String.t() => any()}
+  @type list_flywheel_iteration_history_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       relationships_list_item() :: %{
-        "Ids" => list(String.t()),
+        "Ids" => list(String.t() | Atom.t()),
         "Type" => list(any())
       }
       
   """
-  @type relationships_list_item() :: %{String.t() => any()}
+  @type relationships_list_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       document_classifier_filter() :: %{
-        "DocumentClassifierName" => String.t(),
+        "DocumentClassifierName" => String.t() | Atom.t(),
         "Status" => list(any()),
         "SubmitTimeAfter" => non_neg_integer(),
         "SubmitTimeBefore" => non_neg_integer()
       }
       
   """
-  @type document_classifier_filter() :: %{String.t() => any()}
+  @type document_classifier_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1515,12 +1515,12 @@ defmodule AWS.Comprehend do
       
       invalid_request_exception() :: %{
         "Detail" => invalid_request_detail(),
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "Reason" => list(any())
       }
       
   """
-  @type invalid_request_exception() :: %{String.t() => any()}
+  @type invalid_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1531,7 +1531,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type describe_flywheel_iteration_response() :: %{String.t() => any()}
+  @type describe_flywheel_iteration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1552,41 +1552,41 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type batch_detect_key_phrases_response() :: %{String.t() => any()}
+  @type batch_detect_key_phrases_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_pii_entities_detection_job_request() :: %{
-        required("JobId") => String.t()
+        required("JobId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_pii_entities_detection_job_request() :: %{String.t() => any()}
+  @type describe_pii_entities_detection_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       sentiment_detection_job_properties() :: %{
-        "DataAccessRoleArn" => String.t(),
+        "DataAccessRoleArn" => String.t() | Atom.t(),
         "EndTime" => non_neg_integer(),
         "InputDataConfig" => input_data_config(),
-        "JobArn" => String.t(),
-        "JobId" => String.t(),
-        "JobName" => String.t(),
+        "JobArn" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
+        "JobName" => String.t() | Atom.t(),
         "JobStatus" => list(any()),
         "LanguageCode" => list(any()),
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "OutputDataConfig" => output_data_config(),
         "SubmitTime" => non_neg_integer(),
-        "VolumeKmsKeyId" => String.t(),
+        "VolumeKmsKeyId" => String.t() | Atom.t(),
         "VpcConfig" => vpc_config()
       }
       
   """
-  @type sentiment_detection_job_properties() :: %{String.t() => any()}
+  @type sentiment_detection_job_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1598,7 +1598,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type mention_sentiment() :: %{String.t() => any()}
+  @type mention_sentiment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1606,11 +1606,11 @@ defmodule AWS.Comprehend do
       
       list_endpoints_response() :: %{
         "EndpointPropertiesList" => list(endpoint_properties()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_endpoints_response() :: %{String.t() => any()}
+  @type list_endpoints_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1618,11 +1618,11 @@ defmodule AWS.Comprehend do
       
       batch_detect_entities_request() :: %{
         required("LanguageCode") => list(any()),
-        required("TextList") => list(String.t())
+        required("TextList") => list(String.t() | Atom.t())
       }
       
   """
-  @type batch_detect_entities_request() :: %{String.t() => any()}
+  @type batch_detect_entities_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1636,7 +1636,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type dataset_input_data_config() :: %{String.t() => any()}
+  @type dataset_input_data_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1647,19 +1647,19 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type describe_document_classifier_response() :: %{String.t() => any()}
+  @type describe_document_classifier_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       dominant_language() :: %{
-        "LanguageCode" => String.t(),
+        "LanguageCode" => String.t() | Atom.t(),
         "Score" => float()
       }
       
   """
-  @type dominant_language() :: %{String.t() => any()}
+  @type dominant_language() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1668,23 +1668,23 @@ defmodule AWS.Comprehend do
       endpoint_filter() :: %{
         "CreationTimeAfter" => non_neg_integer(),
         "CreationTimeBefore" => non_neg_integer(),
-        "ModelArn" => String.t(),
+        "ModelArn" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type endpoint_filter() :: %{String.t() => any()}
+  @type endpoint_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_dominant_language_detection_job_request() :: %{
-        required("JobId") => String.t()
+        required("JobId") => String.t() | Atom.t()
       }
       
   """
-  @type stop_dominant_language_detection_job_request() :: %{String.t() => any()}
+  @type stop_dominant_language_detection_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1692,22 +1692,22 @@ defmodule AWS.Comprehend do
       
       list_events_detection_jobs_response() :: %{
         "EventsDetectionJobPropertiesList" => list(events_detection_job_properties()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_events_detection_jobs_response() :: %{String.t() => any()}
+  @type list_events_detection_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_limit_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_limit_exceeded_exception() :: %{String.t() => any()}
+  @type resource_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1716,58 +1716,58 @@ defmodule AWS.Comprehend do
       list_sentiment_detection_jobs_request() :: %{
         optional("Filter") => sentiment_detection_job_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_sentiment_detection_jobs_request() :: %{String.t() => any()}
+  @type list_sentiment_detection_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_size_limit_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type batch_size_limit_exceeded_exception() :: %{String.t() => any()}
+  @type batch_size_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_document_classifier_response() :: %{
-        "DocumentClassifierArn" => String.t()
+        "DocumentClassifierArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_document_classifier_response() :: %{String.t() => any()}
+  @type create_document_classifier_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       pii_output_data_config() :: %{
-        "KmsKeyId" => String.t(),
-        "S3Uri" => String.t()
+        "KmsKeyId" => String.t() | Atom.t(),
+        "S3Uri" => String.t() | Atom.t()
       }
       
   """
-  @type pii_output_data_config() :: %{String.t() => any()}
+  @type pii_output_data_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       document_label() :: %{
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Page" => integer(),
         "Score" => float()
       }
       
   """
-  @type document_label() :: %{String.t() => any()}
+  @type document_label() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1779,7 +1779,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type batch_detect_sentiment_response() :: %{String.t() => any()}
+  @type batch_detect_sentiment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1787,34 +1787,34 @@ defmodule AWS.Comprehend do
       
       list_document_classifiers_response() :: %{
         "DocumentClassifierPropertiesList" => list(document_classifier_properties()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_document_classifiers_response() :: %{String.t() => any()}
+  @type list_document_classifiers_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_pii_entities_detection_job_request() :: %{
-        required("JobId") => String.t()
+        required("JobId") => String.t() | Atom.t()
       }
       
   """
-  @type stop_pii_entities_detection_job_request() :: %{String.t() => any()}
+  @type stop_pii_entities_detection_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       vpc_config() :: %{
-        "SecurityGroupIds" => list(String.t()),
-        "Subnets" => list(String.t())
+        "SecurityGroupIds" => list(String.t() | Atom.t()),
+        "Subnets" => list(String.t() | Atom.t())
       }
       
   """
-  @type vpc_config() :: %{String.t() => any()}
+  @type vpc_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1826,72 +1826,72 @@ defmodule AWS.Comprehend do
         "GroupScore" => float(),
         "MentionSentiment" => mention_sentiment(),
         "Score" => float(),
-        "Text" => String.t(),
+        "Text" => String.t() | Atom.t(),
         "Type" => list(any())
       }
       
   """
-  @type targeted_sentiment_mention() :: %{String.t() => any()}
+  @type targeted_sentiment_mention() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_data_security_config() :: %{
-        "ModelKmsKeyId" => String.t(),
-        "VolumeKmsKeyId" => String.t(),
+        "ModelKmsKeyId" => String.t() | Atom.t(),
+        "VolumeKmsKeyId" => String.t() | Atom.t(),
         "VpcConfig" => vpc_config()
       }
       
   """
-  @type update_data_security_config() :: %{String.t() => any()}
+  @type update_data_security_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_detect_dominant_language_request() :: %{
-        required("TextList") => list(String.t())
+        required("TextList") => list(String.t() | Atom.t())
       }
       
   """
-  @type batch_detect_dominant_language_request() :: %{String.t() => any()}
+  @type batch_detect_dominant_language_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_targeted_sentiment_detection_job_response() :: %{
-        "JobArn" => String.t(),
-        "JobId" => String.t(),
+        "JobArn" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
         "JobStatus" => list(any())
       }
       
   """
-  @type start_targeted_sentiment_detection_job_response() :: %{String.t() => any()}
+  @type start_targeted_sentiment_detection_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_endpoint_request() :: %{
-        required("EndpointArn") => String.t()
+        required("EndpointArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_endpoint_request() :: %{String.t() => any()}
+  @type describe_endpoint_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "ResourceArn" => String.t(),
+        "ResourceArn" => String.t() | Atom.t(),
         "Tags" => list(tag())
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1899,34 +1899,34 @@ defmodule AWS.Comprehend do
       
       errors_list_item() :: %{
         "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t(),
+        "ErrorMessage" => String.t() | Atom.t(),
         "Page" => integer()
       }
       
   """
-  @type errors_list_item() :: %{String.t() => any()}
+  @type errors_list_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_entity_recognizer_response() :: %{
-        "EntityRecognizerArn" => String.t()
+        "EntityRecognizerArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_entity_recognizer_response() :: %{String.t() => any()}
+  @type create_entity_recognizer_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       text_segment() :: %{
-        "Text" => String.t()
+        "Text" => String.t() | Atom.t()
       }
       
   """
-  @type text_segment() :: %{String.t() => any()}
+  @type text_segment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1937,7 +1937,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type describe_document_classification_job_response() :: %{String.t() => any()}
+  @type describe_document_classification_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1948,7 +1948,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type detect_syntax_response() :: %{String.t() => any()}
+  @type detect_syntax_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1959,38 +1959,38 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type detect_key_phrases_response() :: %{String.t() => any()}
+  @type detect_key_phrases_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_key_phrases_detection_job_response() :: %{
-        "JobArn" => String.t(),
-        "JobId" => String.t(),
+        "JobArn" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
         "JobStatus" => list(any())
       }
       
   """
-  @type start_key_phrases_detection_job_response() :: %{String.t() => any()}
+  @type start_key_phrases_detection_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_dominant_language_detection_job_request() :: %{
-        optional("ClientRequestToken") => String.t(),
-        optional("JobName") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
+        optional("JobName") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        optional("VolumeKmsKeyId") => String.t(),
+        optional("VolumeKmsKeyId") => String.t() | Atom.t(),
         optional("VpcConfig") => vpc_config(),
-        required("DataAccessRoleArn") => String.t(),
+        required("DataAccessRoleArn") => String.t() | Atom.t(),
         required("InputDataConfig") => input_data_config(),
         required("OutputDataConfig") => output_data_config()
       }
       
   """
-  @type start_dominant_language_detection_job_request() :: %{String.t() => any()}
+  @type start_dominant_language_detection_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1998,38 +1998,38 @@ defmodule AWS.Comprehend do
       
       dataset_properties() :: %{
         "CreationTime" => non_neg_integer(),
-        "DatasetArn" => String.t(),
-        "DatasetName" => String.t(),
-        "DatasetS3Uri" => String.t(),
+        "DatasetArn" => String.t() | Atom.t(),
+        "DatasetName" => String.t() | Atom.t(),
+        "DatasetS3Uri" => String.t() | Atom.t(),
         "DatasetType" => list(any()),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "EndTime" => non_neg_integer(),
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "NumberOfDocuments" => float(),
         "Status" => list(any())
       }
       
   """
-  @type dataset_properties() :: %{String.t() => any()}
+  @type dataset_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_flywheel_request() :: %{
-        optional("ActiveModelArn") => String.t(),
-        optional("ClientRequestToken") => String.t(),
+        optional("ActiveModelArn") => String.t() | Atom.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
         optional("DataSecurityConfig") => data_security_config(),
         optional("ModelType") => list(any()),
         optional("Tags") => list(tag()),
         optional("TaskConfig") => task_config(),
-        required("DataAccessRoleArn") => String.t(),
-        required("DataLakeS3Uri") => String.t(),
-        required("FlywheelName") => String.t()
+        required("DataAccessRoleArn") => String.t() | Atom.t(),
+        required("DataLakeS3Uri") => String.t() | Atom.t(),
+        required("FlywheelName") => String.t() | Atom.t()
       }
       
   """
-  @type create_flywheel_request() :: %{String.t() => any()}
+  @type create_flywheel_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2037,12 +2037,12 @@ defmodule AWS.Comprehend do
       
       entity_recognizer_documents() :: %{
         "InputFormat" => list(any()),
-        "S3Uri" => String.t(),
-        "TestS3Uri" => String.t()
+        "S3Uri" => String.t() | Atom.t(),
+        "TestS3Uri" => String.t() | Atom.t()
       }
       
   """
-  @type entity_recognizer_documents() :: %{String.t() => any()}
+  @type entity_recognizer_documents() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2058,12 +2058,12 @@ defmodule AWS.Comprehend do
   ## Example:
       
       stop_dominant_language_detection_job_response() :: %{
-        "JobId" => String.t(),
+        "JobId" => String.t() | Atom.t(),
         "JobStatus" => list(any())
       }
       
   """
-  @type stop_dominant_language_detection_job_response() :: %{String.t() => any()}
+  @type stop_dominant_language_detection_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2075,7 +2075,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type detect_toxic_content_request() :: %{String.t() => any()}
+  @type detect_toxic_content_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2083,25 +2083,25 @@ defmodule AWS.Comprehend do
       
       detect_targeted_sentiment_request() :: %{
         required("LanguageCode") => list(any()),
-        required("Text") => String.t()
+        required("Text") => String.t() | Atom.t()
       }
       
   """
-  @type detect_targeted_sentiment_request() :: %{String.t() => any()}
+  @type detect_targeted_sentiment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       entity_recognizer_filter() :: %{
-        "RecognizerName" => String.t(),
+        "RecognizerName" => String.t() | Atom.t(),
         "Status" => list(any()),
         "SubmitTimeAfter" => non_neg_integer(),
         "SubmitTimeBefore" => non_neg_integer()
       }
       
   """
-  @type entity_recognizer_filter() :: %{String.t() => any()}
+  @type entity_recognizer_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2117,97 +2117,97 @@ defmodule AWS.Comprehend do
   ## Example:
       
       dominant_language_detection_job_properties() :: %{
-        "DataAccessRoleArn" => String.t(),
+        "DataAccessRoleArn" => String.t() | Atom.t(),
         "EndTime" => non_neg_integer(),
         "InputDataConfig" => input_data_config(),
-        "JobArn" => String.t(),
-        "JobId" => String.t(),
-        "JobName" => String.t(),
+        "JobArn" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
+        "JobName" => String.t() | Atom.t(),
         "JobStatus" => list(any()),
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "OutputDataConfig" => output_data_config(),
         "SubmitTime" => non_neg_integer(),
-        "VolumeKmsKeyId" => String.t(),
+        "VolumeKmsKeyId" => String.t() | Atom.t(),
         "VpcConfig" => vpc_config()
       }
       
   """
-  @type dominant_language_detection_job_properties() :: %{String.t() => any()}
+  @type dominant_language_detection_job_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_entity_recognizer_request() :: %{
-        required("EntityRecognizerArn") => String.t()
+        required("EntityRecognizerArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_entity_recognizer_request() :: %{String.t() => any()}
+  @type describe_entity_recognizer_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_dominant_language_detection_job_request() :: %{
-        required("JobId") => String.t()
+        required("JobId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_dominant_language_detection_job_request() :: %{String.t() => any()}
+  @type describe_dominant_language_detection_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       document_classifier_summary() :: %{
-        "DocumentClassifierName" => String.t(),
+        "DocumentClassifierName" => String.t() | Atom.t(),
         "LatestVersionCreatedAt" => non_neg_integer(),
-        "LatestVersionName" => String.t(),
+        "LatestVersionName" => String.t() | Atom.t(),
         "LatestVersionStatus" => list(any()),
         "NumberOfVersions" => integer()
       }
       
   """
-  @type document_classifier_summary() :: %{String.t() => any()}
+  @type document_classifier_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_sentiment_detection_jobs_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "SentimentDetectionJobPropertiesList" => list(sentiment_detection_job_properties())
       }
       
   """
-  @type list_sentiment_detection_jobs_response() :: %{String.t() => any()}
+  @type list_sentiment_detection_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_item_error() :: %{
-        "ErrorCode" => String.t(),
-        "ErrorMessage" => String.t(),
+        "ErrorCode" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | Atom.t(),
         "Index" => integer()
       }
       
   """
-  @type batch_item_error() :: %{String.t() => any()}
+  @type batch_item_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_topics_detection_job_response() :: %{
-        "JobArn" => String.t(),
-        "JobId" => String.t(),
+        "JobArn" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
         "JobStatus" => list(any())
       }
       
   """
-  @type start_topics_detection_job_response() :: %{String.t() => any()}
+  @type start_topics_detection_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2218,7 +2218,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type describe_flywheel_response() :: %{String.t() => any()}
+  @type describe_flywheel_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2226,24 +2226,24 @@ defmodule AWS.Comprehend do
       
       list_entities_detection_jobs_response() :: %{
         "EntitiesDetectionJobPropertiesList" => list(entities_detection_job_properties()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_entities_detection_jobs_response() :: %{String.t() => any()}
+  @type list_entities_detection_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       redaction_config() :: %{
-        "MaskCharacter" => String.t(),
+        "MaskCharacter" => String.t() | Atom.t(),
         "MaskMode" => list(any()),
         "PiiEntityTypes" => list(list(any())())
       }
       
   """
-  @type redaction_config() :: %{String.t() => any()}
+  @type redaction_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2255,43 +2255,43 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type targeted_sentiment_entity() :: %{String.t() => any()}
+  @type targeted_sentiment_entity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       entities_detection_job_properties() :: %{
-        "DataAccessRoleArn" => String.t(),
+        "DataAccessRoleArn" => String.t() | Atom.t(),
         "EndTime" => non_neg_integer(),
-        "EntityRecognizerArn" => String.t(),
-        "FlywheelArn" => String.t(),
+        "EntityRecognizerArn" => String.t() | Atom.t(),
+        "FlywheelArn" => String.t() | Atom.t(),
         "InputDataConfig" => input_data_config(),
-        "JobArn" => String.t(),
-        "JobId" => String.t(),
-        "JobName" => String.t(),
+        "JobArn" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
+        "JobName" => String.t() | Atom.t(),
         "JobStatus" => list(any()),
         "LanguageCode" => list(any()),
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "OutputDataConfig" => output_data_config(),
         "SubmitTime" => non_neg_integer(),
-        "VolumeKmsKeyId" => String.t(),
+        "VolumeKmsKeyId" => String.t() | Atom.t(),
         "VpcConfig" => vpc_config()
       }
       
   """
-  @type entities_detection_job_properties() :: %{String.t() => any()}
+  @type entities_detection_job_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_training_entity_recognizer_request() :: %{
-        required("EntityRecognizerArn") => String.t()
+        required("EntityRecognizerArn") => String.t() | Atom.t()
       }
       
   """
-  @type stop_training_entity_recognizer_request() :: %{String.t() => any()}
+  @type stop_training_entity_recognizer_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2305,7 +2305,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type pii_entity() :: %{String.t() => any()}
+  @type pii_entity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2313,11 +2313,11 @@ defmodule AWS.Comprehend do
       
       list_entity_recognizer_summaries_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_entity_recognizer_summaries_request() :: %{String.t() => any()}
+  @type list_entity_recognizer_summaries_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2326,11 +2326,11 @@ defmodule AWS.Comprehend do
       warnings_list_item() :: %{
         "Page" => integer(),
         "WarnCode" => list(any()),
-        "WarnMessage" => String.t()
+        "WarnMessage" => String.t() | Atom.t()
       }
       
   """
-  @type warnings_list_item() :: %{String.t() => any()}
+  @type warnings_list_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2338,56 +2338,56 @@ defmodule AWS.Comprehend do
       
       batch_detect_sentiment_request() :: %{
         required("LanguageCode") => list(any()),
-        required("TextList") => list(String.t())
+        required("TextList") => list(String.t() | Atom.t())
       }
       
   """
-  @type batch_detect_sentiment_request() :: %{String.t() => any()}
+  @type batch_detect_sentiment_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       document_classifier_documents() :: %{
-        "S3Uri" => String.t(),
-        "TestS3Uri" => String.t()
+        "S3Uri" => String.t() | Atom.t(),
+        "TestS3Uri" => String.t() | Atom.t()
       }
       
   """
-  @type document_classifier_documents() :: %{String.t() => any()}
+  @type document_classifier_documents() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_targeted_sentiment_detection_job_request() :: %{
-        required("JobId") => String.t()
+        required("JobId") => String.t() | Atom.t()
       }
       
   """
-  @type stop_targeted_sentiment_detection_job_request() :: %{String.t() => any()}
+  @type stop_targeted_sentiment_detection_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_targeted_sentiment_detection_job_request() :: %{
-        required("JobId") => String.t()
+        required("JobId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_targeted_sentiment_detection_job_request() :: %{String.t() => any()}
+  @type describe_targeted_sentiment_detection_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2399,7 +2399,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type document_type_list_item() :: %{String.t() => any()}
+  @type document_type_list_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2413,7 +2413,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type bounding_box() :: %{String.t() => any()}
+  @type bounding_box() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2424,7 +2424,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type detect_dominant_language_response() :: %{String.t() => any()}
+  @type detect_dominant_language_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2433,25 +2433,25 @@ defmodule AWS.Comprehend do
       list_endpoints_request() :: %{
         optional("Filter") => endpoint_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_endpoints_request() :: %{String.t() => any()}
+  @type list_endpoints_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       targeted_sentiment_detection_job_filter() :: %{
-        "JobName" => String.t(),
+        "JobName" => String.t() | Atom.t(),
         "JobStatus" => list(any()),
         "SubmitTimeAfter" => non_neg_integer(),
         "SubmitTimeBefore" => non_neg_integer()
       }
       
   """
-  @type targeted_sentiment_detection_job_filter() :: %{String.t() => any()}
+  @type targeted_sentiment_detection_job_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2460,31 +2460,31 @@ defmodule AWS.Comprehend do
       endpoint_properties() :: %{
         "CreationTime" => non_neg_integer(),
         "CurrentInferenceUnits" => integer(),
-        "DataAccessRoleArn" => String.t(),
-        "DesiredDataAccessRoleArn" => String.t(),
+        "DataAccessRoleArn" => String.t() | Atom.t(),
+        "DesiredDataAccessRoleArn" => String.t() | Atom.t(),
         "DesiredInferenceUnits" => integer(),
-        "DesiredModelArn" => String.t(),
-        "EndpointArn" => String.t(),
-        "FlywheelArn" => String.t(),
+        "DesiredModelArn" => String.t() | Atom.t(),
+        "EndpointArn" => String.t() | Atom.t(),
+        "FlywheelArn" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "Message" => String.t(),
-        "ModelArn" => String.t(),
+        "Message" => String.t() | Atom.t(),
+        "ModelArn" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type endpoint_properties() :: %{String.t() => any()}
+  @type endpoint_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_endpoint_request() :: %{
-        required("EndpointArn") => String.t()
+        required("EndpointArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_endpoint_request() :: %{String.t() => any()}
+  @type delete_endpoint_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2497,45 +2497,45 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type batch_detect_sentiment_item_result() :: %{String.t() => any()}
+  @type batch_detect_sentiment_item_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_resource_policy_request() :: %{
-        optional("PolicyRevisionId") => String.t(),
-        required("ResourceArn") => String.t(),
-        required("ResourcePolicy") => String.t()
+        optional("PolicyRevisionId") => String.t() | Atom.t(),
+        required("ResourceArn") => String.t() | Atom.t(),
+        required("ResourcePolicy") => String.t() | Atom.t()
       }
       
   """
-  @type put_resource_policy_request() :: %{String.t() => any()}
+  @type put_resource_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       document_classification_job_filter() :: %{
-        "JobName" => String.t(),
+        "JobName" => String.t() | Atom.t(),
         "JobStatus" => list(any()),
         "SubmitTimeAfter" => non_neg_integer(),
         "SubmitTimeBefore" => non_neg_integer()
       }
       
   """
-  @type document_classification_job_filter() :: %{String.t() => any()}
+  @type document_classification_job_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_document_classifier_request() :: %{
-        required("DocumentClassifierArn") => String.t()
+        required("DocumentClassifierArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_document_classifier_request() :: %{String.t() => any()}
+  @type describe_document_classifier_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2546,18 +2546,18 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type entity_recognition_config() :: %{String.t() => any()}
+  @type entity_recognition_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       text_size_limit_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type text_size_limit_exceeded_exception() :: %{String.t() => any()}
+  @type text_size_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2568,19 +2568,19 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type describe_key_phrases_detection_job_response() :: %{String.t() => any()}
+  @type describe_key_phrases_detection_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_key_phrases_detection_job_response() :: %{
-        "JobId" => String.t(),
+        "JobId" => String.t() | Atom.t(),
         "JobStatus" => list(any())
       }
       
   """
-  @type stop_key_phrases_detection_job_response() :: %{String.t() => any()}
+  @type stop_key_phrases_detection_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2591,21 +2591,21 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type describe_endpoint_response() :: %{String.t() => any()}
+  @type describe_endpoint_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_entities_detection_job_response() :: %{
-        "EntityRecognizerArn" => String.t(),
-        "JobArn" => String.t(),
-        "JobId" => String.t(),
+        "EntityRecognizerArn" => String.t() | Atom.t(),
+        "JobArn" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
         "JobStatus" => list(any())
       }
       
   """
-  @type start_entities_detection_job_response() :: %{String.t() => any()}
+  @type start_entities_detection_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2614,11 +2614,11 @@ defmodule AWS.Comprehend do
       entity_recognizer_metadata_entity_types_list_item() :: %{
         "EvaluationMetrics" => entity_types_evaluation_metrics(),
         "NumberOfTrainMentions" => integer(),
-        "Type" => String.t()
+        "Type" => String.t() | Atom.t()
       }
       
   """
-  @type entity_recognizer_metadata_entity_types_list_item() :: %{String.t() => any()}
+  @type entity_recognizer_metadata_entity_types_list_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2634,73 +2634,73 @@ defmodule AWS.Comprehend do
   ## Example:
       
       entity_recognizer_annotations() :: %{
-        "S3Uri" => String.t(),
-        "TestS3Uri" => String.t()
+        "S3Uri" => String.t() | Atom.t(),
+        "TestS3Uri" => String.t() | Atom.t()
       }
       
   """
-  @type entity_recognizer_annotations() :: %{String.t() => any()}
+  @type entity_recognizer_annotations() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       key_phrases_detection_job_properties() :: %{
-        "DataAccessRoleArn" => String.t(),
+        "DataAccessRoleArn" => String.t() | Atom.t(),
         "EndTime" => non_neg_integer(),
         "InputDataConfig" => input_data_config(),
-        "JobArn" => String.t(),
-        "JobId" => String.t(),
-        "JobName" => String.t(),
+        "JobArn" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
+        "JobName" => String.t() | Atom.t(),
         "JobStatus" => list(any()),
         "LanguageCode" => list(any()),
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "OutputDataConfig" => output_data_config(),
         "SubmitTime" => non_neg_integer(),
-        "VolumeKmsKeyId" => String.t(),
+        "VolumeKmsKeyId" => String.t() | Atom.t(),
         "VpcConfig" => vpc_config()
       }
       
   """
-  @type key_phrases_detection_job_properties() :: %{String.t() => any()}
+  @type key_phrases_detection_job_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_flywheel_response() :: %{
-        "ActiveModelArn" => String.t(),
-        "FlywheelArn" => String.t()
+        "ActiveModelArn" => String.t() | Atom.t(),
+        "FlywheelArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_flywheel_response() :: %{String.t() => any()}
+  @type create_flywheel_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       concurrent_modification_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type concurrent_modification_exception() :: %{String.t() => any()}
+  @type concurrent_modification_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       pii_entities_detection_job_properties() :: %{
-        "DataAccessRoleArn" => String.t(),
+        "DataAccessRoleArn" => String.t() | Atom.t(),
         "EndTime" => non_neg_integer(),
         "InputDataConfig" => input_data_config(),
-        "JobArn" => String.t(),
-        "JobId" => String.t(),
-        "JobName" => String.t(),
+        "JobArn" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
+        "JobName" => String.t() | Atom.t(),
         "JobStatus" => list(any()),
         "LanguageCode" => list(any()),
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "Mode" => list(any()),
         "OutputDataConfig" => pii_output_data_config(),
         "RedactionConfig" => redaction_config(),
@@ -2708,29 +2708,29 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type pii_entities_detection_job_properties() :: %{String.t() => any()}
+  @type pii_entities_detection_job_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_key_phrases_detection_job_request() :: %{
-        required("JobId") => String.t()
+        required("JobId") => String.t() | Atom.t()
       }
       
   """
-  @type stop_key_phrases_detection_job_request() :: %{String.t() => any()}
+  @type stop_key_phrases_detection_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       unsupported_language_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type unsupported_language_exception() :: %{String.t() => any()}
+  @type unsupported_language_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2741,7 +2741,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type describe_dataset_response() :: %{String.t() => any()}
+  @type describe_dataset_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2755,7 +2755,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type entity_recognizer_metadata() :: %{String.t() => any()}
+  @type entity_recognizer_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2773,19 +2773,19 @@ defmodule AWS.Comprehend do
       flywheel_iteration_properties() :: %{
         "CreationTime" => non_neg_integer(),
         "EndTime" => non_neg_integer(),
-        "EvaluatedModelArn" => String.t(),
+        "EvaluatedModelArn" => String.t() | Atom.t(),
         "EvaluatedModelMetrics" => flywheel_model_evaluation_metrics(),
-        "EvaluationManifestS3Prefix" => String.t(),
-        "FlywheelArn" => String.t(),
-        "FlywheelIterationId" => String.t(),
-        "Message" => String.t(),
+        "EvaluationManifestS3Prefix" => String.t() | Atom.t(),
+        "FlywheelArn" => String.t() | Atom.t(),
+        "FlywheelIterationId" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "TrainedModelArn" => String.t(),
+        "TrainedModelArn" => String.t() | Atom.t(),
         "TrainedModelMetrics" => flywheel_model_evaluation_metrics()
       }
       
   """
-  @type flywheel_iteration_properties() :: %{String.t() => any()}
+  @type flywheel_iteration_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2794,22 +2794,22 @@ defmodule AWS.Comprehend do
       list_key_phrases_detection_jobs_request() :: %{
         optional("Filter") => key_phrases_detection_job_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_key_phrases_detection_jobs_request() :: %{String.t() => any()}
+  @type list_key_phrases_detection_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2821,35 +2821,35 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type batch_detect_key_phrases_item_result() :: %{String.t() => any()}
+  @type batch_detect_key_phrases_item_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_dataset_request() :: %{
-        optional("ClientRequestToken") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
         optional("DatasetType") => list(any()),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("DatasetName") => String.t(),
-        required("FlywheelArn") => String.t(),
+        required("DatasetName") => String.t() | Atom.t(),
+        required("FlywheelArn") => String.t() | Atom.t(),
         required("InputDataConfig") => dataset_input_data_config()
       }
       
   """
-  @type create_dataset_request() :: %{String.t() => any()}
+  @type create_dataset_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       detect_dominant_language_request() :: %{
-        required("Text") => String.t()
+        required("Text") => String.t() | Atom.t()
       }
       
   """
-  @type detect_dominant_language_request() :: %{String.t() => any()}
+  @type detect_dominant_language_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2861,7 +2861,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type document_metadata() :: %{String.t() => any()}
+  @type document_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2872,7 +2872,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type update_flywheel_response() :: %{String.t() => any()}
+  @type update_flywheel_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2881,58 +2881,58 @@ defmodule AWS.Comprehend do
       list_document_classification_jobs_request() :: %{
         optional("Filter") => document_classification_job_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_document_classification_jobs_request() :: %{String.t() => any()}
+  @type list_document_classification_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_key_phrases_detection_job_request() :: %{
-        required("JobId") => String.t()
+        required("JobId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_key_phrases_detection_job_request() :: %{String.t() => any()}
+  @type describe_key_phrases_detection_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_pii_entities_detection_job_response() :: %{
-        "JobArn" => String.t(),
-        "JobId" => String.t(),
+        "JobArn" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
         "JobStatus" => list(any())
       }
       
   """
-  @type start_pii_entities_detection_job_response() :: %{String.t() => any()}
+  @type start_pii_entities_detection_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_targeted_sentiment_detection_job_response() :: %{
-        "JobId" => String.t(),
+        "JobId" => String.t() | Atom.t(),
         "JobStatus" => list(any())
       }
       
   """
-  @type stop_targeted_sentiment_detection_job_response() :: %{String.t() => any()}
+  @type stop_targeted_sentiment_detection_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_pii_entities_detection_job_request() :: %{
-        optional("ClientRequestToken") => String.t(),
-        optional("JobName") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
+        optional("JobName") => String.t() | Atom.t(),
         optional("RedactionConfig") => redaction_config(),
         optional("Tags") => list(tag()),
-        required("DataAccessRoleArn") => String.t(),
+        required("DataAccessRoleArn") => String.t() | Atom.t(),
         required("InputDataConfig") => input_data_config(),
         required("LanguageCode") => list(any()),
         required("Mode") => list(any()),
@@ -2940,7 +2940,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type start_pii_entities_detection_job_request() :: %{String.t() => any()}
+  @type start_pii_entities_detection_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2948,36 +2948,36 @@ defmodule AWS.Comprehend do
       
       detect_pii_entities_request() :: %{
         required("LanguageCode") => list(any()),
-        required("Text") => String.t()
+        required("Text") => String.t() | Atom.t()
       }
       
   """
-  @type detect_pii_entities_request() :: %{String.t() => any()}
+  @type detect_pii_entities_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_events_detection_job_request() :: %{
-        required("JobId") => String.t()
+        required("JobId") => String.t() | Atom.t()
       }
       
   """
-  @type stop_events_detection_job_request() :: %{String.t() => any()}
+  @type stop_events_detection_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       topics_detection_job_filter() :: %{
-        "JobName" => String.t(),
+        "JobName" => String.t() | Atom.t(),
         "JobStatus" => list(any()),
         "SubmitTimeAfter" => non_neg_integer(),
         "SubmitTimeBefore" => non_neg_integer()
       }
       
   """
-  @type topics_detection_job_filter() :: %{String.t() => any()}
+  @type topics_detection_job_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2986,12 +2986,12 @@ defmodule AWS.Comprehend do
       describe_resource_policy_response() :: %{
         "CreationTime" => non_neg_integer(),
         "LastModifiedTime" => non_neg_integer(),
-        "PolicyRevisionId" => String.t(),
-        "ResourcePolicy" => String.t()
+        "PolicyRevisionId" => String.t() | Atom.t(),
+        "ResourcePolicy" => String.t() | Atom.t()
       }
       
   """
-  @type describe_resource_policy_response() :: %{String.t() => any()}
+  @type describe_resource_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3002,19 +3002,19 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type describe_entities_detection_job_response() :: %{String.t() => any()}
+  @type describe_entities_detection_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_topics_detection_jobs_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "TopicsDetectionJobPropertiesList" => list(topics_detection_job_properties())
       }
       
   """
-  @type list_topics_detection_jobs_response() :: %{String.t() => any()}
+  @type list_topics_detection_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3026,19 +3026,19 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type batch_detect_targeted_sentiment_item_result() :: %{String.t() => any()}
+  @type batch_detect_targeted_sentiment_item_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_targeted_sentiment_detection_jobs_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "TargetedSentimentDetectionJobPropertiesList" => list(targeted_sentiment_detection_job_properties())
       }
       
   """
-  @type list_targeted_sentiment_detection_jobs_response() :: %{String.t() => any()}
+  @type list_targeted_sentiment_detection_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3050,7 +3050,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type toxic_content() :: %{String.t() => any()}
+  @type toxic_content() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3059,11 +3059,11 @@ defmodule AWS.Comprehend do
       list_events_detection_jobs_request() :: %{
         optional("Filter") => events_detection_job_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_events_detection_jobs_request() :: %{String.t() => any()}
+  @type list_events_detection_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3072,48 +3072,48 @@ defmodule AWS.Comprehend do
       list_targeted_sentiment_detection_jobs_request() :: %{
         optional("Filter") => targeted_sentiment_detection_job_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_targeted_sentiment_detection_jobs_request() :: %{String.t() => any()}
+  @type list_targeted_sentiment_detection_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_resource_policy_response() :: %{
-        "PolicyRevisionId" => String.t()
+        "PolicyRevisionId" => String.t() | Atom.t()
       }
       
   """
-  @type put_resource_policy_response() :: %{String.t() => any()}
+  @type put_resource_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       output_data_config() :: %{
-        "KmsKeyId" => String.t(),
-        "S3Uri" => String.t()
+        "KmsKeyId" => String.t() | Atom.t(),
+        "S3Uri" => String.t() | Atom.t()
       }
       
   """
-  @type output_data_config() :: %{String.t() => any()}
+  @type output_data_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       dominant_language_detection_job_filter() :: %{
-        "JobName" => String.t(),
+        "JobName" => String.t() | Atom.t(),
         "JobStatus" => list(any()),
         "SubmitTimeAfter" => non_neg_integer(),
         "SubmitTimeBefore" => non_neg_integer()
       }
       
   """
-  @type dominant_language_detection_job_filter() :: %{String.t() => any()}
+  @type dominant_language_detection_job_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3125,7 +3125,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type detect_sentiment_response() :: %{String.t() => any()}
+  @type detect_sentiment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3133,11 +3133,11 @@ defmodule AWS.Comprehend do
       
       batch_detect_key_phrases_request() :: %{
         required("LanguageCode") => list(any()),
-        required("TextList") => list(String.t())
+        required("TextList") => list(String.t() | Atom.t())
       }
       
   """
-  @type batch_detect_key_phrases_request() :: %{String.t() => any()}
+  @type batch_detect_key_phrases_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3148,7 +3148,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type describe_pii_entities_detection_job_response() :: %{String.t() => any()}
+  @type describe_pii_entities_detection_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3160,7 +3160,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type batch_detect_entities_item_result() :: %{String.t() => any()}
+  @type batch_detect_entities_item_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3172,7 +3172,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type toxic_labels() :: %{String.t() => any()}
+  @type toxic_labels() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3183,41 +3183,41 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type detect_targeted_sentiment_response() :: %{String.t() => any()}
+  @type detect_targeted_sentiment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_resource_policy_request() :: %{
-        optional("PolicyRevisionId") => String.t(),
-        required("ResourceArn") => String.t()
+        optional("PolicyRevisionId") => String.t() | Atom.t(),
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_resource_policy_request() :: %{String.t() => any()}
+  @type delete_resource_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       entity_types_list_item() :: %{
-        "Type" => String.t()
+        "Type" => String.t() | Atom.t()
       }
       
   """
-  @type entity_types_list_item() :: %{String.t() => any()}
+  @type entity_types_list_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       job_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type job_not_found_exception() :: %{String.t() => any()}
+  @type job_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3225,11 +3225,11 @@ defmodule AWS.Comprehend do
       
       list_key_phrases_detection_jobs_response() :: %{
         "KeyPhrasesDetectionJobPropertiesList" => list(key_phrases_detection_job_properties()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_key_phrases_detection_jobs_response() :: %{String.t() => any()}
+  @type list_key_phrases_detection_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3243,19 +3243,19 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type flywheel_model_evaluation_metrics() :: %{String.t() => any()}
+  @type flywheel_model_evaluation_metrics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_flywheel_iteration_response() :: %{
-        "FlywheelArn" => String.t(),
-        "FlywheelIterationId" => String.t()
+        "FlywheelArn" => String.t() | Atom.t(),
+        "FlywheelIterationId" => String.t() | Atom.t()
       }
       
   """
-  @type start_flywheel_iteration_response() :: %{String.t() => any()}
+  @type start_flywheel_iteration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3267,32 +3267,32 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type batch_detect_targeted_sentiment_response() :: %{String.t() => any()}
+  @type batch_detect_targeted_sentiment_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_dataset_request() :: %{
-        required("DatasetArn") => String.t()
+        required("DatasetArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_dataset_request() :: %{String.t() => any()}
+  @type describe_dataset_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_document_classification_job_response() :: %{
-        "DocumentClassifierArn" => String.t(),
-        "JobArn" => String.t(),
-        "JobId" => String.t(),
+        "DocumentClassifierArn" => String.t() | Atom.t(),
+        "JobArn" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
         "JobStatus" => list(any())
       }
       
   """
-  @type start_document_classification_job_response() :: %{String.t() => any()}
+  @type start_document_classification_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3300,59 +3300,59 @@ defmodule AWS.Comprehend do
       
       list_datasets_response() :: %{
         "DatasetPropertiesList" => list(dataset_properties()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_datasets_response() :: %{String.t() => any()}
+  @type list_datasets_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_endpoint_response() :: %{
-        "EndpointArn" => String.t(),
-        "ModelArn" => String.t()
+        "EndpointArn" => String.t() | Atom.t(),
+        "ModelArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_endpoint_response() :: %{String.t() => any()}
+  @type create_endpoint_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       events_detection_job_filter() :: %{
-        "JobName" => String.t(),
+        "JobName" => String.t() | Atom.t(),
         "JobStatus" => list(any()),
         "SubmitTimeAfter" => non_neg_integer(),
         "SubmitTimeBefore" => non_neg_integer()
       }
       
   """
-  @type events_detection_job_filter() :: %{String.t() => any()}
+  @type events_detection_job_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       flywheel_properties() :: %{
-        "ActiveModelArn" => String.t(),
+        "ActiveModelArn" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
-        "DataAccessRoleArn" => String.t(),
-        "DataLakeS3Uri" => String.t(),
+        "DataAccessRoleArn" => String.t() | Atom.t(),
+        "DataLakeS3Uri" => String.t() | Atom.t(),
         "DataSecurityConfig" => data_security_config(),
-        "FlywheelArn" => String.t(),
+        "FlywheelArn" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "LatestFlywheelIteration" => String.t(),
-        "Message" => String.t(),
+        "LatestFlywheelIteration" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t(),
         "ModelType" => list(any()),
         "Status" => list(any()),
         "TaskConfig" => task_config()
       }
       
   """
-  @type flywheel_properties() :: %{String.t() => any()}
+  @type flywheel_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3363,39 +3363,39 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type detect_toxic_content_response() :: %{String.t() => any()}
+  @type detect_toxic_content_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_dominant_language_detection_job_response() :: %{
-        "JobArn" => String.t(),
-        "JobId" => String.t(),
+        "JobArn" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
         "JobStatus" => list(any())
       }
       
   """
-  @type start_dominant_language_detection_job_response() :: %{String.t() => any()}
+  @type start_dominant_language_detection_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_key_phrases_detection_job_request() :: %{
-        optional("ClientRequestToken") => String.t(),
-        optional("JobName") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
+        optional("JobName") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        optional("VolumeKmsKeyId") => String.t(),
+        optional("VolumeKmsKeyId") => String.t() | Atom.t(),
         optional("VpcConfig") => vpc_config(),
-        required("DataAccessRoleArn") => String.t(),
+        required("DataAccessRoleArn") => String.t() | Atom.t(),
         required("InputDataConfig") => input_data_config(),
         required("LanguageCode") => list(any()),
         required("OutputDataConfig") => output_data_config()
       }
       
   """
-  @type start_key_phrases_detection_job_request() :: %{String.t() => any()}
+  @type start_key_phrases_detection_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3406,7 +3406,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type describe_sentiment_detection_job_response() :: %{String.t() => any()}
+  @type describe_sentiment_detection_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3415,14 +3415,14 @@ defmodule AWS.Comprehend do
       block() :: %{
         "BlockType" => list(any()),
         "Geometry" => geometry(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "Page" => integer(),
         "Relationships" => list(relationships_list_item()),
-        "Text" => String.t()
+        "Text" => String.t() | Atom.t()
       }
       
   """
-  @type block() :: %{String.t() => any()}
+  @type block() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3436,7 +3436,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type dataset_filter() :: %{String.t() => any()}
+  @type dataset_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3444,25 +3444,25 @@ defmodule AWS.Comprehend do
       
       child_block() :: %{
         "BeginOffset" => integer(),
-        "ChildBlockId" => String.t(),
+        "ChildBlockId" => String.t() | Atom.t(),
         "EndOffset" => integer()
       }
       
   """
-  @type child_block() :: %{String.t() => any()}
+  @type child_block() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_events_detection_job_response() :: %{
-        "JobArn" => String.t(),
-        "JobId" => String.t(),
+        "JobArn" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
         "JobStatus" => list(any())
       }
       
   """
-  @type start_events_detection_job_response() :: %{String.t() => any()}
+  @type start_events_detection_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3470,34 +3470,34 @@ defmodule AWS.Comprehend do
       
       list_entity_recognizer_summaries_response() :: %{
         "EntityRecognizerSummariesList" => list(entity_recognizer_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_entity_recognizer_summaries_response() :: %{String.t() => any()}
+  @type list_entity_recognizer_summaries_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       targeted_sentiment_detection_job_properties() :: %{
-        "DataAccessRoleArn" => String.t(),
+        "DataAccessRoleArn" => String.t() | Atom.t(),
         "EndTime" => non_neg_integer(),
         "InputDataConfig" => input_data_config(),
-        "JobArn" => String.t(),
-        "JobId" => String.t(),
-        "JobName" => String.t(),
+        "JobArn" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
+        "JobName" => String.t() | Atom.t(),
         "JobStatus" => list(any()),
         "LanguageCode" => list(any()),
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "OutputDataConfig" => output_data_config(),
         "SubmitTime" => non_neg_integer(),
-        "VolumeKmsKeyId" => String.t(),
+        "VolumeKmsKeyId" => String.t() | Atom.t(),
         "VpcConfig" => vpc_config()
       }
       
   """
-  @type targeted_sentiment_detection_job_properties() :: %{String.t() => any()}
+  @type targeted_sentiment_detection_job_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3509,58 +3509,58 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type batch_detect_entities_response() :: %{String.t() => any()}
+  @type batch_detect_entities_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       import_model_request() :: %{
-        optional("DataAccessRoleArn") => String.t(),
-        optional("ModelKmsKeyId") => String.t(),
-        optional("ModelName") => String.t(),
+        optional("DataAccessRoleArn") => String.t() | Atom.t(),
+        optional("ModelKmsKeyId") => String.t() | Atom.t(),
+        optional("ModelName") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        optional("VersionName") => String.t(),
-        required("SourceModelArn") => String.t()
+        optional("VersionName") => String.t() | Atom.t(),
+        required("SourceModelArn") => String.t() | Atom.t()
       }
       
   """
-  @type import_model_request() :: %{String.t() => any()}
+  @type import_model_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_events_detection_job_response() :: %{
-        "JobId" => String.t(),
+        "JobId" => String.t() | Atom.t(),
         "JobStatus" => list(any())
       }
       
   """
-  @type stop_events_detection_job_response() :: %{String.t() => any()}
+  @type stop_events_detection_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_key_validation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type kms_key_validation_exception() :: %{String.t() => any()}
+  @type kms_key_validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_entities_detection_job_response() :: %{
-        "JobId" => String.t(),
+        "JobId" => String.t() | Atom.t(),
         "JobStatus" => list(any())
       }
       
   """
-  @type stop_entities_detection_job_response() :: %{String.t() => any()}
+  @type stop_entities_detection_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3569,34 +3569,34 @@ defmodule AWS.Comprehend do
       list_dominant_language_detection_jobs_request() :: %{
         optional("Filter") => dominant_language_detection_job_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_dominant_language_detection_jobs_request() :: %{String.t() => any()}
+  @type list_dominant_language_detection_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_pii_entities_detection_jobs_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "PiiEntitiesDetectionJobPropertiesList" => list(pii_entities_detection_job_properties())
       }
       
   """
-  @type list_pii_entities_detection_jobs_response() :: %{String.t() => any()}
+  @type list_pii_entities_detection_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_flywheel_request() :: %{
-        required("FlywheelArn") => String.t()
+        required("FlywheelArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_flywheel_request() :: %{String.t() => any()}
+  @type describe_flywheel_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3609,18 +3609,18 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type dataset_entity_recognizer_input_data_config() :: %{String.t() => any()}
+  @type dataset_entity_recognizer_input_data_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       dataset_entity_recognizer_entity_list() :: %{
-        "S3Uri" => String.t()
+        "S3Uri" => String.t() | Atom.t()
       }
       
   """
-  @type dataset_entity_recognizer_entity_list() :: %{String.t() => any()}
+  @type dataset_entity_recognizer_entity_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3629,11 +3629,11 @@ defmodule AWS.Comprehend do
       list_document_classifiers_request() :: %{
         optional("Filter") => document_classifier_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_document_classifiers_request() :: %{String.t() => any()}
+  @type list_document_classifiers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3646,7 +3646,7 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type flywheel_filter() :: %{String.t() => any()}
+  @type flywheel_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3658,18 +3658,18 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type batch_detect_syntax_response() :: %{String.t() => any()}
+  @type batch_detect_syntax_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       entity_recognizer_output_data_config() :: %{
-        "FlywheelStatsS3Prefix" => String.t()
+        "FlywheelStatsS3Prefix" => String.t() | Atom.t()
       }
       
   """
-  @type entity_recognizer_output_data_config() :: %{String.t() => any()}
+  @type entity_recognizer_output_data_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3681,30 +3681,30 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type extracted_characters_list_item() :: %{String.t() => any()}
+  @type extracted_characters_list_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       document_classification_config() :: %{
-        "Labels" => list(String.t()),
+        "Labels" => list(String.t() | Atom.t()),
         "Mode" => list(any())
       }
       
   """
-  @type document_classification_config() :: %{String.t() => any()}
+  @type document_classification_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_tags_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type too_many_tags_exception() :: %{String.t() => any()}
+  @type too_many_tags_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3720,61 +3720,61 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type classify_document_response() :: %{String.t() => any()}
+  @type classify_document_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_flywheel_request() :: %{
-        required("FlywheelArn") => String.t()
+        required("FlywheelArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_flywheel_request() :: %{String.t() => any()}
+  @type delete_flywheel_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_topics_detection_job_request() :: %{
-        optional("ClientRequestToken") => String.t(),
-        optional("JobName") => String.t(),
+        optional("ClientRequestToken") => String.t() | Atom.t(),
+        optional("JobName") => String.t() | Atom.t(),
         optional("NumberOfTopics") => integer(),
         optional("Tags") => list(tag()),
-        optional("VolumeKmsKeyId") => String.t(),
+        optional("VolumeKmsKeyId") => String.t() | Atom.t(),
         optional("VpcConfig") => vpc_config(),
-        required("DataAccessRoleArn") => String.t(),
+        required("DataAccessRoleArn") => String.t() | Atom.t(),
         required("InputDataConfig") => input_data_config(),
         required("OutputDataConfig") => output_data_config()
       }
       
   """
-  @type start_topics_detection_job_request() :: %{String.t() => any()}
+  @type start_topics_detection_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_resource_policy_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_resource_policy_request() :: %{String.t() => any()}
+  @type describe_resource_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       document_class() :: %{
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Page" => integer(),
         "Score" => float()
       }
       
   """
-  @type document_class() :: %{String.t() => any()}
+  @type document_class() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3787,45 +3787,45 @@ defmodule AWS.Comprehend do
       }
       
   """
-  @type entity_types_evaluation_metrics() :: %{String.t() => any()}
+  @type entity_types_evaluation_metrics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       entities_detection_job_filter() :: %{
-        "JobName" => String.t(),
+        "JobName" => String.t() | Atom.t(),
         "JobStatus" => list(any()),
         "SubmitTimeAfter" => non_neg_integer(),
         "SubmitTimeBefore" => non_neg_integer()
       }
       
   """
-  @type entities_detection_job_filter() :: %{String.t() => any()}
+  @type entities_detection_job_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       document_classification_job_properties() :: %{
-        "DataAccessRoleArn" => String.t(),
-        "DocumentClassifierArn" => String.t(),
+        "DataAccessRoleArn" => String.t() | Atom.t(),
+        "DocumentClassifierArn" => String.t() | Atom.t(),
         "EndTime" => non_neg_integer(),
-        "FlywheelArn" => String.t(),
+        "FlywheelArn" => String.t() | Atom.t(),
         "InputDataConfig" => input_data_config(),
-        "JobArn" => String.t(),
-        "JobId" => String.t(),
-        "JobName" => String.t(),
+        "JobArn" => String.t() | Atom.t(),
+        "JobId" => String.t() | Atom.t(),
+        "JobName" => String.t() | Atom.t(),
         "JobStatus" => list(any()),
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "OutputDataConfig" => output_data_config(),
         "SubmitTime" => non_neg_integer(),
-        "VolumeKmsKeyId" => String.t(),
+        "VolumeKmsKeyId" => String.t() | Atom.t(),
         "VpcConfig" => vpc_config()
       }
       
   """
-  @type document_classification_job_properties() :: %{String.t() => any()}
+  @type document_classification_job_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3833,11 +3833,11 @@ defmodule AWS.Comprehend do
       
       list_dominant_language_detection_jobs_response() :: %{
         "DominantLanguageDetectionJobPropertiesList" => list(dominant_language_detection_job_properties()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_dominant_language_detection_jobs_response() :: %{String.t() => any()}
+  @type list_dominant_language_detection_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @type batch_detect_dominant_language_errors() ::
           text_size_limit_exceeded_exception()

@@ -25,11 +25,11 @@ defmodule AWS.ServiceCatalog do
       list_tag_options_input() :: %{
         optional("Filters") => list_tag_options_filters(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t()
+        optional("PageToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_tag_options_input() :: %{String.t() => any()}
+  @type list_tag_options_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -42,33 +42,33 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type create_provisioning_artifact_output() :: %{String.t() => any()}
+  @type create_provisioning_artifact_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       copy_product_output() :: %{
-        "CopyProductToken" => String.t()
+        "CopyProductToken" => String.t() | Atom.t()
       }
       
   """
-  @type copy_product_output() :: %{String.t() => any()}
+  @type copy_product_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_provisioned_product_plans_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
         optional("AccessLevelFilter") => access_level_filter(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
-        optional("ProvisionProductId") => String.t()
+        optional("PageToken") => String.t() | Atom.t(),
+        optional("ProvisionProductId") => String.t() | Atom.t()
       }
       
   """
-  @type list_provisioned_product_plans_input() :: %{String.t() => any()}
+  @type list_provisioned_product_plans_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -93,17 +93,17 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       copy_product_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
         optional("CopyOptions") => list(list(any())()),
         optional("SourceProvisioningArtifactIdentifiers") => list(map()),
-        optional("TargetProductId") => String.t(),
-        optional("TargetProductName") => String.t(),
-        required("IdempotencyToken") => String.t(),
-        required("SourceProductArn") => String.t()
+        optional("TargetProductId") => String.t() | Atom.t(),
+        optional("TargetProductName") => String.t() | Atom.t(),
+        required("IdempotencyToken") => String.t() | Atom.t(),
+        required("SourceProductArn") => String.t() | Atom.t()
       }
       
   """
-  @type copy_product_input() :: %{String.t() => any()}
+  @type copy_product_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -119,25 +119,25 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       delete_constraint_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        required("Id") => String.t()
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        required("Id") => String.t() | Atom.t()
       }
       
   """
-  @type delete_constraint_input() :: %{String.t() => any()}
+  @type delete_constraint_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       accept_portfolio_share_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
         optional("PortfolioShareType") => list(any()),
-        required("PortfolioId") => String.t()
+        required("PortfolioId") => String.t() | Atom.t()
       }
       
   """
-  @type accept_portfolio_share_input() :: %{String.t() => any()}
+  @type accept_portfolio_share_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -153,42 +153,45 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       list_provisioning_artifacts_for_service_action_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | Atom.t(),
         "ProvisioningArtifactViews" => list(provisioning_artifact_view())
       }
       
   """
-  @type list_provisioning_artifacts_for_service_action_output() :: %{String.t() => any()}
+  @type list_provisioning_artifacts_for_service_action_output() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       list_accepted_portfolio_shares_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
+        optional("PageToken") => String.t() | Atom.t(),
         optional("PortfolioShareType") => list(any())
       }
       
   """
-  @type list_accepted_portfolio_shares_input() :: %{String.t() => any()}
+  @type list_accepted_portfolio_shares_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_portfolio_share_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("AccountId") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        optional("AccountId") => String.t() | Atom.t(),
         optional("OrganizationNode") => organization_node(),
         optional("SharePrincipals") => boolean(),
         optional("ShareTagOptions") => boolean(),
-        required("PortfolioId") => String.t()
+        required("PortfolioId") => String.t() | Atom.t()
       }
       
   """
-  @type update_portfolio_share_input() :: %{String.t() => any()}
+  @type update_portfolio_share_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -204,30 +207,33 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       list_constraints_for_portfolio_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
-        optional("ProductId") => String.t(),
-        required("PortfolioId") => String.t()
+        optional("PageToken") => String.t() | Atom.t(),
+        optional("ProductId") => String.t() | Atom.t(),
+        required("PortfolioId") => String.t() | Atom.t()
       }
       
   """
-  @type list_constraints_for_portfolio_input() :: %{String.t() => any()}
+  @type list_constraints_for_portfolio_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_service_action_with_provisioning_artifact_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("IdempotencyToken") => String.t(),
-        required("ProductId") => String.t(),
-        required("ProvisioningArtifactId") => String.t(),
-        required("ServiceActionId") => String.t()
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        optional("IdempotencyToken") => String.t() | Atom.t(),
+        required("ProductId") => String.t() | Atom.t(),
+        required("ProvisioningArtifactId") => String.t() | Atom.t(),
+        required("ServiceActionId") => String.t() | Atom.t()
       }
       
   """
-  @type associate_service_action_with_provisioning_artifact_input() :: %{String.t() => any()}
+  @type associate_service_action_with_provisioning_artifact_input() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -235,84 +241,84 @@ defmodule AWS.ServiceCatalog do
       
       describe_constraint_output() :: %{
         "ConstraintDetail" => constraint_detail(),
-        "ConstraintParameters" => String.t(),
+        "ConstraintParameters" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type describe_constraint_output() :: %{String.t() => any()}
+  @type describe_constraint_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_portfolio_share_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("AccountId") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        optional("AccountId") => String.t() | Atom.t(),
         optional("OrganizationNode") => organization_node(),
-        required("PortfolioId") => String.t()
+        required("PortfolioId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_portfolio_share_input() :: %{String.t() => any()}
+  @type delete_portfolio_share_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       parameter_constraints() :: %{
-        "AllowedPattern" => String.t(),
-        "AllowedValues" => list(String.t()),
-        "ConstraintDescription" => String.t(),
-        "MaxLength" => String.t(),
-        "MaxValue" => String.t(),
-        "MinLength" => String.t(),
-        "MinValue" => String.t()
+        "AllowedPattern" => String.t() | Atom.t(),
+        "AllowedValues" => list(String.t() | Atom.t()),
+        "ConstraintDescription" => String.t() | Atom.t(),
+        "MaxLength" => String.t() | Atom.t(),
+        "MaxValue" => String.t() | Atom.t(),
+        "MinLength" => String.t() | Atom.t(),
+        "MinValue" => String.t() | Atom.t()
       }
       
   """
-  @type parameter_constraints() :: %{String.t() => any()}
+  @type parameter_constraints() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_provisioning_parameters_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("PathId") => String.t(),
-        optional("PathName") => String.t(),
-        optional("ProductId") => String.t(),
-        optional("ProductName") => String.t(),
-        optional("ProvisioningArtifactId") => String.t(),
-        optional("ProvisioningArtifactName") => String.t()
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        optional("PathId") => String.t() | Atom.t(),
+        optional("PathName") => String.t() | Atom.t(),
+        optional("ProductId") => String.t() | Atom.t(),
+        optional("ProductName") => String.t() | Atom.t(),
+        optional("ProvisioningArtifactId") => String.t() | Atom.t(),
+        optional("ProvisioningArtifactName") => String.t() | Atom.t()
       }
       
   """
-  @type describe_provisioning_parameters_input() :: %{String.t() => any()}
+  @type describe_provisioning_parameters_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       provisioned_product_detail() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreatedTime" => non_neg_integer(),
-        "Id" => String.t(),
-        "IdempotencyToken" => String.t(),
-        "LastProvisioningRecordId" => String.t(),
-        "LastRecordId" => String.t(),
-        "LastSuccessfulProvisioningRecordId" => String.t(),
-        "LaunchRoleArn" => String.t(),
-        "Name" => String.t(),
-        "ProductId" => String.t(),
-        "ProvisioningArtifactId" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "IdempotencyToken" => String.t() | Atom.t(),
+        "LastProvisioningRecordId" => String.t() | Atom.t(),
+        "LastRecordId" => String.t() | Atom.t(),
+        "LastSuccessfulProvisioningRecordId" => String.t() | Atom.t(),
+        "LaunchRoleArn" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "ProductId" => String.t() | Atom.t(),
+        "ProvisioningArtifactId" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "StatusMessage" => String.t(),
-        "Type" => String.t()
+        "StatusMessage" => String.t() | Atom.t(),
+        "Type" => String.t() | Atom.t()
       }
       
   """
-  @type provisioned_product_detail() :: %{String.t() => any()}
+  @type provisioned_product_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -326,34 +332,34 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type describe_product_output() :: %{String.t() => any()}
+  @type describe_product_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_provisioned_product_outputs_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | Atom.t(),
         "Outputs" => list(record_output())
       }
       
   """
-  @type get_provisioned_product_outputs_output() :: %{String.t() => any()}
+  @type get_provisioned_product_outputs_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       provisioning_artifact_properties() :: %{
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "DisableTemplateValidation" => boolean(),
         "Info" => map(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Type" => list(any())
       }
       
   """
-  @type provisioning_artifact_properties() :: %{String.t() => any()}
+  @type provisioning_artifact_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -364,18 +370,18 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type engine_workflow_resource_identifier() :: %{String.t() => any()}
+  @type engine_workflow_resource_identifier() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_in_use_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_in_use_exception() :: %{String.t() => any()}
+  @type resource_in_use_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -392,7 +398,7 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type describe_provisioning_parameters_output() :: %{String.t() => any()}
+  @type describe_provisioning_parameters_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -403,7 +409,7 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type get_aws_organizations_access_status_output() :: %{String.t() => any()}
+  @type get_aws_organizations_access_status_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -424,21 +430,21 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type describe_product_view_output() :: %{String.t() => any()}
+  @type describe_product_view_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_principals_for_portfolio_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
-        required("PortfolioId") => String.t()
+        optional("PageToken") => String.t() | Atom.t(),
+        required("PortfolioId") => String.t() | Atom.t()
       }
       
   """
-  @type list_principals_for_portfolio_input() :: %{String.t() => any()}
+  @type list_principals_for_portfolio_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -449,22 +455,22 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type execute_provisioned_product_service_action_output() :: %{String.t() => any()}
+  @type execute_provisioned_product_service_action_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_portfolio_access_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("OrganizationParentId") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        optional("OrganizationParentId") => String.t() | Atom.t(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
-        required("PortfolioId") => String.t()
+        optional("PageToken") => String.t() | Atom.t(),
+        required("PortfolioId") => String.t() | Atom.t()
       }
       
   """
-  @type list_portfolio_access_input() :: %{String.t() => any()}
+  @type list_portfolio_access_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -475,7 +481,7 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type execute_provisioned_product_plan_output() :: %{String.t() => any()}
+  @type execute_provisioned_product_plan_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -492,26 +498,26 @@ defmodule AWS.ServiceCatalog do
       
       create_constraint_output() :: %{
         "ConstraintDetail" => constraint_detail(),
-        "ConstraintParameters" => String.t(),
+        "ConstraintParameters" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type create_constraint_output() :: %{String.t() => any()}
+  @type create_constraint_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_product_with_portfolio_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("SourcePortfolioId") => String.t(),
-        required("PortfolioId") => String.t(),
-        required("ProductId") => String.t()
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        optional("SourcePortfolioId") => String.t() | Atom.t(),
+        required("PortfolioId") => String.t() | Atom.t(),
+        required("ProductId") => String.t() | Atom.t()
       }
       
   """
-  @type associate_product_with_portfolio_input() :: %{String.t() => any()}
+  @type associate_product_with_portfolio_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -519,11 +525,11 @@ defmodule AWS.ServiceCatalog do
       
       share_details() :: %{
         "ShareErrors" => list(share_error()),
-        "SuccessfulShares" => list(String.t())
+        "SuccessfulShares" => list(String.t() | Atom.t())
       }
       
   """
-  @type share_details() :: %{String.t() => any()}
+  @type share_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -531,26 +537,29 @@ defmodule AWS.ServiceCatalog do
       
       resource_target_definition() :: %{
         "Attribute" => list(any()),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "RequiresRecreation" => list(any())
       }
       
   """
-  @type resource_target_definition() :: %{String.t() => any()}
+  @type resource_target_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_provisioning_artifacts_for_service_action_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
-        required("ServiceActionId") => String.t()
+        optional("PageToken") => String.t() | Atom.t(),
+        required("ServiceActionId") => String.t() | Atom.t()
       }
       
   """
-  @type list_provisioning_artifacts_for_service_action_input() :: %{String.t() => any()}
+  @type list_provisioning_artifacts_for_service_action_input() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -558,40 +567,40 @@ defmodule AWS.ServiceCatalog do
       
       service_action_summary() :: %{
         "DefinitionType" => list(any()),
-        "Description" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t()
+        "Description" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
       
   """
-  @type service_action_summary() :: %{String.t() => any()}
+  @type service_action_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_tag_option_input() :: %{
-        required("Id") => String.t()
+        required("Id") => String.t() | Atom.t()
       }
       
   """
-  @type describe_tag_option_input() :: %{String.t() => any()}
+  @type describe_tag_option_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       terminate_provisioned_product_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
         optional("IgnoreErrors") => boolean(),
-        optional("ProvisionedProductId") => String.t(),
-        optional("ProvisionedProductName") => String.t(),
+        optional("ProvisionedProductId") => String.t() | Atom.t(),
+        optional("ProvisionedProductName") => String.t() | Atom.t(),
         optional("RetainPhysicalResources") => boolean(),
-        required("TerminateToken") => String.t()
+        required("TerminateToken") => String.t() | Atom.t()
       }
       
   """
-  @type terminate_provisioned_product_input() :: %{String.t() => any()}
+  @type terminate_provisioned_product_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -605,31 +614,31 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type describe_portfolio_output() :: %{String.t() => any()}
+  @type describe_portfolio_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_organization_portfolio_access_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | Atom.t(),
         "OrganizationNodes" => list(organization_node())
       }
       
   """
-  @type list_organization_portfolio_access_output() :: %{String.t() => any()}
+  @type list_organization_portfolio_access_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       search_products_as_admin_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | Atom.t(),
         "ProductViewDetails" => list(product_view_detail())
       }
       
   """
-  @type search_products_as_admin_output() :: %{String.t() => any()}
+  @type search_products_as_admin_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -642,31 +651,31 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type source_connection_detail() :: %{String.t() => any()}
+  @type source_connection_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_record_history_search_filter() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type list_record_history_search_filter() :: %{String.t() => any()}
+  @type list_record_history_search_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       principal() :: %{
-        "PrincipalARN" => String.t(),
+        "PrincipalARN" => String.t() | Atom.t(),
         "PrincipalType" => list(any())
       }
       
   """
-  @type principal() :: %{String.t() => any()}
+  @type principal() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -683,48 +692,49 @@ defmodule AWS.ServiceCatalog do
       
       product_view_aggregation_value() :: %{
         "ApproximateCount" => integer(),
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type product_view_aggregation_value() :: %{String.t() => any()}
+  @type product_view_aggregation_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_state_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_state_exception() :: %{String.t() => any()}
+  @type invalid_state_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_service_action_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("IdempotencyToken") => String.t(),
-        required("Id") => String.t()
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        optional("IdempotencyToken") => String.t() | Atom.t(),
+        required("Id") => String.t() | Atom.t()
       }
       
   """
-  @type delete_service_action_input() :: %{String.t() => any()}
+  @type delete_service_action_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_disassociate_service_action_from_provisioning_artifact_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
         required("ServiceActionAssociations") => list(service_action_association())
       }
       
   """
   @type batch_disassociate_service_action_from_provisioning_artifact_input() :: %{
-          String.t() => any()
+          String.t()
+          | Atom.t() => any()
         }
 
   @typedoc """
@@ -732,24 +742,24 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       usage_instruction() :: %{
-        "Type" => String.t(),
-        "Value" => String.t()
+        "Type" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type usage_instruction() :: %{String.t() => any()}
+  @type usage_instruction() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_service_action_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        required("Id") => String.t()
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        required("Id") => String.t() | Atom.t()
       }
       
   """
-  @type describe_service_action_input() :: %{String.t() => any()}
+  @type describe_service_action_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -765,25 +775,25 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       stack_instance() :: %{
-        "Account" => String.t(),
-        "Region" => String.t(),
+        "Account" => String.t() | Atom.t(),
+        "Region" => String.t() | Atom.t(),
         "StackInstanceStatus" => list(any())
       }
       
   """
-  @type stack_instance() :: %{String.t() => any()}
+  @type stack_instance() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_portfolio_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        required("Id") => String.t()
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        required("Id") => String.t() | Atom.t()
       }
       
   """
-  @type delete_portfolio_input() :: %{String.t() => any()}
+  @type delete_portfolio_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -795,18 +805,18 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type update_portfolio_output() :: %{String.t() => any()}
+  @type update_portfolio_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       budget_detail() :: %{
-        "BudgetName" => String.t()
+        "BudgetName" => String.t() | Atom.t()
       }
       
   """
-  @type budget_detail() :: %{String.t() => any()}
+  @type budget_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -820,19 +830,19 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type describe_provisioning_artifact_output() :: %{String.t() => any()}
+  @type describe_provisioning_artifact_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       unique_tag_resource_identifier() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type unique_tag_resource_identifier() :: %{String.t() => any()}
+  @type unique_tag_resource_identifier() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -840,14 +850,14 @@ defmodule AWS.ServiceCatalog do
       
       provisioning_artifact_summary() :: %{
         "CreatedTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "ProvisioningArtifactMetadata" => map()
       }
       
   """
-  @type provisioning_artifact_summary() :: %{String.t() => any()}
+  @type provisioning_artifact_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -863,12 +873,12 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       list_principals_for_portfolio_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | Atom.t(),
         "Principals" => list(principal())
       }
       
   """
-  @type list_principals_for_portfolio_output() :: %{String.t() => any()}
+  @type list_principals_for_portfolio_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -879,32 +889,33 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type create_tag_option_output() :: %{String.t() => any()}
+  @type create_tag_option_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_product_view_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        required("Id") => String.t()
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        required("Id") => String.t() | Atom.t()
       }
       
   """
-  @type describe_product_view_input() :: %{String.t() => any()}
+  @type describe_product_view_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_associate_service_action_with_provisioning_artifact_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
         required("ServiceActionAssociations") => list(service_action_association())
       }
       
   """
   @type batch_associate_service_action_with_provisioning_artifact_input() :: %{
-          String.t() => any()
+          String.t()
+          | Atom.t() => any()
         }
 
   @typedoc """
@@ -912,12 +923,12 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       constraint_summary() :: %{
-        "Description" => String.t(),
-        "Type" => String.t()
+        "Description" => String.t() | Atom.t(),
+        "Type" => String.t() | Atom.t()
       }
       
   """
-  @type constraint_summary() :: %{String.t() => any()}
+  @type constraint_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -929,7 +940,7 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type source_connection() :: %{String.t() => any()}
+  @type source_connection() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -940,7 +951,7 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type describe_tag_option_output() :: %{String.t() => any()}
+  @type describe_tag_option_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -960,7 +971,7 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type import_as_provisioned_product_output() :: %{String.t() => any()}
+  @type import_as_provisioned_product_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -972,19 +983,19 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type update_product_output() :: %{String.t() => any()}
+  @type update_product_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_portfolio_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        required("Id") => String.t()
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        required("Id") => String.t() | Atom.t()
       }
       
   """
-  @type describe_portfolio_input() :: %{String.t() => any()}
+  @type describe_portfolio_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1000,16 +1011,16 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       provisioned_product_plan_summary() :: %{
-        "PlanId" => String.t(),
-        "PlanName" => String.t(),
+        "PlanId" => String.t() | Atom.t(),
+        "PlanName" => String.t() | Atom.t(),
         "PlanType" => list(any()),
-        "ProvisionProductId" => String.t(),
-        "ProvisionProductName" => String.t(),
-        "ProvisioningArtifactId" => String.t()
+        "ProvisionProductId" => String.t() | Atom.t(),
+        "ProvisionProductName" => String.t() | Atom.t(),
+        "ProvisioningArtifactId" => String.t() | Atom.t()
       }
       
   """
-  @type provisioned_product_plan_summary() :: %{String.t() => any()}
+  @type provisioned_product_plan_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1017,26 +1028,26 @@ defmodule AWS.ServiceCatalog do
       
       list_tag_options_filters() :: %{
         "Active" => boolean(),
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type list_tag_options_filters() :: %{String.t() => any()}
+  @type list_tag_options_filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       code_star_parameters() :: %{
-        "ArtifactPath" => String.t(),
-        "Branch" => String.t(),
-        "ConnectionArn" => String.t(),
-        "Repository" => String.t()
+        "ArtifactPath" => String.t() | Atom.t(),
+        "Branch" => String.t() | Atom.t(),
+        "ConnectionArn" => String.t() | Atom.t(),
+        "Repository" => String.t() | Atom.t()
       }
       
   """
-  @type code_star_parameters() :: %{String.t() => any()}
+  @type code_star_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1052,78 +1063,78 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       service_action_association() :: %{
-        "ProductId" => String.t(),
-        "ProvisioningArtifactId" => String.t(),
-        "ServiceActionId" => String.t()
+        "ProductId" => String.t() | Atom.t(),
+        "ProvisioningArtifactId" => String.t() | Atom.t(),
+        "ServiceActionId" => String.t() | Atom.t()
       }
       
   """
-  @type service_action_association() :: %{String.t() => any()}
+  @type service_action_association() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       search_provisioned_products_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
         optional("AccessLevelFilter") => access_level_filter(),
         optional("Filters") => map(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
-        optional("SortBy") => String.t(),
+        optional("PageToken") => String.t() | Atom.t(),
+        optional("SortBy") => String.t() | Atom.t(),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type search_provisioned_products_input() :: %{String.t() => any()}
+  @type search_provisioned_products_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_provisioned_product_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("PathId") => String.t(),
-        optional("PathName") => String.t(),
-        optional("ProductId") => String.t(),
-        optional("ProductName") => String.t(),
-        optional("ProvisionedProductId") => String.t(),
-        optional("ProvisionedProductName") => String.t(),
-        optional("ProvisioningArtifactId") => String.t(),
-        optional("ProvisioningArtifactName") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        optional("PathId") => String.t() | Atom.t(),
+        optional("PathName") => String.t() | Atom.t(),
+        optional("ProductId") => String.t() | Atom.t(),
+        optional("ProductName") => String.t() | Atom.t(),
+        optional("ProvisionedProductId") => String.t() | Atom.t(),
+        optional("ProvisionedProductName") => String.t() | Atom.t(),
+        optional("ProvisioningArtifactId") => String.t() | Atom.t(),
+        optional("ProvisioningArtifactName") => String.t() | Atom.t(),
         optional("ProvisioningParameters") => list(update_provisioning_parameter()),
         optional("ProvisioningPreferences") => update_provisioning_preferences(),
         optional("Tags") => list(tag()),
-        required("UpdateToken") => String.t()
+        required("UpdateToken") => String.t() | Atom.t()
       }
       
   """
-  @type update_provisioned_product_input() :: %{String.t() => any()}
+  @type update_provisioned_product_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_portfolio_share_output() :: %{
-        "PortfolioShareToken" => String.t()
+        "PortfolioShareToken" => String.t() | Atom.t()
       }
       
   """
-  @type create_portfolio_share_output() :: %{String.t() => any()}
+  @type create_portfolio_share_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       scan_provisioned_products_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
         optional("AccessLevelFilter") => access_level_filter(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t()
+        optional("PageToken") => String.t() | Atom.t()
       }
       
   """
-  @type scan_provisioned_products_input() :: %{String.t() => any()}
+  @type scan_provisioned_products_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1131,26 +1142,26 @@ defmodule AWS.ServiceCatalog do
       
       product_view_detail() :: %{
         "CreatedTime" => non_neg_integer(),
-        "ProductARN" => String.t(),
+        "ProductARN" => String.t() | Atom.t(),
         "ProductViewSummary" => product_view_summary(),
         "SourceConnection" => source_connection_detail(),
         "Status" => list(any())
       }
       
   """
-  @type product_view_detail() :: %{String.t() => any()}
+  @type product_view_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_accepted_portfolio_shares_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | Atom.t(),
         "PortfolioDetails" => list(portfolio_detail())
       }
       
   """
-  @type list_accepted_portfolio_shares_output() :: %{String.t() => any()}
+  @type list_accepted_portfolio_shares_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1159,27 +1170,27 @@ defmodule AWS.ServiceCatalog do
       provisioning_artifact_detail() :: %{
         "Active" => boolean(),
         "CreatedTime" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "Guidance" => list(any()),
-        "Id" => String.t(),
-        "Name" => String.t(),
-        "SourceRevision" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "SourceRevision" => String.t() | Atom.t(),
         "Type" => list(any())
       }
       
   """
-  @type provisioning_artifact_detail() :: %{String.t() => any()}
+  @type provisioning_artifact_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1187,11 +1198,11 @@ defmodule AWS.ServiceCatalog do
       
       list_budgets_for_resource_output() :: %{
         "Budgets" => list(budget_detail()),
-        "NextPageToken" => String.t()
+        "NextPageToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_budgets_for_resource_output() :: %{String.t() => any()}
+  @type list_budgets_for_resource_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1207,13 +1218,13 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       execute_provisioned_product_plan_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        required("IdempotencyToken") => String.t(),
-        required("PlanId") => String.t()
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        required("IdempotencyToken") => String.t() | Atom.t(),
+        required("PlanId") => String.t() | Atom.t()
       }
       
   """
-  @type execute_provisioned_product_plan_input() :: %{String.t() => any()}
+  @type execute_provisioned_product_plan_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1221,57 +1232,58 @@ defmodule AWS.ServiceCatalog do
       
       describe_portfolio_shares_input() :: %{
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
-        required("PortfolioId") => String.t(),
+        optional("PageToken") => String.t() | Atom.t(),
+        required("PortfolioId") => String.t() | Atom.t(),
         required("Type") => list(any())
       }
       
   """
-  @type describe_portfolio_shares_input() :: %{String.t() => any()}
+  @type describe_portfolio_shares_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       constraint_detail() :: %{
-        "ConstraintId" => String.t(),
-        "Description" => String.t(),
-        "Owner" => String.t(),
-        "PortfolioId" => String.t(),
-        "ProductId" => String.t(),
-        "Type" => String.t()
+        "ConstraintId" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
+        "Owner" => String.t() | Atom.t(),
+        "PortfolioId" => String.t() | Atom.t(),
+        "ProductId" => String.t() | Atom.t(),
+        "Type" => String.t() | Atom.t()
       }
       
   """
-  @type constraint_detail() :: %{String.t() => any()}
+  @type constraint_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       notify_terminate_provisioned_product_engine_workflow_result_input() :: %{
-        optional("FailureReason") => String.t(),
-        required("IdempotencyToken") => String.t(),
-        required("RecordId") => String.t(),
+        optional("FailureReason") => String.t() | Atom.t(),
+        required("IdempotencyToken") => String.t() | Atom.t(),
+        required("RecordId") => String.t() | Atom.t(),
         required("Status") => list(any()),
-        required("WorkflowToken") => String.t()
+        required("WorkflowToken") => String.t() | Atom.t()
       }
       
   """
   @type notify_terminate_provisioned_product_engine_workflow_result_input() :: %{
-          String.t() => any()
+          String.t()
+          | Atom.t() => any()
         }
 
   @typedoc """
@@ -1279,72 +1291,72 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       record_tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type record_tag() :: %{String.t() => any()}
+  @type record_tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_principal_from_portfolio_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
         optional("PrincipalType") => list(any()),
-        required("PortfolioId") => String.t(),
-        required("PrincipalARN") => String.t()
+        required("PortfolioId") => String.t() | Atom.t(),
+        required("PrincipalARN") => String.t() | Atom.t()
       }
       
   """
-  @type disassociate_principal_from_portfolio_input() :: %{String.t() => any()}
+  @type disassociate_principal_from_portfolio_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       provisioned_product_attribute() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreatedTime" => non_neg_integer(),
-        "Id" => String.t(),
-        "IdempotencyToken" => String.t(),
-        "LastProvisioningRecordId" => String.t(),
-        "LastRecordId" => String.t(),
-        "LastSuccessfulProvisioningRecordId" => String.t(),
-        "Name" => String.t(),
-        "PhysicalId" => String.t(),
-        "ProductId" => String.t(),
-        "ProductName" => String.t(),
-        "ProvisioningArtifactId" => String.t(),
-        "ProvisioningArtifactName" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "IdempotencyToken" => String.t() | Atom.t(),
+        "LastProvisioningRecordId" => String.t() | Atom.t(),
+        "LastRecordId" => String.t() | Atom.t(),
+        "LastSuccessfulProvisioningRecordId" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "PhysicalId" => String.t() | Atom.t(),
+        "ProductId" => String.t() | Atom.t(),
+        "ProductName" => String.t() | Atom.t(),
+        "ProvisioningArtifactId" => String.t() | Atom.t(),
+        "ProvisioningArtifactName" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "StatusMessage" => String.t(),
+        "StatusMessage" => String.t() | Atom.t(),
         "Tags" => list(tag()),
-        "Type" => String.t(),
-        "UserArn" => String.t(),
-        "UserArnSession" => String.t()
+        "Type" => String.t() | Atom.t(),
+        "UserArn" => String.t() | Atom.t(),
+        "UserArnSession" => String.t() | Atom.t()
       }
       
   """
-  @type provisioned_product_attribute() :: %{String.t() => any()}
+  @type provisioned_product_attribute() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_constraint_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("Description") => String.t(),
-        required("IdempotencyToken") => String.t(),
-        required("Parameters") => String.t(),
-        required("PortfolioId") => String.t(),
-        required("ProductId") => String.t(),
-        required("Type") => String.t()
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
+        required("IdempotencyToken") => String.t() | Atom.t(),
+        required("Parameters") => String.t() | Atom.t(),
+        required("PortfolioId") => String.t() | Atom.t(),
+        required("ProductId") => String.t() | Atom.t(),
+        required("Type") => String.t() | Atom.t()
       }
       
   """
-  @type create_constraint_input() :: %{String.t() => any()}
+  @type create_constraint_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1356,7 +1368,8 @@ defmodule AWS.ServiceCatalog do
       
   """
   @type batch_associate_service_action_with_provisioning_artifact_output() :: %{
-          String.t() => any()
+          String.t()
+          | Atom.t() => any()
         }
 
   @typedoc """
@@ -1369,7 +1382,7 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type create_portfolio_output() :: %{String.t() => any()}
+  @type create_portfolio_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1377,87 +1390,87 @@ defmodule AWS.ServiceCatalog do
       
       describe_copy_product_status_output() :: %{
         "CopyProductStatus" => list(any()),
-        "StatusDetail" => String.t(),
-        "TargetProductId" => String.t()
+        "StatusDetail" => String.t() | Atom.t(),
+        "TargetProductId" => String.t() | Atom.t()
       }
       
   """
-  @type describe_copy_product_status_output() :: %{String.t() => any()}
+  @type describe_copy_product_status_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_tag_option_from_resource_input() :: %{
-        required("ResourceId") => String.t(),
-        required("TagOptionId") => String.t()
+        required("ResourceId") => String.t() | Atom.t(),
+        required("TagOptionId") => String.t() | Atom.t()
       }
       
   """
-  @type disassociate_tag_option_from_resource_input() :: %{String.t() => any()}
+  @type disassociate_tag_option_from_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_provisioned_product_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("Id") => String.t(),
-        optional("Name") => String.t()
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        optional("Id") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t()
       }
       
   """
-  @type describe_provisioned_product_input() :: %{String.t() => any()}
+  @type describe_provisioned_product_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_portfolios_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t()
+        optional("PageToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_portfolios_input() :: %{String.t() => any()}
+  @type list_portfolios_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       record_error() :: %{
-        "Code" => String.t(),
-        "Description" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t()
       }
       
   """
-  @type record_error() :: %{String.t() => any()}
+  @type record_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_portfolios_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | Atom.t(),
         "PortfolioDetails" => list(portfolio_detail())
       }
       
   """
-  @type list_portfolios_output() :: %{String.t() => any()}
+  @type list_portfolios_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_record_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | Atom.t(),
         "RecordDetail" => record_detail(),
         "RecordOutputs" => list(record_output())
       }
       
   """
-  @type describe_record_output() :: %{String.t() => any()}
+  @type describe_record_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1469,7 +1482,7 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type provisioning_artifact_view() :: %{String.t() => any()}
+  @type provisioning_artifact_view() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1481,79 +1494,79 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type describe_provisioned_product_output() :: %{String.t() => any()}
+  @type describe_provisioned_product_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_portfolio_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("Description") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("DisplayName") => String.t(),
-        required("IdempotencyToken") => String.t(),
-        required("ProviderName") => String.t()
+        required("DisplayName") => String.t() | Atom.t(),
+        required("IdempotencyToken") => String.t() | Atom.t(),
+        required("ProviderName") => String.t() | Atom.t()
       }
       
   """
-  @type create_portfolio_input() :: %{String.t() => any()}
+  @type create_portfolio_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_portfolio_share_output() :: %{
-        "PortfolioShareToken" => String.t()
+        "PortfolioShareToken" => String.t() | Atom.t()
       }
       
   """
-  @type delete_portfolio_share_output() :: %{String.t() => any()}
+  @type delete_portfolio_share_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_provisioned_product_plan_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("NotificationArns") => list(String.t()),
-        optional("PathId") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        optional("NotificationArns") => list(String.t() | Atom.t()),
+        optional("PathId") => String.t() | Atom.t(),
         optional("ProvisioningParameters") => list(update_provisioning_parameter()),
         optional("Tags") => list(tag()),
-        required("IdempotencyToken") => String.t(),
-        required("PlanName") => String.t(),
+        required("IdempotencyToken") => String.t() | Atom.t(),
+        required("PlanName") => String.t() | Atom.t(),
         required("PlanType") => list(any()),
-        required("ProductId") => String.t(),
-        required("ProvisionedProductName") => String.t(),
-        required("ProvisioningArtifactId") => String.t()
+        required("ProductId") => String.t() | Atom.t(),
+        required("ProvisionedProductName") => String.t() | Atom.t(),
+        required("ProvisioningArtifactId") => String.t() | Atom.t()
       }
       
   """
-  @type create_provisioned_product_plan_input() :: %{String.t() => any()}
+  @type create_provisioned_product_plan_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_tag_option_input() :: %{
-        required("Key") => String.t(),
-        required("Value") => String.t()
+        required("Key") => String.t() | Atom.t(),
+        required("Value") => String.t() | Atom.t()
       }
       
   """
-  @type create_tag_option_input() :: %{String.t() => any()}
+  @type create_tag_option_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_provisioned_product_plans_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | Atom.t(),
         "ProvisionedProductPlans" => list(provisioned_product_plan_summary())
       }
       
   """
-  @type list_provisioned_product_plans_output() :: %{String.t() => any()}
+  @type list_provisioned_product_plans_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1561,28 +1574,28 @@ defmodule AWS.ServiceCatalog do
       
       update_tag_option_input() :: %{
         optional("Active") => boolean(),
-        optional("Value") => String.t(),
-        required("Id") => String.t()
+        optional("Value") => String.t() | Atom.t(),
+        required("Id") => String.t() | Atom.t()
       }
       
   """
-  @type update_tag_option_input() :: %{String.t() => any()}
+  @type update_tag_option_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       portfolio_detail() :: %{
-        "ARN" => String.t(),
+        "ARN" => String.t() | Atom.t(),
         "CreatedTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "DisplayName" => String.t(),
-        "Id" => String.t(),
-        "ProviderName" => String.t()
+        "Description" => String.t() | Atom.t(),
+        "DisplayName" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "ProviderName" => String.t() | Atom.t()
       }
       
   """
-  @type portfolio_detail() :: %{String.t() => any()}
+  @type portfolio_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1598,12 +1611,15 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       list_service_actions_for_provisioning_artifact_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | Atom.t(),
         "ServiceActionSummaries" => list(service_action_summary())
       }
       
   """
-  @type list_service_actions_for_provisioning_artifact_output() :: %{String.t() => any()}
+  @type list_service_actions_for_provisioning_artifact_output() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -1611,27 +1627,27 @@ defmodule AWS.ServiceCatalog do
       
       tag_option_detail() :: %{
         "Active" => boolean(),
-        "Id" => String.t(),
-        "Key" => String.t(),
-        "Owner" => String.t(),
-        "Value" => String.t()
+        "Id" => String.t() | Atom.t(),
+        "Key" => String.t() | Atom.t(),
+        "Owner" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag_option_detail() :: %{String.t() => any()}
+  @type tag_option_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       share_error() :: %{
-        "Accounts" => list(String.t()),
-        "Error" => String.t(),
-        "Message" => String.t()
+        "Accounts" => list(String.t() | Atom.t()),
+        "Error" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type share_error() :: %{String.t() => any()}
+  @type share_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1639,11 +1655,11 @@ defmodule AWS.ServiceCatalog do
       
       organization_node() :: %{
         "Type" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type organization_node() :: %{String.t() => any()}
+  @type organization_node() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1659,84 +1675,84 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       list_budgets_for_resource_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
-        required("ResourceId") => String.t()
+        optional("PageToken") => String.t() | Atom.t(),
+        required("ResourceId") => String.t() | Atom.t()
       }
       
   """
-  @type list_budgets_for_resource_input() :: %{String.t() => any()}
+  @type list_budgets_for_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_portfolio_shares_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | Atom.t(),
         "PortfolioShareDetails" => list(portfolio_share_detail())
       }
       
   """
-  @type describe_portfolio_shares_output() :: %{String.t() => any()}
+  @type describe_portfolio_shares_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       launch_path() :: %{
-        "Id" => String.t(),
-        "Name" => String.t()
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
       
   """
-  @type launch_path() :: %{String.t() => any()}
+  @type launch_path() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameters_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_parameters_exception() :: %{String.t() => any()}
+  @type invalid_parameters_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_tag_option_with_resource_input() :: %{
-        required("ResourceId") => String.t(),
-        required("TagOptionId") => String.t()
+        required("ResourceId") => String.t() | Atom.t(),
+        required("TagOptionId") => String.t() | Atom.t()
       }
       
   """
-  @type associate_tag_option_with_resource_input() :: %{String.t() => any()}
+  @type associate_tag_option_with_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       provision_product_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("NotificationArns") => list(String.t()),
-        optional("PathId") => String.t(),
-        optional("PathName") => String.t(),
-        optional("ProductId") => String.t(),
-        optional("ProductName") => String.t(),
-        optional("ProvisioningArtifactId") => String.t(),
-        optional("ProvisioningArtifactName") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        optional("NotificationArns") => list(String.t() | Atom.t()),
+        optional("PathId") => String.t() | Atom.t(),
+        optional("PathName") => String.t() | Atom.t(),
+        optional("ProductId") => String.t() | Atom.t(),
+        optional("ProductName") => String.t() | Atom.t(),
+        optional("ProvisioningArtifactId") => String.t() | Atom.t(),
+        optional("ProvisioningArtifactName") => String.t() | Atom.t(),
         optional("ProvisioningParameters") => list(provisioning_parameter()),
         optional("ProvisioningPreferences") => provisioning_preferences(),
         optional("Tags") => list(tag()),
-        required("ProvisionToken") => String.t(),
-        required("ProvisionedProductName") => String.t()
+        required("ProvisionToken") => String.t() | Atom.t(),
+        required("ProvisionedProductName") => String.t() | Atom.t()
       }
       
   """
-  @type provision_product_input() :: %{String.t() => any()}
+  @type provision_product_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1744,73 +1760,73 @@ defmodule AWS.ServiceCatalog do
       
       list_launch_paths_output() :: %{
         "LaunchPathSummaries" => list(launch_path_summary()),
-        "NextPageToken" => String.t()
+        "NextPageToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_launch_paths_output() :: %{String.t() => any()}
+  @type list_launch_paths_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_provisioned_product_plan_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | Atom.t(),
         "ProvisionedProductPlanDetails" => provisioned_product_plan_details(),
         "ResourceChanges" => list(resource_change())
       }
       
   """
-  @type describe_provisioned_product_plan_output() :: %{String.t() => any()}
+  @type describe_provisioned_product_plan_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_portfolio_share_status_input() :: %{
-        required("PortfolioShareToken") => String.t()
+        required("PortfolioShareToken") => String.t() | Atom.t()
       }
       
   """
-  @type describe_portfolio_share_status_input() :: %{String.t() => any()}
+  @type describe_portfolio_share_status_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_resources_for_tag_option_output() :: %{
-        "PageToken" => String.t(),
+        "PageToken" => String.t() | Atom.t(),
         "ResourceDetails" => list(resource_detail())
       }
       
   """
-  @type list_resources_for_tag_option_output() :: %{String.t() => any()}
+  @type list_resources_for_tag_option_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_product_from_portfolio_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        required("PortfolioId") => String.t(),
-        required("ProductId") => String.t()
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        required("PortfolioId") => String.t() | Atom.t(),
+        required("ProductId") => String.t() | Atom.t()
       }
       
   """
-  @type disassociate_product_from_portfolio_input() :: %{String.t() => any()}
+  @type disassociate_product_from_portfolio_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_provisioned_product_plan_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
         optional("IgnoreErrors") => boolean(),
-        required("PlanId") => String.t()
+        required("PlanId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_provisioned_product_plan_input() :: %{String.t() => any()}
+  @type delete_provisioned_product_plan_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1823,22 +1839,22 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type create_product_output() :: %{String.t() => any()}
+  @type create_product_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_service_action_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
         optional("Definition") => map(),
-        optional("Description") => String.t(),
-        optional("Name") => String.t(),
-        required("Id") => String.t()
+        optional("Description") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t(),
+        required("Id") => String.t() | Atom.t()
       }
       
   """
-  @type update_service_action_input() :: %{String.t() => any()}
+  @type update_service_action_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1850,7 +1866,8 @@ defmodule AWS.ServiceCatalog do
       
   """
   @type batch_disassociate_service_action_from_provisioning_artifact_output() :: %{
-          String.t() => any()
+          String.t()
+          | Atom.t() => any()
         }
 
   @typedoc """
@@ -1858,91 +1875,91 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       create_product_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("Description") => String.t(),
-        optional("Distributor") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("Distributor") => String.t() | Atom.t(),
         optional("ProvisioningArtifactParameters") => provisioning_artifact_properties(),
         optional("SourceConnection") => source_connection(),
-        optional("SupportDescription") => String.t(),
-        optional("SupportEmail") => String.t(),
-        optional("SupportUrl") => String.t(),
+        optional("SupportDescription") => String.t() | Atom.t(),
+        optional("SupportEmail") => String.t() | Atom.t(),
+        optional("SupportUrl") => String.t() | Atom.t(),
         optional("Tags") => list(tag()),
-        required("IdempotencyToken") => String.t(),
-        required("Name") => String.t(),
-        required("Owner") => String.t(),
+        required("IdempotencyToken") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t(),
+        required("Owner") => String.t() | Atom.t(),
         required("ProductType") => list(any())
       }
       
   """
-  @type create_product_input() :: %{String.t() => any()}
+  @type create_product_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_service_actions_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t()
+        optional("PageToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_service_actions_input() :: %{String.t() => any()}
+  @type list_service_actions_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       import_as_provisioned_product_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        required("IdempotencyToken") => String.t(),
-        required("PhysicalId") => String.t(),
-        required("ProductId") => String.t(),
-        required("ProvisionedProductName") => String.t(),
-        required("ProvisioningArtifactId") => String.t()
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        required("IdempotencyToken") => String.t() | Atom.t(),
+        required("PhysicalId") => String.t() | Atom.t(),
+        required("ProductId") => String.t() | Atom.t(),
+        required("ProvisionedProductName") => String.t() | Atom.t(),
+        required("ProvisioningArtifactId") => String.t() | Atom.t()
       }
       
   """
-  @type import_as_provisioned_product_input() :: %{String.t() => any()}
+  @type import_as_provisioned_product_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_constraint_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        required("Id") => String.t()
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        required("Id") => String.t() | Atom.t()
       }
       
   """
-  @type describe_constraint_input() :: %{String.t() => any()}
+  @type describe_constraint_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       execute_provisioned_product_service_action_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
         optional("Parameters") => map(),
-        required("ExecuteToken") => String.t(),
-        required("ProvisionedProductId") => String.t(),
-        required("ServiceActionId") => String.t()
+        required("ExecuteToken") => String.t() | Atom.t(),
+        required("ProvisionedProductId") => String.t() | Atom.t(),
+        required("ServiceActionId") => String.t() | Atom.t()
       }
       
   """
-  @type execute_provisioned_product_service_action_input() :: %{String.t() => any()}
+  @type execute_provisioned_product_service_action_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       provisioning_parameter() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type provisioning_parameter() :: %{String.t() => any()}
+  @type provisioning_parameter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1959,14 +1976,14 @@ defmodule AWS.ServiceCatalog do
       
       failed_service_action_association() :: %{
         "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t(),
-        "ProductId" => String.t(),
-        "ProvisioningArtifactId" => String.t(),
-        "ServiceActionId" => String.t()
+        "ErrorMessage" => String.t() | Atom.t(),
+        "ProductId" => String.t() | Atom.t(),
+        "ProvisioningArtifactId" => String.t() | Atom.t(),
+        "ServiceActionId" => String.t() | Atom.t()
       }
       
   """
-  @type failed_service_action_association() :: %{String.t() => any()}
+  @type failed_service_action_association() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1974,52 +1991,52 @@ defmodule AWS.ServiceCatalog do
       
       portfolio_share_detail() :: %{
         "Accepted" => boolean(),
-        "PrincipalId" => String.t(),
+        "PrincipalId" => String.t() | Atom.t(),
         "SharePrincipals" => boolean(),
         "ShareTagOptions" => boolean(),
         "Type" => list(any())
       }
       
   """
-  @type portfolio_share_detail() :: %{String.t() => any()}
+  @type portfolio_share_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_provisioning_artifacts_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | Atom.t(),
         "ProvisioningArtifactDetails" => list(provisioning_artifact_detail())
       }
       
   """
-  @type list_provisioning_artifacts_output() :: %{String.t() => any()}
+  @type list_provisioning_artifacts_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       execution_parameter() :: %{
-        "DefaultValues" => list(String.t()),
-        "Name" => String.t(),
-        "Type" => String.t()
+        "DefaultValues" => list(String.t() | Atom.t()),
+        "Name" => String.t() | Atom.t(),
+        "Type" => String.t() | Atom.t()
       }
       
   """
-  @type execution_parameter() :: %{String.t() => any()}
+  @type execution_parameter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_provisioning_artifact_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        required("ProductId") => String.t(),
-        required("ProvisioningArtifactId") => String.t()
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        required("ProductId") => String.t() | Atom.t(),
+        required("ProvisioningArtifactId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_provisioning_artifact_input() :: %{String.t() => any()}
+  @type delete_provisioning_artifact_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2039,114 +2056,114 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type update_provisioned_product_output() :: %{String.t() => any()}
+  @type update_provisioned_product_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       record_output() :: %{
-        "Description" => String.t(),
-        "OutputKey" => String.t(),
-        "OutputValue" => String.t()
+        "Description" => String.t() | Atom.t(),
+        "OutputKey" => String.t() | Atom.t(),
+        "OutputValue" => String.t() | Atom.t()
       }
       
   """
-  @type record_output() :: %{String.t() => any()}
+  @type record_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_provisioning_preferences() :: %{
-        "StackSetAccounts" => list(String.t()),
+        "StackSetAccounts" => list(String.t() | Atom.t()),
         "StackSetFailureToleranceCount" => integer(),
         "StackSetFailureTolerancePercentage" => integer(),
         "StackSetMaxConcurrencyCount" => integer(),
         "StackSetMaxConcurrencyPercentage" => integer(),
         "StackSetOperationType" => list(any()),
-        "StackSetRegions" => list(String.t())
+        "StackSetRegions" => list(String.t() | Atom.t())
       }
       
   """
-  @type update_provisioning_preferences() :: %{String.t() => any()}
+  @type update_provisioning_preferences() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       product_view_summary() :: %{
-        "Distributor" => String.t(),
+        "Distributor" => String.t() | Atom.t(),
         "HasDefaultPath" => boolean(),
-        "Id" => String.t(),
-        "Name" => String.t(),
-        "Owner" => String.t(),
-        "ProductId" => String.t(),
-        "ShortDescription" => String.t(),
-        "SupportDescription" => String.t(),
-        "SupportEmail" => String.t(),
-        "SupportUrl" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "Owner" => String.t() | Atom.t(),
+        "ProductId" => String.t() | Atom.t(),
+        "ShortDescription" => String.t() | Atom.t(),
+        "SupportDescription" => String.t() | Atom.t(),
+        "SupportEmail" => String.t() | Atom.t(),
+        "SupportUrl" => String.t() | Atom.t(),
         "Type" => list(any())
       }
       
   """
-  @type product_view_summary() :: %{String.t() => any()}
+  @type product_view_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tag_options_output() :: %{
-        "PageToken" => String.t(),
+        "PageToken" => String.t() | Atom.t(),
         "TagOptionDetails" => list(tag_option_detail())
       }
       
   """
-  @type list_tag_options_output() :: %{String.t() => any()}
+  @type list_tag_options_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_provisioned_product_plan_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
-        required("PlanId") => String.t()
+        optional("PageToken") => String.t() | Atom.t(),
+        required("PlanId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_provisioned_product_plan_input() :: %{String.t() => any()}
+  @type describe_provisioned_product_plan_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_provisioning_artifact_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        required("IdempotencyToken") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        required("IdempotencyToken") => String.t() | Atom.t(),
         required("Parameters") => provisioning_artifact_properties(),
-        required("ProductId") => String.t()
+        required("ProductId") => String.t() | Atom.t()
       }
       
   """
-  @type create_provisioning_artifact_input() :: %{String.t() => any()}
+  @type create_provisioning_artifact_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       provisioning_artifact_parameter() :: %{
-        "DefaultValue" => String.t(),
-        "Description" => String.t(),
+        "DefaultValue" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
         "IsNoEcho" => boolean(),
         "ParameterConstraints" => parameter_constraints(),
-        "ParameterKey" => String.t(),
-        "ParameterType" => String.t()
+        "ParameterKey" => String.t() | Atom.t(),
+        "ParameterType" => String.t() | Atom.t()
       }
       
   """
-  @type provisioning_artifact_parameter() :: %{String.t() => any()}
+  @type provisioning_artifact_parameter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2162,32 +2179,32 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       list_launch_paths_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
-        required("ProductId") => String.t()
+        optional("PageToken") => String.t() | Atom.t(),
+        required("ProductId") => String.t() | Atom.t()
       }
       
   """
-  @type list_launch_paths_input() :: %{String.t() => any()}
+  @type list_launch_paths_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       search_products_as_admin_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
         optional("Filters") => map(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
-        optional("PortfolioId") => String.t(),
+        optional("PageToken") => String.t() | Atom.t(),
+        optional("PortfolioId") => String.t() | Atom.t(),
         optional("ProductSource") => list(any()),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type search_products_as_admin_input() :: %{String.t() => any()}
+  @type search_products_as_admin_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2200,7 +2217,7 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type update_provisioning_artifact_output() :: %{String.t() => any()}
+  @type update_provisioning_artifact_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2216,43 +2233,46 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       notify_update_provisioned_product_engine_workflow_result_input() :: %{
-        optional("FailureReason") => String.t(),
+        optional("FailureReason") => String.t() | Atom.t(),
         optional("Outputs") => list(record_output()),
-        required("IdempotencyToken") => String.t(),
-        required("RecordId") => String.t(),
+        required("IdempotencyToken") => String.t() | Atom.t(),
+        required("RecordId") => String.t() | Atom.t(),
         required("Status") => list(any()),
-        required("WorkflowToken") => String.t()
+        required("WorkflowToken") => String.t() | Atom.t()
       }
       
   """
-  @type notify_update_provisioned_product_engine_workflow_result_input() :: %{String.t() => any()}
+  @type notify_update_provisioned_product_engine_workflow_result_input() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       list_portfolio_access_output() :: %{
-        "AccountIds" => list(String.t()),
-        "NextPageToken" => String.t()
+        "AccountIds" => list(String.t() | Atom.t()),
+        "NextPageToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_portfolio_access_output() :: %{String.t() => any()}
+  @type list_portfolio_access_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_provisioned_product_plan_output() :: %{
-        "PlanId" => String.t(),
-        "PlanName" => String.t(),
-        "ProvisionProductId" => String.t(),
-        "ProvisionedProductName" => String.t(),
-        "ProvisioningArtifactId" => String.t()
+        "PlanId" => String.t() | Atom.t(),
+        "PlanName" => String.t() | Atom.t(),
+        "ProvisionProductId" => String.t() | Atom.t(),
+        "ProvisionedProductName" => String.t() | Atom.t(),
+        "ProvisioningArtifactId" => String.t() | Atom.t()
       }
       
   """
-  @type create_provisioned_product_plan_output() :: %{String.t() => any()}
+  @type create_provisioned_product_plan_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2263,7 +2283,7 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type update_tag_option_output() :: %{String.t() => any()}
+  @type update_tag_option_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2279,26 +2299,26 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       associate_principal_with_portfolio_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        required("PortfolioId") => String.t(),
-        required("PrincipalARN") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        required("PortfolioId") => String.t() | Atom.t(),
+        required("PrincipalARN") => String.t() | Atom.t(),
         required("PrincipalType") => list(any())
       }
       
   """
-  @type associate_principal_with_portfolio_input() :: %{String.t() => any()}
+  @type associate_principal_with_portfolio_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_service_actions_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | Atom.t(),
         "ServiceActionSummaries" => list(service_action_summary())
       }
       
   """
-  @type list_service_actions_output() :: %{String.t() => any()}
+  @type list_service_actions_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2314,82 +2334,82 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       list_portfolios_for_product_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
-        required("ProductId") => String.t()
+        optional("PageToken") => String.t() | Atom.t(),
+        required("ProductId") => String.t() | Atom.t()
       }
       
   """
-  @type list_portfolios_for_product_input() :: %{String.t() => any()}
+  @type list_portfolios_for_product_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_portfolios_for_product_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | Atom.t(),
         "PortfolioDetails" => list(portfolio_detail())
       }
       
   """
-  @type list_portfolios_for_product_output() :: %{String.t() => any()}
+  @type list_portfolios_for_product_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_portfolio_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
         optional("AddTags") => list(tag()),
-        optional("Description") => String.t(),
-        optional("DisplayName") => String.t(),
-        optional("ProviderName") => String.t(),
-        optional("RemoveTags") => list(String.t()),
-        required("Id") => String.t()
+        optional("Description") => String.t() | Atom.t(),
+        optional("DisplayName") => String.t() | Atom.t(),
+        optional("ProviderName") => String.t() | Atom.t(),
+        optional("RemoveTags") => list(String.t() | Atom.t()),
+        required("Id") => String.t() | Atom.t()
       }
       
   """
-  @type update_portfolio_input() :: %{String.t() => any()}
+  @type update_portfolio_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_product_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("Id") => String.t(),
-        optional("Name") => String.t()
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        optional("Id") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t()
       }
       
   """
-  @type describe_product_input() :: %{String.t() => any()}
+  @type describe_product_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_provisioned_product_properties_output() :: %{
-        "ProvisionedProductId" => String.t(),
+        "ProvisionedProductId" => String.t() | Atom.t(),
         "ProvisionedProductProperties" => map(),
-        "RecordId" => String.t(),
+        "RecordId" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type update_provisioned_product_properties_output() :: %{String.t() => any()}
+  @type update_provisioned_product_properties_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_option_summary() :: %{
-        "Key" => String.t(),
-        "Values" => list(String.t())
+        "Key" => String.t() | Atom.t(),
+        "Values" => list(String.t() | Atom.t())
       }
       
   """
-  @type tag_option_summary() :: %{String.t() => any()}
+  @type tag_option_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2397,11 +2417,11 @@ defmodule AWS.ServiceCatalog do
       
       list_constraints_for_portfolio_output() :: %{
         "ConstraintDetails" => list(constraint_detail()),
-        "NextPageToken" => String.t()
+        "NextPageToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_constraints_for_portfolio_output() :: %{String.t() => any()}
+  @type list_constraints_for_portfolio_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2409,31 +2429,31 @@ defmodule AWS.ServiceCatalog do
       
       provisioning_artifact() :: %{
         "CreatedTime" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "Guidance" => list(any()),
-        "Id" => String.t(),
-        "Name" => String.t()
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
       
   """
-  @type provisioning_artifact() :: %{String.t() => any()}
+  @type provisioning_artifact() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_provisioning_artifact_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
         optional("IncludeProvisioningArtifactParameters") => boolean(),
-        optional("ProductId") => String.t(),
-        optional("ProductName") => String.t(),
-        optional("ProvisioningArtifactId") => String.t(),
-        optional("ProvisioningArtifactName") => String.t(),
+        optional("ProductId") => String.t() | Atom.t(),
+        optional("ProductName") => String.t() | Atom.t(),
+        optional("ProvisioningArtifactId") => String.t() | Atom.t(),
+        optional("ProvisioningArtifactName") => String.t() | Atom.t(),
         optional("Verbose") => boolean()
       }
       
   """
-  @type describe_provisioning_artifact_input() :: %{String.t() => any()}
+  @type describe_provisioning_artifact_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2449,27 +2469,27 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       search_products_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
         optional("Filters") => map(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
+        optional("PageToken") => String.t() | Atom.t(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type search_products_input() :: %{String.t() => any()}
+  @type search_products_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cloud_watch_dashboard() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
       
   """
-  @type cloud_watch_dashboard() :: %{String.t() => any()}
+  @type cloud_watch_dashboard() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2485,28 +2505,28 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       describe_portfolio_share_status_output() :: %{
-        "OrganizationNodeValue" => String.t(),
-        "PortfolioId" => String.t(),
-        "PortfolioShareToken" => String.t(),
+        "OrganizationNodeValue" => String.t() | Atom.t(),
+        "PortfolioId" => String.t() | Atom.t(),
+        "PortfolioShareToken" => String.t() | Atom.t(),
         "ShareDetails" => share_details(),
         "Status" => list(any())
       }
       
   """
-  @type describe_portfolio_share_status_output() :: %{String.t() => any()}
+  @type describe_portfolio_share_status_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_change_detail() :: %{
-        "CausingEntity" => String.t(),
+        "CausingEntity" => String.t() | Atom.t(),
         "Evaluation" => list(any()),
         "Target" => resource_target_definition()
       }
       
   """
-  @type resource_change_detail() :: %{String.t() => any()}
+  @type resource_change_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2517,7 +2537,7 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type describe_service_action_output() :: %{String.t() => any()}
+  @type describe_service_action_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2525,43 +2545,43 @@ defmodule AWS.ServiceCatalog do
       
       list_resources_for_tag_option_input() :: %{
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
-        optional("ResourceType") => String.t(),
-        required("TagOptionId") => String.t()
+        optional("PageToken") => String.t() | Atom.t(),
+        optional("ResourceType") => String.t() | Atom.t(),
+        required("TagOptionId") => String.t() | Atom.t()
       }
       
   """
-  @type list_resources_for_tag_option_input() :: %{String.t() => any()}
+  @type list_resources_for_tag_option_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_provisioning_parameter() :: %{
-        "Key" => String.t(),
+        "Key" => String.t() | Atom.t(),
         "UsePreviousValue" => boolean(),
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type update_provisioning_parameter() :: %{String.t() => any()}
+  @type update_provisioning_parameter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_provisioning_artifact_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
         optional("Active") => boolean(),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("Guidance") => list(any()),
-        optional("Name") => String.t(),
-        required("ProductId") => String.t(),
-        required("ProvisioningArtifactId") => String.t()
+        optional("Name") => String.t() | Atom.t(),
+        required("ProductId") => String.t() | Atom.t(),
+        required("ProvisioningArtifactId") => String.t() | Atom.t()
       }
       
   """
-  @type update_provisioning_artifact_input() :: %{String.t() => any()}
+  @type update_provisioning_artifact_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2572,88 +2592,88 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type source_connection_parameters() :: %{String.t() => any()}
+  @type source_connection_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       last_sync() :: %{
-        "LastSuccessfulSyncProvisioningArtifactId" => String.t(),
+        "LastSuccessfulSyncProvisioningArtifactId" => String.t() | Atom.t(),
         "LastSuccessfulSyncTime" => non_neg_integer(),
         "LastSyncStatus" => list(any()),
-        "LastSyncStatusMessage" => String.t(),
+        "LastSyncStatusMessage" => String.t() | Atom.t(),
         "LastSyncTime" => non_neg_integer()
       }
       
   """
-  @type last_sync() :: %{String.t() => any()}
+  @type last_sync() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_tag_option_input() :: %{
-        required("Id") => String.t()
+        required("Id") => String.t() | Atom.t()
       }
       
   """
-  @type delete_tag_option_input() :: %{String.t() => any()}
+  @type delete_tag_option_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_service_action_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("Description") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
         required("Definition") => map(),
         required("DefinitionType") => list(any()),
-        required("IdempotencyToken") => String.t(),
-        required("Name") => String.t()
+        required("IdempotencyToken") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type create_service_action_input() :: %{String.t() => any()}
+  @type create_service_action_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_stack_instances_for_provisioned_product_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
-        required("ProvisionedProductId") => String.t()
+        optional("PageToken") => String.t() | Atom.t(),
+        required("ProvisionedProductId") => String.t() | Atom.t()
       }
       
   """
-  @type list_stack_instances_for_provisioned_product_input() :: %{String.t() => any()}
+  @type list_stack_instances_for_provisioned_product_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       search_products_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | Atom.t(),
         "ProductViewAggregations" => map(),
         "ProductViewSummaries" => list(product_view_summary())
       }
       
   """
-  @type search_products_output() :: %{String.t() => any()}
+  @type search_products_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       provisioning_artifact_preferences() :: %{
-        "StackSetAccounts" => list(String.t()),
-        "StackSetRegions" => list(String.t())
+        "StackSetAccounts" => list(String.t() | Atom.t()),
+        "StackSetRegions" => list(String.t() | Atom.t())
       }
       
   """
-  @type provisioning_artifact_preferences() :: %{String.t() => any()}
+  @type provisioning_artifact_preferences() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2664,7 +2684,7 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type create_service_action_output() :: %{String.t() => any()}
+  @type create_service_action_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2672,22 +2692,22 @@ defmodule AWS.ServiceCatalog do
       
       access_level_filter() :: %{
         "Key" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type access_level_filter() :: %{String.t() => any()}
+  @type access_level_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_option_not_migrated_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type tag_option_not_migrated_exception() :: %{String.t() => any()}
+  @type tag_option_not_migrated_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2695,52 +2715,55 @@ defmodule AWS.ServiceCatalog do
       
       update_constraint_output() :: %{
         "ConstraintDetail" => constraint_detail(),
-        "ConstraintParameters" => String.t(),
+        "ConstraintParameters" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type update_constraint_output() :: %{String.t() => any()}
+  @type update_constraint_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_record_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
-        required("Id") => String.t()
+        optional("PageToken") => String.t() | Atom.t(),
+        required("Id") => String.t() | Atom.t()
       }
       
   """
-  @type describe_record_input() :: %{String.t() => any()}
+  @type describe_record_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_service_action_from_provisioning_artifact_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("IdempotencyToken") => String.t(),
-        required("ProductId") => String.t(),
-        required("ProvisioningArtifactId") => String.t(),
-        required("ServiceActionId") => String.t()
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        optional("IdempotencyToken") => String.t() | Atom.t(),
+        required("ProductId") => String.t() | Atom.t(),
+        required("ProvisioningArtifactId") => String.t() | Atom.t(),
+        required("ServiceActionId") => String.t() | Atom.t()
       }
       
   """
-  @type disassociate_service_action_from_provisioning_artifact_input() :: %{String.t() => any()}
+  @type disassociate_service_action_from_provisioning_artifact_input() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2751,104 +2774,107 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type describe_service_action_execution_parameters_output() :: %{String.t() => any()}
+  @type describe_service_action_execution_parameters_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_provisioned_product_outputs_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("OutputKeys") => list(String.t()),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        optional("OutputKeys") => list(String.t() | Atom.t()),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
-        optional("ProvisionedProductId") => String.t(),
-        optional("ProvisionedProductName") => String.t()
+        optional("PageToken") => String.t() | Atom.t(),
+        optional("ProvisionedProductId") => String.t() | Atom.t(),
+        optional("ProvisionedProductName") => String.t() | Atom.t()
       }
       
   """
-  @type get_provisioned_product_outputs_input() :: %{String.t() => any()}
+  @type get_provisioned_product_outputs_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_constraint_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("Description") => String.t(),
-        optional("Parameters") => String.t(),
-        required("Id") => String.t()
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("Parameters") => String.t() | Atom.t(),
+        required("Id") => String.t() | Atom.t()
       }
       
   """
-  @type update_constraint_input() :: %{String.t() => any()}
+  @type update_constraint_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       search_provisioned_products_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | Atom.t(),
         "ProvisionedProducts" => list(provisioned_product_attribute()),
         "TotalResultsCount" => integer()
       }
       
   """
-  @type search_provisioned_products_output() :: %{String.t() => any()}
+  @type search_provisioned_products_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_copy_product_status_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        required("CopyProductToken") => String.t()
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        required("CopyProductToken") => String.t() | Atom.t()
       }
       
   """
-  @type describe_copy_product_status_input() :: %{String.t() => any()}
+  @type describe_copy_product_status_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       provisioning_artifact_output() :: %{
-        "Description" => String.t(),
-        "Key" => String.t()
+        "Description" => String.t() | Atom.t(),
+        "Key" => String.t() | Atom.t()
       }
       
   """
-  @type provisioning_artifact_output() :: %{String.t() => any()}
+  @type provisioning_artifact_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       notify_provision_product_engine_workflow_result_input() :: %{
-        optional("FailureReason") => String.t(),
+        optional("FailureReason") => String.t() | Atom.t(),
         optional("Outputs") => list(record_output()),
         optional("ResourceIdentifier") => engine_workflow_resource_identifier(),
-        required("IdempotencyToken") => String.t(),
-        required("RecordId") => String.t(),
+        required("IdempotencyToken") => String.t() | Atom.t(),
+        required("RecordId") => String.t() | Atom.t(),
         required("Status") => list(any()),
-        required("WorkflowToken") => String.t()
+        required("WorkflowToken") => String.t() | Atom.t()
       }
       
   """
-  @type notify_provision_product_engine_workflow_result_input() :: %{String.t() => any()}
+  @type notify_provision_product_engine_workflow_result_input() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       reject_portfolio_share_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
         optional("PortfolioShareType") => list(any()),
-        required("PortfolioId") => String.t()
+        required("PortfolioId") => String.t() | Atom.t()
       }
       
   """
-  @type reject_portfolio_share_input() :: %{String.t() => any()}
+  @type reject_portfolio_share_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2856,23 +2882,23 @@ defmodule AWS.ServiceCatalog do
       
       record_detail() :: %{
         "CreatedTime" => non_neg_integer(),
-        "LaunchRoleArn" => String.t(),
-        "PathId" => String.t(),
-        "ProductId" => String.t(),
-        "ProvisionedProductId" => String.t(),
-        "ProvisionedProductName" => String.t(),
-        "ProvisionedProductType" => String.t(),
-        "ProvisioningArtifactId" => String.t(),
+        "LaunchRoleArn" => String.t() | Atom.t(),
+        "PathId" => String.t() | Atom.t(),
+        "ProductId" => String.t() | Atom.t(),
+        "ProvisionedProductId" => String.t() | Atom.t(),
+        "ProvisionedProductName" => String.t() | Atom.t(),
+        "ProvisionedProductType" => String.t() | Atom.t(),
+        "ProvisioningArtifactId" => String.t() | Atom.t(),
         "RecordErrors" => list(record_error()),
-        "RecordId" => String.t(),
+        "RecordId" => String.t() | Atom.t(),
         "RecordTags" => list(record_tag()),
-        "RecordType" => String.t(),
+        "RecordType" => String.t() | Atom.t(),
         "Status" => list(any()),
         "UpdatedTime" => non_neg_integer()
       }
       
   """
-  @type record_detail() :: %{String.t() => any()}
+  @type record_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2884,58 +2910,58 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type service_action_detail() :: %{String.t() => any()}
+  @type service_action_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_budget_with_resource_input() :: %{
-        required("BudgetName") => String.t(),
-        required("ResourceId") => String.t()
+        required("BudgetName") => String.t() | Atom.t(),
+        required("ResourceId") => String.t() | Atom.t()
       }
       
   """
-  @type associate_budget_with_resource_input() :: %{String.t() => any()}
+  @type associate_budget_with_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_provisioned_product_properties_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        required("IdempotencyToken") => String.t(),
-        required("ProvisionedProductId") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        required("IdempotencyToken") => String.t() | Atom.t(),
+        required("ProvisionedProductId") => String.t() | Atom.t(),
         required("ProvisionedProductProperties") => map()
       }
       
   """
-  @type update_provisioned_product_properties_input() :: %{String.t() => any()}
+  @type update_provisioned_product_properties_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_service_action_execution_parameters_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        required("ProvisionedProductId") => String.t(),
-        required("ServiceActionId") => String.t()
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        required("ProvisionedProductId") => String.t() | Atom.t(),
+        required("ServiceActionId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_service_action_execution_parameters_input() :: %{String.t() => any()}
+  @type describe_service_action_execution_parameters_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_provisioning_artifacts_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        required("ProductId") => String.t()
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        required("ProductId") => String.t() | Atom.t()
       }
       
   """
-  @type list_provisioning_artifacts_input() :: %{String.t() => any()}
+  @type list_provisioning_artifacts_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2951,50 +2977,53 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       list_stack_instances_for_provisioned_product_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | Atom.t(),
         "StackInstances" => list(stack_instance())
       }
       
   """
-  @type list_stack_instances_for_provisioned_product_output() :: %{String.t() => any()}
+  @type list_stack_instances_for_provisioned_product_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_service_actions_for_provisioning_artifact_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
-        required("ProductId") => String.t(),
-        required("ProvisioningArtifactId") => String.t()
+        optional("PageToken") => String.t() | Atom.t(),
+        required("ProductId") => String.t() | Atom.t(),
+        required("ProvisioningArtifactId") => String.t() | Atom.t()
       }
       
   """
-  @type list_service_actions_for_provisioning_artifact_input() :: %{String.t() => any()}
+  @type list_service_actions_for_provisioning_artifact_input() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       operation_not_supported_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type operation_not_supported_exception() :: %{String.t() => any()}
+  @type operation_not_supported_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       scan_provisioned_products_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | Atom.t(),
         "ProvisionedProducts" => list(provisioned_product_detail())
       }
       
   """
-  @type scan_provisioned_products_output() :: %{String.t() => any()}
+  @type scan_provisioned_products_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3005,7 +3034,7 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type terminate_provisioned_product_output() :: %{String.t() => any()}
+  @type terminate_provisioned_product_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3016,35 +3045,35 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type update_service_action_output() :: %{String.t() => any()}
+  @type update_service_action_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_product_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        required("Id") => String.t()
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        required("Id") => String.t() | Atom.t()
       }
       
   """
-  @type delete_product_input() :: %{String.t() => any()}
+  @type delete_product_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_portfolio_share_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("AccountId") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        optional("AccountId") => String.t() | Atom.t(),
         optional("OrganizationNode") => organization_node(),
         optional("SharePrincipals") => boolean(),
         optional("ShareTagOptions") => boolean(),
-        required("PortfolioId") => String.t()
+        required("PortfolioId") => String.t() | Atom.t()
       }
       
   """
-  @type create_portfolio_share_input() :: %{String.t() => any()}
+  @type create_portfolio_share_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3060,12 +3089,12 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       list_record_history_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | Atom.t(),
         "RecordDetails" => list(record_detail())
       }
       
   """
-  @type list_record_history_output() :: %{String.t() => any()}
+  @type list_record_history_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3074,27 +3103,27 @@ defmodule AWS.ServiceCatalog do
       resource_change() :: %{
         "Action" => list(any()),
         "Details" => list(resource_change_detail()),
-        "LogicalResourceId" => String.t(),
-        "PhysicalResourceId" => String.t(),
+        "LogicalResourceId" => String.t() | Atom.t(),
+        "PhysicalResourceId" => String.t() | Atom.t(),
         "Replacement" => list(any()),
-        "ResourceType" => String.t(),
+        "ResourceType" => String.t() | Atom.t(),
         "Scope" => list(list(any())())
       }
       
   """
-  @type resource_change() :: %{String.t() => any()}
+  @type resource_change() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_portfolio_share_output() :: %{
-        "PortfolioShareToken" => String.t(),
+        "PortfolioShareToken" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type update_portfolio_share_output() :: %{String.t() => any()}
+  @type update_portfolio_share_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3102,50 +3131,50 @@ defmodule AWS.ServiceCatalog do
       
       launch_path_summary() :: %{
         "ConstraintSummaries" => list(constraint_summary()),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "Tags" => list(tag())
       }
       
   """
-  @type launch_path_summary() :: %{String.t() => any()}
+  @type launch_path_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_budget_from_resource_input() :: %{
-        required("BudgetName") => String.t(),
-        required("ResourceId") => String.t()
+        required("BudgetName") => String.t() | Atom.t(),
+        required("ResourceId") => String.t() | Atom.t()
       }
       
   """
-  @type disassociate_budget_from_resource_input() :: %{String.t() => any()}
+  @type disassociate_budget_from_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       duplicate_resource_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type duplicate_resource_exception() :: %{String.t() => any()}
+  @type duplicate_resource_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_product_as_admin_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("Id") => String.t(),
-        optional("Name") => String.t(),
-        optional("SourcePortfolioId") => String.t()
+        optional("AcceptLanguage") => String.t() | Atom.t(),
+        optional("Id") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t(),
+        optional("SourcePortfolioId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_product_as_admin_input() :: %{String.t() => any()}
+  @type describe_product_as_admin_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3160,44 +3189,44 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type describe_product_as_admin_output() :: %{String.t() => any()}
+  @type describe_product_as_admin_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_product_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
         optional("AddTags") => list(tag()),
-        optional("Description") => String.t(),
-        optional("Distributor") => String.t(),
-        optional("Name") => String.t(),
-        optional("Owner") => String.t(),
-        optional("RemoveTags") => list(String.t()),
+        optional("Description") => String.t() | Atom.t(),
+        optional("Distributor") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t(),
+        optional("Owner") => String.t() | Atom.t(),
+        optional("RemoveTags") => list(String.t() | Atom.t()),
         optional("SourceConnection") => source_connection(),
-        optional("SupportDescription") => String.t(),
-        optional("SupportEmail") => String.t(),
-        optional("SupportUrl") => String.t(),
-        required("Id") => String.t()
+        optional("SupportDescription") => String.t() | Atom.t(),
+        optional("SupportEmail") => String.t() | Atom.t(),
+        optional("SupportUrl") => String.t() | Atom.t(),
+        required("Id") => String.t() | Atom.t()
       }
       
   """
-  @type update_product_input() :: %{String.t() => any()}
+  @type update_product_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_record_history_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
         optional("AccessLevelFilter") => access_level_filter(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
+        optional("PageToken") => String.t() | Atom.t(),
         optional("SearchFilter") => list_record_history_search_filter()
       }
       
   """
-  @type list_record_history_input() :: %{String.t() => any()}
+  @type list_record_history_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3205,55 +3234,55 @@ defmodule AWS.ServiceCatalog do
       
       provisioned_product_plan_details() :: %{
         "CreatedTime" => non_neg_integer(),
-        "NotificationArns" => list(String.t()),
-        "PathId" => String.t(),
-        "PlanId" => String.t(),
-        "PlanName" => String.t(),
+        "NotificationArns" => list(String.t() | Atom.t()),
+        "PathId" => String.t() | Atom.t(),
+        "PlanId" => String.t() | Atom.t(),
+        "PlanName" => String.t() | Atom.t(),
         "PlanType" => list(any()),
-        "ProductId" => String.t(),
-        "ProvisionProductId" => String.t(),
-        "ProvisionProductName" => String.t(),
-        "ProvisioningArtifactId" => String.t(),
+        "ProductId" => String.t() | Atom.t(),
+        "ProvisionProductId" => String.t() | Atom.t(),
+        "ProvisionProductName" => String.t() | Atom.t(),
+        "ProvisioningArtifactId" => String.t() | Atom.t(),
         "ProvisioningParameters" => list(update_provisioning_parameter()),
         "Status" => list(any()),
-        "StatusMessage" => String.t(),
+        "StatusMessage" => String.t() | Atom.t(),
         "Tags" => list(tag()),
         "UpdatedTime" => non_neg_integer()
       }
       
   """
-  @type provisioned_product_plan_details() :: %{String.t() => any()}
+  @type provisioned_product_plan_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_organization_portfolio_access_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | Atom.t(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
+        optional("PageToken") => String.t() | Atom.t(),
         required("OrganizationNodeType") => list(any()),
-        required("PortfolioId") => String.t()
+        required("PortfolioId") => String.t() | Atom.t()
       }
       
   """
-  @type list_organization_portfolio_access_input() :: %{String.t() => any()}
+  @type list_organization_portfolio_access_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       provisioning_preferences() :: %{
-        "StackSetAccounts" => list(String.t()),
+        "StackSetAccounts" => list(String.t() | Atom.t()),
         "StackSetFailureToleranceCount" => integer(),
         "StackSetFailureTolerancePercentage" => integer(),
         "StackSetMaxConcurrencyCount" => integer(),
         "StackSetMaxConcurrencyPercentage" => integer(),
-        "StackSetRegions" => list(String.t())
+        "StackSetRegions" => list(String.t() | Atom.t())
       }
       
   """
-  @type provisioning_preferences() :: %{String.t() => any()}
+  @type provisioning_preferences() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3269,15 +3298,15 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       resource_detail() :: %{
-        "ARN" => String.t(),
+        "ARN" => String.t() | Atom.t(),
         "CreatedTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t()
+        "Description" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
       
   """
-  @type resource_detail() :: %{String.t() => any()}
+  @type resource_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3288,7 +3317,7 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type provision_product_output() :: %{String.t() => any()}
+  @type provision_product_output() :: %{String.t() | Atom.t() => any()}
 
   @type accept_portfolio_share_errors() ::
           limit_exceeded_exception()

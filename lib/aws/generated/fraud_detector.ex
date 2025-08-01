@@ -35,58 +35,58 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       cancel_batch_import_job_request() :: %{
-        required("jobId") => String.t()
+        required("jobId") => String.t() | Atom.t()
       }
       
   """
-  @type cancel_batch_import_job_request() :: %{String.t() => any()}
+  @type cancel_batch_import_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_variable_request() :: %{
-        required("names") => list(String.t())
+        required("names") => list(String.t() | Atom.t())
       }
       
   """
-  @type batch_get_variable_request() :: %{String.t() => any()}
+  @type batch_get_variable_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       external_model() :: %{
-        "arn" => String.t(),
-        "createdTime" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "createdTime" => String.t() | Atom.t(),
         "inputConfiguration" => model_input_configuration(),
-        "invokeModelEndpointRoleArn" => String.t(),
-        "lastUpdatedTime" => String.t(),
-        "modelEndpoint" => String.t(),
+        "invokeModelEndpointRoleArn" => String.t() | Atom.t(),
+        "lastUpdatedTime" => String.t() | Atom.t(),
+        "modelEndpoint" => String.t() | Atom.t(),
         "modelEndpointStatus" => list(any()),
         "modelSource" => list(any()),
         "outputConfiguration" => model_output_configuration()
       }
       
   """
-  @type external_model() :: %{String.t() => any()}
+  @type external_model() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_rule_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("tags") => list(tag()),
-        required("detectorId") => String.t(),
-        required("expression") => String.t(),
+        required("detectorId") => String.t() | Atom.t(),
+        required("expression") => String.t() | Atom.t(),
         required("language") => list(any()),
-        required("outcomes") => list(String.t()),
-        required("ruleId") => String.t()
+        required("outcomes") => list(String.t() | Atom.t()),
+        required("ruleId") => String.t() | Atom.t()
       }
       
   """
-  @type create_rule_request() :: %{String.t() => any()}
+  @type create_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -103,27 +103,27 @@ defmodule AWS.FraudDetector do
       
       batch_create_variable_error() :: %{
         "code" => integer(),
-        "message" => String.t(),
-        "name" => String.t()
+        "message" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
       
   """
-  @type batch_create_variable_error() :: %{String.t() => any()}
+  @type batch_create_variable_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       field_validation_message() :: %{
-        "content" => String.t(),
-        "fieldName" => String.t(),
-        "identifier" => String.t(),
-        "title" => String.t(),
-        "type" => String.t()
+        "content" => String.t() | Atom.t(),
+        "fieldName" => String.t() | Atom.t(),
+        "identifier" => String.t() | Atom.t(),
+        "title" => String.t() | Atom.t(),
+        "type" => String.t() | Atom.t()
       }
       
   """
-  @type field_validation_message() :: %{String.t() => any()}
+  @type field_validation_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -135,33 +135,33 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type a_t_i_training_metrics_value() :: %{String.t() => any()}
+  @type a_t_i_training_metrics_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_model_version_result() :: %{
-        "modelId" => String.t(),
+        "modelId" => String.t() | Atom.t(),
         "modelType" => list(any()),
-        "modelVersionNumber" => String.t(),
-        "status" => String.t()
+        "modelVersionNumber" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type create_model_version_result() :: %{String.t() => any()}
+  @type create_model_version_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("resourceARN") => String.t(),
+        required("resourceARN") => String.t() | Atom.t(),
         required("tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -186,15 +186,15 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       create_list_request() :: %{
-        optional("description") => String.t(),
-        optional("elements") => list(String.t()),
+        optional("description") => String.t() | Atom.t(),
+        optional("elements") => list(String.t() | Atom.t()),
         optional("tags") => list(tag()),
-        optional("variableType") => String.t(),
-        required("name") => String.t()
+        optional("variableType") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t()
       }
       
   """
-  @type create_list_request() :: %{String.t() => any()}
+  @type create_list_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -204,24 +204,24 @@ defmodule AWS.FraudDetector do
         optional("externalEventsDetail") => external_events_detail(),
         optional("ingestedEventsDetail") => ingested_events_detail(),
         optional("tags") => list(tag()),
-        required("majorVersionNumber") => String.t(),
-        required("modelId") => String.t(),
+        required("majorVersionNumber") => String.t() | Atom.t(),
+        required("modelId") => String.t() | Atom.t(),
         required("modelType") => list(any())
       }
       
   """
-  @type update_model_version_request() :: %{String.t() => any()}
+  @type update_model_version_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_entity_type_request() :: %{
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
       
   """
-  @type delete_entity_type_request() :: %{String.t() => any()}
+  @type delete_entity_type_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -235,7 +235,7 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type metric_data_point() :: %{String.t() => any()}
+  @type metric_data_point() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -243,36 +243,36 @@ defmodule AWS.FraudDetector do
       
       get_list_elements_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("name") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t()
       }
       
   """
-  @type get_list_elements_request() :: %{String.t() => any()}
+  @type get_list_elements_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       filter_condition() :: %{
-        "value" => String.t()
+        "value" => String.t() | Atom.t()
       }
       
   """
-  @type filter_condition() :: %{String.t() => any()}
+  @type filter_condition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       model_version_evaluation() :: %{
-        "evaluationScore" => String.t(),
-        "outputVariableName" => String.t(),
+        "evaluationScore" => String.t() | Atom.t(),
+        "outputVariableName" => String.t() | Atom.t(),
         "predictionExplanations" => prediction_explanations()
       }
       
   """
-  @type model_version_evaluation() :: %{String.t() => any()}
+  @type model_version_evaluation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -301,7 +301,7 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type get_kms_encryption_key_result() :: %{String.t() => any()}
+  @type get_kms_encryption_key_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -315,25 +315,25 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type t_f_i_metric_data_point() :: %{String.t() => any()}
+  @type t_f_i_metric_data_point() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_batch_prediction_job_request() :: %{
-        optional("detectorVersion") => String.t(),
+        optional("detectorVersion") => String.t() | Atom.t(),
         optional("tags") => list(tag()),
-        required("detectorName") => String.t(),
-        required("eventTypeName") => String.t(),
-        required("iamRoleArn") => String.t(),
-        required("inputPath") => String.t(),
-        required("jobId") => String.t(),
-        required("outputPath") => String.t()
+        required("detectorName") => String.t() | Atom.t(),
+        required("eventTypeName") => String.t() | Atom.t(),
+        required("iamRoleArn") => String.t() | Atom.t(),
+        required("inputPath") => String.t() | Atom.t(),
+        required("jobId") => String.t() | Atom.t(),
+        required("outputPath") => String.t() | Atom.t()
       }
       
   """
-  @type create_batch_prediction_job_request() :: %{String.t() => any()}
+  @type create_batch_prediction_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -341,11 +341,11 @@ defmodule AWS.FraudDetector do
       
       get_lists_metadata_result() :: %{
         "lists" => list(allow_deny_list()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type get_lists_metadata_result() :: %{String.t() => any()}
+  @type get_lists_metadata_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -365,62 +365,62 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type get_event_result() :: %{String.t() => any()}
+  @type get_event_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       model_version() :: %{
-        "arn" => String.t(),
-        "modelId" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "modelId" => String.t() | Atom.t(),
         "modelType" => list(any()),
-        "modelVersionNumber" => String.t()
+        "modelVersionNumber" => String.t() | Atom.t()
       }
       
   """
-  @type model_version() :: %{String.t() => any()}
+  @type model_version() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_label_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("tags") => list(tag()),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
       
   """
-  @type put_label_request() :: %{String.t() => any()}
+  @type put_label_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       entity() :: %{
-        "entityId" => String.t(),
-        "entityType" => String.t()
+        "entityId" => String.t() | Atom.t(),
+        "entityType" => String.t() | Atom.t()
       }
       
   """
-  @type entity() :: %{String.t() => any()}
+  @type entity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_rule_version_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("tags") => list(tag()),
-        required("expression") => String.t(),
+        required("expression") => String.t() | Atom.t(),
         required("language") => list(any()),
-        required("outcomes") => list(String.t()),
+        required("outcomes") => list(String.t() | Atom.t()),
         required("rule") => rule()
       }
       
   """
-  @type update_rule_version_request() :: %{String.t() => any()}
+  @type update_rule_version_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -428,46 +428,46 @@ defmodule AWS.FraudDetector do
       
       ingested_event_statistics() :: %{
         "eventDataSizeInBytes" => float(),
-        "lastUpdatedTime" => String.t(),
-        "leastRecentEvent" => String.t(),
-        "mostRecentEvent" => String.t(),
+        "lastUpdatedTime" => String.t() | Atom.t(),
+        "leastRecentEvent" => String.t() | Atom.t(),
+        "mostRecentEvent" => String.t() | Atom.t(),
         "numberOfEvents" => float()
       }
       
   """
-  @type ingested_event_statistics() :: %{String.t() => any()}
+  @type ingested_event_statistics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       model_input_configuration() :: %{
-        "csvInputTemplate" => String.t(),
-        "eventTypeName" => String.t(),
+        "csvInputTemplate" => String.t() | Atom.t(),
+        "eventTypeName" => String.t() | Atom.t(),
         "format" => list(any()),
-        "jsonInputTemplate" => String.t(),
+        "jsonInputTemplate" => String.t() | Atom.t(),
         "useEventVariables" => boolean()
       }
       
   """
-  @type model_input_configuration() :: %{String.t() => any()}
+  @type model_input_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_variable_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("tags") => list(tag()),
-        optional("variableType") => String.t(),
+        optional("variableType") => String.t() | Atom.t(),
         required("dataSource") => list(any()),
         required("dataType") => list(any()),
-        required("defaultValue") => String.t(),
-        required("name") => String.t()
+        required("defaultValue") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t()
       }
       
   """
-  @type create_variable_request() :: %{String.t() => any()}
+  @type create_variable_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -479,22 +479,22 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type o_f_i_training_metrics_value() :: %{String.t() => any()}
+  @type o_f_i_training_metrics_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       model_version_detail() :: %{
-        "arn" => String.t(),
-        "createdTime" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "createdTime" => String.t() | Atom.t(),
         "externalEventsDetail" => external_events_detail(),
         "ingestedEventsDetail" => ingested_events_detail(),
-        "lastUpdatedTime" => String.t(),
-        "modelId" => String.t(),
+        "lastUpdatedTime" => String.t() | Atom.t(),
+        "modelId" => String.t() | Atom.t(),
         "modelType" => list(any()),
-        "modelVersionNumber" => String.t(),
-        "status" => String.t(),
+        "modelVersionNumber" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t(),
         "trainingDataSchema" => training_data_schema(),
         "trainingDataSource" => list(any()),
         "trainingResult" => training_result(),
@@ -502,18 +502,18 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type model_version_detail() :: %{String.t() => any()}
+  @type model_version_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_unavailable_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_unavailable_exception() :: %{String.t() => any()}
+  @type resource_unavailable_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -538,29 +538,29 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       allow_deny_list() :: %{
-        "arn" => String.t(),
-        "createdTime" => String.t(),
-        "description" => String.t(),
-        "name" => String.t(),
-        "updatedTime" => String.t(),
-        "variableType" => String.t()
+        "arn" => String.t() | Atom.t(),
+        "createdTime" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "updatedTime" => String.t() | Atom.t(),
+        "variableType" => String.t() | Atom.t()
       }
       
   """
-  @type allow_deny_list() :: %{String.t() => any()}
+  @type allow_deny_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       variable_impact_explanation() :: %{
-        "eventVariableName" => String.t(),
+        "eventVariableName" => String.t() | Atom.t(),
         "logOddsImpact" => float(),
-        "relativeImpact" => String.t()
+        "relativeImpact" => String.t() | Atom.t()
       }
       
   """
-  @type variable_impact_explanation() :: %{String.t() => any()}
+  @type variable_impact_explanation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -576,28 +576,28 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       create_model_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("tags") => list(tag()),
-        required("eventTypeName") => String.t(),
-        required("modelId") => String.t(),
+        required("eventTypeName") => String.t() | Atom.t(),
+        required("modelId") => String.t() | Atom.t(),
         required("modelType") => list(any())
       }
       
   """
-  @type create_model_request() :: %{String.t() => any()}
+  @type create_model_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_model_request() :: %{
-        optional("description") => String.t(),
-        required("modelId") => String.t(),
+        optional("description") => String.t() | Atom.t(),
+        required("modelId") => String.t() | Atom.t(),
         required("modelType") => list(any())
       }
       
   """
-  @type update_model_request() :: %{String.t() => any()}
+  @type update_model_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -613,14 +613,14 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       describe_detector_result() :: %{
-        "arn" => String.t(),
-        "detectorId" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "detectorId" => String.t() | Atom.t(),
         "detectorVersionSummaries" => list(detector_version_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_detector_result() :: %{String.t() => any()}
+  @type describe_detector_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -628,12 +628,12 @@ defmodule AWS.FraudDetector do
       
       get_outcomes_request() :: %{
         optional("maxResults") => integer(),
-        optional("name") => String.t(),
-        optional("nextToken") => String.t()
+        optional("name") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type get_outcomes_request() :: %{String.t() => any()}
+  @type get_outcomes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -649,11 +649,11 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       delete_variable_request() :: %{
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
       
   """
-  @type delete_variable_request() :: %{String.t() => any()}
+  @type delete_variable_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -667,18 +667,18 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type training_result_v2() :: %{String.t() => any()}
+  @type training_result_v2() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_batch_import_job_request() :: %{
-        required("jobId") => String.t()
+        required("jobId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_batch_import_job_request() :: %{String.t() => any()}
+  @type delete_batch_import_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -694,46 +694,46 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       get_delete_events_by_event_type_status_request() :: %{
-        required("eventTypeName") => String.t()
+        required("eventTypeName") => String.t() | Atom.t()
       }
       
   """
-  @type get_delete_events_by_event_type_status_request() :: %{String.t() => any()}
+  @type get_delete_events_by_event_type_status_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_import() :: %{
-        "arn" => String.t(),
-        "completionTime" => String.t(),
-        "eventTypeName" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "completionTime" => String.t() | Atom.t(),
+        "eventTypeName" => String.t() | Atom.t(),
         "failedRecordsCount" => integer(),
-        "failureReason" => String.t(),
-        "iamRoleArn" => String.t(),
-        "inputPath" => String.t(),
-        "jobId" => String.t(),
-        "outputPath" => String.t(),
+        "failureReason" => String.t() | Atom.t(),
+        "iamRoleArn" => String.t() | Atom.t(),
+        "inputPath" => String.t() | Atom.t(),
+        "jobId" => String.t() | Atom.t(),
+        "outputPath" => String.t() | Atom.t(),
         "processedRecordsCount" => integer(),
-        "startTime" => String.t(),
+        "startTime" => String.t() | Atom.t(),
         "status" => list(any()),
         "totalRecordsCount" => integer()
       }
       
   """
-  @type batch_import() :: %{String.t() => any()}
+  @type batch_import() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("resourceARN") => String.t(),
-        required("tagKeys") => list(String.t())
+        required("resourceARN") => String.t() | Atom.t(),
+        required("tagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -747,7 +747,7 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type a_t_i_metric_data_point() :: %{String.t() => any()}
+  @type a_t_i_metric_data_point() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -755,26 +755,26 @@ defmodule AWS.FraudDetector do
       
       evaluated_external_model() :: %{
         "inputVariables" => map(),
-        "modelEndpoint" => String.t(),
+        "modelEndpoint" => String.t() | Atom.t(),
         "outputVariables" => map(),
         "useEventVariables" => boolean()
       }
       
   """
-  @type evaluated_external_model() :: %{String.t() => any()}
+  @type evaluated_external_model() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_model_version_request() :: %{
-        required("modelId") => String.t(),
+        required("modelId") => String.t() | Atom.t(),
         required("modelType") => list(any()),
-        required("modelVersionNumber") => String.t()
+        required("modelVersionNumber") => String.t() | Atom.t()
       }
       
   """
-  @type get_model_version_request() :: %{String.t() => any()}
+  @type get_model_version_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -782,43 +782,43 @@ defmodule AWS.FraudDetector do
       
       get_variables_request() :: %{
         optional("maxResults") => integer(),
-        optional("name") => String.t(),
-        optional("nextToken") => String.t()
+        optional("name") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type get_variables_request() :: %{String.t() => any()}
+  @type get_variables_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       rule_detail() :: %{
-        "arn" => String.t(),
-        "createdTime" => String.t(),
-        "description" => String.t(),
-        "detectorId" => String.t(),
-        "expression" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "createdTime" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "detectorId" => String.t() | Atom.t(),
+        "expression" => String.t() | Atom.t(),
         "language" => list(any()),
-        "lastUpdatedTime" => String.t(),
-        "outcomes" => list(String.t()),
-        "ruleId" => String.t(),
-        "ruleVersion" => String.t()
+        "lastUpdatedTime" => String.t() | Atom.t(),
+        "outcomes" => list(String.t() | Atom.t()),
+        "ruleId" => String.t() | Atom.t(),
+        "ruleVersion" => String.t() | Atom.t()
       }
       
   """
-  @type rule_detail() :: %{String.t() => any()}
+  @type rule_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_list_request() :: %{
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
       
   """
-  @type delete_list_request() :: %{String.t() => any()}
+  @type delete_list_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -826,25 +826,25 @@ defmodule AWS.FraudDetector do
       
       describe_detector_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("detectorId") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("detectorId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_detector_request() :: %{String.t() => any()}
+  @type describe_detector_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       event_variable_summary() :: %{
-        "name" => String.t(),
-        "source" => String.t(),
-        "value" => String.t()
+        "name" => String.t() | Atom.t(),
+        "source" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
       
   """
-  @type event_variable_summary() :: %{String.t() => any()}
+  @type event_variable_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -852,11 +852,11 @@ defmodule AWS.FraudDetector do
       
       training_data_schema() :: %{
         "labelSchema" => label_schema(),
-        "modelVariables" => list(String.t())
+        "modelVariables" => list(String.t() | Atom.t())
       }
       
   """
-  @type training_data_schema() :: %{String.t() => any()}
+  @type training_data_schema() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -864,14 +864,14 @@ defmodule AWS.FraudDetector do
       
       describe_model_versions_request() :: %{
         optional("maxResults") => integer(),
-        optional("modelId") => String.t(),
+        optional("modelId") => String.t() | Atom.t(),
         optional("modelType") => list(any()),
-        optional("modelVersionNumber") => String.t(),
-        optional("nextToken") => String.t()
+        optional("modelVersionNumber") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type describe_model_versions_request() :: %{String.t() => any()}
+  @type describe_model_versions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -882,21 +882,21 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type delete_rule_request() :: %{String.t() => any()}
+  @type delete_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_detector_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("tags") => list(tag()),
-        required("detectorId") => String.t(),
-        required("eventTypeName") => String.t()
+        required("detectorId") => String.t() | Atom.t(),
+        required("eventTypeName") => String.t() | Atom.t()
       }
       
   """
-  @type put_detector_request() :: %{String.t() => any()}
+  @type put_detector_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -904,53 +904,53 @@ defmodule AWS.FraudDetector do
       
       get_event_types_result() :: %{
         "eventTypes" => list(event_type()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type get_event_types_result() :: %{String.t() => any()}
+  @type get_event_types_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       send_event_request() :: %{
-        optional("assignedLabel") => String.t(),
-        optional("labelTimestamp") => String.t(),
+        optional("assignedLabel") => String.t() | Atom.t(),
+        optional("labelTimestamp") => String.t() | Atom.t(),
         required("entities") => list(entity()),
-        required("eventId") => String.t(),
-        required("eventTimestamp") => String.t(),
-        required("eventTypeName") => String.t(),
+        required("eventId") => String.t() | Atom.t(),
+        required("eventTimestamp") => String.t() | Atom.t(),
+        required("eventTypeName") => String.t() | Atom.t(),
         required("eventVariables") => map()
       }
       
   """
-  @type send_event_request() :: %{String.t() => any()}
+  @type send_event_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_prediction() :: %{
-        "arn" => String.t(),
-        "completionTime" => String.t(),
-        "detectorName" => String.t(),
-        "detectorVersion" => String.t(),
-        "eventTypeName" => String.t(),
-        "failureReason" => String.t(),
-        "iamRoleArn" => String.t(),
-        "inputPath" => String.t(),
-        "jobId" => String.t(),
-        "lastHeartbeatTime" => String.t(),
-        "outputPath" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "completionTime" => String.t() | Atom.t(),
+        "detectorName" => String.t() | Atom.t(),
+        "detectorVersion" => String.t() | Atom.t(),
+        "eventTypeName" => String.t() | Atom.t(),
+        "failureReason" => String.t() | Atom.t(),
+        "iamRoleArn" => String.t() | Atom.t(),
+        "inputPath" => String.t() | Atom.t(),
+        "jobId" => String.t() | Atom.t(),
+        "lastHeartbeatTime" => String.t() | Atom.t(),
+        "outputPath" => String.t() | Atom.t(),
         "processedRecordsCount" => integer(),
-        "startTime" => String.t(),
+        "startTime" => String.t() | Atom.t(),
         "status" => list(any()),
         "totalRecordsCount" => integer()
       }
       
   """
-  @type batch_prediction() :: %{String.t() => any()}
+  @type batch_prediction() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -966,15 +966,15 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       entity_type() :: %{
-        "arn" => String.t(),
-        "createdTime" => String.t(),
-        "description" => String.t(),
-        "lastUpdatedTime" => String.t(),
-        "name" => String.t()
+        "arn" => String.t() | Atom.t(),
+        "createdTime" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "lastUpdatedTime" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
       
   """
-  @type entity_type() :: %{String.t() => any()}
+  @type entity_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -987,24 +987,24 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type model_output_configuration() :: %{String.t() => any()}
+  @type model_output_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_detector_version_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("modelVersions") => list(model_version()),
         optional("ruleExecutionMode") => list(any()),
-        required("detectorId") => String.t(),
-        required("detectorVersionId") => String.t(),
-        required("externalModelEndpoints") => list(String.t()),
+        required("detectorId") => String.t() | Atom.t(),
+        required("detectorVersionId") => String.t() | Atom.t(),
+        required("externalModelEndpoints") => list(String.t() | Atom.t()),
         required("rules") => list(rule())
       }
       
   """
-  @type update_detector_version_request() :: %{String.t() => any()}
+  @type update_detector_version_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1018,7 +1018,7 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type o_f_i_metric_data_point() :: %{String.t() => any()}
+  @type o_f_i_metric_data_point() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1039,7 +1039,7 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type t_f_i_model_performance() :: %{String.t() => any()}
+  @type t_f_i_model_performance() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1050,7 +1050,7 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type update_rule_version_result() :: %{String.t() => any()}
+  @type update_rule_version_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1060,14 +1060,14 @@ defmodule AWS.FraudDetector do
         optional("externalEventsDetail") => external_events_detail(),
         optional("ingestedEventsDetail") => ingested_events_detail(),
         optional("tags") => list(tag()),
-        required("modelId") => String.t(),
+        required("modelId") => String.t() | Atom.t(),
         required("modelType") => list(any()),
         required("trainingDataSchema") => training_data_schema(),
         required("trainingDataSource") => list(any())
       }
       
   """
-  @type create_model_version_request() :: %{String.t() => any()}
+  @type create_model_version_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1084,37 +1084,37 @@ defmodule AWS.FraudDetector do
       
       create_batch_import_job_request() :: %{
         optional("tags") => list(tag()),
-        required("eventTypeName") => String.t(),
-        required("iamRoleArn") => String.t(),
-        required("inputPath") => String.t(),
-        required("jobId") => String.t(),
-        required("outputPath") => String.t()
+        required("eventTypeName") => String.t() | Atom.t(),
+        required("iamRoleArn") => String.t() | Atom.t(),
+        required("inputPath") => String.t() | Atom.t(),
+        required("jobId") => String.t() | Atom.t(),
+        required("outputPath") => String.t() | Atom.t()
       }
       
   """
-  @type create_batch_import_job_request() :: %{String.t() => any()}
+  @type create_batch_import_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1126,7 +1126,7 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type batch_get_variable_result() :: %{String.t() => any()}
+  @type batch_get_variable_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1138,22 +1138,22 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type prediction_explanations() :: %{String.t() => any()}
+  @type prediction_explanations() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       outcome() :: %{
-        "arn" => String.t(),
-        "createdTime" => String.t(),
-        "description" => String.t(),
-        "lastUpdatedTime" => String.t(),
-        "name" => String.t()
+        "arn" => String.t() | Atom.t(),
+        "createdTime" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "lastUpdatedTime" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
       
   """
-  @type outcome() :: %{String.t() => any()}
+  @type outcome() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1169,63 +1169,63 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       detector_version_summary() :: %{
-        "description" => String.t(),
-        "detectorVersionId" => String.t(),
-        "lastUpdatedTime" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "detectorVersionId" => String.t() | Atom.t(),
+        "lastUpdatedTime" => String.t() | Atom.t(),
         "status" => list(any())
       }
       
   """
-  @type detector_version_summary() :: %{String.t() => any()}
+  @type detector_version_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "key" => String.t(),
-        "value" => String.t()
+        "key" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_rule_metadata_request() :: %{
-        required("description") => String.t(),
+        required("description") => String.t() | Atom.t(),
         required("rule") => rule()
       }
       
   """
-  @type update_rule_metadata_request() :: %{String.t() => any()}
+  @type update_rule_metadata_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       prediction_time_range() :: %{
-        "endTime" => String.t(),
-        "startTime" => String.t()
+        "endTime" => String.t() | Atom.t(),
+        "startTime" => String.t() | Atom.t()
       }
       
   """
-  @type prediction_time_range() :: %{String.t() => any()}
+  @type prediction_time_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_detectors_request() :: %{
-        optional("detectorId") => String.t(),
+        optional("detectorId") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type get_detectors_request() :: %{String.t() => any()}
+  @type get_detectors_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1236,18 +1236,18 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type variable_importance_metrics() :: %{String.t() => any()}
+  @type variable_importance_metrics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_label_request() :: %{
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
       
   """
-  @type delete_label_request() :: %{String.t() => any()}
+  @type delete_label_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1272,24 +1272,24 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       get_event_request() :: %{
-        required("eventId") => String.t(),
-        required("eventTypeName") => String.t()
+        required("eventId") => String.t() | Atom.t(),
+        required("eventTypeName") => String.t() | Atom.t()
       }
       
   """
-  @type get_event_request() :: %{String.t() => any()}
+  @type get_event_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       ingested_events_time_window() :: %{
-        "endTime" => String.t(),
-        "startTime" => String.t()
+        "endTime" => String.t() | Atom.t(),
+        "startTime" => String.t() | Atom.t()
       }
       
   """
-  @type ingested_events_time_window() :: %{String.t() => any()}
+  @type ingested_events_time_window() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1297,12 +1297,12 @@ defmodule AWS.FraudDetector do
       
       get_labels_request() :: %{
         optional("maxResults") => integer(),
-        optional("name") => String.t(),
-        optional("nextToken") => String.t()
+        optional("name") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type get_labels_request() :: %{String.t() => any()}
+  @type get_labels_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1314,7 +1314,7 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type model_scores() :: %{String.t() => any()}
+  @type model_scores() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1334,7 +1334,7 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type event_orchestration() :: %{String.t() => any()}
+  @type event_orchestration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1346,20 +1346,20 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type data_validation_metrics() :: %{String.t() => any()}
+  @type data_validation_metrics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_batch_import_jobs_request() :: %{
-        optional("jobId") => String.t(),
+        optional("jobId") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type get_batch_import_jobs_request() :: %{String.t() => any()}
+  @type get_batch_import_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1371,7 +1371,7 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type t_f_i_training_metrics_value() :: %{String.t() => any()}
+  @type t_f_i_training_metrics_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1387,14 +1387,14 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       update_variable_request() :: %{
-        optional("defaultValue") => String.t(),
-        optional("description") => String.t(),
-        optional("variableType") => String.t(),
-        required("name") => String.t()
+        optional("defaultValue") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("variableType") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t()
       }
       
   """
-  @type update_variable_request() :: %{String.t() => any()}
+  @type update_variable_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1402,23 +1402,23 @@ defmodule AWS.FraudDetector do
       
       get_detectors_result() :: %{
         "detectors" => list(detector()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type get_detectors_result() :: %{String.t() => any()}
+  @type get_detectors_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_list_elements_result() :: %{
-        "elements" => list(String.t()),
-        "nextToken" => String.t()
+        "elements" => list(String.t() | Atom.t()),
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type get_list_elements_result() :: %{String.t() => any()}
+  @type get_list_elements_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1434,29 +1434,29 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       variable_entry() :: %{
-        "dataSource" => String.t(),
-        "dataType" => String.t(),
-        "defaultValue" => String.t(),
-        "description" => String.t(),
-        "name" => String.t(),
-        "variableType" => String.t()
+        "dataSource" => String.t() | Atom.t(),
+        "dataType" => String.t() | Atom.t(),
+        "defaultValue" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "variableType" => String.t() | Atom.t()
       }
       
   """
-  @type variable_entry() :: %{String.t() => any()}
+  @type variable_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_entity_type_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("tags") => list(tag()),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
       
   """
-  @type put_entity_type_request() :: %{String.t() => any()}
+  @type put_entity_type_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1468,7 +1468,7 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type training_metrics() :: %{String.t() => any()}
+  @type training_metrics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1479,34 +1479,34 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type batch_create_variable_result() :: %{String.t() => any()}
+  @type batch_create_variable_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_model_version_status_request() :: %{
-        required("modelId") => String.t(),
+        required("modelId") => String.t() | Atom.t(),
         required("modelType") => list(any()),
-        required("modelVersionNumber") => String.t(),
+        required("modelVersionNumber") => String.t() | Atom.t(),
         required("status") => list(any())
       }
       
   """
-  @type update_model_version_status_request() :: %{String.t() => any()}
+  @type update_model_version_status_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_detector_version_metadata_request() :: %{
-        required("description") => String.t(),
-        required("detectorId") => String.t(),
-        required("detectorVersionId") => String.t()
+        required("description") => String.t() | Atom.t(),
+        required("detectorId") => String.t() | Atom.t(),
+        required("detectorVersionId") => String.t() | Atom.t()
       }
       
   """
-  @type update_detector_version_metadata_request() :: %{String.t() => any()}
+  @type update_detector_version_metadata_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1519,7 +1519,7 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type get_event_prediction_result() :: %{String.t() => any()}
+  @type get_event_prediction_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1527,23 +1527,23 @@ defmodule AWS.FraudDetector do
       
       get_labels_result() :: %{
         "labels" => list(label()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type get_labels_result() :: %{String.t() => any()}
+  @type get_labels_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_detector_version_request() :: %{
-        required("detectorId") => String.t(),
-        required("detectorVersionId") => String.t()
+        required("detectorId") => String.t() | Atom.t(),
+        required("detectorVersionId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_detector_version_request() :: %{String.t() => any()}
+  @type delete_detector_version_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1551,55 +1551,55 @@ defmodule AWS.FraudDetector do
       
       get_entity_types_result() :: %{
         "entityTypes" => list(entity_type()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type get_entity_types_result() :: %{String.t() => any()}
+  @type get_entity_types_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       file_validation_message() :: %{
-        "content" => String.t(),
-        "title" => String.t(),
-        "type" => String.t()
+        "content" => String.t() | Atom.t(),
+        "title" => String.t() | Atom.t(),
+        "type" => String.t() | Atom.t()
       }
       
   """
-  @type file_validation_message() :: %{String.t() => any()}
+  @type file_validation_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       external_events_detail() :: %{
-        "dataAccessRoleArn" => String.t(),
-        "dataLocation" => String.t()
+        "dataAccessRoleArn" => String.t() | Atom.t(),
+        "dataLocation" => String.t() | Atom.t()
       }
       
   """
-  @type external_events_detail() :: %{String.t() => any()}
+  @type external_events_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       variable() :: %{
-        "arn" => String.t(),
-        "createdTime" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "createdTime" => String.t() | Atom.t(),
         "dataSource" => list(any()),
         "dataType" => list(any()),
-        "defaultValue" => String.t(),
-        "description" => String.t(),
-        "lastUpdatedTime" => String.t(),
-        "name" => String.t(),
-        "variableType" => String.t()
+        "defaultValue" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "lastUpdatedTime" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "variableType" => String.t() | Atom.t()
       }
       
   """
-  @type variable() :: %{String.t() => any()}
+  @type variable() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1607,25 +1607,25 @@ defmodule AWS.FraudDetector do
       
       log_odds_metric() :: %{
         "variableImportance" => float(),
-        "variableName" => String.t(),
-        "variableType" => String.t()
+        "variableName" => String.t() | Atom.t(),
+        "variableType" => String.t() | Atom.t()
       }
       
   """
-  @type log_odds_metric() :: %{String.t() => any()}
+  @type log_odds_metric() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_outcome_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("tags") => list(tag()),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
       
   """
-  @type put_outcome_request() :: %{String.t() => any()}
+  @type put_outcome_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1646,26 +1646,26 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type o_f_i_model_performance() :: %{String.t() => any()}
+  @type o_f_i_model_performance() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_model_version_result() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "externalEventsDetail" => external_events_detail(),
         "ingestedEventsDetail" => ingested_events_detail(),
-        "modelId" => String.t(),
+        "modelId" => String.t() | Atom.t(),
         "modelType" => list(any()),
-        "modelVersionNumber" => String.t(),
-        "status" => String.t(),
+        "modelVersionNumber" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t(),
         "trainingDataSchema" => training_data_schema(),
         "trainingDataSource" => list(any())
       }
       
   """
-  @type get_model_version_result() :: %{String.t() => any()}
+  @type get_model_version_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1681,13 +1681,13 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       rule() :: %{
-        "detectorId" => String.t(),
-        "ruleId" => String.t(),
-        "ruleVersion" => String.t()
+        "detectorId" => String.t() | Atom.t(),
+        "ruleId" => String.t() | Atom.t(),
+        "ruleVersion" => String.t() | Atom.t()
       }
       
   """
-  @type rule() :: %{String.t() => any()}
+  @type rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1695,12 +1695,12 @@ defmodule AWS.FraudDetector do
       
       delete_event_request() :: %{
         optional("deleteAuditHistory") => boolean(),
-        required("eventId") => String.t(),
-        required("eventTypeName") => String.t()
+        required("eventId") => String.t() | Atom.t(),
+        required("eventTypeName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_event_request() :: %{String.t() => any()}
+  @type delete_event_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1725,11 +1725,11 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       delete_outcome_request() :: %{
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
       
   """
-  @type delete_outcome_request() :: %{String.t() => any()}
+  @type delete_outcome_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1737,12 +1737,12 @@ defmodule AWS.FraudDetector do
       
       get_external_models_request() :: %{
         optional("maxResults") => integer(),
-        optional("modelEndpoint") => String.t(),
-        optional("nextToken") => String.t()
+        optional("modelEndpoint") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type get_external_models_request() :: %{String.t() => any()}
+  @type get_external_models_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1753,7 +1753,7 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type aggregated_variables_importance_metrics() :: %{String.t() => any()}
+  @type aggregated_variables_importance_metrics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1761,11 +1761,11 @@ defmodule AWS.FraudDetector do
       
       get_models_result() :: %{
         "models" => list(model()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type get_models_result() :: %{String.t() => any()}
+  @type get_models_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1773,25 +1773,25 @@ defmodule AWS.FraudDetector do
       
       get_rules_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("ruleId") => String.t(),
-        optional("ruleVersion") => String.t(),
-        required("detectorId") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("ruleId") => String.t() | Atom.t(),
+        optional("ruleVersion") => String.t() | Atom.t(),
+        required("detectorId") => String.t() | Atom.t()
       }
       
   """
-  @type get_rules_request() :: %{String.t() => any()}
+  @type get_rules_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1803,55 +1803,55 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type batch_create_variable_request() :: %{String.t() => any()}
+  @type batch_create_variable_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_external_model_request() :: %{
-        required("modelEndpoint") => String.t()
+        required("modelEndpoint") => String.t() | Atom.t()
       }
       
   """
-  @type delete_external_model_request() :: %{String.t() => any()}
+  @type delete_external_model_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_result() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "tags" => list(tag())
       }
       
   """
-  @type list_tags_for_resource_result() :: %{String.t() => any()}
+  @type list_tags_for_resource_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_batch_prediction_jobs_request() :: %{
-        optional("jobId") => String.t(),
+        optional("jobId") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type get_batch_prediction_jobs_request() :: %{String.t() => any()}
+  @type get_batch_prediction_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       external_model_summary() :: %{
-        "modelEndpoint" => String.t(),
+        "modelEndpoint" => String.t() | Atom.t(),
         "modelSource" => list(any())
       }
       
   """
-  @type external_model_summary() :: %{String.t() => any()}
+  @type external_model_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1868,13 +1868,13 @@ defmodule AWS.FraudDetector do
       
       evaluated_model_version() :: %{
         "evaluations" => list(model_version_evaluation()),
-        "modelId" => String.t(),
-        "modelType" => String.t(),
-        "modelVersion" => String.t()
+        "modelId" => String.t() | Atom.t(),
+        "modelType" => String.t() | Atom.t(),
+        "modelVersion" => String.t() | Atom.t()
       }
       
   """
-  @type evaluated_model_version() :: %{String.t() => any()}
+  @type evaluated_model_version() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1891,41 +1891,41 @@ defmodule AWS.FraudDetector do
       
       describe_model_versions_result() :: %{
         "modelVersionDetails" => list(model_version_detail()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type describe_model_versions_result() :: %{String.t() => any()}
+  @type describe_model_versions_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       event() :: %{
-        "currentLabel" => String.t(),
+        "currentLabel" => String.t() | Atom.t(),
         "entities" => list(entity()),
-        "eventId" => String.t(),
-        "eventTimestamp" => String.t(),
-        "eventTypeName" => String.t(),
+        "eventId" => String.t() | Atom.t(),
+        "eventTimestamp" => String.t() | Atom.t(),
+        "eventTypeName" => String.t() | Atom.t(),
         "eventVariables" => map(),
-        "labelTimestamp" => String.t()
+        "labelTimestamp" => String.t() | Atom.t()
       }
       
   """
-  @type event() :: %{String.t() => any()}
+  @type event() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_model_version_request() :: %{
-        required("modelId") => String.t(),
+        required("modelId") => String.t() | Atom.t(),
         required("modelType") => list(any()),
-        required("modelVersionNumber") => String.t()
+        required("modelVersionNumber") => String.t() | Atom.t()
       }
       
   """
-  @type delete_model_version_request() :: %{String.t() => any()}
+  @type delete_model_version_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1933,40 +1933,40 @@ defmodule AWS.FraudDetector do
       
       model_endpoint_data_blob() :: %{
         "byteBuffer" => binary(),
-        "contentType" => String.t()
+        "contentType" => String.t() | Atom.t()
       }
       
   """
-  @type model_endpoint_data_blob() :: %{String.t() => any()}
+  @type model_endpoint_data_blob() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_model_request() :: %{
-        required("modelId") => String.t(),
+        required("modelId") => String.t() | Atom.t(),
         required("modelType") => list(any())
       }
       
   """
-  @type delete_model_request() :: %{String.t() => any()}
+  @type delete_model_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_detector_version_request() :: %{
-        optional("description") => String.t(),
-        optional("externalModelEndpoints") => list(String.t()),
+        optional("description") => String.t() | Atom.t(),
+        optional("externalModelEndpoints") => list(String.t() | Atom.t()),
         optional("modelVersions") => list(model_version()),
         optional("ruleExecutionMode") => list(any()),
         optional("tags") => list(tag()),
-        required("detectorId") => String.t(),
+        required("detectorId") => String.t() | Atom.t(),
         required("rules") => list(rule())
       }
       
   """
-  @type create_detector_version_request() :: %{String.t() => any()}
+  @type create_detector_version_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1974,12 +1974,12 @@ defmodule AWS.FraudDetector do
       
       batch_get_variable_error() :: %{
         "code" => integer(),
-        "message" => String.t(),
-        "name" => String.t()
+        "message" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
       
   """
-  @type batch_get_variable_error() :: %{String.t() => any()}
+  @type batch_get_variable_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1987,24 +1987,24 @@ defmodule AWS.FraudDetector do
       
       get_external_models_result() :: %{
         "externalModels" => list(external_model()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type get_external_models_result() :: %{String.t() => any()}
+  @type get_external_models_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_detector_version_status_request() :: %{
-        required("detectorId") => String.t(),
-        required("detectorVersionId") => String.t(),
+        required("detectorId") => String.t() | Atom.t(),
+        required("detectorVersionId") => String.t() | Atom.t(),
         required("status") => list(any())
       }
       
   """
-  @type update_detector_version_status_request() :: %{String.t() => any()}
+  @type update_detector_version_status_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2012,49 +2012,49 @@ defmodule AWS.FraudDetector do
       
       get_models_request() :: %{
         optional("maxResults") => integer(),
-        optional("modelId") => String.t(),
+        optional("modelId") => String.t() | Atom.t(),
         optional("modelType") => list(any()),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type get_models_request() :: %{String.t() => any()}
+  @type get_models_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_event_prediction_metadata_result() :: %{
-        "detectorId" => String.t(),
-        "detectorVersionId" => String.t(),
-        "detectorVersionStatus" => String.t(),
-        "entityId" => String.t(),
-        "entityType" => String.t(),
+        "detectorId" => String.t() | Atom.t(),
+        "detectorVersionId" => String.t() | Atom.t(),
+        "detectorVersionStatus" => String.t() | Atom.t(),
+        "entityId" => String.t() | Atom.t(),
+        "entityType" => String.t() | Atom.t(),
         "evaluatedExternalModels" => list(evaluated_external_model()),
         "evaluatedModelVersions" => list(evaluated_model_version()),
-        "eventId" => String.t(),
-        "eventTimestamp" => String.t(),
-        "eventTypeName" => String.t(),
+        "eventId" => String.t() | Atom.t(),
+        "eventTimestamp" => String.t() | Atom.t(),
+        "eventTypeName" => String.t() | Atom.t(),
         "eventVariables" => list(event_variable_summary()),
-        "outcomes" => list(String.t()),
-        "predictionTimestamp" => String.t(),
+        "outcomes" => list(String.t() | Atom.t()),
+        "predictionTimestamp" => String.t() | Atom.t(),
         "ruleExecutionMode" => list(any()),
         "rules" => list(evaluated_rule())
       }
       
   """
-  @type get_event_prediction_metadata_result() :: %{String.t() => any()}
+  @type get_event_prediction_metadata_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2062,73 +2062,73 @@ defmodule AWS.FraudDetector do
       
       aggregated_log_odds_metric() :: %{
         "aggregatedVariablesImportance" => float(),
-        "variableNames" => list(String.t())
+        "variableNames" => list(String.t() | Atom.t())
       }
       
   """
-  @type aggregated_log_odds_metric() :: %{String.t() => any()}
+  @type aggregated_log_odds_metric() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_detector_version_request() :: %{
-        required("detectorId") => String.t(),
-        required("detectorVersionId") => String.t()
+        required("detectorId") => String.t() | Atom.t(),
+        required("detectorVersionId") => String.t() | Atom.t()
       }
       
   """
-  @type get_detector_version_request() :: %{String.t() => any()}
+  @type get_detector_version_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       rule_result() :: %{
-        "outcomes" => list(String.t()),
-        "ruleId" => String.t()
+        "outcomes" => list(String.t() | Atom.t()),
+        "ruleId" => String.t() | Atom.t()
       }
       
   """
-  @type rule_result() :: %{String.t() => any()}
+  @type rule_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_delete_events_by_event_type_status_result() :: %{
-        "eventTypeName" => String.t(),
+        "eventTypeName" => String.t() | Atom.t(),
         "eventsDeletionStatus" => list(any())
       }
       
   """
-  @type get_delete_events_by_event_type_status_result() :: %{String.t() => any()}
+  @type get_delete_events_by_event_type_status_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_events_by_event_type_result() :: %{
-        "eventTypeName" => String.t(),
-        "eventsDeletionStatus" => String.t()
+        "eventTypeName" => String.t() | Atom.t(),
+        "eventsDeletionStatus" => String.t() | Atom.t()
       }
       
   """
-  @type delete_events_by_event_type_result() :: %{String.t() => any()}
+  @type delete_events_by_event_type_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_model_version_result() :: %{
-        "modelId" => String.t(),
+        "modelId" => String.t() | Atom.t(),
         "modelType" => list(any()),
-        "modelVersionNumber" => String.t(),
-        "status" => String.t()
+        "modelVersionNumber" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
       
   """
-  @type update_model_version_result() :: %{String.t() => any()}
+  @type update_model_version_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2139,22 +2139,22 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type create_rule_result() :: %{String.t() => any()}
+  @type create_rule_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_list_request() :: %{
-        optional("description") => String.t(),
-        optional("elements") => list(String.t()),
+        optional("description") => String.t() | Atom.t(),
+        optional("elements") => list(String.t() | Atom.t()),
         optional("updateMode") => list(any()),
-        optional("variableType") => String.t(),
-        required("name") => String.t()
+        optional("variableType") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t()
       }
       
   """
-  @type update_list_request() :: %{String.t() => any()}
+  @type update_list_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2170,11 +2170,11 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       validation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2182,12 +2182,12 @@ defmodule AWS.FraudDetector do
       
       list_tags_for_resource_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("resourceARN") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("resourceARN") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2204,38 +2204,38 @@ defmodule AWS.FraudDetector do
       
       get_event_types_request() :: %{
         optional("maxResults") => integer(),
-        optional("name") => String.t(),
-        optional("nextToken") => String.t()
+        optional("name") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type get_event_types_request() :: %{String.t() => any()}
+  @type get_event_types_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_event_prediction_metadata_request() :: %{
-        required("detectorId") => String.t(),
-        required("detectorVersionId") => String.t(),
-        required("eventId") => String.t(),
-        required("eventTypeName") => String.t(),
-        required("predictionTimestamp") => String.t()
+        required("detectorId") => String.t() | Atom.t(),
+        required("detectorVersionId") => String.t() | Atom.t(),
+        required("eventId") => String.t() | Atom.t(),
+        required("eventTypeName") => String.t() | Atom.t(),
+        required("predictionTimestamp") => String.t() | Atom.t()
       }
       
   """
-  @type get_event_prediction_metadata_request() :: %{String.t() => any()}
+  @type get_event_prediction_metadata_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2251,11 +2251,11 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       put_kms_encryption_key_request() :: %{
-        required("kmsEncryptionKeyArn") => String.t()
+        required("kmsEncryptionKeyArn") => String.t() | Atom.t()
       }
       
   """
-  @type put_kms_encryption_key_request() :: %{String.t() => any()}
+  @type put_kms_encryption_key_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2272,16 +2272,16 @@ defmodule AWS.FraudDetector do
       
       evaluated_rule() :: %{
         "evaluated" => boolean(),
-        "expression" => String.t(),
-        "expressionWithValues" => String.t(),
+        "expression" => String.t() | Atom.t(),
+        "expressionWithValues" => String.t() | Atom.t(),
         "matched" => boolean(),
-        "outcomes" => list(String.t()),
-        "ruleId" => String.t(),
-        "ruleVersion" => String.t()
+        "outcomes" => list(String.t() | Atom.t()),
+        "ruleId" => String.t() | Atom.t(),
+        "ruleVersion" => String.t() | Atom.t()
       }
       
   """
-  @type evaluated_rule() :: %{String.t() => any()}
+  @type evaluated_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2289,11 +2289,11 @@ defmodule AWS.FraudDetector do
       
       get_batch_prediction_jobs_result() :: %{
         "batchPredictions" => list(batch_prediction()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type get_batch_prediction_jobs_result() :: %{String.t() => any()}
+  @type get_batch_prediction_jobs_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2309,35 +2309,35 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       update_event_label_request() :: %{
-        required("assignedLabel") => String.t(),
-        required("eventId") => String.t(),
-        required("eventTypeName") => String.t(),
-        required("labelTimestamp") => String.t()
+        required("assignedLabel") => String.t() | Atom.t(),
+        required("eventId") => String.t() | Atom.t(),
+        required("eventTypeName") => String.t() | Atom.t(),
+        required("labelTimestamp") => String.t() | Atom.t()
       }
       
   """
-  @type update_event_label_request() :: %{String.t() => any()}
+  @type update_event_label_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       event_type() :: %{
-        "arn" => String.t(),
-        "createdTime" => String.t(),
-        "description" => String.t(),
-        "entityTypes" => list(String.t()),
+        "arn" => String.t() | Atom.t(),
+        "createdTime" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "entityTypes" => list(String.t() | Atom.t()),
         "eventIngestion" => list(any()),
         "eventOrchestration" => event_orchestration(),
-        "eventVariables" => list(String.t()),
+        "eventVariables" => list(String.t() | Atom.t()),
         "ingestedEventStatistics" => ingested_event_statistics(),
-        "labels" => list(String.t()),
-        "lastUpdatedTime" => String.t(),
-        "name" => String.t()
+        "labels" => list(String.t() | Atom.t()),
+        "lastUpdatedTime" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
       
   """
-  @type event_type() :: %{String.t() => any()}
+  @type event_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2359,19 +2359,19 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type training_result() :: %{String.t() => any()}
+  @type training_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_variables_result() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "variables" => list(variable())
       }
       
   """
-  @type get_variables_result() :: %{String.t() => any()}
+  @type get_variables_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2382,7 +2382,7 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type a_t_i_model_performance() :: %{String.t() => any()}
+  @type a_t_i_model_performance() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2394,7 +2394,7 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type external_model_outputs() :: %{String.t() => any()}
+  @type external_model_outputs() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2402,12 +2402,12 @@ defmodule AWS.FraudDetector do
       
       get_lists_metadata_request() :: %{
         optional("maxResults") => integer(),
-        optional("name") => String.t(),
-        optional("nextToken") => String.t()
+        optional("name") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type get_lists_metadata_request() :: %{String.t() => any()}
+  @type get_lists_metadata_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2423,11 +2423,11 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       kms_key() :: %{
-        "kmsEncryptionKeyArn" => String.t()
+        "kmsEncryptionKeyArn" => String.t() | Atom.t()
       }
       
   """
-  @type kms_key() :: %{String.t() => any()}
+  @type kms_key() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2445,39 +2445,39 @@ defmodule AWS.FraudDetector do
       put_external_model_request() :: %{
         optional("tags") => list(tag()),
         required("inputConfiguration") => model_input_configuration(),
-        required("invokeModelEndpointRoleArn") => String.t(),
-        required("modelEndpoint") => String.t(),
+        required("invokeModelEndpointRoleArn") => String.t() | Atom.t(),
+        required("modelEndpoint") => String.t() | Atom.t(),
         required("modelEndpointStatus") => list(any()),
         required("modelSource") => list(any()),
         required("outputConfiguration") => model_output_configuration()
       }
       
   """
-  @type put_external_model_request() :: %{String.t() => any()}
+  @type put_external_model_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       aggregated_variables_impact_explanation() :: %{
-        "eventVariableNames" => list(String.t()),
+        "eventVariableNames" => list(String.t() | Atom.t()),
         "logOddsImpact" => float(),
-        "relativeImpact" => String.t()
+        "relativeImpact" => String.t() | Atom.t()
       }
       
   """
-  @type aggregated_variables_impact_explanation() :: %{String.t() => any()}
+  @type aggregated_variables_impact_explanation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_events_by_event_type_request() :: %{
-        required("eventTypeName") => String.t()
+        required("eventTypeName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_events_by_event_type_request() :: %{String.t() => any()}
+  @type delete_events_by_event_type_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2493,16 +2493,16 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       event_prediction_summary() :: %{
-        "detectorId" => String.t(),
-        "detectorVersionId" => String.t(),
-        "eventId" => String.t(),
-        "eventTimestamp" => String.t(),
-        "eventTypeName" => String.t(),
-        "predictionTimestamp" => String.t()
+        "detectorId" => String.t() | Atom.t(),
+        "detectorVersionId" => String.t() | Atom.t(),
+        "eventId" => String.t() | Atom.t(),
+        "eventTimestamp" => String.t() | Atom.t(),
+        "eventTypeName" => String.t() | Atom.t(),
+        "predictionTimestamp" => String.t() | Atom.t()
       }
       
   """
-  @type event_prediction_summary() :: %{String.t() => any()}
+  @type event_prediction_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2510,22 +2510,22 @@ defmodule AWS.FraudDetector do
       
       list_event_predictions_result() :: %{
         "eventPredictionSummaries" => list(event_prediction_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_event_predictions_result() :: %{String.t() => any()}
+  @type list_event_predictions_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_event_type_request() :: %{
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
       
   """
-  @type delete_event_type_request() :: %{String.t() => any()}
+  @type delete_event_type_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2537,12 +2537,12 @@ defmodule AWS.FraudDetector do
         optional("eventId") => filter_condition(),
         optional("eventType") => filter_condition(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("predictionTimeRange") => prediction_time_range()
       }
       
   """
-  @type list_event_predictions_request() :: %{String.t() => any()}
+  @type list_event_predictions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2554,49 +2554,49 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type uncertainty_range() :: %{String.t() => any()}
+  @type uncertainty_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_batch_prediction_job_request() :: %{
-        required("jobId") => String.t()
+        required("jobId") => String.t() | Atom.t()
       }
       
   """
-  @type cancel_batch_prediction_job_request() :: %{String.t() => any()}
+  @type cancel_batch_prediction_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_event_prediction_request() :: %{
-        optional("detectorVersionId") => String.t(),
+        optional("detectorVersionId") => String.t() | Atom.t(),
         optional("externalModelEndpointDataBlobs") => map(),
-        required("detectorId") => String.t(),
+        required("detectorId") => String.t() | Atom.t(),
         required("entities") => list(entity()),
-        required("eventId") => String.t(),
-        required("eventTimestamp") => String.t(),
-        required("eventTypeName") => String.t(),
+        required("eventId") => String.t() | Atom.t(),
+        required("eventTimestamp") => String.t() | Atom.t(),
+        required("eventTypeName") => String.t() | Atom.t(),
         required("eventVariables") => map()
       }
       
   """
-  @type get_event_prediction_request() :: %{String.t() => any()}
+  @type get_event_prediction_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_detector_version_result() :: %{
-        "detectorId" => String.t(),
-        "detectorVersionId" => String.t(),
+        "detectorId" => String.t() | Atom.t(),
+        "detectorVersionId" => String.t() | Atom.t(),
         "status" => list(any())
       }
       
   """
-  @type create_detector_version_result() :: %{String.t() => any()}
+  @type create_detector_version_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2612,17 +2612,17 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       model() :: %{
-        "arn" => String.t(),
-        "createdTime" => String.t(),
-        "description" => String.t(),
-        "eventTypeName" => String.t(),
-        "lastUpdatedTime" => String.t(),
-        "modelId" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "createdTime" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "eventTypeName" => String.t() | Atom.t(),
+        "lastUpdatedTime" => String.t() | Atom.t(),
+        "modelId" => String.t() | Atom.t(),
         "modelType" => list(any())
       }
       
   """
-  @type model() :: %{String.t() => any()}
+  @type model() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2630,12 +2630,12 @@ defmodule AWS.FraudDetector do
       
       get_entity_types_request() :: %{
         optional("maxResults") => integer(),
-        optional("name") => String.t(),
-        optional("nextToken") => String.t()
+        optional("name") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type get_entity_types_request() :: %{String.t() => any()}
+  @type get_entity_types_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2656,19 +2656,19 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type label_schema() :: %{String.t() => any()}
+  @type label_schema() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_outcomes_result() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "outcomes" => list(outcome())
       }
       
   """
-  @type get_outcomes_result() :: %{String.t() => any()}
+  @type get_outcomes_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2679,7 +2679,7 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type ingested_events_detail() :: %{String.t() => any()}
+  @type ingested_events_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2687,29 +2687,29 @@ defmodule AWS.FraudDetector do
       
       get_batch_import_jobs_result() :: %{
         "batchImports" => list(batch_import()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type get_batch_import_jobs_result() :: %{String.t() => any()}
+  @type get_batch_import_jobs_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_event_type_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("eventIngestion") => list(any()),
         optional("eventOrchestration") => event_orchestration(),
-        optional("labels") => list(String.t()),
+        optional("labels") => list(String.t() | Atom.t()),
         optional("tags") => list(tag()),
-        required("entityTypes") => list(String.t()),
-        required("eventVariables") => list(String.t()),
-        required("name") => String.t()
+        required("entityTypes") => list(String.t() | Atom.t()),
+        required("eventVariables") => list(String.t() | Atom.t()),
+        required("name") => String.t() | Atom.t()
       }
       
   """
-  @type put_event_type_request() :: %{String.t() => any()}
+  @type put_event_type_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2725,16 +2725,16 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       detector() :: %{
-        "arn" => String.t(),
-        "createdTime" => String.t(),
-        "description" => String.t(),
-        "detectorId" => String.t(),
-        "eventTypeName" => String.t(),
-        "lastUpdatedTime" => String.t()
+        "arn" => String.t() | Atom.t(),
+        "createdTime" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "detectorId" => String.t() | Atom.t(),
+        "eventTypeName" => String.t() | Atom.t(),
+        "lastUpdatedTime" => String.t() | Atom.t()
       }
       
   """
-  @type detector() :: %{String.t() => any()}
+  @type detector() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2765,69 +2765,69 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type training_metrics_v2() :: %{String.t() => any()}
+  @type training_metrics_v2() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       label() :: %{
-        "arn" => String.t(),
-        "createdTime" => String.t(),
-        "description" => String.t(),
-        "lastUpdatedTime" => String.t(),
-        "name" => String.t()
+        "arn" => String.t() | Atom.t(),
+        "createdTime" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "lastUpdatedTime" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
       
   """
-  @type label() :: %{String.t() => any()}
+  @type label() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_rules_result() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "ruleDetails" => list(rule_detail())
       }
       
   """
-  @type get_rules_result() :: %{String.t() => any()}
+  @type get_rules_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_detector_request() :: %{
-        required("detectorId") => String.t()
+        required("detectorId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_detector_request() :: %{String.t() => any()}
+  @type delete_detector_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_batch_prediction_job_request() :: %{
-        required("jobId") => String.t()
+        required("jobId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_batch_prediction_job_request() :: %{String.t() => any()}
+  @type delete_batch_prediction_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_detector_version_result() :: %{
-        "arn" => String.t(),
-        "createdTime" => String.t(),
-        "description" => String.t(),
-        "detectorId" => String.t(),
-        "detectorVersionId" => String.t(),
-        "externalModelEndpoints" => list(String.t()),
-        "lastUpdatedTime" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "createdTime" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "detectorId" => String.t() | Atom.t(),
+        "detectorVersionId" => String.t() | Atom.t(),
+        "externalModelEndpoints" => list(String.t() | Atom.t()),
+        "lastUpdatedTime" => String.t() | Atom.t(),
         "modelVersions" => list(model_version()),
         "ruleExecutionMode" => list(any()),
         "rules" => list(rule()),
@@ -2835,7 +2835,7 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type get_detector_version_result() :: %{String.t() => any()}
+  @type get_detector_version_result() :: %{String.t() | Atom.t() => any()}
 
   @type batch_create_variable_errors() ::
           throttling_exception()

@@ -67,18 +67,18 @@ defmodule AWS.SocialMessaging do
       }
 
   """
-  @type get_linked_whats_app_business_account_output() :: %{String.t() => any()}
+  @type get_linked_whats_app_business_account_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       send_whats_app_message_output() :: %{
-        "messageId" => [String.t()]
+        "messageId" => [String.t() | Atom.t()]
       }
 
   """
-  @type send_whats_app_message_output() :: %{String.t() => any()}
+  @type send_whats_app_message_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -90,7 +90,7 @@ defmodule AWS.SocialMessaging do
       }
 
   """
-  @type associate_whats_app_business_account_output() :: %{String.t() => any()}
+  @type associate_whats_app_business_account_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -98,69 +98,72 @@ defmodule AWS.SocialMessaging do
 
       get_whats_app_message_media_output() :: %{
         "fileSize" => [float()],
-        "mimeType" => [String.t()]
+        "mimeType" => [String.t() | Atom.t()]
       }
 
   """
-  @type get_whats_app_message_media_output() :: %{String.t() => any()}
+  @type get_whats_app_message_media_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       dependency_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type dependency_exception() :: %{String.t() => any()}
+  @type dependency_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       whats_app_signup_callback_result() :: %{
-        "associateInProgressToken" => String.t(),
+        "associateInProgressToken" => String.t() | Atom.t(),
         "linkedAccountsWithIncompleteSetup" => map()
       }
 
   """
-  @type whats_app_signup_callback_result() :: %{String.t() => any()}
+  @type whats_app_signup_callback_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_linked_whats_app_business_account_phone_number_output() :: %{
-        "linkedWhatsAppBusinessAccountId" => String.t(),
+        "linkedWhatsAppBusinessAccountId" => String.t() | Atom.t(),
         "phoneNumber" => whats_app_phone_number_detail()
       }
 
   """
-  @type get_linked_whats_app_business_account_phone_number_output() :: %{String.t() => any()}
+  @type get_linked_whats_app_business_account_phone_number_output() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       access_denied_by_meta_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied_by_meta_exception() :: %{String.t() => any()}
+  @type access_denied_by_meta_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_whats_app_message_media_input() :: %{
-        required("mediaId") => String.t(),
-        required("originationPhoneNumberId") => String.t()
+        required("mediaId") => String.t() | Atom.t(),
+        required("originationPhoneNumberId") => String.t() | Atom.t()
       }
 
   """
-  @type delete_whats_app_message_media_input() :: %{String.t() => any()}
+  @type delete_whats_app_message_media_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -168,28 +171,31 @@ defmodule AWS.SocialMessaging do
 
       put_whats_app_business_account_event_destinations_input() :: %{
         required("eventDestinations") => list(whats_app_business_account_event_destination()),
-        required("id") => String.t()
+        required("id") => String.t() | Atom.t()
       }
 
   """
-  @type put_whats_app_business_account_event_destinations_input() :: %{String.t() => any()}
+  @type put_whats_app_business_account_event_destinations_input() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       linked_whats_app_business_account_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "eventDestinations" => list(whats_app_business_account_event_destination()),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "linkDate" => non_neg_integer(),
         "registrationStatus" => list(any()),
-        "wabaId" => String.t(),
-        "wabaName" => String.t()
+        "wabaId" => String.t() | Atom.t(),
+        "wabaName" => String.t() | Atom.t()
       }
 
   """
-  @type linked_whats_app_business_account_summary() :: %{String.t() => any()}
+  @type linked_whats_app_business_account_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -197,22 +203,22 @@ defmodule AWS.SocialMessaging do
 
       list_linked_whats_app_business_accounts_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_linked_whats_app_business_accounts_input() :: %{String.t() => any()}
+  @type list_linked_whats_app_business_accounts_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_service_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_service_exception() :: %{String.t() => any()}
+  @type internal_service_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -224,7 +230,7 @@ defmodule AWS.SocialMessaging do
       }
 
   """
-  @type list_tags_for_resource_output() :: %{String.t() => any()}
+  @type list_tags_for_resource_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -236,118 +242,118 @@ defmodule AWS.SocialMessaging do
       }
 
   """
-  @type associate_whats_app_business_account_input() :: %{String.t() => any()}
+  @type associate_whats_app_business_account_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_file() :: %{
-        "bucketName" => [String.t()],
-        "key" => [String.t()]
+        "bucketName" => [String.t() | Atom.t()],
+        "key" => [String.t() | Atom.t()]
       }
 
   """
-  @type s3_file() :: %{String.t() => any()}
+  @type s3_file() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_whats_app_business_account_input() :: %{
-        required("id") => String.t()
+        required("id") => String.t() | Atom.t()
       }
 
   """
-  @type disassociate_whats_app_business_account_input() :: %{String.t() => any()}
+  @type disassociate_whats_app_business_account_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_linked_whats_app_business_account_input() :: %{
-        required("id") => String.t()
+        required("id") => String.t() | Atom.t()
       }
 
   """
-  @type get_linked_whats_app_business_account_input() :: %{String.t() => any()}
+  @type get_linked_whats_app_business_account_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       linked_whats_app_business_account() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "eventDestinations" => list(whats_app_business_account_event_destination()),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "linkDate" => non_neg_integer(),
         "phoneNumbers" => list(whats_app_phone_number_summary()),
         "registrationStatus" => list(any()),
-        "wabaId" => String.t(),
-        "wabaName" => String.t()
+        "wabaId" => String.t() | Atom.t(),
+        "wabaName" => String.t() | Atom.t()
       }
 
   """
-  @type linked_whats_app_business_account() :: %{String.t() => any()}
+  @type linked_whats_app_business_account() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "key" => [String.t()],
-        "value" => [String.t()]
+        "key" => [String.t() | Atom.t()],
+        "value" => [String.t() | Atom.t()]
       }
 
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       waba_phone_number_setup_finalization() :: %{
-        "dataLocalizationRegion" => String.t(),
-        "id" => String.t(),
+        "dataLocalizationRegion" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "tags" => list(tag()),
-        "twoFactorPin" => String.t()
+        "twoFactorPin" => String.t() | Atom.t()
       }
 
   """
-  @type waba_phone_number_setup_finalization() :: %{String.t() => any()}
+  @type waba_phone_number_setup_finalization() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       throttled_request_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type throttled_request_exception() :: %{String.t() => any()}
+  @type throttled_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_parameters_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_parameters_exception() :: %{String.t() => any()}
+  @type invalid_parameters_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -355,49 +361,49 @@ defmodule AWS.SocialMessaging do
 
       send_whats_app_message_input() :: %{
         required("message") => binary(),
-        required("metaApiVersion") => [String.t()],
-        required("originationPhoneNumberId") => String.t()
+        required("metaApiVersion") => [String.t() | Atom.t()],
+        required("originationPhoneNumberId") => String.t() | Atom.t()
       }
 
   """
-  @type send_whats_app_message_input() :: %{String.t() => any()}
+  @type send_whats_app_message_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       whats_app_setup_finalization() :: %{
-        "associateInProgressToken" => String.t(),
-        "phoneNumberParent" => String.t(),
+        "associateInProgressToken" => String.t() | Atom.t(),
+        "phoneNumberParent" => String.t() | Atom.t(),
         "phoneNumbers" => list(waba_phone_number_setup_finalization()),
         "waba" => waba_setup_finalization()
       }
 
   """
-  @type whats_app_setup_finalization() :: %{String.t() => any()}
+  @type whats_app_setup_finalization() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_resource_input() :: %{
-        required("resourceArn") => String.t(),
+        required("resourceArn") => String.t() | Atom.t(),
         required("tags") => list(tag())
       }
 
   """
-  @type tag_resource_input() :: %{String.t() => any()}
+  @type tag_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       post_whats_app_message_media_output() :: %{
-        "mediaId" => String.t()
+        "mediaId" => String.t() | Atom.t()
       }
 
   """
-  @type post_whats_app_message_media_output() :: %{String.t() => any()}
+  @type post_whats_app_message_media_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -416,12 +422,12 @@ defmodule AWS.SocialMessaging do
         optional("destinationS3File") => s3_file(),
         optional("destinationS3PresignedUrl") => s3_presigned_url(),
         optional("metadataOnly") => [boolean()],
-        required("mediaId") => String.t(),
-        required("originationPhoneNumberId") => String.t()
+        required("mediaId") => String.t() | Atom.t(),
+        required("originationPhoneNumberId") => String.t() | Atom.t()
       }
 
   """
-  @type get_whats_app_message_media_input() :: %{String.t() => any()}
+  @type get_whats_app_message_media_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -432,7 +438,7 @@ defmodule AWS.SocialMessaging do
       }
 
   """
-  @type tag_resource_output() :: %{String.t() => any()}
+  @type tag_resource_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -443,30 +449,30 @@ defmodule AWS.SocialMessaging do
       }
 
   """
-  @type delete_whats_app_message_media_output() :: %{String.t() => any()}
+  @type delete_whats_app_message_media_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_input() :: %{
-        required("resourceArn") => String.t(),
-        required("tagKeys") => list([String.t()]())
+        required("resourceArn") => String.t() | Atom.t(),
+        required("tagKeys") => list([String.t() | Atom.t()]())
       }
 
   """
-  @type untag_resource_input() :: %{String.t() => any()}
+  @type untag_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -482,22 +488,22 @@ defmodule AWS.SocialMessaging do
   ## Example:
 
       validation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_for_resource_input() :: %{
-        required("resourceArn") => String.t()
+        required("resourceArn") => String.t() | Atom.t()
       }
 
   """
-  @type list_tags_for_resource_input() :: %{String.t() => any()}
+  @type list_tags_for_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -508,78 +514,78 @@ defmodule AWS.SocialMessaging do
       }
 
   """
-  @type untag_resource_output() :: %{String.t() => any()}
+  @type untag_resource_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       linked_whats_app_business_account_id_meta_data() :: %{
-        "accountName" => String.t(),
+        "accountName" => String.t() | Atom.t(),
         "registrationStatus" => list(any()),
         "unregisteredWhatsAppPhoneNumbers" => list(whats_app_phone_number_detail()),
-        "wabaId" => String.t()
+        "wabaId" => String.t() | Atom.t()
       }
 
   """
-  @type linked_whats_app_business_account_id_meta_data() :: %{String.t() => any()}
+  @type linked_whats_app_business_account_id_meta_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       whats_app_phone_number_detail() :: %{
-        "arn" => String.t(),
-        "displayPhoneNumber" => String.t(),
-        "displayPhoneNumberName" => String.t(),
-        "metaPhoneNumberId" => String.t(),
-        "phoneNumber" => String.t(),
-        "phoneNumberId" => String.t(),
-        "qualityRating" => String.t()
+        "arn" => String.t() | Atom.t(),
+        "displayPhoneNumber" => String.t() | Atom.t(),
+        "displayPhoneNumberName" => String.t() | Atom.t(),
+        "metaPhoneNumberId" => String.t() | Atom.t(),
+        "phoneNumber" => String.t() | Atom.t(),
+        "phoneNumberId" => String.t() | Atom.t(),
+        "qualityRating" => String.t() | Atom.t()
       }
 
   """
-  @type whats_app_phone_number_detail() :: %{String.t() => any()}
+  @type whats_app_phone_number_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       whats_app_phone_number_summary() :: %{
-        "arn" => String.t(),
-        "displayPhoneNumber" => String.t(),
-        "displayPhoneNumberName" => String.t(),
-        "metaPhoneNumberId" => String.t(),
-        "phoneNumber" => String.t(),
-        "phoneNumberId" => String.t(),
-        "qualityRating" => String.t()
+        "arn" => String.t() | Atom.t(),
+        "displayPhoneNumber" => String.t() | Atom.t(),
+        "displayPhoneNumberName" => String.t() | Atom.t(),
+        "metaPhoneNumberId" => String.t() | Atom.t(),
+        "phoneNumber" => String.t() | Atom.t(),
+        "phoneNumberId" => String.t() | Atom.t(),
+        "qualityRating" => String.t() | Atom.t()
       }
 
   """
-  @type whats_app_phone_number_summary() :: %{String.t() => any()}
+  @type whats_app_phone_number_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       whats_app_business_account_event_destination() :: %{
-        "eventDestinationArn" => String.t(),
-        "roleArn" => String.t()
+        "eventDestinationArn" => String.t() | Atom.t(),
+        "roleArn" => String.t() | Atom.t()
       }
 
   """
-  @type whats_app_business_account_event_destination() :: %{String.t() => any()}
+  @type whats_app_business_account_event_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       whats_app_signup_callback() :: %{
-        "accessToken" => [String.t()]
+        "accessToken" => [String.t() | Atom.t()]
       }
 
   """
-  @type whats_app_signup_callback() :: %{String.t() => any()}
+  @type whats_app_signup_callback() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -588,11 +594,11 @@ defmodule AWS.SocialMessaging do
       post_whats_app_message_media_input() :: %{
         optional("sourceS3File") => s3_file(),
         optional("sourceS3PresignedUrl") => s3_presigned_url(),
-        required("originationPhoneNumberId") => String.t()
+        required("originationPhoneNumberId") => String.t() | Atom.t()
       }
 
   """
-  @type post_whats_app_message_media_input() :: %{String.t() => any()}
+  @type post_whats_app_message_media_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -600,11 +606,11 @@ defmodule AWS.SocialMessaging do
 
       list_linked_whats_app_business_accounts_output() :: %{
         "linkedAccounts" => list(linked_whats_app_business_account_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_linked_whats_app_business_accounts_output() :: %{String.t() => any()}
+  @type list_linked_whats_app_business_accounts_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -612,22 +618,25 @@ defmodule AWS.SocialMessaging do
 
       s3_presigned_url() :: %{
         "headers" => map(),
-        "url" => [String.t()]
+        "url" => [String.t() | Atom.t()]
       }
 
   """
-  @type s3_presigned_url() :: %{String.t() => any()}
+  @type s3_presigned_url() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_linked_whats_app_business_account_phone_number_input() :: %{
-        required("id") => String.t()
+        required("id") => String.t() | Atom.t()
       }
 
   """
-  @type get_linked_whats_app_business_account_phone_number_input() :: %{String.t() => any()}
+  @type get_linked_whats_app_business_account_phone_number_input() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -635,12 +644,12 @@ defmodule AWS.SocialMessaging do
 
       waba_setup_finalization() :: %{
         "eventDestinations" => list(whats_app_business_account_event_destination()),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "tags" => list(tag())
       }
 
   """
-  @type waba_setup_finalization() :: %{String.t() => any()}
+  @type waba_setup_finalization() :: %{String.t() | Atom.t() => any()}
 
   @type associate_whats_app_business_account_errors() ::
           invalid_parameters_exception() | throttled_request_exception() | dependency_exception()
@@ -852,7 +861,7 @@ defmodule AWS.SocialMessaging do
   @doc """
   Get the details of your linked WhatsApp Business Account.
   """
-  @spec get_linked_whats_app_business_account(map(), String.t(), list()) ::
+  @spec get_linked_whats_app_business_account(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_linked_whats_app_business_account_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -878,7 +887,7 @@ defmodule AWS.SocialMessaging do
   Use your WhatsApp phone number id to get the WABA account id and phone number
   details.
   """
-  @spec get_linked_whats_app_business_account_phone_number(map(), String.t(), list()) ::
+  @spec get_linked_whats_app_business_account_phone_number(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_linked_whats_app_business_account_phone_number_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -938,7 +947,12 @@ defmodule AWS.SocialMessaging do
   @doc """
   List all WhatsApp Business Accounts linked to your Amazon Web Services account.
   """
-  @spec list_linked_whats_app_business_accounts(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_linked_whats_app_business_accounts(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_linked_whats_app_business_accounts_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -975,7 +989,7 @@ defmodule AWS.SocialMessaging do
   @doc """
   List all tags associated with a resource, such as a phone number or WABA.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

@@ -39,22 +39,22 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type current_performance_risk_ratings() :: %{String.t() => any()}
+  @type current_performance_risk_ratings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_license_recommendations_request() :: %{
-        optional("accountIds") => list(String.t()),
+        optional("accountIds") => list(String.t() | Atom.t()),
         optional("filters") => list(license_recommendation_filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("resourceArns") => list(String.t())
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("resourceArns") => list(String.t() | Atom.t())
       }
       
   """
-  @type get_license_recommendations_request() :: %{String.t() => any()}
+  @type get_license_recommendations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -65,20 +65,20 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type get_ec2_recommendation_projected_metrics_response() :: %{String.t() => any()}
+  @type get_ec2_recommendation_projected_metrics_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_recommendation_summaries_request() :: %{
-        optional("accountIds") => list(String.t()),
+        optional("accountIds") => list(String.t() | Atom.t()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type get_recommendation_summaries_request() :: %{String.t() => any()}
+  @type get_recommendation_summaries_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -94,15 +94,15 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       rds_db_recommendation() :: %{
-        "accountId" => String.t(),
-        "currentDBInstanceClass" => String.t(),
+        "accountId" => String.t() | Atom.t(),
+        "currentDBInstanceClass" => String.t() | Atom.t(),
         "currentInstancePerformanceRisk" => list(any()),
         "currentStorageConfiguration" => db_storage_configuration(),
         "currentStorageEstimatedMonthlyVolumeIOPsCostVariation" => list(any()),
-        "dbClusterIdentifier" => String.t(),
+        "dbClusterIdentifier" => String.t() | Atom.t(),
         "effectiveRecommendationPreferences" => rds_effective_recommendation_preferences(),
-        "engine" => String.t(),
-        "engineVersion" => String.t(),
+        "engine" => String.t() | Atom.t(),
+        "engineVersion" => String.t() | Atom.t(),
         "idle" => list(any()),
         "instanceFinding" => list(any()),
         "instanceFindingReasonCodes" => list(list(any())()),
@@ -110,7 +110,7 @@ defmodule AWS.ComputeOptimizer do
         "lastRefreshTimestamp" => non_neg_integer(),
         "lookbackPeriodInDays" => float(),
         "promotionTier" => integer(),
-        "resourceArn" => String.t(),
+        "resourceArn" => String.t() | Atom.t(),
         "storageFinding" => list(any()),
         "storageFindingReasonCodes" => list(list(any())()),
         "storageRecommendationOptions" => list(rds_db_storage_recommendation_option()),
@@ -119,25 +119,25 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type rds_db_recommendation() :: %{String.t() => any()}
+  @type rds_db_recommendation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       license_configuration() :: %{
-        "instanceType" => String.t(),
+        "instanceType" => String.t() | Atom.t(),
         "licenseEdition" => list(any()),
         "licenseModel" => list(any()),
         "licenseName" => list(any()),
-        "licenseVersion" => String.t(),
+        "licenseVersion" => String.t() | Atom.t(),
         "metricsSource" => list(metric_source()),
         "numberOfCores" => integer(),
-        "operatingSystem" => String.t()
+        "operatingSystem" => String.t() | Atom.t()
       }
       
   """
-  @type license_configuration() :: %{String.t() => any()}
+  @type license_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -149,7 +149,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type lambda_estimated_monthly_savings() :: %{String.t() => any()}
+  @type lambda_estimated_monthly_savings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -162,20 +162,20 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type lambda_function_memory_projected_metric() :: %{String.t() => any()}
+  @type lambda_function_memory_projected_metric() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       idle_recommendation() :: %{
-        "accountId" => String.t(),
+        "accountId" => String.t() | Atom.t(),
         "finding" => list(any()),
-        "findingDescription" => String.t(),
+        "findingDescription" => String.t() | Atom.t(),
         "lastRefreshTimestamp" => non_neg_integer(),
         "lookBackPeriodInDays" => float(),
-        "resourceArn" => String.t(),
-        "resourceId" => String.t(),
+        "resourceArn" => String.t() | Atom.t(),
+        "resourceId" => String.t() | Atom.t(),
         "resourceType" => list(any()),
         "savingsOpportunity" => idle_savings_opportunity(),
         "savingsOpportunityAfterDiscounts" => idle_savings_opportunity_after_discounts(),
@@ -184,7 +184,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type idle_recommendation() :: %{String.t() => any()}
+  @type idle_recommendation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -193,26 +193,29 @@ defmodule AWS.ComputeOptimizer do
       get_e_c_s_service_recommendation_projected_metrics_request() :: %{
         required("endTime") => non_neg_integer(),
         required("period") => integer(),
-        required("serviceArn") => String.t(),
+        required("serviceArn") => String.t() | Atom.t(),
         required("startTime") => non_neg_integer(),
         required("stat") => list(any())
       }
       
   """
-  @type get_e_c_s_service_recommendation_projected_metrics_request() :: %{String.t() => any()}
+  @type get_e_c_s_service_recommendation_projected_metrics_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       container_recommendation() :: %{
-        "containerName" => String.t(),
+        "containerName" => String.t() | Atom.t(),
         "cpu" => integer(),
         "memorySizeConfiguration" => memory_size_configuration()
       }
       
   """
-  @type container_recommendation() :: %{String.t() => any()}
+  @type container_recommendation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -224,21 +227,21 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type auto_scaling_group_estimated_monthly_savings() :: %{String.t() => any()}
+  @type auto_scaling_group_estimated_monthly_savings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       account_enrollment_status() :: %{
-        "accountId" => String.t(),
+        "accountId" => String.t() | Atom.t(),
         "lastUpdatedTimestamp" => non_neg_integer(),
         "status" => list(any()),
-        "statusReason" => String.t()
+        "statusReason" => String.t() | Atom.t()
       }
       
   """
-  @type account_enrollment_status() :: %{String.t() => any()}
+  @type account_enrollment_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -246,13 +249,13 @@ defmodule AWS.ComputeOptimizer do
       
       describe_recommendation_export_jobs_request() :: %{
         optional("filters") => list(job_filter()),
-        optional("jobIds") => list(String.t()),
+        optional("jobIds") => list(String.t() | Atom.t()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type describe_recommendation_export_jobs_request() :: %{String.t() => any()}
+  @type describe_recommendation_export_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -263,22 +266,22 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type ebs_effective_recommendation_preferences() :: %{String.t() => any()}
+  @type ebs_effective_recommendation_preferences() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_lambda_function_recommendations_request() :: %{
-        optional("accountIds") => list(String.t()),
+        optional("accountIds") => list(String.t() | Atom.t()),
         optional("filters") => list(lambda_function_recommendation_filter()),
-        optional("functionArns") => list(String.t()),
+        optional("functionArns") => list(String.t() | Atom.t()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type get_lambda_function_recommendations_request() :: %{String.t() => any()}
+  @type get_lambda_function_recommendations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -286,26 +289,26 @@ defmodule AWS.ComputeOptimizer do
       
       get_ebs_volume_recommendations_response() :: %{
         "errors" => list(get_recommendation_error()),
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "volumeRecommendations" => list(volume_recommendation())
       }
       
   """
-  @type get_ebs_volume_recommendations_response() :: %{String.t() => any()}
+  @type get_ebs_volume_recommendations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       lambda_function_recommendation() :: %{
-        "accountId" => String.t(),
+        "accountId" => String.t() | Atom.t(),
         "currentMemorySize" => integer(),
         "currentPerformanceRisk" => list(any()),
         "effectiveRecommendationPreferences" => lambda_effective_recommendation_preferences(),
         "finding" => list(any()),
         "findingReasonCodes" => list(list(any())()),
-        "functionArn" => String.t(),
-        "functionVersion" => String.t(),
+        "functionArn" => String.t() | Atom.t(),
+        "functionVersion" => String.t() | Atom.t(),
         "lastRefreshTimestamp" => non_neg_integer(),
         "lookbackPeriodInDays" => float(),
         "memorySizeRecommendationOptions" => list(lambda_function_memory_recommendation_option()),
@@ -315,7 +318,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type lambda_function_recommendation() :: %{String.t() => any()}
+  @type lambda_function_recommendation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -328,7 +331,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type idle_utilization_metric() :: %{String.t() => any()}
+  @type idle_utilization_metric() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -339,11 +342,11 @@ defmodule AWS.ComputeOptimizer do
         "iops" => integer(),
         "maxAllocatedStorage" => integer(),
         "storageThroughput" => integer(),
-        "storageType" => String.t()
+        "storageType" => String.t() | Atom.t()
       }
       
   """
-  @type db_storage_configuration() :: %{String.t() => any()}
+  @type db_storage_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -355,7 +358,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type idle_estimated_monthly_savings() :: %{String.t() => any()}
+  @type idle_estimated_monthly_savings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -364,22 +367,22 @@ defmodule AWS.ComputeOptimizer do
       get_enrollment_statuses_for_organization_request() :: %{
         optional("filters") => list(enrollment_filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
       
   """
-  @type get_enrollment_statuses_for_organization_request() :: %{String.t() => any()}
+  @type get_enrollment_statuses_for_organization_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       missing_authentication_token() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type missing_authentication_token() :: %{String.t() => any()}
+  @type missing_authentication_token() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -392,7 +395,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type ebs_utilization_metric() :: %{String.t() => any()}
+  @type ebs_utilization_metric() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -407,19 +410,19 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type get_effective_recommendation_preferences_response() :: %{String.t() => any()}
+  @type get_effective_recommendation_preferences_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_recommendation_preferences_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "recommendationPreferencesDetails" => list(recommendation_preferences_detail())
       }
       
   """
-  @type get_recommendation_preferences_response() :: %{String.t() => any()}
+  @type get_recommendation_preferences_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -435,7 +438,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type e_c_s_service_recommendation_option() :: %{String.t() => any()}
+  @type e_c_s_service_recommendation_option() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -447,7 +450,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type rds_storage_estimated_monthly_savings() :: %{String.t() => any()}
+  @type rds_storage_estimated_monthly_savings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -459,7 +462,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type customizable_metric_parameters() :: %{String.t() => any()}
+  @type customizable_metric_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -470,7 +473,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type ebs_savings_estimation_mode() :: %{String.t() => any()}
+  @type ebs_savings_estimation_mode() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -489,7 +492,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type recommendation_preferences_detail() :: %{String.t() => any()}
+  @type recommendation_preferences_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -501,7 +504,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type e_c_s_estimated_monthly_savings() :: %{String.t() => any()}
+  @type e_c_s_estimated_monthly_savings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -513,7 +516,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type idle_savings_opportunity_after_discounts() :: %{String.t() => any()}
+  @type idle_savings_opportunity_after_discounts() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -527,19 +530,19 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type rds_effective_recommendation_preferences() :: %{String.t() => any()}
+  @type rds_effective_recommendation_preferences() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_recommendation_export_jobs_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "recommendationExportJobs" => list(recommendation_export_job())
       }
       
   """
-  @type describe_recommendation_export_jobs_response() :: %{String.t() => any()}
+  @type describe_recommendation_export_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -547,23 +550,23 @@ defmodule AWS.ComputeOptimizer do
       
       external_metric_status() :: %{
         "statusCode" => list(any()),
-        "statusReason" => String.t()
+        "statusReason" => String.t() | Atom.t()
       }
       
   """
-  @type external_metric_status() :: %{String.t() => any()}
+  @type external_metric_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_recommendation_summaries_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "recommendationSummaries" => list(recommendation_summary())
       }
       
   """
-  @type get_recommendation_summaries_response() :: %{String.t() => any()}
+  @type get_recommendation_summaries_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -575,7 +578,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type order_by() :: %{String.t() => any()}
+  @type order_by() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -586,7 +589,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type instance_savings_estimation_mode() :: %{String.t() => any()}
+  @type instance_savings_estimation_mode() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -595,11 +598,11 @@ defmodule AWS.ComputeOptimizer do
       get_e_c_s_service_recommendations_response() :: %{
         "ecsServiceRecommendations" => list(e_c_s_service_recommendation()),
         "errors" => list(get_recommendation_error()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type get_e_c_s_service_recommendations_response() :: %{String.t() => any()}
+  @type get_e_c_s_service_recommendations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -620,7 +623,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type update_enrollment_status_request() :: %{String.t() => any()}
+  @type update_enrollment_status_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -632,7 +635,10 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type auto_scaling_group_savings_opportunity_after_discounts() :: %{String.t() => any()}
+  @type auto_scaling_group_savings_opportunity_after_discounts() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -645,7 +651,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type delete_recommendation_preferences_request() :: %{String.t() => any()}
+  @type delete_recommendation_preferences_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -660,7 +666,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type lambda_function_memory_recommendation_option() :: %{String.t() => any()}
+  @type lambda_function_memory_recommendation_option() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -668,11 +674,11 @@ defmodule AWS.ComputeOptimizer do
       
       update_enrollment_status_response() :: %{
         "status" => list(any()),
-        "statusReason" => String.t()
+        "statusReason" => String.t() | Atom.t()
       }
       
   """
-  @type update_enrollment_status_response() :: %{String.t() => any()}
+  @type update_enrollment_status_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -680,11 +686,11 @@ defmodule AWS.ComputeOptimizer do
       
       job_filter() :: %{
         "name" => list(any()),
-        "values" => list(String.t())
+        "values" => list(String.t() | Atom.t())
       }
       
   """
-  @type job_filter() :: %{String.t() => any()}
+  @type job_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -697,14 +703,14 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type rds_database_projected_metric() :: %{String.t() => any()}
+  @type rds_database_projected_metric() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       export_lambda_function_recommendations_request() :: %{
-        optional("accountIds") => list(String.t()),
+        optional("accountIds") => list(String.t() | Atom.t()),
         optional("fieldsToExport") => list(list(any())()),
         optional("fileFormat") => list(any()),
         optional("filters") => list(lambda_function_recommendation_filter()),
@@ -713,7 +719,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type export_lambda_function_recommendations_request() :: %{String.t() => any()}
+  @type export_lambda_function_recommendations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -721,11 +727,11 @@ defmodule AWS.ComputeOptimizer do
       
       get_enrollment_statuses_for_organization_response() :: %{
         "accountEnrollmentStatuses" => list(account_enrollment_status()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type get_enrollment_statuses_for_organization_response() :: %{String.t() => any()}
+  @type get_enrollment_statuses_for_organization_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -736,7 +742,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type rds_savings_estimation_mode() :: %{String.t() => any()}
+  @type rds_savings_estimation_mode() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -747,14 +753,14 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type lambda_effective_recommendation_preferences() :: %{String.t() => any()}
+  @type lambda_effective_recommendation_preferences() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       export_e_c_s_service_recommendations_request() :: %{
-        optional("accountIds") => list(String.t()),
+        optional("accountIds") => list(String.t() | Atom.t()),
         optional("fieldsToExport") => list(list(any())()),
         optional("fileFormat") => list(any()),
         optional("filters") => list(e_c_s_service_recommendation_filter()),
@@ -763,7 +769,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type export_e_c_s_service_recommendations_request() :: %{String.t() => any()}
+  @type export_e_c_s_service_recommendations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -775,7 +781,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type rds_instance_estimated_monthly_savings() :: %{String.t() => any()}
+  @type rds_instance_estimated_monthly_savings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -784,11 +790,11 @@ defmodule AWS.ComputeOptimizer do
       get_idle_recommendations_response() :: %{
         "errors" => list(idle_recommendation_error()),
         "idleRecommendations" => list(idle_recommendation()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type get_idle_recommendations_response() :: %{String.t() => any()}
+  @type get_idle_recommendations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -797,11 +803,11 @@ defmodule AWS.ComputeOptimizer do
       get_ec2_instance_recommendations_response() :: %{
         "errors" => list(get_recommendation_error()),
         "instanceRecommendations" => list(instance_recommendation()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type get_ec2_instance_recommendations_response() :: %{String.t() => any()}
+  @type get_ec2_instance_recommendations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -813,29 +819,29 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type idle_summary() :: %{String.t() => any()}
+  @type idle_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       opt_in_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type opt_in_required_exception() :: %{String.t() => any()}
+  @type opt_in_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -843,23 +849,23 @@ defmodule AWS.ComputeOptimizer do
       
       idle_recommendation_filter() :: %{
         "name" => list(any()),
-        "values" => list(String.t())
+        "values" => list(String.t() | Atom.t())
       }
       
   """
-  @type idle_recommendation_filter() :: %{String.t() => any()}
+  @type idle_recommendation_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "key" => String.t(),
-        "value" => String.t()
+        "key" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -867,11 +873,11 @@ defmodule AWS.ComputeOptimizer do
       
       metric_source() :: %{
         "provider" => list(any()),
-        "providerArn" => String.t()
+        "providerArn" => String.t() | Atom.t()
       }
       
   """
-  @type metric_source() :: %{String.t() => any()}
+  @type metric_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -882,7 +888,10 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type get_e_c_s_service_recommendation_projected_metrics_response() :: %{String.t() => any()}
+  @type get_e_c_s_service_recommendation_projected_metrics_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -894,19 +903,19 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type lambda_savings_opportunity_after_discounts() :: %{String.t() => any()}
+  @type lambda_savings_opportunity_after_discounts() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       export_ebs_volume_recommendations_response() :: %{
-        "jobId" => String.t(),
+        "jobId" => String.t() | Atom.t(),
         "s3Destination" => s3_destination()
       }
       
   """
-  @type export_ebs_volume_recommendations_response() :: %{String.t() => any()}
+  @type export_ebs_volume_recommendations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -919,7 +928,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type rds_db_utilization_metric() :: %{String.t() => any()}
+  @type rds_db_utilization_metric() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -938,41 +947,41 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type put_recommendation_preferences_request() :: %{String.t() => any()}
+  @type put_recommendation_preferences_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_rds_database_recommendations_request() :: %{
-        optional("accountIds") => list(String.t()),
+        optional("accountIds") => list(String.t() | Atom.t()),
         optional("filters") => list(rds_db_recommendation_filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("recommendationPreferences") => recommendation_preferences(),
-        optional("resourceArns") => list(String.t())
+        optional("resourceArns") => list(String.t() | Atom.t())
       }
       
   """
-  @type get_rds_database_recommendations_request() :: %{String.t() => any()}
+  @type get_rds_database_recommendations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameter_value_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_parameter_value_exception() :: %{String.t() => any()}
+  @type invalid_parameter_value_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       export_idle_recommendations_request() :: %{
-        optional("accountIds") => list(String.t()),
+        optional("accountIds") => list(String.t() | Atom.t()),
         optional("fieldsToExport") => list(list(any())()),
         optional("fileFormat") => list(any()),
         optional("filters") => list(idle_recommendation_filter()),
@@ -981,7 +990,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type export_idle_recommendations_request() :: %{String.t() => any()}
+  @type export_idle_recommendations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -990,13 +999,13 @@ defmodule AWS.ComputeOptimizer do
       license_recommendation_option() :: %{
         "licenseEdition" => list(any()),
         "licenseModel" => list(any()),
-        "operatingSystem" => String.t(),
+        "operatingSystem" => String.t() | Atom.t(),
         "rank" => integer(),
         "savingsOpportunity" => savings_opportunity()
       }
       
   """
-  @type license_recommendation_option() :: %{String.t() => any()}
+  @type license_recommendation_option() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1008,14 +1017,14 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type idle_savings_opportunity() :: %{String.t() => any()}
+  @type idle_savings_opportunity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       volume_recommendation() :: %{
-        "accountId" => String.t(),
+        "accountId" => String.t() | Atom.t(),
         "currentConfiguration" => volume_configuration(),
         "currentPerformanceRisk" => list(any()),
         "effectiveRecommendationPreferences" => ebs_effective_recommendation_preferences(),
@@ -1024,19 +1033,19 @@ defmodule AWS.ComputeOptimizer do
         "lookBackPeriodInDays" => float(),
         "tags" => list(tag()),
         "utilizationMetrics" => list(ebs_utilization_metric()),
-        "volumeArn" => String.t(),
+        "volumeArn" => String.t() | Atom.t(),
         "volumeRecommendationOptions" => list(volume_recommendation_option())
       }
       
   """
-  @type volume_recommendation() :: %{String.t() => any()}
+  @type volume_recommendation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       export_license_recommendations_request() :: %{
-        optional("accountIds") => list(String.t()),
+        optional("accountIds") => list(String.t() | Atom.t()),
         optional("fieldsToExport") => list(list(any())()),
         optional("fileFormat") => list(any()),
         optional("filters") => list(license_recommendation_filter()),
@@ -1045,7 +1054,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type export_license_recommendations_request() :: %{String.t() => any()}
+  @type export_license_recommendations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1058,7 +1067,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type e_c_s_service_utilization_metric() :: %{String.t() => any()}
+  @type e_c_s_service_utilization_metric() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1070,7 +1079,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type instance_estimated_monthly_savings() :: %{String.t() => any()}
+  @type instance_estimated_monthly_savings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1078,13 +1087,13 @@ defmodule AWS.ComputeOptimizer do
       
       get_recommendation_preferences_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("scope") => scope(),
         required("resourceType") => list(any())
       }
       
   """
-  @type get_recommendation_preferences_request() :: %{String.t() => any()}
+  @type get_recommendation_preferences_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1096,22 +1105,22 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type gpu() :: %{String.t() => any()}
+  @type gpu() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_ebs_volume_recommendations_request() :: %{
-        optional("accountIds") => list(String.t()),
+        optional("accountIds") => list(String.t() | Atom.t()),
         optional("filters") => list(ebs_filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("volumeArns") => list(String.t())
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("volumeArns") => list(String.t() | Atom.t())
       }
       
   """
-  @type get_ebs_volume_recommendations_request() :: %{String.t() => any()}
+  @type get_ebs_volume_recommendations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1123,14 +1132,14 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type instance_savings_opportunity_after_discounts() :: %{String.t() => any()}
+  @type instance_savings_opportunity_after_discounts() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       export_auto_scaling_group_recommendations_request() :: %{
-        optional("accountIds") => list(String.t()),
+        optional("accountIds") => list(String.t() | Atom.t()),
         optional("fieldsToExport") => list(list(any())()),
         optional("fileFormat") => list(any()),
         optional("filters") => list(filter()),
@@ -1140,22 +1149,22 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type export_auto_scaling_group_recommendations_request() :: %{String.t() => any()}
+  @type export_auto_scaling_group_recommendations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_e_c_s_service_recommendations_request() :: %{
-        optional("accountIds") => list(String.t()),
+        optional("accountIds") => list(String.t() | Atom.t()),
         optional("filters") => list(e_c_s_service_recommendation_filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("serviceArns") => list(String.t())
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("serviceArns") => list(String.t() | Atom.t())
       }
       
   """
-  @type get_e_c_s_service_recommendations_request() :: %{String.t() => any()}
+  @type get_e_c_s_service_recommendations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1167,39 +1176,39 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type utilization_preference() :: %{String.t() => any()}
+  @type utilization_preference() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       service_unavailable_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type service_unavailable_exception() :: %{String.t() => any()}
+  @type service_unavailable_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       export_lambda_function_recommendations_response() :: %{
-        "jobId" => String.t(),
+        "jobId" => String.t() | Atom.t(),
         "s3Destination" => s3_destination()
       }
       
   """
-  @type export_lambda_function_recommendations_response() :: %{String.t() => any()}
+  @type export_lambda_function_recommendations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_recommendation() :: %{
-        "accountId" => String.t(),
+        "accountId" => String.t() | Atom.t(),
         "currentInstanceGpuInfo" => gpu_info(),
-        "currentInstanceType" => String.t(),
+        "currentInstanceType" => String.t() | Atom.t(),
         "currentPerformanceRisk" => list(any()),
         "effectiveRecommendationPreferences" => effective_recommendation_preferences(),
         "externalMetricStatus" => external_metric_status(),
@@ -1207,8 +1216,8 @@ defmodule AWS.ComputeOptimizer do
         "findingReasonCodes" => list(list(any())()),
         "idle" => list(any()),
         "inferredWorkloadTypes" => list(list(any())()),
-        "instanceArn" => String.t(),
-        "instanceName" => String.t(),
+        "instanceArn" => String.t() | Atom.t(),
+        "instanceName" => String.t() | Atom.t(),
         "instanceState" => list(any()),
         "lastRefreshTimestamp" => non_neg_integer(),
         "lookBackPeriodInDays" => float(),
@@ -1219,32 +1228,32 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type instance_recommendation() :: %{String.t() => any()}
+  @type instance_recommendation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       container_configuration() :: %{
-        "containerName" => String.t(),
+        "containerName" => String.t() | Atom.t(),
         "cpu" => integer(),
         "memorySizeConfiguration" => memory_size_configuration()
       }
       
   """
-  @type container_configuration() :: %{String.t() => any()}
+  @type container_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       export_rds_database_recommendations_response() :: %{
-        "jobId" => String.t(),
+        "jobId" => String.t() | Atom.t(),
         "s3Destination" => s3_destination()
       }
       
   """
-  @type export_rds_database_recommendations_response() :: %{String.t() => any()}
+  @type export_rds_database_recommendations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1252,37 +1261,37 @@ defmodule AWS.ComputeOptimizer do
       
       filter() :: %{
         "name" => list(any()),
-        "values" => list(String.t())
+        "values" => list(String.t() | Atom.t())
       }
       
   """
-  @type filter() :: %{String.t() => any()}
+  @type filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_destination() :: %{
-        "bucket" => String.t(),
-        "key" => String.t(),
-        "metadataKey" => String.t()
+        "bucket" => String.t() | Atom.t(),
+        "key" => String.t() | Atom.t(),
+        "metadataKey" => String.t() | Atom.t()
       }
       
   """
-  @type s3_destination() :: %{String.t() => any()}
+  @type s3_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_recommendation_error() :: %{
-        "code" => String.t(),
-        "identifier" => String.t(),
-        "message" => String.t()
+        "code" => String.t() | Atom.t(),
+        "identifier" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type get_recommendation_error() :: %{String.t() => any()}
+  @type get_recommendation_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1303,7 +1312,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type savings_opportunity() :: %{String.t() => any()}
+  @type savings_opportunity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1315,27 +1324,27 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type memory_size_configuration() :: %{String.t() => any()}
+  @type memory_size_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_effective_recommendation_preferences_request() :: %{
-        required("resourceArn") => String.t()
+        required("resourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type get_effective_recommendation_preferences_request() :: %{String.t() => any()}
+  @type get_effective_recommendation_preferences_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       auto_scaling_group_recommendation() :: %{
-        "accountId" => String.t(),
-        "autoScalingGroupArn" => String.t(),
-        "autoScalingGroupName" => String.t(),
+        "accountId" => String.t() | Atom.t(),
+        "autoScalingGroupArn" => String.t() | Atom.t(),
+        "autoScalingGroupName" => String.t() | Atom.t(),
         "currentConfiguration" => auto_scaling_group_configuration(),
         "currentInstanceGpuInfo" => gpu_info(),
         "currentPerformanceRisk" => list(any()),
@@ -1349,26 +1358,26 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type auto_scaling_group_recommendation() :: %{String.t() => any()}
+  @type auto_scaling_group_recommendation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       license_recommendation() :: %{
-        "accountId" => String.t(),
+        "accountId" => String.t() | Atom.t(),
         "currentLicenseConfiguration" => license_configuration(),
         "finding" => list(any()),
         "findingReasonCodes" => list(list(any())()),
         "lastRefreshTimestamp" => non_neg_integer(),
         "licenseRecommendationOptions" => list(license_recommendation_option()),
         "lookbackPeriodInDays" => float(),
-        "resourceArn" => String.t(),
+        "resourceArn" => String.t() | Atom.t(),
         "tags" => list(tag())
       }
       
   """
-  @type license_recommendation() :: %{String.t() => any()}
+  @type license_recommendation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1380,23 +1389,23 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type estimated_monthly_savings() :: %{String.t() => any()}
+  @type estimated_monthly_savings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_ec2_instance_recommendations_request() :: %{
-        optional("accountIds") => list(String.t()),
+        optional("accountIds") => list(String.t() | Atom.t()),
         optional("filters") => list(filter()),
-        optional("instanceArns") => list(String.t()),
+        optional("instanceArns") => list(String.t() | Atom.t()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("recommendationPreferences") => recommendation_preferences()
       }
       
   """
-  @type get_ec2_instance_recommendations_request() :: %{String.t() => any()}
+  @type get_ec2_instance_recommendations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1408,18 +1417,18 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type e_c_s_savings_opportunity_after_discounts() :: %{String.t() => any()}
+  @type e_c_s_savings_opportunity_after_discounts() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1427,23 +1436,23 @@ defmodule AWS.ComputeOptimizer do
       
       scope() :: %{
         "name" => list(any()),
-        "value" => String.t()
+        "value" => String.t() | Atom.t()
       }
       
   """
-  @type scope() :: %{String.t() => any()}
+  @type scope() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       recommendation_source() :: %{
-        "recommendationSourceArn" => String.t(),
+        "recommendationSourceArn" => String.t() | Atom.t(),
         "recommendationSourceType" => list(any())
       }
       
   """
-  @type recommendation_source() :: %{String.t() => any()}
+  @type recommendation_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1458,39 +1467,39 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type rds_db_storage_recommendation_option() :: %{String.t() => any()}
+  @type rds_db_storage_recommendation_option() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_idle_recommendations_request() :: %{
-        optional("accountIds") => list(String.t()),
+        optional("accountIds") => list(String.t() | Atom.t()),
         optional("filters") => list(idle_recommendation_filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("orderBy") => order_by(),
-        optional("resourceArns") => list(String.t())
+        optional("resourceArns") => list(String.t() | Atom.t())
       }
       
   """
-  @type get_idle_recommendations_request() :: %{String.t() => any()}
+  @type get_idle_recommendations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_auto_scaling_group_recommendations_request() :: %{
-        optional("accountIds") => list(String.t()),
-        optional("autoScalingGroupArns") => list(String.t()),
+        optional("accountIds") => list(String.t() | Atom.t()),
+        optional("autoScalingGroupArns") => list(String.t() | Atom.t()),
         optional("filters") => list(filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("recommendationPreferences") => recommendation_preferences()
       }
       
   """
-  @type get_auto_scaling_group_recommendations_request() :: %{String.t() => any()}
+  @type get_auto_scaling_group_recommendations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1503,7 +1512,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type utilization_metric() :: %{String.t() => any()}
+  @type utilization_metric() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1511,7 +1520,7 @@ defmodule AWS.ComputeOptimizer do
       
       instance_recommendation_option() :: %{
         "instanceGpuInfo" => gpu_info(),
-        "instanceType" => String.t(),
+        "instanceType" => String.t() | Atom.t(),
         "migrationEffort" => list(any()),
         "performanceRisk" => float(),
         "platformDifferences" => list(list(any())()),
@@ -1522,7 +1531,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type instance_recommendation_option() :: %{String.t() => any()}
+  @type instance_recommendation_option() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1537,7 +1546,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type volume_recommendation_option() :: %{String.t() => any()}
+  @type volume_recommendation_option() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1551,7 +1560,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type e_c_s_service_projected_metric() :: %{String.t() => any()}
+  @type e_c_s_service_projected_metric() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1559,22 +1568,22 @@ defmodule AWS.ComputeOptimizer do
       
       enrollment_filter() :: %{
         "name" => list(any()),
-        "values" => list(String.t())
+        "values" => list(String.t() | Atom.t())
       }
       
   """
-  @type enrollment_filter() :: %{String.t() => any()}
+  @type enrollment_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1582,11 +1591,11 @@ defmodule AWS.ComputeOptimizer do
       
       e_c_s_service_recommendation_filter() :: %{
         "name" => list(any()),
-        "values" => list(String.t())
+        "values" => list(String.t() | Atom.t())
       }
       
   """
-  @type e_c_s_service_recommendation_filter() :: %{String.t() => any()}
+  @type e_c_s_service_recommendation_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1595,11 +1604,11 @@ defmodule AWS.ComputeOptimizer do
       get_license_recommendations_response() :: %{
         "errors" => list(get_recommendation_error()),
         "licenseRecommendations" => list(license_recommendation()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type get_license_recommendations_response() :: %{String.t() => any()}
+  @type get_license_recommendations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1607,11 +1616,11 @@ defmodule AWS.ComputeOptimizer do
       
       license_recommendation_filter() :: %{
         "name" => list(any()),
-        "values" => list(String.t())
+        "values" => list(String.t() | Atom.t())
       }
       
   """
-  @type license_recommendation_filter() :: %{String.t() => any()}
+  @type license_recommendation_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1624,7 +1633,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type e_c_s_service_recommended_option_projected_metric() :: %{String.t() => any()}
+  @type e_c_s_service_recommended_option_projected_metric() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1633,11 +1642,11 @@ defmodule AWS.ComputeOptimizer do
       rds_database_recommended_option_projected_metric() :: %{
         "projectedMetrics" => list(rds_database_projected_metric()),
         "rank" => integer(),
-        "recommendedDBInstanceClass" => String.t()
+        "recommendedDBInstanceClass" => String.t() | Atom.t()
       }
       
   """
-  @type rds_database_recommended_option_projected_metric() :: %{String.t() => any()}
+  @type rds_database_recommended_option_projected_metric() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1649,7 +1658,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type ebs_estimated_monthly_savings() :: %{String.t() => any()}
+  @type ebs_estimated_monthly_savings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1660,14 +1669,14 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type external_metrics_preference() :: %{String.t() => any()}
+  @type external_metrics_preference() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       export_ebs_volume_recommendations_request() :: %{
-        optional("accountIds") => list(String.t()),
+        optional("accountIds") => list(String.t() | Atom.t()),
         optional("fieldsToExport") => list(list(any())()),
         optional("fileFormat") => list(any()),
         optional("filters") => list(ebs_filter()),
@@ -1676,19 +1685,19 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type export_ebs_volume_recommendations_request() :: %{String.t() => any()}
+  @type export_ebs_volume_recommendations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       export_idle_recommendations_response() :: %{
-        "jobId" => String.t(),
+        "jobId" => String.t() | Atom.t(),
         "s3Destination" => s3_destination()
       }
       
   """
-  @type export_idle_recommendations_response() :: %{String.t() => any()}
+  @type export_idle_recommendations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1697,11 +1706,11 @@ defmodule AWS.ComputeOptimizer do
       get_auto_scaling_group_recommendations_response() :: %{
         "autoScalingGroupRecommendations" => list(auto_scaling_group_recommendation()),
         "errors" => list(get_recommendation_error()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type get_auto_scaling_group_recommendations_response() :: %{String.t() => any()}
+  @type get_auto_scaling_group_recommendations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1713,7 +1722,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type rds_instance_savings_opportunity_after_discounts() :: %{String.t() => any()}
+  @type rds_instance_savings_opportunity_after_discounts() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1724,7 +1733,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type e_c_s_savings_estimation_mode() :: %{String.t() => any()}
+  @type e_c_s_savings_estimation_mode() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1733,28 +1742,28 @@ defmodule AWS.ComputeOptimizer do
       get_ec2_recommendation_projected_metrics_request() :: %{
         optional("recommendationPreferences") => recommendation_preferences(),
         required("endTime") => non_neg_integer(),
-        required("instanceArn") => String.t(),
+        required("instanceArn") => String.t() | Atom.t(),
         required("period") => integer(),
         required("startTime") => non_neg_integer(),
         required("stat") => list(any())
       }
       
   """
-  @type get_ec2_recommendation_projected_metrics_request() :: %{String.t() => any()}
+  @type get_ec2_recommendation_projected_metrics_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       effective_preferred_resource() :: %{
-        "effectiveIncludeList" => list(String.t()),
-        "excludeList" => list(String.t()),
-        "includeList" => list(String.t()),
+        "effectiveIncludeList" => list(String.t() | Atom.t()),
+        "excludeList" => list(String.t() | Atom.t()),
+        "includeList" => list(String.t() | Atom.t()),
         "name" => list(any())
       }
       
   """
-  @type effective_preferred_resource() :: %{String.t() => any()}
+  @type effective_preferred_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1765,7 +1774,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type e_c_s_effective_recommendation_preferences() :: %{String.t() => any()}
+  @type e_c_s_effective_recommendation_preferences() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1777,7 +1786,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type reason_code_summary() :: %{String.t() => any()}
+  @type reason_code_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1788,11 +1797,11 @@ defmodule AWS.ComputeOptimizer do
         "memberAccountsEnrolled" => boolean(),
         "numberOfMemberAccountsOptedIn" => integer(),
         "status" => list(any()),
-        "statusReason" => String.t()
+        "statusReason" => String.t() | Atom.t()
       }
       
   """
-  @type get_enrollment_status_response() :: %{String.t() => any()}
+  @type get_enrollment_status_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1804,30 +1813,30 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type ebs_savings_opportunity_after_discounts() :: %{String.t() => any()}
+  @type ebs_savings_opportunity_after_discounts() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       export_e_c_s_service_recommendations_response() :: %{
-        "jobId" => String.t(),
+        "jobId" => String.t() | Atom.t(),
         "s3Destination" => s3_destination()
       }
       
   """
-  @type export_e_c_s_service_recommendations_response() :: %{String.t() => any()}
+  @type export_e_c_s_service_recommendations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1840,7 +1849,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type projected_metric() :: %{String.t() => any()}
+  @type projected_metric() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1852,30 +1861,30 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type rds_storage_savings_opportunity_after_discounts() :: %{String.t() => any()}
+  @type rds_storage_savings_opportunity_after_discounts() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       export_license_recommendations_response() :: %{
-        "jobId" => String.t(),
+        "jobId" => String.t() | Atom.t(),
         "s3Destination" => s3_destination()
       }
       
   """
-  @type export_license_recommendations_response() :: %{String.t() => any()}
+  @type export_license_recommendations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1889,7 +1898,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type e_c_s_service_projected_utilization_metric() :: %{String.t() => any()}
+  @type e_c_s_service_projected_utilization_metric() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1907,14 +1916,14 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type effective_recommendation_preferences() :: %{String.t() => any()}
+  @type effective_recommendation_preferences() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       e_c_s_service_recommendation() :: %{
-        "accountId" => String.t(),
+        "accountId" => String.t() | Atom.t(),
         "currentPerformanceRisk" => list(any()),
         "currentServiceConfiguration" => service_configuration(),
         "effectiveRecommendationPreferences" => e_c_s_effective_recommendation_preferences(),
@@ -1923,14 +1932,14 @@ defmodule AWS.ComputeOptimizer do
         "lastRefreshTimestamp" => non_neg_integer(),
         "launchType" => list(any()),
         "lookbackPeriodInDays" => float(),
-        "serviceArn" => String.t(),
+        "serviceArn" => String.t() | Atom.t(),
         "serviceRecommendationOptions" => list(e_c_s_service_recommendation_option()),
         "tags" => list(tag()),
         "utilizationMetrics" => list(e_c_s_service_utilization_metric())
       }
       
   """
-  @type e_c_s_service_recommendation() :: %{String.t() => any()}
+  @type e_c_s_service_recommendation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1938,11 +1947,11 @@ defmodule AWS.ComputeOptimizer do
       
       get_lambda_function_recommendations_response() :: %{
         "lambdaFunctionRecommendations" => list(lambda_function_recommendation()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
       
   """
-  @type get_lambda_function_recommendations_response() :: %{String.t() => any()}
+  @type get_lambda_function_recommendations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1955,18 +1964,18 @@ defmodule AWS.ComputeOptimizer do
         "volumeBurstIOPS" => integer(),
         "volumeBurstThroughput" => integer(),
         "volumeSize" => integer(),
-        "volumeType" => String.t()
+        "volumeType" => String.t() | Atom.t()
       }
       
   """
-  @type volume_configuration() :: %{String.t() => any()}
+  @type volume_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       recommendation_summary() :: %{
-        "accountId" => String.t(),
+        "accountId" => String.t() | Atom.t(),
         "aggregatedSavingsOpportunity" => savings_opportunity(),
         "currentPerformanceRiskRatings" => current_performance_risk_ratings(),
         "idleSavingsOpportunity" => savings_opportunity(),
@@ -1978,7 +1987,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type recommendation_summary() :: %{String.t() => any()}
+  @type recommendation_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1988,15 +1997,15 @@ defmodule AWS.ComputeOptimizer do
         "allocationStrategy" => list(any()),
         "desiredCapacity" => integer(),
         "estimatedInstanceHourReductionPercentage" => float(),
-        "instanceType" => String.t(),
+        "instanceType" => String.t() | Atom.t(),
         "maxSize" => integer(),
         "minSize" => integer(),
-        "mixedInstanceTypes" => list(String.t()),
+        "mixedInstanceTypes" => list(String.t() | Atom.t()),
         "type" => list(any())
       }
       
   """
-  @type auto_scaling_group_configuration() :: %{String.t() => any()}
+  @type auto_scaling_group_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2014,7 +2023,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type auto_scaling_group_recommendation_option() :: %{String.t() => any()}
+  @type auto_scaling_group_recommendation_option() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2022,11 +2031,11 @@ defmodule AWS.ComputeOptimizer do
       
       lambda_function_recommendation_filter() :: %{
         "name" => list(any()),
-        "values" => list(String.t())
+        "values" => list(String.t() | Atom.t())
       }
       
   """
-  @type lambda_function_recommendation_filter() :: %{String.t() => any()}
+  @type lambda_function_recommendation_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2038,14 +2047,14 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type inferred_workload_saving() :: %{String.t() => any()}
+  @type inferred_workload_saving() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       rds_db_instance_recommendation_option() :: %{
-        "dbInstanceClass" => String.t(),
+        "dbInstanceClass" => String.t() | Atom.t(),
         "performanceRisk" => float(),
         "projectedUtilizationMetrics" => list(rds_db_utilization_metric()),
         "rank" => integer(),
@@ -2054,7 +2063,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type rds_db_instance_recommendation_option() :: %{String.t() => any()}
+  @type rds_db_instance_recommendation_option() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2067,7 +2076,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type lambda_function_utilization_metric() :: %{String.t() => any()}
+  @type lambda_function_utilization_metric() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2075,18 +2084,18 @@ defmodule AWS.ComputeOptimizer do
       
       rds_db_recommendation_filter() :: %{
         "name" => list(any()),
-        "values" => list(String.t())
+        "values" => list(String.t() | Atom.t())
       }
       
   """
-  @type rds_db_recommendation_filter() :: %{String.t() => any()}
+  @type rds_db_recommendation_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       export_rds_database_recommendations_request() :: %{
-        optional("accountIds") => list(String.t()),
+        optional("accountIds") => list(String.t() | Atom.t()),
         optional("fieldsToExport") => list(list(any())()),
         optional("fileFormat") => list(any()),
         optional("filters") => list(rds_db_recommendation_filter()),
@@ -2096,7 +2105,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type export_rds_database_recommendations_request() :: %{String.t() => any()}
+  @type export_rds_database_recommendations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2104,11 +2113,11 @@ defmodule AWS.ComputeOptimizer do
       
       ebs_filter() :: %{
         "name" => list(any()),
-        "values" => list(String.t())
+        "values" => list(String.t() | Atom.t())
       }
       
   """
-  @type ebs_filter() :: %{String.t() => any()}
+  @type ebs_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2119,19 +2128,19 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type lambda_savings_estimation_mode() :: %{String.t() => any()}
+  @type lambda_savings_estimation_mode() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       export_auto_scaling_group_recommendations_response() :: %{
-        "jobId" => String.t(),
+        "jobId" => String.t() | Atom.t(),
         "s3Destination" => s3_destination()
       }
       
   """
-  @type export_auto_scaling_group_recommendations_response() :: %{String.t() => any()}
+  @type export_auto_scaling_group_recommendations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2142,7 +2151,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type export_destination() :: %{String.t() => any()}
+  @type export_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2153,7 +2162,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type recommendation_preferences() :: %{String.t() => any()}
+  @type recommendation_preferences() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2162,23 +2171,23 @@ defmodule AWS.ComputeOptimizer do
       recommended_option_projected_metric() :: %{
         "projectedMetrics" => list(projected_metric()),
         "rank" => integer(),
-        "recommendedInstanceType" => String.t()
+        "recommendedInstanceType" => String.t() | Atom.t()
       }
       
   """
-  @type recommended_option_projected_metric() :: %{String.t() => any()}
+  @type recommended_option_projected_metric() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       export_ec2_instance_recommendations_response() :: %{
-        "jobId" => String.t(),
+        "jobId" => String.t() | Atom.t(),
         "s3Destination" => s3_destination()
       }
       
   """
-  @type export_ec2_instance_recommendations_response() :: %{String.t() => any()}
+  @type export_ec2_instance_recommendations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2187,27 +2196,27 @@ defmodule AWS.ComputeOptimizer do
       recommendation_export_job() :: %{
         "creationTimestamp" => non_neg_integer(),
         "destination" => export_destination(),
-        "failureReason" => String.t(),
-        "jobId" => String.t(),
+        "failureReason" => String.t() | Atom.t(),
+        "jobId" => String.t() | Atom.t(),
         "lastUpdatedTimestamp" => non_neg_integer(),
         "resourceType" => list(any()),
         "status" => list(any())
       }
       
   """
-  @type recommendation_export_job() :: %{String.t() => any()}
+  @type recommendation_export_job() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_destination_config() :: %{
-        "bucket" => String.t(),
-        "keyPrefix" => String.t()
+        "bucket" => String.t() | Atom.t(),
+        "keyPrefix" => String.t() | Atom.t()
       }
       
   """
-  @type s3_destination_config() :: %{String.t() => any()}
+  @type s3_destination_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2220,7 +2229,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type summary() :: %{String.t() => any()}
+  @type summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2231,14 +2240,17 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type get_rds_database_recommendation_projected_metrics_response() :: %{String.t() => any()}
+  @type get_rds_database_recommendation_projected_metrics_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       export_ec2_instance_recommendations_request() :: %{
-        optional("accountIds") => list(String.t()),
+        optional("accountIds") => list(String.t() | Atom.t()),
         optional("fieldsToExport") => list(list(any())()),
         optional("fileFormat") => list(any()),
         optional("filters") => list(filter()),
@@ -2248,7 +2260,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type export_ec2_instance_recommendations_request() :: %{String.t() => any()}
+  @type export_ec2_instance_recommendations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2258,40 +2270,43 @@ defmodule AWS.ComputeOptimizer do
         optional("recommendationPreferences") => recommendation_preferences(),
         required("endTime") => non_neg_integer(),
         required("period") => integer(),
-        required("resourceArn") => String.t(),
+        required("resourceArn") => String.t() | Atom.t(),
         required("startTime") => non_neg_integer(),
         required("stat") => list(any())
       }
       
   """
-  @type get_rds_database_recommendation_projected_metrics_request() :: %{String.t() => any()}
+  @type get_rds_database_recommendation_projected_metrics_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       idle_recommendation_error() :: %{
-        "code" => String.t(),
-        "identifier" => String.t(),
-        "message" => String.t(),
+        "code" => String.t() | Atom.t(),
+        "identifier" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t(),
         "resourceType" => list(any())
       }
       
   """
-  @type idle_recommendation_error() :: %{String.t() => any()}
+  @type idle_recommendation_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       preferred_resource() :: %{
-        "excludeList" => list(String.t()),
-        "includeList" => list(String.t()),
+        "excludeList" => list(String.t() | Atom.t()),
+        "includeList" => list(String.t() | Atom.t()),
         "name" => list(any())
       }
       
   """
-  @type preferred_resource() :: %{String.t() => any()}
+  @type preferred_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2302,11 +2317,11 @@ defmodule AWS.ComputeOptimizer do
         "containerConfigurations" => list(container_configuration()),
         "cpu" => integer(),
         "memory" => integer(),
-        "taskDefinitionArn" => String.t()
+        "taskDefinitionArn" => String.t() | Atom.t()
       }
       
   """
-  @type service_configuration() :: %{String.t() => any()}
+  @type service_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2314,12 +2329,12 @@ defmodule AWS.ComputeOptimizer do
       
       get_rds_database_recommendations_response() :: %{
         "errors" => list(get_recommendation_error()),
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "rdsDBRecommendations" => list(rds_db_recommendation())
       }
       
   """
-  @type get_rds_database_recommendations_response() :: %{String.t() => any()}
+  @type get_rds_database_recommendations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2330,7 +2345,7 @@ defmodule AWS.ComputeOptimizer do
       }
       
   """
-  @type gpu_info() :: %{String.t() => any()}
+  @type gpu_info() :: %{String.t() | Atom.t() => any()}
 
   @type delete_recommendation_preferences_errors() ::
           throttling_exception()

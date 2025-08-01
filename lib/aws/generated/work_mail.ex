@@ -58,34 +58,34 @@ defmodule AWS.WorkMail do
       mobile_device_access_rule() :: %{
         "DateCreated" => non_neg_integer(),
         "DateModified" => non_neg_integer(),
-        "Description" => String.t(),
-        "DeviceModels" => list(String.t()),
-        "DeviceOperatingSystems" => list(String.t()),
-        "DeviceTypes" => list(String.t()),
-        "DeviceUserAgents" => list(String.t()),
+        "Description" => String.t() | Atom.t(),
+        "DeviceModels" => list(String.t() | Atom.t()),
+        "DeviceOperatingSystems" => list(String.t() | Atom.t()),
+        "DeviceTypes" => list(String.t() | Atom.t()),
+        "DeviceUserAgents" => list(String.t() | Atom.t()),
         "Effect" => list(any()),
-        "MobileDeviceAccessRuleId" => String.t(),
-        "Name" => String.t(),
-        "NotDeviceModels" => list(String.t()),
-        "NotDeviceOperatingSystems" => list(String.t()),
-        "NotDeviceTypes" => list(String.t()),
-        "NotDeviceUserAgents" => list(String.t())
+        "MobileDeviceAccessRuleId" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "NotDeviceModels" => list(String.t() | Atom.t()),
+        "NotDeviceOperatingSystems" => list(String.t() | Atom.t()),
+        "NotDeviceTypes" => list(String.t() | Atom.t()),
+        "NotDeviceUserAgents" => list(String.t() | Atom.t())
       }
       
   """
-  @type mobile_device_access_rule() :: %{String.t() => any()}
+  @type mobile_device_access_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_aliases_response() :: %{
-        "Aliases" => list(String.t()),
-        "NextToken" => String.t()
+        "Aliases" => list(String.t() | Atom.t()),
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_aliases_response() :: %{String.t() => any()}
+  @type list_aliases_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -101,13 +101,13 @@ defmodule AWS.WorkMail do
   ## Example:
       
       cancel_mailbox_export_job_request() :: %{
-        required("ClientToken") => String.t(),
-        required("JobId") => String.t(),
-        required("OrganizationId") => String.t()
+        required("ClientToken") => String.t() | Atom.t(),
+        required("JobId") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type cancel_mailbox_export_job_request() :: %{String.t() => any()}
+  @type cancel_mailbox_export_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -115,11 +115,11 @@ defmodule AWS.WorkMail do
       
       get_access_control_effect_response() :: %{
         "Effect" => list(any()),
-        "MatchedRules" => list(String.t())
+        "MatchedRules" => list(String.t() | Atom.t())
       }
       
   """
-  @type get_access_control_effect_response() :: %{String.t() => any()}
+  @type get_access_control_effect_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -127,13 +127,13 @@ defmodule AWS.WorkMail do
       
       list_aliases_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("EntityId") => String.t(),
-        required("OrganizationId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("EntityId") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type list_aliases_request() :: %{String.t() => any()}
+  @type list_aliases_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -149,25 +149,25 @@ defmodule AWS.WorkMail do
   ## Example:
       
       put_email_monitoring_configuration_request() :: %{
-        required("LogGroupArn") => String.t(),
-        required("OrganizationId") => String.t(),
-        required("RoleArn") => String.t()
+        required("LogGroupArn") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t(),
+        required("RoleArn") => String.t() | Atom.t()
       }
       
   """
-  @type put_email_monitoring_configuration_request() :: %{String.t() => any()}
+  @type put_email_monitoring_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_mobile_device_access_overrides_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Overrides" => list(mobile_device_access_override())
       }
       
   """
-  @type list_mobile_device_access_overrides_response() :: %{String.t() => any()}
+  @type list_mobile_device_access_overrides_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -179,70 +179,70 @@ defmodule AWS.WorkMail do
       }
       
   """
-  @type get_mailbox_details_response() :: %{String.t() => any()}
+  @type get_mailbox_details_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
+        required("ResourceARN") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_organizations_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "OrganizationSummaries" => list(organization_summary())
       }
       
   """
-  @type list_organizations_response() :: %{String.t() => any()}
+  @type list_organizations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_mobile_device_access_effect_request() :: %{
-        optional("DeviceModel") => String.t(),
-        optional("DeviceOperatingSystem") => String.t(),
-        optional("DeviceType") => String.t(),
-        optional("DeviceUserAgent") => String.t(),
-        required("OrganizationId") => String.t()
+        optional("DeviceModel") => String.t() | Atom.t(),
+        optional("DeviceOperatingSystem") => String.t() | Atom.t(),
+        optional("DeviceType") => String.t() | Atom.t(),
+        optional("DeviceUserAgent") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type get_mobile_device_access_effect_request() :: %{String.t() => any()}
+  @type get_mobile_device_access_effect_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_delegate_from_resource_request() :: %{
-        required("EntityId") => String.t(),
-        required("OrganizationId") => String.t(),
-        required("ResourceId") => String.t()
+        required("EntityId") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t(),
+        required("ResourceId") => String.t() | Atom.t()
       }
       
   """
-  @type disassociate_delegate_from_resource_request() :: %{String.t() => any()}
+  @type disassociate_delegate_from_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       entity_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type entity_not_found_exception() :: %{String.t() => any()}
+  @type entity_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -250,13 +250,13 @@ defmodule AWS.WorkMail do
       
       list_group_members_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("GroupId") => String.t(),
-        required("OrganizationId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("GroupId") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type list_group_members_request() :: %{String.t() => any()}
+  @type list_group_members_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -272,12 +272,12 @@ defmodule AWS.WorkMail do
   ## Example:
       
       list_resources_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Resources" => list(resource())
       }
       
   """
-  @type list_resources_response() :: %{String.t() => any()}
+  @type list_resources_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -285,30 +285,30 @@ defmodule AWS.WorkMail do
       
       describe_resource_response() :: %{
         "BookingOptions" => booking_options(),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "DisabledDate" => non_neg_integer(),
-        "Email" => String.t(),
+        "Email" => String.t() | Atom.t(),
         "EnabledDate" => non_neg_integer(),
         "HiddenFromGlobalAddressList" => boolean(),
-        "Name" => String.t(),
-        "ResourceId" => String.t(),
+        "Name" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | Atom.t(),
         "State" => list(any()),
         "Type" => list(any())
       }
       
   """
-  @type describe_resource_response() :: %{String.t() => any()}
+  @type describe_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       unsupported_operation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type unsupported_operation_exception() :: %{String.t() => any()}
+  @type unsupported_operation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -317,13 +317,13 @@ defmodule AWS.WorkMail do
       list_groups_for_entity_request() :: %{
         optional("Filters") => list_groups_for_entity_filters(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("EntityId") => String.t(),
-        required("OrganizationId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("EntityId") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type list_groups_for_entity_request() :: %{String.t() => any()}
+  @type list_groups_for_entity_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -339,73 +339,73 @@ defmodule AWS.WorkMail do
   ## Example:
       
       entity_state_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type entity_state_exception() :: %{String.t() => any()}
+  @type entity_state_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       test_availability_configuration_request() :: %{
-        optional("DomainName") => String.t(),
+        optional("DomainName") => String.t() | Atom.t(),
         optional("EwsProvider") => ews_availability_provider(),
         optional("LambdaProvider") => lambda_availability_provider(),
-        required("OrganizationId") => String.t()
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type test_availability_configuration_request() :: %{String.t() => any()}
+  @type test_availability_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_delegate_to_resource_request() :: %{
-        required("EntityId") => String.t(),
-        required("OrganizationId") => String.t(),
-        required("ResourceId") => String.t()
+        required("EntityId") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t(),
+        required("ResourceId") => String.t() | Atom.t()
       }
       
   """
-  @type associate_delegate_to_resource_request() :: %{String.t() => any()}
+  @type associate_delegate_to_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_mobile_device_access_rule_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("Description") => String.t(),
-        optional("DeviceModels") => list(String.t()),
-        optional("DeviceOperatingSystems") => list(String.t()),
-        optional("DeviceTypes") => list(String.t()),
-        optional("DeviceUserAgents") => list(String.t()),
-        optional("NotDeviceModels") => list(String.t()),
-        optional("NotDeviceOperatingSystems") => list(String.t()),
-        optional("NotDeviceTypes") => list(String.t()),
-        optional("NotDeviceUserAgents") => list(String.t()),
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("DeviceModels") => list(String.t() | Atom.t()),
+        optional("DeviceOperatingSystems") => list(String.t() | Atom.t()),
+        optional("DeviceTypes") => list(String.t() | Atom.t()),
+        optional("DeviceUserAgents") => list(String.t() | Atom.t()),
+        optional("NotDeviceModels") => list(String.t() | Atom.t()),
+        optional("NotDeviceOperatingSystems") => list(String.t() | Atom.t()),
+        optional("NotDeviceTypes") => list(String.t() | Atom.t()),
+        optional("NotDeviceUserAgents") => list(String.t() | Atom.t()),
         required("Effect") => list(any()),
-        required("Name") => String.t(),
-        required("OrganizationId") => String.t()
+        required("Name") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type create_mobile_device_access_rule_request() :: %{String.t() => any()}
+  @type create_mobile_device_access_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_resource_request() :: %{
-        required("OrganizationId") => String.t(),
-        required("ResourceId") => String.t()
+        required("OrganizationId") => String.t() | Atom.t(),
+        required("ResourceId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_resource_request() :: %{String.t() => any()}
+  @type delete_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -413,12 +413,12 @@ defmodule AWS.WorkMail do
       
       list_availability_configurations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("OrganizationId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type list_availability_configurations_request() :: %{String.t() => any()}
+  @type list_availability_configurations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -435,42 +435,42 @@ defmodule AWS.WorkMail do
       
       update_resource_request() :: %{
         optional("BookingOptions") => booking_options(),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("HiddenFromGlobalAddressList") => boolean(),
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | Atom.t(),
         optional("Type") => list(any()),
-        required("OrganizationId") => String.t(),
-        required("ResourceId") => String.t()
+        required("OrganizationId") => String.t() | Atom.t(),
+        required("ResourceId") => String.t() | Atom.t()
       }
       
   """
-  @type update_resource_request() :: %{String.t() => any()}
+  @type update_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_access_control_effect_request() :: %{
-        optional("ImpersonationRoleId") => String.t(),
-        optional("UserId") => String.t(),
-        required("Action") => String.t(),
-        required("IpAddress") => String.t(),
-        required("OrganizationId") => String.t()
+        optional("ImpersonationRoleId") => String.t() | Atom.t(),
+        optional("UserId") => String.t() | Atom.t(),
+        required("Action") => String.t() | Atom.t(),
+        required("IpAddress") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type get_access_control_effect_request() :: %{String.t() => any()}
+  @type get_access_control_effect_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_identity_center_application_request() :: %{
-        required("ApplicationArn") => String.t()
+        required("ApplicationArn") => String.t() | Atom.t()
       }
       
   """
-  @type delete_identity_center_application_request() :: %{String.t() => any()}
+  @type delete_identity_center_application_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -487,25 +487,25 @@ defmodule AWS.WorkMail do
       
       list_impersonation_roles_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("OrganizationId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type list_impersonation_roles_request() :: %{String.t() => any()}
+  @type list_impersonation_roles_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_alias_request() :: %{
-        required("Alias") => String.t(),
-        required("EntityId") => String.t(),
-        required("OrganizationId") => String.t()
+        required("Alias") => String.t() | Atom.t(),
+        required("EntityId") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type create_alias_request() :: %{String.t() => any()}
+  @type create_alias_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -524,27 +524,27 @@ defmodule AWS.WorkMail do
         "DateCreated" => non_neg_integer(),
         "DateLastUsed" => non_neg_integer(),
         "ExpiresTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "PersonalAccessTokenId" => String.t(),
-        "Scopes" => list(String.t()),
-        "UserId" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "PersonalAccessTokenId" => String.t() | Atom.t(),
+        "Scopes" => list(String.t() | Atom.t()),
+        "UserId" => String.t() | Atom.t()
       }
       
   """
-  @type personal_access_token_summary() :: %{String.t() => any()}
+  @type personal_access_token_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_primary_email_address_request() :: %{
-        required("Email") => String.t(),
-        required("EntityId") => String.t(),
-        required("OrganizationId") => String.t()
+        required("Email") => String.t() | Atom.t(),
+        required("EntityId") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type update_primary_email_address_request() :: %{String.t() => any()}
+  @type update_primary_email_address_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -552,28 +552,28 @@ defmodule AWS.WorkMail do
       
       list_personal_access_tokens_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("UserId") => String.t(),
-        required("OrganizationId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("UserId") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type list_personal_access_tokens_request() :: %{String.t() => any()}
+  @type list_personal_access_tokens_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_mobile_device_access_overrides_request() :: %{
-        optional("DeviceId") => String.t(),
+        optional("DeviceId") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("UserId") => String.t(),
-        required("OrganizationId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("UserId") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type list_mobile_device_access_overrides_request() :: %{String.t() => any()}
+  @type list_mobile_device_access_overrides_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -589,26 +589,26 @@ defmodule AWS.WorkMail do
   ## Example:
       
       delete_mobile_device_access_override_request() :: %{
-        required("DeviceId") => String.t(),
-        required("OrganizationId") => String.t(),
-        required("UserId") => String.t()
+        required("DeviceId") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t(),
+        required("UserId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_mobile_device_access_override_request() :: %{String.t() => any()}
+  @type delete_mobile_device_access_override_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_mobile_device_access_override_request() :: %{
-        required("DeviceId") => String.t(),
-        required("OrganizationId") => String.t(),
-        required("UserId") => String.t()
+        required("DeviceId") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t(),
+        required("UserId") => String.t() | Atom.t()
       }
       
   """
-  @type get_mobile_device_access_override_request() :: %{String.t() => any()}
+  @type get_mobile_device_access_override_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -623,7 +623,7 @@ defmodule AWS.WorkMail do
       }
       
   """
-  @type get_mail_domain_response() :: %{String.t() => any()}
+  @type get_mail_domain_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -631,83 +631,83 @@ defmodule AWS.WorkMail do
       
       list_mailbox_export_jobs_response() :: %{
         "Jobs" => list(mailbox_export_job()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_mailbox_export_jobs_response() :: %{String.t() => any()}
+  @type list_mailbox_export_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_access_control_rules_request() :: %{
-        required("OrganizationId") => String.t()
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type list_access_control_rules_request() :: %{String.t() => any()}
+  @type list_access_control_rules_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       organization_state_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type organization_state_exception() :: %{String.t() => any()}
+  @type organization_state_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_users_filters() :: %{
-        "DisplayNamePrefix" => String.t(),
-        "IdentityProviderUserIdPrefix" => String.t(),
-        "PrimaryEmailPrefix" => String.t(),
+        "DisplayNamePrefix" => String.t() | Atom.t(),
+        "IdentityProviderUserIdPrefix" => String.t() | Atom.t(),
+        "PrimaryEmailPrefix" => String.t() | Atom.t(),
         "State" => list(any()),
-        "UsernamePrefix" => String.t()
+        "UsernamePrefix" => String.t() | Atom.t()
       }
       
   """
-  @type list_users_filters() :: %{String.t() => any()}
+  @type list_users_filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       access_control_rule() :: %{
-        "Actions" => list(String.t()),
+        "Actions" => list(String.t() | Atom.t()),
         "DateCreated" => non_neg_integer(),
         "DateModified" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "Effect" => list(any()),
-        "ImpersonationRoleIds" => list(String.t()),
-        "IpRanges" => list(String.t()),
-        "Name" => String.t(),
-        "NotActions" => list(String.t()),
-        "NotImpersonationRoleIds" => list(String.t()),
-        "NotIpRanges" => list(String.t()),
-        "NotUserIds" => list(String.t()),
-        "UserIds" => list(String.t())
+        "ImpersonationRoleIds" => list(String.t() | Atom.t()),
+        "IpRanges" => list(String.t() | Atom.t()),
+        "Name" => String.t() | Atom.t(),
+        "NotActions" => list(String.t() | Atom.t()),
+        "NotImpersonationRoleIds" => list(String.t() | Atom.t()),
+        "NotIpRanges" => list(String.t() | Atom.t()),
+        "NotUserIds" => list(String.t() | Atom.t()),
+        "UserIds" => list(String.t() | Atom.t())
       }
       
   """
-  @type access_control_rule() :: %{String.t() => any()}
+  @type access_control_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       domain() :: %{
-        "DomainName" => String.t(),
-        "HostedZoneId" => String.t()
+        "DomainName" => String.t() | Atom.t(),
+        "HostedZoneId" => String.t() | Atom.t()
       }
       
   """
-  @type domain() :: %{String.t() => any()}
+  @type domain() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -720,7 +720,7 @@ defmodule AWS.WorkMail do
       }
       
   """
-  @type describe_identity_provider_configuration_response() :: %{String.t() => any()}
+  @type describe_identity_provider_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -736,11 +736,11 @@ defmodule AWS.WorkMail do
   ## Example:
       
       create_mobile_device_access_rule_response() :: %{
-        "MobileDeviceAccessRuleId" => String.t()
+        "MobileDeviceAccessRuleId" => String.t() | Atom.t()
       }
       
   """
-  @type create_mobile_device_access_rule_response() :: %{String.t() => any()}
+  @type create_mobile_device_access_rule_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -766,37 +766,37 @@ defmodule AWS.WorkMail do
       
       assume_impersonation_role_response() :: %{
         "ExpiresIn" => float(),
-        "Token" => String.t()
+        "Token" => String.t() | Atom.t()
       }
       
   """
-  @type assume_impersonation_role_response() :: %{String.t() => any()}
+  @type assume_impersonation_role_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_retention_policy_request() :: %{
-        optional("Description") => String.t(),
-        optional("Id") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("Id") => String.t() | Atom.t(),
         required("FolderConfigurations") => list(folder_configuration()),
-        required("Name") => String.t(),
-        required("OrganizationId") => String.t()
+        required("Name") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type put_retention_policy_request() :: %{String.t() => any()}
+  @type put_retention_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       mail_domain_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type mail_domain_not_found_exception() :: %{String.t() => any()}
+  @type mail_domain_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -804,11 +804,11 @@ defmodule AWS.WorkMail do
       
       list_mail_domains_response() :: %{
         "MailDomains" => list(mail_domain_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_mail_domains_response() :: %{String.t() => any()}
+  @type list_mail_domains_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -819,7 +819,7 @@ defmodule AWS.WorkMail do
       }
       
   """
-  @type list_mobile_device_access_rules_response() :: %{String.t() => any()}
+  @type list_mobile_device_access_rules_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -829,14 +829,14 @@ defmodule AWS.WorkMail do
         "DateCreated" => non_neg_integer(),
         "DateLastUsed" => non_neg_integer(),
         "ExpiresTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "PersonalAccessTokenId" => String.t(),
-        "Scopes" => list(String.t()),
-        "UserId" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "PersonalAccessTokenId" => String.t() | Atom.t(),
+        "Scopes" => list(String.t() | Atom.t()),
+        "UserId" => String.t() | Atom.t()
       }
       
   """
-  @type get_personal_access_token_metadata_response() :: %{String.t() => any()}
+  @type get_personal_access_token_metadata_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -844,38 +844,38 @@ defmodule AWS.WorkMail do
       
       list_resource_delegates_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("OrganizationId") => String.t(),
-        required("ResourceId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t(),
+        required("ResourceId") => String.t() | Atom.t()
       }
       
   """
-  @type list_resource_delegates_request() :: %{String.t() => any()}
+  @type list_resource_delegates_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       ews_availability_provider() :: %{
-        "EwsEndpoint" => String.t(),
-        "EwsPassword" => String.t(),
-        "EwsUsername" => String.t()
+        "EwsEndpoint" => String.t() | Atom.t(),
+        "EwsPassword" => String.t() | Atom.t(),
+        "EwsUsername" => String.t() | Atom.t()
       }
       
   """
-  @type ews_availability_provider() :: %{String.t() => any()}
+  @type ews_availability_provider() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_personal_access_token_request() :: %{
-        required("OrganizationId") => String.t(),
-        required("PersonalAccessTokenId") => String.t()
+        required("OrganizationId") => String.t() | Atom.t(),
+        required("PersonalAccessTokenId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_personal_access_token_request() :: %{String.t() => any()}
+  @type delete_personal_access_token_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -891,38 +891,38 @@ defmodule AWS.WorkMail do
   ## Example:
       
       describe_entity_response() :: %{
-        "EntityId" => String.t(),
-        "Name" => String.t(),
+        "EntityId" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "Type" => list(any())
       }
       
   """
-  @type describe_entity_response() :: %{String.t() => any()}
+  @type describe_entity_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_groups_filters() :: %{
-        "NamePrefix" => String.t(),
-        "PrimaryEmailPrefix" => String.t(),
+        "NamePrefix" => String.t() | Atom.t(),
+        "PrimaryEmailPrefix" => String.t() | Atom.t(),
         "State" => list(any())
       }
       
   """
-  @type list_groups_filters() :: %{String.t() => any()}
+  @type list_groups_filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceARN") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -930,61 +930,61 @@ defmodule AWS.WorkMail do
       
       list_resource_delegates_response() :: %{
         "Delegates" => list(delegate()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_resource_delegates_response() :: %{String.t() => any()}
+  @type list_resource_delegates_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_default_retention_policy_request() :: %{
-        required("OrganizationId") => String.t()
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type get_default_retention_policy_request() :: %{String.t() => any()}
+  @type get_default_retention_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       deregister_from_work_mail_request() :: %{
-        required("EntityId") => String.t(),
-        required("OrganizationId") => String.t()
+        required("EntityId") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type deregister_from_work_mail_request() :: %{String.t() => any()}
+  @type deregister_from_work_mail_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       group_identifier() :: %{
-        "GroupId" => String.t(),
-        "GroupName" => String.t()
+        "GroupId" => String.t() | Atom.t(),
+        "GroupName" => String.t() | Atom.t()
       }
       
   """
-  @type group_identifier() :: %{String.t() => any()}
+  @type group_identifier() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_availability_configuration_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
         optional("EwsProvider") => ews_availability_provider(),
         optional("LambdaProvider") => lambda_availability_provider(),
-        required("DomainName") => String.t(),
-        required("OrganizationId") => String.t()
+        required("DomainName") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type create_availability_configuration_request() :: %{String.t() => any()}
+  @type create_availability_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1000,16 +1000,16 @@ defmodule AWS.WorkMail do
   ## Example:
       
       create_impersonation_role_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("Description") => String.t(),
-        required("Name") => String.t(),
-        required("OrganizationId") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t(),
         required("Rules") => list(impersonation_rule()),
         required("Type") => list(any())
       }
       
   """
-  @type create_impersonation_role_request() :: %{String.t() => any()}
+  @type create_impersonation_role_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1017,12 +1017,12 @@ defmodule AWS.WorkMail do
       
       update_group_request() :: %{
         optional("HiddenFromGlobalAddressList") => boolean(),
-        required("GroupId") => String.t(),
-        required("OrganizationId") => String.t()
+        required("GroupId") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type update_group_request() :: %{String.t() => any()}
+  @type update_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1062,20 +1062,20 @@ defmodule AWS.WorkMail do
       }
       
   """
-  @type booking_options() :: %{String.t() => any()}
+  @type booking_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_impersonation_role_effect_request() :: %{
-        required("ImpersonationRoleId") => String.t(),
-        required("OrganizationId") => String.t(),
-        required("TargetUser") => String.t()
+        required("ImpersonationRoleId") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t(),
+        required("TargetUser") => String.t() | Atom.t()
       }
       
   """
-  @type get_impersonation_role_effect_request() :: %{String.t() => any()}
+  @type get_impersonation_role_effect_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1091,23 +1091,23 @@ defmodule AWS.WorkMail do
   ## Example:
       
       create_identity_center_application_response() :: %{
-        "ApplicationArn" => String.t()
+        "ApplicationArn" => String.t() | Atom.t()
       }
       
   """
-  @type create_identity_center_application_response() :: %{String.t() => any()}
+  @type create_identity_center_application_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_mailbox_details_request() :: %{
-        required("OrganizationId") => String.t(),
-        required("UserId") => String.t()
+        required("OrganizationId") => String.t() | Atom.t(),
+        required("UserId") => String.t() | Atom.t()
       }
       
   """
-  @type get_mailbox_details_request() :: %{String.t() => any()}
+  @type get_mailbox_details_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1119,30 +1119,30 @@ defmodule AWS.WorkMail do
       }
       
   """
-  @type personal_access_token_configuration() :: %{String.t() => any()}
+  @type personal_access_token_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_retention_policy_request() :: %{
-        required("Id") => String.t(),
-        required("OrganizationId") => String.t()
+        required("Id") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_retention_policy_request() :: %{String.t() => any()}
+  @type delete_retention_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       name_availability_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type name_availability_exception() :: %{String.t() => any()}
+  @type name_availability_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1159,56 +1159,56 @@ defmodule AWS.WorkMail do
       
       put_inbound_dmarc_settings_request() :: %{
         required("Enforced") => boolean(),
-        required("OrganizationId") => String.t()
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type put_inbound_dmarc_settings_request() :: %{String.t() => any()}
+  @type put_inbound_dmarc_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       lambda_availability_provider() :: %{
-        "LambdaArn" => String.t()
+        "LambdaArn" => String.t() | Atom.t()
       }
       
   """
-  @type lambda_availability_provider() :: %{String.t() => any()}
+  @type lambda_availability_provider() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       test_availability_configuration_response() :: %{
-        "FailureReason" => String.t(),
+        "FailureReason" => String.t() | Atom.t(),
         "TestPassed" => boolean()
       }
       
   """
-  @type test_availability_configuration_response() :: %{String.t() => any()}
+  @type test_availability_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       mail_domain_state_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type mail_domain_state_exception() :: %{String.t() => any()}
+  @type mail_domain_state_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1219,18 +1219,18 @@ defmodule AWS.WorkMail do
       }
       
   """
-  @type describe_inbound_dmarc_settings_response() :: %{String.t() => any()}
+  @type describe_inbound_dmarc_settings_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_identity_provider_configuration_request() :: %{
-        required("OrganizationId") => String.t()
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_identity_provider_configuration_request() :: %{String.t() => any()}
+  @type delete_identity_provider_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1255,23 +1255,23 @@ defmodule AWS.WorkMail do
   ## Example:
       
       list_groups_for_entity_filters() :: %{
-        "GroupNamePrefix" => String.t()
+        "GroupNamePrefix" => String.t() | Atom.t()
       }
       
   """
-  @type list_groups_for_entity_filters() :: %{String.t() => any()}
+  @type list_groups_for_entity_filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_mail_domain_request() :: %{
-        required("DomainName") => String.t(),
-        required("OrganizationId") => String.t()
+        required("DomainName") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type get_mail_domain_request() :: %{String.t() => any()}
+  @type get_mail_domain_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1287,12 +1287,12 @@ defmodule AWS.WorkMail do
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1308,11 +1308,11 @@ defmodule AWS.WorkMail do
   ## Example:
       
       organization_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type organization_not_found_exception() :: %{String.t() => any()}
+  @type organization_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1338,27 +1338,27 @@ defmodule AWS.WorkMail do
       
       list_mailbox_permissions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("EntityId") => String.t(),
-        required("OrganizationId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("EntityId") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type list_mailbox_permissions_request() :: %{String.t() => any()}
+  @type list_mailbox_permissions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_mailbox_permissions_request() :: %{
-        required("EntityId") => String.t(),
-        required("GranteeId") => String.t(),
-        required("OrganizationId") => String.t(),
+        required("EntityId") => String.t() | Atom.t(),
+        required("GranteeId") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t(),
         required("PermissionValues") => list(list(any())())
       }
       
   """
-  @type put_mailbox_permissions_request() :: %{String.t() => any()}
+  @type put_mailbox_permissions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1367,14 +1367,14 @@ defmodule AWS.WorkMail do
       get_mobile_device_access_override_response() :: %{
         "DateCreated" => non_neg_integer(),
         "DateModified" => non_neg_integer(),
-        "Description" => String.t(),
-        "DeviceId" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "DeviceId" => String.t() | Atom.t(),
         "Effect" => list(any()),
-        "UserId" => String.t()
+        "UserId" => String.t() | Atom.t()
       }
       
   """
-  @type get_mobile_device_access_override_response() :: %{String.t() => any()}
+  @type get_mobile_device_access_override_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1399,12 +1399,12 @@ defmodule AWS.WorkMail do
   ## Example:
       
       list_impersonation_roles_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Roles" => list(impersonation_role())
       }
       
   """
-  @type list_impersonation_roles_response() :: %{String.t() => any()}
+  @type list_impersonation_roles_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1412,23 +1412,23 @@ defmodule AWS.WorkMail do
       
       mail_domain_summary() :: %{
         "DefaultDomain" => boolean(),
-        "DomainName" => String.t()
+        "DomainName" => String.t() | Atom.t()
       }
       
   """
-  @type mail_domain_summary() :: %{String.t() => any()}
+  @type mail_domain_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_users_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Users" => list(user())
       }
       
   """
-  @type list_users_response() :: %{String.t() => any()}
+  @type list_users_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1441,55 +1441,55 @@ defmodule AWS.WorkMail do
       }
       
   """
-  @type get_impersonation_role_effect_response() :: %{String.t() => any()}
+  @type get_impersonation_role_effect_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_identity_provider_configuration_request() :: %{
-        required("OrganizationId") => String.t()
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_identity_provider_configuration_request() :: %{String.t() => any()}
+  @type describe_identity_provider_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_organization_response() :: %{
-        "OrganizationId" => String.t(),
-        "State" => String.t()
+        "OrganizationId" => String.t() | Atom.t(),
+        "State" => String.t() | Atom.t()
       }
       
   """
-  @type delete_organization_response() :: %{String.t() => any()}
+  @type delete_organization_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_mailbox_export_job_request() :: %{
-        required("JobId") => String.t(),
-        required("OrganizationId") => String.t()
+        required("JobId") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_mailbox_export_job_request() :: %{String.t() => any()}
+  @type describe_mailbox_export_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_member_from_group_request() :: %{
-        required("GroupId") => String.t(),
-        required("MemberId") => String.t(),
-        required("OrganizationId") => String.t()
+        required("GroupId") => String.t() | Atom.t(),
+        required("MemberId") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type disassociate_member_from_group_request() :: %{String.t() => any()}
+  @type disassociate_member_from_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1498,14 +1498,14 @@ defmodule AWS.WorkMail do
       availability_configuration() :: %{
         "DateCreated" => non_neg_integer(),
         "DateModified" => non_neg_integer(),
-        "DomainName" => String.t(),
+        "DomainName" => String.t() | Atom.t(),
         "EwsProvider" => redacted_ews_availability_provider(),
         "LambdaProvider" => lambda_availability_provider(),
         "ProviderType" => list(any())
       }
       
   """
-  @type availability_configuration() :: %{String.t() => any()}
+  @type availability_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1514,12 +1514,12 @@ defmodule AWS.WorkMail do
       update_availability_configuration_request() :: %{
         optional("EwsProvider") => ews_availability_provider(),
         optional("LambdaProvider") => lambda_availability_provider(),
-        required("DomainName") => String.t(),
-        required("OrganizationId") => String.t()
+        required("DomainName") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type update_availability_configuration_request() :: %{String.t() => any()}
+  @type update_availability_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1548,30 +1548,30 @@ defmodule AWS.WorkMail do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       mail_domain_in_use_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type mail_domain_in_use_exception() :: %{String.t() => any()}
+  @type mail_domain_in_use_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_default_mail_domain_request() :: %{
-        required("DomainName") => String.t(),
-        required("OrganizationId") => String.t()
+        required("DomainName") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type update_default_mail_domain_request() :: %{String.t() => any()}
+  @type update_default_mail_domain_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1579,12 +1579,12 @@ defmodule AWS.WorkMail do
       
       create_group_request() :: %{
         optional("HiddenFromGlobalAddressList") => boolean(),
-        required("Name") => String.t(),
-        required("OrganizationId") => String.t()
+        required("Name") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type create_group_request() :: %{String.t() => any()}
+  @type create_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1600,12 +1600,12 @@ defmodule AWS.WorkMail do
   ## Example:
       
       delete_impersonation_role_request() :: %{
-        required("ImpersonationRoleId") => String.t(),
-        required("OrganizationId") => String.t()
+        required("ImpersonationRoleId") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_impersonation_role_request() :: %{String.t() => any()}
+  @type delete_impersonation_role_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1623,29 +1623,29 @@ defmodule AWS.WorkMail do
       mobile_device_access_override() :: %{
         "DateCreated" => non_neg_integer(),
         "DateModified" => non_neg_integer(),
-        "Description" => String.t(),
-        "DeviceId" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "DeviceId" => String.t() | Atom.t(),
         "Effect" => list(any()),
-        "UserId" => String.t()
+        "UserId" => String.t() | Atom.t()
       }
       
   """
-  @type mobile_device_access_override() :: %{String.t() => any()}
+  @type mobile_device_access_override() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_resource_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("HiddenFromGlobalAddressList") => boolean(),
-        required("Name") => String.t(),
-        required("OrganizationId") => String.t(),
+        required("Name") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t(),
         required("Type") => list(any())
       }
       
   """
-  @type create_resource_request() :: %{String.t() => any()}
+  @type create_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1653,38 +1653,38 @@ defmodule AWS.WorkMail do
       
       list_groups_for_entity_response() :: %{
         "Groups" => list(group_identifier()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_groups_for_entity_response() :: %{String.t() => any()}
+  @type list_groups_for_entity_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       organization_summary() :: %{
-        "Alias" => String.t(),
-        "DefaultMailDomain" => String.t(),
-        "ErrorMessage" => String.t(),
-        "OrganizationId" => String.t(),
-        "State" => String.t()
+        "Alias" => String.t() | Atom.t(),
+        "DefaultMailDomain" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | Atom.t(),
+        "OrganizationId" => String.t() | Atom.t(),
+        "State" => String.t() | Atom.t()
       }
       
   """
-  @type organization_summary() :: %{String.t() => any()}
+  @type organization_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_user_request() :: %{
-        required("OrganizationId") => String.t(),
-        required("UserId") => String.t()
+        required("OrganizationId") => String.t() | Atom.t(),
+        required("UserId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_user_request() :: %{String.t() => any()}
+  @type delete_user_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1692,46 +1692,46 @@ defmodule AWS.WorkMail do
       
       list_mailbox_export_jobs_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("OrganizationId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type list_mailbox_export_jobs_request() :: %{String.t() => any()}
+  @type list_mailbox_export_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_organization_response() :: %{
-        "ARN" => String.t(),
-        "Alias" => String.t(),
+        "ARN" => String.t() | Atom.t(),
+        "Alias" => String.t() | Atom.t(),
         "CompletedDate" => non_neg_integer(),
-        "DefaultMailDomain" => String.t(),
-        "DirectoryId" => String.t(),
-        "DirectoryType" => String.t(),
-        "ErrorMessage" => String.t(),
+        "DefaultMailDomain" => String.t() | Atom.t(),
+        "DirectoryId" => String.t() | Atom.t(),
+        "DirectoryType" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | Atom.t(),
         "InteroperabilityEnabled" => boolean(),
-        "MigrationAdmin" => String.t(),
-        "OrganizationId" => String.t(),
-        "State" => String.t()
+        "MigrationAdmin" => String.t() | Atom.t(),
+        "OrganizationId" => String.t() | Atom.t(),
+        "State" => String.t() | Atom.t()
       }
       
   """
-  @type describe_organization_response() :: %{String.t() => any()}
+  @type describe_organization_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       register_to_work_mail_request() :: %{
-        required("Email") => String.t(),
-        required("EntityId") => String.t(),
-        required("OrganizationId") => String.t()
+        required("Email") => String.t() | Atom.t(),
+        required("EntityId") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type register_to_work_mail_request() :: %{String.t() => any()}
+  @type register_to_work_mail_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1756,84 +1756,84 @@ defmodule AWS.WorkMail do
   ## Example:
       
       get_impersonation_role_request() :: %{
-        required("ImpersonationRoleId") => String.t(),
-        required("OrganizationId") => String.t()
+        required("ImpersonationRoleId") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type get_impersonation_role_request() :: %{String.t() => any()}
+  @type get_impersonation_role_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_mobile_device_access_override_request() :: %{
-        optional("Description") => String.t(),
-        required("DeviceId") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
+        required("DeviceId") => String.t() | Atom.t(),
         required("Effect") => list(any()),
-        required("OrganizationId") => String.t(),
-        required("UserId") => String.t()
+        required("OrganizationId") => String.t() | Atom.t(),
+        required("UserId") => String.t() | Atom.t()
       }
       
   """
-  @type put_mobile_device_access_override_request() :: %{String.t() => any()}
+  @type put_mobile_device_access_override_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_mailbox_export_job_response() :: %{
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "EndTime" => non_neg_integer(),
-        "EntityId" => String.t(),
-        "ErrorInfo" => String.t(),
+        "EntityId" => String.t() | Atom.t(),
+        "ErrorInfo" => String.t() | Atom.t(),
         "EstimatedProgress" => integer(),
-        "KmsKeyArn" => String.t(),
-        "RoleArn" => String.t(),
-        "S3BucketName" => String.t(),
-        "S3Path" => String.t(),
-        "S3Prefix" => String.t(),
+        "KmsKeyArn" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | Atom.t(),
+        "S3BucketName" => String.t() | Atom.t(),
+        "S3Path" => String.t() | Atom.t(),
+        "S3Prefix" => String.t() | Atom.t(),
         "StartTime" => non_neg_integer(),
         "State" => list(any())
       }
       
   """
-  @type describe_mailbox_export_job_response() :: %{String.t() => any()}
+  @type describe_mailbox_export_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_user_response() :: %{
-        "City" => String.t(),
-        "Company" => String.t(),
-        "Country" => String.t(),
-        "Department" => String.t(),
+        "City" => String.t() | Atom.t(),
+        "Company" => String.t() | Atom.t(),
+        "Country" => String.t() | Atom.t(),
+        "Department" => String.t() | Atom.t(),
         "DisabledDate" => non_neg_integer(),
-        "DisplayName" => String.t(),
-        "Email" => String.t(),
+        "DisplayName" => String.t() | Atom.t(),
+        "Email" => String.t() | Atom.t(),
         "EnabledDate" => non_neg_integer(),
-        "FirstName" => String.t(),
+        "FirstName" => String.t() | Atom.t(),
         "HiddenFromGlobalAddressList" => boolean(),
-        "IdentityProviderIdentityStoreId" => String.t(),
-        "IdentityProviderUserId" => String.t(),
-        "Initials" => String.t(),
-        "JobTitle" => String.t(),
-        "LastName" => String.t(),
+        "IdentityProviderIdentityStoreId" => String.t() | Atom.t(),
+        "IdentityProviderUserId" => String.t() | Atom.t(),
+        "Initials" => String.t() | Atom.t(),
+        "JobTitle" => String.t() | Atom.t(),
+        "LastName" => String.t() | Atom.t(),
         "MailboxDeprovisionedDate" => non_neg_integer(),
         "MailboxProvisionedDate" => non_neg_integer(),
-        "Name" => String.t(),
-        "Office" => String.t(),
+        "Name" => String.t() | Atom.t(),
+        "Office" => String.t() | Atom.t(),
         "State" => list(any()),
-        "Street" => String.t(),
-        "Telephone" => String.t(),
-        "UserId" => String.t(),
+        "Street" => String.t() | Atom.t(),
+        "Telephone" => String.t() | Atom.t(),
+        "UserId" => String.t() | Atom.t(),
         "UserRole" => list(any()),
-        "ZipCode" => String.t()
+        "ZipCode" => String.t() | Atom.t()
       }
       
   """
-  @type describe_user_response() :: %{String.t() => any()}
+  @type describe_user_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1851,124 +1851,124 @@ defmodule AWS.WorkMail do
       impersonation_role() :: %{
         "DateCreated" => non_neg_integer(),
         "DateModified" => non_neg_integer(),
-        "ImpersonationRoleId" => String.t(),
-        "Name" => String.t(),
+        "ImpersonationRoleId" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "Type" => list(any())
       }
       
   """
-  @type impersonation_role() :: %{String.t() => any()}
+  @type impersonation_role() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_entity_request() :: %{
-        required("Email") => String.t(),
-        required("OrganizationId") => String.t()
+        required("Email") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_entity_request() :: %{String.t() => any()}
+  @type describe_entity_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reset_password_request() :: %{
-        required("OrganizationId") => String.t(),
-        required("Password") => String.t(),
-        required("UserId") => String.t()
+        required("OrganizationId") => String.t() | Atom.t(),
+        required("Password") => String.t() | Atom.t(),
+        required("UserId") => String.t() | Atom.t()
       }
       
   """
-  @type reset_password_request() :: %{String.t() => any()}
+  @type reset_password_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       put_access_control_rule_request() :: %{
-        optional("Actions") => list(String.t()),
-        optional("ImpersonationRoleIds") => list(String.t()),
-        optional("IpRanges") => list(String.t()),
-        optional("NotActions") => list(String.t()),
-        optional("NotImpersonationRoleIds") => list(String.t()),
-        optional("NotIpRanges") => list(String.t()),
-        optional("NotUserIds") => list(String.t()),
-        optional("UserIds") => list(String.t()),
-        required("Description") => String.t(),
+        optional("Actions") => list(String.t() | Atom.t()),
+        optional("ImpersonationRoleIds") => list(String.t() | Atom.t()),
+        optional("IpRanges") => list(String.t() | Atom.t()),
+        optional("NotActions") => list(String.t() | Atom.t()),
+        optional("NotImpersonationRoleIds") => list(String.t() | Atom.t()),
+        optional("NotIpRanges") => list(String.t() | Atom.t()),
+        optional("NotUserIds") => list(String.t() | Atom.t()),
+        optional("UserIds") => list(String.t() | Atom.t()),
+        required("Description") => String.t() | Atom.t(),
         required("Effect") => list(any()),
-        required("Name") => String.t(),
-        required("OrganizationId") => String.t()
+        required("Name") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type put_access_control_rule_request() :: %{String.t() => any()}
+  @type put_access_control_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       impersonation_matched_rule() :: %{
-        "ImpersonationRuleId" => String.t(),
-        "Name" => String.t()
+        "ImpersonationRuleId" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
       
   """
-  @type impersonation_matched_rule() :: %{String.t() => any()}
+  @type impersonation_matched_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       mobile_device_access_matched_rule() :: %{
-        "MobileDeviceAccessRuleId" => String.t(),
-        "Name" => String.t()
+        "MobileDeviceAccessRuleId" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
       
   """
-  @type mobile_device_access_matched_rule() :: %{String.t() => any()}
+  @type mobile_device_access_matched_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       impersonation_rule() :: %{
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "Effect" => list(any()),
-        "ImpersonationRuleId" => String.t(),
-        "Name" => String.t(),
-        "NotTargetUsers" => list(String.t()),
-        "TargetUsers" => list(String.t())
+        "ImpersonationRuleId" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "NotTargetUsers" => list(String.t() | Atom.t()),
+        "TargetUsers" => list(String.t() | Atom.t())
       }
       
   """
-  @type impersonation_rule() :: %{String.t() => any()}
+  @type impersonation_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       dns_record() :: %{
-        "Hostname" => String.t(),
-        "Type" => String.t(),
-        "Value" => String.t()
+        "Hostname" => String.t() | Atom.t(),
+        "Type" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type dns_record() :: %{String.t() => any()}
+  @type dns_record() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_organization_request() :: %{
-        required("OrganizationId") => String.t()
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_organization_request() :: %{String.t() => any()}
+  @type describe_organization_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1976,70 +1976,70 @@ defmodule AWS.WorkMail do
       
       update_mailbox_quota_request() :: %{
         required("MailboxQuota") => integer(),
-        required("OrganizationId") => String.t(),
-        required("UserId") => String.t()
+        required("OrganizationId") => String.t() | Atom.t(),
+        required("UserId") => String.t() | Atom.t()
       }
       
   """
-  @type update_mailbox_quota_request() :: %{String.t() => any()}
+  @type update_mailbox_quota_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_personal_access_token_metadata_request() :: %{
-        required("OrganizationId") => String.t(),
-        required("PersonalAccessTokenId") => String.t()
+        required("OrganizationId") => String.t() | Atom.t(),
+        required("PersonalAccessTokenId") => String.t() | Atom.t()
       }
       
   """
-  @type get_personal_access_token_metadata_request() :: %{String.t() => any()}
+  @type get_personal_access_token_metadata_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_mobile_device_access_rules_request() :: %{
-        required("OrganizationId") => String.t()
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type list_mobile_device_access_rules_request() :: %{String.t() => any()}
+  @type list_mobile_device_access_rules_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_email_monitoring_configuration_request() :: %{
-        required("OrganizationId") => String.t()
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_email_monitoring_configuration_request() :: %{String.t() => any()}
+  @type delete_email_monitoring_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_configuration_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_configuration_exception() :: %{String.t() => any()}
+  @type invalid_configuration_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       register_mail_domain_request() :: %{
-        optional("ClientToken") => String.t(),
-        required("DomainName") => String.t(),
-        required("OrganizationId") => String.t()
+        optional("ClientToken") => String.t() | Atom.t(),
+        required("DomainName") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type register_mail_domain_request() :: %{String.t() => any()}
+  @type register_mail_domain_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2056,11 +2056,11 @@ defmodule AWS.WorkMail do
       
       list_availability_configurations_response() :: %{
         "AvailabilityConfigurations" => list(availability_configuration()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_availability_configurations_response() :: %{String.t() => any()}
+  @type list_availability_configurations_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2076,33 +2076,33 @@ defmodule AWS.WorkMail do
   ## Example:
       
       invalid_parameter_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_parameter_exception() :: %{String.t() => any()}
+  @type invalid_parameter_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_resource_response() :: %{
-        "ResourceId" => String.t()
+        "ResourceId" => String.t() | Atom.t()
       }
       
   """
-  @type create_resource_response() :: %{String.t() => any()}
+  @type create_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_email_monitoring_configuration_request() :: %{
-        required("OrganizationId") => String.t()
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_email_monitoring_configuration_request() :: %{String.t() => any()}
+  @type describe_email_monitoring_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2118,28 +2118,28 @@ defmodule AWS.WorkMail do
   ## Example:
       
       update_impersonation_role_request() :: %{
-        optional("Description") => String.t(),
-        required("ImpersonationRoleId") => String.t(),
-        required("Name") => String.t(),
-        required("OrganizationId") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
+        required("ImpersonationRoleId") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t(),
         required("Rules") => list(impersonation_rule()),
         required("Type") => list(any())
       }
       
   """
-  @type update_impersonation_role_request() :: %{String.t() => any()}
+  @type update_impersonation_role_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_user_request() :: %{
-        required("OrganizationId") => String.t(),
-        required("UserId") => String.t()
+        required("OrganizationId") => String.t() | Atom.t(),
+        required("UserId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_user_request() :: %{String.t() => any()}
+  @type describe_user_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2150,7 +2150,7 @@ defmodule AWS.WorkMail do
       }
       
   """
-  @type list_access_control_rules_response() :: %{String.t() => any()}
+  @type list_access_control_rules_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2166,86 +2166,86 @@ defmodule AWS.WorkMail do
   ## Example:
       
       update_user_request() :: %{
-        optional("City") => String.t(),
-        optional("Company") => String.t(),
-        optional("Country") => String.t(),
-        optional("Department") => String.t(),
-        optional("DisplayName") => String.t(),
-        optional("FirstName") => String.t(),
+        optional("City") => String.t() | Atom.t(),
+        optional("Company") => String.t() | Atom.t(),
+        optional("Country") => String.t() | Atom.t(),
+        optional("Department") => String.t() | Atom.t(),
+        optional("DisplayName") => String.t() | Atom.t(),
+        optional("FirstName") => String.t() | Atom.t(),
         optional("HiddenFromGlobalAddressList") => boolean(),
-        optional("IdentityProviderUserId") => String.t(),
-        optional("Initials") => String.t(),
-        optional("JobTitle") => String.t(),
-        optional("LastName") => String.t(),
-        optional("Office") => String.t(),
+        optional("IdentityProviderUserId") => String.t() | Atom.t(),
+        optional("Initials") => String.t() | Atom.t(),
+        optional("JobTitle") => String.t() | Atom.t(),
+        optional("LastName") => String.t() | Atom.t(),
+        optional("Office") => String.t() | Atom.t(),
         optional("Role") => list(any()),
-        optional("Street") => String.t(),
-        optional("Telephone") => String.t(),
-        optional("ZipCode") => String.t(),
-        required("OrganizationId") => String.t(),
-        required("UserId") => String.t()
+        optional("Street") => String.t() | Atom.t(),
+        optional("Telephone") => String.t() | Atom.t(),
+        optional("ZipCode") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t(),
+        required("UserId") => String.t() | Atom.t()
       }
       
   """
-  @type update_user_request() :: %{String.t() => any()}
+  @type update_user_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       redacted_ews_availability_provider() :: %{
-        "EwsEndpoint" => String.t(),
-        "EwsUsername" => String.t()
+        "EwsEndpoint" => String.t() | Atom.t(),
+        "EwsUsername" => String.t() | Atom.t()
       }
       
   """
-  @type redacted_ews_availability_provider() :: %{String.t() => any()}
+  @type redacted_ews_availability_provider() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       directory_unavailable_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type directory_unavailable_exception() :: %{String.t() => any()}
+  @type directory_unavailable_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_availability_configuration_request() :: %{
-        required("DomainName") => String.t(),
-        required("OrganizationId") => String.t()
+        required("DomainName") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_availability_configuration_request() :: %{String.t() => any()}
+  @type delete_availability_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_email_monitoring_configuration_response() :: %{
-        "LogGroupArn" => String.t(),
-        "RoleArn" => String.t()
+        "LogGroupArn" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | Atom.t()
       }
       
   """
-  @type describe_email_monitoring_configuration_response() :: %{String.t() => any()}
+  @type describe_email_monitoring_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t()
+        required("ResourceARN") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2261,81 +2261,81 @@ defmodule AWS.WorkMail do
   ## Example:
       
       entity_already_registered_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type entity_already_registered_exception() :: %{String.t() => any()}
+  @type entity_already_registered_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       email_address_in_use_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type email_address_in_use_exception() :: %{String.t() => any()}
+  @type email_address_in_use_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_organization_response() :: %{
-        "OrganizationId" => String.t()
+        "OrganizationId" => String.t() | Atom.t()
       }
       
   """
-  @type create_organization_response() :: %{String.t() => any()}
+  @type create_organization_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       identity_center_configuration() :: %{
-        "ApplicationArn" => String.t(),
-        "InstanceArn" => String.t()
+        "ApplicationArn" => String.t() | Atom.t(),
+        "InstanceArn" => String.t() | Atom.t()
       }
       
   """
-  @type identity_center_configuration() :: %{String.t() => any()}
+  @type identity_center_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_mailbox_permissions_request() :: %{
-        required("EntityId") => String.t(),
-        required("GranteeId") => String.t(),
-        required("OrganizationId") => String.t()
+        required("EntityId") => String.t() | Atom.t(),
+        required("GranteeId") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_mailbox_permissions_request() :: %{String.t() => any()}
+  @type delete_mailbox_permissions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       directory_in_use_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type directory_in_use_exception() :: %{String.t() => any()}
+  @type directory_in_use_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_mailbox_permissions_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Permissions" => list(permission())
       }
       
   """
-  @type list_mailbox_permissions_response() :: %{String.t() => any()}
+  @type list_mailbox_permissions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2352,26 +2352,26 @@ defmodule AWS.WorkMail do
       
       group() :: %{
         "DisabledDate" => non_neg_integer(),
-        "Email" => String.t(),
+        "Email" => String.t() | Atom.t(),
         "EnabledDate" => non_neg_integer(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "State" => list(any())
       }
       
   """
-  @type group() :: %{String.t() => any()}
+  @type group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_custom_ses_configuration_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_custom_ses_configuration_exception() :: %{String.t() => any()}
+  @type invalid_custom_ses_configuration_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2379,43 +2379,43 @@ defmodule AWS.WorkMail do
       
       user() :: %{
         "DisabledDate" => non_neg_integer(),
-        "DisplayName" => String.t(),
-        "Email" => String.t(),
+        "DisplayName" => String.t() | Atom.t(),
+        "Email" => String.t() | Atom.t(),
         "EnabledDate" => non_neg_integer(),
-        "Id" => String.t(),
-        "IdentityProviderIdentityStoreId" => String.t(),
-        "IdentityProviderUserId" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "IdentityProviderIdentityStoreId" => String.t() | Atom.t(),
+        "IdentityProviderUserId" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "State" => list(any()),
         "UserRole" => list(any())
       }
       
   """
-  @type user() :: %{String.t() => any()}
+  @type user() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_group_request() :: %{
-        required("GroupId") => String.t(),
-        required("OrganizationId") => String.t()
+        required("GroupId") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_group_request() :: %{String.t() => any()}
+  @type describe_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_group_request() :: %{
-        required("GroupId") => String.t(),
-        required("OrganizationId") => String.t()
+        required("GroupId") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_group_request() :: %{String.t() => any()}
+  @type delete_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2423,23 +2423,23 @@ defmodule AWS.WorkMail do
       
       list_organizations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_organizations_request() :: %{String.t() => any()}
+  @type list_organizations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_resource_request() :: %{
-        required("OrganizationId") => String.t(),
-        required("ResourceId") => String.t()
+        required("OrganizationId") => String.t() | Atom.t(),
+        required("ResourceId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_resource_request() :: %{String.t() => any()}
+  @type describe_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2457,14 +2457,14 @@ defmodule AWS.WorkMail do
       member() :: %{
         "DisabledDate" => non_neg_integer(),
         "EnabledDate" => non_neg_integer(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "State" => list(any()),
         "Type" => list(any())
       }
       
   """
-  @type member() :: %{String.t() => any()}
+  @type member() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2473,35 +2473,35 @@ defmodule AWS.WorkMail do
       list_users_request() :: %{
         optional("Filters") => list_users_filters(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("OrganizationId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type list_users_request() :: %{String.t() => any()}
+  @type list_users_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delegate() :: %{
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "Type" => list(any())
       }
       
   """
-  @type delegate() :: %{String.t() => any()}
+  @type delegate() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2510,68 +2510,68 @@ defmodule AWS.WorkMail do
       list_resources_request() :: %{
         optional("Filters") => list_resources_filters(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("OrganizationId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type list_resources_request() :: %{String.t() => any()}
+  @type list_resources_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_mailbox_export_job_request() :: %{
-        optional("Description") => String.t(),
-        required("ClientToken") => String.t(),
-        required("EntityId") => String.t(),
-        required("KmsKeyArn") => String.t(),
-        required("OrganizationId") => String.t(),
-        required("RoleArn") => String.t(),
-        required("S3BucketName") => String.t(),
-        required("S3Prefix") => String.t()
+        optional("Description") => String.t() | Atom.t(),
+        required("ClientToken") => String.t() | Atom.t(),
+        required("EntityId") => String.t() | Atom.t(),
+        required("KmsKeyArn") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t(),
+        required("RoleArn") => String.t() | Atom.t(),
+        required("S3BucketName") => String.t() | Atom.t(),
+        required("S3Prefix") => String.t() | Atom.t()
       }
       
   """
-  @type start_mailbox_export_job_request() :: %{String.t() => any()}
+  @type start_mailbox_export_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_mobile_device_access_rule_request() :: %{
-        optional("Description") => String.t(),
-        optional("DeviceModels") => list(String.t()),
-        optional("DeviceOperatingSystems") => list(String.t()),
-        optional("DeviceTypes") => list(String.t()),
-        optional("DeviceUserAgents") => list(String.t()),
-        optional("NotDeviceModels") => list(String.t()),
-        optional("NotDeviceOperatingSystems") => list(String.t()),
-        optional("NotDeviceTypes") => list(String.t()),
-        optional("NotDeviceUserAgents") => list(String.t()),
+        optional("Description") => String.t() | Atom.t(),
+        optional("DeviceModels") => list(String.t() | Atom.t()),
+        optional("DeviceOperatingSystems") => list(String.t() | Atom.t()),
+        optional("DeviceTypes") => list(String.t() | Atom.t()),
+        optional("DeviceUserAgents") => list(String.t() | Atom.t()),
+        optional("NotDeviceModels") => list(String.t() | Atom.t()),
+        optional("NotDeviceOperatingSystems") => list(String.t() | Atom.t()),
+        optional("NotDeviceTypes") => list(String.t() | Atom.t()),
+        optional("NotDeviceUserAgents") => list(String.t() | Atom.t()),
         required("Effect") => list(any()),
-        required("MobileDeviceAccessRuleId") => String.t(),
-        required("Name") => String.t(),
-        required("OrganizationId") => String.t()
+        required("MobileDeviceAccessRuleId") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type update_mobile_device_access_rule_request() :: %{String.t() => any()}
+  @type update_mobile_device_access_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_organization_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
         optional("DeleteIdentityCenterApplication") => boolean(),
         optional("ForceDelete") => boolean(),
         required("DeleteDirectory") => boolean(),
-        required("OrganizationId") => String.t()
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_organization_request() :: %{String.t() => any()}
+  @type delete_organization_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2583,7 +2583,7 @@ defmodule AWS.WorkMail do
       }
       
   """
-  @type get_mobile_device_access_effect_response() :: %{String.t() => any()}
+  @type get_mobile_device_access_effect_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2591,98 +2591,98 @@ defmodule AWS.WorkMail do
       
       describe_group_response() :: %{
         "DisabledDate" => non_neg_integer(),
-        "Email" => String.t(),
+        "Email" => String.t() | Atom.t(),
         "EnabledDate" => non_neg_integer(),
-        "GroupId" => String.t(),
+        "GroupId" => String.t() | Atom.t(),
         "HiddenFromGlobalAddressList" => boolean(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "State" => list(any())
       }
       
   """
-  @type describe_group_response() :: %{String.t() => any()}
+  @type describe_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       assume_impersonation_role_request() :: %{
-        required("ImpersonationRoleId") => String.t(),
-        required("OrganizationId") => String.t()
+        required("ImpersonationRoleId") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type assume_impersonation_role_request() :: %{String.t() => any()}
+  @type assume_impersonation_role_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_access_control_rule_request() :: %{
-        required("Name") => String.t(),
-        required("OrganizationId") => String.t()
+        required("Name") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_access_control_rule_request() :: %{String.t() => any()}
+  @type delete_access_control_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_personal_access_tokens_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "PersonalAccessTokenSummaries" => list(personal_access_token_summary())
       }
       
   """
-  @type list_personal_access_tokens_response() :: %{String.t() => any()}
+  @type list_personal_access_tokens_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_member_to_group_request() :: %{
-        required("GroupId") => String.t(),
-        required("MemberId") => String.t(),
-        required("OrganizationId") => String.t()
+        required("GroupId") => String.t() | Atom.t(),
+        required("MemberId") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type associate_member_to_group_request() :: %{String.t() => any()}
+  @type associate_member_to_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_default_retention_policy_response() :: %{
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "FolderConfigurations" => list(folder_configuration()),
-        "Id" => String.t(),
-        "Name" => String.t()
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
       
   """
-  @type get_default_retention_policy_response() :: %{String.t() => any()}
+  @type get_default_retention_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       mailbox_export_job() :: %{
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "EndTime" => non_neg_integer(),
-        "EntityId" => String.t(),
+        "EntityId" => String.t() | Atom.t(),
         "EstimatedProgress" => integer(),
-        "JobId" => String.t(),
-        "S3BucketName" => String.t(),
-        "S3Path" => String.t(),
+        "JobId" => String.t() | Atom.t(),
+        "S3BucketName" => String.t() | Atom.t(),
+        "S3Path" => String.t() | Atom.t(),
         "StartTime" => non_neg_integer(),
         "State" => list(any())
       }
       
   """
-  @type mailbox_export_job() :: %{String.t() => any()}
+  @type mailbox_export_job() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2690,11 +2690,11 @@ defmodule AWS.WorkMail do
       
       list_groups_response() :: %{
         "Groups" => list(group()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_groups_response() :: %{String.t() => any()}
+  @type list_groups_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2711,23 +2711,23 @@ defmodule AWS.WorkMail do
       
       list_mail_domains_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("OrganizationId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type list_mail_domains_request() :: %{String.t() => any()}
+  @type list_mail_domains_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_inbound_dmarc_settings_request() :: %{
-        required("OrganizationId") => String.t()
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_inbound_dmarc_settings_request() :: %{String.t() => any()}
+  @type describe_inbound_dmarc_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2743,23 +2743,23 @@ defmodule AWS.WorkMail do
   ## Example:
       
       deregister_mail_domain_request() :: %{
-        required("DomainName") => String.t(),
-        required("OrganizationId") => String.t()
+        required("DomainName") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type deregister_mail_domain_request() :: %{String.t() => any()}
+  @type deregister_mail_domain_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       reserved_name_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type reserved_name_exception() :: %{String.t() => any()}
+  @type reserved_name_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2768,12 +2768,12 @@ defmodule AWS.WorkMail do
       put_identity_provider_configuration_request() :: %{
         required("AuthenticationMode") => list(any()),
         required("IdentityCenterConfiguration") => identity_center_configuration(),
-        required("OrganizationId") => String.t(),
+        required("OrganizationId") => String.t() | Atom.t(),
         required("PersonalAccessTokenConfiguration") => personal_access_token_configuration()
       }
       
   """
-  @type put_identity_provider_configuration_request() :: %{String.t() => any()}
+  @type put_identity_provider_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2782,69 +2782,69 @@ defmodule AWS.WorkMail do
       list_groups_request() :: %{
         optional("Filters") => list_groups_filters(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("OrganizationId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type list_groups_request() :: %{String.t() => any()}
+  @type list_groups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       directory_service_authentication_failed_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type directory_service_authentication_failed_exception() :: %{String.t() => any()}
+  @type directory_service_authentication_failed_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_mailbox_export_job_response() :: %{
-        "JobId" => String.t()
+        "JobId" => String.t() | Atom.t()
       }
       
   """
-  @type start_mailbox_export_job_response() :: %{String.t() => any()}
+  @type start_mailbox_export_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_resources_filters() :: %{
-        "NamePrefix" => String.t(),
-        "PrimaryEmailPrefix" => String.t(),
+        "NamePrefix" => String.t() | Atom.t(),
+        "PrimaryEmailPrefix" => String.t() | Atom.t(),
         "State" => list(any())
       }
       
   """
-  @type list_resources_filters() :: %{String.t() => any()}
+  @type list_resources_filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_user_response() :: %{
-        "UserId" => String.t()
+        "UserId" => String.t() | Atom.t()
       }
       
   """
-  @type create_user_response() :: %{String.t() => any()}
+  @type create_user_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_password_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_password_exception() :: %{String.t() => any()}
+  @type invalid_password_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2857,7 +2857,7 @@ defmodule AWS.WorkMail do
       }
       
   """
-  @type folder_configuration() :: %{String.t() => any()}
+  @type folder_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2882,36 +2882,36 @@ defmodule AWS.WorkMail do
   ## Example:
       
       delete_mobile_device_access_rule_request() :: %{
-        required("MobileDeviceAccessRuleId") => String.t(),
-        required("OrganizationId") => String.t()
+        required("MobileDeviceAccessRuleId") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_mobile_device_access_rule_request() :: %{String.t() => any()}
+  @type delete_mobile_device_access_rule_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_impersonation_role_response() :: %{
-        "ImpersonationRoleId" => String.t()
+        "ImpersonationRoleId" => String.t() | Atom.t()
       }
       
   """
-  @type create_impersonation_role_response() :: %{String.t() => any()}
+  @type create_impersonation_role_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       permission() :: %{
-        "GranteeId" => String.t(),
+        "GranteeId" => String.t() | Atom.t(),
         "GranteeType" => list(any()),
         "PermissionValues" => list(list(any())())
       }
       
   """
-  @type permission() :: %{String.t() => any()}
+  @type permission() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2920,50 +2920,50 @@ defmodule AWS.WorkMail do
       get_impersonation_role_response() :: %{
         "DateCreated" => non_neg_integer(),
         "DateModified" => non_neg_integer(),
-        "Description" => String.t(),
-        "ImpersonationRoleId" => String.t(),
-        "Name" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "ImpersonationRoleId" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "Rules" => list(impersonation_rule()),
         "Type" => list(any())
       }
       
   """
-  @type get_impersonation_role_response() :: %{String.t() => any()}
+  @type get_impersonation_role_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_group_response() :: %{
-        "GroupId" => String.t()
+        "GroupId" => String.t() | Atom.t()
       }
       
   """
-  @type create_group_response() :: %{String.t() => any()}
+  @type create_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_tags_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type too_many_tags_exception() :: %{String.t() => any()}
+  @type too_many_tags_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_alias_request() :: %{
-        required("Alias") => String.t(),
-        required("EntityId") => String.t(),
-        required("OrganizationId") => String.t()
+        required("Alias") => String.t() | Atom.t(),
+        required("EntityId") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_alias_request() :: %{String.t() => any()}
+  @type delete_alias_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2971,11 +2971,11 @@ defmodule AWS.WorkMail do
       
       list_group_members_response() :: %{
         "Members" => list(member()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_group_members_response() :: %{String.t() => any()}
+  @type list_group_members_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2991,66 +2991,66 @@ defmodule AWS.WorkMail do
   ## Example:
       
       create_user_request() :: %{
-        optional("FirstName") => String.t(),
+        optional("FirstName") => String.t() | Atom.t(),
         optional("HiddenFromGlobalAddressList") => boolean(),
-        optional("IdentityProviderUserId") => String.t(),
-        optional("LastName") => String.t(),
-        optional("Password") => String.t(),
+        optional("IdentityProviderUserId") => String.t() | Atom.t(),
+        optional("LastName") => String.t() | Atom.t(),
+        optional("Password") => String.t() | Atom.t(),
         optional("Role") => list(any()),
-        required("DisplayName") => String.t(),
-        required("Name") => String.t(),
-        required("OrganizationId") => String.t()
+        required("DisplayName") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t(),
+        required("OrganizationId") => String.t() | Atom.t()
       }
       
   """
-  @type create_user_request() :: %{String.t() => any()}
+  @type create_user_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_organization_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("DirectoryId") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("DirectoryId") => String.t() | Atom.t(),
         optional("Domains") => list(domain()),
         optional("EnableInteroperability") => boolean(),
-        optional("KmsKeyArn") => String.t(),
-        required("Alias") => String.t()
+        optional("KmsKeyArn") => String.t() | Atom.t(),
+        required("Alias") => String.t() | Atom.t()
       }
       
   """
-  @type create_organization_request() :: %{String.t() => any()}
+  @type create_organization_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource() :: %{
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "DisabledDate" => non_neg_integer(),
-        "Email" => String.t(),
+        "Email" => String.t() | Atom.t(),
         "EnabledDate" => non_neg_integer(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "State" => list(any()),
         "Type" => list(any())
       }
       
   """
-  @type resource() :: %{String.t() => any()}
+  @type resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_identity_center_application_request() :: %{
-        optional("ClientToken") => String.t(),
-        required("InstanceArn") => String.t(),
-        required("Name") => String.t()
+        optional("ClientToken") => String.t() | Atom.t(),
+        required("InstanceArn") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t()
       }
       
   """
-  @type create_identity_center_application_request() :: %{String.t() => any()}
+  @type create_identity_center_application_request() :: %{String.t() | Atom.t() => any()}
 
   @type associate_delegate_to_resource_errors() ::
           invalid_parameter_exception()

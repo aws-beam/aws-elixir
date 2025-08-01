@@ -24,13 +24,13 @@ defmodule AWS.DataZone do
 
       policy_grant_member() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
         "detail" => list(),
         "principal" => list()
       }
 
   """
-  @type policy_grant_member() :: %{String.t() => any()}
+  @type policy_grant_member() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -38,14 +38,14 @@ defmodule AWS.DataZone do
 
       asset_revision() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "domainId" => String.t(),
-        "id" => String.t(),
-        "revision" => String.t()
+        "createdBy" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "revision" => String.t() | Atom.t()
       }
 
   """
-  @type asset_revision() :: %{String.t() => any()}
+  @type asset_revision() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -53,11 +53,11 @@ defmodule AWS.DataZone do
 
       list_project_profiles_output() :: %{
         "items" => list(project_profile_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_project_profiles_output() :: %{String.t() => any()}
+  @type list_project_profiles_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -68,7 +68,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type metadata_form_enforcement_detail() :: %{String.t() => any()}
+  @type metadata_form_enforcement_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -79,25 +79,25 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type update_group_profile_input() :: %{String.t() => any()}
+  @type update_group_profile_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_domain_output() :: %{
-        "description" => [String.t()],
-        "domainExecutionRole" => String.t(),
-        "id" => String.t(),
+        "description" => [String.t() | Atom.t()],
+        "domainExecutionRole" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => [String.t()],
-        "rootDomainUnitId" => String.t(),
-        "serviceRole" => String.t(),
+        "name" => [String.t() | Atom.t()],
+        "rootDomainUnitId" => String.t() | Atom.t(),
+        "serviceRole" => String.t() | Atom.t(),
         "singleSignOn" => single_sign_on()
       }
 
   """
-  @type update_domain_output() :: %{String.t() => any()}
+  @type update_domain_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -105,33 +105,33 @@ defmodule AWS.DataZone do
 
       list_metadata_generation_runs_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("status") => list(any()),
         optional("type") => list(any())
       }
 
   """
-  @type list_metadata_generation_runs_input() :: %{String.t() => any()}
+  @type list_metadata_generation_runs_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_asset_input() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
-        optional("externalIdentifier") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("externalIdentifier") => String.t() | Atom.t(),
         optional("formsInput") => list(form_input()),
-        optional("glossaryTerms") => list(String.t()),
+        optional("glossaryTerms") => list(String.t() | Atom.t()),
         optional("predictionConfiguration") => prediction_configuration(),
-        optional("typeRevision") => String.t(),
-        required("name") => String.t(),
-        required("owningProjectIdentifier") => String.t(),
-        required("typeIdentifier") => String.t()
+        optional("typeRevision") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t(),
+        required("owningProjectIdentifier") => String.t() | Atom.t(),
+        required("typeIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type create_asset_input() :: %{String.t() => any()}
+  @type create_asset_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -139,11 +139,11 @@ defmodule AWS.DataZone do
 
       search_user_profiles_output() :: %{
         "items" => list(user_profile_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type search_user_profiles_output() :: %{String.t() => any()}
+  @type search_user_profiles_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -152,22 +152,22 @@ defmodule AWS.DataZone do
       asset_item() :: %{
         "additionalAttributes" => asset_item_additional_attributes(),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "description" => String.t(),
-        "domainId" => String.t(),
-        "externalIdentifier" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "externalIdentifier" => String.t() | Atom.t(),
         "firstRevisionCreatedAt" => non_neg_integer(),
-        "firstRevisionCreatedBy" => String.t(),
-        "glossaryTerms" => list(String.t()),
-        "identifier" => String.t(),
-        "name" => String.t(),
-        "owningProjectId" => String.t(),
-        "typeIdentifier" => String.t(),
-        "typeRevision" => String.t()
+        "firstRevisionCreatedBy" => String.t() | Atom.t(),
+        "glossaryTerms" => list(String.t() | Atom.t()),
+        "identifier" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "owningProjectId" => String.t() | Atom.t(),
+        "typeIdentifier" => String.t() | Atom.t(),
+        "typeRevision" => String.t() | Atom.t()
       }
 
   """
-  @type asset_item() :: %{String.t() => any()}
+  @type asset_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -178,7 +178,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type business_name_generation_configuration() :: %{String.t() => any()}
+  @type business_name_generation_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -189,7 +189,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type create_form_type_policy_grant_detail() :: %{String.t() => any()}
+  @type create_form_type_policy_grant_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -197,29 +197,29 @@ defmodule AWS.DataZone do
 
       data_product_listing() :: %{
         "createdAt" => non_neg_integer(),
-        "dataProductId" => String.t(),
-        "dataProductRevision" => String.t(),
-        "forms" => String.t(),
+        "dataProductId" => String.t() | Atom.t(),
+        "dataProductRevision" => String.t() | Atom.t(),
+        "forms" => String.t() | Atom.t(),
         "glossaryTerms" => list(detailed_glossary_term()),
         "items" => list(listing_summary()),
-        "owningProjectId" => String.t()
+        "owningProjectId" => String.t() | Atom.t()
       }
 
   """
-  @type data_product_listing() :: %{String.t() => any()}
+  @type data_product_listing() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_environment_action_input() :: %{
-        optional("description") => [String.t()],
-        required("name") => [String.t()],
+        optional("description") => [String.t() | Atom.t()],
+        required("name") => [String.t() | Atom.t()],
         required("parameters") => list()
       }
 
   """
-  @type create_environment_action_input() :: %{String.t() => any()}
+  @type create_environment_action_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -227,11 +227,11 @@ defmodule AWS.DataZone do
 
       list_environment_actions_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_environment_actions_input() :: %{String.t() => any()}
+  @type list_environment_actions_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -239,61 +239,61 @@ defmodule AWS.DataZone do
 
       listing_summary_item() :: %{
         "glossaryTerms" => list(detailed_glossary_term()),
-        "listingId" => String.t(),
-        "listingRevision" => String.t()
+        "listingId" => String.t() | Atom.t(),
+        "listingRevision" => String.t() | Atom.t()
       }
 
   """
-  @type listing_summary_item() :: %{String.t() => any()}
+  @type listing_summary_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_filter_summary() :: %{
-        "assetId" => String.t(),
+        "assetId" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
-        "domainId" => String.t(),
-        "effectiveColumnNames" => list([String.t()]()),
-        "effectiveRowFilter" => [String.t()],
-        "errorMessage" => [String.t()],
-        "id" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "effectiveColumnNames" => list([String.t() | Atom.t()]()),
+        "effectiveRowFilter" => [String.t() | Atom.t()],
+        "errorMessage" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type asset_filter_summary() :: %{String.t() => any()}
+  @type asset_filter_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       redshift_credential_configuration() :: %{
-        "secretManagerArn" => [String.t()]
+        "secretManagerArn" => [String.t() | Atom.t()]
       }
 
   """
-  @type redshift_credential_configuration() :: %{String.t() => any()}
+  @type redshift_credential_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_glossary_term_output() :: %{
-        "domainId" => String.t(),
-        "glossaryId" => String.t(),
-        "id" => String.t(),
-        "longDescription" => String.t(),
-        "name" => String.t(),
-        "shortDescription" => String.t(),
+        "domainId" => String.t() | Atom.t(),
+        "glossaryId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "longDescription" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "shortDescription" => String.t() | Atom.t(),
         "status" => list(any()),
         "termRelations" => term_relations()
       }
 
   """
-  @type update_glossary_term_output() :: %{String.t() => any()}
+  @type update_glossary_term_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -313,7 +313,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -321,11 +321,11 @@ defmodule AWS.DataZone do
 
       list_environment_blueprint_configurations_output() :: %{
         "items" => list(environment_blueprint_configuration_item()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_environment_blueprint_configurations_output() :: %{String.t() => any()}
+  @type list_environment_blueprint_configurations_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -333,25 +333,25 @@ defmodule AWS.DataZone do
 
       list_data_source_runs_output() :: %{
         "items" => list(data_source_run_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_data_source_runs_output() :: %{String.t() => any()}
+  @type list_data_source_runs_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       redshift_run_configuration_input() :: %{
-        "dataAccessRole" => [String.t()],
+        "dataAccessRole" => [String.t() | Atom.t()],
         "redshiftCredentialConfiguration" => redshift_credential_configuration(),
         "redshiftStorage" => list(),
         "relationalFilterConfigurations" => list(relational_filter_configuration())
       }
 
   """
-  @type redshift_run_configuration_input() :: %{String.t() => any()}
+  @type redshift_run_configuration_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -359,11 +359,11 @@ defmodule AWS.DataZone do
 
       list_asset_filters_output() :: %{
         "items" => list(asset_filter_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_asset_filters_output() :: %{String.t() => any()}
+  @type list_asset_filters_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -371,15 +371,15 @@ defmodule AWS.DataZone do
 
       redshift_properties_input() :: %{
         "credentials" => list(),
-        "databaseName" => [String.t()],
-        "host" => [String.t()],
+        "databaseName" => [String.t() | Atom.t()],
+        "host" => [String.t() | Atom.t()],
         "lineageSync" => redshift_lineage_sync_configuration_input(),
         "port" => [integer()],
         "storage" => list()
       }
 
   """
-  @type redshift_properties_input() :: %{String.t() => any()}
+  @type redshift_properties_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -387,35 +387,35 @@ defmodule AWS.DataZone do
 
       list_data_source_runs_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("status") => list(any())
       }
 
   """
-  @type list_data_source_runs_input() :: %{String.t() => any()}
+  @type list_data_source_runs_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_asset_type_input() :: %{
-        optional("revision") => String.t()
+        optional("revision") => String.t() | Atom.t()
       }
 
   """
-  @type get_asset_type_input() :: %{String.t() => any()}
+  @type get_asset_type_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       search_sort() :: %{
-        "attribute" => String.t(),
+        "attribute" => String.t() | Atom.t(),
         "order" => list(any())
       }
 
   """
-  @type search_sort() :: %{String.t() => any()}
+  @type search_sort() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -423,32 +423,32 @@ defmodule AWS.DataZone do
 
       subscription_summary() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "domainId" => String.t(),
-        "id" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "retainPermissions" => [boolean()],
         "status" => list(any()),
         "subscribedListing" => subscribed_listing(),
         "subscribedPrincipal" => list(),
-        "subscriptionRequestId" => String.t(),
+        "subscriptionRequestId" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type subscription_summary() :: %{String.t() => any()}
+  @type subscription_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       subscription_target_form() :: %{
-        "content" => [String.t()],
-        "formName" => String.t()
+        "content" => [String.t() | Atom.t()],
+        "formName" => String.t() | Atom.t()
       }
 
   """
-  @type subscription_target_form() :: %{String.t() => any()}
+  @type subscription_target_form() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -456,26 +456,26 @@ defmodule AWS.DataZone do
 
       list_project_memberships_output() :: %{
         "members" => list(project_member()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_project_memberships_output() :: %{String.t() => any()}
+  @type list_project_memberships_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_environment_profile_input() :: %{
-        optional("awsAccountId") => String.t(),
-        optional("awsAccountRegion") => String.t(),
-        optional("description") => [String.t()],
-        optional("name") => String.t(),
+        optional("awsAccountId") => String.t() | Atom.t(),
+        optional("awsAccountRegion") => String.t() | Atom.t(),
+        optional("description") => [String.t() | Atom.t()],
+        optional("name") => String.t() | Atom.t(),
         optional("userParameters") => list(environment_parameter())
       }
 
   """
-  @type update_environment_profile_input() :: %{String.t() => any()}
+  @type update_environment_profile_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -491,36 +491,36 @@ defmodule AWS.DataZone do
   ## Example:
 
       update_subscription_target_output() :: %{
-        "applicableAssetTypes" => list(String.t()),
-        "authorizedPrincipals" => list(String.t()),
+        "applicableAssetTypes" => list(String.t() | Atom.t()),
+        "authorizedPrincipals" => list(String.t() | Atom.t()),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "domainId" => String.t(),
-        "environmentId" => String.t(),
-        "id" => String.t(),
-        "manageAccessRole" => String.t(),
-        "name" => String.t(),
-        "projectId" => String.t(),
-        "provider" => [String.t()],
+        "createdBy" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "environmentId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "manageAccessRole" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "projectId" => String.t() | Atom.t(),
+        "provider" => [String.t() | Atom.t()],
         "subscriptionTargetConfig" => list(subscription_target_form()),
-        "type" => [String.t()],
+        "type" => [String.t() | Atom.t()],
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type update_subscription_target_output() :: %{String.t() => any()}
+  @type update_subscription_target_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       reject_subscription_request_input() :: %{
-        optional("decisionComment") => String.t()
+        optional("decisionComment") => String.t() | Atom.t()
       }
 
   """
-  @type reject_subscription_request_input() :: %{String.t() => any()}
+  @type reject_subscription_request_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -536,14 +536,14 @@ defmodule AWS.DataZone do
   ## Example:
 
       update_group_profile_output() :: %{
-        "domainId" => String.t(),
-        "groupName" => String.t(),
-        "id" => String.t(),
+        "domainId" => String.t() | Atom.t(),
+        "groupName" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type update_group_profile_output() :: %{String.t() => any()}
+  @type update_group_profile_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -551,11 +551,11 @@ defmodule AWS.DataZone do
 
       list_job_runs_output() :: %{
         "items" => list(job_run_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_job_runs_output() :: %{String.t() => any()}
+  @type list_job_runs_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -581,55 +581,55 @@ defmodule AWS.DataZone do
 
       list_policy_grants_output() :: %{
         "grantList" => list(policy_grant_member()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_policy_grants_output() :: %{String.t() => any()}
+  @type list_policy_grants_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       unauthorized_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type unauthorized_exception() :: %{String.t() => any()}
+  @type unauthorized_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       metadata_form_reference() :: %{
-        "typeIdentifier" => String.t(),
-        "typeRevision" => String.t()
+        "typeIdentifier" => String.t() | Atom.t(),
+        "typeRevision" => String.t() | Atom.t()
       }
 
   """
-  @type metadata_form_reference() :: %{String.t() => any()}
+  @type metadata_form_reference() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_asset_filter_output() :: %{
-        "assetId" => String.t(),
+        "assetId" => String.t() | Atom.t(),
         "configuration" => list(),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
-        "domainId" => String.t(),
-        "effectiveColumnNames" => list([String.t()]()),
-        "effectiveRowFilter" => [String.t()],
-        "errorMessage" => [String.t()],
-        "id" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "effectiveColumnNames" => list([String.t() | Atom.t()]()),
+        "effectiveRowFilter" => [String.t() | Atom.t()],
+        "errorMessage" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type get_asset_filter_output() :: %{String.t() => any()}
+  @type get_asset_filter_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -655,30 +655,30 @@ defmodule AWS.DataZone do
 
       redshift_properties_output() :: %{
         "credentials" => list(),
-        "databaseName" => [String.t()],
+        "databaseName" => [String.t() | Atom.t()],
         "isProvisionedSecret" => [boolean()],
-        "jdbcIamUrl" => [String.t()],
-        "jdbcUrl" => [String.t()],
+        "jdbcIamUrl" => [String.t() | Atom.t()],
+        "jdbcUrl" => [String.t() | Atom.t()],
         "lineageSync" => redshift_lineage_sync_configuration_output(),
-        "redshiftTempDir" => [String.t()],
+        "redshiftTempDir" => [String.t() | Atom.t()],
         "status" => list(any()),
         "storage" => list()
       }
 
   """
-  @type redshift_properties_output() :: %{String.t() => any()}
+  @type redshift_properties_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_listing_details() :: %{
-        "listingId" => String.t(),
+        "listingId" => String.t() | Atom.t(),
         "listingStatus" => list(any())
       }
 
   """
-  @type asset_listing_details() :: %{String.t() => any()}
+  @type asset_listing_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -696,61 +696,61 @@ defmodule AWS.DataZone do
       environment_configuration_parameters_details() :: %{
         "parameterOverrides" => list(environment_configuration_parameter()),
         "resolvedParameters" => list(environment_configuration_parameter()),
-        "ssmPath" => String.t()
+        "ssmPath" => String.t() | Atom.t()
       }
 
   """
-  @type environment_configuration_parameters_details() :: %{String.t() => any()}
+  @type environment_configuration_parameters_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       lineage_sync_schedule() :: %{
-        "schedule" => [String.t()]
+        "schedule" => [String.t() | Atom.t()]
       }
 
   """
-  @type lineage_sync_schedule() :: %{String.t() => any()}
+  @type lineage_sync_schedule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       deployment() :: %{
-        "deploymentId" => [String.t()],
+        "deploymentId" => [String.t() | Atom.t()],
         "deploymentStatus" => list(any()),
         "deploymentType" => list(any()),
         "failureReason" => environment_error(),
         "isDeploymentComplete" => [boolean()],
-        "messages" => list(String.t())
+        "messages" => list(String.t() | Atom.t())
       }
 
   """
-  @type deployment() :: %{String.t() => any()}
+  @type deployment() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_environment_output() :: %{
-        "awsAccountId" => String.t(),
-        "awsAccountRegion" => String.t(),
+        "awsAccountId" => String.t() | Atom.t(),
+        "awsAccountRegion" => String.t() | Atom.t(),
         "createdAt" => [non_neg_integer()],
-        "createdBy" => [String.t()],
+        "createdBy" => [String.t() | Atom.t()],
         "deploymentProperties" => deployment_properties(),
-        "description" => String.t(),
-        "domainId" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
         "environmentActions" => list(configurable_environment_action()),
-        "environmentBlueprintId" => String.t(),
-        "environmentConfigurationId" => String.t(),
-        "environmentProfileId" => String.t(),
-        "glossaryTerms" => list(String.t()),
-        "id" => String.t(),
+        "environmentBlueprintId" => String.t() | Atom.t(),
+        "environmentConfigurationId" => String.t() | Atom.t(),
+        "environmentProfileId" => String.t() | Atom.t(),
+        "glossaryTerms" => list(String.t() | Atom.t()),
+        "id" => String.t() | Atom.t(),
         "lastDeployment" => deployment(),
-        "name" => String.t(),
-        "projectId" => String.t(),
-        "provider" => [String.t()],
+        "name" => String.t() | Atom.t(),
+        "projectId" => String.t() | Atom.t(),
+        "provider" => [String.t() | Atom.t()],
         "provisionedResources" => list(resource()),
         "provisioningProperties" => list(),
         "status" => list(any()),
@@ -759,24 +759,24 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type get_environment_output() :: %{String.t() => any()}
+  @type get_environment_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_project_input() :: %{
-        optional("description") => String.t(),
-        optional("domainUnitId") => String.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("domainUnitId") => String.t() | Atom.t(),
         optional("environmentDeploymentDetails") => environment_deployment_details(),
-        optional("glossaryTerms") => list(String.t()),
-        optional("name") => String.t(),
-        optional("projectProfileVersion") => [String.t()],
+        optional("glossaryTerms") => list(String.t() | Atom.t()),
+        optional("name") => String.t() | Atom.t(),
+        optional("projectProfileVersion") => [String.t() | Atom.t()],
         optional("userParameters") => list(environment_configuration_user_parameter())
       }
 
   """
-  @type update_project_input() :: %{String.t() => any()}
+  @type update_project_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -796,7 +796,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type get_lineage_node_input() :: %{String.t() => any()}
+  @type get_lineage_node_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -808,7 +808,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type project_member() :: %{String.t() => any()}
+  @type project_member() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -816,19 +816,19 @@ defmodule AWS.DataZone do
 
       project_summary() :: %{
         "createdAt" => [non_neg_integer()],
-        "createdBy" => String.t(),
-        "description" => String.t(),
-        "domainId" => String.t(),
-        "domainUnitId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "domainUnitId" => String.t() | Atom.t(),
         "failureReasons" => list(project_deletion_error()),
-        "id" => String.t(),
-        "name" => String.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "projectStatus" => list(any()),
         "updatedAt" => [non_neg_integer()]
       }
 
   """
-  @type project_summary() :: %{String.t() => any()}
+  @type project_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -851,21 +851,21 @@ defmodule AWS.DataZone do
         "connectionSchemaVersion" => [integer()],
         "connectionType" => list(any()),
         "creationTime" => [non_neg_integer()],
-        "description" => [String.t()],
+        "description" => [String.t() | Atom.t()],
         "lastConnectionValidationTime" => [non_neg_integer()],
-        "lastUpdatedBy" => [String.t()],
+        "lastUpdatedBy" => [String.t() | Atom.t()],
         "lastUpdatedTime" => [non_neg_integer()],
-        "matchCriteria" => list([String.t()]()),
-        "name" => [String.t()],
+        "matchCriteria" => list([String.t() | Atom.t()]()),
+        "name" => [String.t() | Atom.t()],
         "physicalConnectionRequirements" => physical_connection_requirements(),
         "pythonProperties" => map(),
         "sparkProperties" => map(),
         "status" => list(any()),
-        "statusReason" => [String.t()]
+        "statusReason" => [String.t() | Atom.t()]
       }
 
   """
-  @type glue_connection() :: %{String.t() => any()}
+  @type glue_connection() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -876,35 +876,35 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type create_asset_type_policy_grant_detail() :: %{String.t() => any()}
+  @type create_asset_type_policy_grant_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       project_deletion_error() :: %{
-        "code" => [String.t()],
-        "message" => [String.t()]
+        "code" => [String.t() | Atom.t()],
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type project_deletion_error() :: %{String.t() => any()}
+  @type project_deletion_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_environment_action_output() :: %{
-        "description" => [String.t()],
-        "domainId" => String.t(),
-        "environmentId" => String.t(),
-        "id" => String.t(),
-        "name" => [String.t()],
+        "description" => [String.t() | Atom.t()],
+        "domainId" => String.t() | Atom.t(),
+        "environmentId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => [String.t() | Atom.t()],
         "parameters" => list()
       }
 
   """
-  @type create_environment_action_output() :: %{String.t() => any()}
+  @type create_environment_action_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -914,13 +914,13 @@ defmodule AWS.DataZone do
         "authenticationType" => list(any()),
         "basicAuthenticationCredentials" => basic_authentication_credentials(),
         "customAuthenticationCredentials" => map(),
-        "kmsKeyArn" => [String.t()],
+        "kmsKeyArn" => [String.t() | Atom.t()],
         "oAuth2Properties" => o_auth2_properties(),
-        "secretArn" => [String.t()]
+        "secretArn" => [String.t() | Atom.t()]
       }
 
   """
-  @type authentication_configuration_input() :: %{String.t() => any()}
+  @type authentication_configuration_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -928,46 +928,46 @@ defmodule AWS.DataZone do
 
       update_project_profile_output() :: %{
         "createdAt" => [non_neg_integer()],
-        "createdBy" => String.t(),
-        "description" => String.t(),
-        "domainId" => String.t(),
-        "domainUnitId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "domainUnitId" => String.t() | Atom.t(),
         "environmentConfigurations" => list(environment_configuration()),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "lastUpdatedAt" => [non_neg_integer()],
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type update_project_profile_output() :: %{String.t() => any()}
+  @type update_project_profile_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_listing_change_set_output() :: %{
-        "listingId" => String.t(),
-        "listingRevision" => String.t(),
+        "listingId" => String.t() | Atom.t(),
+        "listingRevision" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type create_listing_change_set_output() :: %{String.t() => any()}
+  @type create_listing_change_set_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_group_profile_output() :: %{
-        "domainId" => String.t(),
-        "groupName" => String.t(),
-        "id" => String.t(),
+        "domainId" => String.t() | Atom.t(),
+        "groupName" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type get_group_profile_output() :: %{String.t() => any()}
+  @type get_group_profile_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -975,66 +975,66 @@ defmodule AWS.DataZone do
 
       create_environment_input() :: %{
         optional("deploymentOrder") => [integer()],
-        optional("description") => [String.t()],
-        optional("environmentAccountIdentifier") => [String.t()],
-        optional("environmentAccountRegion") => [String.t()],
-        optional("environmentBlueprintIdentifier") => [String.t()],
-        optional("environmentConfigurationId") => [String.t()],
-        optional("glossaryTerms") => list(String.t()),
+        optional("description") => [String.t() | Atom.t()],
+        optional("environmentAccountIdentifier") => [String.t() | Atom.t()],
+        optional("environmentAccountRegion") => [String.t() | Atom.t()],
+        optional("environmentBlueprintIdentifier") => [String.t() | Atom.t()],
+        optional("environmentConfigurationId") => [String.t() | Atom.t()],
+        optional("glossaryTerms") => list(String.t() | Atom.t()),
         optional("userParameters") => list(environment_parameter()),
-        required("environmentProfileIdentifier") => String.t(),
-        required("name") => [String.t()],
-        required("projectIdentifier") => String.t()
+        required("environmentProfileIdentifier") => String.t() | Atom.t(),
+        required("name") => [String.t() | Atom.t()],
+        required("projectIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type create_environment_input() :: %{String.t() => any()}
+  @type create_environment_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       authorization_code_properties() :: %{
-        "authorizationCode" => [String.t()],
-        "redirectUri" => [String.t()]
+        "authorizationCode" => [String.t() | Atom.t()],
+        "redirectUri" => [String.t() | Atom.t()]
       }
 
   """
-  @type authorization_code_properties() :: %{String.t() => any()}
+  @type authorization_code_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_environment_profile_output() :: %{
-        "awsAccountId" => String.t(),
-        "awsAccountRegion" => String.t(),
+        "awsAccountId" => String.t() | Atom.t(),
+        "awsAccountRegion" => String.t() | Atom.t(),
         "createdAt" => [non_neg_integer()],
-        "createdBy" => [String.t()],
-        "description" => String.t(),
-        "domainId" => String.t(),
-        "environmentBlueprintId" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
-        "projectId" => String.t(),
+        "createdBy" => [String.t() | Atom.t()],
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "environmentBlueprintId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "projectId" => String.t() | Atom.t(),
         "updatedAt" => [non_neg_integer()],
         "userParameters" => list(custom_parameter())
       }
 
   """
-  @type update_environment_profile_output() :: %{String.t() => any()}
+  @type update_environment_profile_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       term_relations() :: %{
-        "classifies" => list(String.t()),
-        "isA" => list(String.t())
+        "classifies" => list(String.t() | Atom.t()),
+        "isA" => list(String.t() | Atom.t())
       }
 
   """
-  @type term_relations() :: %{String.t() => any()}
+  @type term_relations() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1051,7 +1051,7 @@ defmodule AWS.DataZone do
 
       list_lineage_events_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("processingStatus") => list(any()),
         optional("sortOrder") => list(any()),
         optional("timestampAfter") => [non_neg_integer()],
@@ -1059,7 +1059,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type list_lineage_events_input() :: %{String.t() => any()}
+  @type list_lineage_events_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1067,48 +1067,48 @@ defmodule AWS.DataZone do
 
       list_time_series_data_points_output() :: %{
         "items" => list(time_series_data_point_summary_form_output()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_time_series_data_points_output() :: %{String.t() => any()}
+  @type list_time_series_data_points_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_data_product_input() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("formsInput") => list(form_input()),
-        optional("glossaryTerms") => list(String.t()),
+        optional("glossaryTerms") => list(String.t() | Atom.t()),
         optional("items") => list(data_product_item()),
-        required("name") => String.t(),
-        required("owningProjectIdentifier") => String.t()
+        required("name") => String.t() | Atom.t(),
+        required("owningProjectIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type create_data_product_input() :: %{String.t() => any()}
+  @type create_data_product_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       domain_summary() :: %{
-        "arn" => [String.t()],
+        "arn" => [String.t() | Atom.t()],
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | Atom.t(),
         "domainVersion" => list(any()),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "lastUpdatedAt" => non_neg_integer(),
-        "managedAccountId" => [String.t()],
-        "name" => String.t(),
-        "portalUrl" => [String.t()],
+        "managedAccountId" => [String.t() | Atom.t()],
+        "name" => String.t() | Atom.t(),
+        "portalUrl" => [String.t() | Atom.t()],
         "status" => list(any())
       }
 
   """
-  @type domain_summary() :: %{String.t() => any()}
+  @type domain_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1119,7 +1119,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type create_project_policy_grant_detail() :: %{String.t() => any()}
+  @type create_project_policy_grant_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1127,39 +1127,39 @@ defmodule AWS.DataZone do
 
       data_product_revision() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "domainId" => String.t(),
-        "id" => String.t(),
-        "revision" => String.t()
+        "createdBy" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "revision" => String.t() | Atom.t()
       }
 
   """
-  @type data_product_revision() :: %{String.t() => any()}
+  @type data_product_revision() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_subscription_target_output() :: %{
-        "applicableAssetTypes" => list(String.t()),
-        "authorizedPrincipals" => list(String.t()),
+        "applicableAssetTypes" => list(String.t() | Atom.t()),
+        "authorizedPrincipals" => list(String.t() | Atom.t()),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "domainId" => String.t(),
-        "environmentId" => String.t(),
-        "id" => String.t(),
-        "manageAccessRole" => String.t(),
-        "name" => String.t(),
-        "projectId" => String.t(),
-        "provider" => [String.t()],
+        "createdBy" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "environmentId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "manageAccessRole" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "projectId" => String.t() | Atom.t(),
+        "provider" => [String.t() | Atom.t()],
         "subscriptionTargetConfig" => list(subscription_target_form()),
-        "type" => [String.t()],
+        "type" => [String.t() | Atom.t()],
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type create_subscription_target_output() :: %{String.t() => any()}
+  @type create_subscription_target_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1167,46 +1167,46 @@ defmodule AWS.DataZone do
 
       job_run_summary() :: %{
         "createdAt" => [non_neg_integer()],
-        "createdBy" => [String.t()],
-        "domainId" => String.t(),
+        "createdBy" => [String.t() | Atom.t()],
+        "domainId" => String.t() | Atom.t(),
         "endTime" => [non_neg_integer()],
         "error" => job_run_error(),
-        "jobId" => [String.t()],
+        "jobId" => [String.t() | Atom.t()],
         "jobType" => list(any()),
-        "runId" => [String.t()],
+        "runId" => [String.t() | Atom.t()],
         "runMode" => list(any()),
         "startTime" => [non_neg_integer()],
         "status" => list(any())
       }
 
   """
-  @type job_run_summary() :: %{String.t() => any()}
+  @type job_run_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_subscription_request_input() :: %{
-        optional("clientToken") => [String.t()],
+        optional("clientToken") => [String.t() | Atom.t()],
         optional("metadataForms") => list(form_input()),
-        required("requestReason") => String.t(),
+        required("requestReason") => String.t() | Atom.t(),
         required("subscribedListings") => list(subscribed_listing_input()),
         required("subscribedPrincipals") => list(list())
       }
 
   """
-  @type create_subscription_request_input() :: %{String.t() => any()}
+  @type create_subscription_request_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       owner_group_properties_output() :: %{
-        "groupId" => [String.t()]
+        "groupId" => [String.t() | Atom.t()]
       }
 
   """
-  @type owner_group_properties_output() :: %{String.t() => any()}
+  @type owner_group_properties_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1214,23 +1214,23 @@ defmodule AWS.DataZone do
 
       create_data_product_revision_output() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "description" => String.t(),
-        "domainId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
         "firstRevisionCreatedAt" => non_neg_integer(),
-        "firstRevisionCreatedBy" => String.t(),
+        "firstRevisionCreatedBy" => String.t() | Atom.t(),
         "formsOutput" => list(form_output()),
-        "glossaryTerms" => list(String.t()),
-        "id" => String.t(),
+        "glossaryTerms" => list(String.t() | Atom.t()),
+        "id" => String.t() | Atom.t(),
         "items" => list(data_product_item()),
-        "name" => String.t(),
-        "owningProjectId" => String.t(),
-        "revision" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "owningProjectId" => String.t() | Atom.t(),
+        "revision" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type create_data_product_revision_output() :: %{String.t() => any()}
+  @type create_data_product_revision_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1238,37 +1238,37 @@ defmodule AWS.DataZone do
 
       create_data_source_input() :: %{
         optional("assetFormsInput") => list(form_input()),
-        optional("clientToken") => [String.t()],
+        optional("clientToken") => [String.t() | Atom.t()],
         optional("configuration") => list(),
-        optional("connectionIdentifier") => [String.t()],
-        optional("description") => String.t(),
+        optional("connectionIdentifier") => [String.t() | Atom.t()],
+        optional("description") => String.t() | Atom.t(),
         optional("enableSetting") => list(any()),
-        optional("environmentIdentifier") => [String.t()],
+        optional("environmentIdentifier") => [String.t() | Atom.t()],
         optional("publishOnImport") => [boolean()],
         optional("recommendation") => recommendation_configuration(),
         optional("schedule") => schedule_configuration(),
-        required("name") => String.t(),
-        required("projectIdentifier") => [String.t()],
-        required("type") => String.t()
+        required("name") => String.t() | Atom.t(),
+        required("projectIdentifier") => [String.t() | Atom.t()],
+        required("type") => String.t() | Atom.t()
       }
 
   """
-  @type create_data_source_input() :: %{String.t() => any()}
+  @type create_data_source_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_form_type_input() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("status") => list(any()),
         required("model") => list(),
-        required("name") => String.t(),
-        required("owningProjectIdentifier") => String.t()
+        required("name") => String.t() | Atom.t(),
+        required("owningProjectIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type create_form_type_input() :: %{String.t() => any()}
+  @type create_form_type_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1276,19 +1276,19 @@ defmodule AWS.DataZone do
 
       get_project_profile_output() :: %{
         "createdAt" => [non_neg_integer()],
-        "createdBy" => String.t(),
-        "description" => String.t(),
-        "domainId" => String.t(),
-        "domainUnitId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "domainUnitId" => String.t() | Atom.t(),
         "environmentConfigurations" => list(environment_configuration()),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "lastUpdatedAt" => [non_neg_integer()],
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type get_project_profile_output() :: %{String.t() => any()}
+  @type get_project_profile_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1304,37 +1304,37 @@ defmodule AWS.DataZone do
   ## Example:
 
       environment_summary() :: %{
-        "awsAccountId" => String.t(),
-        "awsAccountRegion" => String.t(),
+        "awsAccountId" => String.t() | Atom.t(),
+        "awsAccountRegion" => String.t() | Atom.t(),
         "createdAt" => [non_neg_integer()],
-        "createdBy" => [String.t()],
-        "description" => String.t(),
-        "domainId" => String.t(),
-        "environmentConfigurationId" => String.t(),
-        "environmentProfileId" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
-        "projectId" => String.t(),
-        "provider" => [String.t()],
+        "createdBy" => [String.t() | Atom.t()],
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "environmentConfigurationId" => String.t() | Atom.t(),
+        "environmentProfileId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "projectId" => String.t() | Atom.t(),
+        "provider" => [String.t() | Atom.t()],
         "status" => list(any()),
         "updatedAt" => [non_neg_integer()]
       }
 
   """
-  @type environment_summary() :: %{String.t() => any()}
+  @type environment_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       notification_resource() :: %{
-        "id" => [String.t()],
-        "name" => [String.t()],
+        "id" => [String.t() | Atom.t()],
+        "name" => [String.t() | Atom.t()],
         "type" => list(any())
       }
 
   """
-  @type notification_resource() :: %{String.t() => any()}
+  @type notification_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1342,20 +1342,20 @@ defmodule AWS.DataZone do
 
       data_source_run_activity() :: %{
         "createdAt" => non_neg_integer(),
-        "dataAssetId" => [String.t()],
+        "dataAssetId" => [String.t() | Atom.t()],
         "dataAssetStatus" => list(any()),
-        "dataSourceRunId" => String.t(),
-        "database" => String.t(),
+        "dataSourceRunId" => String.t() | Atom.t(),
+        "database" => String.t() | Atom.t(),
         "errorMessage" => data_source_error_message(),
         "lineageSummary" => lineage_info(),
-        "projectId" => String.t(),
-        "technicalDescription" => String.t(),
-        "technicalName" => String.t(),
+        "projectId" => String.t() | Atom.t(),
+        "technicalDescription" => String.t() | Atom.t(),
+        "technicalName" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type data_source_run_activity() :: %{String.t() => any()}
+  @type data_source_run_activity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1374,29 +1374,29 @@ defmodule AWS.DataZone do
         optional("additionalAttributes") => list(list(any())()),
         optional("filters") => list(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("owningProjectIdentifier") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("owningProjectIdentifier") => String.t() | Atom.t(),
         optional("searchIn") => list(search_in_item()),
-        optional("searchText") => String.t(),
+        optional("searchText") => String.t() | Atom.t(),
         optional("sort") => search_sort(),
         required("searchScope") => list(any())
       }
 
   """
-  @type search_input() :: %{String.t() => any()}
+  @type search_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       single_sign_on() :: %{
-        "idcInstanceArn" => [String.t()],
+        "idcInstanceArn" => [String.t() | Atom.t()],
         "type" => list(any()),
         "userAssignment" => list(any())
       }
 
   """
-  @type single_sign_on() :: %{String.t() => any()}
+  @type single_sign_on() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1404,28 +1404,28 @@ defmodule AWS.DataZone do
 
       create_asset_output() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "description" => String.t(),
-        "domainId" => String.t(),
-        "externalIdentifier" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "externalIdentifier" => String.t() | Atom.t(),
         "firstRevisionCreatedAt" => non_neg_integer(),
-        "firstRevisionCreatedBy" => String.t(),
+        "firstRevisionCreatedBy" => String.t() | Atom.t(),
         "formsOutput" => list(form_output()),
-        "glossaryTerms" => list(String.t()),
-        "id" => String.t(),
+        "glossaryTerms" => list(String.t() | Atom.t()),
+        "id" => String.t() | Atom.t(),
         "latestTimeSeriesDataPointFormsOutput" => list(time_series_data_point_summary_form_output()),
         "listing" => asset_listing_details(),
-        "name" => String.t(),
-        "owningProjectId" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "owningProjectId" => String.t() | Atom.t(),
         "predictionConfiguration" => prediction_configuration(),
         "readOnlyFormsOutput" => list(form_output()),
-        "revision" => String.t(),
-        "typeIdentifier" => String.t(),
-        "typeRevision" => String.t()
+        "revision" => String.t() | Atom.t(),
+        "typeIdentifier" => String.t() | Atom.t(),
+        "typeRevision" => String.t() | Atom.t()
       }
 
   """
-  @type create_asset_output() :: %{String.t() => any()}
+  @type create_asset_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1433,36 +1433,36 @@ defmodule AWS.DataZone do
 
       list_subscription_grants_output() :: %{
         "items" => list(subscription_grant_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_subscription_grants_output() :: %{String.t() => any()}
+  @type list_subscription_grants_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       environment_configuration_user_parameter() :: %{
-        "environmentConfigurationName" => String.t(),
-        "environmentId" => String.t(),
+        "environmentConfigurationName" => String.t() | Atom.t(),
+        "environmentId" => String.t() | Atom.t(),
         "environmentParameters" => list(environment_parameter())
       }
 
   """
-  @type environment_configuration_user_parameter() :: %{String.t() => any()}
+  @type environment_configuration_user_parameter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       less_than_expression() :: %{
-        "columnName" => [String.t()],
-        "value" => [String.t()]
+        "columnName" => [String.t() | Atom.t()],
+        "value" => [String.t() | Atom.t()]
       }
 
   """
-  @type less_than_expression() :: %{String.t() => any()}
+  @type less_than_expression() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1470,20 +1470,20 @@ defmodule AWS.DataZone do
 
       revoke_subscription_output() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "domainId" => String.t(),
-        "id" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "retainPermissions" => [boolean()],
         "status" => list(any()),
         "subscribedListing" => subscribed_listing(),
         "subscribedPrincipal" => list(),
-        "subscriptionRequestId" => String.t(),
+        "subscriptionRequestId" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type revoke_subscription_output() :: %{String.t() => any()}
+  @type revoke_subscription_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1492,13 +1492,13 @@ defmodule AWS.DataZone do
       update_rule_output() :: %{
         "action" => list(any()),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "description" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
         "detail" => list(),
-        "identifier" => String.t(),
-        "lastUpdatedBy" => String.t(),
-        "name" => String.t(),
-        "revision" => String.t(),
+        "identifier" => String.t() | Atom.t(),
+        "lastUpdatedBy" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "revision" => String.t() | Atom.t(),
         "ruleType" => list(any()),
         "scope" => rule_scope(),
         "target" => list(),
@@ -1506,7 +1506,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type update_rule_output() :: %{String.t() => any()}
+  @type update_rule_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1514,14 +1514,14 @@ defmodule AWS.DataZone do
 
       get_user_profile_output() :: %{
         "details" => list(),
-        "domainId" => String.t(),
-        "id" => String.t(),
+        "domainId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "status" => list(any()),
         "type" => list(any())
       }
 
   """
-  @type get_user_profile_output() :: %{String.t() => any()}
+  @type get_user_profile_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1538,22 +1538,22 @@ defmodule AWS.DataZone do
 
       list_connections_output() :: %{
         "items" => list(connection_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_connections_output() :: %{String.t() => any()}
+  @type list_connections_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       user_details() :: %{
-        "userId" => [String.t()]
+        "userId" => [String.t() | Atom.t()]
       }
 
   """
-  @type user_details() :: %{String.t() => any()}
+  @type user_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1570,23 +1570,23 @@ defmodule AWS.DataZone do
 
       get_data_product_output() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "description" => String.t(),
-        "domainId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
         "firstRevisionCreatedAt" => non_neg_integer(),
-        "firstRevisionCreatedBy" => String.t(),
+        "firstRevisionCreatedBy" => String.t() | Atom.t(),
         "formsOutput" => list(form_output()),
-        "glossaryTerms" => list(String.t()),
-        "id" => String.t(),
+        "glossaryTerms" => list(String.t() | Atom.t()),
+        "id" => String.t() | Atom.t(),
         "items" => list(data_product_item()),
-        "name" => String.t(),
-        "owningProjectId" => String.t(),
-        "revision" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "owningProjectId" => String.t() | Atom.t(),
+        "revision" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type get_data_product_output() :: %{String.t() => any()}
+  @type get_data_product_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1594,12 +1594,12 @@ defmodule AWS.DataZone do
 
       update_connection_input() :: %{
         optional("awsLocation") => aws_location(),
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("props") => list()
       }
 
   """
-  @type update_connection_input() :: %{String.t() => any()}
+  @type update_connection_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1607,89 +1607,89 @@ defmodule AWS.DataZone do
 
       list_job_runs_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortOrder") => list(any()),
         optional("status") => list(any())
       }
 
   """
-  @type list_job_runs_input() :: %{String.t() => any()}
+  @type list_job_runs_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_environment_profile_policy_grant_detail() :: %{
-        "domainUnitId" => String.t()
+        "domainUnitId" => String.t() | Atom.t()
       }
 
   """
-  @type create_environment_profile_policy_grant_detail() :: %{String.t() => any()}
+  @type create_environment_profile_policy_grant_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_time_series_data_points_input() :: %{
-        optional("clientToken") => String.t(),
-        required("formName") => String.t()
+        optional("clientToken") => String.t() | Atom.t(),
+        required("formName") => String.t() | Atom.t()
       }
 
   """
-  @type delete_time_series_data_points_input() :: %{String.t() => any()}
+  @type delete_time_series_data_points_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       group_profile_summary() :: %{
-        "domainId" => String.t(),
-        "groupName" => String.t(),
-        "id" => String.t(),
+        "domainId" => String.t() | Atom.t(),
+        "groupName" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type group_profile_summary() :: %{String.t() => any()}
+  @type group_profile_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_asset_revision_input() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("formsInput") => list(form_input()),
-        optional("glossaryTerms") => list(String.t()),
+        optional("glossaryTerms") => list(String.t() | Atom.t()),
         optional("predictionConfiguration") => prediction_configuration(),
-        optional("typeRevision") => String.t(),
-        required("name") => String.t()
+        optional("typeRevision") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_asset_revision_input() :: %{String.t() => any()}
+  @type create_asset_revision_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       is_not_null_expression() :: %{
-        "columnName" => [String.t()]
+        "columnName" => [String.t() | Atom.t()]
       }
 
   """
-  @type is_not_null_expression() :: %{String.t() => any()}
+  @type is_not_null_expression() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_subscription_request_input() :: %{
-        required("requestReason") => String.t()
+        required("requestReason") => String.t() | Atom.t()
       }
 
   """
-  @type update_subscription_request_input() :: %{String.t() => any()}
+  @type update_subscription_request_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1706,30 +1706,30 @@ defmodule AWS.DataZone do
 
       update_domain_unit_output() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "description" => String.t(),
-        "domainId" => String.t(),
-        "id" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "lastUpdatedAt" => non_neg_integer(),
-        "lastUpdatedBy" => String.t(),
-        "name" => String.t(),
+        "lastUpdatedBy" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "owners" => list(list()),
-        "parentDomainUnitId" => String.t()
+        "parentDomainUnitId" => String.t() | Atom.t()
       }
 
   """
-  @type update_domain_unit_output() :: %{String.t() => any()}
+  @type update_domain_unit_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_listing_input() :: %{
-        optional("listingRevision") => String.t()
+        optional("listingRevision") => String.t() | Atom.t()
       }
 
   """
-  @type get_listing_input() :: %{String.t() => any()}
+  @type get_listing_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1740,7 +1740,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type redshift_self_grant_status_output() :: %{String.t() => any()}
+  @type redshift_self_grant_status_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1748,23 +1748,23 @@ defmodule AWS.DataZone do
 
       create_project_output() :: %{
         "createdAt" => [non_neg_integer()],
-        "createdBy" => String.t(),
-        "description" => String.t(),
-        "domainId" => String.t(),
-        "domainUnitId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "domainUnitId" => String.t() | Atom.t(),
         "environmentDeploymentDetails" => environment_deployment_details(),
         "failureReasons" => list(project_deletion_error()),
-        "glossaryTerms" => list(String.t()),
-        "id" => String.t(),
+        "glossaryTerms" => list(String.t() | Atom.t()),
+        "id" => String.t() | Atom.t(),
         "lastUpdatedAt" => [non_neg_integer()],
-        "name" => String.t(),
-        "projectProfileId" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "projectProfileId" => String.t() | Atom.t(),
         "projectStatus" => list(any()),
         "userParameters" => list(environment_configuration_user_parameter())
       }
 
   """
-  @type create_project_output() :: %{String.t() => any()}
+  @type create_project_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1780,25 +1780,25 @@ defmodule AWS.DataZone do
   ## Example:
 
       subscription_target_summary() :: %{
-        "applicableAssetTypes" => list(String.t()),
-        "authorizedPrincipals" => list(String.t()),
+        "applicableAssetTypes" => list(String.t() | Atom.t()),
+        "authorizedPrincipals" => list(String.t() | Atom.t()),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "domainId" => String.t(),
-        "environmentId" => String.t(),
-        "id" => String.t(),
-        "manageAccessRole" => String.t(),
-        "name" => String.t(),
-        "projectId" => String.t(),
-        "provider" => [String.t()],
+        "createdBy" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "environmentId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "manageAccessRole" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "projectId" => String.t() | Atom.t(),
+        "provider" => [String.t() | Atom.t()],
         "subscriptionTargetConfig" => list(subscription_target_form()),
-        "type" => [String.t()],
+        "type" => [String.t() | Atom.t()],
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type subscription_target_summary() :: %{String.t() => any()}
+  @type subscription_target_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1809,12 +1809,12 @@ defmodule AWS.DataZone do
         optional("eventTimestampGTE") => [non_neg_integer()],
         optional("eventTimestampLTE") => [non_neg_integer()],
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortOrder") => list(any())
       }
 
   """
-  @type list_lineage_node_history_input() :: %{String.t() => any()}
+  @type list_lineage_node_history_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1825,7 +1825,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type revoke_subscription_input() :: %{String.t() => any()}
+  @type revoke_subscription_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1834,36 +1834,36 @@ defmodule AWS.DataZone do
       search_types_input() :: %{
         optional("filters") => list(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("searchIn") => list(search_in_item()),
-        optional("searchText") => String.t(),
+        optional("searchText") => String.t() | Atom.t(),
         optional("sort") => search_sort(),
         required("managed") => [boolean()],
         required("searchScope") => list(any())
       }
 
   """
-  @type search_types_input() :: %{String.t() => any()}
+  @type search_types_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_connection_output() :: %{
-        "connectionId" => String.t(),
-        "description" => String.t(),
-        "domainId" => String.t(),
-        "domainUnitId" => String.t(),
-        "environmentId" => String.t(),
-        "name" => String.t(),
+        "connectionId" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "domainUnitId" => String.t() | Atom.t(),
+        "environmentId" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "physicalEndpoints" => list(physical_endpoint()),
-        "projectId" => String.t(),
+        "projectId" => String.t() | Atom.t(),
         "props" => list(),
         "type" => list(any())
       }
 
   """
-  @type create_connection_output() :: %{String.t() => any()}
+  @type create_connection_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1874,7 +1874,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type override_project_owners_policy_grant_detail() :: %{String.t() => any()}
+  @type override_project_owners_policy_grant_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1890,12 +1890,12 @@ defmodule AWS.DataZone do
   ## Example:
 
       greater_than_or_equal_to_expression() :: %{
-        "columnName" => [String.t()],
-        "value" => [String.t()]
+        "columnName" => [String.t() | Atom.t()],
+        "value" => [String.t() | Atom.t()]
       }
 
   """
-  @type greater_than_or_equal_to_expression() :: %{String.t() => any()}
+  @type greater_than_or_equal_to_expression() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1903,12 +1903,12 @@ defmodule AWS.DataZone do
 
       list_policy_grants_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         required("policyType") => list(any())
       }
 
   """
-  @type list_policy_grants_input() :: %{String.t() => any()}
+  @type list_policy_grants_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1924,50 +1924,50 @@ defmodule AWS.DataZone do
   ## Example:
 
       domain_unit_filter_for_project() :: %{
-        "domainUnit" => String.t(),
+        "domainUnit" => String.t() | Atom.t(),
         "includeChildDomainUnits" => [boolean()]
       }
 
   """
-  @type domain_unit_filter_for_project() :: %{String.t() => any()}
+  @type domain_unit_filter_for_project() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_asset_filter_input() :: %{
-        optional("clientToken") => [String.t()],
-        optional("description") => String.t(),
+        optional("clientToken") => [String.t() | Atom.t()],
+        optional("description") => String.t() | Atom.t(),
         required("configuration") => list(),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_asset_filter_input() :: %{String.t() => any()}
+  @type create_asset_filter_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       post_time_series_data_points_input() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         required("forms") => list(time_series_data_point_form_input())
       }
 
   """
-  @type post_time_series_data_points_input() :: %{String.t() => any()}
+  @type post_time_series_data_points_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       glue_properties_output() :: %{
-        "errorMessage" => [String.t()],
+        "errorMessage" => [String.t() | Atom.t()],
         "status" => list(any())
       }
 
   """
-  @type glue_properties_output() :: %{String.t() => any()}
+  @type glue_properties_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1994,45 +1994,45 @@ defmodule AWS.DataZone do
       subscription_grant_summary() :: %{
         "assets" => list(subscribed_asset()),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "domainId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
         "grantedEntity" => list(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "status" => list(any()),
-        "subscriptionId" => String.t(),
-        "subscriptionTargetId" => String.t(),
+        "subscriptionId" => String.t() | Atom.t(),
+        "subscriptionTargetId" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type subscription_grant_summary() :: %{String.t() => any()}
+  @type subscription_grant_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       athena_properties_output() :: %{
-        "workgroupName" => [String.t()]
+        "workgroupName" => [String.t() | Atom.t()]
       }
 
   """
-  @type athena_properties_output() :: %{String.t() => any()}
+  @type athena_properties_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_project_profile_input() :: %{
-        optional("description") => String.t(),
-        optional("domainUnitIdentifier") => String.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("domainUnitIdentifier") => String.t() | Atom.t(),
         optional("environmentConfigurations") => list(environment_configuration()),
-        optional("name") => String.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("status") => list(any())
       }
 
   """
-  @type update_project_profile_input() :: %{String.t() => any()}
+  @type update_project_profile_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2041,47 +2041,47 @@ defmodule AWS.DataZone do
       get_data_source_output() :: %{
         "assetFormsOutput" => list(form_output()),
         "configuration" => list(),
-        "connectionId" => [String.t()],
+        "connectionId" => [String.t() | Atom.t()],
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
-        "domainId" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
         "enableSetting" => list(any()),
-        "environmentId" => String.t(),
+        "environmentId" => String.t() | Atom.t(),
         "errorMessage" => data_source_error_message(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "lastRunAssetCount" => [integer()],
         "lastRunAt" => non_neg_integer(),
         "lastRunErrorMessage" => data_source_error_message(),
         "lastRunStatus" => list(any()),
-        "name" => String.t(),
-        "projectId" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "projectId" => String.t() | Atom.t(),
         "publishOnImport" => [boolean()],
         "recommendation" => recommendation_configuration(),
         "schedule" => schedule_configuration(),
         "selfGrantStatus" => list(),
         "status" => list(any()),
-        "type" => String.t(),
+        "type" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type get_data_source_output() :: %{String.t() => any()}
+  @type get_data_source_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_data_product_revision_input() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("formsInput") => list(form_input()),
-        optional("glossaryTerms") => list(String.t()),
+        optional("glossaryTerms") => list(String.t() | Atom.t()),
         optional("items") => list(data_product_item()),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_data_product_revision_input() :: %{String.t() => any()}
+  @type create_data_product_revision_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2091,44 +2091,44 @@ defmodule AWS.DataZone do
         optional("afterTimestamp") => [non_neg_integer()],
         optional("beforeTimestamp") => [non_neg_integer()],
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("subjects") => list([String.t()]()),
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("subjects") => list([String.t() | Atom.t()]()),
         optional("taskStatus") => list(any()),
         required("type") => list(any())
       }
 
   """
-  @type list_notifications_input() :: %{String.t() => any()}
+  @type list_notifications_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       redshift_serverless_storage() :: %{
-        "workgroupName" => [String.t()]
+        "workgroupName" => [String.t() | Atom.t()]
       }
 
   """
-  @type redshift_serverless_storage() :: %{String.t() => any()}
+  @type redshift_serverless_storage() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_subscriptions_input() :: %{
-        optional("approverProjectId") => String.t(),
+        optional("approverProjectId") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("owningProjectId") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("owningProjectId") => String.t() | Atom.t(),
         optional("sortBy") => list(any()),
         optional("sortOrder") => list(any()),
         optional("status") => list(any()),
-        optional("subscribedListingId") => String.t(),
-        optional("subscriptionRequestIdentifier") => String.t()
+        optional("subscribedListingId") => String.t() | Atom.t(),
+        optional("subscriptionRequestIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type list_subscriptions_input() :: %{String.t() => any()}
+  @type list_subscriptions_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2149,7 +2149,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type update_user_profile_input() :: %{String.t() => any()}
+  @type update_user_profile_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2157,21 +2157,21 @@ defmodule AWS.DataZone do
 
       get_asset_type_output() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "description" => String.t(),
-        "domainId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
         "formsOutput" => map(),
-        "name" => String.t(),
-        "originDomainId" => String.t(),
-        "originProjectId" => String.t(),
-        "owningProjectId" => String.t(),
-        "revision" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "originDomainId" => String.t() | Atom.t(),
+        "originProjectId" => String.t() | Atom.t(),
+        "owningProjectId" => String.t() | Atom.t(),
+        "revision" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type get_asset_type_output() :: %{String.t() => any()}
+  @type get_asset_type_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2179,31 +2179,31 @@ defmodule AWS.DataZone do
 
       list_environment_blueprint_configurations_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_environment_blueprint_configurations_input() :: %{String.t() => any()}
+  @type list_environment_blueprint_configurations_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_environments_input() :: %{
-        optional("awsAccountId") => String.t(),
-        optional("awsAccountRegion") => String.t(),
-        optional("environmentBlueprintIdentifier") => String.t(),
-        optional("environmentProfileIdentifier") => String.t(),
+        optional("awsAccountId") => String.t() | Atom.t(),
+        optional("awsAccountRegion") => String.t() | Atom.t(),
+        optional("environmentBlueprintIdentifier") => String.t() | Atom.t(),
+        optional("environmentProfileIdentifier") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("name") => [String.t()],
-        optional("nextToken") => String.t(),
-        optional("provider") => [String.t()],
+        optional("name") => [String.t() | Atom.t()],
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("provider") => [String.t() | Atom.t()],
         optional("status") => list(any()),
-        required("projectIdentifier") => String.t()
+        required("projectIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type list_environments_input() :: %{String.t() => any()}
+  @type list_environments_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2229,25 +2229,25 @@ defmodule AWS.DataZone do
 
       list_environment_actions_output() :: %{
         "items" => list(environment_action_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_environment_actions_output() :: %{String.t() => any()}
+  @type list_environment_actions_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_metadata_generation_run_input() :: %{
-        optional("clientToken") => String.t(),
-        required("owningProjectIdentifier") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        required("owningProjectIdentifier") => String.t() | Atom.t(),
         required("target") => metadata_generation_run_target(),
         required("type") => list(any())
       }
 
   """
-  @type start_metadata_generation_run_input() :: %{String.t() => any()}
+  @type start_metadata_generation_run_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2260,7 +2260,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type asset_item_additional_attributes() :: %{String.t() => any()}
+  @type asset_item_additional_attributes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2268,11 +2268,11 @@ defmodule AWS.DataZone do
 
       authentication_configuration_patch() :: %{
         "basicAuthenticationCredentials" => basic_authentication_credentials(),
-        "secretArn" => [String.t()]
+        "secretArn" => [String.t() | Atom.t()]
       }
 
   """
-  @type authentication_configuration_patch() :: %{String.t() => any()}
+  @type authentication_configuration_patch() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2280,55 +2280,55 @@ defmodule AWS.DataZone do
 
       environment_blueprint_configuration_item() :: %{
         "createdAt" => [non_neg_integer()],
-        "domainId" => String.t(),
-        "enabledRegions" => list(String.t()),
-        "environmentBlueprintId" => String.t(),
-        "environmentRolePermissionBoundary" => String.t(),
-        "manageAccessRoleArn" => String.t(),
+        "domainId" => String.t() | Atom.t(),
+        "enabledRegions" => list(String.t() | Atom.t()),
+        "environmentBlueprintId" => String.t() | Atom.t(),
+        "environmentRolePermissionBoundary" => String.t() | Atom.t(),
+        "manageAccessRoleArn" => String.t() | Atom.t(),
         "provisioningConfigurations" => list(list()),
-        "provisioningRoleArn" => String.t(),
+        "provisioningRoleArn" => String.t() | Atom.t(),
         "regionalParameters" => map(),
         "updatedAt" => [non_neg_integer()]
       }
 
   """
-  @type environment_blueprint_configuration_item() :: %{String.t() => any()}
+  @type environment_blueprint_configuration_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_environment_action_input() :: %{
-        optional("description") => [String.t()],
-        optional("name") => [String.t()],
+        optional("description") => [String.t() | Atom.t()],
+        optional("name") => [String.t() | Atom.t()],
         optional("parameters") => list()
       }
 
   """
-  @type update_environment_action_input() :: %{String.t() => any()}
+  @type update_environment_action_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       remove_entity_owner_input() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         required("owner") => list()
       }
 
   """
-  @type remove_entity_owner_input() :: %{String.t() => any()}
+  @type remove_entity_owner_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2337,11 +2337,11 @@ defmodule AWS.DataZone do
       create_rule_output() :: %{
         "action" => list(any()),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "description" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
         "detail" => list(),
-        "identifier" => String.t(),
-        "name" => String.t(),
+        "identifier" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "ruleType" => list(any()),
         "scope" => rule_scope(),
         "target" => list(),
@@ -2349,7 +2349,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type create_rule_output() :: %{String.t() => any()}
+  @type create_rule_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2357,13 +2357,13 @@ defmodule AWS.DataZone do
 
       get_job_run_output() :: %{
         "createdAt" => [non_neg_integer()],
-        "createdBy" => [String.t()],
+        "createdBy" => [String.t() | Atom.t()],
         "details" => list(),
-        "domainId" => String.t(),
+        "domainId" => String.t() | Atom.t(),
         "endTime" => [non_neg_integer()],
         "error" => job_run_error(),
-        "id" => [String.t()],
-        "jobId" => [String.t()],
+        "id" => [String.t() | Atom.t()],
+        "jobId" => [String.t() | Atom.t()],
         "jobType" => list(any()),
         "runMode" => list(any()),
         "startTime" => [non_neg_integer()],
@@ -2371,7 +2371,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type get_job_run_output() :: %{String.t() => any()}
+  @type get_job_run_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2388,12 +2388,12 @@ defmodule AWS.DataZone do
 
       start_data_source_run_output() :: %{
         "createdAt" => non_neg_integer(),
-        "dataSourceConfigurationSnapshot" => [String.t()],
-        "dataSourceId" => String.t(),
-        "domainId" => String.t(),
+        "dataSourceConfigurationSnapshot" => [String.t() | Atom.t()],
+        "dataSourceId" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
         "errorMessage" => data_source_error_message(),
-        "id" => String.t(),
-        "projectId" => String.t(),
+        "id" => String.t() | Atom.t(),
+        "projectId" => String.t() | Atom.t(),
         "runStatisticsForAssets" => run_statistics_for_assets(),
         "startedAt" => non_neg_integer(),
         "status" => list(any()),
@@ -2403,7 +2403,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type start_data_source_run_output() :: %{String.t() => any()}
+  @type start_data_source_run_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2411,11 +2411,11 @@ defmodule AWS.DataZone do
 
       reject_choice() :: %{
         "predictionChoices" => list([integer()]()),
-        "predictionTarget" => [String.t()]
+        "predictionTarget" => [String.t() | Atom.t()]
       }
 
   """
-  @type reject_choice() :: %{String.t() => any()}
+  @type reject_choice() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2423,11 +2423,11 @@ defmodule AWS.DataZone do
 
       list_data_source_run_activities_output() :: %{
         "items" => list(data_source_run_activity()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_data_source_run_activities_output() :: %{String.t() => any()}
+  @type list_data_source_run_activities_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2435,76 +2435,76 @@ defmodule AWS.DataZone do
 
       get_domain_unit_output() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "description" => String.t(),
-        "domainId" => String.t(),
-        "id" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "lastUpdatedAt" => non_neg_integer(),
-        "lastUpdatedBy" => String.t(),
-        "name" => String.t(),
+        "lastUpdatedBy" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "owners" => list(list()),
-        "parentDomainUnitId" => String.t()
+        "parentDomainUnitId" => String.t() | Atom.t()
       }
 
   """
-  @type get_domain_unit_output() :: %{String.t() => any()}
+  @type get_domain_unit_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       metadata_form_summary() :: %{
-        "formName" => String.t(),
-        "typeName" => String.t(),
-        "typeRevision" => String.t()
+        "formName" => String.t() | Atom.t(),
+        "typeName" => String.t() | Atom.t(),
+        "typeRevision" => String.t() | Atom.t()
       }
 
   """
-  @type metadata_form_summary() :: %{String.t() => any()}
+  @type metadata_form_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       reject_predictions_output() :: %{
-        "assetId" => String.t(),
-        "assetRevision" => String.t(),
-        "domainId" => String.t()
+        "assetId" => String.t() | Atom.t(),
+        "assetRevision" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t()
       }
 
   """
-  @type reject_predictions_output() :: %{String.t() => any()}
+  @type reject_predictions_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_domain_input() :: %{
-        optional("clientToken") => [String.t()],
-        optional("description") => [String.t()],
+        optional("clientToken") => [String.t() | Atom.t()],
+        optional("description") => [String.t() | Atom.t()],
         optional("domainVersion") => list(any()),
-        optional("kmsKeyIdentifier") => String.t(),
-        optional("serviceRole") => String.t(),
+        optional("kmsKeyIdentifier") => String.t() | Atom.t(),
+        optional("serviceRole") => String.t() | Atom.t(),
         optional("singleSignOn") => single_sign_on(),
         optional("tags") => map(),
-        required("domainExecutionRole") => String.t(),
-        required("name") => [String.t()]
+        required("domainExecutionRole") => String.t() | Atom.t(),
+        required("name") => [String.t() | Atom.t()]
       }
 
   """
-  @type create_domain_input() :: %{String.t() => any()}
+  @type create_domain_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       iam_properties_output() :: %{
-        "environmentId" => [String.t()],
+        "environmentId" => [String.t() | Atom.t()],
         "glueLineageSyncEnabled" => [boolean()]
       }
 
   """
-  @type iam_properties_output() :: %{String.t() => any()}
+  @type iam_properties_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2520,13 +2520,13 @@ defmodule AWS.DataZone do
   ## Example:
 
       hyper_pod_properties_output() :: %{
-        "clusterArn" => [String.t()],
-        "clusterName" => [String.t()],
+        "clusterArn" => [String.t() | Atom.t()],
+        "clusterName" => [String.t() | Atom.t()],
         "orchestrator" => list(any())
       }
 
   """
-  @type hyper_pod_properties_output() :: %{String.t() => any()}
+  @type hyper_pod_properties_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2535,13 +2535,13 @@ defmodule AWS.DataZone do
       list_time_series_data_points_input() :: %{
         optional("endedAt") => [non_neg_integer()],
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("startedAt") => [non_neg_integer()],
-        required("formName") => String.t()
+        required("formName") => String.t() | Atom.t()
       }
 
   """
-  @type list_time_series_data_points_input() :: %{String.t() => any()}
+  @type list_time_series_data_points_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2558,18 +2558,18 @@ defmodule AWS.DataZone do
 
       lineage_node_type_item() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "description" => [String.t()],
-        "domainId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => [String.t() | Atom.t()],
+        "domainId" => String.t() | Atom.t(),
         "formsOutput" => map(),
-        "name" => [String.t()],
-        "revision" => String.t(),
+        "name" => [String.t() | Atom.t()],
+        "revision" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type lineage_node_type_item() :: %{String.t() => any()}
+  @type lineage_node_type_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2577,17 +2577,17 @@ defmodule AWS.DataZone do
 
       get_metadata_generation_run_output() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "domainId" => String.t(),
-        "id" => String.t(),
-        "owningProjectId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "owningProjectId" => String.t() | Atom.t(),
         "status" => list(any()),
         "target" => metadata_generation_run_target(),
         "type" => list(any())
       }
 
   """
-  @type get_metadata_generation_run_output() :: %{String.t() => any()}
+  @type get_metadata_generation_run_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2596,13 +2596,13 @@ defmodule AWS.DataZone do
       get_rule_output() :: %{
         "action" => list(any()),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "description" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
         "detail" => list(),
-        "identifier" => String.t(),
-        "lastUpdatedBy" => String.t(),
-        "name" => String.t(),
-        "revision" => String.t(),
+        "identifier" => String.t() | Atom.t(),
+        "lastUpdatedBy" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "revision" => String.t() | Atom.t(),
         "ruleType" => list(any()),
         "scope" => rule_scope(),
         "target" => list(),
@@ -2611,18 +2611,18 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type get_rule_output() :: %{String.t() => any()}
+  @type get_rule_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       job_run_error() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type job_run_error() :: %{String.t() => any()}
+  @type job_run_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2630,16 +2630,16 @@ defmodule AWS.DataZone do
 
       lineage_event_summary() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "domainId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
         "eventSummary" => list(),
         "eventTime" => [non_neg_integer()],
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "processingStatus" => list(any())
       }
 
   """
-  @type lineage_event_summary() :: %{String.t() => any()}
+  @type lineage_event_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2650,9 +2650,9 @@ defmodule AWS.DataZone do
         "authenticationConfiguration" => authentication_configuration_input(),
         "connectionProperties" => map(),
         "connectionType" => list(any()),
-        "description" => [String.t()],
-        "matchCriteria" => [String.t()],
-        "name" => [String.t()],
+        "description" => [String.t() | Atom.t()],
+        "matchCriteria" => [String.t() | Atom.t()],
+        "name" => [String.t() | Atom.t()],
         "physicalConnectionRequirements" => physical_connection_requirements(),
         "pythonProperties" => map(),
         "sparkProperties" => map(),
@@ -2661,30 +2661,30 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type glue_connection_input() :: %{String.t() => any()}
+  @type glue_connection_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       data_source_error_message() :: %{
-        "errorDetail" => [String.t()],
+        "errorDetail" => [String.t() | Atom.t()],
         "errorType" => list(any())
       }
 
   """
-  @type data_source_error_message() :: %{String.t() => any()}
+  @type data_source_error_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       redshift_cluster_storage() :: %{
-        "clusterName" => [String.t()]
+        "clusterName" => [String.t() | Atom.t()]
       }
 
   """
-  @type redshift_cluster_storage() :: %{String.t() => any()}
+  @type redshift_cluster_storage() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2705,7 +2705,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type reject_rule() :: %{String.t() => any()}
+  @type reject_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2716,7 +2716,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type get_user_profile_input() :: %{String.t() => any()}
+  @type get_user_profile_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2724,21 +2724,21 @@ defmodule AWS.DataZone do
 
       glossary_term_item() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "domainId" => String.t(),
-        "glossaryId" => String.t(),
-        "id" => String.t(),
-        "longDescription" => String.t(),
-        "name" => String.t(),
-        "shortDescription" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "glossaryId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "longDescription" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "shortDescription" => String.t() | Atom.t(),
         "status" => list(any()),
         "termRelations" => term_relations(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type glossary_term_item() :: %{String.t() => any()}
+  @type glossary_term_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2749,19 +2749,19 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type override_domain_unit_owners_policy_grant_detail() :: %{String.t() => any()}
+  @type override_domain_unit_owners_policy_grant_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_target_name_map() :: %{
-        "assetId" => String.t(),
-        "targetName" => [String.t()]
+        "assetId" => String.t() | Atom.t(),
+        "targetName" => [String.t() | Atom.t()]
       }
 
   """
-  @type asset_target_name_map() :: %{String.t() => any()}
+  @type asset_target_name_map() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2769,19 +2769,19 @@ defmodule AWS.DataZone do
 
       put_environment_blueprint_configuration_output() :: %{
         "createdAt" => [non_neg_integer()],
-        "domainId" => String.t(),
-        "enabledRegions" => list(String.t()),
-        "environmentBlueprintId" => String.t(),
-        "environmentRolePermissionBoundary" => String.t(),
-        "manageAccessRoleArn" => String.t(),
+        "domainId" => String.t() | Atom.t(),
+        "enabledRegions" => list(String.t() | Atom.t()),
+        "environmentBlueprintId" => String.t() | Atom.t(),
+        "environmentRolePermissionBoundary" => String.t() | Atom.t(),
+        "manageAccessRoleArn" => String.t() | Atom.t(),
         "provisioningConfigurations" => list(list()),
-        "provisioningRoleArn" => String.t(),
+        "provisioningRoleArn" => String.t() | Atom.t(),
         "regionalParameters" => map(),
         "updatedAt" => [non_neg_integer()]
       }
 
   """
-  @type put_environment_blueprint_configuration_output() :: %{String.t() => any()}
+  @type put_environment_blueprint_configuration_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2789,54 +2789,54 @@ defmodule AWS.DataZone do
 
       create_subscription_grant_input() :: %{
         optional("assetTargetNames") => list(asset_target_name_map()),
-        optional("clientToken") => [String.t()],
-        optional("subscriptionTargetIdentifier") => String.t(),
-        required("environmentIdentifier") => String.t(),
+        optional("clientToken") => [String.t() | Atom.t()],
+        optional("subscriptionTargetIdentifier") => String.t() | Atom.t(),
+        required("environmentIdentifier") => String.t() | Atom.t(),
         required("grantedEntity") => list()
       }
 
   """
-  @type create_subscription_grant_input() :: %{String.t() => any()}
+  @type create_subscription_grant_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_environment_profile_input() :: %{
-        optional("awsAccountId") => String.t(),
-        optional("awsAccountRegion") => String.t(),
-        optional("description") => String.t(),
+        optional("awsAccountId") => String.t() | Atom.t(),
+        optional("awsAccountRegion") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("userParameters") => list(environment_parameter()),
-        required("environmentBlueprintIdentifier") => String.t(),
-        required("name") => String.t(),
-        required("projectIdentifier") => String.t()
+        required("environmentBlueprintIdentifier") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t(),
+        required("projectIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type create_environment_profile_input() :: %{String.t() => any()}
+  @type create_environment_profile_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_environment_output() :: %{
-        "awsAccountId" => String.t(),
-        "awsAccountRegion" => String.t(),
+        "awsAccountId" => String.t() | Atom.t(),
+        "awsAccountRegion" => String.t() | Atom.t(),
         "createdAt" => [non_neg_integer()],
-        "createdBy" => [String.t()],
+        "createdBy" => [String.t() | Atom.t()],
         "deploymentProperties" => deployment_properties(),
-        "description" => String.t(),
-        "domainId" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
         "environmentActions" => list(configurable_environment_action()),
-        "environmentBlueprintId" => String.t(),
-        "environmentConfigurationId" => String.t(),
-        "environmentProfileId" => String.t(),
-        "glossaryTerms" => list(String.t()),
-        "id" => String.t(),
+        "environmentBlueprintId" => String.t() | Atom.t(),
+        "environmentConfigurationId" => String.t() | Atom.t(),
+        "environmentProfileId" => String.t() | Atom.t(),
+        "glossaryTerms" => list(String.t() | Atom.t()),
+        "id" => String.t() | Atom.t(),
         "lastDeployment" => deployment(),
-        "name" => String.t(),
-        "projectId" => String.t(),
-        "provider" => [String.t()],
+        "name" => String.t() | Atom.t(),
+        "projectId" => String.t() | Atom.t(),
+        "provider" => [String.t() | Atom.t()],
         "provisionedResources" => list(resource()),
         "provisioningProperties" => list(),
         "status" => list(any()),
@@ -2845,59 +2845,59 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type create_environment_output() :: %{String.t() => any()}
+  @type create_environment_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       post_lineage_event_input() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         required("event") => binary()
       }
 
   """
-  @type post_lineage_event_input() :: %{String.t() => any()}
+  @type post_lineage_event_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       iam_user_profile_details() :: %{
-        "arn" => [String.t()]
+        "arn" => [String.t() | Atom.t()]
       }
 
   """
-  @type iam_user_profile_details() :: %{String.t() => any()}
+  @type iam_user_profile_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       reject_predictions_input() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         optional("rejectChoices") => list(reject_choice()),
         optional("rejectRule") => reject_rule(),
-        optional("revision") => String.t()
+        optional("revision") => String.t() | Atom.t()
       }
 
   """
-  @type reject_predictions_input() :: %{String.t() => any()}
+  @type reject_predictions_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       time_series_data_point_form_input() :: %{
-        "content" => [String.t()],
-        "formName" => String.t(),
+        "content" => [String.t() | Atom.t()],
+        "formName" => String.t() | Atom.t(),
         "timestamp" => [non_neg_integer()],
-        "typeIdentifier" => String.t(),
-        "typeRevision" => String.t()
+        "typeIdentifier" => String.t() | Atom.t(),
+        "typeRevision" => String.t() | Atom.t()
       }
 
   """
-  @type time_series_data_point_form_input() :: %{String.t() => any()}
+  @type time_series_data_point_form_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2905,12 +2905,12 @@ defmodule AWS.DataZone do
 
       search_output() :: %{
         "items" => list(list()),
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "totalMatchCount" => [integer()]
       }
 
   """
-  @type search_output() :: %{String.t() => any()}
+  @type search_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2935,25 +2935,25 @@ defmodule AWS.DataZone do
   ## Example:
 
       o_auth2_client_application() :: %{
-        "aWSManagedClientApplicationReference" => [String.t()],
-        "userManagedClientApplicationClientId" => [String.t()]
+        "aWSManagedClientApplicationReference" => [String.t() | Atom.t()],
+        "userManagedClientApplicationClientId" => [String.t() | Atom.t()]
       }
 
   """
-  @type o_auth2_client_application() :: %{String.t() => any()}
+  @type o_auth2_client_application() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_user_profile_input() :: %{
-        optional("clientToken") => [String.t()],
+        optional("clientToken") => [String.t() | Atom.t()],
         optional("userType") => list(any()),
-        required("userIdentifier") => String.t()
+        required("userIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type create_user_profile_input() :: %{String.t() => any()}
+  @type create_user_profile_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2969,47 +2969,47 @@ defmodule AWS.DataZone do
   ## Example:
 
       lineage_info() :: %{
-        "errorMessage" => String.t(),
-        "eventId" => [String.t()],
+        "errorMessage" => String.t() | Atom.t(),
+        "eventId" => [String.t() | Atom.t()],
         "eventStatus" => list(any())
       }
 
   """
-  @type lineage_info() :: %{String.t() => any()}
+  @type lineage_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       subscribed_listing() :: %{
-        "description" => String.t(),
-        "id" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "item" => list(),
-        "name" => String.t(),
-        "ownerProjectId" => String.t(),
-        "ownerProjectName" => [String.t()],
-        "revision" => String.t()
+        "name" => String.t() | Atom.t(),
+        "ownerProjectId" => String.t() | Atom.t(),
+        "ownerProjectName" => [String.t() | Atom.t()],
+        "revision" => String.t() | Atom.t()
       }
 
   """
-  @type subscribed_listing() :: %{String.t() => any()}
+  @type subscribed_listing() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_form_type_output() :: %{
-        "description" => String.t(),
-        "domainId" => String.t(),
-        "name" => String.t(),
-        "originDomainId" => String.t(),
-        "originProjectId" => String.t(),
-        "owningProjectId" => String.t(),
-        "revision" => String.t()
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "originDomainId" => String.t() | Atom.t(),
+        "originProjectId" => String.t() | Atom.t(),
+        "owningProjectId" => String.t() | Atom.t(),
+        "revision" => String.t() | Atom.t()
       }
 
   """
-  @type create_form_type_output() :: %{String.t() => any()}
+  @type create_form_type_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3017,11 +3017,11 @@ defmodule AWS.DataZone do
 
       list_entity_owners_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_entity_owners_input() :: %{String.t() => any()}
+  @type list_entity_owners_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3029,34 +3029,34 @@ defmodule AWS.DataZone do
 
       start_metadata_generation_run_output() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "domainId" => String.t(),
-        "id" => String.t(),
-        "owningProjectId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "owningProjectId" => String.t() | Atom.t(),
         "status" => list(any()),
         "type" => list(any())
       }
 
   """
-  @type start_metadata_generation_run_output() :: %{String.t() => any()}
+  @type start_metadata_generation_run_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_subscription_target_input() :: %{
-        optional("clientToken") => [String.t()],
-        optional("provider") => [String.t()],
-        required("applicableAssetTypes") => list(String.t()),
-        required("authorizedPrincipals") => list(String.t()),
-        required("manageAccessRole") => String.t(),
-        required("name") => String.t(),
+        optional("clientToken") => [String.t() | Atom.t()],
+        optional("provider") => [String.t() | Atom.t()],
+        required("applicableAssetTypes") => list(String.t() | Atom.t()),
+        required("authorizedPrincipals") => list(String.t() | Atom.t()),
+        required("manageAccessRole") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t(),
         required("subscriptionTargetConfig") => list(subscription_target_form()),
-        required("type") => [String.t()]
+        required("type") => [String.t() | Atom.t()]
       }
 
   """
-  @type create_subscription_target_input() :: %{String.t() => any()}
+  @type create_subscription_target_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3065,9 +3065,9 @@ defmodule AWS.DataZone do
       update_data_source_input() :: %{
         optional("assetFormsInput") => list(form_input()),
         optional("configuration") => list(),
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("enableSetting") => list(any()),
-        optional("name") => String.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("publishOnImport") => [boolean()],
         optional("recommendation") => recommendation_configuration(),
         optional("retainPermissionsOnRevokeFailure") => [boolean()],
@@ -3075,20 +3075,20 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type update_data_source_input() :: %{String.t() => any()}
+  @type update_data_source_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_in_data_product_listing_item() :: %{
-        "entityId" => [String.t()],
-        "entityRevision" => [String.t()],
-        "entityType" => [String.t()]
+        "entityId" => [String.t() | Atom.t()],
+        "entityRevision" => [String.t() | Atom.t()],
+        "entityType" => [String.t() | Atom.t()]
       }
 
   """
-  @type asset_in_data_product_listing_item() :: %{String.t() => any()}
+  @type asset_in_data_product_listing_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3096,64 +3096,64 @@ defmodule AWS.DataZone do
 
       form_entry_input() :: %{
         "required" => [boolean()],
-        "typeIdentifier" => String.t(),
-        "typeRevision" => String.t()
+        "typeIdentifier" => String.t() | Atom.t(),
+        "typeRevision" => String.t() | Atom.t()
       }
 
   """
-  @type form_entry_input() :: %{String.t() => any()}
+  @type form_entry_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_listing() :: %{
-        "assetId" => String.t(),
-        "assetRevision" => String.t(),
-        "assetType" => String.t(),
+        "assetId" => String.t() | Atom.t(),
+        "assetRevision" => String.t() | Atom.t(),
+        "assetType" => String.t() | Atom.t(),
         "createdAt" => non_neg_integer(),
-        "forms" => String.t(),
+        "forms" => String.t() | Atom.t(),
         "glossaryTerms" => list(detailed_glossary_term()),
         "latestTimeSeriesDataPointForms" => list(time_series_data_point_summary_form_output()),
-        "owningProjectId" => String.t()
+        "owningProjectId" => String.t() | Atom.t()
       }
 
   """
-  @type asset_listing() :: %{String.t() => any()}
+  @type asset_listing() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       domain_unit_user_properties() :: %{
-        "userId" => [String.t()]
+        "userId" => [String.t() | Atom.t()]
       }
 
   """
-  @type domain_unit_user_properties() :: %{String.t() => any()}
+  @type domain_unit_user_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_domain_input() :: %{
-        optional("clientToken") => [String.t()],
+        optional("clientToken") => [String.t() | Atom.t()],
         optional("skipDeletionCheck") => [boolean()]
       }
 
   """
-  @type delete_domain_input() :: %{String.t() => any()}
+  @type delete_domain_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_rule_input() :: %{
-        optional("revision") => String.t()
+        optional("revision") => String.t() | Atom.t()
       }
 
   """
-  @type get_rule_input() :: %{String.t() => any()}
+  @type get_rule_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3161,39 +3161,39 @@ defmodule AWS.DataZone do
 
       list_domain_units_for_parent_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("parentDomainUnitIdentifier") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("parentDomainUnitIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type list_domain_units_for_parent_input() :: %{String.t() => any()}
+  @type list_domain_units_for_parent_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       custom_parameter() :: %{
-        "defaultValue" => [String.t()],
-        "description" => String.t(),
-        "fieldType" => [String.t()],
+        "defaultValue" => [String.t() | Atom.t()],
+        "description" => String.t() | Atom.t(),
+        "fieldType" => [String.t() | Atom.t()],
         "isEditable" => [boolean()],
         "isOptional" => [boolean()],
-        "keyName" => [String.t()]
+        "keyName" => [String.t() | Atom.t()]
       }
 
   """
-  @type custom_parameter() :: %{String.t() => any()}
+  @type custom_parameter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_asset_input() :: %{
-        optional("revision") => String.t()
+        optional("revision") => String.t() | Atom.t()
       }
 
   """
-  @type get_asset_input() :: %{String.t() => any()}
+  @type get_asset_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3201,11 +3201,11 @@ defmodule AWS.DataZone do
 
       projects_for_rule() :: %{
         "selectionMode" => list(any()),
-        "specificProjects" => list(String.t())
+        "specificProjects" => list(String.t() | Atom.t())
       }
 
   """
-  @type projects_for_rule() :: %{String.t() => any()}
+  @type projects_for_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3213,14 +3213,14 @@ defmodule AWS.DataZone do
 
       update_user_profile_output() :: %{
         "details" => list(),
-        "domainId" => String.t(),
-        "id" => String.t(),
+        "domainId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "status" => list(any()),
         "type" => list(any())
       }
 
   """
-  @type update_user_profile_output() :: %{String.t() => any()}
+  @type update_user_profile_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3236,47 +3236,47 @@ defmodule AWS.DataZone do
   ## Example:
 
       is_null_expression() :: %{
-        "columnName" => [String.t()]
+        "columnName" => [String.t() | Atom.t()]
       }
 
   """
-  @type is_null_expression() :: %{String.t() => any()}
+  @type is_null_expression() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       add_policy_grant_input() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         required("detail") => list(),
         required("policyType") => list(any()),
         required("principal") => list()
       }
 
   """
-  @type add_policy_grant_input() :: %{String.t() => any()}
+  @type add_policy_grant_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3293,21 +3293,21 @@ defmodule AWS.DataZone do
 
       get_glossary_term_output() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "domainId" => String.t(),
-        "glossaryId" => String.t(),
-        "id" => String.t(),
-        "longDescription" => String.t(),
-        "name" => String.t(),
-        "shortDescription" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "glossaryId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "longDescription" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "shortDescription" => String.t() | Atom.t(),
         "status" => list(any()),
         "termRelations" => term_relations(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type get_glossary_term_output() :: %{String.t() => any()}
+  @type get_glossary_term_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3315,34 +3315,34 @@ defmodule AWS.DataZone do
 
       list_domains_output() :: %{
         "items" => list(domain_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_domains_output() :: %{String.t() => any()}
+  @type list_domains_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_environment_output() :: %{
-        "awsAccountId" => String.t(),
-        "awsAccountRegion" => String.t(),
+        "awsAccountId" => String.t() | Atom.t(),
+        "awsAccountRegion" => String.t() | Atom.t(),
         "createdAt" => [non_neg_integer()],
-        "createdBy" => [String.t()],
+        "createdBy" => [String.t() | Atom.t()],
         "deploymentProperties" => deployment_properties(),
-        "description" => String.t(),
-        "domainId" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
         "environmentActions" => list(configurable_environment_action()),
-        "environmentBlueprintId" => String.t(),
-        "environmentConfigurationId" => String.t(),
-        "environmentProfileId" => String.t(),
-        "glossaryTerms" => list(String.t()),
-        "id" => String.t(),
+        "environmentBlueprintId" => String.t() | Atom.t(),
+        "environmentConfigurationId" => String.t() | Atom.t(),
+        "environmentProfileId" => String.t() | Atom.t(),
+        "glossaryTerms" => list(String.t() | Atom.t()),
+        "id" => String.t() | Atom.t(),
         "lastDeployment" => deployment(),
-        "name" => String.t(),
-        "projectId" => String.t(),
-        "provider" => [String.t()],
+        "name" => String.t() | Atom.t(),
+        "projectId" => String.t() | Atom.t(),
+        "provider" => [String.t() | Atom.t()],
         "provisionedResources" => list(resource()),
         "provisioningProperties" => list(),
         "status" => list(any()),
@@ -3351,19 +3351,19 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type update_environment_output() :: %{String.t() => any()}
+  @type update_environment_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       like_expression() :: %{
-        "columnName" => [String.t()],
-        "value" => [String.t()]
+        "columnName" => [String.t() | Atom.t()],
+        "value" => [String.t() | Atom.t()]
       }
 
   """
-  @type like_expression() :: %{String.t() => any()}
+  @type like_expression() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3372,64 +3372,64 @@ defmodule AWS.DataZone do
       create_data_source_output() :: %{
         "assetFormsOutput" => list(form_output()),
         "configuration" => list(),
-        "connectionId" => [String.t()],
+        "connectionId" => [String.t() | Atom.t()],
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
-        "domainId" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
         "enableSetting" => list(any()),
-        "environmentId" => String.t(),
+        "environmentId" => String.t() | Atom.t(),
         "errorMessage" => data_source_error_message(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "lastRunAt" => non_neg_integer(),
         "lastRunErrorMessage" => data_source_error_message(),
         "lastRunStatus" => list(any()),
-        "name" => String.t(),
-        "projectId" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "projectId" => String.t() | Atom.t(),
         "publishOnImport" => [boolean()],
         "recommendation" => recommendation_configuration(),
         "schedule" => schedule_configuration(),
         "status" => list(any()),
-        "type" => String.t(),
+        "type" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type create_data_source_output() :: %{String.t() => any()}
+  @type create_data_source_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       spark_glue_args() :: %{
-        "connection" => [String.t()]
+        "connection" => [String.t() | Atom.t()]
       }
 
   """
-  @type spark_glue_args() :: %{String.t() => any()}
+  @type spark_glue_args() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       equal_to_expression() :: %{
-        "columnName" => [String.t()],
-        "value" => [String.t()]
+        "columnName" => [String.t() | Atom.t()],
+        "value" => [String.t() | Atom.t()]
       }
 
   """
-  @type equal_to_expression() :: %{String.t() => any()}
+  @type equal_to_expression() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_iam_portal_login_url_output() :: %{
-        "authCodeUrl" => [String.t()],
-        "userProfileId" => [String.t()]
+        "authCodeUrl" => [String.t() | Atom.t()],
+        "userProfileId" => [String.t() | Atom.t()]
       }
 
   """
-  @type get_iam_portal_login_url_output() :: %{String.t() => any()}
+  @type get_iam_portal_login_url_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3437,15 +3437,15 @@ defmodule AWS.DataZone do
 
       subscribed_product_listing() :: %{
         "assetListings" => list(asset_in_data_product_listing_item()),
-        "description" => [String.t()],
-        "entityId" => String.t(),
-        "entityRevision" => String.t(),
+        "description" => [String.t() | Atom.t()],
+        "entityId" => String.t() | Atom.t(),
+        "entityRevision" => String.t() | Atom.t(),
         "glossaryTerms" => list(detailed_glossary_term()),
-        "name" => [String.t()]
+        "name" => [String.t() | Atom.t()]
       }
 
   """
-  @type subscribed_product_listing() :: %{String.t() => any()}
+  @type subscribed_product_listing() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3457,20 +3457,20 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type accept_rule() :: %{String.t() => any()}
+  @type accept_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       metadata_generation_run_target() :: %{
-        "identifier" => [String.t()],
-        "revision" => String.t(),
+        "identifier" => [String.t() | Atom.t()],
+        "revision" => String.t() | Atom.t(),
         "type" => list(any())
       }
 
   """
-  @type metadata_generation_run_target() :: %{String.t() => any()}
+  @type metadata_generation_run_target() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3479,30 +3479,30 @@ defmodule AWS.DataZone do
       delete_data_source_output() :: %{
         "assetFormsOutput" => list(form_output()),
         "configuration" => list(),
-        "connectionId" => [String.t()],
+        "connectionId" => [String.t() | Atom.t()],
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
-        "domainId" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
         "enableSetting" => list(any()),
-        "environmentId" => String.t(),
+        "environmentId" => String.t() | Atom.t(),
         "errorMessage" => data_source_error_message(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "lastRunAt" => non_neg_integer(),
         "lastRunErrorMessage" => data_source_error_message(),
         "lastRunStatus" => list(any()),
-        "name" => String.t(),
-        "projectId" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "projectId" => String.t() | Atom.t(),
         "publishOnImport" => [boolean()],
         "retainPermissionsOnRevokeFailure" => [boolean()],
         "schedule" => schedule_configuration(),
         "selfGrantStatus" => list(),
         "status" => list(any()),
-        "type" => String.t(),
+        "type" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type delete_data_source_output() :: %{String.t() => any()}
+  @type delete_data_source_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3513,7 +3513,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type get_connection_input() :: %{String.t() => any()}
+  @type get_connection_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3521,21 +3521,21 @@ defmodule AWS.DataZone do
 
       get_connection_output() :: %{
         "connectionCredentials" => connection_credentials(),
-        "connectionId" => String.t(),
-        "description" => String.t(),
-        "domainId" => String.t(),
-        "domainUnitId" => String.t(),
-        "environmentId" => String.t(),
-        "environmentUserRole" => [String.t()],
-        "name" => String.t(),
+        "connectionId" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "domainUnitId" => String.t() | Atom.t(),
+        "environmentId" => String.t() | Atom.t(),
+        "environmentUserRole" => [String.t() | Atom.t()],
+        "name" => String.t() | Atom.t(),
         "physicalEndpoints" => list(physical_endpoint()),
-        "projectId" => String.t(),
+        "projectId" => String.t() | Atom.t(),
         "props" => list(),
         "type" => list(any())
       }
 
   """
-  @type get_connection_output() :: %{String.t() => any()}
+  @type get_connection_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3543,31 +3543,31 @@ defmodule AWS.DataZone do
 
       get_glossary_output() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "description" => String.t(),
-        "domainId" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
-        "owningProjectId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "owningProjectId" => String.t() | Atom.t(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type get_glossary_output() :: %{String.t() => any()}
+  @type get_glossary_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_listing_item_additional_attributes() :: %{
-        "forms" => String.t(),
+        "forms" => String.t() | Atom.t(),
         "latestTimeSeriesDataPointForms" => list(time_series_data_point_summary_form_output())
       }
 
   """
-  @type asset_listing_item_additional_attributes() :: %{String.t() => any()}
+  @type asset_listing_item_additional_attributes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3576,30 +3576,30 @@ defmodule AWS.DataZone do
       list_environment_blueprints_input() :: %{
         optional("managed") => [boolean()],
         optional("maxResults") => integer(),
-        optional("name") => String.t(),
-        optional("nextToken") => String.t()
+        optional("name") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_environment_blueprints_input() :: %{String.t() => any()}
+  @type list_environment_blueprints_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_data_sources_input() :: %{
-        optional("connectionIdentifier") => [String.t()],
-        optional("environmentIdentifier") => [String.t()],
+        optional("connectionIdentifier") => [String.t() | Atom.t()],
+        optional("environmentIdentifier") => [String.t() | Atom.t()],
         optional("maxResults") => integer(),
-        optional("name") => String.t(),
-        optional("nextToken") => String.t(),
+        optional("name") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("status") => list(any()),
-        optional("type") => String.t(),
-        required("projectIdentifier") => [String.t()]
+        optional("type") => String.t() | Atom.t(),
+        required("projectIdentifier") => [String.t() | Atom.t()]
       }
 
   """
-  @type list_data_sources_input() :: %{String.t() => any()}
+  @type list_data_sources_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3607,11 +3607,11 @@ defmodule AWS.DataZone do
 
       list_lineage_events_output() :: %{
         "items" => list(lineage_event_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_lineage_events_output() :: %{String.t() => any()}
+  @type list_lineage_events_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3622,7 +3622,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type iam_properties_input() :: %{String.t() => any()}
+  @type iam_properties_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3630,11 +3630,11 @@ defmodule AWS.DataZone do
 
       list_projects_output() :: %{
         "items" => list(project_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_projects_output() :: %{String.t() => any()}
+  @type list_projects_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3642,25 +3642,25 @@ defmodule AWS.DataZone do
 
       create_user_profile_output() :: %{
         "details" => list(),
-        "domainId" => String.t(),
-        "id" => String.t(),
+        "domainId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "status" => list(any()),
         "type" => list(any())
       }
 
   """
-  @type create_user_profile_output() :: %{String.t() => any()}
+  @type create_user_profile_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3668,29 +3668,29 @@ defmodule AWS.DataZone do
 
       search_user_profiles_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("searchText") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("searchText") => String.t() | Atom.t(),
         required("userType") => list(any())
       }
 
   """
-  @type search_user_profiles_input() :: %{String.t() => any()}
+  @type search_user_profiles_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_environment_action_output() :: %{
-        "description" => [String.t()],
-        "domainId" => String.t(),
-        "environmentId" => String.t(),
-        "id" => String.t(),
-        "name" => [String.t()],
+        "description" => [String.t() | Atom.t()],
+        "domainId" => String.t() | Atom.t(),
+        "environmentId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => [String.t() | Atom.t()],
         "parameters" => list()
       }
 
   """
-  @type get_environment_action_output() :: %{String.t() => any()}
+  @type get_environment_action_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3701,7 +3701,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type data_source_run_lineage_summary() :: %{String.t() => any()}
+  @type data_source_run_lineage_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3709,34 +3709,34 @@ defmodule AWS.DataZone do
 
       reject_subscription_request_output() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "decisionComment" => String.t(),
-        "domainId" => String.t(),
-        "existingSubscriptionId" => String.t(),
-        "id" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "decisionComment" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "existingSubscriptionId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "metadataForms" => list(form_output()),
-        "requestReason" => String.t(),
-        "reviewerId" => [String.t()],
+        "requestReason" => String.t() | Atom.t(),
+        "reviewerId" => [String.t() | Atom.t()],
         "status" => list(any()),
         "subscribedListings" => list(subscribed_listing()),
         "subscribedPrincipals" => list(list()),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type reject_subscription_request_output() :: %{String.t() => any()}
+  @type reject_subscription_request_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       hyper_pod_properties_input() :: %{
-        "clusterName" => [String.t()]
+        "clusterName" => [String.t() | Atom.t()]
       }
 
   """
-  @type hyper_pod_properties_input() :: %{String.t() => any()}
+  @type hyper_pod_properties_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3745,11 +3745,11 @@ defmodule AWS.DataZone do
       topic() :: %{
         "resource" => notification_resource(),
         "role" => list(any()),
-        "subject" => [String.t()]
+        "subject" => [String.t() | Atom.t()]
       }
 
   """
-  @type topic() :: %{String.t() => any()}
+  @type topic() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3758,36 +3758,36 @@ defmodule AWS.DataZone do
       configurable_environment_action() :: %{
         "auth" => list(any()),
         "parameters" => list(configurable_action_parameter()),
-        "type" => [String.t()]
+        "type" => [String.t() | Atom.t()]
       }
 
   """
-  @type configurable_environment_action() :: %{String.t() => any()}
+  @type configurable_environment_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_domain_output() :: %{
-        "arn" => [String.t()],
+        "arn" => [String.t() | Atom.t()],
         "createdAt" => non_neg_integer(),
-        "description" => [String.t()],
-        "domainExecutionRole" => String.t(),
+        "description" => [String.t() | Atom.t()],
+        "domainExecutionRole" => String.t() | Atom.t(),
         "domainVersion" => list(any()),
-        "id" => String.t(),
-        "kmsKeyIdentifier" => String.t(),
+        "id" => String.t() | Atom.t(),
+        "kmsKeyIdentifier" => String.t() | Atom.t(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => [String.t()],
-        "portalUrl" => [String.t()],
-        "rootDomainUnitId" => String.t(),
-        "serviceRole" => String.t(),
+        "name" => [String.t() | Atom.t()],
+        "portalUrl" => [String.t() | Atom.t()],
+        "rootDomainUnitId" => String.t() | Atom.t(),
+        "serviceRole" => String.t() | Atom.t(),
         "singleSignOn" => single_sign_on(),
         "status" => list(any()),
         "tags" => map()
       }
 
   """
-  @type get_domain_output() :: %{String.t() => any()}
+  @type get_domain_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3795,12 +3795,12 @@ defmodule AWS.DataZone do
 
       search_listings_output() :: %{
         "items" => list(list()),
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "totalMatchCount" => [integer()]
       }
 
   """
-  @type search_listings_output() :: %{String.t() => any()}
+  @type search_listings_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3811,23 +3811,23 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type prediction_configuration() :: %{String.t() => any()}
+  @type prediction_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       environment_action_summary() :: %{
-        "description" => [String.t()],
-        "domainId" => String.t(),
-        "environmentId" => String.t(),
-        "id" => String.t(),
-        "name" => [String.t()],
+        "description" => [String.t() | Atom.t()],
+        "domainId" => String.t() | Atom.t(),
+        "environmentId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => [String.t() | Atom.t()],
         "parameters" => list()
       }
 
   """
-  @type environment_action_summary() :: %{String.t() => any()}
+  @type environment_action_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3835,16 +3835,16 @@ defmodule AWS.DataZone do
 
       environment_blueprint_summary() :: %{
         "createdAt" => [non_neg_integer()],
-        "description" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
-        "provider" => [String.t()],
+        "description" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "provider" => [String.t() | Atom.t()],
         "provisioningProperties" => list(),
         "updatedAt" => [non_neg_integer()]
       }
 
   """
-  @type environment_blueprint_summary() :: %{String.t() => any()}
+  @type environment_blueprint_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3860,27 +3860,27 @@ defmodule AWS.DataZone do
   ## Example:
 
       create_glossary_input() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("status") => list(any()),
-        required("name") => String.t(),
-        required("owningProjectIdentifier") => String.t()
+        required("name") => String.t() | Atom.t(),
+        required("owningProjectIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type create_glossary_input() :: %{String.t() => any()}
+  @type create_glossary_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       listing_revision_input() :: %{
-        "identifier" => String.t(),
-        "revision" => String.t()
+        "identifier" => String.t() | Atom.t(),
+        "revision" => String.t() | Atom.t()
       }
 
   """
-  @type listing_revision_input() :: %{String.t() => any()}
+  @type listing_revision_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3888,11 +3888,11 @@ defmodule AWS.DataZone do
 
       list_environments_output() :: %{
         "items" => list(environment_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_environments_output() :: %{String.t() => any()}
+  @type list_environments_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3907,7 +3907,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type run_statistics_for_assets() :: %{String.t() => any()}
+  @type run_statistics_for_assets() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3918,7 +3918,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type glue_properties_patch() :: %{String.t() => any()}
+  @type glue_properties_patch() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3927,34 +3927,34 @@ defmodule AWS.DataZone do
       update_subscription_grant_status_output() :: %{
         "assets" => list(subscribed_asset()),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "domainId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
         "grantedEntity" => list(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "status" => list(any()),
-        "subscriptionId" => String.t(),
-        "subscriptionTargetId" => String.t(),
+        "subscriptionId" => String.t() | Atom.t(),
+        "subscriptionTargetId" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type update_subscription_grant_status_output() :: %{String.t() => any()}
+  @type update_subscription_grant_status_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_environment_input() :: %{
-        optional("blueprintVersion") => [String.t()],
-        optional("description") => [String.t()],
-        optional("glossaryTerms") => list(String.t()),
-        optional("name") => [String.t()],
+        optional("blueprintVersion") => [String.t() | Atom.t()],
+        optional("description") => [String.t() | Atom.t()],
+        optional("glossaryTerms") => list(String.t() | Atom.t()),
+        optional("name") => [String.t() | Atom.t()],
         optional("userParameters") => list(environment_parameter())
       }
 
   """
-  @type update_environment_input() :: %{String.t() => any()}
+  @type update_environment_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3962,13 +3962,13 @@ defmodule AWS.DataZone do
 
       list_subscription_targets_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortBy") => list(any()),
         optional("sortOrder") => list(any())
       }
 
   """
-  @type list_subscription_targets_input() :: %{String.t() => any()}
+  @type list_subscription_targets_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3979,7 +3979,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type sage_maker_run_configuration_input() :: %{String.t() => any()}
+  @type sage_maker_run_configuration_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3995,63 +3995,63 @@ defmodule AWS.DataZone do
   ## Example:
 
       post_lineage_event_output() :: %{
-        "domainId" => String.t(),
-        "id" => String.t()
+        "domainId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t()
       }
 
   """
-  @type post_lineage_event_output() :: %{String.t() => any()}
+  @type post_lineage_event_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       use_asset_type_policy_grant_detail() :: %{
-        "domainUnitId" => String.t()
+        "domainUnitId" => String.t() | Atom.t()
       }
 
   """
-  @type use_asset_type_policy_grant_detail() :: %{String.t() => any()}
+  @type use_asset_type_policy_grant_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       not_equal_to_expression() :: %{
-        "columnName" => [String.t()],
-        "value" => [String.t()]
+        "columnName" => [String.t() | Atom.t()],
+        "value" => [String.t() | Atom.t()]
       }
 
   """
-  @type not_equal_to_expression() :: %{String.t() => any()}
+  @type not_equal_to_expression() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       time_series_data_point_form_output() :: %{
-        "content" => [String.t()],
-        "formName" => String.t(),
-        "id" => String.t(),
+        "content" => [String.t() | Atom.t()],
+        "formName" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "timestamp" => [non_neg_integer()],
-        "typeIdentifier" => String.t(),
-        "typeRevision" => String.t()
+        "typeIdentifier" => String.t() | Atom.t(),
+        "typeRevision" => String.t() | Atom.t()
       }
 
   """
-  @type time_series_data_point_form_output() :: %{String.t() => any()}
+  @type time_series_data_point_form_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       not_like_expression() :: %{
-        "columnName" => [String.t()],
-        "value" => [String.t()]
+        "columnName" => [String.t() | Atom.t()],
+        "value" => [String.t() | Atom.t()]
       }
 
   """
-  @type not_like_expression() :: %{String.t() => any()}
+  @type not_like_expression() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4067,11 +4067,11 @@ defmodule AWS.DataZone do
   ## Example:
 
       owner_group_properties() :: %{
-        "groupIdentifier" => String.t()
+        "groupIdentifier" => String.t() | Atom.t()
       }
 
   """
-  @type owner_group_properties() :: %{String.t() => any()}
+  @type owner_group_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4079,35 +4079,35 @@ defmodule AWS.DataZone do
 
       asset_type_item() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "description" => String.t(),
-        "domainId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
         "formsOutput" => map(),
-        "name" => String.t(),
-        "originDomainId" => String.t(),
-        "originProjectId" => String.t(),
-        "owningProjectId" => String.t(),
-        "revision" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "originDomainId" => String.t() | Atom.t(),
+        "originProjectId" => String.t() | Atom.t(),
+        "owningProjectId" => String.t() | Atom.t(),
+        "revision" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type asset_type_item() :: %{String.t() => any()}
+  @type asset_type_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       glue_o_auth2_credentials() :: %{
-        "accessToken" => [String.t()],
-        "jwtToken" => [String.t()],
-        "refreshToken" => [String.t()],
-        "userManagedClientApplicationClientSecret" => [String.t()]
+        "accessToken" => [String.t() | Atom.t()],
+        "jwtToken" => [String.t() | Atom.t()],
+        "refreshToken" => [String.t() | Atom.t()],
+        "userManagedClientApplicationClientSecret" => [String.t() | Atom.t()]
       }
 
   """
-  @type glue_o_auth2_credentials() :: %{String.t() => any()}
+  @type glue_o_auth2_credentials() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4115,24 +4115,24 @@ defmodule AWS.DataZone do
 
       glue_run_configuration_input() :: %{
         "autoImportDataQualityResult" => [boolean()],
-        "catalogName" => [String.t()],
-        "dataAccessRole" => [String.t()],
+        "catalogName" => [String.t() | Atom.t()],
+        "dataAccessRole" => [String.t() | Atom.t()],
         "relationalFilterConfigurations" => list(relational_filter_configuration())
       }
 
   """
-  @type glue_run_configuration_input() :: %{String.t() => any()}
+  @type glue_run_configuration_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       athena_properties_input() :: %{
-        "workgroupName" => [String.t()]
+        "workgroupName" => [String.t() | Atom.t()]
       }
 
   """
-  @type athena_properties_input() :: %{String.t() => any()}
+  @type athena_properties_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4140,11 +4140,11 @@ defmodule AWS.DataZone do
 
       list_data_product_revisions_output() :: %{
         "items" => list(data_product_revision()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_data_product_revisions_output() :: %{String.t() => any()}
+  @type list_data_product_revisions_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4152,12 +4152,12 @@ defmodule AWS.DataZone do
 
       list_data_source_run_activities_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("status") => list(any())
       }
 
   """
-  @type list_data_source_run_activities_input() :: %{String.t() => any()}
+  @type list_data_source_run_activities_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4168,7 +4168,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4184,11 +4184,11 @@ defmodule AWS.DataZone do
   ## Example:
 
       owner_user_properties() :: %{
-        "userIdentifier" => String.t()
+        "userIdentifier" => String.t() | Atom.t()
       }
 
   """
-  @type owner_user_properties() :: %{String.t() => any()}
+  @type owner_user_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4196,21 +4196,21 @@ defmodule AWS.DataZone do
 
       lineage_node_summary() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "description" => [String.t()],
-        "domainId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => [String.t() | Atom.t()],
+        "domainId" => String.t() | Atom.t(),
         "eventTimestamp" => [non_neg_integer()],
-        "id" => String.t(),
-        "name" => [String.t()],
-        "sourceIdentifier" => [String.t()],
-        "typeName" => [String.t()],
-        "typeRevision" => String.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => [String.t() | Atom.t()],
+        "sourceIdentifier" => [String.t() | Atom.t()],
+        "typeName" => [String.t() | Atom.t()],
+        "typeRevision" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type lineage_node_summary() :: %{String.t() => any()}
+  @type lineage_node_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4218,17 +4218,17 @@ defmodule AWS.DataZone do
 
       spark_glue_properties_input() :: %{
         "additionalArgs" => spark_glue_args(),
-        "glueConnectionName" => [String.t()],
-        "glueVersion" => [String.t()],
+        "glueConnectionName" => [String.t() | Atom.t()],
+        "glueVersion" => [String.t() | Atom.t()],
         "idleTimeout" => [integer()],
-        "javaVirtualEnv" => [String.t()],
+        "javaVirtualEnv" => [String.t() | Atom.t()],
         "numberOfWorkers" => [integer()],
-        "pythonVirtualEnv" => [String.t()],
-        "workerType" => [String.t()]
+        "pythonVirtualEnv" => [String.t() | Atom.t()],
+        "workerType" => [String.t() | Atom.t()]
       }
 
   """
-  @type spark_glue_properties_input() :: %{String.t() => any()}
+  @type spark_glue_properties_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4237,19 +4237,19 @@ defmodule AWS.DataZone do
       create_subscription_grant_output() :: %{
         "assets" => list(subscribed_asset()),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "domainId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
         "grantedEntity" => list(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "status" => list(any()),
-        "subscriptionId" => String.t(),
-        "subscriptionTargetId" => String.t(),
+        "subscriptionId" => String.t() | Atom.t(),
+        "subscriptionTargetId" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type create_subscription_grant_output() :: %{String.t() => any()}
+  @type create_subscription_grant_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4260,7 +4260,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type create_glossary_policy_grant_detail() :: %{String.t() => any()}
+  @type create_glossary_policy_grant_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4276,29 +4276,29 @@ defmodule AWS.DataZone do
   ## Example:
 
       athena_properties_patch() :: %{
-        "workgroupName" => [String.t()]
+        "workgroupName" => [String.t() | Atom.t()]
       }
 
   """
-  @type athena_properties_patch() :: %{String.t() => any()}
+  @type athena_properties_patch() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_subscription_requests_input() :: %{
-        optional("approverProjectId") => String.t(),
+        optional("approverProjectId") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("owningProjectId") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("owningProjectId") => String.t() | Atom.t(),
         optional("sortBy") => list(any()),
         optional("sortOrder") => list(any()),
         optional("status") => list(any()),
-        optional("subscribedListingId") => String.t()
+        optional("subscribedListingId") => String.t() | Atom.t()
       }
 
   """
-  @type list_subscription_requests_input() :: %{String.t() => any()}
+  @type list_subscription_requests_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4306,55 +4306,55 @@ defmodule AWS.DataZone do
 
       form_type_data() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "description" => String.t(),
-        "domainId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
         "imports" => list(import()),
         "model" => list(),
-        "name" => String.t(),
-        "originDomainId" => String.t(),
-        "originProjectId" => String.t(),
-        "owningProjectId" => String.t(),
-        "revision" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "originDomainId" => String.t() | Atom.t(),
+        "originProjectId" => String.t() | Atom.t(),
+        "owningProjectId" => String.t() | Atom.t(),
+        "revision" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type form_type_data() :: %{String.t() => any()}
+  @type form_type_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       subscribed_project() :: %{
-        "id" => String.t(),
-        "name" => String.t()
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type subscribed_project() :: %{String.t() => any()}
+  @type subscribed_project() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_environment_profile_output() :: %{
-        "awsAccountId" => String.t(),
-        "awsAccountRegion" => String.t(),
+        "awsAccountId" => String.t() | Atom.t(),
+        "awsAccountRegion" => String.t() | Atom.t(),
         "createdAt" => [non_neg_integer()],
-        "createdBy" => [String.t()],
-        "description" => String.t(),
-        "domainId" => String.t(),
-        "environmentBlueprintId" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
-        "projectId" => String.t(),
+        "createdBy" => [String.t() | Atom.t()],
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "environmentBlueprintId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "projectId" => String.t() | Atom.t(),
         "updatedAt" => [non_neg_integer()],
         "userParameters" => list(custom_parameter())
       }
 
   """
-  @type get_environment_profile_output() :: %{String.t() => any()}
+  @type get_environment_profile_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4367,25 +4367,25 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type rule_scope() :: %{String.t() => any()}
+  @type rule_scope() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_glossary_term_output() :: %{
-        "domainId" => String.t(),
-        "glossaryId" => String.t(),
-        "id" => String.t(),
-        "longDescription" => String.t(),
-        "name" => String.t(),
-        "shortDescription" => String.t(),
+        "domainId" => String.t() | Atom.t(),
+        "glossaryId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "longDescription" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "shortDescription" => String.t() | Atom.t(),
         "status" => list(any()),
         "termRelations" => term_relations()
       }
 
   """
-  @type create_glossary_term_output() :: %{String.t() => any()}
+  @type create_glossary_term_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4402,45 +4402,45 @@ defmodule AWS.DataZone do
 
       create_data_product_output() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "description" => String.t(),
-        "domainId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
         "firstRevisionCreatedAt" => non_neg_integer(),
-        "firstRevisionCreatedBy" => String.t(),
+        "firstRevisionCreatedBy" => String.t() | Atom.t(),
         "formsOutput" => list(form_output()),
-        "glossaryTerms" => list(String.t()),
-        "id" => String.t(),
+        "glossaryTerms" => list(String.t() | Atom.t()),
+        "id" => String.t() | Atom.t(),
         "items" => list(data_product_item()),
-        "name" => String.t(),
-        "owningProjectId" => String.t(),
-        "revision" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "owningProjectId" => String.t() | Atom.t(),
+        "revision" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type create_data_product_output() :: %{String.t() => any()}
+  @type create_data_product_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_environment_profile_output() :: %{
-        "awsAccountId" => String.t(),
-        "awsAccountRegion" => String.t(),
+        "awsAccountId" => String.t() | Atom.t(),
+        "awsAccountRegion" => String.t() | Atom.t(),
         "createdAt" => [non_neg_integer()],
-        "createdBy" => [String.t()],
-        "description" => String.t(),
-        "domainId" => String.t(),
-        "environmentBlueprintId" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
-        "projectId" => String.t(),
+        "createdBy" => [String.t() | Atom.t()],
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "environmentBlueprintId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "projectId" => String.t() | Atom.t(),
         "updatedAt" => [non_neg_integer()],
         "userParameters" => list(custom_parameter())
       }
 
   """
-  @type create_environment_profile_output() :: %{String.t() => any()}
+  @type create_environment_profile_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4450,26 +4450,26 @@ defmodule AWS.DataZone do
         optional("additionalAttributes") => list(list(any())()),
         optional("filters") => list(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("searchIn") => list(search_in_item()),
-        optional("searchText") => [String.t()],
+        optional("searchText") => [String.t() | Atom.t()],
         optional("sort") => search_sort()
       }
 
   """
-  @type search_listings_input() :: %{String.t() => any()}
+  @type search_listings_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       filter_expression() :: %{
-        "expression" => [String.t()],
+        "expression" => [String.t() | Atom.t()],
         "type" => list(any())
       }
 
   """
-  @type filter_expression() :: %{String.t() => any()}
+  @type filter_expression() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4480,7 +4480,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type glue_properties_input() :: %{String.t() => any()}
+  @type glue_properties_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4488,12 +4488,12 @@ defmodule AWS.DataZone do
 
       list_asset_filters_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("status") => list(any())
       }
 
   """
-  @type list_asset_filters_input() :: %{String.t() => any()}
+  @type list_asset_filters_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4510,50 +4510,50 @@ defmodule AWS.DataZone do
 
       glossary_item() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "description" => String.t(),
-        "domainId" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
-        "owningProjectId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "owningProjectId" => String.t() | Atom.t(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type glossary_item() :: %{String.t() => any()}
+  @type glossary_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_subscription_grants_input() :: %{
-        optional("environmentId") => String.t(),
+        optional("environmentId") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("owningProjectId") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("owningProjectId") => String.t() | Atom.t(),
         optional("sortBy") => list(any()),
         optional("sortOrder") => list(any()),
-        optional("subscribedListingId") => String.t(),
-        optional("subscriptionId") => String.t(),
-        optional("subscriptionTargetId") => String.t()
+        optional("subscribedListingId") => String.t() | Atom.t(),
+        optional("subscriptionId") => String.t() | Atom.t(),
+        optional("subscriptionTargetId") => String.t() | Atom.t()
       }
 
   """
-  @type list_subscription_grants_input() :: %{String.t() => any()}
+  @type list_subscription_grants_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       filter() :: %{
-        "attribute" => String.t(),
-        "value" => [String.t()]
+        "attribute" => String.t() | Atom.t(),
+        "value" => [String.t() | Atom.t()]
       }
 
   """
-  @type filter() :: %{String.t() => any()}
+  @type filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4561,85 +4561,85 @@ defmodule AWS.DataZone do
 
       create_asset_type_output() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "description" => String.t(),
-        "domainId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
         "formsOutput" => map(),
-        "name" => String.t(),
-        "originDomainId" => String.t(),
-        "originProjectId" => String.t(),
-        "owningProjectId" => String.t(),
-        "revision" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "originDomainId" => String.t() | Atom.t(),
+        "originProjectId" => String.t() | Atom.t(),
+        "owningProjectId" => String.t() | Atom.t(),
+        "revision" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type create_asset_type_output() :: %{String.t() => any()}
+  @type create_asset_type_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_data_source_run_input() :: %{
-        optional("clientToken") => [String.t()]
+        optional("clientToken") => [String.t() | Atom.t()]
       }
 
   """
-  @type start_data_source_run_input() :: %{String.t() => any()}
+  @type start_data_source_run_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_rule_input() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
         required("action") => list(any()),
         required("detail") => list(),
-        required("name") => String.t(),
+        required("name") => String.t() | Atom.t(),
         required("scope") => rule_scope(),
         required("target") => list()
       }
 
   """
-  @type create_rule_input() :: %{String.t() => any()}
+  @type create_rule_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       search_in_item() :: %{
-        "attribute" => String.t()
+        "attribute" => String.t() | Atom.t()
       }
 
   """
-  @type search_in_item() :: %{String.t() => any()}
+  @type search_in_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_subscription_target_output() :: %{
-        "applicableAssetTypes" => list(String.t()),
-        "authorizedPrincipals" => list(String.t()),
+        "applicableAssetTypes" => list(String.t() | Atom.t()),
+        "authorizedPrincipals" => list(String.t() | Atom.t()),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "domainId" => String.t(),
-        "environmentId" => String.t(),
-        "id" => String.t(),
-        "manageAccessRole" => String.t(),
-        "name" => String.t(),
-        "projectId" => String.t(),
-        "provider" => [String.t()],
+        "createdBy" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "environmentId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "manageAccessRole" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "projectId" => String.t() | Atom.t(),
+        "provider" => [String.t() | Atom.t()],
         "subscriptionTargetConfig" => list(subscription_target_form()),
-        "type" => [String.t()],
+        "type" => [String.t() | Atom.t()],
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type get_subscription_target_output() :: %{String.t() => any()}
+  @type get_subscription_target_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4647,28 +4647,28 @@ defmodule AWS.DataZone do
 
       create_asset_revision_output() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "description" => String.t(),
-        "domainId" => String.t(),
-        "externalIdentifier" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "externalIdentifier" => String.t() | Atom.t(),
         "firstRevisionCreatedAt" => non_neg_integer(),
-        "firstRevisionCreatedBy" => String.t(),
+        "firstRevisionCreatedBy" => String.t() | Atom.t(),
         "formsOutput" => list(form_output()),
-        "glossaryTerms" => list(String.t()),
-        "id" => String.t(),
+        "glossaryTerms" => list(String.t() | Atom.t()),
+        "id" => String.t() | Atom.t(),
         "latestTimeSeriesDataPointFormsOutput" => list(time_series_data_point_summary_form_output()),
         "listing" => asset_listing_details(),
-        "name" => String.t(),
-        "owningProjectId" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "owningProjectId" => String.t() | Atom.t(),
         "predictionConfiguration" => prediction_configuration(),
         "readOnlyFormsOutput" => list(form_output()),
-        "revision" => String.t(),
-        "typeIdentifier" => String.t(),
-        "typeRevision" => String.t()
+        "revision" => String.t() | Atom.t(),
+        "typeIdentifier" => String.t() | Atom.t(),
+        "typeRevision" => String.t() | Atom.t()
       }
 
   """
-  @type create_asset_revision_output() :: %{String.t() => any()}
+  @type create_asset_revision_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4679,7 +4679,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type delete_project_membership_input() :: %{String.t() => any()}
+  @type delete_project_membership_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4690,51 +4690,51 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type add_to_project_member_pool_policy_grant_detail() :: %{String.t() => any()}
+  @type add_to_project_member_pool_policy_grant_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       owner_user_properties_output() :: %{
-        "userId" => [String.t()]
+        "userId" => [String.t() | Atom.t()]
       }
 
   """
-  @type owner_user_properties_output() :: %{String.t() => any()}
+  @type owner_user_properties_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       connection_credentials() :: %{
-        "accessKeyId" => [String.t()],
+        "accessKeyId" => [String.t() | Atom.t()],
         "expiration" => [non_neg_integer()],
-        "secretAccessKey" => [String.t()],
-        "sessionToken" => [String.t()]
+        "secretAccessKey" => [String.t() | Atom.t()],
+        "sessionToken" => [String.t() | Atom.t()]
       }
 
   """
-  @type connection_credentials() :: %{String.t() => any()}
+  @type connection_credentials() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_domain_unit_output() :: %{
-        "ancestorDomainUnitIds" => list(String.t()),
+        "ancestorDomainUnitIds" => list(String.t() | Atom.t()),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "description" => String.t(),
-        "domainId" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "owners" => list(list()),
-        "parentDomainUnitId" => String.t()
+        "parentDomainUnitId" => String.t() | Atom.t()
       }
 
   """
-  @type create_domain_unit_output() :: %{String.t() => any()}
+  @type create_domain_unit_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4742,34 +4742,34 @@ defmodule AWS.DataZone do
 
       data_product_result_item() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "description" => String.t(),
-        "domainId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
         "firstRevisionCreatedAt" => non_neg_integer(),
-        "firstRevisionCreatedBy" => String.t(),
-        "glossaryTerms" => list(String.t()),
-        "id" => String.t(),
-        "name" => String.t(),
-        "owningProjectId" => String.t()
+        "firstRevisionCreatedBy" => String.t() | Atom.t(),
+        "glossaryTerms" => list(String.t() | Atom.t()),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "owningProjectId" => String.t() | Atom.t()
       }
 
   """
-  @type data_product_result_item() :: %{String.t() => any()}
+  @type data_product_result_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_time_series_data_point_output() :: %{
-        "domainId" => String.t(),
-        "entityId" => String.t(),
+        "domainId" => String.t() | Atom.t(),
+        "entityId" => String.t() | Atom.t(),
         "entityType" => list(any()),
         "form" => time_series_data_point_form_output(),
-        "formName" => String.t()
+        "formName" => String.t() | Atom.t()
       }
 
   """
-  @type get_time_series_data_point_output() :: %{String.t() => any()}
+  @type get_time_series_data_point_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4778,28 +4778,28 @@ defmodule AWS.DataZone do
       glue_connection_patch() :: %{
         "authenticationConfiguration" => authentication_configuration_patch(),
         "connectionProperties" => map(),
-        "description" => [String.t()]
+        "description" => [String.t() | Atom.t()]
       }
 
   """
-  @type glue_connection_patch() :: %{String.t() => any()}
+  @type glue_connection_patch() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_environment_profiles_input() :: %{
-        optional("awsAccountId") => String.t(),
-        optional("awsAccountRegion") => String.t(),
-        optional("environmentBlueprintIdentifier") => String.t(),
+        optional("awsAccountId") => String.t() | Atom.t(),
+        optional("awsAccountRegion") => String.t() | Atom.t(),
+        optional("environmentBlueprintIdentifier") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("name") => String.t(),
-        optional("nextToken") => String.t(),
-        optional("projectIdentifier") => String.t()
+        optional("name") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("projectIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type list_environment_profiles_input() :: %{String.t() => any()}
+  @type list_environment_profiles_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4808,47 +4808,47 @@ defmodule AWS.DataZone do
       update_data_source_output() :: %{
         "assetFormsOutput" => list(form_output()),
         "configuration" => list(),
-        "connectionId" => [String.t()],
+        "connectionId" => [String.t() | Atom.t()],
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
-        "domainId" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
         "enableSetting" => list(any()),
-        "environmentId" => String.t(),
+        "environmentId" => String.t() | Atom.t(),
         "errorMessage" => data_source_error_message(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "lastRunAt" => non_neg_integer(),
         "lastRunErrorMessage" => data_source_error_message(),
         "lastRunStatus" => list(any()),
-        "name" => String.t(),
-        "projectId" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "projectId" => String.t() | Atom.t(),
         "publishOnImport" => [boolean()],
         "recommendation" => recommendation_configuration(),
         "retainPermissionsOnRevokeFailure" => [boolean()],
         "schedule" => schedule_configuration(),
         "selfGrantStatus" => list(),
         "status" => list(any()),
-        "type" => String.t(),
+        "type" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type update_data_source_output() :: %{String.t() => any()}
+  @type update_data_source_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_project_input() :: %{
-        optional("description") => String.t(),
-        optional("domainUnitId") => String.t(),
-        optional("glossaryTerms") => list(String.t()),
-        optional("projectProfileId") => String.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("domainUnitId") => String.t() | Atom.t(),
+        optional("glossaryTerms") => list(String.t() | Atom.t()),
+        optional("projectProfileId") => String.t() | Atom.t(),
         optional("userParameters") => list(environment_configuration_user_parameter()),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_project_input() :: %{String.t() => any()}
+  @type create_project_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4856,17 +4856,17 @@ defmodule AWS.DataZone do
 
       list_rules_input() :: %{
         optional("action") => list(any()),
-        optional("assetTypes") => list(String.t()),
+        optional("assetTypes") => list(String.t() | Atom.t()),
         optional("dataProduct") => [boolean()],
         optional("includeCascaded") => [boolean()],
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t(),
-        optional("projectIds") => list(String.t()),
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("projectIds") => list(String.t() | Atom.t()),
         optional("ruleType") => list(any())
       }
 
   """
-  @type list_rules_input() :: %{String.t() => any()}
+  @type list_rules_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4884,29 +4884,29 @@ defmodule AWS.DataZone do
       get_environment_blueprint_output() :: %{
         "createdAt" => [non_neg_integer()],
         "deploymentProperties" => deployment_properties(),
-        "description" => String.t(),
-        "glossaryTerms" => list(String.t()),
-        "id" => String.t(),
-        "name" => String.t(),
-        "provider" => [String.t()],
+        "description" => String.t() | Atom.t(),
+        "glossaryTerms" => list(String.t() | Atom.t()),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "provider" => [String.t() | Atom.t()],
         "provisioningProperties" => list(),
         "updatedAt" => [non_neg_integer()],
         "userParameters" => list(custom_parameter())
       }
 
   """
-  @type get_environment_blueprint_output() :: %{String.t() => any()}
+  @type get_environment_blueprint_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_console_link_parameters() :: %{
-        "uri" => [String.t()]
+        "uri" => [String.t() | Atom.t()]
       }
 
   """
-  @type aws_console_link_parameters() :: %{String.t() => any()}
+  @type aws_console_link_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4914,63 +4914,63 @@ defmodule AWS.DataZone do
 
       get_form_type_output() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "description" => String.t(),
-        "domainId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
         "imports" => list(import()),
         "model" => list(),
-        "name" => String.t(),
-        "originDomainId" => String.t(),
-        "originProjectId" => String.t(),
-        "owningProjectId" => String.t(),
-        "revision" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "originDomainId" => String.t() | Atom.t(),
+        "originProjectId" => String.t() | Atom.t(),
+        "owningProjectId" => String.t() | Atom.t(),
+        "revision" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type get_form_type_output() :: %{String.t() => any()}
+  @type get_form_type_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_asset_filter_output() :: %{
-        "assetId" => String.t(),
+        "assetId" => String.t() | Atom.t(),
         "configuration" => list(),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
-        "domainId" => String.t(),
-        "effectiveColumnNames" => list([String.t()]()),
-        "effectiveRowFilter" => [String.t()],
-        "errorMessage" => [String.t()],
-        "id" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "effectiveColumnNames" => list([String.t() | Atom.t()]()),
+        "effectiveRowFilter" => [String.t() | Atom.t()],
+        "errorMessage" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type create_asset_filter_output() :: %{String.t() => any()}
+  @type create_asset_filter_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       notification_output() :: %{
-        "actionLink" => String.t(),
+        "actionLink" => String.t() | Atom.t(),
         "creationTimestamp" => [non_neg_integer()],
-        "domainIdentifier" => String.t(),
-        "identifier" => String.t(),
+        "domainIdentifier" => String.t() | Atom.t(),
+        "identifier" => String.t() | Atom.t(),
         "lastUpdatedTimestamp" => [non_neg_integer()],
-        "message" => String.t(),
+        "message" => String.t() | Atom.t(),
         "metadata" => map(),
         "status" => list(any()),
-        "title" => String.t(),
+        "title" => String.t() | Atom.t(),
         "topic" => topic(),
         "type" => list(any())
       }
 
   """
-  @type notification_output() :: %{String.t() => any()}
+  @type notification_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4982,61 +4982,61 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type row_filter_configuration() :: %{String.t() => any()}
+  @type row_filter_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_glossary_term_input() :: %{
-        optional("glossaryIdentifier") => String.t(),
-        optional("longDescription") => String.t(),
-        optional("name") => String.t(),
-        optional("shortDescription") => String.t(),
+        optional("glossaryIdentifier") => String.t() | Atom.t(),
+        optional("longDescription") => String.t() | Atom.t(),
+        optional("name") => String.t() | Atom.t(),
+        optional("shortDescription") => String.t() | Atom.t(),
         optional("status") => list(any()),
         optional("termRelations") => term_relations()
       }
 
   """
-  @type update_glossary_term_input() :: %{String.t() => any()}
+  @type update_glossary_term_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_environment_action_output() :: %{
-        "description" => [String.t()],
-        "domainId" => String.t(),
-        "environmentId" => String.t(),
-        "id" => String.t(),
-        "name" => [String.t()],
+        "description" => [String.t() | Atom.t()],
+        "domainId" => String.t() | Atom.t(),
+        "environmentId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => [String.t() | Atom.t()],
         "parameters" => list()
       }
 
   """
-  @type update_environment_action_output() :: %{String.t() => any()}
+  @type update_environment_action_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       data_product_listing_item_additional_attributes() :: %{
-        "forms" => String.t()
+        "forms" => String.t() | Atom.t()
       }
 
   """
-  @type data_product_listing_item_additional_attributes() :: %{String.t() => any()}
+  @type data_product_listing_item_additional_attributes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       column_filter_configuration() :: %{
-        "includedColumnNames" => list([String.t()]())
+        "includedColumnNames" => list([String.t() | Atom.t()]())
       }
 
   """
-  @type column_filter_configuration() :: %{String.t() => any()}
+  @type column_filter_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5044,42 +5044,42 @@ defmodule AWS.DataZone do
 
       get_environment_blueprint_configuration_output() :: %{
         "createdAt" => [non_neg_integer()],
-        "domainId" => String.t(),
-        "enabledRegions" => list(String.t()),
-        "environmentBlueprintId" => String.t(),
-        "environmentRolePermissionBoundary" => String.t(),
-        "manageAccessRoleArn" => String.t(),
+        "domainId" => String.t() | Atom.t(),
+        "enabledRegions" => list(String.t() | Atom.t()),
+        "environmentBlueprintId" => String.t() | Atom.t(),
+        "environmentRolePermissionBoundary" => String.t() | Atom.t(),
+        "manageAccessRoleArn" => String.t() | Atom.t(),
         "provisioningConfigurations" => list(list()),
-        "provisioningRoleArn" => String.t(),
+        "provisioningRoleArn" => String.t() | Atom.t(),
         "regionalParameters" => map(),
         "updatedAt" => [non_neg_integer()]
       }
 
   """
-  @type get_environment_blueprint_configuration_output() :: %{String.t() => any()}
+  @type get_environment_blueprint_configuration_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_domain_output() :: %{
-        "arn" => [String.t()],
-        "description" => [String.t()],
-        "domainExecutionRole" => String.t(),
+        "arn" => [String.t() | Atom.t()],
+        "description" => [String.t() | Atom.t()],
+        "domainExecutionRole" => String.t() | Atom.t(),
         "domainVersion" => list(any()),
-        "id" => String.t(),
-        "kmsKeyIdentifier" => String.t(),
-        "name" => [String.t()],
-        "portalUrl" => [String.t()],
-        "rootDomainUnitId" => String.t(),
-        "serviceRole" => String.t(),
+        "id" => String.t() | Atom.t(),
+        "kmsKeyIdentifier" => String.t() | Atom.t(),
+        "name" => [String.t() | Atom.t()],
+        "portalUrl" => [String.t() | Atom.t()],
+        "rootDomainUnitId" => String.t() | Atom.t(),
+        "serviceRole" => String.t() | Atom.t(),
         "singleSignOn" => single_sign_on(),
         "status" => list(any()),
         "tags" => map()
       }
 
   """
-  @type create_domain_output() :: %{String.t() => any()}
+  @type create_domain_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5087,26 +5087,26 @@ defmodule AWS.DataZone do
 
       listing_summary() :: %{
         "glossaryTerms" => list(detailed_glossary_term()),
-        "listingId" => String.t(),
-        "listingRevision" => String.t()
+        "listingId" => String.t() | Atom.t(),
+        "listingRevision" => String.t() | Atom.t()
       }
 
   """
-  @type listing_summary() :: %{String.t() => any()}
+  @type listing_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_asset_type_input() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         required("formsInput") => map(),
-        required("name") => String.t(),
-        required("owningProjectIdentifier") => String.t()
+        required("name") => String.t() | Atom.t(),
+        required("owningProjectIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type create_asset_type_input() :: %{String.t() => any()}
+  @type create_asset_type_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5114,10 +5114,10 @@ defmodule AWS.DataZone do
 
       rule_summary() :: %{
         "action" => list(any()),
-        "identifier" => String.t(),
-        "lastUpdatedBy" => String.t(),
-        "name" => String.t(),
-        "revision" => String.t(),
+        "identifier" => String.t() | Atom.t(),
+        "lastUpdatedBy" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "revision" => String.t() | Atom.t(),
         "ruleType" => list(any()),
         "scope" => rule_scope(),
         "target" => list(),
@@ -5126,18 +5126,18 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type rule_summary() :: %{String.t() => any()}
+  @type rule_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5154,27 +5154,27 @@ defmodule AWS.DataZone do
 
       redshift_properties_patch() :: %{
         "credentials" => list(),
-        "databaseName" => [String.t()],
-        "host" => [String.t()],
+        "databaseName" => [String.t() | Atom.t()],
+        "host" => [String.t() | Atom.t()],
         "lineageSync" => redshift_lineage_sync_configuration_input(),
         "port" => [integer()],
         "storage" => list()
       }
 
   """
-  @type redshift_properties_patch() :: %{String.t() => any()}
+  @type redshift_properties_patch() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       accepted_asset_scope() :: %{
-        "assetId" => String.t(),
-        "filterIds" => list(String.t())
+        "assetId" => String.t() | Atom.t(),
+        "filterIds" => list(String.t() | Atom.t())
       }
 
   """
-  @type accepted_asset_scope() :: %{String.t() => any()}
+  @type accepted_asset_scope() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5182,12 +5182,12 @@ defmodule AWS.DataZone do
 
       redshift_lineage_sync_configuration_output() :: %{
         "enabled" => [boolean()],
-        "lineageJobId" => [String.t()],
+        "lineageJobId" => [String.t() | Atom.t()],
         "schedule" => lineage_sync_schedule()
       }
 
   """
-  @type redshift_lineage_sync_configuration_output() :: %{String.t() => any()}
+  @type redshift_lineage_sync_configuration_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5195,33 +5195,33 @@ defmodule AWS.DataZone do
 
       cancel_subscription_output() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "domainId" => String.t(),
-        "id" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "retainPermissions" => [boolean()],
         "status" => list(any()),
         "subscribedListing" => subscribed_listing(),
         "subscribedPrincipal" => list(),
-        "subscriptionRequestId" => String.t(),
+        "subscriptionRequestId" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type cancel_subscription_output() :: %{String.t() => any()}
+  @type cancel_subscription_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       sso_user_profile_details() :: %{
-        "firstName" => String.t(),
-        "lastName" => String.t(),
-        "username" => String.t()
+        "firstName" => String.t() | Atom.t(),
+        "lastName" => String.t() | Atom.t(),
+        "username" => String.t() | Atom.t()
       }
 
   """
-  @type sso_user_profile_details() :: %{String.t() => any()}
+  @type sso_user_profile_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5238,11 +5238,11 @@ defmodule AWS.DataZone do
 
       list_subscription_targets_output() :: %{
         "items" => list(subscription_target_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_subscription_targets_output() :: %{String.t() => any()}
+  @type list_subscription_targets_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5258,14 +5258,14 @@ defmodule AWS.DataZone do
   ## Example:
 
       physical_connection_requirements() :: %{
-        "availabilityZone" => [String.t()],
-        "securityGroupIdList" => list([String.t()]()),
-        "subnetId" => String.t(),
-        "subnetIdList" => list(String.t())
+        "availabilityZone" => [String.t() | Atom.t()],
+        "securityGroupIdList" => list([String.t() | Atom.t()]()),
+        "subnetId" => String.t() | Atom.t(),
+        "subnetIdList" => list(String.t() | Atom.t())
       }
 
   """
-  @type physical_connection_requirements() :: %{String.t() => any()}
+  @type physical_connection_requirements() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5290,26 +5290,26 @@ defmodule AWS.DataZone do
   ## Example:
 
       data_source_summary() :: %{
-        "connectionId" => [String.t()],
+        "connectionId" => [String.t() | Atom.t()],
         "createdAt" => non_neg_integer(),
-        "dataSourceId" => String.t(),
-        "description" => String.t(),
-        "domainId" => String.t(),
+        "dataSourceId" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
         "enableSetting" => list(any()),
-        "environmentId" => [String.t()],
+        "environmentId" => [String.t() | Atom.t()],
         "lastRunAssetCount" => [integer()],
         "lastRunAt" => non_neg_integer(),
         "lastRunErrorMessage" => data_source_error_message(),
         "lastRunStatus" => list(any()),
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "schedule" => schedule_configuration(),
         "status" => list(any()),
-        "type" => [String.t()],
+        "type" => [String.t() | Atom.t()],
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type data_source_summary() :: %{String.t() => any()}
+  @type data_source_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5318,21 +5318,21 @@ defmodule AWS.DataZone do
       asset_listing_item() :: %{
         "additionalAttributes" => asset_listing_item_additional_attributes(),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
-        "entityId" => String.t(),
-        "entityRevision" => String.t(),
-        "entityType" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "entityId" => String.t() | Atom.t(),
+        "entityRevision" => String.t() | Atom.t(),
+        "entityType" => String.t() | Atom.t(),
         "glossaryTerms" => list(detailed_glossary_term()),
-        "listingCreatedBy" => String.t(),
-        "listingId" => String.t(),
-        "listingRevision" => String.t(),
-        "listingUpdatedBy" => String.t(),
-        "name" => String.t(),
-        "owningProjectId" => String.t()
+        "listingCreatedBy" => String.t() | Atom.t(),
+        "listingId" => String.t() | Atom.t(),
+        "listingRevision" => String.t() | Atom.t(),
+        "listingUpdatedBy" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "owningProjectId" => String.t() | Atom.t()
       }
 
   """
-  @type asset_listing_item() :: %{String.t() => any()}
+  @type asset_listing_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5358,13 +5358,13 @@ defmodule AWS.DataZone do
 
       search_group_profiles_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("searchText") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("searchText") => String.t() | Atom.t(),
         required("groupType") => list(any())
       }
 
   """
-  @type search_group_profiles_input() :: %{String.t() => any()}
+  @type search_group_profiles_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5372,32 +5372,32 @@ defmodule AWS.DataZone do
 
       list_environment_blueprints_output() :: %{
         "items" => list(environment_blueprint_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_environment_blueprints_output() :: %{String.t() => any()}
+  @type list_environment_blueprints_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       spark_emr_properties_output() :: %{
-        "computeArn" => [String.t()],
+        "computeArn" => [String.t() | Atom.t()],
         "credentials" => username_password(),
         "credentialsExpiration" => [non_neg_integer()],
         "governanceType" => list(any()),
-        "instanceProfileArn" => [String.t()],
-        "javaVirtualEnv" => [String.t()],
-        "livyEndpoint" => [String.t()],
-        "logUri" => [String.t()],
-        "pythonVirtualEnv" => [String.t()],
-        "runtimeRole" => [String.t()],
-        "trustedCertificatesS3Uri" => [String.t()]
+        "instanceProfileArn" => [String.t() | Atom.t()],
+        "javaVirtualEnv" => [String.t() | Atom.t()],
+        "livyEndpoint" => [String.t() | Atom.t()],
+        "logUri" => [String.t() | Atom.t()],
+        "pythonVirtualEnv" => [String.t() | Atom.t()],
+        "runtimeRole" => [String.t() | Atom.t()],
+        "trustedCertificatesS3Uri" => [String.t() | Atom.t()]
       }
 
   """
-  @type spark_emr_properties_output() :: %{String.t() => any()}
+  @type spark_emr_properties_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5431,33 +5431,33 @@ defmodule AWS.DataZone do
   ## Example:
 
       list_notifications_output() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "notifications" => list(notification_output())
       }
 
   """
-  @type list_notifications_output() :: %{String.t() => any()}
+  @type list_notifications_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_asset_filter_output() :: %{
-        "assetId" => String.t(),
+        "assetId" => String.t() | Atom.t(),
         "configuration" => list(),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
-        "domainId" => String.t(),
-        "effectiveColumnNames" => list([String.t()]()),
-        "effectiveRowFilter" => [String.t()],
-        "errorMessage" => [String.t()],
-        "id" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "effectiveColumnNames" => list([String.t() | Atom.t()]()),
+        "effectiveRowFilter" => [String.t() | Atom.t()],
+        "errorMessage" => [String.t() | Atom.t()],
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type update_asset_filter_output() :: %{String.t() => any()}
+  @type update_asset_filter_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5465,37 +5465,37 @@ defmodule AWS.DataZone do
 
       update_project_output() :: %{
         "createdAt" => [non_neg_integer()],
-        "createdBy" => String.t(),
-        "description" => String.t(),
-        "domainId" => String.t(),
-        "domainUnitId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "domainUnitId" => String.t() | Atom.t(),
         "environmentDeploymentDetails" => environment_deployment_details(),
         "failureReasons" => list(project_deletion_error()),
-        "glossaryTerms" => list(String.t()),
-        "id" => String.t(),
+        "glossaryTerms" => list(String.t() | Atom.t()),
+        "id" => String.t() | Atom.t(),
         "lastUpdatedAt" => [non_neg_integer()],
-        "name" => String.t(),
-        "projectProfileId" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "projectProfileId" => String.t() | Atom.t(),
         "projectStatus" => list(any()),
         "userParameters" => list(environment_configuration_user_parameter())
       }
 
   """
-  @type update_project_output() :: %{String.t() => any()}
+  @type update_project_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       data_product_item() :: %{
-        "glossaryTerms" => list(String.t()),
-        "identifier" => String.t(),
+        "glossaryTerms" => list(String.t() | Atom.t()),
+        "identifier" => String.t() | Atom.t(),
         "itemType" => list(any()),
-        "revision" => String.t()
+        "revision" => String.t() | Atom.t()
       }
 
   """
-  @type data_product_item() :: %{String.t() => any()}
+  @type data_product_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5503,11 +5503,11 @@ defmodule AWS.DataZone do
 
       lineage_node_reference() :: %{
         "eventTimestamp" => [non_neg_integer()],
-        "id" => String.t()
+        "id" => String.t() | Atom.t()
       }
 
   """
-  @type lineage_node_reference() :: %{String.t() => any()}
+  @type lineage_node_reference() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5523,36 +5523,36 @@ defmodule AWS.DataZone do
   ## Example:
 
       in_expression() :: %{
-        "columnName" => [String.t()],
-        "values" => list([String.t()]())
+        "columnName" => [String.t() | Atom.t()],
+        "values" => list([String.t() | Atom.t()]())
       }
 
   """
-  @type in_expression() :: %{String.t() => any()}
+  @type in_expression() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_group_profile_input() :: %{
-        optional("clientToken") => [String.t()],
-        required("groupIdentifier") => String.t()
+        optional("clientToken") => [String.t() | Atom.t()],
+        required("groupIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type create_group_profile_input() :: %{String.t() => any()}
+  @type create_group_profile_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_lineage_node_history_output() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "nodes" => list(lineage_node_summary())
       }
 
   """
-  @type list_lineage_node_history_output() :: %{String.t() => any()}
+  @type list_lineage_node_history_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5560,22 +5560,22 @@ defmodule AWS.DataZone do
 
       list_data_product_revisions_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_data_product_revisions_input() :: %{String.t() => any()}
+  @type list_data_product_revisions_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5583,14 +5583,14 @@ defmodule AWS.DataZone do
 
       user_profile_summary() :: %{
         "details" => list(),
-        "domainId" => String.t(),
-        "id" => String.t(),
+        "domainId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "status" => list(any()),
         "type" => list(any())
       }
 
   """
-  @type user_profile_summary() :: %{String.t() => any()}
+  @type user_profile_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5607,11 +5607,11 @@ defmodule AWS.DataZone do
 
       data_source_run_summary() :: %{
         "createdAt" => non_neg_integer(),
-        "dataSourceId" => String.t(),
+        "dataSourceId" => String.t() | Atom.t(),
         "errorMessage" => data_source_error_message(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "lineageSummary" => data_source_run_lineage_summary(),
-        "projectId" => String.t(),
+        "projectId" => String.t() | Atom.t(),
         "runStatisticsForAssets" => run_statistics_for_assets(),
         "startedAt" => non_neg_integer(),
         "status" => list(any()),
@@ -5621,19 +5621,19 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type data_source_run_summary() :: %{String.t() => any()}
+  @type data_source_run_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       username_password() :: %{
-        "password" => String.t(),
-        "username" => String.t()
+        "password" => String.t() | Atom.t(),
+        "username" => String.t() | Atom.t()
       }
 
   """
-  @type username_password() :: %{String.t() => any()}
+  @type username_password() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5649,37 +5649,37 @@ defmodule AWS.DataZone do
   ## Example:
 
       create_domain_unit_input() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
-        required("name") => String.t(),
-        required("parentDomainUnitIdentifier") => String.t()
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t(),
+        required("parentDomainUnitIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type create_domain_unit_input() :: %{String.t() => any()}
+  @type create_domain_unit_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       domain_unit_target() :: %{
-        "domainUnitId" => String.t(),
+        "domainUnitId" => String.t() | Atom.t(),
         "includeChildDomainUnits" => [boolean()]
       }
 
   """
-  @type domain_unit_target() :: %{String.t() => any()}
+  @type domain_unit_target() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_data_product_input() :: %{
-        optional("revision") => String.t()
+        optional("revision") => String.t() | Atom.t()
       }
 
   """
-  @type get_data_product_input() :: %{String.t() => any()}
+  @type get_data_product_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5688,60 +5688,60 @@ defmodule AWS.DataZone do
       accept_predictions_input() :: %{
         optional("acceptChoices") => list(accept_choice()),
         optional("acceptRule") => accept_rule(),
-        optional("clientToken") => String.t(),
-        optional("revision") => String.t()
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("revision") => String.t() | Atom.t()
       }
 
   """
-  @type accept_predictions_input() :: %{String.t() => any()}
+  @type accept_predictions_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_entity_owners_output() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "owners" => list(list())
       }
 
   """
-  @type list_entity_owners_output() :: %{String.t() => any()}
+  @type list_entity_owners_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_projects_input() :: %{
-        optional("groupIdentifier") => [String.t()],
+        optional("groupIdentifier") => [String.t() | Atom.t()],
         optional("maxResults") => integer(),
-        optional("name") => String.t(),
-        optional("nextToken") => String.t(),
-        optional("userIdentifier") => [String.t()]
+        optional("name") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("userIdentifier") => [String.t() | Atom.t()]
       }
 
   """
-  @type list_projects_input() :: %{String.t() => any()}
+  @type list_projects_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       environment_profile_summary() :: %{
-        "awsAccountId" => String.t(),
-        "awsAccountRegion" => String.t(),
+        "awsAccountId" => String.t() | Atom.t(),
+        "awsAccountRegion" => String.t() | Atom.t(),
         "createdAt" => [non_neg_integer()],
-        "createdBy" => [String.t()],
-        "description" => String.t(),
-        "domainId" => String.t(),
-        "environmentBlueprintId" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
-        "projectId" => String.t(),
+        "createdBy" => [String.t() | Atom.t()],
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "environmentBlueprintId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "projectId" => String.t() | Atom.t(),
         "updatedAt" => [non_neg_integer()]
       }
 
   """
-  @type environment_profile_summary() :: %{String.t() => any()}
+  @type environment_profile_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5749,36 +5749,36 @@ defmodule AWS.DataZone do
 
       subscription_request_summary() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "decisionComment" => String.t(),
-        "domainId" => String.t(),
-        "existingSubscriptionId" => String.t(),
-        "id" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "decisionComment" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "existingSubscriptionId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "metadataFormsSummary" => list(metadata_form_summary()),
-        "requestReason" => String.t(),
-        "reviewerId" => [String.t()],
+        "requestReason" => String.t() | Atom.t(),
+        "reviewerId" => [String.t() | Atom.t()],
         "status" => list(any()),
         "subscribedListings" => list(subscribed_listing()),
         "subscribedPrincipals" => list(list()),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type subscription_request_summary() :: %{String.t() => any()}
+  @type subscription_request_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       accept_predictions_output() :: %{
-        "assetId" => String.t(),
-        "domainId" => String.t(),
-        "revision" => String.t()
+        "assetId" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "revision" => String.t() | Atom.t()
       }
 
   """
-  @type accept_predictions_output() :: %{String.t() => any()}
+  @type accept_predictions_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5786,87 +5786,87 @@ defmodule AWS.DataZone do
 
       subscribed_asset_listing() :: %{
         "assetScope" => asset_scope(),
-        "entityId" => String.t(),
-        "entityRevision" => String.t(),
-        "entityType" => String.t(),
-        "forms" => String.t(),
+        "entityId" => String.t() | Atom.t(),
+        "entityRevision" => String.t() | Atom.t(),
+        "entityType" => String.t() | Atom.t(),
+        "forms" => String.t() | Atom.t(),
         "glossaryTerms" => list(detailed_glossary_term())
       }
 
   """
-  @type subscribed_asset_listing() :: %{String.t() => any()}
+  @type subscribed_asset_listing() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       connection_summary() :: %{
-        "connectionId" => String.t(),
-        "domainId" => String.t(),
-        "domainUnitId" => String.t(),
-        "environmentId" => String.t(),
-        "name" => String.t(),
+        "connectionId" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "domainUnitId" => String.t() | Atom.t(),
+        "environmentId" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "physicalEndpoints" => list(physical_endpoint()),
-        "projectId" => String.t(),
+        "projectId" => String.t() | Atom.t(),
         "props" => list(),
         "type" => list(any())
       }
 
   """
-  @type connection_summary() :: %{String.t() => any()}
+  @type connection_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       self_grant_status_detail() :: %{
-        "databaseName" => [String.t()],
-        "failureCause" => [String.t()],
-        "schemaName" => [String.t()],
+        "databaseName" => [String.t() | Atom.t()],
+        "failureCause" => [String.t() | Atom.t()],
+        "schemaName" => [String.t() | Atom.t()],
         "status" => list(any())
       }
 
   """
-  @type self_grant_status_detail() :: %{String.t() => any()}
+  @type self_grant_status_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       remove_policy_grant_input() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         required("policyType") => list(any()),
         required("principal") => list()
       }
 
   """
-  @type remove_policy_grant_input() :: %{String.t() => any()}
+  @type remove_policy_grant_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_connection_output() :: %{
-        "status" => [String.t()]
+        "status" => [String.t() | Atom.t()]
       }
 
   """
-  @type delete_connection_output() :: %{String.t() => any()}
+  @type delete_connection_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_listing_change_set_input() :: %{
-        optional("clientToken") => String.t(),
-        optional("entityRevision") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("entityRevision") => String.t() | Atom.t(),
         required("action") => list(any()),
-        required("entityIdentifier") => String.t(),
+        required("entityIdentifier") => String.t() | Atom.t(),
         required("entityType") => list(any())
       }
 
   """
-  @type create_listing_change_set_input() :: %{String.t() => any()}
+  @type create_listing_change_set_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5875,24 +5875,24 @@ defmodule AWS.DataZone do
       domain_unit_policy_grant_principal() :: %{
         "domainUnitDesignation" => list(any()),
         "domainUnitGrantFilter" => list(),
-        "domainUnitIdentifier" => String.t()
+        "domainUnitIdentifier" => String.t() | Atom.t()
       }
 
   """
-  @type domain_unit_policy_grant_principal() :: %{String.t() => any()}
+  @type domain_unit_policy_grant_principal() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       relational_filter_configuration() :: %{
-        "databaseName" => [String.t()],
+        "databaseName" => [String.t() | Atom.t()],
         "filterExpressions" => list(filter_expression()),
-        "schemaName" => [String.t()]
+        "schemaName" => [String.t() | Atom.t()]
       }
 
   """
-  @type relational_filter_configuration() :: %{String.t() => any()}
+  @type relational_filter_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5908,12 +5908,12 @@ defmodule AWS.DataZone do
   ## Example:
 
       less_than_or_equal_to_expression() :: %{
-        "columnName" => [String.t()],
-        "value" => [String.t()]
+        "columnName" => [String.t() | Atom.t()],
+        "value" => [String.t() | Atom.t()]
       }
 
   """
-  @type less_than_or_equal_to_expression() :: %{String.t() => any()}
+  @type less_than_or_equal_to_expression() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5924,7 +5924,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type create_domain_unit_policy_grant_detail() :: %{String.t() => any()}
+  @type create_domain_unit_policy_grant_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5932,23 +5932,23 @@ defmodule AWS.DataZone do
 
       accept_subscription_request_output() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "decisionComment" => String.t(),
-        "domainId" => String.t(),
-        "existingSubscriptionId" => String.t(),
-        "id" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "decisionComment" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "existingSubscriptionId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "metadataForms" => list(form_output()),
-        "requestReason" => String.t(),
-        "reviewerId" => [String.t()],
+        "requestReason" => String.t() | Atom.t(),
+        "reviewerId" => [String.t() | Atom.t()],
         "status" => list(any()),
         "subscribedListings" => list(subscribed_listing()),
         "subscribedPrincipals" => list(list()),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type accept_subscription_request_output() :: %{String.t() => any()}
+  @type accept_subscription_request_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5956,23 +5956,23 @@ defmodule AWS.DataZone do
 
       update_subscription_request_output() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "decisionComment" => String.t(),
-        "domainId" => String.t(),
-        "existingSubscriptionId" => String.t(),
-        "id" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "decisionComment" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "existingSubscriptionId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "metadataForms" => list(form_output()),
-        "requestReason" => String.t(),
-        "reviewerId" => [String.t()],
+        "requestReason" => String.t() | Atom.t(),
+        "reviewerId" => [String.t() | Atom.t()],
         "status" => list(any()),
         "subscribedListings" => list(subscribed_listing()),
         "subscribedPrincipals" => list(list()),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type update_subscription_request_output() :: %{String.t() => any()}
+  @type update_subscription_request_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5980,22 +5980,22 @@ defmodule AWS.DataZone do
 
       list_rules_output() :: %{
         "items" => list(rule_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_rules_output() :: %{String.t() => any()}
+  @type list_rules_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6012,17 +6012,17 @@ defmodule AWS.DataZone do
 
       spark_glue_properties_output() :: %{
         "additionalArgs" => spark_glue_args(),
-        "glueConnectionName" => [String.t()],
-        "glueVersion" => [String.t()],
+        "glueConnectionName" => [String.t() | Atom.t()],
+        "glueVersion" => [String.t() | Atom.t()],
         "idleTimeout" => [integer()],
-        "javaVirtualEnv" => [String.t()],
+        "javaVirtualEnv" => [String.t() | Atom.t()],
         "numberOfWorkers" => [integer()],
-        "pythonVirtualEnv" => [String.t()],
-        "workerType" => [String.t()]
+        "pythonVirtualEnv" => [String.t() | Atom.t()],
+        "workerType" => [String.t() | Atom.t()]
       }
 
   """
-  @type spark_glue_properties_output() :: %{String.t() => any()}
+  @type spark_glue_properties_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6030,22 +6030,22 @@ defmodule AWS.DataZone do
 
       list_domain_units_for_parent_output() :: %{
         "items" => list(domain_unit_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_domain_units_for_parent_output() :: %{String.t() => any()}
+  @type list_domain_units_for_parent_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cloud_formation_properties() :: %{
-        "templateUrl" => [String.t()]
+        "templateUrl" => [String.t() | Atom.t()]
       }
 
   """
-  @type cloud_formation_properties() :: %{String.t() => any()}
+  @type cloud_formation_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6061,12 +6061,12 @@ defmodule AWS.DataZone do
   ## Example:
 
       schedule_configuration() :: %{
-        "schedule" => String.t(),
+        "schedule" => String.t() | Atom.t(),
         "timezone" => list(any())
       }
 
   """
-  @type schedule_configuration() :: %{String.t() => any()}
+  @type schedule_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6087,7 +6087,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type environment_deployment_details() :: %{String.t() => any()}
+  @type environment_deployment_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6107,7 +6107,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type recommendation_configuration() :: %{String.t() => any()}
+  @type recommendation_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6115,23 +6115,23 @@ defmodule AWS.DataZone do
 
       get_project_output() :: %{
         "createdAt" => [non_neg_integer()],
-        "createdBy" => String.t(),
-        "description" => String.t(),
-        "domainId" => String.t(),
-        "domainUnitId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "domainUnitId" => String.t() | Atom.t(),
         "environmentDeploymentDetails" => environment_deployment_details(),
         "failureReasons" => list(project_deletion_error()),
-        "glossaryTerms" => list(String.t()),
-        "id" => String.t(),
+        "glossaryTerms" => list(String.t() | Atom.t()),
+        "id" => String.t() | Atom.t(),
         "lastUpdatedAt" => [non_neg_integer()],
-        "name" => String.t(),
-        "projectProfileId" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "projectProfileId" => String.t() | Atom.t(),
         "projectStatus" => list(any()),
         "userParameters" => list(environment_configuration_user_parameter())
       }
 
   """
-  @type get_project_output() :: %{String.t() => any()}
+  @type get_project_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6139,14 +6139,14 @@ defmodule AWS.DataZone do
 
       list_project_profiles_input() :: %{
         optional("maxResults") => integer(),
-        optional("name") => String.t(),
-        optional("nextToken") => String.t(),
+        optional("name") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortBy") => list(any()),
         optional("sortOrder") => list(any())
       }
 
   """
-  @type list_project_profiles_input() :: %{String.t() => any()}
+  @type list_project_profiles_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6154,43 +6154,43 @@ defmodule AWS.DataZone do
 
       get_listing_output() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "description" => String.t(),
-        "domainId" => String.t(),
-        "id" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "item" => list(),
-        "listingRevision" => String.t(),
-        "name" => String.t(),
+        "listingRevision" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type get_listing_output() :: %{String.t() => any()}
+  @type get_listing_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       not_in_expression() :: %{
-        "columnName" => [String.t()],
-        "values" => list([String.t()]())
+        "columnName" => [String.t() | Atom.t()],
+        "values" => list([String.t() | Atom.t()]())
       }
 
   """
-  @type not_in_expression() :: %{String.t() => any()}
+  @type not_in_expression() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6207,11 +6207,11 @@ defmodule AWS.DataZone do
 
       list_environment_profiles_output() :: %{
         "items" => list(environment_profile_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_environment_profiles_output() :: %{String.t() => any()}
+  @type list_environment_profiles_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6219,24 +6219,24 @@ defmodule AWS.DataZone do
 
       update_asset_filter_input() :: %{
         optional("configuration") => list(),
-        optional("description") => String.t(),
-        optional("name") => [String.t()]
+        optional("description") => String.t() | Atom.t(),
+        optional("name") => [String.t() | Atom.t()]
       }
 
   """
-  @type update_asset_filter_input() :: %{String.t() => any()}
+  @type update_asset_filter_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       domain_unit_summary() :: %{
-        "id" => String.t(),
-        "name" => [String.t()]
+        "id" => String.t() | Atom.t(),
+        "name" => [String.t() | Atom.t()]
       }
 
   """
-  @type domain_unit_summary() :: %{String.t() => any()}
+  @type domain_unit_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6244,13 +6244,13 @@ defmodule AWS.DataZone do
 
       get_data_source_run_output() :: %{
         "createdAt" => non_neg_integer(),
-        "dataSourceConfigurationSnapshot" => [String.t()],
-        "dataSourceId" => String.t(),
-        "domainId" => String.t(),
+        "dataSourceConfigurationSnapshot" => [String.t() | Atom.t()],
+        "dataSourceId" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
         "errorMessage" => data_source_error_message(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "lineageSummary" => data_source_run_lineage_summary(),
-        "projectId" => String.t(),
+        "projectId" => String.t() | Atom.t(),
         "runStatisticsForAssets" => run_statistics_for_assets(),
         "startedAt" => non_neg_integer(),
         "status" => list(any()),
@@ -6260,7 +6260,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type get_data_source_run_output() :: %{String.t() => any()}
+  @type get_data_source_run_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6268,33 +6268,33 @@ defmodule AWS.DataZone do
 
       get_lineage_event_output() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "domainId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
         "event" => binary(),
         "eventTime" => [non_neg_integer()],
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "processingStatus" => list(any())
       }
 
   """
-  @type get_lineage_event_output() :: %{String.t() => any()}
+  @type get_lineage_event_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       spark_emr_properties_patch() :: %{
-        "computeArn" => [String.t()],
-        "instanceProfileArn" => [String.t()],
-        "javaVirtualEnv" => [String.t()],
-        "logUri" => [String.t()],
-        "pythonVirtualEnv" => [String.t()],
-        "runtimeRole" => [String.t()],
-        "trustedCertificatesS3Uri" => [String.t()]
+        "computeArn" => [String.t() | Atom.t()],
+        "instanceProfileArn" => [String.t() | Atom.t()],
+        "javaVirtualEnv" => [String.t() | Atom.t()],
+        "logUri" => [String.t() | Atom.t()],
+        "pythonVirtualEnv" => [String.t() | Atom.t()],
+        "runtimeRole" => [String.t() | Atom.t()],
+        "trustedCertificatesS3Uri" => [String.t() | Atom.t()]
       }
 
   """
-  @type spark_emr_properties_patch() :: %{String.t() => any()}
+  @type spark_emr_properties_patch() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6305,11 +6305,11 @@ defmodule AWS.DataZone do
         "inputs" => list(name_identifier()),
         "job" => name_identifier(),
         "outputs" => list(name_identifier()),
-        "runId" => [String.t()]
+        "runId" => [String.t() | Atom.t()]
       }
 
   """
-  @type open_lineage_run_event_summary() :: %{String.t() => any()}
+  @type open_lineage_run_event_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6325,12 +6325,12 @@ defmodule AWS.DataZone do
   ## Example:
 
       update_domain_unit_input() :: %{
-        optional("description") => String.t(),
-        optional("name") => String.t()
+        optional("description") => String.t() | Atom.t(),
+        optional("name") => String.t() | Atom.t()
       }
 
   """
-  @type update_domain_unit_input() :: %{String.t() => any()}
+  @type update_domain_unit_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6356,11 +6356,11 @@ defmodule AWS.DataZone do
 
       list_metadata_generation_runs_output() :: %{
         "items" => list(metadata_generation_run_item()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_metadata_generation_runs_output() :: %{String.t() => any()}
+  @type list_metadata_generation_runs_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6371,7 +6371,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type lineage_run_details() :: %{String.t() => any()}
+  @type lineage_run_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6382,32 +6382,32 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type delete_project_input() :: %{String.t() => any()}
+  @type delete_project_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       accept_choice() :: %{
-        "editedValue" => String.t(),
+        "editedValue" => String.t() | Atom.t(),
         "predictionChoice" => [integer()],
-        "predictionTarget" => [String.t()]
+        "predictionTarget" => [String.t() | Atom.t()]
       }
 
   """
-  @type accept_choice() :: %{String.t() => any()}
+  @type accept_choice() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       listing_revision() :: %{
-        "id" => String.t(),
-        "revision" => String.t()
+        "id" => String.t() | Atom.t(),
+        "revision" => String.t() | Atom.t()
       }
 
   """
-  @type listing_revision() :: %{String.t() => any()}
+  @type listing_revision() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6415,50 +6415,50 @@ defmodule AWS.DataZone do
 
       metadata_generation_run_item() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "domainId" => String.t(),
-        "id" => String.t(),
-        "owningProjectId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "owningProjectId" => String.t() | Atom.t(),
         "status" => list(any()),
         "target" => metadata_generation_run_target(),
         "type" => list(any())
       }
 
   """
-  @type metadata_generation_run_item() :: %{String.t() => any()}
+  @type metadata_generation_run_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       subscribed_asset() :: %{
-        "assetId" => String.t(),
-        "assetRevision" => String.t(),
+        "assetId" => String.t() | Atom.t(),
+        "assetRevision" => String.t() | Atom.t(),
         "assetScope" => asset_scope(),
         "failureCause" => failure_cause(),
         "failureTimestamp" => [non_neg_integer()],
         "grantedTimestamp" => [non_neg_integer()],
         "status" => list(any()),
-        "targetName" => [String.t()]
+        "targetName" => [String.t() | Atom.t()]
       }
 
   """
-  @type subscribed_asset() :: %{String.t() => any()}
+  @type subscribed_asset() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_project_profile_input() :: %{
-        optional("description") => String.t(),
-        optional("domainUnitIdentifier") => String.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("domainUnitIdentifier") => String.t() | Atom.t(),
         optional("environmentConfigurations") => list(environment_configuration()),
         optional("status") => list(any()),
-        required("name") => String.t()
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_project_profile_input() :: %{String.t() => any()}
+  @type create_project_profile_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6466,13 +6466,13 @@ defmodule AWS.DataZone do
 
       list_project_memberships_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortBy") => list(any()),
         optional("sortOrder") => list(any())
       }
 
   """
-  @type list_project_memberships_input() :: %{String.t() => any()}
+  @type list_project_memberships_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6484,44 +6484,44 @@ defmodule AWS.DataZone do
         "configurationParameters" => environment_configuration_parameters_details(),
         "deploymentMode" => list(any()),
         "deploymentOrder" => integer(),
-        "description" => String.t(),
-        "environmentBlueprintId" => String.t(),
-        "id" => String.t(),
-        "name" => String.t()
+        "description" => String.t() | Atom.t(),
+        "environmentBlueprintId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type environment_configuration() :: %{String.t() => any()}
+  @type environment_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       time_series_data_point_summary_form_output() :: %{
-        "contentSummary" => [String.t()],
-        "formName" => String.t(),
-        "id" => String.t(),
+        "contentSummary" => [String.t() | Atom.t()],
+        "formName" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "timestamp" => [non_neg_integer()],
-        "typeIdentifier" => String.t(),
-        "typeRevision" => String.t()
+        "typeIdentifier" => String.t() | Atom.t(),
+        "typeRevision" => String.t() | Atom.t()
       }
 
   """
-  @type time_series_data_point_summary_form_output() :: %{String.t() => any()}
+  @type time_series_data_point_summary_form_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       post_time_series_data_points_output() :: %{
-        "domainId" => String.t(),
-        "entityId" => String.t(),
+        "domainId" => String.t() | Atom.t(),
+        "entityId" => String.t() | Atom.t(),
         "entityType" => list(any()),
         "forms" => list(time_series_data_point_form_output())
       }
 
   """
-  @type post_time_series_data_points_output() :: %{String.t() => any()}
+  @type post_time_series_data_points_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6530,31 +6530,31 @@ defmodule AWS.DataZone do
       get_subscription_grant_output() :: %{
         "assets" => list(subscribed_asset()),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "domainId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
         "grantedEntity" => list(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "status" => list(any()),
-        "subscriptionId" => String.t(),
-        "subscriptionTargetId" => String.t(),
+        "subscriptionId" => String.t() | Atom.t(),
+        "subscriptionTargetId" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type get_subscription_grant_output() :: %{String.t() => any()}
+  @type get_subscription_grant_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       name_identifier() :: %{
-        "name" => [String.t()],
-        "namespace" => [String.t()]
+        "name" => [String.t() | Atom.t()],
+        "namespace" => [String.t() | Atom.t()]
       }
 
   """
-  @type name_identifier() :: %{String.t() => any()}
+  @type name_identifier() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6565,39 +6565,39 @@ defmodule AWS.DataZone do
         "oAuth2ClientApplication" => o_auth2_client_application(),
         "oAuth2Credentials" => glue_o_auth2_credentials(),
         "oAuth2GrantType" => list(any()),
-        "tokenUrl" => [String.t()],
+        "tokenUrl" => [String.t() | Atom.t()],
         "tokenUrlParametersMap" => map()
       }
 
   """
-  @type o_auth2_properties() :: %{String.t() => any()}
+  @type o_auth2_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       glue_run_configuration_output() :: %{
-        "accountId" => [String.t()],
+        "accountId" => [String.t() | Atom.t()],
         "autoImportDataQualityResult" => [boolean()],
-        "catalogName" => [String.t()],
-        "dataAccessRole" => [String.t()],
-        "region" => [String.t()],
+        "catalogName" => [String.t() | Atom.t()],
+        "dataAccessRole" => [String.t() | Atom.t()],
+        "region" => [String.t() | Atom.t()],
         "relationalFilterConfigurations" => list(relational_filter_configuration())
       }
 
   """
-  @type glue_run_configuration_output() :: %{String.t() => any()}
+  @type glue_run_configuration_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       subscribed_project_input() :: %{
-        "identifier" => String.t()
+        "identifier" => String.t() | Atom.t()
       }
 
   """
-  @type subscribed_project_input() :: %{String.t() => any()}
+  @type subscribed_project_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6606,15 +6606,15 @@ defmodule AWS.DataZone do
       physical_endpoint() :: %{
         "awsLocation" => aws_location(),
         "glueConnection" => glue_connection(),
-        "glueConnectionName" => [String.t()],
-        "host" => [String.t()],
+        "glueConnectionName" => [String.t() | Atom.t()],
+        "host" => [String.t() | Atom.t()],
         "port" => [integer()],
         "protocol" => list(any()),
-        "stage" => [String.t()]
+        "stage" => [String.t() | Atom.t()]
       }
 
   """
-  @type physical_endpoint() :: %{String.t() => any()}
+  @type physical_endpoint() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6622,26 +6622,26 @@ defmodule AWS.DataZone do
 
       update_subscription_grant_status_input() :: %{
         optional("failureCause") => failure_cause(),
-        optional("targetName") => [String.t()],
+        optional("targetName") => [String.t() | Atom.t()],
         required("status") => list(any())
       }
 
   """
-  @type update_subscription_grant_status_input() :: %{String.t() => any()}
+  @type update_subscription_grant_status_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       form_output() :: %{
-        "content" => [String.t()],
-        "formName" => String.t(),
-        "typeName" => String.t(),
-        "typeRevision" => String.t()
+        "content" => [String.t() | Atom.t()],
+        "formName" => String.t() | Atom.t(),
+        "typeName" => String.t() | Atom.t(),
+        "typeRevision" => String.t() | Atom.t()
       }
 
   """
-  @type form_output() :: %{String.t() => any()}
+  @type form_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6653,7 +6653,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type deployment_properties() :: %{String.t() => any()}
+  @type deployment_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6670,20 +6670,20 @@ defmodule AWS.DataZone do
 
       get_subscription_output() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "domainId" => String.t(),
-        "id" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "retainPermissions" => [boolean()],
         "status" => list(any()),
         "subscribedListing" => subscribed_listing(),
         "subscribedPrincipal" => list(),
-        "subscriptionRequestId" => String.t(),
+        "subscriptionRequestId" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type get_subscription_output() :: %{String.t() => any()}
+  @type get_subscription_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6699,46 +6699,46 @@ defmodule AWS.DataZone do
   ## Example:
 
       subscribed_listing_input() :: %{
-        "identifier" => String.t()
+        "identifier" => String.t() | Atom.t()
       }
 
   """
-  @type subscribed_listing_input() :: %{String.t() => any()}
+  @type subscribed_listing_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       failure_cause() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type failure_cause() :: %{String.t() => any()}
+  @type failure_cause() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       spark_emr_properties_input() :: %{
-        "computeArn" => [String.t()],
-        "instanceProfileArn" => [String.t()],
-        "javaVirtualEnv" => [String.t()],
-        "logUri" => [String.t()],
-        "pythonVirtualEnv" => [String.t()],
-        "runtimeRole" => [String.t()],
-        "trustedCertificatesS3Uri" => [String.t()]
+        "computeArn" => [String.t() | Atom.t()],
+        "instanceProfileArn" => [String.t() | Atom.t()],
+        "javaVirtualEnv" => [String.t() | Atom.t()],
+        "logUri" => [String.t() | Atom.t()],
+        "pythonVirtualEnv" => [String.t() | Atom.t()],
+        "runtimeRole" => [String.t() | Atom.t()],
+        "trustedCertificatesS3Uri" => [String.t() | Atom.t()]
       }
 
   """
-  @type spark_emr_properties_input() :: %{String.t() => any()}
+  @type spark_emr_properties_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       lineage_sql_query_run_details() :: %{
-        "errorMessages" => list([String.t()]()),
+        "errorMessages" => list([String.t() | Atom.t()]()),
         "numQueriesFailed" => [integer()],
         "queryEndTime" => [non_neg_integer()],
         "queryStartTime" => [non_neg_integer()],
@@ -6746,39 +6746,39 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type lineage_sql_query_run_details() :: %{String.t() => any()}
+  @type lineage_sql_query_run_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_scope() :: %{
-        "assetId" => String.t(),
-        "errorMessage" => [String.t()],
-        "filterIds" => list(String.t()),
-        "status" => [String.t()]
+        "assetId" => String.t() | Atom.t(),
+        "errorMessage" => [String.t() | Atom.t()],
+        "filterIds" => list(String.t() | Atom.t()),
+        "status" => [String.t() | Atom.t()]
       }
 
   """
-  @type asset_scope() :: %{String.t() => any()}
+  @type asset_scope() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_connections_input() :: %{
-        optional("environmentIdentifier") => String.t(),
+        optional("environmentIdentifier") => String.t() | Atom.t(),
         optional("maxResults") => integer(),
-        optional("name") => String.t(),
-        optional("nextToken") => String.t(),
+        optional("name") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("sortBy") => list(any()),
         optional("sortOrder") => list(any()),
         optional("type") => list(any()),
-        required("projectIdentifier") => String.t()
+        required("projectIdentifier") => String.t() | Atom.t()
       }
 
   """
-  @type list_connections_input() :: %{String.t() => any()}
+  @type list_connections_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6786,11 +6786,11 @@ defmodule AWS.DataZone do
 
       asset_types_for_rule() :: %{
         "selectionMode" => list(any()),
-        "specificAssetTypes" => list(String.t())
+        "specificAssetTypes" => list(String.t() | Atom.t())
       }
 
   """
-  @type asset_types_for_rule() :: %{String.t() => any()}
+  @type asset_types_for_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6798,22 +6798,22 @@ defmodule AWS.DataZone do
 
       list_asset_revisions_output() :: %{
         "items" => list(asset_revision()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_asset_revisions_output() :: %{String.t() => any()}
+  @type list_asset_revisions_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       group_details() :: %{
-        "groupId" => [String.t()]
+        "groupId" => [String.t() | Atom.t()]
       }
 
   """
-  @type group_details() :: %{String.t() => any()}
+  @type group_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6838,24 +6838,24 @@ defmodule AWS.DataZone do
   ## Example:
 
       environment_error() :: %{
-        "code" => [String.t()],
-        "message" => [String.t()]
+        "code" => [String.t() | Atom.t()],
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type environment_error() :: %{String.t() => any()}
+  @type environment_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       detailed_glossary_term() :: %{
-        "name" => String.t(),
-        "shortDescription" => String.t()
+        "name" => String.t() | Atom.t(),
+        "shortDescription" => String.t() | Atom.t()
       }
 
   """
-  @type detailed_glossary_term() :: %{String.t() => any()}
+  @type detailed_glossary_term() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6867,7 +6867,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type create_project_membership_input() :: %{String.t() => any()}
+  @type create_project_membership_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6878,21 +6878,21 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type delete_domain_output() :: %{String.t() => any()}
+  @type delete_domain_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_location() :: %{
-        "accessRole" => [String.t()],
-        "awsAccountId" => String.t(),
-        "awsRegion" => String.t(),
-        "iamConnectionId" => String.t()
+        "accessRole" => [String.t() | Atom.t()],
+        "awsAccountId" => String.t() | Atom.t(),
+        "awsRegion" => String.t() | Atom.t(),
+        "iamConnectionId" => String.t() | Atom.t()
       }
 
   """
-  @type aws_location() :: %{String.t() => any()}
+  @type aws_location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6901,11 +6901,11 @@ defmodule AWS.DataZone do
       authentication_configuration() :: %{
         "authenticationType" => list(any()),
         "oAuth2Properties" => o_auth2_properties(),
-        "secretArn" => [String.t()]
+        "secretArn" => [String.t() | Atom.t()]
       }
 
   """
-  @type authentication_configuration() :: %{String.t() => any()}
+  @type authentication_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6922,11 +6922,14 @@ defmodule AWS.DataZone do
 
       create_project_from_project_profile_policy_grant_detail() :: %{
         "includeChildDomainUnits" => [boolean()],
-        "projectProfiles" => list([String.t()]())
+        "projectProfiles" => list([String.t() | Atom.t()]())
       }
 
   """
-  @type create_project_from_project_profile_policy_grant_detail() :: %{String.t() => any()}
+  @type create_project_from_project_profile_policy_grant_detail() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -6942,13 +6945,13 @@ defmodule AWS.DataZone do
   ## Example:
 
       sage_maker_run_configuration_output() :: %{
-        "accountId" => [String.t()],
-        "region" => [String.t()],
+        "accountId" => [String.t() | Atom.t()],
+        "region" => [String.t() | Atom.t()],
         "trackingAssets" => map()
       }
 
   """
-  @type sage_maker_run_configuration_output() :: %{String.t() => any()}
+  @type sage_maker_run_configuration_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6956,15 +6959,15 @@ defmodule AWS.DataZone do
 
       create_connection_input() :: %{
         optional("awsLocation") => aws_location(),
-        optional("clientToken") => [String.t()],
-        optional("description") => String.t(),
+        optional("clientToken") => [String.t() | Atom.t()],
+        optional("description") => String.t() | Atom.t(),
         optional("props") => list(),
-        required("environmentIdentifier") => String.t(),
-        required("name") => String.t()
+        required("environmentIdentifier") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_connection_input() :: %{String.t() => any()}
+  @type create_connection_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6972,47 +6975,47 @@ defmodule AWS.DataZone do
 
       get_lineage_node_output() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "description" => [String.t()],
-        "domainId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => [String.t() | Atom.t()],
+        "domainId" => String.t() | Atom.t(),
         "downstreamNodes" => list(lineage_node_reference()),
         "eventTimestamp" => [non_neg_integer()],
         "formsOutput" => list(form_output()),
-        "id" => String.t(),
-        "name" => [String.t()],
-        "sourceIdentifier" => [String.t()],
-        "typeName" => [String.t()],
-        "typeRevision" => String.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => [String.t() | Atom.t()],
+        "sourceIdentifier" => [String.t() | Atom.t()],
+        "typeName" => [String.t() | Atom.t()],
+        "typeRevision" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t(),
+        "updatedBy" => String.t() | Atom.t(),
         "upstreamNodes" => list(lineage_node_reference())
       }
 
   """
-  @type get_lineage_node_output() :: %{String.t() => any()}
+  @type get_lineage_node_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_form_type_input() :: %{
-        optional("revision") => String.t()
+        optional("revision") => String.t() | Atom.t()
       }
 
   """
-  @type get_form_type_input() :: %{String.t() => any()}
+  @type get_form_type_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       greater_than_expression() :: %{
-        "columnName" => [String.t()],
-        "value" => [String.t()]
+        "columnName" => [String.t() | Atom.t()],
+        "value" => [String.t() | Atom.t()]
       }
 
   """
-  @type greater_than_expression() :: %{String.t() => any()}
+  @type greater_than_expression() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7020,19 +7023,19 @@ defmodule AWS.DataZone do
 
       create_project_profile_output() :: %{
         "createdAt" => [non_neg_integer()],
-        "createdBy" => String.t(),
-        "description" => String.t(),
-        "domainId" => String.t(),
-        "domainUnitId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "domainUnitId" => String.t() | Atom.t(),
         "environmentConfigurations" => list(environment_configuration()),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "lastUpdatedAt" => [non_neg_integer()],
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type create_project_profile_output() :: %{String.t() => any()}
+  @type create_project_profile_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7040,23 +7043,23 @@ defmodule AWS.DataZone do
 
       get_subscription_request_details_output() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "decisionComment" => String.t(),
-        "domainId" => String.t(),
-        "existingSubscriptionId" => String.t(),
-        "id" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "decisionComment" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "existingSubscriptionId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "metadataForms" => list(form_output()),
-        "requestReason" => String.t(),
-        "reviewerId" => [String.t()],
+        "requestReason" => String.t() | Atom.t(),
+        "reviewerId" => [String.t() | Atom.t()],
         "status" => list(any()),
         "subscribedListings" => list(subscribed_listing()),
         "subscribedPrincipals" => list(list()),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type get_subscription_request_details_output() :: %{String.t() => any()}
+  @type get_subscription_request_details_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7064,28 +7067,28 @@ defmodule AWS.DataZone do
 
       form_entry_output() :: %{
         "required" => [boolean()],
-        "typeName" => String.t(),
-        "typeRevision" => String.t()
+        "typeName" => String.t() | Atom.t(),
+        "typeRevision" => String.t() | Atom.t()
       }
 
   """
-  @type form_entry_output() :: %{String.t() => any()}
+  @type form_entry_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_glossary_output() :: %{
-        "description" => String.t(),
-        "domainId" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
-        "owningProjectId" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "owningProjectId" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type update_glossary_output() :: %{String.t() => any()}
+  @type update_glossary_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7093,12 +7096,12 @@ defmodule AWS.DataZone do
 
       list_domains_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | Atom.t(),
         optional("status") => list(any())
       }
 
   """
-  @type list_domains_input() :: %{String.t() => any()}
+  @type list_domains_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7107,23 +7110,23 @@ defmodule AWS.DataZone do
       project_policy_grant_principal() :: %{
         "projectDesignation" => list(any()),
         "projectGrantFilter" => list(),
-        "projectIdentifier" => String.t()
+        "projectIdentifier" => String.t() | Atom.t()
       }
 
   """
-  @type project_policy_grant_principal() :: %{String.t() => any()}
+  @type project_policy_grant_principal() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       add_entity_owner_input() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
         required("owner") => list()
       }
 
   """
-  @type add_entity_owner_input() :: %{String.t() => any()}
+  @type add_entity_owner_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7134,7 +7137,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type glue_self_grant_status_output() :: %{String.t() => any()}
+  @type glue_self_grant_status_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7146,7 +7149,7 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type redshift_lineage_sync_configuration_input() :: %{String.t() => any()}
+  @type redshift_lineage_sync_configuration_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7163,26 +7166,26 @@ defmodule AWS.DataZone do
 
       list_data_sources_output() :: %{
         "items" => list(data_source_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_data_sources_output() :: %{String.t() => any()}
+  @type list_data_sources_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_rule_input() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | Atom.t(),
         optional("detail") => list(),
         optional("includeChildDomainUnits") => [boolean()],
-        optional("name") => String.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("scope") => rule_scope()
       }
 
   """
-  @type update_rule_input() :: %{String.t() => any()}
+  @type update_rule_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7190,51 +7193,51 @@ defmodule AWS.DataZone do
 
       get_asset_output() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "description" => String.t(),
-        "domainId" => String.t(),
-        "externalIdentifier" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "externalIdentifier" => String.t() | Atom.t(),
         "firstRevisionCreatedAt" => non_neg_integer(),
-        "firstRevisionCreatedBy" => String.t(),
+        "firstRevisionCreatedBy" => String.t() | Atom.t(),
         "formsOutput" => list(form_output()),
-        "glossaryTerms" => list(String.t()),
-        "id" => String.t(),
+        "glossaryTerms" => list(String.t() | Atom.t()),
+        "id" => String.t() | Atom.t(),
         "latestTimeSeriesDataPointFormsOutput" => list(time_series_data_point_summary_form_output()),
         "listing" => asset_listing_details(),
-        "name" => String.t(),
-        "owningProjectId" => String.t(),
+        "name" => String.t() | Atom.t(),
+        "owningProjectId" => String.t() | Atom.t(),
         "readOnlyFormsOutput" => list(form_output()),
-        "revision" => String.t(),
-        "typeIdentifier" => String.t(),
-        "typeRevision" => String.t()
+        "revision" => String.t() | Atom.t(),
+        "typeIdentifier" => String.t() | Atom.t(),
+        "typeRevision" => String.t() | Atom.t()
       }
 
   """
-  @type get_asset_output() :: %{String.t() => any()}
+  @type get_asset_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       environment_parameter() :: %{
-        "name" => [String.t()],
-        "value" => [String.t()]
+        "name" => [String.t() | Atom.t()],
+        "value" => [String.t() | Atom.t()]
       }
 
   """
-  @type environment_parameter() :: %{String.t() => any()}
+  @type environment_parameter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       import() :: %{
-        "name" => String.t(),
-        "revision" => String.t()
+        "name" => String.t() | Atom.t(),
+        "revision" => String.t() | Atom.t()
       }
 
   """
-  @type import() :: %{String.t() => any()}
+  @type import() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7242,24 +7245,24 @@ defmodule AWS.DataZone do
 
       search_types_output() :: %{
         "items" => list(list()),
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "totalMatchCount" => [integer()]
       }
 
   """
-  @type search_types_output() :: %{String.t() => any()}
+  @type search_types_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_data_source_input() :: %{
-        optional("clientToken") => [String.t()],
+        optional("clientToken") => [String.t() | Atom.t()],
         optional("retainPermissionsOnRevokeFailure") => [boolean()]
       }
 
   """
-  @type delete_data_source_input() :: %{String.t() => any()}
+  @type delete_data_source_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7270,32 +7273,32 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type iam_properties_patch() :: %{String.t() => any()}
+  @type iam_properties_patch() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_environment_credentials_output() :: %{
-        "accessKeyId" => [String.t()],
+        "accessKeyId" => [String.t() | Atom.t()],
         "expiration" => [non_neg_integer()],
-        "secretAccessKey" => [String.t()],
-        "sessionToken" => [String.t()]
+        "secretAccessKey" => [String.t() | Atom.t()],
+        "sessionToken" => [String.t() | Atom.t()]
       }
 
   """
-  @type get_environment_credentials_output() :: %{String.t() => any()}
+  @type get_environment_credentials_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_time_series_data_point_input() :: %{
-        required("formName") => String.t()
+        required("formName") => String.t() | Atom.t()
       }
 
   """
-  @type get_time_series_data_point_input() :: %{String.t() => any()}
+  @type get_time_series_data_point_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7303,18 +7306,18 @@ defmodule AWS.DataZone do
 
       project_profile_summary() :: %{
         "createdAt" => [non_neg_integer()],
-        "createdBy" => String.t(),
-        "description" => String.t(),
-        "domainId" => String.t(),
-        "domainUnitId" => String.t(),
-        "id" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "domainUnitId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "lastUpdatedAt" => [non_neg_integer()],
-        "name" => String.t(),
+        "name" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type project_profile_summary() :: %{String.t() => any()}
+  @type project_profile_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7322,34 +7325,34 @@ defmodule AWS.DataZone do
 
       create_subscription_request_output() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "decisionComment" => String.t(),
-        "domainId" => String.t(),
-        "existingSubscriptionId" => String.t(),
-        "id" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "decisionComment" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "existingSubscriptionId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "metadataForms" => list(form_output()),
-        "requestReason" => String.t(),
-        "reviewerId" => [String.t()],
+        "requestReason" => String.t() | Atom.t(),
+        "reviewerId" => [String.t() | Atom.t()],
         "status" => list(any()),
         "subscribedListings" => list(subscribed_listing()),
         "subscribedPrincipals" => list(list()),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type create_subscription_request_output() :: %{String.t() => any()}
+  @type create_subscription_request_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       domain_unit_group_properties() :: %{
-        "groupId" => [String.t()]
+        "groupId" => [String.t() | Atom.t()]
       }
 
   """
-  @type domain_unit_group_properties() :: %{String.t() => any()}
+  @type domain_unit_group_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7357,11 +7360,11 @@ defmodule AWS.DataZone do
 
       accept_subscription_request_input() :: %{
         optional("assetScopes") => list(accepted_asset_scope()),
-        optional("decisionComment") => String.t()
+        optional("decisionComment") => String.t() | Atom.t()
       }
 
   """
-  @type accept_subscription_request_input() :: %{String.t() => any()}
+  @type accept_subscription_request_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7378,42 +7381,42 @@ defmodule AWS.DataZone do
 
       list_subscription_requests_output() :: %{
         "items" => list(subscription_request_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_subscription_requests_output() :: %{String.t() => any()}
+  @type list_subscription_requests_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_glossary_term_input() :: %{
-        optional("clientToken") => String.t(),
-        optional("longDescription") => String.t(),
-        optional("shortDescription") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("longDescription") => String.t() | Atom.t(),
+        optional("shortDescription") => String.t() | Atom.t(),
         optional("status") => list(any()),
         optional("termRelations") => term_relations(),
-        required("glossaryIdentifier") => String.t(),
-        required("name") => String.t()
+        required("glossaryIdentifier") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t()
       }
 
   """
-  @type create_glossary_term_input() :: %{String.t() => any()}
+  @type create_glossary_term_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_glossary_input() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
-        optional("name") => String.t(),
+        optional("clientToken") => String.t() | Atom.t(),
+        optional("description") => String.t() | Atom.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("status") => list(any())
       }
 
   """
-  @type update_glossary_input() :: %{String.t() => any()}
+  @type update_glossary_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7438,14 +7441,14 @@ defmodule AWS.DataZone do
   ## Example:
 
       create_group_profile_output() :: %{
-        "domainId" => String.t(),
-        "groupName" => String.t(),
-        "id" => String.t(),
+        "domainId" => String.t() | Atom.t(),
+        "groupName" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type create_group_profile_output() :: %{String.t() => any()}
+  @type create_group_profile_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7461,20 +7464,20 @@ defmodule AWS.DataZone do
   ## Example:
 
       update_connection_output() :: %{
-        "connectionId" => String.t(),
-        "description" => String.t(),
-        "domainId" => String.t(),
-        "domainUnitId" => String.t(),
-        "environmentId" => String.t(),
-        "name" => String.t(),
+        "connectionId" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "domainUnitId" => String.t() | Atom.t(),
+        "environmentId" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "physicalEndpoints" => list(physical_endpoint()),
-        "projectId" => String.t(),
+        "projectId" => String.t() | Atom.t(),
         "props" => list(),
         "type" => list(any())
       }
 
   """
-  @type update_connection_output() :: %{String.t() => any()}
+  @type update_connection_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7482,11 +7485,11 @@ defmodule AWS.DataZone do
 
       search_group_profiles_output() :: %{
         "items" => list(group_profile_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type search_group_profiles_output() :: %{String.t() => any()}
+  @type search_group_profiles_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7494,27 +7497,27 @@ defmodule AWS.DataZone do
 
       list_subscriptions_output() :: %{
         "items" => list(subscription_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_subscriptions_output() :: %{String.t() => any()}
+  @type list_subscriptions_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_subscription_target_input() :: %{
-        optional("applicableAssetTypes") => list(String.t()),
-        optional("authorizedPrincipals") => list(String.t()),
-        optional("manageAccessRole") => String.t(),
-        optional("name") => String.t(),
-        optional("provider") => [String.t()],
+        optional("applicableAssetTypes") => list(String.t() | Atom.t()),
+        optional("authorizedPrincipals") => list(String.t() | Atom.t()),
+        optional("manageAccessRole") => String.t() | Atom.t(),
+        optional("name") => String.t() | Atom.t(),
+        optional("provider") => [String.t() | Atom.t()],
         optional("subscriptionTargetConfig") => list(subscription_target_form())
       }
 
   """
-  @type update_subscription_target_input() :: %{String.t() => any()}
+  @type update_subscription_target_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7522,27 +7525,27 @@ defmodule AWS.DataZone do
 
       list_asset_revisions_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_asset_revisions_input() :: %{String.t() => any()}
+  @type list_asset_revisions_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_domain_input() :: %{
-        optional("clientToken") => [String.t()],
-        optional("description") => [String.t()],
-        optional("domainExecutionRole") => String.t(),
-        optional("name") => [String.t()],
-        optional("serviceRole") => String.t(),
+        optional("clientToken") => [String.t() | Atom.t()],
+        optional("description") => [String.t() | Atom.t()],
+        optional("domainExecutionRole") => String.t() | Atom.t(),
+        optional("name") => [String.t() | Atom.t()],
+        optional("serviceRole") => String.t() | Atom.t(),
         optional("singleSignOn") => single_sign_on()
       }
 
   """
-  @type update_domain_input() :: %{String.t() => any()}
+  @type update_domain_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7551,31 +7554,31 @@ defmodule AWS.DataZone do
       delete_subscription_grant_output() :: %{
         "assets" => list(subscribed_asset()),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "domainId" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
         "grantedEntity" => list(),
-        "id" => String.t(),
+        "id" => String.t() | Atom.t(),
         "status" => list(any()),
-        "subscriptionId" => String.t(),
-        "subscriptionTargetId" => String.t(),
+        "subscriptionId" => String.t() | Atom.t(),
+        "subscriptionTargetId" => String.t() | Atom.t(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
+        "updatedBy" => String.t() | Atom.t()
       }
 
   """
-  @type delete_subscription_grant_output() :: %{String.t() => any()}
+  @type delete_subscription_grant_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       lake_formation_configuration() :: %{
-        "locationRegistrationExcludeS3Locations" => list(String.t()),
-        "locationRegistrationRole" => String.t()
+        "locationRegistrationExcludeS3Locations" => list(String.t() | Atom.t()),
+        "locationRegistrationRole" => String.t() | Atom.t()
       }
 
   """
-  @type lake_formation_configuration() :: %{String.t() => any()}
+  @type lake_formation_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7591,42 +7594,42 @@ defmodule AWS.DataZone do
   ## Example:
 
       form_input() :: %{
-        "content" => [String.t()],
-        "formName" => String.t(),
-        "typeIdentifier" => String.t(),
-        "typeRevision" => String.t()
+        "content" => [String.t() | Atom.t()],
+        "formName" => String.t() | Atom.t(),
+        "typeIdentifier" => String.t() | Atom.t(),
+        "typeRevision" => String.t() | Atom.t()
       }
 
   """
-  @type form_input() :: %{String.t() => any()}
+  @type form_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_glossary_output() :: %{
-        "description" => String.t(),
-        "domainId" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
-        "owningProjectId" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "domainId" => String.t() | Atom.t(),
+        "id" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "owningProjectId" => String.t() | Atom.t(),
         "status" => list(any())
       }
 
   """
-  @type create_glossary_output() :: %{String.t() => any()}
+  @type create_glossary_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       basic_authentication_credentials() :: %{
-        "password" => [String.t()],
-        "userName" => [String.t()]
+        "password" => [String.t() | Atom.t()],
+        "userName" => [String.t() | Atom.t()]
       }
 
   """
-  @type basic_authentication_credentials() :: %{String.t() => any()}
+  @type basic_authentication_credentials() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7634,70 +7637,70 @@ defmodule AWS.DataZone do
 
       environment_configuration_parameter() :: %{
         "isEditable" => [boolean()],
-        "name" => String.t(),
-        "value" => [String.t()]
+        "name" => String.t() | Atom.t(),
+        "value" => [String.t() | Atom.t()]
       }
 
   """
-  @type environment_configuration_parameter() :: %{String.t() => any()}
+  @type environment_configuration_parameter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       configurable_action_parameter() :: %{
-        "key" => [String.t()],
-        "value" => [String.t()]
+        "key" => [String.t() | Atom.t()],
+        "value" => [String.t() | Atom.t()]
       }
 
   """
-  @type configurable_action_parameter() :: %{String.t() => any()}
+  @type configurable_action_parameter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource() :: %{
-        "name" => [String.t()],
-        "provider" => [String.t()],
-        "type" => [String.t()],
-        "value" => [String.t()]
+        "name" => [String.t() | Atom.t()],
+        "provider" => [String.t() | Atom.t()],
+        "type" => [String.t() | Atom.t()],
+        "value" => [String.t() | Atom.t()]
       }
 
   """
-  @type resource() :: %{String.t() => any()}
+  @type resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       redshift_run_configuration_output() :: %{
-        "accountId" => [String.t()],
-        "dataAccessRole" => [String.t()],
+        "accountId" => [String.t() | Atom.t()],
+        "dataAccessRole" => [String.t() | Atom.t()],
         "redshiftCredentialConfiguration" => redshift_credential_configuration(),
         "redshiftStorage" => list(),
-        "region" => [String.t()],
+        "region" => [String.t() | Atom.t()],
         "relationalFilterConfigurations" => list(relational_filter_configuration())
       }
 
   """
-  @type redshift_run_configuration_output() :: %{String.t() => any()}
+  @type redshift_run_configuration_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_environment_blueprint_configuration_input() :: %{
-        optional("environmentRolePermissionBoundary") => String.t(),
-        optional("manageAccessRoleArn") => String.t(),
+        optional("environmentRolePermissionBoundary") => String.t() | Atom.t(),
+        optional("manageAccessRoleArn") => String.t() | Atom.t(),
         optional("provisioningConfigurations") => list(list()),
-        optional("provisioningRoleArn") => String.t(),
+        optional("provisioningRoleArn") => String.t() | Atom.t(),
         optional("regionalParameters") => map(),
-        required("enabledRegions") => list(String.t())
+        required("enabledRegions") => list(String.t() | Atom.t())
       }
 
   """
-  @type put_environment_blueprint_configuration_input() :: %{String.t() => any()}
+  @type put_environment_blueprint_configuration_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7706,21 +7709,21 @@ defmodule AWS.DataZone do
       data_product_listing_item() :: %{
         "additionalAttributes" => data_product_listing_item_additional_attributes(),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
-        "entityId" => String.t(),
-        "entityRevision" => String.t(),
+        "description" => String.t() | Atom.t(),
+        "entityId" => String.t() | Atom.t(),
+        "entityRevision" => String.t() | Atom.t(),
         "glossaryTerms" => list(detailed_glossary_term()),
         "items" => list(listing_summary_item()),
-        "listingCreatedBy" => String.t(),
-        "listingId" => String.t(),
-        "listingRevision" => String.t(),
-        "listingUpdatedBy" => String.t(),
-        "name" => String.t(),
-        "owningProjectId" => String.t()
+        "listingCreatedBy" => String.t() | Atom.t(),
+        "listingId" => String.t() | Atom.t(),
+        "listingRevision" => String.t() | Atom.t(),
+        "listingUpdatedBy" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
+        "owningProjectId" => String.t() | Atom.t()
       }
 
   """
-  @type data_product_listing_item() :: %{String.t() => any()}
+  @type data_product_listing_item() :: %{String.t() | Atom.t() => any()}
 
   @type accept_predictions_errors() ::
           throttling_exception()
@@ -8916,7 +8919,13 @@ defmodule AWS.DataZone do
   DataZone
   assets.
   """
-  @spec accept_predictions(map(), String.t(), String.t(), accept_predictions_input(), list()) ::
+  @spec accept_predictions(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          accept_predictions_input(),
+          list()
+        ) ::
           {:ok, accept_predictions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8954,8 +8963,8 @@ defmodule AWS.DataZone do
   """
   @spec accept_subscription_request(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           accept_subscription_request_input(),
           list()
         ) ::
@@ -8997,9 +9006,9 @@ defmodule AWS.DataZone do
   """
   @spec add_entity_owner(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           add_entity_owner_input(),
           list()
         ) ::
@@ -9044,9 +9053,9 @@ defmodule AWS.DataZone do
   """
   @spec add_policy_grant(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           add_policy_grant_input(),
           list()
         ) ::
@@ -9089,9 +9098,9 @@ defmodule AWS.DataZone do
   """
   @spec associate_environment_role(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           associate_environment_role_input(),
           list()
         ) ::
@@ -9134,8 +9143,8 @@ defmodule AWS.DataZone do
   """
   @spec cancel_metadata_generation_run(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           cancel_metadata_generation_run_input(),
           list()
         ) ::
@@ -9175,7 +9184,13 @@ defmodule AWS.DataZone do
   @doc """
   Cancels the subscription to the specified asset.
   """
-  @spec cancel_subscription(map(), String.t(), String.t(), cancel_subscription_input(), list()) ::
+  @spec cancel_subscription(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          cancel_subscription_input(),
+          list()
+        ) ::
           {:ok, cancel_subscription_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9206,7 +9221,7 @@ defmodule AWS.DataZone do
   @doc """
   Creates an asset in Amazon DataZone catalog.
   """
-  @spec create_asset(map(), String.t(), create_asset_input(), list()) ::
+  @spec create_asset(map(), String.t() | Atom.t(), create_asset_input(), list()) ::
           {:ok, create_asset_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9235,7 +9250,13 @@ defmodule AWS.DataZone do
   @doc """
   Creates a data asset filter.
   """
-  @spec create_asset_filter(map(), String.t(), String.t(), create_asset_filter_input(), list()) ::
+  @spec create_asset_filter(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          create_asset_filter_input(),
+          list()
+        ) ::
           {:ok, create_asset_filter_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9274,8 +9295,8 @@ defmodule AWS.DataZone do
   """
   @spec create_asset_revision(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           create_asset_revision_input(),
           list()
         ) ::
@@ -9315,7 +9336,7 @@ defmodule AWS.DataZone do
   @doc """
   Creates a custom asset type.
   """
-  @spec create_asset_type(map(), String.t(), create_asset_type_input(), list()) ::
+  @spec create_asset_type(map(), String.t() | Atom.t(), create_asset_type_input(), list()) ::
           {:ok, create_asset_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9348,7 +9369,7 @@ defmodule AWS.DataZone do
   resources (domains, projects, and environments) to external resources and
   services.
   """
-  @spec create_connection(map(), String.t(), create_connection_input(), list()) ::
+  @spec create_connection(map(), String.t() | Atom.t(), create_connection_input(), list()) ::
           {:ok, create_connection_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9377,7 +9398,7 @@ defmodule AWS.DataZone do
   @doc """
   Creates a data product.
   """
-  @spec create_data_product(map(), String.t(), create_data_product_input(), list()) ::
+  @spec create_data_product(map(), String.t() | Atom.t(), create_data_product_input(), list()) ::
           {:ok, create_data_product_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9408,8 +9429,8 @@ defmodule AWS.DataZone do
   """
   @spec create_data_product_revision(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           create_data_product_revision_input(),
           list()
         ) ::
@@ -9449,7 +9470,7 @@ defmodule AWS.DataZone do
   @doc """
   Creates an Amazon DataZone data source.
   """
-  @spec create_data_source(map(), String.t(), create_data_source_input(), list()) ::
+  @spec create_data_source(map(), String.t() | Atom.t(), create_data_source_input(), list()) ::
           {:ok, create_data_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9507,7 +9528,7 @@ defmodule AWS.DataZone do
   @doc """
   Creates a domain unit in Amazon DataZone.
   """
-  @spec create_domain_unit(map(), String.t(), create_domain_unit_input(), list()) ::
+  @spec create_domain_unit(map(), String.t() | Atom.t(), create_domain_unit_input(), list()) ::
           {:ok, create_domain_unit_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9536,7 +9557,7 @@ defmodule AWS.DataZone do
   @doc """
   Create an Amazon DataZone environment.
   """
-  @spec create_environment(map(), String.t(), create_environment_input(), list()) ::
+  @spec create_environment(map(), String.t() | Atom.t(), create_environment_input(), list()) ::
           {:ok, create_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9569,8 +9590,8 @@ defmodule AWS.DataZone do
   """
   @spec create_environment_action(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           create_environment_action_input(),
           list()
         ) ::
@@ -9610,7 +9631,12 @@ defmodule AWS.DataZone do
   @doc """
   Creates an Amazon DataZone environment profile.
   """
-  @spec create_environment_profile(map(), String.t(), create_environment_profile_input(), list()) ::
+  @spec create_environment_profile(
+          map(),
+          String.t() | Atom.t(),
+          create_environment_profile_input(),
+          list()
+        ) ::
           {:ok, create_environment_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9639,7 +9665,7 @@ defmodule AWS.DataZone do
   @doc """
   Creates a metadata form type.
   """
-  @spec create_form_type(map(), String.t(), create_form_type_input(), list()) ::
+  @spec create_form_type(map(), String.t() | Atom.t(), create_form_type_input(), list()) ::
           {:ok, create_form_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9668,7 +9694,7 @@ defmodule AWS.DataZone do
   @doc """
   Creates an Amazon DataZone business glossary.
   """
-  @spec create_glossary(map(), String.t(), create_glossary_input(), list()) ::
+  @spec create_glossary(map(), String.t() | Atom.t(), create_glossary_input(), list()) ::
           {:ok, create_glossary_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9697,7 +9723,7 @@ defmodule AWS.DataZone do
   @doc """
   Creates a business glossary term.
   """
-  @spec create_glossary_term(map(), String.t(), create_glossary_term_input(), list()) ::
+  @spec create_glossary_term(map(), String.t() | Atom.t(), create_glossary_term_input(), list()) ::
           {:ok, create_glossary_term_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9726,7 +9752,7 @@ defmodule AWS.DataZone do
   @doc """
   Creates a group profile in Amazon DataZone.
   """
-  @spec create_group_profile(map(), String.t(), create_group_profile_input(), list()) ::
+  @spec create_group_profile(map(), String.t() | Atom.t(), create_group_profile_input(), list()) ::
           {:ok, create_group_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9757,7 +9783,12 @@ defmodule AWS.DataZone do
   from the
   catalog.
   """
-  @spec create_listing_change_set(map(), String.t(), create_listing_change_set_input(), list()) ::
+  @spec create_listing_change_set(
+          map(),
+          String.t() | Atom.t(),
+          create_listing_change_set_input(),
+          list()
+        ) ::
           {:ok, create_listing_change_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9786,7 +9817,7 @@ defmodule AWS.DataZone do
   @doc """
   Creates an Amazon DataZone project.
   """
-  @spec create_project(map(), String.t(), create_project_input(), list()) ::
+  @spec create_project(map(), String.t() | Atom.t(), create_project_input(), list()) ::
           {:ok, create_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9817,8 +9848,8 @@ defmodule AWS.DataZone do
   """
   @spec create_project_membership(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           create_project_membership_input(),
           list()
         ) ::
@@ -9858,7 +9889,12 @@ defmodule AWS.DataZone do
   @doc """
   Creates a project profile.
   """
-  @spec create_project_profile(map(), String.t(), create_project_profile_input(), list()) ::
+  @spec create_project_profile(
+          map(),
+          String.t() | Atom.t(),
+          create_project_profile_input(),
+          list()
+        ) ::
           {:ok, create_project_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9900,7 +9936,7 @@ defmodule AWS.DataZone do
   ensuring
   alignment with organizational standards.
   """
-  @spec create_rule(map(), String.t(), create_rule_input(), list()) ::
+  @spec create_rule(map(), String.t() | Atom.t(), create_rule_input(), list()) ::
           {:ok, create_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9929,7 +9965,12 @@ defmodule AWS.DataZone do
   @doc """
   Creates a subsscription grant in Amazon DataZone.
   """
-  @spec create_subscription_grant(map(), String.t(), create_subscription_grant_input(), list()) ::
+  @spec create_subscription_grant(
+          map(),
+          String.t() | Atom.t(),
+          create_subscription_grant_input(),
+          list()
+        ) ::
           {:ok, create_subscription_grant_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9960,7 +10001,7 @@ defmodule AWS.DataZone do
   """
   @spec create_subscription_request(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           create_subscription_request_input(),
           list()
         ) ::
@@ -9994,8 +10035,8 @@ defmodule AWS.DataZone do
   """
   @spec create_subscription_target(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           create_subscription_target_input(),
           list()
         ) ::
@@ -10035,7 +10076,7 @@ defmodule AWS.DataZone do
   @doc """
   Creates a user profile in Amazon DataZone.
   """
-  @spec create_user_profile(map(), String.t(), create_user_profile_input(), list()) ::
+  @spec create_user_profile(map(), String.t() | Atom.t(), create_user_profile_input(), list()) ::
           {:ok, create_user_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10064,7 +10105,13 @@ defmodule AWS.DataZone do
   @doc """
   Deletes an asset in Amazon DataZone.
   """
-  @spec delete_asset(map(), String.t(), String.t(), delete_asset_input(), list()) ::
+  @spec delete_asset(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_asset_input(),
+          list()
+        ) ::
           {:ok, delete_asset_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10097,9 +10144,9 @@ defmodule AWS.DataZone do
   """
   @spec delete_asset_filter(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_asset_filter_input(),
           list()
         ) ::
@@ -10140,7 +10187,13 @@ defmodule AWS.DataZone do
   @doc """
   Deletes an asset type in Amazon DataZone.
   """
-  @spec delete_asset_type(map(), String.t(), String.t(), delete_asset_type_input(), list()) ::
+  @spec delete_asset_type(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_asset_type_input(),
+          list()
+        ) ::
           {:ok, delete_asset_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10175,7 +10228,13 @@ defmodule AWS.DataZone do
   resources (domains, projects, and environments) to external resources and
   services.
   """
-  @spec delete_connection(map(), String.t(), String.t(), delete_connection_input(), list()) ::
+  @spec delete_connection(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_connection_input(),
+          list()
+        ) ::
           {:ok, delete_connection_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10206,7 +10265,13 @@ defmodule AWS.DataZone do
   @doc """
   Deletes a data product in Amazon DataZone.
   """
-  @spec delete_data_product(map(), String.t(), String.t(), delete_data_product_input(), list()) ::
+  @spec delete_data_product(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_data_product_input(),
+          list()
+        ) ::
           {:ok, delete_data_product_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10237,7 +10302,13 @@ defmodule AWS.DataZone do
   @doc """
   Deletes a data source in Amazon DataZone.
   """
-  @spec delete_data_source(map(), String.t(), String.t(), delete_data_source_input(), list()) ::
+  @spec delete_data_source(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_data_source_input(),
+          list()
+        ) ::
           {:ok, delete_data_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10274,7 +10345,7 @@ defmodule AWS.DataZone do
   @doc """
   Deletes a Amazon DataZone domain.
   """
-  @spec delete_domain(map(), String.t(), delete_domain_input(), list()) ::
+  @spec delete_domain(map(), String.t() | Atom.t(), delete_domain_input(), list()) ::
           {:ok, delete_domain_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10309,7 +10380,13 @@ defmodule AWS.DataZone do
   @doc """
   Deletes a domain unit.
   """
-  @spec delete_domain_unit(map(), String.t(), String.t(), delete_domain_unit_input(), list()) ::
+  @spec delete_domain_unit(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_domain_unit_input(),
+          list()
+        ) ::
           {:ok, delete_domain_unit_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10340,7 +10417,13 @@ defmodule AWS.DataZone do
   @doc """
   Deletes an environment in Amazon DataZone.
   """
-  @spec delete_environment(map(), String.t(), String.t(), delete_environment_input(), list()) ::
+  @spec delete_environment(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_environment_input(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10375,9 +10458,9 @@ defmodule AWS.DataZone do
   """
   @spec delete_environment_action(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_environment_action_input(),
           list()
         ) ::
@@ -10420,8 +10503,8 @@ defmodule AWS.DataZone do
   """
   @spec delete_environment_blueprint_configuration(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_environment_blueprint_configuration_input(),
           list()
         ) ::
@@ -10463,8 +10546,8 @@ defmodule AWS.DataZone do
   """
   @spec delete_environment_profile(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_environment_profile_input(),
           list()
         ) ::
@@ -10504,7 +10587,13 @@ defmodule AWS.DataZone do
   @doc """
   Delets and metadata form type in Amazon DataZone.
   """
-  @spec delete_form_type(map(), String.t(), String.t(), delete_form_type_input(), list()) ::
+  @spec delete_form_type(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_form_type_input(),
+          list()
+        ) ::
           {:ok, delete_form_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10541,7 +10630,13 @@ defmodule AWS.DataZone do
   @doc """
   Deletes a business glossary in Amazon DataZone.
   """
-  @spec delete_glossary(map(), String.t(), String.t(), delete_glossary_input(), list()) ::
+  @spec delete_glossary(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_glossary_input(),
+          list()
+        ) ::
           {:ok, delete_glossary_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10572,7 +10667,13 @@ defmodule AWS.DataZone do
   @doc """
   Deletes a business glossary term in Amazon DataZone.
   """
-  @spec delete_glossary_term(map(), String.t(), String.t(), delete_glossary_term_input(), list()) ::
+  @spec delete_glossary_term(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_glossary_term_input(),
+          list()
+        ) ::
           {:ok, delete_glossary_term_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10609,7 +10710,13 @@ defmodule AWS.DataZone do
   @doc """
   Deletes a listing (a record of an asset at a given time).
   """
-  @spec delete_listing(map(), String.t(), String.t(), delete_listing_input(), list()) ::
+  @spec delete_listing(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_listing_input(),
+          list()
+        ) ::
           {:ok, delete_listing_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10640,7 +10747,13 @@ defmodule AWS.DataZone do
   @doc """
   Deletes a project in Amazon DataZone.
   """
-  @spec delete_project(map(), String.t(), String.t(), delete_project_input(), list()) ::
+  @spec delete_project(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_project_input(),
+          list()
+        ) ::
           {:ok, delete_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10678,8 +10791,8 @@ defmodule AWS.DataZone do
   """
   @spec delete_project_membership(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_project_membership_input(),
           list()
         ) ::
@@ -10721,8 +10834,8 @@ defmodule AWS.DataZone do
   """
   @spec delete_project_profile(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_project_profile_input(),
           list()
         ) ::
@@ -10775,7 +10888,13 @@ defmodule AWS.DataZone do
   ensuring
   alignment with organizational standards.
   """
-  @spec delete_rule(map(), String.t(), String.t(), delete_rule_input(), list()) ::
+  @spec delete_rule(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_rule_input(),
+          list()
+        ) ::
           {:ok, delete_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10808,8 +10927,8 @@ defmodule AWS.DataZone do
   """
   @spec delete_subscription_grant(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_subscription_grant_input(),
           list()
         ) ::
@@ -10851,8 +10970,8 @@ defmodule AWS.DataZone do
   """
   @spec delete_subscription_request(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_subscription_request_input(),
           list()
         ) ::
@@ -10894,9 +11013,9 @@ defmodule AWS.DataZone do
   """
   @spec delete_subscription_target(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_subscription_target_input(),
           list()
         ) ::
@@ -10939,9 +11058,9 @@ defmodule AWS.DataZone do
   """
   @spec delete_time_series_data_points(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_time_series_data_points_input(),
           list()
         ) ::
@@ -10990,9 +11109,9 @@ defmodule AWS.DataZone do
   """
   @spec disassociate_environment_role(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           disassociate_environment_role_input(),
           list()
         ) ::
@@ -11033,7 +11152,13 @@ defmodule AWS.DataZone do
   @doc """
   Gets an Amazon DataZone asset.
   """
-  @spec get_asset(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_asset(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, get_asset_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11060,7 +11185,13 @@ defmodule AWS.DataZone do
   @doc """
   Gets an asset filter.
   """
-  @spec get_asset_filter(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_asset_filter(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_asset_filter_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11086,7 +11217,13 @@ defmodule AWS.DataZone do
   @doc """
   Gets an Amazon DataZone asset type.
   """
-  @spec get_asset_type(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_asset_type(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, get_asset_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11123,7 +11260,13 @@ defmodule AWS.DataZone do
   resources (domains, projects, and environments) to external resources and
   services.
   """
-  @spec get_connection(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_connection(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, get_connection_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11156,7 +11299,13 @@ defmodule AWS.DataZone do
   @doc """
   Gets the data product.
   """
-  @spec get_data_product(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_data_product(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, get_data_product_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11189,7 +11338,7 @@ defmodule AWS.DataZone do
   @doc """
   Gets an Amazon DataZone data source.
   """
-  @spec get_data_source(map(), String.t(), String.t(), list()) ::
+  @spec get_data_source(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_data_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11209,7 +11358,7 @@ defmodule AWS.DataZone do
   @doc """
   Gets an Amazon DataZone data source run.
   """
-  @spec get_data_source_run(map(), String.t(), String.t(), list()) ::
+  @spec get_data_source_run(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_data_source_run_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11229,7 +11378,7 @@ defmodule AWS.DataZone do
   @doc """
   Gets an Amazon DataZone domain.
   """
-  @spec get_domain(map(), String.t(), list()) ::
+  @spec get_domain(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_domain_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11247,7 +11396,7 @@ defmodule AWS.DataZone do
   @doc """
   Gets the details of the specified domain unit.
   """
-  @spec get_domain_unit(map(), String.t(), String.t(), list()) ::
+  @spec get_domain_unit(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_domain_unit_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11267,7 +11416,7 @@ defmodule AWS.DataZone do
   @doc """
   Gets an Amazon DataZone environment.
   """
-  @spec get_environment(map(), String.t(), String.t(), list()) ::
+  @spec get_environment(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11287,7 +11436,13 @@ defmodule AWS.DataZone do
   @doc """
   Gets the specified environment action.
   """
-  @spec get_environment_action(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_environment_action(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_environment_action_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11313,7 +11468,7 @@ defmodule AWS.DataZone do
   @doc """
   Gets an Amazon DataZone blueprint.
   """
-  @spec get_environment_blueprint(map(), String.t(), String.t(), list()) ::
+  @spec get_environment_blueprint(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_environment_blueprint_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11333,7 +11488,12 @@ defmodule AWS.DataZone do
   @doc """
   Gets the blueprint configuration in Amazon DataZone.
   """
-  @spec get_environment_blueprint_configuration(map(), String.t(), String.t(), list()) ::
+  @spec get_environment_blueprint_configuration(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_environment_blueprint_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11358,7 +11518,7 @@ defmodule AWS.DataZone do
   @doc """
   Gets the credentials of an environment in Amazon DataZone.
   """
-  @spec get_environment_credentials(map(), String.t(), String.t(), list()) ::
+  @spec get_environment_credentials(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_environment_credentials_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11383,7 +11543,7 @@ defmodule AWS.DataZone do
   @doc """
   Gets an evinronment profile in Amazon DataZone.
   """
-  @spec get_environment_profile(map(), String.t(), String.t(), list()) ::
+  @spec get_environment_profile(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_environment_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11403,7 +11563,13 @@ defmodule AWS.DataZone do
   @doc """
   Gets a metadata form type in Amazon DataZone.
   """
-  @spec get_form_type(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_form_type(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, get_form_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11436,7 +11602,7 @@ defmodule AWS.DataZone do
   @doc """
   Gets a business glossary in Amazon DataZone.
   """
-  @spec get_glossary(map(), String.t(), String.t(), list()) ::
+  @spec get_glossary(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_glossary_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11456,7 +11622,7 @@ defmodule AWS.DataZone do
   @doc """
   Gets a business glossary term in Amazon DataZone.
   """
-  @spec get_glossary_term(map(), String.t(), String.t(), list()) ::
+  @spec get_glossary_term(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_glossary_term_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11476,7 +11642,7 @@ defmodule AWS.DataZone do
   @doc """
   Gets a group profile in Amazon DataZone.
   """
-  @spec get_group_profile(map(), String.t(), String.t(), list()) ::
+  @spec get_group_profile(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_group_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11496,7 +11662,12 @@ defmodule AWS.DataZone do
   @doc """
   Gets the data portal URL for the specified Amazon DataZone domain.
   """
-  @spec get_iam_portal_login_url(map(), String.t(), get_iam_portal_login_url_input(), list()) ::
+  @spec get_iam_portal_login_url(
+          map(),
+          String.t() | Atom.t(),
+          get_iam_portal_login_url_input(),
+          list()
+        ) ::
           {:ok, get_iam_portal_login_url_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11525,7 +11696,7 @@ defmodule AWS.DataZone do
   @doc """
   The details of the job run.
   """
-  @spec get_job_run(map(), String.t(), String.t(), list()) ::
+  @spec get_job_run(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_job_run_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11545,7 +11716,7 @@ defmodule AWS.DataZone do
   @doc """
   Describes the lineage event.
   """
-  @spec get_lineage_event(map(), String.t(), String.t(), list()) ::
+  @spec get_lineage_event(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_lineage_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11579,7 +11750,13 @@ defmodule AWS.DataZone do
   @doc """
   Gets the data lineage node.
   """
-  @spec get_lineage_node(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_lineage_node(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, get_lineage_node_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11615,7 +11792,13 @@ defmodule AWS.DataZone do
   If you specify a listing version,
   only details that are specific to that version are returned.
   """
-  @spec get_listing(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_listing(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, get_listing_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11648,7 +11831,7 @@ defmodule AWS.DataZone do
   @doc """
   Gets a metadata generation run in Amazon DataZone.
   """
-  @spec get_metadata_generation_run(map(), String.t(), String.t(), list()) ::
+  @spec get_metadata_generation_run(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_metadata_generation_run_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11673,7 +11856,7 @@ defmodule AWS.DataZone do
   @doc """
   Gets a project in Amazon DataZone.
   """
-  @spec get_project(map(), String.t(), String.t(), list()) ::
+  @spec get_project(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11693,7 +11876,7 @@ defmodule AWS.DataZone do
   @doc """
   The details of the project profile.
   """
-  @spec get_project_profile(map(), String.t(), String.t(), list()) ::
+  @spec get_project_profile(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_project_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11726,7 +11909,13 @@ defmodule AWS.DataZone do
   publishing a data
   asset to the catalog, ensuring alignment with organizational standards.
   """
-  @spec get_rule(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_rule(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, get_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11753,7 +11942,7 @@ defmodule AWS.DataZone do
   @doc """
   Gets a subscription in Amazon DataZone.
   """
-  @spec get_subscription(map(), String.t(), String.t(), list()) ::
+  @spec get_subscription(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_subscription_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11773,7 +11962,7 @@ defmodule AWS.DataZone do
   @doc """
   Gets the subscription grant in Amazon DataZone.
   """
-  @spec get_subscription_grant(map(), String.t(), String.t(), list()) ::
+  @spec get_subscription_grant(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_subscription_grant_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11793,7 +11982,12 @@ defmodule AWS.DataZone do
   @doc """
   Gets the details of the specified subscription request.
   """
-  @spec get_subscription_request_details(map(), String.t(), String.t(), list()) ::
+  @spec get_subscription_request_details(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_subscription_request_details_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11818,7 +12012,13 @@ defmodule AWS.DataZone do
   @doc """
   Gets the subscription target in Amazon DataZone.
   """
-  @spec get_subscription_target(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_subscription_target(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_subscription_target_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11846,11 +12046,11 @@ defmodule AWS.DataZone do
   """
   @spec get_time_series_data_point(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           list()
         ) ::
           {:ok, get_time_series_data_point_output(), any()}
@@ -11887,7 +12087,13 @@ defmodule AWS.DataZone do
   @doc """
   Gets a user profile in Amazon DataZone.
   """
-  @spec get_user_profile(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_user_profile(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, get_user_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11922,11 +12128,11 @@ defmodule AWS.DataZone do
   """
   @spec list_asset_filters(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_asset_filters_output(), any()}
@@ -11979,10 +12185,10 @@ defmodule AWS.DataZone do
   """
   @spec list_asset_revisions(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_asset_revisions_output(), any()}
@@ -12031,15 +12237,15 @@ defmodule AWS.DataZone do
   """
   @spec list_connections(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_connections_output(), any()}
@@ -12129,10 +12335,10 @@ defmodule AWS.DataZone do
   """
   @spec list_data_product_revisions(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_data_product_revisions_output(), any()}
@@ -12177,11 +12383,11 @@ defmodule AWS.DataZone do
   """
   @spec list_data_source_run_activities(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_data_source_run_activities_output(), any()}
@@ -12234,11 +12440,11 @@ defmodule AWS.DataZone do
   """
   @spec list_data_source_runs(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_data_source_runs_output(), any()}
@@ -12291,15 +12497,15 @@ defmodule AWS.DataZone do
   """
   @spec list_data_sources(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_data_sources_output(), any()}
@@ -12389,10 +12595,10 @@ defmodule AWS.DataZone do
   """
   @spec list_domain_units_for_parent(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
           list()
         ) ::
           {:ok, list_domain_units_for_parent_output(), any()}
@@ -12440,7 +12646,13 @@ defmodule AWS.DataZone do
   @doc """
   Lists Amazon DataZone domains.
   """
-  @spec list_domains(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_domains(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_domains_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12487,11 +12699,11 @@ defmodule AWS.DataZone do
   """
   @spec list_entity_owners(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_entity_owners_output(), any()}
@@ -12537,10 +12749,10 @@ defmodule AWS.DataZone do
   """
   @spec list_environment_actions(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_environment_actions_output(), any()}
@@ -12585,9 +12797,9 @@ defmodule AWS.DataZone do
   """
   @spec list_environment_blueprint_configurations(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_environment_blueprint_configurations_output(), any()}
@@ -12631,11 +12843,11 @@ defmodule AWS.DataZone do
   """
   @spec list_environment_blueprints(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_environment_blueprints_output(), any()}
@@ -12693,14 +12905,14 @@ defmodule AWS.DataZone do
   """
   @spec list_environment_profiles(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_environment_profiles_output(), any()}
@@ -12782,17 +12994,17 @@ defmodule AWS.DataZone do
   """
   @spec list_environments(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_environments_output(), any()}
@@ -12898,12 +13110,12 @@ defmodule AWS.DataZone do
   """
   @spec list_job_runs(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_job_runs_output(), any()}
@@ -12964,13 +13176,13 @@ defmodule AWS.DataZone do
   """
   @spec list_lineage_events(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_lineage_events_output(), any()}
@@ -13044,14 +13256,14 @@ defmodule AWS.DataZone do
   """
   @spec list_lineage_node_history(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_lineage_node_history_output(), any()}
@@ -13128,11 +13340,11 @@ defmodule AWS.DataZone do
   """
   @spec list_metadata_generation_runs(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_metadata_generation_runs_output(), any()}
@@ -13190,14 +13402,14 @@ defmodule AWS.DataZone do
   """
   @spec list_notifications(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
           list()
         ) ::
           {:ok, list_notifications_output(), any()}
@@ -13279,12 +13491,12 @@ defmodule AWS.DataZone do
   """
   @spec list_policy_grants(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
           list()
         ) ::
           {:ok, list_policy_grants_output(), any()}
@@ -13338,12 +13550,12 @@ defmodule AWS.DataZone do
   """
   @spec list_project_memberships(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_project_memberships_output(), any()}
@@ -13404,12 +13616,12 @@ defmodule AWS.DataZone do
   """
   @spec list_project_profiles(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_project_profiles_output(), any()}
@@ -13475,12 +13687,12 @@ defmodule AWS.DataZone do
   """
   @spec list_projects(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_projects_output(), any()}
@@ -13559,17 +13771,17 @@ defmodule AWS.DataZone do
   """
   @spec list_rules(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_rules_output(), any()}
@@ -13663,16 +13875,16 @@ defmodule AWS.DataZone do
   """
   @spec list_subscription_grants(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_subscription_grants_output(), any()}
@@ -13770,15 +13982,15 @@ defmodule AWS.DataZone do
   """
   @spec list_subscription_requests(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_subscription_requests_output(), any()}
@@ -13868,12 +14080,12 @@ defmodule AWS.DataZone do
   """
   @spec list_subscription_targets(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_subscription_targets_output(), any()}
@@ -13934,16 +14146,16 @@ defmodule AWS.DataZone do
   """
   @spec list_subscriptions(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_subscriptions_output(), any()}
@@ -14039,7 +14251,7 @@ defmodule AWS.DataZone do
   @doc """
   Lists tags for the specified resource in Amazon DataZone.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14059,14 +14271,14 @@ defmodule AWS.DataZone do
   """
   @spec list_time_series_data_points(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_time_series_data_points_output(), any()}
@@ -14134,7 +14346,7 @@ defmodule AWS.DataZone do
   @doc """
   Posts a data lineage event.
   """
-  @spec post_lineage_event(map(), String.t(), post_lineage_event_input(), list()) ::
+  @spec post_lineage_event(map(), String.t() | Atom.t(), post_lineage_event_input(), list()) ::
           {:ok, post_lineage_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14171,9 +14383,9 @@ defmodule AWS.DataZone do
   """
   @spec post_time_series_data_points(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           post_time_series_data_points_input(),
           list()
         ) ::
@@ -14217,8 +14429,8 @@ defmodule AWS.DataZone do
   """
   @spec put_environment_blueprint_configuration(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           put_environment_blueprint_configuration_input(),
           list()
         ) ::
@@ -14260,7 +14472,13 @@ defmodule AWS.DataZone do
   DataZone
   assets.
   """
-  @spec reject_predictions(map(), String.t(), String.t(), reject_predictions_input(), list()) ::
+  @spec reject_predictions(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          reject_predictions_input(),
+          list()
+        ) ::
           {:ok, reject_predictions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14298,8 +14516,8 @@ defmodule AWS.DataZone do
   """
   @spec reject_subscription_request(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           reject_subscription_request_input(),
           list()
         ) ::
@@ -14341,9 +14559,9 @@ defmodule AWS.DataZone do
   """
   @spec remove_entity_owner(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           remove_entity_owner_input(),
           list()
         ) ::
@@ -14386,9 +14604,9 @@ defmodule AWS.DataZone do
   """
   @spec remove_policy_grant(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           remove_policy_grant_input(),
           list()
         ) ::
@@ -14429,7 +14647,13 @@ defmodule AWS.DataZone do
   @doc """
   Revokes a specified subscription in Amazon DataZone.
   """
-  @spec revoke_subscription(map(), String.t(), String.t(), revoke_subscription_input(), list()) ::
+  @spec revoke_subscription(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          revoke_subscription_input(),
+          list()
+        ) ::
           {:ok, revoke_subscription_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14460,7 +14684,7 @@ defmodule AWS.DataZone do
   @doc """
   Searches for assets in Amazon DataZone.
   """
-  @spec search(map(), String.t(), search_input(), list()) ::
+  @spec search(map(), String.t() | Atom.t(), search_input(), list()) ::
           {:ok, search_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14489,7 +14713,7 @@ defmodule AWS.DataZone do
   @doc """
   Searches group profiles in Amazon DataZone.
   """
-  @spec search_group_profiles(map(), String.t(), search_group_profiles_input(), list()) ::
+  @spec search_group_profiles(map(), String.t() | Atom.t(), search_group_profiles_input(), list()) ::
           {:ok, search_group_profiles_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14518,7 +14742,7 @@ defmodule AWS.DataZone do
   @doc """
   Searches listings (records of an asset at a given time) in Amazon DataZone.
   """
-  @spec search_listings(map(), String.t(), search_listings_input(), list()) ::
+  @spec search_listings(map(), String.t() | Atom.t(), search_listings_input(), list()) ::
           {:ok, search_listings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14547,7 +14771,7 @@ defmodule AWS.DataZone do
   @doc """
   Searches for types in Amazon DataZone.
   """
-  @spec search_types(map(), String.t(), search_types_input(), list()) ::
+  @spec search_types(map(), String.t() | Atom.t(), search_types_input(), list()) ::
           {:ok, search_types_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14576,7 +14800,7 @@ defmodule AWS.DataZone do
   @doc """
   Searches user profiles in Amazon DataZone.
   """
-  @spec search_user_profiles(map(), String.t(), search_user_profiles_input(), list()) ::
+  @spec search_user_profiles(map(), String.t() | Atom.t(), search_user_profiles_input(), list()) ::
           {:ok, search_user_profiles_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14607,8 +14831,8 @@ defmodule AWS.DataZone do
   """
   @spec start_data_source_run(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           start_data_source_run_input(),
           list()
         ) ::
@@ -14650,7 +14874,7 @@ defmodule AWS.DataZone do
   """
   @spec start_metadata_generation_run(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           start_metadata_generation_run_input(),
           list()
         ) ::
@@ -14682,7 +14906,7 @@ defmodule AWS.DataZone do
   @doc """
   Tags a resource in Amazon DataZone.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14711,7 +14935,7 @@ defmodule AWS.DataZone do
   @doc """
   Untags a resource in Amazon DataZone.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14747,9 +14971,9 @@ defmodule AWS.DataZone do
   """
   @spec update_asset_filter(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_asset_filter_input(),
           list()
         ) ::
@@ -14794,7 +15018,13 @@ defmodule AWS.DataZone do
   resources (domains, projects, and environments) to external resources and
   services.
   """
-  @spec update_connection(map(), String.t(), String.t(), update_connection_input(), list()) ::
+  @spec update_connection(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_connection_input(),
+          list()
+        ) ::
           {:ok, update_connection_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14825,7 +15055,13 @@ defmodule AWS.DataZone do
   @doc """
   Updates the specified data source in Amazon DataZone.
   """
-  @spec update_data_source(map(), String.t(), String.t(), update_data_source_input(), list()) ::
+  @spec update_data_source(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_data_source_input(),
+          list()
+        ) ::
           {:ok, update_data_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14856,7 +15092,7 @@ defmodule AWS.DataZone do
   @doc """
   Updates a Amazon DataZone domain.
   """
-  @spec update_domain(map(), String.t(), update_domain_input(), list()) ::
+  @spec update_domain(map(), String.t() | Atom.t(), update_domain_input(), list()) ::
           {:ok, update_domain_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14890,7 +15126,13 @@ defmodule AWS.DataZone do
   @doc """
   Updates the domain unit.
   """
-  @spec update_domain_unit(map(), String.t(), String.t(), update_domain_unit_input(), list()) ::
+  @spec update_domain_unit(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_domain_unit_input(),
+          list()
+        ) ::
           {:ok, update_domain_unit_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14921,7 +15163,13 @@ defmodule AWS.DataZone do
   @doc """
   Updates the specified environment in Amazon DataZone.
   """
-  @spec update_environment(map(), String.t(), String.t(), update_environment_input(), list()) ::
+  @spec update_environment(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_environment_input(),
+          list()
+        ) ::
           {:ok, update_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14954,9 +15202,9 @@ defmodule AWS.DataZone do
   """
   @spec update_environment_action(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_environment_action_input(),
           list()
         ) ::
@@ -14999,8 +15247,8 @@ defmodule AWS.DataZone do
   """
   @spec update_environment_profile(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_environment_profile_input(),
           list()
         ) ::
@@ -15040,7 +15288,13 @@ defmodule AWS.DataZone do
   @doc """
   Updates the business glossary in Amazon DataZone.
   """
-  @spec update_glossary(map(), String.t(), String.t(), update_glossary_input(), list()) ::
+  @spec update_glossary(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_glossary_input(),
+          list()
+        ) ::
           {:ok, update_glossary_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15071,7 +15325,13 @@ defmodule AWS.DataZone do
   @doc """
   Updates a business glossary term in Amazon DataZone.
   """
-  @spec update_glossary_term(map(), String.t(), String.t(), update_glossary_term_input(), list()) ::
+  @spec update_glossary_term(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_glossary_term_input(),
+          list()
+        ) ::
           {:ok, update_glossary_term_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15108,7 +15368,13 @@ defmodule AWS.DataZone do
   @doc """
   Updates the specified group profile in Amazon DataZone.
   """
-  @spec update_group_profile(map(), String.t(), String.t(), update_group_profile_input(), list()) ::
+  @spec update_group_profile(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_group_profile_input(),
+          list()
+        ) ::
           {:ok, update_group_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15145,7 +15411,13 @@ defmodule AWS.DataZone do
   @doc """
   Updates the specified project in Amazon DataZone.
   """
-  @spec update_project(map(), String.t(), String.t(), update_project_input(), list()) ::
+  @spec update_project(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_project_input(),
+          list()
+        ) ::
           {:ok, update_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15178,8 +15450,8 @@ defmodule AWS.DataZone do
   """
   @spec update_project_profile(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_project_profile_input(),
           list()
         ) ::
@@ -15232,7 +15504,13 @@ defmodule AWS.DataZone do
   ensuring
   alignment with organizational standards.
   """
-  @spec update_rule(map(), String.t(), String.t(), update_rule_input(), list()) ::
+  @spec update_rule(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_rule_input(),
+          list()
+        ) ::
           {:ok, update_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15266,9 +15544,9 @@ defmodule AWS.DataZone do
   """
   @spec update_subscription_grant_status(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_subscription_grant_status_input(),
           list()
         ) ::
@@ -15311,8 +15589,8 @@ defmodule AWS.DataZone do
   """
   @spec update_subscription_request(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_subscription_request_input(),
           list()
         ) ::
@@ -15354,9 +15632,9 @@ defmodule AWS.DataZone do
   """
   @spec update_subscription_target(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_subscription_target_input(),
           list()
         ) ::
@@ -15397,7 +15675,13 @@ defmodule AWS.DataZone do
   @doc """
   Updates the specified user profile in Amazon DataZone.
   """
-  @spec update_user_profile(map(), String.t(), String.t(), update_user_profile_input(), list()) ::
+  @spec update_user_profile(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_user_profile_input(),
+          list()
+        ) ::
           {:ok, update_user_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

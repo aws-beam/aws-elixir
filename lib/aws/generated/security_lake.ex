@@ -72,7 +72,7 @@ defmodule AWS.SecurityLake do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -80,22 +80,22 @@ defmodule AWS.SecurityLake do
 
       list_data_lake_exceptions_response() :: %{
         "exceptions" => list(data_lake_exception()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_data_lake_exceptions_response() :: %{String.t() => any()}
+  @type list_data_lake_exceptions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_aws_log_source_response() :: %{
-        "failed" => list(String.t())
+        "failed" => list(String.t() | Atom.t())
       }
 
   """
-  @type create_aws_log_source_response() :: %{String.t() => any()}
+  @type create_aws_log_source_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -111,23 +111,23 @@ defmodule AWS.SecurityLake do
   ## Example:
 
       list_data_lakes_request() :: %{
-        optional("regions") => list(String.t())
+        optional("regions") => list(String.t() | Atom.t())
       }
 
   """
-  @type list_data_lakes_request() :: %{String.t() => any()}
+  @type list_data_lakes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       data_lake_replication_configuration() :: %{
-        "regions" => list(String.t()),
-        "roleArn" => String.t()
+        "regions" => list(String.t() | Atom.t()),
+        "roleArn" => String.t() | Atom.t()
       }
 
   """
-  @type data_lake_replication_configuration() :: %{String.t() => any()}
+  @type data_lake_replication_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -138,35 +138,35 @@ defmodule AWS.SecurityLake do
       }
 
   """
-  @type create_custom_log_source_response() :: %{String.t() => any()}
+  @type create_custom_log_source_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       custom_log_source_attributes() :: %{
-        "crawlerArn" => String.t(),
-        "databaseArn" => String.t(),
-        "tableArn" => String.t()
+        "crawlerArn" => String.t() | Atom.t(),
+        "databaseArn" => String.t() | Atom.t(),
+        "tableArn" => String.t() | Atom.t()
       }
 
   """
-  @type custom_log_source_attributes() :: %{String.t() => any()}
+  @type custom_log_source_attributes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_log_sources_request() :: %{
-        optional("accounts") => list(String.t()),
+        optional("accounts") => list(String.t() | Atom.t()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("regions") => list(String.t()),
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("regions") => list(String.t() | Atom.t()),
         optional("sources") => list(list())
       }
 
   """
-  @type list_log_sources_request() :: %{String.t() => any()}
+  @type list_log_sources_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -195,20 +195,20 @@ defmodule AWS.SecurityLake do
       }
 
   """
-  @type update_subscriber_response() :: %{String.t() => any()}
+  @type update_subscriber_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_data_lake_sources_request() :: %{
-        optional("accounts") => list(String.t()),
+        optional("accounts") => list(String.t() | Atom.t()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type get_data_lake_sources_request() :: %{String.t() => any()}
+  @type get_data_lake_sources_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -217,11 +217,11 @@ defmodule AWS.SecurityLake do
       create_data_lake_request() :: %{
         optional("tags") => list(tag()),
         required("configurations") => list(data_lake_configuration()),
-        required("metaStoreManagerRoleArn") => String.t()
+        required("metaStoreManagerRoleArn") => String.t() | Atom.t()
       }
 
   """
-  @type create_data_lake_request() :: %{String.t() => any()}
+  @type create_data_lake_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -233,7 +233,7 @@ defmodule AWS.SecurityLake do
       }
 
   """
-  @type custom_log_source_configuration() :: %{String.t() => any()}
+  @type custom_log_source_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -244,7 +244,7 @@ defmodule AWS.SecurityLake do
       }
 
   """
-  @type list_data_lakes_response() :: %{String.t() => any()}
+  @type list_data_lakes_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -264,7 +264,7 @@ defmodule AWS.SecurityLake do
       }
 
   """
-  @type create_subscriber_response() :: %{String.t() => any()}
+  @type create_subscriber_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -280,23 +280,23 @@ defmodule AWS.SecurityLake do
   ## Example:
 
       data_lake_source_status() :: %{
-        "resource" => [String.t()],
+        "resource" => [String.t() | Atom.t()],
         "status" => list(any())
       }
 
   """
-  @type data_lake_source_status() :: %{String.t() => any()}
+  @type data_lake_source_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -313,36 +313,36 @@ defmodule AWS.SecurityLake do
 
       update_data_lake_exception_subscription_request() :: %{
         optional("exceptionTimeToLive") => [float()],
-        required("notificationEndpoint") => String.t(),
-        required("subscriptionProtocol") => String.t()
+        required("notificationEndpoint") => String.t() | Atom.t(),
+        required("subscriptionProtocol") => String.t() | Atom.t()
       }
 
   """
-  @type update_data_lake_exception_subscription_request() :: %{String.t() => any()}
+  @type update_data_lake_exception_subscription_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       data_lake_auto_enable_new_account_configuration() :: %{
-        "region" => String.t(),
+        "region" => String.t() | Atom.t(),
         "sources" => list(aws_log_source_resource())
       }
 
   """
-  @type data_lake_auto_enable_new_account_configuration() :: %{String.t() => any()}
+  @type data_lake_auto_enable_new_account_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_data_lake_request() :: %{
-        optional("metaStoreManagerRoleArn") => String.t(),
+        optional("metaStoreManagerRoleArn") => String.t() | Atom.t(),
         required("configurations") => list(data_lake_configuration())
       }
 
   """
-  @type update_data_lake_request() :: %{String.t() => any()}
+  @type update_data_lake_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -362,20 +362,20 @@ defmodule AWS.SecurityLake do
       }
 
   """
-  @type create_aws_log_source_request() :: %{String.t() => any()}
+  @type create_aws_log_source_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_data_lake_sources_response() :: %{
-        "dataLakeArn" => String.t(),
+        "dataLakeArn" => String.t() | Atom.t(),
         "dataLakeSources" => list(data_lake_source()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type get_data_lake_sources_response() :: %{String.t() => any()}
+  @type get_data_lake_sources_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -383,22 +383,22 @@ defmodule AWS.SecurityLake do
 
       aws_log_source_resource() :: %{
         "sourceName" => list(any()),
-        "sourceVersion" => String.t()
+        "sourceVersion" => String.t() | Atom.t()
       }
 
   """
-  @type aws_log_source_resource() :: %{String.t() => any()}
+  @type aws_log_source_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       data_lake_encryption_configuration() :: %{
-        "kmsKeyId" => [String.t()]
+        "kmsKeyId" => [String.t() | Atom.t()]
       }
 
   """
-  @type data_lake_encryption_configuration() :: %{String.t() => any()}
+  @type data_lake_encryption_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -418,7 +418,7 @@ defmodule AWS.SecurityLake do
       }
 
   """
-  @type update_data_lake_response() :: %{String.t() => any()}
+  @type update_data_lake_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -429,33 +429,33 @@ defmodule AWS.SecurityLake do
       }
 
   """
-  @type create_data_lake_response() :: %{String.t() => any()}
+  @type create_data_lake_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t()],
-        "resourceName" => [String.t()],
-        "resourceType" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "resourceName" => [String.t() | Atom.t()],
+        "resourceType" => [String.t() | Atom.t()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()],
-        "resourceName" => [String.t()],
-        "resourceType" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "resourceName" => [String.t() | Atom.t()],
+        "resourceType" => [String.t() | Atom.t()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -463,25 +463,25 @@ defmodule AWS.SecurityLake do
 
       update_subscriber_request() :: %{
         optional("sources") => list(list()),
-        optional("subscriberDescription") => String.t(),
+        optional("subscriberDescription") => String.t() | Atom.t(),
         optional("subscriberIdentity") => aws_identity(),
-        optional("subscriberName") => String.t()
+        optional("subscriberName") => String.t() | Atom.t()
       }
 
   """
-  @type update_subscriber_request() :: %{String.t() => any()}
+  @type update_subscriber_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "key" => String.t(),
-        "value" => String.t()
+        "key" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -492,7 +492,7 @@ defmodule AWS.SecurityLake do
       }
 
   """
-  @type get_subscriber_response() :: %{String.t() => any()}
+  @type get_subscriber_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -500,11 +500,11 @@ defmodule AWS.SecurityLake do
 
       data_lake_lifecycle_transition() :: %{
         "days" => [integer()],
-        "storageClass" => String.t()
+        "storageClass" => String.t() | Atom.t()
       }
 
   """
-  @type data_lake_lifecycle_transition() :: %{String.t() => any()}
+  @type data_lake_lifecycle_transition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -513,24 +513,24 @@ defmodule AWS.SecurityLake do
       data_lake_configuration() :: %{
         "encryptionConfiguration" => data_lake_encryption_configuration(),
         "lifecycleConfiguration" => data_lake_lifecycle_configuration(),
-        "region" => String.t(),
+        "region" => String.t() | Atom.t(),
         "replicationConfiguration" => data_lake_replication_configuration()
       }
 
   """
-  @type data_lake_configuration() :: %{String.t() => any()}
+  @type data_lake_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_identity() :: %{
-        "externalId" => String.t(),
-        "principal" => String.t()
+        "externalId" => String.t() | Atom.t(),
+        "principal" => String.t() | Atom.t()
       }
 
   """
-  @type aws_identity() :: %{String.t() => any()}
+  @type aws_identity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -547,12 +547,12 @@ defmodule AWS.SecurityLake do
 
       get_data_lake_exception_subscription_response() :: %{
         "exceptionTimeToLive" => [float()],
-        "notificationEndpoint" => String.t(),
-        "subscriptionProtocol" => String.t()
+        "notificationEndpoint" => String.t() | Atom.t(),
+        "subscriptionProtocol" => String.t() | Atom.t()
       }
 
   """
-  @type get_data_lake_exception_subscription_response() :: %{String.t() => any()}
+  @type get_data_lake_exception_subscription_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -563,7 +563,7 @@ defmodule AWS.SecurityLake do
       }
 
   """
-  @type update_subscriber_notification_request() :: %{String.t() => any()}
+  @type update_subscriber_notification_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -571,12 +571,12 @@ defmodule AWS.SecurityLake do
 
       create_data_lake_exception_subscription_request() :: %{
         optional("exceptionTimeToLive") => [float()],
-        required("notificationEndpoint") => String.t(),
-        required("subscriptionProtocol") => String.t()
+        required("notificationEndpoint") => String.t() | Atom.t(),
+        required("subscriptionProtocol") => String.t() | Atom.t()
       }
 
   """
-  @type create_data_lake_exception_subscription_request() :: %{String.t() => any()}
+  @type create_data_lake_exception_subscription_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -596,7 +596,7 @@ defmodule AWS.SecurityLake do
       }
 
   """
-  @type create_subscriber_notification_request() :: %{String.t() => any()}
+  @type create_subscriber_notification_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -607,7 +607,7 @@ defmodule AWS.SecurityLake do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -616,23 +616,23 @@ defmodule AWS.SecurityLake do
       subscriber_resource() :: %{
         "accessTypes" => list(list(any())()),
         "createdAt" => [non_neg_integer()],
-        "resourceShareArn" => String.t(),
-        "resourceShareName" => String.t(),
-        "roleArn" => String.t(),
-        "s3BucketArn" => String.t(),
+        "resourceShareArn" => String.t() | Atom.t(),
+        "resourceShareName" => String.t() | Atom.t(),
+        "roleArn" => String.t() | Atom.t(),
+        "s3BucketArn" => String.t() | Atom.t(),
         "sources" => list(list()),
-        "subscriberArn" => String.t(),
-        "subscriberDescription" => String.t(),
-        "subscriberEndpoint" => String.t(),
-        "subscriberId" => String.t(),
+        "subscriberArn" => String.t() | Atom.t(),
+        "subscriberDescription" => String.t() | Atom.t(),
+        "subscriberEndpoint" => String.t() | Atom.t(),
+        "subscriberId" => String.t() | Atom.t(),
         "subscriberIdentity" => aws_identity(),
-        "subscriberName" => String.t(),
+        "subscriberName" => String.t() | Atom.t(),
         "subscriberStatus" => list(any()),
         "updatedAt" => [non_neg_integer()]
       }
 
   """
-  @type subscriber_resource() :: %{String.t() => any()}
+  @type subscriber_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -643,7 +643,7 @@ defmodule AWS.SecurityLake do
       }
 
   """
-  @type create_data_lake_organization_configuration_request() :: %{String.t() => any()}
+  @type create_data_lake_organization_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -660,12 +660,12 @@ defmodule AWS.SecurityLake do
 
       list_data_lake_exceptions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("regions") => list(String.t())
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("regions") => list(String.t() | Atom.t())
       }
 
   """
-  @type list_data_lake_exceptions_request() :: %{String.t() => any()}
+  @type list_data_lake_exceptions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -681,12 +681,12 @@ defmodule AWS.SecurityLake do
   ## Example:
 
       list_subscribers_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "subscribers" => list(subscriber_resource())
       }
 
   """
-  @type list_subscribers_response() :: %{String.t() => any()}
+  @type list_subscribers_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -697,46 +697,46 @@ defmodule AWS.SecurityLake do
       }
 
   """
-  @type delete_data_lake_organization_configuration_request() :: %{String.t() => any()}
+  @type delete_data_lake_organization_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_log_source_configuration() :: %{
-        "accounts" => list(String.t()),
-        "regions" => list(String.t()),
+        "accounts" => list(String.t() | Atom.t()),
+        "regions" => list(String.t() | Atom.t()),
         "sourceName" => list(any()),
-        "sourceVersion" => String.t()
+        "sourceVersion" => String.t() | Atom.t()
       }
 
   """
-  @type aws_log_source_configuration() :: %{String.t() => any()}
+  @type aws_log_source_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       custom_log_source_crawler_configuration() :: %{
-        "roleArn" => String.t()
+        "roleArn" => String.t() | Atom.t()
       }
 
   """
-  @type custom_log_source_crawler_configuration() :: %{String.t() => any()}
+  @type custom_log_source_crawler_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       data_lake_source() :: %{
-        "account" => [String.t()],
-        "eventClasses" => list(String.t()),
-        "sourceName" => [String.t()],
+        "account" => [String.t() | Atom.t()],
+        "eventClasses" => list(String.t() | Atom.t()),
+        "sourceName" => [String.t() | Atom.t()],
         "sourceStatuses" => list(data_lake_source_status())
       }
 
   """
-  @type data_lake_source() :: %{String.t() => any()}
+  @type data_lake_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -756,20 +756,20 @@ defmodule AWS.SecurityLake do
       }
 
   """
-  @type data_lake_lifecycle_expiration() :: %{String.t() => any()}
+  @type data_lake_lifecycle_expiration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       log_source() :: %{
-        "account" => String.t(),
-        "region" => String.t(),
+        "account" => String.t() | Atom.t(),
+        "region" => String.t() | Atom.t(),
         "sources" => list(list())
       }
 
   """
-  @type log_source() :: %{String.t() => any()}
+  @type log_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -777,39 +777,39 @@ defmodule AWS.SecurityLake do
 
       data_lake_resource() :: %{
         "createStatus" => list(any()),
-        "dataLakeArn" => String.t(),
+        "dataLakeArn" => String.t() | Atom.t(),
         "encryptionConfiguration" => data_lake_encryption_configuration(),
         "lifecycleConfiguration" => data_lake_lifecycle_configuration(),
-        "region" => String.t(),
+        "region" => String.t() | Atom.t(),
         "replicationConfiguration" => data_lake_replication_configuration(),
-        "s3BucketArn" => String.t(),
+        "s3BucketArn" => String.t() | Atom.t(),
         "updateStatus" => data_lake_update_status()
       }
 
   """
-  @type data_lake_resource() :: %{String.t() => any()}
+  @type data_lake_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_aws_log_source_response() :: %{
-        "failed" => list(String.t())
+        "failed" => list(String.t() | Atom.t())
       }
 
   """
-  @type delete_aws_log_source_response() :: %{String.t() => any()}
+  @type delete_aws_log_source_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -821,7 +821,7 @@ defmodule AWS.SecurityLake do
       }
 
   """
-  @type data_lake_lifecycle_configuration() :: %{String.t() => any()}
+  @type data_lake_lifecycle_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -837,12 +837,12 @@ defmodule AWS.SecurityLake do
   ## Example:
 
       access_denied_exception() :: %{
-        "errorCode" => [String.t()],
-        "message" => [String.t()]
+        "errorCode" => [String.t() | Atom.t()],
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -858,12 +858,12 @@ defmodule AWS.SecurityLake do
   ## Example:
 
       list_log_sources_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | Atom.t(),
         "sources" => list(log_source())
       }
 
   """
-  @type list_log_sources_response() :: %{String.t() => any()}
+  @type list_log_sources_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -879,49 +879,49 @@ defmodule AWS.SecurityLake do
   ## Example:
 
       data_lake_update_exception() :: %{
-        "code" => [String.t()],
-        "reason" => [String.t()]
+        "code" => [String.t() | Atom.t()],
+        "reason" => [String.t() | Atom.t()]
       }
 
   """
-  @type data_lake_update_exception() :: %{String.t() => any()}
+  @type data_lake_update_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_custom_log_source_request() :: %{
-        optional("eventClasses") => list(String.t()),
-        optional("sourceVersion") => String.t(),
+        optional("eventClasses") => list(String.t() | Atom.t()),
+        optional("sourceVersion") => String.t() | Atom.t(),
         required("configuration") => custom_log_source_configuration(),
-        required("sourceName") => String.t()
+        required("sourceName") => String.t() | Atom.t()
       }
 
   """
-  @type create_custom_log_source_request() :: %{String.t() => any()}
+  @type create_custom_log_source_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       custom_log_source_provider() :: %{
-        "location" => String.t(),
-        "roleArn" => String.t()
+        "location" => String.t() | Atom.t(),
+        "roleArn" => String.t() | Atom.t()
       }
 
   """
-  @type custom_log_source_provider() :: %{String.t() => any()}
+  @type custom_log_source_provider() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_data_lake_request() :: %{
-        required("regions") => list(String.t())
+        required("regions") => list(String.t() | Atom.t())
       }
 
   """
-  @type delete_data_lake_request() :: %{String.t() => any()}
+  @type delete_data_lake_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -946,50 +946,50 @@ defmodule AWS.SecurityLake do
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t()],
-        "quotaCode" => [String.t()],
+        "message" => [String.t() | Atom.t()],
+        "quotaCode" => [String.t() | Atom.t()],
         "retryAfterSeconds" => [integer()],
-        "serviceCode" => [String.t()]
+        "serviceCode" => [String.t() | Atom.t()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       data_lake_exception() :: %{
-        "exception" => String.t(),
-        "region" => String.t(),
-        "remediation" => String.t(),
+        "exception" => String.t() | Atom.t(),
+        "region" => String.t() | Atom.t(),
+        "remediation" => String.t() | Atom.t(),
         "timestamp" => [non_neg_integer()]
       }
 
   """
-  @type data_lake_exception() :: %{String.t() => any()}
+  @type data_lake_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_subscriber_notification_response() :: %{
-        "subscriberEndpoint" => String.t()
+        "subscriberEndpoint" => String.t() | Atom.t()
       }
 
   """
-  @type update_subscriber_notification_response() :: %{String.t() => any()}
+  @type update_subscriber_notification_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_subscriber_notification_response() :: %{
-        "subscriberEndpoint" => String.t()
+        "subscriberEndpoint" => String.t() | Atom.t()
       }
 
   """
-  @type create_subscriber_notification_response() :: %{String.t() => any()}
+  @type create_subscriber_notification_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1005,11 +1005,11 @@ defmodule AWS.SecurityLake do
   ## Example:
 
       delete_custom_log_source_request() :: %{
-        optional("sourceVersion") => String.t()
+        optional("sourceVersion") => String.t() | Atom.t()
       }
 
   """
-  @type delete_custom_log_source_request() :: %{String.t() => any()}
+  @type delete_custom_log_source_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1018,23 +1018,23 @@ defmodule AWS.SecurityLake do
       custom_log_source_resource() :: %{
         "attributes" => custom_log_source_attributes(),
         "provider" => custom_log_source_provider(),
-        "sourceName" => String.t(),
-        "sourceVersion" => String.t()
+        "sourceName" => String.t() | Atom.t(),
+        "sourceVersion" => String.t() | Atom.t()
       }
 
   """
-  @type custom_log_source_resource() :: %{String.t() => any()}
+  @type custom_log_source_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bad_request_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type bad_request_exception() :: %{String.t() => any()}
+  @type bad_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1045,7 +1045,7 @@ defmodule AWS.SecurityLake do
       }
 
   """
-  @type get_data_lake_organization_configuration_response() :: %{String.t() => any()}
+  @type get_data_lake_organization_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1061,11 +1061,11 @@ defmodule AWS.SecurityLake do
   ## Example:
 
       register_data_lake_delegated_administrator_request() :: %{
-        required("accountId") => String.t()
+        required("accountId") => String.t() | Atom.t()
       }
 
   """
-  @type register_data_lake_delegated_administrator_request() :: %{String.t() => any()}
+  @type register_data_lake_delegated_administrator_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1082,15 +1082,15 @@ defmodule AWS.SecurityLake do
 
       create_subscriber_request() :: %{
         optional("accessTypes") => list(list(any())()),
-        optional("subscriberDescription") => String.t(),
+        optional("subscriberDescription") => String.t() | Atom.t(),
         optional("tags") => list(tag()),
         required("sources") => list(list()),
         required("subscriberIdentity") => aws_identity(),
-        required("subscriberName") => [String.t()]
+        required("subscriberName") => [String.t() | Atom.t()]
       }
 
   """
-  @type create_subscriber_request() :: %{String.t() => any()}
+  @type create_subscriber_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1101,7 +1101,7 @@ defmodule AWS.SecurityLake do
       }
 
   """
-  @type delete_aws_log_source_request() :: %{String.t() => any()}
+  @type delete_aws_log_source_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1109,11 +1109,11 @@ defmodule AWS.SecurityLake do
 
       list_subscribers_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_subscribers_request() :: %{String.t() => any()}
+  @type list_subscribers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1121,12 +1121,12 @@ defmodule AWS.SecurityLake do
 
       data_lake_update_status() :: %{
         "exception" => data_lake_update_exception(),
-        "requestId" => [String.t()],
+        "requestId" => [String.t() | Atom.t()],
         "status" => list(any())
       }
 
   """
-  @type data_lake_update_status() :: %{String.t() => any()}
+  @type data_lake_update_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1142,15 +1142,15 @@ defmodule AWS.SecurityLake do
   ## Example:
 
       https_notification_configuration() :: %{
-        "authorizationApiKeyName" => [String.t()],
-        "authorizationApiKeyValue" => [String.t()],
-        "endpoint" => [String.t()],
+        "authorizationApiKeyName" => [String.t() | Atom.t()],
+        "authorizationApiKeyValue" => [String.t() | Atom.t()],
+        "endpoint" => [String.t() | Atom.t()],
         "httpMethod" => list(any()),
-        "targetRoleArn" => String.t()
+        "targetRoleArn" => String.t() | Atom.t()
       }
 
   """
-  @type https_notification_configuration() :: %{String.t() => any()}
+  @type https_notification_configuration() :: %{String.t() | Atom.t() => any()}
 
   @type create_aws_log_source_errors() ::
           bad_request_exception()
@@ -1681,7 +1681,7 @@ defmodule AWS.SecurityLake do
   """
   @spec create_subscriber_notification(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           create_subscriber_notification_request(),
           list()
         ) ::
@@ -1758,7 +1758,12 @@ defmodule AWS.SecurityLake do
   the custom
   source to Security Lake.
   """
-  @spec delete_custom_log_source(map(), String.t(), delete_custom_log_source_request(), list()) ::
+  @spec delete_custom_log_source(
+          map(),
+          String.t() | Atom.t(),
+          delete_custom_log_source_request(),
+          list()
+        ) ::
           {:ok, delete_custom_log_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1917,7 +1922,7 @@ defmodule AWS.SecurityLake do
   operation deletes the subscriber and removes access to data in the current
   Amazon Web Services Region.
   """
-  @spec delete_subscriber(map(), String.t(), delete_subscriber_request(), list()) ::
+  @spec delete_subscriber(map(), String.t() | Atom.t(), delete_subscriber_request(), list()) ::
           {:ok, delete_subscriber_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1950,7 +1955,7 @@ defmodule AWS.SecurityLake do
   """
   @spec delete_subscriber_notification(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_subscriber_notification_request(),
           list()
         ) ::
@@ -2097,7 +2102,7 @@ defmodule AWS.SecurityLake do
   You can get
   information about a specific subscriber.
   """
-  @spec get_subscriber(map(), String.t(), list()) ::
+  @spec get_subscriber(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_subscriber_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2150,7 +2155,7 @@ defmodule AWS.SecurityLake do
   You can use this operation to determine whether
   Security Lake is enabled for a Region.
   """
-  @spec list_data_lakes(map(), String.t() | nil, list()) ::
+  @spec list_data_lakes(map(), String.t() | Atom.t() | nil, list()) ::
           {:ok, list_data_lakes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2208,7 +2213,7 @@ defmodule AWS.SecurityLake do
   of subscriptions associated with a specific organization or Amazon Web Services
   account.
   """
-  @spec list_subscribers(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_subscribers(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_subscribers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2242,7 +2247,7 @@ defmodule AWS.SecurityLake do
   Lake resource: a subscriber, or the data lake configuration for
   your Amazon Web Services account in a particular Amazon Web Services Region.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2313,7 +2318,7 @@ defmodule AWS.SecurityLake do
   in the
   *Amazon Security Lake User Guide*.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2344,7 +2349,7 @@ defmodule AWS.SecurityLake do
   resource: a subscriber, or the data lake configuration for your
   Amazon Web Services account in a particular Amazon Web Services Region.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2467,7 +2472,7 @@ defmodule AWS.SecurityLake do
   You can update
   a subscriber by changing the sources that the subscriber consumes data from.
   """
-  @spec update_subscriber(map(), String.t(), update_subscriber_request(), list()) ::
+  @spec update_subscriber(map(), String.t() | Atom.t(), update_subscriber_request(), list()) ::
           {:ok, update_subscriber_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2500,7 +2505,7 @@ defmodule AWS.SecurityLake do
   """
   @spec update_subscriber_notification(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_subscriber_notification_request(),
           list()
         ) ::

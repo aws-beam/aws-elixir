@@ -20,13 +20,13 @@ defmodule AWS.SSMQuickSetup do
 
       configuration_definition_summary() :: %{
         "FirstClassParameters" => map(),
-        "Id" => [String.t()],
-        "Type" => [String.t()],
-        "TypeVersion" => [String.t()]
+        "Id" => [String.t() | Atom.t()],
+        "Type" => [String.t() | Atom.t()],
+        "TypeVersion" => [String.t() | Atom.t()]
       }
 
   """
-  @type configuration_definition_summary() :: %{String.t() => any()}
+  @type configuration_definition_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -36,12 +36,12 @@ defmodule AWS.SSMQuickSetup do
         "LastUpdatedAt" => [non_neg_integer()],
         "Status" => list(any()),
         "StatusDetails" => map(),
-        "StatusMessage" => [String.t()],
+        "StatusMessage" => [String.t() | Atom.t()],
         "StatusType" => list(any())
       }
 
   """
-  @type status_summary() :: %{String.t() => any()}
+  @type status_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -50,57 +50,57 @@ defmodule AWS.SSMQuickSetup do
       get_configuration_manager_output() :: %{
         "ConfigurationDefinitions" => list(configuration_definition()),
         "CreatedAt" => [non_neg_integer()],
-        "Description" => [String.t()],
+        "Description" => [String.t() | Atom.t()],
         "LastModifiedAt" => [non_neg_integer()],
-        "ManagerArn" => [String.t()],
-        "Name" => [String.t()],
+        "ManagerArn" => [String.t() | Atom.t()],
+        "Name" => [String.t() | Atom.t()],
         "StatusSummaries" => list(status_summary()),
         "Tags" => map()
       }
 
   """
-  @type get_configuration_manager_output() :: %{String.t() => any()}
+  @type get_configuration_manager_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       configuration_summary() :: %{
-        "Account" => [String.t()],
-        "ConfigurationDefinitionId" => [String.t()],
+        "Account" => [String.t() | Atom.t()],
+        "ConfigurationDefinitionId" => [String.t() | Atom.t()],
         "CreatedAt" => [non_neg_integer()],
         "FirstClassParameters" => map(),
-        "Id" => [String.t()],
-        "ManagerArn" => [String.t()],
-        "Region" => [String.t()],
+        "Id" => [String.t() | Atom.t()],
+        "ManagerArn" => [String.t() | Atom.t()],
+        "Region" => [String.t() | Atom.t()],
         "StatusSummaries" => list(status_summary()),
-        "Type" => [String.t()],
-        "TypeVersion" => [String.t()]
+        "Type" => [String.t() | Atom.t()],
+        "TypeVersion" => [String.t() | Atom.t()]
       }
 
   """
-  @type configuration_summary() :: %{String.t() => any()}
+  @type configuration_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_configuration_output() :: %{
-        "Account" => [String.t()],
-        "ConfigurationDefinitionId" => [String.t()],
+        "Account" => [String.t() | Atom.t()],
+        "ConfigurationDefinitionId" => [String.t() | Atom.t()],
         "CreatedAt" => [non_neg_integer()],
-        "Id" => [String.t()],
+        "Id" => [String.t() | Atom.t()],
         "LastModifiedAt" => [non_neg_integer()],
-        "ManagerArn" => [String.t()],
+        "ManagerArn" => [String.t() | Atom.t()],
         "Parameters" => map(),
-        "Region" => [String.t()],
+        "Region" => [String.t() | Atom.t()],
         "StatusSummaries" => list(status_summary()),
-        "Type" => [String.t()],
-        "TypeVersion" => [String.t()]
+        "Type" => [String.t() | Atom.t()],
+        "TypeVersion" => [String.t() | Atom.t()]
       }
 
   """
-  @type get_configuration_output() :: %{String.t() => any()}
+  @type get_configuration_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -108,75 +108,75 @@ defmodule AWS.SSMQuickSetup do
 
       list_configuration_managers_output() :: %{
         "ConfigurationManagersList" => list(configuration_manager_summary()),
-        "NextToken" => [String.t()]
+        "NextToken" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_configuration_managers_output() :: %{String.t() => any()}
+  @type list_configuration_managers_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_configuration_manager_input() :: %{
-        optional("Description") => [String.t()],
-        optional("Name") => [String.t()],
+        optional("Description") => [String.t() | Atom.t()],
+        optional("Name") => [String.t() | Atom.t()],
         optional("Tags") => map(),
         required("ConfigurationDefinitions") => list(configuration_definition_input())
       }
 
   """
-  @type create_configuration_manager_input() :: %{String.t() => any()}
+  @type create_configuration_manager_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_configuration_manager_input() :: %{
-        optional("Description") => [String.t()],
-        optional("Name") => [String.t()]
+        optional("Description") => [String.t() | Atom.t()],
+        optional("Name") => [String.t() | Atom.t()]
       }
 
   """
-  @type update_configuration_manager_input() :: %{String.t() => any()}
+  @type update_configuration_manager_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       configuration_definition() :: %{
-        "Id" => [String.t()],
-        "LocalDeploymentAdministrationRoleArn" => String.t(),
-        "LocalDeploymentExecutionRoleName" => [String.t()],
+        "Id" => [String.t() | Atom.t()],
+        "LocalDeploymentAdministrationRoleArn" => String.t() | Atom.t(),
+        "LocalDeploymentExecutionRoleName" => [String.t() | Atom.t()],
         "Parameters" => map(),
-        "Type" => [String.t()],
-        "TypeVersion" => [String.t()]
+        "Type" => [String.t() | Atom.t()],
+        "TypeVersion" => [String.t() | Atom.t()]
       }
 
   """
-  @type configuration_definition() :: %{String.t() => any()}
+  @type configuration_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -196,7 +196,7 @@ defmodule AWS.SSMQuickSetup do
       }
 
   """
-  @type list_quick_setup_types_output() :: %{String.t() => any()}
+  @type list_quick_setup_types_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -204,11 +204,11 @@ defmodule AWS.SSMQuickSetup do
 
       list_configurations_output() :: %{
         "ConfigurationsList" => list(configuration_summary()),
-        "NextToken" => [String.t()]
+        "NextToken" => [String.t() | Atom.t()]
       }
 
   """
-  @type list_configurations_output() :: %{String.t() => any()}
+  @type list_configurations_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -228,7 +228,7 @@ defmodule AWS.SSMQuickSetup do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -248,77 +248,77 @@ defmodule AWS.SSMQuickSetup do
       }
 
   """
-  @type tag_resource_input() :: %{String.t() => any()}
+  @type tag_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       filter() :: %{
-        "Key" => [String.t()],
-        "Values" => list([String.t()]())
+        "Key" => [String.t() | Atom.t()],
+        "Values" => list([String.t() | Atom.t()]())
       }
 
   """
-  @type filter() :: %{String.t() => any()}
+  @type filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_input() :: %{
-        required("TagKeys") => list([String.t()]())
+        required("TagKeys") => list([String.t() | Atom.t()]())
       }
 
   """
-  @type untag_resource_input() :: %{String.t() => any()}
+  @type untag_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_configuration_definition_input() :: %{
-        optional("LocalDeploymentAdministrationRoleArn") => String.t(),
-        optional("LocalDeploymentExecutionRoleName") => [String.t()],
+        optional("LocalDeploymentAdministrationRoleArn") => String.t() | Atom.t(),
+        optional("LocalDeploymentExecutionRoleName") => [String.t() | Atom.t()],
         optional("Parameters") => map(),
-        optional("TypeVersion") => [String.t()]
+        optional("TypeVersion") => [String.t() | Atom.t()]
       }
 
   """
-  @type update_configuration_definition_input() :: %{String.t() => any()}
+  @type update_configuration_definition_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_settings() :: %{
-        "ExplorerEnablingRoleArn" => String.t()
+        "ExplorerEnablingRoleArn" => String.t() | Atom.t()
       }
 
   """
-  @type service_settings() :: %{String.t() => any()}
+  @type service_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -329,18 +329,18 @@ defmodule AWS.SSMQuickSetup do
       }
 
   """
-  @type get_service_settings_output() :: %{String.t() => any()}
+  @type get_service_settings_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -356,57 +356,57 @@ defmodule AWS.SSMQuickSetup do
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | Atom.t()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_service_settings_input() :: %{
-        optional("ExplorerEnablingRoleArn") => String.t()
+        optional("ExplorerEnablingRoleArn") => String.t() | Atom.t()
       }
 
   """
-  @type update_service_settings_input() :: %{String.t() => any()}
+  @type update_service_settings_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       quick_setup_type_output() :: %{
-        "LatestVersion" => [String.t()],
-        "Type" => [String.t()]
+        "LatestVersion" => [String.t() | Atom.t()],
+        "Type" => [String.t() | Atom.t()]
       }
 
   """
-  @type quick_setup_type_output() :: %{String.t() => any()}
+  @type quick_setup_type_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_entry() :: %{
-        "Key" => [String.t()],
-        "Value" => [String.t()]
+        "Key" => [String.t() | Atom.t()],
+        "Value" => [String.t() | Atom.t()]
       }
 
   """
-  @type tag_entry() :: %{String.t() => any()}
+  @type tag_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_configuration_manager_output() :: %{
-        "ManagerArn" => [String.t()]
+        "ManagerArn" => [String.t() | Atom.t()]
       }
 
   """
-  @type create_configuration_manager_output() :: %{String.t() => any()}
+  @type create_configuration_manager_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -414,14 +414,14 @@ defmodule AWS.SSMQuickSetup do
 
       configuration_manager_summary() :: %{
         "ConfigurationDefinitionSummaries" => list(configuration_definition_summary()),
-        "Description" => [String.t()],
-        "ManagerArn" => [String.t()],
-        "Name" => [String.t()],
+        "Description" => [String.t() | Atom.t()],
+        "ManagerArn" => [String.t() | Atom.t()],
+        "Name" => [String.t() | Atom.t()],
         "StatusSummaries" => list(status_summary())
       }
 
   """
-  @type configuration_manager_summary() :: %{String.t() => any()}
+  @type configuration_manager_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -430,41 +430,41 @@ defmodule AWS.SSMQuickSetup do
       list_configuration_managers_input() :: %{
         optional("Filters") => list(filter()),
         optional("MaxItems") => [integer()],
-        optional("StartingToken") => [String.t()]
+        optional("StartingToken") => [String.t() | Atom.t()]
       }
 
   """
-  @type list_configuration_managers_input() :: %{String.t() => any()}
+  @type list_configuration_managers_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       configuration_definition_input() :: %{
-        "LocalDeploymentAdministrationRoleArn" => String.t(),
-        "LocalDeploymentExecutionRoleName" => [String.t()],
+        "LocalDeploymentAdministrationRoleArn" => String.t() | Atom.t(),
+        "LocalDeploymentExecutionRoleName" => [String.t() | Atom.t()],
         "Parameters" => map(),
-        "Type" => [String.t()],
-        "TypeVersion" => [String.t()]
+        "Type" => [String.t() | Atom.t()],
+        "TypeVersion" => [String.t() | Atom.t()]
       }
 
   """
-  @type configuration_definition_input() :: %{String.t() => any()}
+  @type configuration_definition_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_configurations_input() :: %{
-        optional("ConfigurationDefinitionId") => [String.t()],
+        optional("ConfigurationDefinitionId") => [String.t() | Atom.t()],
         optional("Filters") => list(filter()),
-        optional("ManagerArn") => [String.t()],
+        optional("ManagerArn") => [String.t() | Atom.t()],
         optional("MaxItems") => [integer()],
-        optional("StartingToken") => [String.t()]
+        optional("StartingToken") => [String.t() | Atom.t()]
       }
 
   """
-  @type list_configurations_input() :: %{String.t() => any()}
+  @type list_configurations_input() :: %{String.t() | Atom.t() => any()}
 
   @type create_configuration_manager_errors() ::
           throttling_exception()
@@ -624,7 +624,7 @@ defmodule AWS.SSMQuickSetup do
   """
   @spec delete_configuration_manager(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_configuration_manager_input(),
           list()
         ) ::
@@ -656,7 +656,7 @@ defmodule AWS.SSMQuickSetup do
   @doc """
   Returns details about the specified configuration.
   """
-  @spec get_configuration(map(), String.t(), list()) ::
+  @spec get_configuration(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -674,7 +674,7 @@ defmodule AWS.SSMQuickSetup do
   @doc """
   Returns a configuration manager.
   """
-  @spec get_configuration_manager(map(), String.t(), list()) ::
+  @spec get_configuration_manager(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_configuration_manager_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -788,7 +788,7 @@ defmodule AWS.SSMQuickSetup do
   @doc """
   Returns tags assigned to the resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -806,7 +806,7 @@ defmodule AWS.SSMQuickSetup do
   @doc """
   Assigns key-value pairs of metadata to Amazon Web Services resources.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -835,7 +835,7 @@ defmodule AWS.SSMQuickSetup do
   @doc """
   Removes tags from the specified resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -871,8 +871,8 @@ defmodule AWS.SSMQuickSetup do
   """
   @spec update_configuration_definition(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           update_configuration_definition_input(),
           list()
         ) ::
@@ -908,7 +908,7 @@ defmodule AWS.SSMQuickSetup do
   """
   @spec update_configuration_manager(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_configuration_manager_input(),
           list()
         ) ::

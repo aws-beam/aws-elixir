@@ -23,13 +23,13 @@ defmodule AWS.DynamoDBStreams do
   ## Example:
       
       describe_stream_input() :: %{
-        optional("ExclusiveStartShardId") => String.t(),
+        optional("ExclusiveStartShardId") => String.t() | Atom.t(),
         optional("Limit") => integer(),
-        required("StreamArn") => String.t()
+        required("StreamArn") => String.t() | Atom.t()
       }
       
   """
-  @type describe_stream_input() :: %{String.t() => any()}
+  @type describe_stream_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -40,18 +40,18 @@ defmodule AWS.DynamoDBStreams do
       }
       
   """
-  @type describe_stream_output() :: %{String.t() => any()}
+  @type describe_stream_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       expired_iterator_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type expired_iterator_exception() :: %{String.t() => any()}
+  @type expired_iterator_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -59,185 +59,185 @@ defmodule AWS.DynamoDBStreams do
       
       get_records_input() :: %{
         optional("Limit") => integer(),
-        required("ShardIterator") => String.t()
+        required("ShardIterator") => String.t() | Atom.t()
       }
       
   """
-  @type get_records_input() :: %{String.t() => any()}
+  @type get_records_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_records_output() :: %{
-        "NextShardIterator" => String.t(),
+        "NextShardIterator" => String.t() | Atom.t(),
         "Records" => list(record())
       }
       
   """
-  @type get_records_output() :: %{String.t() => any()}
+  @type get_records_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_shard_iterator_input() :: %{
-        optional("SequenceNumber") => String.t(),
-        required("ShardId") => String.t(),
+        optional("SequenceNumber") => String.t() | Atom.t(),
+        required("ShardId") => String.t() | Atom.t(),
         required("ShardIteratorType") => list(any()),
-        required("StreamArn") => String.t()
+        required("StreamArn") => String.t() | Atom.t()
       }
       
   """
-  @type get_shard_iterator_input() :: %{String.t() => any()}
+  @type get_shard_iterator_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_shard_iterator_output() :: %{
-        "ShardIterator" => String.t()
+        "ShardIterator" => String.t() | Atom.t()
       }
       
   """
-  @type get_shard_iterator_output() :: %{String.t() => any()}
+  @type get_shard_iterator_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       identity() :: %{
-        "PrincipalId" => String.t(),
-        "Type" => String.t()
+        "PrincipalId" => String.t() | Atom.t(),
+        "Type" => String.t() | Atom.t()
       }
       
   """
-  @type identity() :: %{String.t() => any()}
+  @type identity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_error() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type internal_server_error() :: %{String.t() => any()}
+  @type internal_server_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       key_schema_element() :: %{
-        "AttributeName" => String.t(),
+        "AttributeName" => String.t() | Atom.t(),
         "KeyType" => list(any())
       }
       
   """
-  @type key_schema_element() :: %{String.t() => any()}
+  @type key_schema_element() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_streams_input() :: %{
-        optional("ExclusiveStartStreamArn") => String.t(),
+        optional("ExclusiveStartStreamArn") => String.t() | Atom.t(),
         optional("Limit") => integer(),
-        optional("TableName") => String.t()
+        optional("TableName") => String.t() | Atom.t()
       }
       
   """
-  @type list_streams_input() :: %{String.t() => any()}
+  @type list_streams_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_streams_output() :: %{
-        "LastEvaluatedStreamArn" => String.t(),
+        "LastEvaluatedStreamArn" => String.t() | Atom.t(),
         "Streams" => list(stream())
       }
       
   """
-  @type list_streams_output() :: %{String.t() => any()}
+  @type list_streams_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       record() :: %{
-        "awsRegion" => String.t(),
+        "awsRegion" => String.t() | Atom.t(),
         "dynamodb" => stream_record(),
-        "eventID" => String.t(),
+        "eventID" => String.t() | Atom.t(),
         "eventName" => list(any()),
-        "eventSource" => String.t(),
-        "eventVersion" => String.t(),
+        "eventSource" => String.t() | Atom.t(),
+        "eventVersion" => String.t() | Atom.t(),
         "userIdentity" => identity()
       }
       
   """
-  @type record() :: %{String.t() => any()}
+  @type record() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       sequence_number_range() :: %{
-        "EndingSequenceNumber" => String.t(),
-        "StartingSequenceNumber" => String.t()
+        "EndingSequenceNumber" => String.t() | Atom.t(),
+        "StartingSequenceNumber" => String.t() | Atom.t()
       }
       
   """
-  @type sequence_number_range() :: %{String.t() => any()}
+  @type sequence_number_range() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       shard() :: %{
-        "ParentShardId" => String.t(),
+        "ParentShardId" => String.t() | Atom.t(),
         "SequenceNumberRange" => sequence_number_range(),
-        "ShardId" => String.t()
+        "ShardId" => String.t() | Atom.t()
       }
       
   """
-  @type shard() :: %{String.t() => any()}
+  @type shard() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stream() :: %{
-        "StreamArn" => String.t(),
-        "StreamLabel" => String.t(),
-        "TableName" => String.t()
+        "StreamArn" => String.t() | Atom.t(),
+        "StreamLabel" => String.t() | Atom.t(),
+        "TableName" => String.t() | Atom.t()
       }
       
   """
-  @type stream() :: %{String.t() => any()}
+  @type stream() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -246,17 +246,17 @@ defmodule AWS.DynamoDBStreams do
       stream_description() :: %{
         "CreationRequestDateTime" => non_neg_integer(),
         "KeySchema" => list(key_schema_element()),
-        "LastEvaluatedShardId" => String.t(),
+        "LastEvaluatedShardId" => String.t() | Atom.t(),
         "Shards" => list(shard()),
-        "StreamArn" => String.t(),
-        "StreamLabel" => String.t(),
+        "StreamArn" => String.t() | Atom.t(),
+        "StreamLabel" => String.t() | Atom.t(),
         "StreamStatus" => list(any()),
         "StreamViewType" => list(any()),
-        "TableName" => String.t()
+        "TableName" => String.t() | Atom.t()
       }
       
   """
-  @type stream_description() :: %{String.t() => any()}
+  @type stream_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -267,24 +267,24 @@ defmodule AWS.DynamoDBStreams do
         "Keys" => map(),
         "NewImage" => map(),
         "OldImage" => map(),
-        "SequenceNumber" => String.t(),
+        "SequenceNumber" => String.t() | Atom.t(),
         "SizeBytes" => float(),
         "StreamViewType" => list(any())
       }
       
   """
-  @type stream_record() :: %{String.t() => any()}
+  @type stream_record() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       trimmed_data_access_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type trimmed_data_access_exception() :: %{String.t() => any()}
+  @type trimmed_data_access_exception() :: %{String.t() | Atom.t() => any()}
 
   @type describe_stream_errors() :: resource_not_found_exception() | internal_server_error()
 

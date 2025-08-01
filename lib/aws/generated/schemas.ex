@@ -18,55 +18,55 @@ defmodule AWS.Schemas do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_schema_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("Tags") => map(),
-        required("Content") => String.t(),
+        required("Content") => String.t() | Atom.t(),
         required("Type") => list(any())
       }
 
   """
-  @type create_schema_request() :: %{String.t() => any()}
+  @type create_schema_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_code_binding_source_request() :: %{
-        optional("SchemaVersion") => String.t()
+        optional("SchemaVersion") => String.t() | Atom.t()
       }
 
   """
-  @type get_code_binding_source_request() :: %{String.t() => any()}
+  @type get_code_binding_source_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       unauthorized_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type unauthorized_exception() :: %{String.t() => any()}
+  @type unauthorized_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_code_binding_request() :: %{
-        optional("SchemaVersion") => String.t()
+        optional("SchemaVersion") => String.t() | Atom.t()
       }
 
   """
-  @type describe_code_binding_request() :: %{String.t() => any()}
+  @type describe_code_binding_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -74,23 +74,23 @@ defmodule AWS.Schemas do
 
       search_schemas_request() :: %{
         optional("Limit") => integer(),
-        optional("NextToken") => String.t(),
-        required("Keywords") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("Keywords") => String.t() | Atom.t()
       }
 
   """
-  @type search_schemas_request() :: %{String.t() => any()}
+  @type search_schemas_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_schema_request() :: %{
-        optional("SchemaVersion") => String.t()
+        optional("SchemaVersion") => String.t() | Atom.t()
       }
 
   """
-  @type describe_schema_request() :: %{String.t() => any()}
+  @type describe_schema_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -115,52 +115,52 @@ defmodule AWS.Schemas do
   ## Example:
 
       forbidden_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type forbidden_exception() :: %{String.t() => any()}
+  @type forbidden_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_schema_versions_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "SchemaVersions" => list(schema_version_summary())
       }
 
   """
-  @type list_schema_versions_response() :: %{String.t() => any()}
+  @type list_schema_versions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_registry_response() :: %{
-        "Description" => String.t(),
-        "RegistryArn" => String.t(),
-        "RegistryName" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "RegistryArn" => String.t() | Atom.t(),
+        "RegistryName" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type create_registry_response() :: %{String.t() => any()}
+  @type create_registry_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_discoverers_request() :: %{
-        optional("DiscovererIdPrefix") => String.t(),
+        optional("DiscovererIdPrefix") => String.t() | Atom.t(),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t(),
-        optional("SourceArnPrefix") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("SourceArnPrefix") => String.t() | Atom.t()
       }
 
   """
-  @type list_discoverers_request() :: %{String.t() => any()}
+  @type list_discoverers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -177,100 +177,100 @@ defmodule AWS.Schemas do
 
       create_discoverer_response() :: %{
         "CrossAccount" => boolean(),
-        "Description" => String.t(),
-        "DiscovererArn" => String.t(),
-        "DiscovererId" => String.t(),
-        "SourceArn" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "DiscovererArn" => String.t() | Atom.t(),
+        "DiscovererId" => String.t() | Atom.t(),
+        "SourceArn" => String.t() | Atom.t(),
         "State" => list(any()),
         "Tags" => map()
       }
 
   """
-  @type create_discoverer_response() :: %{String.t() => any()}
+  @type create_discoverer_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_discovered_schema_request() :: %{
-        required("Events") => list(String.t()),
+        required("Events") => list(String.t() | Atom.t()),
         required("Type") => list(any())
       }
 
   """
-  @type get_discovered_schema_request() :: %{String.t() => any()}
+  @type get_discovered_schema_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_resource_policy_response() :: %{
-        "Policy" => String.t(),
-        "RevisionId" => String.t()
+        "Policy" => String.t() | Atom.t(),
+        "RevisionId" => String.t() | Atom.t()
       }
 
   """
-  @type get_resource_policy_response() :: %{String.t() => any()}
+  @type get_resource_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_schema_response() :: %{
-        "Content" => String.t(),
-        "Description" => String.t(),
+        "Content" => String.t() | Atom.t(),
+        "Description" => String.t() | Atom.t(),
         "LastModified" => non_neg_integer(),
-        "SchemaArn" => String.t(),
-        "SchemaName" => String.t(),
-        "SchemaVersion" => String.t(),
+        "SchemaArn" => String.t() | Atom.t(),
+        "SchemaName" => String.t() | Atom.t(),
+        "SchemaVersion" => String.t() | Atom.t(),
         "Tags" => map(),
-        "Type" => String.t(),
+        "Type" => String.t() | Atom.t(),
         "VersionCreatedDate" => non_neg_integer()
       }
 
   """
-  @type describe_schema_response() :: %{String.t() => any()}
+  @type describe_schema_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       gone_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type gone_exception() :: %{String.t() => any()}
+  @type gone_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_registry_request() :: %{
-        optional("Description") => String.t()
+        optional("Description") => String.t() | Atom.t()
       }
 
   """
-  @type update_registry_request() :: %{String.t() => any()}
+  @type update_registry_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_schema_response() :: %{
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "LastModified" => non_neg_integer(),
-        "SchemaArn" => String.t(),
-        "SchemaName" => String.t(),
-        "SchemaVersion" => String.t(),
+        "SchemaArn" => String.t() | Atom.t(),
+        "SchemaName" => String.t() | Atom.t(),
+        "SchemaVersion" => String.t() | Atom.t(),
         "Tags" => map(),
-        "Type" => String.t(),
+        "Type" => String.t() | Atom.t(),
         "VersionCreatedDate" => non_neg_integer()
       }
 
   """
-  @type update_schema_response() :: %{String.t() => any()}
+  @type update_schema_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -278,57 +278,57 @@ defmodule AWS.Schemas do
 
       update_discoverer_response() :: %{
         "CrossAccount" => boolean(),
-        "Description" => String.t(),
-        "DiscovererArn" => String.t(),
-        "DiscovererId" => String.t(),
-        "SourceArn" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "DiscovererArn" => String.t() | Atom.t(),
+        "DiscovererId" => String.t() | Atom.t(),
+        "SourceArn" => String.t() | Atom.t(),
         "State" => list(any()),
         "Tags" => map()
       }
 
   """
-  @type update_discoverer_response() :: %{String.t() => any()}
+  @type update_discoverer_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_schema_response() :: %{
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "LastModified" => non_neg_integer(),
-        "SchemaArn" => String.t(),
-        "SchemaName" => String.t(),
-        "SchemaVersion" => String.t(),
+        "SchemaArn" => String.t() | Atom.t(),
+        "SchemaName" => String.t() | Atom.t(),
+        "SchemaVersion" => String.t() | Atom.t(),
         "Tags" => map(),
-        "Type" => String.t(),
+        "Type" => String.t() | Atom.t(),
         "VersionCreatedDate" => non_neg_integer()
       }
 
   """
-  @type create_schema_response() :: %{String.t() => any()}
+  @type create_schema_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t())
+        required("TagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_requests_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_requests_exception() :: %{String.t() => any()}
+  @type too_many_requests_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -336,27 +336,27 @@ defmodule AWS.Schemas do
 
       describe_discoverer_response() :: %{
         "CrossAccount" => boolean(),
-        "Description" => String.t(),
-        "DiscovererArn" => String.t(),
-        "DiscovererId" => String.t(),
-        "SourceArn" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "DiscovererArn" => String.t() | Atom.t(),
+        "DiscovererId" => String.t() | Atom.t(),
+        "SourceArn" => String.t() | Atom.t(),
         "State" => list(any()),
         "Tags" => map()
       }
 
   """
-  @type describe_discoverer_response() :: %{String.t() => any()}
+  @type describe_discoverer_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_code_binding_request() :: %{
-        optional("SchemaVersion") => String.t()
+        optional("SchemaVersion") => String.t() | Atom.t()
       }
 
   """
-  @type put_code_binding_request() :: %{String.t() => any()}
+  @type put_code_binding_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -364,12 +364,12 @@ defmodule AWS.Schemas do
 
       list_schemas_request() :: %{
         optional("Limit") => integer(),
-        optional("NextToken") => String.t(),
-        optional("SchemaNamePrefix") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("SchemaNamePrefix") => String.t() | Atom.t()
       }
 
   """
-  @type list_schemas_request() :: %{String.t() => any()}
+  @type list_schemas_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -378,24 +378,24 @@ defmodule AWS.Schemas do
       put_code_binding_response() :: %{
         "CreationDate" => non_neg_integer(),
         "LastModified" => non_neg_integer(),
-        "SchemaVersion" => String.t(),
+        "SchemaVersion" => String.t() | Atom.t(),
         "Status" => list(any())
       }
 
   """
-  @type put_code_binding_response() :: %{String.t() => any()}
+  @type put_code_binding_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       export_schema_request() :: %{
-        optional("SchemaVersion") => String.t(),
-        required("Type") => String.t()
+        optional("SchemaVersion") => String.t() | Atom.t(),
+        required("Type") => String.t() | Atom.t()
       }
 
   """
-  @type export_schema_request() :: %{String.t() => any()}
+  @type export_schema_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -403,23 +403,23 @@ defmodule AWS.Schemas do
 
       update_discoverer_request() :: %{
         optional("CrossAccount") => boolean(),
-        optional("Description") => String.t()
+        optional("Description") => String.t() | Atom.t()
       }
 
   """
-  @type update_discoverer_request() :: %{String.t() => any()}
+  @type update_discoverer_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -427,13 +427,13 @@ defmodule AWS.Schemas do
 
       create_discoverer_request() :: %{
         optional("CrossAccount") => boolean(),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("Tags") => map(),
-        required("SourceArn") => String.t()
+        required("SourceArn") => String.t() | Atom.t()
       }
 
   """
-  @type create_discoverer_request() :: %{String.t() => any()}
+  @type create_discoverer_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -441,11 +441,11 @@ defmodule AWS.Schemas do
 
       list_discoverers_response() :: %{
         "Discoverers" => list(discoverer_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_discoverers_response() :: %{String.t() => any()}
+  @type list_discoverers_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -456,7 +456,7 @@ defmodule AWS.Schemas do
       }
 
   """
-  @type get_code_binding_source_response() :: %{String.t() => any()}
+  @type get_code_binding_source_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -473,40 +473,40 @@ defmodule AWS.Schemas do
 
       schema_summary() :: %{
         "LastModified" => non_neg_integer(),
-        "SchemaArn" => String.t(),
-        "SchemaName" => String.t(),
+        "SchemaArn" => String.t() | Atom.t(),
+        "SchemaName" => String.t() | Atom.t(),
         "Tags" => map(),
         "VersionCount" => float()
       }
 
   """
-  @type schema_summary() :: %{String.t() => any()}
+  @type schema_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       search_schema_summary() :: %{
-        optional("RegistryName") => String.t(),
-        optional("SchemaArn") => String.t(),
-        optional("SchemaName") => String.t(),
+        optional("RegistryName") => String.t() | Atom.t(),
+        optional("SchemaArn") => String.t() | Atom.t(),
+        optional("SchemaName") => String.t() | Atom.t(),
         optional("SchemaVersions") => list(search_schema_version_summary())
       }
 
   """
-  @type search_schema_summary() :: %{String.t() => any()}
+  @type search_schema_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       not_found_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type not_found_exception() :: %{String.t() => any()}
+  @type not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -517,56 +517,56 @@ defmodule AWS.Schemas do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_unavailable_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type service_unavailable_exception() :: %{String.t() => any()}
+  @type service_unavailable_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       stop_discoverer_response() :: %{
-        "DiscovererId" => String.t(),
+        "DiscovererId" => String.t() | Atom.t(),
         "State" => list(any())
       }
 
   """
-  @type stop_discoverer_response() :: %{String.t() => any()}
+  @type stop_discoverer_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_resource_policy_request() :: %{
-        optional("RegistryName") => String.t()
+        optional("RegistryName") => String.t() | Atom.t()
       }
 
   """
-  @type get_resource_policy_request() :: %{String.t() => any()}
+  @type get_resource_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_registry_response() :: %{
-        "Description" => String.t(),
-        "RegistryArn" => String.t(),
-        "RegistryName" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "RegistryArn" => String.t() | Atom.t(),
+        "RegistryName" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type describe_registry_response() :: %{String.t() => any()}
+  @type describe_registry_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -583,26 +583,26 @@ defmodule AWS.Schemas do
 
       search_schema_version_summary() :: %{
         optional("CreatedDate") => non_neg_integer(),
-        optional("SchemaVersion") => String.t(),
+        optional("SchemaVersion") => String.t() | Atom.t(),
         optional("Type") => list(any())
       }
 
   """
-  @type search_schema_version_summary() :: %{String.t() => any()}
+  @type search_schema_version_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_registry_response() :: %{
-        "Description" => String.t(),
-        "RegistryArn" => String.t(),
-        "RegistryName" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "RegistryArn" => String.t() | Atom.t(),
+        "RegistryName" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type update_registry_response() :: %{String.t() => any()}
+  @type update_registry_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -610,11 +610,11 @@ defmodule AWS.Schemas do
 
       list_schema_versions_request() :: %{
         optional("Limit") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_schema_versions_request() :: %{String.t() => any()}
+  @type list_schema_versions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -630,48 +630,48 @@ defmodule AWS.Schemas do
   ## Example:
 
       list_registries_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Registries" => list(registry_summary())
       }
 
   """
-  @type list_registries_response() :: %{String.t() => any()}
+  @type list_registries_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_resource_policy_request() :: %{
-        optional("RegistryName") => String.t(),
-        optional("RevisionId") => String.t(),
-        required("Policy") => String.t()
+        optional("RegistryName") => String.t() | Atom.t(),
+        optional("RevisionId") => String.t() | Atom.t(),
+        required("Policy") => String.t() | Atom.t()
       }
 
   """
-  @type put_resource_policy_request() :: %{String.t() => any()}
+  @type put_resource_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       search_schemas_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Schemas" => list(search_schema_summary())
       }
 
   """
-  @type search_schemas_response() :: %{String.t() => any()}
+  @type search_schemas_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_discovered_schema_response() :: %{
-        "Content" => String.t()
+        "Content" => String.t() | Atom.t()
       }
 
   """
-  @type get_discovered_schema_response() :: %{String.t() => any()}
+  @type get_discovered_schema_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -679,13 +679,13 @@ defmodule AWS.Schemas do
 
       list_registries_request() :: %{
         optional("Limit") => integer(),
-        optional("NextToken") => String.t(),
-        optional("RegistryNamePrefix") => String.t(),
-        optional("Scope") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("RegistryNamePrefix") => String.t() | Atom.t(),
+        optional("Scope") => String.t() | Atom.t()
       }
 
   """
-  @type list_registries_request() :: %{String.t() => any()}
+  @type list_registries_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -701,15 +701,15 @@ defmodule AWS.Schemas do
   ## Example:
 
       export_schema_response() :: %{
-        "Content" => String.t(),
-        "SchemaArn" => String.t(),
-        "SchemaName" => String.t(),
-        "SchemaVersion" => String.t(),
-        "Type" => String.t()
+        "Content" => String.t() | Atom.t(),
+        "SchemaArn" => String.t() | Atom.t(),
+        "SchemaName" => String.t() | Atom.t(),
+        "SchemaVersion" => String.t() | Atom.t(),
+        "Type" => String.t() | Atom.t()
       }
 
   """
-  @type export_schema_response() :: %{String.t() => any()}
+  @type export_schema_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -725,71 +725,71 @@ defmodule AWS.Schemas do
   ## Example:
 
       internal_server_error_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_server_error_exception() :: %{String.t() => any()}
+  @type internal_server_error_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_registry_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("Tags") => map()
       }
 
   """
-  @type create_registry_request() :: %{String.t() => any()}
+  @type create_registry_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_resource_policy_response() :: %{
-        "Policy" => String.t(),
-        "RevisionId" => String.t()
+        "Policy" => String.t() | Atom.t(),
+        "RevisionId" => String.t() | Atom.t()
       }
 
   """
-  @type put_resource_policy_response() :: %{String.t() => any()}
+  @type put_resource_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       bad_request_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type bad_request_exception() :: %{String.t() => any()}
+  @type bad_request_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_resource_policy_request() :: %{
-        optional("RegistryName") => String.t()
+        optional("RegistryName") => String.t() | Atom.t()
       }
 
   """
-  @type delete_resource_policy_request() :: %{String.t() => any()}
+  @type delete_resource_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_discoverer_response() :: %{
-        "DiscovererId" => String.t(),
+        "DiscovererId" => String.t() | Atom.t(),
         "State" => list(any())
       }
 
   """
-  @type start_discoverer_response() :: %{String.t() => any()}
+  @type start_discoverer_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -797,53 +797,53 @@ defmodule AWS.Schemas do
 
       discoverer_summary() :: %{
         optional("CrossAccount") => boolean(),
-        optional("DiscovererArn") => String.t(),
-        optional("DiscovererId") => String.t(),
-        optional("SourceArn") => String.t(),
+        optional("DiscovererArn") => String.t() | Atom.t(),
+        optional("DiscovererId") => String.t() | Atom.t(),
+        optional("SourceArn") => String.t() | Atom.t(),
         optional("State") => list(any()),
         optional("Tags") => map()
       }
 
   """
-  @type discoverer_summary() :: %{String.t() => any()}
+  @type discoverer_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_schemas_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Schemas" => list(schema_summary())
       }
 
   """
-  @type list_schemas_response() :: %{String.t() => any()}
+  @type list_schemas_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       precondition_failed_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | Atom.t(),
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type precondition_failed_exception() :: %{String.t() => any()}
+  @type precondition_failed_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       schema_version_summary() :: %{
-        optional("SchemaArn") => String.t(),
-        optional("SchemaName") => String.t(),
-        optional("SchemaVersion") => String.t(),
+        optional("SchemaArn") => String.t() | Atom.t(),
+        optional("SchemaName") => String.t() | Atom.t(),
+        optional("SchemaVersion") => String.t() | Atom.t(),
         optional("Type") => list(any())
       }
 
   """
-  @type schema_version_summary() :: %{String.t() => any()}
+  @type schema_version_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -852,25 +852,25 @@ defmodule AWS.Schemas do
       describe_code_binding_response() :: %{
         "CreationDate" => non_neg_integer(),
         "LastModified" => non_neg_integer(),
-        "SchemaVersion" => String.t(),
+        "SchemaVersion" => String.t() | Atom.t(),
         "Status" => list(any())
       }
 
   """
-  @type describe_code_binding_response() :: %{String.t() => any()}
+  @type describe_code_binding_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       registry_summary() :: %{
-        optional("RegistryArn") => String.t(),
-        optional("RegistryName") => String.t(),
+        optional("RegistryArn") => String.t() | Atom.t(),
+        optional("RegistryName") => String.t() | Atom.t(),
         optional("Tags") => map()
       }
 
   """
-  @type registry_summary() :: %{String.t() => any()}
+  @type registry_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -886,14 +886,14 @@ defmodule AWS.Schemas do
   ## Example:
 
       update_schema_request() :: %{
-        optional("ClientTokenId") => String.t(),
-        optional("Content") => String.t(),
-        optional("Description") => String.t(),
+        optional("ClientTokenId") => String.t() | Atom.t(),
+        optional("Content") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("Type") => list(any())
       }
 
   """
-  @type update_schema_request() :: %{String.t() => any()}
+  @type update_schema_request() :: %{String.t() | Atom.t() => any()}
 
   @type create_discoverer_errors() ::
           bad_request_exception()
@@ -1180,7 +1180,7 @@ defmodule AWS.Schemas do
   @doc """
   Creates a registry.
   """
-  @spec create_registry(map(), String.t(), create_registry_request(), list()) ::
+  @spec create_registry(map(), String.t() | Atom.t(), create_registry_request(), list()) ::
           {:ok, create_registry_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1211,7 +1211,13 @@ defmodule AWS.Schemas do
 
   Inactive schemas will be deleted after two years.
   """
-  @spec create_schema(map(), String.t(), String.t(), create_schema_request(), list()) ::
+  @spec create_schema(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          create_schema_request(),
+          list()
+        ) ::
           {:ok, create_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1242,7 +1248,7 @@ defmodule AWS.Schemas do
   @doc """
   Deletes a discoverer.
   """
-  @spec delete_discoverer(map(), String.t(), delete_discoverer_request(), list()) ::
+  @spec delete_discoverer(map(), String.t() | Atom.t(), delete_discoverer_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1271,7 +1277,7 @@ defmodule AWS.Schemas do
   @doc """
   Deletes a Registry.
   """
-  @spec delete_registry(map(), String.t(), delete_registry_request(), list()) ::
+  @spec delete_registry(map(), String.t() | Atom.t(), delete_registry_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1334,7 +1340,13 @@ defmodule AWS.Schemas do
   @doc """
   Delete a schema definition.
   """
-  @spec delete_schema(map(), String.t(), String.t(), delete_schema_request(), list()) ::
+  @spec delete_schema(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          delete_schema_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1367,9 +1379,9 @@ defmodule AWS.Schemas do
   """
   @spec delete_schema_version(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           delete_schema_version_request(),
           list()
         ) ::
@@ -1410,7 +1422,14 @@ defmodule AWS.Schemas do
   @doc """
   Describe the code binding URI.
   """
-  @spec describe_code_binding(map(), String.t(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec describe_code_binding(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, describe_code_binding_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1444,7 +1463,7 @@ defmodule AWS.Schemas do
   @doc """
   Describes the discoverer.
   """
-  @spec describe_discoverer(map(), String.t(), list()) ::
+  @spec describe_discoverer(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_discoverer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1462,7 +1481,7 @@ defmodule AWS.Schemas do
   @doc """
   Describes the registry.
   """
-  @spec describe_registry(map(), String.t(), list()) ::
+  @spec describe_registry(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_registry_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1480,7 +1499,13 @@ defmodule AWS.Schemas do
   @doc """
   Retrieve the schema definition.
   """
-  @spec describe_schema(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec describe_schema(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, describe_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1510,7 +1535,14 @@ defmodule AWS.Schemas do
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
-  @spec export_schema(map(), String.t(), String.t(), String.t() | nil, String.t(), list()) ::
+  @spec export_schema(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, export_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1553,10 +1585,10 @@ defmodule AWS.Schemas do
   """
   @spec get_code_binding_source(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, get_code_binding_source_response(), any()}
@@ -1621,7 +1653,7 @@ defmodule AWS.Schemas do
   @doc """
   Retrieves the resource-based policy attached to a given registry.
   """
-  @spec get_resource_policy(map(), String.t() | nil, list()) ::
+  @spec get_resource_policy(map(), String.t() | Atom.t() | nil, list()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1648,10 +1680,10 @@ defmodule AWS.Schemas do
   """
   @spec list_discoverers(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_discoverers_response(), any()}
@@ -1708,10 +1740,10 @@ defmodule AWS.Schemas do
   """
   @spec list_registries(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_registries_response(), any()}
@@ -1768,10 +1800,10 @@ defmodule AWS.Schemas do
   """
   @spec list_schema_versions(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_schema_versions_response(), any()}
@@ -1816,10 +1848,10 @@ defmodule AWS.Schemas do
   """
   @spec list_schemas(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_schemas_response(), any()}
@@ -1867,7 +1899,7 @@ defmodule AWS.Schemas do
   @doc """
   Get tags for resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1887,9 +1919,9 @@ defmodule AWS.Schemas do
   """
   @spec put_code_binding(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
           put_code_binding_request(),
           list()
         ) ::
@@ -1969,7 +2001,14 @@ defmodule AWS.Schemas do
   @doc """
   Search the schemas
   """
-  @spec search_schemas(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec search_schemas(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, search_schemas_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2015,7 +2054,7 @@ defmodule AWS.Schemas do
   @doc """
   Starts the discoverer
   """
-  @spec start_discoverer(map(), String.t(), start_discoverer_request(), list()) ::
+  @spec start_discoverer(map(), String.t() | Atom.t(), start_discoverer_request(), list()) ::
           {:ok, start_discoverer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2044,7 +2083,7 @@ defmodule AWS.Schemas do
   @doc """
   Stops the discoverer
   """
-  @spec stop_discoverer(map(), String.t(), stop_discoverer_request(), list()) ::
+  @spec stop_discoverer(map(), String.t() | Atom.t(), stop_discoverer_request(), list()) ::
           {:ok, stop_discoverer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2073,7 +2112,7 @@ defmodule AWS.Schemas do
   @doc """
   Add tags to a resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2102,7 +2141,7 @@ defmodule AWS.Schemas do
   @doc """
   Removes tags from a resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2136,7 +2175,7 @@ defmodule AWS.Schemas do
   @doc """
   Updates the discoverer
   """
-  @spec update_discoverer(map(), String.t(), update_discoverer_request(), list()) ::
+  @spec update_discoverer(map(), String.t() | Atom.t(), update_discoverer_request(), list()) ::
           {:ok, update_discoverer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2165,7 +2204,7 @@ defmodule AWS.Schemas do
   @doc """
   Updates a registry.
   """
-  @spec update_registry(map(), String.t(), update_registry_request(), list()) ::
+  @spec update_registry(map(), String.t() | Atom.t(), update_registry_request(), list()) ::
           {:ok, update_registry_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2196,7 +2235,13 @@ defmodule AWS.Schemas do
 
   Inactive schemas will be deleted after two years.
   """
-  @spec update_schema(map(), String.t(), String.t(), update_schema_request(), list()) ::
+  @spec update_schema(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          update_schema_request(),
+          list()
+        ) ::
           {:ok, update_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

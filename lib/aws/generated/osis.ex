@@ -21,23 +21,23 @@ defmodule AWS.OSIS do
 
       service_vpc_endpoint() :: %{
         "ServiceName" => list(any()),
-        "VpcEndpointId" => String.t()
+        "VpcEndpointId" => String.t() | Atom.t()
       }
 
   """
-  @type service_vpc_endpoint() :: %{String.t() => any()}
+  @type service_vpc_endpoint() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_resource_request() :: %{
-        required("Arn") => String.t(),
+        required("Arn") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -48,19 +48,19 @@ defmodule AWS.OSIS do
       }
 
   """
-  @type get_pipeline_response() :: %{String.t() => any()}
+  @type get_pipeline_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_pipelines_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Pipelines" => list(pipeline_summary())
       }
 
   """
-  @type list_pipelines_response() :: %{String.t() => any()}
+  @type list_pipelines_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -71,7 +71,7 @@ defmodule AWS.OSIS do
       }
 
   """
-  @type update_pipeline_response() :: %{String.t() => any()}
+  @type update_pipeline_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -79,11 +79,11 @@ defmodule AWS.OSIS do
 
       list_pipelines_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_pipelines_request() :: %{String.t() => any()}
+  @type list_pipelines_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -103,7 +103,7 @@ defmodule AWS.OSIS do
       }
 
   """
-  @type create_pipeline_response() :: %{String.t() => any()}
+  @type create_pipeline_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -114,7 +114,7 @@ defmodule AWS.OSIS do
       }
 
   """
-  @type get_pipeline_change_progress_response() :: %{String.t() => any()}
+  @type get_pipeline_change_progress_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -125,24 +125,24 @@ defmodule AWS.OSIS do
         "CreatedAt" => non_neg_integer(),
         "Destinations" => list(pipeline_destination()),
         "EncryptionAtRestOptions" => encryption_at_rest_options(),
-        "IngestEndpointUrls" => list(String.t()),
+        "IngestEndpointUrls" => list(String.t() | Atom.t()),
         "LastUpdatedAt" => non_neg_integer(),
         "LogPublishingOptions" => log_publishing_options(),
         "MaxUnits" => integer(),
         "MinUnits" => integer(),
-        "PipelineArn" => String.t(),
-        "PipelineConfigurationBody" => String.t(),
-        "PipelineName" => String.t(),
+        "PipelineArn" => String.t() | Atom.t(),
+        "PipelineConfigurationBody" => String.t() | Atom.t(),
+        "PipelineName" => String.t() | Atom.t(),
         "ServiceVpcEndpoints" => list(service_vpc_endpoint()),
         "Status" => list(any()),
         "StatusReason" => pipeline_status_reason(),
         "Tags" => list(tag()),
-        "VpcEndpointService" => String.t(),
+        "VpcEndpointService" => String.t() | Atom.t(),
         "VpcEndpoints" => list(vpc_endpoint())
       }
 
   """
-  @type pipeline() :: %{String.t() => any()}
+  @type pipeline() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -153,18 +153,18 @@ defmodule AWS.OSIS do
       }
 
   """
-  @type start_pipeline_response() :: %{String.t() => any()}
+  @type start_pipeline_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disabled_operation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type disabled_operation_exception() :: %{String.t() => any()}
+  @type disabled_operation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -178,30 +178,30 @@ defmodule AWS.OSIS do
       }
 
   """
-  @type change_progress_status() :: %{String.t() => any()}
+  @type change_progress_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("Arn") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("Arn") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cloud_watch_log_destination() :: %{
-        "LogGroup" => String.t()
+        "LogGroup" => String.t() | Atom.t()
       }
 
   """
-  @type cloud_watch_log_destination() :: %{String.t() => any()}
+  @type cloud_watch_log_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -221,7 +221,7 @@ defmodule AWS.OSIS do
       }
 
   """
-  @type buffer_options() :: %{String.t() => any()}
+  @type buffer_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -241,41 +241,41 @@ defmodule AWS.OSIS do
       }
 
   """
-  @type list_pipeline_blueprints_response() :: %{String.t() => any()}
+  @type list_pipeline_blueprints_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -289,12 +289,12 @@ defmodule AWS.OSIS do
         optional("VpcOptions") => vpc_options(),
         required("MaxUnits") => integer(),
         required("MinUnits") => integer(),
-        required("PipelineConfigurationBody") => String.t(),
-        required("PipelineName") => String.t()
+        required("PipelineConfigurationBody") => String.t() | Atom.t(),
+        required("PipelineName") => String.t() | Atom.t()
       }
 
   """
-  @type create_pipeline_request() :: %{String.t() => any()}
+  @type create_pipeline_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -306,22 +306,22 @@ defmodule AWS.OSIS do
         optional("LogPublishingOptions") => log_publishing_options(),
         optional("MaxUnits") => integer(),
         optional("MinUnits") => integer(),
-        optional("PipelineConfigurationBody") => String.t()
+        optional("PipelineConfigurationBody") => String.t() | Atom.t()
       }
 
   """
-  @type update_pipeline_request() :: %{String.t() => any()}
+  @type update_pipeline_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_pipeline_blueprint_request() :: %{
-        optional("Format") => String.t()
+        optional("Format") => String.t() | Atom.t()
       }
 
   """
-  @type get_pipeline_blueprint_request() :: %{String.t() => any()}
+  @type get_pipeline_blueprint_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -338,11 +338,11 @@ defmodule AWS.OSIS do
 
       get_pipeline_blueprint_response() :: %{
         "Blueprint" => pipeline_blueprint(),
-        "Format" => String.t()
+        "Format" => String.t() | Atom.t()
       }
 
   """
-  @type get_pipeline_blueprint_response() :: %{String.t() => any()}
+  @type get_pipeline_blueprint_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -363,26 +363,26 @@ defmodule AWS.OSIS do
         "LastUpdatedAt" => non_neg_integer(),
         "MaxUnits" => integer(),
         "MinUnits" => integer(),
-        "PipelineArn" => String.t(),
-        "PipelineName" => String.t(),
+        "PipelineArn" => String.t() | Atom.t(),
+        "PipelineName" => String.t() | Atom.t(),
         "Status" => list(any()),
         "StatusReason" => pipeline_status_reason(),
         "Tags" => list(tag())
       }
 
   """
-  @type pipeline_summary() :: %{String.t() => any()}
+  @type pipeline_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       encryption_at_rest_options() :: %{
-        "KmsKeyArn" => String.t()
+        "KmsKeyArn" => String.t() | Atom.t()
       }
 
   """
-  @type encryption_at_rest_options() :: %{String.t() => any()}
+  @type encryption_at_rest_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -393,36 +393,36 @@ defmodule AWS.OSIS do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       vpc_endpoint() :: %{
-        "VpcEndpointId" => String.t(),
-        "VpcId" => String.t(),
+        "VpcEndpointId" => String.t() | Atom.t(),
+        "VpcId" => String.t() | Atom.t(),
         "VpcOptions" => vpc_options()
       }
 
   """
-  @type vpc_endpoint() :: %{String.t() => any()}
+  @type vpc_endpoint() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       pipeline_blueprint() :: %{
-        "BlueprintName" => String.t(),
-        "DisplayDescription" => String.t(),
-        "DisplayName" => String.t(),
-        "PipelineConfigurationBody" => String.t(),
-        "Service" => String.t(),
-        "UseCase" => String.t()
+        "BlueprintName" => String.t() | Atom.t(),
+        "DisplayDescription" => String.t() | Atom.t(),
+        "DisplayName" => String.t() | Atom.t(),
+        "PipelineConfigurationBody" => String.t() | Atom.t(),
+        "Service" => String.t() | Atom.t(),
+        "UseCase" => String.t() | Atom.t()
       }
 
   """
-  @type pipeline_blueprint() :: %{String.t() => any()}
+  @type pipeline_blueprint() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -434,22 +434,22 @@ defmodule AWS.OSIS do
       }
 
   """
-  @type log_publishing_options() :: %{String.t() => any()}
+  @type log_publishing_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       pipeline_blueprint_summary() :: %{
-        "BlueprintName" => String.t(),
-        "DisplayDescription" => String.t(),
-        "DisplayName" => String.t(),
-        "Service" => String.t(),
-        "UseCase" => String.t()
+        "BlueprintName" => String.t() | Atom.t(),
+        "DisplayDescription" => String.t() | Atom.t(),
+        "DisplayName" => String.t() | Atom.t(),
+        "Service" => String.t() | Atom.t(),
+        "UseCase" => String.t() | Atom.t()
       }
 
   """
-  @type pipeline_blueprint_summary() :: %{String.t() => any()}
+  @type pipeline_blueprint_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -465,47 +465,47 @@ defmodule AWS.OSIS do
   ## Example:
 
       change_progress_stage() :: %{
-        "Description" => String.t(),
+        "Description" => String.t() | Atom.t(),
         "LastUpdatedAt" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Status" => list(any())
       }
 
   """
-  @type change_progress_stage() :: %{String.t() => any()}
+  @type change_progress_stage() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_message() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type validation_message() :: %{String.t() => any()}
+  @type validation_message() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_exception() :: %{String.t() => any()}
+  @type internal_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -525,7 +525,7 @@ defmodule AWS.OSIS do
       }
 
   """
-  @type stop_pipeline_response() :: %{String.t() => any()}
+  @type stop_pipeline_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -537,7 +537,7 @@ defmodule AWS.OSIS do
       }
 
   """
-  @type validate_pipeline_response() :: %{String.t() => any()}
+  @type validate_pipeline_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -553,81 +553,81 @@ defmodule AWS.OSIS do
   ## Example:
 
       pipeline_status_reason() :: %{
-        "Description" => String.t()
+        "Description" => String.t() | Atom.t()
       }
 
   """
-  @type pipeline_status_reason() :: %{String.t() => any()}
+  @type pipeline_status_reason() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       pipeline_destination() :: %{
-        "Endpoint" => String.t(),
-        "ServiceName" => String.t()
+        "Endpoint" => String.t() | Atom.t(),
+        "ServiceName" => String.t() | Atom.t()
       }
 
   """
-  @type pipeline_destination() :: %{String.t() => any()}
+  @type pipeline_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_for_resource_request() :: %{
-        required("Arn") => String.t()
+        required("Arn") => String.t() | Atom.t()
       }
 
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       vpc_options() :: %{
-        "SecurityGroupIds" => list(String.t()),
-        "SubnetIds" => list(String.t()),
+        "SecurityGroupIds" => list(String.t() | Atom.t()),
+        "SubnetIds" => list(String.t() | Atom.t()),
         "VpcAttachmentOptions" => vpc_attachment_options(),
         "VpcEndpointManagement" => list(any())
       }
 
   """
-  @type vpc_options() :: %{String.t() => any()}
+  @type vpc_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_already_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_already_exists_exception() :: %{String.t() => any()}
+  @type resource_already_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -635,22 +635,22 @@ defmodule AWS.OSIS do
 
       vpc_attachment_options() :: %{
         "AttachToVpc" => boolean(),
-        "CidrBlock" => String.t()
+        "CidrBlock" => String.t() | Atom.t()
       }
 
   """
-  @type vpc_attachment_options() :: %{String.t() => any()}
+  @type vpc_attachment_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validate_pipeline_request() :: %{
-        required("PipelineConfigurationBody") => String.t()
+        required("PipelineConfigurationBody") => String.t() | Atom.t()
       }
 
   """
-  @type validate_pipeline_request() :: %{String.t() => any()}
+  @type validate_pipeline_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -666,11 +666,11 @@ defmodule AWS.OSIS do
   ## Example:
 
       invalid_pagination_token_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_pagination_token_exception() :: %{String.t() => any()}
+  @type invalid_pagination_token_exception() :: %{String.t() | Atom.t() => any()}
 
   @type create_pipeline_errors() ::
           resource_already_exists_exception()
@@ -828,7 +828,7 @@ defmodule AWS.OSIS do
 
   For more information, see [Deleting Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/delete-pipeline.html).
   """
-  @spec delete_pipeline(map(), String.t(), delete_pipeline_request(), list()) ::
+  @spec delete_pipeline(map(), String.t() | Atom.t(), delete_pipeline_request(), list()) ::
           {:ok, delete_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -857,7 +857,7 @@ defmodule AWS.OSIS do
   @doc """
   Retrieves information about an OpenSearch Ingestion pipeline.
   """
-  @spec get_pipeline(map(), String.t(), list()) ::
+  @spec get_pipeline(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -880,7 +880,7 @@ defmodule AWS.OSIS do
   information, see [Using blueprints to create a
   pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#pipeline-blueprint).
   """
-  @spec get_pipeline_blueprint(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_pipeline_blueprint(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
           {:ok, get_pipeline_blueprint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -912,7 +912,7 @@ defmodule AWS.OSIS do
 
   For more information, see [Tracking the status of pipeline creation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#get-pipeline-progress).
   """
-  @spec get_pipeline_change_progress(map(), String.t(), list()) ::
+  @spec get_pipeline_change_progress(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_pipeline_change_progress_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -966,7 +966,7 @@ defmodule AWS.OSIS do
   For
   more information, see [Viewing Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/list-pipeline.html).
   """
-  @spec list_pipelines(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_pipelines(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1001,7 +1001,7 @@ defmodule AWS.OSIS do
   For more information,
   see [Tagging Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html).
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1028,7 +1028,7 @@ defmodule AWS.OSIS do
 
   For more information, see [Starting an OpenSearch Ingestion pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pipeline--stop-start.html#pipeline--start).
   """
-  @spec start_pipeline(map(), String.t(), start_pipeline_request(), list()) ::
+  @spec start_pipeline(map(), String.t() | Atom.t(), start_pipeline_request(), list()) ::
           {:ok, start_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1059,7 +1059,7 @@ defmodule AWS.OSIS do
 
   For more information, see [Stopping an OpenSearch Ingestion pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pipeline--stop-start.html#pipeline--stop).
   """
-  @spec stop_pipeline(map(), String.t(), stop_pipeline_request(), list()) ::
+  @spec stop_pipeline(map(), String.t() | Atom.t(), stop_pipeline_request(), list()) ::
           {:ok, stop_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1163,7 +1163,7 @@ defmodule AWS.OSIS do
 
   For more information, see [Updating Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/update-pipeline.html).
   """
-  @spec update_pipeline(map(), String.t(), update_pipeline_request(), list()) ::
+  @spec update_pipeline(map(), String.t() | Atom.t(), update_pipeline_request(), list()) ::
           {:ok, update_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

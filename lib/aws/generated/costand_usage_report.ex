@@ -36,22 +36,22 @@ defmodule AWS.CostandUsageReport do
   ## Example:
       
       delete_report_definition_request() :: %{
-        required("ReportName") => String.t()
+        required("ReportName") => String.t() | Atom.t()
       }
       
   """
-  @type delete_report_definition_request() :: %{String.t() => any()}
+  @type delete_report_definition_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_report_definition_response() :: %{
-        "ResponseMessage" => String.t()
+        "ResponseMessage" => String.t() | Atom.t()
       }
       
   """
-  @type delete_report_definition_response() :: %{String.t() => any()}
+  @type delete_report_definition_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -59,56 +59,56 @@ defmodule AWS.CostandUsageReport do
       
       describe_report_definitions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
       
   """
-  @type describe_report_definitions_request() :: %{String.t() => any()}
+  @type describe_report_definitions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_report_definitions_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "ReportDefinitions" => list(report_definition())
       }
       
   """
-  @type describe_report_definitions_response() :: %{String.t() => any()}
+  @type describe_report_definitions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       duplicate_report_name_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type duplicate_report_name_exception() :: %{String.t() => any()}
+  @type duplicate_report_name_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_error_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type internal_error_exception() :: %{String.t() => any()}
+  @type internal_error_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ReportName") => String.t()
+        required("ReportName") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -119,7 +119,7 @@ defmodule AWS.CostandUsageReport do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -127,11 +127,11 @@ defmodule AWS.CostandUsageReport do
       
       modify_report_definition_request() :: %{
         required("ReportDefinition") => report_definition(),
-        required("ReportName") => String.t()
+        required("ReportName") => String.t() | Atom.t()
       }
       
   """
-  @type modify_report_definition_request() :: %{String.t() => any()}
+  @type modify_report_definition_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -152,7 +152,7 @@ defmodule AWS.CostandUsageReport do
       }
       
   """
-  @type put_report_definition_request() :: %{String.t() => any()}
+  @type put_report_definition_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -170,79 +170,79 @@ defmodule AWS.CostandUsageReport do
       report_definition() :: %{
         "AdditionalArtifacts" => list(list(any())()),
         "AdditionalSchemaElements" => list(list(any())()),
-        "BillingViewArn" => String.t(),
+        "BillingViewArn" => String.t() | Atom.t(),
         "Compression" => list(any()),
         "Format" => list(any()),
         "RefreshClosedReports" => boolean(),
-        "ReportName" => String.t(),
+        "ReportName" => String.t() | Atom.t(),
         "ReportStatus" => report_status(),
         "ReportVersioning" => list(any()),
-        "S3Bucket" => String.t(),
-        "S3Prefix" => String.t(),
+        "S3Bucket" => String.t() | Atom.t(),
+        "S3Prefix" => String.t() | Atom.t(),
         "S3Region" => list(any()),
         "TimeUnit" => list(any())
       }
       
   """
-  @type report_definition() :: %{String.t() => any()}
+  @type report_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       report_limit_reached_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type report_limit_reached_exception() :: %{String.t() => any()}
+  @type report_limit_reached_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       report_status() :: %{
-        "lastDelivery" => String.t(),
+        "lastDelivery" => String.t() | Atom.t(),
         "lastStatus" => list(any())
       }
       
   """
-  @type report_status() :: %{String.t() => any()}
+  @type report_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ReportName") => String.t(),
+        required("ReportName") => String.t() | Atom.t(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -258,12 +258,12 @@ defmodule AWS.CostandUsageReport do
   ## Example:
       
       untag_resource_request() :: %{
-        required("ReportName") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ReportName") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -279,11 +279,11 @@ defmodule AWS.CostandUsageReport do
   ## Example:
       
       validation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @type delete_report_definition_errors() :: validation_exception() | internal_error_exception()
 

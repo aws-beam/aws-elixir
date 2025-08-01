@@ -15,12 +15,12 @@ defmodule AWS.Drs do
 
       describe_job_log_items_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("jobID") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("jobID") => String.t() | Atom.t()
       }
 
   """
-  @type describe_job_log_items_request() :: %{String.t() => any()}
+  @type describe_job_log_items_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -28,25 +28,25 @@ defmodule AWS.Drs do
 
       update_failback_replication_configuration_request() :: %{
         optional("bandwidthThrottling") => float(),
-        optional("name") => String.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("usePrivateIP") => [boolean()],
-        required("recoveryInstanceID") => String.t()
+        required("recoveryInstanceID") => String.t() | Atom.t()
       }
 
   """
-  @type update_failback_replication_configuration_request() :: %{String.t() => any()}
+  @type update_failback_replication_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_recovery_instances_request_filters() :: %{
-        "recoveryInstanceIDs" => list(String.t()),
-        "sourceServerIDs" => list(String.t())
+        "recoveryInstanceIDs" => list(String.t() | Atom.t()),
+        "sourceServerIDs" => list(String.t() | Atom.t())
       }
 
   """
-  @type describe_recovery_instances_request_filters() :: %{String.t() => any()}
+  @type describe_recovery_instances_request_filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -55,11 +55,11 @@ defmodule AWS.Drs do
       describe_source_servers_request() :: %{
         optional("filters") => describe_source_servers_request_filters(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type describe_source_servers_request() :: %{String.t() => any()}
+  @type describe_source_servers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -67,11 +67,11 @@ defmodule AWS.Drs do
 
       list_staging_accounts_response() :: %{
         optional("accounts") => list(account()),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_staging_accounts_response() :: %{String.t() => any()}
+  @type list_staging_accounts_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -82,34 +82,34 @@ defmodule AWS.Drs do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_recovery_request_source_server() :: %{
-        "recoverySnapshotID" => String.t(),
-        "sourceServerID" => String.t()
+        "recoverySnapshotID" => String.t() | Atom.t(),
+        "sourceServerID" => String.t() | Atom.t()
       }
 
   """
-  @type start_recovery_request_source_server() :: %{String.t() => any()}
+  @type start_recovery_request_source_server() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       life_cycle() :: %{
-        "addedToServiceDateTime" => String.t(),
-        "elapsedReplicationDuration" => String.t(),
-        "firstByteDateTime" => String.t(),
+        "addedToServiceDateTime" => String.t() | Atom.t(),
+        "elapsedReplicationDuration" => String.t() | Atom.t(),
+        "firstByteDateTime" => String.t() | Atom.t(),
         "lastLaunch" => life_cycle_last_launch(),
-        "lastSeenByServiceDateTime" => String.t()
+        "lastSeenByServiceDateTime" => String.t() | Atom.t()
       }
 
   """
-  @type life_cycle() :: %{String.t() => any()}
+  @type life_cycle() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -117,37 +117,37 @@ defmodule AWS.Drs do
 
       recovery_life_cycle() :: %{
         "apiCallDateTime" => [non_neg_integer()],
-        "jobID" => String.t(),
-        "lastRecoveryResult" => String.t()
+        "jobID" => String.t() | Atom.t(),
+        "lastRecoveryResult" => String.t() | Atom.t()
       }
 
   """
-  @type recovery_life_cycle() :: %{String.t() => any()}
+  @type recovery_life_cycle() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       export_source_network_cfn_template_request() :: %{
-        required("sourceNetworkID") => String.t()
+        required("sourceNetworkID") => String.t() | Atom.t()
       }
 
   """
-  @type export_source_network_cfn_template_request() :: %{String.t() => any()}
+  @type export_source_network_cfn_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       source_cloud_properties() :: %{
-        "originAccountID" => String.t(),
-        "originAvailabilityZone" => String.t(),
-        "originRegion" => String.t(),
-        "sourceOutpostArn" => String.t()
+        "originAccountID" => String.t() | Atom.t(),
+        "originAvailabilityZone" => String.t() | Atom.t(),
+        "originRegion" => String.t() | Atom.t(),
+        "sourceOutpostArn" => String.t() | Atom.t()
       }
 
   """
-  @type source_cloud_properties() :: %{String.t() => any()}
+  @type source_cloud_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -155,25 +155,25 @@ defmodule AWS.Drs do
 
       list_extensible_source_servers_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("stagingAccountID") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("stagingAccountID") => String.t() | Atom.t()
       }
 
   """
-  @type list_extensible_source_servers_request() :: %{String.t() => any()}
+  @type list_extensible_source_servers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_launch_configuration_templates_request() :: %{
-        optional("launchConfigurationTemplateIDs") => list(String.t()),
+        optional("launchConfigurationTemplateIDs") => list(String.t() | Atom.t()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type describe_launch_configuration_templates_request() :: %{String.t() => any()}
+  @type describe_launch_configuration_templates_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -189,11 +189,11 @@ defmodule AWS.Drs do
   ## Example:
 
       delete_source_server_request() :: %{
-        required("sourceServerID") => String.t()
+        required("sourceServerID") => String.t() | Atom.t()
       }
 
   """
-  @type delete_source_server_request() :: %{String.t() => any()}
+  @type delete_source_server_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -201,38 +201,38 @@ defmodule AWS.Drs do
 
       describe_recovery_instances_response() :: %{
         optional("items") => list(recovery_instance()),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type describe_recovery_instances_response() :: %{String.t() => any()}
+  @type describe_recovery_instances_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       replication_configuration_template() :: %{
-        optional("arn") => String.t(),
+        optional("arn") => String.t() | Atom.t(),
         optional("associateDefaultSecurityGroup") => [boolean()],
         optional("autoReplicateNewDisks") => [boolean()],
         optional("bandwidthThrottling") => float(),
         optional("createPublicIP") => [boolean()],
-        optional("dataPlaneRouting") => String.t(),
-        optional("defaultLargeStagingDiskType") => String.t(),
-        optional("ebsEncryption") => String.t(),
-        optional("ebsEncryptionKeyArn") => String.t(),
+        optional("dataPlaneRouting") => String.t() | Atom.t(),
+        optional("defaultLargeStagingDiskType") => String.t() | Atom.t(),
+        optional("ebsEncryption") => String.t() | Atom.t(),
+        optional("ebsEncryptionKeyArn") => String.t() | Atom.t(),
         optional("pitPolicy") => list(p_i_t_policy_rule()),
-        optional("replicationServerInstanceType") => String.t(),
-        optional("replicationServersSecurityGroupsIDs") => list(String.t()),
-        optional("stagingAreaSubnetId") => String.t(),
+        optional("replicationServerInstanceType") => String.t() | Atom.t(),
+        optional("replicationServersSecurityGroupsIDs") => list(String.t() | Atom.t()),
+        optional("stagingAreaSubnetId") => String.t() | Atom.t(),
         optional("stagingAreaTags") => map(),
         optional("tags") => map(),
         optional("useDedicatedReplicationServer") => [boolean()],
-        required("replicationConfigurationTemplateID") => String.t()
+        required("replicationConfigurationTemplateID") => String.t() | Atom.t()
       }
 
   """
-  @type replication_configuration_template() :: %{String.t() => any()}
+  @type replication_configuration_template() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -242,14 +242,14 @@ defmodule AWS.Drs do
         "cpus" => list(c_p_u()),
         "disks" => list(recovery_instance_disk()),
         "identificationHints" => identification_hints(),
-        "lastUpdatedDateTime" => String.t(),
+        "lastUpdatedDateTime" => String.t() | Atom.t(),
         "networkInterfaces" => list(network_interface()),
         "os" => o_s(),
         "ramBytes" => float()
       }
 
   """
-  @type recovery_instance_properties() :: %{String.t() => any()}
+  @type recovery_instance_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -257,54 +257,54 @@ defmodule AWS.Drs do
 
       recovery_instance_disk() :: %{
         "bytes" => float(),
-        "ebsVolumeID" => String.t(),
-        "internalDeviceName" => String.t()
+        "ebsVolumeID" => String.t() | Atom.t(),
+        "internalDeviceName" => String.t() | Atom.t()
       }
 
   """
-  @type recovery_instance_disk() :: %{String.t() => any()}
+  @type recovery_instance_disk() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_replication_configuration_template_request() :: %{
-        optional("arn") => String.t(),
+        optional("arn") => String.t() | Atom.t(),
         optional("associateDefaultSecurityGroup") => [boolean()],
         optional("autoReplicateNewDisks") => [boolean()],
         optional("bandwidthThrottling") => float(),
         optional("createPublicIP") => [boolean()],
-        optional("dataPlaneRouting") => String.t(),
-        optional("defaultLargeStagingDiskType") => String.t(),
-        optional("ebsEncryption") => String.t(),
-        optional("ebsEncryptionKeyArn") => String.t(),
+        optional("dataPlaneRouting") => String.t() | Atom.t(),
+        optional("defaultLargeStagingDiskType") => String.t() | Atom.t(),
+        optional("ebsEncryption") => String.t() | Atom.t(),
+        optional("ebsEncryptionKeyArn") => String.t() | Atom.t(),
         optional("pitPolicy") => list(p_i_t_policy_rule()),
-        optional("replicationServerInstanceType") => String.t(),
-        optional("replicationServersSecurityGroupsIDs") => list(String.t()),
-        optional("stagingAreaSubnetId") => String.t(),
+        optional("replicationServerInstanceType") => String.t() | Atom.t(),
+        optional("replicationServersSecurityGroupsIDs") => list(String.t() | Atom.t()),
+        optional("stagingAreaSubnetId") => String.t() | Atom.t(),
         optional("stagingAreaTags") => map(),
         optional("useDedicatedReplicationServer") => [boolean()],
-        required("replicationConfigurationTemplateID") => String.t()
+        required("replicationConfigurationTemplateID") => String.t() | Atom.t()
       }
 
   """
-  @type update_replication_configuration_template_request() :: %{String.t() => any()}
+  @type update_replication_configuration_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       replication_configuration_replicated_disk() :: %{
-        "deviceName" => String.t(),
+        "deviceName" => String.t() | Atom.t(),
         "iops" => float(),
         "isBootDisk" => [boolean()],
-        "optimizedStagingDiskType" => String.t(),
-        "stagingDiskType" => String.t(),
+        "optimizedStagingDiskType" => String.t() | Atom.t(),
+        "stagingDiskType" => String.t() | Atom.t(),
         "throughput" => float()
       }
 
   """
-  @type replication_configuration_replicated_disk() :: %{String.t() => any()}
+  @type replication_configuration_replicated_disk() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -315,19 +315,19 @@ defmodule AWS.Drs do
       }
 
   """
-  @type terminate_recovery_instances_response() :: %{String.t() => any()}
+  @type terminate_recovery_instances_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       participating_resource() :: %{
-        "launchStatus" => String.t(),
+        "launchStatus" => String.t() | Atom.t(),
         "participatingResourceID" => list()
       }
 
   """
-  @type participating_resource() :: %{String.t() => any()}
+  @type participating_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -335,55 +335,55 @@ defmodule AWS.Drs do
 
       put_launch_action_request() :: %{
         optional("parameters") => map(),
-        required("actionCode") => String.t(),
-        required("actionId") => String.t(),
-        required("actionVersion") => String.t(),
+        required("actionCode") => String.t() | Atom.t(),
+        required("actionId") => String.t() | Atom.t(),
+        required("actionVersion") => String.t() | Atom.t(),
         required("active") => [boolean()],
-        required("category") => String.t(),
-        required("description") => String.t(),
-        required("name") => String.t(),
+        required("category") => String.t() | Atom.t(),
+        required("description") => String.t() | Atom.t(),
+        required("name") => String.t() | Atom.t(),
         required("optional") => [boolean()],
         required("order") => integer(),
-        required("resourceId") => String.t()
+        required("resourceId") => String.t() | Atom.t()
       }
 
   """
-  @type put_launch_action_request() :: %{String.t() => any()}
+  @type put_launch_action_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       stop_failback_request() :: %{
-        required("recoveryInstanceID") => String.t()
+        required("recoveryInstanceID") => String.t() | Atom.t()
       }
 
   """
-  @type stop_failback_request() :: %{String.t() => any()}
+  @type stop_failback_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_source_network_request() :: %{
-        required("sourceNetworkID") => String.t()
+        required("sourceNetworkID") => String.t() | Atom.t()
       }
 
   """
-  @type delete_source_network_request() :: %{String.t() => any()}
+  @type delete_source_network_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       network_interface() :: %{
-        "ips" => list(String.t()),
+        "ips" => list(String.t() | Atom.t()),
         "isPrimary" => [boolean()],
-        "macAddress" => String.t()
+        "macAddress" => String.t() | Atom.t()
       }
 
   """
-  @type network_interface() :: %{String.t() => any()}
+  @type network_interface() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -391,11 +391,11 @@ defmodule AWS.Drs do
 
       describe_source_networks_response() :: %{
         "items" => list(source_network()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type describe_source_networks_response() :: %{String.t() => any()}
+  @type describe_source_networks_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -403,115 +403,115 @@ defmodule AWS.Drs do
 
       create_replication_configuration_template_request() :: %{
         optional("autoReplicateNewDisks") => [boolean()],
-        optional("ebsEncryptionKeyArn") => String.t(),
+        optional("ebsEncryptionKeyArn") => String.t() | Atom.t(),
         optional("tags") => map(),
         required("associateDefaultSecurityGroup") => [boolean()],
         required("bandwidthThrottling") => float(),
         required("createPublicIP") => [boolean()],
-        required("dataPlaneRouting") => String.t(),
-        required("defaultLargeStagingDiskType") => String.t(),
-        required("ebsEncryption") => String.t(),
+        required("dataPlaneRouting") => String.t() | Atom.t(),
+        required("defaultLargeStagingDiskType") => String.t() | Atom.t(),
+        required("ebsEncryption") => String.t() | Atom.t(),
         required("pitPolicy") => list(p_i_t_policy_rule()),
-        required("replicationServerInstanceType") => String.t(),
-        required("replicationServersSecurityGroupsIDs") => list(String.t()),
-        required("stagingAreaSubnetId") => String.t(),
+        required("replicationServerInstanceType") => String.t() | Atom.t(),
+        required("replicationServersSecurityGroupsIDs") => list(String.t() | Atom.t()),
+        required("stagingAreaSubnetId") => String.t() | Atom.t(),
         required("stagingAreaTags") => map(),
         required("useDedicatedReplicationServer") => [boolean()]
       }
 
   """
-  @type create_replication_configuration_template_request() :: %{String.t() => any()}
+  @type create_replication_configuration_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_launch_action_response() :: %{
-        "actionCode" => String.t(),
-        "actionId" => String.t(),
-        "actionVersion" => String.t(),
+        "actionCode" => String.t() | Atom.t(),
+        "actionId" => String.t() | Atom.t(),
+        "actionVersion" => String.t() | Atom.t(),
         "active" => [boolean()],
-        "category" => String.t(),
-        "description" => String.t(),
-        "name" => String.t(),
+        "category" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "optional" => [boolean()],
         "order" => integer(),
         "parameters" => map(),
-        "resourceId" => String.t(),
-        "type" => String.t()
+        "resourceId" => String.t() | Atom.t(),
+        "type" => String.t() | Atom.t()
       }
 
   """
-  @type put_launch_action_response() :: %{String.t() => any()}
+  @type put_launch_action_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       staging_source_server() :: %{
-        "arn" => String.t(),
-        "hostname" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "hostname" => String.t() | Atom.t(),
         "tags" => map()
       }
 
   """
-  @type staging_source_server() :: %{String.t() => any()}
+  @type staging_source_server() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       launch_action_parameter() :: %{
-        "type" => String.t(),
-        "value" => String.t()
+        "type" => String.t() | Atom.t(),
+        "value" => String.t() | Atom.t()
       }
 
   """
-  @type launch_action_parameter() :: %{String.t() => any()}
+  @type launch_action_parameter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       retry_data_replication_request() :: %{
-        "sourceServerID" => String.t()
+        "sourceServerID" => String.t() | Atom.t()
       }
 
   """
-  @type retry_data_replication_request() :: %{String.t() => any()}
+  @type retry_data_replication_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_replication_configuration_request() :: %{
-        required("sourceServerID") => String.t()
+        required("sourceServerID") => String.t() | Atom.t()
       }
 
   """
-  @type get_replication_configuration_request() :: %{String.t() => any()}
+  @type get_replication_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_replication_request() :: %{
-        required("sourceServerID") => String.t()
+        required("sourceServerID") => String.t() | Atom.t()
       }
 
   """
-  @type start_replication_request() :: %{String.t() => any()}
+  @type start_replication_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -527,22 +527,22 @@ defmodule AWS.Drs do
   ## Example:
 
       start_source_network_replication_request() :: %{
-        required("sourceNetworkID") => String.t()
+        required("sourceNetworkID") => String.t() | Atom.t()
       }
 
   """
-  @type start_source_network_replication_request() :: %{String.t() => any()}
+  @type start_source_network_replication_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       stop_replication_request() :: %{
-        required("sourceServerID") => String.t()
+        required("sourceServerID") => String.t() | Atom.t()
       }
 
   """
-  @type stop_replication_request() :: %{String.t() => any()}
+  @type stop_replication_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -553,28 +553,28 @@ defmodule AWS.Drs do
       }
 
   """
-  @type start_failback_launch_response() :: %{String.t() => any()}
+  @type start_failback_launch_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       launch_configuration_template() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "copyPrivateIp" => [boolean()],
         "copyTags" => [boolean()],
-        "exportBucketArn" => String.t(),
-        "launchConfigurationTemplateID" => String.t(),
-        "launchDisposition" => String.t(),
+        "exportBucketArn" => String.t() | Atom.t(),
+        "launchConfigurationTemplateID" => String.t() | Atom.t(),
+        "launchDisposition" => String.t() | Atom.t(),
         "launchIntoSourceInstance" => [boolean()],
         "licensing" => licensing(),
         "postLaunchEnabled" => [boolean()],
         "tags" => map(),
-        "targetInstanceTypeRightSizingMethod" => String.t()
+        "targetInstanceTypeRightSizingMethod" => String.t() | Atom.t()
       }
 
   """
-  @type launch_configuration_template() :: %{String.t() => any()}
+  @type launch_configuration_template() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -583,24 +583,24 @@ defmodule AWS.Drs do
       describe_recovery_snapshots_request() :: %{
         optional("filters") => describe_recovery_snapshots_request_filters(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("order") => String.t(),
-        required("sourceServerID") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("order") => String.t() | Atom.t(),
+        required("sourceServerID") => String.t() | Atom.t()
       }
 
   """
-  @type describe_recovery_snapshots_request() :: %{String.t() => any()}
+  @type describe_recovery_snapshots_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       launch_actions_request_filters() :: %{
-        "actionIds" => list(String.t())
+        "actionIds" => list(String.t() | Atom.t())
       }
 
   """
-  @type launch_actions_request_filters() :: %{String.t() => any()}
+  @type launch_actions_request_filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -611,7 +611,7 @@ defmodule AWS.Drs do
       }
 
   """
-  @type licensing() :: %{String.t() => any()}
+  @type licensing() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -622,31 +622,31 @@ defmodule AWS.Drs do
         "interval" => integer(),
         "retentionDuration" => integer(),
         "ruleID" => float(),
-        "units" => String.t()
+        "units" => String.t() | Atom.t()
       }
 
   """
-  @type p_i_t_policy_rule() :: %{String.t() => any()}
+  @type p_i_t_policy_rule() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       recovery_instance_failback() :: %{
-        "agentLastSeenByServiceDateTime" => String.t(),
-        "elapsedReplicationDuration" => String.t(),
-        "failbackClientID" => String.t(),
-        "failbackClientLastSeenByServiceDateTime" => String.t(),
-        "failbackInitiationTime" => String.t(),
-        "failbackJobID" => String.t(),
-        "failbackLaunchType" => String.t(),
+        "agentLastSeenByServiceDateTime" => String.t() | Atom.t(),
+        "elapsedReplicationDuration" => String.t() | Atom.t(),
+        "failbackClientID" => String.t() | Atom.t(),
+        "failbackClientLastSeenByServiceDateTime" => String.t() | Atom.t(),
+        "failbackInitiationTime" => String.t() | Atom.t(),
+        "failbackJobID" => String.t() | Atom.t(),
+        "failbackLaunchType" => String.t() | Atom.t(),
         "failbackToOriginalServer" => [boolean()],
-        "firstByteDateTime" => String.t(),
-        "state" => String.t()
+        "firstByteDateTime" => String.t() | Atom.t(),
+        "state" => String.t() | Atom.t()
       }
 
   """
-  @type recovery_instance_failback() :: %{String.t() => any()}
+  @type recovery_instance_failback() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -659,42 +659,42 @@ defmodule AWS.Drs do
       }
 
   """
-  @type start_recovery_request() :: %{String.t() => any()}
+  @type start_recovery_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       identification_hints() :: %{
-        "awsInstanceID" => String.t(),
-        "fqdn" => String.t(),
-        "hostname" => String.t(),
-        "vmWareUuid" => String.t()
+        "awsInstanceID" => String.t() | Atom.t(),
+        "fqdn" => String.t() | Atom.t(),
+        "hostname" => String.t() | Atom.t(),
+        "vmWareUuid" => String.t() | Atom.t()
       }
 
   """
-  @type identification_hints() :: %{String.t() => any()}
+  @type identification_hints() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       launch_action() :: %{
-        "actionCode" => String.t(),
-        "actionId" => String.t(),
-        "actionVersion" => String.t(),
+        "actionCode" => String.t() | Atom.t(),
+        "actionId" => String.t() | Atom.t(),
+        "actionVersion" => String.t() | Atom.t(),
         "active" => [boolean()],
-        "category" => String.t(),
-        "description" => String.t(),
-        "name" => String.t(),
+        "category" => String.t() | Atom.t(),
+        "description" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "optional" => [boolean()],
         "order" => integer(),
         "parameters" => map(),
-        "type" => String.t()
+        "type" => String.t() | Atom.t()
       }
 
   """
-  @type launch_action() :: %{String.t() => any()}
+  @type launch_action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -704,16 +704,16 @@ defmodule AWS.Drs do
         "cpus" => list(c_p_u()),
         "disks" => list(disk()),
         "identificationHints" => identification_hints(),
-        "lastUpdatedDateTime" => String.t(),
+        "lastUpdatedDateTime" => String.t() | Atom.t(),
         "networkInterfaces" => list(network_interface()),
         "os" => o_s(),
         "ramBytes" => float(),
-        "recommendedInstanceType" => String.t(),
+        "recommendedInstanceType" => String.t() | Atom.t(),
         "supportsNitroInstances" => [boolean()]
       }
 
   """
-  @type source_properties() :: %{String.t() => any()}
+  @type source_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -721,22 +721,22 @@ defmodule AWS.Drs do
 
       describe_source_servers_response() :: %{
         optional("items") => list(source_server()),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type describe_source_servers_response() :: %{String.t() => any()}
+  @type describe_source_servers_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       reverse_replication_request() :: %{
-        required("recoveryInstanceID") => String.t()
+        required("recoveryInstanceID") => String.t() | Atom.t()
       }
 
   """
-  @type reverse_replication_request() :: %{String.t() => any()}
+  @type reverse_replication_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -744,11 +744,14 @@ defmodule AWS.Drs do
 
       describe_replication_configuration_templates_response() :: %{
         optional("items") => list(replication_configuration_template()),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type describe_replication_configuration_templates_response() :: %{String.t() => any()}
+  @type describe_replication_configuration_templates_response() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -756,14 +759,17 @@ defmodule AWS.Drs do
 
       recovery_instance_data_replication_info_replicated_disk() :: %{
         "backloggedStorageBytes" => float(),
-        "deviceName" => String.t(),
+        "deviceName" => String.t() | Atom.t(),
         "replicatedStorageBytes" => float(),
         "rescannedStorageBytes" => float(),
         "totalStorageBytes" => float()
       }
 
   """
-  @type recovery_instance_data_replication_info_replicated_disk() :: %{String.t() => any()}
+  @type recovery_instance_data_replication_info_replicated_disk() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -783,51 +789,51 @@ defmodule AWS.Drs do
         optional("autoReplicateNewDisks") => [boolean()],
         optional("bandwidthThrottling") => float(),
         optional("createPublicIP") => [boolean()],
-        optional("dataPlaneRouting") => String.t(),
-        optional("defaultLargeStagingDiskType") => String.t(),
-        optional("ebsEncryption") => String.t(),
-        optional("ebsEncryptionKeyArn") => String.t(),
-        optional("name") => String.t(),
+        optional("dataPlaneRouting") => String.t() | Atom.t(),
+        optional("defaultLargeStagingDiskType") => String.t() | Atom.t(),
+        optional("ebsEncryption") => String.t() | Atom.t(),
+        optional("ebsEncryptionKeyArn") => String.t() | Atom.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("pitPolicy") => list(p_i_t_policy_rule()),
         optional("replicatedDisks") => list(replication_configuration_replicated_disk()),
-        optional("replicationServerInstanceType") => String.t(),
-        optional("replicationServersSecurityGroupsIDs") => list(String.t()),
-        optional("sourceServerID") => String.t(),
-        optional("stagingAreaSubnetId") => String.t(),
+        optional("replicationServerInstanceType") => String.t() | Atom.t(),
+        optional("replicationServersSecurityGroupsIDs") => list(String.t() | Atom.t()),
+        optional("sourceServerID") => String.t() | Atom.t(),
+        optional("stagingAreaSubnetId") => String.t() | Atom.t(),
         optional("stagingAreaTags") => map(),
         optional("useDedicatedReplicationServer") => [boolean()]
       }
 
   """
-  @type replication_configuration() :: %{String.t() => any()}
+  @type replication_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "code" => String.t(),
-        "message" => String.t(),
-        "resourceId" => String.t(),
-        "resourceType" => String.t()
+        "code" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t(),
+        "resourceId" => String.t() | Atom.t(),
+        "resourceType" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "code" => String.t(),
-        "message" => String.t(),
-        "resourceId" => String.t(),
-        "resourceType" => String.t()
+        "code" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t(),
+        "resourceId" => String.t() | Atom.t(),
+        "resourceType" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -836,34 +842,34 @@ defmodule AWS.Drs do
       describe_source_networks_request() :: %{
         optional("filters") => describe_source_networks_request_filters(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type describe_source_networks_request() :: %{String.t() => any()}
+  @type describe_source_networks_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       data_replication_error() :: %{
-        "error" => String.t(),
-        "rawError" => String.t()
+        "error" => String.t() | Atom.t(),
+        "rawError" => String.t() | Atom.t()
       }
 
   """
-  @type data_replication_error() :: %{String.t() => any()}
+  @type data_replication_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disconnect_recovery_instance_request() :: %{
-        required("recoveryInstanceID") => String.t()
+        required("recoveryInstanceID") => String.t() | Atom.t()
       }
 
   """
-  @type disconnect_recovery_instance_request() :: %{String.t() => any()}
+  @type disconnect_recovery_instance_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -872,40 +878,40 @@ defmodule AWS.Drs do
       list_launch_actions_request() :: %{
         optional("filters") => launch_actions_request_filters(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("resourceId") => String.t()
+        optional("nextToken") => String.t() | Atom.t(),
+        required("resourceId") => String.t() | Atom.t()
       }
 
   """
-  @type list_launch_actions_request() :: %{String.t() => any()}
+  @type list_launch_actions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "code" => String.t(),
-        "message" => String.t(),
-        "quotaCode" => String.t(),
-        "resourceId" => String.t(),
-        "resourceType" => String.t(),
-        "serviceCode" => String.t()
+        "code" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t(),
+        "quotaCode" => String.t() | Atom.t(),
+        "resourceId" => String.t() | Atom.t(),
+        "resourceType" => String.t() | Atom.t(),
+        "serviceCode" => String.t() | Atom.t()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_source_network_recovery_request_network_entry() :: %{
-        "cfnStackName" => String.t(),
-        "sourceNetworkID" => String.t()
+        "cfnStackName" => String.t() | Atom.t(),
+        "sourceNetworkID" => String.t() | Atom.t()
       }
 
   """
-  @type start_source_network_recovery_request_network_entry() :: %{String.t() => any()}
+  @type start_source_network_recovery_request_network_entry() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -913,23 +919,23 @@ defmodule AWS.Drs do
 
       c_p_u() :: %{
         "cores" => float(),
-        "modelName" => String.t()
+        "modelName" => String.t() | Atom.t()
       }
 
   """
-  @type c_p_u() :: %{String.t() => any()}
+  @type c_p_u() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       uninitialized_account_exception() :: %{
-        "code" => String.t(),
-        "message" => String.t()
+        "code" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type uninitialized_account_exception() :: %{String.t() => any()}
+  @type uninitialized_account_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -937,47 +943,47 @@ defmodule AWS.Drs do
 
       launch_action_run() :: %{
         "action" => launch_action(),
-        "failureReason" => String.t(),
-        "runId" => String.t(),
-        "status" => String.t()
+        "failureReason" => String.t() | Atom.t(),
+        "runId" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
 
   """
-  @type launch_action_run() :: %{String.t() => any()}
+  @type launch_action_run() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_recovery_instance_request() :: %{
-        required("recoveryInstanceID") => String.t()
+        required("recoveryInstanceID") => String.t() | Atom.t()
       }
 
   """
-  @type delete_recovery_instance_request() :: %{String.t() => any()}
+  @type delete_recovery_instance_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       account() :: %{
-        "accountID" => String.t()
+        "accountID" => String.t() | Atom.t()
       }
 
   """
-  @type account() :: %{String.t() => any()}
+  @type account() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       recovery_instance_data_replication_initiation() :: %{
-        "startDateTime" => String.t(),
+        "startDateTime" => String.t() | Atom.t(),
         "steps" => list(recovery_instance_data_replication_initiation_step())
       }
 
   """
-  @type recovery_instance_data_replication_initiation() :: %{String.t() => any()}
+  @type recovery_instance_data_replication_initiation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -995,17 +1001,17 @@ defmodule AWS.Drs do
       create_launch_configuration_template_request() :: %{
         optional("copyPrivateIp") => [boolean()],
         optional("copyTags") => [boolean()],
-        optional("exportBucketArn") => String.t(),
-        optional("launchDisposition") => String.t(),
+        optional("exportBucketArn") => String.t() | Atom.t(),
+        optional("launchDisposition") => String.t() | Atom.t(),
         optional("launchIntoSourceInstance") => [boolean()],
         optional("licensing") => licensing(),
         optional("postLaunchEnabled") => [boolean()],
         optional("tags") => map(),
-        optional("targetInstanceTypeRightSizingMethod") => String.t()
+        optional("targetInstanceTypeRightSizingMethod") => String.t() | Atom.t()
       }
 
   """
-  @type create_launch_configuration_template_request() :: %{String.t() => any()}
+  @type create_launch_configuration_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1014,16 +1020,16 @@ defmodule AWS.Drs do
       recovery_instance_data_replication_info() :: %{
         "dataReplicationError" => recovery_instance_data_replication_error(),
         "dataReplicationInitiation" => recovery_instance_data_replication_initiation(),
-        "dataReplicationState" => String.t(),
-        "etaDateTime" => String.t(),
-        "lagDuration" => String.t(),
+        "dataReplicationState" => String.t() | Atom.t(),
+        "etaDateTime" => String.t() | Atom.t(),
+        "lagDuration" => String.t() | Atom.t(),
         "replicatedDisks" => list(recovery_instance_data_replication_info_replicated_disk()),
-        "stagingAvailabilityZone" => String.t(),
-        "stagingOutpostArn" => String.t()
+        "stagingAvailabilityZone" => String.t() | Atom.t(),
+        "stagingOutpostArn" => String.t() | Atom.t()
       }
 
   """
-  @type recovery_instance_data_replication_info() :: %{String.t() => any()}
+  @type recovery_instance_data_replication_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1034,7 +1040,7 @@ defmodule AWS.Drs do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1042,13 +1048,13 @@ defmodule AWS.Drs do
 
       create_source_network_request() :: %{
         optional("tags") => map(),
-        required("originAccountID") => String.t(),
-        required("originRegion") => String.t(),
-        required("vpcID") => String.t()
+        required("originAccountID") => String.t() | Atom.t(),
+        required("originRegion") => String.t() | Atom.t(),
+        required("vpcID") => String.t() | Atom.t()
       }
 
   """
-  @type create_source_network_request() :: %{String.t() => any()}
+  @type create_source_network_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1059,28 +1065,28 @@ defmodule AWS.Drs do
       }
 
   """
-  @type update_launch_configuration_template_response() :: %{String.t() => any()}
+  @type update_launch_configuration_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       source_network() :: %{
-        "arn" => String.t(),
-        "cfnStackName" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "cfnStackName" => String.t() | Atom.t(),
         "lastRecovery" => recovery_life_cycle(),
-        "launchedVpcID" => String.t(),
-        "replicationStatus" => String.t(),
-        "replicationStatusDetails" => String.t(),
-        "sourceAccountID" => String.t(),
-        "sourceNetworkID" => String.t(),
-        "sourceRegion" => String.t(),
-        "sourceVpcID" => String.t(),
+        "launchedVpcID" => String.t() | Atom.t(),
+        "replicationStatus" => String.t() | Atom.t(),
+        "replicationStatusDetails" => String.t() | Atom.t(),
+        "sourceAccountID" => String.t() | Atom.t(),
+        "sourceNetworkID" => String.t() | Atom.t(),
+        "sourceRegion" => String.t() | Atom.t(),
+        "sourceVpcID" => String.t() | Atom.t(),
         "tags" => map()
       }
 
   """
-  @type source_network() :: %{String.t() => any()}
+  @type source_network() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1089,63 +1095,63 @@ defmodule AWS.Drs do
       data_replication_info() :: %{
         "dataReplicationError" => data_replication_error(),
         "dataReplicationInitiation" => data_replication_initiation(),
-        "dataReplicationState" => String.t(),
-        "etaDateTime" => String.t(),
-        "lagDuration" => String.t(),
+        "dataReplicationState" => String.t() | Atom.t(),
+        "etaDateTime" => String.t() | Atom.t(),
+        "lagDuration" => String.t() | Atom.t(),
         "replicatedDisks" => list(data_replication_info_replicated_disk()),
-        "stagingAvailabilityZone" => String.t(),
-        "stagingOutpostArn" => String.t()
+        "stagingAvailabilityZone" => String.t() | Atom.t(),
+        "stagingOutpostArn" => String.t() | Atom.t()
       }
 
   """
-  @type data_replication_info() :: %{String.t() => any()}
+  @type data_replication_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "message" => String.t(),
-        "name" => String.t()
+        "message" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_source_servers_request_filters() :: %{
-        "hardwareId" => String.t(),
-        "sourceServerIDs" => list(String.t()),
-        "stagingAccountIDs" => list(String.t())
+        "hardwareId" => String.t() | Atom.t(),
+        "sourceServerIDs" => list(String.t() | Atom.t()),
+        "stagingAccountIDs" => list(String.t() | Atom.t())
       }
 
   """
-  @type describe_source_servers_request_filters() :: %{String.t() => any()}
+  @type describe_source_servers_request_filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       reverse_replication_response() :: %{
-        optional("reversedDirectionSourceServerArn") => String.t()
+        optional("reversedDirectionSourceServerArn") => String.t() | Atom.t()
       }
 
   """
-  @type reverse_replication_response() :: %{String.t() => any()}
+  @type reverse_replication_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       terminate_recovery_instances_request() :: %{
-        required("recoveryInstanceIDs") => list(String.t())
+        required("recoveryInstanceIDs") => list(String.t() | Atom.t())
       }
 
   """
-  @type terminate_recovery_instances_request() :: %{String.t() => any()}
+  @type terminate_recovery_instances_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1153,26 +1159,26 @@ defmodule AWS.Drs do
 
       data_replication_info_replicated_disk() :: %{
         "backloggedStorageBytes" => float(),
-        "deviceName" => String.t(),
+        "deviceName" => String.t() | Atom.t(),
         "replicatedStorageBytes" => float(),
         "rescannedStorageBytes" => float(),
         "totalStorageBytes" => float(),
-        "volumeStatus" => String.t()
+        "volumeStatus" => String.t() | Atom.t()
       }
 
   """
-  @type data_replication_info_replicated_disk() :: %{String.t() => any()}
+  @type data_replication_info_replicated_disk() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disconnect_source_server_request() :: %{
-        required("sourceServerID") => String.t()
+        required("sourceServerID") => String.t() | Atom.t()
       }
 
   """
-  @type disconnect_source_server_request() :: %{String.t() => any()}
+  @type disconnect_source_server_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1189,76 +1195,76 @@ defmodule AWS.Drs do
 
       launch_actions_status() :: %{
         "runs" => list(launch_action_run()),
-        "ssmAgentDiscoveryDatetime" => String.t()
+        "ssmAgentDiscoveryDatetime" => String.t() | Atom.t()
       }
 
   """
-  @type launch_actions_status() :: %{String.t() => any()}
+  @type launch_actions_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conversion_properties() :: %{
-        "dataTimestamp" => String.t(),
+        "dataTimestamp" => String.t() | Atom.t(),
         "forceUefi" => [boolean()],
-        "rootVolumeName" => String.t(),
+        "rootVolumeName" => String.t() | Atom.t(),
         "volumeToConversionMap" => map(),
         "volumeToProductCodes" => map(),
         "volumeToVolumeSize" => map()
       }
 
   """
-  @type conversion_properties() :: %{String.t() => any()}
+  @type conversion_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       product_code() :: %{
-        "productCodeId" => String.t(),
-        "productCodeMode" => String.t()
+        "productCodeId" => String.t() | Atom.t(),
+        "productCodeMode" => String.t() | Atom.t()
       }
 
   """
-  @type product_code() :: %{String.t() => any()}
+  @type product_code() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       export_source_network_cfn_template_response() :: %{
-        "s3DestinationUrl" => String.t()
+        "s3DestinationUrl" => String.t() | Atom.t()
       }
 
   """
-  @type export_source_network_cfn_template_response() :: %{String.t() => any()}
+  @type export_source_network_cfn_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_jobs_request_filters() :: %{
-        "fromDate" => String.t(),
-        "jobIDs" => list(String.t()),
-        "toDate" => String.t()
+        "fromDate" => String.t() | Atom.t(),
+        "jobIDs" => list(String.t() | Atom.t()),
+        "toDate" => String.t() | Atom.t()
       }
 
   """
-  @type describe_jobs_request_filters() :: %{String.t() => any()}
+  @type describe_jobs_request_filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       data_replication_initiation() :: %{
-        "nextAttemptDateTime" => String.t(),
-        "startDateTime" => String.t(),
+        "nextAttemptDateTime" => String.t() | Atom.t(),
+        "startDateTime" => String.t() | Atom.t(),
         "steps" => list(data_replication_initiation_step())
       }
 
   """
-  @type data_replication_initiation() :: %{String.t() => any()}
+  @type data_replication_initiation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1266,71 +1272,71 @@ defmodule AWS.Drs do
 
       describe_launch_configuration_templates_response() :: %{
         optional("items") => list(launch_configuration_template()),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type describe_launch_configuration_templates_response() :: %{String.t() => any()}
+  @type describe_launch_configuration_templates_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_launch_action_request() :: %{
-        required("actionId") => String.t(),
-        required("resourceId") => String.t()
+        required("actionId") => String.t() | Atom.t(),
+        required("resourceId") => String.t() | Atom.t()
       }
 
   """
-  @type delete_launch_action_request() :: %{String.t() => any()}
+  @type delete_launch_action_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_launch_configuration_request() :: %{
-        required("sourceServerID") => String.t()
+        required("sourceServerID") => String.t() | Atom.t()
       }
 
   """
-  @type get_launch_configuration_request() :: %{String.t() => any()}
+  @type get_launch_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => String.t(),
+        "message" => String.t() | Atom.t(),
         "retryAfterSeconds" => float()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_source_networks_request_filters() :: %{
-        "originAccountID" => String.t(),
-        "originRegion" => String.t(),
-        "sourceNetworkIDs" => list(String.t())
+        "originAccountID" => String.t() | Atom.t(),
+        "originRegion" => String.t() | Atom.t(),
+        "sourceNetworkIDs" => list(String.t() | Atom.t())
       }
 
   """
-  @type describe_source_networks_request_filters() :: %{String.t() => any()}
+  @type describe_source_networks_request_filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_source_network_stack_request() :: %{
-        required("cfnStackName") => String.t(),
-        required("sourceNetworkID") => String.t()
+        required("cfnStackName") => String.t() | Atom.t(),
+        required("sourceNetworkID") => String.t() | Atom.t()
       }
 
   """
-  @type associate_source_network_stack_request() :: %{String.t() => any()}
+  @type associate_source_network_stack_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1338,25 +1344,25 @@ defmodule AWS.Drs do
 
       participating_server() :: %{
         "launchActionsStatus" => launch_actions_status(),
-        "launchStatus" => String.t(),
-        "recoveryInstanceID" => String.t(),
-        "sourceServerID" => String.t()
+        "launchStatus" => String.t() | Atom.t(),
+        "recoveryInstanceID" => String.t() | Atom.t(),
+        "sourceServerID" => String.t() | Atom.t()
       }
 
   """
-  @type participating_server() :: %{String.t() => any()}
+  @type participating_server() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       data_replication_initiation_step() :: %{
-        "name" => String.t(),
-        "status" => String.t()
+        "name" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
 
   """
-  @type data_replication_initiation_step() :: %{String.t() => any()}
+  @type data_replication_initiation_step() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1369,7 +1375,7 @@ defmodule AWS.Drs do
       }
 
   """
-  @type start_source_network_recovery_request() :: %{String.t() => any()}
+  @type start_source_network_recovery_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1380,58 +1386,58 @@ defmodule AWS.Drs do
       }
 
   """
-  @type stop_source_network_replication_response() :: %{String.t() => any()}
+  @type stop_source_network_replication_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       staging_area() :: %{
-        "errorMessage" => String.t(),
-        "stagingAccountID" => String.t(),
-        "stagingSourceServerArn" => String.t(),
-        "status" => String.t()
+        "errorMessage" => String.t() | Atom.t(),
+        "stagingAccountID" => String.t() | Atom.t(),
+        "stagingSourceServerArn" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
 
   """
-  @type staging_area() :: %{String.t() => any()}
+  @type staging_area() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "code" => String.t(),
-        "message" => String.t()
+        "code" => String.t() | Atom.t(),
+        "message" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       recovery_instance_data_replication_initiation_step() :: %{
-        "name" => String.t(),
-        "status" => String.t()
+        "name" => String.t() | Atom.t(),
+        "status" => String.t() | Atom.t()
       }
 
   """
-  @type recovery_instance_data_replication_initiation_step() :: %{String.t() => any()}
+  @type recovery_instance_data_replication_initiation_step() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       life_cycle_last_launch_initiated() :: %{
-        "apiCallDateTime" => String.t(),
-        "jobID" => String.t(),
-        "type" => String.t()
+        "apiCallDateTime" => String.t() | Atom.t(),
+        "jobID" => String.t() | Atom.t(),
+        "type" => String.t() | Atom.t()
       }
 
   """
-  @type life_cycle_last_launch_initiated() :: %{String.t() => any()}
+  @type life_cycle_last_launch_initiated() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1439,11 +1445,11 @@ defmodule AWS.Drs do
 
       list_launch_actions_response() :: %{
         "items" => list(launch_action()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_launch_actions_response() :: %{String.t() => any()}
+  @type list_launch_actions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1454,7 +1460,7 @@ defmodule AWS.Drs do
       }
 
   """
-  @type stop_replication_response() :: %{String.t() => any()}
+  @type stop_replication_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1465,18 +1471,18 @@ defmodule AWS.Drs do
       }
 
   """
-  @type start_replication_response() :: %{String.t() => any()}
+  @type start_replication_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_job_request() :: %{
-        required("jobID") => String.t()
+        required("jobID") => String.t() | Atom.t()
       }
 
   """
-  @type delete_job_request() :: %{String.t() => any()}
+  @type delete_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1487,7 +1493,7 @@ defmodule AWS.Drs do
       }
 
   """
-  @type start_source_network_replication_response() :: %{String.t() => any()}
+  @type start_source_network_replication_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1495,13 +1501,13 @@ defmodule AWS.Drs do
 
       get_failback_replication_configuration_response() :: %{
         optional("bandwidthThrottling") => float(),
-        optional("name") => String.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("usePrivateIP") => [boolean()],
-        required("recoveryInstanceID") => String.t()
+        required("recoveryInstanceID") => String.t() | Atom.t()
       }
 
   """
-  @type get_failback_replication_configuration_response() :: %{String.t() => any()}
+  @type get_failback_replication_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1509,11 +1515,11 @@ defmodule AWS.Drs do
 
       describe_jobs_response() :: %{
         optional("items") => list(job()),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type describe_jobs_response() :: %{String.t() => any()}
+  @type describe_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1521,11 +1527,11 @@ defmodule AWS.Drs do
 
       disk() :: %{
         "bytes" => float(),
-        "deviceName" => String.t()
+        "deviceName" => String.t() | Atom.t()
       }
 
   """
-  @type disk() :: %{String.t() => any()}
+  @type disk() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1534,31 +1540,31 @@ defmodule AWS.Drs do
       update_launch_configuration_request() :: %{
         optional("copyPrivateIp") => [boolean()],
         optional("copyTags") => [boolean()],
-        optional("launchDisposition") => String.t(),
+        optional("launchDisposition") => String.t() | Atom.t(),
         optional("launchIntoInstanceProperties") => launch_into_instance_properties(),
         optional("licensing") => licensing(),
-        optional("name") => String.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("postLaunchEnabled") => [boolean()],
-        optional("targetInstanceTypeRightSizingMethod") => String.t(),
-        required("sourceServerID") => String.t()
+        optional("targetInstanceTypeRightSizingMethod") => String.t() | Atom.t(),
+        required("sourceServerID") => String.t() | Atom.t()
       }
 
   """
-  @type update_launch_configuration_request() :: %{String.t() => any()}
+  @type update_launch_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "code" => String.t(),
+        "code" => String.t() | Atom.t(),
         "fieldList" => list(validation_exception_field()),
-        "message" => String.t(),
-        "reason" => String.t()
+        "message" => String.t() | Atom.t(),
+        "reason" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1574,93 +1580,93 @@ defmodule AWS.Drs do
   ## Example:
 
       delete_replication_configuration_template_request() :: %{
-        required("replicationConfigurationTemplateID") => String.t()
+        required("replicationConfigurationTemplateID") => String.t() | Atom.t()
       }
 
   """
-  @type delete_replication_configuration_template_request() :: %{String.t() => any()}
+  @type delete_replication_configuration_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       job() :: %{
-        "arn" => String.t(),
-        "creationDateTime" => String.t(),
-        "endDateTime" => String.t(),
-        "initiatedBy" => String.t(),
-        "jobID" => String.t(),
+        "arn" => String.t() | Atom.t(),
+        "creationDateTime" => String.t() | Atom.t(),
+        "endDateTime" => String.t() | Atom.t(),
+        "initiatedBy" => String.t() | Atom.t(),
+        "jobID" => String.t() | Atom.t(),
         "participatingResources" => list(participating_resource()),
         "participatingServers" => list(participating_server()),
-        "status" => String.t(),
+        "status" => String.t() | Atom.t(),
         "tags" => map(),
-        "type" => String.t()
+        "type" => String.t() | Atom.t()
       }
 
   """
-  @type job() :: %{String.t() => any()}
+  @type job() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_failback_replication_configuration_request() :: %{
-        required("recoveryInstanceID") => String.t()
+        required("recoveryInstanceID") => String.t() | Atom.t()
       }
 
   """
-  @type get_failback_replication_configuration_request() :: %{String.t() => any()}
+  @type get_failback_replication_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       recovery_instance() :: %{
-        "agentVersion" => String.t(),
-        "arn" => String.t(),
+        "agentVersion" => String.t() | Atom.t(),
+        "arn" => String.t() | Atom.t(),
         "dataReplicationInfo" => recovery_instance_data_replication_info(),
-        "ec2InstanceID" => String.t(),
-        "ec2InstanceState" => String.t(),
+        "ec2InstanceID" => String.t() | Atom.t(),
+        "ec2InstanceState" => String.t() | Atom.t(),
         "failback" => recovery_instance_failback(),
         "isDrill" => [boolean()],
-        "jobID" => String.t(),
-        "originAvailabilityZone" => String.t(),
-        "originEnvironment" => String.t(),
-        "pointInTimeSnapshotDateTime" => String.t(),
-        "recoveryInstanceID" => String.t(),
+        "jobID" => String.t() | Atom.t(),
+        "originAvailabilityZone" => String.t() | Atom.t(),
+        "originEnvironment" => String.t() | Atom.t(),
+        "pointInTimeSnapshotDateTime" => String.t() | Atom.t(),
+        "recoveryInstanceID" => String.t() | Atom.t(),
         "recoveryInstanceProperties" => recovery_instance_properties(),
-        "sourceOutpostArn" => String.t(),
-        "sourceServerID" => String.t(),
+        "sourceOutpostArn" => String.t() | Atom.t(),
+        "sourceServerID" => String.t() | Atom.t(),
         "tags" => map()
       }
 
   """
-  @type recovery_instance() :: %{String.t() => any()}
+  @type recovery_instance() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => String.t(),
-        "quotaCode" => String.t(),
-        "retryAfterSeconds" => String.t(),
-        "serviceCode" => String.t()
+        "message" => String.t() | Atom.t(),
+        "quotaCode" => String.t() | Atom.t(),
+        "retryAfterSeconds" => String.t() | Atom.t(),
+        "serviceCode" => String.t() | Atom.t()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       launch_into_instance_properties() :: %{
-        "launchIntoEC2InstanceID" => String.t()
+        "launchIntoEC2InstanceID" => String.t() | Atom.t()
       }
 
   """
-  @type launch_into_instance_properties() :: %{String.t() => any()}
+  @type launch_into_instance_properties() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1668,11 +1674,11 @@ defmodule AWS.Drs do
 
       start_failback_launch_request() :: %{
         optional("tags") => map(),
-        required("recoveryInstanceIDs") => list(String.t())
+        required("recoveryInstanceIDs") => list(String.t() | Atom.t())
       }
 
   """
-  @type start_failback_launch_request() :: %{String.t() => any()}
+  @type start_failback_launch_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1683,7 +1689,7 @@ defmodule AWS.Drs do
       }
 
   """
-  @type start_recovery_response() :: %{String.t() => any()}
+  @type start_recovery_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1691,11 +1697,11 @@ defmodule AWS.Drs do
 
       list_staging_accounts_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_staging_accounts_request() :: %{String.t() => any()}
+  @type list_staging_accounts_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1703,15 +1709,15 @@ defmodule AWS.Drs do
 
       job_log_event_data() :: %{
         "conversionProperties" => conversion_properties(),
-        "conversionServerID" => String.t(),
+        "conversionServerID" => String.t() | Atom.t(),
         "eventResourceData" => list(),
-        "rawError" => String.t(),
-        "sourceServerID" => String.t(),
-        "targetInstanceID" => String.t()
+        "rawError" => String.t() | Atom.t(),
+        "sourceServerID" => String.t() | Atom.t(),
+        "targetInstanceID" => String.t() | Atom.t()
       }
 
   """
-  @type job_log_event_data() :: %{String.t() => any()}
+  @type job_log_event_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1720,11 +1726,11 @@ defmodule AWS.Drs do
       describe_jobs_request() :: %{
         optional("filters") => describe_jobs_request_filters(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type describe_jobs_request() :: %{String.t() => any()}
+  @type describe_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1733,18 +1739,18 @@ defmodule AWS.Drs do
       launch_configuration() :: %{
         optional("copyPrivateIp") => [boolean()],
         optional("copyTags") => [boolean()],
-        optional("ec2LaunchTemplateID") => String.t(),
-        optional("launchDisposition") => String.t(),
+        optional("ec2LaunchTemplateID") => String.t() | Atom.t(),
+        optional("launchDisposition") => String.t() | Atom.t(),
         optional("launchIntoInstanceProperties") => launch_into_instance_properties(),
         optional("licensing") => licensing(),
-        optional("name") => String.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("postLaunchEnabled") => [boolean()],
-        optional("sourceServerID") => String.t(),
-        optional("targetInstanceTypeRightSizingMethod") => String.t()
+        optional("sourceServerID") => String.t() | Atom.t(),
+        optional("targetInstanceTypeRightSizingMethod") => String.t() | Atom.t()
       }
 
   """
-  @type launch_configuration() :: %{String.t() => any()}
+  @type launch_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1752,26 +1758,26 @@ defmodule AWS.Drs do
 
       list_extensible_source_servers_response() :: %{
         optional("items") => list(staging_source_server()),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_extensible_source_servers_response() :: %{String.t() => any()}
+  @type list_extensible_source_servers_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       recovery_snapshot() :: %{
-        "ebsSnapshots" => list(String.t()),
-        "expectedTimestamp" => String.t(),
-        "snapshotID" => String.t(),
-        "sourceServerID" => String.t(),
-        "timestamp" => String.t()
+        "ebsSnapshots" => list(String.t() | Atom.t()),
+        "expectedTimestamp" => String.t() | Atom.t(),
+        "snapshotID" => String.t() | Atom.t(),
+        "sourceServerID" => String.t() | Atom.t(),
+        "timestamp" => String.t() | Atom.t()
       }
 
   """
-  @type recovery_snapshot() :: %{String.t() => any()}
+  @type recovery_snapshot() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1782,61 +1788,61 @@ defmodule AWS.Drs do
         optional("autoReplicateNewDisks") => [boolean()],
         optional("bandwidthThrottling") => float(),
         optional("createPublicIP") => [boolean()],
-        optional("dataPlaneRouting") => String.t(),
-        optional("defaultLargeStagingDiskType") => String.t(),
-        optional("ebsEncryption") => String.t(),
-        optional("ebsEncryptionKeyArn") => String.t(),
-        optional("name") => String.t(),
+        optional("dataPlaneRouting") => String.t() | Atom.t(),
+        optional("defaultLargeStagingDiskType") => String.t() | Atom.t(),
+        optional("ebsEncryption") => String.t() | Atom.t(),
+        optional("ebsEncryptionKeyArn") => String.t() | Atom.t(),
+        optional("name") => String.t() | Atom.t(),
         optional("pitPolicy") => list(p_i_t_policy_rule()),
         optional("replicatedDisks") => list(replication_configuration_replicated_disk()),
-        optional("replicationServerInstanceType") => String.t(),
-        optional("replicationServersSecurityGroupsIDs") => list(String.t()),
-        optional("stagingAreaSubnetId") => String.t(),
+        optional("replicationServerInstanceType") => String.t() | Atom.t(),
+        optional("replicationServersSecurityGroupsIDs") => list(String.t() | Atom.t()),
+        optional("stagingAreaSubnetId") => String.t() | Atom.t(),
         optional("stagingAreaTags") => map(),
         optional("useDedicatedReplicationServer") => [boolean()],
-        required("sourceServerID") => String.t()
+        required("sourceServerID") => String.t() | Atom.t()
       }
 
   """
-  @type update_replication_configuration_request() :: %{String.t() => any()}
+  @type update_replication_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       source_network_data() :: %{
-        "sourceNetworkID" => String.t(),
-        "sourceVpc" => String.t(),
-        "stackName" => String.t(),
-        "targetVpc" => String.t()
+        "sourceNetworkID" => String.t() | Atom.t(),
+        "sourceVpc" => String.t() | Atom.t(),
+        "stackName" => String.t() | Atom.t(),
+        "targetVpc" => String.t() | Atom.t()
       }
 
   """
-  @type source_network_data() :: %{String.t() => any()}
+  @type source_network_data() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       source_server() :: %{
-        "agentVersion" => String.t(),
-        "arn" => String.t(),
+        "agentVersion" => String.t() | Atom.t(),
+        "arn" => String.t() | Atom.t(),
         "dataReplicationInfo" => data_replication_info(),
-        "lastLaunchResult" => String.t(),
+        "lastLaunchResult" => String.t() | Atom.t(),
         "lifeCycle" => life_cycle(),
-        "recoveryInstanceId" => String.t(),
-        "replicationDirection" => String.t(),
-        "reversedDirectionSourceServerArn" => String.t(),
+        "recoveryInstanceId" => String.t() | Atom.t(),
+        "replicationDirection" => String.t() | Atom.t(),
+        "reversedDirectionSourceServerArn" => String.t() | Atom.t(),
         "sourceCloudProperties" => source_cloud_properties(),
-        "sourceNetworkID" => String.t(),
+        "sourceNetworkID" => String.t() | Atom.t(),
         "sourceProperties" => source_properties(),
-        "sourceServerID" => String.t(),
+        "sourceServerID" => String.t() | Atom.t(),
         "stagingArea" => staging_area(),
         "tags" => map()
       }
 
   """
-  @type source_server() :: %{String.t() => any()}
+  @type source_server() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1852,11 +1858,11 @@ defmodule AWS.Drs do
   ## Example:
 
       stop_source_network_replication_request() :: %{
-        required("sourceNetworkID") => String.t()
+        required("sourceNetworkID") => String.t() | Atom.t()
       }
 
   """
-  @type stop_source_network_replication_request() :: %{String.t() => any()}
+  @type stop_source_network_replication_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1867,7 +1873,7 @@ defmodule AWS.Drs do
       }
 
   """
-  @type start_source_network_recovery_response() :: %{String.t() => any()}
+  @type start_source_network_recovery_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1875,11 +1881,11 @@ defmodule AWS.Drs do
 
       life_cycle_last_launch() :: %{
         "initiated" => life_cycle_last_launch_initiated(),
-        "status" => String.t()
+        "status" => String.t() | Atom.t()
       }
 
   """
-  @type life_cycle_last_launch() :: %{String.t() => any()}
+  @type life_cycle_last_launch() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1888,11 +1894,11 @@ defmodule AWS.Drs do
       describe_recovery_instances_request() :: %{
         optional("filters") => describe_recovery_instances_request_filters(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type describe_recovery_instances_request() :: %{String.t() => any()}
+  @type describe_recovery_instances_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1903,7 +1909,7 @@ defmodule AWS.Drs do
       }
 
   """
-  @type associate_source_network_stack_response() :: %{String.t() => any()}
+  @type associate_source_network_stack_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1929,23 +1935,26 @@ defmodule AWS.Drs do
 
       describe_replication_configuration_templates_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("replicationConfigurationTemplateIDs") => list(String.t())
+        optional("nextToken") => String.t() | Atom.t(),
+        optional("replicationConfigurationTemplateIDs") => list(String.t() | Atom.t())
       }
 
   """
-  @type describe_replication_configuration_templates_request() :: %{String.t() => any()}
+  @type describe_replication_configuration_templates_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       o_s() :: %{
-        "fullString" => String.t()
+        "fullString" => String.t() | Atom.t()
       }
 
   """
-  @type o_s() :: %{String.t() => any()}
+  @type o_s() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1956,7 +1965,7 @@ defmodule AWS.Drs do
       }
 
   """
-  @type create_extended_source_server_response() :: %{String.t() => any()}
+  @type create_extended_source_server_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1964,23 +1973,23 @@ defmodule AWS.Drs do
 
       describe_job_log_items_response() :: %{
         optional("items") => list(job_log()),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type describe_job_log_items_response() :: %{String.t() => any()}
+  @type describe_job_log_items_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       recovery_instance_data_replication_error() :: %{
-        "error" => String.t(),
-        "rawError" => String.t()
+        "error" => String.t() | Atom.t(),
+        "rawError" => String.t() | Atom.t()
       }
 
   """
-  @type recovery_instance_data_replication_error() :: %{String.t() => any()}
+  @type recovery_instance_data_replication_error() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1989,17 +1998,17 @@ defmodule AWS.Drs do
       update_launch_configuration_template_request() :: %{
         optional("copyPrivateIp") => [boolean()],
         optional("copyTags") => [boolean()],
-        optional("exportBucketArn") => String.t(),
-        optional("launchDisposition") => String.t(),
+        optional("exportBucketArn") => String.t() | Atom.t(),
+        optional("launchDisposition") => String.t() | Atom.t(),
         optional("launchIntoSourceInstance") => [boolean()],
         optional("licensing") => licensing(),
         optional("postLaunchEnabled") => [boolean()],
-        optional("targetInstanceTypeRightSizingMethod") => String.t(),
-        required("launchConfigurationTemplateID") => String.t()
+        optional("targetInstanceTypeRightSizingMethod") => String.t() | Atom.t(),
+        required("launchConfigurationTemplateID") => String.t() | Atom.t()
       }
 
   """
-  @type update_launch_configuration_template_request() :: %{String.t() => any()}
+  @type update_launch_configuration_template_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2010,7 +2019,7 @@ defmodule AWS.Drs do
       }
 
   """
-  @type create_launch_configuration_template_response() :: %{String.t() => any()}
+  @type create_launch_configuration_template_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2018,11 +2027,11 @@ defmodule AWS.Drs do
 
       create_extended_source_server_request() :: %{
         optional("tags") => map(),
-        required("sourceServerArn") => String.t()
+        required("sourceServerArn") => String.t() | Atom.t()
       }
 
   """
-  @type create_extended_source_server_request() :: %{String.t() => any()}
+  @type create_extended_source_server_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2030,58 +2039,58 @@ defmodule AWS.Drs do
 
       describe_recovery_snapshots_response() :: %{
         optional("items") => list(recovery_snapshot()),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type describe_recovery_snapshots_response() :: %{String.t() => any()}
+  @type describe_recovery_snapshots_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       job_log() :: %{
-        "event" => String.t(),
+        "event" => String.t() | Atom.t(),
         "eventData" => job_log_event_data(),
-        "logDateTime" => String.t()
+        "logDateTime" => String.t() | Atom.t()
       }
 
   """
-  @type job_log() :: %{String.t() => any()}
+  @type job_log() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_recovery_snapshots_request_filters() :: %{
-        "fromDateTime" => String.t(),
-        "toDateTime" => String.t()
+        "fromDateTime" => String.t() | Atom.t(),
+        "toDateTime" => String.t() | Atom.t()
       }
 
   """
-  @type describe_recovery_snapshots_request_filters() :: %{String.t() => any()}
+  @type describe_recovery_snapshots_request_filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_source_network_response() :: %{
-        "sourceNetworkID" => String.t()
+        "sourceNetworkID" => String.t() | Atom.t()
       }
 
   """
-  @type create_source_network_response() :: %{String.t() => any()}
+  @type create_source_network_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_launch_configuration_template_request() :: %{
-        required("launchConfigurationTemplateID") => String.t()
+        required("launchConfigurationTemplateID") => String.t() | Atom.t()
       }
 
   """
-  @type delete_launch_configuration_template_request() :: %{String.t() => any()}
+  @type delete_launch_configuration_template_request() :: %{String.t() | Atom.t() => any()}
 
   @type associate_source_network_stack_errors() ::
           throttling_exception()
@@ -3384,7 +3393,12 @@ defmodule AWS.Drs do
   @doc """
   Returns an array of staging accounts for existing extended source servers.
   """
-  @spec list_staging_accounts(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_staging_accounts(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_staging_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3421,7 +3435,7 @@ defmodule AWS.Drs do
   @doc """
   List all tags for your Elastic Disaster Recovery resources.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3801,7 +3815,7 @@ defmodule AWS.Drs do
   value. Each resource can have a maximum of 50 tags. Each tag consists of a key
   and optional value.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3862,7 +3876,7 @@ defmodule AWS.Drs do
   Deletes the specified set of tags from the specified set of Elastic Disaster
   Recovery resources.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

@@ -32,93 +32,93 @@ defmodule AWS.SimSpaceWeaver do
   ## Example:
 
       start_app_input() :: %{
-        optional("ClientToken") => String.t(),
-        optional("Description") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("LaunchOverrides") => launch_overrides(),
-        required("Domain") => String.t(),
-        required("Name") => String.t(),
-        required("Simulation") => String.t()
+        required("Domain") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t(),
+        required("Simulation") => String.t() | Atom.t()
       }
 
   """
-  @type start_app_input() :: %{String.t() => any()}
+  @type start_app_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_simulation_output() :: %{
-        optional("Arn") => String.t(),
+        optional("Arn") => String.t() | Atom.t(),
         optional("CreationTime") => non_neg_integer(),
-        optional("ExecutionId") => String.t()
+        optional("ExecutionId") => String.t() | Atom.t()
       }
 
   """
-  @type start_simulation_output() :: %{String.t() => any()}
+  @type start_simulation_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       simulation_clock() :: %{
-        "Status" => String.t(),
-        "TargetStatus" => String.t()
+        "Status" => String.t() | Atom.t(),
+        "TargetStatus" => String.t() | Atom.t()
       }
 
   """
-  @type simulation_clock() :: %{String.t() => any()}
+  @type simulation_clock() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_simulations_output() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("Simulations") => list(simulation_metadata())
       }
 
   """
-  @type list_simulations_output() :: %{String.t() => any()}
+  @type list_simulations_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       stop_app_input() :: %{
-        required("App") => String.t(),
-        required("Domain") => String.t(),
-        required("Simulation") => String.t()
+        required("App") => String.t() | Atom.t(),
+        required("Domain") => String.t() | Atom.t(),
+        required("Simulation") => String.t() | Atom.t()
       }
 
   """
-  @type stop_app_input() :: %{String.t() => any()}
+  @type stop_app_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       simulation_app_endpoint_info() :: %{
-        "Address" => String.t(),
+        "Address" => String.t() | Atom.t(),
         "IngressPortMappings" => list(simulation_app_port_mapping())
       }
 
   """
-  @type simulation_app_endpoint_info() :: %{String.t() => any()}
+  @type simulation_app_endpoint_info() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       simulation_app_metadata() :: %{
-        "Domain" => String.t(),
-        "Name" => String.t(),
-        "Simulation" => String.t(),
-        "Status" => String.t(),
-        "TargetStatus" => String.t()
+        "Domain" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
+        "Simulation" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t(),
+        "TargetStatus" => String.t() | Atom.t()
       }
 
   """
-  @type simulation_app_metadata() :: %{String.t() => any()}
+  @type simulation_app_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -126,11 +126,11 @@ defmodule AWS.SimSpaceWeaver do
 
       list_simulations_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_simulations_input() :: %{String.t() => any()}
+  @type list_simulations_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -146,23 +146,23 @@ defmodule AWS.SimSpaceWeaver do
   ## Example:
 
       domain() :: %{
-        "Lifecycle" => String.t(),
-        "Name" => String.t()
+        "Lifecycle" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type domain() :: %{String.t() => any()}
+  @type domain() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_clock_input() :: %{
-        required("Simulation") => String.t()
+        required("Simulation") => String.t() | Atom.t()
       }
 
   """
-  @type start_clock_input() :: %{String.t() => any()}
+  @type start_clock_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -173,7 +173,7 @@ defmodule AWS.SimSpaceWeaver do
       }
 
   """
-  @type list_tags_for_resource_output() :: %{String.t() => any()}
+  @type list_tags_for_resource_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -184,7 +184,7 @@ defmodule AWS.SimSpaceWeaver do
       }
 
   """
-  @type logging_configuration() :: %{String.t() => any()}
+  @type logging_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -200,44 +200,44 @@ defmodule AWS.SimSpaceWeaver do
   ## Example:
 
       stop_clock_input() :: %{
-        required("Simulation") => String.t()
+        required("Simulation") => String.t() | Atom.t()
       }
 
   """
-  @type stop_clock_input() :: %{String.t() => any()}
+  @type stop_clock_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -253,11 +253,11 @@ defmodule AWS.SimSpaceWeaver do
   ## Example:
 
       stop_simulation_input() :: %{
-        required("Simulation") => String.t()
+        required("Simulation") => String.t() | Atom.t()
       }
 
   """
-  @type stop_simulation_input() :: %{String.t() => any()}
+  @type stop_simulation_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -265,11 +265,11 @@ defmodule AWS.SimSpaceWeaver do
 
       create_snapshot_input() :: %{
         required("Destination") => s3_destination(),
-        required("Simulation") => String.t()
+        required("Simulation") => String.t() | Atom.t()
       }
 
   """
-  @type create_snapshot_input() :: %{String.t() => any()}
+  @type create_snapshot_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -280,59 +280,59 @@ defmodule AWS.SimSpaceWeaver do
       }
 
   """
-  @type log_destination() :: %{String.t() => any()}
+  @type log_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_app_output() :: %{
-        optional("Description") => String.t(),
-        optional("Domain") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("Domain") => String.t() | Atom.t(),
         optional("EndpointInfo") => simulation_app_endpoint_info(),
         optional("LaunchOverrides") => launch_overrides(),
-        optional("Name") => String.t(),
-        optional("Simulation") => String.t(),
-        optional("Status") => String.t(),
-        optional("TargetStatus") => String.t()
+        optional("Name") => String.t() | Atom.t(),
+        optional("Simulation") => String.t() | Atom.t(),
+        optional("Status") => String.t() | Atom.t(),
+        optional("TargetStatus") => String.t() | Atom.t()
       }
 
   """
-  @type describe_app_output() :: %{String.t() => any()}
+  @type describe_app_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cloud_watch_logs_log_group() :: %{
-        "LogGroupArn" => String.t()
+        "LogGroupArn" => String.t() | Atom.t()
       }
 
   """
-  @type cloud_watch_logs_log_group() :: %{String.t() => any()}
+  @type cloud_watch_logs_log_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_simulation_input() :: %{
-        required("Simulation") => String.t()
+        required("Simulation") => String.t() | Atom.t()
       }
 
   """
-  @type describe_simulation_input() :: %{String.t() => any()}
+  @type describe_simulation_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_location() :: %{
-        "BucketName" => String.t(),
-        "ObjectKey" => String.t()
+        "BucketName" => String.t() | Atom.t(),
+        "ObjectKey" => String.t() | Atom.t()
       }
 
   """
-  @type s3_location() :: %{String.t() => any()}
+  @type s3_location() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -343,19 +343,19 @@ defmodule AWS.SimSpaceWeaver do
       }
 
   """
-  @type tag_resource_input() :: %{String.t() => any()}
+  @type tag_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_destination() :: %{
-        "BucketName" => String.t(),
-        "ObjectKeyPrefix" => String.t()
+        "BucketName" => String.t() | Atom.t(),
+        "ObjectKeyPrefix" => String.t() | Atom.t()
       }
 
   """
-  @type s3_destination() :: %{String.t() => any()}
+  @type s3_destination() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -363,11 +363,11 @@ defmodule AWS.SimSpaceWeaver do
 
       list_apps_output() :: %{
         optional("Apps") => list(simulation_app_metadata()),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_apps_output() :: %{String.t() => any()}
+  @type list_apps_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -383,62 +383,62 @@ defmodule AWS.SimSpaceWeaver do
   ## Example:
 
       launch_overrides() :: %{
-        "LaunchCommands" => list(String.t())
+        "LaunchCommands" => list(String.t() | Atom.t())
       }
 
   """
-  @type launch_overrides() :: %{String.t() => any()}
+  @type launch_overrides() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_simulation_input() :: %{
-        optional("ClientToken") => String.t(),
-        optional("Description") => String.t(),
-        optional("MaximumDuration") => String.t(),
+        optional("ClientToken") => String.t() | Atom.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("MaximumDuration") => String.t() | Atom.t(),
         optional("SchemaS3Location") => s3_location(),
         optional("SnapshotS3Location") => s3_location(),
         optional("Tags") => map(),
-        required("Name") => String.t(),
-        required("RoleArn") => String.t()
+        required("Name") => String.t() | Atom.t(),
+        required("RoleArn") => String.t() | Atom.t()
       }
 
   """
-  @type start_simulation_input() :: %{String.t() => any()}
+  @type start_simulation_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_input() :: %{
-        "TagKeys" => list(String.t())
+        "TagKeys" => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_input() :: %{String.t() => any()}
+  @type untag_resource_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -450,18 +450,18 @@ defmodule AWS.SimSpaceWeaver do
       }
 
   """
-  @type simulation_app_port_mapping() :: %{String.t() => any()}
+  @type simulation_app_port_mapping() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -513,38 +513,38 @@ defmodule AWS.SimSpaceWeaver do
   ## Example:
 
       delete_simulation_input() :: %{
-        required("Simulation") => String.t()
+        required("Simulation") => String.t() | Atom.t()
       }
 
   """
-  @type delete_simulation_input() :: %{String.t() => any()}
+  @type delete_simulation_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_app_input() :: %{
-        required("App") => String.t(),
-        required("Domain") => String.t(),
-        required("Simulation") => String.t()
+        required("App") => String.t() | Atom.t(),
+        required("Domain") => String.t() | Atom.t(),
+        required("Simulation") => String.t() | Atom.t()
       }
 
   """
-  @type describe_app_input() :: %{String.t() => any()}
+  @type describe_app_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_apps_input() :: %{
-        optional("Domain") => String.t(),
+        optional("Domain") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("Simulation") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("Simulation") => String.t() | Atom.t()
       }
 
   """
-  @type list_apps_input() :: %{String.t() => any()}
+  @type list_apps_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -556,20 +556,20 @@ defmodule AWS.SimSpaceWeaver do
       }
 
   """
-  @type live_simulation_state() :: %{String.t() => any()}
+  @type live_simulation_state() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       start_app_output() :: %{
-        optional("Domain") => String.t(),
-        optional("Name") => String.t(),
-        optional("Simulation") => String.t()
+        optional("Domain") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t(),
+        optional("Simulation") => String.t() | Atom.t()
       }
 
   """
-  @type start_app_output() :: %{String.t() => any()}
+  @type start_app_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -585,64 +585,64 @@ defmodule AWS.SimSpaceWeaver do
   ## Example:
 
       too_many_tags_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_tags_exception() :: %{String.t() => any()}
+  @type too_many_tags_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_simulation_output() :: %{
-        optional("Arn") => String.t(),
+        optional("Arn") => String.t() | Atom.t(),
         optional("CreationTime") => non_neg_integer(),
-        optional("Description") => String.t(),
-        optional("ExecutionId") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
+        optional("ExecutionId") => String.t() | Atom.t(),
         optional("LiveSimulationState") => live_simulation_state(),
         optional("LoggingConfiguration") => logging_configuration(),
-        optional("MaximumDuration") => String.t(),
-        optional("Name") => String.t(),
-        optional("RoleArn") => String.t(),
-        optional("SchemaError") => String.t(),
+        optional("MaximumDuration") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t(),
+        optional("RoleArn") => String.t() | Atom.t(),
+        optional("SchemaError") => String.t() | Atom.t(),
         optional("SchemaS3Location") => s3_location(),
         optional("SnapshotS3Location") => s3_location(),
-        optional("StartError") => String.t(),
-        optional("Status") => String.t(),
-        optional("TargetStatus") => String.t()
+        optional("StartError") => String.t() | Atom.t(),
+        optional("Status") => String.t() | Atom.t(),
+        optional("TargetStatus") => String.t() | Atom.t()
       }
 
   """
-  @type describe_simulation_output() :: %{String.t() => any()}
+  @type describe_simulation_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_app_input() :: %{
-        required("App") => String.t(),
-        required("Domain") => String.t(),
-        required("Simulation") => String.t()
+        required("App") => String.t() | Atom.t(),
+        required("Domain") => String.t() | Atom.t(),
+        required("Simulation") => String.t() | Atom.t()
       }
 
   """
-  @type delete_app_input() :: %{String.t() => any()}
+  @type delete_app_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       simulation_metadata() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "Status" => String.t(),
-        "TargetStatus" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t(),
+        "TargetStatus" => String.t() | Atom.t()
       }
 
   """
-  @type simulation_metadata() :: %{String.t() => any()}
+  @type simulation_metadata() :: %{String.t() | Atom.t() => any()}
 
   @type create_snapshot_errors() ::
           validation_exception()
@@ -942,7 +942,13 @@ defmodule AWS.SimSpaceWeaver do
   @doc """
   Returns the state of the given custom app.
   """
-  @spec describe_app(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec describe_app(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, describe_app_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -981,7 +987,7 @@ defmodule AWS.SimSpaceWeaver do
   @doc """
   Returns the current state of the given simulation.
   """
-  @spec describe_simulation(map(), String.t(), list()) ::
+  @spec describe_simulation(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_simulation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1006,7 +1012,14 @@ defmodule AWS.SimSpaceWeaver do
   @doc """
   Lists all custom apps or service apps for the given simulation and domain.
   """
-  @spec list_apps(map(), String.t() | nil, String.t() | nil, String.t() | nil, String.t(), list()) ::
+  @spec list_apps(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, list_apps_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1060,7 +1073,7 @@ defmodule AWS.SimSpaceWeaver do
   Lists the SimSpace Weaver simulations in the Amazon Web Services account used to
   make the API call.
   """
-  @spec list_simulations(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_simulations(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_simulations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1092,7 +1105,7 @@ defmodule AWS.SimSpaceWeaver do
   @doc """
   Lists all tags on a SimSpace Weaver resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1301,7 +1314,7 @@ defmodule AWS.SimSpaceWeaver do
   the
   *Amazon Web Services General Reference*.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1334,7 +1347,7 @@ defmodule AWS.SimSpaceWeaver do
   the
   *Amazon Web Services General Reference*.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

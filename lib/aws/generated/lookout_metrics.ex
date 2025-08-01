@@ -22,7 +22,7 @@ defmodule AWS.LookoutMetrics do
       }
 
   """
-  @type get_data_quality_metrics_response() :: %{String.t() => any()}
+  @type get_data_quality_metrics_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -33,7 +33,7 @@ defmodule AWS.LookoutMetrics do
       }
 
   """
-  @type anomaly_detector_config_summary() :: %{String.t() => any()}
+  @type anomaly_detector_config_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -49,7 +49,7 @@ defmodule AWS.LookoutMetrics do
       }
 
   """
-  @type detected_csv_format_descriptor() :: %{String.t() => any()}
+  @type detected_csv_format_descriptor() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -65,26 +65,26 @@ defmodule AWS.LookoutMetrics do
   ## Example:
 
       put_feedback_request() :: %{
-        required("AnomalyDetectorArn") => String.t(),
+        required("AnomalyDetectorArn") => String.t() | Atom.t(),
         required("AnomalyGroupTimeSeriesFeedback") => anomaly_group_time_series_feedback()
       }
 
   """
-  @type put_feedback_request() :: %{String.t() => any()}
+  @type put_feedback_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       inter_metric_impact_details() :: %{
-        "AnomalyGroupId" => String.t(),
+        "AnomalyGroupId" => String.t() | Atom.t(),
         "ContributionPercentage" => float(),
-        "MetricName" => String.t(),
+        "MetricName" => String.t() | Atom.t(),
         "RelationshipType" => list(any())
       }
 
   """
-  @type inter_metric_impact_details() :: %{String.t() => any()}
+  @type inter_metric_impact_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -92,18 +92,18 @@ defmodule AWS.LookoutMetrics do
 
       update_metric_set_request() :: %{
         optional("DimensionFilterList") => list(metric_set_dimension_filter()),
-        optional("DimensionList") => list(String.t()),
+        optional("DimensionList") => list(String.t() | Atom.t()),
         optional("MetricList") => list(metric()),
-        optional("MetricSetDescription") => String.t(),
+        optional("MetricSetDescription") => String.t() | Atom.t(),
         optional("MetricSetFrequency") => list(any()),
         optional("MetricSource") => metric_source(),
         optional("Offset") => integer(),
         optional("TimestampColumn") => timestamp_column(),
-        required("MetricSetArn") => String.t()
+        required("MetricSetArn") => String.t() | Atom.t()
       }
 
   """
-  @type update_metric_set_request() :: %{String.t() => any()}
+  @type update_metric_set_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -114,19 +114,19 @@ defmodule AWS.LookoutMetrics do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       dimension_contribution() :: %{
-        "DimensionName" => String.t(),
+        "DimensionName" => String.t() | Atom.t(),
         "DimensionValueContributionList" => list(dimension_value_contribution())
       }
 
   """
-  @type dimension_contribution() :: %{String.t() => any()}
+  @type dimension_contribution() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -135,11 +135,11 @@ defmodule AWS.LookoutMetrics do
       list_anomaly_group_summaries_response() :: %{
         "AnomalyGroupStatistics" => anomaly_group_statistics(),
         "AnomalyGroupSummaryList" => list(anomaly_group_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_anomaly_group_summaries_response() :: %{String.t() => any()}
+  @type list_anomaly_group_summaries_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -147,40 +147,40 @@ defmodule AWS.LookoutMetrics do
 
       detected_field() :: %{
         "Confidence" => list(any()),
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "Value" => attribute_value()
       }
 
   """
-  @type detected_field() :: %{String.t() => any()}
+  @type detected_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       anomaly_group() :: %{
-        "AnomalyGroupId" => String.t(),
+        "AnomalyGroupId" => String.t() | Atom.t(),
         "AnomalyGroupScore" => float(),
-        "EndTime" => String.t(),
+        "EndTime" => String.t() | Atom.t(),
         "MetricLevelImpactList" => list(metric_level_impact()),
-        "PrimaryMetricName" => String.t(),
-        "StartTime" => String.t()
+        "PrimaryMetricName" => String.t() | Atom.t(),
+        "StartTime" => String.t() | Atom.t()
       }
 
   """
-  @type anomaly_group() :: %{String.t() => any()}
+  @type anomaly_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       vpc_configuration() :: %{
-        "SecurityGroupIdList" => list(String.t()),
-        "SubnetIdList" => list(String.t())
+        "SecurityGroupIdList" => list(String.t() | Atom.t()),
+        "SubnetIdList" => list(String.t() | Atom.t())
       }
 
   """
-  @type vpc_configuration() :: %{String.t() => any()}
+  @type vpc_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -188,75 +188,75 @@ defmodule AWS.LookoutMetrics do
 
       list_metric_sets_response() :: %{
         "MetricSetSummaryList" => list(metric_set_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_metric_sets_response() :: %{String.t() => any()}
+  @type list_metric_sets_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_alert_request() :: %{
-        required("AlertArn") => String.t()
+        required("AlertArn") => String.t() | Atom.t()
       }
 
   """
-  @type describe_alert_request() :: %{String.t() => any()}
+  @type describe_alert_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       anomaly_group_time_series() :: %{
-        "AnomalyGroupId" => String.t(),
-        "TimeSeriesId" => String.t()
+        "AnomalyGroupId" => String.t() | Atom.t(),
+        "TimeSeriesId" => String.t() | Atom.t()
       }
 
   """
-  @type anomaly_group_time_series() :: %{String.t() => any()}
+  @type anomaly_group_time_series() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       metric_set_summary() :: %{
-        "AnomalyDetectorArn" => String.t(),
+        "AnomalyDetectorArn" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
         "LastModificationTime" => non_neg_integer(),
-        "MetricSetArn" => String.t(),
-        "MetricSetDescription" => String.t(),
-        "MetricSetName" => String.t(),
+        "MetricSetArn" => String.t() | Atom.t(),
+        "MetricSetDescription" => String.t() | Atom.t(),
+        "MetricSetName" => String.t() | Atom.t(),
         "Tags" => map()
       }
 
   """
-  @type metric_set_summary() :: %{String.t() => any()}
+  @type metric_set_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_metric_sets_request() :: %{
-        optional("AnomalyDetectorArn") => String.t(),
+        optional("AnomalyDetectorArn") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_metric_sets_request() :: %{String.t() => any()}
+  @type list_metric_sets_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       deactivate_anomaly_detector_request() :: %{
-        required("AnomalyDetectorArn") => String.t()
+        required("AnomalyDetectorArn") => String.t() | Atom.t()
       }
 
   """
-  @type deactivate_anomaly_detector_request() :: %{String.t() => any()}
+  @type deactivate_anomaly_detector_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -273,12 +273,12 @@ defmodule AWS.LookoutMetrics do
 
       metric() :: %{
         "AggregationFunction" => list(any()),
-        "MetricName" => String.t(),
-        "Namespace" => String.t()
+        "MetricName" => String.t() | Atom.t(),
+        "Namespace" => String.t() | Atom.t()
       }
 
   """
-  @type metric() :: %{String.t() => any()}
+  @type metric() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -290,7 +290,7 @@ defmodule AWS.LookoutMetrics do
       }
 
   """
-  @type detected_file_format_descriptor() :: %{String.t() => any()}
+  @type detected_file_format_descriptor() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -302,20 +302,20 @@ defmodule AWS.LookoutMetrics do
       }
 
   """
-  @type detected_json_format_descriptor() :: %{String.t() => any()}
+  @type detected_json_format_descriptor() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_alerts_request() :: %{
-        optional("AnomalyDetectorArn") => String.t(),
+        optional("AnomalyDetectorArn") => String.t() | Atom.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_alerts_request() :: %{String.t() => any()}
+  @type list_alerts_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -323,35 +323,35 @@ defmodule AWS.LookoutMetrics do
 
       metric_set_dimension_filter() :: %{
         "FilterList" => list(filter()),
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type metric_set_dimension_filter() :: %{String.t() => any()}
+  @type metric_set_dimension_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       dimension_name_value() :: %{
-        "DimensionName" => String.t(),
-        "DimensionValue" => String.t()
+        "DimensionName" => String.t() | Atom.t(),
+        "DimensionValue" => String.t() | Atom.t()
       }
 
   """
-  @type dimension_name_value() :: %{String.t() => any()}
+  @type dimension_name_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       detect_metric_set_config_request() :: %{
-        required("AnomalyDetectorArn") => String.t(),
+        required("AnomalyDetectorArn") => String.t() | Atom.t(),
         required("AutoDetectionMetricSource") => auto_detection_metric_source()
       }
 
   """
-  @type detect_metric_set_config_request() :: %{String.t() => any()}
+  @type detect_metric_set_config_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -359,11 +359,11 @@ defmodule AWS.LookoutMetrics do
 
       cloud_watch_config() :: %{
         "BackTestConfiguration" => back_test_configuration(),
-        "RoleArn" => String.t()
+        "RoleArn" => String.t() | Atom.t()
       }
 
   """
-  @type cloud_watch_config() :: %{String.t() => any()}
+  @type cloud_watch_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -379,35 +379,35 @@ defmodule AWS.LookoutMetrics do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t())
+        required("TagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_requests_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_requests_exception() :: %{String.t() => any()}
+  @type too_many_requests_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       execution_status() :: %{
-        "FailureReason" => String.t(),
+        "FailureReason" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "Timestamp" => String.t()
+        "Timestamp" => String.t() | Atom.t()
       }
 
   """
-  @type execution_status() :: %{String.t() => any()}
+  @type execution_status() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -415,63 +415,63 @@ defmodule AWS.LookoutMetrics do
 
       list_anomaly_group_time_series_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("AnomalyDetectorArn") => String.t(),
-        required("AnomalyGroupId") => String.t(),
-        required("MetricName") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("AnomalyDetectorArn") => String.t() | Atom.t(),
+        required("AnomalyGroupId") => String.t() | Atom.t(),
+        required("MetricName") => String.t() | Atom.t()
       }
 
   """
-  @type list_anomaly_group_time_series_request() :: %{String.t() => any()}
+  @type list_anomaly_group_time_series_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       auto_detection_s3_source_config() :: %{
-        "HistoricalDataPathList" => list(String.t()),
-        "TemplatedPathList" => list(String.t())
+        "HistoricalDataPathList" => list(String.t() | Atom.t()),
+        "TemplatedPathList" => list(String.t() | Atom.t())
       }
 
   """
-  @type auto_detection_s3_source_config() :: %{String.t() => any()}
+  @type auto_detection_s3_source_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       json_format_descriptor() :: %{
-        "Charset" => String.t(),
+        "Charset" => String.t() | Atom.t(),
         "FileCompression" => list(any())
       }
 
   """
-  @type json_format_descriptor() :: %{String.t() => any()}
+  @type json_format_descriptor() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       anomaly_group_time_series_feedback() :: %{
-        "AnomalyGroupId" => String.t(),
+        "AnomalyGroupId" => String.t() | Atom.t(),
         "IsAnomaly" => boolean(),
-        "TimeSeriesId" => String.t()
+        "TimeSeriesId" => String.t() | Atom.t()
       }
 
   """
-  @type anomaly_group_time_series_feedback() :: %{String.t() => any()}
+  @type anomaly_group_time_series_feedback() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_sample_data_response() :: %{
-        "HeaderValues" => list(String.t()),
-        "SampleRows" => list(list(String.t())())
+        "HeaderValues" => list(String.t() | Atom.t()),
+        "SampleRows" => list(list(String.t() | Atom.t())())
       }
 
   """
-  @type get_sample_data_response() :: %{String.t() => any()}
+  @type get_sample_data_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -482,36 +482,36 @@ defmodule AWS.LookoutMetrics do
       }
 
   """
-  @type get_sample_data_request() :: %{String.t() => any()}
+  @type get_sample_data_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       redshift_source_config() :: %{
-        "ClusterIdentifier" => String.t(),
-        "DatabaseHost" => String.t(),
-        "DatabaseName" => String.t(),
+        "ClusterIdentifier" => String.t() | Atom.t(),
+        "DatabaseHost" => String.t() | Atom.t(),
+        "DatabaseName" => String.t() | Atom.t(),
         "DatabasePort" => integer(),
-        "RoleArn" => String.t(),
-        "SecretManagerArn" => String.t(),
-        "TableName" => String.t(),
+        "RoleArn" => String.t() | Atom.t(),
+        "SecretManagerArn" => String.t() | Atom.t(),
+        "TableName" => String.t() | Atom.t(),
         "VpcConfiguration" => vpc_configuration()
       }
 
   """
-  @type redshift_source_config() :: %{String.t() => any()}
+  @type redshift_source_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_metric_set_request() :: %{
-        required("MetricSetArn") => String.t()
+        required("MetricSetArn") => String.t() | Atom.t()
       }
 
   """
-  @type describe_metric_set_request() :: %{String.t() => any()}
+  @type describe_metric_set_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -519,14 +519,14 @@ defmodule AWS.LookoutMetrics do
 
       list_anomaly_group_related_metrics_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         optional("RelationshipTypeFilter") => list(any()),
-        required("AnomalyDetectorArn") => String.t(),
-        required("AnomalyGroupId") => String.t()
+        required("AnomalyDetectorArn") => String.t() | Atom.t(),
+        required("AnomalyGroupId") => String.t() | Atom.t()
       }
 
   """
-  @type list_anomaly_group_related_metrics_request() :: %{String.t() => any()}
+  @type list_anomaly_group_related_metrics_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -538,45 +538,45 @@ defmodule AWS.LookoutMetrics do
       }
 
   """
-  @type anomaly_detector_data_quality_metric() :: %{String.t() => any()}
+  @type anomaly_detector_data_quality_metric() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       timestamp_column() :: %{
-        "ColumnFormat" => String.t(),
-        "ColumnName" => String.t()
+        "ColumnFormat" => String.t() | Atom.t(),
+        "ColumnName" => String.t() | Atom.t()
       }
 
   """
-  @type timestamp_column() :: %{String.t() => any()}
+  @type timestamp_column() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => String.t(),
-        "ResourceId" => String.t(),
-        "ResourceType" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t(),
-        "ResourceId" => String.t(),
-        "ResourceType" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -587,7 +587,7 @@ defmodule AWS.LookoutMetrics do
       }
 
   """
-  @type back_test_configuration() :: %{String.t() => any()}
+  @type back_test_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -607,7 +607,7 @@ defmodule AWS.LookoutMetrics do
       }
 
   """
-  @type describe_alert_response() :: %{String.t() => any()}
+  @type describe_alert_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -615,11 +615,11 @@ defmodule AWS.LookoutMetrics do
 
       metric_set_data_quality_metric() :: %{
         "DataQualityMetricList" => list(data_quality_metric()),
-        "MetricSetArn" => String.t()
+        "MetricSetArn" => String.t() | Atom.t()
       }
 
   """
-  @type metric_set_data_quality_metric() :: %{String.t() => any()}
+  @type metric_set_data_quality_metric() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -635,43 +635,43 @@ defmodule AWS.LookoutMetrics do
       }
 
   """
-  @type metric_source() :: %{String.t() => any()}
+  @type metric_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_anomaly_detector_response() :: %{
-        "AnomalyDetectorArn" => String.t(),
+        "AnomalyDetectorArn" => String.t() | Atom.t(),
         "AnomalyDetectorConfig" => anomaly_detector_config_summary(),
-        "AnomalyDetectorDescription" => String.t(),
-        "AnomalyDetectorName" => String.t(),
+        "AnomalyDetectorDescription" => String.t() | Atom.t(),
+        "AnomalyDetectorName" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
-        "FailureReason" => String.t(),
+        "FailureReason" => String.t() | Atom.t(),
         "FailureType" => list(any()),
-        "KmsKeyArn" => String.t(),
+        "KmsKeyArn" => String.t() | Atom.t(),
         "LastModificationTime" => non_neg_integer(),
         "Status" => list(any())
       }
 
   """
-  @type describe_anomaly_detector_response() :: %{String.t() => any()}
+  @type describe_anomaly_detector_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       csv_format_descriptor() :: %{
-        "Charset" => String.t(),
+        "Charset" => String.t() | Atom.t(),
         "ContainsHeader" => boolean(),
-        "Delimiter" => String.t(),
+        "Delimiter" => String.t() | Atom.t(),
         "FileCompression" => list(any()),
-        "HeaderList" => list(String.t()),
-        "QuoteSymbol" => String.t()
+        "HeaderList" => list(String.t() | Atom.t()),
+        "QuoteSymbol" => String.t() | Atom.t()
       }
 
   """
-  @type csv_format_descriptor() :: %{String.t() => any()}
+  @type csv_format_descriptor() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -683,22 +683,22 @@ defmodule AWS.LookoutMetrics do
       }
 
   """
-  @type file_format_descriptor() :: %{String.t() => any()}
+  @type file_format_descriptor() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t(),
-        "QuotaCode" => String.t(),
-        "ResourceId" => String.t(),
-        "ResourceType" => String.t(),
-        "ServiceCode" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "QuotaCode" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | Atom.t(),
+        "ServiceCode" => String.t() | Atom.t()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -715,25 +715,25 @@ defmodule AWS.LookoutMetrics do
 
       sample_data_s3_source_config() :: %{
         "FileFormatDescriptor" => file_format_descriptor(),
-        "HistoricalDataPathList" => list(String.t()),
-        "RoleArn" => String.t(),
-        "TemplatedPathList" => list(String.t())
+        "HistoricalDataPathList" => list(String.t() | Atom.t()),
+        "RoleArn" => String.t() | Atom.t(),
+        "TemplatedPathList" => list(String.t() | Atom.t())
       }
 
   """
-  @type sample_data_s3_source_config() :: %{String.t() => any()}
+  @type sample_data_s3_source_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       app_flow_config() :: %{
-        "FlowName" => String.t(),
-        "RoleArn" => String.t()
+        "FlowName" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | Atom.t()
       }
 
   """
-  @type app_flow_config() :: %{String.t() => any()}
+  @type app_flow_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -742,41 +742,41 @@ defmodule AWS.LookoutMetrics do
       time_series() :: %{
         "DimensionList" => list(dimension_name_value()),
         "MetricValueList" => list(float()),
-        "TimeSeriesId" => String.t()
+        "TimeSeriesId" => String.t() | Atom.t()
       }
 
   """
-  @type time_series() :: %{String.t() => any()}
+  @type time_series() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       activate_anomaly_detector_request() :: %{
-        required("AnomalyDetectorArn") => String.t()
+        required("AnomalyDetectorArn") => String.t() | Atom.t()
       }
 
   """
-  @type activate_anomaly_detector_request() :: %{String.t() => any()}
+  @type activate_anomaly_detector_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       alert_summary() :: %{
-        "AlertArn" => String.t(),
-        "AlertName" => String.t(),
+        "AlertArn" => String.t() | Atom.t(),
+        "AlertName" => String.t() | Atom.t(),
         "AlertSensitivityThreshold" => integer(),
         "AlertStatus" => list(any()),
         "AlertType" => list(any()),
-        "AnomalyDetectorArn" => String.t(),
+        "AnomalyDetectorArn" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
         "LastModificationTime" => non_neg_integer(),
         "Tags" => map()
       }
 
   """
-  @type alert_summary() :: %{String.t() => any()}
+  @type alert_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -787,29 +787,29 @@ defmodule AWS.LookoutMetrics do
       }
 
   """
-  @type detected_s3_source_config() :: %{String.t() => any()}
+  @type detected_s3_source_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_alert_request() :: %{
-        required("AlertArn") => String.t()
+        required("AlertArn") => String.t() | Atom.t()
       }
 
   """
-  @type delete_alert_request() :: %{String.t() => any()}
+  @type delete_alert_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_alert_response() :: %{
-        "AlertArn" => String.t()
+        "AlertArn" => String.t() | Atom.t()
       }
 
   """
-  @type create_alert_response() :: %{String.t() => any()}
+  @type create_alert_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -817,13 +817,13 @@ defmodule AWS.LookoutMetrics do
 
       list_anomaly_group_summaries_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("AnomalyDetectorArn") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
+        required("AnomalyDetectorArn") => String.t() | Atom.t(),
         required("SensitivityThreshold") => integer()
       }
 
   """
-  @type list_anomaly_group_summaries_request() :: %{String.t() => any()}
+  @type list_anomaly_group_summaries_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -834,87 +834,87 @@ defmodule AWS.LookoutMetrics do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       itemized_metric_stats() :: %{
-        "MetricName" => String.t(),
+        "MetricName" => String.t() | Atom.t(),
         "OccurrenceCount" => integer()
       }
 
   """
-  @type itemized_metric_stats() :: %{String.t() => any()}
+  @type itemized_metric_stats() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "Message" => String.t(),
-        "Name" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_anomaly_detector_response() :: %{
-        "AnomalyDetectorArn" => String.t()
+        "AnomalyDetectorArn" => String.t() | Atom.t()
       }
 
   """
-  @type create_anomaly_detector_response() :: %{String.t() => any()}
+  @type create_anomaly_detector_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       attribute_value() :: %{
-        "B" => String.t(),
-        "BS" => list(String.t()),
-        "N" => String.t(),
-        "NS" => list(String.t()),
-        "S" => String.t(),
-        "SS" => list(String.t())
+        "B" => String.t() | Atom.t(),
+        "BS" => list(String.t() | Atom.t()),
+        "N" => String.t() | Atom.t(),
+        "NS" => list(String.t() | Atom.t()),
+        "S" => String.t() | Atom.t(),
+        "SS" => list(String.t() | Atom.t())
       }
 
   """
-  @type attribute_value() :: %{String.t() => any()}
+  @type attribute_value() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_alert_request() :: %{
-        optional("AlertDescription") => String.t(),
+        optional("AlertDescription") => String.t() | Atom.t(),
         optional("AlertFilters") => alert_filters(),
         optional("AlertSensitivityThreshold") => integer(),
         optional("Tags") => map(),
         required("Action") => action(),
-        required("AlertName") => String.t(),
-        required("AnomalyDetectorArn") => String.t()
+        required("AlertName") => String.t() | Atom.t(),
+        required("AnomalyDetectorArn") => String.t() | Atom.t()
       }
 
   """
-  @type create_alert_request() :: %{String.t() => any()}
+  @type create_alert_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       filter() :: %{
-        "DimensionValue" => String.t(),
+        "DimensionValue" => String.t() | Atom.t(),
         "FilterOperation" => list(any())
       }
 
   """
-  @type filter() :: %{String.t() => any()}
+  @type filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -922,11 +922,11 @@ defmodule AWS.LookoutMetrics do
 
       dimension_value_contribution() :: %{
         "ContributionScore" => float(),
-        "DimensionValue" => String.t()
+        "DimensionValue" => String.t() | Atom.t()
       }
 
   """
-  @type dimension_value_contribution() :: %{String.t() => any()}
+  @type dimension_value_contribution() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -934,25 +934,25 @@ defmodule AWS.LookoutMetrics do
 
       s3_source_config() :: %{
         "FileFormatDescriptor" => file_format_descriptor(),
-        "HistoricalDataPathList" => list(String.t()),
-        "RoleArn" => String.t(),
-        "TemplatedPathList" => list(String.t())
+        "HistoricalDataPathList" => list(String.t() | Atom.t()),
+        "RoleArn" => String.t() | Atom.t(),
+        "TemplatedPathList" => list(String.t() | Atom.t())
       }
 
   """
-  @type s3_source_config() :: %{String.t() => any()}
+  @type s3_source_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_anomaly_group_request() :: %{
-        required("AnomalyDetectorArn") => String.t(),
-        required("AnomalyGroupId") => String.t()
+        required("AnomalyDetectorArn") => String.t() | Atom.t(),
+        required("AnomalyGroupId") => String.t() | Atom.t()
       }
 
   """
-  @type get_anomaly_group_request() :: %{String.t() => any()}
+  @type get_anomaly_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -960,13 +960,13 @@ defmodule AWS.LookoutMetrics do
 
       get_feedback_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("AnomalyDetectorArn") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
+        required("AnomalyDetectorArn") => String.t() | Atom.t(),
         required("AnomalyGroupTimeSeriesFeedback") => anomaly_group_time_series()
       }
 
   """
-  @type get_feedback_request() :: %{String.t() => any()}
+  @type get_feedback_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -974,11 +974,11 @@ defmodule AWS.LookoutMetrics do
 
       list_anomaly_group_related_metrics_response() :: %{
         "InterMetricImpactList" => list(inter_metric_impact_details()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_anomaly_group_related_metrics_response() :: %{String.t() => any()}
+  @type list_anomaly_group_related_metrics_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -986,36 +986,36 @@ defmodule AWS.LookoutMetrics do
 
       athena_source_config() :: %{
         "BackTestConfiguration" => back_test_configuration(),
-        "DataCatalog" => String.t(),
-        "DatabaseName" => String.t(),
-        "RoleArn" => String.t(),
-        "S3ResultsPath" => String.t(),
-        "TableName" => String.t(),
-        "WorkGroupName" => String.t()
+        "DataCatalog" => String.t() | Atom.t(),
+        "DatabaseName" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | Atom.t(),
+        "S3ResultsPath" => String.t() | Atom.t(),
+        "TableName" => String.t() | Atom.t(),
+        "WorkGroupName" => String.t() | Atom.t()
       }
 
   """
-  @type athena_source_config() :: %{String.t() => any()}
+  @type athena_source_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       anomaly_detector_summary() :: %{
-        "AnomalyDetectorArn" => String.t(),
-        "AnomalyDetectorDescription" => String.t(),
-        "AnomalyDetectorName" => String.t(),
+        "AnomalyDetectorArn" => String.t() | Atom.t(),
+        "AnomalyDetectorDescription" => String.t() | Atom.t(),
+        "AnomalyDetectorName" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
         "LastModificationTime" => non_neg_integer(),
         "Status" => list(any()),
@@ -1023,25 +1023,25 @@ defmodule AWS.LookoutMetrics do
       }
 
   """
-  @type anomaly_detector_summary() :: %{String.t() => any()}
+  @type anomaly_detector_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       rds_source_config() :: %{
-        "DBInstanceIdentifier" => String.t(),
-        "DatabaseHost" => String.t(),
-        "DatabaseName" => String.t(),
+        "DBInstanceIdentifier" => String.t() | Atom.t(),
+        "DatabaseHost" => String.t() | Atom.t(),
+        "DatabaseName" => String.t() | Atom.t(),
         "DatabasePort" => integer(),
-        "RoleArn" => String.t(),
-        "SecretManagerArn" => String.t(),
-        "TableName" => String.t(),
+        "RoleArn" => String.t() | Atom.t(),
+        "SecretManagerArn" => String.t() | Atom.t(),
+        "TableName" => String.t() | Atom.t(),
         "VpcConfiguration" => vpc_configuration()
       }
 
   """
-  @type rds_source_config() :: %{String.t() => any()}
+  @type rds_source_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1052,7 +1052,7 @@ defmodule AWS.LookoutMetrics do
       }
 
   """
-  @type auto_detection_metric_source() :: %{String.t() => any()}
+  @type auto_detection_metric_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1064,22 +1064,22 @@ defmodule AWS.LookoutMetrics do
       }
 
   """
-  @type action() :: %{String.t() => any()}
+  @type action() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_anomaly_group_time_series_response() :: %{
-        "AnomalyGroupId" => String.t(),
-        "MetricName" => String.t(),
-        "NextToken" => String.t(),
+        "AnomalyGroupId" => String.t() | Atom.t(),
+        "MetricName" => String.t() | Atom.t(),
+        "NextToken" => String.t() | Atom.t(),
         "TimeSeriesList" => list(time_series()),
-        "TimestampList" => list(String.t())
+        "TimestampList" => list(String.t() | Atom.t())
       }
 
   """
-  @type list_anomaly_group_time_series_response() :: %{String.t() => any()}
+  @type list_anomaly_group_time_series_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1087,45 +1087,45 @@ defmodule AWS.LookoutMetrics do
 
       describe_anomaly_detection_executions_response() :: %{
         "ExecutionList" => list(execution_status()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type describe_anomaly_detection_executions_response() :: %{String.t() => any()}
+  @type describe_anomaly_detection_executions_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_metric_set_response() :: %{
-        "MetricSetArn" => String.t()
+        "MetricSetArn" => String.t() | Atom.t()
       }
 
   """
-  @type update_metric_set_response() :: %{String.t() => any()}
+  @type update_metric_set_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       lambda_configuration() :: %{
-        "LambdaArn" => String.t(),
-        "RoleArn" => String.t()
+        "LambdaArn" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | Atom.t()
       }
 
   """
-  @type lambda_configuration() :: %{String.t() => any()}
+  @type lambda_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1141,13 +1141,13 @@ defmodule AWS.LookoutMetrics do
   ## Example:
 
       s_n_s_configuration() :: %{
-        "RoleArn" => String.t(),
+        "RoleArn" => String.t() | Atom.t(),
         "SnsFormat" => list(any()),
-        "SnsTopicArn" => String.t()
+        "SnsTopicArn" => String.t() | Atom.t()
       }
 
   """
-  @type s_n_s_configuration() :: %{String.t() => any()}
+  @type s_n_s_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1155,11 +1155,11 @@ defmodule AWS.LookoutMetrics do
 
       get_feedback_response() :: %{
         "AnomalyGroupTimeSeriesFeedback" => list(time_series_feedback()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type get_feedback_response() :: %{String.t() => any()}
+  @type get_feedback_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1170,7 +1170,7 @@ defmodule AWS.LookoutMetrics do
       }
 
   """
-  @type get_anomaly_group_response() :: %{String.t() => any()}
+  @type get_anomaly_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1186,24 +1186,24 @@ defmodule AWS.LookoutMetrics do
   ## Example:
 
       describe_metric_set_response() :: %{
-        "AnomalyDetectorArn" => String.t(),
+        "AnomalyDetectorArn" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
         "DimensionFilterList" => list(metric_set_dimension_filter()),
-        "DimensionList" => list(String.t()),
+        "DimensionList" => list(String.t() | Atom.t()),
         "LastModificationTime" => non_neg_integer(),
         "MetricList" => list(metric()),
-        "MetricSetArn" => String.t(),
-        "MetricSetDescription" => String.t(),
+        "MetricSetArn" => String.t() | Atom.t(),
+        "MetricSetDescription" => String.t() | Atom.t(),
         "MetricSetFrequency" => list(any()),
-        "MetricSetName" => String.t(),
+        "MetricSetName" => String.t() | Atom.t(),
         "MetricSource" => metric_source(),
         "Offset" => integer(),
         "TimestampColumn" => timestamp_column(),
-        "Timezone" => String.t()
+        "Timezone" => String.t() | Atom.t()
       }
 
   """
-  @type describe_metric_set_response() :: %{String.t() => any()}
+  @type describe_metric_set_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1214,7 +1214,7 @@ defmodule AWS.LookoutMetrics do
       }
 
   """
-  @type contribution_matrix() :: %{String.t() => any()}
+  @type contribution_matrix() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1227,7 +1227,7 @@ defmodule AWS.LookoutMetrics do
       }
 
   """
-  @type detected_metric_set_config() :: %{String.t() => any()}
+  @type detected_metric_set_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1235,12 +1235,12 @@ defmodule AWS.LookoutMetrics do
 
       validation_exception() :: %{
         "Fields" => list(validation_exception_field()),
-        "Message" => String.t(),
+        "Message" => String.t() | Atom.t(),
         "Reason" => list(any())
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1257,22 +1257,22 @@ defmodule AWS.LookoutMetrics do
 
       list_anomaly_detectors_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_anomaly_detectors_request() :: %{String.t() => any()}
+  @type list_anomaly_detectors_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_anomaly_detector_request() :: %{
-        required("AnomalyDetectorArn") => String.t()
+        required("AnomalyDetectorArn") => String.t() | Atom.t()
       }
 
   """
-  @type delete_anomaly_detector_request() :: %{String.t() => any()}
+  @type delete_anomaly_detector_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1280,43 +1280,43 @@ defmodule AWS.LookoutMetrics do
 
       alert() :: %{
         "Action" => action(),
-        "AlertArn" => String.t(),
-        "AlertDescription" => String.t(),
+        "AlertArn" => String.t() | Atom.t(),
+        "AlertDescription" => String.t() | Atom.t(),
         "AlertFilters" => alert_filters(),
-        "AlertName" => String.t(),
+        "AlertName" => String.t() | Atom.t(),
         "AlertSensitivityThreshold" => integer(),
         "AlertStatus" => list(any()),
         "AlertType" => list(any()),
-        "AnomalyDetectorArn" => String.t(),
+        "AnomalyDetectorArn" => String.t() | Atom.t(),
         "CreationTime" => non_neg_integer(),
         "LastModificationTime" => non_neg_integer()
       }
 
   """
-  @type alert() :: %{String.t() => any()}
+  @type alert() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_metric_set_response() :: %{
-        "MetricSetArn" => String.t()
+        "MetricSetArn" => String.t() | Atom.t()
       }
 
   """
-  @type create_metric_set_response() :: %{String.t() => any()}
+  @type create_metric_set_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_data_quality_metrics_request() :: %{
-        optional("MetricSetArn") => String.t(),
-        required("AnomalyDetectorArn") => String.t()
+        optional("MetricSetArn") => String.t() | Atom.t(),
+        required("AnomalyDetectorArn") => String.t() | Atom.t()
       }
 
   """
-  @type get_data_quality_metrics_request() :: %{String.t() => any()}
+  @type get_data_quality_metrics_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1324,11 +1324,11 @@ defmodule AWS.LookoutMetrics do
 
       alert_filters() :: %{
         "DimensionFilterList" => list(dimension_filter()),
-        "MetricList" => list(String.t())
+        "MetricList" => list(String.t() | Atom.t())
       }
 
   """
-  @type alert_filters() :: %{String.t() => any()}
+  @type alert_filters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1339,7 +1339,7 @@ defmodule AWS.LookoutMetrics do
       }
 
   """
-  @type detected_metric_source() :: %{String.t() => any()}
+  @type detected_metric_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1347,13 +1347,13 @@ defmodule AWS.LookoutMetrics do
 
       update_anomaly_detector_request() :: %{
         optional("AnomalyDetectorConfig") => anomaly_detector_config(),
-        optional("AnomalyDetectorDescription") => String.t(),
-        optional("KmsKeyArn") => String.t(),
-        required("AnomalyDetectorArn") => String.t()
+        optional("AnomalyDetectorDescription") => String.t() | Atom.t(),
+        optional("KmsKeyArn") => String.t() | Atom.t(),
+        required("AnomalyDetectorArn") => String.t() | Atom.t()
       }
 
   """
-  @type update_anomaly_detector_request() :: %{String.t() => any()}
+  @type update_anomaly_detector_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1361,13 +1361,13 @@ defmodule AWS.LookoutMetrics do
 
       describe_anomaly_detection_executions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("Timestamp") => String.t(),
-        required("AnomalyDetectorArn") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        optional("Timestamp") => String.t() | Atom.t(),
+        required("AnomalyDetectorArn") => String.t() | Atom.t()
       }
 
   """
-  @type describe_anomaly_detection_executions_request() :: %{String.t() => any()}
+  @type describe_anomaly_detection_executions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1375,26 +1375,26 @@ defmodule AWS.LookoutMetrics do
 
       list_alerts_response() :: %{
         "AlertSummaryList" => list(alert_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_alerts_response() :: %{String.t() => any()}
+  @type list_alerts_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       anomaly_group_summary() :: %{
-        "AnomalyGroupId" => String.t(),
+        "AnomalyGroupId" => String.t() | Atom.t(),
         "AnomalyGroupScore" => float(),
-        "EndTime" => String.t(),
-        "PrimaryMetricName" => String.t(),
-        "StartTime" => String.t()
+        "EndTime" => String.t() | Atom.t(),
+        "PrimaryMetricName" => String.t() | Atom.t(),
+        "StartTime" => String.t() | Atom.t()
       }
 
   """
-  @type anomaly_group_summary() :: %{String.t() => any()}
+  @type anomaly_group_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1402,11 +1402,11 @@ defmodule AWS.LookoutMetrics do
 
       list_anomaly_detectors_response() :: %{
         "AnomalyDetectorSummaryList" => list(anomaly_detector_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_anomaly_detectors_response() :: %{String.t() => any()}
+  @type list_anomaly_detectors_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1414,35 +1414,35 @@ defmodule AWS.LookoutMetrics do
 
       time_series_feedback() :: %{
         "IsAnomaly" => boolean(),
-        "TimeSeriesId" => String.t()
+        "TimeSeriesId" => String.t() | Atom.t()
       }
 
   """
-  @type time_series_feedback() :: %{String.t() => any()}
+  @type time_series_feedback() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       anomaly_group_statistics() :: %{
-        "EvaluationStartDate" => String.t(),
+        "EvaluationStartDate" => String.t() | Atom.t(),
         "ItemizedMetricStatsList" => list(itemized_metric_stats()),
         "TotalCount" => integer()
       }
 
   """
-  @type anomaly_group_statistics() :: %{String.t() => any()}
+  @type anomaly_group_statistics() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_alert_response() :: %{
-        "AlertArn" => String.t()
+        "AlertArn" => String.t() | Atom.t()
       }
 
   """
-  @type update_alert_response() :: %{String.t() => any()}
+  @type update_alert_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1450,25 +1450,25 @@ defmodule AWS.LookoutMetrics do
 
       update_alert_request() :: %{
         optional("Action") => action(),
-        optional("AlertDescription") => String.t(),
+        optional("AlertDescription") => String.t() | Atom.t(),
         optional("AlertFilters") => alert_filters(),
         optional("AlertSensitivityThreshold") => integer(),
-        required("AlertArn") => String.t()
+        required("AlertArn") => String.t() | Atom.t()
       }
 
   """
-  @type update_alert_request() :: %{String.t() => any()}
+  @type update_alert_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       back_test_anomaly_detector_request() :: %{
-        required("AnomalyDetectorArn") => String.t()
+        required("AnomalyDetectorArn") => String.t() | Atom.t()
       }
 
   """
-  @type back_test_anomaly_detector_request() :: %{String.t() => any()}
+  @type back_test_anomaly_detector_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1476,39 +1476,39 @@ defmodule AWS.LookoutMetrics do
 
       metric_level_impact() :: %{
         "ContributionMatrix" => contribution_matrix(),
-        "MetricName" => String.t(),
+        "MetricName" => String.t() | Atom.t(),
         "NumTimeSeries" => integer()
       }
 
   """
-  @type metric_level_impact() :: %{String.t() => any()}
+  @type metric_level_impact() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       dimension_filter() :: %{
-        "DimensionName" => String.t(),
-        "DimensionValueList" => list(String.t())
+        "DimensionName" => String.t() | Atom.t(),
+        "DimensionValueList" => list(String.t() | Atom.t())
       }
 
   """
-  @type dimension_filter() :: %{String.t() => any()}
+  @type dimension_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_anomaly_detector_request() :: %{
-        optional("AnomalyDetectorDescription") => String.t(),
-        optional("KmsKeyArn") => String.t(),
+        optional("AnomalyDetectorDescription") => String.t() | Atom.t(),
+        optional("KmsKeyArn") => String.t() | Atom.t(),
         optional("Tags") => map(),
         required("AnomalyDetectorConfig") => anomaly_detector_config(),
-        required("AnomalyDetectorName") => String.t()
+        required("AnomalyDetectorName") => String.t() | Atom.t()
       }
 
   """
-  @type create_anomaly_detector_request() :: %{String.t() => any()}
+  @type create_anomaly_detector_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1528,7 +1528,7 @@ defmodule AWS.LookoutMetrics do
       }
 
   """
-  @type anomaly_detector_config() :: %{String.t() => any()}
+  @type anomaly_detector_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1536,21 +1536,21 @@ defmodule AWS.LookoutMetrics do
 
       create_metric_set_request() :: %{
         optional("DimensionFilterList") => list(metric_set_dimension_filter()),
-        optional("DimensionList") => list(String.t()),
-        optional("MetricSetDescription") => String.t(),
+        optional("DimensionList") => list(String.t() | Atom.t()),
+        optional("MetricSetDescription") => String.t() | Atom.t(),
         optional("MetricSetFrequency") => list(any()),
         optional("Offset") => integer(),
         optional("Tags") => map(),
         optional("TimestampColumn") => timestamp_column(),
-        optional("Timezone") => String.t(),
-        required("AnomalyDetectorArn") => String.t(),
+        optional("Timezone") => String.t() | Atom.t(),
+        required("AnomalyDetectorArn") => String.t() | Atom.t(),
         required("MetricList") => list(metric()),
-        required("MetricSetName") => String.t(),
+        required("MetricSetName") => String.t() | Atom.t(),
         required("MetricSource") => metric_source()
       }
 
   """
-  @type create_metric_set_request() :: %{String.t() => any()}
+  @type create_metric_set_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1561,43 +1561,43 @@ defmodule AWS.LookoutMetrics do
       }
 
   """
-  @type detect_metric_set_config_response() :: %{String.t() => any()}
+  @type detect_metric_set_config_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_anomaly_detector_request() :: %{
-        required("AnomalyDetectorArn") => String.t()
+        required("AnomalyDetectorArn") => String.t() | Atom.t()
       }
 
   """
-  @type describe_anomaly_detector_request() :: %{String.t() => any()}
+  @type describe_anomaly_detector_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_anomaly_detector_response() :: %{
-        "AnomalyDetectorArn" => String.t()
+        "AnomalyDetectorArn" => String.t() | Atom.t()
       }
 
   """
-  @type update_anomaly_detector_response() :: %{String.t() => any()}
+  @type update_anomaly_detector_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       data_quality_metric() :: %{
-        "MetricDescription" => String.t(),
+        "MetricDescription" => String.t() | Atom.t(),
         "MetricType" => list(any()),
         "MetricValue" => float(),
-        "RelatedColumnName" => String.t()
+        "RelatedColumnName" => String.t() | Atom.t()
       }
 
   """
-  @type data_quality_metric() :: %{String.t() => any()}
+  @type data_quality_metric() :: %{String.t() | Atom.t() => any()}
 
   @type activate_anomaly_detector_errors() ::
           validation_exception()
@@ -2537,7 +2537,7 @@ defmodule AWS.LookoutMetrics do
   [tags](https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html)
   for a detector, dataset, or alert.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2586,7 +2586,7 @@ defmodule AWS.LookoutMetrics do
   [tags](https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html)
   to a detector, dataset, or alert.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2617,7 +2617,7 @@ defmodule AWS.LookoutMetrics do
   [tags](https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html)
   from a detector, dataset, or alert.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

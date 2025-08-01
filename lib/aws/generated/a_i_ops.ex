@@ -23,22 +23,22 @@ defmodule AWS.AIOps do
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -50,36 +50,36 @@ defmodule AWS.AIOps do
         optional("encryptionConfiguration") => encryption_configuration(),
         optional("isCloudTrailEventHistoryEnabled") => [boolean()],
         optional("retentionInDays") => float(),
-        optional("tagKeyBoundaries") => list(String.t()),
+        optional("tagKeyBoundaries") => list(String.t() | Atom.t()),
         optional("tags") => map(),
-        required("name") => String.t(),
-        required("roleArn") => String.t()
+        required("name") => String.t() | Atom.t(),
+        required("roleArn") => String.t() | Atom.t()
       }
 
   """
-  @type create_investigation_group_input() :: %{String.t() => any()}
+  @type create_investigation_group_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_investigation_group_output() :: %{
-        "arn" => String.t()
+        "arn" => String.t() | Atom.t()
       }
 
   """
-  @type create_investigation_group_output() :: %{String.t() => any()}
+  @type create_investigation_group_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cross_account_configuration() :: %{
-        "sourceRoleArn" => String.t()
+        "sourceRoleArn" => String.t() | Atom.t()
       }
 
   """
-  @type cross_account_configuration() :: %{String.t() => any()}
+  @type cross_account_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -113,23 +113,23 @@ defmodule AWS.AIOps do
   ## Example:
 
       encryption_configuration() :: %{
-        "kmsKeyId" => String.t(),
+        "kmsKeyId" => String.t() | Atom.t(),
         "type" => list(any())
       }
 
   """
-  @type encryption_configuration() :: %{String.t() => any()}
+  @type encryption_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       forbidden_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type forbidden_exception() :: %{String.t() => any()}
+  @type forbidden_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -145,12 +145,12 @@ defmodule AWS.AIOps do
   ## Example:
 
       get_investigation_group_policy_response() :: %{
-        "investigationGroupArn" => String.t(),
-        "policy" => String.t()
+        "investigationGroupArn" => String.t() | Atom.t(),
+        "policy" => String.t() | Atom.t()
       }
 
   """
-  @type get_investigation_group_policy_response() :: %{String.t() => any()}
+  @type get_investigation_group_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -166,34 +166,34 @@ defmodule AWS.AIOps do
   ## Example:
 
       get_investigation_group_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | Atom.t(),
         "chatbotNotificationChannel" => map(),
         "createdAt" => [non_neg_integer()],
-        "createdBy" => String.t(),
+        "createdBy" => String.t() | Atom.t(),
         "crossAccountConfigurations" => list(cross_account_configuration()),
         "encryptionConfiguration" => encryption_configuration(),
         "isCloudTrailEventHistoryEnabled" => [boolean()],
         "lastModifiedAt" => [non_neg_integer()],
-        "lastModifiedBy" => String.t(),
-        "name" => String.t(),
+        "lastModifiedBy" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t(),
         "retentionInDays" => float(),
-        "roleArn" => String.t(),
-        "tagKeyBoundaries" => list(String.t())
+        "roleArn" => String.t() | Atom.t(),
+        "tagKeyBoundaries" => list(String.t() | Atom.t())
       }
 
   """
-  @type get_investigation_group_response() :: %{String.t() => any()}
+  @type get_investigation_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -201,23 +201,23 @@ defmodule AWS.AIOps do
 
       list_investigation_groups_input() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | Atom.t()
       }
 
   """
-  @type list_investigation_groups_input() :: %{String.t() => any()}
+  @type list_investigation_groups_input() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_investigation_groups_model() :: %{
-        "arn" => String.t(),
-        "name" => String.t()
+        "arn" => String.t() | Atom.t(),
+        "name" => String.t() | Atom.t()
       }
 
   """
-  @type list_investigation_groups_model() :: %{String.t() => any()}
+  @type list_investigation_groups_model() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -225,11 +225,11 @@ defmodule AWS.AIOps do
 
       list_investigation_groups_output() :: %{
         "investigationGroups" => list(list_investigation_groups_model()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | Atom.t()
       }
 
   """
-  @type list_investigation_groups_output() :: %{String.t() => any()}
+  @type list_investigation_groups_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -240,7 +240,7 @@ defmodule AWS.AIOps do
       }
 
   """
-  @type list_tags_for_resource_output() :: %{String.t() => any()}
+  @type list_tags_for_resource_output() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -256,48 +256,48 @@ defmodule AWS.AIOps do
   ## Example:
 
       put_investigation_group_policy_request() :: %{
-        required("policy") => String.t()
+        required("policy") => String.t() | Atom.t()
       }
 
   """
-  @type put_investigation_group_policy_request() :: %{String.t() => any()}
+  @type put_investigation_group_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       put_investigation_group_policy_response() :: %{
-        "investigationGroupArn" => String.t()
+        "investigationGroupArn" => String.t() | Atom.t()
       }
 
   """
-  @type put_investigation_group_policy_response() :: %{String.t() => any()}
+  @type put_investigation_group_policy_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t()],
-        "quotaCode" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()],
-        "serviceCode" => [String.t()]
+        "message" => [String.t() | Atom.t()],
+        "quotaCode" => [String.t() | Atom.t()],
+        "resourceId" => [String.t() | Atom.t()],
+        "resourceType" => [String.t() | Atom.t()],
+        "serviceCode" => [String.t() | Atom.t()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -308,7 +308,7 @@ defmodule AWS.AIOps do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -324,22 +324,22 @@ defmodule AWS.AIOps do
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | Atom.t())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -368,23 +368,23 @@ defmodule AWS.AIOps do
         optional("crossAccountConfigurations") => list(cross_account_configuration()),
         optional("encryptionConfiguration") => encryption_configuration(),
         optional("isCloudTrailEventHistoryEnabled") => [boolean()],
-        optional("roleArn") => String.t(),
-        optional("tagKeyBoundaries") => list(String.t())
+        optional("roleArn") => String.t() | Atom.t(),
+        optional("tagKeyBoundaries") => list(String.t() | Atom.t())
       }
 
   """
-  @type update_investigation_group_request() :: %{String.t() => any()}
+  @type update_investigation_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | Atom.t()]
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @type create_investigation_group_errors() ::
           validation_exception()
@@ -550,7 +550,7 @@ defmodule AWS.AIOps do
   """
   @spec delete_investigation_group(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_investigation_group_request(),
           list()
         ) ::
@@ -585,7 +585,7 @@ defmodule AWS.AIOps do
   """
   @spec delete_investigation_group_policy(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_investigation_group_policy_request(),
           list()
         ) ::
@@ -617,7 +617,7 @@ defmodule AWS.AIOps do
   @doc """
   Returns the configuration information for the specified investigation group.
   """
-  @spec get_investigation_group(map(), String.t(), list()) ::
+  @spec get_investigation_group(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_investigation_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -636,7 +636,7 @@ defmodule AWS.AIOps do
   Returns the IAM resource policy that is associated with the specified
   investigation group.
   """
-  @spec get_investigation_group_policy(map(), String.t(), list()) ::
+  @spec get_investigation_group_policy(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_investigation_group_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -654,7 +654,12 @@ defmodule AWS.AIOps do
   @doc """
   Returns the ARN and name of each investigation group in the account.
   """
-  @spec list_investigation_groups(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_investigation_groups(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_investigation_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -693,7 +698,7 @@ defmodule AWS.AIOps do
 
   Currently, investigation groups support tagging.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -725,7 +730,7 @@ defmodule AWS.AIOps do
   """
   @spec put_investigation_group_policy(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           put_investigation_group_policy_request(),
           list()
         ) ::
@@ -766,7 +771,7 @@ defmodule AWS.AIOps do
 
   You can associate as many as 50 tags with a resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -795,7 +800,7 @@ defmodule AWS.AIOps do
   @doc """
   Removes one or more tags from the specified resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -831,7 +836,7 @@ defmodule AWS.AIOps do
   """
   @spec update_investigation_group(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_investigation_group_request(),
           list()
         ) ::

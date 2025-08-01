@@ -63,12 +63,12 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       create_user_pool_domain_response() :: %{
-        "CloudFrontDomain" => String.t(),
+        "CloudFrontDomain" => String.t() | Atom.t(),
         "ManagedLoginVersion" => integer()
       }
       
   """
-  @type create_user_pool_domain_response() :: %{String.t() => any()}
+  @type create_user_pool_domain_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -84,16 +84,16 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       authentication_result_type() :: %{
-        "AccessToken" => String.t(),
+        "AccessToken" => String.t() | Atom.t(),
         "ExpiresIn" => integer(),
-        "IdToken" => String.t(),
+        "IdToken" => String.t() | Atom.t(),
         "NewDeviceMetadata" => new_device_metadata_type(),
-        "RefreshToken" => String.t(),
-        "TokenType" => String.t()
+        "RefreshToken" => String.t() | Atom.t(),
+        "TokenType" => String.t() | Atom.t()
       }
       
   """
-  @type authentication_result_type() :: %{String.t() => any()}
+  @type authentication_result_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -118,22 +118,22 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       analytics_metadata_type() :: %{
-        "AnalyticsEndpointId" => String.t()
+        "AnalyticsEndpointId" => String.t() | Atom.t()
       }
       
   """
-  @type analytics_metadata_type() :: %{String.t() => any()}
+  @type analytics_metadata_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       user_import_in_progress_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type user_import_in_progress_exception() :: %{String.t() => any()}
+  @type user_import_in_progress_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -143,26 +143,26 @@ defmodule AWS.CognitoIdentityProvider do
         optional("AnalyticsMetadata") => analytics_metadata_type(),
         optional("AuthParameters") => map(),
         optional("ClientMetadata") => map(),
-        optional("Session") => String.t(),
+        optional("Session") => String.t() | Atom.t(),
         optional("UserContextData") => user_context_data_type(),
         required("AuthFlow") => list(any()),
-        required("ClientId") => String.t()
+        required("ClientId") => String.t() | Atom.t()
       }
       
   """
-  @type initiate_auth_request() :: %{String.t() => any()}
+  @type initiate_auth_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       complete_web_authn_registration_request() :: %{
-        required("AccessToken") => String.t(),
+        required("AccessToken") => String.t() | Atom.t(),
         required("Credential") => any()
       }
       
   """
-  @type complete_web_authn_registration_request() :: %{String.t() => any()}
+  @type complete_web_authn_registration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -187,11 +187,11 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       web_authn_challenge_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type web_authn_challenge_not_found_exception() :: %{String.t() => any()}
+  @type web_authn_challenge_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -199,12 +199,12 @@ defmodule AWS.CognitoIdentityProvider do
       
       list_devices_request() :: %{
         optional("Limit") => integer(),
-        optional("PaginationToken") => String.t(),
-        required("AccessToken") => String.t()
+        optional("PaginationToken") => String.t() | Atom.t(),
+        required("AccessToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_devices_request() :: %{String.t() => any()}
+  @type list_devices_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -217,82 +217,82 @@ defmodule AWS.CognitoIdentityProvider do
         optional("DeletionProtection") => list(any()),
         optional("DeviceConfiguration") => device_configuration_type(),
         optional("EmailConfiguration") => email_configuration_type(),
-        optional("EmailVerificationMessage") => String.t(),
-        optional("EmailVerificationSubject") => String.t(),
+        optional("EmailVerificationMessage") => String.t() | Atom.t(),
+        optional("EmailVerificationSubject") => String.t() | Atom.t(),
         optional("LambdaConfig") => lambda_config_type(),
         optional("MfaConfiguration") => list(any()),
         optional("Policies") => user_pool_policy_type(),
-        optional("PoolName") => String.t(),
-        optional("SmsAuthenticationMessage") => String.t(),
+        optional("PoolName") => String.t() | Atom.t(),
+        optional("SmsAuthenticationMessage") => String.t() | Atom.t(),
         optional("SmsConfiguration") => sms_configuration_type(),
-        optional("SmsVerificationMessage") => String.t(),
+        optional("SmsVerificationMessage") => String.t() | Atom.t(),
         optional("UserAttributeUpdateSettings") => user_attribute_update_settings_type(),
         optional("UserPoolAddOns") => user_pool_add_ons_type(),
         optional("UserPoolTags") => map(),
         optional("UserPoolTier") => list(any()),
         optional("VerificationMessageTemplate") => verification_message_template_type(),
-        required("UserPoolId") => String.t()
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type update_user_pool_request() :: %{String.t() => any()}
+  @type update_user_pool_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_csv_header_request() :: %{
-        required("UserPoolId") => String.t()
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type get_csv_header_request() :: %{String.t() => any()}
+  @type get_csv_header_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       unsupported_token_type_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type unsupported_token_type_exception() :: %{String.t() => any()}
+  @type unsupported_token_type_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_failed_attempts_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type too_many_failed_attempts_exception() :: %{String.t() => any()}
+  @type too_many_failed_attempts_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
+        required("ResourceArn") => String.t() | Atom.t(),
         required("Tags") => map()
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_user_attributes_request() :: %{
-        required("AccessToken") => String.t(),
-        required("UserAttributeNames") => list(String.t())
+        required("AccessToken") => String.t() | Atom.t(),
+        required("UserAttributeNames") => list(String.t() | Atom.t())
       }
       
   """
-  @type delete_user_attributes_request() :: %{String.t() => any()}
+  @type delete_user_attributes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -303,22 +303,22 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type update_user_attributes_response() :: %{String.t() => any()}
+  @type update_user_attributes_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       event_context_data_type() :: %{
-        "City" => String.t(),
-        "Country" => String.t(),
-        "DeviceName" => String.t(),
-        "IpAddress" => String.t(),
-        "Timezone" => String.t()
+        "City" => String.t() | Atom.t(),
+        "Country" => String.t() | Atom.t(),
+        "DeviceName" => String.t() | Atom.t(),
+        "IpAddress" => String.t() | Atom.t(),
+        "Timezone" => String.t() | Atom.t()
       }
       
   """
-  @type event_context_data_type() :: %{String.t() => any()}
+  @type event_context_data_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -326,34 +326,34 @@ defmodule AWS.CognitoIdentityProvider do
       
       describe_managed_login_branding_request() :: %{
         optional("ReturnMergedResources") => boolean(),
-        required("ManagedLoginBrandingId") => String.t(),
-        required("UserPoolId") => String.t()
+        required("ManagedLoginBrandingId") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_managed_login_branding_request() :: %{String.t() => any()}
+  @type describe_managed_login_branding_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_configuration_type() :: %{
-        "BucketArn" => String.t()
+        "BucketArn" => String.t() | Atom.t()
       }
       
   """
-  @type s3_configuration_type() :: %{String.t() => any()}
+  @type s3_configuration_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       user_not_confirmed_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type user_not_confirmed_exception() :: %{String.t() => any()}
+  @type user_not_confirmed_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -361,36 +361,36 @@ defmodule AWS.CognitoIdentityProvider do
       
       list_identity_providers_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("UserPoolId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type list_identity_providers_request() :: %{String.t() => any()}
+  @type list_identity_providers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       user_pool_client_description() :: %{
-        "ClientId" => String.t(),
-        "ClientName" => String.t(),
-        "UserPoolId" => String.t()
+        "ClientId" => String.t() | Atom.t(),
+        "ClientName" => String.t() | Atom.t(),
+        "UserPoolId" => String.t() | Atom.t()
       }
       
   """
-  @type user_pool_client_description() :: %{String.t() => any()}
+  @type user_pool_client_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       unsupported_operation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type unsupported_operation_exception() :: %{String.t() => any()}
+  @type unsupported_operation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -401,53 +401,53 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type advanced_security_additional_flows_type() :: %{String.t() => any()}
+  @type advanced_security_additional_flows_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_server_scope_type() :: %{
-        "ScopeDescription" => String.t(),
-        "ScopeName" => String.t()
+        "ScopeDescription" => String.t() | Atom.t(),
+        "ScopeName" => String.t() | Atom.t()
       }
       
   """
-  @type resource_server_scope_type() :: %{String.t() => any()}
+  @type resource_server_scope_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_email_role_access_policy_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_email_role_access_policy_exception() :: %{String.t() => any()}
+  @type invalid_email_role_access_policy_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       unauthorized_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type unauthorized_exception() :: %{String.t() => any()}
+  @type unauthorized_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_csv_header_response() :: %{
-        "CSVHeader" => list(String.t()),
-        "UserPoolId" => String.t()
+        "CSVHeader" => list(String.t() | Atom.t()),
+        "UserPoolId" => String.t() | Atom.t()
       }
       
   """
-  @type get_csv_header_response() :: %{String.t() => any()}
+  @type get_csv_header_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -455,11 +455,11 @@ defmodule AWS.CognitoIdentityProvider do
       
       set_log_delivery_configuration_request() :: %{
         required("LogConfigurations") => list(log_configuration_type()),
-        required("UserPoolId") => String.t()
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type set_log_delivery_configuration_request() :: %{String.t() => any()}
+  @type set_log_delivery_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -470,52 +470,52 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type update_identity_provider_response() :: %{String.t() => any()}
+  @type update_identity_provider_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_identity_provider_request() :: %{
-        required("ProviderName") => String.t(),
-        required("UserPoolId") => String.t()
+        required("ProviderName") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_identity_provider_request() :: %{String.t() => any()}
+  @type describe_identity_provider_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       unsupported_user_state_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type unsupported_user_state_exception() :: %{String.t() => any()}
+  @type unsupported_user_state_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       password_history_policy_violation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type password_history_policy_violation_exception() :: %{String.t() => any()}
+  @type password_history_policy_violation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       confirm_sign_up_response() :: %{
-        "Session" => String.t()
+        "Session" => String.t() | Atom.t()
       }
       
   """
-  @type confirm_sign_up_response() :: %{String.t() => any()}
+  @type confirm_sign_up_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -523,13 +523,13 @@ defmodule AWS.CognitoIdentityProvider do
       
       get_user_auth_factors_response() :: %{
         "ConfiguredUserAuthFactors" => list(list(any())()),
-        "PreferredMfaSetting" => String.t(),
-        "UserMFASettingList" => list(String.t()),
-        "Username" => String.t()
+        "PreferredMfaSetting" => String.t() | Atom.t(),
+        "UserMFASettingList" => list(String.t() | Atom.t()),
+        "Username" => String.t() | Atom.t()
       }
       
   """
-  @type get_user_auth_factors_response() :: %{String.t() => any()}
+  @type get_user_auth_factors_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -538,12 +538,12 @@ defmodule AWS.CognitoIdentityProvider do
       create_user_pool_domain_request() :: %{
         optional("CustomDomainConfig") => custom_domain_config_type(),
         optional("ManagedLoginVersion") => integer(),
-        required("Domain") => String.t(),
-        required("UserPoolId") => String.t()
+        required("Domain") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type create_user_pool_domain_request() :: %{String.t() => any()}
+  @type create_user_pool_domain_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -553,23 +553,23 @@ defmodule AWS.CognitoIdentityProvider do
         "AuthenticationResult" => authentication_result_type(),
         "ChallengeName" => list(any()),
         "ChallengeParameters" => map(),
-        "Session" => String.t()
+        "Session" => String.t() | Atom.t()
       }
       
   """
-  @type admin_respond_to_auth_challenge_response() :: %{String.t() => any()}
+  @type admin_respond_to_auth_challenge_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_user_pool_domain_response() :: %{
-        "CloudFrontDomain" => String.t(),
+        "CloudFrontDomain" => String.t() | Atom.t(),
         "ManagedLoginVersion" => integer()
       }
       
   """
-  @type update_user_pool_domain_response() :: %{String.t() => any()}
+  @type update_user_pool_domain_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -589,15 +589,15 @@ defmodule AWS.CognitoIdentityProvider do
         optional("DesiredDeliveryMediums") => list(list(any())()),
         optional("ForceAliasCreation") => boolean(),
         optional("MessageAction") => list(any()),
-        optional("TemporaryPassword") => String.t(),
+        optional("TemporaryPassword") => String.t() | Atom.t(),
         optional("UserAttributes") => list(attribute_type()),
         optional("ValidationData") => list(attribute_type()),
-        required("UserPoolId") => String.t(),
-        required("Username") => String.t()
+        required("UserPoolId") => String.t() | Atom.t(),
+        required("Username") => String.t() | Atom.t()
       }
       
   """
-  @type admin_create_user_request() :: %{String.t() => any()}
+  @type admin_create_user_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -617,7 +617,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type describe_managed_login_branding_response() :: %{String.t() => any()}
+  @type describe_managed_login_branding_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -626,11 +626,11 @@ defmodule AWS.CognitoIdentityProvider do
       admin_link_provider_for_user_request() :: %{
         required("DestinationUser") => provider_user_identifier_type(),
         required("SourceUser") => provider_user_identifier_type(),
-        required("UserPoolId") => String.t()
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type admin_link_provider_for_user_request() :: %{String.t() => any()}
+  @type admin_link_provider_for_user_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -638,24 +638,24 @@ defmodule AWS.CognitoIdentityProvider do
       
       update_user_attributes_request() :: %{
         optional("ClientMetadata") => map(),
-        required("AccessToken") => String.t(),
+        required("AccessToken") => String.t() | Atom.t(),
         required("UserAttributes") => list(attribute_type())
       }
       
   """
-  @type update_user_attributes_request() :: %{String.t() => any()}
+  @type update_user_attributes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       admin_get_user_request() :: %{
-        required("UserPoolId") => String.t(),
-        required("Username") => String.t()
+        required("UserPoolId") => String.t() | Atom.t(),
+        required("Username") => String.t() | Atom.t()
       }
       
   """
-  @type admin_get_user_request() :: %{String.t() => any()}
+  @type admin_get_user_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -667,79 +667,79 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type account_takeover_risk_configuration_type() :: %{String.t() => any()}
+  @type account_takeover_risk_configuration_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       sms_mfa_config_type() :: %{
-        "SmsAuthenticationMessage" => String.t(),
+        "SmsAuthenticationMessage" => String.t() | Atom.t(),
         "SmsConfiguration" => sms_configuration_type()
       }
       
   """
-  @type sms_mfa_config_type() :: %{String.t() => any()}
+  @type sms_mfa_config_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       device_secret_verifier_config_type() :: %{
-        "PasswordVerifier" => String.t(),
-        "Salt" => String.t()
+        "PasswordVerifier" => String.t() | Atom.t(),
+        "Salt" => String.t() | Atom.t()
       }
       
   """
-  @type device_secret_verifier_config_type() :: %{String.t() => any()}
+  @type device_secret_verifier_config_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       forbidden_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type forbidden_exception() :: %{String.t() => any()}
+  @type forbidden_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       message_template_type() :: %{
-        "EmailMessage" => String.t(),
-        "EmailSubject" => String.t(),
-        "SMSMessage" => String.t()
+        "EmailMessage" => String.t() | Atom.t(),
+        "EmailSubject" => String.t() | Atom.t(),
+        "SMSMessage" => String.t() | Atom.t()
       }
       
   """
-  @type message_template_type() :: %{String.t() => any()}
+  @type message_template_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_user_pools_request() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | Atom.t(),
         required("MaxResults") => integer()
       }
       
   """
-  @type list_user_pools_request() :: %{String.t() => any()}
+  @type list_user_pools_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       new_device_metadata_type() :: %{
-        "DeviceGroupKey" => String.t(),
-        "DeviceKey" => String.t()
+        "DeviceGroupKey" => String.t() | Atom.t(),
+        "DeviceKey" => String.t() | Atom.t()
       }
       
   """
-  @type new_device_metadata_type() :: %{String.t() => any()}
+  @type new_device_metadata_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -750,30 +750,30 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type describe_user_import_job_response() :: %{String.t() => any()}
+  @type describe_user_import_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_software_token_response() :: %{
-        "SecretCode" => String.t(),
-        "Session" => String.t()
+        "SecretCode" => String.t() | Atom.t(),
+        "Session" => String.t() | Atom.t()
       }
       
   """
-  @type associate_software_token_response() :: %{String.t() => any()}
+  @type associate_software_token_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_web_authn_registration_request() :: %{
-        required("AccessToken") => String.t()
+        required("AccessToken") => String.t() | Atom.t()
       }
       
   """
-  @type start_web_authn_registration_request() :: %{String.t() => any()}
+  @type start_web_authn_registration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -784,7 +784,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type create_identity_provider_response() :: %{String.t() => any()}
+  @type create_identity_provider_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -795,67 +795,67 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type update_resource_server_response() :: %{String.t() => any()}
+  @type update_resource_server_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       number_attribute_constraints_type() :: %{
-        "MaxValue" => String.t(),
-        "MinValue" => String.t()
+        "MaxValue" => String.t() | Atom.t(),
+        "MinValue" => String.t() | Atom.t()
       }
       
   """
-  @type number_attribute_constraints_type() :: %{String.t() => any()}
+  @type number_attribute_constraints_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       web_authn_configuration_type() :: %{
-        "RelyingPartyId" => String.t(),
+        "RelyingPartyId" => String.t() | Atom.t(),
         "UserVerification" => list(any())
       }
       
   """
-  @type web_authn_configuration_type() :: %{String.t() => any()}
+  @type web_authn_configuration_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       admin_add_user_to_group_request() :: %{
-        required("GroupName") => String.t(),
-        required("UserPoolId") => String.t(),
-        required("Username") => String.t()
+        required("GroupName") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t(),
+        required("Username") => String.t() | Atom.t()
       }
       
   """
-  @type admin_add_user_to_group_request() :: %{String.t() => any()}
+  @type admin_add_user_to_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       alias_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type alias_exists_exception() :: %{String.t() => any()}
+  @type alias_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       verify_software_token_response() :: %{
-        "Session" => String.t(),
+        "Session" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type verify_software_token_response() :: %{String.t() => any()}
+  @type verify_software_token_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -872,14 +872,14 @@ defmodule AWS.CognitoIdentityProvider do
       
       get_user_response() :: %{
         "MFAOptions" => list(mfa_option_type()),
-        "PreferredMfaSetting" => String.t(),
+        "PreferredMfaSetting" => String.t() | Atom.t(),
         "UserAttributes" => list(attribute_type()),
-        "UserMFASettingList" => list(String.t()),
-        "Username" => String.t()
+        "UserMFASettingList" => list(String.t() | Atom.t()),
+        "Username" => String.t() | Atom.t()
       }
       
   """
-  @type get_user_response() :: %{String.t() => any()}
+  @type get_user_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -887,13 +887,13 @@ defmodule AWS.CognitoIdentityProvider do
       
       list_users_in_group_request() :: %{
         optional("Limit") => integer(),
-        optional("NextToken") => String.t(),
-        required("GroupName") => String.t(),
-        required("UserPoolId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("GroupName") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type list_users_in_group_request() :: %{String.t() => any()}
+  @type list_users_in_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -906,23 +906,23 @@ defmodule AWS.CognitoIdentityProvider do
         "UserCreateDate" => non_neg_integer(),
         "UserLastModifiedDate" => non_neg_integer(),
         "UserStatus" => list(any()),
-        "Username" => String.t()
+        "Username" => String.t() | Atom.t()
       }
       
   """
-  @type user_type() :: %{String.t() => any()}
+  @type user_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_user_pools_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "UserPools" => list(user_pool_description_type())
       }
       
   """
-  @type list_user_pools_response() :: %{String.t() => any()}
+  @type list_user_pools_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -933,19 +933,19 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type create_user_pool_response() :: %{String.t() => any()}
+  @type create_user_pool_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_risk_configuration_request() :: %{
-        optional("ClientId") => String.t(),
-        required("UserPoolId") => String.t()
+        optional("ClientId") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_risk_configuration_request() :: %{String.t() => any()}
+  @type describe_risk_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -956,19 +956,19 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type describe_identity_provider_response() :: %{String.t() => any()}
+  @type describe_identity_provider_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_identity_provider_request() :: %{
-        required("ProviderName") => String.t(),
-        required("UserPoolId") => String.t()
+        required("ProviderName") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_identity_provider_request() :: %{String.t() => any()}
+  @type delete_identity_provider_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -980,18 +980,18 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type compromised_credentials_risk_configuration_type() :: %{String.t() => any()}
+  @type compromised_credentials_risk_configuration_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_user_pool_domain_request() :: %{
-        required("Domain") => String.t()
+        required("Domain") => String.t() | Atom.t()
       }
       
   """
-  @type describe_user_pool_domain_request() :: %{String.t() => any()}
+  @type describe_user_pool_domain_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1002,7 +1002,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type compromised_credentials_actions_type() :: %{String.t() => any()}
+  @type compromised_credentials_actions_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1010,13 +1010,13 @@ defmodule AWS.CognitoIdentityProvider do
       
       update_resource_server_request() :: %{
         optional("Scopes") => list(resource_server_scope_type()),
-        required("Identifier") => String.t(),
-        required("Name") => String.t(),
-        required("UserPoolId") => String.t()
+        required("Identifier") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type update_resource_server_request() :: %{String.t() => any()}
+  @type update_resource_server_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1024,29 +1024,29 @@ defmodule AWS.CognitoIdentityProvider do
       
       user_pool_description_type() :: %{
         "CreationDate" => non_neg_integer(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "LambdaConfig" => lambda_config_type(),
         "LastModifiedDate" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Status" => list(any())
       }
       
   """
-  @type user_pool_description_type() :: %{String.t() => any()}
+  @type user_pool_description_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       verify_software_token_request() :: %{
-        optional("AccessToken") => String.t(),
-        optional("FriendlyDeviceName") => String.t(),
-        optional("Session") => String.t(),
-        required("UserCode") => String.t()
+        optional("AccessToken") => String.t() | Atom.t(),
+        optional("FriendlyDeviceName") => String.t() | Atom.t(),
+        optional("Session") => String.t() | Atom.t(),
+        required("UserCode") => String.t() | Atom.t()
       }
       
   """
-  @type verify_software_token_request() :: %{String.t() => any()}
+  @type verify_software_token_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1057,7 +1057,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type describe_resource_server_response() :: %{String.t() => any()}
+  @type describe_resource_server_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1065,27 +1065,27 @@ defmodule AWS.CognitoIdentityProvider do
       
       group_type() :: %{
         "CreationDate" => non_neg_integer(),
-        "Description" => String.t(),
-        "GroupName" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "GroupName" => String.t() | Atom.t(),
         "LastModifiedDate" => non_neg_integer(),
         "Precedence" => integer(),
-        "RoleArn" => String.t(),
-        "UserPoolId" => String.t()
+        "RoleArn" => String.t() | Atom.t(),
+        "UserPoolId" => String.t() | Atom.t()
       }
       
   """
-  @type group_type() :: %{String.t() => any()}
+  @type group_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_user_pool_mfa_config_request() :: %{
-        required("UserPoolId") => String.t()
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type get_user_pool_mfa_config_request() :: %{String.t() => any()}
+  @type get_user_pool_mfa_config_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1105,41 +1105,41 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type admin_create_user_response() :: %{String.t() => any()}
+  @type admin_create_user_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       web_authn_relying_party_mismatch_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type web_authn_relying_party_mismatch_exception() :: %{String.t() => any()}
+  @type web_authn_relying_party_mismatch_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_resource_server_request() :: %{
-        required("Identifier") => String.t(),
-        required("UserPoolId") => String.t()
+        required("Identifier") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_resource_server_request() :: %{String.t() => any()}
+  @type describe_resource_server_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       global_sign_out_request() :: %{
-        required("AccessToken") => String.t()
+        required("AccessToken") => String.t() | Atom.t()
       }
       
   """
-  @type global_sign_out_request() :: %{String.t() => any()}
+  @type global_sign_out_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1156,23 +1156,23 @@ defmodule AWS.CognitoIdentityProvider do
       
       get_user_attribute_verification_code_request() :: %{
         optional("ClientMetadata") => map(),
-        required("AccessToken") => String.t(),
-        required("AttributeName") => String.t()
+        required("AccessToken") => String.t() | Atom.t(),
+        required("AttributeName") => String.t() | Atom.t()
       }
       
   """
-  @type get_user_attribute_verification_code_request() :: %{String.t() => any()}
+  @type get_user_attribute_verification_code_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       refresh_token_reuse_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type refresh_token_reuse_exception() :: %{String.t() => any()}
+  @type refresh_token_reuse_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1183,7 +1183,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type user_attribute_update_settings_type() :: %{String.t() => any()}
+  @type user_attribute_update_settings_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1195,7 +1195,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type software_token_mfa_settings_type() :: %{String.t() => any()}
+  @type software_token_mfa_settings_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1203,12 +1203,12 @@ defmodule AWS.CognitoIdentityProvider do
       
       describe_managed_login_branding_by_client_request() :: %{
         optional("ReturnMergedResources") => boolean(),
-        required("ClientId") => String.t(),
-        required("UserPoolId") => String.t()
+        required("ClientId") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_managed_login_branding_by_client_request() :: %{String.t() => any()}
+  @type describe_managed_login_branding_by_client_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1216,13 +1216,13 @@ defmodule AWS.CognitoIdentityProvider do
       
       admin_list_groups_for_user_request() :: %{
         optional("Limit") => integer(),
-        optional("NextToken") => String.t(),
-        required("UserPoolId") => String.t(),
-        required("Username") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t(),
+        required("Username") => String.t() | Atom.t()
       }
       
   """
-  @type admin_list_groups_for_user_request() :: %{String.t() => any()}
+  @type admin_list_groups_for_user_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1233,19 +1233,19 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type start_web_authn_registration_response() :: %{String.t() => any()}
+  @type start_web_authn_registration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       attribute_type() :: %{
-        "Name" => String.t(),
-        "Value" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
       
   """
-  @type attribute_type() :: %{String.t() => any()}
+  @type attribute_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1255,33 +1255,33 @@ defmodule AWS.CognitoIdentityProvider do
         "AccessTokenValidity" => integer(),
         "AllowedOAuthFlows" => list(list(any())()),
         "AllowedOAuthFlowsUserPoolClient" => boolean(),
-        "AllowedOAuthScopes" => list(String.t()),
+        "AllowedOAuthScopes" => list(String.t() | Atom.t()),
         "AnalyticsConfiguration" => analytics_configuration_type(),
         "AuthSessionValidity" => integer(),
-        "CallbackURLs" => list(String.t()),
-        "ClientId" => String.t(),
-        "ClientName" => String.t(),
-        "ClientSecret" => String.t(),
+        "CallbackURLs" => list(String.t() | Atom.t()),
+        "ClientId" => String.t() | Atom.t(),
+        "ClientName" => String.t() | Atom.t(),
+        "ClientSecret" => String.t() | Atom.t(),
         "CreationDate" => non_neg_integer(),
-        "DefaultRedirectURI" => String.t(),
+        "DefaultRedirectURI" => String.t() | Atom.t(),
         "EnablePropagateAdditionalUserContextData" => boolean(),
         "EnableTokenRevocation" => boolean(),
         "ExplicitAuthFlows" => list(list(any())()),
         "IdTokenValidity" => integer(),
         "LastModifiedDate" => non_neg_integer(),
-        "LogoutURLs" => list(String.t()),
+        "LogoutURLs" => list(String.t() | Atom.t()),
         "PreventUserExistenceErrors" => list(any()),
-        "ReadAttributes" => list(String.t()),
+        "ReadAttributes" => list(String.t() | Atom.t()),
         "RefreshTokenRotation" => refresh_token_rotation_type(),
         "RefreshTokenValidity" => integer(),
-        "SupportedIdentityProviders" => list(String.t()),
+        "SupportedIdentityProviders" => list(String.t() | Atom.t()),
         "TokenValidityUnits" => token_validity_units_type(),
-        "UserPoolId" => String.t(),
-        "WriteAttributes" => list(String.t())
+        "UserPoolId" => String.t() | Atom.t(),
+        "WriteAttributes" => list(String.t() | Atom.t())
       }
       
   """
-  @type user_pool_client_type() :: %{String.t() => any()}
+  @type user_pool_client_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1294,7 +1294,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type admin_create_user_config_type() :: %{String.t() => any()}
+  @type admin_create_user_config_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1305,19 +1305,19 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type sign_in_policy_type() :: %{String.t() => any()}
+  @type sign_in_policy_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceArn") => String.t() | Atom.t(),
+        required("TagKeys") => list(String.t() | Atom.t())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1332,29 +1332,29 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type set_user_pool_mfa_config_response() :: %{String.t() => any()}
+  @type set_user_pool_mfa_config_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       duplicate_provider_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type duplicate_provider_exception() :: %{String.t() => any()}
+  @type duplicate_provider_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_requests_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type too_many_requests_exception() :: %{String.t() => any()}
+  @type too_many_requests_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1363,31 +1363,31 @@ defmodule AWS.CognitoIdentityProvider do
       admin_get_user_response() :: %{
         "Enabled" => boolean(),
         "MFAOptions" => list(mfa_option_type()),
-        "PreferredMfaSetting" => String.t(),
+        "PreferredMfaSetting" => String.t() | Atom.t(),
         "UserAttributes" => list(attribute_type()),
         "UserCreateDate" => non_neg_integer(),
         "UserLastModifiedDate" => non_neg_integer(),
-        "UserMFASettingList" => list(String.t()),
+        "UserMFASettingList" => list(String.t() | Atom.t()),
         "UserStatus" => list(any()),
-        "Username" => String.t()
+        "Username" => String.t() | Atom.t()
       }
       
   """
-  @type admin_get_user_response() :: %{String.t() => any()}
+  @type admin_get_user_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       confirm_device_request() :: %{
-        optional("DeviceName") => String.t(),
+        optional("DeviceName") => String.t() | Atom.t(),
         optional("DeviceSecretVerifierConfig") => device_secret_verifier_config_type(),
-        required("AccessToken") => String.t(),
-        required("DeviceKey") => String.t()
+        required("AccessToken") => String.t() | Atom.t(),
+        required("DeviceKey") => String.t() | Atom.t()
       }
       
   """
-  @type confirm_device_request() :: %{String.t() => any()}
+  @type confirm_device_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1398,7 +1398,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type create_user_import_job_response() :: %{String.t() => any()}
+  @type create_user_import_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1407,27 +1407,27 @@ defmodule AWS.CognitoIdentityProvider do
       update_user_pool_domain_request() :: %{
         optional("CustomDomainConfig") => custom_domain_config_type(),
         optional("ManagedLoginVersion") => integer(),
-        required("Domain") => String.t(),
-        required("UserPoolId") => String.t()
+        required("Domain") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type update_user_pool_domain_request() :: %{String.t() => any()}
+  @type update_user_pool_domain_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_group_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("Precedence") => integer(),
-        optional("RoleArn") => String.t(),
-        required("GroupName") => String.t(),
-        required("UserPoolId") => String.t()
+        optional("RoleArn") => String.t() | Atom.t(),
+        required("GroupName") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type update_group_request() :: %{String.t() => any()}
+  @type update_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1448,7 +1448,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type user_pool_policy_type() :: %{String.t() => any()}
+  @type user_pool_policy_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1466,12 +1466,12 @@ defmodule AWS.CognitoIdentityProvider do
       admin_update_user_attributes_request() :: %{
         optional("ClientMetadata") => map(),
         required("UserAttributes") => list(attribute_type()),
-        required("UserPoolId") => String.t(),
-        required("Username") => String.t()
+        required("UserPoolId") => String.t() | Atom.t(),
+        required("Username") => String.t() | Atom.t()
       }
       
   """
-  @type admin_update_user_attributes_request() :: %{String.t() => any()}
+  @type admin_update_user_attributes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1489,28 +1489,28 @@ defmodule AWS.CognitoIdentityProvider do
       identity_provider_type() :: %{
         "AttributeMapping" => map(),
         "CreationDate" => non_neg_integer(),
-        "IdpIdentifiers" => list(String.t()),
+        "IdpIdentifiers" => list(String.t() | Atom.t()),
         "LastModifiedDate" => non_neg_integer(),
         "ProviderDetails" => map(),
-        "ProviderName" => String.t(),
+        "ProviderName" => String.t() | Atom.t(),
         "ProviderType" => list(any()),
-        "UserPoolId" => String.t()
+        "UserPoolId" => String.t() | Atom.t()
       }
       
   """
-  @type identity_provider_type() :: %{String.t() => any()}
+  @type identity_provider_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_resource_server_request() :: %{
-        required("Identifier") => String.t(),
-        required("UserPoolId") => String.t()
+        required("Identifier") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_resource_server_request() :: %{String.t() => any()}
+  @type delete_resource_server_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1521,7 +1521,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type describe_risk_configuration_response() :: %{String.t() => any()}
+  @type describe_risk_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1529,49 +1529,49 @@ defmodule AWS.CognitoIdentityProvider do
       
       admin_set_user_settings_request() :: %{
         required("MFAOptions") => list(mfa_option_type()),
-        required("UserPoolId") => String.t(),
-        required("Username") => String.t()
+        required("UserPoolId") => String.t() | Atom.t(),
+        required("Username") => String.t() | Atom.t()
       }
       
   """
-  @type admin_set_user_settings_request() :: %{String.t() => any()}
+  @type admin_set_user_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       set_ui_customization_request() :: %{
-        optional("CSS") => String.t(),
-        optional("ClientId") => String.t(),
+        optional("CSS") => String.t() | Atom.t(),
+        optional("ClientId") => String.t() | Atom.t(),
         optional("ImageFile") => binary(),
-        required("UserPoolId") => String.t()
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type set_ui_customization_request() :: %{String.t() => any()}
+  @type set_ui_customization_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_sms_role_access_policy_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_sms_role_access_policy_exception() :: %{String.t() => any()}
+  @type invalid_sms_role_access_policy_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_identity_provider_by_identifier_request() :: %{
-        required("IdpIdentifier") => String.t(),
-        required("UserPoolId") => String.t()
+        required("IdpIdentifier") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type get_identity_provider_by_identifier_request() :: %{String.t() => any()}
+  @type get_identity_provider_by_identifier_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1597,14 +1597,14 @@ defmodule AWS.CognitoIdentityProvider do
       
       set_risk_configuration_request() :: %{
         optional("AccountTakeoverRiskConfiguration") => account_takeover_risk_configuration_type(),
-        optional("ClientId") => String.t(),
+        optional("ClientId") => String.t() | Atom.t(),
         optional("CompromisedCredentialsRiskConfiguration") => compromised_credentials_risk_configuration_type(),
         optional("RiskExceptionConfiguration") => risk_exception_configuration_type(),
-        required("UserPoolId") => String.t()
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type set_risk_configuration_request() :: %{String.t() => any()}
+  @type set_risk_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1621,14 +1621,14 @@ defmodule AWS.CognitoIdentityProvider do
       
       update_managed_login_branding_request() :: %{
         optional("Assets") => list(asset_type()),
-        optional("ManagedLoginBrandingId") => String.t(),
+        optional("ManagedLoginBrandingId") => String.t() | Atom.t(),
         optional("Settings") => any(),
         optional("UseCognitoProvidedValues") => boolean(),
-        optional("UserPoolId") => String.t()
+        optional("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type update_managed_login_branding_request() :: %{String.t() => any()}
+  @type update_managed_login_branding_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1648,41 +1648,41 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type describe_user_pool_client_response() :: %{String.t() => any()}
+  @type describe_user_pool_client_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       code_mismatch_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type code_mismatch_exception() :: %{String.t() => any()}
+  @type code_mismatch_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_signing_certificate_response() :: %{
-        "Certificate" => String.t()
+        "Certificate" => String.t() | Atom.t()
       }
       
   """
-  @type get_signing_certificate_response() :: %{String.t() => any()}
+  @type get_signing_certificate_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       custom_email_lambda_version_config_type() :: %{
-        "LambdaArn" => String.t(),
+        "LambdaArn" => String.t() | Atom.t(),
         "LambdaVersion" => list(any())
       }
       
   """
-  @type custom_email_lambda_version_config_type() :: %{String.t() => any()}
+  @type custom_email_lambda_version_config_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1691,36 +1691,36 @@ defmodule AWS.CognitoIdentityProvider do
       device_type() :: %{
         "DeviceAttributes" => list(attribute_type()),
         "DeviceCreateDate" => non_neg_integer(),
-        "DeviceKey" => String.t(),
+        "DeviceKey" => String.t() | Atom.t(),
         "DeviceLastAuthenticatedDate" => non_neg_integer(),
         "DeviceLastModifiedDate" => non_neg_integer()
       }
       
   """
-  @type device_type() :: %{String.t() => any()}
+  @type device_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_managed_login_branding_request() :: %{
-        required("ManagedLoginBrandingId") => String.t(),
-        required("UserPoolId") => String.t()
+        required("ManagedLoginBrandingId") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_managed_login_branding_request() :: %{String.t() => any()}
+  @type delete_managed_login_branding_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1735,18 +1735,18 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type get_user_pool_mfa_config_response() :: %{String.t() => any()}
+  @type get_user_pool_mfa_config_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_user_auth_factors_request() :: %{
-        required("AccessToken") => String.t()
+        required("AccessToken") => String.t() | Atom.t()
       }
       
   """
-  @type get_user_auth_factors_request() :: %{String.t() => any()}
+  @type get_user_auth_factors_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1762,91 +1762,91 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       ui_customization_type() :: %{
-        "CSS" => String.t(),
-        "CSSVersion" => String.t(),
-        "ClientId" => String.t(),
+        "CSS" => String.t() | Atom.t(),
+        "CSSVersion" => String.t() | Atom.t(),
+        "ClientId" => String.t() | Atom.t(),
         "CreationDate" => non_neg_integer(),
-        "ImageUrl" => String.t(),
+        "ImageUrl" => String.t() | Atom.t(),
         "LastModifiedDate" => non_neg_integer(),
-        "UserPoolId" => String.t()
+        "UserPoolId" => String.t() | Atom.t()
       }
       
   """
-  @type ui_customization_type() :: %{String.t() => any()}
+  @type ui_customization_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_user_request() :: %{
-        required("AccessToken") => String.t()
+        required("AccessToken") => String.t() | Atom.t()
       }
       
   """
-  @type get_user_request() :: %{String.t() => any()}
+  @type get_user_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       verify_user_attribute_request() :: %{
-        required("AccessToken") => String.t(),
-        required("AttributeName") => String.t(),
-        required("Code") => String.t()
+        required("AccessToken") => String.t() | Atom.t(),
+        required("AttributeName") => String.t() | Atom.t(),
+        required("Code") => String.t() | Atom.t()
       }
       
   """
-  @type verify_user_attribute_request() :: %{String.t() => any()}
+  @type verify_user_attribute_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       notify_email_type() :: %{
-        "HtmlBody" => String.t(),
-        "Subject" => String.t(),
-        "TextBody" => String.t()
+        "HtmlBody" => String.t() | Atom.t(),
+        "Subject" => String.t() | Atom.t(),
+        "TextBody" => String.t() | Atom.t()
       }
       
   """
-  @type notify_email_type() :: %{String.t() => any()}
+  @type notify_email_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       admin_update_auth_event_feedback_request() :: %{
-        required("EventId") => String.t(),
+        required("EventId") => String.t() | Atom.t(),
         required("FeedbackValue") => list(any()),
-        required("UserPoolId") => String.t(),
-        required("Username") => String.t()
+        required("UserPoolId") => String.t() | Atom.t(),
+        required("Username") => String.t() | Atom.t()
       }
       
   """
-  @type admin_update_auth_event_feedback_request() :: %{String.t() => any()}
+  @type admin_update_auth_event_feedback_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_users_in_group_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Users" => list(user_type())
       }
       
   """
-  @type list_users_in_group_response() :: %{String.t() => any()}
+  @type list_users_in_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       scope_does_not_exist_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type scope_does_not_exist_exception() :: %{String.t() => any()}
+  @type scope_does_not_exist_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1856,25 +1856,25 @@ defmodule AWS.CognitoIdentityProvider do
         optional("AnalyticsMetadata") => analytics_metadata_type(),
         optional("ChallengeResponses") => map(),
         optional("ClientMetadata") => map(),
-        optional("Session") => String.t(),
+        optional("Session") => String.t() | Atom.t(),
         optional("UserContextData") => user_context_data_type(),
         required("ChallengeName") => list(any()),
-        required("ClientId") => String.t()
+        required("ClientId") => String.t() | Atom.t()
       }
       
   """
-  @type respond_to_auth_challenge_request() :: %{String.t() => any()}
+  @type respond_to_auth_challenge_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       tier_change_not_allowed_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type tier_change_not_allowed_exception() :: %{String.t() => any()}
+  @type tier_change_not_allowed_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1885,7 +1885,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type set_ui_customization_response() :: %{String.t() => any()}
+  @type set_ui_customization_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1898,79 +1898,79 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type token_validity_units_type() :: %{String.t() => any()}
+  @type token_validity_units_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       user_context_data_type() :: %{
-        "EncodedData" => String.t(),
-        "IpAddress" => String.t()
+        "EncodedData" => String.t() | Atom.t(),
+        "IpAddress" => String.t() | Atom.t()
       }
       
   """
-  @type user_context_data_type() :: %{String.t() => any()}
+  @type user_context_data_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       managed_login_branding_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type managed_login_branding_exists_exception() :: %{String.t() => any()}
+  @type managed_login_branding_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       string_attribute_constraints_type() :: %{
-        "MaxLength" => String.t(),
-        "MinLength" => String.t()
+        "MaxLength" => String.t() | Atom.t(),
+        "MinLength" => String.t() | Atom.t()
       }
       
   """
-  @type string_attribute_constraints_type() :: %{String.t() => any()}
+  @type string_attribute_constraints_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       admin_delete_user_attributes_request() :: %{
-        required("UserAttributeNames") => list(String.t()),
-        required("UserPoolId") => String.t(),
-        required("Username") => String.t()
+        required("UserAttributeNames") => list(String.t() | Atom.t()),
+        required("UserPoolId") => String.t() | Atom.t(),
+        required("Username") => String.t() | Atom.t()
       }
       
   """
-  @type admin_delete_user_attributes_request() :: %{String.t() => any()}
+  @type admin_delete_user_attributes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       lambda_config_type() :: %{
-        "CreateAuthChallenge" => String.t(),
+        "CreateAuthChallenge" => String.t() | Atom.t(),
         "CustomEmailSender" => custom_email_lambda_version_config_type(),
-        "CustomMessage" => String.t(),
+        "CustomMessage" => String.t() | Atom.t(),
         "CustomSMSSender" => custom_sms_lambda_version_config_type(),
-        "DefineAuthChallenge" => String.t(),
-        "KMSKeyID" => String.t(),
-        "PostAuthentication" => String.t(),
-        "PostConfirmation" => String.t(),
-        "PreAuthentication" => String.t(),
-        "PreSignUp" => String.t(),
-        "PreTokenGeneration" => String.t(),
+        "DefineAuthChallenge" => String.t() | Atom.t(),
+        "KMSKeyID" => String.t() | Atom.t(),
+        "PostAuthentication" => String.t() | Atom.t(),
+        "PostConfirmation" => String.t() | Atom.t(),
+        "PreAuthentication" => String.t() | Atom.t(),
+        "PreSignUp" => String.t() | Atom.t(),
+        "PreTokenGeneration" => String.t() | Atom.t(),
         "PreTokenGenerationConfig" => pre_token_generation_version_config_type(),
-        "UserMigration" => String.t(),
-        "VerifyAuthChallengeResponse" => String.t()
+        "UserMigration" => String.t() | Atom.t(),
+        "VerifyAuthChallengeResponse" => String.t() | Atom.t()
       }
       
   """
-  @type lambda_config_type() :: %{String.t() => any()}
+  @type lambda_config_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1978,56 +1978,56 @@ defmodule AWS.CognitoIdentityProvider do
       
       log_delivery_configuration_type() :: %{
         "LogConfigurations" => list(log_configuration_type()),
-        "UserPoolId" => String.t()
+        "UserPoolId" => String.t() | Atom.t()
       }
       
   """
-  @type log_delivery_configuration_type() :: %{String.t() => any()}
+  @type log_delivery_configuration_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       risk_exception_configuration_type() :: %{
-        "BlockedIPRangeList" => list(String.t()),
-        "SkippedIPRangeList" => list(String.t())
+        "BlockedIPRangeList" => list(String.t() | Atom.t()),
+        "SkippedIPRangeList" => list(String.t() | Atom.t())
       }
       
   """
-  @type risk_exception_configuration_type() :: %{String.t() => any()}
+  @type risk_exception_configuration_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       group_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type group_exists_exception() :: %{String.t() => any()}
+  @type group_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       password_reset_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type password_reset_required_exception() :: %{String.t() => any()}
+  @type password_reset_required_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       web_authn_client_mismatch_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type web_authn_client_mismatch_exception() :: %{String.t() => any()}
+  @type web_authn_client_mismatch_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2044,13 +2044,13 @@ defmodule AWS.CognitoIdentityProvider do
       
       admin_list_devices_request() :: %{
         optional("Limit") => integer(),
-        optional("PaginationToken") => String.t(),
-        required("UserPoolId") => String.t(),
-        required("Username") => String.t()
+        optional("PaginationToken") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t(),
+        required("Username") => String.t() | Atom.t()
       }
       
   """
-  @type admin_list_devices_request() :: %{String.t() => any()}
+  @type admin_list_devices_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2061,7 +2061,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type create_user_pool_client_response() :: %{String.t() => any()}
+  @type create_user_pool_client_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2069,14 +2069,14 @@ defmodule AWS.CognitoIdentityProvider do
       
       get_tokens_from_refresh_token_request() :: %{
         optional("ClientMetadata") => map(),
-        optional("ClientSecret") => String.t(),
-        optional("DeviceKey") => String.t(),
-        required("ClientId") => String.t(),
-        required("RefreshToken") => String.t()
+        optional("ClientSecret") => String.t() | Atom.t(),
+        optional("DeviceKey") => String.t() | Atom.t(),
+        required("ClientId") => String.t() | Atom.t(),
+        required("RefreshToken") => String.t() | Atom.t()
       }
       
   """
-  @type get_tokens_from_refresh_token_request() :: %{String.t() => any()}
+  @type get_tokens_from_refresh_token_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2087,7 +2087,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type describe_user_pool_response() :: %{String.t() => any()}
+  @type describe_user_pool_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2101,15 +2101,15 @@ defmodule AWS.CognitoIdentityProvider do
         optional("DeletionProtection") => list(any()),
         optional("DeviceConfiguration") => device_configuration_type(),
         optional("EmailConfiguration") => email_configuration_type(),
-        optional("EmailVerificationMessage") => String.t(),
-        optional("EmailVerificationSubject") => String.t(),
+        optional("EmailVerificationMessage") => String.t() | Atom.t(),
+        optional("EmailVerificationSubject") => String.t() | Atom.t(),
         optional("LambdaConfig") => lambda_config_type(),
         optional("MfaConfiguration") => list(any()),
         optional("Policies") => user_pool_policy_type(),
         optional("Schema") => list(schema_attribute_type()),
-        optional("SmsAuthenticationMessage") => String.t(),
+        optional("SmsAuthenticationMessage") => String.t() | Atom.t(),
         optional("SmsConfiguration") => sms_configuration_type(),
-        optional("SmsVerificationMessage") => String.t(),
+        optional("SmsVerificationMessage") => String.t() | Atom.t(),
         optional("UserAttributeUpdateSettings") => user_attribute_update_settings_type(),
         optional("UserPoolAddOns") => user_pool_add_ons_type(),
         optional("UserPoolTags") => map(),
@@ -2117,58 +2117,58 @@ defmodule AWS.CognitoIdentityProvider do
         optional("UsernameAttributes") => list(list(any())()),
         optional("UsernameConfiguration") => username_configuration_type(),
         optional("VerificationMessageTemplate") => verification_message_template_type(),
-        required("PoolName") => String.t()
+        required("PoolName") => String.t() | Atom.t()
       }
       
   """
-  @type create_user_pool_request() :: %{String.t() => any()}
+  @type create_user_pool_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_user_import_jobs_response() :: %{
-        "PaginationToken" => String.t(),
+        "PaginationToken" => String.t() | Atom.t(),
         "UserImportJobs" => list(user_import_job_type())
       }
       
   """
-  @type list_user_import_jobs_response() :: %{String.t() => any()}
+  @type list_user_import_jobs_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_users_response() :: %{
-        "PaginationToken" => String.t(),
+        "PaginationToken" => String.t() | Atom.t(),
         "Users" => list(user_type())
       }
       
   """
-  @type list_users_response() :: %{String.t() => any()}
+  @type list_users_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       user_import_job_type() :: %{
-        "CloudWatchLogsRoleArn" => String.t(),
+        "CloudWatchLogsRoleArn" => String.t() | Atom.t(),
         "CompletionDate" => non_neg_integer(),
-        "CompletionMessage" => String.t(),
+        "CompletionMessage" => String.t() | Atom.t(),
         "CreationDate" => non_neg_integer(),
         "FailedUsers" => float(),
         "ImportedUsers" => float(),
-        "JobId" => String.t(),
-        "JobName" => String.t(),
-        "PreSignedUrl" => String.t(),
+        "JobId" => String.t() | Atom.t(),
+        "JobName" => String.t() | Atom.t(),
+        "PreSignedUrl" => String.t() | Atom.t(),
         "SkippedUsers" => float(),
         "StartDate" => non_neg_integer(),
         "Status" => list(any()),
-        "UserPoolId" => String.t()
+        "UserPoolId" => String.t() | Atom.t()
       }
       
   """
-  @type user_import_job_type() :: %{String.t() => any()}
+  @type user_import_job_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2178,30 +2178,30 @@ defmodule AWS.CognitoIdentityProvider do
         optional("AccessTokenValidity") => integer(),
         optional("AllowedOAuthFlows") => list(list(any())()),
         optional("AllowedOAuthFlowsUserPoolClient") => boolean(),
-        optional("AllowedOAuthScopes") => list(String.t()),
+        optional("AllowedOAuthScopes") => list(String.t() | Atom.t()),
         optional("AnalyticsConfiguration") => analytics_configuration_type(),
         optional("AuthSessionValidity") => integer(),
-        optional("CallbackURLs") => list(String.t()),
-        optional("DefaultRedirectURI") => String.t(),
+        optional("CallbackURLs") => list(String.t() | Atom.t()),
+        optional("DefaultRedirectURI") => String.t() | Atom.t(),
         optional("EnablePropagateAdditionalUserContextData") => boolean(),
         optional("EnableTokenRevocation") => boolean(),
         optional("ExplicitAuthFlows") => list(list(any())()),
         optional("GenerateSecret") => boolean(),
         optional("IdTokenValidity") => integer(),
-        optional("LogoutURLs") => list(String.t()),
+        optional("LogoutURLs") => list(String.t() | Atom.t()),
         optional("PreventUserExistenceErrors") => list(any()),
-        optional("ReadAttributes") => list(String.t()),
+        optional("ReadAttributes") => list(String.t() | Atom.t()),
         optional("RefreshTokenRotation") => refresh_token_rotation_type(),
         optional("RefreshTokenValidity") => integer(),
-        optional("SupportedIdentityProviders") => list(String.t()),
+        optional("SupportedIdentityProviders") => list(String.t() | Atom.t()),
         optional("TokenValidityUnits") => token_validity_units_type(),
-        optional("WriteAttributes") => list(String.t()),
-        required("ClientName") => String.t(),
-        required("UserPoolId") => String.t()
+        optional("WriteAttributes") => list(String.t() | Atom.t()),
+        required("ClientName") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type create_user_pool_client_request() :: %{String.t() => any()}
+  @type create_user_pool_client_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2212,18 +2212,18 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type get_identity_provider_by_identifier_response() :: %{String.t() => any()}
+  @type get_identity_provider_by_identifier_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       web_authn_configuration_missing_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type web_authn_configuration_missing_exception() :: %{String.t() => any()}
+  @type web_authn_configuration_missing_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2239,45 +2239,45 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       cloud_watch_logs_configuration_type() :: %{
-        "LogGroupArn" => String.t()
+        "LogGroupArn" => String.t() | Atom.t()
       }
       
   """
-  @type cloud_watch_logs_configuration_type() :: %{String.t() => any()}
+  @type cloud_watch_logs_configuration_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_user_pool_client_request() :: %{
-        required("ClientId") => String.t(),
-        required("UserPoolId") => String.t()
+        required("ClientId") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_user_pool_client_request() :: %{String.t() => any()}
+  @type delete_user_pool_client_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       user_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type user_not_found_exception() :: %{String.t() => any()}
+  @type user_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       feature_unavailable_in_tier_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type feature_unavailable_in_tier_exception() :: %{String.t() => any()}
+  @type feature_unavailable_in_tier_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2287,14 +2287,14 @@ defmodule AWS.CognitoIdentityProvider do
         "Assets" => list(asset_type()),
         "CreationDate" => non_neg_integer(),
         "LastModifiedDate" => non_neg_integer(),
-        "ManagedLoginBrandingId" => String.t(),
+        "ManagedLoginBrandingId" => String.t() | Atom.t(),
         "Settings" => any(),
         "UseCognitoProvidedValues" => boolean(),
-        "UserPoolId" => String.t()
+        "UserPoolId" => String.t() | Atom.t()
       }
       
   """
-  @type managed_login_branding_type() :: %{String.t() => any()}
+  @type managed_login_branding_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2311,7 +2311,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type password_policy_type() :: %{String.t() => any()}
+  @type password_policy_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2319,47 +2319,47 @@ defmodule AWS.CognitoIdentityProvider do
       
       admin_confirm_sign_up_request() :: %{
         optional("ClientMetadata") => map(),
-        required("UserPoolId") => String.t(),
-        required("Username") => String.t()
+        required("UserPoolId") => String.t() | Atom.t(),
+        required("Username") => String.t() | Atom.t()
       }
       
   """
-  @type admin_confirm_sign_up_request() :: %{String.t() => any()}
+  @type admin_confirm_sign_up_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       custom_domain_config_type() :: %{
-        "CertificateArn" => String.t()
+        "CertificateArn" => String.t() | Atom.t()
       }
       
   """
-  @type custom_domain_config_type() :: %{String.t() => any()}
+  @type custom_domain_config_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       custom_sms_lambda_version_config_type() :: %{
-        "LambdaArn" => String.t(),
+        "LambdaArn" => String.t() | Atom.t(),
         "LambdaVersion" => list(any())
       }
       
   """
-  @type custom_sms_lambda_version_config_type() :: %{String.t() => any()}
+  @type custom_sms_lambda_version_config_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       admin_enable_user_request() :: %{
-        required("UserPoolId") => String.t(),
-        required("Username") => String.t()
+        required("UserPoolId") => String.t() | Atom.t(),
+        required("Username") => String.t() | Atom.t()
       }
       
   """
-  @type admin_enable_user_request() :: %{String.t() => any()}
+  @type admin_enable_user_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2367,13 +2367,13 @@ defmodule AWS.CognitoIdentityProvider do
       
       create_resource_server_request() :: %{
         optional("Scopes") => list(resource_server_scope_type()),
-        required("Identifier") => String.t(),
-        required("Name") => String.t(),
-        required("UserPoolId") => String.t()
+        required("Identifier") => String.t() | Atom.t(),
+        required("Name") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type create_resource_server_request() :: %{String.t() => any()}
+  @type create_resource_server_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2384,14 +2384,14 @@ defmodule AWS.CognitoIdentityProvider do
         optional("AuthParameters") => map(),
         optional("ClientMetadata") => map(),
         optional("ContextData") => context_data_type(),
-        optional("Session") => String.t(),
+        optional("Session") => String.t() | Atom.t(),
         required("AuthFlow") => list(any()),
-        required("ClientId") => String.t(),
-        required("UserPoolId") => String.t()
+        required("ClientId") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type admin_initiate_auth_request() :: %{String.t() => any()}
+  @type admin_initiate_auth_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2402,7 +2402,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2410,26 +2410,26 @@ defmodule AWS.CognitoIdentityProvider do
       
       update_device_status_request() :: %{
         optional("DeviceRememberedStatus") => list(any()),
-        required("AccessToken") => String.t(),
-        required("DeviceKey") => String.t()
+        required("AccessToken") => String.t() | Atom.t(),
+        required("DeviceKey") => String.t() | Atom.t()
       }
       
   """
-  @type update_device_status_request() :: %{String.t() => any()}
+  @type update_device_status_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_server_type() :: %{
-        "Identifier" => String.t(),
-        "Name" => String.t(),
+        "Identifier" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "Scopes" => list(resource_server_scope_type()),
-        "UserPoolId" => String.t()
+        "UserPoolId" => String.t() | Atom.t()
       }
       
   """
-  @type resource_server_type() :: %{String.t() => any()}
+  @type resource_server_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2440,7 +2440,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type software_token_mfa_config_type() :: %{String.t() => any()}
+  @type software_token_mfa_config_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2448,11 +2448,11 @@ defmodule AWS.CognitoIdentityProvider do
       
       list_devices_response() :: %{
         "Devices" => list(device_type()),
-        "PaginationToken" => String.t()
+        "PaginationToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_devices_response() :: %{String.t() => any()}
+  @type list_devices_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2468,27 +2468,27 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       create_group_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | Atom.t(),
         optional("Precedence") => integer(),
-        optional("RoleArn") => String.t(),
-        required("GroupName") => String.t(),
-        required("UserPoolId") => String.t()
+        optional("RoleArn") => String.t() | Atom.t(),
+        required("GroupName") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type create_group_request() :: %{String.t() => any()}
+  @type create_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       admin_user_global_sign_out_request() :: %{
-        required("UserPoolId") => String.t(),
-        required("Username") => String.t()
+        required("UserPoolId") => String.t() | Atom.t(),
+        required("Username") => String.t() | Atom.t()
       }
       
   """
-  @type admin_user_global_sign_out_request() :: %{String.t() => any()}
+  @type admin_user_global_sign_out_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2504,11 +2504,11 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       invalid_lambda_response_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_lambda_response_exception() :: %{String.t() => any()}
+  @type invalid_lambda_response_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2520,7 +2520,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type sms_mfa_settings_type() :: %{String.t() => any()}
+  @type sms_mfa_settings_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2528,49 +2528,49 @@ defmodule AWS.CognitoIdentityProvider do
       
       add_custom_attributes_request() :: %{
         required("CustomAttributes") => list(schema_attribute_type()),
-        required("UserPoolId") => String.t()
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type add_custom_attributes_request() :: %{String.t() => any()}
+  @type add_custom_attributes_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       admin_disable_user_request() :: %{
-        required("UserPoolId") => String.t(),
-        required("Username") => String.t()
+        required("UserPoolId") => String.t() | Atom.t(),
+        required("Username") => String.t() | Atom.t()
       }
       
   """
-  @type admin_disable_user_request() :: %{String.t() => any()}
+  @type admin_disable_user_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       email_configuration_type() :: %{
-        "ConfigurationSet" => String.t(),
+        "ConfigurationSet" => String.t() | Atom.t(),
         "EmailSendingAccount" => list(any()),
-        "From" => String.t(),
-        "ReplyToEmailAddress" => String.t(),
-        "SourceArn" => String.t()
+        "From" => String.t() | Atom.t(),
+        "ReplyToEmailAddress" => String.t() | Atom.t(),
+        "SourceArn" => String.t() | Atom.t()
       }
       
   """
-  @type email_configuration_type() :: %{String.t() => any()}
+  @type email_configuration_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       expired_code_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type expired_code_exception() :: %{String.t() => any()}
+  @type expired_code_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2579,14 +2579,14 @@ defmodule AWS.CognitoIdentityProvider do
       forgot_password_request() :: %{
         optional("AnalyticsMetadata") => analytics_metadata_type(),
         optional("ClientMetadata") => map(),
-        optional("SecretHash") => String.t(),
+        optional("SecretHash") => String.t() | Atom.t(),
         optional("UserContextData") => user_context_data_type(),
-        required("ClientId") => String.t(),
-        required("Username") => String.t()
+        required("ClientId") => String.t() | Atom.t(),
+        required("Username") => String.t() | Atom.t()
       }
       
   """
-  @type forgot_password_request() :: %{String.t() => any()}
+  @type forgot_password_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2594,48 +2594,48 @@ defmodule AWS.CognitoIdentityProvider do
       
       list_user_pool_clients_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("UserPoolId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type list_user_pool_clients_request() :: %{String.t() => any()}
+  @type list_user_pool_clients_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       admin_remove_user_from_group_request() :: %{
-        required("GroupName") => String.t(),
-        required("UserPoolId") => String.t(),
-        required("Username") => String.t()
+        required("GroupName") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t(),
+        required("Username") => String.t() | Atom.t()
       }
       
   """
-  @type admin_remove_user_from_group_request() :: %{String.t() => any()}
+  @type admin_remove_user_from_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       user_pool_tagging_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type user_pool_tagging_exception() :: %{String.t() => any()}
+  @type user_pool_tagging_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       set_user_settings_request() :: %{
-        required("AccessToken") => String.t(),
+        required("AccessToken") => String.t() | Atom.t(),
         required("MFAOptions") => list(mfa_option_type())
       }
       
   """
-  @type set_user_settings_request() :: %{String.t() => any()}
+  @type set_user_settings_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2647,20 +2647,20 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type recovery_option_type() :: %{String.t() => any()}
+  @type recovery_option_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       provider_user_identifier_type() :: %{
-        "ProviderAttributeName" => String.t(),
-        "ProviderAttributeValue" => String.t(),
-        "ProviderName" => String.t()
+        "ProviderAttributeName" => String.t() | Atom.t(),
+        "ProviderAttributeValue" => String.t() | Atom.t(),
+        "ProviderName" => String.t() | Atom.t()
       }
       
   """
-  @type provider_user_identifier_type() :: %{String.t() => any()}
+  @type provider_user_identifier_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2669,11 +2669,11 @@ defmodule AWS.CognitoIdentityProvider do
       event_feedback_type() :: %{
         "FeedbackDate" => non_neg_integer(),
         "FeedbackValue" => list(any()),
-        "Provider" => String.t()
+        "Provider" => String.t() | Atom.t()
       }
       
   """
-  @type event_feedback_type() :: %{String.t() => any()}
+  @type event_feedback_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2684,20 +2684,20 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type describe_managed_login_branding_by_client_response() :: %{String.t() => any()}
+  @type describe_managed_login_branding_by_client_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       change_password_request() :: %{
-        optional("PreviousPassword") => String.t(),
-        required("AccessToken") => String.t(),
-        required("ProposedPassword") => String.t()
+        optional("PreviousPassword") => String.t() | Atom.t(),
+        required("AccessToken") => String.t() | Atom.t(),
+        required("ProposedPassword") => String.t() | Atom.t()
       }
       
   """
-  @type change_password_request() :: %{String.t() => any()}
+  @type change_password_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2705,44 +2705,44 @@ defmodule AWS.CognitoIdentityProvider do
       
       admin_list_devices_response() :: %{
         "Devices" => list(device_type()),
-        "PaginationToken" => String.t()
+        "PaginationToken" => String.t() | Atom.t()
       }
       
   """
-  @type admin_list_devices_response() :: %{String.t() => any()}
+  @type admin_list_devices_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_user_request() :: %{
-        required("AccessToken") => String.t()
+        required("AccessToken") => String.t() | Atom.t()
       }
       
   """
-  @type delete_user_request() :: %{String.t() => any()}
+  @type delete_user_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_log_delivery_configuration_request() :: %{
-        required("UserPoolId") => String.t()
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type get_log_delivery_configuration_request() :: %{String.t() => any()}
+  @type get_log_delivery_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_o_auth_flow_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_o_auth_flow_exception() :: %{String.t() => any()}
+  @type invalid_o_auth_flow_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2753,52 +2753,52 @@ defmodule AWS.CognitoIdentityProvider do
         "AvailableChallenges" => list(list(any())()),
         "ChallengeName" => list(any()),
         "ChallengeParameters" => map(),
-        "Session" => String.t()
+        "Session" => String.t() | Atom.t()
       }
       
   """
-  @type initiate_auth_response() :: %{String.t() => any()}
+  @type initiate_auth_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       web_authn_credential_description() :: %{
-        "AuthenticatorAttachment" => String.t(),
-        "AuthenticatorTransports" => list(String.t()),
+        "AuthenticatorAttachment" => String.t() | Atom.t(),
+        "AuthenticatorTransports" => list(String.t() | Atom.t()),
         "CreatedAt" => non_neg_integer(),
-        "CredentialId" => String.t(),
-        "FriendlyCredentialName" => String.t(),
-        "RelyingPartyId" => String.t()
+        "CredentialId" => String.t() | Atom.t(),
+        "FriendlyCredentialName" => String.t() | Atom.t(),
+        "RelyingPartyId" => String.t() | Atom.t()
       }
       
   """
-  @type web_authn_credential_description() :: %{String.t() => any()}
+  @type web_authn_credential_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_device_request() :: %{
-        optional("AccessToken") => String.t(),
-        required("DeviceKey") => String.t()
+        optional("AccessToken") => String.t() | Atom.t(),
+        required("DeviceKey") => String.t() | Atom.t()
       }
       
   """
-  @type get_device_request() :: %{String.t() => any()}
+  @type get_device_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       create_user_import_job_request() :: %{
-        required("CloudWatchLogsRoleArn") => String.t(),
-        required("JobName") => String.t(),
-        required("UserPoolId") => String.t()
+        required("CloudWatchLogsRoleArn") => String.t() | Atom.t(),
+        required("JobName") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type create_user_import_job_request() :: %{String.t() => any()}
+  @type create_user_import_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2806,24 +2806,24 @@ defmodule AWS.CognitoIdentityProvider do
       
       admin_set_user_password_request() :: %{
         optional("Permanent") => boolean(),
-        required("Password") => String.t(),
-        required("UserPoolId") => String.t(),
-        required("Username") => String.t()
+        required("Password") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t(),
+        required("Username") => String.t() | Atom.t()
       }
       
   """
-  @type admin_set_user_password_request() :: %{String.t() => any()}
+  @type admin_set_user_password_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       web_authn_credential_not_supported_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type web_authn_credential_not_supported_exception() :: %{String.t() => any()}
+  @type web_authn_credential_not_supported_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2834,7 +2834,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type describe_user_pool_domain_response() :: %{String.t() => any()}
+  @type describe_user_pool_domain_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2845,7 +2845,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type create_managed_login_branding_response() :: %{String.t() => any()}
+  @type create_managed_login_branding_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2854,29 +2854,29 @@ defmodule AWS.CognitoIdentityProvider do
       sign_up_request() :: %{
         optional("AnalyticsMetadata") => analytics_metadata_type(),
         optional("ClientMetadata") => map(),
-        optional("Password") => String.t(),
-        optional("SecretHash") => String.t(),
+        optional("Password") => String.t() | Atom.t(),
+        optional("SecretHash") => String.t() | Atom.t(),
         optional("UserAttributes") => list(attribute_type()),
         optional("UserContextData") => user_context_data_type(),
         optional("ValidationData") => list(attribute_type()),
-        required("ClientId") => String.t(),
-        required("Username") => String.t()
+        required("ClientId") => String.t() | Atom.t(),
+        required("Username") => String.t() | Atom.t()
       }
       
   """
-  @type sign_up_request() :: %{String.t() => any()}
+  @type sign_up_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       forget_device_request() :: %{
-        optional("AccessToken") => String.t(),
-        required("DeviceKey") => String.t()
+        optional("AccessToken") => String.t() | Atom.t(),
+        required("DeviceKey") => String.t() | Atom.t()
       }
       
   """
-  @type forget_device_request() :: %{String.t() => any()}
+  @type forget_device_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2888,7 +2888,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type device_configuration_type() :: %{String.t() => any()}
+  @type device_configuration_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2900,65 +2900,65 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type user_pool_add_ons_type() :: %{String.t() => any()}
+  @type user_pool_add_ons_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_user_pool_request() :: %{
-        required("UserPoolId") => String.t()
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_user_pool_request() :: %{String.t() => any()}
+  @type describe_user_pool_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_user_pool_domain_request() :: %{
-        required("Domain") => String.t(),
-        required("UserPoolId") => String.t()
+        required("Domain") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_user_pool_domain_request() :: %{String.t() => any()}
+  @type delete_user_pool_domain_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       user_lambda_validation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type user_lambda_validation_exception() :: %{String.t() => any()}
+  @type user_lambda_validation_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_user_pool_request() :: %{
-        required("UserPoolId") => String.t()
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_user_pool_request() :: %{String.t() => any()}
+  @type delete_user_pool_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_user_import_jobs_request() :: %{
-        optional("PaginationToken") => String.t(),
+        optional("PaginationToken") => String.t() | Atom.t(),
         required("MaxResults") => integer(),
-        required("UserPoolId") => String.t()
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type list_user_import_jobs_request() :: %{String.t() => any()}
+  @type list_user_import_jobs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2970,7 +2970,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type challenge_response_type() :: %{String.t() => any()}
+  @type challenge_response_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2979,14 +2979,14 @@ defmodule AWS.CognitoIdentityProvider do
       resend_confirmation_code_request() :: %{
         optional("AnalyticsMetadata") => analytics_metadata_type(),
         optional("ClientMetadata") => map(),
-        optional("SecretHash") => String.t(),
+        optional("SecretHash") => String.t() | Atom.t(),
         optional("UserContextData") => user_context_data_type(),
-        required("ClientId") => String.t(),
-        required("Username") => String.t()
+        required("ClientId") => String.t() | Atom.t(),
+        required("Username") => String.t() | Atom.t()
       }
       
   """
-  @type resend_confirmation_code_request() :: %{String.t() => any()}
+  @type resend_confirmation_code_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2997,14 +2997,14 @@ defmodule AWS.CognitoIdentityProvider do
         optional("ChallengeResponses") => map(),
         optional("ClientMetadata") => map(),
         optional("ContextData") => context_data_type(),
-        optional("Session") => String.t(),
+        optional("Session") => String.t() | Atom.t(),
         required("ChallengeName") => list(any()),
-        required("ClientId") => String.t(),
-        required("UserPoolId") => String.t()
+        required("ClientId") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type admin_respond_to_auth_challenge_request() :: %{String.t() => any()}
+  @type admin_respond_to_auth_challenge_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3016,18 +3016,18 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type email_mfa_settings_type() :: %{String.t() => any()}
+  @type email_mfa_settings_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       not_authorized_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type not_authorized_exception() :: %{String.t() => any()}
+  @type not_authorized_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3035,11 +3035,11 @@ defmodule AWS.CognitoIdentityProvider do
       
       admin_list_user_auth_events_response() :: %{
         "AuthEvents" => list(auth_event_type()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type admin_list_user_auth_events_response() :: %{String.t() => any()}
+  @type admin_list_user_auth_events_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3050,29 +3050,29 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type get_tokens_from_refresh_token_response() :: %{String.t() => any()}
+  @type get_tokens_from_refresh_token_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       unsupported_identity_provider_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type unsupported_identity_provider_exception() :: %{String.t() => any()}
+  @type unsupported_identity_provider_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       user_pool_add_on_not_enabled_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type user_pool_add_on_not_enabled_exception() :: %{String.t() => any()}
+  @type user_pool_add_on_not_enabled_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3083,14 +3083,14 @@ defmodule AWS.CognitoIdentityProvider do
         "CreationDate" => non_neg_integer(),
         "EventContextData" => event_context_data_type(),
         "EventFeedback" => event_feedback_type(),
-        "EventId" => String.t(),
+        "EventId" => String.t() | Atom.t(),
         "EventResponse" => list(any()),
         "EventRisk" => event_risk_type(),
         "EventType" => list(any())
       }
       
   """
-  @type auth_event_type() :: %{String.t() => any()}
+  @type auth_event_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3098,15 +3098,15 @@ defmodule AWS.CognitoIdentityProvider do
       
       create_identity_provider_request() :: %{
         optional("AttributeMapping") => map(),
-        optional("IdpIdentifiers") => list(String.t()),
+        optional("IdpIdentifiers") => list(String.t() | Atom.t()),
         required("ProviderDetails") => map(),
-        required("ProviderName") => String.t(),
+        required("ProviderName") => String.t() | Atom.t(),
         required("ProviderType") => list(any()),
-        required("UserPoolId") => String.t()
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type create_identity_provider_request() :: %{String.t() => any()}
+  @type create_identity_provider_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3117,18 +3117,18 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type update_managed_login_branding_response() :: %{String.t() => any()}
+  @type update_managed_login_branding_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_user_pool_configuration_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_user_pool_configuration_exception() :: %{String.t() => any()}
+  @type invalid_user_pool_configuration_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3139,7 +3139,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type set_log_delivery_configuration_response() :: %{String.t() => any()}
+  @type set_log_delivery_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3147,13 +3147,13 @@ defmodule AWS.CognitoIdentityProvider do
       
       sign_up_response() :: %{
         "CodeDeliveryDetails" => code_delivery_details_type(),
-        "Session" => String.t(),
+        "Session" => String.t() | Atom.t(),
         "UserConfirmed" => boolean(),
-        "UserSub" => String.t()
+        "UserSub" => String.t() | Atom.t()
       }
       
   """
-  @type sign_up_response() :: %{String.t() => any()}
+  @type sign_up_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3164,7 +3164,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type start_user_import_job_response() :: %{String.t() => any()}
+  @type start_user_import_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3188,7 +3188,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type log_configuration_type() :: %{String.t() => any()}
+  @type log_configuration_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3204,12 +3204,12 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       invalid_parameter_exception() :: %{
-        "message" => String.t(),
-        "reasonCode" => String.t()
+        "message" => String.t() | Atom.t(),
+        "reasonCode" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_parameter_exception() :: %{String.t() => any()}
+  @type invalid_parameter_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3230,34 +3230,34 @@ defmodule AWS.CognitoIdentityProvider do
         optional("SmsMfaConfiguration") => sms_mfa_config_type(),
         optional("SoftwareTokenMfaConfiguration") => software_token_mfa_config_type(),
         optional("WebAuthnConfiguration") => web_authn_configuration_type(),
-        required("UserPoolId") => String.t()
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type set_user_pool_mfa_config_request() :: %{String.t() => any()}
+  @type set_user_pool_mfa_config_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_user_import_job_request() :: %{
-        required("JobId") => String.t(),
-        required("UserPoolId") => String.t()
+        required("JobId") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_user_import_job_request() :: %{String.t() => any()}
+  @type describe_user_import_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       firehose_configuration_type() :: %{
-        "StreamArn" => String.t()
+        "StreamArn" => String.t() | Atom.t()
       }
       
   """
-  @type firehose_configuration_type() :: %{String.t() => any()}
+  @type firehose_configuration_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3265,24 +3265,24 @@ defmodule AWS.CognitoIdentityProvider do
       
       admin_disable_provider_for_user_request() :: %{
         required("User") => provider_user_identifier_type(),
-        required("UserPoolId") => String.t()
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type admin_disable_provider_for_user_request() :: %{String.t() => any()}
+  @type admin_disable_provider_for_user_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       code_delivery_details_type() :: %{
-        "AttributeName" => String.t(),
+        "AttributeName" => String.t() | Atom.t(),
         "DeliveryMedium" => list(any()),
-        "Destination" => String.t()
+        "Destination" => String.t() | Atom.t()
       }
       
   """
-  @type code_delivery_details_type() :: %{String.t() => any()}
+  @type code_delivery_details_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3304,19 +3304,19 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type event_risk_type() :: %{String.t() => any()}
+  @type event_risk_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_ui_customization_request() :: %{
-        optional("ClientId") => String.t(),
-        required("UserPoolId") => String.t()
+        optional("ClientId") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type get_ui_customization_request() :: %{String.t() => any()}
+  @type get_ui_customization_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3336,7 +3336,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type confirm_device_response() :: %{String.t() => any()}
+  @type confirm_device_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3347,34 +3347,34 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type account_recovery_setting_type() :: %{String.t() => any()}
+  @type account_recovery_setting_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_user_pool_client_request() :: %{
-        required("ClientId") => String.t(),
-        required("UserPoolId") => String.t()
+        required("ClientId") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type describe_user_pool_client_request() :: %{String.t() => any()}
+  @type describe_user_pool_client_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       update_auth_event_feedback_request() :: %{
-        required("EventId") => String.t(),
-        required("FeedbackToken") => String.t(),
+        required("EventId") => String.t() | Atom.t(),
+        required("FeedbackToken") => String.t() | Atom.t(),
         required("FeedbackValue") => list(any()),
-        required("UserPoolId") => String.t(),
-        required("Username") => String.t()
+        required("UserPoolId") => String.t() | Atom.t(),
+        required("Username") => String.t() | Atom.t()
       }
       
   """
-  @type update_auth_event_feedback_request() :: %{String.t() => any()}
+  @type update_auth_event_feedback_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3385,23 +3385,23 @@ defmodule AWS.CognitoIdentityProvider do
         "Category" => list(any()),
         "ColorMode" => list(any()),
         "Extension" => list(any()),
-        "ResourceId" => String.t()
+        "ResourceId" => String.t() | Atom.t()
       }
       
   """
-  @type asset_type() :: %{String.t() => any()}
+  @type asset_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       pre_token_generation_version_config_type() :: %{
-        "LambdaArn" => String.t(),
+        "LambdaArn" => String.t() | Atom.t(),
         "LambdaVersion" => list(any())
       }
       
   """
-  @type pre_token_generation_version_config_type() :: %{String.t() => any()}
+  @type pre_token_generation_version_config_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3409,24 +3409,24 @@ defmodule AWS.CognitoIdentityProvider do
       
       admin_update_device_status_request() :: %{
         optional("DeviceRememberedStatus") => list(any()),
-        required("DeviceKey") => String.t(),
-        required("UserPoolId") => String.t(),
-        required("Username") => String.t()
+        required("DeviceKey") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t(),
+        required("Username") => String.t() | Atom.t()
       }
       
   """
-  @type admin_update_device_status_request() :: %{String.t() => any()}
+  @type admin_update_device_status_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       software_token_mfa_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type software_token_mfa_not_found_exception() :: %{String.t() => any()}
+  @type software_token_mfa_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3437,18 +3437,18 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type get_log_delivery_configuration_response() :: %{String.t() => any()}
+  @type get_log_delivery_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       concurrent_modification_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type concurrent_modification_exception() :: %{String.t() => any()}
+  @type concurrent_modification_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3459,7 +3459,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type resend_confirmation_code_response() :: %{String.t() => any()}
+  @type resend_confirmation_code_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3467,12 +3467,12 @@ defmodule AWS.CognitoIdentityProvider do
       
       admin_reset_user_password_request() :: %{
         optional("ClientMetadata") => map(),
-        required("UserPoolId") => String.t(),
-        required("Username") => String.t()
+        required("UserPoolId") => String.t() | Atom.t(),
+        required("Username") => String.t() | Atom.t()
       }
       
   """
-  @type admin_reset_user_password_request() :: %{String.t() => any()}
+  @type admin_reset_user_password_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3492,7 +3492,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type admin_get_device_response() :: %{String.t() => any()}
+  @type admin_get_device_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3500,35 +3500,35 @@ defmodule AWS.CognitoIdentityProvider do
       
       list_resource_servers_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("UserPoolId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type list_resource_servers_request() :: %{String.t() => any()}
+  @type list_resource_servers_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | Atom.t()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       email_mfa_config_type() :: %{
-        "Message" => String.t(),
-        "Subject" => String.t()
+        "Message" => String.t() | Atom.t(),
+        "Subject" => String.t() | Atom.t()
       }
       
   """
-  @type email_mfa_config_type() :: %{String.t() => any()}
+  @type email_mfa_config_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3548,53 +3548,53 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type update_user_pool_client_response() :: %{String.t() => any()}
+  @type update_user_pool_client_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_identity_providers_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "Providers" => list(provider_description())
       }
       
   """
-  @type list_identity_providers_response() :: %{String.t() => any()}
+  @type list_identity_providers_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       http_header() :: %{
-        "headerName" => String.t(),
-        "headerValue" => String.t()
+        "headerName" => String.t() | Atom.t(),
+        "headerValue" => String.t() | Atom.t()
       }
       
   """
-  @type http_header() :: %{String.t() => any()}
+  @type http_header() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       enable_software_token_mfa_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type enable_software_token_mfa_exception() :: %{String.t() => any()}
+  @type enable_software_token_mfa_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       web_authn_not_enabled_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type web_authn_not_enabled_exception() :: %{String.t() => any()}
+  @type web_authn_not_enabled_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3605,7 +3605,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type get_group_response() :: %{String.t() => any()}
+  @type get_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3617,7 +3617,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type refresh_token_rotation_type() :: %{String.t() => any()}
+  @type refresh_token_rotation_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3628,7 +3628,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type stop_user_import_job_response() :: %{String.t() => any()}
+  @type stop_user_import_job_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3636,15 +3636,15 @@ defmodule AWS.CognitoIdentityProvider do
       
       notify_configuration_type() :: %{
         "BlockEmail" => notify_email_type(),
-        "From" => String.t(),
+        "From" => String.t() | Atom.t(),
         "MfaEmail" => notify_email_type(),
         "NoActionEmail" => notify_email_type(),
-        "ReplyTo" => String.t(),
-        "SourceArn" => String.t()
+        "ReplyTo" => String.t() | Atom.t(),
+        "SourceArn" => String.t() | Atom.t()
       }
       
   """
-  @type notify_configuration_type() :: %{String.t() => any()}
+  @type notify_configuration_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3652,34 +3652,34 @@ defmodule AWS.CognitoIdentityProvider do
       
       admin_list_groups_for_user_response() :: %{
         "Groups" => list(group_type()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type admin_list_groups_for_user_response() :: %{String.t() => any()}
+  @type admin_list_groups_for_user_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       username_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type username_exists_exception() :: %{String.t() => any()}
+  @type username_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_group_request() :: %{
-        required("GroupName") => String.t(),
-        required("UserPoolId") => String.t()
+        required("GroupName") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_group_request() :: %{String.t() => any()}
+  @type delete_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3689,30 +3689,30 @@ defmodule AWS.CognitoIdentityProvider do
         optional("AccessTokenValidity") => integer(),
         optional("AllowedOAuthFlows") => list(list(any())()),
         optional("AllowedOAuthFlowsUserPoolClient") => boolean(),
-        optional("AllowedOAuthScopes") => list(String.t()),
+        optional("AllowedOAuthScopes") => list(String.t() | Atom.t()),
         optional("AnalyticsConfiguration") => analytics_configuration_type(),
         optional("AuthSessionValidity") => integer(),
-        optional("CallbackURLs") => list(String.t()),
-        optional("ClientName") => String.t(),
-        optional("DefaultRedirectURI") => String.t(),
+        optional("CallbackURLs") => list(String.t() | Atom.t()),
+        optional("ClientName") => String.t() | Atom.t(),
+        optional("DefaultRedirectURI") => String.t() | Atom.t(),
         optional("EnablePropagateAdditionalUserContextData") => boolean(),
         optional("EnableTokenRevocation") => boolean(),
         optional("ExplicitAuthFlows") => list(list(any())()),
         optional("IdTokenValidity") => integer(),
-        optional("LogoutURLs") => list(String.t()),
+        optional("LogoutURLs") => list(String.t() | Atom.t()),
         optional("PreventUserExistenceErrors") => list(any()),
-        optional("ReadAttributes") => list(String.t()),
+        optional("ReadAttributes") => list(String.t() | Atom.t()),
         optional("RefreshTokenRotation") => refresh_token_rotation_type(),
         optional("RefreshTokenValidity") => integer(),
-        optional("SupportedIdentityProviders") => list(String.t()),
+        optional("SupportedIdentityProviders") => list(String.t() | Atom.t()),
         optional("TokenValidityUnits") => token_validity_units_type(),
-        optional("WriteAttributes") => list(String.t()),
-        required("ClientId") => String.t(),
-        required("UserPoolId") => String.t()
+        optional("WriteAttributes") => list(String.t() | Atom.t()),
+        required("ClientId") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type update_user_pool_client_request() :: %{String.t() => any()}
+  @type update_user_pool_client_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3723,58 +3723,58 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type get_ui_customization_response() :: %{String.t() => any()}
+  @type get_ui_customization_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_users_request() :: %{
-        optional("AttributesToGet") => list(String.t()),
-        optional("Filter") => String.t(),
+        optional("AttributesToGet") => list(String.t() | Atom.t()),
+        optional("Filter") => String.t() | Atom.t(),
         optional("Limit") => integer(),
-        optional("PaginationToken") => String.t(),
-        required("UserPoolId") => String.t()
+        optional("PaginationToken") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type list_users_request() :: %{String.t() => any()}
+  @type list_users_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       revoke_token_request() :: %{
-        optional("ClientSecret") => String.t(),
-        required("ClientId") => String.t(),
-        required("Token") => String.t()
+        optional("ClientSecret") => String.t() | Atom.t(),
+        required("ClientId") => String.t() | Atom.t(),
+        required("Token") => String.t() | Atom.t()
       }
       
   """
-  @type revoke_token_request() :: %{String.t() => any()}
+  @type revoke_token_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_software_token_request() :: %{
-        optional("AccessToken") => String.t(),
-        optional("Session") => String.t()
+        optional("AccessToken") => String.t() | Atom.t(),
+        optional("Session") => String.t() | Atom.t()
       }
       
   """
-  @type associate_software_token_request() :: %{String.t() => any()}
+  @type associate_software_token_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3783,39 +3783,39 @@ defmodule AWS.CognitoIdentityProvider do
       confirm_forgot_password_request() :: %{
         optional("AnalyticsMetadata") => analytics_metadata_type(),
         optional("ClientMetadata") => map(),
-        optional("SecretHash") => String.t(),
+        optional("SecretHash") => String.t() | Atom.t(),
         optional("UserContextData") => user_context_data_type(),
-        required("ClientId") => String.t(),
-        required("ConfirmationCode") => String.t(),
-        required("Password") => String.t(),
-        required("Username") => String.t()
+        required("ClientId") => String.t() | Atom.t(),
+        required("ConfirmationCode") => String.t() | Atom.t(),
+        required("Password") => String.t() | Atom.t(),
+        required("Username") => String.t() | Atom.t()
       }
       
   """
-  @type confirm_forgot_password_request() :: %{String.t() => any()}
+  @type confirm_forgot_password_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       mfa_option_type() :: %{
-        "AttributeName" => String.t(),
+        "AttributeName" => String.t() | Atom.t(),
         "DeliveryMedium" => list(any())
       }
       
   """
-  @type mfa_option_type() :: %{String.t() => any()}
+  @type mfa_option_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       code_delivery_failure_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type code_delivery_failure_exception() :: %{String.t() => any()}
+  @type code_delivery_failure_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3826,7 +3826,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type create_resource_server_response() :: %{String.t() => any()}
+  @type create_resource_server_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3837,7 +3837,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type forgot_password_response() :: %{String.t() => any()}
+  @type forgot_password_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3847,12 +3847,12 @@ defmodule AWS.CognitoIdentityProvider do
         optional("Assets") => list(asset_type()),
         optional("Settings") => any(),
         optional("UseCognitoProvidedValues") => boolean(),
-        required("ClientId") => String.t(),
-        required("UserPoolId") => String.t()
+        required("ClientId") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type create_managed_login_branding_request() :: %{String.t() => any()}
+  @type create_managed_login_branding_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3862,14 +3862,14 @@ defmodule AWS.CognitoIdentityProvider do
         "AttributeDataType" => list(any()),
         "DeveloperOnlyAttribute" => boolean(),
         "Mutable" => boolean(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "NumberAttributeConstraints" => number_attribute_constraints_type(),
         "Required" => boolean(),
         "StringAttributeConstraints" => string_attribute_constraints_type()
       }
       
   """
-  @type schema_attribute_type() :: %{String.t() => any()}
+  @type schema_attribute_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3877,23 +3877,23 @@ defmodule AWS.CognitoIdentityProvider do
       
       list_web_authn_credentials_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("AccessToken") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("AccessToken") => String.t() | Atom.t()
       }
       
   """
-  @type list_web_authn_credentials_request() :: %{String.t() => any()}
+  @type list_web_authn_credentials_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       web_authn_origin_not_allowed_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type web_authn_origin_not_allowed_exception() :: %{String.t() => any()}
+  @type web_authn_origin_not_allowed_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3905,7 +3905,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type account_takeover_action_type() :: %{String.t() => any()}
+  @type account_takeover_action_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3913,42 +3913,42 @@ defmodule AWS.CognitoIdentityProvider do
       
       update_identity_provider_request() :: %{
         optional("AttributeMapping") => map(),
-        optional("IdpIdentifiers") => list(String.t()),
+        optional("IdpIdentifiers") => list(String.t() | Atom.t()),
         optional("ProviderDetails") => map(),
-        required("ProviderName") => String.t(),
-        required("UserPoolId") => String.t()
+        required("ProviderName") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type update_identity_provider_request() :: %{String.t() => any()}
+  @type update_identity_provider_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       context_data_type() :: %{
-        "EncodedData" => String.t(),
+        "EncodedData" => String.t() | Atom.t(),
         "HttpHeaders" => list(http_header()),
-        "IpAddress" => String.t(),
-        "ServerName" => String.t(),
-        "ServerPath" => String.t()
+        "IpAddress" => String.t() | Atom.t(),
+        "ServerName" => String.t() | Atom.t(),
+        "ServerPath" => String.t() | Atom.t()
       }
       
   """
-  @type context_data_type() :: %{String.t() => any()}
+  @type context_data_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       admin_get_device_request() :: %{
-        required("DeviceKey") => String.t(),
-        required("UserPoolId") => String.t(),
-        required("Username") => String.t()
+        required("DeviceKey") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t(),
+        required("Username") => String.t() | Atom.t()
       }
       
   """
-  @type admin_get_device_request() :: %{String.t() => any()}
+  @type admin_get_device_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3956,11 +3956,11 @@ defmodule AWS.CognitoIdentityProvider do
       
       list_groups_response() :: %{
         "Groups" => list(group_type()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_groups_response() :: %{String.t() => any()}
+  @type list_groups_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3971,23 +3971,23 @@ defmodule AWS.CognitoIdentityProvider do
         "AvailableChallenges" => list(list(any())()),
         "ChallengeName" => list(any()),
         "ChallengeParameters" => map(),
-        "Session" => String.t()
+        "Session" => String.t() | Atom.t()
       }
       
   """
-  @type admin_initiate_auth_response() :: %{String.t() => any()}
+  @type admin_initiate_auth_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_group_request() :: %{
-        required("GroupName") => String.t(),
-        required("UserPoolId") => String.t()
+        required("GroupName") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type get_group_request() :: %{String.t() => any()}
+  @type get_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3997,16 +3997,16 @@ defmodule AWS.CognitoIdentityProvider do
         optional("AnalyticsMetadata") => analytics_metadata_type(),
         optional("ClientMetadata") => map(),
         optional("ForceAliasCreation") => boolean(),
-        optional("SecretHash") => String.t(),
-        optional("Session") => String.t(),
+        optional("SecretHash") => String.t() | Atom.t(),
+        optional("Session") => String.t() | Atom.t(),
         optional("UserContextData") => user_context_data_type(),
-        required("ClientId") => String.t(),
-        required("ConfirmationCode") => String.t(),
-        required("Username") => String.t()
+        required("ClientId") => String.t() | Atom.t(),
+        required("ConfirmationCode") => String.t() | Atom.t(),
+        required("Username") => String.t() | Atom.t()
       }
       
   """
-  @type confirm_sign_up_request() :: %{String.t() => any()}
+  @type confirm_sign_up_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4016,36 +4016,36 @@ defmodule AWS.CognitoIdentityProvider do
         "AuthenticationResult" => authentication_result_type(),
         "ChallengeName" => list(any()),
         "ChallengeParameters" => map(),
-        "Session" => String.t()
+        "Session" => String.t() | Atom.t()
       }
       
   """
-  @type respond_to_auth_challenge_response() :: %{String.t() => any()}
+  @type respond_to_auth_challenge_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       admin_forget_device_request() :: %{
-        required("DeviceKey") => String.t(),
-        required("UserPoolId") => String.t(),
-        required("Username") => String.t()
+        required("DeviceKey") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t(),
+        required("Username") => String.t() | Atom.t()
       }
       
   """
-  @type admin_forget_device_request() :: %{String.t() => any()}
+  @type admin_forget_device_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_web_authn_credential_request() :: %{
-        required("AccessToken") => String.t(),
-        required("CredentialId") => String.t()
+        required("AccessToken") => String.t() | Atom.t(),
+        required("CredentialId") => String.t() | Atom.t()
       }
       
   """
-  @type delete_web_authn_credential_request() :: %{String.t() => any()}
+  @type delete_web_authn_credential_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4053,12 +4053,12 @@ defmodule AWS.CognitoIdentityProvider do
       
       list_groups_request() :: %{
         optional("Limit") => integer(),
-        optional("NextToken") => String.t(),
-        required("UserPoolId") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type list_groups_request() :: %{String.t() => any()}
+  @type list_groups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4069,7 +4069,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type set_risk_configuration_response() :: %{String.t() => any()}
+  @type set_risk_configuration_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4077,22 +4077,22 @@ defmodule AWS.CognitoIdentityProvider do
       
       list_web_authn_credentials_response() :: %{
         "Credentials" => list(web_authn_credential_description()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | Atom.t()
       }
       
   """
-  @type list_web_authn_credentials_response() :: %{String.t() => any()}
+  @type list_web_authn_credentials_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_sms_role_trust_relationship_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_sms_role_trust_relationship_exception() :: %{String.t() => any()}
+  @type invalid_sms_role_trust_relationship_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4100,13 +4100,13 @@ defmodule AWS.CognitoIdentityProvider do
       
       admin_list_user_auth_events_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("UserPoolId") => String.t(),
-        required("Username") => String.t()
+        optional("NextToken") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t(),
+        required("Username") => String.t() | Atom.t()
       }
       
   """
-  @type admin_list_user_auth_events_request() :: %{String.t() => any()}
+  @type admin_list_user_auth_events_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4119,49 +4119,49 @@ defmodule AWS.CognitoIdentityProvider do
         "UsernameAttributes" => list(list(any())()),
         "CreationDate" => non_neg_integer(),
         "Policies" => user_pool_policy_type(),
-        "EmailVerificationSubject" => String.t(),
+        "EmailVerificationSubject" => String.t() | Atom.t(),
         "UsernameConfiguration" => username_configuration_type(),
         "SmsConfiguration" => sms_configuration_type(),
         "LambdaConfig" => lambda_config_type(),
         "UserPoolTier" => list(any()),
         "MfaConfiguration" => list(any()),
         "UserAttributeUpdateSettings" => user_attribute_update_settings_type(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "VerificationMessageTemplate" => verification_message_template_type(),
-        "CustomDomain" => String.t(),
-        "EmailConfigurationFailure" => String.t(),
+        "CustomDomain" => String.t() | Atom.t(),
+        "EmailConfigurationFailure" => String.t() | Atom.t(),
         "UserPoolTags" => map(),
         "UserPoolAddOns" => user_pool_add_ons_type(),
-        "EmailVerificationMessage" => String.t(),
+        "EmailVerificationMessage" => String.t() | Atom.t(),
         "LastModifiedDate" => non_neg_integer(),
         "AliasAttributes" => list(list(any())()),
         "DeletionProtection" => list(any()),
-        "SmsConfigurationFailure" => String.t(),
-        "SmsAuthenticationMessage" => String.t(),
-        "Arn" => String.t(),
-        "SmsVerificationMessage" => String.t(),
-        "Name" => String.t(),
+        "SmsConfigurationFailure" => String.t() | Atom.t(),
+        "SmsAuthenticationMessage" => String.t() | Atom.t(),
+        "Arn" => String.t() | Atom.t(),
+        "SmsVerificationMessage" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "EstimatedNumberOfUsers" => integer(),
         "DeviceConfiguration" => device_configuration_type(),
-        "Domain" => String.t(),
+        "Domain" => String.t() | Atom.t(),
         "AdminCreateUserConfig" => admin_create_user_config_type(),
         "AccountRecoverySetting" => account_recovery_setting_type(),
         "SchemaAttributes" => list(schema_attribute_type())
       }
       
   """
-  @type user_pool_type() :: %{String.t() => any()}
+  @type user_pool_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       precondition_not_met_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type precondition_not_met_exception() :: %{String.t() => any()}
+  @type precondition_not_met_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4181,7 +4181,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type username_configuration_type() :: %{String.t() => any()}
+  @type username_configuration_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4194,7 +4194,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type account_takeover_actions_type() :: %{String.t() => any()}
+  @type account_takeover_actions_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4204,57 +4204,57 @@ defmodule AWS.CognitoIdentityProvider do
         optional("EmailMfaSettings") => email_mfa_settings_type(),
         optional("SMSMfaSettings") => sms_mfa_settings_type(),
         optional("SoftwareTokenMfaSettings") => software_token_mfa_settings_type(),
-        required("UserPoolId") => String.t(),
-        required("Username") => String.t()
+        required("UserPoolId") => String.t() | Atom.t(),
+        required("Username") => String.t() | Atom.t()
       }
       
   """
-  @type admin_set_user_mfa_preference_request() :: %{String.t() => any()}
+  @type admin_set_user_mfa_preference_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_user_import_job_request() :: %{
-        required("JobId") => String.t(),
-        required("UserPoolId") => String.t()
+        required("JobId") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type stop_user_import_job_request() :: %{String.t() => any()}
+  @type stop_user_import_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       get_signing_certificate_request() :: %{
-        required("UserPoolId") => String.t()
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type get_signing_certificate_request() :: %{String.t() => any()}
+  @type get_signing_certificate_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_password_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type invalid_password_exception() :: %{String.t() => any()}
+  @type invalid_password_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       device_key_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type device_key_exists_exception() :: %{String.t() => any()}
+  @type device_key_exists_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4265,7 +4265,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type update_group_response() :: %{String.t() => any()}
+  @type update_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4273,15 +4273,15 @@ defmodule AWS.CognitoIdentityProvider do
       
       risk_configuration_type() :: %{
         "AccountTakeoverRiskConfiguration" => account_takeover_risk_configuration_type(),
-        "ClientId" => String.t(),
+        "ClientId" => String.t() | Atom.t(),
         "CompromisedCredentialsRiskConfiguration" => compromised_credentials_risk_configuration_type(),
         "LastModifiedDate" => non_neg_integer(),
         "RiskExceptionConfiguration" => risk_exception_configuration_type(),
-        "UserPoolId" => String.t()
+        "UserPoolId" => String.t() | Atom.t()
       }
       
   """
-  @type risk_configuration_type() :: %{String.t() => any()}
+  @type risk_configuration_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4289,30 +4289,30 @@ defmodule AWS.CognitoIdentityProvider do
       
       verification_message_template_type() :: %{
         "DefaultEmailOption" => list(any()),
-        "EmailMessage" => String.t(),
-        "EmailMessageByLink" => String.t(),
-        "EmailSubject" => String.t(),
-        "EmailSubjectByLink" => String.t(),
-        "SmsMessage" => String.t()
+        "EmailMessage" => String.t() | Atom.t(),
+        "EmailMessageByLink" => String.t() | Atom.t(),
+        "EmailSubject" => String.t() | Atom.t(),
+        "EmailSubjectByLink" => String.t() | Atom.t(),
+        "SmsMessage" => String.t() | Atom.t()
       }
       
   """
-  @type verification_message_template_type() :: %{String.t() => any()}
+  @type verification_message_template_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       analytics_configuration_type() :: %{
-        "ApplicationArn" => String.t(),
-        "ApplicationId" => String.t(),
-        "ExternalId" => String.t(),
-        "RoleArn" => String.t(),
+        "ApplicationArn" => String.t() | Atom.t(),
+        "ApplicationId" => String.t() | Atom.t(),
+        "ExternalId" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | Atom.t(),
         "UserDataShared" => boolean()
       }
       
   """
-  @type analytics_configuration_type() :: %{String.t() => any()}
+  @type analytics_configuration_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4323,18 +4323,18 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type create_group_response() :: %{String.t() => any()}
+  @type create_group_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       mfa_method_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type mfa_method_not_found_exception() :: %{String.t() => any()}
+  @type mfa_method_not_found_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4350,36 +4350,36 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       internal_error_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type internal_error_exception() :: %{String.t() => any()}
+  @type internal_error_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       sms_configuration_type() :: %{
-        "ExternalId" => String.t(),
-        "SnsCallerArn" => String.t(),
-        "SnsRegion" => String.t()
+        "ExternalId" => String.t() | Atom.t(),
+        "SnsCallerArn" => String.t() | Atom.t(),
+        "SnsRegion" => String.t() | Atom.t()
       }
       
   """
-  @type sms_configuration_type() :: %{String.t() => any()}
+  @type sms_configuration_type() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_user_pool_clients_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "UserPoolClients" => list(user_pool_client_description())
       }
       
   """
-  @type list_user_pool_clients_response() :: %{String.t() => any()}
+  @type list_user_pool_clients_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4388,24 +4388,24 @@ defmodule AWS.CognitoIdentityProvider do
       provider_description() :: %{
         "CreationDate" => non_neg_integer(),
         "LastModifiedDate" => non_neg_integer(),
-        "ProviderName" => String.t(),
+        "ProviderName" => String.t() | Atom.t(),
         "ProviderType" => list(any())
       }
       
   """
-  @type provider_description() :: %{String.t() => any()}
+  @type provider_description() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       admin_delete_user_request() :: %{
-        required("UserPoolId") => String.t(),
-        required("Username") => String.t()
+        required("UserPoolId") => String.t() | Atom.t(),
+        required("Username") => String.t() | Atom.t()
       }
       
   """
-  @type admin_delete_user_request() :: %{String.t() => any()}
+  @type admin_delete_user_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4415,22 +4415,22 @@ defmodule AWS.CognitoIdentityProvider do
         optional("EmailMfaSettings") => email_mfa_settings_type(),
         optional("SMSMfaSettings") => sms_mfa_settings_type(),
         optional("SoftwareTokenMfaSettings") => software_token_mfa_settings_type(),
-        required("AccessToken") => String.t()
+        required("AccessToken") => String.t() | Atom.t()
       }
       
   """
-  @type set_user_mfa_preference_request() :: %{String.t() => any()}
+  @type set_user_mfa_preference_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       unexpected_lambda_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | Atom.t()
       }
       
   """
-  @type unexpected_lambda_exception() :: %{String.t() => any()}
+  @type unexpected_lambda_exception() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4441,7 +4441,7 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type get_device_response() :: %{String.t() => any()}
+  @type get_device_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4452,50 +4452,50 @@ defmodule AWS.CognitoIdentityProvider do
       }
       
   """
-  @type get_user_attribute_verification_code_response() :: %{String.t() => any()}
+  @type get_user_attribute_verification_code_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       list_resource_servers_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | Atom.t(),
         "ResourceServers" => list(resource_server_type())
       }
       
   """
-  @type list_resource_servers_response() :: %{String.t() => any()}
+  @type list_resource_servers_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       start_user_import_job_request() :: %{
-        required("JobId") => String.t(),
-        required("UserPoolId") => String.t()
+        required("JobId") => String.t() | Atom.t(),
+        required("UserPoolId") => String.t() | Atom.t()
       }
       
   """
-  @type start_user_import_job_request() :: %{String.t() => any()}
+  @type start_user_import_job_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       domain_description_type() :: %{
-        "AWSAccountId" => String.t(),
-        "CloudFrontDistribution" => String.t(),
+        "AWSAccountId" => String.t() | Atom.t(),
+        "CloudFrontDistribution" => String.t() | Atom.t(),
         "CustomDomainConfig" => custom_domain_config_type(),
-        "Domain" => String.t(),
+        "Domain" => String.t() | Atom.t(),
         "ManagedLoginVersion" => integer(),
-        "S3Bucket" => String.t(),
+        "S3Bucket" => String.t() | Atom.t(),
         "Status" => list(any()),
-        "UserPoolId" => String.t(),
-        "Version" => String.t()
+        "UserPoolId" => String.t() | Atom.t(),
+        "Version" => String.t() | Atom.t()
       }
       
   """
-  @type domain_description_type() :: %{String.t() => any()}
+  @type domain_description_type() :: %{String.t() | Atom.t() => any()}
 
   @type add_custom_attributes_errors() ::
           internal_error_exception()

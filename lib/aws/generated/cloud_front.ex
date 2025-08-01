@@ -20,11 +20,11 @@ defmodule AWS.CloudFront do
   ## Example:
 
       response_headers_policy_in_use() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type response_headers_policy_in_use() :: %{String.t() => any()}
+  @type response_headers_policy_in_use() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -41,23 +41,23 @@ defmodule AWS.CloudFront do
 
       invalidation_summary() :: %{
         "CreateTime" => non_neg_integer(),
-        "Id" => String.t(),
-        "Status" => String.t()
+        "Id" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type invalidation_summary() :: %{String.t() => any()}
+  @type invalidation_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_origin_access_controls() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_origin_access_controls() :: %{String.t() => any()}
+  @type too_many_origin_access_controls() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -68,42 +68,42 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type realtime_metrics_subscription_config() :: %{String.t() => any()}
+  @type realtime_metrics_subscription_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       key_value_store_association() :: %{
-        "KeyValueStoreARN" => String.t()
+        "KeyValueStoreARN" => String.t() | Atom.t()
       }
 
   """
-  @type key_value_store_association() :: %{String.t() => any()}
+  @type key_value_store_association() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       signer() :: %{
-        "AwsAccountNumber" => String.t(),
+        "AwsAccountNumber" => String.t() | Atom.t(),
         "KeyPairIds" => key_pair_ids()
       }
 
   """
-  @type signer() :: %{String.t() => any()}
+  @type signer() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_cache_policy_request() :: %{
-        optional("IfMatch") => String.t(),
+        optional("IfMatch") => String.t() | Atom.t(),
         required("CachePolicyConfig") => cache_policy_config()
       }
 
   """
-  @type update_cache_policy_request() :: %{String.t() => any()}
+  @type update_cache_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -114,55 +114,55 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type list_response_headers_policies_result() :: %{String.t() => any()}
+  @type list_response_headers_policies_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cloud_front_origin_access_identity_already_exists() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type cloud_front_origin_access_identity_already_exists() :: %{String.t() => any()}
+  @type cloud_front_origin_access_identity_already_exists() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_realtime_log_configs_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_realtime_log_configs_request() :: %{String.t() => any()}
+  @type list_realtime_log_configs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_connection_group_request() :: %{
-        optional("AnycastIpListId") => String.t(),
+        optional("AnycastIpListId") => String.t() | Atom.t(),
         optional("Enabled") => boolean(),
         optional("Ipv6Enabled") => boolean(),
-        required("IfMatch") => String.t()
+        required("IfMatch") => String.t() | Atom.t()
       }
 
   """
-  @type update_connection_group_request() :: %{String.t() => any()}
+  @type update_connection_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_origin_groups_per_distribution() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_origin_groups_per_distribution() :: %{String.t() => any()}
+  @type too_many_origin_groups_per_distribution() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -170,57 +170,57 @@ defmodule AWS.CloudFront do
 
       end_point() :: %{
         "KinesisStreamConfig" => kinesis_stream_config(),
-        "StreamType" => String.t()
+        "StreamType" => String.t() | Atom.t()
       }
 
   """
-  @type end_point() :: %{String.t() => any()}
+  @type end_point() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_response_headers_policy_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "ResponseHeadersPolicy" => response_headers_policy()
       }
 
   """
-  @type update_response_headers_policy_result() :: %{String.t() => any()}
+  @type update_response_headers_policy_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_association() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_association() :: %{String.t() => any()}
+  @type invalid_association() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       streaming_distribution_not_disabled() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type streaming_distribution_not_disabled() :: %{String.t() => any()}
+  @type streaming_distribution_not_disabled() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_realtime_log_config_request() :: %{
-        optional("ARN") => String.t(),
-        optional("Name") => String.t()
+        optional("ARN") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t()
       }
 
   """
-  @type delete_realtime_log_config_request() :: %{String.t() => any()}
+  @type delete_realtime_log_config_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -231,40 +231,40 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type list_origin_request_policies_result() :: %{String.t() => any()}
+  @type list_origin_request_policies_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cannot_change_immutable_public_key_fields() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type cannot_change_immutable_public_key_fields() :: %{String.t() => any()}
+  @type cannot_change_immutable_public_key_fields() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_function_associations() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_function_associations() :: %{String.t() => any()}
+  @type too_many_function_associations() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_origin_access_identity() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_origin_access_identity() :: %{String.t() => any()}
+  @type invalid_origin_access_identity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -278,30 +278,30 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type forwarded_values() :: %{String.t() => any()}
+  @type forwarded_values() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       distribution_not_disabled() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type distribution_not_disabled() :: %{String.t() => any()}
+  @type distribution_not_disabled() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_resource_request() :: %{
-        required("Resource") => String.t(),
+        required("Resource") => String.t() | Atom.t(),
         required("Tags") => tags()
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -310,24 +310,24 @@ defmodule AWS.CloudFront do
       realtime_log_configs() :: %{
         "IsTruncated" => boolean(),
         "Items" => list(realtime_log_config()),
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "MaxItems" => integer(),
-        "NextMarker" => String.t()
+        "NextMarker" => String.t() | Atom.t()
       }
 
   """
-  @type realtime_log_configs() :: %{String.t() => any()}
+  @type realtime_log_configs() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       no_such_continuous_deployment_policy() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type no_such_continuous_deployment_policy() :: %{String.t() => any()}
+  @type no_such_continuous_deployment_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -343,56 +343,56 @@ defmodule AWS.CloudFront do
   ## Example:
 
       update_key_group_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "KeyGroup" => key_group()
       }
 
   """
-  @type update_key_group_result() :: %{String.t() => any()}
+  @type update_key_group_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_custom_headers_in_response_headers_policy() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_custom_headers_in_response_headers_policy() :: %{String.t() => any()}
+  @type too_many_custom_headers_in_response_headers_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_response_headers_policies() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_response_headers_policies() :: %{String.t() => any()}
+  @type too_many_response_headers_policies() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_cookies_in_cache_policy() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_cookies_in_cache_policy() :: %{String.t() => any()}
+  @type too_many_cookies_in_cache_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_invalidations_in_progress() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_invalidations_in_progress() :: %{String.t() => any()}
+  @type too_many_invalidations_in_progress() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -404,23 +404,23 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type status_codes() :: %{String.t() => any()}
+  @type status_codes() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       vpc_origin_endpoint_config() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "HTTPPort" => integer(),
         "HTTPSPort" => integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "OriginProtocolPolicy" => list(any()),
         "OriginSslProtocols" => origin_ssl_protocols()
       }
 
   """
-  @type vpc_origin_endpoint_config() :: %{String.t() => any()}
+  @type vpc_origin_endpoint_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -441,66 +441,66 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type lambda_function_associations() :: %{String.t() => any()}
+  @type lambda_function_associations() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_continuous_deployment_policies() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_continuous_deployment_policies() :: %{String.t() => any()}
+  @type too_many_continuous_deployment_policies() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_long_c_s_p_in_response_headers_policy() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_long_c_s_p_in_response_headers_policy() :: %{String.t() => any()}
+  @type too_long_c_s_p_in_response_headers_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       field_level_encryption_summary() :: %{
-        "Comment" => String.t(),
+        "Comment" => String.t() | Atom.t(),
         "ContentTypeProfileConfig" => content_type_profile_config(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
         "QueryArgProfileConfig" => query_arg_profile_config()
       }
 
   """
-  @type field_level_encryption_summary() :: %{String.t() => any()}
+  @type field_level_encryption_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_distribution_tenant_by_domain_request() :: %{
-        required("Domain") => String.t()
+        required("Domain") => String.t() | Atom.t()
       }
 
   """
-  @type get_distribution_tenant_by_domain_request() :: %{String.t() => any()}
+  @type get_distribution_tenant_by_domain_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       query_arg_profile_empty() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type query_arg_profile_empty() :: %{String.t() => any()}
+  @type query_arg_profile_empty() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -521,39 +521,39 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type distribution_config_with_tags() :: %{String.t() => any()}
+  @type distribution_config_with_tags() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       connection_group_summary() :: %{
-        "AnycastIpListId" => String.t(),
-        "Arn" => String.t(),
+        "AnycastIpListId" => String.t() | Atom.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreatedTime" => non_neg_integer(),
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "Enabled" => boolean(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "IsDefault" => boolean(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "RoutingEndpoint" => String.t(),
-        "Status" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "RoutingEndpoint" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type connection_group_summary() :: %{String.t() => any()}
+  @type connection_group_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cannot_update_entity_while_in_use() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type cannot_update_entity_while_in_use() :: %{String.t() => any()}
+  @type cannot_update_entity_while_in_use() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -561,23 +561,23 @@ defmodule AWS.CloudFront do
 
       copy_distribution_result() :: %{
         "Distribution" => distribution(),
-        "ETag" => String.t(),
-        "Location" => String.t()
+        "ETag" => String.t() | Atom.t(),
+        "Location" => String.t() | Atom.t()
       }
 
   """
-  @type copy_distribution_result() :: %{String.t() => any()}
+  @type copy_distribution_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_origin_request_policy_request() :: %{
-        optional("IfMatch") => String.t()
+        optional("IfMatch") => String.t() | Atom.t()
       }
 
   """
-  @type delete_origin_request_policy_request() :: %{String.t() => any()}
+  @type delete_origin_request_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -593,30 +593,30 @@ defmodule AWS.CloudFront do
   ## Example:
 
       illegal_origin_access_configuration() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type illegal_origin_access_configuration() :: %{String.t() => any()}
+  @type illegal_origin_access_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_distribution_tenant_request() :: %{
-        optional("ConnectionGroupId") => String.t(),
+        optional("ConnectionGroupId") => String.t() | Atom.t(),
         optional("Customizations") => customizations(),
         optional("Enabled") => boolean(),
         optional("ManagedCertificateRequest") => managed_certificate_request(),
         optional("Parameters") => list(parameter()),
         optional("Tags") => tags(),
-        required("DistributionId") => String.t(),
+        required("DistributionId") => String.t() | Atom.t(),
         required("Domains") => list(domain_item()),
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
 
   """
-  @type create_distribution_tenant_request() :: %{String.t() => any()}
+  @type create_distribution_tenant_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -632,23 +632,23 @@ defmodule AWS.CloudFront do
   ## Example:
 
       invalid_if_match_version() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_if_match_version() :: %{String.t() => any()}
+  @type invalid_if_match_version() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_origin_request_policy_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "OriginRequestPolicy" => origin_request_policy()
       }
 
   """
-  @type update_origin_request_policy_result() :: %{String.t() => any()}
+  @type update_origin_request_policy_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -659,41 +659,41 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type create_field_level_encryption_profile_request() :: %{String.t() => any()}
+  @type create_field_level_encryption_profile_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_distributions_associated_to_cache_policy() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_distributions_associated_to_cache_policy() :: %{String.t() => any()}
+  @type too_many_distributions_associated_to_cache_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       trusted_key_group_does_not_exist() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type trusted_key_group_does_not_exist() :: %{String.t() => any()}
+  @type trusted_key_group_does_not_exist() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       distribution_resource_id() :: %{
-        "DistributionId" => String.t(),
-        "DistributionTenantId" => String.t()
+        "DistributionId" => String.t() | Atom.t(),
+        "DistributionTenantId" => String.t() | Atom.t()
       }
 
   """
-  @type distribution_resource_id() :: %{String.t() => any()}
+  @type distribution_resource_id() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -702,12 +702,12 @@ defmodule AWS.CloudFront do
       continuous_deployment_policy_list() :: %{
         "Items" => list(continuous_deployment_policy_summary()),
         "MaxItems" => integer(),
-        "NextMarker" => String.t(),
+        "NextMarker" => String.t() | Atom.t(),
         "Quantity" => integer()
       }
 
   """
-  @type continuous_deployment_policy_list() :: %{String.t() => any()}
+  @type continuous_deployment_policy_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -718,24 +718,24 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type create_realtime_log_config_result() :: %{String.t() => any()}
+  @type create_realtime_log_config_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       anycast_ip_list() :: %{
-        "AnycastIps" => list(String.t()),
-        "Arn" => String.t(),
-        "Id" => String.t(),
+        "AnycastIps" => list(String.t() | Atom.t()),
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "IpCount" => integer(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "Status" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type anycast_ip_list() :: %{String.t() => any()}
+  @type anycast_ip_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -747,7 +747,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type encryption_entities() :: %{String.t() => any()}
+  @type encryption_entities() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -755,48 +755,51 @@ defmodule AWS.CloudFront do
 
       get_cloud_front_origin_access_identity_config_result() :: %{
         "CloudFrontOriginAccessIdentityConfig" => cloud_front_origin_access_identity_config(),
-        "ETag" => String.t()
+        "ETag" => String.t() | Atom.t()
       }
 
   """
-  @type get_cloud_front_origin_access_identity_config_result() :: %{String.t() => any()}
+  @type get_cloud_front_origin_access_identity_config_result() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       list_origin_request_policies_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxItems") => integer(),
         optional("Type") => list(any())
       }
 
   """
-  @type list_origin_request_policies_request() :: %{String.t() => any()}
+  @type list_origin_request_policies_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_query_string_parameters() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_query_string_parameters() :: %{String.t() => any()}
+  @type invalid_query_string_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_domain_association_request() :: %{
-        optional("IfMatch") => String.t(),
-        required("Domain") => String.t(),
+        optional("IfMatch") => String.t() | Atom.t(),
+        required("Domain") => String.t() | Atom.t(),
         required("TargetResource") => distribution_resource_id()
       }
 
   """
-  @type update_domain_association_request() :: %{String.t() => any()}
+  @type update_domain_association_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -807,64 +810,67 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type get_monitoring_subscription_result() :: %{String.t() => any()}
+  @type get_monitoring_subscription_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_functions() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_functions() :: %{String.t() => any()}
+  @type too_many_functions() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_distributions_associated_to_origin_request_policy() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_distributions_associated_to_origin_request_policy() :: %{String.t() => any()}
+  @type too_many_distributions_associated_to_origin_request_policy() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       get_function_result() :: %{
-        "ContentType" => String.t(),
-        "ETag" => String.t(),
+        "ContentType" => String.t() | Atom.t(),
+        "ETag" => String.t() | Atom.t(),
         "FunctionCode" => binary()
       }
 
   """
-  @type get_function_result() :: %{String.t() => any()}
+  @type get_function_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_distributions_associated_to_key_group() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_distributions_associated_to_key_group() :: %{String.t() => any()}
+  @type too_many_distributions_associated_to_key_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_tagging() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_tagging() :: %{String.t() => any()}
+  @type invalid_tagging() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -880,15 +886,15 @@ defmodule AWS.CloudFront do
   ## Example:
 
       origin_request_policy_config() :: %{
-        "Comment" => String.t(),
+        "Comment" => String.t() | Atom.t(),
         "CookiesConfig" => origin_request_policy_cookies_config(),
         "HeadersConfig" => origin_request_policy_headers_config(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "QueryStringsConfig" => origin_request_policy_query_strings_config()
       }
 
   """
-  @type origin_request_policy_config() :: %{String.t() => any()}
+  @type origin_request_policy_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -899,7 +905,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type parameter_definition_schema() :: %{String.t() => any()}
+  @type parameter_definition_schema() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -910,7 +916,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type list_key_value_stores_result() :: %{String.t() => any()}
+  @type list_key_value_stores_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -918,34 +924,34 @@ defmodule AWS.CloudFront do
 
       update_continuous_deployment_policy_result() :: %{
         "ContinuousDeploymentPolicy" => continuous_deployment_policy(),
-        "ETag" => String.t()
+        "ETag" => String.t() | Atom.t()
       }
 
   """
-  @type update_continuous_deployment_policy_result() :: %{String.t() => any()}
+  @type update_continuous_deployment_policy_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_protocol_settings() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_protocol_settings() :: %{String.t() => any()}
+  @type invalid_protocol_settings() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_vpc_origin_request() :: %{
-        required("IfMatch") => String.t(),
+        required("IfMatch") => String.t() | Atom.t(),
         required("VpcOriginEndpointConfig") => vpc_origin_endpoint_config()
       }
 
   """
-  @type update_vpc_origin_request() :: %{String.t() => any()}
+  @type update_vpc_origin_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -954,12 +960,12 @@ defmodule AWS.CloudFront do
       field_level_encryption_list() :: %{
         "Items" => list(field_level_encryption_summary()),
         "MaxItems" => integer(),
-        "NextMarker" => String.t(),
+        "NextMarker" => String.t() | Atom.t(),
         "Quantity" => integer()
       }
 
   """
-  @type field_level_encryption_list() :: %{String.t() => any()}
+  @type field_level_encryption_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -979,18 +985,18 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type list_distributions_by_web_acl_id_result() :: %{String.t() => any()}
+  @type list_distributions_by_web_acl_id_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       public_key_already_exists() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type public_key_already_exists() :: %{String.t() => any()}
+  @type public_key_already_exists() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1002,7 +1008,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type continuous_deployment_single_weight_config() :: %{String.t() => any()}
+  @type continuous_deployment_single_weight_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1016,42 +1022,42 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type response_headers_policy_strict_transport_security() :: %{String.t() => any()}
+  @type response_headers_policy_strict_transport_security() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_streaming_distribution_config_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "StreamingDistributionConfig" => streaming_distribution_config()
       }
 
   """
-  @type get_streaming_distribution_config_result() :: %{String.t() => any()}
+  @type get_streaming_distribution_config_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       entity_not_found() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type entity_not_found() :: %{String.t() => any()}
+  @type entity_not_found() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_field_level_encryption_config_request() :: %{
-        optional("IfMatch") => String.t(),
+        optional("IfMatch") => String.t() | Atom.t(),
         required("FieldLevelEncryptionConfig") => field_level_encryption_config()
       }
 
   """
-  @type update_field_level_encryption_config_request() :: %{String.t() => any()}
+  @type update_field_level_encryption_config_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1067,34 +1073,34 @@ defmodule AWS.CloudFront do
   ## Example:
 
       list_invalidations_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_invalidations_request() :: %{String.t() => any()}
+  @type list_invalidations_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_in_use() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_in_use() :: %{String.t() => any()}
+  @type resource_in_use() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       domain_item() :: %{
-        "Domain" => String.t()
+        "Domain" => String.t() | Atom.t()
       }
 
   """
-  @type domain_item() :: %{String.t() => any()}
+  @type domain_item() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1102,103 +1108,106 @@ defmodule AWS.CloudFront do
 
       update_cache_policy_result() :: %{
         "CachePolicy" => cache_policy(),
-        "ETag" => String.t()
+        "ETag" => String.t() | Atom.t()
       }
 
   """
-  @type update_cache_policy_result() :: %{String.t() => any()}
+  @type update_cache_policy_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_distribution_tenant_request() :: %{
-        optional("ConnectionGroupId") => String.t(),
+        optional("ConnectionGroupId") => String.t() | Atom.t(),
         optional("Customizations") => customizations(),
-        optional("DistributionId") => String.t(),
+        optional("DistributionId") => String.t() | Atom.t(),
         optional("Domains") => list(domain_item()),
         optional("Enabled") => boolean(),
         optional("ManagedCertificateRequest") => managed_certificate_request(),
         optional("Parameters") => list(parameter()),
-        required("IfMatch") => String.t()
+        required("IfMatch") => String.t() | Atom.t()
       }
 
   """
-  @type update_distribution_tenant_request() :: %{String.t() => any()}
+  @type update_distribution_tenant_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       conflicting_alias() :: %{
-        "AccountId" => String.t(),
-        "Alias" => String.t(),
-        "DistributionId" => String.t()
+        "AccountId" => String.t() | Atom.t(),
+        "Alias" => String.t() | Atom.t(),
+        "DistributionId" => String.t() | Atom.t()
       }
 
   """
-  @type conflicting_alias() :: %{String.t() => any()}
+  @type conflicting_alias() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_distributions_by_cache_policy_id_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_distributions_by_cache_policy_id_request() :: %{String.t() => any()}
+  @type list_distributions_by_cache_policy_id_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_field_level_encryption_content_type_profiles() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_field_level_encryption_content_type_profiles() :: %{String.t() => any()}
+  @type too_many_field_level_encryption_content_type_profiles() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       get_connection_group_by_routing_endpoint_request() :: %{
-        required("RoutingEndpoint") => String.t()
+        required("RoutingEndpoint") => String.t() | Atom.t()
       }
 
   """
-  @type get_connection_group_by_routing_endpoint_request() :: %{String.t() => any()}
+  @type get_connection_group_by_routing_endpoint_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       continuous_deployment_policy_already_exists() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type continuous_deployment_policy_already_exists() :: %{String.t() => any()}
+  @type continuous_deployment_policy_already_exists() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cache_policy_config() :: %{
-        "Comment" => String.t(),
+        "Comment" => String.t() | Atom.t(),
         "DefaultTTL" => float(),
         "MaxTTL" => float(),
         "MinTTL" => float(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "ParametersInCacheKeyAndForwardedToOrigin" => parameters_in_cache_key_and_forwarded_to_origin()
       }
 
   """
-  @type cache_policy_config() :: %{String.t() => any()}
+  @type cache_policy_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1206,37 +1215,37 @@ defmodule AWS.CloudFront do
 
       trusted_key_groups() :: %{
         "Enabled" => boolean(),
-        "Items" => list(String.t()),
+        "Items" => list(String.t() | Atom.t()),
         "Quantity" => integer()
       }
 
   """
-  @type trusted_key_groups() :: %{String.t() => any()}
+  @type trusted_key_groups() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_cloud_front_origin_access_identity_request() :: %{
-        optional("IfMatch") => String.t(),
+        optional("IfMatch") => String.t() | Atom.t(),
         required("CloudFrontOriginAccessIdentityConfig") => cloud_front_origin_access_identity_config()
       }
 
   """
-  @type update_cloud_front_origin_access_identity_request() :: %{String.t() => any()}
+  @type update_cloud_front_origin_access_identity_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cloud_front_origin_access_identity_summary() :: %{
-        "Comment" => String.t(),
-        "Id" => String.t(),
-        "S3CanonicalUserId" => String.t()
+        "Comment" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "S3CanonicalUserId" => String.t() | Atom.t()
       }
 
   """
-  @type cloud_front_origin_access_identity_summary() :: %{String.t() => any()}
+  @type cloud_front_origin_access_identity_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1247,7 +1256,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type list_invalidations_for_distribution_tenant_result() :: %{String.t() => any()}
+  @type list_invalidations_for_distribution_tenant_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1256,27 +1265,27 @@ defmodule AWS.CloudFront do
       origin_access_control_list() :: %{
         "IsTruncated" => boolean(),
         "Items" => list(origin_access_control_summary()),
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "MaxItems" => integer(),
-        "NextMarker" => String.t(),
+        "NextMarker" => String.t() | Atom.t(),
         "Quantity" => integer()
       }
 
   """
-  @type origin_access_control_list() :: %{String.t() => any()}
+  @type origin_access_control_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       geo_restriction() :: %{
-        "Items" => list(String.t()),
+        "Items" => list(String.t() | Atom.t()),
         "Quantity" => integer(),
         "RestrictionType" => list(any())
       }
 
   """
-  @type geo_restriction() :: %{String.t() => any()}
+  @type geo_restriction() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1287,7 +1296,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type response_headers_policy_content_type_options() :: %{String.t() => any()}
+  @type response_headers_policy_content_type_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1298,7 +1307,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type create_origin_access_control_request() :: %{String.t() => any()}
+  @type create_origin_access_control_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1315,13 +1324,13 @@ defmodule AWS.CloudFront do
 
       copy_distribution_request() :: %{
         optional("Enabled") => boolean(),
-        optional("IfMatch") => String.t(),
+        optional("IfMatch") => String.t() | Atom.t(),
         optional("Staging") => boolean(),
-        required("CallerReference") => String.t()
+        required("CallerReference") => String.t() | Atom.t()
       }
 
   """
-  @type copy_distribution_request() :: %{String.t() => any()}
+  @type copy_distribution_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1337,15 +1346,15 @@ defmodule AWS.CloudFront do
   ## Example:
 
       test_result() :: %{
-        "ComputeUtilization" => String.t(),
-        "FunctionErrorMessage" => String.t(),
-        "FunctionExecutionLogs" => list(String.t()),
-        "FunctionOutput" => String.t(),
+        "ComputeUtilization" => String.t() | Atom.t(),
+        "FunctionErrorMessage" => String.t() | Atom.t(),
+        "FunctionExecutionLogs" => list(String.t() | Atom.t()),
+        "FunctionOutput" => String.t() | Atom.t(),
         "FunctionSummary" => function_summary()
       }
 
   """
-  @type test_result() :: %{String.t() => any()}
+  @type test_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1353,42 +1362,42 @@ defmodule AWS.CloudFront do
 
       update_cloud_front_origin_access_identity_result() :: %{
         "CloudFrontOriginAccessIdentity" => cloud_front_origin_access_identity(),
-        "ETag" => String.t()
+        "ETag" => String.t() | Atom.t()
       }
 
   """
-  @type update_cloud_front_origin_access_identity_result() :: %{String.t() => any()}
+  @type update_cloud_front_origin_access_identity_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       origin_group_member() :: %{
-        "OriginId" => String.t()
+        "OriginId" => String.t() | Atom.t()
       }
 
   """
-  @type origin_group_member() :: %{String.t() => any()}
+  @type origin_group_member() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       distribution_summary() :: %{
-        "ARN" => String.t(),
+        "ARN" => String.t() | Atom.t(),
         "AliasICPRecordals" => list(alias_i_c_p_recordal()),
         "Aliases" => aliases(),
-        "AnycastIpListId" => String.t(),
+        "AnycastIpListId" => String.t() | Atom.t(),
         "CacheBehaviors" => cache_behaviors(),
-        "Comment" => String.t(),
+        "Comment" => String.t() | Atom.t(),
         "ConnectionMode" => list(any()),
         "CustomErrorResponses" => custom_error_responses(),
         "DefaultCacheBehavior" => default_cache_behavior(),
-        "DomainName" => String.t(),
-        "ETag" => String.t(),
+        "DomainName" => String.t() | Atom.t(),
+        "ETag" => String.t() | Atom.t(),
         "Enabled" => boolean(),
         "HttpVersion" => list(any()),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "IsIPV6Enabled" => boolean(),
         "LastModifiedTime" => non_neg_integer(),
         "OriginGroups" => origin_groups(),
@@ -1396,37 +1405,37 @@ defmodule AWS.CloudFront do
         "PriceClass" => list(any()),
         "Restrictions" => restrictions(),
         "Staging" => boolean(),
-        "Status" => String.t(),
+        "Status" => String.t() | Atom.t(),
         "ViewerCertificate" => viewer_certificate(),
-        "WebACLId" => String.t()
+        "WebACLId" => String.t() | Atom.t()
       }
 
   """
-  @type distribution_summary() :: %{String.t() => any()}
+  @type distribution_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_cloud_front_origin_access_identities_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_cloud_front_origin_access_identities_request() :: %{String.t() => any()}
+  @type list_cloud_front_origin_access_identities_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       alias_i_c_p_recordal() :: %{
-        "CNAME" => String.t(),
+        "CNAME" => String.t() | Atom.t(),
         "ICPRecordalStatus" => list(any())
       }
 
   """
-  @type alias_i_c_p_recordal() :: %{String.t() => any()}
+  @type alias_i_c_p_recordal() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1437,7 +1446,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type list_cloud_front_origin_access_identities_result() :: %{String.t() => any()}
+  @type list_cloud_front_origin_access_identities_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1449,7 +1458,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type session_stickiness_config() :: %{String.t() => any()}
+  @type session_stickiness_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1460,7 +1469,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type list_public_keys_result() :: %{String.t() => any()}
+  @type list_public_keys_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1471,7 +1480,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type list_field_level_encryption_configs_result() :: %{String.t() => any()}
+  @type list_field_level_encryption_configs_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1479,22 +1488,22 @@ defmodule AWS.CloudFront do
 
       parameter_definition() :: %{
         "Definition" => parameter_definition_schema(),
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type parameter_definition() :: %{String.t() => any()}
+  @type parameter_definition() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       field_level_encryption_config_in_use() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type field_level_encryption_config_in_use() :: %{String.t() => any()}
+  @type field_level_encryption_config_in_use() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1502,28 +1511,28 @@ defmodule AWS.CloudFront do
 
       default_cache_behavior() :: %{
         "AllowedMethods" => allowed_methods(),
-        "CachePolicyId" => String.t(),
+        "CachePolicyId" => String.t() | Atom.t(),
         "Compress" => boolean(),
         "DefaultTTL" => float(),
-        "FieldLevelEncryptionId" => String.t(),
+        "FieldLevelEncryptionId" => String.t() | Atom.t(),
         "ForwardedValues" => forwarded_values(),
         "FunctionAssociations" => function_associations(),
         "GrpcConfig" => grpc_config(),
         "LambdaFunctionAssociations" => lambda_function_associations(),
         "MaxTTL" => float(),
         "MinTTL" => float(),
-        "OriginRequestPolicyId" => String.t(),
-        "RealtimeLogConfigArn" => String.t(),
-        "ResponseHeadersPolicyId" => String.t(),
+        "OriginRequestPolicyId" => String.t() | Atom.t(),
+        "RealtimeLogConfigArn" => String.t() | Atom.t(),
+        "ResponseHeadersPolicyId" => String.t() | Atom.t(),
         "SmoothStreaming" => boolean(),
-        "TargetOriginId" => String.t(),
+        "TargetOriginId" => String.t() | Atom.t(),
         "TrustedKeyGroups" => trusted_key_groups(),
         "TrustedSigners" => trusted_signers(),
         "ViewerProtocolPolicy" => list(any())
       }
 
   """
-  @type default_cache_behavior() :: %{String.t() => any()}
+  @type default_cache_behavior() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1531,49 +1540,49 @@ defmodule AWS.CloudFront do
 
       field_level_encryption_profile() :: %{
         "FieldLevelEncryptionProfileConfig" => field_level_encryption_profile_config(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer()
       }
 
   """
-  @type field_level_encryption_profile() :: %{String.t() => any()}
+  @type field_level_encryption_profile() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       illegal_update() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type illegal_update() :: %{String.t() => any()}
+  @type illegal_update() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_key_value_store_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "KeyValueStore" => key_value_store(),
-        "Location" => String.t()
+        "Location" => String.t() | Atom.t()
       }
 
   """
-  @type create_key_value_store_result() :: %{String.t() => any()}
+  @type create_key_value_store_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       dns_configuration() :: %{
-        "Domain" => String.t(),
-        "Reason" => String.t(),
+        "Domain" => String.t() | Atom.t(),
+        "Reason" => String.t() | Atom.t(),
         "Status" => list(any())
       }
 
   """
-  @type dns_configuration() :: %{String.t() => any()}
+  @type dns_configuration() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1584,7 +1593,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type continuous_deployment_policy_summary() :: %{String.t() => any()}
+  @type continuous_deployment_policy_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1595,102 +1604,102 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type list_functions_result() :: %{String.t() => any()}
+  @type list_functions_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cloud_front_origin_access_identity_in_use() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type cloud_front_origin_access_identity_in_use() :: %{String.t() => any()}
+  @type cloud_front_origin_access_identity_in_use() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_connection_group_request() :: %{
-        required("IfMatch") => String.t()
+        required("IfMatch") => String.t() | Atom.t()
       }
 
   """
-  @type delete_connection_group_request() :: %{String.t() => any()}
+  @type delete_connection_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_function_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "FunctionSummary" => function_summary()
       }
 
   """
-  @type describe_function_result() :: %{String.t() => any()}
+  @type describe_function_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       key_group_config() :: %{
-        "Comment" => String.t(),
-        "Items" => list(String.t()),
-        "Name" => String.t()
+        "Comment" => String.t() | Atom.t(),
+        "Items" => list(String.t() | Atom.t()),
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type key_group_config() :: %{String.t() => any()}
+  @type key_group_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_origin() :: %{
-        "DomainName" => String.t(),
-        "OriginAccessIdentity" => String.t()
+        "DomainName" => String.t() | Atom.t(),
+        "OriginAccessIdentity" => String.t() | Atom.t()
       }
 
   """
-  @type s3_origin() :: %{String.t() => any()}
+  @type s3_origin() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_invalidations_for_distribution_tenant_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_invalidations_for_distribution_tenant_request() :: %{String.t() => any()}
+  @type list_invalidations_for_distribution_tenant_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       response_headers_policy() :: %{
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
         "ResponseHeadersPolicyConfig" => response_headers_policy_config()
       }
 
   """
-  @type response_headers_policy() :: %{String.t() => any()}
+  @type response_headers_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_t_t_l_order() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_t_t_l_order() :: %{String.t() => any()}
+  @type invalid_t_t_l_order() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1698,22 +1707,22 @@ defmodule AWS.CloudFront do
 
       update_connection_group_result() :: %{
         "ConnectionGroup" => connection_group(),
-        "ETag" => String.t()
+        "ETag" => String.t() | Atom.t()
       }
 
   """
-  @type update_connection_group_result() :: %{String.t() => any()}
+  @type update_connection_group_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       field_level_encryption_profile_already_exists() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type field_level_encryption_profile_already_exists() :: %{String.t() => any()}
+  @type field_level_encryption_profile_already_exists() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1724,7 +1733,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type test_function_result() :: %{String.t() => any()}
+  @type test_function_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1735,7 +1744,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type monitoring_subscription() :: %{String.t() => any()}
+  @type monitoring_subscription() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1755,31 +1764,31 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type get_invalidation_result() :: %{String.t() => any()}
+  @type get_invalidation_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type access_denied() :: %{String.t() => any()}
+  @type access_denied() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       streaming_logging_config() :: %{
-        "Bucket" => String.t(),
+        "Bucket" => String.t() | Atom.t(),
         "Enabled" => boolean(),
-        "Prefix" => String.t()
+        "Prefix" => String.t() | Atom.t()
       }
 
   """
-  @type streaming_logging_config() :: %{String.t() => any()}
+  @type streaming_logging_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1790,19 +1799,19 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type create_invalidation_request() :: %{String.t() => any()}
+  @type create_invalidation_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       query_string_cache_keys() :: %{
-        "Items" => list(String.t()),
+        "Items" => list(String.t() | Atom.t()),
         "Quantity" => integer()
       }
 
   """
-  @type query_string_cache_keys() :: %{String.t() => any()}
+  @type query_string_cache_keys() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1813,23 +1822,23 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type create_streaming_distribution_request() :: %{String.t() => any()}
+  @type create_streaming_distribution_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       origin_access_control_summary() :: %{
-        "Description" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "OriginAccessControlOriginType" => list(any()),
         "SigningBehavior" => list(any()),
         "SigningProtocol" => list(any())
       }
 
   """
-  @type origin_access_control_summary() :: %{String.t() => any()}
+  @type origin_access_control_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1845,11 +1854,11 @@ defmodule AWS.CloudFront do
   ## Example:
 
       too_many_cookie_names_in_white_list() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_cookie_names_in_white_list() :: %{String.t() => any()}
+  @type too_many_cookie_names_in_white_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1860,7 +1869,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type create_distribution_request() :: %{String.t() => any()}
+  @type create_distribution_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1868,11 +1877,11 @@ defmodule AWS.CloudFront do
 
       get_distribution_tenant_by_domain_result() :: %{
         "DistributionTenant" => distribution_tenant(),
-        "ETag" => String.t()
+        "ETag" => String.t() | Atom.t()
       }
 
   """
-  @type get_distribution_tenant_by_domain_result() :: %{String.t() => any()}
+  @type get_distribution_tenant_by_domain_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1883,32 +1892,32 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type create_continuous_deployment_policy_request() :: %{String.t() => any()}
+  @type create_continuous_deployment_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       logging_config() :: %{
-        "Bucket" => String.t(),
+        "Bucket" => String.t() | Atom.t(),
         "Enabled" => boolean(),
         "IncludeCookies" => boolean(),
-        "Prefix" => String.t()
+        "Prefix" => String.t() | Atom.t()
       }
 
   """
-  @type logging_config() :: %{String.t() => any()}
+  @type logging_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_argument() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_argument() :: %{String.t() => any()}
+  @type invalid_argument() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1920,54 +1929,54 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type response_headers_policy_referrer_policy() :: %{String.t() => any()}
+  @type response_headers_policy_referrer_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("Resource") => String.t(),
+        required("Resource") => String.t() | Atom.t(),
         required("TagKeys") => tag_keys()
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_streaming_distribution_result() :: %{
-        "ETag" => String.t(),
-        "Location" => String.t(),
+        "ETag" => String.t() | Atom.t(),
+        "Location" => String.t() | Atom.t(),
         "StreamingDistribution" => streaming_distribution()
       }
 
   """
-  @type create_streaming_distribution_result() :: %{String.t() => any()}
+  @type create_streaming_distribution_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_web_acl_id() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_web_acl_id() :: %{String.t() => any()}
+  @type invalid_web_acl_id() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_cookies_in_origin_request_policy() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_cookies_in_origin_request_policy() :: %{String.t() => any()}
+  @type too_many_cookies_in_origin_request_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1975,11 +1984,11 @@ defmodule AWS.CloudFront do
 
       get_cache_policy_result() :: %{
         "CachePolicy" => cache_policy(),
-        "ETag" => String.t()
+        "ETag" => String.t() | Atom.t()
       }
 
   """
-  @type get_cache_policy_result() :: %{String.t() => any()}
+  @type get_cache_policy_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -1987,99 +1996,99 @@ defmodule AWS.CloudFront do
 
       create_continuous_deployment_policy_result() :: %{
         "ContinuousDeploymentPolicy" => continuous_deployment_policy(),
-        "ETag" => String.t(),
-        "Location" => String.t()
+        "ETag" => String.t() | Atom.t(),
+        "Location" => String.t() | Atom.t()
       }
 
   """
-  @type create_continuous_deployment_policy_result() :: %{String.t() => any()}
+  @type create_continuous_deployment_policy_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       key_group() :: %{
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "KeyGroupConfig" => key_group_config(),
         "LastModifiedTime" => non_neg_integer()
       }
 
   """
-  @type key_group() :: %{String.t() => any()}
+  @type key_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_distributions_by_key_group_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_distributions_by_key_group_request() :: %{String.t() => any()}
+  @type list_distributions_by_key_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_public_key_request() :: %{
-        optional("IfMatch") => String.t(),
+        optional("IfMatch") => String.t() | Atom.t(),
         required("PublicKeyConfig") => public_key_config()
       }
 
   """
-  @type update_public_key_request() :: %{String.t() => any()}
+  @type update_public_key_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       content_type_profile() :: %{
-        "ContentType" => String.t(),
+        "ContentType" => String.t() | Atom.t(),
         "Format" => list(any()),
-        "ProfileId" => String.t()
+        "ProfileId" => String.t() | Atom.t()
       }
 
   """
-  @type content_type_profile() :: %{String.t() => any()}
+  @type content_type_profile() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_distribution_web_acl_result() :: %{
-        "ETag" => String.t(),
-        "Id" => String.t(),
-        "WebACLArn" => String.t()
+        "ETag" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "WebACLArn" => String.t() | Atom.t()
       }
 
   """
-  @type associate_distribution_web_acl_result() :: %{String.t() => any()}
+  @type associate_distribution_web_acl_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_key_group_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "KeyGroup" => key_group()
       }
 
   """
-  @type get_key_group_result() :: %{String.t() => any()}
+  @type get_key_group_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       geo_restriction_customization() :: %{
-        "Locations" => list(String.t()),
+        "Locations" => list(String.t() | Atom.t()),
         "RestrictionType" => list(any())
       }
 
   """
-  @type geo_restriction_customization() :: %{String.t() => any()}
+  @type geo_restriction_customization() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2087,11 +2096,11 @@ defmodule AWS.CloudFront do
 
       create_invalidation_for_distribution_tenant_result() :: %{
         "Invalidation" => invalidation(),
-        "Location" => String.t()
+        "Location" => String.t() | Atom.t()
       }
 
   """
-  @type create_invalidation_for_distribution_tenant_result() :: %{String.t() => any()}
+  @type create_invalidation_for_distribution_tenant_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2102,7 +2111,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type list_distributions_by_anycast_ip_list_id_result() :: %{String.t() => any()}
+  @type list_distributions_by_anycast_ip_list_id_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2114,18 +2123,18 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type origin_request_policy_headers_config() :: %{String.t() => any()}
+  @type origin_request_policy_headers_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_too_large() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type batch_too_large() :: %{String.t() => any()}
+  @type batch_too_large() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2137,47 +2146,50 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type query_arg_profiles() :: %{String.t() => any()}
+  @type query_arg_profiles() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       anycast_ip_list_summary() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "IpCount" => integer(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "Status" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type anycast_ip_list_summary() :: %{String.t() => any()}
+  @type anycast_ip_list_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_continuous_deployment_policy_request() :: %{
-        optional("IfMatch") => String.t(),
+        optional("IfMatch") => String.t() | Atom.t(),
         required("ContinuousDeploymentPolicyConfig") => continuous_deployment_policy_config()
       }
 
   """
-  @type update_continuous_deployment_policy_request() :: %{String.t() => any()}
+  @type update_continuous_deployment_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       response_headers_policy_access_control_allow_origins() :: %{
-        "Items" => list(String.t()),
+        "Items" => list(String.t() | Atom.t()),
         "Quantity" => integer()
       }
 
   """
-  @type response_headers_policy_access_control_allow_origins() :: %{String.t() => any()}
+  @type response_headers_policy_access_control_allow_origins() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -2185,34 +2197,34 @@ defmodule AWS.CloudFront do
 
       function_association() :: %{
         "EventType" => list(any()),
-        "FunctionARN" => String.t()
+        "FunctionARN" => String.t() | Atom.t()
       }
 
   """
-  @type function_association() :: %{String.t() => any()}
+  @type function_association() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       key_group_already_exists() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type key_group_already_exists() :: %{String.t() => any()}
+  @type key_group_already_exists() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_realtime_log_config_request() :: %{
-        optional("ARN") => String.t(),
-        optional("Name") => String.t()
+        optional("ARN") => String.t() | Atom.t(),
+        optional("Name") => String.t() | Atom.t()
       }
 
   """
-  @type get_realtime_log_config_request() :: %{String.t() => any()}
+  @type get_realtime_log_config_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2221,12 +2233,12 @@ defmodule AWS.CloudFront do
       key_group_list() :: %{
         "Items" => list(key_group_summary()),
         "MaxItems" => integer(),
-        "NextMarker" => String.t(),
+        "NextMarker" => String.t() | Atom.t(),
         "Quantity" => integer()
       }
 
   """
-  @type key_group_list() :: %{String.t() => any()}
+  @type key_group_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2234,11 +2246,11 @@ defmodule AWS.CloudFront do
 
       get_distribution_tenant_result() :: %{
         "DistributionTenant" => distribution_tenant(),
-        "ETag" => String.t()
+        "ETag" => String.t() | Atom.t()
       }
 
   """
-  @type get_distribution_tenant_result() :: %{String.t() => any()}
+  @type get_distribution_tenant_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2246,12 +2258,12 @@ defmodule AWS.CloudFront do
 
       continuous_deployment_policy() :: %{
         "ContinuousDeploymentPolicyConfig" => continuous_deployment_policy_config(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer()
       }
 
   """
-  @type continuous_deployment_policy() :: %{String.t() => any()}
+  @type continuous_deployment_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2259,22 +2271,22 @@ defmodule AWS.CloudFront do
 
       origin_shield() :: %{
         "Enabled" => boolean(),
-        "OriginShieldRegion" => String.t()
+        "OriginShieldRegion" => String.t() | Atom.t()
       }
 
   """
-  @type origin_shield() :: %{String.t() => any()}
+  @type origin_shield() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       entity_already_exists() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type entity_already_exists() :: %{String.t() => any()}
+  @type entity_already_exists() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2286,7 +2298,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type content_type_profiles() :: %{String.t() => any()}
+  @type content_type_profiles() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2298,7 +2310,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type response_headers_policy_frame_options() :: %{String.t() => any()}
+  @type response_headers_policy_frame_options() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2309,40 +2321,40 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type list_field_level_encryption_profiles_result() :: %{String.t() => any()}
+  @type list_field_level_encryption_profiles_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       entity_size_limit_exceeded() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type entity_size_limit_exceeded() :: %{String.t() => any()}
+  @type entity_size_limit_exceeded() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       field_level_encryption_profile_in_use() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type field_level_encryption_profile_in_use() :: %{String.t() => any()}
+  @type field_level_encryption_profile_in_use() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       no_such_field_level_encryption_config() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type no_such_field_level_encryption_config() :: %{String.t() => any()}
+  @type no_such_field_level_encryption_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2351,24 +2363,24 @@ defmodule AWS.CloudFront do
       cache_policy_list() :: %{
         "Items" => list(cache_policy_summary()),
         "MaxItems" => integer(),
-        "NextMarker" => String.t(),
+        "NextMarker" => String.t() | Atom.t(),
         "Quantity" => integer()
       }
 
   """
-  @type cache_policy_list() :: %{String.t() => any()}
+  @type cache_policy_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_public_keys_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_public_keys_request() :: %{String.t() => any()}
+  @type list_public_keys_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2376,41 +2388,41 @@ defmodule AWS.CloudFront do
 
       get_distribution_config_result() :: %{
         "DistributionConfig" => distribution_config(),
-        "ETag" => String.t()
+        "ETag" => String.t() | Atom.t()
       }
 
   """
-  @type get_distribution_config_result() :: %{String.t() => any()}
+  @type get_distribution_config_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_key_value_stores_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxItems") => integer(),
-        optional("Status") => String.t()
+        optional("Status") => String.t() | Atom.t()
       }
 
   """
-  @type list_key_value_stores_request() :: %{String.t() => any()}
+  @type list_key_value_stores_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       streaming_distribution() :: %{
-        "ARN" => String.t(),
+        "ARN" => String.t() | Atom.t(),
         "ActiveTrustedSigners" => active_trusted_signers(),
-        "DomainName" => String.t(),
-        "Id" => String.t(),
+        "DomainName" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "Status" => String.t(),
+        "Status" => String.t() | Atom.t(),
         "StreamingDistributionConfig" => streaming_distribution_config()
       }
 
   """
-  @type streaming_distribution() :: %{String.t() => any()}
+  @type streaming_distribution() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2422,40 +2434,40 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type origins() :: %{String.t() => any()}
+  @type origins() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       no_such_cloud_front_origin_access_identity() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type no_such_cloud_front_origin_access_identity() :: %{String.t() => any()}
+  @type no_such_cloud_front_origin_access_identity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_field_level_encryption_config_request() :: %{
-        optional("IfMatch") => String.t()
+        optional("IfMatch") => String.t() | Atom.t()
       }
 
   """
-  @type delete_field_level_encryption_config_request() :: %{String.t() => any()}
+  @type delete_field_level_encryption_config_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       function_size_limit_exceeded() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type function_size_limit_exceeded() :: %{String.t() => any()}
+  @type function_size_limit_exceeded() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2467,18 +2479,18 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type cached_methods() :: %{String.t() => any()}
+  @type cached_methods() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_origin_access_control() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_origin_access_control() :: %{String.t() => any()}
+  @type invalid_origin_access_control() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2486,48 +2498,48 @@ defmodule AWS.CloudFront do
 
       list_connection_groups_result() :: %{
         "ConnectionGroups" => list(connection_group_summary()),
-        "NextMarker" => String.t()
+        "NextMarker" => String.t() | Atom.t()
       }
 
   """
-  @type list_connection_groups_result() :: %{String.t() => any()}
+  @type list_connection_groups_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_key_value_store_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "KeyValueStore" => key_value_store()
       }
 
   """
-  @type describe_key_value_store_result() :: %{String.t() => any()}
+  @type describe_key_value_store_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_domain_conflicts_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxItems") => integer(),
-        required("Domain") => String.t(),
+        required("Domain") => String.t() | Atom.t(),
         required("DomainControlValidationResource") => distribution_resource_id()
       }
 
   """
-  @type list_domain_conflicts_request() :: %{String.t() => any()}
+  @type list_domain_conflicts_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_origin() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_origin() :: %{String.t() => any()}
+  @type invalid_origin() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2539,7 +2551,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type cache_behaviors() :: %{String.t() => any()}
+  @type cache_behaviors() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2551,18 +2563,18 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type custom_headers() :: %{String.t() => any()}
+  @type custom_headers() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       field_level_encryption_config_already_exists() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type field_level_encryption_config_already_exists() :: %{String.t() => any()}
+  @type field_level_encryption_config_already_exists() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2570,35 +2582,35 @@ defmodule AWS.CloudFront do
 
       create_realtime_log_config_request() :: %{
         required("EndPoints") => list(end_point()),
-        required("Fields") => list(String.t()),
-        required("Name") => String.t(),
+        required("Fields") => list(String.t() | Atom.t()),
+        required("Name") => String.t() | Atom.t(),
         required("SamplingRate") => float()
       }
 
   """
-  @type create_realtime_log_config_request() :: %{String.t() => any()}
+  @type create_realtime_log_config_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       unsupported_operation() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type unsupported_operation() :: %{String.t() => any()}
+  @type unsupported_operation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_headers_in_cache_policy() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_headers_in_cache_policy() :: %{String.t() => any()}
+  @type too_many_headers_in_cache_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2610,32 +2622,32 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type function_associations() :: %{String.t() => any()}
+  @type function_associations() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_certificates() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_certificates() :: %{String.t() => any()}
+  @type too_many_certificates() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_conflicting_aliases_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxItems") => integer(),
-        required("Alias") => String.t(),
-        required("DistributionId") => String.t()
+        required("Alias") => String.t() | Atom.t(),
+        required("DistributionId") => String.t() | Atom.t()
       }
 
   """
-  @type list_conflicting_aliases_request() :: %{String.t() => any()}
+  @type list_conflicting_aliases_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2646,7 +2658,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type create_streaming_distribution_with_tags_request() :: %{String.t() => any()}
+  @type create_streaming_distribution_with_tags_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2657,7 +2669,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type get_managed_certificate_details_result() :: %{String.t() => any()}
+  @type get_managed_certificate_details_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2670,7 +2682,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type traffic_config() :: %{String.t() => any()}
+  @type traffic_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2682,18 +2694,18 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type cache_policy_cookies_config() :: %{String.t() => any()}
+  @type cache_policy_cookies_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_cloud_front_origin_access_identity_request() :: %{
-        optional("IfMatch") => String.t()
+        optional("IfMatch") => String.t() | Atom.t()
       }
 
   """
-  @type delete_cloud_front_origin_access_identity_request() :: %{String.t() => any()}
+  @type delete_cloud_front_origin_access_identity_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2702,11 +2714,11 @@ defmodule AWS.CloudFront do
       lambda_function_association() :: %{
         "EventType" => list(any()),
         "IncludeBody" => boolean(),
-        "LambdaFunctionARN" => String.t()
+        "LambdaFunctionARN" => String.t() | Atom.t()
       }
 
   """
-  @type lambda_function_association() :: %{String.t() => any()}
+  @type lambda_function_association() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2736,18 +2748,18 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type create_vpc_origin_request() :: %{String.t() => any()}
+  @type create_vpc_origin_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_public_key_request() :: %{
-        optional("IfMatch") => String.t()
+        optional("IfMatch") => String.t() | Atom.t()
       }
 
   """
-  @type delete_public_key_request() :: %{String.t() => any()}
+  @type delete_public_key_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2755,15 +2767,15 @@ defmodule AWS.CloudFront do
 
       distribution_config() :: %{
         "Aliases" => aliases(),
-        "AnycastIpListId" => String.t(),
+        "AnycastIpListId" => String.t() | Atom.t(),
         "CacheBehaviors" => cache_behaviors(),
-        "CallerReference" => String.t(),
-        "Comment" => String.t(),
+        "CallerReference" => String.t() | Atom.t(),
+        "Comment" => String.t() | Atom.t(),
         "ConnectionMode" => list(any()),
-        "ContinuousDeploymentPolicyId" => String.t(),
+        "ContinuousDeploymentPolicyId" => String.t() | Atom.t(),
         "CustomErrorResponses" => custom_error_responses(),
         "DefaultCacheBehavior" => default_cache_behavior(),
-        "DefaultRootObject" => String.t(),
+        "DefaultRootObject" => String.t() | Atom.t(),
         "Enabled" => boolean(),
         "HttpVersion" => list(any()),
         "IsIPV6Enabled" => boolean(),
@@ -2775,11 +2787,11 @@ defmodule AWS.CloudFront do
         "Staging" => boolean(),
         "TenantConfig" => tenant_config(),
         "ViewerCertificate" => viewer_certificate(),
-        "WebACLId" => String.t()
+        "WebACLId" => String.t() | Atom.t()
       }
 
   """
-  @type distribution_config() :: %{String.t() => any()}
+  @type distribution_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2787,22 +2799,22 @@ defmodule AWS.CloudFront do
 
       get_continuous_deployment_policy_result() :: %{
         "ContinuousDeploymentPolicy" => continuous_deployment_policy(),
-        "ETag" => String.t()
+        "ETag" => String.t() | Atom.t()
       }
 
   """
-  @type get_continuous_deployment_policy_result() :: %{String.t() => any()}
+  @type get_continuous_deployment_policy_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_required_protocol() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_required_protocol() :: %{String.t() => any()}
+  @type invalid_required_protocol() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2813,7 +2825,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type get_function_request() :: %{String.t() => any()}
+  @type get_function_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2825,19 +2837,19 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type origin_request_policy_cookies_config() :: %{String.t() => any()}
+  @type origin_request_policy_cookies_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_key_value_store_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "KeyValueStore" => key_value_store()
       }
 
   """
-  @type update_key_value_store_result() :: %{String.t() => any()}
+  @type update_key_value_store_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2848,7 +2860,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type list_key_groups_result() :: %{String.t() => any()}
+  @type list_key_groups_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2859,40 +2871,40 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type create_key_group_request() :: %{String.t() => any()}
+  @type create_key_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_response_headers_policy_request() :: %{
-        optional("IfMatch") => String.t()
+        optional("IfMatch") => String.t() | Atom.t()
       }
 
   """
-  @type delete_response_headers_policy_request() :: %{String.t() => any()}
+  @type delete_response_headers_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       origin_access_control_in_use() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type origin_access_control_in_use() :: %{String.t() => any()}
+  @type origin_access_control_in_use() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       precondition_failed() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type precondition_failed() :: %{String.t() => any()}
+  @type precondition_failed() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2900,23 +2912,23 @@ defmodule AWS.CloudFront do
 
       list_connection_groups_request() :: %{
         optional("AssociationFilter") => connection_group_association_filter(),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_connection_groups_request() :: %{String.t() => any()}
+  @type list_connection_groups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       connection_group_association_filter() :: %{
-        "AnycastIpListId" => String.t()
+        "AnycastIpListId" => String.t() | Atom.t()
       }
 
   """
-  @type connection_group_association_filter() :: %{String.t() => any()}
+  @type connection_group_association_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2925,24 +2937,24 @@ defmodule AWS.CloudFront do
       public_key_list() :: %{
         "Items" => list(public_key_summary()),
         "MaxItems" => integer(),
-        "NextMarker" => String.t(),
+        "NextMarker" => String.t() | Atom.t(),
         "Quantity" => integer()
       }
 
   """
-  @type public_key_list() :: %{String.t() => any()}
+  @type public_key_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_response_headers_policy_request() :: %{
-        optional("IfMatch") => String.t(),
+        optional("IfMatch") => String.t() | Atom.t(),
         required("ResponseHeadersPolicyConfig") => response_headers_policy_config()
       }
 
   """
-  @type update_response_headers_policy_request() :: %{String.t() => any()}
+  @type update_response_headers_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2954,7 +2966,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type response_headers_policy_custom_headers_config() :: %{String.t() => any()}
+  @type response_headers_policy_custom_headers_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -2974,64 +2986,64 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type list_distributions_by_connection_mode_result() :: %{String.t() => any()}
+  @type list_distributions_by_connection_mode_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_key_groups_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_key_groups_request() :: %{String.t() => any()}
+  @type list_key_groups_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_distribution_cnames() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_distribution_cnames() :: %{String.t() => any()}
+  @type too_many_distribution_cnames() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       no_such_origin_request_policy() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type no_such_origin_request_policy() :: %{String.t() => any()}
+  @type no_such_origin_request_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       no_such_distribution() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type no_such_distribution() :: %{String.t() => any()}
+  @type no_such_distribution() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3052,19 +3064,19 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type cache_policy_summary() :: %{String.t() => any()}
+  @type cache_policy_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       query_arg_profile() :: %{
-        "ProfileId" => String.t(),
-        "QueryArg" => String.t()
+        "ProfileId" => String.t() | Atom.t(),
+        "QueryArg" => String.t() | Atom.t()
       }
 
   """
-  @type query_arg_profile() :: %{String.t() => any()}
+  @type query_arg_profile() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3072,69 +3084,72 @@ defmodule AWS.CloudFront do
 
       list_distribution_tenants_request() :: %{
         optional("AssociationFilter") => distribution_tenant_association_filter(),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_distribution_tenants_request() :: %{String.t() => any()}
+  @type list_distribution_tenants_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       response_headers_policy_access_control_expose_headers() :: %{
-        "Items" => list(String.t()),
+        "Items" => list(String.t() | Atom.t()),
         "Quantity" => integer()
       }
 
   """
-  @type response_headers_policy_access_control_expose_headers() :: %{String.t() => any()}
+  @type response_headers_policy_access_control_expose_headers() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       s3_origin_config() :: %{
-        "OriginAccessIdentity" => String.t()
+        "OriginAccessIdentity" => String.t() | Atom.t()
       }
 
   """
-  @type s3_origin_config() :: %{String.t() => any()}
+  @type s3_origin_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_distribution_request() :: %{
-        optional("IfMatch") => String.t(),
+        optional("IfMatch") => String.t() | Atom.t(),
         required("DistributionConfig") => distribution_config()
       }
 
   """
-  @type update_distribution_request() :: %{String.t() => any()}
+  @type update_distribution_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_trusted_signers() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_trusted_signers() :: %{String.t() => any()}
+  @type too_many_trusted_signers() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_function_request() :: %{
-        required("IfMatch") => String.t()
+        required("IfMatch") => String.t() | Atom.t()
       }
 
   """
-  @type delete_function_request() :: %{String.t() => any()}
+  @type delete_function_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3145,29 +3160,29 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type publish_function_result() :: %{String.t() => any()}
+  @type publish_function_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_distribution_web_acl_request() :: %{
-        optional("IfMatch") => String.t()
+        optional("IfMatch") => String.t() | Atom.t()
       }
 
   """
-  @type disassociate_distribution_web_acl_request() :: %{String.t() => any()}
+  @type disassociate_distribution_web_acl_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_query_strings_in_origin_request_policy() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_query_strings_in_origin_request_policy() :: %{String.t() => any()}
+  @type too_many_query_strings_in_origin_request_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3178,7 +3193,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type tenant_config() :: %{String.t() => any()}
+  @type tenant_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3186,37 +3201,37 @@ defmodule AWS.CloudFront do
 
       list_domain_conflicts_result() :: %{
         "DomainConflicts" => list(domain_conflict()),
-        "NextMarker" => String.t()
+        "NextMarker" => String.t() | Atom.t()
       }
 
   """
-  @type list_domain_conflicts_result() :: %{String.t() => any()}
+  @type list_domain_conflicts_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_cache_policies() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_cache_policies() :: %{String.t() => any()}
+  @type too_many_cache_policies() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_connection_group_request() :: %{
-        optional("AnycastIpListId") => String.t(),
+        optional("AnycastIpListId") => String.t() | Atom.t(),
         optional("Enabled") => boolean(),
         optional("Ipv6Enabled") => boolean(),
         optional("Tags") => tags(),
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
 
   """
-  @type create_connection_group_request() :: %{String.t() => any()}
+  @type create_connection_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3228,18 +3243,18 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type response_headers_policy_remove_headers_config() :: %{String.t() => any()}
+  @type response_headers_policy_remove_headers_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_error_code() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_error_code() :: %{String.t() => any()}
+  @type invalid_error_code() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3250,20 +3265,20 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type list_distributions_result() :: %{String.t() => any()}
+  @type list_distributions_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_response_headers_policies_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxItems") => integer(),
         optional("Type") => list(any())
       }
 
   """
-  @type list_response_headers_policies_request() :: %{String.t() => any()}
+  @type list_response_headers_policies_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3271,23 +3286,23 @@ defmodule AWS.CloudFront do
 
       field_level_encryption() :: %{
         "FieldLevelEncryptionConfig" => field_level_encryption_config(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer()
       }
 
   """
-  @type field_level_encryption() :: %{String.t() => any()}
+  @type field_level_encryption() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_geo_restriction_parameter() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_geo_restriction_parameter() :: %{String.t() => any()}
+  @type invalid_geo_restriction_parameter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3299,7 +3314,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type key_value_store_associations() :: %{String.t() => any()}
+  @type key_value_store_associations() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3308,69 +3323,69 @@ defmodule AWS.CloudFront do
       vpc_origin_config() :: %{
         "OriginKeepaliveTimeout" => integer(),
         "OriginReadTimeout" => integer(),
-        "VpcOriginId" => String.t()
+        "VpcOriginId" => String.t() | Atom.t()
       }
 
   """
-  @type vpc_origin_config() :: %{String.t() => any()}
+  @type vpc_origin_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       origin_access_control() :: %{
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "OriginAccessControlConfig" => origin_access_control_config()
       }
 
   """
-  @type origin_access_control() :: %{String.t() => any()}
+  @type origin_access_control() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       origin_request_policy_already_exists() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type origin_request_policy_already_exists() :: %{String.t() => any()}
+  @type origin_request_policy_already_exists() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       origin_request_policy() :: %{
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
         "OriginRequestPolicyConfig" => origin_request_policy_config()
       }
 
   """
-  @type origin_request_policy() :: %{String.t() => any()}
+  @type origin_request_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       response_headers_policy_already_exists() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type response_headers_policy_already_exists() :: %{String.t() => any()}
+  @type response_headers_policy_already_exists() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       continuous_deployment_policy_in_use() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type continuous_deployment_policy_in_use() :: %{String.t() => any()}
+  @type continuous_deployment_policy_in_use() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3379,12 +3394,12 @@ defmodule AWS.CloudFront do
       response_headers_policy_list() :: %{
         "Items" => list(response_headers_policy_summary()),
         "MaxItems" => integer(),
-        "NextMarker" => String.t(),
+        "NextMarker" => String.t() | Atom.t(),
         "Quantity" => integer()
       }
 
   """
-  @type response_headers_policy_list() :: %{String.t() => any()}
+  @type response_headers_policy_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3392,23 +3407,23 @@ defmodule AWS.CloudFront do
 
       get_connection_group_result() :: %{
         "ConnectionGroup" => connection_group(),
-        "ETag" => String.t()
+        "ETag" => String.t() | Atom.t()
       }
 
   """
-  @type get_connection_group_result() :: %{String.t() => any()}
+  @type get_connection_group_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_origin_access_control_request() :: %{
-        optional("IfMatch") => String.t(),
+        optional("IfMatch") => String.t() | Atom.t(),
         required("OriginAccessControlConfig") => origin_access_control_config()
       }
 
   """
-  @type update_origin_access_control_request() :: %{String.t() => any()}
+  @type update_origin_access_control_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3419,18 +3434,18 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type update_realtime_log_config_result() :: %{String.t() => any()}
+  @type update_realtime_log_config_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_distributions_with_function_associations() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_distributions_with_function_associations() :: %{String.t() => any()}
+  @type too_many_distributions_with_function_associations() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3438,67 +3453,67 @@ defmodule AWS.CloudFront do
 
       get_anycast_ip_list_result() :: %{
         "AnycastIpList" => anycast_ip_list(),
-        "ETag" => String.t()
+        "ETag" => String.t() | Atom.t()
       }
 
   """
-  @type get_anycast_ip_list_result() :: %{String.t() => any()}
+  @type get_anycast_ip_list_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       missing_body() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type missing_body() :: %{String.t() => any()}
+  @type missing_body() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cookie_names() :: %{
-        "Items" => list(String.t()),
+        "Items" => list(String.t() | Atom.t()),
         "Quantity" => integer()
       }
 
   """
-  @type cookie_names() :: %{String.t() => any()}
+  @type cookie_names() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_query_strings_in_cache_policy() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_query_strings_in_cache_policy() :: %{String.t() => any()}
+  @type too_many_query_strings_in_cache_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       inconsistent_quantities() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type inconsistent_quantities() :: %{String.t() => any()}
+  @type inconsistent_quantities() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_headers_for_s3_origin() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_headers_for_s3_origin() :: %{String.t() => any()}
+  @type invalid_headers_for_s3_origin() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3509,67 +3524,67 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type list_distributions_by_cache_policy_id_result() :: %{String.t() => any()}
+  @type list_distributions_by_cache_policy_id_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_distribution_tenant_web_acl_result() :: %{
-        "ETag" => String.t(),
-        "Id" => String.t()
+        "ETag" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type disassociate_distribution_tenant_web_acl_result() :: %{String.t() => any()}
+  @type disassociate_distribution_tenant_web_acl_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       field_patterns() :: %{
-        "Items" => list(String.t()),
+        "Items" => list(String.t() | Atom.t()),
         "Quantity" => integer()
       }
 
   """
-  @type field_patterns() :: %{String.t() => any()}
+  @type field_patterns() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       monitoring_subscription_already_exists() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type monitoring_subscription_already_exists() :: %{String.t() => any()}
+  @type monitoring_subscription_already_exists() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_lambda_function_association() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_lambda_function_association() :: %{String.t() => any()}
+  @type invalid_lambda_function_association() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_distribution_tenants_by_customization_request() :: %{
-        optional("CertificateArn") => String.t(),
-        optional("Marker") => String.t(),
+        optional("CertificateArn") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxItems") => integer(),
-        optional("WebACLArn") => String.t()
+        optional("WebACLArn") => String.t() | Atom.t()
       }
 
   """
-  @type list_distribution_tenants_by_customization_request() :: %{String.t() => any()}
+  @type list_distribution_tenants_by_customization_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3580,7 +3595,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type tags() :: %{String.t() => any()}
+  @type tags() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3589,46 +3604,46 @@ defmodule AWS.CloudFront do
       anycast_ip_list_collection() :: %{
         "IsTruncated" => boolean(),
         "Items" => list(anycast_ip_list_summary()),
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "MaxItems" => integer(),
-        "NextMarker" => String.t(),
+        "NextMarker" => String.t() | Atom.t(),
         "Quantity" => integer()
       }
 
   """
-  @type anycast_ip_list_collection() :: %{String.t() => any()}
+  @type anycast_ip_list_collection() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       distribution() :: %{
-        "ARN" => String.t(),
+        "ARN" => String.t() | Atom.t(),
         "ActiveTrustedKeyGroups" => active_trusted_key_groups(),
         "ActiveTrustedSigners" => active_trusted_signers(),
         "AliasICPRecordals" => list(alias_i_c_p_recordal()),
         "DistributionConfig" => distribution_config(),
-        "DomainName" => String.t(),
-        "Id" => String.t(),
+        "DomainName" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "InProgressInvalidationBatches" => integer(),
         "LastModifiedTime" => non_neg_integer(),
-        "Status" => String.t()
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type distribution() :: %{String.t() => any()}
+  @type distribution() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       parameter() :: %{
-        "Name" => String.t(),
-        "Value" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type parameter() :: %{String.t() => any()}
+  @type parameter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3639,7 +3654,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type create_cache_policy_request() :: %{String.t() => any()}
+  @type create_cache_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3647,11 +3662,11 @@ defmodule AWS.CloudFront do
 
       list_distribution_tenants_result() :: %{
         "DistributionTenantList" => list(distribution_tenant_summary()),
-        "NextMarker" => String.t()
+        "NextMarker" => String.t() | Atom.t()
       }
 
   """
-  @type list_distribution_tenants_result() :: %{String.t() => any()}
+  @type list_distribution_tenants_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3663,18 +3678,18 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type origin_request_policy_query_strings_config() :: %{String.t() => any()}
+  @type origin_request_policy_query_strings_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_origin_keepalive_timeout() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_origin_keepalive_timeout() :: %{String.t() => any()}
+  @type invalid_origin_keepalive_timeout() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3685,101 +3700,101 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type list_continuous_deployment_policies_result() :: %{String.t() => any()}
+  @type list_continuous_deployment_policies_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       kinesis_stream_config() :: %{
-        "RoleARN" => String.t(),
-        "StreamARN" => String.t()
+        "RoleARN" => String.t() | Atom.t(),
+        "StreamARN" => String.t() | Atom.t()
       }
 
   """
-  @type kinesis_stream_config() :: %{String.t() => any()}
+  @type kinesis_stream_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_forward_cookies() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_forward_cookies() :: %{String.t() => any()}
+  @type invalid_forward_cookies() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_key_group_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "KeyGroup" => key_group(),
-        "Location" => String.t()
+        "Location" => String.t() | Atom.t()
       }
 
   """
-  @type create_key_group_result() :: %{String.t() => any()}
+  @type create_key_group_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_key_group_request() :: %{
-        optional("IfMatch") => String.t()
+        optional("IfMatch") => String.t() | Atom.t()
       }
 
   """
-  @type delete_key_group_request() :: %{String.t() => any()}
+  @type delete_key_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_field_level_encryption_config_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "FieldLevelEncryption" => field_level_encryption(),
-        "Location" => String.t()
+        "Location" => String.t() | Atom.t()
       }
 
   """
-  @type create_field_level_encryption_config_result() :: %{String.t() => any()}
+  @type create_field_level_encryption_config_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       realtime_log_config_already_exists() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type realtime_log_config_already_exists() :: %{String.t() => any()}
+  @type realtime_log_config_already_exists() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       no_such_cache_policy() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type no_such_cache_policy() :: %{String.t() => any()}
+  @type no_such_cache_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       aliases() :: %{
-        "Items" => list(String.t()),
+        "Items" => list(String.t() | Atom.t()),
         "Quantity" => integer()
       }
 
   """
-  @type aliases() :: %{String.t() => any()}
+  @type aliases() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3787,22 +3802,22 @@ defmodule AWS.CloudFront do
 
       list_distribution_tenants_by_customization_result() :: %{
         "DistributionTenantList" => list(distribution_tenant_summary()),
-        "NextMarker" => String.t()
+        "NextMarker" => String.t() | Atom.t()
       }
 
   """
-  @type list_distribution_tenants_by_customization_result() :: %{String.t() => any()}
+  @type list_distribution_tenants_by_customization_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_alias_request() :: %{
-        required("Alias") => String.t()
+        required("Alias") => String.t() | Atom.t()
       }
 
   """
-  @type associate_alias_request() :: %{String.t() => any()}
+  @type associate_alias_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3814,7 +3829,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type origin_groups() :: %{String.t() => any()}
+  @type origin_groups() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3822,71 +3837,71 @@ defmodule AWS.CloudFront do
 
       encryption_entity() :: %{
         "FieldPatterns" => field_patterns(),
-        "ProviderId" => String.t(),
-        "PublicKeyId" => String.t()
+        "ProviderId" => String.t() | Atom.t(),
+        "PublicKeyId" => String.t() | Atom.t()
       }
 
   """
-  @type encryption_entity() :: %{String.t() => any()}
+  @type encryption_entity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalidation_batch() :: %{
-        "CallerReference" => String.t(),
+        "CallerReference" => String.t() | Atom.t(),
         "Paths" => paths()
       }
 
   """
-  @type invalidation_batch() :: %{String.t() => any()}
+  @type invalidation_batch() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_streaming_distributions_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_streaming_distributions_request() :: %{String.t() => any()}
+  @type list_streaming_distributions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       trusted_signer_does_not_exist() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type trusted_signer_does_not_exist() :: %{String.t() => any()}
+  @type trusted_signer_does_not_exist() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_vpc_origin_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "VpcOrigin" => vpc_origin()
       }
 
   """
-  @type get_vpc_origin_result() :: %{String.t() => any()}
+  @type get_vpc_origin_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_distributions_by_connection_mode_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_distributions_by_connection_mode_request() :: %{String.t() => any()}
+  @type list_distributions_by_connection_mode_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3897,29 +3912,29 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type create_cloud_front_origin_access_identity_request() :: %{String.t() => any()}
+  @type create_cloud_front_origin_access_identity_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       no_such_streaming_distribution() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type no_such_streaming_distribution() :: %{String.t() => any()}
+  @type no_such_streaming_distribution() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_origin_read_timeout() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_origin_read_timeout() :: %{String.t() => any()}
+  @type invalid_origin_read_timeout() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3941,44 +3956,44 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type continuous_deployment_policy_config() :: %{String.t() => any()}
+  @type continuous_deployment_policy_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_origin_request_policy_config_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "OriginRequestPolicyConfig" => origin_request_policy_config()
       }
 
   """
-  @type get_origin_request_policy_config_result() :: %{String.t() => any()}
+  @type get_origin_request_policy_config_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_response_headers_policy_result() :: %{
-        "ETag" => String.t(),
-        "Location" => String.t(),
+        "ETag" => String.t() | Atom.t(),
+        "Location" => String.t() | Atom.t(),
         "ResponseHeadersPolicy" => response_headers_policy()
       }
 
   """
-  @type create_response_headers_policy_result() :: %{String.t() => any()}
+  @type create_response_headers_policy_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_key_value_store_request() :: %{
-        required("Comment") => String.t(),
-        required("IfMatch") => String.t()
+        required("Comment") => String.t() | Atom.t(),
+        required("IfMatch") => String.t() | Atom.t()
       }
 
   """
-  @type update_key_value_store_request() :: %{String.t() => any()}
+  @type update_key_value_store_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -3991,44 +4006,44 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type customizations() :: %{String.t() => any()}
+  @type customizations() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_domain_name_for_origin_access_control() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_domain_name_for_origin_access_control() :: %{String.t() => any()}
+  @type invalid_domain_name_for_origin_access_control() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       response_headers_policy_content_security_policy() :: %{
-        "ContentSecurityPolicy" => String.t(),
+        "ContentSecurityPolicy" => String.t() | Atom.t(),
         "Override" => boolean()
       }
 
   """
-  @type response_headers_policy_content_security_policy() :: %{String.t() => any()}
+  @type response_headers_policy_content_security_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       managed_certificate_details() :: %{
-        "CertificateArn" => String.t(),
+        "CertificateArn" => String.t() | Atom.t(),
         "CertificateStatus" => list(any()),
         "ValidationTokenDetails" => list(validation_token_detail()),
         "ValidationTokenHost" => list(any())
       }
 
   """
-  @type managed_certificate_details() :: %{String.t() => any()}
+  @type managed_certificate_details() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4036,53 +4051,53 @@ defmodule AWS.CloudFront do
 
       public_key() :: %{
         "CreatedTime" => non_neg_integer(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "PublicKeyConfig" => public_key_config()
       }
 
   """
-  @type public_key() :: %{String.t() => any()}
+  @type public_key() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       domain_conflict() :: %{
-        "AccountId" => String.t(),
-        "Domain" => String.t(),
-        "ResourceId" => String.t(),
+        "AccountId" => String.t() | Atom.t(),
+        "Domain" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | Atom.t(),
         "ResourceType" => list(any())
       }
 
   """
-  @type domain_conflict() :: %{String.t() => any()}
+  @type domain_conflict() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_field_level_encryption_profile_request() :: %{
-        optional("IfMatch") => String.t(),
+        optional("IfMatch") => String.t() | Atom.t(),
         required("FieldLevelEncryptionProfileConfig") => field_level_encryption_profile_config()
       }
 
   """
-  @type update_field_level_encryption_profile_request() :: %{String.t() => any()}
+  @type update_field_level_encryption_profile_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       field_level_encryption_profile_summary() :: %{
-        "Comment" => String.t(),
+        "Comment" => String.t() | Atom.t(),
         "EncryptionEntities" => encryption_entities(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type field_level_encryption_profile_summary() :: %{String.t() => any()}
+  @type field_level_encryption_profile_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4091,23 +4106,23 @@ defmodule AWS.CloudFront do
       function_summary() :: %{
         "FunctionConfig" => function_config(),
         "FunctionMetadata" => function_metadata(),
-        "Name" => String.t(),
-        "Status" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type function_summary() :: %{String.t() => any()}
+  @type function_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_key_groups_associated_to_distribution() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_key_groups_associated_to_distribution() :: %{String.t() => any()}
+  @type too_many_key_groups_associated_to_distribution() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4115,49 +4130,49 @@ defmodule AWS.CloudFront do
 
       create_cache_policy_result() :: %{
         "CachePolicy" => cache_policy(),
-        "ETag" => String.t(),
-        "Location" => String.t()
+        "ETag" => String.t() | Atom.t(),
+        "Location" => String.t() | Atom.t()
       }
 
   """
-  @type create_cache_policy_result() :: %{String.t() => any()}
+  @type create_cache_policy_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_key_value_store_request() :: %{
-        optional("Comment") => String.t(),
+        optional("Comment") => String.t() | Atom.t(),
         optional("ImportSource") => import_source(),
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
 
   """
-  @type create_key_value_store_request() :: %{String.t() => any()}
+  @type create_key_value_store_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       origin_custom_header() :: %{
-        "HeaderName" => String.t(),
-        "HeaderValue" => String.t()
+        "HeaderName" => String.t() | Atom.t(),
+        "HeaderValue" => String.t() | Atom.t()
       }
 
   """
-  @type origin_custom_header() :: %{String.t() => any()}
+  @type origin_custom_header() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_field_level_encryption_profiles_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_field_level_encryption_profiles_request() :: %{String.t() => any()}
+  @type list_field_level_encryption_profiles_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4168,40 +4183,40 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type list_vpc_origins_result() :: %{String.t() => any()}
+  @type list_vpc_origins_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cache_policy_already_exists() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type cache_policy_already_exists() :: %{String.t() => any()}
+  @type cache_policy_already_exists() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_headers_in_forwarded_values() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_headers_in_forwarded_values() :: %{String.t() => any()}
+  @type too_many_headers_in_forwarded_values() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       response_headers_policy_remove_header() :: %{
-        "Header" => String.t()
+        "Header" => String.t() | Atom.t()
       }
 
   """
-  @type response_headers_policy_remove_header() :: %{String.t() => any()}
+  @type response_headers_policy_remove_header() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4217,11 +4232,11 @@ defmodule AWS.CloudFront do
   ## Example:
 
       invalid_minimum_protocol_version() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_minimum_protocol_version() :: %{String.t() => any()}
+  @type invalid_minimum_protocol_version() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4230,12 +4245,12 @@ defmodule AWS.CloudFront do
       key_value_store_list() :: %{
         "Items" => list(key_value_store()),
         "MaxItems" => integer(),
-        "NextMarker" => String.t(),
+        "NextMarker" => String.t() | Atom.t(),
         "Quantity" => integer()
       }
 
   """
-  @type key_value_store_list() :: %{String.t() => any()}
+  @type key_value_store_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4243,80 +4258,80 @@ defmodule AWS.CloudFront do
 
       get_cloud_front_origin_access_identity_result() :: %{
         "CloudFrontOriginAccessIdentity" => cloud_front_origin_access_identity(),
-        "ETag" => String.t()
+        "ETag" => String.t() | Atom.t()
       }
 
   """
-  @type get_cloud_front_origin_access_identity_result() :: %{String.t() => any()}
+  @type get_cloud_front_origin_access_identity_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       query_string_names() :: %{
-        "Items" => list(String.t()),
+        "Items" => list(String.t() | Atom.t()),
         "Quantity" => integer()
       }
 
   """
-  @type query_string_names() :: %{String.t() => any()}
+  @type query_string_names() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_field_level_encryption_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "FieldLevelEncryption" => field_level_encryption()
       }
 
   """
-  @type get_field_level_encryption_result() :: %{String.t() => any()}
+  @type get_field_level_encryption_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_streaming_distribution_request() :: %{
-        optional("IfMatch") => String.t(),
+        optional("IfMatch") => String.t() | Atom.t(),
         required("StreamingDistributionConfig") => streaming_distribution_config()
       }
 
   """
-  @type update_streaming_distribution_request() :: %{String.t() => any()}
+  @type update_streaming_distribution_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_streaming_distributions() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_streaming_distributions() :: %{String.t() => any()}
+  @type too_many_streaming_distributions() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       no_such_origin_access_control() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type no_such_origin_access_control() :: %{String.t() => any()}
+  @type no_such_origin_access_control() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cannot_delete_entity_while_in_use() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type cannot_delete_entity_while_in_use() :: %{String.t() => any()}
+  @type cannot_delete_entity_while_in_use() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4325,59 +4340,59 @@ defmodule AWS.CloudFront do
       conflicting_aliases_list() :: %{
         "Items" => list(conflicting_alias()),
         "MaxItems" => integer(),
-        "NextMarker" => String.t(),
+        "NextMarker" => String.t() | Atom.t(),
         "Quantity" => integer()
       }
 
   """
-  @type conflicting_aliases_list() :: %{String.t() => any()}
+  @type conflicting_aliases_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_field_level_encryption_profiles() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_field_level_encryption_profiles() :: %{String.t() => any()}
+  @type too_many_field_level_encryption_profiles() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_field_level_encryption_configs_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_field_level_encryption_configs_request() :: %{String.t() => any()}
+  @type list_field_level_encryption_configs_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       distribution_tenant_association_filter() :: %{
-        "ConnectionGroupId" => String.t(),
-        "DistributionId" => String.t()
+        "ConnectionGroupId" => String.t() | Atom.t(),
+        "DistributionId" => String.t() | Atom.t()
       }
 
   """
-  @type distribution_tenant_association_filter() :: %{String.t() => any()}
+  @type distribution_tenant_association_filter() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_public_key_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "PublicKey" => public_key()
       }
 
   """
-  @type update_public_key_result() :: %{String.t() => any()}
+  @type update_public_key_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4393,83 +4408,83 @@ defmodule AWS.CloudFront do
   ## Example:
 
       too_many_field_level_encryption_configs() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_field_level_encryption_configs() :: %{String.t() => any()}
+  @type too_many_field_level_encryption_configs() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_key_value_store_request() :: %{
-        required("IfMatch") => String.t()
+        required("IfMatch") => String.t() | Atom.t()
       }
 
   """
-  @type delete_key_value_store_request() :: %{String.t() => any()}
+  @type delete_key_value_store_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_origin_custom_headers() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_origin_custom_headers() :: %{String.t() => any()}
+  @type too_many_origin_custom_headers() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_distribution_web_acl_result() :: %{
-        "ETag" => String.t(),
-        "Id" => String.t()
+        "ETag" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t()
       }
 
   """
-  @type disassociate_distribution_web_acl_result() :: %{String.t() => any()}
+  @type disassociate_distribution_web_acl_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_function_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "FunctionSummary" => function_summary(),
-        "Location" => String.t()
+        "Location" => String.t() | Atom.t()
       }
 
   """
-  @type create_function_result() :: %{String.t() => any()}
+  @type create_function_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       distribution_already_exists() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type distribution_already_exists() :: %{String.t() => any()}
+  @type distribution_already_exists() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       field_level_encryption_config() :: %{
-        "CallerReference" => String.t(),
-        "Comment" => String.t(),
+        "CallerReference" => String.t() | Atom.t(),
+        "Comment" => String.t() | Atom.t(),
         "ContentTypeProfileConfig" => content_type_profile_config(),
         "QueryArgProfileConfig" => query_arg_profile_config()
       }
 
   """
-  @type field_level_encryption_config() :: %{String.t() => any()}
+  @type field_level_encryption_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4480,7 +4495,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type list_cache_policies_result() :: %{String.t() => any()}
+  @type list_cache_policies_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4493,18 +4508,18 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type active_trusted_signers() :: %{String.t() => any()}
+  @type active_trusted_signers() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_vpc_origin_request() :: %{
-        required("IfMatch") => String.t()
+        required("IfMatch") => String.t() | Atom.t()
       }
 
   """
-  @type delete_vpc_origin_request() :: %{String.t() => any()}
+  @type delete_vpc_origin_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4512,47 +4527,47 @@ defmodule AWS.CloudFront do
 
       cloud_front_origin_access_identity() :: %{
         "CloudFrontOriginAccessIdentityConfig" => cloud_front_origin_access_identity_config(),
-        "Id" => String.t(),
-        "S3CanonicalUserId" => String.t()
+        "Id" => String.t() | Atom.t(),
+        "S3CanonicalUserId" => String.t() | Atom.t()
       }
 
   """
-  @type cloud_front_origin_access_identity() :: %{String.t() => any()}
+  @type cloud_front_origin_access_identity() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_functions_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxItems") => integer(),
         optional("Stage") => list(any())
       }
 
   """
-  @type list_functions_request() :: %{String.t() => any()}
+  @type list_functions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_origins() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_origins() :: %{String.t() => any()}
+  @type too_many_origins() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_distributions_with_single_function_arn() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_distributions_with_single_function_arn() :: %{String.t() => any()}
+  @type too_many_distributions_with_single_function_arn() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4561,33 +4576,33 @@ defmodule AWS.CloudFront do
       create_anycast_ip_list_request() :: %{
         optional("Tags") => tags(),
         required("IpCount") => integer(),
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
 
   """
-  @type create_anycast_ip_list_request() :: %{String.t() => any()}
+  @type create_anycast_ip_list_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_distributions_with_lambda_associations() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_distributions_with_lambda_associations() :: %{String.t() => any()}
+  @type too_many_distributions_with_lambda_associations() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       no_such_resource() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type no_such_resource() :: %{String.t() => any()}
+  @type no_such_resource() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4605,53 +4620,53 @@ defmodule AWS.CloudFront do
       distribution_list() :: %{
         "IsTruncated" => boolean(),
         "Items" => list(distribution_summary()),
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "MaxItems" => integer(),
-        "NextMarker" => String.t(),
+        "NextMarker" => String.t() | Atom.t(),
         "Quantity" => integer()
       }
 
   """
-  @type distribution_list() :: %{String.t() => any()}
+  @type distribution_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_disabled() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type resource_not_disabled() :: %{String.t() => any()}
+  @type resource_not_disabled() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       response_headers_policy_config() :: %{
-        "Comment" => String.t(),
+        "Comment" => String.t() | Atom.t(),
         "CorsConfig" => response_headers_policy_cors_config(),
         "CustomHeadersConfig" => response_headers_policy_custom_headers_config(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "RemoveHeadersConfig" => response_headers_policy_remove_headers_config(),
         "SecurityHeadersConfig" => response_headers_policy_security_headers_config(),
         "ServerTimingHeadersConfig" => response_headers_policy_server_timing_headers_config()
       }
 
   """
-  @type response_headers_policy_config() :: %{String.t() => any()}
+  @type response_headers_policy_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_cache_policy_request() :: %{
-        optional("IfMatch") => String.t()
+        optional("IfMatch") => String.t() | Atom.t()
       }
 
   """
-  @type delete_cache_policy_request() :: %{String.t() => any()}
+  @type delete_cache_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4662,18 +4677,18 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type list_tags_for_resource_result() :: %{String.t() => any()}
+  @type list_tags_for_resource_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       certificate() :: %{
-        "Arn" => String.t()
+        "Arn" => String.t() | Atom.t()
       }
 
   """
-  @type certificate() :: %{String.t() => any()}
+  @type certificate() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4689,45 +4704,45 @@ defmodule AWS.CloudFront do
   ## Example:
 
       too_many_field_level_encryption_encryption_entities() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_field_level_encryption_encryption_entities() :: %{String.t() => any()}
+  @type too_many_field_level_encryption_encryption_entities() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_distribution_web_acl_request() :: %{
-        optional("IfMatch") => String.t(),
-        required("WebACLArn") => String.t()
+        optional("IfMatch") => String.t() | Atom.t(),
+        required("WebACLArn") => String.t() | Atom.t()
       }
 
   """
-  @type associate_distribution_web_acl_request() :: %{String.t() => any()}
+  @type associate_distribution_web_acl_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_lambda_function_associations() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_lambda_function_associations() :: %{String.t() => any()}
+  @type too_many_lambda_function_associations() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_streaming_distribution_cnames() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_streaming_distribution_cnames() :: %{String.t() => any()}
+  @type too_many_streaming_distribution_cnames() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4735,11 +4750,11 @@ defmodule AWS.CloudFront do
 
       create_anycast_ip_list_result() :: %{
         "AnycastIpList" => anycast_ip_list(),
-        "ETag" => String.t()
+        "ETag" => String.t() | Atom.t()
       }
 
   """
-  @type create_anycast_ip_list_result() :: %{String.t() => any()}
+  @type create_anycast_ip_list_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4750,43 +4765,43 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type grpc_config() :: %{String.t() => any()}
+  @type grpc_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       distribution_tenant() :: %{
-        "Arn" => String.t(),
-        "ConnectionGroupId" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "ConnectionGroupId" => String.t() | Atom.t(),
         "CreatedTime" => non_neg_integer(),
         "Customizations" => customizations(),
-        "DistributionId" => String.t(),
+        "DistributionId" => String.t() | Atom.t(),
         "Domains" => list(domain_result()),
         "Enabled" => boolean(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | Atom.t(),
         "Parameters" => list(parameter()),
-        "Status" => String.t(),
+        "Status" => String.t() | Atom.t(),
         "Tags" => tags()
       }
 
   """
-  @type distribution_tenant() :: %{String.t() => any()}
+  @type distribution_tenant() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       function_config() :: %{
-        "Comment" => String.t(),
+        "Comment" => String.t() | Atom.t(),
         "KeyValueStoreAssociations" => key_value_store_associations(),
         "Runtime" => list(any())
       }
 
   """
-  @type function_config() :: %{String.t() => any()}
+  @type function_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4797,7 +4812,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type list_streaming_distributions_result() :: %{String.t() => any()}
+  @type list_streaming_distributions_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4809,29 +4824,29 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type origin_request_policy_summary() :: %{String.t() => any()}
+  @type origin_request_policy_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_keys() :: %{
-        "Items" => list(String.t())
+        "Items" => list(String.t() | Atom.t())
       }
 
   """
-  @type tag_keys() :: %{String.t() => any()}
+  @type tag_keys() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_realtime_log_configs() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_realtime_log_configs() :: %{String.t() => any()}
+  @type too_many_realtime_log_configs() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4842,31 +4857,31 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type verify_dns_configuration_result() :: %{String.t() => any()}
+  @type verify_dns_configuration_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cache_policy_in_use() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type cache_policy_in_use() :: %{String.t() => any()}
+  @type cache_policy_in_use() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_vpc_origin_result() :: %{
-        "ETag" => String.t(),
-        "Location" => String.t(),
+        "ETag" => String.t() | Atom.t(),
+        "Location" => String.t() | Atom.t(),
         "VpcOrigin" => vpc_origin()
       }
 
   """
-  @type create_vpc_origin_result() :: %{String.t() => any()}
+  @type create_vpc_origin_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4874,13 +4889,13 @@ defmodule AWS.CloudFront do
 
       origin_group() :: %{
         "FailoverCriteria" => origin_group_failover_criteria(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "Members" => origin_group_members(),
         "SelectionCriteria" => list(any())
       }
 
   """
-  @type origin_group() :: %{String.t() => any()}
+  @type origin_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4906,12 +4921,12 @@ defmodule AWS.CloudFront do
 
       create_distribution_result() :: %{
         "Distribution" => distribution(),
-        "ETag" => String.t(),
-        "Location" => String.t()
+        "ETag" => String.t() | Atom.t(),
+        "Location" => String.t() | Atom.t()
       }
 
   """
-  @type create_distribution_result() :: %{String.t() => any()}
+  @type create_distribution_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4920,23 +4935,26 @@ defmodule AWS.CloudFront do
       custom_error_response() :: %{
         "ErrorCachingMinTTL" => float(),
         "ErrorCode" => integer(),
-        "ResponseCode" => String.t(),
-        "ResponsePagePath" => String.t()
+        "ResponseCode" => String.t() | Atom.t(),
+        "ResponsePagePath" => String.t() | Atom.t()
       }
 
   """
-  @type custom_error_response() :: %{String.t() => any()}
+  @type custom_error_response() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_distributions_associated_to_response_headers_policy() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_distributions_associated_to_response_headers_policy() :: %{String.t() => any()}
+  @type too_many_distributions_associated_to_response_headers_policy() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -4945,11 +4963,11 @@ defmodule AWS.CloudFront do
       test_function_request() :: %{
         optional("Stage") => list(any()),
         required("EventObject") => binary(),
-        required("IfMatch") => String.t()
+        required("IfMatch") => String.t() | Atom.t()
       }
 
   """
-  @type test_function_request() :: %{String.t() => any()}
+  @type test_function_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -4960,55 +4978,55 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type create_monitoring_subscription_result() :: %{String.t() => any()}
+  @type create_monitoring_subscription_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       response_headers_policy_custom_header() :: %{
-        "Header" => String.t(),
+        "Header" => String.t() | Atom.t(),
         "Override" => boolean(),
-        "Value" => String.t()
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type response_headers_policy_custom_header() :: %{String.t() => any()}
+  @type response_headers_policy_custom_header() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       no_such_function_exists() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type no_such_function_exists() :: %{String.t() => any()}
+  @type no_such_function_exists() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_vpc_origin_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "VpcOrigin" => vpc_origin()
       }
 
   """
-  @type delete_vpc_origin_result() :: %{String.t() => any()}
+  @type delete_vpc_origin_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_field_level_encryption_profile_config_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "FieldLevelEncryptionProfileConfig" => field_level_encryption_profile_config()
       }
 
   """
-  @type get_field_level_encryption_profile_config_result() :: %{String.t() => any()}
+  @type get_field_level_encryption_profile_config_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5020,43 +5038,43 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type origin_ssl_protocols() :: %{String.t() => any()}
+  @type origin_ssl_protocols() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_cloud_front_origin_access_identities() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_cloud_front_origin_access_identities() :: %{String.t() => any()}
+  @type too_many_cloud_front_origin_access_identities() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_anycast_ip_list_request() :: %{
-        required("IfMatch") => String.t()
+        required("IfMatch") => String.t() | Atom.t()
       }
 
   """
-  @type delete_anycast_ip_list_request() :: %{String.t() => any()}
+  @type delete_anycast_ip_list_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       field_level_encryption_profile_config() :: %{
-        "CallerReference" => String.t(),
-        "Comment" => String.t(),
+        "CallerReference" => String.t() | Atom.t(),
+        "Comment" => String.t() | Atom.t(),
         "EncryptionEntities" => encryption_entities(),
-        "Name" => String.t()
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type field_level_encryption_profile_config() :: %{String.t() => any()}
+  @type field_level_encryption_profile_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5067,41 +5085,41 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type list_origin_access_controls_result() :: %{String.t() => any()}
+  @type list_origin_access_controls_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_distribution_tenant_web_acl_request() :: %{
-        optional("IfMatch") => String.t()
+        optional("IfMatch") => String.t() | Atom.t()
       }
 
   """
-  @type disassociate_distribution_tenant_web_acl_request() :: %{String.t() => any()}
+  @type disassociate_distribution_tenant_web_acl_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_distribution_tenant_request() :: %{
-        required("IfMatch") => String.t()
+        required("IfMatch") => String.t() | Atom.t()
       }
 
   """
-  @type delete_distribution_tenant_request() :: %{String.t() => any()}
+  @type delete_distribution_tenant_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_distributions_by_web_acl_id_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_distributions_by_web_acl_id_request() :: %{String.t() => any()}
+  @type list_distributions_by_web_acl_id_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5112,19 +5130,22 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type list_distributions_by_response_headers_policy_id_result() :: %{String.t() => any()}
+  @type list_distributions_by_response_headers_policy_id_result() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       update_vpc_origin_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "VpcOrigin" => vpc_origin()
       }
 
   """
-  @type update_vpc_origin_result() :: %{String.t() => any()}
+  @type update_vpc_origin_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5144,78 +5165,78 @@ defmodule AWS.CloudFront do
         "ConnectionTimeout" => integer(),
         "CustomHeaders" => custom_headers(),
         "CustomOriginConfig" => custom_origin_config(),
-        "DomainName" => String.t(),
-        "Id" => String.t(),
-        "OriginAccessControlId" => String.t(),
-        "OriginPath" => String.t(),
+        "DomainName" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "OriginAccessControlId" => String.t() | Atom.t(),
+        "OriginPath" => String.t() | Atom.t(),
         "OriginShield" => origin_shield(),
         "S3OriginConfig" => s3_origin_config(),
         "VpcOriginConfig" => vpc_origin_config()
       }
 
   """
-  @type origin() :: %{String.t() => any()}
+  @type origin() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_field_level_encryption_profile_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "FieldLevelEncryptionProfile" => field_level_encryption_profile(),
-        "Location" => String.t()
+        "Location" => String.t() | Atom.t()
       }
 
   """
-  @type create_field_level_encryption_profile_result() :: %{String.t() => any()}
+  @type create_field_level_encryption_profile_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_domain_association_result() :: %{
-        "Domain" => String.t(),
-        "ETag" => String.t(),
-        "ResourceId" => String.t()
+        "Domain" => String.t() | Atom.t(),
+        "ETag" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | Atom.t()
       }
 
   """
-  @type update_domain_association_result() :: %{String.t() => any()}
+  @type update_domain_association_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_public_keys_in_key_group() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_public_keys_in_key_group() :: %{String.t() => any()}
+  @type too_many_public_keys_in_key_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       continuous_deployment_single_header_config() :: %{
-        "Header" => String.t(),
-        "Value" => String.t()
+        "Header" => String.t() | Atom.t(),
+        "Value" => String.t() | Atom.t()
       }
 
   """
-  @type continuous_deployment_single_header_config() :: %{String.t() => any()}
+  @type continuous_deployment_single_header_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_distributions_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_distributions_request() :: %{String.t() => any()}
+  @type list_distributions_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5226,22 +5247,22 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type get_invalidation_for_distribution_tenant_result() :: %{String.t() => any()}
+  @type get_invalidation_for_distribution_tenant_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_realtime_log_config_request() :: %{
-        optional("ARN") => String.t(),
+        optional("ARN") => String.t() | Atom.t(),
         optional("EndPoints") => list(end_point()),
-        optional("Fields") => list(String.t()),
-        optional("Name") => String.t(),
+        optional("Fields") => list(String.t() | Atom.t()),
+        optional("Name") => String.t() | Atom.t(),
         optional("SamplingRate") => float()
       }
 
   """
-  @type update_realtime_log_config_request() :: %{String.t() => any()}
+  @type update_realtime_log_config_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5249,22 +5270,22 @@ defmodule AWS.CloudFront do
 
       get_distribution_result() :: %{
         "Distribution" => distribution(),
-        "ETag" => String.t()
+        "ETag" => String.t() | Atom.t()
       }
 
   """
-  @type get_distribution_result() :: %{String.t() => any()}
+  @type get_distribution_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_cache_behaviors() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_cache_behaviors() :: %{String.t() => any()}
+  @type too_many_cache_behaviors() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5284,7 +5305,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type list_invalidations_result() :: %{String.t() => any()}
+  @type list_invalidations_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5293,12 +5314,12 @@ defmodule AWS.CloudFront do
       function_list() :: %{
         "Items" => list(function_summary()),
         "MaxItems" => integer(),
-        "NextMarker" => String.t(),
+        "NextMarker" => String.t() | Atom.t(),
         "Quantity" => integer()
       }
 
   """
-  @type function_list() :: %{String.t() => any()}
+  @type function_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5306,12 +5327,12 @@ defmodule AWS.CloudFront do
 
       managed_certificate_request() :: %{
         "CertificateTransparencyLoggingPreference" => list(any()),
-        "PrimaryDomainName" => String.t(),
+        "PrimaryDomainName" => String.t() | Atom.t(),
         "ValidationTokenHost" => list(any())
       }
 
   """
-  @type managed_certificate_request() :: %{String.t() => any()}
+  @type managed_certificate_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5332,63 +5353,66 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type response_headers_policy_server_timing_headers_config() :: %{String.t() => any()}
+  @type response_headers_policy_server_timing_headers_config() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       headers() :: %{
-        "Items" => list(String.t()),
+        "Items" => list(String.t() | Atom.t()),
         "Quantity" => integer()
       }
 
   """
-  @type headers() :: %{String.t() => any()}
+  @type headers() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       realtime_log_config_in_use() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type realtime_log_config_in_use() :: %{String.t() => any()}
+  @type realtime_log_config_in_use() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       streaming_distribution_summary() :: %{
-        "ARN" => String.t(),
+        "ARN" => String.t() | Atom.t(),
         "Aliases" => aliases(),
-        "Comment" => String.t(),
-        "DomainName" => String.t(),
+        "Comment" => String.t() | Atom.t(),
+        "DomainName" => String.t() | Atom.t(),
         "Enabled" => boolean(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
         "PriceClass" => list(any()),
         "S3Origin" => s3_origin(),
-        "Status" => String.t(),
+        "Status" => String.t() | Atom.t(),
         "TrustedSigners" => trusted_signers()
       }
 
   """
-  @type streaming_distribution_summary() :: %{String.t() => any()}
+  @type streaming_distribution_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_distributions_by_anycast_ip_list_id_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_distributions_by_anycast_ip_list_id_request() :: %{String.t() => any()}
+  @type list_distributions_by_anycast_ip_list_id_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5396,25 +5420,25 @@ defmodule AWS.CloudFront do
 
       update_distribution_tenant_result() :: %{
         "DistributionTenant" => distribution_tenant(),
-        "ETag" => String.t()
+        "ETag" => String.t() | Atom.t()
       }
 
   """
-  @type update_distribution_tenant_result() :: %{String.t() => any()}
+  @type update_distribution_tenant_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_distributions_by_realtime_log_config_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxItems") => integer(),
-        optional("RealtimeLogConfigArn") => String.t(),
-        optional("RealtimeLogConfigName") => String.t()
+        optional("RealtimeLogConfigArn") => String.t() | Atom.t(),
+        optional("RealtimeLogConfigName") => String.t() | Atom.t()
       }
 
   """
-  @type list_distributions_by_realtime_log_config_request() :: %{String.t() => any()}
+  @type list_distributions_by_realtime_log_config_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5431,7 +5455,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type response_headers_policy_cors_config() :: %{String.t() => any()}
+  @type response_headers_policy_cors_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5442,75 +5466,75 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type origin_group_failover_criteria() :: %{String.t() => any()}
+  @type origin_group_failover_criteria() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_key_groups() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_key_groups() :: %{String.t() => any()}
+  @type too_many_key_groups() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_for_resource_request() :: %{
-        required("Resource") => String.t()
+        required("Resource") => String.t() | Atom.t()
       }
 
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_public_key_config_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "PublicKeyConfig" => public_key_config()
       }
 
   """
-  @type get_public_key_config_result() :: %{String.t() => any()}
+  @type get_public_key_config_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       test_function_failed() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type test_function_failed() :: %{String.t() => any()}
+  @type test_function_failed() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_response_headers_policy_config_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "ResponseHeadersPolicyConfig" => response_headers_policy_config()
       }
 
   """
-  @type get_response_headers_policy_config_result() :: %{String.t() => any()}
+  @type get_response_headers_policy_config_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       function_already_exists() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type function_already_exists() :: %{String.t() => any()}
+  @type function_already_exists() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5522,100 +5546,103 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type origin_group_members() :: %{String.t() => any()}
+  @type origin_group_members() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       streaming_distribution_already_exists() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type streaming_distribution_already_exists() :: %{String.t() => any()}
+  @type streaming_distribution_already_exists() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_default_root_object() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_default_root_object() :: %{String.t() => any()}
+  @type invalid_default_root_object() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_distributions_by_vpc_origin_id_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_distributions_by_vpc_origin_id_request() :: %{String.t() => any()}
+  @type list_distributions_by_vpc_origin_id_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_origin_request_policy_result() :: %{
-        "ETag" => String.t(),
-        "Location" => String.t(),
+        "ETag" => String.t() | Atom.t(),
+        "Location" => String.t() | Atom.t(),
         "OriginRequestPolicy" => origin_request_policy()
       }
 
   """
-  @type create_origin_request_policy_result() :: %{String.t() => any()}
+  @type create_origin_request_policy_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_distributions_by_origin_request_policy_id_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_distributions_by_origin_request_policy_id_request() :: %{String.t() => any()}
+  @type list_distributions_by_origin_request_policy_id_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       associate_distribution_tenant_web_acl_request() :: %{
-        optional("IfMatch") => String.t(),
-        required("WebACLArn") => String.t()
+        optional("IfMatch") => String.t() | Atom.t(),
+        required("WebACLArn") => String.t() | Atom.t()
       }
 
   """
-  @type associate_distribution_tenant_web_acl_request() :: %{String.t() => any()}
+  @type associate_distribution_tenant_web_acl_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cname_already_exists() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type cname_already_exists() :: %{String.t() => any()}
+  @type cname_already_exists() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       field_level_encryption_profile_size_exceeded() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type field_level_encryption_profile_size_exceeded() :: %{String.t() => any()}
+  @type field_level_encryption_profile_size_exceeded() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5626,18 +5653,18 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type create_response_headers_policy_request() :: %{String.t() => any()}
+  @type create_response_headers_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_field_level_encryption_field_patterns() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_field_level_encryption_field_patterns() :: %{String.t() => any()}
+  @type too_many_field_level_encryption_field_patterns() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5645,23 +5672,23 @@ defmodule AWS.CloudFront do
 
       get_continuous_deployment_policy_config_result() :: %{
         "ContinuousDeploymentPolicyConfig" => continuous_deployment_policy_config(),
-        "ETag" => String.t()
+        "ETag" => String.t() | Atom.t()
       }
 
   """
-  @type get_continuous_deployment_policy_config_result() :: %{String.t() => any()}
+  @type get_continuous_deployment_policy_config_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       domain_result() :: %{
-        "Domain" => String.t(),
+        "Domain" => String.t() | Atom.t(),
         "Status" => list(any())
       }
 
   """
-  @type domain_result() :: %{String.t() => any()}
+  @type domain_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5679,84 +5706,84 @@ defmodule AWS.CloudFront do
       origin_request_policy_list() :: %{
         "Items" => list(origin_request_policy_summary()),
         "MaxItems" => integer(),
-        "NextMarker" => String.t(),
+        "NextMarker" => String.t() | Atom.t(),
         "Quantity" => integer()
       }
 
   """
-  @type origin_request_policy_list() :: %{String.t() => any()}
+  @type origin_request_policy_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       key_value_store() :: %{
-        "ARN" => String.t(),
-        "Comment" => String.t(),
-        "Id" => String.t(),
+        "ARN" => String.t() | Atom.t(),
+        "Comment" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "Status" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type key_value_store() :: %{String.t() => any()}
+  @type key_value_store() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_remove_headers_in_response_headers_policy() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_remove_headers_in_response_headers_policy() :: %{String.t() => any()}
+  @type too_many_remove_headers_in_response_headers_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_origin_request_policies() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_origin_request_policies() :: %{String.t() => any()}
+  @type too_many_origin_request_policies() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_origin_access_control_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "OriginAccessControl" => origin_access_control()
       }
 
   """
-  @type get_origin_access_control_result() :: %{String.t() => any()}
+  @type get_origin_access_control_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_origin_access_control_request() :: %{
-        optional("IfMatch") => String.t()
+        optional("IfMatch") => String.t() | Atom.t()
       }
 
   """
-  @type delete_origin_access_control_request() :: %{String.t() => any()}
+  @type delete_origin_access_control_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_continuous_deployment_policy_request() :: %{
-        optional("IfMatch") => String.t()
+        optional("IfMatch") => String.t() | Atom.t()
       }
 
   """
-  @type delete_continuous_deployment_policy_request() :: %{String.t() => any()}
+  @type delete_continuous_deployment_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5764,37 +5791,37 @@ defmodule AWS.CloudFront do
 
       create_cloud_front_origin_access_identity_result() :: %{
         "CloudFrontOriginAccessIdentity" => cloud_front_origin_access_identity(),
-        "ETag" => String.t(),
-        "Location" => String.t()
+        "ETag" => String.t() | Atom.t(),
+        "Location" => String.t() | Atom.t()
       }
 
   """
-  @type create_cloud_front_origin_access_identity_result() :: %{String.t() => any()}
+  @type create_cloud_front_origin_access_identity_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_response_headers_policy_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "ResponseHeadersPolicy" => response_headers_policy()
       }
 
   """
-  @type get_response_headers_policy_result() :: %{String.t() => any()}
+  @type get_response_headers_policy_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_token_detail() :: %{
-        "Domain" => String.t(),
-        "RedirectFrom" => String.t(),
-        "RedirectTo" => String.t()
+        "Domain" => String.t() | Atom.t(),
+        "RedirectFrom" => String.t() | Atom.t(),
+        "RedirectTo" => String.t() | Atom.t()
       }
 
   """
-  @type validation_token_detail() :: %{String.t() => any()}
+  @type validation_token_detail() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5802,11 +5829,11 @@ defmodule AWS.CloudFront do
 
       web_acl_customization() :: %{
         "Action" => list(any()),
-        "Arn" => String.t()
+        "Arn" => String.t() | Atom.t()
       }
 
   """
-  @type web_acl_customization() :: %{String.t() => any()}
+  @type web_acl_customization() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5817,64 +5844,64 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type list_distributions_by_key_group_result() :: %{String.t() => any()}
+  @type list_distributions_by_key_group_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_cache_policies_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxItems") => integer(),
         optional("Type") => list(any())
       }
 
   """
-  @type list_cache_policies_request() :: %{String.t() => any()}
+  @type list_cache_policies_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       no_such_invalidation() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type no_such_invalidation() :: %{String.t() => any()}
+  @type no_such_invalidation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_query_string_parameters() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_query_string_parameters() :: %{String.t() => any()}
+  @type too_many_query_string_parameters() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       illegal_delete() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type illegal_delete() :: %{String.t() => any()}
+  @type illegal_delete() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_viewer_certificate() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_viewer_certificate() :: %{String.t() => any()}
+  @type invalid_viewer_certificate() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5882,11 +5909,11 @@ defmodule AWS.CloudFront do
 
       update_distribution_result() :: %{
         "Distribution" => distribution(),
-        "ETag" => String.t()
+        "ETag" => String.t() | Atom.t()
       }
 
   """
-  @type update_distribution_result() :: %{String.t() => any()}
+  @type update_distribution_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5897,58 +5924,58 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type list_conflicting_aliases_result() :: %{String.t() => any()}
+  @type list_conflicting_aliases_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_distribution_with_staging_config_request() :: %{
-        optional("IfMatch") => String.t(),
-        optional("StagingDistributionId") => String.t()
+        optional("IfMatch") => String.t() | Atom.t(),
+        optional("StagingDistributionId") => String.t() | Atom.t()
       }
 
   """
-  @type update_distribution_with_staging_config_request() :: %{String.t() => any()}
+  @type update_distribution_with_staging_config_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       paths() :: %{
-        "Items" => list(String.t()),
+        "Items" => list(String.t() | Atom.t()),
         "Quantity" => integer()
       }
 
   """
-  @type paths() :: %{String.t() => any()}
+  @type paths() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       vpc_origin() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreatedTime" => non_neg_integer(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "Status" => String.t(),
+        "Status" => String.t() | Atom.t(),
         "VpcOriginEndpointConfig" => vpc_origin_endpoint_config()
       }
 
   """
-  @type vpc_origin() :: %{String.t() => any()}
+  @type vpc_origin() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_relative_path() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_relative_path() :: %{String.t() => any()}
+  @type invalid_relative_path() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -5959,78 +5986,78 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type create_field_level_encryption_config_request() :: %{String.t() => any()}
+  @type create_field_level_encryption_config_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       verify_dns_configuration_request() :: %{
-        optional("Domain") => String.t(),
-        required("Identifier") => String.t()
+        optional("Domain") => String.t() | Atom.t(),
+        required("Identifier") => String.t() | Atom.t()
       }
 
   """
-  @type verify_dns_configuration_request() :: %{String.t() => any()}
+  @type verify_dns_configuration_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_origin_access_control_result() :: %{
-        "ETag" => String.t(),
-        "Location" => String.t(),
+        "ETag" => String.t() | Atom.t(),
+        "Location" => String.t() | Atom.t(),
         "OriginAccessControl" => origin_access_control()
       }
 
   """
-  @type create_origin_access_control_result() :: %{String.t() => any()}
+  @type create_origin_access_control_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_streaming_distribution_request() :: %{
-        optional("IfMatch") => String.t()
+        optional("IfMatch") => String.t() | Atom.t()
       }
 
   """
-  @type delete_streaming_distribution_request() :: %{String.t() => any()}
+  @type delete_streaming_distribution_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       no_such_response_headers_policy() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type no_such_response_headers_policy() :: %{String.t() => any()}
+  @type no_such_response_headers_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       cloud_front_origin_access_identity_config() :: %{
-        "CallerReference" => String.t(),
-        "Comment" => String.t()
+        "CallerReference" => String.t() | Atom.t(),
+        "Comment" => String.t() | Atom.t()
       }
 
   """
-  @type cloud_front_origin_access_identity_config() :: %{String.t() => any()}
+  @type cloud_front_origin_access_identity_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       k_g_key_pair_ids() :: %{
-        "KeyGroupId" => String.t(),
+        "KeyGroupId" => String.t() | Atom.t(),
         "KeyPairIds" => key_pair_ids()
       }
 
   """
-  @type k_g_key_pair_ids() :: %{String.t() => any()}
+  @type k_g_key_pair_ids() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6039,27 +6066,27 @@ defmodule AWS.CloudFront do
       invalidation_list() :: %{
         "IsTruncated" => boolean(),
         "Items" => list(invalidation_summary()),
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "MaxItems" => integer(),
-        "NextMarker" => String.t(),
+        "NextMarker" => String.t() | Atom.t(),
         "Quantity" => integer()
       }
 
   """
-  @type invalidation_list() :: %{String.t() => any()}
+  @type invalidation_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_public_key_result() :: %{
-        "ETag" => String.t(),
-        "Location" => String.t(),
+        "ETag" => String.t() | Atom.t(),
+        "Location" => String.t() | Atom.t(),
         "PublicKey" => public_key()
       }
 
   """
-  @type create_public_key_result() :: %{String.t() => any()}
+  @type create_public_key_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6067,11 +6094,11 @@ defmodule AWS.CloudFront do
 
       create_distribution_tenant_result() :: %{
         "DistributionTenant" => distribution_tenant(),
-        "ETag" => String.t()
+        "ETag" => String.t() | Atom.t()
       }
 
   """
-  @type create_distribution_tenant_result() :: %{String.t() => any()}
+  @type create_distribution_tenant_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6083,7 +6110,10 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type response_headers_policy_access_control_allow_methods() :: %{String.t() => any()}
+  @type response_headers_policy_access_control_allow_methods() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -6099,18 +6129,18 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type response_headers_policy_security_headers_config() :: %{String.t() => any()}
+  @type response_headers_policy_security_headers_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       realtime_log_config_owner_mismatch() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type realtime_log_config_owner_mismatch() :: %{String.t() => any()}
+  @type realtime_log_config_owner_mismatch() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6118,24 +6148,24 @@ defmodule AWS.CloudFront do
 
       create_distribution_with_tags_result() :: %{
         "Distribution" => distribution(),
-        "ETag" => String.t(),
-        "Location" => String.t()
+        "ETag" => String.t() | Atom.t(),
+        "Location" => String.t() | Atom.t()
       }
 
   """
-  @type create_distribution_with_tags_result() :: %{String.t() => any()}
+  @type create_distribution_with_tags_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_origin_request_policy_request() :: %{
-        optional("IfMatch") => String.t(),
+        optional("IfMatch") => String.t() | Atom.t(),
         required("OriginRequestPolicyConfig") => origin_request_policy_config()
       }
 
   """
-  @type update_origin_request_policy_request() :: %{String.t() => any()}
+  @type update_origin_request_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6144,25 +6174,25 @@ defmodule AWS.CloudFront do
       vpc_origin_list() :: %{
         "IsTruncated" => boolean(),
         "Items" => list(vpc_origin_summary()),
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "MaxItems" => integer(),
-        "NextMarker" => String.t(),
+        "NextMarker" => String.t() | Atom.t(),
         "Quantity" => integer()
       }
 
   """
-  @type vpc_origin_list() :: %{String.t() => any()}
+  @type vpc_origin_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       origin_access_control_already_exists() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type origin_access_control_already_exists() :: %{String.t() => any()}
+  @type origin_access_control_already_exists() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6183,18 +6213,18 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type streaming_distribution_config_with_tags() :: %{String.t() => any()}
+  @type streaming_distribution_config_with_tags() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_field_level_encryption_profile_request() :: %{
-        optional("IfMatch") => String.t()
+        optional("IfMatch") => String.t() | Atom.t()
       }
 
   """
-  @type delete_field_level_encryption_profile_request() :: %{String.t() => any()}
+  @type delete_field_level_encryption_profile_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6203,35 +6233,35 @@ defmodule AWS.CloudFront do
       update_function_request() :: %{
         required("FunctionCode") => binary(),
         required("FunctionConfig") => function_config(),
-        required("IfMatch") => String.t()
+        required("IfMatch") => String.t() | Atom.t()
       }
 
   """
-  @type update_function_request() :: %{String.t() => any()}
+  @type update_function_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_origin_access_control_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "OriginAccessControl" => origin_access_control()
       }
 
   """
-  @type update_origin_access_control_result() :: %{String.t() => any()}
+  @type update_origin_access_control_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       import_source() :: %{
-        "SourceARN" => String.t(),
+        "SourceARN" => String.t() | Atom.t(),
         "SourceType" => list(any())
       }
 
   """
-  @type import_source() :: %{String.t() => any()}
+  @type import_source() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6239,22 +6269,22 @@ defmodule AWS.CloudFront do
 
       get_connection_group_by_routing_endpoint_result() :: %{
         "ConnectionGroup" => connection_group(),
-        "ETag" => String.t()
+        "ETag" => String.t() | Atom.t()
       }
 
   """
-  @type get_connection_group_by_routing_endpoint_result() :: %{String.t() => any()}
+  @type get_connection_group_by_routing_endpoint_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_distribution_request() :: %{
-        optional("IfMatch") => String.t()
+        optional("IfMatch") => String.t() | Atom.t()
       }
 
   """
-  @type delete_distribution_request() :: %{String.t() => any()}
+  @type delete_distribution_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6263,12 +6293,12 @@ defmodule AWS.CloudFront do
       field_level_encryption_profile_list() :: %{
         "Items" => list(field_level_encryption_profile_summary()),
         "MaxItems" => integer(),
-        "NextMarker" => String.t(),
+        "NextMarker" => String.t() | Atom.t(),
         "Quantity" => integer()
       }
 
   """
-  @type field_level_encryption_profile_list() :: %{String.t() => any()}
+  @type field_level_encryption_profile_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6279,18 +6309,18 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type list_distributions_by_realtime_log_config_result() :: %{String.t() => any()}
+  @type list_distributions_by_realtime_log_config_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       no_such_origin() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type no_such_origin() :: %{String.t() => any()}
+  @type no_such_origin() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6302,19 +6332,19 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type query_arg_profile_config() :: %{String.t() => any()}
+  @type query_arg_profile_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_field_level_encryption_config_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "FieldLevelEncryptionConfig" => field_level_encryption_config()
       }
 
   """
-  @type get_field_level_encryption_config_result() :: %{String.t() => any()}
+  @type get_field_level_encryption_config_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6325,7 +6355,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type list_distributions_by_vpc_origin_id_result() :: %{String.t() => any()}
+  @type list_distributions_by_vpc_origin_id_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6341,11 +6371,11 @@ defmodule AWS.CloudFront do
   ## Example:
 
       no_such_monitoring_subscription() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type no_such_monitoring_subscription() :: %{String.t() => any()}
+  @type no_such_monitoring_subscription() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6354,11 +6384,11 @@ defmodule AWS.CloudFront do
       create_function_request() :: %{
         required("FunctionCode") => binary(),
         required("FunctionConfig") => function_config(),
-        required("Name") => String.t()
+        required("Name") => String.t() | Atom.t()
       }
 
   """
-  @type create_function_request() :: %{String.t() => any()}
+  @type create_function_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6371,46 +6401,47 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type allowed_methods() :: %{String.t() => any()}
+  @type allowed_methods() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_origin_access_controls_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_origin_access_controls_request() :: %{String.t() => any()}
+  @type list_origin_access_controls_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       public_key_summary() :: %{
-        "Comment" => String.t(),
+        "Comment" => String.t() | Atom.t(),
         "CreatedTime" => non_neg_integer(),
-        "EncodedKey" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t()
+        "EncodedKey" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type public_key_summary() :: %{String.t() => any()}
+  @type public_key_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       illegal_field_level_encryption_config_association_with_cache_behavior() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
   @type illegal_field_level_encryption_config_association_with_cache_behavior() :: %{
-          String.t() => any()
+          String.t()
+          | Atom.t() => any()
         }
 
   @typedoc """
@@ -6420,14 +6451,14 @@ defmodule AWS.CloudFront do
       cloud_front_origin_access_identity_list() :: %{
         "IsTruncated" => boolean(),
         "Items" => list(cloud_front_origin_access_identity_summary()),
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "MaxItems" => integer(),
-        "NextMarker" => String.t(),
+        "NextMarker" => String.t() | Atom.t(),
         "Quantity" => integer()
       }
 
   """
-  @type cloud_front_origin_access_identity_list() :: %{String.t() => any()}
+  @type cloud_front_origin_access_identity_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6438,18 +6469,21 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type list_distributions_by_origin_request_policy_id_result() :: %{String.t() => any()}
+  @type list_distributions_by_origin_request_policy_id_result() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       too_many_public_keys() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_public_keys() :: %{String.t() => any()}
+  @type too_many_public_keys() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6457,11 +6491,11 @@ defmodule AWS.CloudFront do
 
       get_cache_policy_config_result() :: %{
         "CachePolicyConfig" => cache_policy_config(),
-        "ETag" => String.t()
+        "ETag" => String.t() | Atom.t()
       }
 
   """
-  @type get_cache_policy_config_result() :: %{String.t() => any()}
+  @type get_cache_policy_config_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6469,38 +6503,38 @@ defmodule AWS.CloudFront do
 
       cache_policy() :: %{
         "CachePolicyConfig" => cache_policy_config(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer()
       }
 
   """
-  @type cache_policy() :: %{String.t() => any()}
+  @type cache_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       public_key_config() :: %{
-        "CallerReference" => String.t(),
-        "Comment" => String.t(),
-        "EncodedKey" => String.t(),
-        "Name" => String.t()
+        "CallerReference" => String.t() | Atom.t(),
+        "Comment" => String.t() | Atom.t(),
+        "EncodedKey" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t()
       }
 
   """
-  @type public_key_config() :: %{String.t() => any()}
+  @type public_key_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_streaming_distribution_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "StreamingDistribution" => streaming_distribution()
       }
 
   """
-  @type get_streaming_distribution_result() :: %{String.t() => any()}
+  @type get_streaming_distribution_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6508,11 +6542,11 @@ defmodule AWS.CloudFront do
 
       create_connection_group_result() :: %{
         "ConnectionGroup" => connection_group(),
-        "ETag" => String.t()
+        "ETag" => String.t() | Atom.t()
       }
 
   """
-  @type create_connection_group_result() :: %{String.t() => any()}
+  @type create_connection_group_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6532,31 +6566,31 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type create_distribution_with_tags_request() :: %{String.t() => any()}
+  @type create_distribution_with_tags_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_streaming_distribution_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "StreamingDistribution" => streaming_distribution()
       }
 
   """
-  @type update_streaming_distribution_result() :: %{String.t() => any()}
+  @type update_streaming_distribution_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_continuous_deployment_policies_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_continuous_deployment_policies_request() :: %{String.t() => any()}
+  @type list_continuous_deployment_policies_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6566,11 +6600,11 @@ defmodule AWS.CloudFront do
         "ModeBlock" => boolean(),
         "Override" => boolean(),
         "Protection" => boolean(),
-        "ReportUri" => String.t()
+        "ReportUri" => String.t() | Atom.t()
       }
 
   """
-  @type response_headers_policy_x_s_s_protection() :: %{String.t() => any()}
+  @type response_headers_policy_x_s_s_protection() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6582,18 +6616,18 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type custom_error_responses() :: %{String.t() => any()}
+  @type custom_error_responses() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       no_such_field_level_encryption_profile() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type no_such_field_level_encryption_profile() :: %{String.t() => any()}
+  @type no_such_field_level_encryption_profile() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6601,51 +6635,51 @@ defmodule AWS.CloudFront do
 
       create_invalidation_result() :: %{
         "Invalidation" => invalidation(),
-        "Location" => String.t()
+        "Location" => String.t() | Atom.t()
       }
 
   """
-  @type create_invalidation_result() :: %{String.t() => any()}
+  @type create_invalidation_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       vpc_origin_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreatedTime" => non_neg_integer(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "OriginEndpointArn" => String.t(),
-        "Status" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "OriginEndpointArn" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type vpc_origin_summary() :: %{String.t() => any()}
+  @type vpc_origin_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_key_group_config_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "KeyGroupConfig" => key_group_config()
       }
 
   """
-  @type get_key_group_config_result() :: %{String.t() => any()}
+  @type get_key_group_config_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_function_association() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_function_association() :: %{String.t() => any()}
+  @type invalid_function_association() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6653,29 +6687,29 @@ defmodule AWS.CloudFront do
 
       cache_behavior() :: %{
         "AllowedMethods" => allowed_methods(),
-        "CachePolicyId" => String.t(),
+        "CachePolicyId" => String.t() | Atom.t(),
         "Compress" => boolean(),
         "DefaultTTL" => float(),
-        "FieldLevelEncryptionId" => String.t(),
+        "FieldLevelEncryptionId" => String.t() | Atom.t(),
         "ForwardedValues" => forwarded_values(),
         "FunctionAssociations" => function_associations(),
         "GrpcConfig" => grpc_config(),
         "LambdaFunctionAssociations" => lambda_function_associations(),
         "MaxTTL" => float(),
         "MinTTL" => float(),
-        "OriginRequestPolicyId" => String.t(),
-        "PathPattern" => String.t(),
-        "RealtimeLogConfigArn" => String.t(),
-        "ResponseHeadersPolicyId" => String.t(),
+        "OriginRequestPolicyId" => String.t() | Atom.t(),
+        "PathPattern" => String.t() | Atom.t(),
+        "RealtimeLogConfigArn" => String.t() | Atom.t(),
+        "ResponseHeadersPolicyId" => String.t() | Atom.t(),
         "SmoothStreaming" => boolean(),
-        "TargetOriginId" => String.t(),
+        "TargetOriginId" => String.t() | Atom.t(),
         "TrustedKeyGroups" => trusted_key_groups(),
         "TrustedSigners" => trusted_signers(),
         "ViewerProtocolPolicy" => list(any())
       }
 
   """
-  @type cache_behavior() :: %{String.t() => any()}
+  @type cache_behavior() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6686,19 +6720,19 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type create_invalidation_for_distribution_tenant_request() :: %{String.t() => any()}
+  @type create_invalidation_for_distribution_tenant_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_field_level_encryption_config_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "FieldLevelEncryption" => field_level_encryption()
       }
 
   """
-  @type update_field_level_encryption_config_result() :: %{String.t() => any()}
+  @type update_field_level_encryption_config_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6713,7 +6747,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type parameters_in_cache_key_and_forwarded_to_origin() :: %{String.t() => any()}
+  @type parameters_in_cache_key_and_forwarded_to_origin() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6724,7 +6758,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type list_realtime_log_configs_result() :: %{String.t() => any()}
+  @type list_realtime_log_configs_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6736,7 +6770,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type cache_policy_headers_config() :: %{String.t() => any()}
+  @type cache_policy_headers_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6747,95 +6781,95 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type create_origin_request_policy_request() :: %{String.t() => any()}
+  @type create_origin_request_policy_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       public_key_in_use() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type public_key_in_use() :: %{String.t() => any()}
+  @type public_key_in_use() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_distribution_tenant_web_acl_result() :: %{
-        "ETag" => String.t(),
-        "Id" => String.t(),
-        "WebACLArn" => String.t()
+        "ETag" => String.t() | Atom.t(),
+        "Id" => String.t() | Atom.t(),
+        "WebACLArn" => String.t() | Atom.t()
       }
 
   """
-  @type associate_distribution_tenant_web_acl_result() :: %{String.t() => any()}
+  @type associate_distribution_tenant_web_acl_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       function_in_use() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type function_in_use() :: %{String.t() => any()}
+  @type function_in_use() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_headers_in_origin_request_policy() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_headers_in_origin_request_policy() :: %{String.t() => any()}
+  @type too_many_headers_in_origin_request_policy() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_anycast_ip_lists_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_anycast_ip_lists_request() :: %{String.t() => any()}
+  @type list_anycast_ip_lists_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       string_schema_config() :: %{
-        "Comment" => String.t(),
-        "DefaultValue" => String.t(),
+        "Comment" => String.t() | Atom.t(),
+        "DefaultValue" => String.t() | Atom.t(),
         "Required" => boolean()
       }
 
   """
-  @type string_schema_config() :: %{String.t() => any()}
+  @type string_schema_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       viewer_certificate() :: %{
-        "ACMCertificateArn" => String.t(),
-        "Certificate" => String.t(),
+        "ACMCertificateArn" => String.t() | Atom.t(),
+        "Certificate" => String.t() | Atom.t(),
         "CertificateSource" => list(any()),
         "CloudFrontDefaultCertificate" => boolean(),
-        "IAMCertificateId" => String.t(),
+        "IAMCertificateId" => String.t() | Atom.t(),
         "MinimumProtocolVersion" => list(any()),
         "SSLSupportMethod" => list(any())
       }
 
   """
-  @type viewer_certificate() :: %{String.t() => any()}
+  @type viewer_certificate() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6847,68 +6881,71 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type cache_policy_query_strings_config() :: %{String.t() => any()}
+  @type cache_policy_query_strings_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_distributions_by_response_headers_policy_id_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_distributions_by_response_headers_policy_id_request() :: %{String.t() => any()}
+  @type list_distributions_by_response_headers_policy_id_request() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       origin_access_control_config() :: %{
-        "Description" => String.t(),
-        "Name" => String.t(),
+        "Description" => String.t() | Atom.t(),
+        "Name" => String.t() | Atom.t(),
         "OriginAccessControlOriginType" => list(any()),
         "SigningBehavior" => list(any()),
         "SigningProtocol" => list(any())
       }
 
   """
-  @type origin_access_control_config() :: %{String.t() => any()}
+  @type origin_access_control_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       no_such_realtime_log_config() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type no_such_realtime_log_config() :: %{String.t() => any()}
+  @type no_such_realtime_log_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_public_key_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "PublicKey" => public_key()
       }
 
   """
-  @type get_public_key_result() :: %{String.t() => any()}
+  @type get_public_key_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       publish_function_request() :: %{
-        required("IfMatch") => String.t()
+        required("IfMatch") => String.t() | Atom.t()
       }
 
   """
-  @type publish_function_request() :: %{String.t() => any()}
+  @type publish_function_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6916,12 +6953,12 @@ defmodule AWS.CloudFront do
 
       trusted_signers() :: %{
         "Enabled" => boolean(),
-        "Items" => list(String.t()),
+        "Items" => list(String.t() | Atom.t()),
         "Quantity" => integer()
       }
 
   """
-  @type trusted_signers() :: %{String.t() => any()}
+  @type trusted_signers() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6930,14 +6967,14 @@ defmodule AWS.CloudFront do
       streaming_distribution_list() :: %{
         "IsTruncated" => boolean(),
         "Items" => list(streaming_distribution_summary()),
-        "Marker" => String.t(),
+        "Marker" => String.t() | Atom.t(),
         "MaxItems" => integer(),
-        "NextMarker" => String.t(),
+        "NextMarker" => String.t() | Atom.t(),
         "Quantity" => integer()
       }
 
   """
-  @type streaming_distribution_list() :: %{String.t() => any()}
+  @type streaming_distribution_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6948,19 +6985,19 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type describe_function_request() :: %{String.t() => any()}
+  @type describe_function_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       staging_distribution_dns_names() :: %{
-        "Items" => list(String.t()),
+        "Items" => list(String.t() | Atom.t()),
         "Quantity" => integer()
       }
 
   """
-  @type staging_distribution_dns_names() :: %{String.t() => any()}
+  @type staging_distribution_dns_names() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6972,7 +7009,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type response_headers_policy_summary() :: %{String.t() => any()}
+  @type response_headers_policy_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -6983,41 +7020,41 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type list_anycast_ip_lists_result() :: %{String.t() => any()}
+  @type list_anycast_ip_lists_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_origin_request_policy_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "OriginRequestPolicy" => origin_request_policy()
       }
 
   """
-  @type get_origin_request_policy_result() :: %{String.t() => any()}
+  @type get_origin_request_policy_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       no_such_public_key() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type no_such_public_key() :: %{String.t() => any()}
+  @type no_such_public_key() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       entity_limit_exceeded() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type entity_limit_exceeded() :: %{String.t() => any()}
+  @type entity_limit_exceeded() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7028,18 +7065,18 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type create_public_key_request() :: %{String.t() => any()}
+  @type create_public_key_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_distributions() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_distributions() :: %{String.t() => any()}
+  @type too_many_distributions() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7047,25 +7084,25 @@ defmodule AWS.CloudFront do
 
       function_metadata() :: %{
         "CreatedTime" => non_neg_integer(),
-        "FunctionARN" => String.t(),
+        "FunctionARN" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
         "Stage" => list(any())
       }
 
   """
-  @type function_metadata() :: %{String.t() => any()}
+  @type function_metadata() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_origin_access_control_config_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "OriginAccessControlConfig" => origin_access_control_config()
       }
 
   """
-  @type get_origin_access_control_config_result() :: %{String.t() => any()}
+  @type get_origin_access_control_config_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7076,19 +7113,19 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type restrictions() :: %{String.t() => any()}
+  @type restrictions() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       key_pair_ids() :: %{
-        "Items" => list(String.t()),
+        "Items" => list(String.t() | Atom.t()),
         "Quantity" => integer()
       }
 
   """
-  @type key_pair_ids() :: %{String.t() => any()}
+  @type key_pair_ids() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7104,23 +7141,23 @@ defmodule AWS.CloudFront do
   ## Example:
 
       invalid_response_code() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_response_code() :: %{String.t() => any()}
+  @type invalid_response_code() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       list_vpc_origins_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | Atom.t(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_vpc_origins_request() :: %{String.t() => any()}
+  @type list_vpc_origins_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7128,13 +7165,13 @@ defmodule AWS.CloudFront do
 
       invalidation() :: %{
         "CreateTime" => non_neg_integer(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "InvalidationBatch" => invalidation_batch(),
-        "Status" => String.t()
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type invalidation() :: %{String.t() => any()}
+  @type invalidation() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7146,41 +7183,41 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type cookie_preference() :: %{String.t() => any()}
+  @type cookie_preference() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_key_group_request() :: %{
-        optional("IfMatch") => String.t(),
+        optional("IfMatch") => String.t() | Atom.t(),
         required("KeyGroupConfig") => key_group_config()
       }
 
   """
-  @type update_key_group_request() :: %{String.t() => any()}
+  @type update_key_group_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       distribution_tenant_summary() :: %{
-        "Arn" => String.t(),
-        "ConnectionGroupId" => String.t(),
+        "Arn" => String.t() | Atom.t(),
+        "ConnectionGroupId" => String.t() | Atom.t(),
         "CreatedTime" => non_neg_integer(),
         "Customizations" => customizations(),
-        "DistributionId" => String.t(),
+        "DistributionId" => String.t() | Atom.t(),
         "Domains" => list(domain_result()),
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "Enabled" => boolean(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "Status" => String.t()
+        "Name" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t()
       }
 
   """
-  @type distribution_tenant_summary() :: %{String.t() => any()}
+  @type distribution_tenant_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7188,8 +7225,8 @@ defmodule AWS.CloudFront do
 
       streaming_distribution_config() :: %{
         "Aliases" => aliases(),
-        "CallerReference" => String.t(),
-        "Comment" => String.t(),
+        "CallerReference" => String.t() | Atom.t(),
+        "Comment" => String.t() | Atom.t(),
         "Enabled" => boolean(),
         "Logging" => streaming_logging_config(),
         "PriceClass" => list(any()),
@@ -7198,18 +7235,18 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type streaming_distribution_config() :: %{String.t() => any()}
+  @type streaming_distribution_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_field_level_encryption_query_arg_profiles() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_field_level_encryption_query_arg_profiles() :: %{String.t() => any()}
+  @type too_many_field_level_encryption_query_arg_profiles() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7222,22 +7259,22 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type active_trusted_key_groups() :: %{String.t() => any()}
+  @type active_trusted_key_groups() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       realtime_log_config() :: %{
-        "ARN" => String.t(),
+        "ARN" => String.t() | Atom.t(),
         "EndPoints" => list(end_point()),
-        "Fields" => list(String.t()),
-        "Name" => String.t(),
+        "Fields" => list(String.t() | Atom.t()),
+        "Name" => String.t() | Atom.t(),
         "SamplingRate" => float()
       }
 
   """
-  @type realtime_log_config() :: %{String.t() => any()}
+  @type realtime_log_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7263,70 +7300,70 @@ defmodule AWS.CloudFront do
 
       distribution_id_list() :: %{
         "IsTruncated" => boolean(),
-        "Items" => list(String.t()),
-        "Marker" => String.t(),
+        "Items" => list(String.t() | Atom.t()),
+        "Marker" => String.t() | Atom.t(),
         "MaxItems" => integer(),
-        "NextMarker" => String.t(),
+        "NextMarker" => String.t() | Atom.t(),
         "Quantity" => integer()
       }
 
   """
-  @type distribution_id_list() :: %{String.t() => any()}
+  @type distribution_id_list() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_location_code() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type invalid_location_code() :: %{String.t() => any()}
+  @type invalid_location_code() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       staging_distribution_in_use() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type staging_distribution_in_use() :: %{String.t() => any()}
+  @type staging_distribution_in_use() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       connection_group() :: %{
-        "AnycastIpListId" => String.t(),
-        "Arn" => String.t(),
+        "AnycastIpListId" => String.t() | Atom.t(),
+        "Arn" => String.t() | Atom.t(),
         "CreatedTime" => non_neg_integer(),
         "Enabled" => boolean(),
-        "Id" => String.t(),
+        "Id" => String.t() | Atom.t(),
         "Ipv6Enabled" => boolean(),
         "IsDefault" => boolean(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t(),
-        "RoutingEndpoint" => String.t(),
-        "Status" => String.t(),
+        "Name" => String.t() | Atom.t(),
+        "RoutingEndpoint" => String.t() | Atom.t(),
+        "Status" => String.t() | Atom.t(),
         "Tags" => tags()
       }
 
   """
-  @type connection_group() :: %{String.t() => any()}
+  @type connection_group() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       origin_request_policy_in_use() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type origin_request_policy_in_use() :: %{String.t() => any()}
+  @type origin_request_policy_in_use() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7337,7 +7374,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type key_group_summary() :: %{String.t() => any()}
+  @type key_group_summary() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7348,19 +7385,20 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type create_monitoring_subscription_request() :: %{String.t() => any()}
+  @type create_monitoring_subscription_request() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_distributions_associated_to_field_level_encryption_config() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
   @type too_many_distributions_associated_to_field_level_encryption_config() :: %{
-          String.t() => any()
+          String.t()
+          | Atom.t() => any()
         }
 
   @typedoc """
@@ -7373,19 +7411,22 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type content_type_profile_config() :: %{String.t() => any()}
+  @type content_type_profile_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       response_headers_policy_access_control_allow_headers() :: %{
-        "Items" => list(String.t()),
+        "Items" => list(String.t() | Atom.t()),
         "Quantity" => integer()
       }
 
   """
-  @type response_headers_policy_access_control_allow_headers() :: %{String.t() => any()}
+  @type response_headers_policy_access_control_allow_headers() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
@@ -7401,32 +7442,32 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type custom_origin_config() :: %{String.t() => any()}
+  @type custom_origin_config() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       create_streaming_distribution_with_tags_result() :: %{
-        "ETag" => String.t(),
-        "Location" => String.t(),
+        "ETag" => String.t() | Atom.t(),
+        "Location" => String.t() | Atom.t(),
         "StreamingDistribution" => streaming_distribution()
       }
 
   """
-  @type create_streaming_distribution_with_tags_result() :: %{String.t() => any()}
+  @type create_streaming_distribution_with_tags_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       get_field_level_encryption_profile_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "FieldLevelEncryptionProfile" => field_level_encryption_profile()
       }
 
   """
-  @type get_field_level_encryption_profile_result() :: %{String.t() => any()}
+  @type get_field_level_encryption_profile_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7446,7 +7487,7 @@ defmodule AWS.CloudFront do
       }
 
   """
-  @type get_realtime_log_config_result() :: %{String.t() => any()}
+  @type get_realtime_log_config_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
@@ -7454,46 +7495,49 @@ defmodule AWS.CloudFront do
 
       update_distribution_with_staging_config_result() :: %{
         "Distribution" => distribution(),
-        "ETag" => String.t()
+        "ETag" => String.t() | Atom.t()
       }
 
   """
-  @type update_distribution_with_staging_config_result() :: %{String.t() => any()}
+  @type update_distribution_with_staging_config_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       update_field_level_encryption_profile_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "FieldLevelEncryptionProfile" => field_level_encryption_profile()
       }
 
   """
-  @type update_field_level_encryption_profile_result() :: %{String.t() => any()}
+  @type update_field_level_encryption_profile_result() :: %{String.t() | Atom.t() => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_distributions_associated_to_origin_access_control() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | Atom.t()
       }
 
   """
-  @type too_many_distributions_associated_to_origin_access_control() :: %{String.t() => any()}
+  @type too_many_distributions_associated_to_origin_access_control() :: %{
+          String.t()
+          | Atom.t() => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       update_function_result() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | Atom.t(),
         "FunctionSummary" => function_summary()
       }
 
   """
-  @type update_function_result() :: %{String.t() => any()}
+  @type update_function_result() :: %{String.t() | Atom.t() => any()}
 
   @type associate_alias_errors() ::
           no_such_distribution()
@@ -8637,7 +8681,7 @@ defmodule AWS.CloudFront do
   distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/CNAMEs.html#alternate-domain-names-move)
   in the *Amazon CloudFront Developer Guide*.
   """
-  @spec associate_alias(map(), String.t(), associate_alias_request(), list()) ::
+  @spec associate_alias(map(), String.t() | Atom.t(), associate_alias_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8675,7 +8719,7 @@ defmodule AWS.CloudFront do
   """
   @spec associate_distribution_tenant_web_acl(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           associate_distribution_tenant_web_acl_request(),
           list()
         ) ::
@@ -8722,7 +8766,7 @@ defmodule AWS.CloudFront do
   """
   @spec associate_distribution_web_acl(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           associate_distribution_web_acl_request(),
           list()
         ) ::
@@ -8785,7 +8829,7 @@ defmodule AWS.CloudFront do
     *
   [CopyDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CopyDistribution.html)
   """
-  @spec copy_distribution(map(), String.t(), copy_distribution_request(), list()) ::
+  @spec copy_distribution(map(), String.t() | Atom.t(), copy_distribution_request(), list()) ::
           {:ok, copy_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9297,7 +9341,7 @@ defmodule AWS.CloudFront do
   For more information, see [Invalidating files](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html)
   in the *Amazon CloudFront Developer Guide*.
   """
-  @spec create_invalidation(map(), String.t(), create_invalidation_request(), list()) ::
+  @spec create_invalidation(map(), String.t() | Atom.t(), create_invalidation_request(), list()) ::
           {:ok, create_invalidation_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9338,7 +9382,7 @@ defmodule AWS.CloudFront do
   """
   @spec create_invalidation_for_distribution_tenant(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           create_invalidation_for_distribution_tenant_request(),
           list()
         ) ::
@@ -9471,7 +9515,7 @@ defmodule AWS.CloudFront do
   """
   @spec create_monitoring_subscription(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           create_monitoring_subscription_request(),
           list()
         ) ::
@@ -9855,7 +9899,12 @@ defmodule AWS.CloudFront do
   @doc """
   Deletes an Anycast static IP list.
   """
-  @spec delete_anycast_ip_list(map(), String.t(), delete_anycast_ip_list_request(), list()) ::
+  @spec delete_anycast_ip_list(
+          map(),
+          String.t() | Atom.t(),
+          delete_anycast_ip_list_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9897,7 +9946,7 @@ defmodule AWS.CloudFront do
   To delete a cache policy, you must provide the policy's identifier and version.
   To get these values, you can use `ListCachePolicies` or `GetCachePolicy`.
   """
-  @spec delete_cache_policy(map(), String.t(), delete_cache_policy_request(), list()) ::
+  @spec delete_cache_policy(map(), String.t() | Atom.t(), delete_cache_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9934,7 +9983,7 @@ defmodule AWS.CloudFront do
   """
   @spec delete_cloud_front_origin_access_identity(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_cloud_front_origin_access_identity_request(),
           list()
         ) ::
@@ -9972,7 +10021,12 @@ defmodule AWS.CloudFront do
   @doc """
   Deletes a connection group.
   """
-  @spec delete_connection_group(map(), String.t(), delete_connection_group_request(), list()) ::
+  @spec delete_connection_group(
+          map(),
+          String.t() | Atom.t(),
+          delete_connection_group_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10013,7 +10067,7 @@ defmodule AWS.CloudFront do
   """
   @spec delete_continuous_deployment_policy(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_continuous_deployment_policy_request(),
           list()
         ) ::
@@ -10051,7 +10105,7 @@ defmodule AWS.CloudFront do
   @doc """
   Delete a distribution.
   """
-  @spec delete_distribution(map(), String.t(), delete_distribution_request(), list()) ::
+  @spec delete_distribution(map(), String.t() | Atom.t(), delete_distribution_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10094,7 +10148,7 @@ defmodule AWS.CloudFront do
   """
   @spec delete_distribution_tenant(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_distribution_tenant_request(),
           list()
         ) ::
@@ -10134,7 +10188,7 @@ defmodule AWS.CloudFront do
   """
   @spec delete_field_level_encryption_config(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_field_level_encryption_config_request(),
           list()
         ) ::
@@ -10174,7 +10228,7 @@ defmodule AWS.CloudFront do
   """
   @spec delete_field_level_encryption_profile(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_field_level_encryption_profile_request(),
           list()
         ) ::
@@ -10219,7 +10273,7 @@ defmodule AWS.CloudFront do
   To delete a function, you must provide the function's name and version (`ETag`
   value). To get these values, you can use `ListFunctions` and `DescribeFunction`.
   """
-  @spec delete_function(map(), String.t(), delete_function_request(), list()) ::
+  @spec delete_function(map(), String.t() | Atom.t(), delete_function_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10262,7 +10316,7 @@ defmodule AWS.CloudFront do
   To get these values, use `ListKeyGroups` followed by `GetKeyGroup` or
   `GetKeyGroupConfig`.
   """
-  @spec delete_key_group(map(), String.t(), delete_key_group_request(), list()) ::
+  @spec delete_key_group(map(), String.t() | Atom.t(), delete_key_group_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10297,7 +10351,12 @@ defmodule AWS.CloudFront do
   @doc """
   Specifies the key value store to delete.
   """
-  @spec delete_key_value_store(map(), String.t(), delete_key_value_store_request(), list()) ::
+  @spec delete_key_value_store(
+          map(),
+          String.t() | Atom.t(),
+          delete_key_value_store_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10335,7 +10394,7 @@ defmodule AWS.CloudFront do
   """
   @spec delete_monitoring_subscription(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_monitoring_subscription_request(),
           list()
         ) ::
@@ -10375,7 +10434,7 @@ defmodule AWS.CloudFront do
   """
   @spec delete_origin_access_control(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_origin_access_control_request(),
           list()
         ) ::
@@ -10423,7 +10482,7 @@ defmodule AWS.CloudFront do
   """
   @spec delete_origin_request_policy(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_origin_request_policy_request(),
           list()
         ) ::
@@ -10461,7 +10520,7 @@ defmodule AWS.CloudFront do
   @doc """
   Remove a public key you previously added to CloudFront.
   """
-  @spec delete_public_key(map(), String.t(), delete_public_key_request(), list()) ::
+  @spec delete_public_key(map(), String.t() | Atom.t(), delete_public_key_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10545,7 +10604,7 @@ defmodule AWS.CloudFront do
   """
   @spec delete_response_headers_policy(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_response_headers_policy_request(),
           list()
         ) ::
@@ -10624,7 +10683,7 @@ defmodule AWS.CloudFront do
   """
   @spec delete_streaming_distribution(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_streaming_distribution_request(),
           list()
         ) ::
@@ -10662,7 +10721,7 @@ defmodule AWS.CloudFront do
   @doc """
   Delete an Amazon CloudFront VPC origin.
   """
-  @spec delete_vpc_origin(map(), String.t(), delete_vpc_origin_request(), list()) ::
+  @spec delete_vpc_origin(map(), String.t() | Atom.t(), delete_vpc_origin_request(), list()) ::
           {:ok, delete_vpc_origin_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10710,7 +10769,7 @@ defmodule AWS.CloudFront do
   To get configuration information and metadata about a function, you must provide
   the function's name and stage. To get these values, you can use `ListFunctions`.
   """
-  @spec describe_function(map(), String.t(), String.t() | nil, list()) ::
+  @spec describe_function(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
           {:ok, describe_function_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10742,7 +10801,7 @@ defmodule AWS.CloudFront do
   @doc """
   Specifies the key value store and its configuration.
   """
-  @spec describe_key_value_store(map(), String.t(), list()) ::
+  @spec describe_key_value_store(map(), String.t() | Atom.t(), list()) ::
           {:ok, describe_key_value_store_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10769,7 +10828,7 @@ defmodule AWS.CloudFront do
   """
   @spec disassociate_distribution_tenant_web_acl(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           disassociate_distribution_tenant_web_acl_request(),
           list()
         ) ::
@@ -10816,7 +10875,7 @@ defmodule AWS.CloudFront do
   """
   @spec disassociate_distribution_web_acl(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           disassociate_distribution_web_acl_request(),
           list()
         ) ::
@@ -10861,7 +10920,7 @@ defmodule AWS.CloudFront do
   @doc """
   Gets an Anycast static IP list.
   """
-  @spec get_anycast_ip_list(map(), String.t(), list()) ::
+  @spec get_anycast_ip_list(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_anycast_ip_list_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10896,7 +10955,7 @@ defmodule AWS.CloudFront do
   is not attached to a cache behavior, you can get the identifier using
   `ListCachePolicies`.
   """
-  @spec get_cache_policy(map(), String.t(), list()) ::
+  @spec get_cache_policy(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_cache_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10927,7 +10986,7 @@ defmodule AWS.CloudFront do
   cache policy is not attached to a cache behavior, you can get the identifier
   using `ListCachePolicies`.
   """
-  @spec get_cache_policy_config(map(), String.t(), list()) ::
+  @spec get_cache_policy_config(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_cache_policy_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10952,7 +11011,7 @@ defmodule AWS.CloudFront do
   @doc """
   Get the information about an origin access identity.
   """
-  @spec get_cloud_front_origin_access_identity(map(), String.t(), list()) ::
+  @spec get_cloud_front_origin_access_identity(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_cloud_front_origin_access_identity_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10977,7 +11036,7 @@ defmodule AWS.CloudFront do
   @doc """
   Get the configuration information about an origin access identity.
   """
-  @spec get_cloud_front_origin_access_identity_config(map(), String.t(), list()) ::
+  @spec get_cloud_front_origin_access_identity_config(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_cloud_front_origin_access_identity_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11002,7 +11061,7 @@ defmodule AWS.CloudFront do
   @doc """
   Gets information about a connection group.
   """
-  @spec get_connection_group(map(), String.t(), list()) ::
+  @spec get_connection_group(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_connection_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11028,7 +11087,7 @@ defmodule AWS.CloudFront do
   Gets information about a connection group by using the endpoint that you
   specify.
   """
-  @spec get_connection_group_by_routing_endpoint(map(), String.t(), list()) ::
+  @spec get_connection_group_by_routing_endpoint(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_connection_group_by_routing_endpoint_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11065,7 +11124,7 @@ defmodule AWS.CloudFront do
   Gets a continuous deployment policy, including metadata (the policy's identifier
   and the date and time when the policy was last modified).
   """
-  @spec get_continuous_deployment_policy(map(), String.t(), list()) ::
+  @spec get_continuous_deployment_policy(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_continuous_deployment_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11090,7 +11149,7 @@ defmodule AWS.CloudFront do
   @doc """
   Gets configuration information about a continuous deployment policy.
   """
-  @spec get_continuous_deployment_policy_config(map(), String.t(), list()) ::
+  @spec get_continuous_deployment_policy_config(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_continuous_deployment_policy_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11115,7 +11174,7 @@ defmodule AWS.CloudFront do
   @doc """
   Get the information about a distribution.
   """
-  @spec get_distribution(map(), String.t(), list()) ::
+  @spec get_distribution(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11140,7 +11199,7 @@ defmodule AWS.CloudFront do
   @doc """
   Get the configuration information about a distribution.
   """
-  @spec get_distribution_config(map(), String.t(), list()) ::
+  @spec get_distribution_config(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_distribution_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11165,7 +11224,7 @@ defmodule AWS.CloudFront do
   @doc """
   Gets information about a distribution tenant.
   """
-  @spec get_distribution_tenant(map(), String.t(), list()) ::
+  @spec get_distribution_tenant(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_distribution_tenant_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11190,7 +11249,7 @@ defmodule AWS.CloudFront do
   @doc """
   Gets information about a distribution tenant by the associated domain.
   """
-  @spec get_distribution_tenant_by_domain(map(), String.t(), list()) ::
+  @spec get_distribution_tenant_by_domain(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_distribution_tenant_by_domain_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11222,7 +11281,7 @@ defmodule AWS.CloudFront do
   @doc """
   Get the field-level encryption configuration information.
   """
-  @spec get_field_level_encryption(map(), String.t(), list()) ::
+  @spec get_field_level_encryption(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_field_level_encryption_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11247,7 +11306,7 @@ defmodule AWS.CloudFront do
   @doc """
   Get the field-level encryption configuration information.
   """
-  @spec get_field_level_encryption_config(map(), String.t(), list()) ::
+  @spec get_field_level_encryption_config(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_field_level_encryption_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11272,7 +11331,7 @@ defmodule AWS.CloudFront do
   @doc """
   Get the field-level encryption profile information.
   """
-  @spec get_field_level_encryption_profile(map(), String.t(), list()) ::
+  @spec get_field_level_encryption_profile(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_field_level_encryption_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11297,7 +11356,7 @@ defmodule AWS.CloudFront do
   @doc """
   Get the field-level encryption profile configuration information.
   """
-  @spec get_field_level_encryption_profile_config(map(), String.t(), list()) ::
+  @spec get_field_level_encryption_profile_config(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_field_level_encryption_profile_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11328,7 +11387,7 @@ defmodule AWS.CloudFront do
   To get a function's code, you must provide the function's name and stage. To get
   these values, you can use `ListFunctions`.
   """
-  @spec get_function(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_function(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
           {:ok, get_function_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11360,7 +11419,7 @@ defmodule AWS.CloudFront do
   @doc """
   Get the information about an invalidation.
   """
-  @spec get_invalidation(map(), String.t(), String.t(), list()) ::
+  @spec get_invalidation(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_invalidation_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11380,7 +11439,12 @@ defmodule AWS.CloudFront do
   @doc """
   Gets information about a specific invalidation for a distribution tenant.
   """
-  @spec get_invalidation_for_distribution_tenant(map(), String.t(), String.t(), list()) ::
+  @spec get_invalidation_for_distribution_tenant(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          list()
+        ) ::
           {:ok, get_invalidation_for_distribution_tenant_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11412,7 +11476,7 @@ defmodule AWS.CloudFront do
   group is not referenced in a cache behavior, you can get the identifier using
   `ListKeyGroups`.
   """
-  @spec get_key_group(map(), String.t(), list()) ::
+  @spec get_key_group(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_key_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11443,7 +11507,7 @@ defmodule AWS.CloudFront do
   the key group is not referenced in a cache behavior, you can get the identifier
   using `ListKeyGroups`.
   """
-  @spec get_key_group_config(map(), String.t(), list()) ::
+  @spec get_key_group_config(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_key_group_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11468,7 +11532,7 @@ defmodule AWS.CloudFront do
   @doc """
   Gets details about the CloudFront managed ACM certificate.
   """
-  @spec get_managed_certificate_details(map(), String.t(), list()) ::
+  @spec get_managed_certificate_details(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_managed_certificate_details_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11487,7 +11551,7 @@ defmodule AWS.CloudFront do
   Gets information about whether additional CloudWatch metrics are enabled for the
   specified CloudFront distribution.
   """
-  @spec get_monitoring_subscription(map(), String.t(), list()) ::
+  @spec get_monitoring_subscription(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_monitoring_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11507,7 +11571,7 @@ defmodule AWS.CloudFront do
   @doc """
   Gets a CloudFront origin access control, including its unique identifier.
   """
-  @spec get_origin_access_control(map(), String.t(), list()) ::
+  @spec get_origin_access_control(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_origin_access_control_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11532,7 +11596,7 @@ defmodule AWS.CloudFront do
   @doc """
   Gets a CloudFront origin access control configuration.
   """
-  @spec get_origin_access_control_config(map(), String.t(), list()) ::
+  @spec get_origin_access_control_config(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_origin_access_control_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11567,7 +11631,7 @@ defmodule AWS.CloudFront do
   If the origin request policy is not attached to a cache behavior, you can get
   the identifier using `ListOriginRequestPolicies`.
   """
-  @spec get_origin_request_policy(map(), String.t(), list()) ::
+  @spec get_origin_request_policy(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_origin_request_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11598,7 +11662,7 @@ defmodule AWS.CloudFront do
   `GetDistribution`. If the origin request policy is not attached to a cache
   behavior, you can get the identifier using `ListOriginRequestPolicies`.
   """
-  @spec get_origin_request_policy_config(map(), String.t(), list()) ::
+  @spec get_origin_request_policy_config(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_origin_request_policy_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11623,7 +11687,7 @@ defmodule AWS.CloudFront do
   @doc """
   Gets a public key.
   """
-  @spec get_public_key(map(), String.t(), list()) ::
+  @spec get_public_key(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_public_key_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11648,7 +11712,7 @@ defmodule AWS.CloudFront do
   @doc """
   Gets a public key configuration.
   """
-  @spec get_public_key_config(map(), String.t(), list()) ::
+  @spec get_public_key_config(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_public_key_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11714,7 +11778,7 @@ defmodule AWS.CloudFront do
   If the response headers policy is not attached to a cache behavior, you can get
   the identifier using `ListResponseHeadersPolicies`.
   """
-  @spec get_response_headers_policy(map(), String.t(), list()) ::
+  @spec get_response_headers_policy(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_response_headers_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11745,7 +11809,7 @@ defmodule AWS.CloudFront do
   `GetDistribution`. If the response headers policy is not attached to a cache
   behavior, you can get the identifier using `ListResponseHeadersPolicies`.
   """
-  @spec get_response_headers_policy_config(map(), String.t(), list()) ::
+  @spec get_response_headers_policy_config(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_response_headers_policy_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11771,7 +11835,7 @@ defmodule AWS.CloudFront do
   Gets information about a specified RTMP distribution, including the distribution
   configuration.
   """
-  @spec get_streaming_distribution(map(), String.t(), list()) ::
+  @spec get_streaming_distribution(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_streaming_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11796,7 +11860,7 @@ defmodule AWS.CloudFront do
   @doc """
   Get the configuration information about a streaming distribution.
   """
-  @spec get_streaming_distribution_config(map(), String.t(), list()) ::
+  @spec get_streaming_distribution_config(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_streaming_distribution_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11821,7 +11885,7 @@ defmodule AWS.CloudFront do
   @doc """
   Get the details of an Amazon CloudFront VPC origin.
   """
-  @spec get_vpc_origin(map(), String.t(), list()) ::
+  @spec get_vpc_origin(map(), String.t() | Atom.t(), list()) ::
           {:ok, get_vpc_origin_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11846,7 +11910,12 @@ defmodule AWS.CloudFront do
   @doc """
   Lists your Anycast static IP lists.
   """
-  @spec list_anycast_ip_lists(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_anycast_ip_lists(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_anycast_ip_lists_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11888,7 +11957,13 @@ defmodule AWS.CloudFront do
   of items, send a subsequent request that specifies the `NextMarker` value from
   the current response as the `Marker` value in the subsequent request.
   """
-  @spec list_cache_policies(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_cache_policies(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_cache_policies_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11935,8 +12010,8 @@ defmodule AWS.CloudFront do
   """
   @spec list_cloud_front_origin_access_identities(
           map(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_cloud_front_origin_access_identities_result(), any()}
@@ -12005,10 +12080,10 @@ defmodule AWS.CloudFront do
   """
   @spec list_conflicting_aliases(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_conflicting_aliases_result(), any()}
@@ -12099,7 +12174,12 @@ defmodule AWS.CloudFront do
   of items, send a subsequent request that specifies the `NextMarker` value from
   the current response as the `Marker` value in the subsequent request.
   """
-  @spec list_continuous_deployment_policies(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_continuous_deployment_policies(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_continuous_deployment_policies_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12201,7 +12281,12 @@ defmodule AWS.CloudFront do
   @doc """
   List CloudFront distributions.
   """
-  @spec list_distributions(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_distributions(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_distributions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12236,9 +12321,9 @@ defmodule AWS.CloudFront do
   """
   @spec list_distributions_by_anycast_ip_list_id(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_distributions_by_anycast_ip_list_id_result(), any()}
@@ -12289,9 +12374,9 @@ defmodule AWS.CloudFront do
   """
   @spec list_distributions_by_cache_policy_id(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_distributions_by_cache_policy_id_result(), any()}
@@ -12333,9 +12418,9 @@ defmodule AWS.CloudFront do
   """
   @spec list_distributions_by_connection_mode(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_distributions_by_connection_mode_result(), any()}
@@ -12384,9 +12469,9 @@ defmodule AWS.CloudFront do
   """
   @spec list_distributions_by_key_group(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_distributions_by_key_group_result(), any()}
@@ -12435,9 +12520,9 @@ defmodule AWS.CloudFront do
   """
   @spec list_distributions_by_origin_request_policy_id(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_distributions_by_origin_request_policy_id_result(), any()}
@@ -12533,9 +12618,9 @@ defmodule AWS.CloudFront do
   """
   @spec list_distributions_by_response_headers_policy_id(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_distributions_by_response_headers_policy_id_result(), any()}
@@ -12579,9 +12664,9 @@ defmodule AWS.CloudFront do
   """
   @spec list_distributions_by_vpc_origin_id(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_distributions_by_vpc_origin_id_result(), any()}
@@ -12623,9 +12708,9 @@ defmodule AWS.CloudFront do
   """
   @spec list_distributions_by_web_acl_id(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_distributions_by_web_acl_id_result(), any()}
@@ -12700,7 +12785,12 @@ defmodule AWS.CloudFront do
   List all field-level encryption configurations that have been created in
   CloudFront for this account.
   """
-  @spec list_field_level_encryption_configs(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_field_level_encryption_configs(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_field_level_encryption_configs_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12738,7 +12828,12 @@ defmodule AWS.CloudFront do
   Request a list of field-level encryption profiles that have been created in
   CloudFront for this account.
   """
-  @spec list_field_level_encryption_profiles(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_field_level_encryption_profiles(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_field_level_encryption_profiles_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12784,7 +12879,13 @@ defmodule AWS.CloudFront do
   of items, send a subsequent request that specifies the `NextMarker` value from
   the current response as the `Marker` value in the subsequent request.
   """
-  @spec list_functions(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_functions(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_functions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12829,7 +12930,13 @@ defmodule AWS.CloudFront do
   @doc """
   Lists invalidation batches.
   """
-  @spec list_invalidations(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_invalidations(
+          map(),
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_invalidations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12869,9 +12976,9 @@ defmodule AWS.CloudFront do
   """
   @spec list_invalidations_for_distribution_tenant(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_invalidations_for_distribution_tenant_result(), any()}
@@ -12917,7 +13024,7 @@ defmodule AWS.CloudFront do
   of items, send a subsequent request that specifies the `NextMarker` value from
   the current response as the `Marker` value in the subsequent request.
   """
-  @spec list_key_groups(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_key_groups(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_key_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12949,7 +13056,13 @@ defmodule AWS.CloudFront do
   @doc """
   Specifies the key value stores to list.
   """
-  @spec list_key_value_stores(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_key_value_stores(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_key_value_stores_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13005,7 +13118,12 @@ defmodule AWS.CloudFront do
   the `ListOriginAccessControls` operation doesn't return the `Items` element in
   the response.
   """
-  @spec list_origin_access_controls(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_origin_access_controls(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_origin_access_controls_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13054,9 +13172,9 @@ defmodule AWS.CloudFront do
   """
   @spec list_origin_request_policies(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_origin_request_policies_result(), any()}
@@ -13103,7 +13221,7 @@ defmodule AWS.CloudFront do
   @doc """
   List all public keys that have been added to CloudFront for this account.
   """
-  @spec list_public_keys(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_public_keys(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_public_keys_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13141,7 +13259,12 @@ defmodule AWS.CloudFront do
   of items, send a subsequent request that specifies the `NextMarker` value from
   the current response as the `Marker` value in the subsequent request.
   """
-  @spec list_realtime_log_configs(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_realtime_log_configs(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_realtime_log_configs_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13190,9 +13313,9 @@ defmodule AWS.CloudFront do
   """
   @spec list_response_headers_policies(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
           list()
         ) ::
           {:ok, list_response_headers_policies_result(), any()}
@@ -13239,7 +13362,12 @@ defmodule AWS.CloudFront do
   @doc """
   List streaming distributions.
   """
-  @spec list_streaming_distributions(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_streaming_distributions(
+          map(),
+          String.t() | Atom.t() | nil,
+          String.t() | Atom.t() | nil,
+          list()
+        ) ::
           {:ok, list_streaming_distributions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13279,7 +13407,7 @@ defmodule AWS.CloudFront do
   For more information, see [Tagging a distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/tagging.html)
   in the *Amazon CloudFront Developer Guide*.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
           {:ok, list_tags_for_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13304,7 +13432,7 @@ defmodule AWS.CloudFront do
   @doc """
   List the CloudFront VPC origins in your account.
   """
-  @spec list_vpc_origins(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_vpc_origins(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
           {:ok, list_vpc_origins_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13347,7 +13475,7 @@ defmodule AWS.CloudFront do
   To publish a function, you must provide the function's name and version (`ETag`
   value). To get these values, you can use `ListFunctions` and `DescribeFunction`.
   """
-  @spec publish_function(map(), String.t(), publish_function_request(), list()) ::
+  @spec publish_function(map(), String.t() | Atom.t(), publish_function_request(), list()) ::
           {:ok, publish_function_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13431,7 +13559,7 @@ defmodule AWS.CloudFront do
   along with the event object. To get the function's name and version, you can use
   `ListFunctions` and `DescribeFunction`.
   """
-  @spec test_function(map(), String.t(), test_function_request(), list()) ::
+  @spec test_function(map(), String.t() | Atom.t(), test_function_request(), list()) ::
           {:ok, test_function_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13515,7 +13643,7 @@ defmodule AWS.CloudFront do
     3. Call `UpdateCachePolicy` by providing the entire cache policy
   configuration, including the fields that you modified and those that you didn't.
   """
-  @spec update_cache_policy(map(), String.t(), update_cache_policy_request(), list()) ::
+  @spec update_cache_policy(map(), String.t() | Atom.t(), update_cache_policy_request(), list()) ::
           {:ok, update_cache_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13559,7 +13687,7 @@ defmodule AWS.CloudFront do
   """
   @spec update_cloud_front_origin_access_identity(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_cloud_front_origin_access_identity_request(),
           list()
         ) ::
@@ -13604,7 +13732,12 @@ defmodule AWS.CloudFront do
   @doc """
   Updates a connection group.
   """
-  @spec update_connection_group(map(), String.t(), update_connection_group_request(), list()) ::
+  @spec update_connection_group(
+          map(),
+          String.t() | Atom.t(),
+          update_connection_group_request(),
+          list()
+        ) ::
           {:ok, update_connection_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13667,7 +13800,7 @@ defmodule AWS.CloudFront do
   """
   @spec update_continuous_deployment_policy(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_continuous_deployment_policy_request(),
           list()
         ) ::
@@ -13736,7 +13869,7 @@ defmodule AWS.CloudFront do
   are not merged into your existing configuration. Make sure to include all
   fields: the ones that you modified and also the ones that you didn't.
   """
-  @spec update_distribution(map(), String.t(), update_distribution_request(), list()) ::
+  @spec update_distribution(map(), String.t() | Atom.t(), update_distribution_request(), list()) ::
           {:ok, update_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13780,7 +13913,7 @@ defmodule AWS.CloudFront do
   """
   @spec update_distribution_tenant(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_distribution_tenant_request(),
           list()
         ) ::
@@ -13846,7 +13979,7 @@ defmodule AWS.CloudFront do
   """
   @spec update_distribution_with_staging_config(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_distribution_with_staging_config_request(),
           list()
         ) ::
@@ -13941,7 +14074,7 @@ defmodule AWS.CloudFront do
   """
   @spec update_field_level_encryption_config(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_field_level_encryption_config_request(),
           list()
         ) ::
@@ -13988,7 +14121,7 @@ defmodule AWS.CloudFront do
   """
   @spec update_field_level_encryption_profile(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_field_level_encryption_profile_request(),
           list()
         ) ::
@@ -14040,7 +14173,7 @@ defmodule AWS.CloudFront do
   along with the updated function code. To get the name and version, you can use
   `ListFunctions` and `DescribeFunction`.
   """
-  @spec update_function(map(), String.t(), update_function_request(), list()) ::
+  @spec update_function(map(), String.t() | Atom.t(), update_function_request(), list()) ::
           {:ok, update_function_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14095,7 +14228,7 @@ defmodule AWS.CloudFront do
     3. Call `UpdateKeyGroup` with the entire key group object, including
   the fields that you modified and those that you didn't.
   """
-  @spec update_key_group(map(), String.t(), update_key_group_request(), list()) ::
+  @spec update_key_group(map(), String.t() | Atom.t(), update_key_group_request(), list()) ::
           {:ok, update_key_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14137,7 +14270,12 @@ defmodule AWS.CloudFront do
   @doc """
   Specifies the key value store to update.
   """
-  @spec update_key_value_store(map(), String.t(), update_key_value_store_request(), list()) ::
+  @spec update_key_value_store(
+          map(),
+          String.t() | Atom.t(),
+          update_key_value_store_request(),
+          list()
+        ) ::
           {:ok, update_key_value_store_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14181,7 +14319,7 @@ defmodule AWS.CloudFront do
   """
   @spec update_origin_access_control(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_origin_access_control_request(),
           list()
         ) ::
@@ -14242,7 +14380,7 @@ defmodule AWS.CloudFront do
   """
   @spec update_origin_request_policy(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_origin_request_policy_request(),
           list()
         ) ::
@@ -14289,7 +14427,7 @@ defmodule AWS.CloudFront do
 
   Note that the only value you can change is the comment.
   """
-  @spec update_public_key(map(), String.t(), update_public_key_request(), list()) ::
+  @spec update_public_key(map(), String.t() | Atom.t(), update_public_key_request(), list()) ::
           {:ok, update_public_key_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14392,7 +14530,7 @@ defmodule AWS.CloudFront do
   """
   @spec update_response_headers_policy(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_response_headers_policy_request(),
           list()
         ) ::
@@ -14439,7 +14577,7 @@ defmodule AWS.CloudFront do
   """
   @spec update_streaming_distribution(
           map(),
-          String.t(),
+          String.t() | Atom.t(),
           update_streaming_distribution_request(),
           list()
         ) ::
@@ -14484,7 +14622,7 @@ defmodule AWS.CloudFront do
   @doc """
   Update an Amazon CloudFront VPC origin in your account.
   """
-  @spec update_vpc_origin(map(), String.t(), update_vpc_origin_request(), list()) ::
+  @spec update_vpc_origin(map(), String.t() | Atom.t(), update_vpc_origin_request(), list()) ::
           {:ok, update_vpc_origin_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
